@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Επαναφέρθηκαν οι προεπιλεγμένες ρυθμίσεις ReVanced</string>
   <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων</string>
   <string name="revanced_settings_import_failure_parse">Η εισαγωγή απέτυχε: %s</string>
+  <string name="revanced_settings_search_hint">Αναζήτηση ρυθμίσεων</string>
+  <string name="revanced_settings_search_no_results_title">Δεν βρέθηκαν αποτελέσματα για το \'%s\'</string>
+  <string name="revanced_settings_search_no_results_summary">Δοκιμάστε μια άλλη λέξη-κλειδί</string>
+  <string name="revanced_settings_search_remove_message">Κατάργηση από το ιστορικό αναζήτησης;</string>
   <string name="revanced_show_menu_icons_title">Εμφάνιση εικονιδίων στις ρυθμίσεις ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Τα εικονίδια ρυθμίσεων εμφανίζονται</string>
   <string name="revanced_show_menu_icons_summary_off">Τα εικονίδια ρυθμίσεων δεν εμφανίζονται</string>
@@ -93,6 +97,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Επαναφορά παλιών μενού ρυθμίσεων</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Τα παλιά μενού ρυθμίσεων εμφανίζονται</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Τα νέα μενού ρυθμίσεων εμφανίζονται</string>
+  <string name="revanced_settings_search_history_title">Εμφάνιση ιστορικού αναζήτησης ρυθμίσεων</string>
+  <string name="revanced_settings_search_history_summary_on">Το ιστορικό αναζήτησης ρυθμίσεων εμφανίζεται</string>
+  <string name="revanced_settings_search_history_summary_off">Το ιστορικό αναζήτησης ρυθμίσεων δεν εμφανίζεται</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Απενεργοποίηση αναπαραγωγής παρασκηνίου για τα Shorts</string>
@@ -155,15 +162,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">Κουμπί «Να λαμβάνω ειδοποιήσεις»</string>
   <string name="revanced_hide_notify_me_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_notify_me_button_summary_off">Εμφανίζεται</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Ετικέτα «Άλλοι χρήστες παρακολούθησαν επίσης»</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Εμφανίζεται</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Ετικέτες προτάσεων βίντεο</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Κρυμμένες\n\nΑφορά τις ετικέτες «Άλλοι χρήστες παρακολούθησαν επίσης» και «Ενδέχεται επίσης να σας αρέσει»</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Εμφανίζονται\n\nΑφορά τις ετικέτες «Άλλοι χρήστες παρακολούθησαν επίσης» και «Ενδέχεται επίσης να σας αρέσει»</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Κουμπί «Εμφάνιση περισσότερων»</string>
   <string name="revanced_hide_show_more_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_show_more_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_ticket_shelf_title">Ενότητα εισιτηρίων</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_timed_reactions_title">Συγχρονισμένες αντιδράσεις</string>
   <string name="revanced_hide_timed_reactions_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_timed_reactions_summary_off">Εμφανίζονται</string>
@@ -233,6 +243,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Σύνοψη βίντεο που δημιουργήθηκε από AI</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_ask_section_title">Ενότητα «Ερώτηση»</string>
+  <string name="revanced_hide_ask_section_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_ask_section_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_attributes_section_title">Ενότητα ιδιοτήτων</string>
   <string name="revanced_hide_attributes_section_summary_on">Κρυμμένη.\n\nΑφορά τις ιδιότητες: Επιλεγμένα μέρη, Παιχνίδια, Μουσική, και «Οι χρήστες ανέφεραν»</string>
   <string name="revanced_hide_attributes_section_summary_off">Εμφανίζεται.\n\nΑφορά τις ιδιότητες: Επιλεγμένα μέρη, Παιχνίδια, Μουσική, και «Οι χρήστες ανέφεραν»</string>
@@ -796,6 +809,11 @@ Second \"item\" text"</string>
 Ρυθμίσεις → Αναπαραγωγή→ Αυτόματη αναπαραγωγή επόμενου βίντεο"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Εμφανίζεται</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Σχετιζόμενο βίντεο σε πλήρη οθόνη</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Εμφανίζεται</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Χρονική πρόοδος βίντεο</string>
   <string name="revanced_hide_timestamp_summary_on">Κρυμμένη</string>
@@ -833,10 +851,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Επαναφορτώστε το βίντεο για να ψηφίσετε χρησιμοποιώντας το Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυμμένα από τον ιδιοκτήτη</string>
-  <string name="revanced_ryd_enable_summary_on">Τα «Δεν μου αρέσει» εμφανίζονται</string>
-  <string name="revanced_ryd_enable_summary_off">Τα «Δεν μου αρέσει» δεν εμφανίζονται</string>
+  <string name="revanced_ryd_enabled_summary_on">Τα «Δεν μου αρέσει» εμφανίζονται</string>
+  <string name="revanced_ryd_enabled_summary_off">Τα «Δεν μου αρέσει» δεν εμφανίζονται</string>
   <string name="revanced_ryd_shorts_title">Εμφάνιση στα Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Τα «Δεν μου αρέσει» εμφανίζονται στα Shorts
+  <string name="revanced_ryd_shorts_summary_on">"Τα «Δεν μου αρέσει» εμφανίζονται στα Shorts
 
 Περιορισμός: Ενδέχεται να μην εμφανίζονται σε ανώνυμη λειτουργία"</string>
   <string name="revanced_ryd_shorts_summary_off">Τα «Δεν μου αρέσει» δεν εμφανίζονται στα Shorts</string>
@@ -851,9 +869,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_estimated_like_summary_on">Τα βίντεο με απενεργοποιημένα «Μου αρέσει» εμφανίζουν έναν εκτιμώμενο αριθμό «Μου αρέσει»</string>
   <string name="revanced_ryd_estimated_like_summary_off">Τα εκτιμώμενα «Μου αρέσει» δεν εμφανίζονται</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Εμφάνιση μηνύματος αν το API δεν είναι διαθέσιμο</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_on">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_off">Να μην εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο</string>
-  <string name="revanced_ryd_about">Σχετικά με</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο</string>
   <string name="revanced_ryd_attribution_summary">Τα δεδομένα Dislike παρέχονται από το API του Return YouTube Dislike. Πατήστε εδώ για να μάθετε περισσότερα</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Στατιστικά ReturnYouTubeDislike API αυτής της συσκευής</string>
@@ -911,8 +928,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Το κουμπί παράλειψης κρύβεται μετά από μερικά δευτερόλεπτα</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Το κουμπί παράλειψης εμφανίζεται σε όλο το τμήμα</string>
   <string name="revanced_sb_general_skiptoast">Εμφάνιση μηνύματος κατά την παράλειψη</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης όταν ένα τμήμα παραλείπεται αυτόματα. Πατήστε για να δείτε ένα παράδειγμα</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Να μην εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης. Πατήστε για να δείτε ένα παράδειγμα</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης όταν ένα τμήμα παραλείπεται αυτόματα. Πατήστε για να δείτε ένα παράδειγμα</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης. Πατήστε για να δείτε ένα παράδειγμα</string>
   <string name="revanced_sb_general_time_without">Εμφάνιση μήκους βίντεο χωρίς τα τμήματα</string>
   <string name="revanced_sb_general_time_without_sum_on">Εμφανίζεται το μήκος βίντεο μείον όλα τα τμήματα, σε παρένθεση δίπλα στο πλήρες μήκος βίντεο</string>
   <string name="revanced_sb_general_time_without_sum_off">Εμφανίζεται το πλήρες μήκος του βίντεο</string>
@@ -931,8 +948,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_open">Δείξτε μου</string>
   <string name="revanced_sb_general">Γενικά</string>
   <string name="revanced_sb_toast_on_connection_error_title">Εμφάνιση μηνύματος αν το API δεν είναι διαθέσιμο</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το SponsorBlock δεν είναι διαθέσιμο</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Να μην εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το SponsorBlock δεν είναι διαθέσιμο</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το SponsorBlock δεν είναι διαθέσιμο</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το SponsorBlock δεν είναι διαθέσιμο</string>
   <string name="revanced_sb_general_skipcount">Mετρητής παραλείψεων τμημάτων</string>
   <string name="revanced_sb_general_skipcount_sum_on">Επιτρέπει στον πίνακα κατάταξης SponsorBlock να γνωρίζει πόσος χρόνος εξοικονομήθηκε. Αποστέλλεται ένα μήνυμα στον πίνακα κατάταξης κάθε φορά που παραλείπεται ένα τμήμα</string>
   <string name="revanced_sb_general_skipcount_sum_off">Ο μετρητής παραλείψεων δεν είναι ενεργός</string>
@@ -1059,7 +1076,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Επεξεργασία χρονισμού του τμήματος χειροκίνητα</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Θέλετε να επεξεργαστείτε τον χρονισμό του τμήματος από την αρχή ή από το τέλος του τμήματος;</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Δόθηκε μη έγκυρος χρόνος</string>
-  <string name="revanced_sb_stats">Στατιστικά</string>
+  <string name="revanced_sb_stats_title">Στατιστικά</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Τα στατιστικά είναι προσωρινά μη διαθέσιμα (το API είναι εκτός λειτουργίας)</string>
   <string name="revanced_sb_stats_loading">Φόρτωση...</string>
@@ -1088,8 +1105,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_color_invalid">Μη έγκυρος κωδικός χρώματος</string>
   <string name="revanced_sb_reset_color">Επαναφορά χρώματος</string>
   <string name="revanced_sb_reset">Επαναφορά</string>
-  <string name="revanced_sb_about">Σχετικά με</string>
-  <string name="revanced_sb_about_api_sum">Τα δεδομένα παρέχονται από το SponsorBlock API. Πατήστε για να μάθετε περισσότερα και να δείτε λήψεις για άλλες πλατφόρμες</string>
+  <string name="revanced_sb_about_title">Σχετικά με</string>
+  <string name="revanced_sb_about_api_summary">Τα δεδομένα παρέχονται από το SponsorBlock API. Πατήστε για να μάθετε περισσότερα και να δείτε λήψεις για άλλες πλατφόρμες</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Αλλαγή μορφής διάταξης</string>
@@ -1261,8 +1278,8 @@ Second \"item\" text"</string>
 
 Πατήστε για να μάθετε περισσότερα για το DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Εμφάνιση μηνύματος αν το API δεν είναι διαθέσιμο</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το DeArrow δεν είναι διαθέσιμο</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Να μην εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το DeArrow δεν είναι διαθέσιμο</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το DeArrow δεν είναι διαθέσιμο</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το DeArrow δεν είναι διαθέσιμο</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">Διεύθυνση API του DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Η διεύθυνση URL του τελικού σημείου αποθήκευσης μικρογραφιών DeArrow</string>
   <string name="revanced_alt_thumbnail_stills_about_title">Λήψεις ακίνητων καρέ</string>

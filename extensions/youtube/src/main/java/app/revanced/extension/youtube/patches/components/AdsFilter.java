@@ -177,10 +177,7 @@ public final class AdsFilter extends Filter {
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == playerShoppingShelf) {
-            if (contentIndex == 0 && playerShoppingShelfBuffer.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return contentIndex == 0 && playerShoppingShelfBuffer.check(protobufBufferArray).isFiltered();
         }
 
         // Check for the index because of likelihood of false positives.
@@ -198,13 +195,10 @@ public final class AdsFilter extends Filter {
         }
 
         if (matchedGroup == channelProfile) {
-            if (visitStoreButton.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return visitStoreButton.check(protobufBufferArray).isFiltered();
         }
 
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return true;
     }
 
     /**

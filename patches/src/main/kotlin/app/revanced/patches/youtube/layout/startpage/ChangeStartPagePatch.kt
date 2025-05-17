@@ -54,6 +54,7 @@ val changeStartPagePatch = bytecodePatch(
                     ListPreference(
                         key = "revanced_change_start_page",
                         summaryKey = null,
+                        tag = "app.revanced.extension.shared.settings.preference.SortedListPreference"
                     ),
                     SwitchPreference("revanced_change_start_page_always")
                 )

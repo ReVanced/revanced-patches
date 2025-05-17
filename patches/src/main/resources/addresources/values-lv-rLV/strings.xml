@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced iestatījumi atiestatīti uz noklusējuma vērtībām</string>
   <string name="revanced_settings_import_success">Importēti %d iestatījumi</string>
   <string name="revanced_settings_import_failure_parse">Importēšana neizdevās: %s</string>
+  <string name="revanced_settings_search_hint">Meklēt iestatījumus</string>
+  <string name="revanced_settings_search_no_results_title">Nav atrasts neviens rezultāts atbilstoši \'%s\'</string>
+  <string name="revanced_settings_search_no_results_summary">Mēģiniet citu atslēgvārdu</string>
+  <string name="revanced_settings_search_remove_message">Noņemt no meklēšanas vēstures?</string>
   <string name="revanced_show_menu_icons_title">Rādīt ReVanced iestatījumu ikonas</string>
   <string name="revanced_show_menu_icons_summary_on">Iestatījumu ikonas tiek rādītas</string>
   <string name="revanced_show_menu_icons_summary_off">Ikonas iestatījumos netiek rādītas</string>
@@ -93,6 +97,9 @@ Nospiediet turpināt pogu un atļaujiet optimizācijas izmaiņas."</string>
   <string name="revanced_restore_old_settings_menus_title">Atjaunot vecās iestatījumu izvēlnes</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Tiek rādītas vecās iestatījumu izvēlnes</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Vecās iestatījumu izvēlnes netiek rādītas</string>
+  <string name="revanced_settings_search_history_title">Rādīt iestatījumu meklēšanas vēsturi</string>
+  <string name="revanced_settings_search_history_summary_on">Iestatījumu meklēšanas vēsture tiek rādīta</string>
+  <string name="revanced_settings_search_history_summary_off">Iestatījumu meklēšanas vēsture netiek rādīta</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Atspējot Shorts fonu atskaņošanu</string>
@@ -153,15 +160,18 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_notify_me_button_title">Paslēpt \"Paziņot\" pogu</string>
   <string name="revanced_hide_notify_me_button_summary_on">Poga ir paslēpta</string>
   <string name="revanced_hide_notify_me_button_summary_off">Poga ir redzama</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Paslēpt etiķeti \"Skatītāji arī skatījās\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Etiķete ir paslēpta</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Etiķete ir redzama</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Paslēpt video ieteikumu etiķetes</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Etiķetes “Skatītāji arī skatījās” un “Jums varētu patikt” ir paslēptas</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Etiķetes “Skatītāji arī skatījās” un “Jums varētu patikt” ir redzamas</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Paslēpt \"Rādīt vairāk\" pogu</string>
   <string name="revanced_hide_show_more_button_summary_on">Poga ir paslēpta</string>
   <string name="revanced_hide_show_more_button_summary_off">Poga ir redzama</string>
+  <string name="revanced_hide_ticket_shelf_title">Paslēpt biļešu plauktu</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Biļešu plaukts ir paslēpts</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Biļešu plaukts ir redzams</string>
   <string name="revanced_hide_timed_reactions_title">Paslēpt laika reakcijas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Laika reakcijas ir paslēptas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Laika reakcijas ir redzamas</string>
@@ -231,6 +241,9 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Paslēpt \"AI ģenerēta video kopsavilkums\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video kopsavilkuma sadaļa ir paslēpta</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video kopsavilkuma sadaļa ir rādīta</string>
+  <string name="revanced_hide_ask_section_title">Slēpt Jautāt</string>
+  <string name="revanced_hide_ask_section_summary_on">Jautājumu sadaļa ir paslēpta</string>
+  <string name="revanced_hide_ask_section_summary_off">Jautājumu sadaļa ir redzama</string>
   <string name="revanced_hide_attributes_section_title">Paslēpt atribūtus</string>
   <string name="revanced_hide_attributes_section_summary_on">Piedāvātās vietas, spēles, mūzika un pieminētie cilvēki ir paslēpti</string>
   <string name="revanced_hide_attributes_section_summary_off">Piedāvātās vietas, spēles, mūzika un pieminētie cilvēki ir redzami</string>
@@ -794,6 +807,11 @@ Automātisko atskaņošanu var mainīt YouTube iestatījumos:
 Iestatījumi → Atskaņošana → Automātiski atskaņot nākamo video"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Ieteiktais video beigu ekrānā ir redzams</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Slēpt saistīto video pārklājumu pilnekrāna režīmā</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Saistīto video pārklājums ir paslēpts</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Saistīto video pārklājums ir redzams</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Paslēpt video laika zīmi</string>
   <string name="revanced_hide_timestamp_summary_on">Laika zīme ir paslēpta</string>
@@ -831,10 +849,10 @@ Iestatījumi → Atskaņošana → Automātiski atskaņot nākamo video"</string
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Pārstartējiet video, lai balsotu, izmantojot Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Slēpts no īpašnieka</string>
-  <string name="revanced_ryd_enable_summary_on">Nepatīk pogas ir redzamas</string>
-  <string name="revanced_ryd_enable_summary_off">Nepatīk pogas nav redzamas</string>
+  <string name="revanced_ryd_enabled_summary_on">Nepatīk pogas ir redzamas</string>
+  <string name="revanced_ryd_enabled_summary_off">Nepatīk pogas nav redzamas</string>
   <string name="revanced_ryd_shorts_title">Rādīt nepatīk pogas Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Nepatīk pie Shorts ir redzami
+  <string name="revanced_ryd_shorts_summary_on">"Nepatīk pie Shorts ir redzami
 
 Ierobežojums: Nepatīk var neparādīties inkognito režīmā"</string>
   <string name="revanced_ryd_shorts_summary_off">Nepatīk pie Shorts nav redzami</string>
@@ -851,7 +869,6 @@ Ierobežojums: Nepatīk var neparādīties inkognito režīmā"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Rādīt paziņojumu, ja API nav pieejama</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Paziņojums tiks rādīts, ja Return YouTube Dislike nav pieejams</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Paziņojums netiks rādīts, ja Return YouTube Dislike nav pieejams</string>
-  <string name="revanced_ryd_about">Par</string>
   <string name="revanced_ryd_attribution_summary">Dati ir nodrošināti ar Return YouTube Dislike API. Pieskarieties šeit, lai uzzinātu vairāk</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statistika šai ierīcei</string>
@@ -1057,7 +1074,7 @@ Vai esat gatavs iesniegt?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Rediģēt segmenta laika iestatījumus manuāli</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Vai vēlaties rediģēt segmenta sākuma vai beigu laika iestatījumus?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Norādīts nepareizs laiks</string>
-  <string name="revanced_sb_stats">Statistika</string>
+  <string name="revanced_sb_stats_title">Statistika</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistika īslaicīgi nav pieejama (API ir izslēgts)</string>
   <string name="revanced_sb_stats_loading">Ielādē...</string>
@@ -1086,8 +1103,8 @@ Vai esat gatavs iesniegt?"</string>
   <string name="revanced_sb_color_invalid">Nederīgs krāsas kods</string>
   <string name="revanced_sb_reset_color">Atiestatīt krāsu</string>
   <string name="revanced_sb_reset">Atiestatīt</string>
-  <string name="revanced_sb_about">Par</string>
-  <string name="revanced_sb_about_api_sum">Dati tiek sniegti no SponsorBlock API. Pieskarieties šeit, lai uzzinātu vairāk un skatītu lejupielādes citām platformām</string>
+  <string name="revanced_sb_about_title">Par</string>
+  <string name="revanced_sb_about_api_summary">Dati tiek sniegti no SponsorBlock API. Pieskarieties šeit, lai uzzinātu vairāk un skatītu lejupielādes citām platformām</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Izmēģinājuma formāts</string>

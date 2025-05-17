@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Revanced-asetukset nollattiin</string>
   <string name="revanced_settings_import_success">%d asetusta tuotiin</string>
   <string name="revanced_settings_import_failure_parse">Tuonti epäonnistui: %s</string>
+  <string name="revanced_settings_search_hint">Hakuasetukset</string>
+  <string name="revanced_settings_search_no_results_title">Tuloksia ei löytynyt haulle \"%s\"</string>
+  <string name="revanced_settings_search_no_results_summary">Kokeile toista avainsanaa</string>
+  <string name="revanced_settings_search_remove_message">Poistetaanko hakuhistoriasta?</string>
   <string name="revanced_show_menu_icons_title">Näytä ReVanced-asetuskuvakkeet</string>
   <string name="revanced_show_menu_icons_summary_on">Asetuskuvakkeet näytetään</string>
   <string name="revanced_show_menu_icons_summary_off">Asetuskuvakkeita ei näytetä</string>
@@ -93,6 +97,9 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_restore_old_settings_menus_title">Palauta vanhat asetusvalikot</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Vanhat asetusvalikot näytetään</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Vanhoja asetusvalikoita ei näytetä</string>
+  <string name="revanced_settings_search_history_title">Näytä asetusten hakuhistoria</string>
+  <string name="revanced_settings_search_history_summary_on">Asetusten hakuhistoria näytetään</string>
+  <string name="revanced_settings_search_history_summary_off">Asetusten hakuhistoriaa ei näytetä</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Poista Shortsien taustatoisto käytöstä</string>
@@ -153,15 +160,16 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_notify_me_button_title">Piilota \"Ilmoita minulle\" -painike</string>
   <string name="revanced_hide_notify_me_button_summary_on">Painike on piilotettu</string>
   <string name="revanced_hide_notify_me_button_summary_off">Painike näytetään</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Piilota \'\"Ihmiset katselivat myös\" -tunniste</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Tunniste on piilotettu</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Tunniste näytetään</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Piilota videosuositusten otsikot</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Piilota \"Näytä lisää\" -painike</string>
   <string name="revanced_hide_show_more_button_summary_on">Painike on piilotettu</string>
   <string name="revanced_hide_show_more_button_summary_off">Painike näytetään</string>
+  <string name="revanced_hide_ticket_shelf_title">Piilota lippuhylly</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Lippuhylly on piilotettu</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Lippuhylly näytetään</string>
   <string name="revanced_hide_timed_reactions_title">Piilota ajoitetut reaktiot</string>
   <string name="revanced_hide_timed_reactions_summary_on">Ajoitetut reaktiot on piilotettu</string>
   <string name="revanced_hide_timed_reactions_summary_off">Ajoitetut reaktiot näytetään</string>
@@ -791,6 +799,11 @@ Automaattista toistoa voidaan muuttaa YouTube-asetuksissa:
 Asetukset → Toisto → Toista seuraava video automaattisesti"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Loppunäytön ehdotettu video näytetään</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Piilota liittyvien videoiden peittokuva kokoruututilassa</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Liittyvien videoiden peittokuva on piilotettu</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Liittyvien videoiden peittokuva näytetään</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Piilota videon aikaleima</string>
   <string name="revanced_hide_timestamp_summary_on">Aikaleima on piilotettu</string>
@@ -828,10 +841,10 @@ Asetukset → Toisto → Toista seuraava video automaattisesti"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Lataa video uudelleen äänestääksesi Return YouTube Dislikellä</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Omistajan piilottama</string>
-  <string name="revanced_ryd_enable_summary_on">Ei-tykkäykset näytetään</string>
-  <string name="revanced_ryd_enable_summary_off">Ei-tykkäyksiä ei näytetä</string>
+  <string name="revanced_ryd_enabled_summary_on">Ei-tykkäykset näytetään</string>
+  <string name="revanced_ryd_enabled_summary_off">Ei-tykkäyksiä ei näytetä</string>
   <string name="revanced_ryd_shorts_title">Näytä ei-tykkykset Shortseissa</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Ei-tykkäykset näytetään Shortseissa
+  <string name="revanced_ryd_shorts_summary_on">"Ei-tykkäykset näytetään Shortseissa
 
 Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
   <string name="revanced_ryd_shorts_summary_off">Ei-tykkäyksiä ei näytetä Shortseissa</string>
@@ -848,7 +861,6 @@ Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Näytä ponnahdusilmoitus, jos API ei ole käytettävissä</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ponnahdusilmoitus näytetään, jos Return YouTube Dislike ei ole käytettävissä</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Ponnahdusilmoitusta ei näytetä, jos Return YouTube Dislike ei ole käytettävissä</string>
-  <string name="revanced_ryd_about">Tietoja</string>
   <string name="revanced_ryd_attribution_summary">Tiedot ovat peräisin Return YouTube Disliken API:sta. Napauta tästä lukeaksesi lisää</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Tämän laitteen ReturnYouTubeDislike API -tilastot</string>
@@ -1055,7 +1067,7 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Muokkaa osion ajoitusta manuaalisesti</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Haluatko muokata osion alku- vai loppuaikaa?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Annettu aika on virheellinen</string>
-  <string name="revanced_sb_stats">Tilastot</string>
+  <string name="revanced_sb_stats_title">Tilastot</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Tilastot eivät tilapäisesti saatavilla (API ei ole käytettävissä)</string>
   <string name="revanced_sb_stats_loading">Ladataan...</string>
@@ -1084,8 +1096,8 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_sb_color_invalid">Virheellinen värikoodi</string>
   <string name="revanced_sb_reset_color">Nollaa väri</string>
   <string name="revanced_sb_reset">Nollaa</string>
-  <string name="revanced_sb_about">Tietoja</string>
-  <string name="revanced_sb_about_api_sum">Tiedot tarjoaa SponsorBlock API. Napauta tätä saadaksesi lisätietoja ja nähdäksesi lataukset muille alustoille</string>
+  <string name="revanced_sb_about_title">Tietoja</string>
+  <string name="revanced_sb_about_api_summary">Tiedot tarjoaa SponsorBlock API. Napauta tätä saadaksesi lisätietoja ja nähdäksesi lataukset muille alustoille</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Ulkoasun asettelu</string>

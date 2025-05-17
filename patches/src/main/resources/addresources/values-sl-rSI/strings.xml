@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced nastavitve ponastavljene na privzeto</string>
   <string name="revanced_settings_import_success">Uvoženih %d nastavitev</string>
   <string name="revanced_settings_import_failure_parse">Uvoz ni uspel: %s</string>
+  <string name="revanced_settings_search_hint">Iskanje nastavitev</string>
+  <string name="revanced_settings_search_no_results_title">Za \"%s\" ni bilo najdenih rezultatov</string>
+  <string name="revanced_settings_search_no_results_summary">Poskusite z drugo ključno besedo</string>
+  <string name="revanced_settings_search_remove_message">Odstrani iz zgodovine iskanja?</string>
   <string name="revanced_show_menu_icons_title">Pokaži ikone nastavitev ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikone nastavitev so prikazane</string>
   <string name="revanced_show_menu_icons_summary_off">Ikone nastavitev niso prikazane</string>
@@ -93,6 +97,9 @@ Tapnite gumb za nadaljevanje in dovolite spremembe optimizacij."</string>
   <string name="revanced_restore_old_settings_menus_title">Obnovi stare menije nastavitev</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Prikazani so stari meniji nastavitev</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Stari meniji nastavitev niso prikazani</string>
+  <string name="revanced_settings_search_history_title">Pokaži zgodovino iskanja nastavitev</string>
+  <string name="revanced_settings_search_history_summary_on">Zgodovina iskanja nastavitev je prikazana</string>
+  <string name="revanced_settings_search_history_summary_off">Zgodovina iskanja nastavitev ni prikazana</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Onemogoči predvajanje Shorts v ozadju</string>
@@ -153,15 +160,18 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_notify_me_button_title">Skrij gumb \"Obvesti me\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Gumb je skrit</string>
   <string name="revanced_hide_notify_me_button_summary_off">Gumb je prikazan</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Skrij oznako »Ljudje so si ogledali tudi«</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Oznaka je skrita</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Oznaka je prikazana</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Skrij oznake priporočil videoposnetkov</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Oznaki »Ljudje so si ogledali tudi« in »Morda vam bo všeč tudi« sta skriti</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Oznaki »Ljudje so si ogledali tudi« in »Morda vam bo všeč tudi« sta prikazani</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Skrij gumb \"Prikaži več\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Gumb je skrit</string>
   <string name="revanced_hide_show_more_button_summary_off">Gumb je prikazan</string>
+  <string name="revanced_hide_ticket_shelf_title">Skrij polico za vstopnice</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Polica za vstopnice je skrita</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Polica za vstopnice je prikazana</string>
   <string name="revanced_hide_timed_reactions_title">Skrij časovno usklajene reakcije</string>
   <string name="revanced_hide_timed_reactions_summary_on">Časovno usklajene reakcije so skrite</string>
   <string name="revanced_hide_timed_reactions_summary_off">Časovno usklajene reakcije so prikazane</string>
@@ -231,6 +241,9 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Skrij »Povzetek videoposnetka, ustvarjenega z umetno inteligenco«</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Razdelek s povzetkom videoposnetka je skrit</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Razdelek s povzetkom videoposnetka je prikazan</string>
+  <string name="revanced_hide_ask_section_title">Skrij Vprašaj</string>
+  <string name="revanced_hide_ask_section_summary_on">Razdelek »Vprašaj« je skrit</string>
+  <string name="revanced_hide_ask_section_summary_off">Razdelek »Vprašaj« je prikazan</string>
   <string name="revanced_hide_attributes_section_title">Skrij atribute</string>
   <string name="revanced_hide_attributes_section_summary_on">Razdelki s priporočenimi kraji, igrami, glasbo in omenjenimi osebami so skriti</string>
   <string name="revanced_hide_attributes_section_summary_off">Razdelki s priporočenimi kraji, igrami, glasbo in omenjenimi osebami so prikazani</string>
@@ -794,6 +807,11 @@ Samodejno predvajanje lahko spremenite v nastavitvah YouTube:
 Nastavitve → Predvajanje → Samodejno predvajanje naslednjega videoposnetka"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Predlagani videoposnetek na koncu zaslona je prikazan</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Skrij prekrivni element s sorodnim videoposnetkom v celozaslonskem načinu</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Prekrivni element s sorodnim videoposnetkom je skrit</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Prekrivni element s sorodnim videoposnetkom je prikazan</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skrij časovni žig videoposnetka</string>
   <string name="revanced_hide_timestamp_summary_on">Časovni žig je skrit</string>
@@ -831,10 +849,10 @@ Nastavitve → Predvajanje → Samodejno predvajanje naslednjega videoposnetka"<
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Znova naloži videoposnetek, da glasuješ z Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skrito s strani lastnika</string>
-  <string name="revanced_ryd_enable_summary_on">Všečkov ne so prikazani</string>
-  <string name="revanced_ryd_enable_summary_off">Všečkov ne niso prikazani</string>
+  <string name="revanced_ryd_enabled_summary_on">Všečkov ne so prikazani</string>
+  <string name="revanced_ryd_enabled_summary_off">Všečkov ne niso prikazani</string>
   <string name="revanced_ryd_shorts_title">Pokaži všečkov ne na Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Število »Ni mi všeč« pri elementih Shorts je prikazano
+  <string name="revanced_ryd_shorts_summary_on">"Število »Ni mi všeč« pri elementih Shorts je prikazano
 
 Omejitev: Število »Ni mi všeč« se morda ne bo prikazalo v načinu brez beleženja zgodovine"</string>
   <string name="revanced_ryd_shorts_summary_off">Število »Ni mi všeč« pri elementih Shorts ni prikazano</string>
@@ -851,7 +869,6 @@ Omejitev: Število »Ni mi všeč« se morda ne bo prikazalo v načinu brez bele
   <string name="revanced_ryd_toast_on_connection_error_title">Pokaži obvestilo, če API ni na voljo</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Obvestilo se prikaže, če Return YouTube Dislike ni na voljo</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Obvestilo se ne prikaže, če Return YouTube Dislike ni na voljo</string>
-  <string name="revanced_ryd_about">O programu</string>
   <string name="revanced_ryd_attribution_summary">Podatki so zagotovljeni s strani API-ja Return YouTube Dislike. Tapnite tukaj, če želite izvedeti več</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Statistika API-ja ReturnYouTubeDislike za to napravo</string>
@@ -1057,7 +1074,7 @@ Ali ste pripravljeni na oddajo?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Ročno uredi časovni zamik segmenta</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Želiš urediti časovni zamik za začetek ali konec segmenta?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Vnesen je neveljaven čas</string>
-  <string name="revanced_sb_stats">Statistika</string>
+  <string name="revanced_sb_stats_title">Statistika</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistika začasno ni na voljo (API ne deluje)</string>
   <string name="revanced_sb_stats_loading">Nalaganje...</string>
@@ -1086,8 +1103,8 @@ Ali ste pripravljeni na oddajo?"</string>
   <string name="revanced_sb_color_invalid">Neveljavna koda barve</string>
   <string name="revanced_sb_reset_color">Ponastavi barvo</string>
   <string name="revanced_sb_reset">Ponastavi</string>
-  <string name="revanced_sb_about">O programu</string>
-  <string name="revanced_sb_about_api_sum">Podatki so zagotovljeni s strani SponsorBlock API. Tapnite tukaj, da izveste več in si ogledate prenose za druge platforme</string>
+  <string name="revanced_sb_about_title">O programu</string>
+  <string name="revanced_sb_about_api_summary">Podatki so zagotovljeni s strani SponsorBlock API. Tapnite tukaj, da izveste več in si ogledate prenose za druge platforme</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Postavitev obrazca</string>

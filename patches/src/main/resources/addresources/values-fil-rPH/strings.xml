@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">I-reset ang mga ReVanced na setting sa default</string>
   <string name="revanced_settings_import_success">Na-import ang %d na mga setting</string>
   <string name="revanced_settings_import_failure_parse">Nabigo ang pag-import: %s</string>
+  <string name="revanced_settings_search_hint">Maghanap ng mga setting</string>
+  <string name="revanced_settings_search_no_results_title">Walang nakitang resulta para sa 																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	\'%s\'</string>
+  <string name="revanced_settings_search_no_results_summary">Subukan ang ibang keyword</string>
+  <string name="revanced_settings_search_remove_message">Alisin sa history ng paghahanap?</string>
   <string name="revanced_show_menu_icons_title">Ipakita ang mga icon ng setting ng ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ipinapakita ang mga icon ng setting</string>
   <string name="revanced_show_menu_icons_summary_off">Hindi ipinapakita ang mga icon ng setting</string>
@@ -93,6 +97,9 @@ Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimiz
   <string name="revanced_restore_old_settings_menus_title">Ibalik ang dating mga menu ng setting</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Ipinapakita ang mga lumang menu ng setting</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Hindi ipinapakita ang mga lumang menu ng setting</string>
+  <string name="revanced_settings_search_history_title">Ipakita ang history ng paghahanap sa mga setting</string>
+  <string name="revanced_settings_search_history_summary_on">Ipinapakita ang history ng paghahanap sa mga setting</string>
+  <string name="revanced_settings_search_history_summary_off">Hindi ipinapakita ang kasaysayan ng paghahanap sa Mga Setting</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">I-disable ang pag-playback ng Shorts sa background</string>
@@ -153,15 +160,18 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_notify_me_button_title">Itago ang button na \"Abisuhan ako\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Nakatago ang button</string>
   <string name="revanced_hide_notify_me_button_summary_off">Ang pindutan ay ipinapakita</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Itago ang label na \'Napanood din ng mga tao\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Nakatago ang label</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Ipinapakita ang label</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Itago ang mga label ng rekomendasyon sa video</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Nakatago ang mga label na \"\'People also watched\'\" at \"\'You might also like\'\"</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Ipinapakita ang mga label na \"\'People also watched\'\" at \"\'You might also like\'\"</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Itago ang button na \"Ipakita ang higit pa\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Nakatago ang button</string>
   <string name="revanced_hide_show_more_button_summary_off">Ang pindutan ay ipinapakita</string>
+  <string name="revanced_hide_ticket_shelf_title">Itago ang shelf ng ticket</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Nakatago ang ticket shelf</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Ipinapakita ang ticket shelf</string>
   <string name="revanced_hide_timed_reactions_title">Itago ang mga naka-time na reaksyon</string>
   <string name="revanced_hide_timed_reactions_summary_on">Nakatago ang mga naka-time na reaksyon</string>
   <string name="revanced_hide_timed_reactions_summary_off">Ang mga naka-time na reaksyon ay ipinapakita</string>
@@ -231,6 +241,9 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Itago ang \'Buod ng video na binuo ng AI\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Nakatago ang seksyon ng buod ng video</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Ipinapakita ang seksyon ng buod ng video</string>
+  <string name="revanced_hide_ask_section_title">Itago ang Magtanong</string>
+  <string name="revanced_hide_ask_section_summary_on">Nakatago ang seksyon ng Magtanong</string>
+  <string name="revanced_hide_ask_section_summary_off">Ipinapakita ang seksyon ng Magtanong</string>
   <string name="revanced_hide_attributes_section_title">Itago ang Mga Katangian</string>
   <string name="revanced_hide_attributes_section_summary_on">Nakatago ang mga seksyon ng Mga itinatampok na lugar, Mga Laro, Musika, at Mga taong binanggit</string>
   <string name="revanced_hide_attributes_section_summary_off">Ipinapakita ang mga seksyon ng Mga itinatampok na lugar, Mga Laro, Musika, at Mga taong binanggit</string>
@@ -792,6 +805,11 @@ Maaaring baguhin ang Autoplay sa mga setting ng YouTube:
 Mga Setting → Pag-playback → I-autoplay ang susunod na video"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Ipinapakita ang iminungkahing video sa dulo ng screen</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Itago ang kaugnay na video overlay sa fullscreen</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Nakatago ang kaugnay na video overlay</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Ipinapakita ang kaugnay na video overlay</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Itago ang timestamp ng video</string>
   <string name="revanced_hide_timestamp_summary_on">Nakatago ang timestamp</string>
@@ -829,10 +847,10 @@ Mga Setting → Pag-playback → I-autoplay ang susunod na video"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">I-reload ang video para bumoto gamit ang Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nakatago ng may-ari</string>
-  <string name="revanced_ryd_enable_summary_on">Ang mga hindi gusto ay ipinapakita</string>
-  <string name="revanced_ryd_enable_summary_off">Hindi ipinapakita ang mga hindi gusto</string>
+  <string name="revanced_ryd_enabled_summary_on">Ang mga hindi gusto ay ipinapakita</string>
+  <string name="revanced_ryd_enabled_summary_off">Hindi ipinapakita ang mga hindi gusto</string>
   <string name="revanced_ryd_shorts_title">Ipakita ang mga hindi gusto sa Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Ipinapakita ang mga Dislike sa Shorts
+  <string name="revanced_ryd_shorts_summary_on">"Ipinapakita ang mga Dislike sa Shorts
 
 Limitasyon: Maaaring hindi lumabas ang mga Dislike sa incognito mode"</string>
   <string name="revanced_ryd_shorts_summary_off">Hindi ipinapakita ang mga Dislike sa Shorts</string>
@@ -849,7 +867,6 @@ Limitasyon: Maaaring hindi lumabas ang mga Dislike sa incognito mode"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Magpakita ng toast kung hindi available ang API</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ipapakita ang toast kung hindi available ang Return YouTube Dislike</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Hindi ipinapakita ang toast kung hindi available ang Return YouTube Dislike</string>
-  <string name="revanced_ryd_about">Tungkol</string>
   <string name="revanced_ryd_attribution_summary">Ang data ay ibinibigay ng Return YouTube Dislike API. Mag-tap dito para matuto pa</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statistics ng device na ito</string>
@@ -1056,7 +1073,7 @@ Isumite na ba?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Manu-manong i-edit ang timing ng segment</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Gusto mo bang i-edit ang timing para sa pagsisimula o pagtatapos ng segment?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Hindi wastong oras ang ibinigay</string>
-  <string name="revanced_sb_stats">Istatistika</string>
+  <string name="revanced_sb_stats_title">Istatistika</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Pansamantalang hindi available ang mga Stats (down ang API)</string>
   <string name="revanced_sb_stats_loading">Naglo-load...</string>
@@ -1085,8 +1102,8 @@ Isumite na ba?"</string>
   <string name="revanced_sb_color_invalid">Di-wastong code ng kulay</string>
   <string name="revanced_sb_reset_color">I-reset ang kulay</string>
   <string name="revanced_sb_reset">I-reset</string>
-  <string name="revanced_sb_about">Tungkol</string>
-  <string name="revanced_sb_about_api_sum">Ang data ay ibinibigay ng SponsorBlock API. Mag-tap dito para matuto pa at makakita ng mga download para sa iba pang platform</string>
+  <string name="revanced_sb_about_title">Tungkol</string>
+  <string name="revanced_sb_about_api_summary">Ang data ay ibinibigay ng SponsorBlock API. Mag-tap dito para matuto pa at makakita ng mga download para sa iba pang platform</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Layout form factor</string>

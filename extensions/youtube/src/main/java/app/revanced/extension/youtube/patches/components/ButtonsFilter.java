@@ -99,29 +99,23 @@ final class ButtonsFilter extends Filter {
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == likeSubscribeGlow) {
-            if ((path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX) || path.startsWith(COMPACT_CHANNEL_BAR_PATH_PREFIX))
-                    && path.contains(ANIMATED_VECTOR_TYPE_PATH)) {
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-
-            return false;
+            return (path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX) || path.startsWith(COMPACT_CHANNEL_BAR_PATH_PREFIX))
+                    && path.contains(ANIMATED_VECTOR_TYPE_PATH);
         }
 
         // If the current matched group is the action bar group,
         // in case every filter group is enabled, hide the action bar.
         if (matchedGroup == actionBarGroup) {
-            if (!isEveryFilterGroupEnabled()) {
-                return false;
-            }
-        } else if (matchedGroup == bufferFilterPathGroup) {
-            // Make sure the current path is the right one
-            //  to avoid false positives.
-            if (!path.startsWith(VIDEO_ACTION_BAR_PATH)) return false;
-
-            // In case the group list has no match, return false.
-            if (!bufferButtonsGroupList.check(protobufBufferArray).isFiltered()) return false;
+            return isEveryFilterGroupEnabled();
         }
 
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        if (matchedGroup == bufferFilterPathGroup) {
+            // Make sure the current path is the right one
+            //  to avoid false positives.
+            return path.startsWith(VIDEO_ACTION_BAR_PATH)
+                    && bufferButtonsGroupList.check(protobufBufferArray).isFiltered();
+        }
+
+        return true;
     }
 }

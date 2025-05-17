@@ -9,6 +9,5 @@ internal val adInjectorFingerprint = fingerprint {
     parameters("L", "L")
     strings(
         "SponsoredContentController.insertItem",
-        "SponsoredContentController::Delivery",
     )
 }

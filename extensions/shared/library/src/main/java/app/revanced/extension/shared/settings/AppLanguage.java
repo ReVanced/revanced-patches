@@ -89,9 +89,11 @@ public enum AppLanguage {
     ZU;
 
     private final String language;
+    private final Locale locale;
 
     AppLanguage() {
         language = name().toLowerCase(Locale.US);
+        locale = Locale.forLanguageTag(language);
     }
 
     /**
@@ -112,6 +114,6 @@ public enum AppLanguage {
             return Locale.getDefault();
         }
 
-        return Locale.forLanguageTag(language);
+        return locale;
     }
 }

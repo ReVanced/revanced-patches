@@ -65,35 +65,6 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
         val instruction = getInstruction(i)
         val instructionRegisters = instruction.registersUsed
 
-        if (instruction.isReturnInstruction) {
-            usedRegisters.addAll(instructionRegisters)
-
-            // Use lowest register that hasn't been encountered.
-            val freeRegister = (0 until implementation!!.registerCount).find {
-                it !in usedRegisters
-            }
-            if (freeRegister != null) {
-                return freeRegister
-            }
-            if (bestFreeRegisterFound != null) {
-                return bestFreeRegisterFound
-            }
-
-            // Somehow every method register was read from before any register was wrote to.
-            // In practice this never occurs.
-            throw IllegalArgumentException("Could not find a free register from startIndex: " +
-                    "$startIndex excluding: $registersToExclude")
-        }
-
-        if (instruction.isBranchInstruction) {
-            if (bestFreeRegisterFound != null) {
-                return bestFreeRegisterFound
-            }
-            // This method is simple and does not follow branching.
-            throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
-        }
-
-
         val writeRegister = instruction.writeRegister
         if (writeRegister != null) {
             if (writeRegister !in usedRegisters) {
@@ -114,6 +85,32 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
         }
 
         usedRegisters.addAll(instructionRegisters)
+
+        if (instruction.isBranchInstruction) {
+            if (bestFreeRegisterFound != null) {
+                return bestFreeRegisterFound
+            }
+            // This method is simple and does not follow branching.
+            throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
+        }
+
+        if (instruction.isReturnInstruction) {
+            // Use lowest register that hasn't been encountered.
+            val freeRegister = (0 until implementation!!.registerCount).find {
+                it !in usedRegisters
+            }
+            if (freeRegister != null) {
+                return freeRegister
+            }
+            if (bestFreeRegisterFound != null) {
+                return bestFreeRegisterFound
+            }
+
+            // Somehow every method register was read from before any register was wrote to.
+            // In practice this never occurs.
+            throw IllegalArgumentException("Could not find a free register from startIndex: " +
+                    "$startIndex excluding: $registersToExclude")
+        }
     }
 
     // Some methods can have array payloads at the end of the method after a return statement.

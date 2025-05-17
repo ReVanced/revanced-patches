@@ -7,6 +7,7 @@ import java.nio.ByteBuffer;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.StringTrieSearch;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -114,12 +115,29 @@ public final class LithoFilterPatch {
             if (!group.includeInSearch()) {
                 continue;
             }
+
             for (String pattern : group.filters) {
-                pathSearchTree.addPattern(pattern, (textSearched, matchedStartIndex, matchedLength, callbackParameter) -> {
+                String filterSimpleName = filter.getClass().getSimpleName();
+
+                pathSearchTree.addPattern(pattern, (textSearched, matchedStartIndex,
+                                                    matchedLength, callbackParameter) -> {
                             if (!group.isEnabled()) return false;
+
                             LithoFilterParameters parameters = (LithoFilterParameters) callbackParameter;
-                            return filter.isFiltered(parameters.identifier, parameters.path, parameters.protoBuffer,
-                                    group, type, matchedStartIndex);
+                            final boolean isFiltered = filter.isFiltered(parameters.identifier,
+                                    parameters.path, parameters.protoBuffer, group, type, matchedStartIndex);
+
+                            if (isFiltered && BaseSettings.DEBUG.get()) {
+                                if (type == Filter.FilterContentType.IDENTIFIER) {
+                                    Logger.printDebug(() -> "Filtered " + filterSimpleName
+                                            + " identifier: " + parameters.identifier);
+                                } else {
+                                    Logger.printDebug(() -> "Filtered " + filterSimpleName
+                                            + " path: " + parameters.path);
+                                }
+                            }
+
+                            return isFiltered;
                         }
                 );
             }

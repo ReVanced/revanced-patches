@@ -153,10 +153,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">הסתר לחצן \'אני רוצה לקבל התראה\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">הלחצן מוסתר</string>
   <string name="revanced_hide_notify_me_button_summary_off">הלחצן מוצג</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">הסתר תווית \'אנשים צפו גם\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">התווית מוסתרת</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">התווית מוצגת</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">הסתר לחצן \'הצג עוד\'</string>
@@ -778,6 +775,8 @@ Second \"item\" text"</string>
 הגדרות ← הפעלה ← הפעלה אוטומטית של הסרטון הבא"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">סרטון מוצע של מסך סיום מוצג</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">הסתר חותמת זמן של סרטון</string>
   <string name="revanced_hide_timestamp_summary_on">חותמת זמן מוסתרת</string>
@@ -815,10 +814,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">רענן סרטון כדי להצביע באמצעות Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">מוסתר על ידי הבעלים</string>
-  <string name="revanced_ryd_enable_summary_on">דיסלייקים מוצגים</string>
-  <string name="revanced_ryd_enable_summary_off">דיסלייקים אינם מוצגים</string>
+  <string name="revanced_ryd_enabled_summary_on">דיסלייקים מוצגים</string>
+  <string name="revanced_ryd_enabled_summary_off">דיסלייקים אינם מוצגים</string>
   <string name="revanced_ryd_shorts_title">הצג דיסלייקים ב-Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"דיסלייקים ב-Shorts מוצגים
+  <string name="revanced_ryd_shorts_summary_on">"דיסלייקים ב-Shorts מוצגים
 
 מגבלה: ייתכן שלא יופיעו דיסלייקים במצב פרטי"</string>
   <string name="revanced_ryd_shorts_summary_off">דיסלייקים ב-Shorts אינם מוצגים</string>
@@ -835,7 +834,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">הצג הודעה קופצת אם ה-API אינו זמין</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">הודעה קופצת מוצגת אם Return YouTube Dislike אינו זמין</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">הודעה קופצת אינה מוצגת אם Return YouTube Dislike אינו זמין</string>
-  <string name="revanced_ryd_about">אודות</string>
   <string name="revanced_ryd_attribution_summary">הנתונים מסופקים על ידי Return YouTube Dislike API. הקש כאן כדי ללמוד עוד</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">סטטיסטיקת ReturnYouTubeDislike API של מכשיר זה</string>
@@ -1041,7 +1039,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">ערוך את תזמון המקטע באופן ידני</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">האם ברצונך לערוך את התזמון עבור ההתחלה או הסיום של המקטע?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">ניתן זמן לא חוקי</string>
-  <string name="revanced_sb_stats">סטטיסטיקה</string>
+  <string name="revanced_sb_stats_title">סטטיסטיקה</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">סטטיסטיקה אינה זמינה באופן זמני (API מושבת)</string>
   <string name="revanced_sb_stats_loading">טוען...</string>
@@ -1070,8 +1068,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_color_invalid">קוד צבע לא חוקי</string>
   <string name="revanced_sb_reset_color">אפס צבע</string>
   <string name="revanced_sb_reset">איפוס</string>
-  <string name="revanced_sb_about">אודות</string>
-  <string name="revanced_sb_about_api_sum">הנתונים מסופקים על ידי SponsorBlock API. הקש כאן כדי ללמוד עוד ולראות הורדות עבור פלטפורמות אחרות</string>
+  <string name="revanced_sb_about_title">אודות</string>
+  <string name="revanced_sb_about_api_summary">הנתונים מסופקים על ידי SponsorBlock API. הקש כאן כדי ללמוד עוד ולראות הורדות עבור פלטפורמות אחרות</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">גורם צורת הפריסה</string>

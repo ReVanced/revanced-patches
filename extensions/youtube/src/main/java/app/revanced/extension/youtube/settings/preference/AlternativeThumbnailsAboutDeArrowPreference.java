@@ -1,23 +1,15 @@
 package app.revanced.extension.youtube.settings.preference;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.preference.Preference;
 import android.util.AttributeSet;
 
 /**
  * Allows tapping the DeArrow about preference to open the DeArrow website.
  */
-@SuppressWarnings({"unused", "deprecation"})
-public class AlternativeThumbnailsAboutDeArrowPreference extends Preference {
+@SuppressWarnings("unused")
+public class AlternativeThumbnailsAboutDeArrowPreference extends UrlLinkPreference {
     {
-        setOnPreferenceClickListener(pref -> {
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse("https://dearrow.ajay.app"));
-            pref.getContext().startActivity(i);
-            return false;
-        });
+        externalUrl = "https://dearrow.ajay.app";
     }
 
     public AlternativeThumbnailsAboutDeArrowPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {

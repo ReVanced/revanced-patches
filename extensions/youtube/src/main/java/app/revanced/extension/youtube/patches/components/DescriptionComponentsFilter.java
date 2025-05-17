@@ -28,6 +28,11 @@ final class DescriptionComponentsFilter extends Filter {
                 "cell_expandable_metadata.eml"
         );
 
+        final StringFilterGroup askSection = new StringFilterGroup(
+                Settings.HIDE_ASK_SECTION,
+                "youchat_entrypoint.eml"
+        );
+
         final StringFilterGroup attributesSection = new StringFilterGroup(
                 Settings.HIDE_ATTRIBUTES_SECTION,
                 "gaming_section",
@@ -73,6 +78,7 @@ final class DescriptionComponentsFilter extends Filter {
 
         addPathCallbacks(
                 aiGeneratedVideoSummarySection,
+                askSection,
                 attributesSection,
                 infoCardsSection,
                 howThisWasMadeSection,
@@ -88,13 +94,9 @@ final class DescriptionComponentsFilter extends Filter {
         if (exceptions.matches(path)) return false;
 
         if (matchedGroup == macroMarkersCarousel) {
-            if (contentIndex == 0 && macroMarkersCarouselGroupList.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(path, identifier, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-
-            return false;
+            return contentIndex == 0 && macroMarkersCarouselGroupList.check(protobufBufferArray).isFiltered();
         }
 
-        return super.isFiltered(path, identifier, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return true;
     }
 }
