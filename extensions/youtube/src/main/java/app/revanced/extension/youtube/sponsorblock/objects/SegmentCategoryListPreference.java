@@ -12,9 +12,10 @@ import android.preference.ListPreference;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
-import android.view.*;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class SegmentCategoryListPreference extends ListPreference {
     private TextView colorDotView;
     private EditText colorEditText;
     private EditText opacityEditText;
+    private CustomColorPickerView colorPickerView;
     /**
      * #RRGGBB
      */
@@ -62,122 +64,6 @@ public class SegmentCategoryListPreference extends ListPreference {
         updateUI();
     }
 
-    /**
-     * Displays a color picker dialog for selecting a color.
-     *
-     * @param context The context for creating the dialog.
-     */
-    private void showColorPickerDialog(Context context) {
-        // Store the original color in case the user cancels the dialog.
-        final int originalColor = Color.parseColor(category.getColorString()) & 0xFFFFFF;
-
-        // Parse the initial color from the EditText, falling back to originalColor if parsing fails.
-        int initialColor = parseInitialColor(colorEditText.getText().toString(), originalColor);
-
-        // Create a layout container for the color picker dialog view.
-        RelativeLayout layout = new RelativeLayout(context);
-        layout.setLayoutParams(new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.MATCH_PARENT));
-
-        // Inflate the color picker view into the layout.
-        View dialogView = LayoutInflater.from(context)
-                .inflate(getResourceIdentifier("revanced_color_picker", "layout"), layout);
-
-        // Get the custom color picker view from the inflated layout.
-        CustomColorPickerView colorPickerView = dialogView.findViewById(
-                getResourceIdentifier("color_picker_view", "id"));
-        colorPickerView.setColor(initialColor);
-
-        // Create and configure the AlertDialog.
-        AlertDialog dialog = createColorPickerDialog(context, dialogView);
-
-        // Set up the dialog's positive/negative button behavior and color change listener.
-        setupColorPickerDialogListeners(dialog, colorPickerView, colorEditText, originalColor);
-
-        // Show the dialog.
-        dialog.show();
-    }
-
-    /**
-     * Parses the initial color for the color picker dialog.
-     *
-     * @param colorString The color string from EditText.
-     * @param fallbackColor The fallback color if parsing fails.
-     * @return The parsed or fallback color.
-     */
-    private int parseInitialColor(String colorString, int fallbackColor) {
-        try {
-            return Color.parseColor(colorString);
-        } catch (IllegalArgumentException e) {
-            return fallbackColor;
-        }
-    }
-
-    /**
-     * Creates an AlertDialog for the color picker.
-     *
-     * @param context The context for the dialog.
-     * @param dialogView The view containing the color picker.
-     * @return The configured AlertDialog.
-     */
-    private AlertDialog createColorPickerDialog(Context context, View dialogView) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context)
-                .setView(dialogView)
-                .setPositiveButton(android.R.string.ok, null)
-                .setNegativeButton(android.R.string.cancel, null);
-
-        // Apply dynamic theme styling to the dialog.
-        Utils.setEditTextDialogTheme(builder);
-
-        AlertDialog dialog = builder.create();
-        dialog.setCanceledOnTouchOutside(false); // Prevent accidental dismiss.
-        return dialog;
-    }
-
-    /**
-     * Sets up listeners for the color picker dialog buttons and color changes.
-     *
-     * @param dialog The AlertDialog instance.
-     * @param colorPickerView The color picker view.
-     * @param editText The EditText for color input.
-     * @param originalColor The original color to restore on cancel.
-     */
-    private void setupColorPickerDialogListeners(AlertDialog dialog, CustomColorPickerView colorPickerView,
-                                                 EditText editText, int originalColor) {
-        dialog.setOnShowListener(d -> {
-            // Update EditText as the user selects a color.
-            colorPickerView.setOnColorChangedListener(color -> {
-                String hexColor = String.format("#%06X", color & 0xFFFFFF);
-                editText.setText(hexColor);
-                editText.setSelection(hexColor.length());
-            });
-
-            // Handle OK button click: apply selected color.
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
-                String hexColor = String.format("#%06X", colorPickerView.getColor() & 0xFFFFFF);
-                editText.setText(hexColor);
-                editText.setSelection(hexColor.length());
-                try {
-                    categoryColor = Color.parseColor(hexColor) & 0xFFFFFF;
-                    updateCategoryColorDot();
-                } catch (IllegalArgumentException ex) {
-                    Logger.printException(() -> "Invalid color: " + hexColor, ex);
-                }
-                dialog.dismiss();
-            });
-
-            // Handle Cancel button click: revert to original color.
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(v -> {
-                String hexColor = String.format("#%06X", originalColor);
-                editText.setText(hexColor);
-                categoryColor = originalColor;
-                updateCategoryColorDot();
-                dialog.dismiss();
-            });
-        });
-    }
-
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
         try {
@@ -187,8 +73,20 @@ public class SegmentCategoryListPreference extends ListPreference {
             categoryOpacity = category.getOpacity();
 
             Context context = builder.getContext();
+            LinearLayout mainLayout = new LinearLayout(context);
+            mainLayout.setOrientation(LinearLayout.VERTICAL);
+            mainLayout.setPadding(70, 0, 70, 0);
+
+            // Inflate the color picker view
+            View colorPickerContainer = LayoutInflater.from(context)
+                    .inflate(getResourceIdentifier("revanced_color_picker", "layout"), null);
+            colorPickerView = colorPickerContainer.findViewById(
+                    getResourceIdentifier("color_picker_view", "id"));
+            colorPickerView.setColor(categoryColor);
+            mainLayout.addView(colorPickerContainer);
+
+            // Grid layout for color and opacity inputs
             GridLayout gridLayout = new GridLayout(context);
-            gridLayout.setPadding(70, 0, 70, 0); // Padding for the entire layout.
             gridLayout.setColumnCount(3);
             gridLayout.setRowCount(2);
 
@@ -206,7 +104,6 @@ public class SegmentCategoryListPreference extends ListPreference {
             gridParams.setMargins(0, 0, 10, 0);
             colorDotView = new TextView(context);
             colorDotView.setLayoutParams(gridParams);
-            colorDotView.setOnClickListener(v -> showColorPickerDialog(context));
             gridLayout.addView(colorDotView);
             updateCategoryColorDot();
 
@@ -216,7 +113,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             colorEditText = new EditText(context);
             colorEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS);
             colorEditText.setTextLocale(Locale.US);
-            colorEditText.setText(category.getColorString());
+            colorEditText.setText(String.format("#%06X", categoryColor & 0xFFFFFF));
             colorEditText.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -243,8 +140,10 @@ public class SegmentCategoryListPreference extends ListPreference {
                             return;
                         }
 
-                        categoryColor = Color.parseColor(colorString);
+                        int newColor = Color.parseColor(colorString);
+                        categoryColor = newColor & 0xFFFFFF;
                         updateCategoryColorDot();
+                        colorPickerView.setColor(newColor);
                     } catch (IllegalArgumentException ex) {
                         // Ignore.
                     }
@@ -314,7 +213,18 @@ public class SegmentCategoryListPreference extends ListPreference {
             gridLayout.addView(opacityEditText);
             updateOpacityText();
 
-            builder.setView(gridLayout);
+            mainLayout.addView(gridLayout);
+
+            // Set up color picker listener
+            colorPickerView.setOnColorChangedListener(color -> {
+                String hexColor = String.format("#%06X", color & 0xFFFFFF);
+                colorEditText.setText(hexColor);
+                colorEditText.setSelection(hexColor.length());
+                categoryColor = color & 0xFFFFFF;
+                updateCategoryColorDot();
+            });
+
+            builder.setView(mainLayout);
             builder.setTitle(category.title.toString());
 
             builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
