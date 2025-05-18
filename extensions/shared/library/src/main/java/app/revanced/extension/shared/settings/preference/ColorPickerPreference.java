@@ -109,6 +109,13 @@ public class ColorPickerPreference extends EditTextPreference {
         updateColorPreview();
     }
 
+    @Override
+    public void setText(String text) {
+        super.setText(text);
+
+        setColor(text);
+    }
+
     /**
      * Creates a layout with a color preview and EditText for hex color input.
      *

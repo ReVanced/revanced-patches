@@ -15,6 +15,8 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
+import app.revanced.extension.shared.Utils;
+
 /**
  * A custom color picker view that allows the user to select a color using a hue slider and a saturation-value selector.
  * This implementation is density-independent and responsive across different screen sizes and DPIs.
@@ -464,8 +466,8 @@ public class CustomColorPickerView extends View {
      */
     private void updateSaturationValueFromTouch(float x, float y) {
         // Clamp x and y to the saturation-value rectangle bounds
-        float clampedX = Math.max(saturationValueRect.left, Math.min(saturationValueRect.right, x));
-        float clampedY = Math.max(saturationValueRect.top, Math.min(saturationValueRect.bottom, y));
+        final float clampedX = Utils.clamp(x, saturationValueRect.left, saturationValueRect.right);
+        final float clampedY = Utils.clamp(x, saturationValueRect.top, saturationValueRect.bottom);
 
         saturation = (clampedX - saturationValueRect.left) / saturationValueRect.width();
         value = 1 - ((clampedY - saturationValueRect.top) / saturationValueRect.height());
