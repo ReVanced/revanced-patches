@@ -35,6 +35,7 @@ Second \"item\" text"</string>
             <string name="revanced_settings_title" translatable="false">ReVanced</string>
             <string name="revanced_settings_confirm_user_dialog_title">Do you wish to proceed?</string>
             <string name="revanced_settings_reset">Reset</string>
+            <string name="revanced_settings_color_reset">Color reset</string>
             <string name="revanced_settings_restart_title">Refresh and restart</string>
             <string name="revanced_settings_restart">Restart</string>
             <string name="revanced_settings_import">Import</string>

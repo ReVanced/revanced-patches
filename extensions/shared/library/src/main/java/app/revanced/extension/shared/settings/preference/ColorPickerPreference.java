@@ -7,8 +7,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.preference.EditTextPreference;
 import android.text.Editable;
 import android.text.InputType;
@@ -49,8 +47,6 @@ public class ColorPickerPreference extends EditTextPreference {
     private CharSequence originalTitle;
     // Flag to prevent recursive updates.
     private boolean isUpdating;
-
-    private final Handler handler = new Handler(Looper.getMainLooper());
 
     private static String getColorString(int originalColor) {
         return String.format("#%06X", originalColor);
@@ -165,7 +161,7 @@ public class ColorPickerPreference extends EditTextPreference {
         customColorPickerView.setOnColorChangedListener(color -> {
             if (isUpdating) return; // Prevent recursive updates.
             isUpdating = true;
-            handler.post(() -> {
+            Utils.runOnMainThread(() -> {
                 String hexColor = getColorString(color & 0xFFFFFF);
                 editText.setText(hexColor);
                 editText.setSelection(hexColor.length());
@@ -232,8 +228,12 @@ public class ColorPickerPreference extends EditTextPreference {
         builder.setView(dialogLayout);
 
         builder.setNeutralButton(str("revanced_settings_reset"), (dialog, which) -> {
-            EditText editText = getEditText();
-            resetToDefault(editText);
+            try {
+                setText(colorSetting.resetToDefault());
+                Utils.showToastShort(str("revanced_settings_color_reset"));
+            } catch (Exception ex) {
+                Logger.printException(() -> "setNeutralButton failure", ex);
+            }
         });
 
         builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
@@ -251,28 +251,6 @@ public class ColorPickerPreference extends EditTextPreference {
         if (dialog == null) return;
 
         dialog.setCanceledOnTouchOutside(false);
-    }
-
-    /**
-     * Resets the color to the default value and updates the UI.
-     *
-     * @param editText The EditText to update with the default color.
-     */
-    private void resetToDefault(EditText editText) {
-        try {
-            String defaultValue = colorSetting.defaultValue;
-            editText.setText(defaultValue);
-            editText.setSelection(defaultValue.length());
-            currentColor = Color.parseColor(defaultValue) & 0xFFFFFF;
-            updateColorPreview();
-            View dialogView = ((AlertDialog) getDialog()).findViewById(
-                    getResourceIdentifier("color_picker_view", "id"));
-            if (dialogView instanceof CustomColorPickerView) {
-                ((CustomColorPickerView) dialogView).setColor(currentColor);
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "Reset color failure", ex);
-        }
     }
 
     /**
