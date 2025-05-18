@@ -1,5 +1,8 @@
 package app.revanced.extension.shared.settings.preference;
 
+import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -28,9 +31,6 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
 
-import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
-
 /**
  * A custom preference for selecting a color via a hexadecimal code or a color picker dialog.
  * Extends {@link EditTextPreference} to display a colored dot next to the title and input field,
@@ -46,6 +46,10 @@ public class ColorPickerPreference extends EditTextPreference {
     private StringSetting colorSetting;
     /** Original title of the preference, excluding the color dot. */
     private CharSequence originalTitle;
+
+    private static String getColorString(int originalColor) {
+        return String.format("#%06X", originalColor);
+    }
 
     /**
      * Constructs a ColorPickerPreference with specified context and attributes.
@@ -85,12 +89,13 @@ public class ColorPickerPreference extends EditTextPreference {
      */
     private void loadFromSettings() {
         if (colorSetting == null) return;
+        String colorString = colorSetting.get();
+
         try {
-            setColor(colorSetting.get());
+            setColor(colorString);
         } catch (Exception ex) {
-            Logger.printException(() -> "Invalid color: " + colorSetting.get(), ex);
-            colorSetting.resetToDefault();
-            setColor(colorSetting.get());
+            Logger.printException(() -> "Invalid color: " + colorString, ex);
+            setColor(colorSetting.resetToDefault());
         }
     }
 
@@ -103,7 +108,7 @@ public class ColorPickerPreference extends EditTextPreference {
     public final void setColor(String colorString) throws IllegalArgumentException {
         currentColor = Color.parseColor(colorString) & 0xFFFFFF;
         if (colorSetting != null) {
-            colorSetting.save(String.format("#%06X", currentColor));
+            colorSetting.save(getColorString(currentColor));
         }
         updateTitleWithColorDot();
         updateColorPreview();
@@ -133,10 +138,10 @@ public class ColorPickerPreference extends EditTextPreference {
 
         EditText editText = getEditText();
         ViewParent parent = editText.getParent();
-        if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(editText);
+        if (parent instanceof ViewGroup parentViewGroup) {
+            parentViewGroup.removeView(editText);
         }
-        editText.setText(String.format("#%06X", currentColor));
+        editText.setText(getColorString(currentColor));
         editText.addTextChangedListener(createColorTextWatcher());
         layout.addView(editText);
 
@@ -223,20 +228,20 @@ public class ColorPickerPreference extends EditTextPreference {
                                                  EditText editText, int originalColor) {
         dialog.setOnShowListener(d -> {
             colorPickerView.setOnColorChangedListener(color -> {
-                String hexColor = String.format("#%06X", color & 0xFFFFFF);
+                String hexColor = getColorString(color & 0xFFFFFF);
                 editText.setText(hexColor);
                 editText.setSelection(hexColor.length());
             });
 
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
-                String hexColor = String.format("#%06X", colorPickerView.getColor() & 0xFFFFFF);
+                String hexColor = getColorString(colorPickerView.getColor() & 0xFFFFFF);
                 editText.setText(hexColor);
                 editText.setSelection(hexColor.length());
                 dialog.dismiss();
             });
 
             dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(v -> {
-                String hexColor = String.format("#%06X", originalColor);
+                String hexColor = getColorString(originalColor);
                 editText.setText(hexColor);
                 currentColor = originalColor;
                 updateColorPreview();
@@ -342,16 +347,6 @@ public class ColorPickerPreference extends EditTextPreference {
         } catch (IllegalArgumentException ex) {
             Logger.printException(() -> "Invalid color format: " + colorString, ex);
         }
-    }
-
-    /**
-     * Generates a string with a span tag for a colored dot.
-     *
-     * @param color The RGB color (without alpha).
-     * @return A string with the span tag for the colored dot.
-     */
-    private static String getColorDotSpan(int color) {
-        return String.format("<span style=\"color:#%06X; font-size:1.5em;\">⬤</span>", color & 0xFFFFFF);
     }
 
     /**
