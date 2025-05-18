@@ -37,15 +37,25 @@ import app.revanced.extension.shared.settings.StringSetting;
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class ColorPickerPreference extends EditTextPreference {
-    // TextView displaying a colored dot for the selected color preview.
+    /**
+     * TextView displaying a colored dot for the selected color preview.
+     */
     private TextView colorPreview;
-    // Current color in RGB format (without alpha).
+    /**
+     * Current color in RGB format (without alpha).
+     */
     private int currentColor;
-    // Associated setting for storing the color value.
+    /**
+     * Associated setting for storing the color value.
+     */
     private StringSetting colorSetting;
-    // Original title of the preference, excluding the color dot.
+    /**
+     * Original title of the preference, excluding the color dot.
+     */
     private CharSequence originalTitle;
-    // Flag to prevent recursive updates.
+    /**
+     * Flag to prevent recursive updates.
+     */
     private boolean isUpdating;
 
     private static String getColorString(int originalColor) {
@@ -78,6 +88,9 @@ public class ColorPickerPreference extends EditTextPreference {
      */
     private void init() {
         colorSetting = (StringSetting) Setting.getSettingFromPath(getKey());
+        if (colorSetting == null) {
+            Logger.printException(() -> "Could not find color setting for: " + getKey());
+        }
         originalTitle = super.getTitle();
         getEditText().setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS);
         loadFromSettings();
@@ -89,7 +102,6 @@ public class ColorPickerPreference extends EditTextPreference {
      * Resets to default if the stored color is invalid.
      */
     private void loadFromSettings() {
-        if (colorSetting == null) return;
         String colorString = colorSetting.get();
 
         try {

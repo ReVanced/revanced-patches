@@ -18,6 +18,7 @@ import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -841,6 +842,20 @@ public class Utils {
             return Color.parseColor(colorString);
         }
         return getResourceColor(colorString);
+    }
+
+    /**
+     * Converts dip value to actual device pixels.
+     *
+     * @param dip The density-independent pixels value
+     * @return The device pixel value
+     */
+    public static float dipToPixels(float dip) {
+        return TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                dip,
+                Resources.getSystem().getDisplayMetrics()
+        );
     }
 
     public static int clamp(int value, int lower, int upper) {

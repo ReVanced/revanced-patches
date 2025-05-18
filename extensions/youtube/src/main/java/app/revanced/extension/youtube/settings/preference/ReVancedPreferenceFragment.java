@@ -17,7 +17,6 @@ import android.preference.SwitchPreference;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
-import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.TextView;
@@ -245,9 +244,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                             toolbar.setNavigationIcon(getBackButtonDrawable());
                             toolbar.setNavigationOnClickListener(view -> preferenceScreenDialog.dismiss());
 
-                            final int margin = (int) TypedValue.applyDimension(
-                                    TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics()
-                            );
+                            final int margin = (int) Utils.dipToPixels(16);
                             toolbar.setTitleMargin(margin, 0, margin, 0);
 
                             TextView toolbarTextView = Utils.getChildView(toolbar,
