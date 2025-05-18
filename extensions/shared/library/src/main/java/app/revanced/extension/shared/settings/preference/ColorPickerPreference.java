@@ -92,10 +92,10 @@ public class ColorPickerPreference extends EditTextPreference {
         String colorString = colorSetting.get();
 
         try {
-            setColor(colorString);
+            setText(colorString);
         } catch (Exception ex) {
             Logger.printException(() -> "Invalid color: " + colorString, ex);
-            setColor(colorSetting.resetToDefault());
+            setText(colorSetting.resetToDefault());
         }
     }
 
@@ -105,20 +105,16 @@ public class ColorPickerPreference extends EditTextPreference {
      * @param colorString The color in hexadecimal format (e.g., "#RRGGBB").
      * @throws IllegalArgumentException If the color string is invalid.
      */
-    public final void setColor(String colorString) throws IllegalArgumentException {
+    @Override
+    public final void setText(String colorString) throws IllegalArgumentException {
+        super.setText(colorString);
+
         currentColor = Color.parseColor(colorString) & 0xFFFFFF;
         if (colorSetting != null) {
             colorSetting.save(getColorString(currentColor));
         }
         updateTitleWithColorDot();
         updateColorPreview();
-    }
-
-    @Override
-    public void setText(String text) {
-        super.setText(text);
-
-        setColor(text);
     }
 
     /**
@@ -342,7 +338,7 @@ public class ColorPickerPreference extends EditTextPreference {
         }
 
         try {
-            setColor(colorString);
+            setText(colorString);
             dialog.dismiss();
         } catch (IllegalArgumentException ex) {
             Logger.printException(() -> "Invalid color format: " + colorString, ex);
@@ -371,8 +367,7 @@ public class ColorPickerPreference extends EditTextPreference {
      * @return A Spanned object with the title and colored dot.
      */
     public final Spanned getTitleWithColorDot() {
-        String combined = "⬤ " + originalTitle;
-        SpannableString spannable = new SpannableString(combined);
+        SpannableString spannable = new SpannableString("⬤ " + originalTitle);
         spannable.setSpan(new ForegroundColorSpan(currentColor | 0xFF000000), 0, 1,
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return spannable;
