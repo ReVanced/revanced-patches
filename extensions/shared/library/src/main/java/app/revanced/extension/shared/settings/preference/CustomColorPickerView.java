@@ -456,6 +456,7 @@ public class CustomColorPickerView extends View {
         if (colorChangedListener != null) {
             colorChangedListener.onColorChanged(selectedColor);
         }
+
         invalidate();
     }
 
@@ -480,19 +481,17 @@ public class CustomColorPickerView extends View {
 
         // Update the selected color.
         selectedColor = color;
-        // Also update the original color if this is the initial load.
-        originalColor = color;
 
         // Update the saturation-value shader based on the new hue.
         updateSaturationValueShader();
-
-        // Invalidate the view to trigger a redraw.
-        invalidate();
 
         // Notify the listener if it's set.
         if (colorChangedListener != null) {
             colorChangedListener.onColorChanged(selectedColor);
         }
+
+        // Invalidate the view to trigger a redraw.
+        invalidate();
     }
 
     /**
@@ -502,6 +501,9 @@ public class CustomColorPickerView extends View {
      * @param color The initial color in ARGB format.
      */
     public void setInitialColor(int color) {
+        if (originalColor == color) {
+            return;
+        }
         originalColor = color;
         // Also update the current selection.
         setColor(color);

@@ -117,7 +117,10 @@ public class ColorPickerPreference extends EditTextPreference {
      */
     @Override
     public final void setText(String colorString) throws IllegalArgumentException {
-        if (colorString.equals(getText())) return;
+        if (colorString.equals(getText())) {
+            Logger.printDebug(() -> "Ignoring unchanged color: " + colorString);
+            return;
+        }
 
         super.setText(colorString);
 
@@ -212,9 +215,23 @@ public class ColorPickerPreference extends EditTextPreference {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
+            public void afterTextChanged(Editable edit) {
                 try {
-                    final int newColor = Color.parseColor(s.toString()) & 0xFFFFFF;
+                    String colorString = edit.toString();
+                    final int colorStringLength = colorString.length();
+
+                    if (!colorString.startsWith("#")) {
+                        edit.insert(0, "#"); // Recursively calls back into this method.
+                        return;
+                    }
+
+                    final int maxColorStringLength = 7; // #RRGGBB
+                    if (colorStringLength > maxColorStringLength) {
+                        edit.delete(maxColorStringLength, colorStringLength);
+                        return;
+                    }
+
+                    final int newColor = Color.parseColor(colorString) & 0xFFFFFF;
                     if (currentColor != newColor) {
                         Logger.printDebug(() -> "afterTextChanged");
                         currentColor = newColor;
