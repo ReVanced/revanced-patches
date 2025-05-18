@@ -26,6 +26,7 @@ import java.util.logging.Logger
 val changeLyricsProviderPatch = bytecodePatch(
     name = "Change lyrics provider",
     description = "Changes the lyrics provider to a custom one.",
+    use = false
 ) {
     compatibleWith("com.spotify.music")
 
