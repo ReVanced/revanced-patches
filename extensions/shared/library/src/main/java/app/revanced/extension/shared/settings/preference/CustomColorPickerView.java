@@ -119,12 +119,12 @@ public class CustomColorPickerView extends View {
      */
     private void initDimensions() {
         // Density-independent dimensions converted to pixels
-        float HUE_BAR_HEIGHT_DP = 12f;
-        float MARGIN_BETWEEN_AREAS_DP = 24f;
-        float PREVIEW_WIDTH_DP = 24f;
-        float VIEW_PADDING_DP = 16f;
-        float SELECTOR_RADIUS_DP = 12f;
-        float HUE_CORNER_RADIUS_DP = 6f;
+        final float HUE_BAR_HEIGHT_DP = 12f;
+        final float MARGIN_BETWEEN_AREAS_DP = 24f;
+        final float PREVIEW_WIDTH_DP = 24f;
+        final float VIEW_PADDING_DP = 16f;
+        final float SELECTOR_RADIUS_DP = 12f;
+        final float HUE_CORNER_RADIUS_DP = 6f;
 
         hueBarHeight = dpToPx(HUE_BAR_HEIGHT_DP);
         marginBetweenAreas = dpToPx(MARGIN_BETWEEN_AREAS_DP);
@@ -150,10 +150,10 @@ public class CustomColorPickerView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        float DESIRED_ASPECT_RATIO = 1.2f; // height = width * 1.2
+        final float DESIRED_ASPECT_RATIO = 1.2f; // height = width * 1.2
 
-        int minWidth = (int) dpToPx(250);
-        int minHeight = (int) (minWidth * DESIRED_ASPECT_RATIO);
+        final int minWidth = (int) dpToPx(250);
+        final int minHeight = (int) (minWidth * DESIRED_ASPECT_RATIO);
 
         int width = resolveSize(minWidth, widthMeasureSpec);
         int height = resolveSize(minHeight, heightMeasureSpec);
@@ -163,7 +163,7 @@ public class CustomColorPickerView extends View {
         height = Math.max(height, minHeight);
 
         // Adjust height to maintain desired aspect ratio if possible
-        int desiredHeight = (int) (width * DESIRED_ASPECT_RATIO);
+        final int desiredHeight = (int) (width * DESIRED_ASPECT_RATIO);
         if (MeasureSpec.getMode(heightMeasureSpec) != MeasureSpec.EXACTLY) {
             height = desiredHeight;
         }
@@ -213,13 +213,13 @@ public class CustomColorPickerView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
 
         // Reduce the space taken by hue bar and margins to give more room for the color area
-        float effectiveHeight = h - (2 * viewPadding);
+        final float effectiveHeight = h - (2 * viewPadding);
 
         // Calculate optimal preview rectangle height
-        float previewHeight = effectiveHeight - hueBarHeight - marginBetweenAreas;
+        final float previewHeight = effectiveHeight - hueBarHeight - marginBetweenAreas;
 
         // Add a small gap between preview and saturation-value selector
-        float gapBetweenPreviewAndSelector = viewPadding / 2;
+        final float gapBetweenPreviewAndSelector = viewPadding / 2;
 
         // Adjust all rectangles to account for padding and density-independent dimensions
         previewOriginalRect.set(
@@ -282,10 +282,10 @@ public class CustomColorPickerView extends View {
     private void updateSaturationValueShader() {
         // Create a saturation-value gradient based on the current hue.
         // Calculate the start color (white with the selected hue) for the saturation gradient.
-        int startColor = Color.HSVToColor(new float[]{hue, 0f, 1f});
+        final int startColor = Color.HSVToColor(new float[]{hue, 0f, 1f});
 
         // Calculate the middle color (fully saturated color with the selected hue) for the saturation gradient.
-        int midColor = Color.HSVToColor(new float[]{hue, 1f, 1f});
+        final int midColor = Color.HSVToColor(new float[]{hue, 1f, 1f});
 
         // Create a linear gradient for the saturation from startColor to midColor (horizontal).
         LinearGradient satShader = new LinearGradient(
@@ -336,14 +336,14 @@ public class CustomColorPickerView extends View {
         canvas.drawRoundRect(hueRect, hueCornerRadius, hueCornerRadius, huePaint);
 
         // Draw the hue selector handle
-        float hueSelectorX = hueRect.left + (hue / 360f) * hueRect.width();
-        float hueSelectorY = hueRect.centerY();
+        final float hueSelectorX = hueRect.left + (hue / 360f) * hueRect.width();
+        final float hueSelectorY = hueRect.centerY();
 
         // Use the reusable array for HSV color calculation
         hsvArray[0] = hue;
         hsvArray[1] = 1f;
         hsvArray[2] = 1f;
-        int hueHandleColor = Color.HSVToColor(hsvArray);
+        final int hueHandleColor = Color.HSVToColor(hsvArray);
 
         selectorPaint.setColor(hueHandleColor);
         canvas.drawCircle(hueSelectorX, hueSelectorY, selectorRadius, selectorPaint);
@@ -357,8 +357,8 @@ public class CustomColorPickerView extends View {
         selectorPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
         // Draw the saturation-value selector handle
-        float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
-        float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
+        final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
+        final float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
 
         selectorPaint.setColor(selectedColor);
         canvas.drawCircle(satSelectorX, valSelectorY, selectorRadius, selectorPaint);
@@ -385,15 +385,15 @@ public class CustomColorPickerView extends View {
     @SuppressLint("ClickableViewAccessibility") // performClick is not overridden, but not needed in this case.
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        float x = event.getX();
-        float y = event.getY();
+        final float x = event.getX();
+        final float y = event.getY();
 
         // Calculate current handle positions
-        float hueSelectorX = hueRect.left + (hue / 360f) * hueRect.width();
-        float hueSelectorY = hueRect.centerY();
+        final float hueSelectorX = hueRect.left + (hue / 360f) * hueRect.width();
+        final float hueSelectorY = hueRect.centerY();
 
-        float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
-        float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
+        final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
+        final float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
 
         // Create hit areas for both handles
         RectF hueHitRect = new RectF(
@@ -453,7 +453,7 @@ public class CustomColorPickerView extends View {
      */
     private void updateHueFromTouch(float x) {
         // Clamp x to the hue rectangle bounds
-        float clampedX = Math.max(hueRect.left, Math.min(hueRect.right, x));
+        final float clampedX = Utils.clamp(x, hueRect.left, hueRect.right);
         hue = ((clampedX - hueRect.left) / hueRect.width()) * 360f;
         updateSaturationValueShader();
         updateSelectedColor();
@@ -467,7 +467,7 @@ public class CustomColorPickerView extends View {
     private void updateSaturationValueFromTouch(float x, float y) {
         // Clamp x and y to the saturation-value rectangle bounds
         final float clampedX = Utils.clamp(x, saturationValueRect.left, saturationValueRect.right);
-        final float clampedY = Utils.clamp(x, saturationValueRect.top, saturationValueRect.bottom);
+        final float clampedY = Utils.clamp(y, saturationValueRect.top, saturationValueRect.bottom);
 
         saturation = (clampedX - saturationValueRect.left) / saturationValueRect.width();
         value = 1 - ((clampedY - saturationValueRect.top) / saturationValueRect.height());
