@@ -265,7 +265,7 @@ public class ColorPickerPreference extends EditTextPreference {
         LinearLayout dialogLayout = createDialogLayout(context);
         builder.setView(dialogLayout);
 
-        builder.setNeutralButton(str("revanced_settings_reset"), (dialog, which) -> {
+        builder.setNeutralButton(str("revanced_settings_reset_color"), (dialog, which) -> {
             try {
                 setText(colorSetting.resetToDefault());
                 Utils.showToastShort(str("revanced_settings_color_reset"));
@@ -277,6 +277,7 @@ public class ColorPickerPreference extends EditTextPreference {
         builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
             EditText editText = getEditText();
             saveColor(editText, (AlertDialog) dialog);
+            Utils.showToastShort(str("revanced_settings_color_changed"));
         });
 
         builder.setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss());
