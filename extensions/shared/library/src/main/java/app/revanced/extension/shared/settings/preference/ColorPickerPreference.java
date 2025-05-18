@@ -7,6 +7,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.preference.EditTextPreference;
 import android.text.Editable;
 import android.text.InputType;
@@ -23,7 +25,6 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import app.revanced.extension.shared.Logger;
@@ -38,14 +39,18 @@ import app.revanced.extension.shared.settings.StringSetting;
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class ColorPickerPreference extends EditTextPreference {
-    /** TextView displaying a colored dot for the selected color preview. */
+    // TextView displaying a colored dot for the selected color preview.
     private TextView colorPreview;
-    /** Current color in RGB format (without alpha). */
+    // Current color in RGB format (without alpha).
     private int currentColor;
-    /** Associated setting for storing the color value. */
+    // Associated setting for storing the color value.
     private StringSetting colorSetting;
-    /** Original title of the preference, excluding the color dot. */
+    // Original title of the preference, excluding the color dot.
     private CharSequence originalTitle;
+    // Flag to prevent recursive updates.
+    private boolean isUpdating;
+
+    private final Handler handler = new Handler(Looper.getMainLooper());
 
     private static String getColorString(int originalColor) {
         return String.format("#%06X", originalColor);
@@ -123,14 +128,27 @@ public class ColorPickerPreference extends EditTextPreference {
      * @param context The context for creating the layout.
      * @return A LinearLayout containing the color preview and EditText.
      */
-    private LinearLayout createColorInputLayout(Context context) {
+    private LinearLayout createDialogLayout(Context context) {
         LinearLayout layout = new LinearLayout(context);
+        layout.setOrientation(LinearLayout.VERTICAL);
         layout.setPadding(70, 0, 70, 0);
 
+        // Inflate color picker.
+        View colorPickerView = LayoutInflater.from(context)
+                .inflate(getResourceIdentifier("revanced_color_picker", "layout"), null);
+        CustomColorPickerView customColorPickerView = colorPickerView.findViewById(
+                getResourceIdentifier("color_picker_view", "id"));
+        customColorPickerView.setInitialColor(currentColor); // Initialize immediately
+        layout.addView(colorPickerView);
+
+        // Horizontal layout for preview and EditText.
+        LinearLayout inputLayout = new LinearLayout(context);
+        inputLayout.setOrientation(LinearLayout.HORIZONTAL);
+        inputLayout.setPadding(0, 20, 0, 0);
+
         colorPreview = new TextView(context);
-        colorPreview.setOnClickListener(v -> showColorPickerDialog(context));
         updateColorPreview();
-        layout.addView(colorPreview);
+        inputLayout.addView(colorPreview);
 
         EditText editText = getEditText();
         ViewParent parent = editText.getParent();
@@ -138,8 +156,24 @@ public class ColorPickerPreference extends EditTextPreference {
             parentViewGroup.removeView(editText);
         }
         editText.setText(getColorString(currentColor));
-        editText.addTextChangedListener(createColorTextWatcher());
-        layout.addView(editText);
+        editText.addTextChangedListener(createColorTextWatcher(customColorPickerView));
+        inputLayout.addView(editText);
+
+        layout.addView(inputLayout);
+
+        // Set up color picker listener with debouncing.
+        customColorPickerView.setOnColorChangedListener(color -> {
+            if (isUpdating) return; // Prevent recursive updates.
+            isUpdating = true;
+            handler.post(() -> {
+                String hexColor = getColorString(color & 0xFFFFFF);
+                editText.setText(hexColor);
+                editText.setSelection(hexColor.length());
+                currentColor = color & 0xFFFFFF;
+                updateColorPreview();
+                isUpdating = false;
+            });
+        });
 
         return layout;
     }
@@ -154,104 +188,11 @@ public class ColorPickerPreference extends EditTextPreference {
     }
 
     /**
-     * Displays a color picker dialog for selecting a color.
-     *
-     * @param context The context for creating the dialog.
-     */
-    private void showColorPickerDialog(Context context) {
-        final int originalColor = currentColor;
-        EditText editText = getEditText();
-        int initialColor = parseInitialColor(editText.getText().toString(), originalColor);
-
-        RelativeLayout layout = new RelativeLayout(context);
-        layout.setLayoutParams(new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.MATCH_PARENT));
-
-        View dialogView = LayoutInflater.from(context)
-                .inflate(getResourceIdentifier("revanced_color_picker", "layout"), layout);
-        CustomColorPickerView colorPickerView = dialogView.findViewById(
-                getResourceIdentifier("color_picker_view", "id"));
-        colorPickerView.setInitialColor(initialColor);
-
-        AlertDialog dialog = createColorPickerDialog(context, dialogView);
-        setupColorPickerDialogListeners(dialog, colorPickerView, editText, originalColor);
-        dialog.show();
-    }
-
-    /**
-     * Parses the initial color for the color picker dialog.
-     *
-     * @param colorString The color string from EditText.
-     * @param fallbackColor The fallback color if parsing fails.
-     * @return The parsed or fallback color.
-     */
-    private int parseInitialColor(String colorString, int fallbackColor) {
-        try {
-            return Color.parseColor(colorString);
-        } catch (IllegalArgumentException e) {
-            return fallbackColor;
-        }
-    }
-
-    /**
-     * Creates an AlertDialog for the color picker.
-     *
-     * @param context The context for the dialog.
-     * @param dialogView The view containing the color picker.
-     * @return The configured AlertDialog.
-     */
-    private AlertDialog createColorPickerDialog(Context context, View dialogView) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context)
-                .setView(dialogView)
-                .setPositiveButton(android.R.string.ok, null)
-                .setNegativeButton(android.R.string.cancel, null);
-        Utils.setEditTextDialogTheme(builder);
-        AlertDialog dialog = builder.create();
-        dialog.setCanceledOnTouchOutside(false);
-        return dialog;
-    }
-
-    /**
-     * Sets up listeners for the color picker dialog buttons and color changes.
-     *
-     * @param dialog The AlertDialog instance.
-     * @param colorPickerView The color picker view.
-     * @param editText The EditText for color input.
-     * @param originalColor The original color to restore on cancel.
-     */
-    private void setupColorPickerDialogListeners(AlertDialog dialog, CustomColorPickerView colorPickerView,
-                                                 EditText editText, int originalColor) {
-        dialog.setOnShowListener(d -> {
-            colorPickerView.setOnColorChangedListener(color -> {
-                String hexColor = getColorString(color & 0xFFFFFF);
-                editText.setText(hexColor);
-                editText.setSelection(hexColor.length());
-            });
-
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
-                String hexColor = getColorString(colorPickerView.getColor() & 0xFFFFFF);
-                editText.setText(hexColor);
-                editText.setSelection(hexColor.length());
-                dialog.dismiss();
-            });
-
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(v -> {
-                String hexColor = getColorString(originalColor);
-                editText.setText(hexColor);
-                currentColor = originalColor;
-                updateColorPreview();
-                dialog.dismiss();
-            });
-        });
-    }
-
-    /**
      * Creates a TextWatcher to monitor changes in the EditText for color input.
      *
      * @return A TextWatcher that updates the color preview on valid input.
      */
-    private TextWatcher createColorTextWatcher() {
+    private TextWatcher createColorTextWatcher(CustomColorPickerView colorPickerView) {
         return new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -263,11 +204,16 @@ public class ColorPickerPreference extends EditTextPreference {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (TextUtils.isEmpty(s)) return;
+                if (isUpdating || TextUtils.isEmpty(s)) return;
+                isUpdating = true;
                 try {
-                    currentColor = Color.parseColor(s.toString()) & 0xFFFFFF;
+                    int newColor = Color.parseColor(s.toString()) & 0xFFFFFF;
+                    currentColor = newColor;
+                    colorPickerView.setColor(newColor);
                     updateColorPreview();
                 } catch (IllegalArgumentException ignored) {
+                } finally {
+                    isUpdating = false;
                 }
             }
         };
@@ -281,26 +227,30 @@ public class ColorPickerPreference extends EditTextPreference {
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
         Utils.setEditTextDialogTheme(builder);
-        builder.setView(createColorInputLayout(builder.getContext()));
-        if (colorSetting != null) {
-            builder.setNeutralButton(str("revanced_settings_reset"), null);
-        }
+        Context context = builder.getContext();
+        LinearLayout dialogLayout = createDialogLayout(context);
+        builder.setView(dialogLayout);
+
+        builder.setNeutralButton(str("revanced_settings_reset"), (dialog, which) -> {
+            EditText editText = getEditText();
+            resetToDefault(editText);
+        });
+
+        builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
+            EditText editText = getEditText();
+            saveColor(editText, (AlertDialog) dialog);
+        });
+
+        builder.setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss());
     }
 
-    /**
-     * Configures the dialog with listeners for reset and save actions.
-     *
-     * @param state The state passed to the superclass.
-     */
     @Override
     protected void showDialog(Bundle state) {
         super.showDialog(state);
         AlertDialog dialog = (AlertDialog) getDialog();
-        if (dialog == null || colorSetting == null) return;
+        if (dialog == null) return;
 
-        EditText editText = getEditText();
-        dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener(v -> resetToDefault(editText));
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> saveColor(editText, dialog));
+        dialog.setCanceledOnTouchOutside(false);
     }
 
     /**
@@ -315,6 +265,11 @@ public class ColorPickerPreference extends EditTextPreference {
             editText.setSelection(defaultValue.length());
             currentColor = Color.parseColor(defaultValue) & 0xFFFFFF;
             updateColorPreview();
+            View dialogView = ((AlertDialog) getDialog()).findViewById(
+                    getResourceIdentifier("color_picker_view", "id"));
+            if (dialogView instanceof CustomColorPickerView) {
+                ((CustomColorPickerView) dialogView).setColor(currentColor);
+            }
         } catch (Exception ex) {
             Logger.printException(() -> "Reset color failure", ex);
         }
