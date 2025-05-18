@@ -167,6 +167,9 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_show_more_button_title">Skryť tlačidlo \"Zobraziť viac\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Tlačidlo je skryté</string>
   <string name="revanced_hide_show_more_button_summary_off">Tlačidlo je zobrazené</string>
+  <string name="revanced_hide_ticket_shelf_title">Skryť panel lístkov</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Panel lístkov je skrytý</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Je zobrazený panel lístkov</string>
   <string name="revanced_hide_timed_reactions_title">Skryť načasované reakcie</string>
   <string name="revanced_hide_timed_reactions_summary_on">Časované reakcie sú skryté</string>
   <string name="revanced_hide_timed_reactions_summary_off">Sú zobrazené načasované reakcie</string>
@@ -236,6 +239,9 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Skryť „Súhrn videa generovaný AI“</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sekcia so súhrnom videa je skrytá</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sekcia so súhrnom videa je zobrazená</string>
+  <string name="revanced_hide_ask_section_title">Skryť \"Opýtať sa\"</string>
+  <string name="revanced_hide_ask_section_summary_on">Sekcia \"Opýtať sa\" je skrytá</string>
+  <string name="revanced_hide_ask_section_summary_off">Sekcia \"Opýtať sa\" je zobrazená</string>
   <string name="revanced_hide_attributes_section_title">Skryť atribúty</string>
   <string name="revanced_hide_attributes_section_summary_on">Sekcie Odporúčané miesta, Hry, Hudba a Spomenutí ľudia sú skryté</string>
   <string name="revanced_hide_attributes_section_summary_off">Sekcie Odporúčané miesta, Hry, Hudba a Spomenutí ľudia sú zobrazené</string>

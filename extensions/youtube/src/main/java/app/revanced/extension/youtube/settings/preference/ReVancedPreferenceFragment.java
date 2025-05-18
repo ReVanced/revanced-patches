@@ -420,9 +420,11 @@ class PreferenceSearchData extends AbstractPreferenceSearchData<Preference> {
 
     @CallSuper
     void clearHighlighting() {
-        super.clearHighlighting();
+        if (highlightingApplied) {
+            preference.setSummary(originalSummary);
+        }
 
-        preference.setSummary(originalSummary);
+        super.clearHighlighting();
     }
 }
 
@@ -472,10 +474,12 @@ class SwitchPreferenceSearchData extends AbstractPreferenceSearchData<SwitchPref
 
     @CallSuper
     void clearHighlighting() {
-        super.clearHighlighting();
+        if (highlightingApplied) {
+            preference.setSummaryOn(originalSummaryOn);
+            preference.setSummaryOff(originalSummaryOff);
+        }
 
-        preference.setSummaryOn(originalSummaryOn);
-        preference.setSummaryOff(originalSummaryOff);
+        super.clearHighlighting();
     }
 }
 
@@ -529,8 +533,10 @@ class ListPreferenceSearchData extends AbstractPreferenceSearchData<ListPreferen
 
     @CallSuper
     void clearHighlighting() {
-        super.clearHighlighting();
+        if (highlightingApplied) {
+            preference.setEntries(originalEntries);
+        }
 
-        preference.setEntries(originalEntries);
+        super.clearHighlighting();
     }
 }

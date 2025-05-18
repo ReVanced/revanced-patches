@@ -43,7 +43,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_success">Увезено %d подешавања</string>
   <string name="revanced_settings_import_failure_parse">Неуспешан увоз: %s</string>
   <string name="revanced_settings_search_hint">Претражите подешавања</string>
-  <string name="revanced_settings_search_no_results_title">Нема резултата за „%s“</string>
+  <string name="revanced_settings_search_no_results_title">Нису пронађени резултати за „%s”</string>
   <string name="revanced_settings_search_no_results_summary">Покушајте са другом кључном речи</string>
   <string name="revanced_settings_search_remove_message">Уклонити из историје претраге?</string>
   <string name="revanced_show_menu_icons_title">Прикажи иконице подешавања ReVanced-а</string>
@@ -169,6 +169,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">Сакриј дугме „Прикажи још”</string>
   <string name="revanced_hide_show_more_button_summary_on">Дугме „Прикажи још” је скривено</string>
   <string name="revanced_hide_show_more_button_summary_off">Дугме „Прикажи још” је приказано</string>
+  <string name="revanced_hide_ticket_shelf_title">Сакриј полицу са картама</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Полица са картама је скривена</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Полица са картама је приказана</string>
   <string name="revanced_hide_timed_reactions_title">Сакриј временске реакције</string>
   <string name="revanced_hide_timed_reactions_summary_on">Временске реакције су скривене</string>
   <string name="revanced_hide_timed_reactions_summary_off">Временске реакције су приказане</string>
@@ -238,6 +241,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Сакриј „Резиме видеа који је генерисала вештачка интелигенција”</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Одељак „Резиме видеа” је скривен</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Одељак „Резиме видеа” је приказан</string>
+  <string name="revanced_hide_ask_section_title">Сакриј одељак „Питај”</string>
+  <string name="revanced_hide_ask_section_summary_on">Одељак „Питај” је скривен</string>
+  <string name="revanced_hide_ask_section_summary_off">Одељак „Питај” је приказан</string>
   <string name="revanced_hide_attributes_section_title">Сакриј атрибуте</string>
   <string name="revanced_hide_attributes_section_summary_on">Одељци „Истакнута места”, „Игре”, „Музика” и „Поменути људи” су скривени</string>
   <string name="revanced_hide_attributes_section_summary_off">Одељци „Истакнута места”, „Игре”, „Музика” и „Поменути људи” су приказани</string>

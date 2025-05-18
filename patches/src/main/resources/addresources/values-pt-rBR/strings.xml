@@ -167,6 +167,9 @@ Você não será notificado sobre nenhum evento inesperado."</string>
   <string name="revanced_hide_show_more_button_title">Ocultar botão \'Mostrar mais\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Botão está oculto</string>
   <string name="revanced_hide_show_more_button_summary_off">O botão é mostrado</string>
+  <string name="revanced_hide_ticket_shelf_title">Ocultar seção de ingressos</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Seção de ingressos oculta</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Seção de ingressos exibida</string>
   <string name="revanced_hide_timed_reactions_title">Ocultar reações cronometradas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reações cronometradas estão ocultas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reações cronometradas não estão ocultas</string>
@@ -236,6 +239,9 @@ Você não será notificado sobre nenhum evento inesperado."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ocultar \"Resumo de vídeo gerado por IA\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Seção de resumo do vídeo está oculta</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Seção de resumo do vídeo é mostrada</string>
+  <string name="revanced_hide_ask_section_title">Ocultar Perguntar</string>
+  <string name="revanced_hide_ask_section_summary_on">A seção de perguntas está oculta</string>
+  <string name="revanced_hide_ask_section_summary_off">A seção de perguntas é mostrada</string>
   <string name="revanced_hide_attributes_section_title">Ocultar atributos</string>
   <string name="revanced_hide_attributes_section_summary_on">As seções de lugares em destaque, jogos, música e pessoas mencionadas estão ocultas</string>
   <string name="revanced_hide_attributes_section_summary_off">As seções de lugares em destaque, jogos, música e pessoas mencionadas são mostradas</string>

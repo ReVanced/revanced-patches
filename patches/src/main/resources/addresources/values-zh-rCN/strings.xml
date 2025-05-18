@@ -169,6 +169,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">隐藏「显示更多」按钮</string>
   <string name="revanced_hide_show_more_button_summary_on">按钮已隐藏</string>
   <string name="revanced_hide_show_more_button_summary_off">按钮已显示</string>
+  <string name="revanced_hide_ticket_shelf_title">隐藏票券架</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">票券架已隐藏</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">票券架已显示</string>
   <string name="revanced_hide_timed_reactions_title">隐藏限时反应</string>
   <string name="revanced_hide_timed_reactions_summary_on">定时表情反应已隐藏</string>
   <string name="revanced_hide_timed_reactions_summary_off">定时表情反应已显示</string>
@@ -238,6 +241,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">隐藏“AI 生成的视频摘要”</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">视频摘要部分已隐藏</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">视频摘要部分已显示</string>
+  <string name="revanced_hide_ask_section_title">隐藏“提问”</string>
+  <string name="revanced_hide_ask_section_summary_on">“提问”部分已隐藏</string>
+  <string name="revanced_hide_ask_section_summary_off">“提问”部分已显示</string>
   <string name="revanced_hide_attributes_section_title">隐藏属性</string>
   <string name="revanced_hide_attributes_section_summary_on">已隐藏“精选地点”、“游戏”、“音乐”和“提及的人物”部分</string>
   <string name="revanced_hide_attributes_section_summary_off">已显示“精选地点”、“游戏”、“音乐”和“提及的人物”部分</string>

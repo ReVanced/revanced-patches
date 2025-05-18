@@ -166,6 +166,9 @@ Desactivar las optimizaciones de batería para MicroG no afectará negativamente
   <string name="revanced_hide_show_more_button_title">Ocultar botón \'Mostrar más\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Botón oculto</string>
   <string name="revanced_hide_show_more_button_summary_off">Se muestra el botón</string>
+  <string name="revanced_hide_ticket_shelf_title">Ocultar estante de boletos</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">El estante de boletos está oculto</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">El estante de boletos está visible</string>
   <string name="revanced_hide_timed_reactions_title">Ocultar reacciones temporizadas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Las reacciones temporizadas están ocultas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Se muestran reacciones temporizadas</string>
@@ -235,6 +238,9 @@ Desactivar las optimizaciones de batería para MicroG no afectará negativamente
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ocultar \"Resumen de video generado por IA\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sección de resumen del video está oculta</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sección de resumen del video se muestra</string>
+  <string name="revanced_hide_ask_section_title">Ocultar pregunta</string>
+  <string name="revanced_hide_ask_section_summary_on">La sección de preguntas está oculta</string>
+  <string name="revanced_hide_ask_section_summary_off">Se muestra la sección de preguntas</string>
   <string name="revanced_hide_attributes_section_title">Ocultar atributos</string>
   <string name="revanced_hide_attributes_section_summary_on">Las secciones Lugares destacados, Juegos, Música y Personas mencionadas están ocultas</string>
   <string name="revanced_hide_attributes_section_summary_off">Las secciones Lugares destacados, Juegos, Música y Personas mencionadas se muestran</string>

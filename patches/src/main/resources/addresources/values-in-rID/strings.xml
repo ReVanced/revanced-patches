@@ -42,8 +42,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Pengaturan ReVanced diatur ke setelan awal</string>
   <string name="revanced_settings_import_success">Mengimpor setelan %d</string>
   <string name="revanced_settings_import_failure_parse">Impor gagal: %s</string>
-  <string name="revanced_settings_search_hint">Telusuri setelan</string>
-  <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk 																																																																																																																																		\'%s\'</string>
+  <string name="revanced_settings_search_hint">Pengaturan pencarian</string>
+  <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Coba kata kunci lain</string>
   <string name="revanced_settings_search_remove_message">Hapus dari riwayat pencarian?</string>
   <string name="revanced_show_menu_icons_title">Tampilkan ikon pengaturan ReVanced</string>
@@ -97,9 +97,9 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_restore_old_settings_menus_title">Pulihkan menu pengaturan lama</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Menu pengaturan lama ditampilkan</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Menu pengaturan lama tidak ditampilkan</string>
-  <string name="revanced_settings_search_history_title">Tampilkan riwayat pencarian setelan</string>
-  <string name="revanced_settings_search_history_summary_on">Riwayat pencarian setelan ditampilkan</string>
-  <string name="revanced_settings_search_history_summary_off">Riwayat penelusuran setelan tidak ditampilkan</string>
+  <string name="revanced_settings_search_history_title">Tampilkan pengaturan riwayat pencarian</string>
+  <string name="revanced_settings_search_history_summary_on">Pengaturan riwayat pencarian ditampilkan</string>
+  <string name="revanced_settings_search_history_summary_off">Pengaturan riwayat pencarian tidak ditampilkan</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Nonaktifkan pemutaran Shorts di latar belakang</string>
@@ -169,6 +169,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_show_more_button_title">Sembunyikan tombol \'Tampilkan selengkapnya\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_show_more_button_summary_off">Tombol ditampilkan</string>
+  <string name="revanced_hide_ticket_shelf_title">Sembunyikan rak tiket</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Rak tiket disembunyikan</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Rak tiket ditampilkan</string>
   <string name="revanced_hide_timed_reactions_title">Sembunyikan reaksi terjadwal</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reaksi terjadwal disembunyikan</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reaksi terjadwal ditampilkan</string>
@@ -238,6 +241,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Sembunyikan \'Ringkasan video yang dibuat AI\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Bagian ringkasan video disembunyikan</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Bagian ringkasan video ditampilkan</string>
+  <string name="revanced_hide_ask_section_title">Sembunyikan Tanya</string>
+  <string name="revanced_hide_ask_section_summary_on">Bagian Tanya disembunyikan</string>
+  <string name="revanced_hide_ask_section_summary_off">Bagian Tanya ditampilkan</string>
   <string name="revanced_hide_attributes_section_title">Sembunyikan Atribut</string>
   <string name="revanced_hide_attributes_section_summary_on">Bagian tempat Unggulan, Game, Musik, dan disebutkan Orang disembunyikan</string>
   <string name="revanced_hide_attributes_section_summary_off">Bagian tempat Unggulan, Game, Musik, dan disebutkan Orang ditampilkan</string>

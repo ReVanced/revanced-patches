@@ -1,3 +1,17 @@
+# [5.24.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.7...v5.24.0-dev.8) (2025-05-17)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Correctly show summary text if search box is closed before searching ([d0ae835](https://github.com/ReVanced/revanced-patches/commit/d0ae835d3381fc659c9bb4a2d130d4db8a1499cf))
+
+# [5.24.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.6...v5.24.0-dev.7) (2025-05-17)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add `Hide ticket shelf` ([#4969](https://github.com/ReVanced/revanced-patches/issues/4969)) ([6436af7](https://github.com/ReVanced/revanced-patches/commit/6436af7e77c77d2034dfceba8bc51132ad7632be))
+
 # [5.24.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.5...v5.24.0-dev.6) (2025-05-17)
 
 
