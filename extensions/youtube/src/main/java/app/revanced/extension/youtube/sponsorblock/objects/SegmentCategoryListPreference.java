@@ -53,7 +53,7 @@ public class SegmentCategoryListPreference extends ListPreference {
         setEntryValues(isHighlightCategory
                 ? CategoryBehaviour.getBehaviorKeyValuesWithoutSkipOnce()
                 : CategoryBehaviour.getBehaviorKeyValues());
-        setSummary(category.description.toString());
+        super.setSummary(category.description.toString());
 
         updateUI();
     }
@@ -267,5 +267,14 @@ public class SegmentCategoryListPreference extends ListPreference {
 
     private void updateOpacityText() {
         opacityEditText.setText(String.format(Locale.US, "%.2f", categoryOpacity));
+    }
+
+    @Override
+    public void setSummary(CharSequence summary) {
+        // Ignore calls to set the summary.
+        // Summary is always the description of the category.
+        //
+        // This is required otherwise the ReVanced preference fragment
+        // sets all ListPreference summaries to show the current selection.
     }
 }
