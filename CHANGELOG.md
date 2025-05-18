@@ -1,3 +1,10 @@
+# [5.24.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.8...v5.24.0-dev.9) (2025-05-18)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Fix segment category summary not showing category description ([06934a6](https://github.com/ReVanced/revanced-patches/commit/06934a60d91b40a5cdf7f4cd92deae4a136c149b))
+
 # [5.24.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.7...v5.24.0-dev.8) (2025-05-17)
 
 
