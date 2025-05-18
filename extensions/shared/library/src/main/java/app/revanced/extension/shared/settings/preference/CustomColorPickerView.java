@@ -24,17 +24,16 @@ import app.revanced.extension.shared.Utils;
  * This implementation is density-independent and responsive across different screen sizes and DPIs.
  *
  * <p>
- * This view displays three main components for color selection:
+ * This view displays two main components for color selection:
  * <ul>
  *     <li><b>Hue Bar:</b> A horizontal bar at the bottom that allows the user to select the hue component of the color.
- *     <li><b>Saturation-Value Selector:</b> A rectangular area (on the right) that allows the user to select the saturation and value (brightness)
+ *     <li><b>Saturation-Value Selector:</b> A rectangular area that allows the user to select the saturation and value (brightness)
  *     components of the color based on the selected hue.
- *     <li><b>Color Previews:</b> Two vertical rectangles on the left. The top shows the original/current color and the bottom shows the new color selected.
  * </ul>
  *
  * <p>
  * The view uses {@link LinearGradient} and {@link ComposeShader} to create the color gradients for the hue bar and the
- * saturation-value selector. It also uses {@link Paint} to draw the selectors (draggable handles) and preview rectangles.
+ * saturation-value selector. It also uses {@link Paint} to draw the selectors (draggable handles).
  *
  * <p>
  * The selected color can be retrieved using {@link #getColor()} and can be set using {@link #setColor(int)}.
@@ -57,7 +56,6 @@ public class CustomColorPickerView extends View {
     /** Pixel dimensions calculated from DP values */
     private static final float HUE_BAR_HEIGHT = dipToPixels(12f);
     private static final float MARGIN_BETWEEN_AREAS = dipToPixels(24f);
-    private static final float PREVIEW_WIDTH = dipToPixels(24f);
     private static final float VIEW_PADDING = dipToPixels(16f);
     private static final float SELECTOR_RADIUS = dipToPixels(12f);
     private static final float HUE_CORNER_RADIUS = dipToPixels(6f);
@@ -75,17 +73,11 @@ public class CustomColorPickerView extends View {
     private final Paint saturationValuePaint;
     /** Paint object used to draw the draggable handles. */
     private final Paint selectorPaint;
-    /** Paint object used to fill the preview rectangles. */
-    private final Paint previewPaint;
 
     /** Rectangle representing the bounds of the hue bar. */
     private final RectF hueRect;
     /** Rectangle representing the bounds of the saturation-value selector. */
     private final RectF saturationValueRect;
-    /** Rectangle representing the preview area for original color (top left). */
-    private final RectF previewOriginalRect;
-    /** Rectangle representing the preview area for new color (bottom left). */
-    private final RectF previewNewRect;
 
     /** Reusable array for HSV color calculations to avoid allocations during drawing */
     private final float[] hsvArray = new float[3];
@@ -99,8 +91,6 @@ public class CustomColorPickerView extends View {
 
     /** The currently selected color in ARGB format. */
     private int selectedColor = Color.HSVToColor(new float[]{hue, saturation, value});
-    /** The original color (before the user starts modifying). */
-    private int originalColor = selectedColor;
     /** Listener to be notified when the selected color changes. */
     private OnColorChangedListener colorChangedListener;
 
@@ -129,15 +119,9 @@ public class CustomColorPickerView extends View {
         selectorPaint.setStrokeWidth(8f);
         // The stroke color (white border) will be applied in onDraw.
 
-        // Initialize the paint for filling the preview rectangles.
-        previewPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        previewPaint.setStyle(Paint.Style.FILL);
-
         // Initialize the rectangle objects for the different components.
         hueRect = new RectF();
         saturationValueRect = new RectF();
-        previewOriginalRect = new RectF();
-        previewNewRect = new RectF();
     }
 
     @Override
@@ -165,7 +149,7 @@ public class CustomColorPickerView extends View {
 
     /**
      * Called when the size of the view changes.
-     * This method calculates and sets the bounds of the hue bar, saturation-value selector, and the preview rectangles.
+     * This method calculates and sets the bounds of the hue bar and saturation-value selector.
      * It also creates the necessary shaders for the gradients.
      *
      * @param width    Current width of this view.
@@ -180,32 +164,15 @@ public class CustomColorPickerView extends View {
         // Reduce the space taken by hue bar and margins to give more room for the color area
         final float effectiveHeight = height - (2 * VIEW_PADDING);
 
-        // Calculate optimal preview rectangle height
-        final float previewHeight = effectiveHeight - HUE_BAR_HEIGHT - MARGIN_BETWEEN_AREAS;
+        // Calculate optimal selector rectangle height
+        final float selectorHeight = effectiveHeight - HUE_BAR_HEIGHT - MARGIN_BETWEEN_AREAS;
 
-        // Add a small gap between preview and saturation-value selector
-        final float gapBetweenPreviewAndSelector = VIEW_PADDING / 2;
-
-        // Adjust all rectangles to account for padding and density-independent dimensions
-        previewOriginalRect.set(
-                VIEW_PADDING,
-                VIEW_PADDING,
-                VIEW_PADDING + PREVIEW_WIDTH,
-                VIEW_PADDING + previewHeight / 2
-        );
-
-        previewNewRect.set(
-                VIEW_PADDING,
-                VIEW_PADDING + previewHeight / 2,
-                VIEW_PADDING + PREVIEW_WIDTH,
-                VIEW_PADDING + previewHeight
-        );
-
+        // Adjust rectangles to account for padding and density-independent dimensions
         saturationValueRect.set(
-                VIEW_PADDING + PREVIEW_WIDTH + gapBetweenPreviewAndSelector,
+                VIEW_PADDING,
                 VIEW_PADDING,
                 width - VIEW_PADDING,
-                VIEW_PADDING + previewHeight
+                VIEW_PADDING + selectorHeight
         );
 
         hueRect.set(
@@ -257,7 +224,6 @@ public class CustomColorPickerView extends View {
         );
 
         // Create a linear gradient for the value (brightness) from white to black (vertical).
-        //noinspection ExtractMethodRecommender
         LinearGradient valShader = new LinearGradient(
                 saturationValueRect.left, saturationValueRect.top,
                 saturationValueRect.left, saturationValueRect.bottom,
@@ -275,21 +241,13 @@ public class CustomColorPickerView extends View {
 
     /**
      * Draws the color picker view on the canvas.
-     * This method draws the preview rectangles, the saturation-value selector, the hue bar with rounded corners,
+     * This method draws the saturation-value selector, the hue bar with rounded corners,
      * and the draggable handles.
      *
      * @param canvas The canvas on which to draw.
      */
     @Override
     protected void onDraw(Canvas canvas) {
-        // Draw the original color preview rectangle (left top).
-        previewPaint.setColor(originalColor);
-        canvas.drawRect(previewOriginalRect, previewPaint);
-
-        // Draw the new color preview rectangle (left bottom).
-        previewPaint.setColor(selectedColor);
-        canvas.drawRect(previewNewRect, previewPaint);
-
         // Draw the saturation-value selector rectangle.
         canvas.drawRect(saturationValueRect, saturationValuePaint);
 
@@ -440,7 +398,7 @@ public class CustomColorPickerView extends View {
         final float updatedSaturation = (clampedX - saturationValueRect.left) / saturationValueRect.width();
         final float updatedValue = 1 - ((clampedY - saturationValueRect.top) / saturationValueRect.height());
 
-        if (saturation == updatedSaturation && value == updatedSaturation) {
+        if (saturation == updatedSaturation && value == updatedValue) {
             return;
         }
         saturation = updatedSaturation;
@@ -466,7 +424,7 @@ public class CustomColorPickerView extends View {
      * @param color The color to set in ARGB format.
      */
     public void setColor(int color) {
-        if (selectedColor == color && originalColor == color) {
+        if (selectedColor == color) {
             return;
         }
 
@@ -492,21 +450,6 @@ public class CustomColorPickerView extends View {
 
         // Invalidate the view to trigger a redraw.
         invalidate();
-    }
-
-    /**
-     * Sets the initial color without updating the selection.
-     * This is used to show the original/current color in the preview.
-     *
-     * @param color The initial color in ARGB format.
-     */
-    public void setInitialColor(int color) {
-        if (originalColor == color) {
-            return;
-        }
-        originalColor = color;
-        // Also update the current selection.
-        setColor(color);
     }
 
     /**

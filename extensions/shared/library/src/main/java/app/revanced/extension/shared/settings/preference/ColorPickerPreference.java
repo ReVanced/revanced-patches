@@ -53,6 +53,10 @@ public class ColorPickerPreference extends EditTextPreference {
      * Original title of the preference, excluding the color dot.
      */
     private CharSequence originalTitle;
+    /**
+     * TextWatcher for the EditText to monitor color input changes.
+     */
+    private TextWatcher colorTextWatcher;
 
     private static String getColorString(int originalColor) {
         return String.format("#%06X", originalColor);
@@ -148,7 +152,8 @@ public class ColorPickerPreference extends EditTextPreference {
                 .inflate(getResourceIdentifier("revanced_color_picker", "layout"), null);
         CustomColorPickerView customColorPickerView = colorPickerView.findViewById(
                 getResourceIdentifier("color_picker_view", "id"));
-        customColorPickerView.setInitialColor(currentColor); // Initialize immediately
+        // Set the initial color to the saved color from settings
+        customColorPickerView.setColor(currentColor);
         layout.addView(colorPickerView);
 
         // Horizontal layout for preview and EditText.
@@ -166,7 +171,8 @@ public class ColorPickerPreference extends EditTextPreference {
             parentViewGroup.removeView(editText);
         }
         editText.setText(getColorString(currentColor));
-        editText.addTextChangedListener(createColorTextWatcher(customColorPickerView));
+        colorTextWatcher = createColorTextWatcher(customColorPickerView);
+        editText.addTextChangedListener(colorTextWatcher);
         inputLayout.addView(editText);
 
         layout.addView(inputLayout);
@@ -307,6 +313,14 @@ public class ColorPickerPreference extends EditTextPreference {
             dialog.dismiss();
         } catch (IllegalArgumentException ex) {
             Logger.printException(() -> "Invalid color format: " + colorString, ex);
+        }
+    }
+
+    @Override
+    protected void onDialogClosed(boolean positiveResult) {
+        super.onDialogClosed(positiveResult);
+        if (colorTextWatcher != null) {
+            getEditText().removeTextChangedListener(colorTextWatcher);
         }
     }
 

@@ -87,7 +87,7 @@ public class SegmentCategoryListPreference extends ListPreference {
         // Get the custom color picker view from the inflated layout.
         CustomColorPickerView colorPickerView = dialogView.findViewById(
                 getResourceIdentifier("color_picker_view", "id"));
-        colorPickerView.setInitialColor(initialColor);
+        colorPickerView.setColor(initialColor);
 
         // Create and configure the AlertDialog.
         AlertDialog dialog = createColorPickerDialog(context, dialogView);
