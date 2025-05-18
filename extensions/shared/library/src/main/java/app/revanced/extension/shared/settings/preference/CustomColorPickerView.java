@@ -16,6 +16,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
 /**
@@ -214,7 +215,7 @@ public class CustomColorPickerView extends View {
                 height - VIEW_PADDING
         );
 
-        // Update the shaders
+        // Update the shaders.
         updateHueShader();
         updateSaturationValueShader();
     }
@@ -346,31 +347,32 @@ public class CustomColorPickerView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         final float x = event.getX();
         final float y = event.getY();
+        final int action = event.getAction();
+        Logger.printDebug(() -> "onTouchEvent action: " + action + " x: " + x + " y: " + y);
 
-        // Calculate current handle positions.
-        final float hueSelectorX = hueRect.left + (hue / 360f) * hueRect.width();
-        final float hueSelectorY = hueRect.centerY();
-
-        final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
-        final float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
-
-        // Create hit areas for both handles.
-        RectF hueHitRect = new RectF(
-                hueSelectorX - SELECTOR_RADIUS,
-                hueSelectorY - SELECTOR_RADIUS,
-                hueSelectorX + SELECTOR_RADIUS,
-                hueSelectorY + SELECTOR_RADIUS
-        );
-
-        RectF satValHitRect = new RectF(
-                satSelectorX - SELECTOR_RADIUS,
-                valSelectorY - SELECTOR_RADIUS,
-                satSelectorX + SELECTOR_RADIUS,
-                valSelectorY + SELECTOR_RADIUS
-        );
-
-        switch (event.getAction()) {
+        switch (action) {
             case MotionEvent.ACTION_DOWN:
+                // Calculate current handle positions.
+                final float hueSelectorX = hueRect.left + (hue / 360f) * hueRect.width();
+                final float hueSelectorY = hueRect.centerY();
+
+                final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
+                final float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
+
+                // Create hit areas for both handles.
+                RectF hueHitRect = new RectF(
+                        hueSelectorX - SELECTOR_RADIUS,
+                        hueSelectorY - SELECTOR_RADIUS,
+                        hueSelectorX + SELECTOR_RADIUS,
+                        hueSelectorY + SELECTOR_RADIUS
+                );
+                RectF satValHitRect = new RectF(
+                        satSelectorX - SELECTOR_RADIUS,
+                        valSelectorY - SELECTOR_RADIUS,
+                        satSelectorX + SELECTOR_RADIUS,
+                        valSelectorY + SELECTOR_RADIUS
+                );
+
                 // Check if the touch started on either handle.
                 if (hueHitRect.contains(x, y)) {
                     isDraggingHue = true;
@@ -414,7 +416,12 @@ public class CustomColorPickerView extends View {
     private void updateHueFromTouch(float x) {
         // Clamp x to the hue rectangle bounds.
         final float clampedX = Utils.clamp(x, hueRect.left, hueRect.right);
-        hue = ((clampedX - hueRect.left) / hueRect.width()) * 360f;
+        final float updatedHue = ((clampedX - hueRect.left) / hueRect.width()) * 360f;
+        if (hue == updatedHue) {
+            return;
+        }
+
+        hue = updatedHue;
         updateSaturationValueShader();
         updateSelectedColor();
     }
@@ -430,8 +437,14 @@ public class CustomColorPickerView extends View {
         final float clampedX = Utils.clamp(x, saturationValueRect.left, saturationValueRect.right);
         final float clampedY = Utils.clamp(y, saturationValueRect.top, saturationValueRect.bottom);
 
-        saturation = (clampedX - saturationValueRect.left) / saturationValueRect.width();
-        value = 1 - ((clampedY - saturationValueRect.top) / saturationValueRect.height());
+        final float updatedSaturation = (clampedX - saturationValueRect.left) / saturationValueRect.width();
+        final float updatedValue = 1 - ((clampedY - saturationValueRect.top) / saturationValueRect.height());
+
+        if (saturation == updatedSaturation && value == updatedSaturation) {
+            return;
+        }
+        saturation = updatedSaturation;
+        value = updatedValue;
         updateSelectedColor();
     }
 
@@ -452,6 +465,10 @@ public class CustomColorPickerView extends View {
      * @param color The color to set in ARGB format.
      */
     public void setColor(int color) {
+        if (selectedColor == color && originalColor == color) {
+            return;
+        }
+
         // Convert the ARGB color to HSV values.
         float[] hsv = new float[3];
         Color.colorToHSV(color, hsv);

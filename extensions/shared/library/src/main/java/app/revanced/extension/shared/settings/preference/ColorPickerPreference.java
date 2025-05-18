@@ -53,10 +53,6 @@ public class ColorPickerPreference extends EditTextPreference {
      * Original title of the preference, excluding the color dot.
      */
     private CharSequence originalTitle;
-    /**
-     * Flag to prevent recursive updates.
-     */
-    private boolean isUpdating;
 
     private static String getColorString(int originalColor) {
         return String.format("#%06X", originalColor);
@@ -92,7 +88,8 @@ public class ColorPickerPreference extends EditTextPreference {
             Logger.printException(() -> "Could not find color setting for: " + getKey());
         }
         originalTitle = super.getTitle();
-        getEditText().setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS);
+        getEditText().setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+                | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         loadFromSettings();
         updateTitleWithColorDot();
     }
@@ -120,6 +117,8 @@ public class ColorPickerPreference extends EditTextPreference {
      */
     @Override
     public final void setText(String colorString) throws IllegalArgumentException {
+        if (colorString.equals(getText())) return;
+
         super.setText(colorString);
 
         currentColor = Color.parseColor(colorString) & 0xFFFFFF;
@@ -171,16 +170,18 @@ public class ColorPickerPreference extends EditTextPreference {
 
         // Set up color picker listener with debouncing.
         customColorPickerView.setOnColorChangedListener(color -> {
-            if (isUpdating) return; // Prevent recursive updates.
-            isUpdating = true;
-            Utils.runOnMainThread(() -> {
+            try {
+                Logger.printDebug(() -> "setOnColorChangedListener");
                 String hexColor = getColorString(color & 0xFFFFFF);
-                editText.setText(hexColor);
-                editText.setSelection(hexColor.length());
                 currentColor = color & 0xFFFFFF;
                 updateColorPreview();
-                isUpdating = false;
-            });
+                if (!editText.getText().toString().equals(hexColor)) {
+                    editText.setText(hexColor);
+                    editText.setSelection(hexColor.length());
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "setOnColorChangedListener failure", ex);
+            }
         });
 
         return layout;
@@ -212,16 +213,18 @@ public class ColorPickerPreference extends EditTextPreference {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (isUpdating || TextUtils.isEmpty(s)) return;
-                isUpdating = true;
                 try {
-                    int newColor = Color.parseColor(s.toString()) & 0xFFFFFF;
-                    currentColor = newColor;
-                    colorPickerView.setColor(newColor);
-                    updateColorPreview();
-                } catch (IllegalArgumentException ignored) {
-                } finally {
-                    isUpdating = false;
+                    final int newColor = Color.parseColor(s.toString()) & 0xFFFFFF;
+                    if (currentColor != newColor) {
+                        Logger.printDebug(() -> "afterTextChanged");
+                        currentColor = newColor;
+                        updateColorPreview();
+                        colorPickerView.setColor(newColor);
+                    }
+                } catch (IllegalArgumentException ex) {
+                    Logger.printDebug(() -> "afterTextChanged bad color", ex);
+                } catch (Exception ex) {
+                    Logger.printException(() -> "afterTextChanged failure", ex);
                 }
             }
         };
