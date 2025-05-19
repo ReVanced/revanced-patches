@@ -265,11 +265,12 @@ public class SegmentCategoryListPreference extends ListPreference {
 
         // Do not close dialog when reset is pressed.
         Button button = ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEUTRAL);
-        button.setOnClickListener(v -> {
+        button.setOnClickListener(view -> {
             try {
-                category.resetColorAndOpacity();
-                colorPickerView.setColor(category.getColorNoOpacity());
-                updateUI();
+                // Setting view color causes callback to update the UI.
+                colorPickerView.setColor(category.getColorNoOpacityDefault());
+
+                categoryOpacity = category.getOpacityDefault();
                 updateOpacityText();
             } catch (Exception ex) {
                 Logger.printException(() -> "setOnClickListener failure", ex);
@@ -289,11 +290,8 @@ public class SegmentCategoryListPreference extends ListPreference {
                 }
 
                 try {
-                    String colorString = colorEditText.getText().toString();
-                    if (!colorString.equals(category.getColorString()) || categoryOpacity != category.getOpacity()) {
-                        category.setColor(colorString);
-                        category.setOpacity(categoryOpacity);
-                    }
+                    category.setColor(colorEditText.getText().toString());
+                    category.setOpacity(categoryOpacity);
                 } catch (IllegalArgumentException ex) {
                     Utils.showToastShort(str("revanced_settings_color_invalid"));
                 }

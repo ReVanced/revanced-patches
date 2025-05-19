@@ -275,6 +275,10 @@ public enum SegmentCategory {
         return opacitySetting.get();
     }
 
+    public float getOpacityDefault() {
+        return opacitySetting.defaultValue;
+    }
+
     public void resetColorAndOpacity() {
         setColor(colorSetting.defaultValue);
         setOpacity(opacitySetting.defaultValue);
@@ -295,6 +299,13 @@ public enum SegmentCategory {
      */
     public int getColorNoOpacity() {
         return color & 0x00FFFFFF;
+    }
+
+    /**
+     * @return Integer color of #RRGGBB format.
+     */
+    public int getColorNoOpacityDefault() {
+        return Color.parseColor(colorSetting.defaultValue) & 0x00FFFFFF;
     }
 
     /**
