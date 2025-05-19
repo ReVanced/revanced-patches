@@ -6,13 +6,13 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.SpannableString;
 import android.text.Spanned;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
@@ -24,6 +24,10 @@ import android.view.ViewParent;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -42,6 +46,16 @@ public class ColorPickerPreference extends EditTextPreference {
      * Character to show the color appearance.
      */
     public static final String COLOR_DOT_STRING = "⬤";
+
+    /**
+     * Length of a valid color string of format #RRGGBB.
+     */
+    public static final int COLOR_STRING_LENGTH = 7;
+
+    /**
+     * Pattern of a valid color string.
+     */
+    private static final Pattern COLOR_STRING_PATTERN = Pattern.compile("#[0-9A-Fa-f]{0,6}");
 
     /**
      * TextView displaying a colored dot for the selected color preview in the dialog.
@@ -67,6 +81,21 @@ public class ColorPickerPreference extends EditTextPreference {
      * TextWatcher for the EditText to monitor color input changes.
      */
     private TextWatcher colorTextWatcher;
+
+    /**
+     * Removes non valid hex characters, converts to all uppercase,
+     * and adds # character to the start if not present.
+     */
+    public static String cleanupColorCodeString(String colorString) {
+        StringBuilder result = new StringBuilder();
+        Matcher matcher = COLOR_STRING_PATTERN.matcher(colorString);
+
+        while (matcher.find()) {
+            result.append(matcher.group());
+        }
+
+        return result.toString().toUpperCase(Locale.ROOT);
+    }
 
     private static String getColorString(int originalColor) {
         return String.format("#%06X", originalColor);
@@ -101,8 +130,12 @@ public class ColorPickerPreference extends EditTextPreference {
         if (colorSetting == null) {
             Logger.printException(() -> "Could not find color setting for: " + getKey());
         }
-        getEditText().setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+        EditText editText = getEditText();
+        editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
                 | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            editText.setAutofillHints((String) null);
+        }
         loadFromSettings();
         // Set the widget layout to a custom layout containing the colored dot
         setWidgetLayoutResource(getResourceIdentifier("revanced_color_dot_widget", "layout"));
@@ -118,8 +151,10 @@ public class ColorPickerPreference extends EditTextPreference {
         try {
             setText(colorString);
         } catch (Exception ex) {
-            Logger.printException(() -> "Invalid color: " + colorString, ex);
-            setText(colorSetting.resetToDefault());
+            Logger.printDebug(() -> "Parse color error: " + colorString, ex);
+            Utils.showToastShort(str("revanced_settings_color_invalid"));
+            colorSetting.resetToDefault();
+            loadFromSettings();
         }
     }
 
@@ -131,19 +166,24 @@ public class ColorPickerPreference extends EditTextPreference {
      */
     @Override
     public final void setText(String colorString) throws IllegalArgumentException {
-        if (colorString.equals(getText())) {
-            Logger.printDebug(() -> "Ignoring unchanged color: " + colorString);
-            return;
-        }
+        try {
+            super.setText(colorString);
 
-        super.setText(colorString);
-
-        currentColor = Color.parseColor(colorString) & 0xFFFFFF;
-        if (colorSetting != null) {
-            colorSetting.save(getColorString(currentColor));
+            currentColor = Color.parseColor(colorString) & 0xFFFFFF;
+            if (colorSetting != null) {
+                colorSetting.save(getColorString(currentColor));
+            }
+            updateColorPreview();
+            updateWidgetColorDot();
+        } catch (IllegalArgumentException ex) {
+            // This code is reached if the user pastes settings json with an invalid color
+            // since this preference is updated with the new setting text.
+            Logger.printDebug(() -> "Parse color error: " + colorString, ex);
+            Utils.showToastShort(str("revanced_settings_color_invalid"));
+            setText(colorSetting.resetToDefault());
+        } catch (Exception ex) {
+            Logger.printException(() -> "setText failure: " + colorString, ex);
         }
-        updateColorPreview();
-        updateWidgetColorDot();
     }
 
     @Override
@@ -191,7 +231,9 @@ public class ColorPickerPreference extends EditTextPreference {
         if (parent instanceof ViewGroup parentViewGroup) {
             parentViewGroup.removeView(editText);
         }
-        editText.setText(getColorString(currentColor));
+        String colorString = getColorString(currentColor);
+        editText.setText(colorString);
+        editText.setSelection(colorString.length());
         colorTextWatcher = createColorTextWatcher(customColorPickerView);
         editText.addTextChangedListener(colorTextWatcher);
         inputLayout.addView(editText);
@@ -250,31 +292,31 @@ public class ColorPickerPreference extends EditTextPreference {
 
             @Override
             public void afterTextChanged(Editable edit) {
-                try {
-                    String colorString = edit.toString();
-                    final int colorStringLength = colorString.length();
+                String colorString = edit.toString();
 
-                    if (!colorString.startsWith("#")) {
-                        edit.insert(0, "#"); // Recursively calls back into this method.
+                try {
+                    String normalizedColorString = cleanupColorCodeString(colorString);
+                    if (!normalizedColorString.equals(colorString)) {
+                        edit.replace(0, colorString.length(), normalizedColorString);
                         return;
                     }
 
-                    final int maxColorStringLength = 7; // #RRGGBB
-                    if (colorStringLength > maxColorStringLength) {
-                        edit.delete(maxColorStringLength, colorStringLength);
+                    if (normalizedColorString.length() != 7) {
+                        // User is still typing out the color.
                         return;
                     }
 
                     final int newColor = Color.parseColor(colorString) & 0xFFFFFF;
                     if (currentColor != newColor) {
-                        Logger.printDebug(() -> "afterTextChanged");
+                        Logger.printDebug(() -> "afterTextChanged to: " + normalizedColorString);
                         currentColor = newColor;
                         updateColorPreview();
                         updateWidgetColorDot();
                         colorPickerView.setColor(newColor);
                     }
                 } catch (IllegalArgumentException ex) {
-                    Logger.printDebug(() -> "afterTextChanged bad color", ex);
+                    // Should never be reached since input is validated before using.
+                    Logger.printException(() -> "afterTextChanged bad color: " + colorString, ex);
                 } catch (Exception ex) {
                     Logger.printException(() -> "afterTextChanged failure", ex);
                 }
@@ -293,23 +335,39 @@ public class ColorPickerPreference extends EditTextPreference {
         Context context = builder.getContext();
         LinearLayout dialogLayout = createDialogLayout(context);
         builder.setView(dialogLayout);
+        final int originalColor = currentColor;
 
-        builder.setNeutralButton(str("revanced_settings_reset_color"), (dialog, which) -> {
+        builder.setNeutralButton(str("revanced_settings_reset"), (dialog, which) -> {
             try {
                 setText(colorSetting.resetToDefault());
-                Utils.showToastShort(str("revanced_settings_color_reset"));
             } catch (Exception ex) {
                 Logger.printException(() -> "setNeutralButton failure", ex);
             }
         });
 
         builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
-            EditText editText = getEditText();
-            saveColor(editText, (AlertDialog) dialog);
-            Utils.showToastShort(str("revanced_settings_color_changed"));
+            String colorString = getEditText().getText().toString();
+
+            if (colorString.length() != COLOR_STRING_LENGTH) {
+                // User did not finish entering the color.
+                return;
+            }
+
+            try {
+                setText(colorString);
+            } catch (IllegalArgumentException ex) {
+                Logger.printDebug(() -> "Parse color error: " + colorString, ex);
+                Utils.showToastShort(str("revanced_settings_color_invalid"));
+                setText(colorSetting.resetToDefault());
+            }
+            dialog.dismiss();
         });
 
-        builder.setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss());
+        builder.setNegativeButton(android.R.string.cancel, (dialog, which) -> {
+            // Restore the original color.
+            setText(getColorString(originalColor));
+            dialog.dismiss();
+        });
     }
 
     @Override
@@ -319,31 +377,6 @@ public class ColorPickerPreference extends EditTextPreference {
         if (dialog == null) return;
 
         dialog.setCanceledOnTouchOutside(false);
-    }
-
-    /**
-     * Saves the color from the EditText and dismisses the dialog.
-     *
-     * @param editText The EditText containing the color input.
-     * @param dialog The AlertDialog to dismiss.
-     */
-    private void saveColor(EditText editText, AlertDialog dialog) {
-        String colorString = editText.getText().toString();
-        if (TextUtils.isEmpty(colorString)) {
-            if (colorSetting != null) {
-                colorSetting.resetToDefault();
-                loadFromSettings();
-            }
-            dialog.dismiss();
-            return;
-        }
-
-        try {
-            setText(colorString);
-            dialog.dismiss();
-        } catch (IllegalArgumentException ex) {
-            Logger.printException(() -> "Invalid color format: " + colorString, ex);
-        }
     }
 
     @Override

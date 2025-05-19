@@ -22,6 +22,7 @@ import android.widget.TextView;
 import java.util.Locale;
 import java.util.Objects;
 
+import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomColorPickerView;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -111,7 +112,10 @@ public class SegmentCategoryListPreference extends ListPreference {
             gridParams.rowSpec = GridLayout.spec(0); // First row.
             gridParams.columnSpec = GridLayout.spec(2); // Third column.
             colorEditText = new EditText(context);
-            colorEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS);
+            colorEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+                    | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+            colorEditText.setAutofillHints((String) null);
+
             colorEditText.setTextLocale(Locale.US);
             colorEditText.setText(String.format("#%06X", categoryColor & 0xFFFFFF));
             colorEditText.addTextChangedListener(new TextWatcher() {
@@ -125,18 +129,17 @@ public class SegmentCategoryListPreference extends ListPreference {
 
                 @Override
                 public void afterTextChanged(Editable edit) {
+                    String colorString = edit.toString();
                     try {
-                        String colorString = edit.toString();
-                        final int colorStringLength = colorString.length();
 
-                        if (!colorString.startsWith("#")) {
-                            edit.insert(0, "#"); // Recursively calls back into this method.
+                        String normalizedColorString = ColorPickerPreference.cleanupColorCodeString(colorString);
+                        if (!normalizedColorString.equals(colorString)) {
+                            edit.replace(0, colorString.length(), normalizedColorString);
                             return;
                         }
 
-                        final int maxColorStringLength = 7; // #RRGGBB
-                        if (colorStringLength > maxColorStringLength) {
-                            edit.delete(maxColorStringLength, colorStringLength);
+                        if (normalizedColorString.length() != ColorPickerPreference.COLOR_STRING_LENGTH) {
+                            // User is still typing out the color.
                             return;
                         }
 
@@ -145,7 +148,8 @@ public class SegmentCategoryListPreference extends ListPreference {
                         updateCategoryColorDot();
                         colorPickerView.setColor(newColor);
                     } catch (IllegalArgumentException ex) {
-                        // Ignore.
+                        // Should never be reached since input is validated before using.
+                        Logger.printException(() -> "afterTextChanged bad color: " + colorString, ex);
                     }
                 }
             });
@@ -265,7 +269,7 @@ public class SegmentCategoryListPreference extends ListPreference {
                     if (!colorString.equals(category.getColorString()) || categoryOpacity != category.getOpacity()) {
                         category.setColor(colorString);
                         category.setOpacity(categoryOpacity);
-                        Utils.showToastShort(str("revanced_settings_color_changed"));
+                        Utils.showToastShort(str("revanced_sb_color_changed"));
                     }
                 } catch (IllegalArgumentException ex) {
                     Utils.showToastShort(str("revanced_settings_color_invalid"));

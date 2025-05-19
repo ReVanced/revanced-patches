@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.sponsorblock.objects;
 
 import static app.revanced.extension.shared.StringRef.sf;
+import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.COLOR_DOT_STRING;
 import static app.revanced.extension.youtube.settings.Settings.*;
 
 import android.graphics.Color;
@@ -304,14 +305,14 @@ public enum SegmentCategory {
     }
 
     private static SpannableString getCategoryColorDotSpan(String text, int color) {
-        SpannableString dotSpan = new SpannableString('⬤' + text);
+        SpannableString dotSpan = new SpannableString(COLOR_DOT_STRING + text);
         dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         return dotSpan;
     }
 
     public static SpannableString getCategoryColorDot(int color) {
-        SpannableString dotSpan = new SpannableString('⬤' + "");
+        SpannableString dotSpan = new SpannableString(COLOR_DOT_STRING);
         dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         dotSpan.setSpan(new RelativeSizeSpan(1.5f), 0, 1,
