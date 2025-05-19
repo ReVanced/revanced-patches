@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Подешавања ReVanced-а су враћена на подразумеване вредности</string>
   <string name="revanced_settings_import_success">Увезено %d подешавања</string>
   <string name="revanced_settings_import_failure_parse">Неуспешан увоз: %s</string>
+  <string name="revanced_settings_search_hint">Претражите подешавања</string>
+  <string name="revanced_settings_search_no_results_title">Нису пронађени резултати за „%s”</string>
+  <string name="revanced_settings_search_no_results_summary">Покушајте са другом кључном речи</string>
+  <string name="revanced_settings_search_remove_message">Уклонити из историје претраге?</string>
   <string name="revanced_show_menu_icons_title">Прикажи иконице подешавања ReVanced-а</string>
   <string name="revanced_show_menu_icons_summary_on">Иконице подешавања су приказане</string>
   <string name="revanced_show_menu_icons_summary_off">Иконице подешавања нису приказане</string>
@@ -93,6 +97,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Врати старе меније подешавања</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Приказују се стари менији подешавања</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Не приказују се стари менији подешавања</string>
+  <string name="revanced_settings_search_history_title">Прикажи историју претраге подешавања</string>
+  <string name="revanced_settings_search_history_summary_on">Историја претраге подешавања је приказана</string>
+  <string name="revanced_settings_search_history_summary_off">Историја претраге подешавања није приказана</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Онемогући пуштање Shorts видеа у позадини</string>
@@ -153,15 +160,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">Сакриј дугме „Обавести ме”</string>
   <string name="revanced_hide_notify_me_button_summary_on">Дугме „Обавести ме” је скривено</string>
   <string name="revanced_hide_notify_me_button_summary_off">Дугме „Обавести ме” је приказано</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Сакриј ознаку „Други су такође гледали овај видео”</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Ознака је скривена</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Ознака је приказана</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Сакриј ознаке препорука видеа</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Ознаке „Други су такође гледали овај видео” и „Можда ће вам се допасти и ово” су скривене</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Ознаке „Други су такође гледали овај видео” и „Можда ће вам се допасти и ово” су приказане</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Сакриј дугме „Прикажи још”</string>
   <string name="revanced_hide_show_more_button_summary_on">Дугме „Прикажи још” је скривено</string>
   <string name="revanced_hide_show_more_button_summary_off">Дугме „Прикажи још” је приказано</string>
+  <string name="revanced_hide_ticket_shelf_title">Сакриј полицу са картама</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Полица са картама је скривена</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Полица са картама је приказана</string>
   <string name="revanced_hide_timed_reactions_title">Сакриј временске реакције</string>
   <string name="revanced_hide_timed_reactions_summary_on">Временске реакције су скривене</string>
   <string name="revanced_hide_timed_reactions_summary_off">Временске реакције су приказане</string>
@@ -231,6 +241,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Сакриј „Резиме видеа који је генерисала вештачка интелигенција”</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Одељак „Резиме видеа” је скривен</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Одељак „Резиме видеа” је приказан</string>
+  <string name="revanced_hide_ask_section_title">Сакриј одељак „Питај”</string>
+  <string name="revanced_hide_ask_section_summary_on">Одељак „Питај” је скривен</string>
+  <string name="revanced_hide_ask_section_summary_off">Одељак „Питај” је приказан</string>
   <string name="revanced_hide_attributes_section_title">Сакриј атрибуте</string>
   <string name="revanced_hide_attributes_section_summary_on">Одељци „Истакнута места”, „Игре”, „Музика” и „Поменути људи” су скривени</string>
   <string name="revanced_hide_attributes_section_summary_off">Одељци „Истакнута места”, „Игре”, „Музика” и „Поменути људи” су приказани</string>
@@ -794,6 +807,11 @@ Second \"item\" text"</string>
 Подешавања → Репродукција → Аутоматски пусти следећи видео"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Предложени видео на завршном екрану је приказан</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Сакриј сродне видее у режиму целог екрана</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Сродни видеи у режиму целог екрана су скривени</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Сродни видеи у режиму целог екрана су приказани</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Сакриј временску ознаку видеа</string>
   <string name="revanced_hide_timestamp_summary_on">Временска ознака видеа је скривена</string>
@@ -831,10 +849,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Освежите видео да бисте гласали помоћу ReturnYouTubeDislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скривено од стране власника</string>
-  <string name="revanced_ryd_enable_summary_on">Несвиђања су приказана</string>
-  <string name="revanced_ryd_enable_summary_off">Несвиђања нису приказана</string>
+  <string name="revanced_ryd_enabled_summary_on">Несвиђања су приказана</string>
+  <string name="revanced_ryd_enabled_summary_off">Несвиђања нису приказана</string>
   <string name="revanced_ryd_shorts_title">Прикажи несвиђања на Shorts видеима</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Несвиђања на Shorts видеима су приказана
+  <string name="revanced_ryd_shorts_summary_on">"Несвиђања на Shorts видеима су приказана
 
 Ограничење: Несвиђања се можда неће појавити у режиму без архивирања"</string>
   <string name="revanced_ryd_shorts_summary_off">Несвиђања на Shorts видеима нису приказана</string>
@@ -851,7 +869,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Прикажи искачуће обавештење ако API није доступан</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Искачуће обавештење је приказано, ако Return YouTube Dislike није доступан</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Искачуће обавештење није приказано, ако Return YouTube Dislike није доступан</string>
-  <string name="revanced_ryd_about">О програму</string>
   <string name="revanced_ryd_attribution_summary">Податке обезбеђује Return YouTube Dislike API. Додирните овде да сазнате више</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Статистике ReturnYouTubeDislike API-ја за овај уређај</string>
@@ -1057,7 +1074,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Ручно измените време сегмента</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Желите ли да измените време почетка или краја сегмента?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Дато је неважеће време</string>
-  <string name="revanced_sb_stats">Статистика</string>
+  <string name="revanced_sb_stats_title">Статистика</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Статистике привремено нису доступне (API не ради)</string>
   <string name="revanced_sb_stats_loading">Учитавање…</string>
@@ -1086,8 +1103,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_color_invalid">Неважећи кôд боје</string>
   <string name="revanced_sb_reset_color">Ресетуј боју</string>
   <string name="revanced_sb_reset">Ресетуј</string>
-  <string name="revanced_sb_about">О програму</string>
-  <string name="revanced_sb_about_api_sum">Податке обезбеђује SponsorBlock API. Додирните овде да сазнате више и видите преузимања за друге платформе</string>
+  <string name="revanced_sb_about_title">О програму</string>
+  <string name="revanced_sb_about_api_summary">Податке обезбеђује SponsorBlock API. Додирните овде да сазнате више и видите преузимања за друге платформе</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Фактор форме изгледа</string>

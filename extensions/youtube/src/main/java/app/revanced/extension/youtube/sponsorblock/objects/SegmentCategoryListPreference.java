@@ -53,9 +53,9 @@ public class SegmentCategoryListPreference extends ListPreference {
         setEntryValues(isHighlightCategory
                 ? CategoryBehaviour.getBehaviorKeyValuesWithoutSkipOnce()
                 : CategoryBehaviour.getBehaviorKeyValues());
-        setSummary(category.description.toString());
+        super.setSummary(category.description.toString());
 
-        updateTitleFromCategory();
+        updateUI();
     }
 
     @Override
@@ -202,7 +202,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             builder.setNeutralButton(str("revanced_sb_reset_color"), (dialog, which) -> {
                 try {
                     category.resetColorAndOpacity();
-                    updateTitleFromCategory();
+                    updateUI();
                     Utils.showToastShort(str("revanced_sb_color_reset"));
                 } catch (Exception ex) {
                     Logger.printException(() -> "setNeutralButton failure", ex);
@@ -240,7 +240,7 @@ public class SegmentCategoryListPreference extends ListPreference {
                     Utils.showToastShort(str("revanced_sb_color_invalid"));
                 }
 
-                updateTitleFromCategory();
+                updateUI();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "onDialogClosed failure", ex);
@@ -251,7 +251,7 @@ public class SegmentCategoryListPreference extends ListPreference {
         categoryColor = applyOpacityToColor(categoryColor, categoryOpacity);
     }
 
-    private void updateTitleFromCategory() {
+    public void updateUI() {
         categoryColor = category.getColorNoOpacity();
         categoryOpacity = category.getOpacity();
         applyOpacityToCategoryColor();
@@ -267,5 +267,14 @@ public class SegmentCategoryListPreference extends ListPreference {
 
     private void updateOpacityText() {
         opacityEditText.setText(String.format(Locale.US, "%.2f", categoryOpacity));
+    }
+
+    @Override
+    public void setSummary(CharSequence summary) {
+        // Ignore calls to set the summary.
+        // Summary is always the description of the category.
+        //
+        // This is required otherwise the ReVanced preference fragment
+        // sets all ListPreference summaries to show the current selection.
     }
 }
