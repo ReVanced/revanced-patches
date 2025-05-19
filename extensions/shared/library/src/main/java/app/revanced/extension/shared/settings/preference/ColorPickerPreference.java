@@ -154,7 +154,7 @@ public class ColorPickerPreference extends EditTextPreference {
 
         loadFromSettings();
 
-        // Set the widget layout to a custom layout containing the colored dot
+        // Set the widget layout to a custom layout containing the colored dot.
         setWidgetLayoutResource(getResourceIdentifier("revanced_color_dot_widget", "layout"));
     }
 
@@ -206,7 +206,7 @@ public class ColorPickerPreference extends EditTextPreference {
     @Override
     protected void onBindView(View view) {
         super.onBindView(view);
-        // Find the TextView in the widget area
+        // Find the TextView in the widget area.
         widgetColorDot = view.findViewById(getResourceIdentifier(
                 "revanced_color_dot_widget", "id"));
         if (widgetColorDot != null) {
@@ -231,8 +231,9 @@ public class ColorPickerPreference extends EditTextPreference {
                 getResourceIdentifier("revanced_color_picker", "layout"), null);
         CustomColorPickerView customColorPickerView = colorPickerView.findViewById(
                 getResourceIdentifier("color_picker_view", "id"));
-        // Set the initial color to the saved color from settings
+        // Set the initial color to the saved color from settings.
         customColorPickerView.setColor(currentColor);
+        customColorPickerView.updateSelectedColor();
         layout.addView(colorPickerView);
 
         // Horizontal layout for preview and EditText.

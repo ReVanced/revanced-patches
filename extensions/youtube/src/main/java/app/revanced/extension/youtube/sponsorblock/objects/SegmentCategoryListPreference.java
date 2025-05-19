@@ -78,15 +78,16 @@ public class SegmentCategoryListPreference extends ListPreference {
             mainLayout.setOrientation(LinearLayout.VERTICAL);
             mainLayout.setPadding(70, 0, 70, 0);
 
-            // Inflate the color picker view
+            // Inflate the color picker view.
             View colorPickerContainer = LayoutInflater.from(context)
                     .inflate(getResourceIdentifier("revanced_color_picker", "layout"), null);
             colorPickerView = colorPickerContainer.findViewById(
                     getResourceIdentifier("color_picker_view", "id"));
             colorPickerView.setColor(categoryColor);
+            colorPickerView.updateSelectedColor();
             mainLayout.addView(colorPickerContainer);
 
-            // Grid layout for color and opacity inputs
+            // Grid layout for color and opacity inputs.
             GridLayout gridLayout = new GridLayout(context);
             gridLayout.setColumnCount(3);
             gridLayout.setRowCount(2);
@@ -219,7 +220,7 @@ public class SegmentCategoryListPreference extends ListPreference {
 
             mainLayout.addView(gridLayout);
 
-            // Set up color picker listener
+            // Set up color picker listener.
             colorPickerView.setOnColorChangedListener(color -> {
                 String hexColor = String.format("#%06X", color & 0xFFFFFF);
                 colorEditText.setText(hexColor);

@@ -408,7 +408,7 @@ public class CustomColorPickerView extends View {
     /**
      * Updates the selected color and notifies listeners.
      */
-    private void updateSelectedColor() {
+    public void updateSelectedColor() {
         selectedColor = Color.HSVToColor(new float[]{hue, saturation, value});
         if (colorChangedListener != null) {
             colorChangedListener.onColorChanged(selectedColor);
