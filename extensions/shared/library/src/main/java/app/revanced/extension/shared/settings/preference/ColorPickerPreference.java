@@ -53,9 +53,9 @@ public class ColorPickerPreference extends EditTextPreference {
     public static final int COLOR_STRING_LENGTH = 7;
 
     /**
-     * Pattern of a valid color string.
+     * Hex string of 0 to 6 characters.
      */
-    private static final Pattern COLOR_STRING_PATTERN = Pattern.compile("#[0-9A-Fa-f]{0,6}");
+    private static final Pattern COLOR_STRING_PATTERN = Pattern.compile("[0-9A-Fa-f]{0,6}");
 
     /**
      * TextView displaying a colored dot for the selected color preview in the dialog.
@@ -87,7 +87,7 @@ public class ColorPickerPreference extends EditTextPreference {
      * and adds # character to the start if not present.
      */
     public static String cleanupColorCodeString(String colorString) {
-        StringBuilder result = new StringBuilder();
+        StringBuilder result = new StringBuilder("#");
         Matcher matcher = COLOR_STRING_PATTERN.matcher(colorString);
 
         while (matcher.find()) {
