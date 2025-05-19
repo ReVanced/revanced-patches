@@ -6,6 +6,7 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
@@ -253,6 +254,7 @@ public class ColorPickerPreference extends EditTextPreference {
         String currentColorString = getColorString(currentColor);
         editText.setText(currentColorString);
         editText.setSelection(currentColorString.length());
+        editText.setTypeface(Typeface.MONOSPACE);
         colorTextWatcher = createColorTextWatcher(customColorPickerView);
         editText.addTextChangedListener(colorTextWatcher);
         inputLayout.addView(editText);
