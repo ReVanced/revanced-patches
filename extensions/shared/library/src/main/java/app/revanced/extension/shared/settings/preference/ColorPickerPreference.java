@@ -59,7 +59,7 @@ public class ColorPickerPreference extends EditTextPreference {
     private static final Pattern COLOR_STRING_PATTERN = Pattern.compile("[0-9A-Fa-f]{0,6}");
 
     /**
-     * // Alpha for dimming when the preference is disabled.
+     * Alpha for dimming when the preference is disabled.
      */
     private static final float DISABLED_ALPHA = 0.5f; // 50%
 
@@ -69,9 +69,9 @@ public class ColorPickerPreference extends EditTextPreference {
     private TextView colorPreview;
 
     /**
-     * TextView displaying a colored dot in the widget area.
+     * View displaying a colored dot in the widget area.
      */
-    private TextView widgetColorDot;
+    private View widgetColorDot;
 
     /**
      * Current color in RGB format (without alpha).
@@ -217,11 +217,13 @@ public class ColorPickerPreference extends EditTextPreference {
     @Override
     protected void onBindView(View view) {
         super.onBindView(view);
-        // Find the TextView in the widget area.
+        // Find the View in the widget area.
         widgetColorDot = view.findViewById(getResourceIdentifier(
                 "revanced_color_dot_widget", "id"));
         if (widgetColorDot != null) {
-            widgetColorDot.setText(getColorDot(currentColor));
+            widgetColorDot.setBackgroundResource(getResourceIdentifier(
+                    "revanced_settings_circle_background", "drawable"));
+            widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
             widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
         }
     }
@@ -324,7 +326,7 @@ public class ColorPickerPreference extends EditTextPreference {
 
     private void updateWidgetColorDot() {
         if (widgetColorDot != null) {
-            widgetColorDot.setText(getColorDot(currentColor));
+            widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
             widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
         }
     }

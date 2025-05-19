@@ -4,13 +4,10 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_gravity="center">
-    <TextView
+    <View
             android:id="@+id/revanced_color_dot_widget"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_gravity="center"
-            android:padding="4dp"
-            android:includeFontPadding="false" />
+            android:background="@drawable/revanced_settings_circle_background" />
 </FrameLayout>
