@@ -251,6 +251,10 @@ public class ColorPickerPreference extends EditTextPreference {
         if (parent instanceof ViewGroup parentViewGroup) {
             parentViewGroup.removeView(editText);
         }
+        editText.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        ));
         String currentColorString = getColorString(currentColor);
         editText.setText(currentColorString);
         editText.setSelection(currentColorString.length());
@@ -258,6 +262,17 @@ public class ColorPickerPreference extends EditTextPreference {
         colorTextWatcher = createColorTextWatcher(customColorPickerView);
         editText.addTextChangedListener(colorTextWatcher);
         inputLayout.addView(editText);
+
+        // Add a dummy view to take up remaining horizontal space,
+        // otherwise it will show an oversize underlined text view.
+        View paddingView = new View(context);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                0,
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                1f
+        );
+        paddingView.setLayoutParams(params);
+        inputLayout.addView(paddingView);
 
         layout.addView(inputLayout);
 

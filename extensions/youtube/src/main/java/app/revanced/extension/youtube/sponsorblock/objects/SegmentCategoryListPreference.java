@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.preference.ListPreference;
 import android.text.Editable;
 import android.text.InputType;
@@ -116,7 +117,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             colorEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
                     | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
             colorEditText.setAutofillHints((String) null);
-
+            colorEditText.setTypeface(Typeface.MONOSPACE);
             colorEditText.setTextLocale(Locale.US);
             colorEditText.setText(String.format("#%06X", categoryColor & 0xFFFFFF));
             colorEditText.addTextChangedListener(new TextWatcher() {
@@ -169,7 +170,11 @@ public class SegmentCategoryListPreference extends ListPreference {
             gridParams.rowSpec = GridLayout.spec(1); // Second row.
             gridParams.columnSpec = GridLayout.spec(2); // Third column.
             opacityEditText = new EditText(context);
-            opacityEditText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+            opacityEditText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL
+                    | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+            opacityEditText.setAutofillHints((String) null);
+            opacityEditText.setTypeface(Typeface.MONOSPACE);
+            opacityEditText.setTextLocale(Locale.US);
             opacityEditText.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
