@@ -37,22 +37,32 @@ import app.revanced.extension.shared.settings.StringSetting;
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class ColorPickerPreference extends EditTextPreference {
+
+    /**
+     * Character to show the color appearance.
+     */
+    public static final String COLOR_DOT_STRING = "⬤";
+
     /**
      * TextView displaying a colored dot for the selected color preview in the dialog.
      */
     private TextView colorPreview;
+
     /**
      * TextView displaying a colored dot in the widget area.
      */
     private TextView widgetColorDot;
+
     /**
      * Current color in RGB format (without alpha).
      */
     private int currentColor;
+
     /**
      * Associated setting for storing the color value.
      */
     private StringSetting colorSetting;
+
     /**
      * TextWatcher for the EditText to monitor color input changes.
      */
@@ -140,7 +150,8 @@ public class ColorPickerPreference extends EditTextPreference {
     protected void onBindView(View view) {
         super.onBindView(view);
         // Find the TextView in the widget area
-        widgetColorDot = view.findViewById(getResourceIdentifier("revanced_color_dot_widget", "id"));
+        widgetColorDot = view.findViewById(getResourceIdentifier(
+                "revanced_color_dot_widget", "id"));
         if (widgetColorDot != null) {
             widgetColorDot.setText(getColorDot(currentColor));
         }
@@ -158,8 +169,8 @@ public class ColorPickerPreference extends EditTextPreference {
         layout.setPadding(70, 0, 70, 0);
 
         // Inflate color picker.
-        View colorPickerView = LayoutInflater.from(context)
-                .inflate(getResourceIdentifier("revanced_color_picker", "layout"), null);
+        View colorPickerView = LayoutInflater.from(context).inflate(
+                getResourceIdentifier("revanced_color_picker", "layout"), null);
         CustomColorPickerView customColorPickerView = colorPickerView.findViewById(
                 getResourceIdentifier("color_picker_view", "id"));
         // Set the initial color to the saved color from settings
@@ -350,9 +361,8 @@ public class ColorPickerPreference extends EditTextPreference {
      * @return A Spanned object with the colored dot.
      */
     public static Spanned getColorDot(int color) {
-        String dot = "⬤";
-        SpannableString spannable = new SpannableString(dot);
-        spannable.setSpan(new ForegroundColorSpan(color | 0xFF000000), 0, dot.length(),
+        SpannableString spannable = new SpannableString(COLOR_DOT_STRING);
+        spannable.setSpan(new ForegroundColorSpan(color | 0xFF000000), 0, COLOR_DOT_STRING.length(),
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannable.setSpan(new RelativeSizeSpan(1.5f), 0, 1,
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

@@ -31,7 +31,7 @@ public final class WideSearchbarPatch {
             final int paddingRight = searchBarView.getPaddingRight();
             final int paddingTop = searchBarView.getPaddingTop();
             final int paddingBottom = searchBarView.getPaddingBottom();
-            final int paddingStart = (int) Utils.dipToPixels(8);
+            final int paddingStart = Utils.dipToPixels(8);
 
             if (Utils.isRightToLeftLocale()) {
                 searchBarView.setPadding(paddingLeft, paddingTop, paddingStart, paddingBottom);

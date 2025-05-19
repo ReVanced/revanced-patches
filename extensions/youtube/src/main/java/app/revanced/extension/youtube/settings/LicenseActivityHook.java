@@ -118,7 +118,7 @@ public class LicenseActivityHook {
         toolbar.setNavigationIcon(ReVancedPreferenceFragment.getBackButtonDrawable());
         toolbar.setTitle(getResourceIdentifier("revanced_settings_title", "string"));
 
-        final int margin = (int) Utils.dipToPixels(16);
+        final int margin = Utils.dipToPixels(16);
         toolbar.setTitleMarginStart(margin);
         toolbar.setTitleMarginEnd(margin);
         TextView toolbarTextView = Utils.getChildView(toolbar, false,

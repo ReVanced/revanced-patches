@@ -244,7 +244,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                             toolbar.setNavigationIcon(getBackButtonDrawable());
                             toolbar.setNavigationOnClickListener(view -> preferenceScreenDialog.dismiss());
 
-                            final int margin = (int) Utils.dipToPixels(16);
+                            final int margin = Utils.dipToPixels(16);
                             toolbar.setTitleMargin(margin, 0, margin, 0);
 
                             TextView toolbarTextView = Utils.getChildView(toolbar,

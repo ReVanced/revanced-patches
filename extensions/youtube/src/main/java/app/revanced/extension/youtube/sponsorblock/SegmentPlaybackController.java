@@ -730,7 +730,7 @@ public class SegmentPlaybackController {
      * Actual screen pixel width to use for the highlight segment time bar.
      */
     private static final int highlightSegmentTimeBarScreenWidth
-            = (int) Utils.dipToPixels(HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH);
+            = Utils.dipToPixels(HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH);
 
     /**
      * Injection point.

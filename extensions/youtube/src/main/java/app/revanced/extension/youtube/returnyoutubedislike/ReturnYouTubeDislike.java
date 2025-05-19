@@ -119,12 +119,12 @@ public class ReturnYouTubeDislike {
 
     static {
         leftSeparatorBounds = new Rect(0, 0,
-                (int) Utils.dipToPixels(1.2f),
-                (int) Utils.dipToPixels(14f));
-        final int middleSeparatorSize = (int) Utils.dipToPixels(3.7f);
+                Utils.dipToPixels(1.2f),
+                Utils.dipToPixels(14f));
+        final int middleSeparatorSize = Utils.dipToPixels(3.7f);
         middleSeparatorBounds = new Rect(0, 0, middleSeparatorSize, middleSeparatorSize);
 
-        leftSeparatorShapePaddingPixels = (int) Utils.dipToPixels(8.4f);
+        leftSeparatorShapePaddingPixels = Utils.dipToPixels(8.4f);
 
         leftSeparatorShape = new ShapeDrawable(new RectShape());
         leftSeparatorShape.setBounds(leftSeparatorBounds);

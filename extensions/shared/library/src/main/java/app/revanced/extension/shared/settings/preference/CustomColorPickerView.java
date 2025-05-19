@@ -128,7 +128,7 @@ public class CustomColorPickerView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         final float DESIRED_ASPECT_RATIO = 0.8f; // height = width * 0.8
 
-        final int minWidth = (int) Utils.dipToPixels(250);
+        final int minWidth = Utils.dipToPixels(250);
         final int minHeight = (int) (minWidth * DESIRED_ASPECT_RATIO);
 
         int width = resolveSize(minWidth, widthMeasureSpec);
@@ -222,6 +222,7 @@ public class CustomColorPickerView extends View {
         );
 
         // Create a linear gradient for the value (brightness) from white to black (vertical).
+        //noinspection ExtractMethodRecommender
         LinearGradient valShader = new LinearGradient(
                 saturationValueRect.left, saturationValueRect.top,
                 saturationValueRect.left, saturationValueRect.bottom,

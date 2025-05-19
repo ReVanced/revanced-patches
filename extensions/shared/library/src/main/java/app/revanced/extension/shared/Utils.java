@@ -850,8 +850,8 @@ public class Utils {
      * @param dip The density-independent pixels value
      * @return The device pixel value
      */
-    public static float dipToPixels(float dip) {
-        return TypedValue.applyDimension(
+    public static int dipToPixels(float dip) {
+        return (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,
                 dip,
                 Resources.getSystem().getDisplayMetrics()
