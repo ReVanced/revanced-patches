@@ -102,23 +102,32 @@ public class ColorPickerPreference extends EditTextPreference {
     }
 
     /**
-     * Constructs a ColorPickerPreference with specified context and attributes.
+     * Creates a Spanned object for a colored dot using SpannableString.
      *
-     * @param context The context in which the view is running.
-     * @param attrs   The XML tag attributes.
+     * @param color The RGB color (without alpha).
+     * @return A Spanned object with the colored dot.
      */
+    public static Spanned getColorDot(int color) {
+        SpannableString spannable = new SpannableString(COLOR_DOT_STRING);
+        spannable.setSpan(new ForegroundColorSpan(color | 0xFF000000), 0, COLOR_DOT_STRING.length(),
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannable.setSpan(new RelativeSizeSpan(1.5f), 0, 1,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return spannable;
+    }
+
+    public ColorPickerPreference(Context context) {
+        super(context);
+        init();
+    }
+
     public ColorPickerPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    /**
-     * Constructs a ColorPickerPreference with specified context.
-     *
-     * @param context The context in which the view is running.
-     */
-    public ColorPickerPreference(Context context) {
-        super(context);
+    public ColorPickerPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         init();
     }
 
@@ -130,13 +139,16 @@ public class ColorPickerPreference extends EditTextPreference {
         if (colorSetting == null) {
             Logger.printException(() -> "Could not find color setting for: " + getKey());
         }
+
         EditText editText = getEditText();
         editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
                 | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             editText.setAutofillHints((String) null);
         }
+
         loadFromSettings();
+
         // Set the widget layout to a custom layout containing the colored dot
         setWidgetLayoutResource(getResourceIdentifier("revanced_color_dot_widget", "layout"));
     }
@@ -306,7 +318,7 @@ public class ColorPickerPreference extends EditTextPreference {
                         return;
                     }
 
-                    final int newColor = Color.parseColor(colorString) & 0xFFFFFF;
+                    final int newColor = Color.parseColor(colorString);
                     if (currentColor != newColor) {
                         Logger.printDebug(() -> "afterTextChanged to: " + normalizedColorString);
                         currentColor = newColor;
@@ -332,8 +344,7 @@ public class ColorPickerPreference extends EditTextPreference {
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
         Utils.setEditTextDialogTheme(builder);
-        Context context = builder.getContext();
-        LinearLayout dialogLayout = createDialogLayout(context);
+        LinearLayout dialogLayout = createDialogLayout(builder.getContext());
         builder.setView(dialogLayout);
         final int originalColor = currentColor;
 
@@ -346,27 +357,29 @@ public class ColorPickerPreference extends EditTextPreference {
         });
 
         builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
-            String colorString = getEditText().getText().toString();
-
-            if (colorString.length() != COLOR_STRING_LENGTH) {
-                // User did not finish entering the color.
-                return;
-            }
-
             try {
+                String colorString = getEditText().getText().toString();
+
+                if (colorString.length() != COLOR_STRING_LENGTH) {
+                    // User did not finish entering the color.
+                    return;
+                }
+
                 setText(colorString);
-            } catch (IllegalArgumentException ex) {
-                Logger.printDebug(() -> "Parse color error: " + colorString, ex);
-                Utils.showToastShort(str("revanced_settings_color_invalid"));
-                setText(colorSetting.resetToDefault());
+            } catch (Exception ex) {
+                // Should never happen due to a bad color string,
+                // since the text is validated and fixed while the user types.
+                Logger.printException(() -> "setPositiveButton failure", ex);
             }
-            dialog.dismiss();
         });
 
         builder.setNegativeButton(android.R.string.cancel, (dialog, which) -> {
-            // Restore the original color.
-            setText(getColorString(originalColor));
-            dialog.dismiss();
+            try {
+                // Restore the original color.
+                setText(getColorString(originalColor));
+            } catch (Exception ex) {
+                Logger.printException(() -> "setNegativeButton failure", ex);
+            }
         });
     }
 
@@ -385,20 +398,5 @@ public class ColorPickerPreference extends EditTextPreference {
         if (colorTextWatcher != null) {
             getEditText().removeTextChangedListener(colorTextWatcher);
         }
-    }
-
-    /**
-     * Creates a Spanned object for a colored dot using SpannableString.
-     *
-     * @param color The RGB color (without alpha).
-     * @return A Spanned object with the colored dot.
-     */
-    public static Spanned getColorDot(int color) {
-        SpannableString spannable = new SpannableString(COLOR_DOT_STRING);
-        spannable.setSpan(new ForegroundColorSpan(color | 0xFF000000), 0, COLOR_DOT_STRING.length(),
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannable.setSpan(new RelativeSizeSpan(1.5f), 0, 1,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        return spannable;
     }
 }
