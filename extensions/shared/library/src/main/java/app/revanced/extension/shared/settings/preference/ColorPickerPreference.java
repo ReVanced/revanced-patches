@@ -37,7 +37,7 @@ import app.revanced.extension.shared.settings.StringSetting;
 /**
  * A custom preference for selecting a color via a hexadecimal code or a color picker dialog.
  * Extends {@link EditTextPreference} to display a colored dot in the widget area,
- * reflecting the currently selected color.
+ * reflecting the currently selected color. The dot is dimmed when the preference is disabled.
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class ColorPickerPreference extends EditTextPreference {
@@ -56,6 +56,11 @@ public class ColorPickerPreference extends EditTextPreference {
      * Hex string of 0 to 6 characters.
      */
     private static final Pattern COLOR_STRING_PATTERN = Pattern.compile("[0-9A-Fa-f]{0,6}");
+
+    /**
+     * // Alpha for dimming when the preference is disabled.
+     */
+    private static final float DISABLED_ALPHA = 0.5f; // 50%
 
     /**
      * TextView displaying a colored dot for the selected color preview in the dialog.
@@ -206,6 +211,7 @@ public class ColorPickerPreference extends EditTextPreference {
                 "revanced_color_dot_widget", "id"));
         if (widgetColorDot != null) {
             widgetColorDot.setText(getColorDot(currentColor));
+            widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
         }
     }
 
@@ -278,12 +284,14 @@ public class ColorPickerPreference extends EditTextPreference {
     private void updateColorPreview() {
         if (colorPreview != null) {
             colorPreview.setText(getColorDot(currentColor));
+            colorPreview.setAlpha(1.0f);
         }
     }
 
     private void updateWidgetColorDot() {
         if (widgetColorDot != null) {
             widgetColorDot.setText(getColorDot(currentColor));
+            widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
         }
     }
 
@@ -398,5 +406,11 @@ public class ColorPickerPreference extends EditTextPreference {
         if (colorTextWatcher != null) {
             getEditText().removeTextChangedListener(colorTextWatcher);
         }
+    }
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        updateWidgetColorDot();
     }
 }
