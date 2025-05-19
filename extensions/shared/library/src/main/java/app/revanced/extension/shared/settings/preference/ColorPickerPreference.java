@@ -32,15 +32,19 @@ import app.revanced.extension.shared.settings.StringSetting;
 
 /**
  * A custom preference for selecting a color via a hexadecimal code or a color picker dialog.
- * Extends {@link EditTextPreference} to display a colored dot next to the title and input field,
+ * Extends {@link EditTextPreference} to display a colored dot in the widget area,
  * reflecting the currently selected color.
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class ColorPickerPreference extends EditTextPreference {
     /**
-     * TextView displaying a colored dot for the selected color preview.
+     * TextView displaying a colored dot for the selected color preview in the dialog.
      */
     private TextView colorPreview;
+    /**
+     * TextView displaying a colored dot in the widget area.
+     */
+    private TextView widgetColorDot;
     /**
      * Current color in RGB format (without alpha).
      */
@@ -49,10 +53,6 @@ public class ColorPickerPreference extends EditTextPreference {
      * Associated setting for storing the color value.
      */
     private StringSetting colorSetting;
-    /**
-     * Original title of the preference, excluding the color dot.
-     */
-    private CharSequence originalTitle;
     /**
      * TextWatcher for the EditText to monitor color input changes.
      */
@@ -84,18 +84,18 @@ public class ColorPickerPreference extends EditTextPreference {
     }
 
     /**
-     * Initializes the preference by setting up the EditText, loading the color, and updating the title.
+     * Initializes the preference by setting up the EditText, loading the color, and set the widget layout.
      */
     private void init() {
         colorSetting = (StringSetting) Setting.getSettingFromPath(getKey());
         if (colorSetting == null) {
             Logger.printException(() -> "Could not find color setting for: " + getKey());
         }
-        originalTitle = super.getTitle();
         getEditText().setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
                 | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         loadFromSettings();
-        updateTitleWithColorDot();
+        // Set the widget layout to a custom layout containing the colored dot
+        setWidgetLayoutResource(getResourceIdentifier("revanced_color_dot_widget", "layout"));
     }
 
     /**
@@ -132,8 +132,18 @@ public class ColorPickerPreference extends EditTextPreference {
         if (colorSetting != null) {
             colorSetting.save(getColorString(currentColor));
         }
-        updateTitleWithColorDot();
         updateColorPreview();
+        updateWidgetColorDot();
+    }
+
+    @Override
+    protected void onBindView(View view) {
+        super.onBindView(view);
+        // Find the TextView in the widget area
+        widgetColorDot = view.findViewById(getResourceIdentifier("revanced_color_dot_widget", "id"));
+        if (widgetColorDot != null) {
+            widgetColorDot.setText(getColorDot(currentColor));
+        }
     }
 
     /**
@@ -184,6 +194,7 @@ public class ColorPickerPreference extends EditTextPreference {
                 String hexColor = getColorString(color & 0xFFFFFF);
                 currentColor = color & 0xFFFFFF;
                 updateColorPreview();
+                updateWidgetColorDot();
                 if (!editText.getText().toString().equals(hexColor)) {
                     editText.setText(hexColor);
                     editText.setSelection(hexColor.length());
@@ -202,6 +213,12 @@ public class ColorPickerPreference extends EditTextPreference {
     private void updateColorPreview() {
         if (colorPreview != null) {
             colorPreview.setText(getColorDot(currentColor));
+        }
+    }
+
+    private void updateWidgetColorDot() {
+        if (widgetColorDot != null) {
+            widgetColorDot.setText(getColorDot(currentColor));
         }
     }
 
@@ -242,6 +259,7 @@ public class ColorPickerPreference extends EditTextPreference {
                         Logger.printDebug(() -> "afterTextChanged");
                         currentColor = newColor;
                         updateColorPreview();
+                        updateWidgetColorDot();
                         colorPickerView.setColor(newColor);
                     }
                 } catch (IllegalArgumentException ex) {
@@ -339,24 +357,5 @@ public class ColorPickerPreference extends EditTextPreference {
         spannable.setSpan(new RelativeSizeSpan(1.5f), 0, 1,
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return spannable;
-    }
-
-    /**
-     * Creates a Spanned object combining the original title with a colored dot.
-     *
-     * @return A Spanned object with the title and colored dot.
-     */
-    public final Spanned getTitleWithColorDot() {
-        SpannableString spannable = new SpannableString("⬤ " + originalTitle);
-        spannable.setSpan(new ForegroundColorSpan(currentColor | 0xFF000000), 0, 1,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        return spannable;
-    }
-
-    /**
-     * Updates the preference title with a colored dot.
-     */
-    private void updateTitleWithColorDot() {
-        setTitle(getTitleWithColorDot());
     }
 }
