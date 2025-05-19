@@ -42,7 +42,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Настройки ReVanced восстановлены до значений по умолчанию</string>
   <string name="revanced_settings_import_success">Импортировано %d настроек</string>
   <string name="revanced_settings_import_failure_parse">Ошибка импорта: %s</string>
-  <string name="revanced_settings_search_hint">Настройки поиска</string>
+  <string name="revanced_settings_search_hint">Поиск настроек</string>
   <string name="revanced_settings_search_no_results_title">По запросу \"%s\" ничего не найдено</string>
   <string name="revanced_settings_search_no_results_summary">Попробуйте другое ключевое слово</string>
   <string name="revanced_settings_search_remove_message">Удалить из истории поиска?</string>
@@ -97,9 +97,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Включить старое меню настроек</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Старое меню настроек включено</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Новое меню настроек включено</string>
-  <string name="revanced_settings_search_history_title">Показывать историю поиска в настройках</string>
-  <string name="revanced_settings_search_history_summary_on">История поиска в настройках отображается</string>
-  <string name="revanced_settings_search_history_summary_off">История поиска настроек не отображается</string>
+  <string name="revanced_settings_search_history_title">Показать историю поиска настроек</string>
+  <string name="revanced_settings_search_history_summary_on">История поиска настроек показана</string>
+  <string name="revanced_settings_search_history_summary_off">История поиска настроек скрыта</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Отключить воспроизведение Shorts в фоновом режиме</string>
@@ -161,17 +161,17 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Кнопка \"Прислать уведомление\" под плеером скрыта</string>
   <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Прислать уведомление\" под плеером показана</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendation_labels_title">Скрыть ярлыки с рекомендациями видео</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Ярлыки \"Люди также смотрят\" и \"Вам также может понравиться\" скрыты</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Ярлыки \"Люди также смотрят\" и \"Вам также может понравиться\" показаны</string>
+  <string name="revanced_hide_search_result_recommendation_labels_title">Скрыть метки видеорекомендаций</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Метки \"Люди также смотрели\" и \"Вам также может понравиться\" в результатах поиска скрыты</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Метки \"Люди также смотрели\" и \"Вам также может понравиться\" в результатах поиска показаны</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Скрыть кнопку \"Показать еще\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Кнопка \"Показать еще\" в результатах поиска скрыта</string>
   <string name="revanced_hide_show_more_button_summary_off">Кнопка \"Показать еще\" в результатах поиска показана</string>
   <string name="revanced_hide_ticket_shelf_title">Скрыть секцию билетов</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">Секция билетов скрыта</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">Секция билетов показана</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Секция билетов под плеером скрыта</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Секция билетов под плеером показана</string>
   <string name="revanced_hide_timed_reactions_title">Скрыть временные реакции</string>
   <string name="revanced_hide_timed_reactions_summary_on">Временные реакции в комментариях и живом чате скрыты</string>
   <string name="revanced_hide_timed_reactions_summary_off">Временные реакции в комментариях и живом чате показаны</string>
@@ -241,9 +241,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Скрыть секцию AI-резюме видео</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Секция AI-резюме видео в описании видео скрыта</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Секция AI-резюме видео в описании видео показана</string>
-  <string name="revanced_hide_ask_section_title">Скрыть кнопку \"Спросить\"</string>
-  <string name="revanced_hide_ask_section_summary_on">Раздел \"Спросить\" скрыт</string>
-  <string name="revanced_hide_ask_section_summary_off">Раздел \"Спросить\" показан</string>
+  <string name="revanced_hide_ask_section_title">Скрыть раздел \"Спросить\"</string>
+  <string name="revanced_hide_ask_section_summary_on">Раздел \"Спросить\" в описании видео скрыт</string>
+  <string name="revanced_hide_ask_section_summary_off">Раздел \"Спросить\" в описании видео показан</string>
   <string name="revanced_hide_attributes_section_title">Скрыть раздел атрибутов</string>
   <string name="revanced_hide_attributes_section_summary_on">Разделы \"Упомянутые или показанные места\", \"Игры\", \"Музыка\" и \"Люди, которых упоминали\" скрыты</string>
   <string name="revanced_hide_attributes_section_summary_off">Разделы \"Упомянутые или показанные места\", \"Игры\", \"Музыка\" и \"Люди, которых упоминали\" показаны</string>
