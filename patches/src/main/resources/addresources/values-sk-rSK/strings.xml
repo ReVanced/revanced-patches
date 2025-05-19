@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Nastavenia ReVanced sa obnovia na predvolené</string>
   <string name="revanced_settings_import_success">Počet importovaných nastavení: %d</string>
   <string name="revanced_settings_import_failure_parse">Import zlyhal: %s</string>
+  <string name="revanced_settings_search_hint">Hľadať nastavenia</string>
+  <string name="revanced_settings_search_no_results_title">Pre výraz \",%s\" sa nenašli žiadne výsledky</string>
+  <string name="revanced_settings_search_no_results_summary">Skúste iné kľúčové slovo</string>
+  <string name="revanced_settings_search_remove_message">Odstrániť z histórie vyhľadávania?</string>
   <string name="revanced_show_menu_icons_title">Zobraziť ikony nastavení ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikony nastavení sa zobrazujú</string>
   <string name="revanced_show_menu_icons_summary_off">Ikony nastavení sa nezobrazujú</string>
@@ -91,6 +95,9 @@ Vypnutie optimalizácie batérie pre MicroG nebude mať negatívny vplyv na spot
   <string name="revanced_restore_old_settings_menus_title">Obnoviť staré ponuky nastavení</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Staré ponuky nastavení sa zobrazujú</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Staré ponuky nastavení sa nezobrazujú</string>
+  <string name="revanced_settings_search_history_title">Zobraziť históriu vyhľadávania v nastaveniach</string>
+  <string name="revanced_settings_search_history_summary_on">História vyhľadávania v nastaveniach je zobrazená</string>
+  <string name="revanced_settings_search_history_summary_off">História vyhľadávania nastavení sa nezobrazuje</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Zakázať prehrávanie Shorts na pozadí</string>
@@ -151,15 +158,18 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_notify_me_button_title">Skryť tlačidlo \"Upozorniť ma\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Tlačidlo je skryté</string>
   <string name="revanced_hide_notify_me_button_summary_off">Tlačidlo je zobrazené</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Skryť označenie „Ľudia tiež sledovali“</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Označenie je skryté</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Označenie je zobrazené</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Skryť štítky s odporúčaním videa</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Štítky „Používatelia si tiež pozreli“ a „Mohlo by sa vám páčiť“ sú skryté</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Štítky „Používatelia si tiež pozreli“ a „Mohlo by sa vám páčiť“ sú zobrazené</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Skryť tlačidlo \"Zobraziť viac\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Tlačidlo je skryté</string>
   <string name="revanced_hide_show_more_button_summary_off">Tlačidlo je zobrazené</string>
+  <string name="revanced_hide_ticket_shelf_title">Skryť panel lístkov</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Panel lístkov je skrytý</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Je zobrazený panel lístkov</string>
   <string name="revanced_hide_timed_reactions_title">Skryť načasované reakcie</string>
   <string name="revanced_hide_timed_reactions_summary_on">Časované reakcie sú skryté</string>
   <string name="revanced_hide_timed_reactions_summary_off">Sú zobrazené načasované reakcie</string>
@@ -229,6 +239,9 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Skryť „Súhrn videa generovaný AI“</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sekcia so súhrnom videa je skrytá</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sekcia so súhrnom videa je zobrazená</string>
+  <string name="revanced_hide_ask_section_title">Skryť \"Opýtať sa\"</string>
+  <string name="revanced_hide_ask_section_summary_on">Sekcia \"Opýtať sa\" je skrytá</string>
+  <string name="revanced_hide_ask_section_summary_off">Sekcia \"Opýtať sa\" je zobrazená</string>
   <string name="revanced_hide_attributes_section_title">Skryť atribúty</string>
   <string name="revanced_hide_attributes_section_summary_on">Sekcie Odporúčané miesta, Hry, Hudba a Spomenutí ľudia sú skryté</string>
   <string name="revanced_hide_attributes_section_summary_off">Sekcie Odporúčané miesta, Hry, Hudba a Spomenutí ľudia sú zobrazené</string>
@@ -787,6 +800,11 @@ Automatické prehrávanie je možné zmeniť v nastaveniach YouTube:
 Nastavenia → Prehrávanie → Automatické prehrávanie ďalšieho videa"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Navrhované video na konci obrazovky sa zobrazuje</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Skryť prekrytie súvisiaceho videa v režime celej obrazovky</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Prekrytie súvisiaceho videa je skryté</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Prekrytie súvisiaceho videa sa zobrazuje</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skryť časovú pečiatku videa</string>
   <string name="revanced_hide_timestamp_summary_on">Časová pečiatka je skrytá</string>
@@ -824,10 +842,10 @@ Nastavenia → Prehrávanie → Automatické prehrávanie ďalšieho videa"</str
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Znova načítajte video a hlasujte pomocou funkcie Vrátiť Nepáči sa mi na YouTube</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skryté vlastníkom</string>
-  <string name="revanced_ryd_enable_summary_on">Nepáči sa mi</string>
-  <string name="revanced_ryd_enable_summary_off">Nepáči sa mi nie sú zobrazené</string>
+  <string name="revanced_ryd_enabled_summary_on">Nepáči sa mi</string>
+  <string name="revanced_ryd_enabled_summary_off">Nepáči sa mi nie sú zobrazené</string>
   <string name="revanced_ryd_shorts_title">Zobrazovať, že sa mi nepáči v Shorts videách</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Hodnotenia Nepáči sa mi to na Shorts sú zobrazené
+  <string name="revanced_ryd_shorts_summary_on">"Hodnotenia Nepáči sa mi to na Shorts sú zobrazené
 
 Obmedzenie: Hodnotenia Nepáči sa mi to sa nemusia zobraziť v anonymnom režime"</string>
   <string name="revanced_ryd_shorts_summary_off">Hodnotenia Nepáči sa mi to na Shorts sa nezobrazujú</string>
@@ -844,7 +862,6 @@ Obmedzenie: Hodnotenia Nepáči sa mi to sa nemusia zobraziť v anonymnom režim
   <string name="revanced_ryd_toast_on_connection_error_title">Ukážte prípitok, ak API nie je k dispozícii</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ak nie je k dispozícii možnosť Vrátiť Nepáči sa mi na YouTube, zobrazí sa toast</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast sa nezobrazuje, ak nie je k dispozícii možnosť Vrátiť Nepáči sa mi na YouTube</string>
-  <string name="revanced_ryd_about">Informácie</string>
   <string name="revanced_ryd_attribution_summary">Údaje poskytuje rozhranie Return YouTube Dislike API. Klepnutím sem sa dozviete viac</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Štatistiky rozhrania ReturnYouTubeDislike API tohto zariadenia</string>
@@ -1048,7 +1065,7 @@ Pripravené na odoslanie?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Ručne upravte časovanie segmentu</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Chcete upraviť časovanie pre začiatok alebo koniec segmentu?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Zadaný neplatný čas</string>
-  <string name="revanced_sb_stats">Štatistiky</string>
+  <string name="revanced_sb_stats_title">Štatistiky</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Štatistiky sú dočasne nedostupné (API je mimo prevádzky)</string>
   <string name="revanced_sb_stats_loading">Načítava sa...</string>
@@ -1077,8 +1094,8 @@ Pripravené na odoslanie?"</string>
   <string name="revanced_sb_color_invalid">Neplatný kód farby</string>
   <string name="revanced_sb_reset_color">Obnoviť farbu</string>
   <string name="revanced_sb_reset">Resetovať</string>
-  <string name="revanced_sb_about">Informácie</string>
-  <string name="revanced_sb_about_api_sum">Údaje poskytuje SponsorBlock API. Klepnutím sem sa dozviete viac a zobrazíte súbory na stiahnutie pre iné platformy</string>
+  <string name="revanced_sb_about_title">Informácie</string>
+  <string name="revanced_sb_about_api_summary">Údaje poskytuje SponsorBlock API. Klepnutím sem sa dozviete viac a zobrazíte súbory na stiahnutie pre iné platformy</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Formát rozloženia</string>

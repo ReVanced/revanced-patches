@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Cài đặt ReVanced đặt lại thành mặc định</string>
   <string name="revanced_settings_import_success">Đã nhập cài đặt %d</string>
   <string name="revanced_settings_import_failure_parse">Nhập thất bại: %s</string>
+  <string name="revanced_settings_search_hint">Tìm kiếm</string>
+  <string name="revanced_settings_search_no_results_title">Không tìm thấy kết quả nào cho \'%s\'</string>
+  <string name="revanced_settings_search_no_results_summary">Thử một từ khóa khác</string>
+  <string name="revanced_settings_search_remove_message">Xóa khỏi lịch sử tìm kiếm?</string>
   <string name="revanced_show_menu_icons_title">Hiện biểu tượng cài đặt ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Các biểu tượng cài đặt được hiển thị</string>
   <string name="revanced_show_menu_icons_summary_off">Các biểu tượng cài đặt không được hiển thị</string>
@@ -93,6 +97,9 @@ Nhấn nút tiếp tục và cho phép thay đổi lựa chọn tối ưu hóa."
   <string name="revanced_restore_old_settings_menus_title">Khôi phục trình đơn cài đặt cũ</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Các trình đơn cài đặt cũ được hiển thị</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Các trình đơn cài đặt cũ không được hiển thị</string>
+  <string name="revanced_settings_search_history_title">Hiển thị lịch sử tìm kiếm trong cài đặt</string>
+  <string name="revanced_settings_search_history_summary_on">Đã hiển thị lịch sử tìm kiếm trong cài đặt</string>
+  <string name="revanced_settings_search_history_summary_off">Không hiển thị lịch sử tìm kiếm trong phần cài đặt</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Tắt phát nền cho Shorts</string>
@@ -153,15 +160,18 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_notify_me_button_title">Ẩn nút \'Thông báo cho tôi\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Nút đã bị ẩn</string>
   <string name="revanced_hide_notify_me_button_summary_off">Nút được hiển thị</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Ẩn nhãn \'Mọi người cũng đã xem\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Nhãn đã bị ẩn</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Nhãn được hiển thị</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Ẩn nhãn video đề xuất</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Nhãn “Mọi người cũng xem” và “Bạn cũng có thể thích” đã bị ẩn</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Nhãn “Mọi người cũng xem” và “Bạn cũng có thể thích” được hiển thị</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Ẩn nút \'Hiện thêm\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Nút đã bị ẩn</string>
   <string name="revanced_hide_show_more_button_summary_off">Nút được hiển thị</string>
+  <string name="revanced_hide_ticket_shelf_title">Ẩn kệ vé</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Kệ vé đã bị ẩn</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Kệ vé đang hiển thị</string>
   <string name="revanced_hide_timed_reactions_title">Ẩn phản ứng theo thời gian</string>
   <string name="revanced_hide_timed_reactions_summary_on">Phản ứng theo thời gian đã bị ẩn</string>
   <string name="revanced_hide_timed_reactions_summary_off">Phản ứng theo thời gian được hiển thị</string>
@@ -231,6 +241,9 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ẩn \'Bản tóm tắt video do AI tạo\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Phần tóm tắt video đã bị ẩn</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Phần tóm tắt video được hiển thị</string>
+  <string name="revanced_hide_ask_section_title">Ẩn Hỏi</string>
+  <string name="revanced_hide_ask_section_summary_on">Phần Hỏi đã bị ẩn</string>
+  <string name="revanced_hide_ask_section_summary_off">Phần Hỏi được hiển thị</string>
   <string name="revanced_hide_attributes_section_title">Ẩn Thuộc tính</string>
   <string name="revanced_hide_attributes_section_summary_on">Phần Địa điểm nổi bật, Trò chơi, Âm nhạc và Người được đề cập đã bị ẩn</string>
   <string name="revanced_hide_attributes_section_summary_off">Phần Địa điểm nổi bật, Trò chơi, Âm nhạc và Người được đề cập được hiển thị</string>
@@ -267,9 +280,9 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Đã hiện trong video liên quan</string>
   <string name="revanced_comments_screen_title">Bình luận</string>
   <string name="revanced_comments_screen_summary">Ẩn hoặc hiện các thành phần bình luận</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Ẩn Tóm tắt Trò chuyện AI</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tóm tắt trò chuyện đã bị ẩn</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Tóm tắt trò chuyện được hiển thị</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Ẩn Tóm tắt cuộc trò chuyện AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tóm tắt cuộc trò chuyện đã bị ẩn</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Tóm tắt cuộc trò chuyện được hiển thị</string>
   <string name="revanced_hide_comments_ai_summary_title">Ẩn tóm tắt Bình luận AI</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Tóm tắt bình luận đã bị ẩn</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Tóm tắt bình luận được hiển thị</string>
@@ -689,17 +702,17 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ẩn Shorts trong thẻ trang chủ</string>
   <string name="revanced_hide_shorts_home_summary_on">Ẩn trong thẻ trang chủ và video liên quan</string>
-  <string name="revanced_hide_shorts_home_summary_off">Hiện trong thẻ trang chủ và video liên quan</string>
+  <string name="revanced_hide_shorts_home_summary_off">Hiển thi trong thẻ trang chủ và video liên quan</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ẩn Shorts trong thẻ kênh đăng ký</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Bị ẩn trong thẻ kênh đăng ký</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Được hiện trong nguồn đăng ký</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Được hiển thị trong nguồn đăng ký</string>
   <string name="revanced_hide_shorts_search_title">Ẩn Shorts trong kết quả tìm kiếm</string>
   <string name="revanced_hide_shorts_search_summary_on">Bị ẩn trong kết quả tìm kiếm</string>
-  <string name="revanced_hide_shorts_search_summary_off">Được hiện trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_shorts_search_summary_off">Được hiển thị trong kết quả tìm kiếm</string>
   <string name="revanced_hide_shorts_history_title">Ẩn Shorts trong lịch sử xem</string>
   <string name="revanced_hide_shorts_history_summary_on">Đã ẩn trong lịch sử xem</string>
-  <string name="revanced_hide_shorts_history_summary_off">Đã hiện trong lịch sử xem</string>
+  <string name="revanced_hide_shorts_history_summary_off">Đã hiển thị trong lịch sử xem</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ẩn nút Tham gia</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Nút tham gia đã bị ẩn</string>
@@ -732,7 +745,7 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_shorts_upcoming_button_title">Ẩn nút Sắp diễn ra</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Nút sắp diễn ra đã bị ẩn</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Nút sắp diễn ra được hiển thị</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Ẩn nút Màn hình xanh</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Ẩn nút Phông xanh</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Nút phông xanh đã bị ẩn</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Nút phông xanh được hiển thị</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Ẩn nút hashtag</string>
@@ -794,6 +807,11 @@ Có thể thay đổi Tự động phát trong phần cài đặt YouTube:
 Cài đặt → Phát → Tự động phát video tiếp theo"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Video được đề xuất ở màn hình kết thúc được hiển thị</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Ẩn lớp phủ video liên quan ở chế độ toàn màn hình</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Lớp phủ video liên quan đã bị ẩn</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Lớp phủ video liên quan được hiển thị</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Ẩn dấu thời gian video</string>
   <string name="revanced_hide_timestamp_summary_on">Dấu thời gian đã bị ẩn</string>
@@ -831,10 +849,10 @@ Cài đặt → Phát → Tự động phát video tiếp theo"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Tải lại video để bình chọn bằng Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Bị ẩn bởi chủ sở hữu</string>
-  <string name="revanced_ryd_enable_summary_on">Số lượt không thích được hiển thị</string>
-  <string name="revanced_ryd_enable_summary_off">Số lượt không thích không được hiển thị</string>
+  <string name="revanced_ryd_enabled_summary_on">Số lượt không thích được hiển thị</string>
+  <string name="revanced_ryd_enabled_summary_off">Số lượt không thích không được hiển thị</string>
   <string name="revanced_ryd_shorts_title">Hiện số lượt không thích trong Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Số lượt không thích trên Shorts được hiển thị
+  <string name="revanced_ryd_shorts_summary_on">"Số lượt không thích trên Shorts được hiển thị
 
 Hạn chế: Số lượt không thích có thể không xuất hiện ở chế độ ẩn danh"</string>
   <string name="revanced_ryd_shorts_summary_off">Số lượt không thích trên Shorts không được hiển thị</string>
@@ -851,7 +869,6 @@ Hạn chế: Số lượt không thích có thể không xuất hiện ở chế
   <string name="revanced_ryd_toast_on_connection_error_title">Hiện thông báo nổi nếu API không khả dụng</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Thông báo nổi được hiển thị nếu Return YouTube Dislike không khả dụng</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Thông báo nổi không được hiển thị nếu Return YouTube Dislike không khả dụng</string>
-  <string name="revanced_ryd_about">Giới thiệu</string>
   <string name="revanced_ryd_attribution_summary">Dữ liệu được cung cấp bởi API Return YouTube Dislike. Nhấn vào đây để tìm hiểu thêm</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Thống kê API ReturnYouTubeDislike của thiết bị này</string>
@@ -1057,7 +1074,7 @@ Bạn đã sẵn sàng gửi?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Chỉnh sửa thời gian của phân đoạn theo cách thủ công</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Bạn có muốn thay đổi thời gian bắt đầu hoặc kết thúc của phân đoạn không?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Thời gian đã đặt không hợp lệ</string>
-  <string name="revanced_sb_stats">Thống kê</string>
+  <string name="revanced_sb_stats_title">Thống kê</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Số liệu thống kê tạm thời không khả dụng (API ngừng hoạt động)</string>
   <string name="revanced_sb_stats_loading">Đang tải...</string>
@@ -1086,8 +1103,8 @@ Bạn đã sẵn sàng gửi?"</string>
   <string name="revanced_sb_color_invalid">Mã màu không hợp lệ</string>
   <string name="revanced_sb_reset_color">Đặt lại màu</string>
   <string name="revanced_sb_reset">Đặt lại</string>
-  <string name="revanced_sb_about">Giới thiệu</string>
-  <string name="revanced_sb_about_api_sum">Dữ liệu được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm và xem các bản tải cho các nền tảng khác</string>
+  <string name="revanced_sb_about_title">Giới thiệu</string>
+  <string name="revanced_sb_about_api_summary">Dữ liệu được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm và xem các bản tải cho các nền tảng khác</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Bố cục dạng yếu tố</string>
