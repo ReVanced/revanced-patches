@@ -307,6 +307,16 @@ public class CustomColorPickerView extends View {
         final int action = event.getAction();
         Logger.printDebug(() -> "onTouchEvent action: " + action + " x: " + x + " y: " + y);
 
+        // Define touch expansion for the hue bar.
+        final float TOUCH_EXPANSION = dipToPixels(20f); // 20px to left and right.
+        // Create an expanded rectangle for the hue bar to increase the touch-sensitive area.
+        RectF expandedHueRect = new RectF(
+                hueRect.left - TOUCH_EXPANSION,
+                hueRect.top,
+                hueRect.right + TOUCH_EXPANSION,
+                hueRect.bottom
+        );
+
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 // Calculate current handle positions.
@@ -330,14 +340,15 @@ public class CustomColorPickerView extends View {
                         valSelectorY + SELECTOR_RADIUS
                 );
 
-                // Check if the touch started on either handle.
+                // Check if the touch started on a handle or within the expanded hue bar area.
                 if (hueHitRect.contains(x, y)) {
                     isDraggingHue = true;
                     updateHueFromTouch(y);
                 } else if (satValHitRect.contains(x, y)) {
                     isDraggingSaturation = true;
                     updateSaturationValueFromTouch(x, y);
-                } else if (hueRect.contains(x, y)) {
+                } else if (expandedHueRect.contains(x, y)) {
+                    // Handle touch within the expanded hue bar area.
                     isDraggingHue = true;
                     updateHueFromTouch(y);
                 } else if (saturationValueRect.contains(x, y)) {
