@@ -250,9 +250,9 @@ public class ColorPickerPreference extends EditTextPreference {
         if (parent instanceof ViewGroup parentViewGroup) {
             parentViewGroup.removeView(editText);
         }
-        String colorString = getColorString(currentColor);
-        editText.setText(colorString);
-        editText.setSelection(colorString.length());
+        String currentColorString = getColorString(currentColor);
+        editText.setText(currentColorString);
+        editText.setSelection(currentColorString.length());
         colorTextWatcher = createColorTextWatcher(customColorPickerView);
         editText.addTextChangedListener(colorTextWatcher);
         inputLayout.addView(editText);
@@ -260,16 +260,22 @@ public class ColorPickerPreference extends EditTextPreference {
         layout.addView(inputLayout);
 
         // Set up color picker listener with debouncing.
+        // Add listener last to prevent callbacks from set calls above.
         customColorPickerView.setOnColorChangedListener(color -> {
             try {
-                Logger.printDebug(() -> "setOnColorChangedListener");
-                String hexColor = getColorString(color & 0xFFFFFF);
-                currentColor = color & 0xFFFFFF;
-                updateColorPreview();
-                updateWidgetColorDot();
-                if (!editText.getText().toString().equals(hexColor)) {
-                    editText.setText(hexColor);
-                    editText.setSelection(hexColor.length());
+                color &= 0x00FFFFFF; // Remove alpha channel.
+                String updatedColorString = getColorString(color);
+
+                // Check if it actually changed, since this callback
+                // can be caused by updates in afterTextChanged().
+                if (currentColor != color) {
+                    Logger.printDebug(() -> "onColorChanged: " + updatedColorString);
+                    currentColor = color;
+                    editText.setText(updatedColorString);
+                    editText.setSelection(updatedColorString.length());
+
+                    updateColorPreview();
+                    updateWidgetColorDot();
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "setOnColorChangedListener failure", ex);
@@ -316,29 +322,27 @@ public class ColorPickerPreference extends EditTextPreference {
                 String colorString = edit.toString();
 
                 try {
-                    String normalizedColorString = cleanupColorCodeString(colorString);
-                    if (!normalizedColorString.equals(colorString)) {
-                        edit.replace(0, colorString.length(), normalizedColorString);
+                    String sanitizedColorString = cleanupColorCodeString(colorString);
+                    if (!sanitizedColorString.equals(colorString)) {
+                        edit.replace(0, colorString.length(), sanitizedColorString);
                         return;
                     }
 
-                    if (normalizedColorString.length() != 7) {
+                    if (sanitizedColorString.length() != COLOR_STRING_LENGTH) {
                         // User is still typing out the color.
                         return;
                     }
 
                     final int newColor = Color.parseColor(colorString);
                     if (currentColor != newColor) {
-                        Logger.printDebug(() -> "afterTextChanged to: " + normalizedColorString);
+                        Logger.printDebug(() -> "afterTextChanged: " + sanitizedColorString);
                         currentColor = newColor;
                         updateColorPreview();
                         updateWidgetColorDot();
                         colorPickerView.setColor(newColor);
                     }
-                } catch (IllegalArgumentException ex) {
-                    // Should never be reached since input is validated before using.
-                    Logger.printException(() -> "afterTextChanged bad color: " + colorString, ex);
                 } catch (Exception ex) {
+                    // Should never be reached since input is validated before using.
                     Logger.printException(() -> "afterTextChanged failure", ex);
                 }
             }
@@ -370,7 +374,8 @@ public class ColorPickerPreference extends EditTextPreference {
                 String colorString = getEditText().getText().toString();
 
                 if (colorString.length() != COLOR_STRING_LENGTH) {
-                    // User did not finish entering the color.
+                    Utils.showToastShort(str("revanced_settings_color_invalid"));
+                    setText(getColorString(originalColor));
                     return;
                 }
 

@@ -420,7 +420,12 @@ public class CustomColorPickerView extends View {
      * Updates the selected color and notifies listeners.
      */
     public void updateSelectedColor() {
-        selectedColor = Color.HSVToColor(new float[]{hue, saturation, value});
+        final int updatedSelectedColor = Color.HSVToColor(new float[]{hue, saturation, value});
+        if (selectedColor == updatedSelectedColor) {
+            return;
+        }
+
+        selectedColor = updatedSelectedColor;
         if (colorChangedListener != null) {
             colorChangedListener.onColorChanged(selectedColor);
         }
@@ -438,6 +443,9 @@ public class CustomColorPickerView extends View {
             return;
         }
 
+        // Update the selected color.
+        selectedColor = color;
+
         // Convert the ARGB color to HSV values.
         float[] hsv = new float[3];
         Color.colorToHSV(color, hsv);
@@ -446,9 +454,6 @@ public class CustomColorPickerView extends View {
         this.hue = hsv[0];
         this.saturation = hsv[1];
         this.value = hsv[2];
-
-        // Update the selected color.
-        selectedColor = color;
 
         // Update the saturation-value shader based on the new hue.
         updateSaturationValueShader();
