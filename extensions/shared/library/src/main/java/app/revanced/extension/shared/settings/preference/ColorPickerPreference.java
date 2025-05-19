@@ -356,7 +356,7 @@ public class ColorPickerPreference extends EditTextPreference {
         builder.setView(dialogLayout);
         final int originalColor = currentColor;
 
-        builder.setNeutralButton(str("revanced_settings_reset"), (dialog, which) -> {
+        builder.setNeutralButton(str("revanced_settings_reset_color"), (dialog, which) -> {
             try {
                 setText(colorSetting.resetToDefault());
             } catch (Exception ex) {

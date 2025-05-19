@@ -234,7 +234,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
                 onClick(dialog, DialogInterface.BUTTON_POSITIVE);
             });
-            builder.setNeutralButton(str("revanced_sb_reset_color"), (dialog, which) -> {
+            builder.setNeutralButton(str("revanced_settings_reset_color"), (dialog, which) -> {
                 try {
                     category.resetColorAndOpacity();
                     updateUI();
