@@ -275,7 +275,6 @@ public class SegmentCategoryListPreference extends ListPreference {
                     if (!colorString.equals(category.getColorString()) || categoryOpacity != category.getOpacity()) {
                         category.setColor(colorString);
                         category.setOpacity(categoryOpacity);
-                        Utils.showToastShort(str("revanced_sb_color_changed"));
                     }
                 } catch (IllegalArgumentException ex) {
                     Utils.showToastShort(str("revanced_settings_color_invalid"));
