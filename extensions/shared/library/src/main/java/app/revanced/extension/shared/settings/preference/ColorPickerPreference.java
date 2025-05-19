@@ -103,8 +103,17 @@ public class ColorPickerPreference extends EditTextPreference {
         return result.toString().toUpperCase(Locale.ROOT);
     }
 
-    private static String getColorString(int originalColor) {
-        return String.format("#%06X", originalColor);
+    /**
+     * @param color RGB color, without an alpha channel.
+     * @return #RRGGBB hex color string
+     */
+    public static String getColorString(int color) {
+        String colorString = String.format("#%06X", color);
+        if ((color & 0xFF000000) != 0) {
+            // Likely a bug somewhere.
+            Logger.printException(() -> "getColorString: color has alpha channel: " + colorString);
+        }
+        return colorString;
     }
 
     /**
@@ -185,9 +194,10 @@ public class ColorPickerPreference extends EditTextPreference {
     @Override
     public final void setText(String colorString) throws IllegalArgumentException {
         try {
+            Logger.printDebug(() -> "setText: " + colorString);
             super.setText(colorString);
 
-            currentColor = Color.parseColor(colorString) & 0xFFFFFF;
+            currentColor = Color.parseColor(colorString) & 0x00FFFFFF;
             if (colorSetting != null) {
                 colorSetting.save(getColorString(currentColor));
             }
@@ -280,20 +290,20 @@ public class ColorPickerPreference extends EditTextPreference {
         // Add listener last to prevent callbacks from set calls above.
         customColorPickerView.setOnColorChangedListener(color -> {
             try {
-                color &= 0x00FFFFFF; // Remove alpha channel.
-                String updatedColorString = getColorString(color);
-
                 // Check if it actually changed, since this callback
                 // can be caused by updates in afterTextChanged().
-                if (currentColor != color) {
-                    Logger.printDebug(() -> "onColorChanged: " + updatedColorString);
-                    currentColor = color;
-                    editText.setText(updatedColorString);
-                    editText.setSelection(updatedColorString.length());
-
-                    updateColorPreview();
-                    updateWidgetColorDot();
+                if (currentColor == color) {
+                    return;
                 }
+
+                String updatedColorString = getColorString(color);
+                Logger.printDebug(() -> "onColorChanged: " + updatedColorString);
+                currentColor = color;
+                editText.setText(updatedColorString);
+                editText.setSelection(updatedColorString.length());
+
+                updateColorPreview();
+                updateWidgetColorDot();
             } catch (Exception ex) {
                 Logger.printException(() -> "setOnColorChangedListener failure", ex);
             }
@@ -417,10 +427,8 @@ public class ColorPickerPreference extends EditTextPreference {
     @Override
     protected void showDialog(Bundle state) {
         super.showDialog(state);
-        AlertDialog dialog = (AlertDialog) getDialog();
-        if (dialog == null) return;
 
-        dialog.setCanceledOnTouchOutside(false);
+        getDialog().setCanceledOnTouchOutside(false);
     }
 
     @Override

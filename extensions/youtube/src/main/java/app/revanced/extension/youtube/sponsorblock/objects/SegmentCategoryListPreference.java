@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.sponsorblock.objects;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.getColorString;
 import static app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory.applyOpacityToColor;
 
 import android.app.AlertDialog;
@@ -9,24 +10,26 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.preference.ListPreference;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.GridLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Locale;
 import java.util.Objects;
 
-import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
-import app.revanced.extension.shared.settings.preference.CustomColorPickerView;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
+import app.revanced.extension.shared.settings.preference.CustomColorPickerView;
 
 @SuppressWarnings("deprecation")
 public class SegmentCategoryListPreference extends ListPreference {
@@ -119,7 +122,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             colorEditText.setAutofillHints((String) null);
             colorEditText.setTypeface(Typeface.MONOSPACE);
             colorEditText.setTextLocale(Locale.US);
-            colorEditText.setText(String.format("#%06X", categoryColor & 0xFFFFFF));
+            colorEditText.setText(getColorString(categoryColor));
             colorEditText.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -133,7 +136,6 @@ public class SegmentCategoryListPreference extends ListPreference {
                 public void afterTextChanged(Editable edit) {
                     String colorString = edit.toString();
                     try {
-
                         String normalizedColorString = ColorPickerPreference.cleanupColorCodeString(colorString);
                         if (!normalizedColorString.equals(colorString)) {
                             edit.replace(0, colorString.length(), normalizedColorString);
@@ -145,13 +147,14 @@ public class SegmentCategoryListPreference extends ListPreference {
                             return;
                         }
 
-                        int newColor = Color.parseColor(colorString);
-                        categoryColor = newColor & 0xFFFFFF;
+                        // Remove the alpha channel.
+                        final int newColor = Color.parseColor(colorString) & 0x00FFFFFF;
+                        categoryColor = newColor;
                         updateCategoryColorDot();
                         colorPickerView.setColor(newColor);
-                    } catch (IllegalArgumentException ex) {
+                    } catch (Exception ex) {
                         // Should never be reached since input is validated before using.
-                        Logger.printException(() -> "afterTextChanged bad color: " + colorString, ex);
+                        Logger.printException(() -> "colorEditText afterTextChanged failure", ex);
                     }
                 }
             });
@@ -213,9 +216,9 @@ public class SegmentCategoryListPreference extends ListPreference {
                         }
 
                         updateCategoryColorDot();
-                    } catch (NumberFormatException ex) {
+                    } catch (Exception ex) {
                         // Should never happen.
-                        Logger.printException(() -> "Could not parse opacity string", ex);
+                        Logger.printException(() -> "opacityEditText afterTextChanged failure", ex);
                     }
                 }
             });
@@ -227,11 +230,16 @@ public class SegmentCategoryListPreference extends ListPreference {
 
             // Set up color picker listener.
             colorPickerView.setOnColorChangedListener(color -> {
-                String hexColor = String.format("#%06X", color & 0xFFFFFF);
+                if (categoryColor == color) {
+                    return;
+                }
+                categoryColor = color;
+                String hexColor = getColorString(color);
+                Logger.printDebug(() -> "onColorChanged: " + hexColor);
+
+                updateCategoryColorDot();
                 colorEditText.setText(hexColor);
                 colorEditText.setSelection(hexColor.length());
-                categoryColor = color & 0xFFFFFF;
-                updateCategoryColorDot();
             });
 
             builder.setView(mainLayout);
@@ -240,15 +248,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
                 onClick(dialog, DialogInterface.BUTTON_POSITIVE);
             });
-            builder.setNeutralButton(str("revanced_settings_reset_color"), (dialog, which) -> {
-                try {
-                    category.resetColorAndOpacity();
-                    updateUI();
-                    Utils.showToastShort(str("revanced_sb_color_reset"));
-                } catch (Exception ex) {
-                    Logger.printException(() -> "setNeutralButton failure", ex);
-                }
-            });
+            builder.setNeutralButton(str("revanced_settings_reset_color"), null);
             builder.setNegativeButton(android.R.string.cancel, null);
 
             selectedDialogEntryIndex = findIndexOfValue(getValue());
@@ -257,6 +257,24 @@ public class SegmentCategoryListPreference extends ListPreference {
         } catch (Exception ex) {
             Logger.printException(() -> "onPrepareDialogBuilder failure", ex);
         }
+    }
+
+    @Override
+    protected void showDialog(Bundle state) {
+        super.showDialog(state);
+
+        // Do not close dialog when reset is pressed.
+        Button button = ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEUTRAL);
+        button.setOnClickListener(v -> {
+            try {
+                category.resetColorAndOpacity();
+                colorPickerView.setColor(category.getColorNoOpacity());
+                updateUI();
+                updateOpacityText();
+            } catch (Exception ex) {
+                Logger.printException(() -> "setOnClickListener failure", ex);
+            }
+        });
     }
 
     @Override
@@ -287,22 +305,19 @@ public class SegmentCategoryListPreference extends ListPreference {
         }
     }
 
-    private void applyOpacityToCategoryColor() {
-        categoryColor = applyOpacityToColor(categoryColor, categoryOpacity);
+    private int applyOpacityToCategoryColor() {
+        return applyOpacityToColor(categoryColor, categoryOpacity);
     }
 
     public void updateUI() {
         categoryColor = category.getColorNoOpacity();
         categoryOpacity = category.getOpacity();
-        applyOpacityToCategoryColor();
 
-        setTitle(category.getTitleWithColorDot(categoryColor));
+        setTitle(category.getTitleWithColorDot(applyOpacityToCategoryColor()));
     }
 
     private void updateCategoryColorDot() {
-        applyOpacityToCategoryColor();
-
-        colorDotView.setText(SegmentCategory.getCategoryColorDot(categoryColor));
+        colorDotView.setText(SegmentCategory.getCategoryColorDot(applyOpacityToCategoryColor()));
     }
 
     private void updateOpacityText() {

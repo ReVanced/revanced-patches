@@ -1,6 +1,7 @@
 package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.Utils.dipToPixels;
+import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.getColorString;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -48,6 +49,8 @@ public class CustomColorPickerView extends View {
         /**
          * Called when the selected color has changed.
          *
+         * Important: Callback color uses RGB format with zero alpha channel.
+         *
          * @param color The new selected color.
          */
         void onColorChanged(int color);
@@ -89,8 +92,8 @@ public class CustomColorPickerView extends View {
     /** Current value (brightness) value (0-1). */
     private float value = 1f;
 
-    /** The currently selected color in ARGB format. */
-    private int selectedColor = Color.HSVToColor(new float[]{hue, saturation, value});
+    /** The currently selected color in RGB format with no alpha channel. */
+    private int selectedColor;
     /** Listener to be notified when the selected color changes. */
     private OnColorChangedListener colorChangedListener;
 
@@ -302,75 +305,79 @@ public class CustomColorPickerView extends View {
     @SuppressLint("ClickableViewAccessibility") // performClick is not overridden, but not needed in this case.
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        final float x = event.getX();
-        final float y = event.getY();
-        final int action = event.getAction();
-        Logger.printDebug(() -> "onTouchEvent action: " + action + " x: " + x + " y: " + y);
+        try {
+            final float x = event.getX();
+            final float y = event.getY();
+            final int action = event.getAction();
+            Logger.printDebug(() -> "onTouchEvent action: " + action + " x: " + x + " y: " + y);
 
-        // Define touch expansion for the hue bar.
-        final float TOUCH_EXPANSION = dipToPixels(20f); // 20px to left and right.
-        // Create an expanded rectangle for the hue bar to increase the touch-sensitive area.
-        RectF expandedHueRect = new RectF(
-                hueRect.left - TOUCH_EXPANSION,
-                hueRect.top,
-                hueRect.right + TOUCH_EXPANSION,
-                hueRect.bottom
-        );
+            // Define touch expansion for the hue bar.
+            final float TOUCH_EXPANSION = dipToPixels(20f); // 20px to left and right.
+            // Create an expanded rectangle for the hue bar to increase the touch-sensitive area.
+            RectF expandedHueRect = new RectF(
+                    hueRect.left - TOUCH_EXPANSION,
+                    hueRect.top,
+                    hueRect.right + TOUCH_EXPANSION,
+                    hueRect.bottom
+            );
 
-        switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                // Calculate current handle positions.
-                final float hueSelectorX = hueRect.centerX();
-                final float hueSelectorY = hueRect.top + (hue / 360f) * hueRect.height();
+            switch (action) {
+                case MotionEvent.ACTION_DOWN:
+                    // Calculate current handle positions.
+                    final float hueSelectorX = hueRect.centerX();
+                    final float hueSelectorY = hueRect.top + (hue / 360f) * hueRect.height();
 
-                final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
-                final float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
+                    final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
+                    final float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
 
-                // Create hit areas for both handles.
-                RectF hueHitRect = new RectF(
-                        hueSelectorX - SELECTOR_RADIUS,
-                        hueSelectorY - SELECTOR_RADIUS,
-                        hueSelectorX + SELECTOR_RADIUS,
-                        hueSelectorY + SELECTOR_RADIUS
-                );
-                RectF satValHitRect = new RectF(
-                        satSelectorX - SELECTOR_RADIUS,
-                        valSelectorY - SELECTOR_RADIUS,
-                        satSelectorX + SELECTOR_RADIUS,
-                        valSelectorY + SELECTOR_RADIUS
-                );
+                    // Create hit areas for both handles.
+                    RectF hueHitRect = new RectF(
+                            hueSelectorX - SELECTOR_RADIUS,
+                            hueSelectorY - SELECTOR_RADIUS,
+                            hueSelectorX + SELECTOR_RADIUS,
+                            hueSelectorY + SELECTOR_RADIUS
+                    );
+                    RectF satValHitRect = new RectF(
+                            satSelectorX - SELECTOR_RADIUS,
+                            valSelectorY - SELECTOR_RADIUS,
+                            satSelectorX + SELECTOR_RADIUS,
+                            valSelectorY + SELECTOR_RADIUS
+                    );
 
-                // Check if the touch started on a handle or within the expanded hue bar area.
-                if (hueHitRect.contains(x, y)) {
-                    isDraggingHue = true;
-                    updateHueFromTouch(y);
-                } else if (satValHitRect.contains(x, y)) {
-                    isDraggingSaturation = true;
-                    updateSaturationValueFromTouch(x, y);
-                } else if (expandedHueRect.contains(x, y)) {
-                    // Handle touch within the expanded hue bar area.
-                    isDraggingHue = true;
-                    updateHueFromTouch(y);
-                } else if (saturationValueRect.contains(x, y)) {
-                    isDraggingSaturation = true;
-                    updateSaturationValueFromTouch(x, y);
-                }
-                break;
+                    // Check if the touch started on a handle or within the expanded hue bar area.
+                    if (hueHitRect.contains(x, y)) {
+                        isDraggingHue = true;
+                        updateHueFromTouch(y);
+                    } else if (satValHitRect.contains(x, y)) {
+                        isDraggingSaturation = true;
+                        updateSaturationValueFromTouch(x, y);
+                    } else if (expandedHueRect.contains(x, y)) {
+                        // Handle touch within the expanded hue bar area.
+                        isDraggingHue = true;
+                        updateHueFromTouch(y);
+                    } else if (saturationValueRect.contains(x, y)) {
+                        isDraggingSaturation = true;
+                        updateSaturationValueFromTouch(x, y);
+                    }
+                    break;
 
-            case MotionEvent.ACTION_MOVE:
-                // Continue updating values even if touch moves outside the view.
-                if (isDraggingHue) {
-                    updateHueFromTouch(y);
-                } else if (isDraggingSaturation) {
-                    updateSaturationValueFromTouch(x, y);
-                }
-                break;
+                case MotionEvent.ACTION_MOVE:
+                    // Continue updating values even if touch moves outside the view.
+                    if (isDraggingHue) {
+                        updateHueFromTouch(y);
+                    } else if (isDraggingSaturation) {
+                        updateSaturationValueFromTouch(x, y);
+                    }
+                    break;
 
-            case MotionEvent.ACTION_UP:
-            case MotionEvent.ACTION_CANCEL:
-                isDraggingHue = false;
-                isDraggingSaturation = false;
-                break;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    isDraggingHue = false;
+                    isDraggingSaturation = false;
+                    break;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "onTouchEvent failure", ex);
         }
 
         return true;
@@ -420,14 +427,14 @@ public class CustomColorPickerView extends View {
      * Updates the selected color and notifies listeners.
      */
     public void updateSelectedColor() {
-        final int updatedSelectedColor = Color.HSVToColor(new float[]{hue, saturation, value});
+        final int updatedSelectedColor = Color.HSVToColor(0, new float[]{hue, saturation, value});
         if (selectedColor == updatedSelectedColor) {
             return;
         }
 
         selectedColor = updatedSelectedColor;
         if (colorChangedListener != null) {
-            colorChangedListener.onColorChanged(selectedColor);
+            colorChangedListener.onColorChanged(updatedSelectedColor);
         }
 
         invalidate();
@@ -436,24 +443,26 @@ public class CustomColorPickerView extends View {
     /**
      * Sets the currently selected color.
      *
-     * @param color The color to set in ARGB format.
+     * @param color The color to set in either ARGB or RGB format.
      */
     public void setColor(int color) {
+        color &= 0x00FFFFFF;
         if (selectedColor == color) {
             return;
         }
 
         // Update the selected color.
         selectedColor = color;
+        Logger.printDebug(() -> "setColor: " + getColorString(selectedColor));
 
         // Convert the ARGB color to HSV values.
         float[] hsv = new float[3];
         Color.colorToHSV(color, hsv);
 
         // Update the hue, saturation, and value.
-        this.hue = hsv[0];
-        this.saturation = hsv[1];
-        this.value = hsv[2];
+        hue = hsv[0];
+        saturation = hsv[1];
+        value = hsv[2];
 
         // Update the saturation-value shader based on the new hue.
         updateSaturationValueShader();
@@ -470,7 +479,7 @@ public class CustomColorPickerView extends View {
     /**
      * Gets the currently selected color.
      *
-     * @return The selected color in ARGB format.
+     * @return The selected color in RGB format with no alpha channel.
      */
     public int getColor() {
         return selectedColor;
@@ -482,6 +491,6 @@ public class CustomColorPickerView extends View {
      * @param listener The listener to set.
      */
     public void setOnColorChangedListener(OnColorChangedListener listener) {
-        this.colorChangedListener = listener;
+        colorChangedListener = listener;
     }
 }

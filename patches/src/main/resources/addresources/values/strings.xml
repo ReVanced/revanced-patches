@@ -1166,7 +1166,6 @@ Ready to submit?"</string>
             <string name="revanced_sb_stats_saved_second_format">%s seconds</string>
             <string name="revanced_sb_color_opacity_label">Opacity:</string>
             <string name="revanced_sb_color_dot_label">Color:</string>
-            <string name="revanced_sb_color_reset">Color reset</string>
             <string name="revanced_sb_about_title">About</string>
             <string name="revanced_sb_about_api_title" translatable="false">sponsor.ajay.app</string>
             <string name="revanced_sb_about_api_summary">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
