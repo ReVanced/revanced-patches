@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
+<FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/revanced_color_dot_widget"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:textSize="30sp" />
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center">
+    <TextView
+            android:id="@+id/revanced_color_dot_widget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:padding="4dp"
+            android:includeFontPadding="false" />
+</FrameLayout>
