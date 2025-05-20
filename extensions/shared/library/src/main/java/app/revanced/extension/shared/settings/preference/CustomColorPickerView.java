@@ -86,7 +86,7 @@ public class CustomColorPickerView extends View {
     private final RectF saturationValueRect;
 
     /** Reusable array for HSV color calculations to avoid allocations during drawing */
-    private final float[] hsvArray = new float[3];
+    private final float[] hsvArray = {1, 1, 1};
 
     /** Current hue value (0-360). */
     private float hue = 0f;
@@ -259,38 +259,28 @@ public class CustomColorPickerView extends View {
         // Draw the hue bar.
         canvas.drawRoundRect(hueRect, HUE_CORNER_RADIUS, HUE_CORNER_RADIUS, huePaint);
 
-        // Draw the hue selector handle.
         final float hueSelectorX = hueRect.centerX();
         final float hueSelectorY = hueRect.top + (hue / 360f) * hueRect.height();
 
-        // Use the reusable array for HSV color calculation.
+        final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
+        final float satSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
+
+        // Draw the saturation and hue selector handle filled with the selected color..
         hsvArray[0] = hue;
-        hsvArray[1] = 1;
-        hsvArray[2] = 1;
-        final int hueHandleColor = Color.HSVToColor(hsvArray);
+        final int hueHandleColor = Color.HSVToColor(0xFF, hsvArray);
+        selectorPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
         selectorPaint.setColor(hueHandleColor);
         canvas.drawCircle(hueSelectorX, hueSelectorY, SELECTOR_RADIUS, selectorPaint);
 
-        // Draw a white border for the hue handle.
-        selectorPaint.setStyle(Paint.Style.STROKE);
-        selectorPaint.setColor(Color.WHITE);
-        canvas.drawCircle(hueSelectorX, hueSelectorY, SELECTOR_RADIUS, selectorPaint);
-
-        // Reset the paint style.
-        selectorPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-
-        // Draw the saturation-value selector handle.
-        final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
-        final float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
-
         selectorPaint.setColor(selectedColor | 0xFF000000);
-        canvas.drawCircle(satSelectorX, valSelectorY, SELECTOR_RADIUS, selectorPaint);
+        canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_RADIUS, selectorPaint);
 
-        // Draw a white border for the saturation handle.
-        selectorPaint.setStyle(Paint.Style.STROKE);
+        // Draw white borders for the handles.
         selectorPaint.setColor(Color.WHITE);
-        canvas.drawCircle(satSelectorX, valSelectorY, SELECTOR_RADIUS, selectorPaint);
+        selectorPaint.setStyle(Paint.Style.STROKE);
+        canvas.drawCircle(hueSelectorX, hueSelectorY, SELECTOR_RADIUS, selectorPaint);
+        canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_RADIUS, selectorPaint);
     }
 
     /**
