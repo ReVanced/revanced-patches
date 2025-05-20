@@ -82,6 +82,9 @@ public class CustomColorPickerView extends View {
     private final Paint saturationValuePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     /** Paint object used to draw the draggable handles. */
     private final Paint selectorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    {
+        selectorPaint.setStrokeWidth(SELECTOR_STROKE_WIDTH);
+    }
 
     /** Rectangle representing the bounds of the hue bar. */
     private final RectF hueRect = new RectF();
@@ -107,10 +110,6 @@ public class CustomColorPickerView extends View {
     /** Track if we're currently dragging the hue or saturation handle */
     private boolean isDraggingHue;
     private boolean isDraggingSaturation;
-
-    {
-        selectorPaint.setStrokeWidth(SELECTOR_STROKE_WIDTH);
-    }
 
     public CustomColorPickerView(Context context) {
         super(context);
@@ -410,7 +409,7 @@ public class CustomColorPickerView extends View {
     /**
      * Updates the selected color and notifies listeners.
      */
-    public void updateSelectedColor() {
+    private void updateSelectedColor() {
         final int updatedSelectedColor = Color.HSVToColor(0, new float[]{hue, saturation, value});
         if (selectedColor == updatedSelectedColor) {
             return;

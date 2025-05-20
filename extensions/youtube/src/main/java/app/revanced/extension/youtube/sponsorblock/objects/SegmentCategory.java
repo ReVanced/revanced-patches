@@ -183,6 +183,9 @@ public enum SegmentCategory {
     @NonNull
     public final Paint paint;
 
+    /**
+     * Category color with opacity applied.
+     */
     private int color;
 
     /**

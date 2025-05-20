@@ -22,12 +22,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Locale;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Logger;
@@ -54,19 +54,14 @@ public class ColorPickerPreference extends EditTextPreference {
     public static final int COLOR_STRING_LENGTH = 7;
 
     /**
-     * Hex string of 0 to 6 characters.
+     * Matches everything that is not a hex number/letter.
      */
-    private static final Pattern COLOR_STRING_PATTERN = Pattern.compile("[0-9A-Fa-f]{0,6}");
+    private static final Pattern PATTERN_NOT_HEX = Pattern.compile("[^0-9A-Fa-f]");
 
     /**
      * Alpha for dimming when the preference is disabled.
      */
     private static final float DISABLED_ALPHA = 0.5f; // 50%
-
-    /**
-     * TextView displaying a colored dot for the selected color preview in the dialog.
-     */
-    private TextView colorPreview;
 
     /**
      * View displaying a colored dot in the widget area.
@@ -84,23 +79,34 @@ public class ColorPickerPreference extends EditTextPreference {
     private StringSetting colorSetting;
 
     /**
-     * TextWatcher for the EditText to monitor color input changes.
+     * Dialog TextWatcher for the EditText to monitor color input changes.
      */
     private TextWatcher colorTextWatcher;
+
+    /**
+     * Dialog TextView displaying a colored dot for the selected color preview in the dialog.
+     */
+    private TextView dialogColorPreview;
+
+    /**
+     * Dialog color picker view.
+     */
+    private CustomColorPickerView dialogColorPickerView;
 
     /**
      * Removes non valid hex characters, converts to all uppercase,
      * and adds # character to the start if not present.
      */
     public static String cleanupColorCodeString(String colorString) {
-        StringBuilder result = new StringBuilder("#");
-        Matcher matcher = COLOR_STRING_PATTERN.matcher(colorString);
+        // Remove non-hex chars, convert to uppercase, and ensure correct length
+        String result = "#" + PATTERN_NOT_HEX.matcher(colorString)
+                .replaceAll("").toUpperCase(Locale.ROOT);
 
-        while (matcher.find()) {
-            result.append(matcher.group());
+        if (result.length() < COLOR_STRING_LENGTH) {
+            return result;
         }
 
-        return result.toString().toUpperCase(Locale.ROOT);
+        return result.substring(0, COLOR_STRING_LENGTH);
     }
 
     /**
@@ -162,27 +168,10 @@ public class ColorPickerPreference extends EditTextPreference {
             editText.setAutofillHints((String) null);
         }
 
-        loadFromSettings();
+        setText(colorSetting.get());
 
         // Set the widget layout to a custom layout containing the colored dot.
         setWidgetLayoutResource(getResourceIdentifier("revanced_color_dot_widget", "layout"));
-    }
-
-    /**
-     * Loads the color from the associated {@link StringSetting}.
-     * Resets to default if the stored color is invalid.
-     */
-    private void loadFromSettings() {
-        String colorString = colorSetting.get();
-
-        try {
-            setText(colorString);
-        } catch (Exception ex) {
-            Logger.printDebug(() -> "Parse color error: " + colorString, ex);
-            Utils.showToastShort(str("revanced_settings_color_invalid"));
-            colorSetting.resetToDefault();
-            loadFromSettings();
-        }
     }
 
     /**
@@ -192,7 +181,7 @@ public class ColorPickerPreference extends EditTextPreference {
      * @throws IllegalArgumentException If the color string is invalid.
      */
     @Override
-    public final void setText(String colorString) throws IllegalArgumentException {
+    public final void setText(String colorString)  {
         try {
             Logger.printDebug(() -> "setText: " + colorString);
             super.setText(colorString);
@@ -217,15 +206,13 @@ public class ColorPickerPreference extends EditTextPreference {
     @Override
     protected void onBindView(View view) {
         super.onBindView(view);
-        // Find the View in the widget area.
+
         widgetColorDot = view.findViewById(getResourceIdentifier(
                 "revanced_color_dot_widget", "id"));
-        if (widgetColorDot != null) {
-            widgetColorDot.setBackgroundResource(getResourceIdentifier(
-                    "revanced_settings_circle_background", "drawable"));
-            widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
-            widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
-        }
+        widgetColorDot.setBackgroundResource(getResourceIdentifier(
+                "revanced_settings_circle_background", "drawable"));
+        widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
+        widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
     }
 
     /**
@@ -240,23 +227,21 @@ public class ColorPickerPreference extends EditTextPreference {
         layout.setPadding(70, 0, 70, 0);
 
         // Inflate color picker.
-        View colorPickerView = LayoutInflater.from(context).inflate(
+        View colorPicker = LayoutInflater.from(context).inflate(
                 getResourceIdentifier("revanced_color_picker", "layout"), null);
-        CustomColorPickerView customColorPickerView = colorPickerView.findViewById(
+        dialogColorPickerView = colorPicker.findViewById(
                 getResourceIdentifier("color_picker_view", "id"));
-        // Set the initial color to the saved color from settings.
-        customColorPickerView.setColor(currentColor);
-        customColorPickerView.updateSelectedColor();
-        layout.addView(colorPickerView);
+        dialogColorPickerView.setColor(currentColor);
+        layout.addView(colorPicker);
 
         // Horizontal layout for preview and EditText.
         LinearLayout inputLayout = new LinearLayout(context);
         inputLayout.setOrientation(LinearLayout.HORIZONTAL);
         inputLayout.setPadding(0, 20, 0, 0);
 
-        colorPreview = new TextView(context);
+        dialogColorPreview = new TextView(context);
+        inputLayout.addView(dialogColorPreview);
         updateColorPreview();
-        inputLayout.addView(colorPreview);
 
         EditText editText = getEditText();
         ViewParent parent = editText.getParent();
@@ -271,7 +256,7 @@ public class ColorPickerPreference extends EditTextPreference {
         editText.setText(currentColorString);
         editText.setSelection(currentColorString.length());
         editText.setTypeface(Typeface.MONOSPACE);
-        colorTextWatcher = createColorTextWatcher(customColorPickerView);
+        colorTextWatcher = createColorTextWatcher(dialogColorPickerView);
         editText.addTextChangedListener(colorTextWatcher);
         inputLayout.addView(editText);
 
@@ -290,7 +275,7 @@ public class ColorPickerPreference extends EditTextPreference {
 
         // Set up color picker listener with debouncing.
         // Add listener last to prevent callbacks from set calls above.
-        customColorPickerView.setOnColorChangedListener(color -> {
+        dialogColorPickerView.setOnColorChangedListener(color -> {
             // Check if it actually changed, since this callback
             // can be caused by updates in afterTextChanged().
             if (currentColor == color) {
@@ -314,9 +299,9 @@ public class ColorPickerPreference extends EditTextPreference {
      * Updates the color preview TextView with a colored dot.
      */
     private void updateColorPreview() {
-        if (colorPreview != null) {
-            colorPreview.setText(getColorDot(currentColor));
-            colorPreview.setAlpha(1.0f);
+        if (dialogColorPreview != null) {
+            dialogColorPreview.setText(getColorDot(currentColor));
+            dialogColorPreview.setAlpha(1.0f);
         }
     }
 
@@ -344,9 +329,9 @@ public class ColorPickerPreference extends EditTextPreference {
 
             @Override
             public void afterTextChanged(Editable edit) {
-                String colorString = edit.toString();
-
                 try {
+                    String colorString = edit.toString();
+
                     String sanitizedColorString = cleanupColorCodeString(colorString);
                     if (!sanitizedColorString.equals(colorString)) {
                         edit.replace(0, colorString.length(), sanitizedColorString);
@@ -386,13 +371,7 @@ public class ColorPickerPreference extends EditTextPreference {
         builder.setView(dialogLayout);
         final int originalColor = currentColor;
 
-        builder.setNeutralButton(str("revanced_settings_reset_color"), (dialog, which) -> {
-            try {
-                setText(colorSetting.resetToDefault());
-            } catch (Exception ex) {
-                Logger.printException(() -> "setNeutralButton failure", ex);
-            }
-        });
+        builder.setNeutralButton(str("revanced_settings_reset_color"), null);
 
         builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
             try {
@@ -426,15 +405,33 @@ public class ColorPickerPreference extends EditTextPreference {
     protected void showDialog(Bundle state) {
         super.showDialog(state);
 
-        getDialog().setCanceledOnTouchOutside(false);
+        AlertDialog dialog = (AlertDialog) getDialog();
+        dialog.setCanceledOnTouchOutside(false);
+
+        // Do not close dialog when reset is pressed.
+        Button button = dialog.getButton(AlertDialog.BUTTON_NEUTRAL);
+        button.setOnClickListener(view -> {
+            try {
+                final int defaultColor = Color.parseColor(colorSetting.defaultValue) & 0x00FFFFFF;
+                // Setting view color causes listener callback into this class.
+                dialogColorPickerView.setColor(defaultColor);
+            } catch (Exception ex) {
+                Logger.printException(() -> "setOnClickListener failure", ex);
+            }
+        });
     }
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);
+
         if (colorTextWatcher != null) {
             getEditText().removeTextChangedListener(colorTextWatcher);
+            colorTextWatcher = null;
         }
+
+        dialogColorPreview = null;
+        dialogColorPickerView = null;
     }
 
     @Override

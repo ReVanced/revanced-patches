@@ -34,10 +34,7 @@ import app.revanced.extension.shared.settings.preference.CustomColorPickerView;
 @SuppressWarnings("deprecation")
 public class SegmentCategoryListPreference extends ListPreference {
     private final SegmentCategory category;
-    private TextView colorDotView;
-    private EditText colorEditText;
-    private EditText opacityEditText;
-    private CustomColorPickerView colorPickerView;
+
     /**
      * #RRGGBB
      */
@@ -47,6 +44,11 @@ public class SegmentCategoryListPreference extends ListPreference {
      */
     private float categoryOpacity;
     private int selectedDialogEntryIndex;
+
+    private TextView dialogColorDotView;
+    private EditText dialogColorEditText;
+    private EditText dialogOpacityEditText;
+    private CustomColorPickerView dialogColorPickerView;
 
     public SegmentCategoryListPreference(Context context, SegmentCategory category) {
         super(context);
@@ -85,10 +87,9 @@ public class SegmentCategoryListPreference extends ListPreference {
             // Inflate the color picker view.
             View colorPickerContainer = LayoutInflater.from(context)
                     .inflate(getResourceIdentifier("revanced_color_picker", "layout"), null);
-            colorPickerView = colorPickerContainer.findViewById(
+            dialogColorPickerView = colorPickerContainer.findViewById(
                     getResourceIdentifier("color_picker_view", "id"));
-            colorPickerView.setColor(categoryColor);
-            colorPickerView.updateSelectedColor();
+            dialogColorPickerView.setColor(categoryColor);
             mainLayout.addView(colorPickerContainer);
 
             // Grid layout for color and opacity inputs.
@@ -108,22 +109,22 @@ public class SegmentCategoryListPreference extends ListPreference {
             gridParams.rowSpec = GridLayout.spec(0); // First row.
             gridParams.columnSpec = GridLayout.spec(1); // Second column.
             gridParams.setMargins(0, 0, 10, 0);
-            colorDotView = new TextView(context);
-            colorDotView.setLayoutParams(gridParams);
-            gridLayout.addView(colorDotView);
+            dialogColorDotView = new TextView(context);
+            dialogColorDotView.setLayoutParams(gridParams);
+            gridLayout.addView(dialogColorDotView);
             updateCategoryColorDot();
 
             gridParams = new GridLayout.LayoutParams();
             gridParams.rowSpec = GridLayout.spec(0); // First row.
             gridParams.columnSpec = GridLayout.spec(2); // Third column.
-            colorEditText = new EditText(context);
-            colorEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+            dialogColorEditText = new EditText(context);
+            dialogColorEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
                     | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-            colorEditText.setAutofillHints((String) null);
-            colorEditText.setTypeface(Typeface.MONOSPACE);
-            colorEditText.setTextLocale(Locale.US);
-            colorEditText.setText(getColorString(categoryColor));
-            colorEditText.addTextChangedListener(new TextWatcher() {
+            dialogColorEditText.setAutofillHints((String) null);
+            dialogColorEditText.setTypeface(Typeface.MONOSPACE);
+            dialogColorEditText.setTextLocale(Locale.US);
+            dialogColorEditText.setText(getColorString(categoryColor));
+            dialogColorEditText.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 }
@@ -134,9 +135,10 @@ public class SegmentCategoryListPreference extends ListPreference {
 
                 @Override
                 public void afterTextChanged(Editable edit) {
-                    String colorString = edit.toString();
                     try {
+                        String colorString = edit.toString();
                         String normalizedColorString = ColorPickerPreference.cleanupColorCodeString(colorString);
+
                         if (!normalizedColorString.equals(colorString)) {
                             edit.replace(0, colorString.length(), normalizedColorString);
                             return;
@@ -149,17 +151,16 @@ public class SegmentCategoryListPreference extends ListPreference {
 
                         // Remove the alpha channel.
                         final int newColor = Color.parseColor(colorString) & 0x00FFFFFF;
-                        categoryColor = newColor;
-                        updateCategoryColorDot();
-                        colorPickerView.setColor(newColor);
+                        // Changing view color causes callback into this class.
+                        dialogColorPickerView.setColor(newColor);
                     } catch (Exception ex) {
                         // Should never be reached since input is validated before using.
                         Logger.printException(() -> "colorEditText afterTextChanged failure", ex);
                     }
                 }
             });
-            colorEditText.setLayoutParams(gridParams);
-            gridLayout.addView(colorEditText);
+            dialogColorEditText.setLayoutParams(gridParams);
+            gridLayout.addView(dialogColorEditText);
 
             gridParams = new GridLayout.LayoutParams();
             gridParams.rowSpec = GridLayout.spec(1); // Second row.
@@ -172,13 +173,13 @@ public class SegmentCategoryListPreference extends ListPreference {
             gridParams = new GridLayout.LayoutParams();
             gridParams.rowSpec = GridLayout.spec(1); // Second row.
             gridParams.columnSpec = GridLayout.spec(2); // Third column.
-            opacityEditText = new EditText(context);
-            opacityEditText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL
+            dialogOpacityEditText = new EditText(context);
+            dialogOpacityEditText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL
                     | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-            opacityEditText.setAutofillHints((String) null);
-            opacityEditText.setTypeface(Typeface.MONOSPACE);
-            opacityEditText.setTextLocale(Locale.US);
-            opacityEditText.addTextChangedListener(new TextWatcher() {
+            dialogOpacityEditText.setAutofillHints((String) null);
+            dialogOpacityEditText.setTypeface(Typeface.MONOSPACE);
+            dialogOpacityEditText.setTextLocale(Locale.US);
+            dialogOpacityEditText.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 }
@@ -222,14 +223,15 @@ public class SegmentCategoryListPreference extends ListPreference {
                     }
                 }
             });
-            opacityEditText.setLayoutParams(gridParams);
-            gridLayout.addView(opacityEditText);
+            dialogOpacityEditText.setLayoutParams(gridParams);
+            gridLayout.addView(dialogOpacityEditText);
             updateOpacityText();
 
             mainLayout.addView(gridLayout);
 
             // Set up color picker listener.
-            colorPickerView.setOnColorChangedListener(color -> {
+            // Do last to prevent listener callbacks while setting up view.
+            dialogColorPickerView.setOnColorChangedListener(color -> {
                 if (categoryColor == color) {
                     return;
                 }
@@ -238,8 +240,8 @@ public class SegmentCategoryListPreference extends ListPreference {
                 Logger.printDebug(() -> "onColorChanged: " + hexColor);
 
                 updateCategoryColorDot();
-                colorEditText.setText(hexColor);
-                colorEditText.setSelection(hexColor.length());
+                dialogColorEditText.setText(hexColor);
+                dialogColorEditText.setSelection(hexColor.length());
             });
 
             builder.setView(mainLayout);
@@ -268,7 +270,7 @@ public class SegmentCategoryListPreference extends ListPreference {
         button.setOnClickListener(view -> {
             try {
                 // Setting view color causes callback to update the UI.
-                colorPickerView.setColor(category.getColorNoOpacityDefault());
+                dialogColorPickerView.setColor(category.getColorNoOpacityDefault());
 
                 categoryOpacity = category.getOpacityDefault();
                 updateOpacityText();
@@ -290,7 +292,7 @@ public class SegmentCategoryListPreference extends ListPreference {
                 }
 
                 try {
-                    category.setColor(colorEditText.getText().toString());
+                    category.setColor(dialogColorEditText.getText().toString());
                     category.setOpacity(categoryOpacity);
                 } catch (IllegalArgumentException ex) {
                     Utils.showToastShort(str("revanced_settings_color_invalid"));
@@ -300,6 +302,11 @@ public class SegmentCategoryListPreference extends ListPreference {
             }
         } catch (Exception ex) {
             Logger.printException(() -> "onDialogClosed failure", ex);
+        } finally {
+            dialogColorDotView = null;
+            dialogColorEditText = null;
+            dialogOpacityEditText = null;
+            dialogColorPickerView = null;
         }
     }
 
@@ -315,11 +322,11 @@ public class SegmentCategoryListPreference extends ListPreference {
     }
 
     private void updateCategoryColorDot() {
-        colorDotView.setText(SegmentCategory.getCategoryColorDot(applyOpacityToCategoryColor()));
+        dialogColorDotView.setText(SegmentCategory.getCategoryColorDot(applyOpacityToCategoryColor()));
     }
 
     private void updateOpacityText() {
-        opacityEditText.setText(String.format(Locale.US, "%.2f", categoryOpacity));
+        dialogOpacityEditText.setText(String.format(Locale.US, "%.2f", categoryOpacity));
     }
 
     @Override
