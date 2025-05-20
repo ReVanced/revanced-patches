@@ -56,15 +56,18 @@ public class CustomColorPickerView extends View {
         void onColorChanged(int color);
     }
 
-    /** Pixel dimensions calculated from DP values */
-    private static final float HUE_BAR_WIDTH = dipToPixels(12f);
-    private static final float MARGIN_BETWEEN_AREAS = dipToPixels(24f);
-    private static final float VIEW_PADDING = dipToPixels(16f);
-    private static final float SELECTOR_RADIUS = dipToPixels(12f);
-    private static final float HUE_CORNER_RADIUS = dipToPixels(6f);
-
     /** Expanded touch area for the hue bar to increase the touch-sensitive area. */
     public static final float TOUCH_EXPANSION = dipToPixels(20f);
+
+    private static final float HUE_BAR_WIDTH = dipToPixels(12);
+    private static final float MARGIN_BETWEEN_AREAS = dipToPixels(24);
+    private static final float VIEW_PADDING = dipToPixels(16);
+    private static final float HUE_CORNER_RADIUS = dipToPixels(6);
+    private static final float SELECTOR_RADIUS = dipToPixels(12);
+    private static final float SELECTOR_STROKE_WIDTH = 8;
+    // Use slightly smaller radius for the selector handle fill,
+    // otherwise the anti-aliasing causes the fill color to bleed past the white border.
+    private static final float SELECTOR_FILL_RADIUS = SELECTOR_RADIUS - SELECTOR_STROKE_WIDTH / 2;
 
     private static final int[] HUE_COLORS = new int[361];
     static {
@@ -74,16 +77,16 @@ public class CustomColorPickerView extends View {
     }
 
     /** Paint object used to draw the hue bar. */
-    private final Paint huePaint;
+    private final Paint huePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     /** Paint object used to draw the saturation-value selector. */
-    private final Paint saturationValuePaint;
+    private final Paint saturationValuePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     /** Paint object used to draw the draggable handles. */
-    private final Paint selectorPaint;
+    private final Paint selectorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     /** Rectangle representing the bounds of the hue bar. */
-    private final RectF hueRect;
+    private final RectF hueRect = new RectF();
     /** Rectangle representing the bounds of the saturation-value selector. */
-    private final RectF saturationValueRect;
+    private final RectF saturationValueRect = new RectF();
 
     /** Reusable array for HSV color calculations to avoid allocations during drawing */
     private final float[] hsvArray = {1, 1, 1};
@@ -97,37 +100,28 @@ public class CustomColorPickerView extends View {
 
     /** The currently selected color in RGB format with no alpha channel. */
     private int selectedColor;
+
     /** Listener to be notified when the selected color changes. */
     private OnColorChangedListener colorChangedListener;
 
     /** Track if we're currently dragging the hue or saturation handle */
-    private boolean isDraggingHue = false;
-    private boolean isDraggingSaturation = false;
+    private boolean isDraggingHue;
+    private boolean isDraggingSaturation;
 
-    /**
-     * Constructor for creating a CustomColorPickerView programmatically.
-     *
-     * @param context The Context the view is running in.
-     * @param attrs   The attributes of the XML tag that is inflating the view.
-     */
+    {
+        selectorPaint.setStrokeWidth(SELECTOR_STROKE_WIDTH);
+    }
+
+    public CustomColorPickerView(Context context) {
+        super(context);
+    }
+
     public CustomColorPickerView(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
 
-        // Initialize the paint for the hue bar with antialiasing enabled.
-        huePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-        // Initialize the paint for the saturation-value selector with antialiasing enabled.
-        saturationValuePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-        // Initialize the paint for the draggable handles with antialiasing, fill-and-stroke style.
-        selectorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        selectorPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        selectorPaint.setStrokeWidth(8f);
-        // The stroke color (white border) will be applied in onDraw.
-
-        // Initialize the rectangle objects for the different components.
-        hueRect = new RectF();
-        saturationValueRect = new RectF();
+    public CustomColorPickerView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
     @Override
@@ -271,10 +265,10 @@ public class CustomColorPickerView extends View {
         selectorPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
         selectorPaint.setColor(hueHandleColor);
-        canvas.drawCircle(hueSelectorX, hueSelectorY, SELECTOR_RADIUS, selectorPaint);
+        canvas.drawCircle(hueSelectorX, hueSelectorY, SELECTOR_FILL_RADIUS, selectorPaint);
 
         selectorPaint.setColor(selectedColor | 0xFF000000);
-        canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_RADIUS, selectorPaint);
+        canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_FILL_RADIUS, selectorPaint);
 
         // Draw white borders for the handles.
         selectorPaint.setColor(Color.WHITE);
