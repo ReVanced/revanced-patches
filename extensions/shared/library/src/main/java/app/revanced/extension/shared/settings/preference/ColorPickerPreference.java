@@ -291,24 +291,20 @@ public class ColorPickerPreference extends EditTextPreference {
         // Set up color picker listener with debouncing.
         // Add listener last to prevent callbacks from set calls above.
         customColorPickerView.setOnColorChangedListener(color -> {
-            try {
-                // Check if it actually changed, since this callback
-                // can be caused by updates in afterTextChanged().
-                if (currentColor == color) {
-                    return;
-                }
-
-                String updatedColorString = getColorString(color);
-                Logger.printDebug(() -> "onColorChanged: " + updatedColorString);
-                currentColor = color;
-                editText.setText(updatedColorString);
-                editText.setSelection(updatedColorString.length());
-
-                updateColorPreview();
-                updateWidgetColorDot();
-            } catch (Exception ex) {
-                Logger.printException(() -> "setOnColorChangedListener failure", ex);
+            // Check if it actually changed, since this callback
+            // can be caused by updates in afterTextChanged().
+            if (currentColor == color) {
+                return;
             }
+
+            String updatedColorString = getColorString(color);
+            Logger.printDebug(() -> "onColorChanged: " + updatedColorString);
+            currentColor = color;
+            editText.setText(updatedColorString);
+            editText.setSelection(updatedColorString.length());
+
+            updateColorPreview();
+            updateWidgetColorDot();
         });
 
         return layout;

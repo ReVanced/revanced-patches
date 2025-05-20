@@ -63,6 +63,9 @@ public class CustomColorPickerView extends View {
     private static final float SELECTOR_RADIUS = dipToPixels(12f);
     private static final float HUE_CORNER_RADIUS = dipToPixels(6f);
 
+    /** Expanded touch area for the hue bar to increase the touch-sensitive area. */
+    public static final float TOUCH_EXPANSION = dipToPixels(20f);
+
     private static final int[] HUE_COLORS = new int[361];
     static {
         for (int i = 0; i <= 360; i++) {
@@ -262,8 +265,8 @@ public class CustomColorPickerView extends View {
 
         // Use the reusable array for HSV color calculation.
         hsvArray[0] = hue;
-        hsvArray[1] = 1f;
-        hsvArray[2] = 1f;
+        hsvArray[1] = 1;
+        hsvArray[2] = 1;
         final int hueHandleColor = Color.HSVToColor(hsvArray);
 
         selectorPaint.setColor(hueHandleColor);
@@ -281,14 +284,13 @@ public class CustomColorPickerView extends View {
         final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
         final float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
 
-        selectorPaint.setColor(selectedColor);
+        selectorPaint.setColor(selectedColor | 0xFF000000);
         canvas.drawCircle(satSelectorX, valSelectorY, SELECTOR_RADIUS, selectorPaint);
 
         // Draw a white border for the saturation handle.
         selectorPaint.setStyle(Paint.Style.STROKE);
         selectorPaint.setColor(Color.WHITE);
         canvas.drawCircle(satSelectorX, valSelectorY, SELECTOR_RADIUS, selectorPaint);
-        selectorPaint.setStyle(Paint.Style.FILL_AND_STROKE);
     }
 
     /**
@@ -312,8 +314,6 @@ public class CustomColorPickerView extends View {
             Logger.printDebug(() -> "onTouchEvent action: " + action + " x: " + x + " y: " + y);
 
             // Define touch expansion for the hue bar.
-            final float TOUCH_EXPANSION = dipToPixels(20f); // 20px to left and right.
-            // Create an expanded rectangle for the hue bar to increase the touch-sensitive area.
             RectF expandedHueRect = new RectF(
                     hueRect.left - TOUCH_EXPANSION,
                     hueRect.top,
