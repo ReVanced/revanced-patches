@@ -27,6 +27,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
+
 import java.util.Locale;
 import java.util.regex.Pattern;
 
@@ -71,6 +73,7 @@ public class ColorPickerPreference extends EditTextPreference {
     /**
      * Current color in RGB format (without alpha).
      */
+    @ColorInt
     private int currentColor;
 
     /**
@@ -113,7 +116,7 @@ public class ColorPickerPreference extends EditTextPreference {
      * @param color RGB color, without an alpha channel.
      * @return #RRGGBB hex color string
      */
-    public static String getColorString(int color) {
+    public static String getColorString(@ColorInt int color) {
         String colorString = String.format("#%06X", color);
         if ((color & 0xFF000000) != 0) {
             // Likely a bug somewhere.
@@ -128,7 +131,7 @@ public class ColorPickerPreference extends EditTextPreference {
      * @param color The RGB color (without alpha).
      * @return A Spanned object with the colored dot.
      */
-    public static Spanned getColorDot(int color) {
+    public static Spanned getColorDot(@ColorInt int color) {
         SpannableString spannable = new SpannableString(COLOR_DOT_STRING);
         spannable.setSpan(new ForegroundColorSpan(color | 0xFF000000), 0, COLOR_DOT_STRING.length(),
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

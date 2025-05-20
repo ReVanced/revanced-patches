@@ -23,6 +23,8 @@ import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
+
 import java.util.Locale;
 import java.util.Objects;
 
@@ -36,8 +38,9 @@ public class SegmentCategoryListPreference extends ListPreference {
     private final SegmentCategory category;
 
     /**
-     * #RRGGBB
+     * RGB format (no alpha).
      */
+    @ColorInt
     private int categoryColor;
     /**
      * [0, 1]
@@ -310,6 +313,7 @@ public class SegmentCategoryListPreference extends ListPreference {
         }
     }
 
+    @ColorInt
     private int applyOpacityToCategoryColor() {
         return applyOpacityToColor(categoryColor, categoryOpacity);
     }

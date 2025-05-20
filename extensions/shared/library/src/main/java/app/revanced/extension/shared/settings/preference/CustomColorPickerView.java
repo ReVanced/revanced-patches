@@ -17,6 +17,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.ColorInt;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
@@ -53,7 +55,7 @@ public class CustomColorPickerView extends View {
          *
          * @param color The new selected color.
          */
-        void onColorChanged(int color);
+        void onColorChanged(@ColorInt int color);
     }
 
     /** Expanded touch area for the hue bar to increase the touch-sensitive area. */
@@ -66,8 +68,12 @@ public class CustomColorPickerView extends View {
     private static final float SELECTOR_RADIUS = dipToPixels(12);
     private static final float SELECTOR_STROKE_WIDTH = 8;
     // Use slightly smaller radius for the selector handle fill,
-    // otherwise the anti-aliasing causes the fill color to bleed past the white border.
+    // otherwise the anti-aliasing causes the fill color to bleed past the selector outline.
     private static final float SELECTOR_FILL_RADIUS = SELECTOR_RADIUS - SELECTOR_STROKE_WIDTH / 2;
+
+    /** Selector outline color. */
+    @ColorInt
+    private static final int SELECTOR_OUTLINE_COLOR = Color.parseColor("#F5F5F5");
 
     private static final int[] HUE_COLORS = new int[361];
     static {
@@ -76,22 +82,22 @@ public class CustomColorPickerView extends View {
         }
     }
 
-    /** Paint object used to draw the hue bar. */
+    /** Hue bar. */
     private final Paint huePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    /** Paint object used to draw the saturation-value selector. */
+    /** Saturation-value selector. */
     private final Paint saturationValuePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    /** Paint object used to draw the draggable handles. */
+    /** Draggable selector. */
     private final Paint selectorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     {
         selectorPaint.setStrokeWidth(SELECTOR_STROKE_WIDTH);
     }
 
-    /** Rectangle representing the bounds of the hue bar. */
+    /** Bounds of the hue bar. */
     private final RectF hueRect = new RectF();
-    /** Rectangle representing the bounds of the saturation-value selector. */
+    /** Bounds of the saturation-value selector. */
     private final RectF saturationValueRect = new RectF();
 
-    /** Reusable array for HSV color calculations to avoid allocations during drawing */
+    /** HSV color calculations to avoid allocations during drawing. */
     private final float[] hsvArray = {1, 1, 1};
 
     /** Current hue value (0-360). */
@@ -102,12 +108,12 @@ public class CustomColorPickerView extends View {
     private float value = 1f;
 
     /** The currently selected color in RGB format with no alpha channel. */
+    @ColorInt
     private int selectedColor;
 
-    /** Listener to be notified when the selected color changes. */
     private OnColorChangedListener colorChangedListener;
 
-    /** Track if we're currently dragging the hue or saturation handle */
+    /** Track if we're currently dragging the hue or saturation handle. */
     private boolean isDraggingHue;
     private boolean isDraggingSaturation;
 
@@ -270,7 +276,7 @@ public class CustomColorPickerView extends View {
         canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_FILL_RADIUS, selectorPaint);
 
         // Draw white borders for the handles.
-        selectorPaint.setColor(Color.WHITE);
+        selectorPaint.setColor(SELECTOR_OUTLINE_COLOR);
         selectorPaint.setStyle(Paint.Style.STROKE);
         canvas.drawCircle(hueSelectorX, hueSelectorY, SELECTOR_RADIUS, selectorPaint);
         canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_RADIUS, selectorPaint);
@@ -428,7 +434,7 @@ public class CustomColorPickerView extends View {
      *
      * @param color The color to set in either ARGB or RGB format.
      */
-    public void setColor(int color) {
+    public void setColor(@ColorInt int color) {
         color &= 0x00FFFFFF;
         if (selectedColor == color) {
             return;
@@ -464,6 +470,7 @@ public class CustomColorPickerView extends View {
      *
      * @return The selected color in RGB format with no alpha channel.
      */
+    @ColorInt
     public int getColor() {
         return selectedColor;
     }

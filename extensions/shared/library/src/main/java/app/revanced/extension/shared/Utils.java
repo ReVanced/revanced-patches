@@ -553,14 +553,14 @@ public class Utils {
         );
     }
 
-    public static boolean isDarkModeEnabled(Context context) {
-        Configuration config = context.getResources().getConfiguration();
+    public static boolean isDarkModeEnabled() {
+        Configuration config = Resources.getSystem().getConfiguration();
         final int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
         return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
     }
 
     public static boolean isLandscapeOrientation() {
-        final int orientation = context.getResources().getConfiguration().orientation;
+        final int orientation = Resources.getSystem().getConfiguration().orientation;
         return orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
@@ -636,7 +636,11 @@ public class Utils {
                 || networkType == NetworkType.OTHER;
     }
 
-    @SuppressLint({"MissingPermission", "deprecation"}) // Permission already included in YouTube.
+    /**
+     * Calling extension code must ensure the target app has the
+     * <code>ACCESS_NETWORK_STATE</code> app manifest permission.
+     */
+    @SuppressWarnings({"deprecation", "MissingPermission"})
     public static NetworkType getNetworkType() {
         Context networkContext = getContext();
         if (networkContext == null) {

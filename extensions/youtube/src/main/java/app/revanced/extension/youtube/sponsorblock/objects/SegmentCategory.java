@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -136,7 +137,8 @@ public enum SegmentCategory {
         updateEnabledCategories();
     }
 
-    public static int applyOpacityToColor(int color, float opacity) {
+    @ColorInt
+    public static int applyOpacityToColor(@ColorInt int color, float opacity) {
         if (opacity < 0 || opacity > 1.0f) {
             throw new IllegalArgumentException("Invalid opacity: " + opacity);
         }
@@ -167,32 +169,28 @@ public enum SegmentCategory {
     /**
      * Skipped segment toast, if the skip occurred in the first quarter of the video
      */
-    @NonNull
     public final StringRef skippedToastBeginning;
     /**
      * Skipped segment toast, if the skip occurred in the middle half of the video
      */
-    @NonNull
     public final StringRef skippedToastMiddle;
     /**
      * Skipped segment toast, if the skip occurred in the last quarter of the video
      */
-    @NonNull
     public final StringRef skippedToastEnd;
 
-    @NonNull
     public final Paint paint;
 
     /**
      * Category color with opacity applied.
      */
+    @ColorInt
     private int color;
 
     /**
      * Value must be changed using {@link #setBehaviour(CategoryBehaviour)}.
      * Caller must also {@link #updateEnabledCategories()}.
      */
-    @NonNull
     public CategoryBehaviour behaviour = CategoryBehaviour.IGNORE;
 
     SegmentCategory(String keyValue, StringRef title, StringRef description,
@@ -252,7 +250,7 @@ public enum SegmentCategory {
         }
     }
 
-    public void setBehaviour(@NonNull CategoryBehaviour behaviour) {
+    public void setBehaviour(CategoryBehaviour behaviour) {
         this.behaviour = Objects.requireNonNull(behaviour);
         this.behaviorSetting.save(behaviour.reVancedKeyValue);
     }
@@ -300,6 +298,7 @@ public enum SegmentCategory {
     /**
      * @return Integer color of #RRGGBB format.
      */
+    @ColorInt
     public int getColorNoOpacity() {
         return color & 0x00FFFFFF;
     }
@@ -307,6 +306,7 @@ public enum SegmentCategory {
     /**
      * @return Integer color of #RRGGBB format.
      */
+    @ColorInt
     public int getColorNoOpacityDefault() {
         return Color.parseColor(colorSetting.defaultValue) & 0x00FFFFFF;
     }
@@ -318,14 +318,14 @@ public enum SegmentCategory {
         return String.format(Locale.US, "#%06X", getColorNoOpacity());
     }
 
-    private static SpannableString getCategoryColorDotSpan(String text, int color) {
+    private static SpannableString getCategoryColorDotSpan(String text, @ColorInt int color) {
         SpannableString dotSpan = new SpannableString(COLOR_DOT_STRING + text);
         dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         return dotSpan;
     }
 
-    public static SpannableString getCategoryColorDot(int color) {
+    public static SpannableString getCategoryColorDot(@ColorInt int color) {
         SpannableString dotSpan = new SpannableString(COLOR_DOT_STRING);
         dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -338,7 +338,7 @@ public enum SegmentCategory {
         return getCategoryColorDot(color);
     }
 
-    public SpannableString getTitleWithColorDot(int categoryColor) {
+    public SpannableString getTitleWithColorDot(@ColorInt int categoryColor) {
         return getCategoryColorDotSpan(" " + title, categoryColor);
     }
 
