@@ -427,9 +427,6 @@ Limitations
 
 This feature is only available for older devices"</string>
             <string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown</string>
-            <string name="revanced_hide_buttoned_ads_title">Hide buttoned ads</string>
-            <string name="revanced_hide_buttoned_ads_summary_on">Buttoned ads are hidden</string>
-            <string name="revanced_hide_buttoned_ads_summary_off">Buttoned ads are shown</string>
             <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
             <string name="revanced_hide_paid_promotion_label_summary_on">Paid promotion label is hidden</string>
             <string name="revanced_hide_paid_promotion_label_summary_off">Paid promotion label is shown</string>

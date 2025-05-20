@@ -64,21 +64,6 @@ public final class AdsFilter extends Filter {
                 "_interstitial"
         );
 
-        final var buttonedAd = new StringFilterGroup(
-                Settings.HIDE_BUTTONED_ADS,
-                "_ad_with",
-                "_buttoned_layout",
-                // text_image_button_group_layout, landscape_image_button_group_layout, full_width_square_image_button_group_layout
-                "image_button_group_layout",
-                "full_width_square_image_layout",
-                "video_display_button_group_layout",
-                "landscape_image_wide_button_layout",
-                "video_display_carousel_button_group_layout",
-                "video_display_full_buttoned_short_dr_layout",
-                "compact_landscape_image_layout", // Tablet layout search results.
-                "text_image_no_button_layout" // Tablet layout search results.
-        );
-
         final var generalAds = new StringFilterGroup(
                 Settings.HIDE_GENERAL_ADS,
                 "ads_video_with_context",
@@ -96,7 +81,19 @@ public final class AdsFilter extends Filter {
                 "carousel_headered_layout",
                 "full_width_portrait_image_layout",
                 "brand_video_shelf",
-                "brand_video_singleton"
+                "brand_video_singleton",
+                "_ad_with",
+                "_buttoned_layout",
+                // text_image_button_group_layout, landscape_image_button_group_layout, full_width_square_image_button_group_layout
+                "image_button_group_layout",
+                "full_width_square_image_layout",
+                "full_width_square_image_carousel_layout",
+                "video_display_button_group_layout",
+                "landscape_image_wide_button_layout",
+                "video_display_carousel_button_group_layout",
+                "video_display_full_buttoned_short_dr_layout",
+                "compact_landscape_image_layout", // Tablet layout search results.
+                "text_image_no_button_layout" // Tablet layout search results.
         );
 
         final var movieAds = new StringFilterGroup(
@@ -160,7 +157,6 @@ public final class AdsFilter extends Filter {
 
         addPathCallbacks(
                 generalAds,
-                buttonedAd,
                 merchandise,
                 viewProducts,
                 selfSponsor,
