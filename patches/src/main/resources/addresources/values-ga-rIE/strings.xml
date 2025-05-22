@@ -162,8 +162,8 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_hide_notify_me_button_summary_off">Taispeántar an cnaipe</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_search_result_recommendation_labels_title">Folaigh lipéid moltaí físeáin</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Tá lipéid \",,D’fhéach daoine eile air freisin\",, agus \",,B’fhéidir gur mhaith leat é seo freisin\",, folaithe</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Tá lipéid \",,D’fhéach daoine eile air freisin\",, agus \",,B’fhéidir gur mhaith leat é seo freisin\",, ar taispeáint</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Tá na lipéid \'Daoine a d\'fhéach orthu freisin\' agus \'B\'fhéidir gur mhaith leat freisin\' i bhfolach</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Taispeántar lipéid ‘Daoine a d’fhéach freisin’ agus ‘B’fhéidir gur mhaith leat freisin’</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Folaigh cnaipe \'Taispeáin tuilleadh\'</string>
@@ -263,8 +263,8 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Tá an chuid Príomhchoincheapa i bhfolach</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Taispeántar an chuid Príomhchoincheapa</string>
   <string name="revanced_hide_transcript_section_title">Folaigh Tras-scríbhinn</string>
-  <string name="revanced_hide_transcript_section_summary_on">Tá an chuid trasscríbhinne i bhfolach</string>
-  <string name="revanced_hide_transcript_section_summary_off">Taispeántar alt an trasscríbhinne</string>
+  <string name="revanced_hide_transcript_section_summary_on">Tá alt an tras-scríbhinn i bhfolach</string>
+  <string name="revanced_hide_transcript_section_summary_off">Taispeántar alt an tras-scríbhinn</string>
   <string name="revanced_hide_description_components_screen_title">Cur síos físeán</string>
   <string name="revanced_hide_description_components_screen_summary">Folaigh nó taispeáint comhpháirteanna tuairisc</string>
   <string name="revanced_hide_filter_bar_screen_title">Barra scagaire</string>
@@ -278,8 +278,8 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Folaigh i bhfíseáin gaolmhara</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">I bhfolach i bhfíseáin ghaolmhara</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Taispeántar i bhfíseáin ghaolmhara</string>
-  <string name="revanced_comments_screen_title">Tuairimí</string>
-  <string name="revanced_comments_screen_summary">Folaigh nó taispeáin comhpháirteanna na rannóige tuairimí</string>
+  <string name="revanced_comments_screen_title">Tráchtanna</string>
+  <string name="revanced_comments_screen_summary">Folaigh nó taispeáin comhpháirteanna na rannóige tráchtanna</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Folaigh achoimre Comhrá AI</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tá achoimre comhrá i bhfolach</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">Taispeántar achoimre comhrá</string>
