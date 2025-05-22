@@ -7,20 +7,21 @@ import java.util.logging.Logger
 
 @Suppress("unused")
 val disableLicenseCheckPatch = bytecodePatch(
-    name = "Disable pairip license check",
-    description = "Disable Play Integrity Protect (pairip) client-side license check."
+    name = "Disable Pairip license check",
+    description = "Disable Play Integrity Protect (Pairip) client-side license check.",
+    use = false
 ) {
 
     execute {
-        if (processLicenseResponseFingerprint.methodOrNull == null || validateLicenseResponseFingerprint.methodOrNull == null)
+        if (processLicenseResponseFingerprint.methodOrNull == null || validateLicenseResponseFingerprint.methodOrNull == null) {
             return@execute Logger.getLogger(this::class.java.name)
-                .warning("Could not find pairip licensing check. No changes applied.")
+                .warning("Could not find Pairip licensing check.  No changes applied.")
+        }
 
         // Set first parameter (responseCode) to 0 (success status).
         processLicenseResponseFingerprint.method.addInstruction(0, "const/4 p1, 0x0")
 
         // Short-circuit the license response validation.
-        validateLicenseResponseFingerprint.method.returnEarly();
-
+        validateLicenseResponseFingerprint.method.returnEarly()
     }
 }
