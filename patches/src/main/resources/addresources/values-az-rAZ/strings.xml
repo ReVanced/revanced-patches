@@ -42,7 +42,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced tənzimləmələr standarta təyin edildi</string>
   <string name="revanced_settings_import_success">%d tənzimləmə idxal edildi</string>
   <string name="revanced_settings_import_failure_parse">Uğursuz idxal prosesi: %s</string>
-  <string name="revanced_settings_search_hint">Axtarış tənzimləmələri</string>
+  <string name="revanced_settings_search_hint">Tənzimləmələri axtar</string>
   <string name="revanced_settings_search_no_results_title">‘%s’ üçün nəticə tapılmadı</string>
   <string name="revanced_settings_search_no_results_summary">Başqa açar sözü yoxla</string>
   <string name="revanced_settings_search_remove_message">Axtarış tarixçəsindən silinsin?</string>
