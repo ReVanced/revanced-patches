@@ -3,7 +3,7 @@ package app.revanced.patches.messenger.metaai
 import com.android.tools.smali.dexlib2.Opcode
 import app.revanced.patcher.fingerprint
 
-internal val getMobileConfigBoolFingerprint = fingerprint {
+internal val getMobileConfigBoolFingerprint by fingerprint {
     parameters("J")
     returns("Z")
     opcodes(Opcode.RETURN) 
