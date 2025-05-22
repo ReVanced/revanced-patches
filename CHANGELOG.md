@@ -1,3 +1,10 @@
+# [5.25.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.4...v5.25.0-dev.5) (2025-05-22)
+
+
+### Bug Fixes
+
+* **YouTube:** Better handle incorrect duplicate translations ([20abac5](https://github.com/ReVanced/revanced-patches/commit/20abac52121fbecb65d87d0982f3380e1cf4e20e))
+
 # [5.25.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.3...v5.25.0-dev.4) (2025-05-22)
 
 
