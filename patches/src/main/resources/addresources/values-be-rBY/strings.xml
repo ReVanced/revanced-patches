@@ -169,6 +169,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">Схаваць кнопку \"Паказаць больш\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Кнопка схавана</string>
   <string name="revanced_hide_show_more_button_summary_off">Паказана кнопка</string>
+  <string name="revanced_hide_ticket_shelf_title">Схаваць паліцу білетаў</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Паліца білетаў схавана</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Паліца білетаў паказана</string>
   <string name="revanced_hide_timed_reactions_title">Схаваць рэакцыі па часе</string>
   <string name="revanced_hide_timed_reactions_summary_on">Часовыя рэакцыі схаваныя</string>
   <string name="revanced_hide_timed_reactions_summary_off">Паказваюцца рэакцыі па часе</string>
@@ -238,6 +241,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Схаваць «Зводку відэа, згенэраваную штучным інтэлектам»</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Раздзел зводкі відэа схаваны</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Раздзел зводкі відэа паказаны</string>
+  <string name="revanced_hide_ask_section_title">Схаваць «Спытаць»</string>
+  <string name="revanced_hide_ask_section_summary_on">Раздзел «Спытаць» схаваны</string>
+  <string name="revanced_hide_ask_section_summary_off">Раздзел «Спытаць» паказаны</string>
   <string name="revanced_hide_attributes_section_title">Схаваць атрыбуты</string>
   <string name="revanced_hide_attributes_section_summary_on">Раздзелы «Папулярныя месцы», «Гульні», «Музыка» і «Людзі, якіх згадвалі» схаваныя</string>
   <string name="revanced_hide_attributes_section_summary_off">Раздзелы «Папулярныя месцы», «Гульні», «Музыка» і «Людзі, якіх згадвалі» паказаныя</string>

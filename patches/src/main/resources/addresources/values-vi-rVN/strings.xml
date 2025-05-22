@@ -42,7 +42,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Cài đặt ReVanced đặt lại thành mặc định</string>
   <string name="revanced_settings_import_success">Đã nhập cài đặt %d</string>
   <string name="revanced_settings_import_failure_parse">Nhập thất bại: %s</string>
-  <string name="revanced_settings_search_hint">Cài đặt tìm kiếm</string>
+  <string name="revanced_settings_search_hint">Tìm kiếm</string>
   <string name="revanced_settings_search_no_results_title">Không tìm thấy kết quả nào cho \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Thử một từ khóa khác</string>
   <string name="revanced_settings_search_remove_message">Xóa khỏi lịch sử tìm kiếm?</string>
@@ -169,6 +169,9 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_show_more_button_title">Ẩn nút \'Hiện thêm\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Nút đã bị ẩn</string>
   <string name="revanced_hide_show_more_button_summary_off">Nút được hiển thị</string>
+  <string name="revanced_hide_ticket_shelf_title">Ẩn kệ vé</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Kệ vé đã bị ẩn</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Kệ vé đang hiển thị</string>
   <string name="revanced_hide_timed_reactions_title">Ẩn phản ứng theo thời gian</string>
   <string name="revanced_hide_timed_reactions_summary_on">Phản ứng theo thời gian đã bị ẩn</string>
   <string name="revanced_hide_timed_reactions_summary_off">Phản ứng theo thời gian được hiển thị</string>
@@ -238,6 +241,9 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ẩn \'Bản tóm tắt video do AI tạo\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Phần tóm tắt video đã bị ẩn</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Phần tóm tắt video được hiển thị</string>
+  <string name="revanced_hide_ask_section_title">Ẩn Hỏi</string>
+  <string name="revanced_hide_ask_section_summary_on">Phần Hỏi đã bị ẩn</string>
+  <string name="revanced_hide_ask_section_summary_off">Phần Hỏi được hiển thị</string>
   <string name="revanced_hide_attributes_section_title">Ẩn Thuộc tính</string>
   <string name="revanced_hide_attributes_section_summary_on">Phần Địa điểm nổi bật, Trò chơi, Âm nhạc và Người được đề cập đã bị ẩn</string>
   <string name="revanced_hide_attributes_section_summary_off">Phần Địa điểm nổi bật, Trò chơi, Âm nhạc và Người được đề cập được hiển thị</string>

@@ -1,3 +1,45 @@
+# [5.24.0](https://github.com/ReVanced/revanced-patches/compare/v5.23.0...v5.24.0) (2025-05-19)
+
+
+### Bug Fixes
+
+* **Spotify - Fix third party launchers widgets:** Add missing compatibility annotation ([0493f80](https://github.com/ReVanced/revanced-patches/commit/0493f8035b26b90c5f8e42be2e2a5ce73d8685a5))
+* **YouTube - Hide layout components:** Fix `Hide video recommendation labels` ([#4956](https://github.com/ReVanced/revanced-patches/issues/4956)) ([ae05ac3](https://github.com/ReVanced/revanced-patches/commit/ae05ac38151ebd3197953af97ca0dd847a04cc2d))
+* **YouTube - Settings:** Correctly show summary text if search box is closed before searching ([d0ae835](https://github.com/ReVanced/revanced-patches/commit/d0ae835d3381fc659c9bb4a2d130d4db8a1499cf))
+* **YouTube - SponsorBlock:** Fix segment category summary not showing category description ([06934a6](https://github.com/ReVanced/revanced-patches/commit/06934a60d91b40a5cdf7f4cd92deae4a136c149b))
+
+
+### Features
+
+* **GmsCore support:** Open vendor specific DontKillMyApp if available ([#4952](https://github.com/ReVanced/revanced-patches/issues/4952)) ([b89927a](https://github.com/ReVanced/revanced-patches/commit/b89927a10e3b909a3c37fbb75c16a7abbce44560))
+* **NU.nl:** Support version `11.3.0` ([#4925](https://github.com/ReVanced/revanced-patches/issues/4925)) ([bedde60](https://github.com/ReVanced/revanced-patches/commit/bedde60fc1a52b0fd491174b3b5b887435eb621a))
+* **Spotify:** Add `Fix third party launchers widgets` patch ([#4893](https://github.com/ReVanced/revanced-patches/issues/4893)) ([23bfdc9](https://github.com/ReVanced/revanced-patches/commit/23bfdc98fbbcc8ecf0ffbf8704f58dd2272e4af2))
+* **YouTube - Hide description components:** Add `Hide Ask` ([#4972](https://github.com/ReVanced/revanced-patches/issues/4972)) ([ebc94a5](https://github.com/ReVanced/revanced-patches/commit/ebc94a5da6214b67399c9c01515689bd4b20547c))
+* **YouTube - Hide layout components:** Add `Hide ticket shelf` ([#4969](https://github.com/ReVanced/revanced-patches/issues/4969)) ([6436af7](https://github.com/ReVanced/revanced-patches/commit/6436af7e77c77d2034dfceba8bc51132ad7632be))
+* **YouTube - Hide player components:** Hide related video overlay in fullscreen ([#4938](https://github.com/ReVanced/revanced-patches/issues/4938)) ([ac9be97](https://github.com/ReVanced/revanced-patches/commit/ac9be9760c9965e54df196b227a310d64ead4bf5))
+* **YouTube - Settings:** Add ability to search in settings ([#4881](https://github.com/ReVanced/revanced-patches/issues/4881)) ([aca8b20](https://github.com/ReVanced/revanced-patches/commit/aca8b207c15f254bcc9ad94bc7dfb895f21d4058))
+
+# [5.24.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.8...v5.24.0-dev.9) (2025-05-18)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Fix segment category summary not showing category description ([06934a6](https://github.com/ReVanced/revanced-patches/commit/06934a60d91b40a5cdf7f4cd92deae4a136c149b))
+
+# [5.24.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.7...v5.24.0-dev.8) (2025-05-17)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Correctly show summary text if search box is closed before searching ([d0ae835](https://github.com/ReVanced/revanced-patches/commit/d0ae835d3381fc659c9bb4a2d130d4db8a1499cf))
+
+# [5.24.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.6...v5.24.0-dev.7) (2025-05-17)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add `Hide ticket shelf` ([#4969](https://github.com/ReVanced/revanced-patches/issues/4969)) ([6436af7](https://github.com/ReVanced/revanced-patches/commit/6436af7e77c77d2034dfceba8bc51132ad7632be))
+
 # [5.24.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.5...v5.24.0-dev.6) (2025-05-17)
 
 

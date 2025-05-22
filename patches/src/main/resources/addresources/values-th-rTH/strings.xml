@@ -169,6 +169,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">ซ่อนปุ่ม \"แสดงเพิ่มเติม\"</string>
   <string name="revanced_hide_show_more_button_summary_on">ปุ่มถูกซ่อน</string>
   <string name="revanced_hide_show_more_button_summary_off">ปุ่มถูกแสดง</string>
+  <string name="revanced_hide_ticket_shelf_title">ซ่อนชั้นวางตั๋ว</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">ชั้นวางตั๋วถูกซ่อนอยู่</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">ชั้นวางตั๋วแสดงอยู่</string>
   <string name="revanced_hide_timed_reactions_title">ซ่อนปฏิกิริยาตามเวลา</string>
   <string name="revanced_hide_timed_reactions_summary_on">ปฏิกิริยาตามเวลาถูกซ่อน</string>
   <string name="revanced_hide_timed_reactions_summary_off">ปฏิกิริยาตามเวลาถูกแสดง</string>
@@ -238,6 +241,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">ซ่อน \",สรุปวิดีโอที่สร้างโดย AI\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">ส่วนสรุปวิดีโอถูกซ่อน</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">ส่วนสรุปวิดีโอปรากฏ</string>
+  <string name="revanced_hide_ask_section_title">ซ่อน Ask</string>
+  <string name="revanced_hide_ask_section_summary_on">ส่วน Ask ถูกซ่อนไว้</string>
+  <string name="revanced_hide_ask_section_summary_off">ส่วน Ask ถูกแสดง</string>
   <string name="revanced_hide_attributes_section_title">ซ่อนแอตทริบิวต์</string>
   <string name="revanced_hide_attributes_section_summary_on">ส่วนสถานที่แนะนำ, เกม, เพลง และบุคคลที่กล่าวถึงถูกซ่อน</string>
   <string name="revanced_hide_attributes_section_summary_off">ส่วนสถานที่แนะนำ, เกม, เพลง และบุคคลที่กล่าวถึงแสดงอยู่</string>

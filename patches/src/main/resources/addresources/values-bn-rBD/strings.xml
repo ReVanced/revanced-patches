@@ -169,6 +169,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_show_more_button_title">\'আরও দেখান\' বোতাম লুকান</string>
   <string name="revanced_hide_show_more_button_summary_on">বোতাম লুকানো আছে</string>
   <string name="revanced_hide_show_more_button_summary_off">বোতাম দেখানো আছে</string>
+  <string name="revanced_hide_ticket_shelf_title">টিকিট তাক লুকান</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">টিকিট তাক লুকানো আছে</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">টিকিট তাক দেখানো হয়েছে</string>
   <string name="revanced_hide_timed_reactions_title">সময় অনুযায়ী প্রতিক্রিয়া লুকান</string>
   <string name="revanced_hide_timed_reactions_summary_on">সময় অনুযায়ী প্রতিক্রিয়া লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_timed_reactions_summary_off">সময় অনুযায়ী প্রতিক্রিয়া প্রদর্শিত হয়েছে</string>
@@ -238,6 +241,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_ai_generated_video_summary_section_title">\'AI-জেনারেটেড ভিডিও সারসংক্ষেপ\' লুকান</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">ভিডিও সারসংক্ষেপ বিভাগ লুকানো আছে</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">ভিডিও সারসংক্ষেপ বিভাগ দেখানো হয়েছে</string>
+  <string name="revanced_hide_ask_section_title">জিজ্ঞাসা লুকান</string>
+  <string name="revanced_hide_ask_section_summary_on">জিজ্ঞাসা বিভাগ লুকানো আছে</string>
+  <string name="revanced_hide_ask_section_summary_off">জিজ্ঞাসা বিভাগ দেখানো হয়েছে</string>
   <string name="revanced_hide_attributes_section_title">বৈশিষ্ট্যাবলী লুকান</string>
   <string name="revanced_hide_attributes_section_summary_on">বৈশিষ্ট্যযুক্ত স্থান, গেমস, সঙ্গীত, এবং উল্লিখিত ব্যক্তি বিভাগগুলি লুকানো আছে</string>
   <string name="revanced_hide_attributes_section_summary_off">বৈশিষ্ট্যযুক্ত স্থান, গেমস, সঙ্গীত, এবং উল্লিখিত ব্যক্তি বিভাগগুলি দেখানো হয়েছে</string>

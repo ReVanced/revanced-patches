@@ -42,10 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Επαναφέρθηκαν οι προεπιλεγμένες ρυθμίσεις ReVanced</string>
   <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων</string>
   <string name="revanced_settings_import_failure_parse">Η εισαγωγή απέτυχε: %s</string>
-  <string name="revanced_settings_search_hint">Ρυθμίσεις αναζήτησης</string>
-  <string name="revanced_settings_search_no_results_title">Δεν βρέθηκαν αποτελέσματα για το 	%s\'</string>
+  <string name="revanced_settings_search_hint">Αναζήτηση ρυθμίσεων</string>
+  <string name="revanced_settings_search_no_results_title">Δεν βρέθηκαν αποτελέσματα για το \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Δοκιμάστε μια άλλη λέξη-κλειδί</string>
-  <string name="revanced_settings_search_remove_message">Να καταργηθεί από το ιστορικό αναζήτησης;</string>
+  <string name="revanced_settings_search_remove_message">Κατάργηση από το ιστορικό αναζήτησης;</string>
   <string name="revanced_show_menu_icons_title">Εμφάνιση εικονιδίων στις ρυθμίσεις ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Τα εικονίδια ρυθμίσεων εμφανίζονται</string>
   <string name="revanced_show_menu_icons_summary_off">Τα εικονίδια ρυθμίσεων δεν εμφανίζονται</string>
@@ -98,7 +98,7 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Τα παλιά μενού ρυθμίσεων εμφανίζονται</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Τα νέα μενού ρυθμίσεων εμφανίζονται</string>
   <string name="revanced_settings_search_history_title">Εμφάνιση ιστορικού αναζήτησης ρυθμίσεων</string>
-  <string name="revanced_settings_search_history_summary_on">Εμφανίζεται το ιστορικό αναζήτησης ρυθμίσεων</string>
+  <string name="revanced_settings_search_history_summary_on">Το ιστορικό αναζήτησης ρυθμίσεων εμφανίζεται</string>
   <string name="revanced_settings_search_history_summary_off">Το ιστορικό αναζήτησης ρυθμίσεων δεν εμφανίζεται</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
@@ -163,14 +163,17 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_notify_me_button_summary_off">Εμφανίζεται</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendation_labels_title">Απόκρυψη ετικετών προτάσεων βίντεο</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Οι ετικέτες \"Άλλοι χρήστες παρακολούθησαν επίσης\" και \"Ενδέχεται επίσης να σας αρέσει\" είναι κρυφές</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Οι ετικέτες \"Άλλοι χρήστες παρακολούθησαν επίσης\" και \"Ενδέχεται επίσης να σας αρέσει\" εμφανίζονται</string>
+  <string name="revanced_hide_search_result_recommendation_labels_title">Ετικέτες προτάσεων βίντεο</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Κρυμμένες\n\nΑφορά τις ετικέτες «Άλλοι χρήστες παρακολούθησαν επίσης» και «Ενδέχεται επίσης να σας αρέσει»</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Εμφανίζονται\n\nΑφορά τις ετικέτες «Άλλοι χρήστες παρακολούθησαν επίσης» και «Ενδέχεται επίσης να σας αρέσει»</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Κουμπί «Εμφάνιση περισσότερων»</string>
   <string name="revanced_hide_show_more_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_show_more_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_ticket_shelf_title">Ενότητα εισιτηρίων</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_timed_reactions_title">Συγχρονισμένες αντιδράσεις</string>
   <string name="revanced_hide_timed_reactions_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_timed_reactions_summary_off">Εμφανίζονται</string>
@@ -240,6 +243,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Σύνοψη βίντεο που δημιουργήθηκε από AI</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_ask_section_title">Ενότητα «Ερώτηση»</string>
+  <string name="revanced_hide_ask_section_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_ask_section_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_attributes_section_title">Ενότητα ιδιοτήτων</string>
   <string name="revanced_hide_attributes_section_summary_on">Κρυμμένη.\n\nΑφορά τις ιδιότητες: Επιλεγμένα μέρη, Παιχνίδια, Μουσική, και «Οι χρήστες ανέφεραν»</string>
   <string name="revanced_hide_attributes_section_summary_off">Εμφανίζεται.\n\nΑφορά τις ιδιότητες: Επιλεγμένα μέρη, Παιχνίδια, Μουσική, και «Οι χρήστες ανέφεραν»</string>
@@ -804,9 +810,9 @@ Second \"item\" text"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Εμφανίζεται</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  <string name="revanced_hide_related_video_overlay_title">Απόκρυψη επικάλυψης σχετικού βίντεο σε πλήρη οθόνη</string>
-  <string name="revanced_hide_related_video_overlay_summary_on">Η επικάλυψη σχετικού βίντεο είναι κρυφή</string>
-  <string name="revanced_hide_related_video_overlay_summary_off">Εμφανίζεται η επικάλυψη σχετικού βίντεο</string>
+  <string name="revanced_hide_related_video_overlay_title">Σχετιζόμενο βίντεο σε πλήρη οθόνη</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Εμφανίζεται</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Χρονική πρόοδος βίντεο</string>

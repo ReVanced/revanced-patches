@@ -42,8 +42,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Paramètres ReVanced réinitialisés aux valeurs par défaut</string>
   <string name="revanced_settings_import_success">%d paramètres importés</string>
   <string name="revanced_settings_import_failure_parse">Importation échouée : %s</string>
-  <string name="revanced_settings_search_hint">Paramètres de recherche</string>
-  <string name="revanced_settings_search_no_results_title">Aucun résultat trouvé pour \".%s\".</string>
+  <string name="revanced_settings_search_hint">Rechercher dans les paramètres</string>
+  <string name="revanced_settings_search_no_results_title">Aucun résultat trouvé pour \"%s\"</string>
   <string name="revanced_settings_search_no_results_summary">Essayez un autre mot-clé</string>
   <string name="revanced_settings_search_remove_message">Supprimer de l\'historique des recherches ?</string>
   <string name="revanced_show_menu_icons_title">Afficher les icônes des paramètres ReVanced</string>
@@ -169,6 +169,9 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_show_more_button_title">Masquer le bouton Afficher plus</string>
   <string name="revanced_hide_show_more_button_summary_on">Le bouton est masqué</string>
   <string name="revanced_hide_show_more_button_summary_off">Le bouton est affiché</string>
+  <string name="revanced_hide_ticket_shelf_title">Masquer l\'étagère des billets</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">L\'étagère des billets est masquée</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">L\'étagère des billets est affichée</string>
   <string name="revanced_hide_timed_reactions_title">Masquer les réactions minutées</string>
   <string name="revanced_hide_timed_reactions_summary_on">Les réactions minutées sont masquées</string>
   <string name="revanced_hide_timed_reactions_summary_off">Les réactions minutées sont affichées</string>
@@ -238,6 +241,9 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Masquer \"Résumé de la vidéo généré par IA\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La section du résumé de la vidéo est masquée</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La section du résumé de la vidéo est affichée</string>
+  <string name="revanced_hide_ask_section_title">Masquer \"Demander\"</string>
+  <string name="revanced_hide_ask_section_summary_on">La section Demander est masquée</string>
+  <string name="revanced_hide_ask_section_summary_off">La section Demander est affichée</string>
   <string name="revanced_hide_attributes_section_title">Masquer les attributions</string>
   <string name="revanced_hide_attributes_section_summary_on">Les sections Lieux mentionnés, Jeux, Musique et Personnes mentionnées sont masquées</string>
   <string name="revanced_hide_attributes_section_summary_off">Les sections Lieux mentionnés, Jeux, Musique et Personnes mentionnées sont affichées</string>

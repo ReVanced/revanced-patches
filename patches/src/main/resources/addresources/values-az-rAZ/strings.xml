@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced tənzimləmələr standarta təyin edildi</string>
   <string name="revanced_settings_import_success">%d tənzimləmə idxal edildi</string>
   <string name="revanced_settings_import_failure_parse">Uğursuz idxal prosesi: %s</string>
+  <string name="revanced_settings_search_hint">Axtarış tənzimləmələri</string>
+  <string name="revanced_settings_search_no_results_title">‘%s’ üçün nəticə tapılmadı</string>
+  <string name="revanced_settings_search_no_results_summary">Başqa açar sözü yoxla</string>
+  <string name="revanced_settings_search_remove_message">Axtarış tarixçəsindən silinsin?</string>
   <string name="revanced_show_menu_icons_title">ReVanced tənzimləmə nişanların göstər</string>
   <string name="revanced_show_menu_icons_summary_on">Tənzimləmə nişanları göstərilir</string>
   <string name="revanced_show_menu_icons_summary_off">Tənzimləmə nişanları göstərilmir</string>
@@ -93,6 +97,9 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
   <string name="revanced_restore_old_settings_menus_title">Köhnə tənzimləmələr bölmələrin bərpa et</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Köhnə tənzimləmələr bölmələri göstərilir</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Köhnə tənzimləmələr bölmələri göstərilmir</string>
+  <string name="revanced_settings_search_history_title">Axtarış tarixçəsi tənzimləməsin göstər</string>
+  <string name="revanced_settings_search_history_summary_on">Axtarış tarixçəsi tənzimləməsi göstərilir</string>
+  <string name="revanced_settings_search_history_summary_off">Axtarış tarixçəsi tənzimləməsi göstərilmir</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts arxa plan oynatmasın qapat</string>
@@ -162,6 +169,9 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_show_more_button_title">\'Daha çox göstər\' düyməsini gizlət</string>
   <string name="revanced_hide_show_more_button_summary_on">Düymə gizlidir</string>
   <string name="revanced_hide_show_more_button_summary_off">Düymə göstərilir</string>
+  <string name="revanced_hide_ticket_shelf_title">Bilet bölməsin gizlət</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Bilet bölməsi gizlidir</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Bilet bölməsi görünür</string>
   <string name="revanced_hide_timed_reactions_title">Vaxtlı reaksiyaları gizlət</string>
   <string name="revanced_hide_timed_reactions_summary_on">Zamanlanmış reaksiyalar gizlədilir</string>
   <string name="revanced_hide_timed_reactions_summary_off">Zamanlanmış reaksiyalar göstərilir</string>
@@ -231,6 +241,9 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">\"AI ilə yaradılan video xülasəsini\" gizlət</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video xülasə bölməsi gizlədilib</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video xülasə bölməsi göstərilir</string>
+  <string name="revanced_hide_ask_section_title">Soruş\'u Gizlət</string>
+  <string name="revanced_hide_ask_section_summary_on">Soruş bölməsi gizlidir</string>
+  <string name="revanced_hide_ask_section_summary_off">\"Soruş\" bölməsi göstərilir</string>
   <string name="revanced_hide_attributes_section_title">Atributları Gizlət</string>
   <string name="revanced_hide_attributes_section_summary_on">Seçilən yerlər, Oyunlar, Musiqi və qeyd edilən insanlar bölmələri gizlədilir</string>
   <string name="revanced_hide_attributes_section_summary_off">Seçilən yerlər, Oyunlar, Musiqi və qeyd edilən insanlar bölmələri görünür</string>

@@ -169,6 +169,9 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_show_more_button_title">Ukryj przycisk \'Pokaż więcej\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Przycisk jest ukryty</string>
   <string name="revanced_hide_show_more_button_summary_off">Przycisk jest widoczny</string>
+  <string name="revanced_hide_ticket_shelf_title">Ukryj pasek z biletami</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Pasek z biletami jest ukryty</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Pasek z biletami jest widoczny</string>
   <string name="revanced_hide_timed_reactions_title">Ukryj reakcje czasowe</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reakcje czasowe są ukryte</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakcje czasowe są widoczne</string>
@@ -238,6 +241,9 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ukryj sekcję „Podsumowanie wideo wygenerowane przez AI”</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sekcja podsumowania wideo jest ukryta</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sekcja podsumowania wideo jest widoczna</string>
+  <string name="revanced_hide_ask_section_title">Ukryj Pytanie</string>
+  <string name="revanced_hide_ask_section_summary_on">Sekcja Pytania jest ukryta</string>
+  <string name="revanced_hide_ask_section_summary_off">Sekcja Pytania jest widoczna</string>
   <string name="revanced_hide_attributes_section_title">Ukryj atrybuty</string>
   <string name="revanced_hide_attributes_section_summary_on">Sekcje „Polecane miejsca”, „Gry”, „Muzyka” i „Wspomniane osoby” są ukryte</string>
   <string name="revanced_hide_attributes_section_summary_off">Sekcje „Polecane miejsca”, „Gry”, „Muzyka” i „Wspomniane osoby” są widoczne</string>

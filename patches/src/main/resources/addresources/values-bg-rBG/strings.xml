@@ -169,6 +169,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">Скриване на бутона \"Покажи още\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Бутона Покажи още е скрит</string>
   <string name="revanced_hide_show_more_button_summary_off">Бутона Покажи още се показва</string>
+  <string name="revanced_hide_ticket_shelf_title">Скриване на рафта за билети</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Рафтът за билети е скрит</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Рафтът за билети е показан</string>
   <string name="revanced_hide_timed_reactions_title">Скриване на времевите реакции</string>
   <string name="revanced_hide_timed_reactions_summary_on">Времевите реакции са скрити</string>
   <string name="revanced_hide_timed_reactions_summary_off">Времевите реакции се показват</string>
@@ -238,6 +241,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Скриване на \"AI-генерирано видео резюме\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Скрит е разделът с видео резюме</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Показва се разделът с видео резюме</string>
+  <string name="revanced_hide_ask_section_title">Скриване на „Попитай“</string>
+  <string name="revanced_hide_ask_section_summary_on">Скрит раздел „Попитай“</string>
+  <string name="revanced_hide_ask_section_summary_off">Показване на раздел „Попитай“</string>
   <string name="revanced_hide_attributes_section_title">Скриване на атрибути</string>
   <string name="revanced_hide_attributes_section_summary_on">Секциите \"Препоръчани места\", \"Игри\", \"Музика\" и \"Споменати хора\" са скрити</string>
   <string name="revanced_hide_attributes_section_summary_off">Секциите \"Препоръчани места\", \"Игри\", \"Музика\" и \"Споменати хора\" са показани</string>
