@@ -9,16 +9,14 @@ private const val ANDROID_NS = "http://schemas.android.com/apk/res/android"
 @Suppress("unused")
 val hideAppIconPatch = resourcePatch(
     name = "Hide app icon",
-    description = "Hides the app icon from the launcher using intent-filter changes and activity modifications.",
+    description = "Hides the app icon in the Android launcher.",
     use = false,
 ) {
     execute {
         document("AndroidManifest.xml").use { document ->
-            val logger = Logger.getLogger("hideAppIconPatch")
-
             var modified = false
 
-            // **Method 1:** Modify intent-filter category from LAUNCHER to DEFAULT
+            // Method 1: Modify intent-filter category.
             val categoryNodes = document.getElementsByTagName("category")
             for (i in 0 until categoryNodes.length) {
                 val category = categoryNodes.item(i) as? Element ?: continue
@@ -30,7 +28,7 @@ val hideAppIconPatch = resourcePatch(
                 }
             }
 
-            // **Method 2:** Disable launcher activities by modifying android:enabled and android:exported
+            // Method 2: Disable launcher activities by modifying activity entry.
             val activityNodes = document.getElementsByTagName("activity")
             for (i in 0 until activityNodes.length) {
                 val activity = activityNodes.item(i) as? Element ?: continue
@@ -44,7 +42,9 @@ val hideAppIconPatch = resourcePatch(
             }
 
             if (!modified) {
-                logger.warning("No launcher activities or intent-filter modifications were made—app icon may still be visible.")
+                Logger.getLogger(this::class.java.name).warning("No launcher activities or " +
+                        "intent-filter modifications were made.  App icon may still be visible."
+                )
             }
         }
     }
