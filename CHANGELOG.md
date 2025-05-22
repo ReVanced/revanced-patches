@@ -1,3 +1,10 @@
+# [5.25.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.1...v5.25.0-dev.2) (2025-05-22)
+
+
+### Bug Fixes
+
+* **Disable Pairip license check:** Change patch to default off ([74b6a94](https://github.com/ReVanced/revanced-patches/commit/74b6a94577ac3f73b04bd0cce98fb7011a6607fd))
+
 # [5.25.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.24.0...v5.25.0-dev.1) (2025-05-22)
 
 
