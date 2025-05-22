@@ -42,7 +42,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">إعادة تعيين إعدادات ReVanced إلى الوضع الافتراضي</string>
   <string name="revanced_settings_import_success">تم استيراد %d إعدادات</string>
   <string name="revanced_settings_import_failure_parse">فشل الاستيراد: %s</string>
-  <string name="revanced_settings_search_hint">إعدادات البحث</string>
+  <string name="revanced_settings_search_hint">بحث الإعدادات</string>
   <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \".%s\"</string>
   <string name="revanced_settings_search_no_results_summary">جرّب كلمة مفتاحية أخرى</string>
   <string name="revanced_settings_search_remove_message">إزالة من سجل البحث؟</string>
@@ -97,9 +97,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">استعادة قوائم الإعدادات القديمة</string>
   <string name="revanced_restore_old_settings_menus_summary_on">يتم عرض قوائم الإعدادات القديمة</string>
   <string name="revanced_restore_old_settings_menus_summary_off">لا يتم عرض قوائم الإعدادات القديمة</string>
-  <string name="revanced_settings_search_history_title">إظهار سجل البحث في الإعدادات</string>
-  <string name="revanced_settings_search_history_summary_on">سجل البحث في الإعدادات معروض</string>
-  <string name="revanced_settings_search_history_summary_off">لم يتم عرض سجل البحث في الإعدادات</string>
+  <string name="revanced_settings_search_history_title">عرض سجل بحث الإعدادات</string>
+  <string name="revanced_settings_search_history_summary_on">يتم عرض سجل البحث في الإعدادات</string>
+  <string name="revanced_settings_search_history_summary_off">لا يتم عرض سجل البحث في الإعدادات</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">تعطيل تشغيل فيديوهات Shorts في الخلفية</string>

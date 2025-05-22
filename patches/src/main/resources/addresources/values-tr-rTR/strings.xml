@@ -42,7 +42,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced ayarları varsayılanlara sıfırlandı</string>
   <string name="revanced_settings_import_success">%d ayar içe aktarıldı</string>
   <string name="revanced_settings_import_failure_parse">İçe aktarılamadı: %s</string>
-  <string name="revanced_settings_search_hint">Arama ayarları</string>
+  <string name="revanced_settings_search_hint">Ayarları ara</string>
   <string name="revanced_settings_search_no_results_title">\'%s\' için sonuç bulunamadı</string>
   <string name="revanced_settings_search_no_results_summary">Başka bir anahtar kelime deneyin</string>
   <string name="revanced_settings_search_remove_message">Arama geçmişinden kaldırılsın mı?</string>
@@ -171,7 +171,7 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_show_more_button_summary_off">Düğme görünür</string>
   <string name="revanced_hide_ticket_shelf_title">Bilet rafını gizle</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Bilet rafı gizli</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">Bilet rafı görünüyor</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Bilet rafı görünür</string>
   <string name="revanced_hide_timed_reactions_title">Süreli tepkileri gizle</string>
   <string name="revanced_hide_timed_reactions_summary_on">Süreli tepkiler gizli</string>
   <string name="revanced_hide_timed_reactions_summary_off">Süreli tepkiler görünür</string>
@@ -242,8 +242,8 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video özeti bölümü gizli</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video özeti bölümü görünür</string>
   <string name="revanced_hide_ask_section_title">\'Sor\'u gizle</string>
-  <string name="revanced_hide_ask_section_summary_on">Sor bölümü gizli</string>
-  <string name="revanced_hide_ask_section_summary_off">Sor bölümü görünür</string>
+  <string name="revanced_hide_ask_section_summary_on">Sor kısmı gizli</string>
+  <string name="revanced_hide_ask_section_summary_off">Sor kısmı görünür</string>
   <string name="revanced_hide_attributes_section_title">Nitelikleri gizle</string>
   <string name="revanced_hide_attributes_section_summary_on">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler bölümleri gizli</string>
   <string name="revanced_hide_attributes_section_summary_off">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler bölümleri görünür</string>
