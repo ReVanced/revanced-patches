@@ -1,3 +1,10 @@
+# [5.25.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.3...v5.25.0-dev.4) (2025-05-22)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore support:** Restore patch functionality from prior merge ([7686bbe](https://github.com/ReVanced/revanced-patches/commit/7686bbe975644e1e582fa52f166879da5694ed93))
+
 # [5.25.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.2...v5.25.0-dev.3) (2025-05-22)
 
 
