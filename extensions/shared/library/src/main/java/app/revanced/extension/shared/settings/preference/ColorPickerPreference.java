@@ -94,7 +94,7 @@ public class ColorPickerPreference extends EditTextPreference {
     /**
      * Dialog color picker view.
      */
-    private CustomColorPickerView dialogColorPickerView;
+    private ColorPickerView dialogColorPickerView;
 
     /**
      * Removes non valid hex characters, converts to all uppercase,
@@ -317,7 +317,7 @@ public class ColorPickerPreference extends EditTextPreference {
      *
      * @return A TextWatcher that updates the color preview on valid input.
      */
-    private TextWatcher createColorTextWatcher(CustomColorPickerView colorPickerView) {
+    private TextWatcher createColorTextWatcher(ColorPickerView colorPickerView) {
         return new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

@@ -42,7 +42,7 @@ import app.revanced.extension.shared.Utils;
  * The selected color can be retrieved using {@link #getColor()} and can be set using {@link #setColor(int)}.
  * An {@link OnColorChangedListener} can be registered to receive notifications when the selected color changes.
  */
-public class CustomColorPickerView extends View {
+public class ColorPickerView extends View {
 
     /**
      * Interface definition for a callback to be invoked when the selected color changes.
@@ -125,15 +125,15 @@ public class CustomColorPickerView extends View {
     private boolean isDraggingHue;
     private boolean isDraggingSaturation;
 
-    public CustomColorPickerView(Context context) {
+    public ColorPickerView(Context context) {
         super(context);
     }
 
-    public CustomColorPickerView(Context context, AttributeSet attrs) {
+    public ColorPickerView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CustomColorPickerView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ColorPickerView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

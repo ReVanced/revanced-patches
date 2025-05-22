@@ -31,7 +31,7 @@ import java.util.Objects;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
-import app.revanced.extension.shared.settings.preference.CustomColorPickerView;
+import app.revanced.extension.shared.settings.preference.ColorPickerView;
 
 @SuppressWarnings("deprecation")
 public class SegmentCategoryListPreference extends ListPreference {
@@ -51,7 +51,7 @@ public class SegmentCategoryListPreference extends ListPreference {
     private TextView dialogColorDotView;
     private EditText dialogColorEditText;
     private EditText dialogOpacityEditText;
-    private CustomColorPickerView dialogColorPickerView;
+    private ColorPickerView dialogColorPickerView;
 
     public SegmentCategoryListPreference(Context context, SegmentCategory category) {
         super(context);
