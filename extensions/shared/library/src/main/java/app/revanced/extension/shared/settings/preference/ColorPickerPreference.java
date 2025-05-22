@@ -171,8 +171,6 @@ public class ColorPickerPreference extends EditTextPreference {
             editText.setAutofillHints((String) null);
         }
 
-        setText(colorSetting.get());
-
         // Set the widget layout to a custom layout containing the colored dot.
         setWidgetLayoutResource(getResourceIdentifier("revanced_color_dot_widget", "layout"));
     }
@@ -304,7 +302,6 @@ public class ColorPickerPreference extends EditTextPreference {
     private void updateColorPreview() {
         if (dialogColorPreview != null) {
             dialogColorPreview.setText(getColorDot(currentColor));
-            dialogColorPreview.setAlpha(1.0f);
         }
     }
 

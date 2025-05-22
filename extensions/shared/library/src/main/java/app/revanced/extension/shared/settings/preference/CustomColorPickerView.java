@@ -70,16 +70,18 @@ public class CustomColorPickerView extends View {
     // Use slightly smaller radius for the selector handle fill,
     // otherwise the anti-aliasing causes the fill color to bleed past the selector outline.
     private static final float SELECTOR_FILL_RADIUS = SELECTOR_RADIUS - SELECTOR_STROKE_WIDTH / 2;
-    // Thin dark outline stroke width for the selector rings.
+    /** Thin dark outline stroke width for the selector rings. */
     private static final float SELECTOR_DARK_OUTLINE_STROKE_WIDTH = 1;
+    public static final float SELECTOR_RADIUS_RADIUS_OUTLINE =
+            SELECTOR_RADIUS + SELECTOR_STROKE_WIDTH / 2 + SELECTOR_DARK_OUTLINE_STROKE_WIDTH / 2;
 
     /** Selector outline color. */
     @ColorInt
     private static final int SELECTOR_OUTLINE_COLOR = Color.parseColor("#FFFFFF");
 
-    /** Dark outline color for the selector rings. */
+    /** Dark edge color for the selector rings. */
     @ColorInt
-    private static final int SELECTOR_DARK_OUTLINE_COLOR = Color.parseColor("#808080");
+    private static final int SELECTOR_OUTLINE_COLOR_EDGE = Color.parseColor("#CFCFCF");
 
     private static final int[] HUE_COLORS = new int[361];
     static {
@@ -289,12 +291,10 @@ public class CustomColorPickerView extends View {
         canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_RADIUS, selectorPaint);
 
         // Draw thin dark outlines for the handles at the outer edge of the white outline.
-        selectorPaint.setColor(SELECTOR_DARK_OUTLINE_COLOR);
-        selectorPaint.setStyle(Paint.Style.STROKE);
+        selectorPaint.setColor(SELECTOR_OUTLINE_COLOR_EDGE);
         selectorPaint.setStrokeWidth(SELECTOR_DARK_OUTLINE_STROKE_WIDTH);
-        final float darkOutlineRadius = SELECTOR_RADIUS + SELECTOR_STROKE_WIDTH / 2 + SELECTOR_DARK_OUTLINE_STROKE_WIDTH / 2;
-        canvas.drawCircle(hueSelectorX, hueSelectorY, darkOutlineRadius, selectorPaint);
-        canvas.drawCircle(satSelectorX, satSelectorY, darkOutlineRadius, selectorPaint);
+        canvas.drawCircle(hueSelectorX, hueSelectorY, SELECTOR_RADIUS_RADIUS_OUTLINE, selectorPaint);
+        canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_RADIUS_RADIUS_OUTLINE, selectorPaint);
     }
 
     /**
