@@ -1,3 +1,11 @@
+# [5.25.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.24.0...v5.25.0-dev.1) (2025-05-22)
+
+
+### Features
+
+* Add `Disable pairip license check` patch ([#4927](https://github.com/ReVanced/revanced-patches/issues/4927)) ([42d2c27](https://github.com/ReVanced/revanced-patches/commit/42d2c277982ef63e6ad42d85e46f13c3ab50243c))
+* **Messenger:** Add `Remove Meta AI` patch ([#4945](https://github.com/ReVanced/revanced-patches/issues/4945)) ([012dff7](https://github.com/ReVanced/revanced-patches/commit/012dff7b6511b9e519ccac96f6713cf1a1b327b4))
+
 # [5.24.0](https://github.com/ReVanced/revanced-patches/compare/v5.23.0...v5.24.0) (2025-05-19)
 
 

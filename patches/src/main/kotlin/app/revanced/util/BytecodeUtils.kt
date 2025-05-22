@@ -132,6 +132,7 @@ internal val Instruction.registersUsed: List<Int>
                 else -> listOf(registerC, registerD, registerE, registerF, registerG)
             }
         }
+
         is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
         is TwoRegisterInstruction -> listOf(registerA, registerB)
         is OneRegisterInstruction -> listOf(registerA)
@@ -169,7 +170,7 @@ internal val Instruction.isReturnInstruction: Boolean
 /**
  * Adds public [AccessFlags] and removes private and protected flags (if present).
  */
-internal fun Int.toPublicAccessFlags() : Int {
+internal fun Int.toPublicAccessFlags(): Int {
     return this.or(AccessFlags.PUBLIC.value)
         .and(AccessFlags.PROTECTED.value.inv())
         .and(AccessFlags.PRIVATE.value.inv())
@@ -488,9 +489,10 @@ fun Method.indexOfFirstInstruction(targetOpcode: Opcode): Int = indexOfFirstInst
  * @return The index of the first opcode specified, or -1 if not found.
  * @see indexOfFirstInstructionOrThrow
  */
-fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): Int = indexOfFirstInstruction(startIndex) {
-    opcode == targetOpcode
-}
+fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): Int =
+    indexOfFirstInstruction(startIndex) {
+        opcode == targetOpcode
+    }
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
@@ -525,9 +527,10 @@ fun Method.indexOfFirstInstructionOrThrow(targetOpcode: Opcode): Int = indexOfFi
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
-fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opcode): Int = indexOfFirstInstructionOrThrow(startIndex) {
-    opcode == targetOpcode
-}
+fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionOrThrow(startIndex) {
+        opcode == targetOpcode
+    }
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
@@ -553,9 +556,10 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, filter: Instructi
  * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionReversedOrThrow
  */
-fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode: Opcode): Int = indexOfFirstInstructionReversed(startIndex) {
-    opcode == targetOpcode
-}
+fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversed(startIndex) {
+        opcode == targetOpcode
+    }
 
 /**
  * Get the index of matching instruction,
@@ -592,9 +596,10 @@ fun Method.indexOfFirstInstructionReversed(targetOpcode: Opcode): Int = indexOfF
  * @return The index of the instruction.
  * @see indexOfFirstInstructionReversed
  */
-fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targetOpcode: Opcode): Int = indexOfFirstInstructionReversedOrThrow(startIndex) {
-    opcode == targetOpcode
-}
+fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversedOrThrow(startIndex) {
+        opcode == targetOpcode
+    }
 
 /**
  * Get the index of matching instruction,
@@ -651,7 +656,8 @@ fun Method.findInstructionIndicesReversedOrThrow(filter: Instruction.() -> Boole
  *  _Returns an empty list if no indices are found_
  * @see findInstructionIndicesReversedOrThrow
  */
-fun Method.findInstructionIndicesReversed(opcode: Opcode): List<Int> = findInstructionIndicesReversed { this.opcode == opcode }
+fun Method.findInstructionIndicesReversed(opcode: Opcode): List<Int> =
+    findInstructionIndicesReversed { this.opcode == opcode }
 
 /**
  * @return An immutable list of indices of the opcode in reverse order.
@@ -736,40 +742,219 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
     }
 }
 
-/**
- * Overrides the first instruction of a method with a constant return value.
- * None of the method code will ever execute.
- */
-fun MutableMethod.returnEarly(overrideValue: Boolean = false) = overrideReturnValue(overrideValue, false)
+private const val RETURN_TYPE_MISMATCH = "Mismatch between override type and Method return type"
 
 /**
- * Overrides all return statements with a constant value.
+ * Overrides the first instruction of a method with a constant `Boolean` return value.
+ * None of the method code will ever execute.
+ *
+ * For methods that return an object or any array type, calling this method with `false`
+ * will force the method to return a `null` value.
+ */
+fun MutableMethod.returnEarly(value: Boolean = false) {
+    val returnType = returnType.first()
+    check(returnType == 'Z' || (!value && (returnType in setOf('V', 'L', '[')))) { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toHexString(), false)
+}
+
+/**
+ * Overrides the first instruction of a method with a constant `Byte` return value.
+ * None of the method code will ever execute.
+ */
+fun MutableMethod.returnEarly(value: Byte) {
+    check(returnType.first() == 'B') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), false)
+}
+
+/**
+ * Overrides the first instruction of a method with a constant `Short` return value.
+ * None of the method code will ever execute.
+ */
+fun MutableMethod.returnEarly(value: Short) {
+    check(returnType.first() == 'S') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), false)
+}
+
+/**
+ * Overrides the first instruction of a method with a constant `Char` return value.
+ * None of the method code will ever execute.
+ */
+fun MutableMethod.returnEarly(value: Char) {
+    check(returnType.first() == 'C') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.code.toString(), false)
+}
+
+/**
+ * Overrides the first instruction of a method with a constant `Int` return value.
+ * None of the method code will ever execute.
+ */
+fun MutableMethod.returnEarly(value: Int) {
+    check(returnType.first() == 'I') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), false)
+}
+
+/**
+ * Overrides the first instruction of a method with a constant `Long` return value.
+ * None of the method code will ever execute.
+ */
+fun MutableMethod.returnEarly(value: Long) {
+    check(returnType.first() == 'J') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), false)
+}
+
+/**
+ * Overrides the first instruction of a method with a constant `Float` return value.
+ * None of the method code will ever execute.
+ */
+fun MutableMethod.returnEarly(value: Float) {
+    check(returnType.first() == 'F') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), false)
+}
+
+/**
+ * Overrides the first instruction of a method with a constant `Double` return value.
+ * None of the method code will ever execute.
+ */
+fun MutableMethod.returnEarly(value: Double) {
+    check(returnType.first() == 'J') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), false)
+}
+
+/**
+ * Overrides all return statements with a constant `Boolean` value.
+ * All method code is executed the same as unpatched.
+ *
+ * For methods that return an object or any array type, calling this method with `false`
+ * will force the method to return a `null` value.
+ *
+ * @see returnEarly
+ */
+fun MutableMethod.returnLate(value: Boolean) {
+    val returnType = returnType.first()
+    if (returnType == 'V') {
+        error("Cannot return late for Method of void type")
+    }
+    check(returnType == 'Z' || (!value && returnType in setOf('L', '['))) { RETURN_TYPE_MISMATCH }
+
+    overrideReturnValue(value.toHexString(), true)
+}
+
+/**
+ * Overrides all return statements with a constant `Byte` value.
  * All method code is executed the same as unpatched.
  *
  * @see returnEarly
  */
-internal fun MutableMethod.returnLate(overrideValue: Boolean = false) = overrideReturnValue(overrideValue, true)
+fun MutableMethod.returnLate(value: Byte) {
+    check(returnType.first() == 'B') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
 
-private fun MutableMethod.overrideReturnValue(bool: Boolean, returnLate: Boolean) {
-    val const = if (bool) "0x1" else "0x0"
+/**
+ * Overrides all return statements with a constant `Short` value.
+ * All method code is executed the same as unpatched.
+ *
+ * @see returnEarly
+ */
+fun MutableMethod.returnLate(value: Short) {
+    check(returnType.first() == 'S') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
 
+/**
+ * Overrides all return statements with a constant `Char` value.
+ * All method code is executed the same as unpatched.
+ *
+ * @see returnEarly
+ */
+fun MutableMethod.returnLate(value: Char) {
+    check(returnType.first() == 'C') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.code.toString(), true)
+}
+
+/**
+ * Overrides all return statements with a constant `Int` value.
+ * All method code is executed the same as unpatched.
+ *
+ * @see returnEarly
+ */
+fun MutableMethod.returnLate(value: Int) {
+    check(returnType.first() == 'I') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
+
+/**
+ * Overrides all return statements with a constant `Long` value.
+ * All method code is executed the same as unpatched.
+ *
+ * @see returnEarly
+ */
+fun MutableMethod.returnLate(value: Long) {
+    check(returnType.first() == 'J') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
+
+/**
+ * Overrides all return statements with a constant `Float` value.
+ * All method code is executed the same as unpatched.
+ *
+ * @see returnEarly
+ */
+fun MutableMethod.returnLate(value: Float) {
+    check(returnType.first() == 'F') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
+
+/**
+ * Overrides all return statements with a constant `Double` value.
+ * All method code is executed the same as unpatched.
+ *
+ * @see returnEarly
+ */
+fun MutableMethod.returnLate(value: Double) {
+    check(returnType.first() == 'D') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
+
+private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean) {
     val instructions = when (returnType.first()) {
-        'L' -> {
+        // If return type is an object, always return null.
+        'L', '[' -> {
             """
-                const/4 v0, $const
+                const/4 v0, 0x0
                 return-object v0
             """
         }
 
         'V' -> {
-            if (returnLate) throw IllegalArgumentException("Cannot return late for method of void type")
             "return-void"
         }
 
-        'I', 'Z' -> {
+        'B', 'Z' -> {
             """
-                const/4 v0, $const
+                const/4 v0, $value
                 return v0
+            """
+        }
+
+        'S', 'C' -> {
+            """
+                const/16 v0, $value
+                return v0
+            """
+        }
+
+        'I', 'F' -> {
+            """
+                const v0, $value
+                return v0
+            """
+        }
+
+        'J', 'D' -> {
+            """
+                const-wide v0, $value
+                return-wide v0
             """
         }
 
