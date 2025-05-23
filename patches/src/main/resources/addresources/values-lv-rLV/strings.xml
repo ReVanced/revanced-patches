@@ -365,9 +365,6 @@ Ierobežojumi
 
 Šī funkcija ir pieejama tikai vecākiem ierīcēm"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Pilnekrāna reklāmas ir redzamas</string>
-  <string name="revanced_hide_buttoned_ads_title">Paslēpt reklāmas ar pogām</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Reklāmas ar pogām ir paslēptas</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Reklāmas ar pogām ir redzamas</string>
   <string name="revanced_hide_paid_promotion_label_title">Paslēpt apmaksātas reklāmas etiķeti</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Apmaksātas reklāmas etiķete ir paslēpta</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Apmaksātas reklāmas etiķete ir redzama</string>

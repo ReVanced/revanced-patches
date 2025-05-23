@@ -365,9 +365,6 @@ Teorainneacha
 
 Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Taispeántar fógraí lánscáileáin</string>
-  <string name="revanced_hide_buttoned_ads_title">Folaigh fógraí cnaipe</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Tá fógraí cnaipe i bhfolach</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Taispeántar fógraí cnaipe</string>
   <string name="revanced_hide_paid_promotion_label_title">Folaigh lipéad chun cinn íoctha</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Tá an lipéad promóisin íoctha i bhfolach</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Taispeántar lipéad promóisin íoctha</string>

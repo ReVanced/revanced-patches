@@ -365,9 +365,6 @@ Second \"item\" text"</string>
 
 此功能仅适用于旧设备"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">全屏广告已显示</string>
-  <string name="revanced_hide_buttoned_ads_title">隐藏信息流视频广告</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">按钮广告已隐藏</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">按钮广告已显示</string>
   <string name="revanced_hide_paid_promotion_label_title">隐藏付费推广标签</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">付费推广标签已隐藏</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">付费推广标签已显示</string>

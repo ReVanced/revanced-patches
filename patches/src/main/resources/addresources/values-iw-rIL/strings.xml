@@ -349,9 +349,6 @@ Second \"item\" text"</string>
 
 תכונה זו זמינה רק עבור מכשירים ישנים יותר"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">מודעות מסך מלא מוצגות</string>
-  <string name="revanced_hide_buttoned_ads_title">הסתר מודעות מכופתרות</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">מודעות מכפותרות מוסתרות</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">מודעות מכפותרות מוצגות</string>
   <string name="revanced_hide_paid_promotion_label_title">הסתר תווית קידום מכירות בתשלום</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">תווית קידום מכירות בתשלום מוסתרת</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">תווית קידום מכירות בתשלום מוצגת</string>

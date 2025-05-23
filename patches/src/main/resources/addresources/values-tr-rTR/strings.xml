@@ -365,9 +365,6 @@ Sınırlamalar
 
 Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamlar görünür</string>
-  <string name="revanced_hide_buttoned_ads_title">Düğmeli reklamları gizle</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Düğmeli reklamlar gizli</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Düğmeli reklamlar görünür</string>
   <string name="revanced_hide_paid_promotion_label_title">Ücretli tanıtım etiketini gizle</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Ücretli tanıtım etiketi gizli</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Ücretli tanıtım etiketi görünür</string>

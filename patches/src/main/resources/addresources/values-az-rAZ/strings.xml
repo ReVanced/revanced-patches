@@ -365,9 +365,6 @@ Məhdudiyyətlər
 
 Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamları göstərilir</string>
-  <string name="revanced_hide_buttoned_ads_title">Düyməli reklamları gizlət</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Düyməli reklamlar gizlədilir</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Düyməli reklamlar göstərilir</string>
   <string name="revanced_hide_paid_promotion_label_title">Ödənişli tanıtım etiketini gizlət</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Ödənişli reklam etiketi gizlədilib</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Ödənişli reklam etiketi göstərilir</string>

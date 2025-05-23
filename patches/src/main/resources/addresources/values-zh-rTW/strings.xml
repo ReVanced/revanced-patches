@@ -355,9 +355,6 @@ Second \"item\" text"</string>
 
 此功能僅適用於舊版裝置"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">已顯示全螢幕廣告</string>
-  <string name="revanced_hide_buttoned_ads_title">隱藏按鈕型廣告</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">已隱藏按鈕型廣告</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">已顯示按鈕型廣告</string>
   <string name="revanced_hide_paid_promotion_label_title">隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">已隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">已顯示付費推廣標籤</string>

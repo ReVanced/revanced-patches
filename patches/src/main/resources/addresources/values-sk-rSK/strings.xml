@@ -358,9 +358,6 @@ Slová s veľkými písmenami v strede musia byť zadané s použitím veľkých
 
 Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Zobrazujú sa reklamy na celú obrazovku</string>
-  <string name="revanced_hide_buttoned_ads_title">Skryť zapnuté reklamy</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Zapnuté reklamy sú skryté</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Zobrazujú sa reklamy s tlačidlami</string>
   <string name="revanced_hide_paid_promotion_label_title">Skryť štítok platenej propagácie</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Štítok platenej propagácie je skrytý</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Zobrazuje sa štítok platenej propagácie</string>
