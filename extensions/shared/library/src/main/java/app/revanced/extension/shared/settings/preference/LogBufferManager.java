@@ -9,6 +9,8 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 
+import java.util.ArrayDeque;
+
 /**
  * Manages a buffer for storing debug logs from Logger.printDebug.
  */
@@ -21,9 +23,9 @@ public final class LogBufferManager {
      * resulting in an incomplete log.
      */
     private static final boolean isDebugEnabled = BaseSettings.DEBUG.get();
-
-    private static final int MAX_LOG_BYTES = 1_048_576; // 1 MB
-    private static final StringBuilder logBuffer = isDebugEnabled ? new StringBuilder() : null;
+    private static final int MAX_LOG_BYTES = 1_000_000; // ~1 MB
+    private static final ArrayDeque<String> logBuffer = isDebugEnabled ? new ArrayDeque<>() : null;
+    private static int estimatedByteSize = 0;
 
     /**
      * Appends a log message to the internal buffer.
@@ -33,25 +35,20 @@ public final class LogBufferManager {
      * @param message The log message to append.
      */
     public static void appendToLogBuffer(String message) {
-        if (isDebugEnabled && logBuffer != null) {
-            synchronized (logBuffer) {
-                String logEntry = message + "\n";
-                logBuffer.append(logEntry);
-                // Limit buffer to MAX_LOG_BYTES
-                try {
-                    while (logBuffer.toString().getBytes("UTF-8").length > MAX_LOG_BYTES) {
-                        // Find the first newline to remove the oldest log entry
-                        int firstNewline = logBuffer.indexOf("\n");
-                        if (firstNewline >= 0) {
-                            logBuffer.delete(0, firstNewline + 1);
-                        } else {
-                            // No newlines left, clear the entire buffer
-                            logBuffer.setLength(0);
-                        }
-                    }
-                } catch (Exception e) {
-                    Logger.printDebug(() -> "Failed to trim log buffer: " + e.getMessage());
-                    logBuffer.setLength(0); // Clear buffer on error to prevent issues
+        if (!isDebugEnabled || logBuffer == null || message == null || message.isEmpty()) return;
+
+        synchronized (logBuffer) {
+            String logEntry = message + "\n";
+            logBuffer.addLast(logEntry);
+            estimatedByteSize += logEntry.length();
+
+            while (estimatedByteSize > MAX_LOG_BYTES) {
+                String removed = logBuffer.pollFirst();
+                if (removed != null) {
+                    estimatedByteSize -= removed.length();
+                } else {
+                    estimatedByteSize = 0;
+                    break;
                 }
             }
         }
@@ -69,27 +66,26 @@ public final class LogBufferManager {
             return;
         }
         try {
-            StringBuilder exportedLogs = new StringBuilder();
+            String logs;
             synchronized (logBuffer) {
-                exportedLogs.append(logBuffer.toString());
-                logBuffer.setLength(0); // Clear buffer after export
+                logs = String.join("", logBuffer);
+                logBuffer.clear();
+                estimatedByteSize = 0;
             }
-            String errorMessage;
-            if (exportedLogs.length() > 0) {
+            String message;
+            if (!logs.isEmpty()) {
                 ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("ReVanced Logs", exportedLogs.toString());
+                ClipData clip = ClipData.newPlainText("ReVanced Logs", logs);
                 clipboard.setPrimaryClip(clip);
-                errorMessage = str("revanced_debug_logs_copied_to_clipboard");
+                message = str("revanced_debug_logs_copied_to_clipboard");
             } else {
-                errorMessage = str("revanced_debug_no_logs_found");
+                message = str("revanced_debug_no_logs_found");
             }
-            Logger.printDebug(() -> errorMessage);
-            appendToLogBuffer(errorMessage);
-            Utils.showToastLong(errorMessage);
+            Logger.printDebug(() -> message);
+            Utils.showToastLong(message);
         } catch (Exception e) {
             String errorMessage = String.format(str("revanced_debug_failed_to_export_logs"), e.getMessage());
             Logger.printDebug(() -> errorMessage);
-            appendToLogBuffer(errorMessage);
             Utils.showToastLong(errorMessage);
         }
     }
