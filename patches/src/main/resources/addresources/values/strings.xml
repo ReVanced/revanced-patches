@@ -182,6 +182,8 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_debug_toast_on_error_user_dialog_message">"Turning off error toasts hides all ReVanced error notifications.
 
 You will not be notified of any unexpected events."</string>
+            <string name="revanced_export_logcat_to_clipboard_title">Export ReVanced Logs to clipboard</string>
+            <string name="revanced_export_logcat_to_clipboard_summary">Copies debug logs to the clipboard</string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <string name="revanced_hide_album_cards_title">Hide album cards</string>
