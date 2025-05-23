@@ -61,31 +61,33 @@ public class ColorPickerView extends View {
     /** Expanded touch area for the hue bar to increase the touch-sensitive area. */
     public static final float TOUCH_EXPANSION = dipToPixels(20f);
 
-    private static final float HUE_BAR_WIDTH = dipToPixels(12);
     private static final float MARGIN_BETWEEN_AREAS = dipToPixels(24);
     private static final float VIEW_PADDING = dipToPixels(16);
+    private static final float HUE_BAR_WIDTH = dipToPixels(12);
     private static final float HUE_CORNER_RADIUS = dipToPixels(6);
     private static final float SELECTOR_RADIUS = dipToPixels(12);
     private static final float SELECTOR_STROKE_WIDTH = 8;
-    // Use slightly smaller radius for the selector handle fill,
-    // otherwise the anti-aliasing causes the fill color to bleed past the selector outline.
+    /**
+     * Hue fill radius.  Use slightly smaller radius for the selector handle fill,
+     * otherwise the anti-aliasing causes the fill color to bleed past the selector outline.
+     */
     private static final float SELECTOR_FILL_RADIUS = SELECTOR_RADIUS - SELECTOR_STROKE_WIDTH / 2;
     /** Thin dark outline stroke width for the selector rings. */
-    private static final float SELECTOR_DARK_OUTLINE_STROKE_WIDTH = 1;
-    public static final float SELECTOR_RADIUS_RADIUS_OUTLINE =
-            SELECTOR_RADIUS + SELECTOR_STROKE_WIDTH / 2 + SELECTOR_DARK_OUTLINE_STROKE_WIDTH / 2;
+    private static final float SELECTOR_EDGE_STROKE_WIDTH = 1;
+    public static final float SELECTOR_EDGE_RADIUS =
+            SELECTOR_RADIUS + SELECTOR_STROKE_WIDTH / 2 + SELECTOR_EDGE_STROKE_WIDTH / 2;
 
-    /** Selector outline color. */
+    /** Selector outline inner color. */
     @ColorInt
-    private static final int SELECTOR_OUTLINE_COLOR = Color.parseColor("#FFFFFF");
+    private static final int SELECTOR_OUTLINE_COLOR = Color.WHITE;
 
     /** Dark edge color for the selector rings. */
     @ColorInt
-    private static final int SELECTOR_OUTLINE_COLOR_EDGE = Color.parseColor("#CFCFCF");
+    private static final int SELECTOR_EDGE_COLOR = Color.parseColor("#CFCFCF");
 
     private static final int[] HUE_COLORS = new int[361];
     static {
-        for (int i = 0; i <= 360; i++) {
+        for (int i = 0; i < 361; i++) {
             HUE_COLORS[i] = Color.HSVToColor(new float[]{i, 1, 1});
         }
     }
@@ -164,11 +166,6 @@ public class ColorPickerView extends View {
      * Called when the size of the view changes.
      * This method calculates and sets the bounds of the hue bar and saturation-value selector.
      * It also creates the necessary shaders for the gradients.
-     *
-     * @param width    Current width of this view.
-     * @param height    Current height of this view.
-     * @param oldWidth Old width of this view.
-     * @param oldHeight Old height of this view.
      */
     @Override
     protected void onSizeChanged(int width, int height, int oldWidth, int oldHeight) {
@@ -199,7 +196,7 @@ public class ColorPickerView extends View {
     }
 
     /**
-     * Generates an array of colors representing the full hue spectrum (0-360 degrees).
+     * Updates the hue full spectrum (0-360 degrees).
      */
     private void updateHueShader() {
         LinearGradient hueShader = new LinearGradient(
@@ -291,10 +288,10 @@ public class ColorPickerView extends View {
         canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_RADIUS, selectorPaint);
 
         // Draw thin dark outlines for the handles at the outer edge of the white outline.
-        selectorPaint.setColor(SELECTOR_OUTLINE_COLOR_EDGE);
-        selectorPaint.setStrokeWidth(SELECTOR_DARK_OUTLINE_STROKE_WIDTH);
-        canvas.drawCircle(hueSelectorX, hueSelectorY, SELECTOR_RADIUS_RADIUS_OUTLINE, selectorPaint);
-        canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_RADIUS_RADIUS_OUTLINE, selectorPaint);
+        selectorPaint.setColor(SELECTOR_EDGE_COLOR);
+        selectorPaint.setStrokeWidth(SELECTOR_EDGE_STROKE_WIDTH);
+        canvas.drawCircle(hueSelectorX, hueSelectorY, SELECTOR_EDGE_RADIUS, selectorPaint);
+        canvas.drawCircle(satSelectorX, satSelectorY, SELECTOR_EDGE_RADIUS, selectorPaint);
     }
 
     /**
