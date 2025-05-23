@@ -365,9 +365,6 @@ Korlátozások
 
 Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">A teljes képernyős hirdetések láthatók</string>
-  <string name="revanced_hide_buttoned_ads_title">Gomb hirdetések elrejtése</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">A gomb hirdetések el vannak rejtve</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">A gomb hirdetések láthatók</string>
   <string name="revanced_hide_paid_promotion_label_title">Fizetett promóció címke elrejtése</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">A fizetett promóciós címke el van rejtve</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">A fizetett promóciós címke meg van jelenítve</string>

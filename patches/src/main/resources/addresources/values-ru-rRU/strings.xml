@@ -365,9 +365,6 @@ Second \"item\" text"</string>
 
 Данная опция доступна только для старых устройств"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Полноэкранная реклама при запуске приложения показана</string>
-  <string name="revanced_hide_buttoned_ads_title">Скрыть кнопочную рекламу</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Кнопочная реклама в ленте скрыта</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Кнопочная реклама в ленте показана</string>
   <string name="revanced_hide_paid_promotion_label_title">Скрыть метку платной акции</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Метка платной акции в плеере скрыта</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Метка платной акции в плеере показана</string>

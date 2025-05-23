@@ -365,9 +365,6 @@ Second \"item\" text"</string>
 
 هذه الميزة متاحة فقط للأجهزة القديمة"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">يتم عرض إعلانات ملء الشاشة</string>
-  <string name="revanced_hide_buttoned_ads_title">إخفاء الإعلانات الزرية</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">تم إخفاء الإعلانات الزرية</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">يتم عرض الإعلانات الزرية</string>
   <string name="revanced_hide_paid_promotion_label_title">إخفاء تسمية الترقية المدفوعة</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">تم إخفاء تسمية الترقية المدفوعة</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">يتم عرض تسمية الترقية المدفوعة</string>
