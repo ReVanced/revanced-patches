@@ -1,3 +1,10 @@
+# [5.25.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.5...v5.25.0-dev.6) (2025-05-23)
+
+
+### Bug Fixes
+
+* **Yuka - Unlock premium:** Remove broken patch that is no longer supported ([#5018](https://github.com/ReVanced/revanced-patches/issues/5018)) ([fac6e59](https://github.com/ReVanced/revanced-patches/commit/fac6e59d281e21e57abdcfc899cd1aeb18e5c2b8))
+
 # [5.25.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.4...v5.25.0-dev.5) (2025-05-22)
 
 
