@@ -24,7 +24,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 val enableDebuggingPatch = bytecodePatch(
     name = "Enable debugging",
-    description = "Adds options for debugging, including exporting ReVanced logs to clipboard.",
+    description = "Adds options for debugging and exporting ReVanced logs to clipboard.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -58,7 +58,7 @@ val enableDebuggingPatch = bytecodePatch(
                     SwitchPreference("revanced_debug_stacktrace"),
                     SwitchPreference("revanced_debug_toast_on_error"),
                     NonInteractivePreference(
-                        "revanced_export_logcat_to_clipboard",
+                        "revanced_debug_export_logs_to_clipboard",
                         tag = "app.revanced.extension.youtube.settings.preference.ExportLogcatPreference",
                         selectable = true,
                     ),

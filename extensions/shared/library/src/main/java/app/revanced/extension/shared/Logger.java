@@ -4,12 +4,17 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.settings.preference.LogBufferManager;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import static app.revanced.extension.shared.settings.BaseSettings.*;
 
+/**
+ * Logger class for ReVanced, handling debug, info, exception and initialization logs.
+ * All log messages are appended to logBuffer for export.
+ */
 public class Logger {
 
     /**
@@ -52,6 +57,8 @@ public class Logger {
 
     /**
      * Logs debug messages under the outer class name of the code calling this method.
+     * Appends the log message, stack trace (if enabled), and exception (if present) to logBuffer
+     * if debugging is enabled.
      * Whenever possible, the log string should be constructed entirely inside {@link LogMessage#buildMessageString()}
      * so the performance cost of building strings is paid only if {@link BaseSettings#DEBUG} is enabled.
      */
@@ -61,6 +68,8 @@ public class Logger {
 
     /**
      * Logs debug messages under the outer class name of the code calling this method.
+     * Appends the log message, stack trace (if enabled), and exception (if present) to logBuffer
+     * if debugging is enabled.
      * Whenever possible, the log string should be constructed entirely inside {@link LogMessage#buildMessageString()}
      * so the performance cost of building strings is paid only if {@link BaseSettings#DEBUG} is enabled.
      */
@@ -69,6 +78,9 @@ public class Logger {
             String logMessage = message.buildMessageString();
             String logTag = REVANCED_LOG_PREFIX + message.findOuterClassSimpleName();
 
+            // Append log message to logBuffer
+            LogBufferManager.appendToLogBuffer(logMessage);
+
             if (DEBUG_STACKTRACE.get()) {
                 var builder = new StringBuilder(logMessage);
                 var sw = new StringWriter();
@@ -76,6 +88,13 @@ public class Logger {
 
                 builder.append('\n').append(sw);
                 logMessage = builder.toString();
+                // Append stack trace to logBuffer
+                LogBufferManager.appendToLogBuffer(sw.toString());
+            }
+
+            // Append exception message to logBuffer if present
+            if (ex != null && ex.getMessage() != null) {
+                LogBufferManager.appendToLogBuffer("Exception: " + ex.getMessage());
             }
 
             if (ex == null) {
@@ -88,6 +107,7 @@ public class Logger {
 
     /**
      * Logs information messages using the outer class name of the code calling this method.
+     * Appends the log message and exception (if present) to logBuffer.
      */
     public static void printInfo(@NonNull LogMessage message) {
         printInfo(message, null);
@@ -95,10 +115,20 @@ public class Logger {
 
     /**
      * Logs information messages using the outer class name of the code calling this method.
+     * Appends the log message and exception (if present) to logBuffer.
      */
     public static void printInfo(@NonNull LogMessage message, @Nullable Exception ex) {
         String logTag = REVANCED_LOG_PREFIX + message.findOuterClassSimpleName();
         String logMessage = message.buildMessageString();
+
+        // Append log message to logBuffer
+        LogBufferManager.appendToLogBuffer(logMessage);
+
+        // Append exception message to logBuffer if present
+        if (ex != null && ex.getMessage() != null) {
+            LogBufferManager.appendToLogBuffer("Exception: " + ex.getMessage());
+        }
+
         if (ex == null) {
             Log.i(logTag, logMessage);
         } else {
@@ -108,6 +138,7 @@ public class Logger {
 
     /**
      * Logs exceptions under the outer class name of the code calling this method.
+     * Appends the log message, exception (if present), and toast message (if enabled) to logBuffer.
      */
     public static void printException(@NonNull LogMessage message) {
         printException(message, null);
@@ -115,6 +146,7 @@ public class Logger {
 
     /**
      * Logs exceptions under the outer class name of the code calling this method.
+     * Appends the log message, exception (if present), and toast message (if enabled) to logBuffer.
      * <p>
      * If the calling code is showing it's own error toast,
      * instead use {@link #printInfo(LogMessage, Exception)}
@@ -126,11 +158,21 @@ public class Logger {
         String messageString = message.buildMessageString();
         String outerClassSimpleName = message.findOuterClassSimpleName();
         String logMessage = REVANCED_LOG_PREFIX + outerClassSimpleName;
+
+        // Append log message to logBuffer
+        LogBufferManager.appendToLogBuffer(messageString);
+
+        // Append exception message to logBuffer if present
+        if (ex != null && ex.getMessage() != null) {
+            LogBufferManager.appendToLogBuffer("Exception: " + ex.getMessage());
+        }
+
         if (ex == null) {
             Log.e(logMessage, messageString);
         } else {
             Log.e(logMessage, messageString, ex);
         }
+
         if (DEBUG_TOAST_ON_ERROR.get()) {
             Utils.showToastLong(outerClassSimpleName + ": " + messageString);
         }
@@ -138,19 +180,32 @@ public class Logger {
 
     /**
      * Logging to use if {@link BaseSettings#DEBUG} or {@link Utils#getContext()} may not be initialized.
+     * Appends the log message to logBuffer.
      * Normally this method should not be used.
      */
     public static void initializationInfo(@NonNull Class<?> callingClass, @NonNull String message) {
-        Log.i(REVANCED_LOG_PREFIX + callingClass.getSimpleName(), message);
+        String logTag = REVANCED_LOG_PREFIX + callingClass.getSimpleName();
+        // Append log message to logBuffer
+        LogBufferManager.appendToLogBuffer(logTag + ": " + message);
+        Log.i(logTag, message);
     }
 
     /**
      * Logging to use if {@link BaseSettings#DEBUG} or {@link Utils#getContext()} may not be initialized.
+     * Appends the log message and exception (if present) to logBuffer.
      * Normally this method should not be used.
      */
     public static void initializationException(@NonNull Class<?> callingClass, @NonNull String message,
                                                @Nullable Exception ex) {
-        Log.e(REVANCED_LOG_PREFIX + callingClass.getSimpleName(), message, ex);
-    }
+        String logTag = REVANCED_LOG_PREFIX + callingClass.getSimpleName();
+        // Append log message to logBuffer
+        LogBufferManager.appendToLogBuffer(logTag + ": " + message);
 
+        // Append exception message to logBuffer if present
+        if (ex != null && ex.getMessage() != null) {
+            LogBufferManager.appendToLogBuffer("Exception: " + ex.getMessage());
+        }
+
+        Log.e(logTag, message, ex);
+    }
 }

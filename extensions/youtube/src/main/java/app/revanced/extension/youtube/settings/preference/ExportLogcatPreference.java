@@ -3,18 +3,18 @@ package app.revanced.extension.youtube.settings.preference;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.preference.Preference;
-import app.revanced.extension.youtube.patches.EnableDebuggingPatch;
+import app.revanced.extension.shared.settings.preference.LogBufferManager;
 
 /**
  * A custom preference that triggers exporting ReVanced debug logs to the clipboard when clicked.
- * Invokes the exportLogcatToClipboard method from EnableDebuggingPatch.
+ * Invokes the exportLogcatToClipboard method from LogBufferManager.
  */
 @SuppressWarnings("unused")
 public class ExportLogcatPreference extends Preference {
 
     {
         setOnPreferenceClickListener(pref -> {
-            EnableDebuggingPatch.exportLogcatToClipboard(getContext());
+            LogBufferManager.exportToClipboard(getContext());
             return true;
         });
     }
