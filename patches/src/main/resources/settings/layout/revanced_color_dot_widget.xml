@@ -3,11 +3,16 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:clipChildren="false"
+        android:clipToPadding="false">
     <View
             android:id="@+id/revanced_color_dot_widget"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="center"
-            android:background="@drawable/revanced_settings_circle_background" />
+            android:background="@drawable/revanced_settings_circle_background"
+            android:elevation="2dp"
+            android:translationZ="2dp"
+            android:outlineProvider="background" />
 </FrameLayout>
