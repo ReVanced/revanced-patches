@@ -1,7 +1,11 @@
 package app.revanced.extension.shared;
 
 import android.annotation.SuppressLint;
-import android.app.*;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -18,6 +22,7 @@ import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.util.Pair;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -743,9 +748,9 @@ public class Utils {
      * then the preferences are left unsorted.
      */
     @SuppressWarnings("deprecation")
-    public static void sortPreferenceGroups(@NonNull PreferenceGroup group) {
+    public static void sortPreferenceGroups(PreferenceGroup group) {
         Sort groupSort = Sort.fromKey(group.getKey(), Sort.UNSORTED);
-        SortedMap<String, Preference> preferences = new TreeMap<>();
+        List<Pair<String, Preference>> preferences = new ArrayList<>();
 
         for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
             Preference preference = group.getPreference(i);
@@ -774,17 +779,21 @@ public class Utils {
                     throw new IllegalStateException();
             }
 
-            preferences.put(sortValue, preference);
+            preferences.add(new Pair<>(sortValue, preference));
         }
 
+        Collections.sort(preferences, (pair1, pair2)
+                -> pair1.first.compareToIgnoreCase(pair2.first));
+
         int index = 0;
-        for (Preference pref : preferences.values()) {
+        for (Pair<String, Preference> pair : preferences) {
             int order = index++;
+            Preference pref = pair.second;
 
             // Move any screens, intents, and the one off About preference to the top.
             if (pref instanceof PreferenceScreen || pref instanceof ReVancedAboutPreference
                     || pref.getIntent() != null) {
-                // Arbitrary high number.
+                // Any arbitrary large number.
                 order -= 1000;
             }
 
