@@ -368,9 +368,6 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
 
 この機能は、古いデバイスでのみ利用できます"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">全画面広告は、アプリ起動時に表示されます</string>
-  <string name="revanced_hide_buttoned_ads_title">ボタン付き広告を非表示</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">ボタン付き広告は表示されません</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">ボタン付き広告は表示されます</string>
   <string name="revanced_hide_paid_promotion_label_title">「プロモーションを含みます」ボタンを非表示</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">「プロモーションを含みます」ボタンはプレーヤー画面に表示されません</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">「プロモーションを含みます」ボタンはプレーヤー画面に表示されます</string>
