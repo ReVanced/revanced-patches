@@ -431,12 +431,18 @@ public class ColorPickerView extends View {
      * Updates the selected color and notifies listeners.
      */
     private void updateSelectedColor() {
-        final int updatedSelectedColor = Color.HSVToColor(0, new float[]{hue, saturation, value});
-        selectedColor = updatedSelectedColor;
-        if (colorChangedListener != null) {
-            colorChangedListener.onColorChanged(updatedSelectedColor);
+        final int updatedColor = Color.HSVToColor(0, new float[]{hue, saturation, value});
+
+        if (selectedColor != updatedColor) {
+            selectedColor = updatedColor;
+
+            if (colorChangedListener != null) {
+                colorChangedListener.onColorChanged(updatedColor);
+            }
         }
 
+        // Must always redraw, otherwise if saturation is pure grey or black
+        // then the hue slider cannot be changed.
         invalidate();
     }
 
