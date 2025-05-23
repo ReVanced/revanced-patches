@@ -11,11 +11,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ChangeFormFactorPatch;"
 
@@ -55,24 +51,19 @@ val changeFormFactorPatch = bytecodePatch(
 
         hookNavigationButtonCreated(EXTENSION_CLASS_DESCRIPTOR)
 
-        createPlayerRequestBodyWithModelFingerprint.method.apply {
-            val formFactorEnumClass = formFactorEnumConstructorFingerprint.originalClassDef.type
+        createPlayerRequestBodyWithModelFingerprint.let {
+            it.method.apply {
+                val index = it.instructionMatches.last().index
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
-            val index = indexOfFirstInstructionOrThrow {
-                val reference = getReference<FieldReference>()
-                opcode == Opcode.IGET &&
-                        reference?.definingClass == formFactorEnumClass &&
-                        reference.type == "I"
+                addInstructions(
+                    index + 1,
+                    """
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getFormFactor(I)I
+                        move-result v$register
+                    """
+                )
             }
-            val register = getInstruction<TwoRegisterInstruction>(index).registerA
-
-            addInstructions(
-                index + 1,
-                """
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getFormFactor(I)I
-                    move-result v$register
-                """
-            )
         }
     }
 }

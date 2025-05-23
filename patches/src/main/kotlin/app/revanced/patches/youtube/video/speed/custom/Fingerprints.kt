@@ -1,31 +1,53 @@
 package app.revanced.patches.youtube.video.speed.custom
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.newInstance
+import app.revanced.patcher.opcode
+import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val getOldPlaybackSpeedsFingerprint = fingerprint {
+internal val getOldPlaybackSpeedsFingerprint by fingerprint {
     parameters("[L", "I")
-    strings("menu_item_playback_speed")
+    instructions(
+        string("menu_item_playback_speed"),
+    )
 }
 
-internal val showOldPlaybackSpeedMenuFingerprint = fingerprint {
-    literal { speedUnavailableId }
+internal val showOldPlaybackSpeedMenuFingerprint by fingerprint {
+    instructions(
+        resourceLiteral("string", "varispeed_unavailable_message")
+    )
 }
 
-internal val showOldPlaybackSpeedMenuExtensionFingerprint = fingerprint {
-    custom { method, _ -> method.name == "showOldPlaybackSpeedMenu" }
+internal val showOldPlaybackSpeedMenuExtensionFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("V")
+    parameters()
+    custom { method, classDef ->
+        method.name == "showOldPlaybackSpeedMenu" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
+    }
 }
 
-internal val speedArrayGeneratorFingerprint = fingerprint {
+internal val speedArrayGeneratorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("[L")
     parameters("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;")
-    strings("0.0#")
+    instructions(
+        methodCall(name = "size", returnType = "I"),
+        newInstance("Ljava/text/DecimalFormat;"),
+        string("0.0#"),
+        literal(7),
+        opcode(Opcode.NEW_ARRAY),
+        fieldAccess(definingClass = "/PlayerConfigModel;", type = "[F")
+    )
 }
 
-internal val speedLimiterFingerprint = fingerprint {
+internal val speedLimiterFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("F")

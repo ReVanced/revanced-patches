@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -71,7 +71,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Add the query parameter trackRows to show popular tracks in the artist page.
         buildQueryParametersFingerprint.method.apply {
             val addQueryParameterConditionIndex = indexOfFirstInstructionReversedOrThrow(
-                buildQueryParametersFingerprint.stringMatches!!.first().index, Opcode.IF_EQZ
+                buildQueryParametersFingerprint.stringMatches.first().index, Opcode.IF_EQZ
             )
 
             replaceInstruction(addQueryParameterConditionIndex, "nop")
@@ -88,7 +88,7 @@ val unlockPremiumPatch = bytecodePatch(
 
         // Enable choosing a specific song/artist via Google Assistant.
         contextFromJsonFingerprint.method.apply {
-            val insertIndex = contextFromJsonFingerprint.patternMatch!!.startIndex
+            val insertIndex = contextFromJsonFingerprint.patternMatch.startIndex
             // Both the URI and URL need to be modified.
             val registerUrl = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
             val registerUri = getInstruction<FiveRegisterInstruction>(insertIndex + 2).registerD
@@ -125,7 +125,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Disable the "Spotify Premium" upsell experiment in context menus.
         contextMenuExperimentsFingerprint.method.apply {
             val moveIsEnabledIndex = indexOfFirstInstructionOrThrow(
-                contextMenuExperimentsFingerprint.stringMatches!!.first().index, Opcode.MOVE_RESULT
+                contextMenuExperimentsFingerprint.stringMatches.first().index, Opcode.MOVE_RESULT
             )
             val isUpsellEnabledRegister = getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
 
@@ -138,7 +138,13 @@ val unlockPremiumPatch = bytecodePatch(
             // Find the protobuffer list class using the definingClass which contains the empty list static value.
             val classType = getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
 
-            classes.find { it.type == classType } ?: throw PatchException("Could not find protobuffer list class.")
+            classBy { it.type == classType }
+        }
+
+        val protobufListRemoveFingerprint by fingerprint {
+            custom { method, classDef ->
+                method.name == "remove" && classDef.type == protobufListClassDef.type
+            }
         }
 
         // Need to allow mutation of the list so the home ads sections can be removed.
