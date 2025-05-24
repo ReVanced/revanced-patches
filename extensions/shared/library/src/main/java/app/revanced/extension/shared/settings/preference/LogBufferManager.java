@@ -61,12 +61,12 @@ public final class LogBufferManager {
         }
 
         try {
-            Utils.setClipboard(String.join("\n", logBuffer));
+            // Most (but not all) Android 13+ devices always show a "copied to clipboard" toast
+            // and there is no way to programmatically detect if a toast will show or not.
+            // Show a toast even if using Android 13+, but show ReVanced toast first (before copying to clipboard).
+            Utils.showToastShort(str("revanced_debug_logs_copied_to_clipboard"));
 
-            // Only show a toast if using Android 12 or earlier since Android 13+ already shows a toast.
-            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
-                Utils.showToastShort(str("revanced_debug_logs_copied_to_clipboard"));
-            }
+            Utils.setClipboard(String.join("\n", logBuffer));
         } catch (Exception ex) {
             // Handle security exception if clipboard access is denied.
             String errorMessage = String.format(str("revanced_debug_logs_failed_to_export"), ex.getMessage());
