@@ -2,8 +2,6 @@ package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
 
-import android.os.Build;
-
 import java.util.Deque;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -60,6 +58,12 @@ public final class LogBufferManager {
             return;
         }
 
+        if (logBuffer.isEmpty()) {
+            Utils.showToastShort(str("revanced_debug_logs_none_found"));
+            clearLogBufferData(); // Clear toast log entry that was created.
+            return;
+        }
+
         try {
             // Most (but not all) Android 13+ devices always show a "copied to clipboard" toast
             // and there is no way to programmatically detect if a toast will show or not.
@@ -94,11 +98,6 @@ public final class LogBufferManager {
     public static void clearLogBuffer() {
         if (!BaseSettings.DEBUG.get()) {
             Utils.showToastShort(str("revanced_debug_logs_disabled"));
-            return;
-        }
-
-        if (logBuffer.isEmpty()) {
-            Utils.showToastShort(str("revanced_debug_logs_none_found"));
             return;
         }
 
