@@ -70,7 +70,7 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
 
             // Show the user the settings in JSON format.
             builder.setNeutralButton(str("revanced_settings_import_copy"), (dialog, which) -> {
-                Utils.setClipboard(getEditText().getText().toString());
+                Utils.setClipboard(getEditText().getText());
             }).setPositiveButton(str("revanced_settings_import"), (dialog, which) -> {
                 importSettings(builder.getContext(), getEditText().getText().toString());
             });
