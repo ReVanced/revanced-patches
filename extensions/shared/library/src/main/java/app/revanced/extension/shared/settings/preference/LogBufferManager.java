@@ -38,12 +38,12 @@ public final class LogBufferManager {
         while (newSize > MAX_LOG_BYTES || logBuffer.size() > MAX_LOG_LINES) {
             String removed = logBuffer.pollFirst();
             if (removed == null) {
-                // Should never be reached.
-                estimatedByteSize.set(0);
-                break;
-            } else {
-                newSize = estimatedByteSize.addAndGet(-removed.length());
+                // Thread race of two different calls to this method,
+                // and the other thread won.
+                return;
             }
+
+            newSize = estimatedByteSize.addAndGet(-removed.length());
         }
     }
 
@@ -73,11 +73,15 @@ public final class LogBufferManager {
     }
 
     private static void clearLogBufferData() {
-        logBuffer.clear();
-
-        // Do not reset to zero, otherwise theoretically another thread
-        // could set a value between this call and the clear() above.
-        estimatedByteSize.addAndGet(-estimatedByteSize.get());
+        // Cannot simply clear the log buffer because there is no
+        // write lock for both the deque and the atomic int.
+        // Instead pop off log entries and decrement their size one by one.
+        while (!logBuffer.isEmpty()) {
+            String removed = logBuffer.pollFirst();
+            if (removed != null) {
+                estimatedByteSize.addAndGet(-removed.length());
+            }
+        }
     }
 
     /**
@@ -90,9 +94,15 @@ public final class LogBufferManager {
             return;
         }
 
+        if (logBuffer.isEmpty()) {
+            Utils.showToastLong(str("revanced_debug_logs_none_found"));
+            return;
+        }
+
         try {
+            // Show toast before clearing, otherwise toast log will still remain.
+            Utils.showToastLong(str("revanced_debug_logs_clear_toast"));
             clearLogBufferData();
-            Utils.showToastLong(str("revanced_debug_logs_cleared"));
         } catch (Exception ex) {
             Logger.printException(() -> "clearLogBuffer failure", ex);
         }
