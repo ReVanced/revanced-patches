@@ -74,7 +74,10 @@ public final class LogBufferManager {
 
     private static void clearLogBufferData() {
         logBuffer.clear();
-        estimatedByteSize.set(0);
+
+        // Do not reset to zero, otherwise theoretically another thread
+        // could set a value between this call and the clear() above.
+        estimatedByteSize.addAndGet(-estimatedByteSize.get());
     }
 
     /**
