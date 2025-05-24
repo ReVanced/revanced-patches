@@ -362,7 +362,7 @@ public class Utils {
 
     public static Context getContext() {
         if (context == null) {
-            Logger.initializationException(Utils.class, "Context is not set by extension hook, returning null",  null);
+            Logger.initializationException(() -> "Context is not set by extension hook, returning null",  null);
         }
         return context;
     }
@@ -370,7 +370,7 @@ public class Utils {
     public static void setContext(Context appContext) {
         // Must initially set context to check the app language.
         context = appContext;
-        Logger.initializationInfo(Utils.class, "Set context: " + appContext);
+        Logger.initializationInfo(() -> "Set context: " + appContext);
 
         AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
         if (language != AppLanguage.DEFAULT) {
@@ -547,14 +547,15 @@ public class Utils {
     private static void showToast(@NonNull String messageToToast, int toastDuration) {
         Objects.requireNonNull(messageToToast);
         runOnMainThreadNowOrLater(() -> {
-                    if (context == null) {
-                        Logger.initializationException(Utils.class, "Cannot show toast (context is null): " + messageToToast, null);
-                    } else {
-                        Logger.printDebug(() -> "Showing toast: " + messageToToast);
-                        Toast.makeText(context, messageToToast, toastDuration).show();
-                    }
-                }
-        );
+            Context currentContext = context;
+
+            if (currentContext == null) {
+                Logger.initializationException(() -> "Cannot show toast (context is null): " + messageToToast, null);
+            } else {
+                Logger.printDebug(() -> "Showing toast: " + messageToToast);
+                Toast.makeText(currentContext, messageToToast, toastDuration).show();
+            }
+        });
     }
 
     public static boolean isDarkModeEnabled(Context context) {
