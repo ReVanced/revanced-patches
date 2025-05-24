@@ -1,6 +1,6 @@
+package app.revanced.patches.spotify.misc.fix
+
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.spotify.misc.fix.katanaProxyLoginMethodHandlerClassFingerprint
-import app.revanced.patches.spotify.misc.fix.katanaProxyLoginMethodTryAuthorizeFingerprint
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
