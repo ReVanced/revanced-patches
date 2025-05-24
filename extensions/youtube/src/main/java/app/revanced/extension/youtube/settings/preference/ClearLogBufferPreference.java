@@ -7,7 +7,7 @@ import app.revanced.extension.shared.settings.preference.LogBufferManager;
 
 /**
  * A custom preference that clears the ReVanced debug log buffer when clicked.
- * Invokes the clearLogBuffer method from LogBufferManager.
+ * Invokes the {@link LogBufferManager#clearLogBuffer} method.
  */
 @SuppressWarnings("unused")
 public class ClearLogBufferPreference extends Preference {

@@ -66,7 +66,7 @@ public class Logger {
     private static final String REVANCED_LOG_PREFIX = "revanced: ";
 
     /**
-     * Internal method to handle logging to Android Log and LogBufferManager.
+     * Internal method to handle logging to Android Log and {@link LogBufferManager}.
      * Appends the log message, stack trace (if enabled), and exception (if present) to logBuffer
      * with class name but without 'revanced:' prefix.
      *

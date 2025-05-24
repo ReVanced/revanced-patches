@@ -13,8 +13,8 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 
 /**
- * Manages a buffer for storing debug logs from Logger.printDebug.
- * Thread-safe and limits buffer to approximately @MAX_LOG_BYTES to avoid TransactionTooLargeException.
+ * Manages a buffer for storing debug logs from Logger.
+ * Thread-safe and limits buffer to approximately {@link #BUFFER_MAX_BYTES} to avoid TransactionTooLargeException.
  */
 public final class LogBufferManager {
     /** Maximum byte size of all buffer entries. Must be less than Android's 1 MB Binder transaction limit. */
@@ -27,8 +27,8 @@ public final class LogBufferManager {
 
     /**
      * Appends a log message to the internal buffer if debugging is enabled.
-     * The buffer is limited to approximately @MAX_LOG_BYTES or @MAX_LOG_LINES to prevent excessive memory usage.
-     * This method is thread-safe.
+     * The buffer is limited to approximately {@link #BUFFER_MAX_BYTES} or {@link #BUFFER_MAX_SIZE}
+     * to prevent excessive memory usage. This method is thread-safe.
      *
      * @param message The log message to append. Ignored if null or empty.
      */
