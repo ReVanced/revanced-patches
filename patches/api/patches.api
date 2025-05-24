@@ -1,3 +1,7 @@
+public final class FixFacebookLoginPatchKt {
+	public static final fun getFixFacebookLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/all/misc/activity/exportall/ExportAllActivitiesPatchKt {
 	public static final fun getExportAllActivitiesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
