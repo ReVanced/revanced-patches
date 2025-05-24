@@ -17,10 +17,13 @@ import app.revanced.extension.shared.settings.BaseSettings;
  * Thread-safe and limits buffer to approximately @MAX_LOG_BYTES to avoid TransactionTooLargeException.
  */
 public final class LogBufferManager {
-    private static final int MAX_LOG_BYTES = 900_000; // Approximately 900 KB, below Android's 1 MB Binder transaction limit.
-    private static final int MAX_LOG_LINES = 10_000; // Limit number of log lines.
+    /** Maximum byte size of all buffer entries. Must be less than Android's 1 MB Binder transaction limit. */
+    private static final int BUFFER_MAX_BYTES = 900_000;
+    /** Limit number of log lines. */
+    private static final int BUFFER_MAX_SIZE = 10_000;
+
     private static final Deque<String> logBuffer = new ConcurrentLinkedDeque<>();
-    private static final AtomicInteger estimatedByteSize = new AtomicInteger();
+    private static final AtomicInteger logBufferByteSize = new AtomicInteger();
 
     /**
      * Appends a log message to the internal buffer if debugging is enabled.
@@ -33,9 +36,9 @@ public final class LogBufferManager {
         if (!BaseSettings.DEBUG.get()) return;
 
         logBuffer.addLast(message);
-        int newSize = estimatedByteSize.addAndGet(message.length());
+        int newSize = logBufferByteSize.addAndGet(message.length());
 
-        while (newSize > MAX_LOG_BYTES || logBuffer.size() > MAX_LOG_LINES) {
+        while (newSize > BUFFER_MAX_BYTES || logBuffer.size() > BUFFER_MAX_SIZE) {
             String removed = logBuffer.pollFirst();
             if (removed == null) {
                 // Thread race of two different calls to this method,
@@ -43,7 +46,7 @@ public final class LogBufferManager {
                 return;
             }
 
-            newSize = estimatedByteSize.addAndGet(-removed.length());
+            newSize = logBufferByteSize.addAndGet(-removed.length());
         }
     }
 
@@ -53,7 +56,7 @@ public final class LogBufferManager {
      */
     public static void exportToClipboard() {
         if (!BaseSettings.DEBUG.get()) {
-            Utils.showToastLong(str("revanced_debug_logs_disabled"));
+            Utils.showToastShort(str("revanced_debug_logs_disabled"));
             return;
         }
 
@@ -62,13 +65,13 @@ public final class LogBufferManager {
 
             // Only show a toast if using Android 12 or earlier since Android 13+ already shows a toast.
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
-                Utils.showToastLong(str("revanced_debug_logs_copied_to_clipboard"));
+                Utils.showToastShort(str("revanced_debug_logs_copied_to_clipboard"));
             }
-        } catch (Exception e) {
+        } catch (Exception ex) {
             // Handle security exception if clipboard access is denied.
-            String errorMessage = String.format(str("revanced_debug_logs_failed_to_export"), e.getMessage());
+            String errorMessage = String.format(str("revanced_debug_logs_failed_to_export"), ex.getMessage());
             Utils.showToastLong(errorMessage);
-            Logger.printDebug(() -> errorMessage, e);
+            Logger.printDebug(() -> errorMessage, ex);
         }
     }
 
@@ -79,7 +82,7 @@ public final class LogBufferManager {
         while (!logBuffer.isEmpty()) {
             String removed = logBuffer.pollFirst();
             if (removed != null) {
-                estimatedByteSize.addAndGet(-removed.length());
+                logBufferByteSize.addAndGet(-removed.length());
             }
         }
     }
@@ -90,18 +93,18 @@ public final class LogBufferManager {
      */
     public static void clearLogBuffer() {
         if (!BaseSettings.DEBUG.get()) {
-            Utils.showToastLong(str("revanced_debug_logs_disabled"));
+            Utils.showToastShort(str("revanced_debug_logs_disabled"));
             return;
         }
 
         if (logBuffer.isEmpty()) {
-            Utils.showToastLong(str("revanced_debug_logs_none_found"));
+            Utils.showToastShort(str("revanced_debug_logs_none_found"));
             return;
         }
 
         try {
             // Show toast before clearing, otherwise toast log will still remain.
-            Utils.showToastLong(str("revanced_debug_logs_clear_toast"));
+            Utils.showToastShort(str("revanced_debug_logs_clear_toast"));
             clearLogBufferData();
         } catch (Exception ex) {
             Logger.printException(() -> "clearLogBuffer failure", ex);

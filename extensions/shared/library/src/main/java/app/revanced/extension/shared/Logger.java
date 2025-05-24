@@ -70,16 +70,17 @@ public class Logger {
      * Appends the log message, stack trace (if enabled), and exception (if present) to logBuffer
      * with class name but without 'revanced:' prefix.
      *
-     * @param logTag    The log tag including 'revanced:' prefix for Android Log.
-     * @param className The class name for logBuffer (without prefix).
-     * @param message   The log message.
-     * @param ex        Optional exception.
-     * @param logLevel  The log level.
+     * @param logLevel The log level.
+     * @param message  Log message object.
+     * @param ex       Optional exception.
      */
-    private static void logInternal(String logTag, String className, String message,
-                                    @Nullable Throwable ex, LogLevel logLevel) {
-        // Append log message with class name to logBuffer.
-        String logText = className + ": " + message;
+    private static void logInternal(LogLevel logLevel, LogMessage message, @Nullable Throwable ex) {
+        String messageString = message.buildMessageString();
+        String className = message.findOuterClassSimpleName();
+        String logTag = REVANCED_LOG_PREFIX + className;
+        String classNameMessage = className + ": " + messageString;
+
+        String logText = classNameMessage;
 
         if (DEBUG_STACKTRACE.get()) {
             var sw = new StringWriter();
@@ -108,6 +109,10 @@ public class Logger {
             case ERROR:
                 if (ex == null) Log.e(logTag, logText);
                 else Log.e(logTag, logText, ex);
+
+                if (DEBUG_TOAST_ON_ERROR.get()) {
+                    Utils.showToastLong(classNameMessage);
+                }
                 break;
         }
     }
@@ -132,9 +137,7 @@ public class Logger {
      */
     public static void printDebug(@NonNull LogMessage message, @Nullable Exception ex) {
         if (DEBUG.get()) {
-            String className = message.findOuterClassSimpleName();
-            String logTag = REVANCED_LOG_PREFIX + className;
-            logInternal(logTag, className, message.buildMessageString(), ex, LogLevel.DEBUG);
+            logInternal(LogLevel.DEBUG, message, ex);
         }
     }
 
@@ -151,9 +154,7 @@ public class Logger {
      * Appends the log message and exception (if present) to logBuffer.
      */
     public static void printInfo(LogMessage message, @Nullable Exception ex) {
-        String className = message.findOuterClassSimpleName();
-        String logTag = REVANCED_LOG_PREFIX + className;
-        logInternal(logTag, className, message.buildMessageString(), ex, LogLevel.INFO);
+        logInternal(LogLevel.INFO, message, ex);
     }
 
     /**
@@ -175,14 +176,7 @@ public class Logger {
      * @param ex               exception (optional)
      */
     public static void printException(LogMessage message, @Nullable Throwable ex) {
-        String messageString = message.buildMessageString();
-        String className = message.findOuterClassSimpleName();
-        String logTag = REVANCED_LOG_PREFIX + className;
-        logInternal(logTag, className, messageString, ex, LogLevel.ERROR);
-
-        if (DEBUG_TOAST_ON_ERROR.get()) {
-            Utils.showToastLong(className + ": " + messageString);
-        }
+        logInternal(LogLevel.ERROR, message, ex);
     }
 
     /**
@@ -193,7 +187,8 @@ public class Logger {
     public static void initializationInfo(Class<?> callingClass, String message) {
         String className = callingClass.getSimpleName();
         String logTag = REVANCED_LOG_PREFIX + className;
-        // Append log message with class name to logBuffer
+
+        // Append log message with class name to logBuffer.
         LogBufferManager.appendToLogBuffer(className + ": " + message);
         Log.i(logTag, message);
     }
@@ -207,7 +202,7 @@ public class Logger {
                                                @Nullable Exception ex) {
         String className = callingClass.getSimpleName();
         String logTag = REVANCED_LOG_PREFIX + className;
-        // Append log message with class name to logBuffer
+        // Append log message with class name to logBuffer.
         LogBufferManager.appendToLogBuffer(className + ": " + message);
 
         // Append exception message to logBuffer if present
