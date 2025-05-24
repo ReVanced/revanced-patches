@@ -10,25 +10,25 @@ import app.revanced.extension.shared.settings.preference.LogBufferManager;
  * Invokes the exportLogcatToClipboard method from LogBufferManager.
  */
 @SuppressWarnings("unused")
-public class ExportLogcatPreference extends Preference {
+public class ExportLogToClipboardPreference extends Preference {
 
     {
         setOnPreferenceClickListener(pref -> {
-            LogBufferManager.exportToClipboard(getContext());
+            LogBufferManager.exportToClipboard(getContext(), false); // Do not clear buffer after export.
             return true;
         });
     }
 
-    public ExportLogcatPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public ExportLogToClipboardPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
-    public ExportLogcatPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ExportLogToClipboardPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-    public ExportLogcatPreference(Context context, AttributeSet attrs) {
+    public ExportLogToClipboardPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
-    public ExportLogcatPreference(Context context) {
+    public ExportLogToClipboardPreference(Context context) {
         super(context);
     }
 }

@@ -59,7 +59,7 @@ val enableDebuggingPatch = bytecodePatch(
                     SwitchPreference("revanced_debug_toast_on_error"),
                     NonInteractivePreference(
                         "revanced_debug_export_logs_to_clipboard",
-                        tag = "app.revanced.extension.youtube.settings.preference.ExportLogcatPreference",
+                        tag = "app.revanced.extension.youtube.settings.preference.ExportLogToClipboardPreference",
                         selectable = true,
                     ),
                 ),
