@@ -1,3 +1,10 @@
+# [5.25.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.6...v5.25.0-dev.7) (2025-05-24)
+
+
+### Bug Fixes
+
+* **YouTube - Open Shorts in regular player:** Do not exit app when pressing back button in regular player ([#5020](https://github.com/ReVanced/revanced-patches/issues/5020)) ([3384f8d](https://github.com/ReVanced/revanced-patches/commit/3384f8dd0ff2a345f2e387f4ed1570079a83ccb6))
+
 # [5.25.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.5...v5.25.0-dev.6) (2025-05-23)
 
 
