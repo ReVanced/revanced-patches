@@ -362,9 +362,6 @@ Limitaciones
 
 Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Se muestran anuncios a pantalla completa</string>
-  <string name="revanced_hide_buttoned_ads_title">Ocultar anuncios botonados</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Los anuncios botonados están ocultos</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Se muestran anuncios botonados</string>
   <string name="revanced_hide_paid_promotion_label_title">Ocultar etiqueta de promoción de pago</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Etiqueta de promoción pagada está oculta</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Etiqueta de promoción pagada se muestra</string>

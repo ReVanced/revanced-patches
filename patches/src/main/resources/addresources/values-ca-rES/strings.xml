@@ -365,9 +365,6 @@ Limitacions
 
 Aquesta funció només està disponible per a dispositius antics"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Els anuncis de pantalla completa es mostren</string>
-  <string name="revanced_hide_buttoned_ads_title">Amaga els anuncis amb botó</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Els anuncis amb botó estan amagats</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Els anuncis amb botó es mostren</string>
   <string name="revanced_hide_paid_promotion_label_title">Amaga l\'etiqueta de promoció de pagament</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">L\'etiqueta de promoció de pagament està amagada</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Es mostra l\'etiqueta de promoció de pagament</string>

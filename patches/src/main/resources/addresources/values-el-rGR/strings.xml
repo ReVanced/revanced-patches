@@ -367,9 +367,6 @@ Second \"item\" text"</string>
 
 Αυτή η λειτουργία είναι διαθέσιμη μόνο για παλιότερες συσκευές"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Οι διαφημίσεις πλήρους οθόνης εμφανίζονται</string>
-  <string name="revanced_hide_buttoned_ads_title">Διαφημίσεις κουμπιών</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Κρυμμένες</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_paid_promotion_label_title">Ετικέτες προώθησης επί πληρωμή</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Εμφανίζονται</string>

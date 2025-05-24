@@ -365,9 +365,6 @@ Ograničenja
 
 Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Oglasi preko celog ekrana su prikazani</string>
-  <string name="revanced_hide_buttoned_ads_title">Sakrij oglase u obliku dugmadi</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Oglasi u obliku dugmadi su skriveni</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Oglasi u obliku dugmadi su prikazani</string>
   <string name="revanced_hide_paid_promotion_label_title">Sakrij oznaku plaćene promocije</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Oznaka plaćeme promocije je skrivena</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Oznaka plaćene promocije je prikazana</string>

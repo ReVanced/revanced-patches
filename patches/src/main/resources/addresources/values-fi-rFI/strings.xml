@@ -360,9 +360,6 @@ Rajoitukset
 
 Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Koko näytön mainokset näytetään</string>
-  <string name="revanced_hide_buttoned_ads_title">Piilota painikkeelliset mainokset</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Painikkeelliset mainokset on piilotettu</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Painikkeelliset mainokset näytetään</string>
   <string name="revanced_hide_paid_promotion_label_title">Piilota maksetun mainostuksen tunniste</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Maksetun mainostuksen tunniste on piilotettu</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Maksetun mainostuksen tunniste näytetään</string>

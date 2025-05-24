@@ -365,9 +365,6 @@ Begränsningar
 
 Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Fullskärmsannonser är synliga</string>
-  <string name="revanced_hide_buttoned_ads_title">Dölj knappannonser</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Knappannonser är dolda</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Knappannonser är synliga</string>
   <string name="revanced_hide_paid_promotion_label_title">Dölj betald kampanjetikett</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Betald kampanjetikett är dold</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Betald kampanjetikett är synlig</string>

@@ -198,7 +198,7 @@ fun gmsCoreSupportPatch(
 
         // Google Play Utility is not present in all apps, so we need to check if it's present.
         if (googlePlayUtilityFingerprint.methodOrNull != null) {
-            googlePlayUtilityFingerprint.method.returnEarly()
+            googlePlayUtilityFingerprint.method.returnEarly(0)
         }
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.

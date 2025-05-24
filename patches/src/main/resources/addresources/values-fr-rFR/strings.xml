@@ -365,9 +365,6 @@ Limitations
 
 Cette fonctionnalité est disponible uniquement pour les appareils anciens"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Les annonces plein écran sont affichées</string>
-  <string name="revanced_hide_buttoned_ads_title">Masquer les annonces au format bouton</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Les annonces au format bouton sont masquées</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Les annonces au format bouton sont affichées</string>
   <string name="revanced_hide_paid_promotion_label_title">Masquer la bannière de promotion rémunérée</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">La bannière \"Inclut une promotion rémunérée\" est masquée</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">La bannière \"Inclut une promotion rémunérée\" est affichée</string>

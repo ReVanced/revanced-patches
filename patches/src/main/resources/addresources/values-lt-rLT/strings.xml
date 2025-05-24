@@ -365,9 +365,6 @@ Apribojimai
 
 Ši funkcija yra prieinama tik senesniuose įrenginiuose"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Viso ekrano reklamos yra rodomos</string>
-  <string name="revanced_hide_buttoned_ads_title">Slėpti reklamas su mygtukais</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Reklamos su mygtukais yra paslėptos</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Reklamos su mygtukais yra rodomos</string>
   <string name="revanced_hide_paid_promotion_label_title">Slėpti apmokėtos reklamos etiketę</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Apmokėtos reklamos etiketė yra paslėpta</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Apmokėtos reklamos etiketė yra rodoma</string>

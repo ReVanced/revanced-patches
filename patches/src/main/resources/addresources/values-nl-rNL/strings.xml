@@ -365,9 +365,6 @@ Beperkingen
 
 Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Volledig scherm advertenties worden getoond</string>
-  <string name="revanced_hide_buttoned_ads_title">Advertenties met knoppen verbergen</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Advertenties met knoppen zijn verborgen</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Advertenties met knoppen worden getoond</string>
   <string name="revanced_hide_paid_promotion_label_title">Betaalde promotielabel verbergen</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Betaalde promotielabel is verborgen</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Betaalde promotielabel wordt getoond</string>

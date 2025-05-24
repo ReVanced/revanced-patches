@@ -6,3 +6,5 @@ internal object Utils {
             .joinToString("\n") { it.trimIndent() } // Remove the leading whitespace from each line.
             .trimIndent() // Remove the leading newline.
 }
+
+internal fun Boolean.toHexString(): String = if (this) "0x1" else "0x0"

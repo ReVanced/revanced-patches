@@ -365,9 +365,6 @@ Second \"item\" text"</string>
 
 Гэтая функцыя даступная толькі для старых прылад"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Адлюстроўваецца поўнаэкранная рэклама</string>
-  <string name="revanced_hide_buttoned_ads_title">Схаваць рэкламу на кнопках</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Аб\"явы на кнопках схаваныя</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Паказваюцца аб\"явы на кнопках</string>
   <string name="revanced_hide_paid_promotion_label_title">Схаваць метку аплачанай акцыі</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Пазнака платнай акцыі схавана</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Адлюстроўваецца ярлык платнай акцыі</string>

@@ -365,9 +365,6 @@ Ograniczenia
 
 Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Reklamy pełnoekranowe są widoczne</string>
-  <string name="revanced_hide_buttoned_ads_title">Reklamy z przyciskami</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Reklamy z przyciskami są ukryte</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Reklamy z przyciskami są widoczne</string>
   <string name="revanced_hide_paid_promotion_label_title">Etykiety płatnej promocji</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Etykiety płatnej promocji są ukryte</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Etykiety płatnej promocji są widoczne</string>

@@ -365,9 +365,6 @@ Kufizime
 
 Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Reklamimet me ekran të plotë janë të dukshme</string>
-  <string name="revanced_hide_buttoned_ads_title">Fsheh reklamimet me butona</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Reklamimet me butona janë të fshehur</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Reklamimet me butona janë të dukshme</string>
   <string name="revanced_hide_paid_promotion_label_title">Fsheh etiketën e promovimit të paguar</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Etiketë e promovimit të paguar është e fshehur</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Etiketë e promovimit të paguar është e dukshme</string>

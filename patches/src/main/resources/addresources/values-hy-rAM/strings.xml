@@ -365,9 +365,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
 
 Այս հատկությունը հասանելի է միայն հին սարքերի համար"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Լի էկրանի գովազդները երևում են</string>
-  <string name="revanced_hide_buttoned_ads_title">Թաքցնել կոճակավորված գովազդները</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Կոճակավորված գովազդները թաքցված են</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Կոճակավորված գովազդները երևում են</string>
   <string name="revanced_hide_paid_promotion_label_title">Թաքցնել վճարված խթանման նշանը</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Վճարված խթանման նշանը թաքցված է</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Վճարված խթանման նշանը երևում է</string>

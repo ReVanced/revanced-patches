@@ -365,9 +365,6 @@ Limitações
 
 Tính năng này chỉ khả dụng cho các thiết bị cũ"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Os anúncios são visíveis em ecrã cheia</string>
-  <string name="revanced_hide_buttoned_ads_title">Esconder anúncios com botão</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Anúncios com botões estão escondidos</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Os anúncios com botões são visíveis</string>
   <string name="revanced_hide_paid_promotion_label_title">Ocultar rótulo de promoção paga</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">O rótulo de promoção pago está oculto</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Rótulo de promoção pago é mostrado</string>

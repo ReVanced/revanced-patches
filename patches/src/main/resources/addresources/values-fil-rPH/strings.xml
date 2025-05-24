@@ -365,9 +365,6 @@ Mga limitasyon
 
 Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Ipinapakita ang mga fullscreen na ad</string>
-  <string name="revanced_hide_buttoned_ads_title">Itago ang mga naka-button na ad</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Nakatago ang mga naka-button na ad</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Ipinapakita ang mga naka-button na ad</string>
   <string name="revanced_hide_paid_promotion_label_title">Itago ang may bayad na label ng promosyon</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Nakatago ang label ng bayad na promosyon</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Ipinapakita ang may bayad na label ng promosyon</string>

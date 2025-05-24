@@ -42,7 +42,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced tənzimləmələr standarta təyin edildi</string>
   <string name="revanced_settings_import_success">%d tənzimləmə idxal edildi</string>
   <string name="revanced_settings_import_failure_parse">Uğursuz idxal prosesi: %s</string>
-  <string name="revanced_settings_search_hint">Axtarış tənzimləmələri</string>
+  <string name="revanced_settings_search_hint">Tənzimləmələri axtar</string>
   <string name="revanced_settings_search_no_results_title">‘%s’ üçün nəticə tapılmadı</string>
   <string name="revanced_settings_search_no_results_summary">Başqa açar sözü yoxla</string>
   <string name="revanced_settings_search_remove_message">Axtarış tarixçəsindən silinsin?</string>
@@ -365,9 +365,6 @@ Məhdudiyyətlər
 
 Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamları göstərilir</string>
-  <string name="revanced_hide_buttoned_ads_title">Düyməli reklamları gizlət</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Düyməli reklamlar gizlədilir</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Düyməli reklamlar göstərilir</string>
   <string name="revanced_hide_paid_promotion_label_title">Ödənişli tanıtım etiketini gizlət</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Ödənişli reklam etiketi gizlədilib</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Ödənişli reklam etiketi göstərilir</string>

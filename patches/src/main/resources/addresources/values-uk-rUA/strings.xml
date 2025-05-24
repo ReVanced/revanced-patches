@@ -366,9 +366,6 @@ Second \"item\" text"</string>
 
 Ця функція доступна тільки для старих пристроїв"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Повноекранна реклама показується</string>
-  <string name="revanced_hide_buttoned_ads_title">Приховати рекламу з кнопкою</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Рекламу з кнопкою приховано</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Реклама з кнопкою показується</string>
   <string name="revanced_hide_paid_promotion_label_title">Приховати \"Містить пряму рекламу\"</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Мітку \"Містить пряму рекламу\" приховано</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Мітка \"Містить пряму рекламу\" показується</string>
@@ -1141,13 +1138,13 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_title">Змінити початкову сторінку</string>
   <string name="revanced_change_start_page_entry_default">За замовчуванням</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Усі підписки</string>
-  <string name="revanced_change_start_page_entry_browse">Усі підписки</string>
+  <string name="revanced_change_start_page_entry_browse">Перегляд каналів</string>
   <string name="revanced_change_start_page_entry_courses">Навчання</string>
-  <string name="revanced_change_start_page_entry_explore">Навігатор</string>
-  <string name="revanced_change_start_page_entry_fashion">Мода і краса</string>
+  <string name="revanced_change_start_page_entry_explore">Що нового</string>
+  <string name="revanced_change_start_page_entry_fashion">Мода та краса</string>
   <string name="revanced_change_start_page_entry_gaming">Ігри</string>
   <string name="revanced_change_start_page_entry_history">Історія</string>
-  <string name="revanced_change_start_page_entry_library">Бібліотека</string>
+  <string name="revanced_change_start_page_entry_library">Вкладка \"Ви\"</string>
   <string name="revanced_change_start_page_entry_liked_videos">Відео, які сподобалися</string>
   <string name="revanced_change_start_page_entry_live">Прямі трансляції</string>
   <string name="revanced_change_start_page_entry_movies">Фільми</string>

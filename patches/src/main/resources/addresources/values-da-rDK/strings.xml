@@ -338,9 +338,6 @@ Begrænsninger
 
 Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Fuldskærms annoncer vises</string>
-  <string name="revanced_hide_buttoned_ads_title">Skjul knapfyldte annoncer</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Knappede annoncer er skjult</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Knappede annoncer vises</string>
   <string name="revanced_hide_paid_promotion_label_title">Skjul betalt kampagneetiket</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Betalt reklamemærke er skjult</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Betalt salgsfremmende mærke er vist</string>

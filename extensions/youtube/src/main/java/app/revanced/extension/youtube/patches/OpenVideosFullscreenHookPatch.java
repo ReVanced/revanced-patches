@@ -33,7 +33,7 @@ public class OpenVideosFullscreenHookPatch {
         }
 
         if (!isFullScreenPatchIncluded()) {
-            return false;
+            return original;
         }
 
         return Settings.OPEN_VIDEOS_FULLSCREEN_PORTRAIT.get();

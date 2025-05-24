@@ -54,3 +54,11 @@ internal val shortsPlaybackIntentFingerprint = fingerprint {
         "reels_fragment_descriptor"
     )
 }
+
+internal val exitVideoPlayerFingerprint = fingerprint {
+    returns("V")
+    parameters()
+    literal {
+        mdx_drawer_layout_id
+    }
+}

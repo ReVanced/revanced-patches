@@ -365,9 +365,6 @@ Omejitve
 
 Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Oglasi na celotnem zaslonu so prikazani</string>
-  <string name="revanced_hide_buttoned_ads_title">Skrij oglase z gumbi</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Oglasi z gumbi so skriti</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Oglasi z gumbi so prikazani</string>
   <string name="revanced_hide_paid_promotion_label_title">Skrij nalepko plačane promocije</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Nalepka plačane promocije je skrita</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Nalepka plačane promocije je prikazana</string>

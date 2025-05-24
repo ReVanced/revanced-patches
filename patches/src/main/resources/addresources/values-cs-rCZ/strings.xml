@@ -365,9 +365,6 @@ Omezení:
 
 Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Celostránkové reklamy jsou zobrazeny</string>
-  <string name="revanced_hide_buttoned_ads_title">Skrýt reklamy s tlačítky</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Reklamy s tlačítky jsou skryty</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Reklamy s tlačítky jsou zobrazeny</string>
   <string name="revanced_hide_paid_promotion_label_title">Skrýt štítek placené propagace</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Štítek placené propagace je skryt</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Štítek placené propagace je zobrazen</string>

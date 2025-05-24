@@ -1,3 +1,53 @@
+# [5.25.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.6...v5.25.0-dev.7) (2025-05-24)
+
+
+### Bug Fixes
+
+* **YouTube - Open Shorts in regular player:** Do not exit app when pressing back button in regular player ([#5020](https://github.com/ReVanced/revanced-patches/issues/5020)) ([3384f8d](https://github.com/ReVanced/revanced-patches/commit/3384f8dd0ff2a345f2e387f4ed1570079a83ccb6))
+
+# [5.25.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.5...v5.25.0-dev.6) (2025-05-23)
+
+
+### Bug Fixes
+
+* **Yuka - Unlock premium:** Remove broken patch that is no longer supported ([#5018](https://github.com/ReVanced/revanced-patches/issues/5018)) ([fac6e59](https://github.com/ReVanced/revanced-patches/commit/fac6e59d281e21e57abdcfc899cd1aeb18e5c2b8))
+
+# [5.25.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.4...v5.25.0-dev.5) (2025-05-22)
+
+
+### Bug Fixes
+
+* **YouTube:** Better handle incorrect duplicate translations ([20abac5](https://github.com/ReVanced/revanced-patches/commit/20abac52121fbecb65d87d0982f3380e1cf4e20e))
+
+# [5.25.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.3...v5.25.0-dev.4) (2025-05-22)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore support:** Restore patch functionality from prior merge ([7686bbe](https://github.com/ReVanced/revanced-patches/commit/7686bbe975644e1e582fa52f166879da5694ed93))
+
+# [5.25.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.2...v5.25.0-dev.3) (2025-05-22)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Hide new type of general ad ([#5004](https://github.com/ReVanced/revanced-patches/issues/5004)) ([37e59d2](https://github.com/ReVanced/revanced-patches/commit/37e59d2771528c631dc13e73dac095fec95c6485))
+
+# [5.25.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.1...v5.25.0-dev.2) (2025-05-22)
+
+
+### Bug Fixes
+
+* **Disable Pairip license check:** Change patch to default off ([74b6a94](https://github.com/ReVanced/revanced-patches/commit/74b6a94577ac3f73b04bd0cce98fb7011a6607fd))
+
+# [5.25.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.24.0...v5.25.0-dev.1) (2025-05-22)
+
+
+### Features
+
+* Add `Disable pairip license check` patch ([#4927](https://github.com/ReVanced/revanced-patches/issues/4927)) ([42d2c27](https://github.com/ReVanced/revanced-patches/commit/42d2c277982ef63e6ad42d85e46f13c3ab50243c))
+* **Messenger:** Add `Remove Meta AI` patch ([#4945](https://github.com/ReVanced/revanced-patches/issues/4945)) ([012dff7](https://github.com/ReVanced/revanced-patches/commit/012dff7b6511b9e519ccac96f6713cf1a1b327b4))
+
 # [5.24.0](https://github.com/ReVanced/revanced-patches/compare/v5.23.0...v5.24.0) (2025-05-19)
 
 

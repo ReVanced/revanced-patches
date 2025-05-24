@@ -6,9 +6,8 @@ import android.util.AttributeSet;
 import android.util.Pair;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 import app.revanced.extension.shared.Utils;
 
@@ -46,16 +45,23 @@ public class SortedListPreference extends ListPreference {
         }
 
         List<Pair<CharSequence, CharSequence>> firstEntries = new ArrayList<>(firstEntriesToPreserve);
-        SortedMap<String, Pair<CharSequence, CharSequence>> lastEntries = new TreeMap<>();
+
+        // Android does not have a triple class like Kotlin, So instead use a nested pair.
+        // Cannot easily use a SortedMap, because if two entries incorrectly have
+        // identical names then the duplicates entries are not preserved.
+        List<Pair<String, Pair<CharSequence, CharSequence>>> lastEntries = new ArrayList<>();
 
         for (int i = 0; i < entrySize; i++) {
             Pair<CharSequence, CharSequence> pair = new Pair<>(entries[i], entryValues[i]);
             if (i < firstEntriesToPreserve) {
                 firstEntries.add(pair);
             } else {
-                lastEntries.put(Utils.removePunctuationToLowercase(pair.first), pair);
+                lastEntries.add(new Pair<>(Utils.removePunctuationToLowercase(pair.first), pair));
             }
         }
+
+        Collections.sort(lastEntries, (pair1, pair2)
+                -> pair1.first.compareToIgnoreCase(pair2.first));
 
         CharSequence[] sortedEntries = new CharSequence[entrySize];
         CharSequence[] sortedEntryValues = new CharSequence[entrySize];
@@ -67,9 +73,10 @@ public class SortedListPreference extends ListPreference {
             i++;
         }
 
-        for (Pair<CharSequence, CharSequence> pair : lastEntries.values()) {
-            sortedEntries[i] = pair.first;
-            sortedEntryValues[i] = pair.second;
+        for (Pair<String, Pair<CharSequence, CharSequence>> outer : lastEntries) {
+            Pair<CharSequence, CharSequence> inner = outer.second;
+            sortedEntries[i] = inner.first;
+            sortedEntryValues[i] = inner.second;
             i++;
         }
 

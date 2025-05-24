@@ -365,9 +365,6 @@ Second \"item\" text"</string>
 
 คุณสมบัตินี้มีเฉพาะสําหรับอุปกรณ์รุ่นเก่า"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">โฆษณาแบบเต็มหน้าจอจะแสดง</string>
-  <string name="revanced_hide_buttoned_ads_title">ซ่อนโฆษณาแบบมีปุ่ม</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">โฆษณาแบบมีปุ่มถูกซ่อน</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">โฆษณาแบบมีปุ่มจะแสดง</string>
   <string name="revanced_hide_paid_promotion_label_title">ซ่อนป้ายโฆษณาที่จ่ายเงิน</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">ป้ายโฆษณาที่จ่ายเงินถูกซ่อน</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">ป้ายโฆษณาที่จ่ายเงินจะแสดง</string>

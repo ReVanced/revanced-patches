@@ -363,9 +363,6 @@ Linitações
 
 Este recurso está disponível apenas para dispositivos mais antigos"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Anúncios em tela cheia não estão ocultos</string>
-  <string name="revanced_hide_buttoned_ads_title">Ocultar anúncios com botões</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Os anúncios com botões estão ocultos</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Anúncios com botões não estão ocultos</string>
   <string name="revanced_hide_paid_promotion_label_title">Ocultar o rótulo de promoção paga</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">O rótulo de promoção paga está oculto</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">O rótulo de promoção paga é mostrada</string>
@@ -762,8 +759,8 @@ Para exibir o menu da faixa de áudio, altere \"Spoof video streams\" para iOS T
   <string name="revanced_hide_shorts_like_button_summary_on">Botão gostei está oculto</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Botão gostei não está oculto</string>
   <string name="revanced_hide_shorts_dislike_button_title">Ocultar botão Não curtir</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_on">Botão não gostei está oculto</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_off">Botão não gostei é mostrado</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_on">Botão não gostei é mostrado</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_off">Botão não gostei está oculto</string>
   <string name="revanced_hide_shorts_comments_button_title">Ocultar botão Comentários</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Botão comentários está oculto</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Botão comentários não está oculto</string>
@@ -847,7 +844,7 @@ Configurações → Reprodução → Reproduzir próximo vídeo automaticamente"
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recarregue o vídeo para votar usando o Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto pelo proprietário</string>
-  <string name="revanced_ryd_enabled_summary_on">Não gostei está oculto</string>
+  <string name="revanced_ryd_enabled_summary_on">Não gostei é mostrado</string>
   <string name="revanced_ryd_enabled_summary_off">Não gostei não está oculto</string>
   <string name="revanced_ryd_shorts_title">Mostrar não gostei no Shorts</string>
   <string name="revanced_ryd_shorts_summary_on">"\"Não gostei\" nos Shorts são mostrados
