@@ -16,8 +16,10 @@ import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.preference.LogBufferManager;
 
 /**
- * Logger class for ReVanced, handling debug, info, exception and initialization logs.
- * All log messages are appended to logBuffer for export.
+ * ReVanced specific logger.  Logging is done to standard device log (accessible thru ADB),
+ * and additionally accessible thru {@link LogBufferManager}.
+ *
+ * All methods are thread safe.
  */
 public class Logger {
 
@@ -26,6 +28,9 @@ public class Logger {
      */
     @FunctionalInterface
     public interface LogMessage {
+        /**
+         * @return Logger string message. This method is only called if logging is enabled.
+         */
         @NonNull
         String buildMessageString();
     }

@@ -12,8 +12,10 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 
 /**
- * Manages a buffer for storing debug logs from Logger.
- * Thread-safe and limits buffer to approximately {@link #BUFFER_MAX_BYTES} to avoid TransactionTooLargeException.
+ * Manages a buffer for storing debug logs from {@link Logger}.
+ * Stores just under 1MB of the most recent log data.
+ *
+ * All methods are thread-safe.
  */
 public final class LogBufferManager {
     /** Maximum byte size of all buffer entries. Must be less than Android's 1 MB Binder transaction limit. */
@@ -27,23 +29,24 @@ public final class LogBufferManager {
     /**
      * Appends a log message to the internal buffer if debugging is enabled.
      * The buffer is limited to approximately {@link #BUFFER_MAX_BYTES} or {@link #BUFFER_MAX_SIZE}
-     * to prevent excessive memory usage. This method is thread-safe.
+     * to prevent excessive memory usage.
      *
      * @param message The log message to append.
      */
     public static void appendToLogBuffer(String message) {
         Objects.requireNonNull(message);
 
-        if (!BaseSettings.DEBUG.get()) return;
-
+        // It's very important that no Settings are used in this method,
+        // as this code is used when a context is not set and thus referencing
+        // a setting will crash the app.
         logBuffer.addLast(message);
         int newSize = logBufferByteSize.addAndGet(message.length());
 
+        // Remove oldest entries if over the log size limits.
         while (newSize > BUFFER_MAX_BYTES || logBuffer.size() > BUFFER_MAX_SIZE) {
             String removed = logBuffer.pollFirst();
             if (removed == null) {
-                // Thread race of two different calls to this method,
-                // and the other thread won.
+                // Thread race of two different calls to this method, and the other thread won.
                 return;
             }
 
@@ -52,22 +55,22 @@ public final class LogBufferManager {
     }
 
     /**
-     * Exports all logs from the internal buffer to the clipboard and optionally clears the buffer.
-     * Displays a toast with the result. This method is thread-safe.
+     * Exports all logs from the internal buffer to the clipboard.
+     * Displays a toast with the result.
      */
     public static void exportToClipboard() {
-        if (!BaseSettings.DEBUG.get()) {
-            Utils.showToastShort(str("revanced_debug_logs_disabled"));
-            return;
-        }
-
-        if (logBuffer.isEmpty()) {
-            Utils.showToastShort(str("revanced_debug_logs_none_found"));
-            clearLogBufferData(); // Clear toast log entry that was created.
-            return;
-        }
-
         try {
+            if (!BaseSettings.DEBUG.get()) {
+                Utils.showToastShort(str("revanced_debug_logs_disabled"));
+                return;
+            }
+
+            if (logBuffer.isEmpty()) {
+                Utils.showToastShort(str("revanced_debug_logs_none_found"));
+                clearLogBufferData(); // Clear toast log entry that was just created.
+                return;
+            }
+
             // Most (but not all) Android 13+ devices always show a "copied to clipboard" toast
             // and there is no way to programmatically detect if a toast will show or not.
             // Show a toast even if using Android 13+, but show ReVanced toast first (before copying to clipboard).
@@ -96,7 +99,6 @@ public final class LogBufferManager {
 
     /**
      * Clears the internal log buffer and displays a toast with the result.
-     * This method is thread-safe.
      */
     public static void clearLogBuffer() {
         if (!BaseSettings.DEBUG.get()) {
@@ -104,12 +106,8 @@ public final class LogBufferManager {
             return;
         }
 
-        try {
-            // Show toast before clearing, otherwise toast log will still remain.
-            Utils.showToastShort(str("revanced_debug_logs_clear_toast"));
-            clearLogBufferData();
-        } catch (Exception ex) {
-            Logger.printException(() -> "clearLogBuffer failure", ex);
-        }
+        // Show toast before clearing, otherwise toast log will still remain.
+        Utils.showToastShort(str("revanced_debug_logs_clear_toast"));
+        clearLogBufferData();
     }
 }
