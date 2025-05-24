@@ -365,9 +365,6 @@ Note:
 
 Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Le pubblicità a schermo intero sono visibili</string>
-  <string name="revanced_hide_buttoned_ads_title">Nascondi le pubblicità a pulsante</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Le pubblicità a pulsante sono nascoste</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Le pubblicità a pulsante sono visibili</string>
   <string name="revanced_hide_paid_promotion_label_title">Nascondi l\'etichetta della promozione a pagamento</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">L\'etichetta della promozione a pagamento è nascosta</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">L\'etichetta della promozione a pagamento è visibile</string>

@@ -365,9 +365,6 @@ Hạn chế
 
 Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Quảng cáo toàn màn hình được hiển thị</string>
-  <string name="revanced_hide_buttoned_ads_title">Ẩn quảng cáo có nút</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Quảng cáo có nút đã bị ẩn</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Quảng cáo có nút được hiển thị</string>
   <string name="revanced_hide_paid_promotion_label_title">Ẩn nhãn quảng cáo được tài trợ</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Nhãn quảng cáo được tài trợ đã bị ẩn</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Nhãn quảng cáo được tài trợ được hiển thị</string>
