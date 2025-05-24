@@ -38,6 +38,8 @@ public class Logger {
 
     private static final String REVANCED_LOG_PREFIX = "revanced: ";
 
+    private static final String LOGGER_CLASS_NAME = Logger.class.getName();
+
     /**
      * @return For outer classes, this returns {@link Class#getSimpleName()}.
      * For static, inner, or anonymous classes, this returns the simple name of the enclosing class.
@@ -49,7 +51,7 @@ public class Logger {
      * com.company.SomethingView$1
      * </code>
      */
-    private static String findOuterClassSimpleName(Object obj) {
+    private static String getOuterClassSimpleName(Object obj) {
         Class<?> logClass = obj.getClass();
         String fullClassName = logClass.getName();
         final int dollarSignIndex = fullClassName.indexOf('$');
@@ -81,23 +83,28 @@ public class Logger {
         // as this code is used when a context is not set and thus referencing
         // a setting will crash the app.
         String messageString = message.buildMessageString();
-        String className = findOuterClassSimpleName(message);
+        String className = getOuterClassSimpleName(message);
         String logTag = REVANCED_LOG_PREFIX + className;
         String classNameMessage = className + ": " + messageString;
 
         String logText = classNameMessage;
 
-        // Append exception message to logBuffer if present.
-        if (ex != null && ex.getMessage() != null) {
-            logText += "\nException: " + ex.getMessage();
+        // Append exception message if present.
+        if (ex != null) {
+            var exceptionMessage = ex.getMessage();
+            if (exceptionMessage != null) {
+                logText += "\nException: " + exceptionMessage;
+            }
         }
 
         if (includeStackTrace) {
             var sw = new StringWriter();
             new Throwable().printStackTrace(new PrintWriter(sw));
             String stackTrace = sw.toString();
-            // Trim off first line of "java.lang.Throwable"
-            logText += stackTrace.substring(stackTrace.indexOf('\n'));
+            // Remove the stacktrace elements of this class.
+            final int loggerIndex = stackTrace.lastIndexOf(LOGGER_CLASS_NAME);
+            final int loggerBegins = stackTrace.indexOf('\n', loggerIndex);
+            logText += stackTrace.substring(loggerBegins);
         }
 
         LogBufferManager.appendToLogBuffer(logText);
@@ -129,7 +136,7 @@ public class Logger {
      * {@link LogMessage#buildMessageString()} so the performance cost of
      * building strings is paid only if {@link BaseSettings#DEBUG} is enabled.
      */
-    public static void printDebug(@NonNull LogMessage message) {
+    public static void printDebug(LogMessage message) {
         printDebug(message, null);
     }
 
@@ -140,7 +147,7 @@ public class Logger {
      * {@link LogMessage#buildMessageString()} so the performance cost of
      * building strings is paid only if {@link BaseSettings#DEBUG} is enabled.
      */
-    public static void printDebug(@NonNull LogMessage message, @Nullable Exception ex) {
+    public static void printDebug(LogMessage message, @Nullable Exception ex) {
         if (DEBUG.get()) {
             logInternal(LogLevel.DEBUG, message, ex, DEBUG_STACKTRACE.get(), false);
         }
