@@ -191,7 +191,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_export_logs_to_clipboard_summary">Copies ReVanced debug logs to the clipboard</string>
             <string name="revanced_debug_logs_disabled">Debug logging is disabled</string>
             <string name="revanced_debug_logs_none_found">No logs found</string>
-            <string name="revanced_debug_logs_copied_to_clipboard">Logs copied to clipboard</string>
+            <string name="revanced_debug_logs_copied_to_clipboard">Logs copied</string>
             <string name="revanced_debug_logs_failed_to_export">Failed to export logs: $s</string>
             <string name="revanced_debug_logs_clear_buffer_title">Clear debug logs</string>
             <string name="revanced_debug_logs_clear_buffer_summary">Clears all stored ReVanced debug logs</string>
