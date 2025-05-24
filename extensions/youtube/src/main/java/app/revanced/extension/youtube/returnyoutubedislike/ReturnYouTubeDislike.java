@@ -21,8 +21,6 @@ import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.ReplacementSpan;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
@@ -120,16 +118,13 @@ public class ReturnYouTubeDislike {
     private static final ShapeDrawable leftSeparatorShape;
 
     static {
-        DisplayMetrics dp = Objects.requireNonNull(Utils.getContext()).getResources().getDisplayMetrics();
-
         leftSeparatorBounds = new Rect(0, 0,
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1.2f, dp),
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 14, dp));
-        final int middleSeparatorSize =
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3.7f, dp);
+                Utils.dipToPixels(1.2f),
+                Utils.dipToPixels(14f));
+        final int middleSeparatorSize = Utils.dipToPixels(3.7f);
         middleSeparatorBounds = new Rect(0, 0, middleSeparatorSize, middleSeparatorSize);
 
-        leftSeparatorShapePaddingPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8.4f, dp);
+        leftSeparatorShapePaddingPixels = Utils.dipToPixels(8.4f);
 
         leftSeparatorShape = new ShapeDrawable(new RectShape());
         leftSeparatorShape.setBounds(leftSeparatorBounds);

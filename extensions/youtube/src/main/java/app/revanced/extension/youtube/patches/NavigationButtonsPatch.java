@@ -95,7 +95,7 @@ public final class NavigationButtonsPatch {
             return false;
         }
 
-        return Utils.isDarkModeEnabled(Utils.getContext())
+        return Utils.isDarkModeEnabled()
                 ? !DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
                 : !DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT;
     }

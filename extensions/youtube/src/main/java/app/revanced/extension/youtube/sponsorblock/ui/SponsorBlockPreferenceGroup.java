@@ -421,7 +421,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         .setTitle(apiUrl.getTitle())
                         .setView(editText)
                         .setNegativeButton(android.R.string.cancel, null)
-                        .setNeutralButton(str("revanced_sb_reset"), urlChangeListener)
+                        .setNeutralButton(str("revanced_settings_reset"), urlChangeListener)
                         .setPositiveButton(android.R.string.ok, urlChangeListener)
                         .show();
                 return true;

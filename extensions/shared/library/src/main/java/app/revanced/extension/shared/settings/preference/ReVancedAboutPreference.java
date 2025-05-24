@@ -8,7 +8,6 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -54,7 +53,7 @@ public class ReVancedAboutPreference extends Preference {
     }
 
     protected boolean isDarkModeEnabled() {
-        return Utils.isDarkModeEnabled(getContext());
+        return Utils.isDarkModeEnabled();
     }
 
     /**

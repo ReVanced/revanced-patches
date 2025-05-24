@@ -179,7 +179,7 @@ public final class SeekbarColorPatch {
             //noinspection ConstantConditions
             if (false) { // Set true to force slow animation for development.
                 final int longAnimation = Utils.getResourceIdentifier(
-                        Utils.isDarkModeEnabled(Utils.getContext())
+                        Utils.isDarkModeEnabled()
                                 ? "startup_animation_5s_30fps_dark"
                                 : "startup_animation_5s_30fps_light",
                         "raw");

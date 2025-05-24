@@ -22,6 +22,6 @@ public class TogglePreference extends SwitchPreference {
     protected void onBindView(View view) {
         super.onBindView(view);
 
-        Utils.setTitleAndSummaryColor(getContext(), view);
+        Utils.setTitleAndSummaryColor(view);
     }
 }
