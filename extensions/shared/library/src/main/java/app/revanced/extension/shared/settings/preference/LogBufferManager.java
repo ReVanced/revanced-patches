@@ -3,6 +3,7 @@ package app.revanced.extension.shared.settings.preference;
 import static app.revanced.extension.shared.StringRef.str;
 
 import java.util.Deque;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -28,9 +29,11 @@ public final class LogBufferManager {
      * The buffer is limited to approximately {@link #BUFFER_MAX_BYTES} or {@link #BUFFER_MAX_SIZE}
      * to prevent excessive memory usage. This method is thread-safe.
      *
-     * @param message The log message to append. Ignored if null or empty.
+     * @param message The log message to append.
      */
     public static void appendToLogBuffer(String message) {
+        Objects.requireNonNull(message);
+
         if (!BaseSettings.DEBUG.get()) return;
 
         logBuffer.addLast(message);
@@ -82,7 +85,7 @@ public final class LogBufferManager {
     private static void clearLogBufferData() {
         // Cannot simply clear the log buffer because there is no
         // write lock for both the deque and the atomic int.
-        // Instead pop off log entries and decrement their size one by one.
+        // Instead pop off log entries and decrement the size one by one.
         while (!logBuffer.isEmpty()) {
             String removed = logBuffer.pollFirst();
             if (removed != null) {
