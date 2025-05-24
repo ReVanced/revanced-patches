@@ -9,8 +9,8 @@ val showSeekbarPatch = bytecodePatch(
     description = "Shows progress bar for all video.",
 ) {
     compatibleWith(
-        "com.ss.android.ugc.trill",
-        "com.zhiliaoapp.musically",
+        "com.ss.android.ugc.trill"("39.8.1"),
+        "com.zhiliaoapp.musically"("39.8.1"),
     )
 
     execute {
