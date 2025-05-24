@@ -85,4 +85,29 @@ public final class LogBufferManager {
             Utils.showToastLong(errorMessage);
         }
     }
+
+    /**
+     * Clears the internal log buffer and displays a toast with the result.
+     * This method is thread-safe.
+     *
+     * @param context The Android context for showing toasts.
+     */
+    public static void clearLogBuffer(Context context) {
+        if (!IS_DEBUG_ENABLED || logBuffer == null) {
+            Utils.showToastLong(str("revanced_debug_logging_disabled"));
+            return;
+        }
+
+        try {
+            logBuffer.clear();
+            estimatedByteSize.set(0);
+            String message = str("revanced_debug_logs_cleared");
+            Logger.printDebug(() -> message);
+            Utils.showToastLong(message);
+        } catch (Exception e) {
+            String errorMessage = String.format(str("revanced_debug_failed_to_clear_logs"), e.getMessage());
+            Logger.printException(() -> errorMessage, e);
+            Utils.showToastLong(errorMessage);
+        }
+    }
 }

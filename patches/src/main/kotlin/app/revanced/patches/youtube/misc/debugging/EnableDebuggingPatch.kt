@@ -62,6 +62,11 @@ val enableDebuggingPatch = bytecodePatch(
                         tag = "app.revanced.extension.youtube.settings.preference.ExportLogToClipboardPreference",
                         selectable = true,
                     ),
+                    NonInteractivePreference(
+                        "revanced_debug_clear_log_buffer",
+                        tag = "app.revanced.extension.youtube.settings.preference.ClearLogBufferPreference",
+                        selectable = true,
+                    ),
                 ),
             ),
         )

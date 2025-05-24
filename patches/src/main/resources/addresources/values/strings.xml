@@ -182,12 +182,16 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_debug_toast_on_error_user_dialog_message">"Turning off error toasts hides all ReVanced error notifications.
 
 You will not be notified of any unexpected events."</string>
-            <string name="revanced_debug_export_logs_to_clipboard_title">Export ReVanced logs to clipboard</string>
-            <string name="revanced_debug_export_logs_to_clipboard_summary">Copies debug logs to the clipboard</string>
-            <string name="revanced_debug_logging_disabled">Debug logging is disabled!</string>
-            <string name="revanced_debug_logs_copied_to_clipboard">Logs copied to clipboard!</string>
-            <string name="revanced_debug_no_logs_found">No logs found!</string>
+            <string name="revanced_debug_export_logs_to_clipboard_title">Export debug logs</string>
+            <string name="revanced_debug_export_logs_to_clipboard_summary">Copies ReVanced debug logs to the clipboard</string>
+            <string name="revanced_debug_logging_disabled">Debug logging is disabled</string>
+            <string name="revanced_debug_logs_copied_to_clipboard">Logs copied to clipboard</string>
+            <string name="revanced_debug_no_logs_found">No logs found</string>
             <string name="revanced_debug_failed_to_export_logs">Failed to export logs: %1$s</string>
+            <string name="revanced_debug_clear_log_buffer_title">Clear debug logs</string>
+            <string name="revanced_debug_clear_log_buffer_summary">Clears all stored ReVanced debug logs</string>
+            <string name="revanced_debug_logs_cleared">Log buffer cleared successfully</string>
+            <string name="revanced_debug_failed_to_clear_logs">Failed to clear logs: %s</string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <string name="revanced_hide_album_cards_title">Hide album cards</string>
