@@ -14,7 +14,7 @@ public class ClearLogBufferPreference extends Preference {
 
     {
         setOnPreferenceClickListener(pref -> {
-            LogBufferManager.clearLogBuffer(getContext());
+            LogBufferManager.clearLogBuffer();
             return true;
         });
     }

@@ -2,26 +2,25 @@ package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
+import android.os.Build;
+
+import java.util.Deque;
+import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
-
-import java.util.concurrent.ConcurrentLinkedDeque;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Manages a buffer for storing debug logs from Logger.printDebug.
  * Thread-safe and limits buffer to approximately @MAX_LOG_BYTES to avoid TransactionTooLargeException.
  */
 public final class LogBufferManager {
-    private static final boolean IS_DEBUG_ENABLED = BaseSettings.DEBUG.get();
     private static final int MAX_LOG_BYTES = 900_000; // Approximately 900 KB, below Android's 1 MB Binder transaction limit.
     private static final int MAX_LOG_LINES = 10_000; // Limit number of log lines.
-    private static final ConcurrentLinkedDeque<String> logBuffer = IS_DEBUG_ENABLED ? new ConcurrentLinkedDeque<>() : null;
-    private static final AtomicInteger estimatedByteSize = IS_DEBUG_ENABLED ? new AtomicInteger(0) : null;
+    private static final Deque<String> logBuffer = new ConcurrentLinkedDeque<>();
+    private static final AtomicInteger estimatedByteSize = new AtomicInteger();
 
     /**
      * Appends a log message to the internal buffer if debugging is enabled.
@@ -31,19 +30,19 @@ public final class LogBufferManager {
      * @param message The log message to append. Ignored if null or empty.
      */
     public static void appendToLogBuffer(String message) {
-        if (!IS_DEBUG_ENABLED || logBuffer == null || message == null || message.isEmpty()) return;
+        if (!BaseSettings.DEBUG.get()) return;
 
-        String logEntry = message + "\n";
-        logBuffer.addLast(logEntry);
-        int newSize = estimatedByteSize.addAndGet(logEntry.length());
+        logBuffer.addLast(message);
+        int newSize = estimatedByteSize.addAndGet(message.length());
 
         while (newSize > MAX_LOG_BYTES || logBuffer.size() > MAX_LOG_LINES) {
             String removed = logBuffer.pollFirst();
-            if (removed != null) {
-                newSize = estimatedByteSize.addAndGet(-removed.length());
-            } else {
+            if (removed == null) {
+                // Should never be reached.
                 estimatedByteSize.set(0);
                 break;
+            } else {
+                newSize = estimatedByteSize.addAndGet(-removed.length());
             }
         }
     }
@@ -51,63 +50,48 @@ public final class LogBufferManager {
     /**
      * Exports all logs from the internal buffer to the clipboard and optionally clears the buffer.
      * Displays a toast with the result. This method is thread-safe.
-     *
-     * @param context     The Android context for accessing the clipboard and showing toasts.
-     * @param clearBuffer Whether to clear the buffer after exporting.
-     * @throws SecurityException If clipboard access is denied.
      */
-    public static void exportToClipboard(Context context, boolean clearBuffer) {
-        if (!IS_DEBUG_ENABLED || logBuffer == null) {
-            Utils.showToastLong(str("revanced_debug_logging_disabled"));
+    public static void exportToClipboard() {
+        if (!BaseSettings.DEBUG.get()) {
+            Utils.showToastLong(str("revanced_debug_logs_disabled"));
             return;
         }
 
         try {
-            String logs = String.join("", logBuffer);
-            if (clearBuffer) {
-                logBuffer.clear();
-                estimatedByteSize.set(0);
+            Utils.setClipboard(String.join("\n", logBuffer));
+
+            // Only show a toast if using Android 12 or earlier since Android 13+ already shows a toast.
+            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
+                Utils.showToastLong(str("revanced_debug_logs_copied_to_clipboard"));
             }
-            String message;
-            if (!logs.isEmpty()) {
-                ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("ReVanced Logs", logs);
-                clipboard.setPrimaryClip(clip);
-                message = str("revanced_debug_logs_copied_to_clipboard");
-            } else {
-                message = str("revanced_debug_no_logs_found");
-            }
-            Logger.printDebug(() -> message);
-            Utils.showToastLong(message);
         } catch (Exception e) {
-            String errorMessage = String.format(str("revanced_debug_failed_to_export_logs"), e.getMessage());
-            Logger.printException(() -> errorMessage, e);
+            // Handle security exception if clipboard access is denied.
+            String errorMessage = String.format(str("revanced_debug_logs_failed_to_export"), e.getMessage());
             Utils.showToastLong(errorMessage);
+            Logger.printDebug(() -> errorMessage, e);
         }
+    }
+
+    private static void clearLogBufferData() {
+        logBuffer.clear();
+        estimatedByteSize.set(0);
     }
 
     /**
      * Clears the internal log buffer and displays a toast with the result.
      * This method is thread-safe.
-     *
-     * @param context The Android context for showing toasts.
      */
-    public static void clearLogBuffer(Context context) {
-        if (!IS_DEBUG_ENABLED || logBuffer == null) {
-            Utils.showToastLong(str("revanced_debug_logging_disabled"));
+    public static void clearLogBuffer() {
+        if (!BaseSettings.DEBUG.get()) {
+            Utils.showToastLong(str("revanced_debug_logs_disabled"));
             return;
         }
 
         try {
-            logBuffer.clear();
-            estimatedByteSize.set(0);
-            String message = str("revanced_debug_logs_cleared");
-            Logger.printDebug(() -> message);
-            Utils.showToastLong(message);
-        } catch (Exception e) {
-            String errorMessage = String.format(str("revanced_debug_failed_to_clear_logs"), e.getMessage());
-            Logger.printException(() -> errorMessage, e);
-            Utils.showToastLong(errorMessage);
+            clearLogBufferData();
+            Utils.showToastLong(str("revanced_debug_logs_cleared"));
+        } catch (Exception ex) {
+            Logger.printException(() -> "clearLogBuffer failure", ex);
         }
     }
 }

@@ -9,12 +9,12 @@ import app.revanced.extension.shared.settings.preference.LogBufferManager;
  * A custom preference that triggers exporting ReVanced debug logs to the clipboard when clicked.
  * Invokes the exportLogcatToClipboard method from LogBufferManager.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"deprecation", "unused"})
 public class ExportLogToClipboardPreference extends Preference {
 
     {
         setOnPreferenceClickListener(pref -> {
-            LogBufferManager.exportToClipboard(getContext(), false); // Do not clear buffer after export.
+            LogBufferManager.exportToClipboard();
             return true;
         });
     }

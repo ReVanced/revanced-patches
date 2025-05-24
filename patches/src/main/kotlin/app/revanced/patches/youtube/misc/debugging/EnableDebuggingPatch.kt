@@ -24,7 +24,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 val enableDebuggingPatch = bytecodePatch(
     name = "Enable debugging",
-    description = "Adds options for debugging and exporting ReVanced logs to clipboard.",
+    description = "Adds options for debugging and exporting ReVanced logs to the clipboard.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -63,7 +63,7 @@ val enableDebuggingPatch = bytecodePatch(
                         selectable = true,
                     ),
                     NonInteractivePreference(
-                        "revanced_debug_clear_log_buffer",
+                        "revanced_debug_logs_clear_buffer",
                         tag = "app.revanced.extension.youtube.settings.preference.ClearLogBufferPreference",
                         selectable = true,
                     ),
