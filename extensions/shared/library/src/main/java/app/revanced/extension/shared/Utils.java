@@ -382,8 +382,9 @@ public class Utils {
         }
     }
 
-    public static void setClipboard(@NonNull String text) {
-        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+    public static void setClipboard(CharSequence text) {
+        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context
+                .getSystemService(Context.CLIPBOARD_SERVICE);
         android.content.ClipData clip = android.content.ClipData.newPlainText("ReVanced", text);
         clipboard.setPrimaryClip(clip);
     }

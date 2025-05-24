@@ -376,7 +376,11 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     Utils.setEditTextDialogTheme(builder);
 
                     builder.setNeutralButton(str("revanced_sb_settings_copy"), (dialog, which) -> {
-                        Utils.setClipboard(getEditText().getText().toString());
+                        try {
+                            Utils.setClipboard(getEditText().getText());
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "Copy settings failure", ex);
+                        }
                     });
                 }
             };
@@ -433,7 +437,11 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     Utils.setEditTextDialogTheme(builder);
 
                     builder.setNeutralButton(str("revanced_sb_settings_copy"), (dialog, which) -> {
-                        Utils.setClipboard(getEditText().getText().toString());
+                        try {
+                            Utils.setClipboard(getEditText().getText());
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "Copy settings failure", ex);
+                        }
                     });
                 }
             };
