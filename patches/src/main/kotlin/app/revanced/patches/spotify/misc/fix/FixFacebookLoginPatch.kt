@@ -11,7 +11,15 @@ val fixFacebookLoginPatch = bytecodePatch(
     compatibleWith("com.spotify.music")
 
     execute {
+        // The Facebook SDK tries to handle the login using the Facebook app in case it is installed.
+        // However, the Facebook app does signature checks with the app that is requesting the authentication,
+        // which ends up making the Facebook server reject with an invalid key hash for the app signature.
+        // Override the Faceboook SDK to always handle the login using the web browser, which does not perform
+        // signature checks.
+
         val katanaProxyLoginMethodHandlerClass = katanaProxyLoginMethodHandlerClassFingerprint.originalClassDef
+        // Always return false as the result of trying to authorize with the Facebook app to make the login fallback
+        // to a web browser window.
         katanaProxyLoginMethodTryAuthorizeFingerprint
             .match(katanaProxyLoginMethodHandlerClass)
             .method
