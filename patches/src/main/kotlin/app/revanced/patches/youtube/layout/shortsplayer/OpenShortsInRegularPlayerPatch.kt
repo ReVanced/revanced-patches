@@ -5,17 +5,15 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.youtube.layout.player.fullscreen.openVideosFullscreenHookPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
@@ -25,24 +23,10 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/OpenShortsInRegularPlayerPatch;"
-
-internal var mdx_drawer_layout_id = -1L
-    private set
-
-private val openShortsInRegularPlayerResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        mdx_drawer_layout_id = resourceMappings[
-            "id",
-            "mdx_drawer_layout",
-        ]
-
-    }
-}
 
 @Suppress("unused")
 val openShortsInRegularPlayerPatch = bytecodePatch(
@@ -56,7 +40,7 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         openVideosFullscreenHookPatch,
         navigationBarHookPatch,
         versionCheckPatch,
-        openShortsInRegularPlayerResourcePatch
+        resourceMappingPatch
     )
 
     compatibleWith(
