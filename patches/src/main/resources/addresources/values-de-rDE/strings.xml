@@ -360,9 +360,6 @@ Einschränkungen
 
 Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Vollbild-Anzeigen werden angezeigt</string>
-  <string name="revanced_hide_buttoned_ads_title">Verknüpfte Werbung ausblenden</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Verknüpfte Anzeigen sind ausgeblendet</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Verknüpfte Werbung wird angezeigt</string>
   <string name="revanced_hide_paid_promotion_label_title">Bezahltes Werbe-Label ausblenden</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Bezahltes Werbelabel ist ausgeblendet</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Bezahltes Werbe-Label wird angezeigt</string>

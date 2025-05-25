@@ -43,9 +43,6 @@ internal val openVideosFullscreenPortraitLegacyFingerprint by fingerprint {
     )
 }
 
-/**
- * Used to enable opening regular videos fullscreen.
- */
 internal val openVideosFullscreenHookPatchExtensionFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Z")

@@ -1,3 +1,24 @@
+# [5.25.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.7...v5.25.0-dev.8) (2025-05-25)
+
+
+### Bug Fixes
+
+* **Hide ADB status:** Resolve app crash on startup ([#5029](https://github.com/ReVanced/revanced-patches/issues/5029)) ([1abebd5](https://github.com/ReVanced/revanced-patches/commit/1abebd5f3b73250c6638d2d8a274b92ea8268924))
+
+# [5.25.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.6...v5.25.0-dev.7) (2025-05-24)
+
+
+### Bug Fixes
+
+* **YouTube - Open Shorts in regular player:** Do not exit app when pressing back button in regular player ([#5020](https://github.com/ReVanced/revanced-patches/issues/5020)) ([3384f8d](https://github.com/ReVanced/revanced-patches/commit/3384f8dd0ff2a345f2e387f4ed1570079a83ccb6))
+
+# [5.25.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.5...v5.25.0-dev.6) (2025-05-23)
+
+
+### Bug Fixes
+
+* **Yuka - Unlock premium:** Remove broken patch that is no longer supported ([#5018](https://github.com/ReVanced/revanced-patches/issues/5018)) ([fac6e59](https://github.com/ReVanced/revanced-patches/commit/fac6e59d281e21e57abdcfc899cd1aeb18e5c2b8))
+
 # [5.25.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.4...v5.25.0-dev.5) (2025-05-22)
 
 

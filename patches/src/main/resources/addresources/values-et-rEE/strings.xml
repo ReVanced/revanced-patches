@@ -365,9 +365,6 @@ Piirangud
 
 See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Täisekraanireklaamid kuvatakse</string>
-  <string name="revanced_hide_buttoned_ads_title">Peida nuppudega reklaamid</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Nuppudega reklaamid on peidetud</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Nuked onukleitud reklaamid näidatakse</string>
   <string name="revanced_hide_paid_promotion_label_title">Peida makstud edendamise silt</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Makstud edendamise silt on peidus</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Makstud edendamise silt on näidatud</string>

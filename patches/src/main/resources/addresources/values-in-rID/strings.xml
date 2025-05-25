@@ -365,9 +365,6 @@ Keterbatasan
 
 Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Iklan layar penuh ditampilkan</string>
-  <string name="revanced_hide_buttoned_ads_title">Sembunyikan iklan bertombol</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Iklan bertombol disembunyikan</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Iklan bertombol ditampilkan</string>
   <string name="revanced_hide_paid_promotion_label_title">Sembunyikan label promosi berbayar</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Label promosi berbayar disembunyikan</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Label promosi berbayar ditampilkan</string>

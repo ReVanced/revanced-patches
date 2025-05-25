@@ -365,9 +365,6 @@ Limitări
 
 Această funcție este disponibilă numai pentru dispozitivele mai vechi"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Reclame pe ecran complet sunt afișate</string>
-  <string name="revanced_hide_buttoned_ads_title">Ascunde reclame butoane</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Reclame nastate sunt ascunse</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Reclame buttonate sunt afișate</string>
   <string name="revanced_hide_paid_promotion_label_title">Ascunde eticheta promoției cu plată</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Eticheta promoției plătite este ascunsă</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Eticheta promoției plătite este afișată</string>
