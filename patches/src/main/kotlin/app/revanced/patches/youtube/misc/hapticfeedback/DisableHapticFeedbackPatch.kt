@@ -1,0 +1,111 @@
+package app.revanced.patches.youtube.misc.hapticfeedback
+
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.Fingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/DisableHapticFeedbackPatch;"
+
+val disableHapticFeedbackPatch = bytecodePatch(
+    name = "Disable haptic feedback",
+    description = "Adds an option to disable haptic feedback in the player for various actions.",
+) {
+    dependsOn(
+        settingsPatch,
+        addResourcesPatch,
+    )
+
+    compatibleWith(
+        "com.google.android.youtube"(
+            "19.16.39",
+            "19.25.37",
+            "19.34.42",
+            "19.43.41",
+            "19.47.53",
+            "20.07.39",
+            "20.12.46",
+        )
+    )
+
+    execute {
+        addResources("youtube", "misc.hapticfeedback.disableHapticFeedbackPatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            PreferenceScreenPreference(
+                "revanced_disable_haptic_feedback",
+                preferences = setOf(
+                    SwitchPreference("revanced_disable_haptic_feedback_chapters"),
+                    SwitchPreference("revanced_disable_haptic_feedback_precise_seeking"),
+                    SwitchPreference("revanced_disable_haptic_feedback_seek"),
+                    SwitchPreference("revanced_disable_haptic_feedback_seek_undo"),
+                    SwitchPreference("revanced_disable_haptic_feedback_zoom"),
+                )
+            )
+        )
+
+        seekHapticsFingerprint.let {
+            it.method.apply {
+                val stringIndex = it.stringMatches!!.first().index
+                val index = indexOfFirstInstructionReversedOrThrow(stringIndex) {
+                    opcode == Opcode.SGET &&
+                            getReference<FieldReference>()?.toString() == "Landroid/os/Build${'$'}VERSION;->SDK_INT:I"
+                }
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructionsWithLabels(
+                    index,
+                    """
+                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableSeekVibrate()Z
+                        move-result v$register
+                        if-eqz v$register, :vibrate
+                        return-void
+                    """,
+                    ExternalLabel("vibrate", getInstruction(index))
+                )
+            }
+        }
+
+        val hapticMethods = mapOf(
+            markerHapticsFingerprint to "disableChapterVibrate",
+            scrubbingHapticsFingerprint to "disablePreciseSeekingVibrate",
+            seekUndoHapticsFingerprint to "disableSeekUndoVibrate",
+            zoomHapticsFingerprint to "disableZoomVibrate"
+        )
+
+        fun applyDisableHaptic(
+            fingerprint: Fingerprint,
+            methodName: String
+        ) {
+            fingerprint.method.apply {
+                addInstructionsWithLabels(
+                    0,
+                    """
+                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->$methodName()Z
+                        move-result v0
+                        if-eqz v0, :vibrate
+                        return-void
+                    """,
+                    ExternalLabel("vibrate", getInstruction(0))
+                )
+            }
+        }
+
+        hapticMethods.forEach { (fingerprint, methodName) ->
+            applyDisableHaptic(fingerprint, methodName)
+        }
+    }
+}
