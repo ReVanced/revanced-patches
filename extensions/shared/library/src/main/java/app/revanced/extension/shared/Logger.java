@@ -90,15 +90,18 @@ public class Logger {
         String messageString = message.buildMessageString();
         String className = getOuterClassSimpleName(message);
         String logTag = REVANCED_LOG_PREFIX + className;
-        String classNameMessage = className + ": " + messageString;
 
-        String logText = classNameMessage;
+        StringBuilder logBuilder = new StringBuilder(messageString.length()
+                + className.length() + 2);
+        logBuilder.append(className).append(": ").append(messageString);
+
+        String toastMessage = showToast ? logBuilder.toString() : null;
 
         // Append exception message if present.
         if (ex != null) {
             var exceptionMessage = ex.getMessage();
             if (exceptionMessage != null) {
-                logText += "\nException: " + exceptionMessage;
+                logBuilder.append("\nException: ").append(exceptionMessage);
             }
         }
 
@@ -109,9 +112,10 @@ public class Logger {
             // Remove the stacktrace elements of this class.
             final int loggerIndex = stackTrace.lastIndexOf(LOGGER_CLASS_NAME);
             final int loggerBegins = stackTrace.indexOf('\n', loggerIndex);
-            logText += stackTrace.substring(loggerBegins);
+            logBuilder.append(stackTrace, loggerBegins, stackTrace.length());
         }
 
+        String logText = logBuilder.toString();
         LogBufferManager.appendToLogBuffer(logText);
 
         switch (logLevel) {
@@ -129,8 +133,8 @@ public class Logger {
                 break;
         }
 
-        if (showToast) {
-            Utils.showToastLong(classNameMessage);
+        if (toastMessage != null) {
+            Utils.showToastLong(toastMessage);
         }
     }
 
