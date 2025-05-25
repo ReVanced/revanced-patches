@@ -1,4 +1,4 @@
-package app.revanced.patches.spotify.misc.fix
+package app.revanced.patches.spotify.misc.fix.login
 
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
