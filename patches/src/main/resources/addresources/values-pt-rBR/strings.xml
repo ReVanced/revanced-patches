@@ -759,8 +759,8 @@ Para exibir o menu da faixa de áudio, altere \"Spoof video streams\" para iOS T
   <string name="revanced_hide_shorts_like_button_summary_on">Botão gostei está oculto</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Botão gostei não está oculto</string>
   <string name="revanced_hide_shorts_dislike_button_title">Ocultar botão Não curtir</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_on">Botão não gostei é mostrado</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_off">Botão não gostei está oculto</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_on">Botão não gostei está oculto</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_off">Botão não gostei é mostrado</string>
   <string name="revanced_hide_shorts_comments_button_title">Ocultar botão Comentários</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Botão comentários está oculto</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Botão comentários não está oculto</string>
