@@ -6,7 +6,8 @@ import app.revanced.util.returnEarly
 @Suppress("unused")
 val fixFacebookLoginPatch = bytecodePatch(
     name = "Fix Facebook login",
-    description = "Fix logging in with Facebook by always opening the login in a web browser window.",
+    description =
+        "Fix logging in with Facebook when the app is patched by always opening the login in a web browser window.",
 ) {
     compatibleWith("com.spotify.music")
 
