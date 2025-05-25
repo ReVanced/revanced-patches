@@ -14,6 +14,5 @@ internal val katanaProxyLoginMethodHandlerClassFingerprint = fingerprint {
 }
 
 internal val katanaProxyLoginMethodTryAuthorizeFingerprint = fingerprint {
-    // Create Intent and return if it's null.
-    opcodes(Opcode.INVOKE_STATIC_RANGE, Opcode.MOVE_RESULT_OBJECT, Opcode.IF_EQZ)
+    strings("e2e")
 }
