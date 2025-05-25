@@ -1,3 +1,10 @@
+# [5.25.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.7...v5.25.0-dev.8) (2025-05-25)
+
+
+### Bug Fixes
+
+* **Hide ADB status:** Resolve app crash on startup ([#5029](https://github.com/ReVanced/revanced-patches/issues/5029)) ([1abebd5](https://github.com/ReVanced/revanced-patches/commit/1abebd5f3b73250c6638d2d8a274b92ea8268924))
+
 # [5.25.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.6...v5.25.0-dev.7) (2025-05-24)
 
 
