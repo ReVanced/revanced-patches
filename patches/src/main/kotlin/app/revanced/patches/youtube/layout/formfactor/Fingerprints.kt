@@ -20,7 +20,7 @@ internal val createPlayerRequestBodyWithModelFingerprint by fingerprint {
     returns("L")
     parameters()
     instructions(
-        fieldAccess("Landroid/os/Build;", "MODEL", "Ljava/lang/String;"),
+        fieldAccess(smali = "Landroid/os/Build;->MODEL:Ljava/lang/String;"),
         fieldAccess(
             definingClass = { context -> with(context) { formFactorEnumConstructorFingerprint.originalClassDef.type } },
             type = { "I" },
