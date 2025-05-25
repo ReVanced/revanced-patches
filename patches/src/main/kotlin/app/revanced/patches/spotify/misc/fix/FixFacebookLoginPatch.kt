@@ -18,8 +18,8 @@ val fixFacebookLoginPatch = bytecodePatch(
         // signature checks.
 
         val katanaProxyLoginMethodHandlerClass = katanaProxyLoginMethodHandlerClassFingerprint.originalClassDef
-        // Always return false as the result of trying to authorize with the Facebook app to make the login fallback
-        // to a web browser window.
+        // Always return 0 (no Intent was launched) as the result of trying to authorize with the Facebook app to 
+        // make the login fallback to a web browser window.
         katanaProxyLoginMethodTryAuthorizeFingerprint
             .match(katanaProxyLoginMethodHandlerClass)
             .method
