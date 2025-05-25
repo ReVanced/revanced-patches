@@ -41,7 +41,7 @@ public class Logger {
         ERROR
     }
 
-    private static final String REVANCED_LOG_PREFIX = "revanced: ";
+    private static final String REVANCED_LOG_PREFIX = "revanced";
 
     private static final String LOGGER_CLASS_NAME = Logger.class.getName();
 
@@ -89,10 +89,9 @@ public class Logger {
         // a setting will crash the app.
         String messageString = message.buildMessageString();
         String className = getOuterClassSimpleName(message);
-        String logTag = REVANCED_LOG_PREFIX + className;
 
-        StringBuilder logBuilder = new StringBuilder(messageString.length()
-                + className.length() + 2);
+        StringBuilder logBuilder = new StringBuilder(className.length() + 2
+                + messageString.length());
         logBuilder.append(className).append(": ").append(messageString);
 
         String toastMessage = showToast ? logBuilder.toString() : null;
@@ -120,16 +119,16 @@ public class Logger {
 
         switch (logLevel) {
             case DEBUG:
-                if (ex == null) Log.d(logTag, logText);
-                else Log.d(logTag, logText, ex);
+                if (ex == null) Log.d(REVANCED_LOG_PREFIX, logText);
+                else Log.d(REVANCED_LOG_PREFIX, logText, ex);
                 break;
             case INFO:
-                if (ex == null) Log.i(logTag, logText);
-                else Log.i(logTag, logText, ex);
+                if (ex == null) Log.i(REVANCED_LOG_PREFIX, logText);
+                else Log.i(REVANCED_LOG_PREFIX, logText, ex);
                 break;
             case ERROR:
-                if (ex == null) Log.e(logTag, logText);
-                else Log.e(logTag, logText, ex);
+                if (ex == null) Log.e(REVANCED_LOG_PREFIX, logText);
+                else Log.e(REVANCED_LOG_PREFIX, logText, ex);
                 break;
         }
 
