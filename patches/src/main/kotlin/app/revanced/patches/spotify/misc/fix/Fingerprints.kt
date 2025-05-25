@@ -1,6 +1,7 @@
 package app.revanced.patches.spotify.misc.fix
 
 import app.revanced.patcher.fingerprint
+import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val getPackageInfoFingerprint = fingerprint {
@@ -15,4 +16,5 @@ internal val katanaProxyLoginMethodHandlerClassFingerprint = fingerprint {
 
 internal val katanaProxyLoginMethodTryAuthorizeFingerprint = fingerprint {
     strings("e2e")
+    literal { 0 }
 }
