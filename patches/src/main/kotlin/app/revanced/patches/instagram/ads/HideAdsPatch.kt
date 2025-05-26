@@ -10,6 +10,7 @@ val hideAdsPatch = bytecodePatch(
         "An ad can still appear once when refreshing the home feed.",
 ) {
     compatibleWith("com.instagram.android")
+    compatibleWith("com.instagram.barcelona")
 
     execute {
         adInjectorFingerprint.method.addInstructions(
