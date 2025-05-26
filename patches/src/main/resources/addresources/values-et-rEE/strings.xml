@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Seaded</string>
   <string name="revanced_settings_confirm_user_dialog_title">Kas soovite jätkata?</string>
   <string name="revanced_settings_reset">Lähtesta</string>
+  <string name="revanced_settings_reset_color">Lähtesta värv</string>
+  <string name="revanced_settings_color_invalid">Vigane värv</string>
   <string name="revanced_settings_restart_title">Värskenda ja taaskäivita</string>
   <string name="revanced_settings_restart">Taaskäivita</string>
   <string name="revanced_settings_import">Impordi</string>
@@ -1096,11 +1098,6 @@ Kas olete esitamiseks valmis?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekundit</string>
   <string name="revanced_sb_color_opacity_label">Läbipaistmatus:</string>
   <string name="revanced_sb_color_dot_label">Värv:</string>
-  <string name="revanced_sb_color_changed">Värv muudetud</string>
-  <string name="revanced_sb_color_reset">Värv lähtestatud</string>
-  <string name="revanced_sb_color_invalid">Vigane värvikood</string>
-  <string name="revanced_sb_reset_color">Lähtesta värv</string>
-  <string name="revanced_sb_reset">Lähtesta</string>
   <string name="revanced_sb_about_title">Teave</string>
   <string name="revanced_sb_about_api_summary">Andmed on pärit SponsorBlock API-st. Puudutage siia, et saada lisateavet ja vaadata allalaadimisi teistele platvormidele</string>
   </patch>

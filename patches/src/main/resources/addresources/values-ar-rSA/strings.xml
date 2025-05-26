@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">الإعدادات</string>
   <string name="revanced_settings_confirm_user_dialog_title">هل ترغب في المتابعة؟</string>
   <string name="revanced_settings_reset">إعادة التعيين</string>
+  <string name="revanced_settings_reset_color">إعادة تعيين اللون</string>
+  <string name="revanced_settings_color_invalid">لون غير صالح</string>
   <string name="revanced_settings_restart_title">تحديث وإعادة التشغيل</string>
   <string name="revanced_settings_restart">إعادة التشغيل</string>
   <string name="revanced_settings_import">استيراد</string>
@@ -1096,11 +1098,6 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s ثانية</string>
   <string name="revanced_sb_color_opacity_label">الشفافية:</string>
   <string name="revanced_sb_color_dot_label">اللون:</string>
-  <string name="revanced_sb_color_changed">تم تغيير اللون</string>
-  <string name="revanced_sb_color_reset">إعادة ضبط اللون</string>
-  <string name="revanced_sb_color_invalid">رمز اللون غير صالح</string>
-  <string name="revanced_sb_reset_color">إعادة تعيين اللون</string>
-  <string name="revanced_sb_reset">إعادة التعيين</string>
   <string name="revanced_sb_about_title">لمحة</string>
   <string name="revanced_sb_about_api_summary">يتم توفير البيانات بواسطة SponsorBlock API. انقر هنا لمعرفة المزيد ومشاهدة التنزيلات لمنصات أخرى</string>
   </patch>

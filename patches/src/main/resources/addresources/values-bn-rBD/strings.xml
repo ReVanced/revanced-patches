@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">সেটিংস</string>
   <string name="revanced_settings_confirm_user_dialog_title">আপনি কি এগিয়ে যেতে ইচ্ছুক?</string>
   <string name="revanced_settings_reset">আবার সেট করুন</string>
+  <string name="revanced_settings_reset_color">রঙ রিসেট করুন</string>
+  <string name="revanced_settings_color_invalid">অবৈধ রঙ</string>
   <string name="revanced_settings_restart_title">রিফ্রেশ করুন এবং আবার চালু করুন</string>
   <string name="revanced_settings_restart">আবার চালু করুন</string>
   <string name="revanced_settings_import">আমদানি করুন</string>
@@ -1096,11 +1098,6 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_sb_stats_saved_second_format">%s সেকেন্ড</string>
   <string name="revanced_sb_color_opacity_label">স্বচ্ছতা:</string>
   <string name="revanced_sb_color_dot_label">রং:</string>
-  <string name="revanced_sb_color_changed">রং পরিবর্তন করা হয়েছে</string>
-  <string name="revanced_sb_color_reset">রং আবার সেট করুন</string>
-  <string name="revanced_sb_color_invalid">রংয়ের ভুল কোড</string>
-  <string name="revanced_sb_reset_color">রং আবার সেট করুন</string>
-  <string name="revanced_sb_reset">পুনরায় সেট করুন</string>
   <string name="revanced_sb_about_title">সম্পর্কিত</string>
   <string name="revanced_sb_about_api_summary">ডেটা SponsorBlock API দ্বারা সরবরাহ করা হয়। আরও জানতে এবং অন্যান্য প্ল্যাটফর্মের ডাউনলোড দেখতে এখানে ট্যাপ করুন</string>
   </patch>

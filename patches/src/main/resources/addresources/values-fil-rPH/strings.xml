@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Mga Setting</string>
   <string name="revanced_settings_confirm_user_dialog_title">Gusto mo bang magpatuloy?</string>
   <string name="revanced_settings_reset">I-reset</string>
+  <string name="revanced_settings_reset_color">I-reset ang kulay</string>
+  <string name="revanced_settings_color_invalid">Hindi wasto ang kulay</string>
   <string name="revanced_settings_restart_title">I-refresh at i-restart</string>
   <string name="revanced_settings_restart">I-restart</string>
   <string name="revanced_settings_import">Angkat</string>
@@ -1094,11 +1096,6 @@ Isumite na ba?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s segundo</string>
   <string name="revanced_sb_color_opacity_label">Opacity:</string>
   <string name="revanced_sb_color_dot_label">Kulay:</string>
-  <string name="revanced_sb_color_changed">Nagbago ang kulay</string>
-  <string name="revanced_sb_color_reset">Pag-reset ng kulay</string>
-  <string name="revanced_sb_color_invalid">Di-wastong code ng kulay</string>
-  <string name="revanced_sb_reset_color">I-reset ang kulay</string>
-  <string name="revanced_sb_reset">I-reset</string>
   <string name="revanced_sb_about_title">Tungkol</string>
   <string name="revanced_sb_about_api_summary">Ang data ay ibinibigay ng SponsorBlock API. Mag-tap dito para matuto pa at makakita ng mga download para sa iba pang platform</string>
   </patch>

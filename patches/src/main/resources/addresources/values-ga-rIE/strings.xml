@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Socruithe</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar mhaith leat dul ar aghaidh?</string>
   <string name="revanced_settings_reset">Athshocraigh</string>
+  <string name="revanced_settings_reset_color">Dath a athshocrú</string>
+  <string name="revanced_settings_color_invalid">Dath neamhbhailí</string>
   <string name="revanced_settings_restart_title">Athnuachan agus atosaigh</string>
   <string name="revanced_settings_restart">Athosaigh</string>
   <string name="revanced_settings_import">Iompórtáil</string>
@@ -1096,11 +1098,6 @@ Maithe chun cur isteach?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s soicindí</string>
   <string name="revanced_sb_color_opacity_label">Teimhneacht:</string>
   <string name="revanced_sb_color_dot_label">Dath:</string>
-  <string name="revanced_sb_color_changed">Athraigh dath</string>
-  <string name="revanced_sb_color_reset">Athshocrú dath</string>
-  <string name="revanced_sb_color_invalid">Cód dath neamhbhailí</string>
-  <string name="revanced_sb_reset_color">Athshocraigh dath</string>
-  <string name="revanced_sb_reset">Athshocraigh</string>
   <string name="revanced_sb_about_title">Maidir</string>
   <string name="revanced_sb_about_api_summary">Soláthraíonn an API SponsorBlock sonraí. Tapáil anseo chun níos mó a fhoghlaim agus íoslódálacha a fheiceáil d\'ardáin eile</string>
   </patch>

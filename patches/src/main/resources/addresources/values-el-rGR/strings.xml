@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Ρυθμίσεις</string>
   <string name="revanced_settings_confirm_user_dialog_title">Θέλετε να συνεχίσετε;</string>
   <string name="revanced_settings_reset">Επαναφορά</string>
+  <string name="revanced_settings_reset_color">Επαναφορά χρώματος</string>
+  <string name="revanced_settings_color_invalid">Μη έγκυρο χρώμα</string>
   <string name="revanced_settings_restart_title">Ανανέωση και επανεκκίνηση</string>
   <string name="revanced_settings_restart">Επανεκκίνηση</string>
   <string name="revanced_settings_import">Εισαγωγή</string>
@@ -1097,11 +1099,6 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s δευτερόλεπτα</string>
   <string name="revanced_sb_color_opacity_label">Αδιαφάνεια:</string>
   <string name="revanced_sb_color_dot_label">Χρώμα:</string>
-  <string name="revanced_sb_color_changed">Το χρώμα άλλαξε</string>
-  <string name="revanced_sb_color_reset">Το χρώμα επαναφέρθηκε</string>
-  <string name="revanced_sb_color_invalid">Μη έγκυρος κωδικός χρώματος</string>
-  <string name="revanced_sb_reset_color">Επαναφορά χρώματος</string>
-  <string name="revanced_sb_reset">Επαναφορά</string>
   <string name="revanced_sb_about_title">Σχετικά με</string>
   <string name="revanced_sb_about_api_summary">Τα δεδομένα παρέχονται από το SponsorBlock API. Πατήστε για να μάθετε περισσότερα και να δείτε λήψεις για άλλες πλατφόρμες</string>
   </patch>

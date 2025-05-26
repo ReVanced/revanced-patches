@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Nastavitve</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ali želite nadaljevati?</string>
   <string name="revanced_settings_reset">Ponastavi</string>
+  <string name="revanced_settings_reset_color">Ponastavi barvo</string>
+  <string name="revanced_settings_color_invalid">Neveljavna barva</string>
   <string name="revanced_settings_restart_title">Osveži in ponovno zaženi</string>
   <string name="revanced_settings_restart">Ponovno zaženi</string>
   <string name="revanced_settings_import">Uvozi</string>
@@ -1095,11 +1097,6 @@ Ali ste pripravljeni na oddajo?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekund</string>
   <string name="revanced_sb_color_opacity_label">Prosojnost:</string>
   <string name="revanced_sb_color_dot_label">Barva:</string>
-  <string name="revanced_sb_color_changed">Barva spremenjena</string>
-  <string name="revanced_sb_color_reset">Barva ponastavljena</string>
-  <string name="revanced_sb_color_invalid">Neveljavna koda barve</string>
-  <string name="revanced_sb_reset_color">Ponastavi barvo</string>
-  <string name="revanced_sb_reset">Ponastavi</string>
   <string name="revanced_sb_about_title">O programu</string>
   <string name="revanced_sb_about_api_summary">Podatki so zagotovljeni s strani SponsorBlock API. Tapnite tukaj, da izveste več in si ogledate prenose za druge platforme</string>
   </patch>
