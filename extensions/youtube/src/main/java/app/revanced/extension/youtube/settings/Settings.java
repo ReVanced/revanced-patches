@@ -311,7 +311,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting CHECK_WATCH_HISTORY_DOMAIN_NAME = new BooleanSetting("revanced_check_watch_history_domain_name", TRUE, false, false);
     public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_CHAPTERS = new BooleanSetting("revanced_disable_haptic_feedback_chapters", FALSE);
     public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_PRECISE_SEEKING = new BooleanSetting("revanced_disable_haptic_feedback_precise_seeking", FALSE);
-    public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_SEEK = new BooleanSetting("revanced_disable_haptic_feedback_seek", FALSE);
     public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_SEEK_UNDO = new BooleanSetting("revanced_disable_haptic_feedback_seek_undo", FALSE);
     public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_ZOOM = new BooleanSetting("revanced_disable_haptic_feedback_zoom", FALSE);
     public static final BooleanSetting EXTERNAL_BROWSER = new BooleanSetting("revanced_external_browser", TRUE, true);

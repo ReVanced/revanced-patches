@@ -15,13 +15,6 @@ public class DisableHapticFeedbackPatch {
     /**
      * Injection point.
      */
-    public static boolean disableSeekVibrate() {
-        return Settings.DISABLE_HAPTIC_FEEDBACK_SEEK.get();
-    }
-
-    /**
-     * Injection point.
-     */
     public static boolean disableSeekUndoVibrate() {
         return Settings.DISABLE_HAPTIC_FEEDBACK_SEEK_UNDO.get();
     }

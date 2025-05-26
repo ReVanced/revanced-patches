@@ -10,11 +10,6 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableHapticFeedbackPatch;"
@@ -49,34 +44,11 @@ val disableHapticFeedbackPatch = bytecodePatch(
                 preferences = setOf(
                     SwitchPreference("revanced_disable_haptic_feedback_chapters"),
                     SwitchPreference("revanced_disable_haptic_feedback_precise_seeking"),
-                    SwitchPreference("revanced_disable_haptic_feedback_seek"),
                     SwitchPreference("revanced_disable_haptic_feedback_seek_undo"),
                     SwitchPreference("revanced_disable_haptic_feedback_zoom"),
                 )
             )
         )
-
-        seekHapticsFingerprint.let {
-            it.method.apply {
-                val stringIndex = it.stringMatches!!.first().index
-                val index = indexOfFirstInstructionReversedOrThrow(stringIndex) {
-                    opcode == Opcode.SGET &&
-                            getReference<FieldReference>()?.toString() == "Landroid/os/Build${'$'}VERSION;->SDK_INT:I"
-                }
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-                addInstructionsWithLabels(
-                    index,
-                    """
-                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableSeekVibrate()Z
-                        move-result v$register
-                        if-eqz v$register, :vibrate
-                        return-void
-                    """,
-                    ExternalLabel("vibrate", getInstruction(index))
-                )
-            }
-        }
 
         val hapticMethods = mapOf(
             markerHapticsFingerprint to "disableChapterVibrate",

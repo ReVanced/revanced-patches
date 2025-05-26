@@ -1402,9 +1402,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_disable_haptic_feedback_precise_seeking_title">Disable precise seeking haptics</string>
             <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Precise seeking haptics is disabled</string>
             <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Precise seeking haptics is enabled</string>
-            <string name="revanced_disable_haptic_feedback_seek_title">Disable seek haptics</string>
-            <string name="revanced_disable_haptic_feedback_seek_summary_on">Seek haptics is disabled</string>
-            <string name="revanced_disable_haptic_feedback_seek_summary_off">Seek haptics is enabled</string>
             <string name="revanced_disable_haptic_feedback_seek_undo_title">Disable seek undo haptics</string>
             <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Seek undo haptics is disabled</string>
             <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Seek undo haptics is enabled</string>
