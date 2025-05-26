@@ -51,14 +51,12 @@ val disableHapticFeedbackPatch = bytecodePatch(
             )
         )
 
-        val hapticMethods = arrayOf(
+        arrayOf(
             markerHapticsFingerprint to "disableChapterVibrate",
             scrubbingHapticsFingerprint to "disablePreciseSeekingVibrate",
             seekUndoHapticsFingerprint to "disableSeekUndoVibrate",
             zoomHapticsFingerprint to "disableZoomVibrate"
-        )
-
-        hapticMethods.forEach { (fingerprint, methodName) ->
+        ).forEach { (fingerprint, methodName) ->
             fingerprint.method.apply {
                 addInstructionsWithLabels(
                     0,
