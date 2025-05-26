@@ -8,8 +8,8 @@ import app.revanced.extension.shared.Utils;
 @SuppressWarnings("unused")
 public final class CustomThemePatch {
 
-    public static final long ACCENT = getThemeColor("@color/spotify_green_157");
-    public static final long ACCENT_PRESSED = getThemeColor("@color/dark_brightaccent_background_press");
+    private static final long ACCENT = getThemeColor("@color/spotify_green_157");
+    private static final long ACCENT_PRESSED = getThemeColor("@color/dark_brightaccent_background_press");
 
     /**
      * Injection point.
