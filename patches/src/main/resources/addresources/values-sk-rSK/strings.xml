@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Nastavenia</string>
   <string name="revanced_settings_confirm_user_dialog_title">Chcete pokračovať?</string>
   <string name="revanced_settings_reset">Resetovať</string>
+  <string name="revanced_settings_reset_color">Obnovi	 farbu</string>
+  <string name="revanced_settings_color_invalid">Neplatn	 farba</string>
   <string name="revanced_settings_restart_title">Obnovte a reštartujte</string>
   <string name="revanced_settings_restart">Reštart</string>
   <string name="revanced_settings_import">Importovať</string>
@@ -1086,11 +1088,6 @@ Pripravené na odoslanie?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekúnd</string>
   <string name="revanced_sb_color_opacity_label">Priehľadnosť:</string>
   <string name="revanced_sb_color_dot_label">Farba:</string>
-  <string name="revanced_sb_color_changed">Farba bola zmenená</string>
-  <string name="revanced_sb_color_reset">Farba bola resetovaná</string>
-  <string name="revanced_sb_color_invalid">Neplatný kód farby</string>
-  <string name="revanced_sb_reset_color">Obnoviť farbu</string>
-  <string name="revanced_sb_reset">Resetovať</string>
   <string name="revanced_sb_about_title">Informácie</string>
   <string name="revanced_sb_about_api_summary">Údaje poskytuje SponsorBlock API. Klepnutím sem sa dozviete viac a zobrazíte súbory na stiahnutie pre iné platformy</string>
   </patch>

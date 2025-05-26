@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Nustatymai</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar norite tęsti?</string>
   <string name="revanced_settings_reset">Atstatyti</string>
+  <string name="revanced_settings_reset_color">Atkurti spalvą</string>
+  <string name="revanced_settings_color_invalid">Neteisinga spalva</string>
   <string name="revanced_settings_restart_title">Atnaujinti ir paleisti iš naujo</string>
   <string name="revanced_settings_restart">Paleisti iš naujo</string>
   <string name="revanced_settings_import">Importuoti</string>
@@ -1095,11 +1097,6 @@ Ar paruošta pateikti?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekundės</string>
   <string name="revanced_sb_color_opacity_label">Neskaidrumas:</string>
   <string name="revanced_sb_color_dot_label">Spalva:</string>
-  <string name="revanced_sb_color_changed">Spalva pakeista</string>
-  <string name="revanced_sb_color_reset">Spalva atstatyta</string>
-  <string name="revanced_sb_color_invalid">Netinkamas spalvos kodas</string>
-  <string name="revanced_sb_reset_color">Atstatyti spalvą</string>
-  <string name="revanced_sb_reset">Atstatyti</string>
   <string name="revanced_sb_about_title">Apie</string>
   <string name="revanced_sb_about_api_summary">Duomenys pateikiami per \"SponsorBlock\" API. Bakstelėkite čia, kad sužinotumėte daugiau ir pamatytumėte atsisiuntimus kitoms platformoms</string>
   </patch>

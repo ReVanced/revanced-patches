@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">설정</string>
   <string name="revanced_settings_confirm_user_dialog_title">계속하시겠습니까?</string>
   <string name="revanced_settings_reset">초기화</string>
+  <string name="revanced_settings_reset_color">색상 초기화</string>
+  <string name="revanced_settings_color_invalid">잘못된 색상</string>
   <string name="revanced_settings_restart_title">새로고침 및 다시 시작</string>
   <string name="revanced_settings_restart">다시 시작</string>
   <string name="revanced_settings_import">가져오기</string>
@@ -485,13 +487,13 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_volume_sensitivity_title">볼륨 스와이프 민감도</string>
   <string name="revanced_swipe_volume_sensitivity_summary">스와이프할 때마다 볼륨이 얼마나 변경되는지를 지정할 수 있습니다</string>
   <string name="revanced_swipe_overlay_style_title">스와이프 오버레이 스타일</string>
-  <string name="revanced_swipe_overlay_style_entry_1">가로 오버레이</string>
-  <string name="revanced_swipe_overlay_style_entry_2">가로 오버레이 (최소화 - 상단)</string>
-  <string name="revanced_swipe_overlay_style_entry_3">가로 오버레이 (최소화 - 중앙)</string>
-  <string name="revanced_swipe_overlay_style_entry_4">원형 오버레이</string>
-  <string name="revanced_swipe_overlay_style_entry_5">원형 오버레이 (최소화)</string>
-  <string name="revanced_swipe_overlay_style_entry_6">세로 오버레이</string>
-  <string name="revanced_swipe_overlay_style_entry_7">세로 오버레이 (최소화)</string>
+  <string name="revanced_swipe_overlay_style_entry_1">가로</string>
+  <string name="revanced_swipe_overlay_style_entry_2">가로 (최소화 - 상단)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">가로 (최소화 - 중앙)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">원형</string>
+  <string name="revanced_swipe_overlay_style_entry_5">원형 (최소화)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">세로</string>
+  <string name="revanced_swipe_overlay_style_entry_7">세로 (최소화)</string>
   <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 활성화하기</string>
   <string name="revanced_swipe_change_video_summary_on">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다</string>
   <string name="revanced_swipe_change_video_summary_off">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다</string>
@@ -1096,11 +1098,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_stats_saved_second_format">%s 초</string>
   <string name="revanced_sb_color_opacity_label">불투명도:</string>
   <string name="revanced_sb_color_dot_label">색상:</string>
-  <string name="revanced_sb_color_changed">설정한 색상을 적용하였습니다</string>
-  <string name="revanced_sb_color_reset">색상을 초기화하였습니다</string>
-  <string name="revanced_sb_color_invalid">잘못된 헥스 코드입니다</string>
-  <string name="revanced_sb_reset_color">색상 초기화</string>
-  <string name="revanced_sb_reset">초기화</string>
   <string name="revanced_sb_about_title">정보</string>
   <string name="revanced_sb_about_api_summary">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
   </patch>

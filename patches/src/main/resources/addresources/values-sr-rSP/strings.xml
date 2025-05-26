@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Подешавања</string>
   <string name="revanced_settings_confirm_user_dialog_title">Желите ли да наставите?</string>
   <string name="revanced_settings_reset">Ресетуј</string>
+  <string name="revanced_settings_reset_color">Врати подразумевану боју</string>
+  <string name="revanced_settings_color_invalid">Неисправна боја</string>
   <string name="revanced_settings_restart_title">Освежите и рестартујте</string>
   <string name="revanced_settings_restart">Рестартуј</string>
   <string name="revanced_settings_import">Увоз</string>
@@ -1095,11 +1097,6 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s секунди</string>
   <string name="revanced_sb_color_opacity_label">Непрозирност:</string>
   <string name="revanced_sb_color_dot_label">Боја:</string>
-  <string name="revanced_sb_color_changed">Боја промењена</string>
-  <string name="revanced_sb_color_reset">Боја ресетована</string>
-  <string name="revanced_sb_color_invalid">Неважећи кôд боје</string>
-  <string name="revanced_sb_reset_color">Ресетуј боју</string>
-  <string name="revanced_sb_reset">Ресетуј</string>
   <string name="revanced_sb_about_title">О програму</string>
   <string name="revanced_sb_about_api_summary">Податке обезбеђује SponsorBlock API. Додирните овде да сазнате више и видите преузимања за друге платформе</string>
   </patch>

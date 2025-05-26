@@ -35,6 +35,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">הגדרות</string>
   <string name="revanced_settings_confirm_user_dialog_title">האם ברצונך להמשיך?</string>
   <string name="revanced_settings_reset">איפוס</string>
+  <string name="revanced_settings_reset_color">אפס צבע</string>
   <string name="revanced_settings_restart_title">רענן והפעל מחדש</string>
   <string name="revanced_settings_restart">הפעלה מחדש</string>
   <string name="revanced_settings_import">ייבוא</string>
@@ -1060,11 +1061,6 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s שניות</string>
   <string name="revanced_sb_color_opacity_label">אטימות:</string>
   <string name="revanced_sb_color_dot_label">צבע:</string>
-  <string name="revanced_sb_color_changed">צבע שונה</string>
-  <string name="revanced_sb_color_reset">צבע אופס</string>
-  <string name="revanced_sb_color_invalid">קוד צבע לא חוקי</string>
-  <string name="revanced_sb_reset_color">אפס צבע</string>
-  <string name="revanced_sb_reset">איפוס</string>
   <string name="revanced_sb_about_title">אודות</string>
   <string name="revanced_sb_about_api_summary">הנתונים מסופקים על ידי SponsorBlock API. הקש כאן כדי ללמוד עוד ולראות הורדות עבור פלטפורמות אחרות</string>
   </patch>

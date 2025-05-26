@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Indstillinger</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ønsker du at fortsætte?</string>
   <string name="revanced_settings_reset">Nulstil</string>
+  <string name="revanced_settings_reset_color">Nulstil farve</string>
+  <string name="revanced_settings_color_invalid">Ugyldig farve</string>
   <string name="revanced_settings_restart_title">Opdater og genstart</string>
   <string name="revanced_settings_restart">Genstart</string>
   <string name="revanced_settings_import">Importer</string>
@@ -1045,11 +1047,6 @@ Er du klar til at indsende?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekunder</string>
   <string name="revanced_sb_color_opacity_label">Opacitet:</string>
   <string name="revanced_sb_color_dot_label">Farve:</string>
-  <string name="revanced_sb_color_changed">Farve ændret</string>
-  <string name="revanced_sb_color_reset">Nulstil farve</string>
-  <string name="revanced_sb_color_invalid">Ugyldig farvekode</string>
-  <string name="revanced_sb_reset_color">Nulstil farve</string>
-  <string name="revanced_sb_reset">Nulstil</string>
   <string name="revanced_sb_about_title">Om</string>
   <string name="revanced_sb_about_api_summary">Data leveres af SponsorBlock API. Tryk her for at få flere oplysninger og se downloads til andre platforme</string>
   </patch>
