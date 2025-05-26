@@ -108,20 +108,38 @@ class SwipeControlsConfigurationProvider {
         }
 
     /**
-     * The color of the progress bar in the overlay.
+     * The color of the progress bar in the overlay for brightness.
      * Resets to default and shows a toast if the color string is invalid or empty.
      */
-    val overlayProgressColor: Int
+    val overlayBrightnessProgressColor: Int
         get() {
             try {
                 @SuppressLint("UseKtx")
-                val color = Color.parseColor(Settings.SWIPE_OVERLAY_PROGRESS_COLOR.get())
+                val color = Color.parseColor(Settings.SWIPE_OVERLAY_BRIGHTNESS_COLOR.get())
                 return (0xBF000000.toInt() or (color and 0xFFFFFF))
             } catch (ex: IllegalArgumentException) {
-                Logger.printDebug({ "Could not parse color" }, ex)
+                Logger.printDebug({ "Could not parse brightness color" }, ex)
                 Utils.showToastLong(str("revanced_swipe_overlay_progress_color_invalid_toast"))
-                Settings.SWIPE_OVERLAY_PROGRESS_COLOR.resetToDefault()
-                return overlayProgressColor // Recursively return.
+                Settings.SWIPE_OVERLAY_BRIGHTNESS_COLOR.resetToDefault()
+                return overlayBrightnessProgressColor // Recursively return.
+            }
+        }
+
+    /**
+     * The color of the progress bar in the overlay for volume.
+     * Resets to default and shows a toast if the color string is invalid or empty.
+     */
+    val overlayVolumeProgressColor: Int
+        get() {
+            try {
+                @SuppressLint("UseKtx")
+                val color = Color.parseColor(Settings.SWIPE_OVERLAY_VOLUME_COLOR.get())
+                return (0xBF000000.toInt() or (color and 0xFFFFFF))
+            } catch (ex: IllegalArgumentException) {
+                Logger.printDebug({ "Could not parse volume color" }, ex)
+                Utils.showToastLong(str("revanced_swipe_overlay_progress_color_invalid_toast"))
+                Settings.SWIPE_OVERLAY_VOLUME_COLOR.resetToDefault()
+                return overlayVolumeProgressColor // Recursively return.
             }
         }
 
@@ -199,7 +217,7 @@ class SwipeControlsConfigurationProvider {
         /**
          * A minimal vertical progress bar.
          */
-        VERTICAL_MINIMAL(isMinimal =  true, isVertical = true)
+        VERTICAL_MINIMAL(isMinimal = true, isVertical = true)
     }
 
     /**
