@@ -13,8 +13,10 @@ import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/layout/theme/CustomThemePatch;"
@@ -54,7 +56,7 @@ internal val spotifyAccentColor = stringOption(
 
 internal val spotifyAccentColorPressed = stringOption(
     key = "accentColorPressed",
-    default = "#FF169C46",
+    default = "#FF1ABC54",
     title = "Pressed dark theme accent color",
     description =
         "The color when accented buttons are pressed, by default slightly darker than accent. Can be a hex color or a resource reference.",
@@ -125,6 +127,46 @@ private val customThemeBytecodePatch = bytecodePatch {
             SETTINGS_HEADER_COLOR_LITERAL,
             backgroundColorSecondary!!
         )
+
+        // Hijacks a util method that removes alpha to replace hardcoded accent colours
+        removeAlphaFingerprint.match(miscUtilsFingerprint.classDef).method.apply {
+            addInstructions(0, """
+                invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentColor(J)J
+                move-result-wide p0
+
+                invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentPressedColor(J)J
+                move-result-wide p0
+            """)
+        }
+
+        // Lottie JSON parser method
+        // It's a gigantic method that parses each value, including the solid color
+        parseLottieJsonFingerprint.method.apply {
+            val invokeIdx = indexOfFirstInstructionOrThrow {
+                if (opcode != Opcode.INVOKE_STATIC)
+                    false
+                else {
+                    val ref = this.getReference<MethodReference>()!!
+                    ref.definingClass == "Landroid/graphics/Color;" && ref.name == "parseColor"
+                }
+            }
+            val freeRegister = getInstruction<FiveRegisterInstruction>(invokeIdx).registerC
+            val idx = invokeIdx + 1
+            addInstructions(idx, """
+                move-result v$freeRegister
+                invoke-static { v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentColor(I)I
+            """.trimIndent())
+        }
+
+        // Lottie animated color parser
+        parseAnimatedColorFingerprint.method.apply {
+            val idx = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT)
+            val resultRegister = getInstruction<OneRegisterInstruction>(idx).registerA;
+            addInstructions(idx + 1, """
+                invoke-static { v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentColor(I)I
+                move-result v$resultRegister
+            """)
+        }
     }
 }
 
@@ -187,8 +229,15 @@ val customThemePatch = resourcePatch(
                     "dark_base_background_tinted_highlight"
                         -> backgroundColorSecondary
 
-                    "dark_brightaccent_background_base", "dark_base_text_brightaccent", "green_light" -> accentColor
-                    "dark_brightaccent_background_press" -> accentColorPressed
+                    "dark_brightaccent_background_base",
+                    "dark_base_text_brightaccent",
+                    "green_light",
+                    "spotify_green_157"
+                        -> accentColor
+
+                    "dark_brightaccent_background_press"
+                        -> accentColorPressed
+
                     else -> continue
                 }
             }

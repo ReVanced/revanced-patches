@@ -31,3 +31,27 @@ internal val settingsHeaderColorFingerprint = fingerprint {
                 method.containsLiteralInstruction(0)
     }
 }
+
+internal val miscUtilsFingerprint = fingerprint {
+    strings("The specified color must be encoded in an RGB color space.")
+}
+
+// Requires matching against miscUtilsFingerprint
+internal val removeAlphaFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL)
+    returns("J")
+    parameters("J")
+}
+
+internal val parseLottieJsonFingerprint = fingerprint {
+    strings("Unsupported matte type")
+}
+
+internal val parseAnimatedColorFingerprint = fingerprint {
+    parameters("L", "F")
+    returns("Ljava/lang/Object;")
+    custom { m, c ->
+        m.containsLiteralInstruction(255.0) &&
+                m.containsLiteralInstruction(1.0)
+    }
+}
