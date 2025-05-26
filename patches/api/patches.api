@@ -920,6 +920,10 @@ public final class app/revanced/patches/swissid/integritycheck/RemoveGooglePlayI
 	public static final fun getRemoveGooglePlayIntegrityCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/telegram/birthday/HideBirthdayMessageKt {
+	public static final fun getRemoveBirthdayMassagePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/ticktick/misc/themeunlock/UnlockThemePatchKt {
 	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
