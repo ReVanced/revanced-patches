@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Beállítások</string>
   <string name="revanced_settings_confirm_user_dialog_title">Szeretné folytatni?</string>
   <string name="revanced_settings_reset">Visszaállítás</string>
+  <string name="revanced_settings_reset_color">Szín alaphelyzetbe állítása</string>
+  <string name="revanced_settings_color_invalid">Érvénytelen szín</string>
   <string name="revanced_settings_restart_title">Frissítés és újraindítás</string>
   <string name="revanced_settings_restart">Újraindítás</string>
   <string name="revanced_settings_import">Importálás</string>
@@ -1095,11 +1097,6 @@ Készen állsz a beküldésre?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s másodperc</string>
   <string name="revanced_sb_color_opacity_label">Áttetszőség:</string>
   <string name="revanced_sb_color_dot_label">Szín:</string>
-  <string name="revanced_sb_color_changed">A szín megváltoztatva</string>
-  <string name="revanced_sb_color_reset">Szín alaphelyzetbe</string>
-  <string name="revanced_sb_color_invalid">Érvénytelen színkód</string>
-  <string name="revanced_sb_reset_color">Színek visszaállítása</string>
-  <string name="revanced_sb_reset">Visszaállítás</string>
   <string name="revanced_sb_about_title">Rólunk</string>
   <string name="revanced_sb_about_api_summary">Az adatokat a SponsorBlock API biztosítja. Koppintson ide, ha többet szeretne megtudni és megtekintené a letöltéseket más platformokra</string>
   </patch>

@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Cilësimet</string>
   <string name="revanced_settings_confirm_user_dialog_title">Dëshironi të vazhdoni?</string>
   <string name="revanced_settings_reset">Rivendos</string>
+  <string name="revanced_settings_reset_color">Rikthe ngjyrën</string>
+  <string name="revanced_settings_color_invalid">Ngjyrë e pavlefshme</string>
   <string name="revanced_settings_restart_title">Rifresko dhe rifillo</string>
   <string name="revanced_settings_restart">Rifillo</string>
   <string name="revanced_settings_import">Importo</string>
@@ -1094,11 +1096,6 @@ Gati per te dhene?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekonda</string>
   <string name="revanced_sb_color_opacity_label">Opaciteti:</string>
   <string name="revanced_sb_color_dot_label">Ngjyra:</string>
-  <string name="revanced_sb_color_changed">Ngjyra është ndryshuar</string>
-  <string name="revanced_sb_color_reset">Ngjyra u rikthye</string>
-  <string name="revanced_sb_color_invalid">Kod ngjyre i pavlefshëm</string>
-  <string name="revanced_sb_reset_color">Rikthe ngjyrën</string>
-  <string name="revanced_sb_reset">Rikthe</string>
   <string name="revanced_sb_about_title">Rreth</string>
   <string name="revanced_sb_about_api_summary">Të dhënat janë siguruar nga API e SponsorBlock. Prekni këtu për të mësuar më shumë dhe për të parë shkarkimet për platformat e tjera</string>
   </patch>

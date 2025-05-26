@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Ayarlar</string>
   <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istiyor musunuz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
+  <string name="revanced_settings_reset_color">Rengi sıfırla</string>
+  <string name="revanced_settings_color_invalid">Geçersiz renk</string>
   <string name="revanced_settings_restart_title">Yenile ve yeniden başlat</string>
   <string name="revanced_settings_restart">Yeniden başlat</string>
   <string name="revanced_settings_import">İçe aktar</string>
@@ -1096,11 +1098,6 @@ Göndermeye hazır mısınız?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s saniye</string>
   <string name="revanced_sb_color_opacity_label">Opaklık:</string>
   <string name="revanced_sb_color_dot_label">Renk:</string>
-  <string name="revanced_sb_color_changed">Renk değiştirildi</string>
-  <string name="revanced_sb_color_reset">Renk sıfırlandı</string>
-  <string name="revanced_sb_color_invalid">Geçersiz renk kodu</string>
-  <string name="revanced_sb_reset_color">Rengi sıfırla</string>
-  <string name="revanced_sb_reset">Sıfırla</string>
   <string name="revanced_sb_about_title">Hakkında</string>
   <string name="revanced_sb_about_api_summary">Veri, SponsorBlock API\'sinden sağlanır. Daha fazla bilgi ve diğer platformlar için indirmeleri görmek için dokunun</string>
   </patch>

@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Thiết lập</string>
   <string name="revanced_settings_confirm_user_dialog_title">Bạn có muốn tiếp tục không?</string>
   <string name="revanced_settings_reset">Đặt lại</string>
+  <string name="revanced_settings_reset_color">Đặt lại màu</string>
+  <string name="revanced_settings_color_invalid">Màu không hợp lệ</string>
   <string name="revanced_settings_restart_title">Làm mới và khởi động lại</string>
   <string name="revanced_settings_restart">Khởi động lại</string>
   <string name="revanced_settings_import">Nhập</string>
@@ -1095,11 +1097,6 @@ Bạn đã sẵn sàng gửi?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s giây</string>
   <string name="revanced_sb_color_opacity_label">Độ mờ:</string>
   <string name="revanced_sb_color_dot_label">Màu:</string>
-  <string name="revanced_sb_color_changed">Màu sắc đã được thay đổi</string>
-  <string name="revanced_sb_color_reset">Đặt lại màu sắc</string>
-  <string name="revanced_sb_color_invalid">Mã màu không hợp lệ</string>
-  <string name="revanced_sb_reset_color">Đặt lại màu</string>
-  <string name="revanced_sb_reset">Đặt lại</string>
   <string name="revanced_sb_about_title">Giới thiệu</string>
   <string name="revanced_sb_about_api_summary">Dữ liệu được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm và xem các bản tải cho các nền tảng khác</string>
   </patch>

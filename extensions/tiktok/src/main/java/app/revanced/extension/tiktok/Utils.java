@@ -2,7 +2,6 @@ package app.revanced.extension.tiktok;
 
 import static app.revanced.extension.shared.Utils.isDarkModeEnabled;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
@@ -43,8 +42,8 @@ public class Utils {
     private static final @ColorInt int TEXT_LIGHT_MODE_SUMMARY
             = Color.argb(255, 80, 80, 80);
 
-    public static void setTitleAndSummaryColor(Context context, View view) {
-        final boolean darkModeEnabled = isDarkModeEnabled(context);
+    public static void setTitleAndSummaryColor(View view) {
+        final boolean darkModeEnabled = isDarkModeEnabled();
 
         TextView title = view.findViewById(android.R.id.title);
         title.setTextColor(darkModeEnabled

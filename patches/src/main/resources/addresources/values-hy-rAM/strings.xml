@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Կարգավորումներ</string>
   <string name="revanced_settings_confirm_user_dialog_title">Դուք ցանկանում եք շարունակել?</string>
   <string name="revanced_settings_reset">Վերականգնել</string>
+  <string name="revanced_settings_reset_color">Գույնը վերականգնել</string>
+  <string name="revanced_settings_color_invalid">Անվավեր գույն</string>
   <string name="revanced_settings_restart_title">Թարմացնել և վերագործարկել</string>
   <string name="revanced_settings_restart">Վերսկսել</string>
   <string name="revanced_settings_import">Ներմուծել</string>
@@ -1096,11 +1098,6 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_stats_saved_second_format">%s վայրկյան</string>
   <string name="revanced_sb_color_opacity_label">Թափանցիկություն․</string>
   <string name="revanced_sb_color_dot_label">Գույն։</string>
-  <string name="revanced_sb_color_changed">Գույնը փոխվել է</string>
-  <string name="revanced_sb_color_reset">Գույնը վերագործարկվել է</string>
-  <string name="revanced_sb_color_invalid">Անվավեր գույնի կոդ</string>
-  <string name="revanced_sb_reset_color">Վերագործարկել գույնը</string>
-  <string name="revanced_sb_reset">Վերագործարկել</string>
   <string name="revanced_sb_about_title">Ծրագրի մասին</string>
   <string name="revanced_sb_about_api_summary">Տվյալները մատուցվում են SponsorBlock API-ի կողմից։ Սեղմեք այստեղ՝ ավելի շատ իմանալու և այլ հարթակների համար ներբեռնումները տեսնելու</string>
   </patch>

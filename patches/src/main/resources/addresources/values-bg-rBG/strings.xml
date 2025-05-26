@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Настройки</string>
   <string name="revanced_settings_confirm_user_dialog_title">Искате ли да продължите?</string>
   <string name="revanced_settings_reset">Възстанови</string>
+  <string name="revanced_settings_reset_color">Нулиране на цвета</string>
+  <string name="revanced_settings_color_invalid">Невалиден цвят</string>
   <string name="revanced_settings_restart_title">Рестартирай и опресни</string>
   <string name="revanced_settings_restart">Рестартиране</string>
   <string name="revanced_settings_import">Импортиране</string>
@@ -1096,11 +1098,6 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s секунди</string>
   <string name="revanced_sb_color_opacity_label">Непрозрачност:</string>
   <string name="revanced_sb_color_dot_label">Цвят:</string>
-  <string name="revanced_sb_color_changed">Цветът е променен</string>
-  <string name="revanced_sb_color_reset">Възстанови цвета</string>
-  <string name="revanced_sb_color_invalid">Невалидна стойност за цвета</string>
-  <string name="revanced_sb_reset_color">Възстановяване на цвят</string>
-  <string name="revanced_sb_reset">Възстанови</string>
   <string name="revanced_sb_about_title">За програмата</string>
   <string name="revanced_sb_about_api_summary">Данните са предоставени от SponsorBlock API. Докоснете тук за повече информация и изтеглияния</string>
   </patch>

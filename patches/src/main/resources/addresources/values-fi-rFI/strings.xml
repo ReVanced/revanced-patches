@@ -35,6 +35,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Asetukset</string>
   <string name="revanced_settings_confirm_user_dialog_title">Haluatko jatkaa?</string>
   <string name="revanced_settings_reset">Nollaa</string>
+  <string name="revanced_settings_reset_color">Nollaa väri</string>
   <string name="revanced_settings_restart_title">Päivitä ja käynnistä uudelleen</string>
   <string name="revanced_settings_restart">Käynnistä uudelleen</string>
   <string name="revanced_settings_import">Tuo</string>
@@ -1088,11 +1089,6 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekuntia</string>
   <string name="revanced_sb_color_opacity_label">Läpikuultamattomuus:</string>
   <string name="revanced_sb_color_dot_label">Väri:</string>
-  <string name="revanced_sb_color_changed">Väri vaihdettu</string>
-  <string name="revanced_sb_color_reset">Väri nollattu</string>
-  <string name="revanced_sb_color_invalid">Virheellinen värikoodi</string>
-  <string name="revanced_sb_reset_color">Nollaa väri</string>
-  <string name="revanced_sb_reset">Nollaa</string>
   <string name="revanced_sb_about_title">Tietoja</string>
   <string name="revanced_sb_about_api_summary">Tiedot tarjoaa SponsorBlock API. Napauta tätä saadaksesi lisätietoja ja nähdäksesi lataukset muille alustoille</string>
   </patch>

@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Pengaturan</string>
   <string name="revanced_settings_confirm_user_dialog_title">Apakah Anda ingin melanjutkan?</string>
   <string name="revanced_settings_reset">Setel ulang</string>
+  <string name="revanced_settings_reset_color">Setel ulang warna</string>
+  <string name="revanced_settings_color_invalid">Warna tidak sah</string>
   <string name="revanced_settings_restart_title">Segarkan dan mulai ulang</string>
   <string name="revanced_settings_restart">Mulai ulang</string>
   <string name="revanced_settings_import">Impor</string>
@@ -1095,11 +1097,6 @@ Siap mengirim?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s detik</string>
   <string name="revanced_sb_color_opacity_label">Opasitas:</string>
   <string name="revanced_sb_color_dot_label">Warna:</string>
-  <string name="revanced_sb_color_changed">Warna berubah</string>
-  <string name="revanced_sb_color_reset">Reset warna</string>
-  <string name="revanced_sb_color_invalid">Kode warna tidak sah</string>
-  <string name="revanced_sb_reset_color">Atur ulang warna</string>
-  <string name="revanced_sb_reset">Setel ulang</string>
   <string name="revanced_sb_about_title">Tentang</string>
   <string name="revanced_sb_about_api_summary">Data disediakan oleh API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat hasil pengunduhan untuk platform lain</string>
   </patch>

@@ -23,6 +23,7 @@ import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.util.Pair;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -561,14 +562,14 @@ public class Utils {
         });
     }
 
-    public static boolean isDarkModeEnabled(Context context) {
-        Configuration config = context.getResources().getConfiguration();
+    public static boolean isDarkModeEnabled() {
+        Configuration config = Resources.getSystem().getConfiguration();
         final int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
         return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
     }
 
     public static boolean isLandscapeOrientation() {
-        final int orientation = context.getResources().getConfiguration().orientation;
+        final int orientation = Resources.getSystem().getConfiguration().orientation;
         return orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
@@ -865,6 +866,20 @@ public class Utils {
             return Color.parseColor(colorString);
         }
         return getResourceColor(colorString);
+    }
+
+    /**
+     * Converts dip value to actual device pixels.
+     *
+     * @param dip The density-independent pixels value
+     * @return The device pixel value
+     */
+    public static int dipToPixels(float dip) {
+        return (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                dip,
+                Resources.getSystem().getDisplayMetrics()
+        );
     }
 
     public static int clamp(int value, int lower, int upper) {
