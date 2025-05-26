@@ -101,7 +101,7 @@ public class DownloadPathPreference extends DialogPreference {
     protected void onBindView(View view) {
         super.onBindView(view);
 
-        Utils.setTitleAndSummaryColor(getContext(), view);
+        Utils.setTitleAndSummaryColor(view);
     }
 
     @Override

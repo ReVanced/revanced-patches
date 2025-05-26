@@ -1,3 +1,27 @@
+# [5.25.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.8...v5.25.0-dev.9) (2025-05-26)
+
+
+### Features
+
+* **Spotify:** Add `Fix Facebook login` patch ([#5023](https://github.com/ReVanced/revanced-patches/issues/5023)) ([34932dc](https://github.com/ReVanced/revanced-patches/commit/34932dc43933d346a5a3adadc62c0dbd38a633b5))
+* **YouTube - Settings:** Add a color picker ([#4981](https://github.com/ReVanced/revanced-patches/issues/4981)) ([1e0e398](https://github.com/ReVanced/revanced-patches/commit/1e0e398574329173aff11a4dc9acfc3fcdeabe16))
+
+# [5.25.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.8...v5.25.0-dev.9) (2025-05-26)
+
+
+### Features
+
+* **Spotify:** Add `Fix Facebook login` patch ([#5023](https://github.com/ReVanced/revanced-patches/issues/5023)) ([34932dc](https://github.com/ReVanced/revanced-patches/commit/34932dc43933d346a5a3adadc62c0dbd38a633b5))
+* **YouTube - Settings:** Add a color picker ([#4981](https://github.com/ReVanced/revanced-patches/issues/4981)) ([1e0e398](https://github.com/ReVanced/revanced-patches/commit/1e0e398574329173aff11a4dc9acfc3fcdeabe16))
+
+# [5.25.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.8...v5.25.0-dev.9) (2025-05-26)
+
+
+### Features
+
+* **Spotify:** Add `Fix Facebook login` patch ([#5023](https://github.com/ReVanced/revanced-patches/issues/5023)) ([34932dc](https://github.com/ReVanced/revanced-patches/commit/34932dc43933d346a5a3adadc62c0dbd38a633b5))
+* **YouTube - Settings:** Add a color picker ([#4981](https://github.com/ReVanced/revanced-patches/issues/4981)) ([1e0e398](https://github.com/ReVanced/revanced-patches/commit/1e0e398574329173aff11a4dc9acfc3fcdeabe16))
+
 # [5.25.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.7...v5.25.0-dev.8) (2025-05-25)
 
 

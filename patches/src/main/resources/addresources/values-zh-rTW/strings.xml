@@ -1072,11 +1072,6 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s 秒</string>
   <string name="revanced_sb_color_opacity_label">不透明度：</string>
   <string name="revanced_sb_color_dot_label">顏色：</string>
-  <string name="revanced_sb_color_changed">已變更顏色</string>
-  <string name="revanced_sb_color_reset">重設顏色</string>
-  <string name="revanced_sb_color_invalid">無效的顏色代碼</string>
-  <string name="revanced_sb_reset_color">重設顏色</string>
-  <string name="revanced_sb_reset">重設</string>
   <string name="revanced_sb_about_title">關於</string>
   <string name="revanced_sb_about_api_summary">資料由 SponsorBlock API 提供。輕觸這裡來了解更多資訊和查看其他平台的下載</string>
   </patch>

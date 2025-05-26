@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Instellingen</string>
   <string name="revanced_settings_confirm_user_dialog_title">Wilt u doorgaan?</string>
   <string name="revanced_settings_reset">Terugzetten</string>
+  <string name="revanced_settings_reset_color">Kleur opnieuw instellen</string>
+  <string name="revanced_settings_color_invalid">Ongeldige kleur</string>
   <string name="revanced_settings_restart_title">Vernieuwen en opnieuw starten</string>
   <string name="revanced_settings_restart">Opnieuw starten</string>
   <string name="revanced_settings_import">Importeren</string>
@@ -1096,11 +1098,6 @@ Klaar om in te dienen?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s seconden</string>
   <string name="revanced_sb_color_opacity_label">Ondoorzichtigheid:</string>
   <string name="revanced_sb_color_dot_label">Kleur:</string>
-  <string name="revanced_sb_color_changed">Kleur gewijzigd</string>
-  <string name="revanced_sb_color_reset">Kleur gereset</string>
-  <string name="revanced_sb_color_invalid">Ongeldige kleurcode</string>
-  <string name="revanced_sb_reset_color">Kleur resetten</string>
-  <string name="revanced_sb_reset">Herstellen naar standaard</string>
   <string name="revanced_sb_about_title">Over</string>
   <string name="revanced_sb_about_api_summary">Gegevens worden geleverd door de SponsorBlock API. Tik hier om meer te weten te komen en downloads te bekijken voor andere platforms</string>
   </patch>

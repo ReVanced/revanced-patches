@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Configurações</string>
   <string name="revanced_settings_confirm_user_dialog_title">Você deseja prosseguir?</string>
   <string name="revanced_settings_reset">Resetar</string>
+  <string name="revanced_settings_reset_color">Redefinir cor</string>
+  <string name="revanced_settings_color_invalid">Cor inválida</string>
   <string name="revanced_settings_restart_title">Atualizar e reiniciar</string>
   <string name="revanced_settings_restart">Reiniciar</string>
   <string name="revanced_settings_import">Importar</string>
@@ -759,8 +761,8 @@ Para exibir o menu da faixa de áudio, altere \"Spoof video streams\" para iOS T
   <string name="revanced_hide_shorts_like_button_summary_on">Botão gostei está oculto</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Botão gostei não está oculto</string>
   <string name="revanced_hide_shorts_dislike_button_title">Ocultar botão Não curtir</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_on">Botão não gostei é mostrado</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_off">Botão não gostei está oculto</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_on">Botão não gostei está oculto</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_off">Botão não gostei é mostrado</string>
   <string name="revanced_hide_shorts_comments_button_title">Ocultar botão Comentários</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Botão comentários está oculto</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Botão comentários não está oculto</string>
@@ -1093,11 +1095,6 @@ Pronto para enviar?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s segundos</string>
   <string name="revanced_sb_color_opacity_label">Opacidade:</string>
   <string name="revanced_sb_color_dot_label">Cor:</string>
-  <string name="revanced_sb_color_changed">Cor alterada</string>
-  <string name="revanced_sb_color_reset">Redefinir cor</string>
-  <string name="revanced_sb_color_invalid">Código de cor inválido</string>
-  <string name="revanced_sb_reset_color">Redefinir cor</string>
-  <string name="revanced_sb_reset">Resetar</string>
   <string name="revanced_sb_about_title">Sobre</string>
   <string name="revanced_sb_about_api_summary">Os dados são fornecidos pela API do SponsorBlock. Toque aqui para aprender mais e ver como baixar para outras plataformas</string>
   </patch>

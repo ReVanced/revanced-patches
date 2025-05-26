@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Configuració</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vols continuar?</string>
   <string name="revanced_settings_reset">Restablir</string>
+  <string name="revanced_settings_reset_color">Restablir el color</string>
+  <string name="revanced_settings_color_invalid">Color no vàlid</string>
   <string name="revanced_settings_restart_title">Actualitza i reinicia</string>
   <string name="revanced_settings_restart">Reinicia</string>
   <string name="revanced_settings_import">Importa</string>
@@ -1095,11 +1097,6 @@ Preparat per enviar?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s segons</string>
   <string name="revanced_sb_color_opacity_label">Opacitat:</string>
   <string name="revanced_sb_color_dot_label">Color:</string>
-  <string name="revanced_sb_color_changed">Color canviat</string>
-  <string name="revanced_sb_color_reset">Color restablert</string>
-  <string name="revanced_sb_color_invalid">Codi de color invàlid</string>
-  <string name="revanced_sb_reset_color">Restableix el color</string>
-  <string name="revanced_sb_reset">Restablir</string>
   <string name="revanced_sb_about_title">Quant a</string>
   <string name="revanced_sb_about_api_summary">Les dades són proporcionades per l\'API de SponsorBlock. Toca aquí per a saber-ne més i veure les descàrregues per a altres plataformes</string>
   </patch>

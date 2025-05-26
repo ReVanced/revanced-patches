@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Налаштування</string>
   <string name="revanced_settings_confirm_user_dialog_title">Бажаєте продовжити?</string>
   <string name="revanced_settings_reset">Скинути</string>
+  <string name="revanced_settings_reset_color">Скинути колір</string>
+  <string name="revanced_settings_color_invalid">Недійсний колір</string>
   <string name="revanced_settings_restart_title">Оновити та перезавантажити?</string>
   <string name="revanced_settings_restart">Перезавантажити</string>
   <string name="revanced_settings_import">Імпортувати</string>
@@ -1096,11 +1098,6 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s секунд(и)</string>
   <string name="revanced_sb_color_opacity_label">Непрозорість:</string>
   <string name="revanced_sb_color_dot_label">Колір:</string>
-  <string name="revanced_sb_color_changed">Колір змінено</string>
-  <string name="revanced_sb_color_reset">Колір скинуто</string>
-  <string name="revanced_sb_color_invalid">Невірний код кольору</string>
-  <string name="revanced_sb_reset_color">Скинути колір</string>
-  <string name="revanced_sb_reset">Скинути</string>
   <string name="revanced_sb_about_title">Про інтеграцію</string>
   <string name="revanced_sb_about_api_summary">Дані надаються через API SponsorBlock. Натисніть тут, щоб дізнатися більше та побачити завантаження для інших платформ</string>
   </patch>

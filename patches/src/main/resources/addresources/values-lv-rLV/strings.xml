@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Iestatījumi</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vai vēlaties turpināt?</string>
   <string name="revanced_settings_reset">Atiestatīt</string>
+  <string name="revanced_settings_reset_color">Atiestatīt krāsu</string>
+  <string name="revanced_settings_color_invalid">Nederīga krāsa</string>
   <string name="revanced_settings_restart_title">Atjaunināt un restartēt</string>
   <string name="revanced_settings_restart">Restartēt</string>
   <string name="revanced_settings_import">Importēt</string>
@@ -1095,11 +1097,6 @@ Vai esat gatavs iesniegt?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekundes</string>
   <string name="revanced_sb_color_opacity_label">Necaurredzamība:</string>
   <string name="revanced_sb_color_dot_label">Krāsa:</string>
-  <string name="revanced_sb_color_changed">Krāsa mainīta</string>
-  <string name="revanced_sb_color_reset">Krāsa atiestatīta</string>
-  <string name="revanced_sb_color_invalid">Nederīgs krāsas kods</string>
-  <string name="revanced_sb_reset_color">Atiestatīt krāsu</string>
-  <string name="revanced_sb_reset">Atiestatīt</string>
   <string name="revanced_sb_about_title">Par</string>
   <string name="revanced_sb_about_api_summary">Dati tiek sniegti no SponsorBlock API. Pieskarieties šeit, lai uzzinātu vairāk un skatītu lejupielādes citām platformām</string>
   </patch>

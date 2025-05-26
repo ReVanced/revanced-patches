@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">设置</string>
   <string name="revanced_settings_confirm_user_dialog_title">您想要继续吗？</string>
   <string name="revanced_settings_reset">重置</string>
+  <string name="revanced_settings_reset_color">重置颜色</string>
+  <string name="revanced_settings_color_invalid">无效的颜色</string>
   <string name="revanced_settings_restart_title">刷新并重启</string>
   <string name="revanced_settings_restart">重启</string>
   <string name="revanced_settings_import">导入</string>
@@ -1100,11 +1102,6 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s 秒</string>
   <string name="revanced_sb_color_opacity_label">不透明度：</string>
   <string name="revanced_sb_color_dot_label">颜色:</string>
-  <string name="revanced_sb_color_changed">已更改颜色</string>
-  <string name="revanced_sb_color_reset">重置颜色</string>
-  <string name="revanced_sb_color_invalid">无效的颜色代码</string>
-  <string name="revanced_sb_reset_color">重置颜色</string>
-  <string name="revanced_sb_reset">重置</string>
   <string name="revanced_sb_about_title">关于</string>
   <string name="revanced_sb_about_api_summary">数据由 SponsorBlock API 提供。点击这里了解更多信息并查看其他平台的下载内容</string>
   </patch>
