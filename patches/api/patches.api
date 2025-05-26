@@ -1,7 +1,3 @@
-public final class FixFacebookLoginPatchKt {
-	public static final fun getFixFacebookLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/all/misc/activity/exportall/ExportAllActivitiesPatchKt {
 	public static final fun getExportAllActivitiesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
@@ -865,6 +861,10 @@ public final class app/revanced/patches/spotify/misc/fix/SpoofPackageInfoPatchKt
 
 public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {
 	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/fix/login/FixFacebookLoginPatchKt {
+	public static final fun getFixFacebookLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/misc/privacy/SanitizeSharingLinksPatchKt {
