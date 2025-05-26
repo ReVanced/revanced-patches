@@ -10,6 +10,7 @@ val removeBirthdayMassagePatch = bytecodePatch(
 ) {
     compatibleWith("org.telegram.messenger")
 
+    // Return null early. This is also done, when the message is supposed to be hidden.
     execute {
         birthdayStateFingerprint.method.addInstructions(
             0,
