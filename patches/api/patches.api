@@ -1395,6 +1395,10 @@ public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/misc/hapticfeedback/DisableHapticFeedbackPatchKt {
+	public static final fun getDisableHapticFeedbackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/misc/imageurlhook/CronetImageUrlHookKt {
 	public static final fun addImageUrlErrorCallbackHook (Ljava/lang/String;)V
 	public static final fun addImageUrlHook (Ljava/lang/String;Z)V
@@ -1504,10 +1508,6 @@ public final class app/revanced/patches/youtube/misc/spoof/SpoofVideoStreamsPatc
 
 public final class app/revanced/patches/youtube/misc/spoof/UserAgentClientSpoofPatchKt {
 	public static final fun getUserAgentClientSpoofPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatchKt {
-	public static final fun getZoomHapticsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/audio/ForceOriginalAudioPatchKt {
