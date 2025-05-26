@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">การตั้งค่า</string>
   <string name="revanced_settings_confirm_user_dialog_title">คุณต้องการดำเนินการต่อหรือไม่?</string>
   <string name="revanced_settings_reset">รีเซ็ต</string>
+  <string name="revanced_settings_reset_color">รีเซ็ตสี</string>
+  <string name="revanced_settings_color_invalid">สีไม่ถูกต้อง</string>
   <string name="revanced_settings_restart_title">รีเฟรชและเริ่มต้นใหม่</string>
   <string name="revanced_settings_restart">เริ่มต้นใหม่</string>
   <string name="revanced_settings_import">นำเข้า</string>
@@ -1094,11 +1096,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_sb_stats_saved_second_format">%s วินาที</string>
   <string name="revanced_sb_color_opacity_label">ความทึบ:</string>
   <string name="revanced_sb_color_dot_label">สี:</string>
-  <string name="revanced_sb_color_changed">เปลื่ยนสีแล้ว</string>
-  <string name="revanced_sb_color_reset">สีเปลื่ยนเป็นค่าเริ่มต้นแล้ว</string>
-  <string name="revanced_sb_color_invalid">รหัสสีไม่ถูกต้อง</string>
-  <string name="revanced_sb_reset_color">รีเซ็ตสี</string>
-  <string name="revanced_sb_reset">รีเซ็ต</string>
   <string name="revanced_sb_about_title">เกี่ยวกับ</string>
   <string name="revanced_sb_about_api_summary">ข้อมูลนี้มาจาก SponsorBlock API แตะที่นี่เพื่อเรียนรู้เพิ่มเติมและดูการดาวน์โหลดสำหรับแพลตฟอร์มอื่น ๆ</string>
   </patch>

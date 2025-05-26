@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Impostazioni</string>
   <string name="revanced_settings_confirm_user_dialog_title">Sei sicuro di voler continuare?</string>
   <string name="revanced_settings_reset">Reimposta</string>
+  <string name="revanced_settings_reset_color">Reimposta colore</string>
+  <string name="revanced_settings_color_invalid">Colore non valido</string>
   <string name="revanced_settings_restart_title">Aggiorna e riavvia</string>
   <string name="revanced_settings_restart">Riavvia</string>
   <string name="revanced_settings_import">Importa</string>
@@ -1095,11 +1097,6 @@ Pronto per l'invio?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s secondi</string>
   <string name="revanced_sb_color_opacity_label">Opacità:</string>
   <string name="revanced_sb_color_dot_label">Colore:</string>
-  <string name="revanced_sb_color_changed">Colore modificato</string>
-  <string name="revanced_sb_color_reset">Ripristino colore</string>
-  <string name="revanced_sb_color_invalid">Codice colore non valido</string>
-  <string name="revanced_sb_reset_color">Ripristina colore</string>
-  <string name="revanced_sb_reset">Reimposta</string>
   <string name="revanced_sb_about_title">Informazioni</string>
   <string name="revanced_sb_about_api_summary">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme</string>
   </patch>
