@@ -36,7 +36,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_confirm_user_dialog_title">계속하시겠습니까?</string>
   <string name="revanced_settings_reset">초기화</string>
   <string name="revanced_settings_reset_color">색상 초기화</string>
-  <string name="revanced_settings_color_invalid">잘못된 색상</string>
+  <string name="revanced_settings_color_invalid">잘못된 색상입니다</string>
   <string name="revanced_settings_restart_title">새로고침 및 다시 시작</string>
   <string name="revanced_settings_restart">다시 시작</string>
   <string name="revanced_settings_import">가져오기</string>
