@@ -22,6 +22,6 @@ public class InputTextPreference extends EditTextPreference {
     protected void onBindView(View view) {
         super.onBindView(view);
 
-        Utils.setTitleAndSummaryColor(getContext(), view);
+        Utils.setTitleAndSummaryColor(view);
     }
 }
