@@ -41,7 +41,7 @@ public class Logger {
         ERROR
     }
 
-    private static final String REVANCED_LOG_PREFIX = "revanced";
+    private static final String REVANCED_LOG_TAG = "revanced";
 
     private static final String LOGGER_CLASS_NAME = Logger.class.getName();
 
@@ -119,16 +119,16 @@ public class Logger {
 
         switch (logLevel) {
             case DEBUG:
-                if (ex == null) Log.d(REVANCED_LOG_PREFIX, logText);
-                else Log.d(REVANCED_LOG_PREFIX, logText, ex);
+                if (ex == null) Log.d(REVANCED_LOG_TAG, logText);
+                else Log.d(REVANCED_LOG_TAG, logText, ex);
                 break;
             case INFO:
-                if (ex == null) Log.i(REVANCED_LOG_PREFIX, logText);
-                else Log.i(REVANCED_LOG_PREFIX, logText, ex);
+                if (ex == null) Log.i(REVANCED_LOG_TAG, logText);
+                else Log.i(REVANCED_LOG_TAG, logText, ex);
                 break;
             case ERROR:
-                if (ex == null) Log.e(REVANCED_LOG_PREFIX, logText);
-                else Log.e(REVANCED_LOG_PREFIX, logText, ex);
+                if (ex == null) Log.e(REVANCED_LOG_TAG, logText);
+                else Log.e(REVANCED_LOG_TAG, logText, ex);
                 break;
         }
 
