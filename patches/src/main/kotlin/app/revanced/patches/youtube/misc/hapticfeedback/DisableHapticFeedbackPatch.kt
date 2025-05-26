@@ -50,7 +50,7 @@ val disableHapticFeedbackPatch = bytecodePatch(
             )
         )
 
-        val hapticMethods = mapOf(
+        val hapticMethods = arrayOf(
             markerHapticsFingerprint to "disableChapterVibrate",
             scrubbingHapticsFingerprint to "disablePreciseSeekingVibrate",
             seekUndoHapticsFingerprint to "disableSeekUndoVibrate",
