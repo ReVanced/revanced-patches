@@ -146,11 +146,10 @@ private val customThemeBytecodePatch = bytecodePatch {
                 val ref = this.getReference<MethodReference>()
                 ref?.definingClass == "Landroid/graphics/Color;" && ref.name == "parseColor"
             }
-            val freeRegister = getInstruction<FiveRegisterInstruction>(invokeIdx).registerC
-            val idx = invokeIdx + 1
-            addInstructions(idx, """
-                move-result v$freeRegister
-                invoke-static { v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentColor(I)I
+            val resultRegister = getInstruction<OneRegisterInstruction>(invokeIdx + 1).registerA
+            addInstructions(invokeIdx + 2, """
+                invoke-static/range { v$resultRegister .. v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentColor(I)I
+                move-result v$resultRegister
             """)
         }
 
