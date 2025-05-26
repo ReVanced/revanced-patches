@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.misc.hapticfeedback
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
@@ -86,10 +85,7 @@ val disableHapticFeedbackPatch = bytecodePatch(
             zoomHapticsFingerprint to "disableZoomVibrate"
         )
 
-        fun applyDisableHaptic(
-            fingerprint: Fingerprint,
-            methodName: String
-        ) {
+        hapticMethods.forEach { (fingerprint, methodName) ->
             fingerprint.method.apply {
                 addInstructionsWithLabels(
                     0,
@@ -102,10 +98,6 @@ val disableHapticFeedbackPatch = bytecodePatch(
                     ExternalLabel("vibrate", getInstruction(0))
                 )
             }
-        }
-
-        hapticMethods.forEach { (fingerprint, methodName) ->
-            applyDisableHaptic(fingerprint, methodName)
         }
     }
 }
