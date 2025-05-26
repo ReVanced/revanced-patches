@@ -8,6 +8,9 @@ import app.revanced.extension.shared.Utils;
 @SuppressWarnings("unused")
 public final class CustomThemePatch {
 
+    public static final long ACCENT = getThemeColor("@color/spotify_green_157");
+    public static final long ACCENT_PRESSED = getThemeColor("@color/dark_brightaccent_background_press");
+
     /**
      * Injection point.
      */
@@ -21,20 +24,16 @@ public final class CustomThemePatch {
     }
 
     public static long replaceAccentColor(long color) {
-        if (color == 0xff1ed760L)
-            return getThemeColor("@color/spotify_green_157");
-        return color;
+        return color == 0xff1ed760L ? ACCENT : color;
     }
 
     public static int replaceAccentColor(int color) {
-        if (color == 0xff1ed760 || color == 0xff1ed75f) // This off-by-one color appears in some lottie animations
-            return (int)getThemeColor("@color/spotify_green_157");
-        return color;
+        return color == 0xff1ed760 || color == 0xff1ed75f // This off-by-one color appears in some lottie animations
+                ? (int)ACCENT
+                : color;
     }
 
     public static long replaceAccentPressedColor(long color) {
-        if (color == 0xff1abc54L)
-            return getThemeColor("@color/dark_brightaccent_background_press");
-        return color;
+        return color == 0xff1abc54L ? ACCENT_PRESSED : color;
     }
 }

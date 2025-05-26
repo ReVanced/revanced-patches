@@ -128,7 +128,7 @@ private val customThemeBytecodePatch = bytecodePatch {
             backgroundColorSecondary!!
         )
 
-        // Hijacks a util method that removes alpha to replace hardcoded accent colours
+        // Hijacks a util method that removes alpha to replace hardcoded accent colors
         removeAlphaFingerprint.match(miscUtilsFingerprint.classDef).method.apply {
             addInstructions(0, """
                 invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentColor(J)J
@@ -143,25 +143,21 @@ private val customThemeBytecodePatch = bytecodePatch {
         // It's a gigantic method that parses each value, including the solid color
         parseLottieJsonFingerprint.method.apply {
             val invokeIdx = indexOfFirstInstructionOrThrow {
-                if (opcode != Opcode.INVOKE_STATIC)
-                    false
-                else {
-                    val ref = this.getReference<MethodReference>()!!
-                    ref.definingClass == "Landroid/graphics/Color;" && ref.name == "parseColor"
-                }
+                val ref = this.getReference<MethodReference>()
+                ref?.definingClass == "Landroid/graphics/Color;" && ref.name == "parseColor"
             }
             val freeRegister = getInstruction<FiveRegisterInstruction>(invokeIdx).registerC
             val idx = invokeIdx + 1
             addInstructions(idx, """
                 move-result v$freeRegister
                 invoke-static { v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentColor(I)I
-            """.trimIndent())
+            """)
         }
 
         // Lottie animated color parser
         parseAnimatedColorFingerprint.method.apply {
             val idx = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT)
-            val resultRegister = getInstruction<OneRegisterInstruction>(idx).registerA;
+            val resultRegister = getInstruction<OneRegisterInstruction>(idx).registerA
             addInstructions(idx + 1, """
                 invoke-static { v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentColor(I)I
                 move-result v$resultRegister
