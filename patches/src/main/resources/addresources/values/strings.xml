@@ -1395,7 +1395,7 @@ Enabling this can unlock higher video qualities"</string>
         </patch>
         <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
             <string name="revanced_disable_haptic_feedback_title">Haptic feedback</string>
-            <string name="revanced_disable_haptic_feedback_summary">Disable or enable haptic feedback</string>
+            <string name="revanced_disable_haptic_feedback_summary">Change haptic feedback</string>
             <string name="revanced_disable_haptic_feedback_chapters_title">Disable chapters haptics</string>
             <string name="revanced_disable_haptic_feedback_chapters_summary_on">Chapters haptics is disabled</string>
             <string name="revanced_disable_haptic_feedback_chapters_summary_off">Chapters haptics is enabled</string>
