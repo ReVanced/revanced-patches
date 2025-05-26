@@ -11,10 +11,10 @@ internal val birthdayStateFingerprint = fingerprint {
     parameters()
     opcodes(
             Opcode.MOVE_RESULT,
-            Opcode.OP_IF_EQZ,
+            Opcode.IF_EQZ,
             Opcode.RETURN_OBJECT
     )
     custom { methodDef, classDef ->
-        methodDef.name == "getState" && classDef.endsWith("/BirtdayController;")
+        methodDef.name == "getState" && classDef.endsWith("/BirthdayController;")
     }
 }
