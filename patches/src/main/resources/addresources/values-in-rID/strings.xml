@@ -36,7 +36,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_confirm_user_dialog_title">Apakah Anda ingin melanjutkan?</string>
   <string name="revanced_settings_reset">Setel ulang</string>
   <string name="revanced_settings_reset_color">Setel ulang warna</string>
-  <string name="revanced_settings_color_invalid">Warna tidak valid</string>
+  <string name="revanced_settings_color_invalid">Warna tidak sah</string>
   <string name="revanced_settings_restart_title">Segarkan dan mulai ulang</string>
   <string name="revanced_settings_restart">Mulai ulang</string>
   <string name="revanced_settings_import">Impor</string>

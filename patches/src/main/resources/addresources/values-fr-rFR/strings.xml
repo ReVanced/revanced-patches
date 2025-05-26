@@ -36,7 +36,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_confirm_user_dialog_title">Voulez-vous continuer ?</string>
   <string name="revanced_settings_reset">Réinitialiser</string>
   <string name="revanced_settings_reset_color">Réinitialiser la couleur</string>
-  <string name="revanced_settings_color_invalid">Couleur non valide</string>
+  <string name="revanced_settings_color_invalid">Couleur invalide</string>
   <string name="revanced_settings_restart_title">Actualiser et redémarrer</string>
   <string name="revanced_settings_restart">Redémarrer</string>
   <string name="revanced_settings_import">Importer</string>

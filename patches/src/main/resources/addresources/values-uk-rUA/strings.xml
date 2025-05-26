@@ -36,7 +36,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_confirm_user_dialog_title">Бажаєте продовжити?</string>
   <string name="revanced_settings_reset">Скинути</string>
   <string name="revanced_settings_reset_color">Скинути колір</string>
-  <string name="revanced_settings_color_invalid">Невірний колір</string>
+  <string name="revanced_settings_color_invalid">Недійсний колір</string>
   <string name="revanced_settings_restart_title">Оновити та перезавантажити?</string>
   <string name="revanced_settings_restart">Перезавантажити</string>
   <string name="revanced_settings_import">Імпортувати</string>
