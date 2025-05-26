@@ -1,7 +1,7 @@
 package app.revanced.patches.meta.ads
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
@@ -15,12 +15,6 @@ val hideAdsPatch = bytecodePatch(
     )
 
     execute {
-        adInjectorFingerprint.method.addInstructions(
-            0,
-            """
-                const/4 v0, 0x0
-                return v0
-            """,
-        )
+        adInjectorFingerprint.method.returnEarly(false)
     }
 }
