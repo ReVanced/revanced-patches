@@ -1,5 +1,6 @@
 package app.revanced.patches.primevideo.misc.permissions
 
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.asSequence
 import app.revanced.util.getNode
@@ -8,8 +9,8 @@ import org.w3c.dom.Element
 @Suppress("unused")
 val renamePermissionsPatch = resourcePatch(
     name = "Rename shared permissions",
-    "Rename certain permissions shared across Amazon apps. " +
-            "Enabling this can fix installation errors, but this can also break features in certain apps.",
+    description = "Rename certain permissions shared across Amazon apps. " +
+            "Applying this patch can fix installation errors, but can also break features in certain apps.",
     use = false
 ) {
     compatibleWith("com.amazon.avod.thirdpartyclient")
@@ -27,15 +28,18 @@ val renamePermissionsPatch = resourcePatch(
         document("AndroidManifest.xml").use { document ->
             val manifest = document.getNode("manifest") as Element
 
-            manifest
+            val permissions = manifest
                 .getElementsByTagName("permission")
                 .asSequence()
                 .map { it as Element }
                 .filter { it.getAttribute("android:name") in permissionNames }
-                .forEach {
-                    val name = it.getAttribute("android:name")
-                    it.setAttribute("android:name", "revanced.$name")
-                }
+
+            if (permissions.none()) throw PatchException("Could not find any permissions to rename")
+
+            permissions.forEach {
+                val name = it.getAttribute("android:name")
+                it.setAttribute("android:name", "revanced.$name")
+            }
         }
     }
 }
