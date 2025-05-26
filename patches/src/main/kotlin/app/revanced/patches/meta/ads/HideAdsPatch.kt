@@ -9,6 +9,9 @@ val hideAdsPatch = bytecodePatch(
     description = "Hides ads in stories, discover, profile, etc. " +
         "An ad can still appear once when refreshing the home feed.",
 ) {
+    /**
+     * Patch is identical for both Instagram and Threads app.
+     */
     compatibleWith(
         "com.instagram.android",
         "com.instagram.barcelona",
