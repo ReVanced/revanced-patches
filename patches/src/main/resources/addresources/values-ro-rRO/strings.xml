@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Setări</string>
   <string name="revanced_settings_confirm_user_dialog_title">Doriți să continuați?</string>
   <string name="revanced_settings_reset">Resetare</string>
+  <string name="revanced_settings_reset_color">Resetează culoarea</string>
+  <string name="revanced_settings_color_invalid">Culoare nevalidă</string>
   <string name="revanced_settings_restart_title">Reîmprospătare și repornire</string>
   <string name="revanced_settings_restart">Repornire</string>
   <string name="revanced_settings_import">Importare</string>
@@ -1095,11 +1097,6 @@ Ești gata să trimiți?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s secunde</string>
   <string name="revanced_sb_color_opacity_label">Opacitate:</string>
   <string name="revanced_sb_color_dot_label">Culoare:</string>
-  <string name="revanced_sb_color_changed">Culoare schimbată</string>
-  <string name="revanced_sb_color_reset">Resetare culoare</string>
-  <string name="revanced_sb_color_invalid">Cod culoare nevalid</string>
-  <string name="revanced_sb_reset_color">Resetare culoare</string>
-  <string name="revanced_sb_reset">Resetează</string>
   <string name="revanced_sb_about_title">Despre</string>
   <string name="revanced_sb_about_api_summary">Datele sunt furnizate de API-ul SponsorBlock. Apasă aici pentru a afla mai multe și a vedea descărcările pentru alte platforme</string>
   </patch>

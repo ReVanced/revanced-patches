@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Налады</string>
   <string name="revanced_settings_confirm_user_dialog_title">Вы хочаце працягнуць?</string>
   <string name="revanced_settings_reset">Скінуць</string>
+  <string name="revanced_settings_reset_color">Скінуць колер</string>
+  <string name="revanced_settings_color_invalid">Несапраўдны колер</string>
   <string name="revanced_settings_restart_title">Абнавіце і перазагрузіце</string>
   <string name="revanced_settings_restart">Перазапуск</string>
   <string name="revanced_settings_import">Імпарт</string>
@@ -1097,11 +1099,6 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s секунд</string>
   <string name="revanced_sb_color_opacity_label">Непразрыстасць:</string>
   <string name="revanced_sb_color_dot_label">колер:</string>
-  <string name="revanced_sb_color_changed">Колер змяніўся</string>
-  <string name="revanced_sb_color_reset">Скід колеру</string>
-  <string name="revanced_sb_color_invalid">Няправільны код колеру</string>
-  <string name="revanced_sb_reset_color">Скінуць колер</string>
-  <string name="revanced_sb_reset">Скінуць</string>
   <string name="revanced_sb_about_title">Пра праграму</string>
   <string name="revanced_sb_about_api_summary">Дадзеныя прадастаўляюцца API SponsorBlock. Націсніце тут, каб даведацца больш і паглядзець спампоўкі для іншых платформаў</string>
   </patch>

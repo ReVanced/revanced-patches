@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">設定</string>
   <string name="revanced_settings_confirm_user_dialog_title">続行しますか？</string>
   <string name="revanced_settings_reset">リセット</string>
+  <string name="revanced_settings_reset_color">色をリセット</string>
+  <string name="revanced_settings_color_invalid">色の値が無効です</string>
   <string name="revanced_settings_restart_title">更新して再起動</string>
   <string name="revanced_settings_restart">再起動</string>
   <string name="revanced_settings_import">インポート</string>
@@ -1096,11 +1098,6 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_stats_saved_second_format">%s 秒</string>
   <string name="revanced_sb_color_opacity_label">透明度:</string>
   <string name="revanced_sb_color_dot_label">色:</string>
-  <string name="revanced_sb_color_changed">色を変更しました</string>
-  <string name="revanced_sb_color_reset">色がリセットされました</string>
-  <string name="revanced_sb_color_invalid">色の値が無効です</string>
-  <string name="revanced_sb_reset_color">色をリセット</string>
-  <string name="revanced_sb_reset">リセット</string>
   <string name="revanced_sb_about_title">SponsorBlock について</string>
   <string name="revanced_sb_about_api_summary">SponsorBlock APIによって提供されるデータです。詳細はこちらをタップしてください。</string>
   </patch>

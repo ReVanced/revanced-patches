@@ -1095,11 +1095,6 @@ Təqdim etməyə hazırdır?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s saniyə</string>
   <string name="revanced_sb_color_opacity_label">Qeyri-şəffaflıq:</string>
   <string name="revanced_sb_color_dot_label">Rəng:</string>
-  <string name="revanced_sb_color_changed">Rəng dəyişdirildi</string>
-  <string name="revanced_sb_color_reset">Rəngi sıfırla</string>
-  <string name="revanced_sb_color_invalid">Etibarsız rəng kodu</string>
-  <string name="revanced_sb_reset_color">Rəngi sıfırla</string>
-  <string name="revanced_sb_reset">Sıfırlayın</string>
   <string name="revanced_sb_about_title">Haqqında</string>
   <string name="revanced_sb_about_api_summary">Məlumat SponsorBlock API tərəfindən təqdim edilir. Daha ətraflı öyrənmək və digər platformalar üzrə yükləmələrə baxmaq üçün bura toxunun</string>
   </patch>
