@@ -1,4 +1,4 @@
-package app.revanced.patches.instagram.ads
+package app.revanced.patches.meta.ads
 
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags

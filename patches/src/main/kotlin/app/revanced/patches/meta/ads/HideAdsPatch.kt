@@ -1,4 +1,4 @@
-package app.revanced.patches.instagram.ads
+package app.revanced.patches.meta.ads
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch

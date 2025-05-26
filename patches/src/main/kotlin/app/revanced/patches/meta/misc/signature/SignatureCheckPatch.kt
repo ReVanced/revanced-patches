@@ -1,4 +1,4 @@
-package app.revanced.patches.instagram.misc.signature
+package app.revanced.patches.meta.misc.signature
 
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
