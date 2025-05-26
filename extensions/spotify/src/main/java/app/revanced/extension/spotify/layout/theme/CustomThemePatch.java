@@ -24,13 +24,16 @@ public final class CustomThemePatch {
     }
 
     public static long replaceAccentColor(long color) {
-        return color == 0xff1ed760L ? ACCENT : color;
+        // Some lottie animations have a color that's slightly off due to rounding errors
+        return color == 0xff1ed760L || color == 0xff1ed75fL
+                // Intermediate color used in some animations, same rounding issue
+                || color == 0xff1db954L || color == 0xff1cb854L
+                ? ACCENT
+                : color;
     }
 
     public static int replaceAccentColor(int color) {
-        return color == 0xff1ed760 || color == 0xff1ed75f // This off-by-one color appears in some lottie animations
-                ? (int)ACCENT
-                : color;
+        return (int)replaceAccentColor(Integer.toUnsignedLong(color));
     }
 
     public static long replaceAccentPressedColor(long color) {
