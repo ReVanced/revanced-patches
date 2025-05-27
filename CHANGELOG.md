@@ -1,3 +1,11 @@
+# [5.25.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.9...v5.25.0-dev.10) (2025-05-27)
+
+
+### Bug Fixes
+
+* **Messenger:** Remove outdated `Disable switching emoji to sticker` patch ([#5044](https://github.com/ReVanced/revanced-patches/issues/5044)) ([7b182ca](https://github.com/ReVanced/revanced-patches/commit/7b182cab825ee3a4a3ca528c744c9d2a351c7cf8))
+* **Spotify Lite:** Remove obsolete `Enable on demand` patch ([#5046](https://github.com/ReVanced/revanced-patches/issues/5046)) ([4886d47](https://github.com/ReVanced/revanced-patches/commit/4886d47506c94b03c1f190ecc4947d3d91df6a47))
+
 # [5.25.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.8...v5.25.0-dev.9) (2025-05-26)
 
 
