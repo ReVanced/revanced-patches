@@ -1,3 +1,19 @@
+# [5.25.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.10...v5.25.0-dev.11) (2025-05-27)
+
+
+### Features
+
+* **YouTube - Enable debugging:** Add settings menu to share debug logs ([#5021](https://github.com/ReVanced/revanced-patches/issues/5021)) ([1ec4a88](https://github.com/ReVanced/revanced-patches/commit/1ec4a88464a2a2810c02cf072950b618d183779a))
+* **YouTube:** Add `Disable haptic feedback` patch ([#5033](https://github.com/ReVanced/revanced-patches/issues/5033)) ([bbe7974](https://github.com/ReVanced/revanced-patches/commit/bbe79744a513c96f9016476e8435f999e94c45d7))
+
+# [5.25.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.9...v5.25.0-dev.10) (2025-05-27)
+
+
+### Bug Fixes
+
+* **Messenger:** Remove outdated `Disable switching emoji to sticker` patch ([#5044](https://github.com/ReVanced/revanced-patches/issues/5044)) ([7b182ca](https://github.com/ReVanced/revanced-patches/commit/7b182cab825ee3a4a3ca528c744c9d2a351c7cf8))
+* **Spotify Lite:** Remove obsolete `Enable on demand` patch ([#5046](https://github.com/ReVanced/revanced-patches/issues/5046)) ([4886d47](https://github.com/ReVanced/revanced-patches/commit/4886d47506c94b03c1f190ecc4947d3d91df6a47))
+
 # [5.25.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.8...v5.25.0-dev.9) (2025-05-26)
 
 

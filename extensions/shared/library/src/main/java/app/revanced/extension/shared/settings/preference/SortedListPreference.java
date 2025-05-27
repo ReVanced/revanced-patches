@@ -60,8 +60,9 @@ public class SortedListPreference extends ListPreference {
             }
         }
 
+        //noinspection ComparatorCombinators
         Collections.sort(lastEntries, (pair1, pair2)
-                -> pair1.first.compareToIgnoreCase(pair2.first));
+                -> pair1.first.compareTo(pair2.first));
 
         CharSequence[] sortedEntries = new CharSequence[entrySize];
         CharSequence[] sortedEntryValues = new CharSequence[entrySize];
