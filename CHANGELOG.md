@@ -1,3 +1,11 @@
+# [5.25.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.10...v5.25.0-dev.11) (2025-05-27)
+
+
+### Features
+
+* **YouTube - Enable debugging:** Add settings menu to share debug logs ([#5021](https://github.com/ReVanced/revanced-patches/issues/5021)) ([1ec4a88](https://github.com/ReVanced/revanced-patches/commit/1ec4a88464a2a2810c02cf072950b618d183779a))
+* **YouTube:** Add `Disable haptic feedback` patch ([#5033](https://github.com/ReVanced/revanced-patches/issues/5033)) ([bbe7974](https://github.com/ReVanced/revanced-patches/commit/bbe79744a513c96f9016476e8435f999e94c45d7))
+
 # [5.25.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.9...v5.25.0-dev.10) (2025-05-27)
 
 
