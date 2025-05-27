@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
 import app.revanced.util.addInstructionsAtControlFlowLabel
@@ -113,6 +114,12 @@ val lithoFilterPatch = bytecodePatch(
 
         // region Hook the method that parses bytes into a ComponentContext.
 
+        // 20.20+ has combined the two methods together,
+        // and the sub parser fingerprint identifies the method to patch.
+        val contextParserMethodToModifyFingerprint =
+            if (is_20_20_or_greater) componentContextSubParserFingerprint
+            else componentContextParserFingerprint
+
         // Allow the method to run to completion, and override the
         // return value with an empty component if it should be filtered.
         // It is important to allow the original code to always run to completion,
@@ -126,11 +133,11 @@ val lithoFilterPatch = bytecodePatch(
         // Instead save the extension filter result to a thread local and check the
         // filtering result at each method return index.
         // String field for the litho identifier.
-        componentContextParserFingerprint.method.apply {
+        contextParserMethodToModifyFingerprint.method.apply {
             val conversionContextClass = conversionContextFingerprintToString.originalClassDef
 
             val conversionContextIdentifierField = componentContextSubParserFingerprint.match(
-                componentContextParserFingerprint.originalClassDef
+                contextParserMethodToModifyFingerprint.originalClassDef
             ).let {
                 // Identifier field is loaded just before the string declaration.
                 val index = it.method.indexOfFirstInstructionReversedOrThrow(

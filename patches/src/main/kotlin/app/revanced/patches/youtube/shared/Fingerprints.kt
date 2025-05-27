@@ -2,10 +2,12 @@ package app.revanced.patches.youtube.shared
 
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -45,9 +47,11 @@ internal val autoRepeatParentFingerprint by fingerprint {
 internal val layoutConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
-    parameters()
     instructions(
-        string("1.0x"),
+        literal(159962),
+        resourceLiteral("id", "player_control_previous_button_touch_area"),
+        resourceLiteral("id", "player_control_next_button_touch_area"),
+        methodCall(parameters = listOf("Landroid/view/View;", "I"))
     )
 }
 
@@ -129,6 +133,5 @@ internal val newVideoQualityChangedFingerprint by fingerprint {
         opcode(Opcode.IGET_OBJECT),
         opcode(Opcode.CHECK_CAST),
         fieldAccess(type = "I", opcode = Opcode.IGET, maxAfter = 0), // Video resolution (human readable).
-        fieldAccess(type = "Ljava/lang/String;", opcode = Opcode.IGET_OBJECT, maxAfter = 0),
     )
 }

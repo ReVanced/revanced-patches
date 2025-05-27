@@ -10,11 +10,10 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.interaction.seekbar.disableFastForwardNoticeFingerprint
+import app.revanced.patches.youtube.interaction.seekbar.customTapAndHoldFingerprint
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
@@ -24,7 +23,8 @@ import app.revanced.patches.youtube.misc.recyclerviewtree.hook.addRecyclerViewTr
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.recyclerViewTreeHookPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.speed.settingsMenuVideoSpeedGroup
-import app.revanced.util.*
+import app.revanced.util.indexOfFirstLiteralInstruction
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
@@ -164,8 +164,8 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // region Custom tap and hold 2x speed.
 
         if (is_19_25_or_greater) {
-            disableFastForwardNoticeFingerprint.method.apply {
-                val index = indexOfFirstLiteralInstruction(2.0f)
+            customTapAndHoldFingerprint.method.apply {
+                val index = indexOfFirstLiteralInstructionOrThrow(2.0f)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(
