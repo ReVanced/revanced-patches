@@ -130,10 +130,10 @@ private val customThemeBytecodePatch = bytecodePatch {
         // Hijacks a util method that removes alpha to replace hardcoded accent colors
         removeAlphaFingerprint.match(miscUtilsFingerprint.classDef).method.apply {
             addInstructions(0, """
-                invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentColor(J)J
+                invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(J)J
                 move-result-wide p0
 
-                invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentPressedColor(J)J
+                invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(J)J
                 move-result-wide p0
             """)
         }
@@ -147,7 +147,7 @@ private val customThemeBytecodePatch = bytecodePatch {
             }
             val resultRegister = getInstruction<OneRegisterInstruction>(invokeIdx + 1).registerA
             addInstructions(invokeIdx + 2, """
-                invoke-static/range { v$resultRegister .. v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentColor(I)I
+                invoke-static/range { v$resultRegister .. v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I
                 move-result v$resultRegister
             """)
         }
@@ -157,7 +157,7 @@ private val customThemeBytecodePatch = bytecodePatch {
             val idx = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT)
             val resultRegister = getInstruction<OneRegisterInstruction>(idx).registerA
             addInstructions(idx + 1, """
-                invoke-static { v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceAccentColor(I)I
+                invoke-static { v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I
                 move-result v$resultRegister
             """)
         }

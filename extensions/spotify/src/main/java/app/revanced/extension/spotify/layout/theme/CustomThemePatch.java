@@ -8,8 +8,8 @@ import app.revanced.extension.shared.Utils;
 @SuppressWarnings("unused")
 public final class CustomThemePatch {
 
-    private static final long ACCENT = getThemeColor("@color/spotify_green_157");
-    private static final long ACCENT_PRESSED = getThemeColor("@color/dark_brightaccent_background_press");
+    private static final int ACCENT = (int)getThemeColor("@color/spotify_green_157");
+    private static final int ACCENT_PRESSED = (int)getThemeColor("@color/dark_brightaccent_background_press");
 
     /**
      * Injection point.
@@ -23,20 +23,20 @@ public final class CustomThemePatch {
         }
     }
 
-    public static long replaceAccentColor(long color) {
-        // Some lottie animations have a color that's slightly off due to rounding errors
-        return color == 0xff1ed760L || color == 0xff1ed75fL
-                // Intermediate color used in some animations, same rounding issue
-                || color == 0xff1db954L || color == 0xff1cb854L
-                ? ACCENT
-                : color;
+    public static long replaceColor(long color) {
+        return replaceColor((int)color);
     }
 
-    public static int replaceAccentColor(int color) {
-        return (int)replaceAccentColor(Integer.toUnsignedLong(color));
-    }
+    public static int replaceColor(int color) {
+        return switch (color) {
+            case 0xff1ed760, 0xff1ed75f, // Some lottie animations have a color that's slightly off due to rounding errors
+                 0xff1db954, 0xff1cb854  // Intermediate color used in some animations, same rounding issue
+                -> ACCENT;
 
-    public static long replaceAccentPressedColor(long color) {
-        return color == 0xff1abc54L ? ACCENT_PRESSED : color;
+            case 0xff1abc54
+                -> ACCENT_PRESSED;
+
+            default -> color;
+        };
     }
 }
