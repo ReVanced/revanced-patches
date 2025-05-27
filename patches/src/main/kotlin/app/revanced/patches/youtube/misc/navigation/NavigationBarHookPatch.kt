@@ -12,6 +12,8 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_21_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -37,8 +39,9 @@ lateinit var hookNavigationButtonCreated: (String) -> Unit
 val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navigation or search bar.") {
     dependsOn(
         sharedExtensionPatch,
+        versionCheckPatch,
         playerTypeHookPatch, // Required to detect the search bar in all situations.
-        resourceMappingPatch // Used by fingerprints
+        resourceMappingPatch, // Used by fingerprints
     )
 
     execute {
@@ -74,7 +77,17 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
                 )
             }
 
-            val imageResourceTabMethod = pivotBarButtonsCreateResourceViewFingerprint.originalMethod
+            if (is_20_21_or_greater) {
+                val imageResourceIntTabMethod = pivotBarButtonsCreateResourceIntViewFingerprint.originalMethod
+                addHook(NavigationHook.NAVIGATION_TAB_LOADED) predicate@{
+                    MethodUtil.methodSignaturesMatch(
+                        getReference<MethodReference>() ?: return@predicate false,
+                        imageResourceIntTabMethod,
+                    )
+                }
+            }
+
+            val imageResourceTabMethod = pivotBarButtonsCreateResourceStyledViewFingerprint.originalMethod
             addHook(NavigationHook.NAVIGATION_IMAGE_RESOURCE_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,

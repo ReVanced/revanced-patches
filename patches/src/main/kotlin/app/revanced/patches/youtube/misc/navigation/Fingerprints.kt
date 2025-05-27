@@ -94,17 +94,30 @@ internal val pivotBarButtonsCreateDrawableViewFingerprint by fingerprint {
     returns("Landroid/view/View;")
     custom { method, _ ->
         method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
-            // Only one method has a Drawable parameter.
+            // Only one view creation method has a Drawable parameter.
             method.parameterTypes.firstOrNull() == "Landroid/graphics/drawable/Drawable;"
     }
 }
 
-internal val pivotBarButtonsCreateResourceViewFingerprint by fingerprint {
+internal val pivotBarButtonsCreateResourceStyledViewFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("L", "Z", "I", "L")
     custom { method, _ ->
         method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
+    }
+}
+
+/**
+ * 20.21+
+ */
+internal val pivotBarButtonsCreateResourceIntViewFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Landroid/view/View;")
+    custom { method, _ ->
+        method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
+            // Only one view creation method has an int first parameter.
+            method.parameterTypes.firstOrNull() == "I"
     }
 }
 
