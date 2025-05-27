@@ -31,14 +31,13 @@ val renamePermissionsPatch = resourcePatch(
             val permissions = manifest
                 .getElementsByTagName("permission")
                 .asSequence()
-                .map { it as Element }
-                .filter { it.getAttribute("android:name") in permissionNames }
+                .map { Pair(it as Element, it.getAttribute("android:name")) }
+                .filter { (_, name) -> name in permissionNames }
 
             if (permissions.none()) throw PatchException("Could not find any permissions to rename")
 
-            permissions.forEach {
-                val name = it.getAttribute("android:name")
-                it.setAttribute("android:name", "revanced.$name")
+            permissions.forEach { (element, name) ->
+                element.setAttribute("android:name", "revanced.$name")
             }
         }
     }
