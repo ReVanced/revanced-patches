@@ -1,7 +1,7 @@
-package app.revanced.patches.youtube.misc.zoomhaptics
+package app.revanced.patches.youtube.player.zoomhaptics
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.misc.hapticfeedback.disableHapticFeedbackPatch
+import app.revanced.patches.youtube.player.hapticfeedback.disableHapticFeedbackPatch
 
 @Deprecated("Superseded by disableHapticFeedbackPatch", ReplaceWith("disableHapticFeedbackPatch"))
 val zoomHapticsPatch = bytecodePatch(

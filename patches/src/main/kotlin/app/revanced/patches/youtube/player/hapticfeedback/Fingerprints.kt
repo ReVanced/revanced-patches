@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.hapticfeedback
+package app.revanced.patches.youtube.player.hapticfeedback
 
 import app.revanced.patcher.fingerprint
 

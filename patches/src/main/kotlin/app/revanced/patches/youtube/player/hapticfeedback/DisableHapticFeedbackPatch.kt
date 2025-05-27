@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.hapticfeedback
+package app.revanced.patches.youtube.player.hapticfeedback
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -37,7 +37,7 @@ val disableHapticFeedbackPatch = bytecodePatch(
     )
 
     execute {
-        addResources("youtube", "misc.hapticfeedback.disableHapticFeedbackPatch")
+        addResources("youtube", "player.hapticfeedback.disableHapticFeedbackPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreenPreference(
