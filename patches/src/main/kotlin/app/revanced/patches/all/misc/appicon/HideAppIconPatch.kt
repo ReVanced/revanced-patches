@@ -12,44 +12,32 @@ val hideAppIconPatch = resourcePatch(
 ) {
     execute {
         document("AndroidManifest.xml").use { document ->
-            val intentFilters = document.getElementsByTagName("intent-filter")
-            var modified = false
+            var changed = false
 
+            val intentFilters = document.getElementsByTagName("intent-filter")
             for (i in 0 until intentFilters.length) {
                 val node = intentFilters.item(i) as? Element ?: continue
                 var hasMainAction = false
                 var launcherCategory: Element? = null
 
-                val nodeChildren = node.childNodes
-                for (j in 0 until nodeChildren.length) {
-                    val child = nodeChildren.item(j) as? Element ?: continue
+                val children = node.childNodes
+                for (j in 0 until children.length) {
+                    val child = children.item(j) as? Element ?: continue
                     when (child.tagName) {
-                        "action" -> {
-                            if (child.getAttribute("android:name") == "android.intent.action.MAIN") {
-                                hasMainAction = true
-                            }
-                        }
-                        "category" -> {
-                            if (child.getAttribute("android:name") == "android.intent.category.LAUNCHER") {
-                                launcherCategory = child
-                            }
-                        }
+                        "action" -> if (child.getAttribute("android:name") == "android.intent.action.MAIN") hasMainAction = true
+                        "category" -> if (child.getAttribute("android:name") == "android.intent.category.LAUNCHER") launcherCategory = child
                     }
                 }
 
                 if (hasMainAction && launcherCategory != null) {
                     launcherCategory.setAttribute("android:name", "android.intent.category.DEFAULT")
-                    modified = true
+                    changed = true
                 }
             }
 
-            if (!modified) {
-                Logger.getLogger(this::class.java.name).warning(
-                    "No modifications made: Did not find any launcher intent-filters to modify."
-                )
+            if (!changed) {
+                Logger.getLogger(this::class.java.name).warning("No changes made: Did not find any launcher intent-filters to change.")
             }
         }
     }
 }
-
-
