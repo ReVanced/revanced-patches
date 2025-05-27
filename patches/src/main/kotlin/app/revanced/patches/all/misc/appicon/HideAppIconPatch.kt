@@ -45,7 +45,7 @@ val hideAppIconPatch = resourcePatch(
 
             if (!modified) {
                 Logger.getLogger(this::class.java.name).warning(
-                    "Did not find any launcher intent-filters to modify. No changes applied."
+                    "No modifications made: Did not find any launcher intent-filters to modify."
                 )
             }
         }
