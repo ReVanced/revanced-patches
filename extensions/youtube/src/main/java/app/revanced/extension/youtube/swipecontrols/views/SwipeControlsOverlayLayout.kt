@@ -208,14 +208,15 @@ class SwipeControlsOverlayLayout(
             showFeedbackView(displayText, 0, 100, autoBrightnessIcon, isBrightness = true)
         } else {
             val brightnessValue = round(brightness).toInt()
+            val clampedProgress = max(0, brightnessValue)
             val icon = when {
-                brightnessValue < 25 -> lowBrightnessIcon
-                brightnessValue < 50 -> mediumBrightnessIcon
-                brightnessValue < 75 -> highBrightnessIcon
+                clampedProgress < 25 -> lowBrightnessIcon
+                clampedProgress < 50 -> mediumBrightnessIcon
+                clampedProgress < 75 -> highBrightnessIcon
                 else -> fullBrightnessIcon
             }
-            val displayText = if (config.overlayStyle.isVertical) "$brightnessValue" else "$brightnessValue%"
-            showFeedbackView(displayText, brightnessValue, 100, icon, isBrightness = true)
+            val displayText = if (config.overlayStyle.isVertical) "$clampedProgress" else "$clampedProgress%"
+            showFeedbackView(displayText, clampedProgress, 100, icon, isBrightness = true)
         }
     }
 
