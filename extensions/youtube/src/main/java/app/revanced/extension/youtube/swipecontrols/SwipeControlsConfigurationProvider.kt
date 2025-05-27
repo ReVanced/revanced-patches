@@ -124,8 +124,12 @@ class SwipeControlsConfigurationProvider {
             val color = Color.parseColor(setting.get())
             return (0xBF000000.toInt() or (color and 0xFFFFFF))
         } catch (ex: IllegalArgumentException) {
-            Logger.printDebug({ "Could not parse brightness color" }, ex)
-            Utils.showToastLong(str("revanced_swipe_overlay_progress_color_invalid_toast"))
+            // This code should never be reached.
+            // Color picker rejects and will not save bad colors to a setting.
+            // If a user imports bad data, the color picker preference resets the
+            // bad color before this method can be called.
+            Logger.printDebug({ "Could not parse color: $setting" }, ex)
+            Utils.showToastLong(str("revanced_settings_color_invalid"))
             setting.resetToDefault()
             return getSettingColor(setting) // Recursively return.
         }
@@ -162,6 +166,7 @@ class SwipeControlsConfigurationProvider {
      * @property isCircular Indicates whether the style uses a circular progress bar.
      * @property isVertical Indicates whether the style uses a vertical progress bar.
      */
+    @Suppress("unused")
     enum class SwipeOverlayStyle(
         val isMinimal: Boolean = false,
         val isHorizontalMinimalCenter: Boolean = false,
