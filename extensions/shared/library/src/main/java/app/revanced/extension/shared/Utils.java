@@ -363,15 +363,17 @@ public class Utils {
 
     public static Context getContext() {
         if (context == null) {
-            Logger.initializationException(Utils.class, "Context is not set by extension hook, returning null",  null);
+            Logger.initializationException(() -> "Context is not set by extension hook, returning null",  null);
         }
         return context;
     }
 
     public static void setContext(Context appContext) {
+        // Intentionally use logger before context is set,
+        // to expose any bugs in the 'no context available' logger method.
+        Logger.initializationInfo(() -> "Set context: " + appContext);
         // Must initially set context to check the app language.
         context = appContext;
-        Logger.initializationInfo(Utils.class, "Set context: " + appContext);
 
         AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
         if (language != AppLanguage.DEFAULT) {
@@ -383,8 +385,9 @@ public class Utils {
         }
     }
 
-    public static void setClipboard(@NonNull String text) {
-        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+    public static void setClipboard(CharSequence text) {
+        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context
+                .getSystemService(Context.CLIPBOARD_SERVICE);
         android.content.ClipData clip = android.content.ClipData.newPlainText("ReVanced", text);
         clipboard.setPrimaryClip(clip);
     }
@@ -548,14 +551,15 @@ public class Utils {
     private static void showToast(@NonNull String messageToToast, int toastDuration) {
         Objects.requireNonNull(messageToToast);
         runOnMainThreadNowOrLater(() -> {
-                    if (context == null) {
-                        Logger.initializationException(Utils.class, "Cannot show toast (context is null): " + messageToToast, null);
-                    } else {
-                        Logger.printDebug(() -> "Showing toast: " + messageToToast);
-                        Toast.makeText(context, messageToToast, toastDuration).show();
-                    }
-                }
-        );
+            Context currentContext = context;
+
+            if (currentContext == null) {
+                Logger.initializationException(() -> "Cannot show toast (context is null): " + messageToToast, null);
+            } else {
+                Logger.printDebug(() -> "Showing toast: " + messageToToast);
+                Toast.makeText(currentContext, messageToToast, toastDuration).show();
+            }
+        });
     }
 
     public static boolean isDarkModeEnabled() {
@@ -579,7 +583,7 @@ public class Utils {
     }
 
     /**
-     * Automatically logs any exceptions the runnable throws
+     * Automatically logs any exceptions the runnable throws.
      */
     public static void runOnMainThreadDelayed(@NonNull Runnable runnable, long delayMillis) {
         Runnable loggingRunnable = () -> {
@@ -605,14 +609,14 @@ public class Utils {
     }
 
     /**
-     * @return if the calling thread is on the main thread
+     * @return if the calling thread is on the main thread.
      */
     public static boolean isCurrentlyOnMainThread() {
         return Looper.getMainLooper().isCurrentThread();
     }
 
     /**
-     * @throws IllegalStateException if the calling thread is _off_ the main thread
+     * @throws IllegalStateException if the calling thread is _off_ the main thread.
      */
     public static void verifyOnMainThread() throws IllegalStateException {
         if (!isCurrentlyOnMainThread()) {
@@ -621,7 +625,7 @@ public class Utils {
     }
 
     /**
-     * @throws IllegalStateException if the calling thread is _on_ the main thread
+     * @throws IllegalStateException if the calling thread is _on_ the main thread.
      */
     public static void verifyOffMainThread() throws IllegalStateException {
         if (isCurrentlyOnMainThread()) {
@@ -635,6 +639,11 @@ public class Utils {
         OTHER,
     }
 
+    /**
+     * Calling extension code must ensure the un-patched app has the permission
+     * <code>android.permission.ACCESS_NETWORK_STATE</code>, otherwise the app will crash
+     * if this method is used.
+     */
     public static boolean isNetworkConnected() {
         NetworkType networkType = getNetworkType();
         return networkType == NetworkType.MOBILE
@@ -642,10 +651,11 @@ public class Utils {
     }
 
     /**
-     * Calling extension code must ensure the target app has the
-     * <code>ACCESS_NETWORK_STATE</code> app manifest permission.
+     * Calling extension code must ensure the un-patched app has the permission
+     * <code>android.permission.ACCESS_NETWORK_STATE</code>, otherwise the app will crash
+     * if this method is used.
      */
-    @SuppressWarnings({"deprecation", "MissingPermission"})
+    @SuppressLint({"MissingPermission", "deprecation"})
     public static NetworkType getNetworkType() {
         Context networkContext = getContext();
         if (networkContext == null) {
@@ -782,8 +792,9 @@ public class Utils {
             preferences.add(new Pair<>(sortValue, preference));
         }
 
+        //noinspection ComparatorCombinators
         Collections.sort(preferences, (pair1, pair2)
-                -> pair1.first.compareToIgnoreCase(pair2.first));
+                -> pair1.first.compareTo(pair2.first));
 
         int index = 0;
         for (Pair<String, Preference> pair : preferences) {

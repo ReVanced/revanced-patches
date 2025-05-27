@@ -175,6 +175,11 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
             <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
             <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
+            <string name="revanced_debug_protobuffer_user_dialog_message">"Enabling this setting will log additional layout data, including on-screen text for some UI components.
+
+This can help identify components when creating custom filters.
+
+However, enabling this will also log some user data such as your IP address."</string>
             <string name="revanced_debug_stacktrace_title">Log stack traces</string>
             <string name="revanced_debug_stacktrace_summary_on">Debug logs include stack trace</string>
             <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
@@ -184,6 +189,15 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_debug_toast_on_error_user_dialog_message">"Turning off error toasts hides all ReVanced error notifications.
 
 You will not be notified of any unexpected events."</string>
+            <string name="revanced_debug_export_logs_to_clipboard_title">Export debug logs</string>
+            <string name="revanced_debug_export_logs_to_clipboard_summary">Copies ReVanced debug logs to the clipboard</string>
+            <string name="revanced_debug_logs_disabled">Debug logging is disabled</string>
+            <string name="revanced_debug_logs_none_found">No logs found</string>
+            <string name="revanced_debug_logs_copied_to_clipboard">Logs copied</string>
+            <string name="revanced_debug_logs_failed_to_export">Failed to export logs: $s</string>
+            <string name="revanced_debug_logs_clear_buffer_title">Clear debug logs</string>
+            <string name="revanced_debug_logs_clear_buffer_summary">Clears all stored ReVanced debug logs</string>
+            <string name="revanced_debug_logs_clear_toast">Logs cleared</string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <string name="revanced_hide_album_cards_title">Hide album cards</string>
