@@ -161,6 +161,11 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_settings_search_history_summary_on">Settings search history is shown</string>
             <string name="revanced_settings_search_history_summary_off">Settings search history is not shown</string>
         </patch>
+        <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+            <string name="revanced_shorts_disable_background_playback_title">Disable Shorts background play</string>
+            <string name="revanced_shorts_disable_background_playback_summary_on">Shorts background play is disabled</string>
+            <string name="revanced_shorts_disable_background_playback_summary_off">Shorts background play is enabled</string>
+        </patch>
         <patch id="misc.debugging.enableDebuggingPatch">
             <string name="revanced_debug_screen_title">Debugging</string>
             <string name="revanced_debug_screen_summary">Enable or disable debugging options</string>
@@ -170,6 +175,11 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
             <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
             <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
+            <string name="revanced_debug_protobuffer_user_dialog_message">"Enabling this setting will log additional layout data, including on-screen text for some UI components.
+
+This can help identify components when creating custom filters.
+
+However, enabling this will also log some user data such as your IP address."</string>
             <string name="revanced_debug_stacktrace_title">Log stack traces</string>
             <string name="revanced_debug_stacktrace_summary_on">Debug logs include stack trace</string>
             <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
@@ -179,201 +189,17 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_debug_toast_on_error_user_dialog_message">"Turning off error toasts hides all ReVanced error notifications.
 
 You will not be notified of any unexpected events."</string>
+            <string name="revanced_debug_export_logs_to_clipboard_title">Export debug logs</string>
+            <string name="revanced_debug_export_logs_to_clipboard_summary">Copies ReVanced debug logs to the clipboard</string>
+            <string name="revanced_debug_logs_disabled">Debug logging is disabled</string>
+            <string name="revanced_debug_logs_none_found">No logs found</string>
+            <string name="revanced_debug_logs_copied_to_clipboard">Logs copied</string>
+            <string name="revanced_debug_logs_failed_to_export">Failed to export logs: $s</string>
+            <string name="revanced_debug_logs_clear_buffer_title">Clear debug logs</string>
+            <string name="revanced_debug_logs_clear_buffer_summary">Clears all stored ReVanced debug logs</string>
+            <string name="revanced_debug_logs_clear_toast">Logs cleared</string>
         </patch>
-        <patch id="misc.announcements.announcementsPatch">
-            <string name="revanced_announcements_title">Show ReVanced announcements</string>
-            <string name="revanced_announcements_summary_on">Announcements on startup are shown</string>
-            <string name="revanced_announcements_summary_off">Announcements on startup are not shown</string>
-            <string name="revanced_announcements_enabled_summary">Show announcements on startup</string>
-            <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
-            <string name="revanced_announcements_dialog_dismiss">Dismiss</string>
-        </patch>
-        <patch id="misc.autorepeat.autoRepeatPatch">
-            <string name="revanced_auto_repeat_title">Enable auto-repeat</string>
-            <string name="revanced_auto_repeat_summary_on">Auto-repeat is enabled</string>
-            <string name="revanced_auto_repeat_summary_off">Auto-repeat is disabled</string>
-        </patch>
-        <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-            <string name="revanced_shorts_disable_background_playback_title">Disable Shorts background play</string>
-            <string name="revanced_shorts_disable_background_playback_summary_on">Shorts background play is disabled</string>
-            <string name="revanced_shorts_disable_background_playback_summary_off">Shorts background play is enabled</string>
-        </patch>
-        <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
-            <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
-            <string name="revanced_spoof_device_dimensions_summary_on">"Device dimensions spoofed
-
-Higher video qualities might be unlocked but you may experience video playback stuttering, worse battery life, and unknown side effects"</string>
-            <string name="revanced_spoof_device_dimensions_summary_off">"Device dimensions not spoofed
-
-Enabling this can unlock higher video qualities"</string>
-            <string name="revanced_spoof_device_dimensions_user_dialog_message">Enabling this can cause video playback stuttering, worse battery life, and unknown side effects.</string>
-        </patch>
-        <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-            <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
-            <string name="revanced_check_watch_history_domain_name_dialog_message">Your watch history is not being saved.&lt;br>&lt;br>This most likely is caused by a DNS ad blocker or network proxy.&lt;br>&lt;br>To fix this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off all DNS blockers and proxies.</string>
-            <string name="revanced_check_watch_history_domain_name_dialog_ignore">Do not show again</string>
-        </patch>
-        <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-            <string name="revanced_spoof_video_streams_screen_title">Spoof video streams</string>
-            <string name="revanced_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
-            <string name="revanced_spoof_video_streams_title">Spoof video streams</string>
-            <string name="revanced_spoof_video_streams_summary_on">Video streams are spoofed</string>
-            <string name="revanced_spoof_video_streams_summary_off">"Video streams are not spoofed
-
-Video playback may not work"</string>
-            <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video playback issues.</string>
-            <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
-            <string name="revanced_spoof_video_streams_ios_force_avc_title">Force iOS AVC (H.264)</string>
-            <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video codec is forced to AVC (H.264)</string>
-            <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video codec is determined automatically</string>
-            <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Enabling this might improve battery life and fix playback stuttering.
-
-AVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1."</string>
-            <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Movies or paid videos may not play
-• Stable volume is not available
-• Videos end 1 second early"</string>
-            <string name="revanced_spoof_video_streams_about_android_title">Android spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_android_summary">"• Audio track menu is missing
-• Stable volume is not available
-• Force original audio is not available"</string>
-            <string name="revanced_spoof_video_streams_about_no_av1">• No AV1 video codec</string>
-            <string name="revanced_spoof_video_streams_about_kids_videos">• Kids videos may not play when logged out or in incognito mode</string>
-            <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
-            <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
-            <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
-            <string name="revanced_spoof_video_streams_language_title">VR default audio stream language</string>
-        </patch>
-        <patch id="misc.gms.gmsCoreSupportResourcePatch">
-            <string name="microg_settings_title">GmsCore Settings</string>
-            <string name="microg_settings_summary">Settings for GmsCore</string>
-        </patch>
-        <patch id="misc.gms.accountCredentialsInvalidTextPatch">
-            <string name="microg_offline_account_login_error">If you recently changed your account login details, then uninstall and reinstall MicroG.</string>
-        </patch>
-        <patch id="misc.links.bypassURLRedirectsPatch">
-            <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>
-            <string name="revanced_bypass_url_redirects_summary_on">URL redirects are bypassed</string>
-            <string name="revanced_bypass_url_redirects_summary_off">URL redirects are not bypassed</string>
-        </patch>
-        <patch id="misc.links.openLinksExternallyPatch">
-            <string name="revanced_external_browser_title">Open links in browser</string>
-            <string name="revanced_external_browser_summary_on">Opening links in external browser</string>
-            <string name="revanced_external_browser_summary_off">Opening links in in-app browser</string>
-        </patch>
-        <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-            <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
-            <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking query parameter is removed from links</string>
-            <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking query parameter is not removed from links</string>
-        </patch>
-        <patch id="misc.theme.themePatch">
-            <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
-            <string name="revanced_gradient_loading_screen_summary_on">Loading screen will have a gradient background</string>
-            <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background</string>
-            <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
-            <string name="revanced_seekbar_custom_color_summary_on">Custom seekbar color is shown</string>
-            <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>
-            <string name="revanced_seekbar_custom_color_primary_title">Custom seekbar color</string>
-            <string name="revanced_seekbar_custom_color_primary_summary">The color of the seekbar</string>
-            <string name="revanced_seekbar_custom_color_accent_title">Custom seekbar accent color</string>
-            <string name="revanced_seekbar_custom_color_accent_summary">The accent color of the seekbar</string>
-            <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value</string>
-        </patch>
-        <patch id="ads.general.hideAdsResourcePatch">
-            <string name="revanced_hide_general_ads_title">Hide general ads</string>
-            <string name="revanced_hide_general_ads_summary_on">General ads are hidden</string>
-            <string name="revanced_hide_general_ads_summary_off">General ads are shown</string>
-            <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
-            <string name="revanced_hide_fullscreen_ads_summary_on">"Fullscreen ads are hidden
-
-This feature is only available for older devices"</string>
-            <string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown</string>
-            <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
-            <string name="revanced_hide_paid_promotion_label_summary_on">Paid promotion label is hidden</string>
-            <string name="revanced_hide_paid_promotion_label_summary_off">Paid promotion label is shown</string>
-            <string name="revanced_hide_self_sponsor_ads_title">Hide self sponsored cards</string>
-            <string name="revanced_hide_self_sponsor_ads_summary_on">Self sponsored cards are hidden</string>
-            <string name="revanced_hide_self_sponsor_ads_summary_off">Self sponsored cards are shown</string>
-            <string name="revanced_hide_products_banner_title">Hide \'View products\' banner</string>
-            <string name="revanced_hide_products_banner_summary_on">Banner is hidden</string>
-            <string name="revanced_hide_products_banner_summary_off">Banner is shown</string>
-            <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
-            <string name="revanced_hide_end_screen_store_banner_summary_on">Store banner is hidden</string>
-            <string name="revanced_hide_end_screen_store_banner_summary_off">Store banner is shown</string>
-            <string name="revanced_hide_player_store_shelf_title">Hide player shopping shelf</string>
-            <string name="revanced_hide_player_store_shelf_summary_on">Shopping shelf is hidden</string>
-            <string name="revanced_hide_player_store_shelf_summary_off">Shopping shelf is shown</string>
-            <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
-            <string name="revanced_hide_shopping_links_summary_on">Shopping links in video description are hidden</string>
-            <string name="revanced_hide_shopping_links_summary_off">Shopping links in video description are shown</string>
-            <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
-            <string name="revanced_hide_visit_store_button_summary_on">Button in channel page is hidden</string>
-            <string name="revanced_hide_visit_store_button_summary_off">Button in channel page is shown</string>
-            <string name="revanced_hide_web_search_results_title">Hide web search results</string>
-            <string name="revanced_hide_web_search_results_summary_on">Web search results are hidden</string>
-            <string name="revanced_hide_web_search_results_summary_off">Web search results are shown</string>
-            <string name="revanced_hide_merchandise_banners_title">Hide merchandise banners</string>
-            <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
-            <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Hide fullscreen ads only works with older devices</string>
-        </patch>
-        <patch id="ads.getpremium.hideGetPremiumPatch">
-            <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotions</string>
-            <string name="revanced_hide_get_premium_summary_on">YouTube Premium promotions under video player are hidden</string>
-            <string name="revanced_hide_get_premium_summary_off">YouTube Premium promotions under video player are shown</string>
-        </patch>
-        <patch id="ads.video.videoAdsPatch">
-            <string name="revanced_hide_video_ads_title">Hide video ads</string>
-            <string name="revanced_hide_video_ads_summary_on">Video ads are hidden</string>
-            <string name="revanced_hide_video_ads_summary_off">Video ads are shown</string>
-        </patch>
-        <patch id="alernativethumbnails.alternativeThumbnailsPatch">
-            <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-            <string name="revanced_alt_thumbnail_home_title">Home tab</string>
-            <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-            <string name="revanced_alt_thumbnail_subscription_title">Subscription tab</string>
-            <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-            <string name="revanced_alt_thumbnail_library_title">You tab</string>
-            <string name="revanced_alt_thumbnail_player_title">Player playlists, recommendations</string>
-            <string name="revanced_alt_thumbnail_search_title">Search results</string>
-            <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
-            <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Original thumbnails</string>
-            <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Still captures</string>
-            <string name="revanced_alt_thumbnail_options_entry_4">Still captures</string>
-            <string name="revanced_alt_thumbnail_dearrow_about_title" translatable="false">DeArrow</string>
-            <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowdsourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube
-
-If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown
-
-Tap here to learn more about DeArrow"</string>
-            <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is not available</string>
-            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is not available</string>
-            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is not shown if DeArrow is not available</string>
-            <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
-            <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint</string>
-            <string name="revanced_alt_thumbnail_stills_about_title">Still video captures</string>
-            <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning/middle/end of each video. These images are built into YouTube and no external API is used</string>
-            <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
-            <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails</string>
-            <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures</string>
-            <string name="revanced_alt_thumbnail_stills_time_title">Video time to take still captures from</string>
-            <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
-            <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
-            <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-            <string name="revanced_alt_thumbnail_dearrow_error">DeArrow is temporarily not available (status code: %s)</string>
-            <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow is temporarily not available</string>
-        </patch>
-        <patch id="alernativethumbnails.bypassImageRegionRestrictionsPatch">
-            <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
-            <string name="revanced_bypass_image_region_restrictions_summary_on">Using image host yt4.ggpht.com</string>
-            <string name="revanced_bypass_image_region_restrictions_summary_off">"Using original image host
-
-Enabling this can fix missing images that are blocked in some regions"</string>
-        </patch>
-        <patch id="feed.hidelayoutcomponents.hideLayoutComponentsPatch">
+        <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <string name="revanced_hide_album_cards_title">Hide album cards</string>
             <string name="revanced_hide_album_cards_summary_on">Album cards are hidden</string>
             <string name="revanced_hide_album_cards_summary_off">Album cards are shown</string>
@@ -608,27 +434,197 @@ Limitations
             <string name="revanced_hide_keyword_toast_invalid_length">Keyword is too short and requires quotes: %s</string>
             <string name="revanced_hide_keyword_toast_invalid_broad">Keyword will hide all videos: %s</string>
         </patch>
-        <patch id="feed.searchbar.wideSearchbarPatch">
-            <string name="revanced_wide_searchbar_title">Enable wide search bar</string>
-            <string name="revanced_wide_searchbar_summary_on">Wide search bar is enabled</string>
-            <string name="revanced_wide_searchbar_summary_off">Wide search bar is disabled</string>
-        </patch>
-        <patch id="general.formfactor.changeFormFactorPatch">
-            <string name="revanced_change_form_factor_title">Layout form factor</string>
-            <string name="revanced_change_form_factor_entry_1">Default</string>
-            <string name="revanced_change_form_factor_entry_2">Phone</string>
-            <string name="revanced_change_form_factor_entry_3">Tablet</string>
-            <string name="revanced_change_form_factor_entry_4">Automotive</string>
-            <string name="revanced_change_form_factor_user_dialog_message">"Changes include:
+        <patch id="ad.general.hideAdsResourcePatch">
+            <string name="revanced_hide_general_ads_title">Hide general ads</string>
+            <string name="revanced_hide_general_ads_summary_on">General ads are hidden</string>
+            <string name="revanced_hide_general_ads_summary_off">General ads are shown</string>
+            <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
+            <string name="revanced_hide_fullscreen_ads_summary_on">"Fullscreen ads are hidden
 
-Tablet layout
-• Community posts are hidden
-
-Automotive layout
-• Shorts open in the regular player
-• Feed is organized by topics and channels"</string>
+This feature is only available for older devices"</string>
+            <string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown</string>
+            <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
+            <string name="revanced_hide_paid_promotion_label_summary_on">Paid promotion label is hidden</string>
+            <string name="revanced_hide_paid_promotion_label_summary_off">Paid promotion label is shown</string>
+            <string name="revanced_hide_self_sponsor_ads_title">Hide self sponsored cards</string>
+            <string name="revanced_hide_self_sponsor_ads_summary_on">Self sponsored cards are hidden</string>
+            <string name="revanced_hide_self_sponsor_ads_summary_off">Self sponsored cards are shown</string>
+            <string name="revanced_hide_products_banner_title">Hide \'View products\' banner</string>
+            <string name="revanced_hide_products_banner_summary_on">Banner is hidden</string>
+            <string name="revanced_hide_products_banner_summary_off">Banner is shown</string>
+            <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
+            <string name="revanced_hide_end_screen_store_banner_summary_on">Store banner is hidden</string>
+            <string name="revanced_hide_end_screen_store_banner_summary_off">Store banner is shown</string>
+            <string name="revanced_hide_player_store_shelf_title">Hide player shopping shelf</string>
+            <string name="revanced_hide_player_store_shelf_summary_on">Shopping shelf is hidden</string>
+            <string name="revanced_hide_player_store_shelf_summary_off">Shopping shelf is shown</string>
+            <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
+            <string name="revanced_hide_shopping_links_summary_on">Shopping links in video description are hidden</string>
+            <string name="revanced_hide_shopping_links_summary_off">Shopping links in video description are shown</string>
+            <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
+            <string name="revanced_hide_visit_store_button_summary_on">Button in channel page is hidden</string>
+            <string name="revanced_hide_visit_store_button_summary_off">Button in channel page is shown</string>
+            <string name="revanced_hide_web_search_results_title">Hide web search results</string>
+            <string name="revanced_hide_web_search_results_summary_on">Web search results are hidden</string>
+            <string name="revanced_hide_web_search_results_summary_off">Web search results are shown</string>
+            <string name="revanced_hide_merchandise_banners_title">Hide merchandise banners</string>
+            <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
+            <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Hide fullscreen ads only works with older devices</string>
         </patch>
-        <patch id="general.navigationbuttons.navigationButtonsPatch">
+        <patch id="ad.getpremium.hideGetPremiumPatch">
+            <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotions</string>
+            <string name="revanced_hide_get_premium_summary_on">YouTube Premium promotions under video player are hidden</string>
+            <string name="revanced_hide_get_premium_summary_off">YouTube Premium promotions under video player are shown</string>
+        </patch>
+        <patch id="ad.video.videoAdsPatch">
+            <string name="revanced_hide_video_ads_title">Hide video ads</string>
+            <string name="revanced_hide_video_ads_summary_on">Video ads are hidden</string>
+            <string name="revanced_hide_video_ads_summary_off">Video ads are shown</string>
+        </patch>
+        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+            <string name="revanced_share_copy_url_success">URL copied to clipboard</string>
+            <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied</string>
+            <string name="revanced_copy_video_url_title">Show copy video URL button</string>
+            <string name="revanced_copy_video_url_summary_on">Button is shown. Tap to copy video URL. Tap and hold to copy with timestamp</string>
+            <string name="revanced_copy_video_url_summary_off">Button is not shown</string>
+            <string name="revanced_copy_video_url_timestamp_title">Show copy timestamp URL button</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">Button is shown. Tap to copy video URL with timestamp. Tap and hold to copy without timestamp</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">Button is not shown</string>
+        </patch>
+        <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+            <string name="revanced_remove_viewer_discretion_dialog_title">Remove viewer discretion dialog</string>
+            <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialog will be removed</string>
+            <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog will be shown</string>
+            <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction. It just accepts it automatically.</string>
+        </patch>
+        <patch id="interaction.downloads.downloadsResourcePatch">
+            <string name="revanced_external_downloader_screen_title">External downloads</string>
+            <string name="revanced_external_downloader_screen_summary">Settings for using an external downloader</string>
+            <string name="revanced_external_downloader_title">Show external download button</string>
+            <string name="revanced_external_downloader_summary_on">Download button in player is shown</string>
+            <string name="revanced_external_downloader_summary_off">Download button in player is not shown</string>
+            <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
+            <string name="revanced_external_downloader_action_button_title">Override Download action button</string>
+            <string name="revanced_external_downloader_action_button_summary_on">Download button opens your external downloader</string>
+            <string name="revanced_external_downloader_action_button_summary_off">Download button opens the native in-app downloader</string>
+            <string name="revanced_external_downloader_name_title">Downloader package name</string>
+            <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader app, such as NewPipe or Seal</string>
+            <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
+        </patch>
+        <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+            <string name="revanced_disable_precise_seeking_gesture_title">Disable precise seeking gesture</string>
+            <string name="revanced_disable_precise_seeking_gesture_summary_on">Gesture is disabled</string>
+            <string name="revanced_disable_precise_seeking_gesture_summary_off">Gesture is enabled</string>
+        </patch>
+        <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+            <string name="revanced_seekbar_tapping_title">Enable tap to seek</string>
+            <string name="revanced_seekbar_tapping_summary_on">Tap to seek is enabled</string>
+            <string name="revanced_seekbar_tapping_summary_off">Tap to seek is disabled</string>
+        </patch>
+        <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+            <string name="revanced_swipe_brightness_title">Enable brightness gesture</string>
+            <string name="revanced_swipe_brightness_summary_on">"Fullscreen brightness swipe is enabled
+
+Adjust brightness by swiping vertically on the left side of the screen"</string>
+            <string name="revanced_swipe_brightness_summary_off">Fullscreen brightness swipe is disabled</string>
+            <string name="revanced_swipe_volume_title">Enable volume gesture</string>
+            <string name="revanced_swipe_volume_summary_on">"Fullscreen volume swipe is enabled
+
+Adjust volume by swiping vertically on the right side of the screen"</string>
+            <string name="revanced_swipe_volume_summary_off">Fullscreen volume swipe is disabled</string>
+            <string name="revanced_swipe_press_to_engage_title">Enable press to swipe gesture</string>
+            <string name="revanced_swipe_press_to_engage_summary_on">Press to swipe is enabled</string>
+            <string name="revanced_swipe_press_to_engage_summary_off">Press to swipe is disabled</string>
+            <string name="revanced_swipe_haptic_feedback_title">Enable haptic feedback</string>
+            <string name="revanced_swipe_haptic_feedback_summary_on">Haptic feedback is enabled</string>
+            <string name="revanced_swipe_haptic_feedback_summary_off">Haptic feedback is disabled</string>
+            <string name="revanced_swipe_save_and_restore_brightness_title">Save and restore brightness</string>
+            <string name="revanced_swipe_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen</string>
+            <string name="revanced_swipe_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen</string>
+            <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Enable auto-brightness gesture</string>
+            <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Swiping down to the lowest value of the brightness gesture enable auto-brightness</string>
+            <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Swiping down to the lowest value does not enable auto-brightness</string>
+            <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
+            <string name="revanced_swipe_overlay_timeout_title">Swipe overlay timeout</string>
+            <string name="revanced_swipe_overlay_timeout_summary">The amount of milliseconds the overlay is visible</string>
+            <string name="revanced_swipe_overlay_background_opacity_title">Swipe overlay background opacity</string>
+            <string name="revanced_swipe_overlay_background_opacity_summary">Opacity value between 0-100</string>
+            <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Swipe opacity must be between 0-100</string>
+            <string name="revanced_swipe_overlay_progress_color_title">Swipe overlay progress bar color</string>
+            <string name="revanced_swipe_overlay_progress_color_summary">The color of the progress bar for volume and brightness controls</string>
+            <string name="revanced_swipe_overlay_progress_color_invalid_toast">Invalid progress bar color</string>
+            <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
+            <string name="revanced_swipe_text_overlay_size_summary">The text size for swipe overlay between 1-30</string>
+            <string name="revanced_swipe_text_overlay_size_invalid_toast">The text size must be between 1-30</string>
+            <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
+            <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
+            <string name="revanced_swipe_volume_sensitivity_title">Volume swipe sensitivity</string>
+            <string name="revanced_swipe_volume_sensitivity_summary">How much the volume changes per swipe</string>
+            <string name="revanced_swipe_overlay_style_title">Swipe overlay style</string>
+            <string name="revanced_swipe_overlay_style_entry_1">Horizontal overlay</string>
+            <string name="revanced_swipe_overlay_style_entry_2">Horizontal overlay (minimal - top)</string>
+            <string name="revanced_swipe_overlay_style_entry_3">Horizontal overlay (minimal - center)</string>
+            <string name="revanced_swipe_overlay_style_entry_4">Circular overlay</string>
+            <string name="revanced_swipe_overlay_style_entry_5">Circular overlay (minimal)</string>
+            <string name="revanced_swipe_overlay_style_entry_6">Vertical overlay</string>
+            <string name="revanced_swipe_overlay_style_entry_7">Vertical overlay (minimal)</string>
+            <string name="revanced_swipe_change_video_title">Enable swipe to change videos</string>
+            <string name="revanced_swipe_change_video_summary_on">Swiping in fullscreen mode will change to the next/previous video</string>
+            <string name="revanced_swipe_change_video_summary_off">Swiping in fullscreen mode will not change to the next/previous video</string>
+        </patch>
+        <patch id="layout.autocaptions.autoCaptionsPatch">
+            <string name="revanced_disable_auto_captions_title">Disable auto captions</string>
+            <string name="revanced_disable_auto_captions_summary_on">Auto captions are disabled</string>
+            <string name="revanced_disable_auto_captions_summary_off">Auto captions are enabled</string>
+        </patch>
+        <patch id="layout.buttons.action.hideButtonsPatch">
+            <string name="revanced_hide_buttons_screen_title">Action buttons</string>
+            <string name="revanced_hide_buttons_screen_summary">Hide or show buttons under videos</string>
+            <string name="revanced_disable_like_subscribe_glow_title">Disable Like and Subscribe glow</string>
+            <string name="revanced_disable_like_subscribe_glow_summary_on">Like and Subscribe button will not glow when mentioned</string>
+            <string name="revanced_disable_like_subscribe_glow_summary_off">Like and Subscribe button will glow when mentioned</string>
+            <string name="revanced_hide_like_dislike_button_title">Hide Like and Dislike</string>
+            <string name="revanced_hide_like_dislike_button_summary_on">Like and Dislike buttons are hidden</string>
+            <string name="revanced_hide_like_dislike_button_summary_off">Like and Dislike buttons are shown</string>
+            <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_share_button_title">Hide Share</string>
+            <string name="revanced_hide_share_button_summary_on">Share button is hidden</string>
+            <string name="revanced_hide_share_button_summary_off">Share button is shown</string>
+            <!-- 'Report' should be translated with the same localized wording that YouTube displays.
+                 This button usually appears only on live streams. -->
+            <string name="revanced_hide_report_button_title">Hide Report</string>
+            <string name="revanced_hide_report_button_summary_on">Report button is hidden</string>
+            <string name="revanced_hide_report_button_summary_off">Report button is shown</string>
+            <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_remix_button_title">Hide Remix</string>
+            <string name="revanced_hide_remix_button_summary_on">Remix button is hidden</string>
+            <string name="revanced_hide_remix_button_summary_off">Remix button is shown</string>
+            <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_download_button_title">Hide Download</string>
+            <string name="revanced_hide_download_button_summary_on">Download button is hidden</string>
+            <string name="revanced_hide_download_button_summary_off">Download button is shown</string>
+            <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_thanks_button_title">Hide Thanks</string>
+            <string name="revanced_hide_thanks_button_summary_on">Thanks button is hidden</string>
+            <string name="revanced_hide_thanks_button_summary_off">Thanks button is shown</string>
+            <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+            <string name="revanced_hide_ask_button_title">Hide Ask</string>
+            <string name="revanced_hide_ask_button_summary_on">Ask button is hidden</string>
+            <string name="revanced_hide_ask_button_summary_off">Ask button is shown</string>
+            <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_clip_button_title">Hide Clip</string>
+            <string name="revanced_hide_clip_button_summary_on">Clip button is hidden</string>
+            <string name="revanced_hide_clip_button_summary_off">Clip button is shown</string>
+            <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_playlist_button_title">Hide Save to playlist</string>
+            <string name="revanced_hide_playlist_button_summary_on">Save to playlist button is hidden</string>
+            <string name="revanced_hide_playlist_button_summary_off">Save to playlist button is shown</string>
+        </patch>
+        <patch id="layout.buttons.navigation.navigationButtonsPatch">
             <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
             <string name="revanced_navigation_buttons_screen_summary">Hide or change buttons in the navigation bar</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -673,147 +669,7 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Dark mode navigation bar is opaque</string>
             <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Dark mode navigation bar is opaque or translucent</string>
         </patch>
-        <patch id="general.spoofappversion.spoofAppVersionPatch">
-            <string name="revanced_spoof_app_version_title">Spoof app version</string>
-            <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
-            <string name="revanced_spoof_app_version_summary_off">Version not spoofed</string>
-            <string name="revanced_spoof_app_version_user_dialog_message">"App version will be spoofed to an older version of YouTube.
-
-This will change the appearance and features of the app, but unknown side effects may occur.
-
-If later turned off, it is recommended to clear the app data to prevent UI bugs."</string>
-            <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
-            <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
-            <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restore old Shorts player icons</string>
-            <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restore old navigation icons</string>
-        </patch>
-        <patch id="general.startpage.changeStartPagePatch">
-            <string name="revanced_change_start_page_title">Change start page</string>
-            <string name="revanced_change_start_page_entry_default">Default</string>
-            <string name="revanced_change_start_page_entry_all_subscriptions">All subscriptions</string>
-            <string name="revanced_change_start_page_entry_browse">Browse channels</string>
-            <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
-            <string name="revanced_change_start_page_entry_explore">Explore</string>
-            <string name="revanced_change_start_page_entry_fashion">Fashion &amp; Beauty</string>
-            <string name="revanced_change_start_page_entry_gaming">Gaming</string>
-            <string name="revanced_change_start_page_entry_history">History</string>
-            <string name="revanced_change_start_page_entry_library">Library</string>
-            <string name="revanced_change_start_page_entry_liked_videos">Liked videos</string>
-            <string name="revanced_change_start_page_entry_live">Live</string>
-            <string name="revanced_change_start_page_entry_movies">Movies</string>
-            <string name="revanced_change_start_page_entry_music">Music</string>
-            <string name="revanced_change_start_page_entry_news">News</string>
-            <string name="revanced_change_start_page_entry_notifications">Notifications</string>
-            <string name="revanced_change_start_page_entry_playlists">Playlists</string>
-            <string name="revanced_change_start_page_entry_search">Search</string>
-            <string name="revanced_change_start_page_entry_shopping">Shopping</string>
-            <string name="revanced_change_start_page_entry_shorts" translatable="false">Shorts</string>
-            <string name="revanced_change_start_page_entry_sports">Sports</string>
-            <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
-            <string name="revanced_change_start_page_entry_trending">Trending</string>
-            <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
-            <string name="revanced_change_start_page_entry_watch_later">Watch later</string>
-            <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
-            <string name="revanced_change_start_page_always_title">Always change start page</string>
-            <string name="revanced_change_start_page_always_summary_on">"Start page is always changed
-
-Limitation: Using the back button on the toolbar may not work"</string>
-            <string name="revanced_change_start_page_always_summary_off">Start page is changed only on app startup</string>
-        </patch>
-        <patch id="player.actionbuttons.hideButtonsPatch">
-            <string name="revanced_hide_buttons_screen_title">Action buttons</string>
-            <string name="revanced_hide_buttons_screen_summary">Hide or show buttons under videos</string>
-            <string name="revanced_disable_like_subscribe_glow_title">Disable Like and Subscribe glow</string>
-            <string name="revanced_disable_like_subscribe_glow_summary_on">Like and Subscribe button will not glow when mentioned</string>
-            <string name="revanced_disable_like_subscribe_glow_summary_off">Like and Subscribe button will glow when mentioned</string>
-            <string name="revanced_hide_like_dislike_button_title">Hide Like and Dislike</string>
-            <string name="revanced_hide_like_dislike_button_summary_on">Like and Dislike buttons are hidden</string>
-            <string name="revanced_hide_like_dislike_button_summary_off">Like and Dislike buttons are shown</string>
-            <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_share_button_title">Hide Share</string>
-            <string name="revanced_hide_share_button_summary_on">Share button is hidden</string>
-            <string name="revanced_hide_share_button_summary_off">Share button is shown</string>
-            <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                 This button usually appears only on live streams. -->
-            <string name="revanced_hide_report_button_title">Hide Report</string>
-            <string name="revanced_hide_report_button_summary_on">Report button is hidden</string>
-            <string name="revanced_hide_report_button_summary_off">Report button is shown</string>
-            <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_remix_button_title">Hide Remix</string>
-            <string name="revanced_hide_remix_button_summary_on">Remix button is hidden</string>
-            <string name="revanced_hide_remix_button_summary_off">Remix button is shown</string>
-            <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_download_button_title">Hide Download</string>
-            <string name="revanced_hide_download_button_summary_on">Download button is hidden</string>
-            <string name="revanced_hide_download_button_summary_off">Download button is shown</string>
-            <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_thanks_button_title">Hide Thanks</string>
-            <string name="revanced_hide_thanks_button_summary_on">Thanks button is hidden</string>
-            <string name="revanced_hide_thanks_button_summary_off">Thanks button is shown</string>
-            <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                 Button only shows if the user ip is from specific region such as the USA or EU. -->
-            <string name="revanced_hide_ask_button_title">Hide Ask</string>
-            <string name="revanced_hide_ask_button_summary_on">Ask button is hidden</string>
-            <string name="revanced_hide_ask_button_summary_off">Ask button is shown</string>
-            <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_clip_button_title">Hide Clip</string>
-            <string name="revanced_hide_clip_button_summary_on">Clip button is hidden</string>
-            <string name="revanced_hide_clip_button_summary_off">Clip button is shown</string>
-            <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_playlist_button_title">Hide Save to playlist</string>
-            <string name="revanced_hide_playlist_button_summary_on">Save to playlist button is hidden</string>
-            <string name="revanced_hide_playlist_button_summary_off">Save to playlist button is shown</string>
-        </patch>
-        <patch id="player.autocaptions.autoCaptionsPatch">
-            <string name="revanced_disable_auto_captions_title">Disable auto captions</string>
-            <string name="revanced_disable_auto_captions_summary_on">Auto captions are disabled</string>
-            <string name="revanced_disable_auto_captions_summary_off">Auto captions are enabled</string>
-        </patch>
-        <patch id="player.copyvideourl.copyVideoUrlResourcePatch">
-            <string name="revanced_share_copy_url_success">URL copied to clipboard</string>
-            <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied</string>
-            <string name="revanced_copy_video_url_title">Show copy video URL button</string>
-            <string name="revanced_copy_video_url_summary_on">Button is shown. Tap to copy video URL. Tap and hold to copy with timestamp</string>
-            <string name="revanced_copy_video_url_summary_off">Button is not shown</string>
-            <string name="revanced_copy_video_url_timestamp_title">Show copy timestamp URL button</string>
-            <string name="revanced_copy_video_url_timestamp_summary_on">Button is shown. Tap to copy video URL with timestamp. Tap and hold to copy without timestamp</string>
-            <string name="revanced_copy_video_url_timestamp_summary_off">Button is not shown</string>
-        </patch>
-        <patch id="player.dialog.removeViewerDiscretionDialogPatch">
-            <string name="revanced_remove_viewer_discretion_dialog_title">Remove viewer discretion dialog</string>
-            <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialog will be removed</string>
-            <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog will be shown</string>
-            <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction. It just accepts it automatically.</string>
-        </patch>
-        <patch id="player.downloads.downloadsResourcePatch">
-            <string name="revanced_external_downloader_screen_title">External downloads</string>
-            <string name="revanced_external_downloader_screen_summary">Settings for using an external downloader</string>
-            <string name="revanced_external_downloader_title">Show external download button</string>
-            <string name="revanced_external_downloader_summary_on">Download button in player is shown</string>
-            <string name="revanced_external_downloader_summary_off">Download button in player is not shown</string>
-            <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-            <string name="revanced_external_downloader_action_button_title">Override Download action button</string>
-            <string name="revanced_external_downloader_action_button_summary_on">Download button opens your external downloader</string>
-            <string name="revanced_external_downloader_action_button_summary_off">Download button opens the native in-app downloader</string>
-            <string name="revanced_external_downloader_name_title">Downloader package name</string>
-            <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader app, such as NewPipe or Seal</string>
-            <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
-        </patch>
-        <patch id="player.endscreencards.hideEndscreenCardsResourcePatch">
-            <string name="revanced_hide_endscreen_cards_title">Hide end screen cards</string>
-            <string name="revanced_hide_endscreen_cards_summary_on">End screen cards are hidden</string>
-            <string name="revanced_hide_endscreen_cards_summary_off">End screen cards are shown</string>
-        </patch>
-        <patch id="player.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
-            <string name="revanced_end_screen_suggested_video_title">Hide end screen suggested video</string>
-            <string name="revanced_end_screen_suggested_video_summary_on">"End screen suggested video is hidden when autoplay is turned off
-
-Autoplay can be changed in YouTube settings:
-Settings → Playback → Autoplay next video"</string>
-            <string name="revanced_end_screen_suggested_video_summary_off">End screen suggested video is shown</string>
-        </patch>
-        <patch id="player.flyoutmenu.hidePlayerFlyoutMenuPatch">
+        <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <string name="revanced_hide_player_flyout_title">Flyout menu</string>
             <string name="revanced_hide_player_flyout_summary">Hide or show player flyout menu items</string>
             <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -872,81 +728,7 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video quality menu footer is hidden</string>
             <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video quality menu footer is shown</string>
         </patch>
-        <patch id="player.fullscreen.exitFullscreenPatch">
-            <string name="revanced_exit_fullscreen_title">Exit fullscreen mode at end of video</string>
-            <string name="revanced_exit_fullscreen_entry_1">Disabled</string>
-            <string name="revanced_exit_fullscreen_entry_2">Portrait</string>
-            <string name="revanced_exit_fullscreen_entry_3">Landscape</string>
-            <string name="revanced_exit_fullscreen_entry_4">Portrait and landscape</string>
-        </patch>
-        <patch id="player.fullscreen.openVideosFullscreen">
-            <string name="revanced_open_videos_fullscreen_portrait_title">Open videos in fullscreen portrait</string>
-            <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videos open fullscreen</string>
-            <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videos do not open fullscreen</string>
-        </patch>
-        <patch id="player.fullscreenambientmode.disableFullscreenAmbientModePatch">
-            <string name="revanced_disable_fullscreen_ambient_mode_title">Disable Ambient mode in fullscreen</string>
-            <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Ambient mode disabled</string>
-            <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Ambient mode enabled</string>
-        </patch>
-        <patch id="player.infocards.hideInfocardsResourcePatch">
-            <string name="revanced_hide_info_cards_title">Hide info cards</string>
-            <string name="revanced_hide_info_cards_summary_on">Info cards are hidden</string>
-            <string name="revanced_hide_info_cards_summary_off">Info cards are shown</string>
-        </patch>
-        <patch id="player.miniplayer.miniplayerPatch">
-            <string name="revanced_miniplayer_screen_title">Miniplayer</string>
-            <string name="revanced_miniplayer_screen_summary">Change the style of the in-app minimized player</string>
-            <string name="revanced_miniplayer_type_title">Miniplayer type</string>
-            <string name="revanced_miniplayer_type_entry_0">Disabled</string>
-            <string name="revanced_miniplayer_type_entry_1">Default</string>
-            <string name="revanced_miniplayer_type_entry_2">Minimal</string>
-            <string name="revanced_miniplayer_type_entry_3">Tablet</string>
-            <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
-            <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
-            <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
-            <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
-            <string name="revanced_miniplayer_rounded_corners_title">Enable rounded corners</string>
-            <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded</string>
-            <string name="revanced_miniplayer_rounded_corners_summary_off">Corners are square</string>
-            <string name="revanced_miniplayer_double_tap_action_title">Enable double-tap and pinch to resize</string>
-            <string name="revanced_miniplayer_double_tap_action_summary_on">"Double-tap action and pinch to resize is enabled
-
-• Double tap to increase miniplayer size
-• Double tap again to restore original size"</string>
-            <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled</string>
-            <string name="revanced_miniplayer_drag_and_drop_title">Enable drag and drop</string>
-            <string name="revanced_miniplayer_drag_and_drop_summary_on">"Drag and drop is enabled
-
-Miniplayer can be dragged to any corner of the screen"</string>
-            <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop is disabled</string>
-            <string name="revanced_miniplayer_horizontal_drag_title">Enable horizontal drag gesture</string>
-            <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontal drag gesture enabled
-
-Miniplayer can be dragged off-screen to the left or right"</string>
-            <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontal drag gesture disabled</string>
-            <string name="revanced_miniplayer_hide_overlay_buttons_title">Hide overlay buttons</string>
-            <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay buttons are hidden</string>
-            <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay buttons are shown</string>
-            <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Hide expand and close buttons</string>
-            <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Buttons are hidden
-
-Swipe to expand or close"</string>
-            <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Expand and close buttons are shown</string>
-            <string name="revanced_miniplayer_hide_subtext_title">Hide subtexts</string>
-            <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexts are hidden</string>
-            <string name="revanced_miniplayer_hide_subtext_summary_off">Subtexts are shown</string>
-            <string name="revanced_miniplayer_hide_rewind_forward_title">Hide skip forward and back buttons</string>
-            <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Skip forward and back are hidden</string>
-            <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Skip forward and back are shown</string>
-            <string name="revanced_miniplayer_width_dip_title">Initial size</string>
-            <string name="revanced_miniplayer_width_dip_summary">Initial on screen size, in pixels</string>
-            <string name="revanced_miniplayer_width_dip_invalid_toast">Pixel size must be between %1$s and %2$s</string>
-            <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
-            <string name="revanced_miniplayer_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
-            <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100</string>
-        </patch>
-        <patch id="player.overlaybuttons.hidePlayerOverlayButtonsPatch">
+        <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <string name="revanced_hide_player_previous_next_buttons_title">Hide Previous &amp; Next buttons</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons are hidden</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_off">Buttons are shown</string>
@@ -961,103 +743,27 @@ Swipe to expand or close"</string>
             <string name="revanced_hide_autoplay_button_summary_on">Autoplay button is hidden</string>
             <string name="revanced_hide_autoplay_button_summary_off">Autoplay button is shown</string>
         </patch>
-        <patch id="player.overlayopacity.customPlayerOverlayOpacityResourcePatch">
-            <string name="revanced_player_overlay_opacity_title">Player overlay opacity</string>
-            <string name="revanced_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
-            <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
+        <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+            <string name="revanced_hide_endscreen_cards_title">Hide end screen cards</string>
+            <string name="revanced_hide_endscreen_cards_summary_on">End screen cards are hidden</string>
+            <string name="revanced_hide_endscreen_cards_summary_off">End screen cards are shown</string>
         </patch>
-        <patch id="player.popuppanels.playerPopupPanelsPatch">
-            <string name="revanced_hide_player_popup_panels_title">Hide player popup panels</string>
-            <string name="revanced_hide_player_popup_panels_summary_on">Player popup panels are hidden</string>
-            <string name="revanced_hide_player_popup_panels_summary_off">Player popup panels are shown</string>
+        <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+            <string name="revanced_disable_fullscreen_ambient_mode_title">Disable Ambient mode in fullscreen</string>
+            <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Ambient mode disabled</string>
+            <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Ambient mode enabled</string>
         </patch>
-        <patch id="player.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-            <string name="revanced_hide_related_video_overlay_title">Hide related video overlay in fullscreen</string>
-            <string name="revanced_hide_related_video_overlay_summary_on">Related video overlay is hidden</string>
-            <string name="revanced_hide_related_video_overlay_summary_off">Related video overlay is shown</string>
+        <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+            <string name="revanced_hide_info_cards_title">Hide info cards</string>
+            <string name="revanced_hide_info_cards_summary_on">Info cards are hidden</string>
+            <string name="revanced_hide_info_cards_summary_off">Info cards are shown</string>
         </patch>
-        <patch id="player.rollingnumber.disableRollingNumberAnimationPatch">
+        <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
             <string name="revanced_disable_rolling_number_animations_title">Disable rolling number animations</string>
             <string name="revanced_disable_rolling_number_animations_summary_on">Rolling numbers are not animated</string>
             <string name="revanced_disable_rolling_number_animations_summary_off">Rolling numbers are animated</string>
         </patch>
-        <patch id="player.zoomhaptics.zoomHapticsPatch">
-            <string name="revanced_disable_zoom_haptics_title">Disable zoom haptics</string>
-            <string name="revanced_disable_zoom_haptics_summary_on">Haptics are disabled</string>
-            <string name="revanced_disable_zoom_haptics_summary_off">Haptics are enabled</string>
-        </patch>
-        <patch id="returnyoutubedislike.returnYouTubeDislikePatch">
-            <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-            <string name="revanced_ryd_failure_connection_timeout">Dislikes are temporarily not available (API timed out)</string>
-            <string name="revanced_ryd_failure_connection_status_code">Dislikes are not available (status %d)</string>
-            <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes are not available (client API limit)</string>
-            <string name="revanced_ryd_failure_generic">Dislikes are not available (%s)</string>
-            <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
-            <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reload video to vote using Return YouTube Dislike</string>
-            <!-- Video likes have been set to hidden by the video uploader. -->
-            <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden by owner</string>
-            <string name="revanced_ryd_enabled_title" translatable="false">Return YouTube Dislike</string>
-            <string name="revanced_ryd_enabled_summary_on">Dislikes are shown</string>
-            <string name="revanced_ryd_enabled_summary_off">Dislikes are not shown</string>
-            <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
-            <string name="revanced_ryd_shorts_summary_on">"Dislikes on Shorts are shown
-
-Limitation: Dislikes may not appear in incognito mode"</string>
-            <string name="revanced_ryd_shorts_summary_off">Dislikes on Shorts are not shown</string>
-            <string name="revanced_ryd_dislike_percentage_title">Dislikes as percentage</string>
-            <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes are shown as a percentage</string>
-            <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes are shown as a number</string>
-            <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-            <string name="revanced_ryd_compact_layout_title">Compact Like button</string>
-            <string name="revanced_ryd_compact_layout_summary_on">Like button styled for minimum width</string>
-            <string name="revanced_ryd_compact_layout_summary_off">Like button styled for best appearance</string>
-            <string name="revanced_ryd_estimated_like_title">Show estimated likes</string>
-            <string name="revanced_ryd_estimated_like_summary_on">Videos with disabled likes show an estimated likes count</string>
-            <string name="revanced_ryd_estimated_like_summary_off">Estimated likes are not shown</string>
-            <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is not available</string>
-            <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is not available</string>
-            <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube Dislike is not available</string>
-            <string name="revanced_ryd_attribution_title" translatable="false">ReturnYouTubeDislike.com</string>
-            <string name="revanced_ryd_attribution_summary">Data is provided by the Return YouTube Dislike API. Tap here to learn more</string>
-            <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
-            <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statistics of this device</string>
-            <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">API response time, average</string>
-            <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">API response time, minimum</string>
-            <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">API response time, maximum</string>
-            <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">API response time, last video</string>
-            <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Dislikes are temporarily not available - Client API rate limit in effect</string>
-            <string name="revanced_ryd_statistics_getFetchCallCount_title">API fetch votes, number of calls</string>
-            <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">No network calls made</string>
-            <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d network calls made</string>
-            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API fetch votes, number of timeouts</string>
-            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">No network calls timed out</string>
-            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d network calls timed out</string>
-            <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API client rate limits</string>
-            <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">No client rate limits encountered</string>
-            <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Client rate limit encountered %d times</string>
-            <string name="revanced_ryd_statistics_millisecond_text">%d milliseconds</string>
-        </patch>
-        <patch id="seekbar.hidetimestamp.hideTimestampPatch">
-            <string name="revanced_hide_timestamp_title">Hide video timestamp</string>
-            <string name="revanced_hide_timestamp_summary_on">Timestamp is hidden</string>
-            <string name="revanced_hide_timestamp_summary_off">Timestamp is shown</string>
-        </patch>
-        <patch id="seekbar.seekbarpatch.disablePreciseSeekingGesturePatch">
-            <string name="revanced_disable_precise_seeking_gesture_title">Disable precise seeking gesture</string>
-            <string name="revanced_disable_precise_seeking_gesture_summary_on">Gesture is disabled</string>
-            <string name="revanced_disable_precise_seeking_gesture_summary_off">Gesture is enabled</string>
-        </patch>
-        <patch id="seekbar.seekbarpatch.enableSeekbarTappingPatch">
-            <string name="revanced_seekbar_tapping_title">Enable tap to seek</string>
-            <string name="revanced_seekbar_tapping_summary_on">Tap to seek is enabled</string>
-            <string name="revanced_seekbar_tapping_summary_off">Tap to seek is disabled</string>
-        </patch>
-        <patch id="seekbar.seekbarpatch.enableSlideToSeekPatch">
-            <string name="revanced_slide_to_seek_title">Enable slide to seek</string>
-            <string name="revanced_slide_to_seek_summary_on">Slide to seek is enabled</string>
-            <string name="revanced_slide_to_seek_summary_off">Slide to seek is not enabled</string>
-        </patch>
-        <patch id="seekbar.seekbarpatch.hideSeekbarPatch">
+        <patch id="layout.hide.seekbar.hideSeekbarPatch">
             <string name="revanced_hide_seekbar_title">Hide seekbar in video player</string>
             <string name="revanced_hide_seekbar_summary_on">Video player seekbar is hidden</string>
             <string name="revanced_hide_seekbar_summary_off">Video player seekbar is shown</string>
@@ -1065,22 +771,7 @@ Limitation: Dislikes may not appear in incognito mode"</string>
             <string name="revanced_hide_seekbar_thumbnail_summary_on">Thumbnail seekbar is hidden</string>
             <string name="revanced_hide_seekbar_thumbnail_summary_off">Thumbnail seekbar is shown</string>
         </patch>
-        <patch id="seekbar.seekbarpatch.seekbarThumbnailsPatch">
-            <string name="revanced_seekbar_thumbnails_high_quality_title">Enable high quality thumbnails</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar thumbnails are high quality</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar thumbnails are medium quality</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullscreen seekbar thumbnails are high quality</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullscreen seekbar thumbnails are medium quality</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"This will also restore thumbnails on livestreams that do not have seekbar thumbnails.
-
-Seekbar thumbnails will use the same quality as the current video.
-
-This feature works best with a video quality of 720p or lower and when using a very fast internet connection."</string>
-            <string name="revanced_restore_old_seekbar_thumbnails_title">Restore old seekbar thumbnails</string>
-            <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar thumbnails will appear above the seekbar</string>
-            <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in fullscreen</string>
-        </patch>
-        <patch id="shorts.hideshortscomponents.hideShortsComponentsResourcePatch">
+        <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
             <string name="revanced_shorts_player_screen_title">Shorts player</string>
             <string name="revanced_shorts_player_screen_summary">Hide or show components in the Shorts player</string>
             <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1183,26 +874,118 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigation bar is hidden</string>
             <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigation bar is shown</string>
         </patch>
-        <patch id="shorts.shortsautoplay.shortsAutoplayPatch">
-            <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
-            <string name="revanced_shorts_autoplay_summary_on">Shorts will autoplay</string>
-            <string name="revanced_shorts_autoplay_summary_off">Shorts will repeat</string>
-            <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts background play</string>
-            <string name="revanced_shorts_autoplay_background_summary_on">Shorts background play will autoplay</string>
-            <string name="revanced_shorts_autoplay_background_summary_off">Shorts background play will repeat</string>
+        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+            <string name="revanced_end_screen_suggested_video_title">Hide end screen suggested video</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">"End screen suggested video is hidden when autoplay is turned off
+
+Autoplay can be changed in YouTube settings:
+Settings → Playback → Autoplay next video"</string>
+            <string name="revanced_end_screen_suggested_video_summary_off">End screen suggested video is shown</string>
         </patch>
-        <patch id="shorts.shortsplayer.shortsPlayerTypePatch">
-            <string name="revanced_shorts_player_type_title">Open Shorts with</string>
-            <string name="revanced_shorts_player_type_shorts">Shorts player</string>
-            <string name="revanced_shorts_player_type_regular_player">Regular player</string>
-            <string name="revanced_shorts_player_type_regular_player_fullscreen">Regular player fullscreen</string>
+        <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+            <string name="revanced_hide_related_video_overlay_title">Hide related video overlay in fullscreen</string>
+            <string name="revanced_hide_related_video_overlay_summary_on">Related video overlay is hidden</string>
+            <string name="revanced_hide_related_video_overlay_summary_off">Related video overlay is shown</string>
         </patch>
-        <patch id="shorts.startupshortsreset.disableResumingShortsOnStartupPatch">
-            <string name="revanced_disable_resuming_shorts_player_title">Disable resuming Shorts player</string>
-            <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts player will not resume on app startup</string>
-            <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts player will resume on app startup</string>
+        <patch id="layout.hide.time.hideTimestampPatch">
+            <string name="revanced_hide_timestamp_title">Hide video timestamp</string>
+            <string name="revanced_hide_timestamp_summary_on">Timestamp is hidden</string>
+            <string name="revanced_hide_timestamp_summary_off">Timestamp is shown</string>
         </patch>
-        <patch id="sponsorblock.sponsorBlockResourcePatch">
+        <patch id="layout.panels.popup.playerPopupPanelsPatch">
+            <string name="revanced_hide_player_popup_panels_title">Hide player popup panels</string>
+            <string name="revanced_hide_player_popup_panels_summary_on">Player popup panels are hidden</string>
+            <string name="revanced_hide_player_popup_panels_summary_off">Player popup panels are shown</string>
+        </patch>
+        <patch id="layout.player.fullscreen.exitFullscreenPatch">
+            <string name="revanced_exit_fullscreen_title">Exit fullscreen mode at end of video</string>
+            <string name="revanced_exit_fullscreen_entry_1">Disabled</string>
+            <string name="revanced_exit_fullscreen_entry_2">Portrait</string>
+            <string name="revanced_exit_fullscreen_entry_3">Landscape</string>
+            <string name="revanced_exit_fullscreen_entry_4">Portrait and landscape</string>
+        </patch>
+        <patch id="layout.player.fullscreen.openVideosFullscreen">
+            <string name="revanced_open_videos_fullscreen_portrait_title">Open videos in fullscreen portrait</string>
+            <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videos open fullscreen</string>
+            <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videos do not open fullscreen</string>
+        </patch>
+        <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+            <string name="revanced_player_overlay_opacity_title">Player overlay opacity</string>
+            <string name="revanced_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
+            <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
+        </patch>
+        <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+            <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
+            <string name="revanced_ryd_failure_connection_timeout">Dislikes are temporarily not available (API timed out)</string>
+            <string name="revanced_ryd_failure_connection_status_code">Dislikes are not available (status %d)</string>
+            <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes are not available (client API limit)</string>
+            <string name="revanced_ryd_failure_generic">Dislikes are not available (%s)</string>
+            <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
+            <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reload video to vote using Return YouTube Dislike</string>
+            <!-- Video likes have been set to hidden by the video uploader. -->
+            <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden by owner</string>
+            <string name="revanced_ryd_enabled_title" translatable="false">Return YouTube Dislike</string>
+            <string name="revanced_ryd_enabled_summary_on">Dislikes are shown</string>
+            <string name="revanced_ryd_enabled_summary_off">Dislikes are not shown</string>
+            <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
+            <string name="revanced_ryd_shorts_summary_on">"Dislikes on Shorts are shown
+
+Limitation: Dislikes may not appear in incognito mode"</string>
+            <string name="revanced_ryd_shorts_summary_off">Dislikes on Shorts are not shown</string>
+            <string name="revanced_ryd_dislike_percentage_title">Dislikes as percentage</string>
+            <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes are shown as a percentage</string>
+            <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes are shown as a number</string>
+            <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+            <string name="revanced_ryd_compact_layout_title">Compact Like button</string>
+            <string name="revanced_ryd_compact_layout_summary_on">Like button styled for minimum width</string>
+            <string name="revanced_ryd_compact_layout_summary_off">Like button styled for best appearance</string>
+            <string name="revanced_ryd_estimated_like_title">Show estimated likes</string>
+            <string name="revanced_ryd_estimated_like_summary_on">Videos with disabled likes show an estimated likes count</string>
+            <string name="revanced_ryd_estimated_like_summary_off">Estimated likes are not shown</string>
+            <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is not available</string>
+            <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is not available</string>
+            <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube Dislike is not available</string>
+            <string name="revanced_ryd_attribution_title" translatable="false">ReturnYouTubeDislike.com</string>
+            <string name="revanced_ryd_attribution_summary">Data is provided by the Return YouTube Dislike API. Tap here to learn more</string>
+            <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
+            <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statistics of this device</string>
+            <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">API response time, average</string>
+            <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">API response time, minimum</string>
+            <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">API response time, maximum</string>
+            <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">API response time, last video</string>
+            <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Dislikes are temporarily not available - Client API rate limit in effect</string>
+            <string name="revanced_ryd_statistics_getFetchCallCount_title">API fetch votes, number of calls</string>
+            <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">No network calls made</string>
+            <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d network calls made</string>
+            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API fetch votes, number of timeouts</string>
+            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">No network calls timed out</string>
+            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d network calls timed out</string>
+            <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API client rate limits</string>
+            <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">No client rate limits encountered</string>
+            <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Client rate limit encountered %d times</string>
+            <string name="revanced_ryd_statistics_millisecond_text">%d milliseconds</string>
+        </patch>
+        <patch id="layout.searchbar.wideSearchbarPatch">
+            <string name="revanced_wide_searchbar_title">Enable wide search bar</string>
+            <string name="revanced_wide_searchbar_summary_on">Wide search bar is enabled</string>
+            <string name="revanced_wide_searchbar_summary_off">Wide search bar is disabled</string>
+        </patch>
+        <patch id="layout.seekbar.seekbarThumbnailsPatch">
+            <string name="revanced_seekbar_thumbnails_high_quality_title">Enable high quality thumbnails</string>
+            <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar thumbnails are high quality</string>
+            <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar thumbnails are medium quality</string>
+            <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullscreen seekbar thumbnails are high quality</string>
+            <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullscreen seekbar thumbnails are medium quality</string>
+            <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"This will also restore thumbnails on livestreams that do not have seekbar thumbnails.
+
+Seekbar thumbnails will use the same quality as the current video.
+
+This feature works best with a video quality of 720p or lower and when using a very fast internet connection."</string>
+            <string name="revanced_restore_old_seekbar_thumbnails_title">Restore old seekbar thumbnails</string>
+            <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar thumbnails will appear above the seekbar</string>
+            <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in fullscreen</string>
+        </patch>
+        <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <string name="revanced_settings_screen_10_sponsorblock_title" translatable="false">SponsorBlock</string>
             <string name="revanced_sb_enable_sb">Enable SponsorBlock</string>
             <string name="revanced_sb_enable_sb_sum">SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos</string>
@@ -1266,7 +1049,8 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_settings_export_failed">Failed to export: %s</string>
             <string name="revanced_sb_settings_revanced_export_user_id_warning">"Your settings contain a private SponsorBlock userid.
 
-Your user id is like a password and it should never be shared."</string>
+Your user id is like a password and it should never be shared.
+"</string>
             <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Do not show again</string>
             <string name="revanced_sb_diff_segments">Change segment behavior</string>
             <string name="revanced_sb_segments_sponsor">Sponsor</string>
@@ -1397,56 +1181,251 @@ Ready to submit?"</string>
             <string name="revanced_sb_about_api_title" translatable="false">sponsor.ajay.app</string>
             <string name="revanced_sb_about_api_summary">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
         </patch>
-        <patch id="swipecontrols.swipeControlsResourcePatch">
-            <string name="revanced_swipe_brightness_title">Enable brightness gesture</string>
-            <string name="revanced_swipe_brightness_summary_on">"Fullscreen brightness swipe is enabled
+        <patch id="layout.formfactor.changeFormFactorPatch">
+            <string name="revanced_change_form_factor_title">Layout form factor</string>
+            <string name="revanced_change_form_factor_entry_1">Default</string>
+            <string name="revanced_change_form_factor_entry_2">Phone</string>
+            <string name="revanced_change_form_factor_entry_3">Tablet</string>
+            <string name="revanced_change_form_factor_entry_4">Automotive</string>
+            <string name="revanced_change_form_factor_user_dialog_message">"Changes include:
 
-Adjust brightness by swiping vertically on the left side of the screen"</string>
-            <string name="revanced_swipe_brightness_summary_off">Fullscreen brightness swipe is disabled</string>
-            <string name="revanced_swipe_volume_title">Enable volume gesture</string>
-            <string name="revanced_swipe_volume_summary_on">"Fullscreen volume swipe is enabled
+Tablet layout
+• Community posts are hidden
 
-Adjust volume by swiping vertically on the right side of the screen"</string>
-            <string name="revanced_swipe_volume_summary_off">Fullscreen volume swipe is disabled</string>
-            <string name="revanced_swipe_press_to_engage_title">Enable press to swipe gesture</string>
-            <string name="revanced_swipe_press_to_engage_summary_on">Press to swipe is enabled</string>
-            <string name="revanced_swipe_press_to_engage_summary_off">Press to swipe is disabled</string>
-            <string name="revanced_swipe_haptic_feedback_title">Enable haptic feedback</string>
-            <string name="revanced_swipe_haptic_feedback_summary_on">Haptic feedback is enabled</string>
-            <string name="revanced_swipe_haptic_feedback_summary_off">Haptic feedback is disabled</string>
-            <string name="revanced_swipe_save_and_restore_brightness_title">Save and restore brightness</string>
-            <string name="revanced_swipe_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen</string>
-            <string name="revanced_swipe_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen</string>
-            <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Enable auto-brightness gesture</string>
-            <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Swiping down to the lowest value of the brightness gesture enable auto-brightness</string>
-            <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Swiping down to the lowest value does not enable auto-brightness</string>
-            <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
-            <string name="revanced_swipe_overlay_timeout_title">Swipe overlay timeout</string>
-            <string name="revanced_swipe_overlay_timeout_summary">The amount of milliseconds the overlay is visible</string>
-            <string name="revanced_swipe_overlay_background_opacity_title">Swipe overlay background opacity</string>
-            <string name="revanced_swipe_overlay_background_opacity_summary">Opacity value between 0-100</string>
-            <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Swipe opacity must be between 0-100</string>
-            <string name="revanced_swipe_overlay_progress_color_title">Swipe overlay progress bar color</string>
-            <string name="revanced_swipe_overlay_progress_color_summary">The color of the progress bar for volume and brightness controls</string>
-            <string name="revanced_swipe_overlay_progress_color_invalid_toast">Invalid progress bar color</string>
-            <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
-            <string name="revanced_swipe_text_overlay_size_summary">The text size for swipe overlay between 1-30</string>
-            <string name="revanced_swipe_text_overlay_size_invalid_toast">The text size must be between 1-30</string>
-            <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
-            <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
-            <string name="revanced_swipe_volume_sensitivity_title">Volume swipe sensitivity</string>
-            <string name="revanced_swipe_volume_sensitivity_summary">How much the volume changes per swipe</string>
-            <string name="revanced_swipe_overlay_style_title">Swipe overlay style</string>
-            <string name="revanced_swipe_overlay_style_entry_1">Horizontal overlay</string>
-            <string name="revanced_swipe_overlay_style_entry_2">Horizontal overlay (minimal - top)</string>
-            <string name="revanced_swipe_overlay_style_entry_3">Horizontal overlay (minimal - center)</string>
-            <string name="revanced_swipe_overlay_style_entry_4">Circular overlay</string>
-            <string name="revanced_swipe_overlay_style_entry_5">Circular overlay (minimal)</string>
-            <string name="revanced_swipe_overlay_style_entry_6">Vertical overlay</string>
-            <string name="revanced_swipe_overlay_style_entry_7">Vertical overlay (minimal)</string>
-            <string name="revanced_swipe_change_video_title">Enable swipe to change videos</string>
-            <string name="revanced_swipe_change_video_summary_on">Swiping in fullscreen mode will change to the next/previous video</string>
-            <string name="revanced_swipe_change_video_summary_off">Swiping in fullscreen mode will not change to the next/previous video</string>
+Automotive layout
+• Shorts open in the regular player
+• Feed is organized by topics and channels"</string>
+        </patch>
+        <patch id="layout.spoofappversion.spoofAppVersionPatch">
+            <string name="revanced_spoof_app_version_title">Spoof app version</string>
+            <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
+            <string name="revanced_spoof_app_version_summary_off">Version not spoofed</string>
+            <string name="revanced_spoof_app_version_user_dialog_message">"App version will be spoofed to an older version of YouTube.
+
+This will change the appearance and features of the app, but unknown side effects may occur.
+
+If later turned off, it is recommended to clear the app data to prevent UI bugs."</string>
+            <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
+                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+            <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
+            <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restore old Shorts player icons</string>
+            <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restore old navigation icons</string>
+        </patch>
+        <patch id="layout.startpage.changeStartPagePatch">
+            <string name="revanced_change_start_page_title">Change start page</string>
+            <string name="revanced_change_start_page_entry_default">Default</string>
+            <string name="revanced_change_start_page_entry_all_subscriptions">All subscriptions</string>
+            <string name="revanced_change_start_page_entry_browse">Browse channels</string>
+            <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
+            <string name="revanced_change_start_page_entry_explore">Explore</string>
+            <string name="revanced_change_start_page_entry_fashion">Fashion &amp; Beauty</string>
+            <string name="revanced_change_start_page_entry_gaming">Gaming</string>
+            <string name="revanced_change_start_page_entry_history">History</string>
+            <string name="revanced_change_start_page_entry_library">Library</string>
+            <string name="revanced_change_start_page_entry_liked_videos">Liked videos</string>
+            <string name="revanced_change_start_page_entry_live">Live</string>
+            <string name="revanced_change_start_page_entry_movies">Movies</string>
+            <string name="revanced_change_start_page_entry_music">Music</string>
+            <string name="revanced_change_start_page_entry_news">News</string>
+            <string name="revanced_change_start_page_entry_notifications">Notifications</string>
+            <string name="revanced_change_start_page_entry_playlists">Playlists</string>
+            <string name="revanced_change_start_page_entry_search">Search</string>
+            <string name="revanced_change_start_page_entry_shopping">Shopping</string>
+            <string name="revanced_change_start_page_entry_shorts" translatable="false">Shorts</string>
+            <string name="revanced_change_start_page_entry_sports">Sports</string>
+            <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
+            <string name="revanced_change_start_page_entry_trending">Trending</string>
+            <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
+            <string name="revanced_change_start_page_entry_watch_later">Watch later</string>
+            <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
+            <string name="revanced_change_start_page_always_title">Always change start page</string>
+            <string name="revanced_change_start_page_always_summary_on">"Start page is always changed
+
+Limitation: Using the back button on the toolbar may not work"</string>
+            <string name="revanced_change_start_page_always_summary_off">Start page is changed only on app startup</string>
+        </patch>
+        <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+            <string name="revanced_disable_resuming_shorts_player_title">Disable resuming Shorts player</string>
+            <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts player will not resume on app startup</string>
+            <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts player will resume on app startup</string>
+        </patch>
+        <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+            <string name="revanced_shorts_player_type_title">Open Shorts with</string>
+            <string name="revanced_shorts_player_type_shorts">Shorts player</string>
+            <string name="revanced_shorts_player_type_regular_player">Regular player</string>
+            <string name="revanced_shorts_player_type_regular_player_fullscreen">Regular player fullscreen</string>
+        </patch>
+        <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+            <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
+            <string name="revanced_shorts_autoplay_summary_on">Shorts will autoplay</string>
+            <string name="revanced_shorts_autoplay_summary_off">Shorts will repeat</string>
+            <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts background play</string>
+            <string name="revanced_shorts_autoplay_background_summary_on">Shorts background play will autoplay</string>
+            <string name="revanced_shorts_autoplay_background_summary_off">Shorts background play will repeat</string>
+        </patch>
+        <patch id="layout.miniplayer.miniplayerPatch">
+            <string name="revanced_miniplayer_screen_title">Miniplayer</string>
+            <string name="revanced_miniplayer_screen_summary">Change the style of the in-app minimized player</string>
+            <string name="revanced_miniplayer_type_title">Miniplayer type</string>
+            <string name="revanced_miniplayer_type_entry_0">Disabled</string>
+            <string name="revanced_miniplayer_type_entry_1">Default</string>
+            <string name="revanced_miniplayer_type_entry_2">Minimal</string>
+            <string name="revanced_miniplayer_type_entry_3">Tablet</string>
+            <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
+            <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
+            <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+            <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
+            <string name="revanced_miniplayer_rounded_corners_title">Enable rounded corners</string>
+            <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded</string>
+            <string name="revanced_miniplayer_rounded_corners_summary_off">Corners are square</string>
+            <string name="revanced_miniplayer_double_tap_action_title">Enable double-tap and pinch to resize</string>
+            <string name="revanced_miniplayer_double_tap_action_summary_on">"Double-tap action and pinch to resize is enabled
+
+• Double tap to increase miniplayer size
+• Double tap again to restore original size"</string>
+            <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled</string>
+            <string name="revanced_miniplayer_drag_and_drop_title">Enable drag and drop</string>
+            <string name="revanced_miniplayer_drag_and_drop_summary_on">"Drag and drop is enabled
+
+Miniplayer can be dragged to any corner of the screen"</string>
+            <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop is disabled</string>
+            <string name="revanced_miniplayer_horizontal_drag_title">Enable horizontal drag gesture</string>
+            <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontal drag gesture enabled
+
+Miniplayer can be dragged off-screen to the left or right"</string>
+            <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontal drag gesture disabled</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_title">Hide overlay buttons</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay buttons are hidden</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay buttons are shown</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Hide expand and close buttons</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Buttons are hidden
+
+Swipe to expand or close"</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Expand and close buttons are shown</string>
+            <string name="revanced_miniplayer_hide_subtext_title">Hide subtexts</string>
+            <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexts are hidden</string>
+            <string name="revanced_miniplayer_hide_subtext_summary_off">Subtexts are shown</string>
+            <string name="revanced_miniplayer_hide_rewind_forward_title">Hide skip forward and back buttons</string>
+            <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Skip forward and back are hidden</string>
+            <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Skip forward and back are shown</string>
+            <string name="revanced_miniplayer_width_dip_title">Initial size</string>
+            <string name="revanced_miniplayer_width_dip_summary">Initial on screen size, in pixels</string>
+            <string name="revanced_miniplayer_width_dip_invalid_toast">Pixel size must be between %1$s and %2$s</string>
+            <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+            <string name="revanced_miniplayer_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
+            <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100</string>
+        </patch>
+        <patch id="layout.theme.themePatch">
+            <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
+            <string name="revanced_gradient_loading_screen_summary_on">Loading screen will have a gradient background</string>
+            <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background</string>
+            <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
+            <string name="revanced_seekbar_custom_color_summary_on">Custom seekbar color is shown</string>
+            <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>
+            <string name="revanced_seekbar_custom_color_primary_title">Custom seekbar color</string>
+            <string name="revanced_seekbar_custom_color_primary_summary">The color of the seekbar</string>
+            <string name="revanced_seekbar_custom_color_accent_title">Custom seekbar accent color</string>
+            <string name="revanced_seekbar_custom_color_accent_summary">The accent color of the seekbar</string>
+            <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value</string>
+        </patch>
+        <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+            <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
+            <string name="revanced_bypass_image_region_restrictions_summary_on">Using image host yt4.ggpht.com</string>
+            <string name="revanced_bypass_image_region_restrictions_summary_off">"Using original image host
+
+Enabling this can fix missing images that are blocked in some regions"</string>
+        </patch>
+        <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+            <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+            <string name="revanced_alt_thumbnail_home_title">Home tab</string>
+            <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+            <string name="revanced_alt_thumbnail_subscription_title">Subscription tab</string>
+            <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+            <string name="revanced_alt_thumbnail_library_title">You tab</string>
+            <string name="revanced_alt_thumbnail_player_title">Player playlists, recommendations</string>
+            <string name="revanced_alt_thumbnail_search_title">Search results</string>
+            <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
+            <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Original thumbnails</string>
+            <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Still captures</string>
+            <string name="revanced_alt_thumbnail_options_entry_4">Still captures</string>
+            <string name="revanced_alt_thumbnail_dearrow_about_title" translatable="false">DeArrow</string>
+            <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowdsourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube
+
+If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown
+
+Tap here to learn more about DeArrow"</string>
+            <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is not available</string>
+            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is not available</string>
+            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is not shown if DeArrow is not available</string>
+            <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
+            <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint</string>
+            <string name="revanced_alt_thumbnail_stills_about_title">Still video captures</string>
+            <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning/middle/end of each video. These images are built into YouTube and no external API is used</string>
+            <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
+            <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails</string>
+            <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures</string>
+            <string name="revanced_alt_thumbnail_stills_time_title">Video time to take still captures from</string>
+            <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
+            <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
+            <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_alt_thumbnail_dearrow_error">DeArrow is temporarily not available (status code: %s)</string>
+            <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow is temporarily not available</string>
+        </patch>
+        <patch id="misc.announcements.announcementsPatch">
+            <string name="revanced_announcements_title">Show ReVanced announcements</string>
+            <string name="revanced_announcements_summary_on">Announcements on startup are shown</string>
+            <string name="revanced_announcements_summary_off">Announcements on startup are not shown</string>
+            <string name="revanced_announcements_enabled_summary">Show announcements on startup</string>
+            <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
+            <string name="revanced_announcements_dialog_dismiss">Dismiss</string>
+        </patch>
+        <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+            <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
+            <string name="revanced_check_watch_history_domain_name_dialog_message">Your watch history is not being saved.&lt;br>&lt;br>This most likely is caused by a DNS ad blocker or network proxy.&lt;br>&lt;br>To fix this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off all DNS blockers and proxies.</string>
+            <string name="revanced_check_watch_history_domain_name_dialog_ignore">Do not show again</string>
+        </patch>
+        <patch id="misc.autorepeat.autoRepeatPatch">
+            <string name="revanced_auto_repeat_title">Enable auto-repeat</string>
+            <string name="revanced_auto_repeat_summary_on">Auto-repeat is enabled</string>
+            <string name="revanced_auto_repeat_summary_off">Auto-repeat is disabled</string>
+        </patch>
+        <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+            <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
+            <string name="revanced_spoof_device_dimensions_summary_on">"Device dimensions spoofed
+
+Higher video qualities might be unlocked but you may experience video playback stuttering, worse battery life, and unknown side effects"</string>
+            <string name="revanced_spoof_device_dimensions_summary_off">"Device dimensions not spoofed
+
+Enabling this can unlock higher video qualities"</string>
+            <string name="revanced_spoof_device_dimensions_user_dialog_message">Enabling this can cause video playback stuttering, worse battery life, and unknown side effects.</string>
+        </patch>
+        <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <string name="microg_settings_title">GmsCore Settings</string>
+            <string name="microg_settings_summary">Settings for GmsCore</string>
+        </patch>
+        <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+            <string name="microg_offline_account_login_error">If you recently changed your account login details, then uninstall and reinstall MicroG.</string>
+        </patch>
+        <patch id="misc.links.bypassURLRedirectsPatch">
+            <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>
+            <string name="revanced_bypass_url_redirects_summary_on">URL redirects are bypassed</string>
+            <string name="revanced_bypass_url_redirects_summary_off">URL redirects are not bypassed</string>
+        </patch>
+        <patch id="misc.links.openLinksExternallyPatch">
+            <string name="revanced_external_browser_title">Open links in browser</string>
+            <string name="revanced_external_browser_summary_on">Opening links in external browser</string>
+            <string name="revanced_external_browser_summary_off">Opening links in in-app browser</string>
+        </patch>
+        <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+            <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
+            <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking query parameter is removed from links</string>
+            <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking query parameter is not removed from links</string>
+        </patch>
+        <patch id="misc.zoomhaptics.zoomHapticsPatch">
+            <string name="revanced_disable_zoom_haptics_title">Disable zoom haptics</string>
+            <string name="revanced_disable_zoom_haptics_summary_on">Haptics are disabled</string>
+            <string name="revanced_disable_zoom_haptics_summary_off">Haptics are enabled</string>
         </patch>
         <patch id="video.audio.forceOriginalAudioPatch">
             <string name="revanced_force_original_audio_title">Force original audio language</string>
@@ -1506,6 +1485,42 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
             <string name="revanced_advanced_video_quality_menu_summary_on">Advanced video quality menu is shown</string>
             <string name="revanced_advanced_video_quality_menu_summary_off">Advanced video quality menu is not shown</string>
+        </patch>
+        <patch id="interaction.seekbar.enableSlideToSeekPatch">
+            <string name="revanced_slide_to_seek_title">Enable slide to seek</string>
+            <string name="revanced_slide_to_seek_summary_on">Slide to seek is enabled</string>
+            <string name="revanced_slide_to_seek_summary_off">Slide to seek is not enabled</string>
+        </patch>
+        <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+            <string name="revanced_spoof_video_streams_screen_title">Spoof video streams</string>
+            <string name="revanced_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
+            <string name="revanced_spoof_video_streams_title">Spoof video streams</string>
+            <string name="revanced_spoof_video_streams_summary_on">Video streams are spoofed</string>
+            <string name="revanced_spoof_video_streams_summary_off">"Video streams are not spoofed
+
+Video playback may not work"</string>
+            <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+            <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_title">Force iOS AVC (H.264)</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video codec is forced to AVC (H.264)</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video codec is determined automatically</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Enabling this might improve battery life and fix playback stuttering.
+
+AVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1."</string>
+            <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS spoofing side effects</string>
+            <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Movies or paid videos may not play
+• Stable volume is not available
+• Videos end 1 second early"</string>
+            <string name="revanced_spoof_video_streams_about_android_title">Android spoofing side effects</string>
+            <string name="revanced_spoof_video_streams_about_android_summary">"• Audio track menu is missing
+• Stable volume is not available
+• Force original audio is not available"</string>
+            <string name="revanced_spoof_video_streams_about_no_av1">• No AV1 video codec</string>
+            <string name="revanced_spoof_video_streams_about_kids_videos">• Kids videos may not play when logged out or in incognito mode</string>
+            <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
+            <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
+            <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
+            <string name="revanced_spoof_video_streams_language_title">VR default audio stream language</string>
         </patch>
     </app>
     <app id="twitch">
