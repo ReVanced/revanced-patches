@@ -6,6 +6,7 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
@@ -66,6 +67,9 @@ internal val protobufListsFingerprint = fingerprint {
 }
 
 internal val abstractProtobufListEnsureIsMutableFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters()
+    returns("V")
     custom { method, _ -> method.indexOfFirstInstruction {
             getReference<TypeReference>()?.type == "Ljava/lang/UnsupportedOperationException;"
         } >= 0

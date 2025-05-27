@@ -130,19 +130,17 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
 
-        val abstractProtobufListClassDef = with(protobufListsFingerprint.originalMethod) {
+        val protobufListClassDef = with(protobufListsFingerprint.originalMethod) {
             val emptyProtobufListGetIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
             // Find the protobuf array list class using the definingClass which contains the empty list static value.
             val classType = getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
 
-            classes.find {
-                it.type == classType
-            } ?: throw PatchException("Could not find protobuf array list class.")
-        }.let { protobufListClassDef ->
-            classes.find {
-                it.type == protobufListClassDef.superclass
-            } ?: throw PatchException("Could not find abstract protobuf list class.")
+            classes.find { it.type == classType } ?: throw PatchException("Could not find protobuf array list class.")
         }
+
+        val abstractProtobufListClassDef = classes.find {
+            it.type == protobufListClassDef.superclass
+        } ?: throw PatchException("Could not find abstract protobuf list class.")
 
         // Need to allow mutation of the list so the home ads sections can be removed.
         // Protobuf array list has an 'isMutable' boolean parameter that sets the mutability.
