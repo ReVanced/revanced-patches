@@ -132,9 +132,6 @@ private val customThemeBytecodePatch = bytecodePatch {
             addInstructions(0, """
                 invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(J)J
                 move-result-wide p0
-
-                invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(J)J
-                move-result-wide p0
             """)
         }
 
