@@ -122,7 +122,7 @@ class SwipeControlsConfigurationProvider {
         try {
             //noinspection UseKtx
             val color = Color.parseColor(setting.get())
-            return (0xBF000000.toInt() or (color and 0xFFFFFF))
+            return (0xBF000000.toInt() or (color and 0x00FFFFFF))
         } catch (ex: IllegalArgumentException) {
             // This code should never be reached.
             // Color picker rejects and will not save bad colors to a setting.
