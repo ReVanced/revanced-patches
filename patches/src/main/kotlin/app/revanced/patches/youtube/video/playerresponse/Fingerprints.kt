@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.video.playerresponse
 
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
-import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 /**
  * For targets 20.15 and later.

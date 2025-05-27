@@ -1,0 +1,22 @@
+package app.revanced.patches.youtube.player.overlaybuttons
+
+import app.revanced.patcher.fingerprint
+import app.revanced.util.containsLiteralInstruction
+import com.android.tools.smali.dexlib2.AccessFlags
+
+internal val playerControlsPreviousNextOverlayTouchFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    strings("1.0x")
+    custom { methodDef, _ ->
+        methodDef.containsLiteralInstruction(playerControlPreviousButtonTouchArea) &&
+            methodDef.containsLiteralInstruction(playerControlNextButtonTouchArea)
+    }
+}
+
+internal val mediaRouteButtonFingerprint = fingerprint {
+    parameters("I")
+    custom { methodDef, _ ->
+        methodDef.definingClass.endsWith("/MediaRouteButton;") && methodDef.name == "setVisibility"
+    }
+}

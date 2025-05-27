@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.misc.navigation
 
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
+import app.revanced.patches.youtube.general.navigationbuttons.navigationButtonsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal

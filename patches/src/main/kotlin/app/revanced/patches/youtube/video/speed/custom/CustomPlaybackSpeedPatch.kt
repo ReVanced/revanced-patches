@@ -17,7 +17,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.interaction.seekbar.disableFastForwardNoticeFingerprint
+import app.revanced.patches.youtube.seekbar.seekbarpatch.disableFastForwardNoticeFingerprint
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
