@@ -50,8 +50,8 @@ internal val parseLottieJsonFingerprint = fingerprint {
 internal val parseAnimatedColorFingerprint = fingerprint {
     parameters("L", "F")
     returns("Ljava/lang/Object;")
-    custom { m, c ->
-        m.containsLiteralInstruction(255.0) &&
-                m.containsLiteralInstruction(1.0)
+    custom { method, _ ->
+        method.containsLiteralInstruction(255.0) &&
+                method.containsLiteralInstruction(1.0)
     }
 }
