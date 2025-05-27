@@ -28,15 +28,16 @@ public final class CustomThemePatch {
     }
 
     public static int replaceColor(int color) {
-        return switch (color) {
-            case 0xff1ed760, 0xff1ed75f, // Some lottie animations have a color that's slightly off due to rounding errors
-                 0xff1db954, 0xff1cb854  // Intermediate color used in some animations, same rounding issue
-                -> ACCENT;
+        switch (color) {
+            case 0xff1ed760: case 0xff1ed75f: // Some lottie animations have a color that's slightly off due to rounding errors
+            case 0xff1db954: case 0xff1cb854: // Intermediate color used in some animations, same rounding issue
+                return ACCENT;
 
-            case 0xff1abc54
-                -> ACCENT_PRESSED;
+            case 0xff1abc54:
+                return ACCENT_PRESSED;
 
-            default -> color;
-        };
+            default:
+                return color;
+        }
     }
 }
