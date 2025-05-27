@@ -7,7 +7,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val hideAppIconPatch = resourcePatch(
     name = "Hide app icon",
-    description = "Hides the app icon from the Android launcher by modifying all launcher intent filters in the manifest.",
+    description = "Hides the app icon from the Android launcher.",
     use = false,
 ) {
     execute {
