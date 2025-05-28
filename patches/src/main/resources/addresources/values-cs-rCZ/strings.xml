@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Nastavení</string>
   <string name="revanced_settings_confirm_user_dialog_title">Přejete si pokračovat?</string>
   <string name="revanced_settings_reset">Výchozí</string>
+  <string name="revanced_settings_reset_color">Obnovit barvu</string>
+  <string name="revanced_settings_color_invalid">Neplatná barva</string>
   <string name="revanced_settings_restart_title">Obnovit a restartovat</string>
   <string name="revanced_settings_restart">Restartovat</string>
   <string name="revanced_settings_import">Importovat</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Nastavení ReVanced obnoveno do výchozího stavu</string>
   <string name="revanced_settings_import_success">Importováno %d nastavení</string>
   <string name="revanced_settings_import_failure_parse">Importováni selhalo: %s</string>
+  <string name="revanced_settings_search_hint">Hledat nastavení</string>
+  <string name="revanced_settings_search_no_results_title">Nebyly nalezeny žádné výsledky pro \",%s\"</string>
+  <string name="revanced_settings_search_no_results_summary">Zkuste jiné klíčové slovo</string>
+  <string name="revanced_settings_search_remove_message">Odebrat z historie vyhledávání?</string>
   <string name="revanced_show_menu_icons_title">Zobrazit ikony nastavení ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikony nastavení se zobrazují</string>
   <string name="revanced_show_menu_icons_summary_off">Ikony nastavení se nezobrazují</string>
@@ -93,6 +99,9 @@ Klepněte na tlačítko Pokračovat a povolte změny optimalizace."</string>
   <string name="revanced_restore_old_settings_menus_title">Obnovit staré menu nastavení</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Staré menu nastavení se zobrazují</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Staré menu nastavení se nezobrazují</string>
+  <string name="revanced_settings_search_history_title">Zobrazit historii vyhledávání v nastavení</string>
+  <string name="revanced_settings_search_history_summary_on">Historie vyhledávání v nastavení je zobrazena</string>
+  <string name="revanced_settings_search_history_summary_off">Historie vyhledávání nastavení se nezobrazuje</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Zakázat automatické přehrávání Shorts v pozadí</string>
@@ -108,6 +117,11 @@ Klepněte na tlačítko Pokračovat a povolte změny optimalizace."</string>
   <string name="revanced_debug_protobuffer_title">Záznam bufferu protokolu</string>
   <string name="revanced_debug_protobuffer_summary_on">Debugovací záznamy obsahují proto buffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Debugovací záznamy neobsahují proto buffer</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Povolením tohoto nastavení se bude zaznamenávat další data rozvržení, včetně textu na obrazovce pro některé komponenty uživatelského rozhraní.
+
+To může pomoci identifikovat komponenty při vytváření vlastních filtrů.
+
+Povolením této možnosti se však budou zaznamenávat i některá uživatelská data, jako je vaše IP adresa."</string>
   <string name="revanced_debug_stacktrace_title">Protokolovat trasování zásobníku</string>
   <string name="revanced_debug_stacktrace_summary_on">Protokoly ladění obsahují trasování zásobníku</string>
   <string name="revanced_debug_stacktrace_summary_off">Ladící protokoly nezahrnují sledování zásobníku</string>
@@ -117,6 +131,15 @@ Klepněte na tlačítko Pokračovat a povolte změny optimalizace."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Vypnutí chybových toastů skryje všechna chybová oznámení ReVanced.
 
 Nebudete informováni o žádné neočekávané události."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exportovat ladicí protokoly</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Zkopíruje ladicí protokoly ReVanced do schránky</string>
+  <string name="revanced_debug_logs_disabled">Ladění je vypnuto</string>
+  <string name="revanced_debug_logs_none_found">Nebyly nalezeny žádné protokoly</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Protokoly zkopírovány</string>
+  <string name="revanced_debug_logs_failed_to_export">Nepodařilo se exportovat protokoly: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Vymazat ladicí protokoly</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Vymaže všechny uložené ladicí protokoly ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Protokoly vymazány</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Skrýt karty alb</string>
@@ -153,15 +176,18 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_notify_me_button_title">Skrýt tlačitko \'Upozorněte mě\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Tlačítko je skryté</string>
   <string name="revanced_hide_notify_me_button_summary_off">Tlačítko je zobrazeno</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Skrýt štítek „Lidé také sledovali“</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Štítek je skrytý</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Štítek je zobrazen</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Skrýt popisky doporučení videí</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Popisky „Lidé také sledovali“ a „Mohlo by se vám také líbit“ jsou skryté</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Popisky „Lidé také sledovali“ a „Mohlo by se vám také líbit“ jsou zobrazené</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Skrýt tlačítko „Zobrazit více“</string>
   <string name="revanced_hide_show_more_button_summary_on">Tlačítko je skryto</string>
   <string name="revanced_hide_show_more_button_summary_off">Tlačítko je zobrazeno</string>
+  <string name="revanced_hide_ticket_shelf_title">Skrýt panel Vstupenek</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Panel Vstupenek je skrytý</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Panel Vstupenek je zobrazen</string>
   <string name="revanced_hide_timed_reactions_title">Skrýt reakce zobrazené po čase</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reakce zobrazené po čase jsou skryty</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakce se zobrazují po čase</string>
@@ -231,6 +257,9 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Skrýt „Souhrn videa generovaný pomocí AI“</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sekce se souhrnem videa je skrytá</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sekce se souhrnem videa je zobrazena</string>
+  <string name="revanced_hide_ask_section_title">Skrýt sekci Zeptat se</string>
+  <string name="revanced_hide_ask_section_summary_on">Sekce Zeptat se je skrytá</string>
+  <string name="revanced_hide_ask_section_summary_off">Sekce Zeptat se je zobrazena</string>
   <string name="revanced_hide_attributes_section_title">Skrýt atributy</string>
   <string name="revanced_hide_attributes_section_summary_on">Sekce Doporučená místa, Hry, Hudba a Zmínění lidé jsou skryté</string>
   <string name="revanced_hide_attributes_section_summary_off">Sekce Doporučená místa, Hry, Hudba a Zmínění lidé jsou zobrazené</string>
@@ -352,9 +381,6 @@ Omezení:
 
 Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Celostránkové reklamy jsou zobrazeny</string>
-  <string name="revanced_hide_buttoned_ads_title">Skrýt reklamy s tlačítky</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Reklamy s tlačítky jsou skryty</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Reklamy s tlačítky jsou zobrazeny</string>
   <string name="revanced_hide_paid_promotion_label_title">Skrýt štítek placené propagace</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Štítek placené propagace je skryt</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Štítek placené propagace je zobrazen</string>
@@ -465,9 +491,6 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Průsvitnost pozadí překrytí tažením</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Hodnota průsvitnosti mezi 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Průsvitnost tažení musí být mezi 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Barva ukazatele průběhu překrytí přejetím</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Barva ukazatele průběhu pro ovládání hlasitosti a jasu</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Neplatná barva ukazatele průběhu</string>
   <string name="revanced_swipe_text_overlay_size_title">Velikost textu překrytí přejetím</string>
   <string name="revanced_swipe_text_overlay_size_summary">Velikost textu překrytí přejetím mezi 1–30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Velikost textu musí být mezi 1–30</string>
@@ -794,6 +817,11 @@ Automatické přehrávání lze změnit v nastavení YouTube:
 Nastavení → Přehrávání → Automatické přehrávání dalšího videa"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Navrhované video na konci obrazovky se zobrazuje</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Skrýt překryv souvisejícího videa v režimu celé obrazovky</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Překryv souvisejícího videa je skrytý</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Překryv souvisejícího videa je zobrazen</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skrýt čas videa</string>
   <string name="revanced_hide_timestamp_summary_on">Čas je skrytý</string>
@@ -831,10 +859,10 @@ Nastavení → Přehrávání → Automatické přehrávání dalšího videa"</
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Načtěte video znovu, abyste hlasovali pomocí Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skryto vlastníkem</string>
-  <string name="revanced_ryd_enable_summary_on">Nelíbí se se zobrazují</string>
-  <string name="revanced_ryd_enable_summary_off">Nelíbí se se nezobrazují</string>
+  <string name="revanced_ryd_enabled_summary_on">Nelíbí se se zobrazují</string>
+  <string name="revanced_ryd_enabled_summary_off">Nelíbí se se nezobrazují</string>
   <string name="revanced_ryd_shorts_title">Zobrazit nelíbí se v Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Počty „Nelíbí se mi“ u Shorts jsou zobrazeny
+  <string name="revanced_ryd_shorts_summary_on">"Počty „Nelíbí se mi“ u Shorts jsou zobrazeny
 
 Omezení: Počty „Nelíbí se mi“ se nemusí zobrazit v anonymním režimu"</string>
   <string name="revanced_ryd_shorts_summary_off">Počty „Nelíbí se mi“ u Shorts nejsou zobrazeny</string>
@@ -851,7 +879,6 @@ Omezení: Počty „Nelíbí se mi“ se nemusí zobrazit v anonymním režimu"<
   <string name="revanced_ryd_toast_on_connection_error_title">Zobrazit toast, pokud API není dostupné</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast se zobrazí, pokud Return YouTube Dislike není dostupný</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast se nezobrazí, pokud Return YouTube Dislike není dostupný</string>
-  <string name="revanced_ryd_about">O aplikaci</string>
   <string name="revanced_ryd_attribution_summary">Data jsou poskytována API Return YouTube Dislike. Klepnutím se dozvíte více</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Statistiky API ReturnYouTubeDislike tohoto zařízení</string>
@@ -1057,7 +1084,7 @@ Jste připraveni k odeslání?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Upravit načasování segmentu ručně</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Chcete upravit načasování pro začátek nebo konec segmentu?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Zadán neplatný čas</string>
-  <string name="revanced_sb_stats">Statistiky</string>
+  <string name="revanced_sb_stats_title">Statistiky</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistiky jsou dočasně nedostupné (server API je mimo provoz)</string>
   <string name="revanced_sb_stats_loading">Načítání...</string>
@@ -1081,13 +1108,8 @@ Jste připraveni k odeslání?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekund</string>
   <string name="revanced_sb_color_opacity_label">Průhlednost:</string>
   <string name="revanced_sb_color_dot_label">Barva:</string>
-  <string name="revanced_sb_color_changed">Barva změněna</string>
-  <string name="revanced_sb_color_reset">Barva resetována</string>
-  <string name="revanced_sb_color_invalid">Neplatný kód barvy</string>
-  <string name="revanced_sb_reset_color">Resetovat barvu</string>
-  <string name="revanced_sb_reset">Výchozí</string>
-  <string name="revanced_sb_about">O aplikaci</string>
-  <string name="revanced_sb_about_api_sum">Data poskytuje rozhraní API SponsorBlock. Klepněte zde, abyste se dozvěděli více a zobrazili si soubory ke stažení pro další platformy</string>
+  <string name="revanced_sb_about_title">O aplikaci</string>
+  <string name="revanced_sb_about_api_summary">Data poskytuje rozhraní API SponsorBlock. Klepněte zde, abyste se dozvěděli více a zobrazili si soubory ke stažení pro další platformy</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Rozvržení formuláře</string>
@@ -1310,6 +1332,22 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="microg_settings_title">Nastavení GmsCore</string>
   <string name="microg_settings_summary">Nastavení pro GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptická odezva</string>
+  <string name="revanced_disable_haptic_feedback_summary">Změnit haptickou odezvu</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Zakázat haptiku kapitol</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptika kapitol je zakázána</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptika kapitol je povolena</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Zakázat haptiku pro přesné hledání</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Haptická odezva při přesném vyhledávání je vypnutá</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Haptika pro přesné hledání je povolena</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Zakázat haptiku pro vrácení zpět vyhledávání</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Haptika pro vrácení zpět vyhledávání je vypnutá</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Haptika pro vrácení zpět vyhledávání je zapnutá</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Zakázat haptiku pro zoom</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Haptika zoomu je vypnutá</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Haptika zoomu je zapnutá</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Pokud jste nedávno změnili přihlašovací údaje svého účtu, odinstalujte a znovu nainstalujte MicroG.</string>
   </patch>
@@ -1327,11 +1365,6 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Odstranit sledovací parametr dotazu</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Sledovací parametr dotazu je odstraněn z odkazů</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Sledovací parametr dotazu není odstraněn z odkazů</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Zakázat haptiku pro zoom</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptika je zakázána</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptika je povolena</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Vynutit původní jazyk zvuku</string>

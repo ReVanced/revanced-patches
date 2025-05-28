@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Настройки</string>
   <string name="revanced_settings_confirm_user_dialog_title">Вы хотите продолжить?</string>
   <string name="revanced_settings_reset">Сбросить</string>
+  <string name="revanced_settings_reset_color">Сбросить цвет</string>
+  <string name="revanced_settings_color_invalid">Неверный цвет</string>
   <string name="revanced_settings_restart_title">Обновить и перезапустить</string>
   <string name="revanced_settings_restart">Перезапустить</string>
   <string name="revanced_settings_import">Импортировать</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Настройки ReVanced восстановлены до значений по умолчанию</string>
   <string name="revanced_settings_import_success">Импортировано %d настроек</string>
   <string name="revanced_settings_import_failure_parse">Ошибка импорта: %s</string>
+  <string name="revanced_settings_search_hint">Поиск настроек</string>
+  <string name="revanced_settings_search_no_results_title">По запросу \"%s\" ничего не найдено</string>
+  <string name="revanced_settings_search_no_results_summary">Попробуйте другое ключевое слово</string>
+  <string name="revanced_settings_search_remove_message">Удалить из истории поиска?</string>
   <string name="revanced_show_menu_icons_title">Показать иконки в настройках ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Иконки в настройках ReVanced показаны</string>
   <string name="revanced_show_menu_icons_summary_off">Иконки в настройках ReVanced скрыты</string>
@@ -93,6 +99,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Включить старое меню настроек</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Старое меню настроек включено</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Новое меню настроек включено</string>
+  <string name="revanced_settings_search_history_title">Показать историю поиска настроек</string>
+  <string name="revanced_settings_search_history_summary_on">История поиска настроек показана</string>
+  <string name="revanced_settings_search_history_summary_off">История поиска настроек скрыта</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Отключить воспроизведение Shorts в фоновом режиме</string>
@@ -108,6 +117,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">Журнал буфера протоколов</string>
   <string name="revanced_debug_protobuffer_summary_on">В журналы отладки включен буфер протоколов</string>
   <string name="revanced_debug_protobuffer_summary_off">В журналы отладки не включен буфер протоколов</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Включение этой настройки позволит регистрировать дополнительные данные макета, включая текст на экране для некоторых компонентов пользовательского интерфейса.
+
+Это может помочь определить компоненты при создании пользовательских фильтров.
+
+Однако включение этой функции также приведет к регистрации некоторых пользовательских данных, таких как ваш IP-адрес."</string>
   <string name="revanced_debug_stacktrace_title">Журнал трассировки стека</string>
   <string name="revanced_debug_stacktrace_summary_on">В журналы отладки включена трассировка стека</string>
   <string name="revanced_debug_stacktrace_summary_off">В журналы отладки не включена трассировка стека</string>
@@ -117,6 +131,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Отключение всплывающих уведомлений об ошибках скроет все сообщения об ошибках ReVanced.
 
 Вы не будете уведомлены о каких-либо непредвиденных событиях."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Экспортировать журналы отладки</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Копирует журналы отладки ReVanced в буфер обмена</string>
+  <string name="revanced_debug_logs_disabled">Журналы отладки отключены</string>
+  <string name="revanced_debug_logs_none_found">Журналы не найдены</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Журналы скопированы</string>
+  <string name="revanced_debug_logs_failed_to_export">Не удалось экспортировать журналы: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Очистить журналы отладки</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Очищает все сохраненные журналы отладки ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Журналы очищены</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Скрыть карточки альбомов</string>
@@ -153,15 +176,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">Скрыть кнопку \"Прислать уведомление\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Кнопка \"Прислать уведомление\" под плеером скрыта</string>
   <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Прислать уведомление\" под плеером показана</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Скрыть рекомендации \"Зрители также посмотрели\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Рекомендации \"Зрители также посмотрели\" в ленте скрыты</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Рекомендации \"Зрители также посмотрели\" в ленте показаны</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Скрыть метки видеорекомендаций</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Метки \"Люди также смотрели\" и \"Вам также может понравиться\" в результатах поиска скрыты</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Метки \"Люди также смотрели\" и \"Вам также может понравиться\" в результатах поиска показаны</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Скрыть кнопку \"Показать еще\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Кнопка \"Показать еще\" в результатах поиска скрыта</string>
   <string name="revanced_hide_show_more_button_summary_off">Кнопка \"Показать еще\" в результатах поиска показана</string>
+  <string name="revanced_hide_ticket_shelf_title">Скрыть секцию билетов</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Секция билетов под плеером скрыта</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Секция билетов под плеером показана</string>
   <string name="revanced_hide_timed_reactions_title">Скрыть временные реакции</string>
   <string name="revanced_hide_timed_reactions_summary_on">Временные реакции в комментариях и живом чате скрыты</string>
   <string name="revanced_hide_timed_reactions_summary_off">Временные реакции в комментариях и живом чате показаны</string>
@@ -231,6 +257,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Скрыть секцию AI-резюме видео</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Секция AI-резюме видео в описании видео скрыта</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Секция AI-резюме видео в описании видео показана</string>
+  <string name="revanced_hide_ask_section_title">Скрыть раздел \"Спросить\"</string>
+  <string name="revanced_hide_ask_section_summary_on">Раздел \"Спросить\" в описании видео скрыт</string>
+  <string name="revanced_hide_ask_section_summary_off">Раздел \"Спросить\" в описании видео показан</string>
   <string name="revanced_hide_attributes_section_title">Скрыть раздел атрибутов</string>
   <string name="revanced_hide_attributes_section_summary_on">Разделы \"Упомянутые или показанные места\", \"Игры\", \"Музыка\" и \"Люди, которых упоминали\" скрыты</string>
   <string name="revanced_hide_attributes_section_summary_off">Разделы \"Упомянутые или показанные места\", \"Игры\", \"Музыка\" и \"Люди, которых упоминали\" показаны</string>
@@ -352,9 +381,6 @@ Second \"item\" text"</string>
 
 Данная опция доступна только для старых устройств"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Полноэкранная реклама при запуске приложения показана</string>
-  <string name="revanced_hide_buttoned_ads_title">Скрыть кнопочную рекламу</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Кнопочная реклама в ленте скрыта</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Кнопочная реклама в ленте показана</string>
   <string name="revanced_hide_paid_promotion_label_title">Скрыть метку платной акции</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Метка платной акции в плеере скрыта</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Метка платной акции в плеере показана</string>
@@ -465,9 +491,6 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Затемнение фона панели жестов</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значение затемнения всплывающей панели при жестах от 0 до 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значение затемнения панели жестов должно быть от 0 до 100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Цвет полосы прогресса при жестах</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Цвет полосы прогресса при изменении громкости и яркости жестами</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Недопустимый цвет полосы прогресса</string>
   <string name="revanced_swipe_text_overlay_size_title">Размер текста панели жестов</string>
   <string name="revanced_swipe_text_overlay_size_summary">Размер текста панели жестов от 1 до 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Размер текста должен быть в диапазоне от 1 до 30</string>
@@ -794,6 +817,11 @@ Second \"item\" text"</string>
 Настройки → Фоновое воспроизведение → Следующее видео"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Предлагаемые видео в конце просмотра показаны</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Скрыть похожие видео в полноэкранном режиме</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Похожие видео в полноэкранном режиме скрыты</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Похожие видео в полноэкранном режиме показаны</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Скрыть метку времени видео</string>
   <string name="revanced_hide_timestamp_summary_on">Метка времени видео над полосой прогресса скрыта</string>
@@ -831,10 +859,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Обновите видео для голосования с помощью Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто владельцем</string>
-  <string name="revanced_ryd_enable_summary_on">Дизлайки показаны</string>
-  <string name="revanced_ryd_enable_summary_off">Дизлайки скрыты</string>
+  <string name="revanced_ryd_enabled_summary_on">Дизлайки показаны</string>
+  <string name="revanced_ryd_enabled_summary_off">Дизлайки скрыты</string>
   <string name="revanced_ryd_shorts_title">Показать дизлайки в Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Дизлайки в Shorts показаны
+  <string name="revanced_ryd_shorts_summary_on">"Дизлайки в Shorts показаны
 
 Ограничение: дизлайки могут не показываться в режиме инкогнито"</string>
   <string name="revanced_ryd_shorts_summary_off">Дизлайки в Shorts скрыты</string>
@@ -851,7 +879,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Уведомление при недоступности API</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности Return YouTube Dislike показано</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление при недоступности Return YouTube Dislike скрыто</string>
-  <string name="revanced_ryd_about">Об интеграции</string>
   <string name="revanced_ryd_attribution_summary">Данные предоставлены Return YouTube Dislike API. Нажмите для дополнительной информации</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Статистика Return YouTube Dislike API этого устройства</string>
@@ -1058,7 +1085,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Изменить время сегмента вручную</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Вы хотите изменить время начала или окончания сегмента?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Указано неверное время</string>
-  <string name="revanced_sb_stats">Статистика</string>
+  <string name="revanced_sb_stats_title">Статистика</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Статистика временно недоступна (API отключен)</string>
   <string name="revanced_sb_stats_loading">Загрузка...</string>
@@ -1082,13 +1109,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s секунд</string>
   <string name="revanced_sb_color_opacity_label">Непрозрачность:</string>
   <string name="revanced_sb_color_dot_label">Цвет:</string>
-  <string name="revanced_sb_color_changed">Цвет изменен</string>
-  <string name="revanced_sb_color_reset">Цвет сброшен</string>
-  <string name="revanced_sb_color_invalid">Неверный код цвета</string>
-  <string name="revanced_sb_reset_color">Сбросить цвет</string>
-  <string name="revanced_sb_reset">Сбросить</string>
-  <string name="revanced_sb_about">Об интеграции</string>
-  <string name="revanced_sb_about_api_sum">Данные предоставлены SponsorBlock API. Нажмите для дополнительной информации и просмотра загрузок для других платформ</string>
+  <string name="revanced_sb_about_title">Об интеграции</string>
+  <string name="revanced_sb_about_api_summary">Данные предоставлены SponsorBlock API. Нажмите для дополнительной информации и просмотра загрузок для других платформ</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Макет интерфейса</string>
@@ -1311,6 +1333,22 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">GmsCore</string>
   <string name="microg_settings_summary">Настройки GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Виброотклик</string>
+  <string name="revanced_disable_haptic_feedback_summary">Изменить виброотклик</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Отключить виброотклик глав</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Виброотклик глав отключен</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Виброотклик глав включен</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Отключить виброотклик при покадровой перемотке</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Виброотклик при точном поиске отключен</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Виброотклик при покадровой перемотке включен</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Отключить виброотклик отмены поиска</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Виброотклик отмены поиска отключен</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Виброотклик отмены поиска включен</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Отключить виброотклик при масштабировании</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Виброотклик при масштабировании отключен</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Виброотклик при масштабировании включен</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Если Вы недавно изменили данные для входа в свою учетную запись, удалите и переустановите MicroG.</string>
   </patch>
@@ -1328,11 +1366,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Удалить параметр отслеживания запросов</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Параметр отслеживания запросов из ссылок удален</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Параметр отслеживания запросов из ссылок не удален</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Отключить виброотклик при масштабировании</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Виброотклик при масштабировании отключен</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Виброотклик при масштабировании включен</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>

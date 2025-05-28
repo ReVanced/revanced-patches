@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches;
 
-import android.content.res.Resources;
-import android.util.TypedValue;
 import android.view.View;
 
 import app.revanced.extension.shared.Logger;
@@ -33,10 +31,9 @@ public final class WideSearchbarPatch {
             final int paddingRight = searchBarView.getPaddingRight();
             final int paddingTop = searchBarView.getPaddingTop();
             final int paddingBottom = searchBarView.getPaddingBottom();
-            final int paddingStart = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                    8, Resources.getSystem().getDisplayMetrics());
+            final int paddingStart = Utils.dipToPixels(8);
 
-            if (Utils.isRightToLeftTextLayout()) {
+            if (Utils.isRightToLeftLocale()) {
                 searchBarView.setPadding(paddingLeft, paddingTop, paddingStart, paddingBottom);
             } else {
                 searchBarView.setPadding(paddingStart, paddingTop, paddingRight, paddingBottom);

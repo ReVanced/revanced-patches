@@ -1,11 +1,16 @@
 package app.revanced.patches.youtube.layout.shortsplayer
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.youtube.layout.player.fullscreen.openVideosFullscreenHookPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -19,11 +24,28 @@ import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/OpenShortsInRegularPlayerPatch;"
+
+internal var mdx_drawer_layout_id = -1L
+    private set
+
+private val openShortsInRegularPlayerResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        mdx_drawer_layout_id = resourceMappings[
+            "id",
+            "mdx_drawer_layout",
+        ]
+
+    }
+}
 
 @Suppress("unused")
 val openShortsInRegularPlayerPatch = bytecodePatch(
@@ -36,7 +58,8 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         addResourcesPatch,
         openVideosFullscreenHookPatch,
         navigationBarHookPatch,
-        versionCheckPatch
+        versionCheckPatch,
+        openShortsInRegularPlayerResourcePatch
     )
 
     compatibleWith(
@@ -127,5 +150,28 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
                 ${extensionInstructions(0, 1)}
             """
         )
+
+        // Fix issue with back button exiting the app instead of minimizing the player.
+        // Without this change this issue can be difficult to reproduce, but seems to occur
+        // most often with 'open video in regular player' and not open in fullscreen player.
+        exitVideoPlayerFingerprint.method.apply {
+            // Method call for Activity.finish()
+            val finishIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.name == "finish"
+            }
+
+            // Index of PlayerType.isWatchWhileMaximizedOrFullscreen()
+            val index = indexOfFirstInstructionReversedOrThrow(finishIndex, Opcode.MOVE_RESULT)
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstructions(
+                index + 1,
+                """
+                    invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->overrideBackPressToExit(Z)Z    
+                    move-result v$register
+                """
+            )
+        }
     }
 }

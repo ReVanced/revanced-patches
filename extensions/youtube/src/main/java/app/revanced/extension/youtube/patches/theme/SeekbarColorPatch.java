@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.patches.theme;
 
 import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.shared.Utils.clamp;
 
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -178,7 +179,7 @@ public final class SeekbarColorPatch {
             //noinspection ConstantConditions
             if (false) { // Set true to force slow animation for development.
                 final int longAnimation = Utils.getResourceIdentifier(
-                        Utils.isDarkModeEnabled(Utils.getContext())
+                        Utils.isDarkModeEnabled()
                                 ? "startup_animation_5s_30fps_dark"
                                 : "startup_animation_5s_30fps_light",
                         "raw");
@@ -377,15 +378,5 @@ public final class SeekbarColorPatch {
             Logger.printException(() -> "getSeekbarColorValue failure", ex);
             return originalColor;
         }
-    }
-
-    /** @noinspection SameParameterValue */
-    private static int clamp(int value, int lower, int upper) {
-        return Math.max(lower, Math.min(value, upper));
-    }
-
-    /** @noinspection SameParameterValue */
-    private static float clamp(float value, float lower, float upper) {
-        return Math.max(lower, Math.min(value, upper));
     }
 }

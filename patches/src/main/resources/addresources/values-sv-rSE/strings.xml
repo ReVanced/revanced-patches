@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Inställningar</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vill du fortsätta?</string>
   <string name="revanced_settings_reset">Återställ</string>
+  <string name="revanced_settings_reset_color">Återställ färg</string>
+  <string name="revanced_settings_color_invalid">Ogiltig färg</string>
   <string name="revanced_settings_restart_title">Uppdatera och starta om</string>
   <string name="revanced_settings_restart">Starta om</string>
   <string name="revanced_settings_import">Importera</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-inställningarna återställda till standard</string>
   <string name="revanced_settings_import_success">Importerade %d inställningar</string>
   <string name="revanced_settings_import_failure_parse">Importen misslyckades: %s</string>
+  <string name="revanced_settings_search_hint">Sökinställningar</string>
+  <string name="revanced_settings_search_no_results_title">Inga resultat hittades för \"%s\"</string>
+  <string name="revanced_settings_search_no_results_summary">Försök med ett annat sökord</string>
+  <string name="revanced_settings_search_remove_message">Ta bort från sökhistoriken?</string>
   <string name="revanced_show_menu_icons_title">Visa ikoner för ReVanced-inställningar</string>
   <string name="revanced_show_menu_icons_summary_on">Inställningsikoner visas</string>
   <string name="revanced_show_menu_icons_summary_off">Ikoner för inställningar visas inte</string>
@@ -93,6 +99,9 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_restore_old_settings_menus_title">Återställ gamla inställningsmenyer</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Gamla inställningsmenyer visas</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Gamla inställningsmenyer visas inte</string>
+  <string name="revanced_settings_search_history_title">Visa sökhistorik för inställningar</string>
+  <string name="revanced_settings_search_history_summary_on">Sökhistorik för inställningar visas</string>
+  <string name="revanced_settings_search_history_summary_off">Sökhistoriken för inställningar visas inte</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Inaktivera Shorts bakgrundsuppspelning</string>
@@ -108,6 +117,11 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_debug_protobuffer_title">Logga protokollbuffert</string>
   <string name="revanced_debug_protobuffer_summary_on">Felsökningsloggar inkluderar protobuffert</string>
   <string name="revanced_debug_protobuffer_summary_off">Felsökningsloggar inkluderar inte protobuffert</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Om du aktiverar den här inställningen loggas ytterligare layoutdata, inklusive text på skärmen för vissa UI-komponenter.
+
+Detta kan hjälpa till att identifiera komponenter när du skapar anpassade filter.
+
+Men om du aktiverar detta kommer även vissa användardata, t.ex. din IP-adress, att loggas."</string>
   <string name="revanced_debug_stacktrace_title">Logga stackspår</string>
   <string name="revanced_debug_stacktrace_summary_on">Felsökningsloggar inkluderar stackspår</string>
   <string name="revanced_debug_stacktrace_summary_off">Felsökningsloggar inkluderar inte stackspår</string>
@@ -117,6 +131,15 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Att stänga av felmeddelanden döljer alla ReVanced-felmeddelanden.
 
 Du kommer inte att bli meddelad om oväntade händelser."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exportera felsökningsloggar</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopierar ReVanced-felsökningsloggar till Urklipp</string>
+  <string name="revanced_debug_logs_disabled">Felsökningsloggar är inaktiverade</string>
+  <string name="revanced_debug_logs_none_found">Inga loggar hittades</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Loggar kopierade</string>
+  <string name="revanced_debug_logs_failed_to_export">Det gick inte att exportera loggar: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Rensa felsökningsloggar</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Rensar alla lagrade ReVanced-felsökningsloggar</string>
+  <string name="revanced_debug_logs_clear_toast">Loggar rensade</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Dölj albumkort</string>
@@ -153,15 +176,18 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_notify_me_button_title">Dölj knappen \'Meddela mig\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Knappen är dold</string>
   <string name="revanced_hide_notify_me_button_summary_off">Knappen är synlig</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Dölj etiketten \"Folk tittade även på\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Etiketten är dold</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Etiketten visas</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Dölj etiketter för videorekommendationer</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Etiketterna \"Folk tittade även på\" och \"Du kanske också gillar\" är dolda</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Etiketterna \"Folk tittade även på\" och \"Du kanske också gillar\" visas</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Dölj knappen \"Visa mer\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Knappen är dold</string>
   <string name="revanced_hide_show_more_button_summary_off">Knappen är synlig</string>
+  <string name="revanced_hide_ticket_shelf_title">Dölj biljettpanelen</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Biljettpanelen är dold</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Biljettpanelen visas</string>
   <string name="revanced_hide_timed_reactions_title">Dölj tidsinställda reaktioner</string>
   <string name="revanced_hide_timed_reactions_summary_on">Tidsinställda reaktioner är dolda</string>
   <string name="revanced_hide_timed_reactions_summary_off">Tidsinställda reaktioner är synliga</string>
@@ -231,6 +257,9 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Dölj \"AI-genererad videosammanfattning\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videoöversiktssektionen är dold</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videoöversiktssektionen visas</string>
+  <string name="revanced_hide_ask_section_title">Dölj Fråga</string>
+  <string name="revanced_hide_ask_section_summary_on">Fråga-avsnittet är dolt</string>
+  <string name="revanced_hide_ask_section_summary_off">Fråga-avsnittet visas</string>
   <string name="revanced_hide_attributes_section_title">Dölj attribut</string>
   <string name="revanced_hide_attributes_section_summary_on">Avsnitten Utvalda platser, Spel, Musik och Personer som nämns är dolda</string>
   <string name="revanced_hide_attributes_section_summary_off">Avsnitten Utvalda platser, Spel, Musik och Personer som nämns visas</string>
@@ -352,9 +381,6 @@ Begränsningar
 
 Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Fullskärmsannonser är synliga</string>
-  <string name="revanced_hide_buttoned_ads_title">Dölj knappannonser</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Knappannonser är dolda</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Knappannonser är synliga</string>
   <string name="revanced_hide_paid_promotion_label_title">Dölj betald kampanjetikett</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Betald kampanjetikett är dold</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Betald kampanjetikett är synlig</string>
@@ -465,9 +491,10 @@ Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Överlägg svepbakgrund opacitet</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Opacitetsvärde mellan 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Överlagrad svepopacitet måste vara mellan 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Färg på förloppsindikatorn för svepöverlagring</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Färgen på förloppsindikatorn för volym- och ljusstyrkekontroller</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ogiltig färg på förloppsindikatorn</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Färg för svepgestöverlagringens ljusstyrka</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Färgen på förloppsindikatorn för ljusstyrkekontroller</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Färg för svepgestöverlagringens volym</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Färgen på förloppsindikatorn för volymkontroller</string>
   <string name="revanced_swipe_text_overlay_size_title">Textstorlek för svepöverlagring</string>
   <string name="revanced_swipe_text_overlay_size_summary">Textstorleken för svepöverlagring mellan 1 och 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Textstorleken måste vara mellan 1 och 30</string>
@@ -794,6 +821,11 @@ Automatisk uppspelning kan ändras i YouTube-inställningarna:
 Inställningar → Uppspelning → Spela upp nästa video automatiskt"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Föreslagen video på slutskärmen visas</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Dölj relaterad video-overlay i helskärm</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Relaterad video-overlay är dold</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Relaterad video-overlay visas</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Dölj videotidsstämpel</string>
   <string name="revanced_hide_timestamp_summary_on">Tidsstämpel är dold</string>
@@ -831,10 +863,10 @@ Inställningar → Uppspelning → Spela upp nästa video automatiskt"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Ladda om video för att rösta med Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Dold av ägaren</string>
-  <string name="revanced_ryd_enable_summary_on">Ogilla är synliga</string>
-  <string name="revanced_ryd_enable_summary_off">Ogilla visas inte</string>
+  <string name="revanced_ryd_enabled_summary_on">Ogilla är synliga</string>
+  <string name="revanced_ryd_enabled_summary_off">Ogilla visas inte</string>
   <string name="revanced_ryd_shorts_title">Visa ogillande på Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Ogillanden visas på Shorts
+  <string name="revanced_ryd_shorts_summary_on">"Ogillanden visas på Shorts
 
 Begränsning: Ogillanden kanske inte visas i inkognitoläge"</string>
   <string name="revanced_ryd_shorts_summary_off">Ogillanden på Shorts visas inte</string>
@@ -851,7 +883,6 @@ Begränsning: Ogillanden kanske inte visas i inkognitoläge"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Visa ett meddelande om API inte är tillgängligt</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Visa ett meddelande om Return YouTube Dislike inte är tillgängligt</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Visa inget meddelande om Return YouTube Dislike inte är tillgängligt</string>
-  <string name="revanced_ryd_about">Om</string>
   <string name="revanced_ryd_attribution_summary">Data tillhandahålls av Return YouTube Tycker inte om API. Tryck här för att läsa mer</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API-statistik för denna enhet</string>
@@ -1057,7 +1088,7 @@ Redo att skicka in?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Redigera tid för segment manuellt</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Vill du ändra tidpunkten för starten eller slutet av segmentet?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Ogiltig tid angiven</string>
-  <string name="revanced_sb_stats">Statistik</string>
+  <string name="revanced_sb_stats_title">Statistik</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistik är tillfälligt inte tillgänglig (API är nere)</string>
   <string name="revanced_sb_stats_loading">Laddar...</string>
@@ -1081,13 +1112,8 @@ Redo att skicka in?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekunder</string>
   <string name="revanced_sb_color_opacity_label">Opacitet:</string>
   <string name="revanced_sb_color_dot_label">Färg:</string>
-  <string name="revanced_sb_color_changed">Färg ändrad</string>
-  <string name="revanced_sb_color_reset">Färg återställning</string>
-  <string name="revanced_sb_color_invalid">Ogiltig färgkod</string>
-  <string name="revanced_sb_reset_color">Återställ färg</string>
-  <string name="revanced_sb_reset">Återställ</string>
-  <string name="revanced_sb_about">Om</string>
-  <string name="revanced_sb_about_api_sum">Data tillhandahålls av SponsorBlock API. Tryck här för att läsa mer och se nedladdningar för andra plattformar</string>
+  <string name="revanced_sb_about_title">Om</string>
+  <string name="revanced_sb_about_api_summary">Data tillhandahålls av SponsorBlock API. Tryck här för att läsa mer och se nedladdningar för andra plattformar</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Formulärformfaktor</string>
@@ -1310,6 +1336,22 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="microg_settings_title">GmsCore inställningar</string>
   <string name="microg_settings_summary">Inställningar för GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptisk återkoppling</string>
+  <string name="revanced_disable_haptic_feedback_summary">Ändra haptisk återkoppling</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Inaktivera haptik för kapitel</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptik för kapitel är inaktiverad</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptik för kapitel är aktiverad</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Inaktivera exakt sökhaptik</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Precisionssökning med haptik är inaktiverad</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Exakt sökhaptik är aktiverad</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Inaktivera ångra-sökning haptik</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Ångra-sökning haptik är inaktiverad</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Ångra-sökning haptik är aktiverad</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Inaktivera zoomhaptik</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoomhaptik är inaktiverad</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoomhaptik är aktiverad</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Om du nyligen har ändrat dina inloggningsuppgifter, avinstallera och installera om MicroG.</string>
   </patch>
@@ -1327,11 +1369,6 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Ta bort spårningsfrågeparameter</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Spårnings frågeparameter har tagits bort från länkar</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Spårnings frågeparameter har inte tagits bort från länkar</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Inaktivera zoomhaptik</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptikerna är inaktiverade</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptikerna är aktiverade</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forcera originalljudspråk</string>

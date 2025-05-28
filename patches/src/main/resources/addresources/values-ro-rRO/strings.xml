@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Setări</string>
   <string name="revanced_settings_confirm_user_dialog_title">Doriți să continuați?</string>
   <string name="revanced_settings_reset">Resetare</string>
+  <string name="revanced_settings_reset_color">Resetează culoarea</string>
+  <string name="revanced_settings_color_invalid">Culoare nevalidă</string>
   <string name="revanced_settings_restart_title">Reîmprospătare și repornire</string>
   <string name="revanced_settings_restart">Repornire</string>
   <string name="revanced_settings_import">Importare</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Setările ReVanced au fost resetate la valorile implicite</string>
   <string name="revanced_settings_import_success">Au fost importate %d setări</string>
   <string name="revanced_settings_import_failure_parse">Importare eșuată: %s</string>
+  <string name="revanced_settings_search_hint">Caută în setări</string>
+  <string name="revanced_settings_search_no_results_title">Nu s-au găsit rezultate pentru „%s”</string>
+  <string name="revanced_settings_search_no_results_summary">Încearcă un alt cuvânt cheie</string>
+  <string name="revanced_settings_search_remove_message">Eliminați din istoricul căutărilor?</string>
   <string name="revanced_show_menu_icons_title">Afișați pictogramele de setări ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Pictogramele de setări sunt afișate</string>
   <string name="revanced_show_menu_icons_summary_off">Pictogramele setărilor nu sunt afișate</string>
@@ -93,6 +99,9 @@ Apăsați butonul continuare și permiteți modificările de optimizare."</strin
   <string name="revanced_restore_old_settings_menus_title">Restaurare meniuri setări vechi</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Meniurile de setări vechi sunt afișate</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Meniurile de setări vechi nu sunt afișate</string>
+  <string name="revanced_settings_search_history_title">Afișează istoricul căutărilor în setări</string>
+  <string name="revanced_settings_search_history_summary_on">Se afișează istoricul căutărilor în setări</string>
+  <string name="revanced_settings_search_history_summary_off">Istoricul căutărilor în setări nu este afișat</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Dezactivează redarea în fundal a Shorts</string>
@@ -108,6 +117,11 @@ Apăsați butonul continuare și permiteți modificările de optimizare."</strin
   <string name="revanced_debug_protobuffer_title">Jurnal protocol buffer</string>
   <string name="revanced_debug_protobuffer_summary_on">Jurnalele de depanare includ bufferul de protocol</string>
   <string name="revanced_debug_protobuffer_summary_off">Jurnalele de depanare nu includ memoria tampon</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Activarea acestei setări va înregistra date suplimentare despre aspect, inclusiv textul de pe ecran pentru unele componente UI.
+
+Acest lucru poate ajuta la identificarea componentelor atunci când creați filtre personalizate.
+
+Cu toate acestea, activarea acestei opțiuni va înregistra și unele date ale utilizatorului, cum ar fi adresa dvs. IP."</string>
   <string name="revanced_debug_stacktrace_title">Urme stive de jurnal</string>
   <string name="revanced_debug_stacktrace_summary_on">Jurnalele depanării includ urmărirea stivelor</string>
   <string name="revanced_debug_stacktrace_summary_off">Jurnalele de depanare nu includ urmărirea stivelor</string>
@@ -117,6 +131,15 @@ Apăsați butonul continuare și permiteți modificările de optimizare."</strin
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Oprirea toasturilor de eroare ascunde toate notificările de eroare ReVanced.
 
 Nu veți fi notificat de niciun eveniment neașteptat."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exportare jurnale de depanare</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Copiază jurnalele de depanare ReVanced în clipboard</string>
+  <string name="revanced_debug_logs_disabled">Înregistrarea în jurnal de depanare este dezactivată</string>
+  <string name="revanced_debug_logs_none_found">Nu au fost găsite jurnale</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Jurnale copiate</string>
+  <string name="revanced_debug_logs_failed_to_export">Nu s-a putut exporta jurnalele: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Șterge jurnalele de depanare</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Șterge toate jurnalele de depanare ReVanced stocate</string>
+  <string name="revanced_debug_logs_clear_toast">Jurnale șterse</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Ascundeți cardurile de album</string>
@@ -153,15 +176,18 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_notify_me_button_title">Ascunde butonul \'Notifică-mă\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Butonul este ascuns</string>
   <string name="revanced_hide_notify_me_button_summary_off">Butonul este afișat</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Ascunde eticheta „Persoanele au mai urmărit și”</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Eticheta este ascunsă</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Eticheta este afișată</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Ascunde etichetele de recomandare video</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Etichetele „Alții au mai urmărit” și „S-ar putea să-ți placă și” sunt ascunse</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Etichetele „Alții au mai urmărit” și „S-ar putea să-ți placă și” sunt afișate</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Ascunderea butonului „Afișează mai multe”</string>
   <string name="revanced_hide_show_more_button_summary_on">Butonul este ascuns</string>
   <string name="revanced_hide_show_more_button_summary_off">Butonul este afișat</string>
+  <string name="revanced_hide_ticket_shelf_title">Ascunde raftul de bilete</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Raftul de bilete este ascuns</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Raftul de bilete este afișat</string>
   <string name="revanced_hide_timed_reactions_title">Ascunde reacţiile cronologie </string>
   <string name="revanced_hide_timed_reactions_summary_on">Reacţiile cronologice sunt ascunse</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reacţiile cronologice sunt evidenţiate</string>
@@ -231,6 +257,9 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ascundeți \"Rezumat video generat de AI\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Secțiunea de rezumat video este ascunsă</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Secțiunea de rezumat video este afișată</string>
+  <string name="revanced_hide_ask_section_title">Ascunde Întreabă</string>
+  <string name="revanced_hide_ask_section_summary_on">Secțiunea Întreabă este ascunsă</string>
+  <string name="revanced_hide_ask_section_summary_off">Secțiunea Întreabă este afișată</string>
   <string name="revanced_hide_attributes_section_title">Ascunde Atributele</string>
   <string name="revanced_hide_attributes_section_summary_on">Secțiunile Locuri recomandate, Jocuri, Muzică și Persoane menționate sunt ascunse</string>
   <string name="revanced_hide_attributes_section_summary_off">Secțiunile Locuri recomandate, Jocuri, Muzică și Persoane menționate sunt afișate</string>
@@ -352,9 +381,6 @@ Limitări
 
 Această funcție este disponibilă numai pentru dispozitivele mai vechi"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Reclame pe ecran complet sunt afișate</string>
-  <string name="revanced_hide_buttoned_ads_title">Ascunde reclame butoane</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Reclame nastate sunt ascunse</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Reclame buttonate sunt afișate</string>
   <string name="revanced_hide_paid_promotion_label_title">Ascunde eticheta promoției cu plată</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Eticheta promoției plătite este ascunsă</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Eticheta promoției plătite este afișată</string>
@@ -465,9 +491,6 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacitate suprapunere glisare</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valoare opacitate între 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opacitatea glisării trebuie să fie între 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Culoare bară de progres suprapunere glisare</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Culoarea barei de progres pentru comenzile de volum și luminozitate</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Culoare nevalidă a barei de progres</string>
   <string name="revanced_swipe_text_overlay_size_title">Dimensiune text suprapunere glisare</string>
   <string name="revanced_swipe_text_overlay_size_summary">Dimensiunea textului pentru suprapunerea glisării între 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Dimensiunea textului trebuie să fie între 1-30</string>
@@ -794,6 +817,11 @@ Redarea automată poate fi modificată în setările YouTube:
 Setări → Redare → Redare automată videoclipul următor"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Videoclipul sugerat de pe ecranul final este afișat</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Ascunde suprapunerea video asociată în ecran complet</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Suprapunerea video asociată este ascunsă</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Suprapunerea video asociată este afișată</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Ascunde marcajul temporal video</string>
   <string name="revanced_hide_timestamp_summary_on">Marcajul de timp este ascuns</string>
@@ -831,10 +859,10 @@ Setări → Redare → Redare automată videoclipul următor"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reîncarcă videoclipul pentru a vota folosind Returnare YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ascuns de proprietar</string>
-  <string name="revanced_ryd_enable_summary_on">Dislike-urile sunt afișate</string>
-  <string name="revanced_ryd_enable_summary_off">Dislike-urile nu sunt afișate</string>
+  <string name="revanced_ryd_enabled_summary_on">Dislike-urile sunt afișate</string>
+  <string name="revanced_ryd_enabled_summary_off">Dislike-urile nu sunt afișate</string>
   <string name="revanced_ryd_shorts_title">Arată displace pe scurtmetraje</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Aprecierile negative pe Shorts sunt afișate
+  <string name="revanced_ryd_shorts_summary_on">"Aprecierile negative pe Shorts sunt afișate
 
 Limitare: Este posibil ca aprecierile negative să nu apară în modul incognito"</string>
   <string name="revanced_ryd_shorts_summary_off">Aprecierile negative pe Shorts nu sunt afișate</string>
@@ -851,7 +879,6 @@ Limitare: Este posibil ca aprecierile negative să nu apară în modul incognito
   <string name="revanced_ryd_toast_on_connection_error_title">Arată un toast dacă API-ul nu este disponibil</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast este afișat dacă Returnarea YouTube Dislike nu este disponibilă</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast nu este afișat dacă Returnarea YouTube Dislike nu este disponibilă</string>
-  <string name="revanced_ryd_about">Despre</string>
   <string name="revanced_ryd_attribution_summary">Datele sunt furnizate de API-ul Returnare YouTube Dislike. Atinge aici pentru a afla mai multe</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike statistici API ale acestui dispozitiv</string>
@@ -1057,7 +1084,7 @@ Ești gata să trimiți?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Editați sincronizarea segmentului manual</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Doriți să editați sincronizarea pentru începutul sau sfârșitul segmentului?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Oră nevalidă dată</string>
-  <string name="revanced_sb_stats">Statistici</string>
+  <string name="revanced_sb_stats_title">Statistici</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statisticile nu sunt disponibile temporar (API este defect)</string>
   <string name="revanced_sb_stats_loading">Se încarcă...</string>
@@ -1081,13 +1108,8 @@ Ești gata să trimiți?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s secunde</string>
   <string name="revanced_sb_color_opacity_label">Opacitate:</string>
   <string name="revanced_sb_color_dot_label">Culoare:</string>
-  <string name="revanced_sb_color_changed">Culoare schimbată</string>
-  <string name="revanced_sb_color_reset">Resetare culoare</string>
-  <string name="revanced_sb_color_invalid">Cod culoare nevalid</string>
-  <string name="revanced_sb_reset_color">Resetare culoare</string>
-  <string name="revanced_sb_reset">Resetează</string>
-  <string name="revanced_sb_about">Despre</string>
-  <string name="revanced_sb_about_api_sum">Datele sunt furnizate de API-ul SponsorBlock. Apasă aici pentru a afla mai multe și a vedea descărcările pentru alte platforme</string>
+  <string name="revanced_sb_about_title">Despre</string>
+  <string name="revanced_sb_about_api_summary">Datele sunt furnizate de API-ul SponsorBlock. Apasă aici pentru a afla mai multe și a vedea descărcările pentru alte platforme</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Formatul aspectului formularului</string>
@@ -1310,6 +1332,22 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="microg_settings_title">Setări GmsCore</string>
   <string name="microg_settings_summary">Setări pentru GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Feedback haptic</string>
+  <string name="revanced_disable_haptic_feedback_summary">Schimbă feedback-ul haptic</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Dezactivare haptics capitole</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptics capitole este dezactivat</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptics capitole este activat</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Dezactivare haptics căutare precisă</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Haptica precisă de căutare este dezactivată</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Haptics căutare precisă este activat</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Dezactivare haptics anulare căutare</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Haptica de anulare a căutării este dezactivată</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Haptica de anulare a căutării este activată</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Dezactivare haptics zoom</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Haptica zoom este dezactivată</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Haptica zoom este activată</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Dacă ți-ai schimbat recent detaliile de conectare la cont, dezinstalează și reinstalează MicroG.</string>
   </patch>
@@ -1327,11 +1365,6 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Elimină parametrul de urmărire interogare</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parametrul de urmărire a interogării este eliminat din link-uri</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parametrul de urmărire a interogării nu este eliminat din link-uri</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Dezactivare haptics zoom</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Hapticele sunt dezactivate</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptic-urile sunt activate</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forțează limba audio originală</string>

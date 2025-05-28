@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Налады</string>
   <string name="revanced_settings_confirm_user_dialog_title">Вы хочаце працягнуць?</string>
   <string name="revanced_settings_reset">Скінуць</string>
+  <string name="revanced_settings_reset_color">Скінуць колер</string>
+  <string name="revanced_settings_color_invalid">Несапраўдны колер</string>
   <string name="revanced_settings_restart_title">Абнавіце і перазагрузіце</string>
   <string name="revanced_settings_restart">Перазапуск</string>
   <string name="revanced_settings_import">Імпарт</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Налады ReVanced скінуты да стандартных</string>
   <string name="revanced_settings_import_success">Імпартавана %d налад</string>
   <string name="revanced_settings_import_failure_parse">Памылка імпарту: %s</string>
+  <string name="revanced_settings_search_hint">Пошук налад</string>
+  <string name="revanced_settings_search_no_results_title">Нічога не знойдзена для \",%s\"</string>
+  <string name="revanced_settings_search_no_results_summary">Паспрабуйце іншае ключавое слова</string>
+  <string name="revanced_settings_search_remove_message">Выдаліць з гісторыі пошуку?</string>
   <string name="revanced_show_menu_icons_title">Паказваць значкі налад ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Значкі налад паказваюцца</string>
   <string name="revanced_show_menu_icons_summary_off">Значкі налад не паказваюцца</string>
@@ -93,6 +99,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Аднавіць старое меню налад</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Старыя меню налад паказваюцца</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Старыя меню налад не паказваюцца</string>
+  <string name="revanced_settings_search_history_title">Паказваць гісторыю пошуку ў наладах</string>
+  <string name="revanced_settings_search_history_summary_on">Паказваецца гісторыя пошуку ў наладах</string>
+  <string name="revanced_settings_search_history_summary_off">Гісторыя пошуку налад не паказваецца</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Адключыць прайграванне Shorts у фонавым</string>
@@ -108,6 +117,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">Буфер пратаколу часопіса</string>
   <string name="revanced_debug_protobuffer_summary_on">Журналы адладкі ўключаюць пратабуфер</string>
   <string name="revanced_debug_protobuffer_summary_off">Журналы адладкі не ўключаюць пратабуфер</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Уключэнне гэтага параметра будзе запісваць дадатковыя даныя макета, у тым ліку тэкст на экране для некаторых кампанентаў інтэрфейсу.
+
+Гэта можа дапамагчы ідэнтыфікаваць кампаненты пры стварэнні карыстацкіх фільтраў.
+
+Аднак уключэнне гэтага параметра таксама будзе запісваць некаторыя даныя карыстальніка, такія як ваш IP-адрас."</string>
   <string name="revanced_debug_stacktrace_title">Сляды стэка журнала</string>
   <string name="revanced_debug_stacktrace_summary_on">Журналы адладкі ўключаюць трасіроўку стэка</string>
   <string name="revanced_debug_stacktrace_summary_off">Журналы адладкі не ўключаюць трасіроўку стэка</string>
@@ -117,6 +131,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Адключэнне паведамленняў пра памылкі схавае ўсе апавяшчэнні ReVanced пра памылкі.
 
 Вы не будзеце атрымліваць апавяшчэнні пра нечаканыя падзеі."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Экспартаваць адладачныя лагі</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Капіруе адладачныя лагі ReVanced у буфер абмену</string>
+  <string name="revanced_debug_logs_disabled">Адладачнае лагаванне адключана</string>
+  <string name="revanced_debug_logs_none_found">Лагі не знойдзены</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Лагі скапіяваны</string>
+  <string name="revanced_debug_logs_failed_to_export">Не атрымалася экспартаваць лагі: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Ачысціць адладачныя лагі</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Ачышчае ўсе захаваныя адладачныя лагі ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Лагі ачышчаны</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Схаваць карты альбома</string>
@@ -153,15 +176,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">Схаваць кнопку \"Паведаміць мне\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Кнопка схавана</string>
   <string name="revanced_hide_notify_me_button_summary_off">Паказана кнопка</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Схаваць надпіс «Людзі таксама глядзелі»</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Надпіс схаваны</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Надпіс паказаны</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Схаваць надпісы з рэкамендацыямі відэа</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Надпісы \"Людзі таксама глядзелі\" і \"Вам таксама можа спадабацца\" схаваныя</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Надпісы \"Людзі таксама глядзелі\" і \"Вам таксама можа спадабацца\" паказаныя</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Схаваць кнопку \"Паказаць больш\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Кнопка схавана</string>
   <string name="revanced_hide_show_more_button_summary_off">Паказана кнопка</string>
+  <string name="revanced_hide_ticket_shelf_title">Схаваць паліцу білетаў</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Паліца білетаў схавана</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Паліца білетаў паказана</string>
   <string name="revanced_hide_timed_reactions_title">Схаваць рэакцыі па часе</string>
   <string name="revanced_hide_timed_reactions_summary_on">Часовыя рэакцыі схаваныя</string>
   <string name="revanced_hide_timed_reactions_summary_off">Паказваюцца рэакцыі па часе</string>
@@ -231,6 +257,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Схаваць «Зводку відэа, згенэраваную штучным інтэлектам»</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Раздзел зводкі відэа схаваны</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Раздзел зводкі відэа паказаны</string>
+  <string name="revanced_hide_ask_section_title">Схаваць «Спытаць»</string>
+  <string name="revanced_hide_ask_section_summary_on">Раздзел «Спытаць» схаваны</string>
+  <string name="revanced_hide_ask_section_summary_off">Раздзел «Спытаць» паказаны</string>
   <string name="revanced_hide_attributes_section_title">Схаваць атрыбуты</string>
   <string name="revanced_hide_attributes_section_summary_on">Раздзелы «Папулярныя месцы», «Гульні», «Музыка» і «Людзі, якіх згадвалі» схаваныя</string>
   <string name="revanced_hide_attributes_section_summary_off">Раздзелы «Папулярныя месцы», «Гульні», «Музыка» і «Людзі, якіх згадвалі» паказаныя</string>
@@ -352,9 +381,6 @@ Second \"item\" text"</string>
 
 Гэтая функцыя даступная толькі для старых прылад"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Адлюстроўваецца поўнаэкранная рэклама</string>
-  <string name="revanced_hide_buttoned_ads_title">Схаваць рэкламу на кнопках</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Аб\"явы на кнопках схаваныя</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Паказваюцца аб\"явы на кнопках</string>
   <string name="revanced_hide_paid_promotion_label_title">Схаваць метку аплачанай акцыі</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Пазнака платнай акцыі схавана</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Адлюстроўваецца ярлык платнай акцыі</string>
@@ -465,9 +491,6 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Непразрыстасць фону накладкі пракруткі</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значэнне непразрыстасці паміж 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непразрыстасць пракруткі павінна быць паміж 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Колер слупка прагрэсу накладкі правядзення</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Колер слупка прагрэсу для рэгулявання гучнасці і яркасці</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Несапраўдны колер слупка прагрэсу</string>
   <string name="revanced_swipe_text_overlay_size_title">Памер тэксту накладкі правядзення</string>
   <string name="revanced_swipe_text_overlay_size_summary">Памер тэксту для накладкі правядзення ад 1 да 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Памер тэксту павінен быць у межах ад 1 да 30</string>
@@ -794,6 +817,11 @@ Second \"item\" text"</string>
 Налады → Прайграванне → Аўтаматычнае прайграванне наступнага відэа"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Паказваць прапанаванае відэа на канчатковым экране</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Схаваць накладку звязанага відэа ў поўнаэкранным рэжыме</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Накладка звязанага відэа схавана</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Накладка звязанага відэа паказана</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Схаваць метку часу відэа</string>
   <string name="revanced_hide_timestamp_summary_on">Метка часу схавана</string>
@@ -831,10 +859,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Перазагрузіце відэа, каб прагаласаваць з дапамогай функцыі \"Вярнуць не падабаецца YouTube\"</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Схавана ўладальнікам</string>
-  <string name="revanced_ryd_enable_summary_on">Дызлайкі паказаны</string>
-  <string name="revanced_ryd_enable_summary_off">Дызлайкі не паказваюцца</string>
+  <string name="revanced_ryd_enabled_summary_on">Дызлайкі паказаны</string>
+  <string name="revanced_ryd_enabled_summary_off">Дызлайкі не паказваюцца</string>
   <string name="revanced_ryd_shorts_title">Паказвайце \"не падабаецца\" на Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Дызлайкі на Shorts паказаныя
+  <string name="revanced_ryd_shorts_summary_on">"Дызлайкі на Shorts паказаныя
 
 Абмежаванне: дызлайкі могуць не адлюстроўвацца ў рэжыме інкогніта"</string>
   <string name="revanced_ryd_shorts_summary_off">Дызлайкі на Shorts не паказаныя</string>
@@ -851,7 +879,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Паказаць тост, калі API недаступны</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост паказваецца, калі функцыя \"Вярнуць не падабаецца YouTube\" недаступная</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не паказваецца, калі функцыя \"Вярнуць не падабаецца YouTube\" недаступная</string>
-  <string name="revanced_ryd_about">Пра праграму</string>
   <string name="revanced_ryd_attribution_summary">Дадзеныя прадастаўляюцца Return YouTube Dislikes API. Націсніце тут, каб даведацца больш</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Статыстыка ReturnYouTubeDislike API гэтай прылады</string>
@@ -1059,7 +1086,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Рэдагаваць час сегмента ўручную</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Вы жадаеце змяніць час для пачатку або канца сегмента?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Указаны няправільны час</string>
-  <string name="revanced_sb_stats">Статыстыка</string>
+  <string name="revanced_sb_stats_title">Статыстыка</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Статыстыка часова недаступная (API не працуе)</string>
   <string name="revanced_sb_stats_loading">Загрузка...</string>
@@ -1083,13 +1110,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s секунд</string>
   <string name="revanced_sb_color_opacity_label">Непразрыстасць:</string>
   <string name="revanced_sb_color_dot_label">колер:</string>
-  <string name="revanced_sb_color_changed">Колер змяніўся</string>
-  <string name="revanced_sb_color_reset">Скід колеру</string>
-  <string name="revanced_sb_color_invalid">Няправільны код колеру</string>
-  <string name="revanced_sb_reset_color">Скінуць колер</string>
-  <string name="revanced_sb_reset">Скінуць</string>
-  <string name="revanced_sb_about">Пра праграму</string>
-  <string name="revanced_sb_about_api_sum">Дадзеныя прадастаўляюцца API SponsorBlock. Націсніце тут, каб даведацца больш і паглядзець спампоўкі для іншых платформаў</string>
+  <string name="revanced_sb_about_title">Пра праграму</string>
+  <string name="revanced_sb_about_api_summary">Дадзеныя прадастаўляюцца API SponsorBlock. Націсніце тут, каб даведацца больш і паглядзець спампоўкі для іншых платформаў</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Фармат экрана</string>
@@ -1312,6 +1334,22 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">Налады GmsCore</string>
   <string name="microg_settings_summary">Налады для GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Тактыльная зваротная сувязь</string>
+  <string name="revanced_disable_haptic_feedback_summary">Змяніць тактыльную зваротную сувязь</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Адключыць тактыльныя эфекты раздзелаў</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Тактыльныя эфекты раздзелаў адключаны</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Тактыльныя эфекты раздзелаў уключаны</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Адключыць тактыльны эфект дакладнага пошуку</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Дакладны тактыльны эфект пошуку адключаны</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Тактыльны эфект дакладнага пошуку ўключаны</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Адключыць тактыльны эфект адмены пошуку</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Тактыльны эфект адмены пошуку адключаны</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Тактыльны эфект адмены пошуку ўключаны</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Адключыць тактыльны эфект маштабавання</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Тактыльны эфект маштабавання адключаны</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Тактыльны эфект маштабавання ўключаны</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Калі вы нядаўна змянілі даныя для ўваходу ў свой уліковы запіс, выдаліце і пераўсталюйце MicroG.</string>
   </patch>
@@ -1329,11 +1367,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Выдаліць параметр запыту адсочвання</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Параметр запыту адсочвання выдалены са спасылак</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Параметр адсочвання запыту не выдаляецца са спасылак</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Адключыць тактыльны эфект маштабавання</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Тактыльныя функцыі адключаны</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Тактыльныя сігналы ўключаны</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Вымушаная арыгінальная мова аўдыё</string>

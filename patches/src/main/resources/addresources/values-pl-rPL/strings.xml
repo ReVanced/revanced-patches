@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Ustawienia</string>
   <string name="revanced_settings_confirm_user_dialog_title">Czy chcesz kontynuować?</string>
   <string name="revanced_settings_reset">Zresetuj</string>
+  <string name="revanced_settings_reset_color">Zresetuj kolor</string>
+  <string name="revanced_settings_color_invalid">Nieprawidłowy kolor</string>
   <string name="revanced_settings_restart_title">Odśwież i uruchom ponownie</string>
   <string name="revanced_settings_restart">Uruchom ponownie</string>
   <string name="revanced_settings_import">Zaimportuj</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Przywrócono domyślne ustawienia ReVanced</string>
   <string name="revanced_settings_import_success">Zaimportowano %d ustawień</string>
   <string name="revanced_settings_import_failure_parse">Importowanie nie powiodło się: %s</string>
+  <string name="revanced_settings_search_hint">Szukaj w ustawieniach</string>
+  <string name="revanced_settings_search_no_results_title">Brak wyników dla „%s”</string>
+  <string name="revanced_settings_search_no_results_summary">Spróbuj innego słowa kluczowego</string>
+  <string name="revanced_settings_search_remove_message">Usunąć z historii wyszukiwania?</string>
   <string name="revanced_show_menu_icons_title">Pokaż ikony ustawień ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikony ustawień są widoczne</string>
   <string name="revanced_show_menu_icons_summary_off">Ikony ustawień nie są wyświetlane</string>
@@ -93,6 +99,9 @@ Naciśnij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
   <string name="revanced_restore_old_settings_menus_title">Przywróć stare menu ustawień</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Wyświetlane są stare menu ustawień</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Stare menu ustawień nie są wyświetlane</string>
+  <string name="revanced_settings_search_history_title">Pokaż historię wyszukiwania ustawień</string>
+  <string name="revanced_settings_search_history_summary_on">Historia wyszukiwania ustawień jest wyświetlana</string>
+  <string name="revanced_settings_search_history_summary_off">Historia wyszukiwania w ustawieniach jest niewidoczna</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Wyłącz odtwarzanie Shortsów w tle</string>
@@ -108,6 +117,7 @@ Naciśnij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
   <string name="revanced_debug_protobuffer_title">Logi protokołu bufora</string>
   <string name="revanced_debug_protobuffer_summary_on">Logi do debugowania zawierają bufory</string>
   <string name="revanced_debug_protobuffer_summary_off">Logi do debugowania nie zawierają buforów</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Włączenie tego ustawienia spowoduje rejestrowanie dodatkowych danych układu, w tym tekstu na ekranie dla niektórych komponentów interfejsu użytkownika.\n\nMoże to pomóc w identyfikacji komponentów podczas tworzenia filtrów niestandardowych.\n\nWłączenie tej opcji spowoduje jednak również rejestrowanie niektórych danych użytkownika, takich jak adres IP."</string>
   <string name="revanced_debug_stacktrace_title">Logi śladów stosów</string>
   <string name="revanced_debug_stacktrace_summary_on">Logi do debugowania zawierają ślady stosów</string>
   <string name="revanced_debug_stacktrace_summary_off">Logi do debugowania nie zawierają śladów stosów</string>
@@ -117,6 +127,15 @@ Naciśnij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Wyłączenie notyfikacji błędów ukrywa wszystkie powiadomienia o błędach ReVanced.
 
 Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportuj dzienniki debugowania</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopiuje dzienniki debugowania ReVanced do schowka</string>
+  <string name="revanced_debug_logs_disabled">Rejestrowanie debugowania jest wyłączone</string>
+  <string name="revanced_debug_logs_none_found">Nie znaleziono dzienników</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Dzienniki skopiowane</string>
+  <string name="revanced_debug_logs_failed_to_export">Nie udało się wyeksportować dzienników: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Wyczyść dzienniki debugowania</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Czyści wszystkie zapisane dzienniki debugowania ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Dzienniki wyczyszczone</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Ukryj karty albumów</string>
@@ -153,15 +172,18 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_notify_me_button_title">Ukryj przycisk \'Powiadom mnie\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Przycisk jest ukryty</string>
   <string name="revanced_hide_notify_me_button_summary_off">Przycisk jest widoczny</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Ukryj etykietę „Oglądane przez innych”</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Etykieta jest ukryta</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Etykieta jest widoczna</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Ukryj etykiety z rekomendacjami wideo</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Etykiety „Oglądane także przez innych” i „To także może Ci się spodobać” są ukryte</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Etykiety „Oglądane także przez innych” i „To także może Ci się spodobać” są wyświetlane</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Ukryj przycisk \'Pokaż więcej\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Przycisk jest ukryty</string>
   <string name="revanced_hide_show_more_button_summary_off">Przycisk jest widoczny</string>
+  <string name="revanced_hide_ticket_shelf_title">Ukryj pasek z biletami</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Pasek z biletami jest ukryty</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Pasek z biletami jest widoczny</string>
   <string name="revanced_hide_timed_reactions_title">Ukryj reakcje czasowe</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reakcje czasowe są ukryte</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakcje czasowe są widoczne</string>
@@ -231,6 +253,9 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ukryj sekcję „Podsumowanie wideo wygenerowane przez AI”</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sekcja podsumowania wideo jest ukryta</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sekcja podsumowania wideo jest widoczna</string>
+  <string name="revanced_hide_ask_section_title">Ukryj Pytanie</string>
+  <string name="revanced_hide_ask_section_summary_on">Sekcja Pytania jest ukryta</string>
+  <string name="revanced_hide_ask_section_summary_off">Sekcja Pytania jest widoczna</string>
   <string name="revanced_hide_attributes_section_title">Ukryj atrybuty</string>
   <string name="revanced_hide_attributes_section_summary_on">Sekcje „Polecane miejsca”, „Gry”, „Muzyka” i „Wspomniane osoby” są ukryte</string>
   <string name="revanced_hide_attributes_section_summary_off">Sekcje „Polecane miejsca”, „Gry”, „Muzyka” i „Wspomniane osoby” są widoczne</string>
@@ -352,9 +377,6 @@ Ograniczenia
 
 Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Reklamy pełnoekranowe są widoczne</string>
-  <string name="revanced_hide_buttoned_ads_title">Reklamy z przyciskami</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Reklamy z przyciskami są ukryte</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Reklamy z przyciskami są widoczne</string>
   <string name="revanced_hide_paid_promotion_label_title">Etykiety płatnej promocji</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Etykiety płatnej promocji są ukryte</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Etykiety płatnej promocji są widoczne</string>
@@ -465,9 +487,6 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Przejrzystość tła nakładki przesuwania</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Wartość przezroczystości od 0 do 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Przezroczystość przesuwania musi być między 0 a 100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Kolor paska postępu nakładki przesunięcia</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Kolor paska postępu dla regulacji głośności i jasności</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Nieprawidłowy kolor paska postępu</string>
   <string name="revanced_swipe_text_overlay_size_title">Rozmiar tekstu nakładki przesuwania</string>
   <string name="revanced_swipe_text_overlay_size_summary">Rozmiar tekstu dla nakładki przesunięcia między 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Rozmiar tekstu musi mieścić się w przedziale 1-30</string>
@@ -794,6 +813,11 @@ Automatyczne odtwarzanie można zmienić w ustawieniach YouTube:
 Ustawienia → Odtwarzanie → Autoodtwarzanie następnego filmu"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Sugerowane wideo na ekranie końcowym jest wyświetlane</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Ukryj nakładkę powiązanych filmów w trybie pełnoekranowym</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Nakładka powiązanych filmów jest ukryta</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Wyświetlana jest nakładka powiązanych filmów</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Znacznik czasu filmu</string>
   <string name="revanced_hide_timestamp_summary_on">Znacznik czasu jest ukryty</string>
@@ -831,10 +855,10 @@ Ustawienia → Odtwarzanie → Autoodtwarzanie następnego filmu"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Odśwież film, aby zagłosować za pomocą Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte przez właściciela</string>
-  <string name="revanced_ryd_enable_summary_on">Łapki w dół są widoczne</string>
-  <string name="revanced_ryd_enable_summary_off">Łapki w dół są ukryte</string>
+  <string name="revanced_ryd_enabled_summary_on">Łapki w dół są widoczne</string>
+  <string name="revanced_ryd_enabled_summary_off">Łapki w dół są ukryte</string>
   <string name="revanced_ryd_shorts_title">Łapki w dół na Shortsach</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Oceny negatywne na Shorts są widoczne
+  <string name="revanced_ryd_shorts_summary_on">"Oceny negatywne na Shorts są widoczne
 
 Ograniczenie: Oceny negatywne mogą nie pojawiać się w trybie incognito"</string>
   <string name="revanced_ryd_shorts_summary_off">Oceny negatywne na Shorts nie są widoczne</string>
@@ -851,7 +875,6 @@ Ograniczenie: Oceny negatywne mogą nie pojawiać się w trybie incognito"</stri
   <string name="revanced_ryd_toast_on_connection_error_title">Komunikat o niedostępności API</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Komunikat jest wyświetlany, jeśli Return YouTube Dislike nie jest dostępny</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Komunikat nie jest wyświetlany, jeśli Return YouTube Dislike nie jest dostępny</string>
-  <string name="revanced_ryd_about">O aplikacji</string>
   <string name="revanced_ryd_attribution_summary">Dane są dostarczane przez API Return YouTube Dislike. Dotknij tutaj, aby dowiedzieć się więcej</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Statystyki ReturnYouTubeDislike tego urządzenia</string>
@@ -1058,7 +1081,7 @@ Gotowy do przesłania?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Edytuj ręcznie czas segmentu</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Czy chcesz edytować czas rozpoczęcia lub zakończenia segmentu?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Podano nieprawidłowy format czasu</string>
-  <string name="revanced_sb_stats">Statystyki</string>
+  <string name="revanced_sb_stats_title">Statystyki</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statystyki są tymczasowo niedostępne (API nie działa)</string>
   <string name="revanced_sb_stats_loading">Wczytywanie...</string>
@@ -1082,13 +1105,8 @@ Gotowy do przesłania?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekund</string>
   <string name="revanced_sb_color_opacity_label">Krycie:</string>
   <string name="revanced_sb_color_dot_label">Kolor:</string>
-  <string name="revanced_sb_color_changed">Zmieniono kolor</string>
-  <string name="revanced_sb_color_reset">Zresetowano kolor</string>
-  <string name="revanced_sb_color_invalid">Nieprawidłowy kod koloru</string>
-  <string name="revanced_sb_reset_color">Resetuj kolor</string>
-  <string name="revanced_sb_reset">Resetuj</string>
-  <string name="revanced_sb_about">O aplikacji</string>
-  <string name="revanced_sb_about_api_sum">Dane są dostarczane przez API SponsorBlock. Dotknij tutaj, aby dowiedzieć się więcej i pobrać na inne platformy</string>
+  <string name="revanced_sb_about_title">O aplikacji</string>
+  <string name="revanced_sb_about_api_summary">Dane są dostarczane przez API SponsorBlock. Dotknij tutaj, aby dowiedzieć się więcej i pobrać na inne platformy</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Współczynnik kształtu</string>
@@ -1311,6 +1329,22 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="microg_settings_title">Ustawienia GmsCore</string>
   <string name="microg_settings_summary">Ustawienia GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Informacje zwrotne haptyczne</string>
+  <string name="revanced_disable_haptic_feedback_summary">Zmień informacje zwrotne haptyczne</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Wyłącz haptykę rozdziałów</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptyka rozdziałów jest wyłączona</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptyka rozdziałów jest włączona</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Wyłącz haptykę precyzyjnego przewijania</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Haptyka precyzyjnego wyszukiwania jest wyłączona</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Haptyka precyzyjnego przewijania jest włączona</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Wyłącz haptykę cofania wyszukiwania</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Haptyka cofania wyszukiwania jest wyłączona</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Haptyka cofania wyszukiwania jest włączona</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Haptyka przy zoomowaniu</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Haptyka przybliżania jest wyłączona</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Haptyka przybliżania jest włączona</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Jeśli niedawno zmieniono dane logowania do konta, odinstaluj i zainstaluj ponownie MicroG.</string>
   </patch>
@@ -1328,11 +1362,6 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Parametr zapytania śledzenia</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parametr zapytania śledzenia jest usuwany z linków</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parametr zapytania śledzenia nie jest usuwany z linków</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Haptyka przy zoomowaniu</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptyka jest wyłączona</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptyka jest włączona</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Wymuś język oryginalnego dźwięku</string>

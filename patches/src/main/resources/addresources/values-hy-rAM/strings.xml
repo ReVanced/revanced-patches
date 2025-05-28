@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Կարգավորումներ</string>
   <string name="revanced_settings_confirm_user_dialog_title">Դուք ցանկանում եք շարունակել?</string>
   <string name="revanced_settings_reset">Վերականգնել</string>
+  <string name="revanced_settings_reset_color">Գույնը վերականգնել</string>
+  <string name="revanced_settings_color_invalid">Անվավեր գույն</string>
   <string name="revanced_settings_restart_title">Թարմացնել և վերագործարկել</string>
   <string name="revanced_settings_restart">Վերսկսել</string>
   <string name="revanced_settings_import">Ներմուծել</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced կարգավորումները վերադրվել են դեֆոլտային</string>
   <string name="revanced_settings_import_success">Import %d կարգավորում</string>
   <string name="revanced_settings_import_failure_parse">Import-ը ձախողվել է։ %s</string>
+  <string name="revanced_settings_search_hint">Որոնման կարգավորումներ</string>
+  <string name="revanced_settings_search_no_results_title">«%s»-ի համար արդյունքներ չեն գտնվել</string>
+  <string name="revanced_settings_search_no_results_summary">Փորձեք այլ հիմնաբառ</string>
+  <string name="revanced_settings_search_remove_message">Հեռացնե՞լ որոնման պատմությունից:</string>
   <string name="revanced_show_menu_icons_title">Ցուցադրել ReVanced-ի կարգավորումների պատկերակները</string>
   <string name="revanced_show_menu_icons_summary_on">Կարգավորումների պատկերակները ցուցադրվում են</string>
   <string name="revanced_show_menu_icons_summary_off">Կարգավորումների պատկերակները ցուցադրված չեն</string>
@@ -93,6 +99,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_restore_old_settings_menus_title">Վերականգնել հին սահմանումների մենյուները</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Նախկին կարգավորումների մենյուները ցուցադրվում են</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Նախկին կարգավորումների մենյուները չեն ցուցադրվում</string>
+  <string name="revanced_settings_search_history_title">Ցույց տալ կարգավորումների որոնման պատմությունը</string>
+  <string name="revanced_settings_search_history_summary_on">Կարգավորումների որոնման պատմությունը ցուցադրվում է</string>
+  <string name="revanced_settings_search_history_summary_off">Կարգավորումների որոնման պատմությունը ցույց չի տրվում</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Անջատել  Shorts-ի  ֆոնային  վերարտադրությունը</string>
@@ -108,6 +117,11 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_debug_protobuffer_title">Բուֆերի արձանագրությունը մտնել</string>
   <string name="revanced_debug_protobuffer_summary_on">Մարմնացման առաջնորդման մատնանշումները պարունակում են բուֆերի տարր</string>
   <string name="revanced_debug_protobuffer_summary_off">Մարմնացման առաջնորդման մատնանշումները ներառում են բուֆերի տարր</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Այս կարգավորումը միացնելը կգրանցի լրացուցիչ դասավորության տվյալներ, ներառյալ էկրանի տեքստը որոշ UI բաղադրիչների համար։
+
+Սա կարող է օգնել բացահայտել բաղադրիչները՝ հատուկ զտիչներ ստեղծելիս։
+
+Այնուամենայնիվ, սա միացնելը կգրանցի նաև օգտատիրոջ որոշ տվյալներ, ինչպիսիք են ձեր IP հասցեն:"</string>
   <string name="revanced_debug_stacktrace_title">Մուտքագրել կուտակային կետերի հետքեր</string>
   <string name="revanced_debug_stacktrace_summary_on">Մարմնացման առաջնորդման մատնանշումները պարունակում են կուտակային կետի հետք</string>
   <string name="revanced_debug_stacktrace_summary_off">Մարմնացման առաջնորդման մատնանշումները չեն պարունակում կուտակային կետի հետք</string>
@@ -117,6 +131,15 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Սխալների տոաստի անջատումը թաքցնում է ReVanced-ի բոլոր սխալների ծանուցումները։
 
 Դուք չեք ստանա ան予期した出来事ի մասին ծանուցում։"</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Արտահանել վրեժխնդրության կարգաբերման մատյանները</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Պատճենում է ReVanced-ի կարգաբերման մատյանները սեղմատախտակին</string>
+  <string name="revanced_debug_logs_disabled">Վրեժխնդրության մատյանների գրանցումն անջատված է</string>
+  <string name="revanced_debug_logs_none_found">Մատյաններ չեն գտնվել</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Մատյանները պատճենված են</string>
+  <string name="revanced_debug_logs_failed_to_export">Մատյանների արտահանումը ձախողվեց. $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Մաքրել վրեժխնդրության մատյանները</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Մաքրում է բոլոր պահված ReVanced կարգաբերման մատյանները</string>
+  <string name="revanced_debug_logs_clear_toast">Մատյանները մաքրվել են</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Թաքցնել  ալբոմի  քարտերը</string>
@@ -153,15 +176,18 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_notify_me_button_title">Թաքցնել  \'Notify me\'  կոճակը</string>
   <string name="revanced_hide_notify_me_button_summary_on">Կոճակը  թաքցված  է</string>
   <string name="revanced_hide_notify_me_button_summary_off">Կոճակը  ցույց  է  տրվում</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Թաքցնել \"Դիտողները նաև դիտել են\" պիտակը</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Պիտակը թաքցված է</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Պիտակը ցուցադրվում է</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Թաքցնել տեսանյութի առաջարկությունների պիտակները</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">«Դիտել են նաև» և «Ձեզ նույնպես կարող է դուր գալ» պիտակները թաքցված են</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">«Դիտել են նաև» և «Ձեզ նույնպես կարող է դուր գալ» պիտակները ցուցադրվում են</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Թաքցնել  \'Show more\'  կոճակը</string>
   <string name="revanced_hide_show_more_button_summary_on">Կոճակը  թաքցված  է</string>
   <string name="revanced_hide_show_more_button_summary_off">Կոճակը  ցույց  է  տրվում</string>
+  <string name="revanced_hide_ticket_shelf_title">Թաքցնել տոմսարկղի մարզը</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Տոմսարկղի մարզը թաքցված է</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Տոմսարկղի մարզը ցուցադրվում է</string>
   <string name="revanced_hide_timed_reactions_title">Թաքցնել  ժամանակավոր  ռեակցիաները</string>
   <string name="revanced_hide_timed_reactions_summary_on">Ժամանակավոր  ռեակցիաները  թաքցված  են</string>
   <string name="revanced_hide_timed_reactions_summary_off">Ժամանակավոր  ռեակցիաները  ցույց  են  տրվում</string>
@@ -231,6 +257,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_ai_generated_video_summary_section_title">Թաքցնել «AI-ով ստեղծված տեսանյութի ամփոփումը»</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Տեսանյութի ամփոփման բաժինը թաքցված է</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Տեսանյութի ամփոփման բաժինը ցուցադրվում է</string>
+  <string name="revanced_hide_ask_section_title">Թաքցնել հարցումը</string>
+  <string name="revanced_hide_ask_section_summary_on">Հարցումների բաժինը թաքցված է</string>
+  <string name="revanced_hide_ask_section_summary_off">Հարցումների բաժինը ցուցադրվում է</string>
   <string name="revanced_hide_attributes_section_title">Թաքցնել հատկանիշները</string>
   <string name="revanced_hide_attributes_section_summary_on">Առաջարկվող վայրերը, խաղերը, երաժշտությունը և նշված անձանց բաժինները թաքցված են</string>
   <string name="revanced_hide_attributes_section_summary_off">Առաջարկվող վայրերը, խաղերը, երաժշտությունը և նշված անձանց բաժինները ցուցադրվում են</string>
@@ -352,9 +381,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
 
 Այս հատկությունը հասանելի է միայն հին սարքերի համար"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Լի էկրանի գովազդները երևում են</string>
-  <string name="revanced_hide_buttoned_ads_title">Թաքցնել կոճակավորված գովազդները</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Կոճակավորված գովազդները թաքցված են</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Կոճակավորված գովազդները երևում են</string>
   <string name="revanced_hide_paid_promotion_label_title">Թաքցնել վճարված խթանման նշանը</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Վճարված խթանման նշանը թաքցված է</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Վճարված խթանման նշանը երևում է</string>
@@ -465,9 +491,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_swipe_overlay_background_opacity_title">Սողացման ծածկույթի ֆոնի անթափանցություն</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Անթափանցության արժեք 0-100 միջակայքում</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Սողալու անթափանցությունը պետք է լինի 0-100 միջակայքում</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Սահեցրեք շերտի առաջընթացի սանդղակի գույնը</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Ձայնի և պայծառության կառավարման համար նախատեսված առաջընթացի սանդղակի գույնը</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Առաջընթացի սանդղակի անվավեր գույն</string>
   <string name="revanced_swipe_text_overlay_size_title">Սահեցրեք շերտի տեքստի չափը</string>
   <string name="revanced_swipe_text_overlay_size_summary">Սահեցրեք շերտի տեքստի չափը 1-30 միջակայքում</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Տեքստի չափը պետք է լինի 1-30 միջակայքում</string>
@@ -794,6 +817,11 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
 Կարգավորումներ → Վերարտադրում → Ավտոմատ նվագարկել հաջորդ տեսանյութը"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Վերջնական էկրանին առաջարկվող տեսանյութը ցուցադրվում է</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Թաքցնել կապակցված տեսանյութի վահանակը լիաէկրան ռեժիմում</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Կապակցված տեսանյութի վահանակը թաքցված է</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Կապակցված տեսանյութի վահանակը ցուցադրվում է</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Թաքցնել տեսանյութի ժամանակային կետը</string>
   <string name="revanced_hide_timestamp_summary_on">Ժամանակային կետը թաքցված է</string>
@@ -831,10 +859,10 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Վերբեռնել տեսանյութը՝ քվեարկելու համար Return YouTube Dislike-ի միջոցով</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Թաքցված է սեփականատիրոջ կողմից</string>
-  <string name="revanced_ryd_enable_summary_on">\"Dislike\"-երը  ցուցադրվում են</string>
-  <string name="revanced_ryd_enable_summary_off">\"Dislike\"-երը  չեն ցուցադրվում</string>
+  <string name="revanced_ryd_enabled_summary_on">\"Dislike\"-երը  ցուցադրվում են</string>
+  <string name="revanced_ryd_enabled_summary_off">\"Dislike\"-երը  չեն ցուցադրվում</string>
   <string name="revanced_ryd_shorts_title">Ցուցադրել \"Dislike\"-երը  Shorts-ում</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"\"Dislike\"-երը Shorts-ում ցուցադրվում են
+  <string name="revanced_ryd_shorts_summary_on">"\"Dislike\"-երը Shorts-ում ցուցադրվում են
 
 Սահմանափակում. \"Dislike\"-երը կարող են չերևալ անհայտ ռեժիմում"</string>
   <string name="revanced_ryd_shorts_summary_off">\"Dislike\"-երը Shorts-ում չեն ցուցադրվում</string>
@@ -851,7 +879,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_ryd_toast_on_connection_error_title">Ցուցադրել \"toast\", եթե API-ն  հասանելի չէ</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">\"Toast\"-ը  ցուցադրվում է, եթե Return YouTube Dislike-ը  հասանելի չէ</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">\"Toast\"-ը  չի ցուցադրվում, եթե Return YouTube Dislike-ը  հասանելի չէ</string>
-  <string name="revanced_ryd_about">Ծրագրի մասին</string>
   <string name="revanced_ryd_attribution_summary">Տվյալները  տրամադրվում են Return YouTube Dislike API-ի  միջոցով.  Սեղմեք այստեղ՝  ավելին  իմանալու համար</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Return YouTube Dislike API-ի  կարգավիճակը  այս  հարմարանքի համար</string>
@@ -1058,7 +1085,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_new_segment_edit_by_hand_title">Խմբագրեք հատվածի ժամանակը ձեռքով</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Մի՞թե ցանկանում եք խմբագրել հատվածի սկիզբը կամ ավարտը։</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Նշված ժամանակը անվավեր է</string>
-  <string name="revanced_sb_stats">Վիճակագրություն</string>
+  <string name="revanced_sb_stats_title">Վիճակագրություն</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Վիճակագրությունը ժամանակավորապես հասանելի չէ (API-ն անջատված է)</string>
   <string name="revanced_sb_stats_loading">Բեռնվում է...</string>
@@ -1082,13 +1109,8 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_stats_saved_second_format">%s վայրկյան</string>
   <string name="revanced_sb_color_opacity_label">Թափանցիկություն․</string>
   <string name="revanced_sb_color_dot_label">Գույն։</string>
-  <string name="revanced_sb_color_changed">Գույնը փոխվել է</string>
-  <string name="revanced_sb_color_reset">Գույնը վերագործարկվել է</string>
-  <string name="revanced_sb_color_invalid">Անվավեր գույնի կոդ</string>
-  <string name="revanced_sb_reset_color">Վերագործարկել գույնը</string>
-  <string name="revanced_sb_reset">Վերագործարկել</string>
-  <string name="revanced_sb_about">Ծրագրի մասին</string>
-  <string name="revanced_sb_about_api_sum">Տվյալները մատուցվում են SponsorBlock API-ի կողմից։ Սեղմեք այստեղ՝ ավելի շատ իմանալու և այլ հարթակների համար ներբեռնումները տեսնելու</string>
+  <string name="revanced_sb_about_title">Ծրագրի մասին</string>
+  <string name="revanced_sb_about_api_summary">Տվյալները մատուցվում են SponsorBlock API-ի կողմից։ Սեղմեք այստեղ՝ ավելի շատ իմանալու և այլ հարթակների համար ներբեռնումները տեսնելու</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Ձևաչափի փոփոխություն</string>
@@ -1311,6 +1333,22 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="microg_settings_title">GmsCore  կարգավորումներ</string>
   <string name="microg_settings_summary">GmsCore-ի  կարգավորումներ</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Հպումային արձագանք</string>
+  <string name="revanced_disable_haptic_feedback_summary">Փոխել հպումային արձագանքը</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Անջատել գլուխների հպումները</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Գլուխների հպումներն անջատված են</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Գլուխների հպումները միացված են</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Անջատել ճշգրիտ փնտրման հպումները</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Ճշգրիտ որոնման հպումն անջատված է</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Ճշգրիտ փնտրման հպումները միացված են</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Անջատել հետարկել որոնման հպումը</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Հետարկել որոնման հպումն անջատված է</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Հետարկել որոնման հպումը միացված է</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Զուումի  հպումների  ակտիվացումը  անջատել</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Զուումի հպումն անջատված է</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Զուումի հպումը միացված է</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Եթե վերջերս փոխել եք ձեր հաշվի մուտքի տվյալները, ապա ջնջեք և նորից տեղադրեք MicroG-ն:</string>
   </patch>
@@ -1328,11 +1366,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_remove_tracking_query_parameter_title">Հետևողականության  հարցումի  պարամետրը  հեռացնել</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Հետևողականության  հարցումի  պարամետրը  հեռացվում է  հղումներից</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Հետևողականության  հարցումի  պարամետրը  չի  հեռացվում  հղումներից</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Զուումի  հպումների  ակտիվացումը  անջատել</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Հպումները  անջատված են</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Հպումները  ակտիվացված են</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել լեզուն</string>

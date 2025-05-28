@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Cilësimet</string>
   <string name="revanced_settings_confirm_user_dialog_title">Dëshironi të vazhdoni?</string>
   <string name="revanced_settings_reset">Rivendos</string>
+  <string name="revanced_settings_reset_color">Rikthe ngjyrën</string>
+  <string name="revanced_settings_color_invalid">Ngjyrë e pavlefshme</string>
   <string name="revanced_settings_restart_title">Rifresko dhe rifillo</string>
   <string name="revanced_settings_restart">Rifillo</string>
   <string name="revanced_settings_import">Importo</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Cilësimet e ReVanced u rivendosën në cilësimet e parazgjedhura</string>
   <string name="revanced_settings_import_success">Importuan %d cilësime</string>
   <string name="revanced_settings_import_failure_parse">Importimi dështoi: %s</string>
+  <string name="revanced_settings_search_hint">Kërko cilësimet</string>
+  <string name="revanced_settings_search_no_results_title">Nuk u gjet asnjë rezultat për \'%s\'</string>
+  <string name="revanced_settings_search_no_results_summary">Provo një fjalë kyçe tjetër</string>
+  <string name="revanced_settings_search_remove_message">Hiq nga historiku i kërkimit?</string>
   <string name="revanced_show_menu_icons_title">Shfaq ikonat e cilësimeve të ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikonat e cilësimeve shfaqen</string>
   <string name="revanced_show_menu_icons_summary_off">Ikonat e cilësimeve nuk shfaqen</string>
@@ -93,6 +99,9 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="revanced_restore_old_settings_menus_title">Rikthe menutë e vjetër të konfigurimeve</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Menutë e vjetër të cilësimeve shfaqen</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Menutë e vjetër të cilësimeve nuk shfaqen</string>
+  <string name="revanced_settings_search_history_title">Shfaq historikun e kërkimeve të cilësimeve</string>
+  <string name="revanced_settings_search_history_summary_on">Historiku i kërkimeve të cilësimeve është shfaqur</string>
+  <string name="revanced_settings_search_history_summary_off">Historia e kërkimit të cilësimeve nuk shfaqet</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Çaktivizo luajtjen në sfond të Shorts</string>
@@ -108,6 +117,11 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="revanced_debug_protobuffer_title">Regjistro protokol buffer</string>
   <string name="revanced_debug_protobuffer_summary_on">Regjistrimet e depurimit përfshijnë proto buffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Regjistrimet e depurimit nuk përfshijnë proto buffer</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Aktivizimi i këtij opsioni do të regjistrojë të dhëna shtesë të paraqitjes, duke përfshirë tekstin në ekran për disa komponentë të ndërfaqes përdoruese.
+
+Kjo mund të ndihmojë në identifikimin e komponentëve kur krijoni filtra të personalizuar.
+
+Gjithsesi, aktivizimi i këtij opsioni do të regjistrojë edhe disa të dhëna të përdoruesit, siç është adresa juaj IP."</string>
   <string name="revanced_debug_stacktrace_title">Regjistro gjurmët e grumbullimit</string>
   <string name="revanced_debug_stacktrace_summary_on">Regjistrimet e depurimit përfshijnë gjurmë grumbullimi</string>
   <string name="revanced_debug_stacktrace_summary_off">Regjistrimet e depurimit nuk përfshijnë gjurmë grumbullimi</string>
@@ -117,6 +131,15 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Fshirja e toast-eve të gabimit fsheh të gjitha njoftimet e gabimeve të ReVanced.
 
 Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Eksporto regjistrat e korrigjimit</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopjon regjistrat e korrigjimit të ReVanced në kujtesën e shkurtër</string>
+  <string name="revanced_debug_logs_disabled">Regjistrimi i korrigjimeve është çaktivizuar</string>
+  <string name="revanced_debug_logs_none_found">Nuk u gjetën regjistra</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Regjistrat u kopjuan</string>
+  <string name="revanced_debug_logs_failed_to_export">Eksportimi i regjistrave dështoi: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Pastro regjistrat e korrigjimit</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Pastro të gjithë regjistrat e ruajtur të korrigjimit të ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Regjistrat u pastruan</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Fshih kartat e albumit</string>
@@ -153,15 +176,18 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_notify_me_button_title">Fshih butonin \"Njoftomë\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Butoni është i fshehur</string>
   <string name="revanced_hide_notify_me_button_summary_off">Butoni është i dukshëm</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Fshih etiketën \'Njerëzit shikuan gjithashtu\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Etiketa është e fshehur</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Etiketa është e shfaqur</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Fshih etiketat e rekomandimit të videos</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Etiketat \"Edhe të tjerë e shikuan\" dhe \"Mund të të pëlqejë gjithashtu\" janë fshehur</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Etiketat \"Edhe të tjerë e shikuan\" dhe \"Mund të të pëlqejë gjithashtu\" janë shfaqur</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Fshih butonin \"Trego më shumë\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Butoni është i fshehur</string>
   <string name="revanced_hide_show_more_button_summary_off">Butoni është i dukshëm</string>
+  <string name="revanced_hide_ticket_shelf_title">Fshih raftin e biletave</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Rafti i biletave është i fshehur</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Rafti i biletave është i dukshëm</string>
   <string name="revanced_hide_timed_reactions_title">Fshih reagimet e kohës</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reagimet e kohës janë të fshehura</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reagimet e kohës janë të dukshme</string>
@@ -231,6 +257,9 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Fshih \"Përmbledhjen e videos të krijuar nga AI\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Seksioni i përmbledhjes së videos është i fshehur</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Seksioni i përmbledhjes së videos është i dukshme</string>
+  <string name="revanced_hide_ask_section_title">Fshih Pyet</string>
+  <string name="revanced_hide_ask_section_summary_on">Seksioni Pyet është i fshehur</string>
+  <string name="revanced_hide_ask_section_summary_off">Seksioni Pyet është i dukshëm</string>
   <string name="revanced_hide_attributes_section_title">Fshih Atributet</string>
   <string name="revanced_hide_attributes_section_summary_on">Vendndodhjet e veçuara, Lojërat, Muzika dhe seksionet e personave të përmendur janë të fshehura</string>
   <string name="revanced_hide_attributes_section_summary_off">Vendndodhjet e veçuara, Lojërat, Muzika dhe seksionet e personave të përmendur janë të shfaqura</string>
@@ -352,9 +381,6 @@ Kufizime
 
 Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Reklamimet me ekran të plotë janë të dukshme</string>
-  <string name="revanced_hide_buttoned_ads_title">Fsheh reklamimet me butona</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Reklamimet me butona janë të fshehur</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Reklamimet me butona janë të dukshme</string>
   <string name="revanced_hide_paid_promotion_label_title">Fsheh etiketën e promovimit të paguar</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Etiketë e promovimit të paguar është e fshehur</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Etiketë e promovimit të paguar është e dukshme</string>
@@ -465,9 +491,6 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_swipe_overlay_background_opacity_title">Opasiteti i sfondit mbivendosës shtypëse</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Vlera e opacitetit midis 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opaciteti i shtypjes duhet të jetë midis 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Ngjyra e shiritit të progresit të mbivendosjes së rrëshqitjes</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Ngjyra e shiritit të progresit për kontrollet e volumit dhe të ndriçimit</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ngjyrë e pavlefshme e shiritit të progresit</string>
   <string name="revanced_swipe_text_overlay_size_title">Madhësia e tekstit të mbivendosjes së rrëshqitjes</string>
   <string name="revanced_swipe_text_overlay_size_summary">Madhësia e tekstit për mbivendosjen e rrëshqitjes midis 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Madhësia e tekstit duhet të jetë midis 1-30</string>
@@ -794,6 +817,11 @@ Luajtja automatike mund të ndryshohet në cilësimet e YouTube:
 Cilësimet → Luajtja → Luaj automatikisht videon tjetër"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Videoja e sugjeruar në ekranin fundor shfaqet</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Fshih mbivendosjen e videos së lidhur në ekran të plotë</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Mbivendosja e videos së lidhur është fshehur</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Mbivendosja e videos së lidhur shfaqet</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Fsheh vulën e kohës së videos</string>
   <string name="revanced_hide_timestamp_summary_on">Vula e kohës është e fshehur</string>
@@ -831,10 +859,10 @@ Cilësimet → Luajtja → Luaj automatikisht videon tjetër"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Rikarkoni videon për të votuar duke përdorur Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Fshehur nga pronari</string>
-  <string name="revanced_ryd_enable_summary_on">\"Nuk më pëlqen\" janë të dukshme</string>
-  <string name="revanced_ryd_enable_summary_off">\"Nuk më pëlqen\" nuk janë të dukshme</string>
+  <string name="revanced_ryd_enabled_summary_on">\"Nuk më pëlqen\" janë të dukshme</string>
+  <string name="revanced_ryd_enabled_summary_off">\"Nuk më pëlqen\" nuk janë të dukshme</string>
   <string name="revanced_ryd_shorts_title">Shfaq \"Nuk më pëlqen\" në Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Mospëlqimet në Shorts janë të shfaqura
+  <string name="revanced_ryd_shorts_summary_on">"Mospëlqimet në Shorts janë të shfaqura
 
 Kufizimi: Mospëlqimet mund të mos shfaqen në modalitetin incognito"</string>
   <string name="revanced_ryd_shorts_summary_off">Mospëlqimet në Shorts nuk janë të shfaqura</string>
@@ -851,7 +879,6 @@ Kufizimi: Mospëlqimet mund të mos shfaqen në modalitetin incognito"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Shfaq një toast nëse API nuk është në dispozicion</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast shfaqet nëse Return YouTube Dislike nuk është në dispozicion</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast nuk shfaqet nëse Return YouTube Dislike nuk është në dispozicion</string>
-  <string name="revanced_ryd_about">Rreth</string>
   <string name="revanced_ryd_attribution_summary">Të dhënat ofrohen nga Return YouTube Dislike API. Prekni këtu për të mësuar më shumë</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Statistikat e ReturnYouTubeDislike API të këtij pajisje</string>
@@ -1056,7 +1083,7 @@ Gati per te dhene?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Redakto kohën e segmentit manualisht</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Dëshironi të redaktoni kohën për fillimin ose fundin e segmentit?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Kohë e pavlefshme e dhënë</string>
-  <string name="revanced_sb_stats">Statistikat</string>
+  <string name="revanced_sb_stats_title">Statistikat</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistikat aktualisht nuk janë të disponueshme (API nuk funksionon)</string>
   <string name="revanced_sb_stats_loading">Po ngarkohet...</string>
@@ -1080,13 +1107,8 @@ Gati per te dhene?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekonda</string>
   <string name="revanced_sb_color_opacity_label">Opaciteti:</string>
   <string name="revanced_sb_color_dot_label">Ngjyra:</string>
-  <string name="revanced_sb_color_changed">Ngjyra është ndryshuar</string>
-  <string name="revanced_sb_color_reset">Ngjyra u rikthye</string>
-  <string name="revanced_sb_color_invalid">Kod ngjyre i pavlefshëm</string>
-  <string name="revanced_sb_reset_color">Rikthe ngjyrën</string>
-  <string name="revanced_sb_reset">Rikthe</string>
-  <string name="revanced_sb_about">Rreth</string>
-  <string name="revanced_sb_about_api_sum">Të dhënat janë siguruar nga API e SponsorBlock. Prekni këtu për të mësuar më shumë dhe për të parë shkarkimet për platformat e tjera</string>
+  <string name="revanced_sb_about_title">Rreth</string>
+  <string name="revanced_sb_about_api_summary">Të dhënat janë siguruar nga API e SponsorBlock. Prekni këtu për të mësuar më shumë dhe për të parë shkarkimet për platformat e tjera</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Faktor i formularit të shtrirjes</string>
@@ -1309,6 +1331,22 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="microg_settings_title">Cilësimet e GmsCore</string>
   <string name="microg_settings_summary">Cilësimet për GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Reagimi haptik</string>
+  <string name="revanced_disable_haptic_feedback_summary">Ndrysho reagimin haptik</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Çaktivizo haptikën e kapitujve</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptika e kapitujve është çaktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptika e kapitujve është aktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Çaktivizo haptikën e kërkimit të saktë</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Haptika e kërkimit të saktë është çaktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Haptika e saktë e kërkimit është aktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Çaktivizo haptikën e zhbërjes së kërkimit</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Haptika e zhbërjes së kërkimit është çaktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Haptika e zhbërjes së kërkimit është aktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Çaktivizo haptikën e zmadhimit</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Haptika e zmadhimit është çaktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Haptika e zmadhimit është aktivizuar</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Nëse së fundmi keni ndryshuar detajet e hyrjes në llogarinë tuaj, atëherë çinstaloni dhe riinstaloni MicroG.</string>
   </patch>
@@ -1326,11 +1364,6 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Hiq parametrin e gjurmimit të kërkesës</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parametri i gjurmimit të kërkesës hiqet nga linket</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parametri i gjurmimit të kërkesës nuk hiqet nga linket</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Çaktivizo haptikën e zmadhimit</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptikët janë të çaktivizuar</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptikët janë të aktivizuar</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forco gjuhën origjinale të audios</string>

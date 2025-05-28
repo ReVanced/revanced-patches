@@ -12,12 +12,13 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.settings.preference.IntentPreference
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playercontrols.*
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
-import app.revanced.patches.youtube.misc.settings.addSettingPreference
-import app.revanced.patches.youtube.misc.settings.newIntent
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.*
 import app.revanced.patches.youtube.video.information.onCreateHook
@@ -43,15 +44,32 @@ private val sponsorBlockResourcePatch = resourcePatch {
     execute {
         addResources("youtube", "layout.sponsorblock.sponsorBlockResourcePatch")
 
-        addSettingPreference(
-            IntentPreference(
-                key = "revanced_settings_screen_10",
-                titleKey = "revanced_sb_settings_title",
-                summaryKey = null,
-                icon = "@drawable/revanced_settings_screen_10_sb",
-                layout = "@layout/preference_with_icon",
-                intent = newIntent("revanced_sb_settings_intent"),
+        PreferenceScreen.SPONSORBLOCK.addPreferences(
+            // SB setting is old code with lots of custom preferences and updating behavior.
+            // Added as a preference group and not a fragment so the preferences are searchable.
+            PreferenceCategory(
+                key = "revanced_settings_screen_10_sponsorblock",
+                sorting = PreferenceScreenPreference.Sorting.UNSORTED,
+                preferences = emptySet(), // Preferences are added by custom class at runtime.
+                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup"
             ),
+            PreferenceCategory(
+                key = "revanced_sb_stats",
+                sorting = PreferenceScreenPreference.Sorting.UNSORTED,
+                preferences = emptySet(), // Preferences are added by custom class at runtime.
+                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockStatsPreferenceCategory"
+            ),
+            PreferenceCategory(
+                key = "revanced_sb_about",
+                sorting = PreferenceScreenPreference.Sorting.UNSORTED,
+                preferences = setOf(
+                    NonInteractivePreference(
+                        key = "revanced_sb_about_api",
+                        tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockAboutPreference",
+                        selectable = true,
+                    )
+                )
+            )
         )
 
         arrayOf(

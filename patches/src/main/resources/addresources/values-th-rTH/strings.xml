@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">การตั้งค่า</string>
   <string name="revanced_settings_confirm_user_dialog_title">คุณต้องการดำเนินการต่อหรือไม่?</string>
   <string name="revanced_settings_reset">รีเซ็ต</string>
+  <string name="revanced_settings_reset_color">รีเซ็ตสี</string>
+  <string name="revanced_settings_color_invalid">สีไม่ถูกต้อง</string>
   <string name="revanced_settings_restart_title">รีเฟรชและเริ่มต้นใหม่</string>
   <string name="revanced_settings_restart">เริ่มต้นใหม่</string>
   <string name="revanced_settings_import">นำเข้า</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">การตั้งค่า ReVanced ถูกตั้งค่าเป็นค่าเริ่มต้น</string>
   <string name="revanced_settings_import_success">นำเข้าการตั้งค่า %d</string>
   <string name="revanced_settings_import_failure_parse">การนำเข้าล้มเหลว: %s</string>
+  <string name="revanced_settings_search_hint">ค้นหาในการตั้งค่า</string>
+  <string name="revanced_settings_search_no_results_title">ไม่พบผลลัพธ์สำหรับ \",%s\"</string>
+  <string name="revanced_settings_search_no_results_summary">ลองใช้คำหลักอื่น</string>
+  <string name="revanced_settings_search_remove_message">นำออกจากประวัติการค้นหาใช่ไหม</string>
   <string name="revanced_show_menu_icons_title">แสดงไอคอนการตั้งค่า ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">ไอคอนการตั้งค่าจะปรากฏขึ้น</string>
   <string name="revanced_show_menu_icons_summary_off">ไม่แสดงไอคอนการตั้งค่า</string>
@@ -93,6 +99,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">กู้คืนเมนูการตั้งค่าแบบเก่า</string>
   <string name="revanced_restore_old_settings_menus_summary_on">แสดงเมนูการตั้งค่าแบบเก่า</string>
   <string name="revanced_restore_old_settings_menus_summary_off">ไม่แสดงเมนูการตั้งค่าแบบเก่า</string>
+  <string name="revanced_settings_search_history_title">แสดงประวัติการค้นหาในการตั้งค่า</string>
+  <string name="revanced_settings_search_history_summary_on">ประวัติการค้นหาในการตั้งค่าจะปรากฏ</string>
+  <string name="revanced_settings_search_history_summary_off">ไม่แสดงประวัติการค้นหาการตั้งค่า</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">ปิดการเล่นพื้นหลัง Shorts</string>
@@ -108,6 +117,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">บันทึกโปรโตคอลบัฟเฟอร์</string>
   <string name="revanced_debug_protobuffer_summary_on">การบันทึกการแก้ไขข้อบกพร่องรวมถึงโปรโตคอลบัฟเฟอร์</string>
   <string name="revanced_debug_protobuffer_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมโปรโตคอลบัฟเฟอร์</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"การเปิดใช้งานการตั้งค่านี้จะบันทึกข้อมูลเค้าโครงเพิ่มเติม รวมถึงข้อความบนหน้าจอสำหรับส่วนประกอบ UI บางส่วน
+
+ซึ่งจะช่วยระบุส่วนประกอบเมื่อสร้างตัวกรองที่กำหนดเองได้
+
+อย่างไรก็ตาม การเปิดใช้งานนี้จะบันทึกข้อมูลผู้ใช้บางอย่าง เช่น ที่อยู่ IP ของคุณด้วย"</string>
   <string name="revanced_debug_stacktrace_title">บันทึกการติดตามสแต็ก</string>
   <string name="revanced_debug_stacktrace_summary_on">การบันทึกการแก้ไขข้อบกพร่องรวมถึงการติดตามสแต็ก</string>
   <string name="revanced_debug_stacktrace_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมการติดตามสแต็ก</string>
@@ -117,6 +131,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"การปิดการแจ้งเตือนข้อผิดพลาดจะซ่อนการแจ้งเตือนข้อผิดพลาดของ ReVanced ทั้งหมด
 
 คุณจะไม่ได้รับแจ้งเกี่ยวกับเหตุการณ์ที่ไม่คาดคิดใดๆ"</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">ส่งออกบันทึกการแก้ไขข้อบกพร่อง</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">คัดลอกบันทึกการแก้ไขข้อบกพร่องของ ReVanced ไปยังคลิปบอร์ด</string>
+  <string name="revanced_debug_logs_disabled">ปิดใช้งานการบันทึกการแก้ไขข้อบกพร่อง</string>
+  <string name="revanced_debug_logs_none_found">ไม่พบบันทึก</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">คัดลอกบันทึกแล้ว</string>
+  <string name="revanced_debug_logs_failed_to_export">ส่งออกบันทึกล้มเหลว: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">ล้างบันทึกการแก้ไขข้อบกพร่อง</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">ล้างบันทึกการแก้ไขข้อบกพร่องของ ReVanced ที่จัดเก็บไว้ทั้งหมด</string>
+  <string name="revanced_debug_logs_clear_toast">ล้างบันทึกแล้ว</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">ซ่อนการ์ดอัลบั้ม</string>
@@ -153,15 +176,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">ซ่อนปุ่ม \"แจ้งเตือนฉัน\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">ปุ่มถูกซ่อน</string>
   <string name="revanced_hide_notify_me_button_summary_off">ปุ่มถูกแสดง</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">ซ่อนป้ายกำกับ \'ผู้ที่รับชมคนอื่น ๆ\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">ป้ายกำกับถูกซ่อน</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">ป้ายกำกับแสดงอยู่</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">ซ่อนป้ายกำกับแนะนำวิดีโอ</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">ป้ายกำกับ \"คนอื่นๆ ก็ดู\" และ \"คุณอาจจะชอบ\" ถูกซ่อนอยู่</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">ป้ายกำกับ \"คนอื่นๆ ก็ดู\" และ \"คุณอาจจะชอบ\" แสดงอยู่</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">ซ่อนปุ่ม \"แสดงเพิ่มเติม\"</string>
   <string name="revanced_hide_show_more_button_summary_on">ปุ่มถูกซ่อน</string>
   <string name="revanced_hide_show_more_button_summary_off">ปุ่มถูกแสดง</string>
+  <string name="revanced_hide_ticket_shelf_title">ซ่อนชั้นวางตั๋ว</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">ชั้นวางตั๋วถูกซ่อนอยู่</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">ชั้นวางตั๋วแสดงอยู่</string>
   <string name="revanced_hide_timed_reactions_title">ซ่อนปฏิกิริยาตามเวลา</string>
   <string name="revanced_hide_timed_reactions_summary_on">ปฏิกิริยาตามเวลาถูกซ่อน</string>
   <string name="revanced_hide_timed_reactions_summary_off">ปฏิกิริยาตามเวลาถูกแสดง</string>
@@ -231,6 +257,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">ซ่อน \",สรุปวิดีโอที่สร้างโดย AI\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">ส่วนสรุปวิดีโอถูกซ่อน</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">ส่วนสรุปวิดีโอปรากฏ</string>
+  <string name="revanced_hide_ask_section_title">ซ่อน Ask</string>
+  <string name="revanced_hide_ask_section_summary_on">ส่วน Ask ถูกซ่อนไว้</string>
+  <string name="revanced_hide_ask_section_summary_off">ส่วน Ask ถูกแสดง</string>
   <string name="revanced_hide_attributes_section_title">ซ่อนแอตทริบิวต์</string>
   <string name="revanced_hide_attributes_section_summary_on">ส่วนสถานที่แนะนำ, เกม, เพลง และบุคคลที่กล่าวถึงถูกซ่อน</string>
   <string name="revanced_hide_attributes_section_summary_off">ส่วนสถานที่แนะนำ, เกม, เพลง และบุคคลที่กล่าวถึงแสดงอยู่</string>
@@ -352,9 +381,6 @@ Second \"item\" text"</string>
 
 คุณสมบัตินี้มีเฉพาะสําหรับอุปกรณ์รุ่นเก่า"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">โฆษณาแบบเต็มหน้าจอจะแสดง</string>
-  <string name="revanced_hide_buttoned_ads_title">ซ่อนโฆษณาแบบมีปุ่ม</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">โฆษณาแบบมีปุ่มถูกซ่อน</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">โฆษณาแบบมีปุ่มจะแสดง</string>
   <string name="revanced_hide_paid_promotion_label_title">ซ่อนป้ายโฆษณาที่จ่ายเงิน</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">ป้ายโฆษณาที่จ่ายเงินถูกซ่อน</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">ป้ายโฆษณาที่จ่ายเงินจะแสดง</string>
@@ -463,9 +489,10 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">ความทึบแสงพื้นหลังของสไลด์โอเวอร์เลย์</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">ค่าความทึบแสงระหว่าง 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">ค่าความทึบแสงของสไลด์ต้องอยู่ระหว่าง 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">สีของแถบความคืบหน้าของการปัด</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">สีของแถบความคืบหน้าสำหรับการควบคุมระดับเสียงและความสว่าง</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">สีของแถบความคืบหน้าไม่ถูกต้อง</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">สีความสว่างของการซ้อนทับการปัด</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">สีของแถบความคืบหน้าสำหรับตัวควบคุมความสว่าง</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">สีระดับเสียงของการซ้อนทับการปัด</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">สีของแถบความคืบหน้าสำหรับตัวควบคุมระดับเสียง</string>
   <string name="revanced_swipe_text_overlay_size_title">ขนาดข้อความของการปัด</string>
   <string name="revanced_swipe_text_overlay_size_summary">ขนาดข้อความสำหรับการปัดระหว่าง 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">ขนาดข้อความต้องอยู่ระหว่าง 1-30</string>
@@ -792,6 +819,11 @@ Second \"item\" text"</string>
 การตั้งค่า → การเล่น → เล่นวิดีโอถัดไปอัตโนมัติ"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">วิดีโอแนะนำในหน้าจอสิ้นสุดจะปรากฏ</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">ซ่อนภาพซ้อนวิดีโอที่เกี่ยวข้องในแบบเต็มหน้าจอ</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">ภาพซ้อนวิดีโอที่เกี่ยวข้องถูกซ่อนอยู่</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">วิดีโอที่เกี่ยวข้องแสดงอยู่</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">ซ่อนเวลาของวิดีโอ</string>
   <string name="revanced_hide_timestamp_summary_on">เวลาถูกซ่อนอยู่</string>
@@ -829,10 +861,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">รีโหลดวิดีโอเพื่อลงคะแนนโดยใช้ Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">ซ่อนโดยเจ้าของ</string>
-  <string name="revanced_ryd_enable_summary_on">แสดง \"ไม่ชอบ\"</string>
-  <string name="revanced_ryd_enable_summary_off">ไม่แสดง \"ไม่ชอบ\"</string>
+  <string name="revanced_ryd_enabled_summary_on">แสดง \"ไม่ชอบ\"</string>
+  <string name="revanced_ryd_enabled_summary_off">ไม่แสดง \"ไม่ชอบ\"</string>
   <string name="revanced_ryd_shorts_title">แสดง \"ไม่ชอบ\" ใน Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"การไม่ถูกใจใน Shorts แสดงอยู่
+  <string name="revanced_ryd_shorts_summary_on">"การไม่ถูกใจใน Shorts แสดงอยู่
 
 ข้อจำกัด: การไม่ถูกใจอาจไม่ปรากฏในโหมดไม่ระบุตัวตน"</string>
   <string name="revanced_ryd_shorts_summary_off">การไม่ถูกใจใน Shorts ไม่ได้แสดงอยู่</string>
@@ -849,7 +881,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">แสดงคำอวยพรถ้า API ไม่พร้อมใช้งาน</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">ข้อความแจ้งเตือนแสดงขึ้น หาก Return YouTube Dislike ไม่พร้อมใช้งาน</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast ไม่ปรากฏขึ้นหาก ไม่สามารถใช้งาน Return YouTube Dislike</string>
-  <string name="revanced_ryd_about">เกี่ยวกับ</string>
   <string name="revanced_ryd_attribution_summary">ข้อมูลนี้ให้มาโดย Return YouTube Dislike API。 แตะที่นี่เพื่อเรียนรู้เพิ่มเติม</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">อุปกรณ์นี้</string>
@@ -1056,7 +1087,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_sb_new_segment_edit_by_hand_title">แก้ไขส่วนแบบมือ</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">คุณต้องการแก้ไขจุดเริ่มต้นและจุดจบของส่วนนี้ไหม?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">ค่าเวลาที่ให้มาผิดพลาด</string>
-  <string name="revanced_sb_stats">สถิติ</string>
+  <string name="revanced_sb_stats_title">สถิติ</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">สถิติไม่พร้อมใช้งานชั่วคราว (API ไม่ทำงาน)</string>
   <string name="revanced_sb_stats_loading">กำลังโหลด...</string>
@@ -1080,13 +1111,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_sb_stats_saved_second_format">%s วินาที</string>
   <string name="revanced_sb_color_opacity_label">ความทึบ:</string>
   <string name="revanced_sb_color_dot_label">สี:</string>
-  <string name="revanced_sb_color_changed">เปลื่ยนสีแล้ว</string>
-  <string name="revanced_sb_color_reset">สีเปลื่ยนเป็นค่าเริ่มต้นแล้ว</string>
-  <string name="revanced_sb_color_invalid">รหัสสีไม่ถูกต้อง</string>
-  <string name="revanced_sb_reset_color">รีเซ็ตสี</string>
-  <string name="revanced_sb_reset">รีเซ็ต</string>
-  <string name="revanced_sb_about">เกี่ยวกับ</string>
-  <string name="revanced_sb_about_api_sum">ข้อมูลนี้มาจาก SponsorBlock API แตะที่นี่เพื่อเรียนรู้เพิ่มเติมและดูการดาวน์โหลดสำหรับแพลตฟอร์มอื่น ๆ</string>
+  <string name="revanced_sb_about_title">เกี่ยวกับ</string>
+  <string name="revanced_sb_about_api_summary">ข้อมูลนี้มาจาก SponsorBlock API แตะที่นี่เพื่อเรียนรู้เพิ่มเติมและดูการดาวน์โหลดสำหรับแพลตฟอร์มอื่น ๆ</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">รูปแบบเค้าโครง</string>
@@ -1309,6 +1335,22 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="microg_settings_title">การตั้งค่า GmsCore</string>
   <string name="microg_settings_summary">การตั้งค่าสำหรับ GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">การตอบสนองแบบสัมผัส</string>
+  <string name="revanced_disable_haptic_feedback_summary">เปลี่ยนการตอบสนองแบบสัมผัส</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">ปิดใช้งานแฮปติกบท</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">ปิดใช้งานแฮปติกบทแล้ว</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">เปิดใช้งานแฮปติกบทแล้ว</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">ปิดใช้งานแฮปติกการค้นหาแบบแม่นยำ</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">ปิดใช้งานแฮปติกการค้นหาที่แม่นยำ</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">เปิดใช้งานแฮปติกการค้นหาแบบแม่นยำแล้ว</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">ปิดใช้งานแฮปติกยกเลิกการค้นหา</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">ปิดใช้งานแฮปติกยกเลิกการค้นหา</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">เปิดใช้งานแฮปติกยกเลิกการค้นหา</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">ปิดใช้งานแฮปติกซูม</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">ปิดใช้งานแฮปติกซูม</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">เปิดใช้งานแฮปติกซูม</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">หากคุณเพิ่งเปลี่ยนรายละเอียดการเข้าสู่ระบบบัญชีของคุณ ให้ถอนการติดตั้งและติดตั้ง MicroG ใหม่อีกครั้ง</string>
   </patch>
@@ -1326,11 +1368,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_remove_tracking_query_parameter_title">ลบพารามิเตอร์การติดตามแบบสอบถาม</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">พารามิเตอร์การติดตามแบบสอบถามถูกลบออกจากลิงก์</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">พารามิเตอร์การติดตามแบบสอบถามไม่ได้ถูกลบออกจากลิงก์</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">ปิดใช้งานแฮปติกซูม</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">แฮปติกถูกปิดใช้งาน</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">แฮปติกเปิดใช้งาน</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">บังคับใช้ภาษาเสียงต้นฉบับ</string>

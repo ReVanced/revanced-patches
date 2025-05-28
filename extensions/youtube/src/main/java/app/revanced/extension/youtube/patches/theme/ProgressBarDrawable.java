@@ -20,13 +20,16 @@ import app.revanced.extension.youtube.settings.Settings;
 public class ProgressBarDrawable extends Drawable {
 
     private final Paint paint = new Paint();
+    {
+        paint.setColor(SeekbarColorPatch.getSeekbarColor());
+    }
 
     @Override
     public void draw(@NonNull Canvas canvas) {
         if (Settings.HIDE_SEEKBAR_THUMBNAIL.get()) {
             return;
         }
-        paint.setColor(SeekbarColorPatch.getSeekbarColor());
+
         canvas.drawRect(getBounds(), paint);
     }
 

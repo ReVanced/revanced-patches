@@ -21,6 +21,10 @@ public class NoTitlePreferenceCategory extends PreferenceCategory {
         super(context, attrs, defStyleAttr);
     }
 
+    public NoTitlePreferenceCategory(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
+
     public NoTitlePreferenceCategory(Context context) {
         super(context);
     }

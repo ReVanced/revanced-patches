@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Beállítások</string>
   <string name="revanced_settings_confirm_user_dialog_title">Szeretné folytatni?</string>
   <string name="revanced_settings_reset">Visszaállítás</string>
+  <string name="revanced_settings_reset_color">Szín alaphelyzetbe állítása</string>
+  <string name="revanced_settings_color_invalid">Érvénytelen szín</string>
   <string name="revanced_settings_restart_title">Frissítés és újraindítás</string>
   <string name="revanced_settings_restart">Újraindítás</string>
   <string name="revanced_settings_import">Importálás</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">A ReVanced beállítások visszaállnak az alapértelmezettre</string>
   <string name="revanced_settings_import_success">%d beállítás importálva</string>
   <string name="revanced_settings_import_failure_parse">Sikertelen importálás: %s</string>
+  <string name="revanced_settings_search_hint">Beállítások keresése</string>
+  <string name="revanced_settings_search_no_results_title">Nincs találat erre: „%s”</string>
+  <string name="revanced_settings_search_no_results_summary">Próbáljon ki egy másik kulcsszót</string>
+  <string name="revanced_settings_search_remove_message">Eltávolítja a keresési előzményekből?</string>
   <string name="revanced_show_menu_icons_title">ReVanced beállításikonok megjelenítése</string>
   <string name="revanced_show_menu_icons_summary_on">A beállításikonok láthatók</string>
   <string name="revanced_show_menu_icons_summary_off">A beállítások ikonjai nem jelennek meg</string>
@@ -93,6 +99,9 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_restore_old_settings_menus_title">Régi beállítási menük visszaállítása</string>
   <string name="revanced_restore_old_settings_menus_summary_on">A régi beállítások menüpontok megjelennek</string>
   <string name="revanced_restore_old_settings_menus_summary_off">A régi beállítások menüpontok nem jelennek meg</string>
+  <string name="revanced_settings_search_history_title">Beállítások keresési előzményeinek megjelenítése</string>
+  <string name="revanced_settings_search_history_summary_on">A beállítások keresési előzményei láthatók</string>
+  <string name="revanced_settings_search_history_summary_off">A beállítások keresési előzményei nincsenek megjelenítve</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">A Shorts háttérben történő lejátszásának letiltása</string>
@@ -108,6 +117,11 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_debug_protobuffer_title">Napló protokoll puffer</string>
   <string name="revanced_debug_protobuffer_summary_on">A hibakeresési naplók protopuffert tartalmaznak</string>
   <string name="revanced_debug_protobuffer_summary_off">A hibakeresési naplók nem tartalmaznak protopuffert</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Ennek a beállításnak az engedélyezése további elrendezési adatokat fog naplózni, beleértve néhány felhasználói felületi komponens képernyőn megjelenő szövegét.
+
+Ez segíthet azonosítani az összetevőket egyedi szűrők létrehozásakor.
+
+Ez a funkció azonban néhány felhasználói adatot is naplóz, például az IP-címét."</string>
   <string name="revanced_debug_stacktrace_title">Naplóverem nyomai</string>
   <string name="revanced_debug_stacktrace_summary_on">A hibakeresési naplók tartalmazzák a verem nyomkövetését</string>
   <string name="revanced_debug_stacktrace_summary_off">A hibakeresési naplók nem tartalmazzák a verem nyomkövetését</string>
@@ -117,6 +131,15 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"A hibaüzenetek kikapcsolása elrejti az összes ReVanced hibaértesítést.
 
 Nem fog értesülni semmilyen váratlan eseményről."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Hibakeresési naplók exportálása</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">A ReVanced hibakeresési naplóit a vágólapra másolja</string>
+  <string name="revanced_debug_logs_disabled">A hibakeresési naplózás ki van kapcsolva</string>
+  <string name="revanced_debug_logs_none_found">Nem találhatók naplók</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Naplók másolva</string>
+  <string name="revanced_debug_logs_failed_to_export">Nem sikerült exportálni a naplókat: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Hibakeresési naplók törlése</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Törli az összes tárolt ReVanced hibakeresési naplót</string>
+  <string name="revanced_debug_logs_clear_toast">Naplók törölve</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Album kártyák elrejtése</string>
@@ -153,15 +176,18 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_notify_me_button_title">\"Értesítést kérek\" gomb elrejtése</string>
   <string name="revanced_hide_notify_me_button_summary_on">A gomb el van rejtve</string>
   <string name="revanced_hide_notify_me_button_summary_off">A gomb megjelenik</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">A(z) „Mások is megnézték” felirat elrejtése</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">A címke rejtett</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">A címke látható</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Videóajánló címkék elrejtése</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">A „Nézők emellett ezt is megnézték” és a „Neked is tetszhet” címkék rejtve vannak</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">A „Nézők emellett ezt is megnézték” és a „Neked is tetszhet” címkék láthatók</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">\'Továbbiak megjelenítése\' gomb elrejtése</string>
   <string name="revanced_hide_show_more_button_summary_on">A gomb el van rejtve</string>
   <string name="revanced_hide_show_more_button_summary_off">A gomb megjelenik</string>
+  <string name="revanced_hide_ticket_shelf_title">Jegyek polcának elrejtése</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">A jegyek polca el van rejtve</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">A jegyek polca látható</string>
   <string name="revanced_hide_timed_reactions_title">Időzített reakciók elrejtése</string>
   <string name="revanced_hide_timed_reactions_summary_on">Az időzített reakciók elrejtve</string>
   <string name="revanced_hide_timed_reactions_summary_off">Az időzített reakciók megjelenítve</string>
@@ -231,6 +257,9 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">„AI-generált videó összefoglaló” elrejtése</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">A videó összefoglaló szekció rejtve</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">A videó összefoglaló szekció látható</string>
+  <string name="revanced_hide_ask_section_title">Kérdezés elrejtése</string>
+  <string name="revanced_hide_ask_section_summary_on">A kérdezés szakasz el van rejtve</string>
+  <string name="revanced_hide_ask_section_summary_off">A kérdezés szakasz megjelenik</string>
   <string name="revanced_hide_attributes_section_title">Attribútumok elrejtése</string>
   <string name="revanced_hide_attributes_section_summary_on">A kiemelt helyek, játékok, zene és említett személyek szakaszai rejtettek</string>
   <string name="revanced_hide_attributes_section_summary_off">A kiemelt helyek, játékok, zene és említett személyek szakaszai láthatók</string>
@@ -352,9 +381,6 @@ Korlátozások
 
 Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">A teljes képernyős hirdetések láthatók</string>
-  <string name="revanced_hide_buttoned_ads_title">Gomb hirdetések elrejtése</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">A gomb hirdetések el vannak rejtve</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">A gomb hirdetések láthatók</string>
   <string name="revanced_hide_paid_promotion_label_title">Fizetett promóció címke elrejtése</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">A fizetett promóciós címke el van rejtve</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">A fizetett promóciós címke meg van jelenítve</string>
@@ -465,9 +491,6 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <string name="revanced_swipe_overlay_background_opacity_title">Az áthúzás átfedésének átlátszósága</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Az átlátszóság értéke 0-100 között legyen</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A csúsztatás átlátszóságának 0 és 100 között kell lennie</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Áthúzás fedvény folyamatjelző sáv színe</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">A hangerő és fényerő szabályozók folyamatjelző sávjának színe</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Érvénytelen folyamatjelző sávszín</string>
   <string name="revanced_swipe_text_overlay_size_title">Áthúzás fedvény szövegmérete</string>
   <string name="revanced_swipe_text_overlay_size_summary">Az áthúzás fedvény szövegmérete 1-30 között</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">A szövegméretnek 1-30 között kell lennie</string>
@@ -794,6 +817,11 @@ Az automatikus lejátszás a YouTube beállításaiban módosítható:
 Beállítások → Lejátszás → Következő videó automatikus lejátszása"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">A befejező képernyőn lévő javasolt videó látható</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Kapcsolódó videó fedőréteg elrejtése teljes képernyőn</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">A kapcsolódó videó fedőréteg rejtve van</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">A kapcsolódó videó fedőréteg látható</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Videó időbélyegzőjének elrejtése</string>
   <string name="revanced_hide_timestamp_summary_on">Az időbélyegző elrejtve</string>
@@ -831,10 +859,10 @@ Beállítások → Lejátszás → Következő videó automatikus lejátszása"<
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Töltse újra a videót a Return YouTube Dislike-hoz</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">A tulajdonos elrejtette</string>
-  <string name="revanced_ryd_enable_summary_on">A nem tetszések megjelennek</string>
-  <string name="revanced_ryd_enable_summary_off">A nem tetszések nem jelennek meg</string>
+  <string name="revanced_ryd_enabled_summary_on">A nem tetszések megjelennek</string>
+  <string name="revanced_ryd_enabled_summary_off">A nem tetszések nem jelennek meg</string>
   <string name="revanced_ryd_shorts_title">A nem tetszések megjelenítése a Shorts videóknál</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"A nem tetszések a Shorts-on láthatók
+  <string name="revanced_ryd_shorts_summary_on">"A nem tetszések a Shorts-on láthatók
 
 Korlátozás: A nem tetszések inkognitómódban nem jelenhetnek meg"</string>
   <string name="revanced_ryd_shorts_summary_off">A nem tetszések a Shorts-on nem láthatók</string>
@@ -851,7 +879,6 @@ Korlátozás: A nem tetszések inkognitómódban nem jelenhetnek meg"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Üzenet megjelenítése, ha az API nem elérhető</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Üzenet megjelenítése, ha a Return YouTube Dislike nem elérhető</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Nem jelenik meg üzenet, ha a Return YouTube Dislike nem elérhető</string>
-  <string name="revanced_ryd_about">Rólunk</string>
   <string name="revanced_ryd_attribution_summary">Az adatokat a Return YouTube Dislike API biztosítja. További információért koppintson ide</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statisztika az eszközön</string>
@@ -1057,7 +1084,7 @@ Készen állsz a beküldésre?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">A szakasz időzítésének kézi beállítása</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Akarja szerkeszteni a rész kezdetének vagy végének időzítését?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Érvénytelen idő van megadva</string>
-  <string name="revanced_sb_stats">Statisztikák</string>
+  <string name="revanced_sb_stats_title">Statisztikák</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">A statisztikák átmenetileg nem érhetők el (az API nem működik)</string>
   <string name="revanced_sb_stats_loading">Betöltés...</string>
@@ -1081,13 +1108,8 @@ Készen állsz a beküldésre?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s másodperc</string>
   <string name="revanced_sb_color_opacity_label">Áttetszőség:</string>
   <string name="revanced_sb_color_dot_label">Szín:</string>
-  <string name="revanced_sb_color_changed">A szín megváltoztatva</string>
-  <string name="revanced_sb_color_reset">Szín alaphelyzetbe</string>
-  <string name="revanced_sb_color_invalid">Érvénytelen színkód</string>
-  <string name="revanced_sb_reset_color">Színek visszaállítása</string>
-  <string name="revanced_sb_reset">Visszaállítás</string>
-  <string name="revanced_sb_about">Rólunk</string>
-  <string name="revanced_sb_about_api_sum">Az adatokat a SponsorBlock API biztosítja. Koppintson ide, ha többet szeretne megtudni és megtekintené a letöltéseket más platformokra</string>
+  <string name="revanced_sb_about_title">Rólunk</string>
+  <string name="revanced_sb_about_api_summary">Az adatokat a SponsorBlock API biztosítja. Koppintson ide, ha többet szeretne megtudni és megtekintené a letöltéseket más platformokra</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Elrendezési űrlap faktor</string>
@@ -1308,6 +1330,22 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="microg_settings_title">GmsCore beállítások</string>
   <string name="microg_settings_summary">A GmsCore beállításai</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptikus visszajelzés</string>
+  <string name="revanced_disable_haptic_feedback_summary">Haptikus visszajelzés módosítása</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Fejezetek haptikus visszajelzésének letiltása</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">A fejezetek haptikus visszajelzése le van tiltva</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">A fejezetek haptikus visszajelzése engedélyezve van</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Pontos keresés haptikus visszajelzésének letiltása</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">A pontos keresés haptikus visszajelzése ki van kapcsolva</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">A pontos keresés haptikus visszajelzése engedélyezve van</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Keresés visszavonása haptikus visszajelzésének letiltása</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">A keresés visszavonása haptikus visszajelzése ki van kapcsolva</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">A keresés visszavonása haptikus visszajelzése be van kapcsolva</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Haptikus zoom letiltása</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Haptikus zoom le van tiltva</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Haptikus zoom be van kapcsolva</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Ha nemrég módosította a fiókja bejelentkezési adatait, távolítsa el, majd telepítse újra a MicroG-t.</string>
   </patch>
@@ -1325,11 +1363,6 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_remove_tracking_query_parameter_title">Nyomkövetési lekérdezési paraméter eltávolítása</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">A nyomkövetési lekérdezési paraméter eltávolítva a linkekből</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">A nyomkövetési lekérdezési paraméter nincs eltávolítva a linkekből</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Haptikus zoom letiltása</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">A haptikus zoom letiltva</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">A haptikus zoom engedélyezve</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Eredeti hang kikényszerítése</string>

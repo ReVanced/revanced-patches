@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Mga Setting</string>
   <string name="revanced_settings_confirm_user_dialog_title">Gusto mo bang magpatuloy?</string>
   <string name="revanced_settings_reset">I-reset</string>
+  <string name="revanced_settings_reset_color">I-reset ang kulay</string>
+  <string name="revanced_settings_color_invalid">Hindi wasto ang kulay</string>
   <string name="revanced_settings_restart_title">I-refresh at i-restart</string>
   <string name="revanced_settings_restart">I-restart</string>
   <string name="revanced_settings_import">Angkat</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">I-reset ang mga ReVanced na setting sa default</string>
   <string name="revanced_settings_import_success">Na-import ang %d na mga setting</string>
   <string name="revanced_settings_import_failure_parse">Nabigo ang pag-import: %s</string>
+  <string name="revanced_settings_search_hint">Maghanap ng mga setting</string>
+  <string name="revanced_settings_search_no_results_title">Walang nakitang resulta para sa 																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	\'%s\'</string>
+  <string name="revanced_settings_search_no_results_summary">Subukan ang ibang keyword</string>
+  <string name="revanced_settings_search_remove_message">Alisin sa history ng paghahanap?</string>
   <string name="revanced_show_menu_icons_title">Ipakita ang mga icon ng setting ng ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ipinapakita ang mga icon ng setting</string>
   <string name="revanced_show_menu_icons_summary_off">Hindi ipinapakita ang mga icon ng setting</string>
@@ -93,6 +99,9 @@ Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimiz
   <string name="revanced_restore_old_settings_menus_title">Ibalik ang dating mga menu ng setting</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Ipinapakita ang mga lumang menu ng setting</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Hindi ipinapakita ang mga lumang menu ng setting</string>
+  <string name="revanced_settings_search_history_title">Ipakita ang history ng paghahanap sa mga setting</string>
+  <string name="revanced_settings_search_history_summary_on">Ipinapakita ang history ng paghahanap sa mga setting</string>
+  <string name="revanced_settings_search_history_summary_off">Hindi ipinapakita ang kasaysayan ng paghahanap sa Mga Setting</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">I-disable ang pag-playback ng Shorts sa background</string>
@@ -108,6 +117,11 @@ Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimiz
   <string name="revanced_debug_protobuffer_title">Mag-log protocol buffer</string>
   <string name="revanced_debug_protobuffer_summary_on">Kasama sa mga debug log ang proto buffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Ang mga debug log ay hindi kasama ang proto buffer</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Ang pagpapagana sa setting na ito ay magtatala ng karagdagang data ng layout, kabilang ang on-screen na teksto para sa ilang bahagi ng UI.
+
+Maaaring makatulong ito na matukoy ang mga bahagi kapag lumilikha ng mga custom na filter.
+
+Gayunpaman, ang pagpapagana nito ay magtatala rin ng ilang data ng user gaya ng iyong IP address."</string>
   <string name="revanced_debug_stacktrace_title">Mga bakas ng stack ng log</string>
   <string name="revanced_debug_stacktrace_summary_on">Kasama sa mga debug log ang stack trace</string>
   <string name="revanced_debug_stacktrace_summary_off">Hindi kasama sa mga debug log ang stack trace</string>
@@ -117,6 +131,15 @@ Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimiz
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Ang pag-off ng mga toast ng error ay nagtatago ng lahat ng mga abiso ng error ng ReVanced.
 
 Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">I-export ang mga debug log</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kinokopya ang mga ReVanced debug log sa clipboard</string>
+  <string name="revanced_debug_logs_disabled">Hindi pinagana ang pag-log ng debug</string>
+  <string name="revanced_debug_logs_none_found">Walang nakitang mga log</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Nakopya ang mga log</string>
+  <string name="revanced_debug_logs_failed_to_export">Nabigong i-export ang mga log: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">I-clear ang mga debug log</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Iki-clear ang lahat ng nakaimbak na ReVanced debug log</string>
+  <string name="revanced_debug_logs_clear_toast">Na-clear ang mga log</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Itago ang mga album card</string>
@@ -153,15 +176,18 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_notify_me_button_title">Itago ang button na \"Abisuhan ako\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Nakatago ang button</string>
   <string name="revanced_hide_notify_me_button_summary_off">Ang pindutan ay ipinapakita</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Itago ang label na \'Napanood din ng mga tao\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Nakatago ang label</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Ipinapakita ang label</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Itago ang mga label ng rekomendasyon sa video</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Nakatago ang mga label na \"\'People also watched\'\" at \"\'You might also like\'\"</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Ipinapakita ang mga label na \"\'People also watched\'\" at \"\'You might also like\'\"</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Itago ang button na \"Ipakita ang higit pa\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Nakatago ang button</string>
   <string name="revanced_hide_show_more_button_summary_off">Ang pindutan ay ipinapakita</string>
+  <string name="revanced_hide_ticket_shelf_title">Itago ang shelf ng ticket</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Nakatago ang ticket shelf</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Ipinapakita ang ticket shelf</string>
   <string name="revanced_hide_timed_reactions_title">Itago ang mga naka-time na reaksyon</string>
   <string name="revanced_hide_timed_reactions_summary_on">Nakatago ang mga naka-time na reaksyon</string>
   <string name="revanced_hide_timed_reactions_summary_off">Ang mga naka-time na reaksyon ay ipinapakita</string>
@@ -231,6 +257,9 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Itago ang \'Buod ng video na binuo ng AI\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Nakatago ang seksyon ng buod ng video</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Ipinapakita ang seksyon ng buod ng video</string>
+  <string name="revanced_hide_ask_section_title">Itago ang Magtanong</string>
+  <string name="revanced_hide_ask_section_summary_on">Nakatago ang seksyon ng Magtanong</string>
+  <string name="revanced_hide_ask_section_summary_off">Ipinapakita ang seksyon ng Magtanong</string>
   <string name="revanced_hide_attributes_section_title">Itago ang Mga Katangian</string>
   <string name="revanced_hide_attributes_section_summary_on">Nakatago ang mga seksyon ng Mga itinatampok na lugar, Mga Laro, Musika, at Mga taong binanggit</string>
   <string name="revanced_hide_attributes_section_summary_off">Ipinapakita ang mga seksyon ng Mga itinatampok na lugar, Mga Laro, Musika, at Mga taong binanggit</string>
@@ -352,9 +381,6 @@ Mga limitasyon
 
 Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Ipinapakita ang mga fullscreen na ad</string>
-  <string name="revanced_hide_buttoned_ads_title">Itago ang mga naka-button na ad</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Nakatago ang mga naka-button na ad</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Ipinapakita ang mga naka-button na ad</string>
   <string name="revanced_hide_paid_promotion_label_title">Itago ang may bayad na label ng promosyon</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Nakatago ang label ng bayad na promosyon</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Ipinapakita ang may bayad na label ng promosyon</string>
@@ -465,9 +491,10 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_swipe_overlay_background_opacity_title">Transparency ng background ng swipe overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Halaga ng opacity sa pagitan ng 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Ang opacity ng swipe ay dapat nasa pagitan ng 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Kulay ng progress bar ng swipe overlay</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Ang kulay ng progress bar para sa mga kontrol ng volume at brightness</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Hindi wasto ang kulay ng progress bar</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Kulay ng liwanag ng swipe overlay</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Ang kulay ng progress bar para sa mga kontrol ng liwanag</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Kulay ng volume ng swipe overlay</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Ang kulay ng progress bar para sa mga kontrol ng volume</string>
   <string name="revanced_swipe_text_overlay_size_title">Laki ng teksto ng swipe overlay</string>
   <string name="revanced_swipe_text_overlay_size_summary">Ang laki ng teksto para sa swipe overlay sa pagitan ng 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Ang laki ng teksto ay dapat sa pagitan ng 1-30</string>
@@ -792,6 +819,11 @@ Maaaring baguhin ang Autoplay sa mga setting ng YouTube:
 Mga Setting → Pag-playback → I-autoplay ang susunod na video"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Ipinapakita ang iminungkahing video sa dulo ng screen</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Itago ang kaugnay na video overlay sa fullscreen</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Nakatago ang kaugnay na video overlay</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Ipinapakita ang kaugnay na video overlay</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Itago ang timestamp ng video</string>
   <string name="revanced_hide_timestamp_summary_on">Nakatago ang timestamp</string>
@@ -829,10 +861,10 @@ Mga Setting → Pag-playback → I-autoplay ang susunod na video"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">I-reload ang video para bumoto gamit ang Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nakatago ng may-ari</string>
-  <string name="revanced_ryd_enable_summary_on">Ang mga hindi gusto ay ipinapakita</string>
-  <string name="revanced_ryd_enable_summary_off">Hindi ipinapakita ang mga hindi gusto</string>
+  <string name="revanced_ryd_enabled_summary_on">Ang mga hindi gusto ay ipinapakita</string>
+  <string name="revanced_ryd_enabled_summary_off">Hindi ipinapakita ang mga hindi gusto</string>
   <string name="revanced_ryd_shorts_title">Ipakita ang mga hindi gusto sa Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Ipinapakita ang mga Dislike sa Shorts
+  <string name="revanced_ryd_shorts_summary_on">"Ipinapakita ang mga Dislike sa Shorts
 
 Limitasyon: Maaaring hindi lumabas ang mga Dislike sa incognito mode"</string>
   <string name="revanced_ryd_shorts_summary_off">Hindi ipinapakita ang mga Dislike sa Shorts</string>
@@ -849,7 +881,6 @@ Limitasyon: Maaaring hindi lumabas ang mga Dislike sa incognito mode"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Magpakita ng toast kung hindi available ang API</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ipapakita ang toast kung hindi available ang Return YouTube Dislike</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Hindi ipinapakita ang toast kung hindi available ang Return YouTube Dislike</string>
-  <string name="revanced_ryd_about">Tungkol</string>
   <string name="revanced_ryd_attribution_summary">Ang data ay ibinibigay ng Return YouTube Dislike API. Mag-tap dito para matuto pa</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statistics ng device na ito</string>
@@ -1056,7 +1087,7 @@ Isumite na ba?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Manu-manong i-edit ang timing ng segment</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Gusto mo bang i-edit ang timing para sa pagsisimula o pagtatapos ng segment?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Hindi wastong oras ang ibinigay</string>
-  <string name="revanced_sb_stats">Istatistika</string>
+  <string name="revanced_sb_stats_title">Istatistika</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Pansamantalang hindi available ang mga Stats (down ang API)</string>
   <string name="revanced_sb_stats_loading">Naglo-load...</string>
@@ -1080,13 +1111,8 @@ Isumite na ba?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s segundo</string>
   <string name="revanced_sb_color_opacity_label">Opacity:</string>
   <string name="revanced_sb_color_dot_label">Kulay:</string>
-  <string name="revanced_sb_color_changed">Nagbago ang kulay</string>
-  <string name="revanced_sb_color_reset">Pag-reset ng kulay</string>
-  <string name="revanced_sb_color_invalid">Di-wastong code ng kulay</string>
-  <string name="revanced_sb_reset_color">I-reset ang kulay</string>
-  <string name="revanced_sb_reset">I-reset</string>
-  <string name="revanced_sb_about">Tungkol</string>
-  <string name="revanced_sb_about_api_sum">Ang data ay ibinibigay ng SponsorBlock API. Mag-tap dito para matuto pa at makakita ng mga download para sa iba pang platform</string>
+  <string name="revanced_sb_about_title">Tungkol</string>
+  <string name="revanced_sb_about_api_summary">Ang data ay ibinibigay ng SponsorBlock API. Mag-tap dito para matuto pa at makakita ng mga download para sa iba pang platform</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Layout form factor</string>
@@ -1309,6 +1335,22 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="microg_settings_title">Mga Setting ng GmsCore</string>
   <string name="microg_settings_summary">Mga setting para sa GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptic feedback</string>
+  <string name="revanced_disable_haptic_feedback_summary">Baguhin ang haptic feedback</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Huwag paganahin ang chapters haptics</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Hindi pinagana ang Chapters haptics</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Pinagana ang Chapters haptics</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Huwag paganahin ang tumpak na paghahanap ng haptics</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Hindi pinagana ang tumpak na paghahanap ng haptics</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Pinagana ang tumpak na paghahanap ng haptics</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Huwag paganahin ang seek undo haptics</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Hindi pinagana ang seek undo haptics</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Pinagana ang seek undo haptics</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Huwag paganahin ang zoom haptics</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Hindi pinagana ang zoom haptics</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Pinagana ang zoom haptics</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Kung kamakailan mo lang binago ang mga detalye sa pag-login sa iyong account, i-uninstall at muling i-install ang MicroG.</string>
   </patch>
@@ -1326,11 +1368,6 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_remove_tracking_query_parameter_title">Alisin ang parameter ng query sa pagsubaybay</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Ang parameter ng query sa pagsubaybay ay tinanggal mula sa mga link</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Ang parameter ng query sa pagsubaybay ay hindi inaalis sa mga link</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Huwag paganahin ang zoom haptics</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Naka-disable ang Haptics</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Pinagana ang Haptics</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>

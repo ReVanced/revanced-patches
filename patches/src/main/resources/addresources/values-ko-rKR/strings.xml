@@ -21,20 +21,22 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">환경 검사에 실패함</string>
+  <string name="revanced_check_environment_failed_title">환경 검사에 실패하였습니다</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">공식 홈페이지 열기</string>
   <string name="revanced_check_environment_dialog_ignore_button">닫기</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 검사는 이 앱이 사전에 패치되었거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 제거하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다.</string>
-  <string name="revanced_check_environment_not_same_patching_device">다른 기기에서 패치됨</string>
-  <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager에 의해 설치되지 않음</string>
-  <string name="revanced_check_environment_not_near_patch_time">10분 이상 전에 패치됨</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">%s 일 전에 패치됨</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK 빌드 날짜가 손상됨</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 검사는 이 앱이 사전에 패치되었거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 삭제하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다.</string>
+  <string name="revanced_check_environment_not_same_patching_device">다른 기기에서 패치되었습니다</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager에 의해 설치되지 않았습니다</string>
+  <string name="revanced_check_environment_not_near_patch_time">10분 이상 전에 패치되었습니다</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">%s 일 전에 패치되었습니다</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK 빌드 날짜가 손상되었습니다</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">설정</string>
   <string name="revanced_settings_confirm_user_dialog_title">계속하시겠습니까?</string>
   <string name="revanced_settings_reset">초기화</string>
+  <string name="revanced_settings_reset_color">색상 초기화</string>
+  <string name="revanced_settings_color_invalid">잘못된 색상입니다</string>
   <string name="revanced_settings_restart_title">새로고침 및 다시 시작</string>
   <string name="revanced_settings_restart">다시 시작</string>
   <string name="revanced_settings_import">가져오기</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced 설정을 기본값으로 초기화합니다</string>
   <string name="revanced_settings_import_success">%d 설정을 가져왔습니다</string>
   <string name="revanced_settings_import_failure_parse">설정을 가져올 수 없습니다: %s</string>
+  <string name="revanced_settings_search_hint">설정 검색</string>
+  <string name="revanced_settings_search_no_results_title">\'%s\'에 대한 검색 결과가 없습니다</string>
+  <string name="revanced_settings_search_no_results_summary">다른 키워드를 검색해 보세요</string>
+  <string name="revanced_settings_search_remove_message">검색 기록에서 삭제하시겠습니까?</string>
   <string name="revanced_show_menu_icons_title">ReVanced 설정 아이콘 표시하기</string>
   <string name="revanced_show_menu_icons_summary_on">설정 아이콘을 표시합니다</string>
   <string name="revanced_show_menu_icons_summary_off">설정 아이콘을 표시하지 않습니다</string>
@@ -55,7 +61,7 @@ Second \"item\" text"</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">ReVanced Patches &lt;i&gt;%s&lt;/i&gt;&lt;br&gt;버전을 사용 중입니다</string>
   <string name="revanced_settings_about_links_dev_header">알림</string>
-  <string name="revanced_settings_about_links_dev_body">개발자 버전이므로&lt;br&gt;알려지지 않은 문제점이&lt;br&gt;발생할 수 있습니다</string>
+  <string name="revanced_settings_about_links_dev_body">Pre-Release 버전이므로&lt;br&gt;알려지지 않은 문제점이&lt;br&gt;발생할 수 있습니다</string>
   <string name="revanced_settings_about_links_header">공식 링크</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -93,6 +99,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_restore_old_settings_menus_title">이전 설정 메뉴 복원하기</string>
   <string name="revanced_restore_old_settings_menus_summary_on">이전 설정 메뉴를 표시합니다</string>
   <string name="revanced_restore_old_settings_menus_summary_off">이전 설정 메뉴를 표시하지 않습니다</string>
+  <string name="revanced_settings_search_history_title">설정 검색 기록 표시하기</string>
+  <string name="revanced_settings_search_history_summary_on">설정 검색 기록을 표시합니다</string>
+  <string name="revanced_settings_search_history_summary_off">설정 검색 기록을 표시하지 않습니다</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts 백그라운드 재생 비활성화하기</string>
@@ -103,11 +112,16 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_debug_screen_title">디버깅</string>
   <string name="revanced_debug_screen_summary">디버깅 옵션을 활성화하거나 비활성화할 수 있습니다</string>
   <string name="revanced_debug_title">디버그 로깅</string>
-  <string name="revanced_debug_summary_on">디버그 로그를 출력합니다</string>
-  <string name="revanced_debug_summary_off">디버그 로그를 출력하지 않습니다</string>
+  <string name="revanced_debug_summary_on">디버그 로깅을 활성화합니다</string>
+  <string name="revanced_debug_summary_off">디버그 로깅을 비활성화합니다</string>
   <string name="revanced_debug_protobuffer_title">로그 프로토콜 버퍼</string>
   <string name="revanced_debug_protobuffer_summary_on">디버그 로그에 프로토콜 버퍼를 포함합니다</string>
   <string name="revanced_debug_protobuffer_summary_off">디버그 로그에 프로토콜 버퍼를 포함하지 않습니다</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"이 설정을 활성화하면 일부 UI 구성 요소에 대한 화면 텍스트를 포함한 추가 레이아웃 데이터가 기록됩니다.
+
+이 설정은 사용자 정의 필터를 만들 경우에 구성 요소를 식별하는 데 도움이 될 수 있습니다.
+
+그러나 이 설정을 활성화하면 IP 주소와 같은 일부 사용자 데이터도 기록됩니다."</string>
   <string name="revanced_debug_stacktrace_title">로그 스택 트레이스</string>
   <string name="revanced_debug_stacktrace_summary_on">디버그 로그에 로그 스택 트레이스를 포함합니다</string>
   <string name="revanced_debug_stacktrace_summary_off">디버그 로그에 로그 스택 트레이스를 포함하지 않습니다</string>
@@ -117,6 +131,15 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"오류 메시지를 비활성화하면 모든 ReVanced 오류 알림이 숨겨집니다.
 
 예상되지 않은 이벤트에 대한 알림을 받지 못할 수 있습니다."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">디버그 로그 내보내기</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced 디버그 로그를 클립보드에 복사할 수 있습니다</string>
+  <string name="revanced_debug_logs_disabled">디버그 로깅이 비활성화되어 있습니다</string>
+  <string name="revanced_debug_logs_none_found">디버그 로그를 찾을 수 없습니다</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">디버그 로그를 복사하였습니다</string>
+  <string name="revanced_debug_logs_failed_to_export">디버그 로그를 내보낼 수 없습니다: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">디버그 로그 지우기</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">저장된 모든 ReVanced 디버그 로그를 지울 수 있습니다</string>
+  <string name="revanced_debug_logs_clear_toast">디버그 로그가 지워졌습니다</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">음악 앨범 카드 숨기기</string>
@@ -157,15 +180,18 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_notify_me_button_title">\'알림 받기\' 버튼 숨기기</string>
   <string name="revanced_hide_notify_me_button_summary_on">\'알림 받기\' 버튼이 숨겨집니다</string>
   <string name="revanced_hide_notify_me_button_summary_off">\'알림 받기\' 버튼이 표시됩니다</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">\'시청자가 이 동영상도 시청함\' 라벨 숨기기</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">라벨이 숨겨집니다</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">라벨이 표시됩니다</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">동영상 추천 라벨 숨기기</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">다음 동영상 추천 라벨이 숨겨집니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">다음 동영상 추천 라벨이 표시됩니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">\'자세히 보기\' 버튼 숨기기</string>
   <string name="revanced_hide_show_more_button_summary_on">\'자세히 보기\' 버튼이 숨겨집니다</string>
   <string name="revanced_hide_show_more_button_summary_off">\'자세히 보기\' 버튼이 표시됩니다</string>
+  <string name="revanced_hide_ticket_shelf_title">콘서트 티켓 선반 숨기기</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">콘서트 티켓 선반이 숨겨집니다\n• 일부 국가에서는 아직 서비스가 제공되지 않습니다</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">콘서트 티켓 선반이 표시됩니다\n• 일부 국가에서는 아직 서비스가 제공되지 않습니다</string>
   <string name="revanced_hide_timed_reactions_title">실시간 이모티콘 리액션 숨기기</string>
   <string name="revanced_hide_timed_reactions_summary_on">실시간 이모티콘 리액션이 숨겨집니다</string>
   <string name="revanced_hide_timed_reactions_summary_off">실시간 이모티콘 리액션이 표시됩니다</string>
@@ -235,6 +261,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_ai_generated_video_summary_section_title">AI 생성 동영상 요약 섹션 숨기기</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI 생성 동영상 요약 섹션이 숨겨집니다</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI 생성 동영상 요약 섹션이 표시됩니다</string>
+  <string name="revanced_hide_ask_section_title">요청 섹션 숨기기</string>
+  <string name="revanced_hide_ask_section_summary_on">요청 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_ask_section_summary_off">요청 섹션이 표시됩니다</string>
   <string name="revanced_hide_attributes_section_title">속성 섹션 숨기기</string>
   <string name="revanced_hide_attributes_section_summary_on">게임, 음악, 동영상 속 장소 그리고 언급된 인물 섹션이 숨겨집니다</string>
   <string name="revanced_hide_attributes_section_summary_off">게임, 음악, 동영상 속 장소 그리고 언급된 인물 섹션이 표시됩니다</string>
@@ -355,9 +384,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 
 이 설정은 구형 기기에서만 사용할 수 있습니다"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">전체 화면 광고가 표시됩니다</string>
-  <string name="revanced_hide_buttoned_ads_title">버튼형 광고 숨기기</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">버튼형 광고가 숨겨집니다</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">버튼형 광고가 표시됩니다</string>
   <string name="revanced_hide_paid_promotion_label_title">유료 광고 포함 라벨 숨기기</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">유료 광고 포함 라벨이 숨겨집니다</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">유료 광고 포함 라벨이 표시됩니다</string>
@@ -410,9 +436,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_copy_video_url_timestamp_summary_off">버튼을 표시하지 않습니다</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
-  <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_on">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거하지 않습니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 삭제하기</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_on">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 삭제합니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 삭제하지 않습니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다.</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
@@ -430,9 +456,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_external_downloader_not_installed_warning">%s 는 설치되어 있지 않습니다. 설치하세요</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
-  <string name="revanced_disable_precise_seeking_gesture_title">세밀하게 보면서 탐색 제스처 비활성화하기</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_on">세밀하게 보면서 탐색 제스처를 비활성화합니다\n• 필름 스트립 오버레이</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_off">세밀하게 보면서 탐색 제스처를 활성화합니다\n• 필름 스트립 오버레이</string>
+  <string name="revanced_disable_precise_seeking_gesture_title">세밀한 탐색 제스처 비활성화하기</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_on">세밀한 탐색 제스처를 비활성화합니다</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_off">세밀한 탐색 제스처를 활성화합니다</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
@@ -464,9 +490,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_background_opacity_title">스와이프 오버레이 배경 불투명도</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
-  <string name="revanced_swipe_overlay_progress_color_title">스와이프 오버레이 진행바 색상</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">볼륨 및 밝기 조절 진행바 색상의 헥스 코드를 입력하세요</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">잘못된 진행바 헥스 코드입니다</string>
   <string name="revanced_swipe_text_overlay_size_title">스와이프 오버레이 텍스트 크기</string>
   <string name="revanced_swipe_text_overlay_size_summary">스와이프 오버레이 텍스트 크기를 지정할 수 있습니다 (1-30)</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">텍스트 크기는 1-30 사이여야 합니다</string>
@@ -475,13 +498,13 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_volume_sensitivity_title">볼륨 스와이프 민감도</string>
   <string name="revanced_swipe_volume_sensitivity_summary">스와이프할 때마다 볼륨이 얼마나 변경되는지를 지정할 수 있습니다</string>
   <string name="revanced_swipe_overlay_style_title">스와이프 오버레이 스타일</string>
-  <string name="revanced_swipe_overlay_style_entry_1">가로 오버레이</string>
-  <string name="revanced_swipe_overlay_style_entry_2">가로 오버레이 (최소화 - 상단)</string>
-  <string name="revanced_swipe_overlay_style_entry_3">가로 오버레이 (최소화 - 중앙)</string>
-  <string name="revanced_swipe_overlay_style_entry_4">원형 오버레이</string>
-  <string name="revanced_swipe_overlay_style_entry_5">원형 오버레이 (최소화)</string>
-  <string name="revanced_swipe_overlay_style_entry_6">세로 오버레이</string>
-  <string name="revanced_swipe_overlay_style_entry_7">세로 오버레이 (최소화)</string>
+  <string name="revanced_swipe_overlay_style_entry_1">가로</string>
+  <string name="revanced_swipe_overlay_style_entry_2">가로 (최소화 - 상단)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">가로 (최소화 - 중앙)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">원형</string>
+  <string name="revanced_swipe_overlay_style_entry_5">원형 (최소화)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">세로</string>
+  <string name="revanced_swipe_overlay_style_entry_7">세로 (최소화)</string>
   <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 활성화하기</string>
   <string name="revanced_swipe_change_video_summary_on">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다</string>
   <string name="revanced_swipe_change_video_summary_off">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다</string>
@@ -672,8 +695,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
   <string name="revanced_disable_rolling_number_animations_title">롤링 넘버 애니메이션 비활성화하기</string>
-  <string name="revanced_disable_rolling_number_animations_summary_on">다음 롤링 넘버 애니메이션을 비활성화합니다\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 수, 조회수 롤링 애니메이션 (동영상 설명)</string>
-  <string name="revanced_disable_rolling_number_animations_summary_off">다음 롤링 넘버 애니메이션을 활성화합니다\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 수, 조회수 롤링 애니메이션 (동영상 설명)</string>
+  <string name="revanced_disable_rolling_number_animations_summary_on">다음 롤링 넘버 애니메이션을 비활성화합니다:\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 수, 조회수 롤링 애니메이션 (동영상 설명)</string>
+  <string name="revanced_disable_rolling_number_animations_summary_off">다음 롤링 넘버 애니메이션을 활성화합니다:\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 수, 조회수 롤링 애니메이션 (동영상 설명)</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">동영상 플레이어 재생바 숨기기</string>
@@ -794,6 +817,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 설정 → 재생 → 다음 동영상 자동재생"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">최종 화면에서 다음 재생 추천 동영상이 표시됩니다</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">전체 화면에서 관련 동영상 오버레이 숨기기</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">관련 동영상 오버레이가 숨겨집니다</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">관련 동영상 오버레이가 표시됩니다</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">동영상 타임스탬프 숨기기</string>
   <string name="revanced_hide_timestamp_summary_on">타임스탬프가 숨겨집니다</string>
@@ -831,10 +859,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">ReturnYouTubeDislike를 사용하여 투표하려면 동영상을 다시 로드하세요</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">소유자에 의해 숨겨짐</string>
-  <string name="revanced_ryd_enable_summary_on">싫어요 수를 표시합니다</string>
-  <string name="revanced_ryd_enable_summary_off">싫어요 수를 표시하지 않습니다</string>
+  <string name="revanced_ryd_enabled_summary_on">싫어요 수를 표시합니다</string>
+  <string name="revanced_ryd_enabled_summary_off">싫어요 수를 표시하지 않습니다</string>
   <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 수 표시하기</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts에서 싫어요 수를 표시합니다
+  <string name="revanced_ryd_shorts_summary_on">"Shorts에서 싫어요 수를 표시합니다
 
 알려진 문제점:
 • 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 싫어요 수가 표시되지 않을 수 있습니다"</string>
@@ -852,7 +880,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때, 팝업 메시지 표시하기</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시하지 않습니다</string>
-  <string name="revanced_ryd_about">정보</string>
   <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">이 기기의 ReturnYouTubeDislike API 사용 통계</string>
@@ -975,7 +1002,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_segments_filler">주제와 관련 없는 구간</string>
   <string name="revanced_sb_segments_filler_sum">전반적인 동영상의 주제를 이해하는 데 필요 없는 내용을 포함하고 있습니다</string>
   <string name="revanced_sb_segments_nomusic">음악이 아닌 구간</string>
-  <string name="revanced_sb_segments_nomusic_sum">뮤직 비디오에서 음악이 아닌 구간이 해당됩니다</string>
+  <string name="revanced_sb_segments_nomusic_sum">음악 동영상에서 음악이 아닌 구간이 해당됩니다</string>
   <string name="revanced_sb_skip_button_compact">건너뛰기</string>
   <string name="revanced_sb_skip_button_compact_highlight">하이라이트</string>
   <string name="revanced_sb_skip_button_sponsor">스폰서 광고 건너뛰기</string>
@@ -1058,7 +1085,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_new_segment_edit_by_hand_title">직접 시간 구간 편집하기</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">구간의 시작이나 끝을 편집하시겠습니까?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">잘못된 시간 형식입니다</string>
-  <string name="revanced_sb_stats">기록</string>
+  <string name="revanced_sb_stats_title">기록</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">기록을 일시적으로 가져올 수 없습니다 (응답 시간 초과)</string>
   <string name="revanced_sb_stats_loading">불러오는 중 ...</string>
@@ -1082,13 +1109,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_stats_saved_second_format">%s 초</string>
   <string name="revanced_sb_color_opacity_label">불투명도:</string>
   <string name="revanced_sb_color_dot_label">색상:</string>
-  <string name="revanced_sb_color_changed">설정한 색상을 적용하였습니다</string>
-  <string name="revanced_sb_color_reset">색상을 초기화하였습니다</string>
-  <string name="revanced_sb_color_invalid">잘못된 헥스 코드입니다</string>
-  <string name="revanced_sb_reset_color">색상 초기화</string>
-  <string name="revanced_sb_reset">초기화</string>
-  <string name="revanced_sb_about">정보</string>
-  <string name="revanced_sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
+  <string name="revanced_sb_about_title">정보</string>
+  <string name="revanced_sb_about_api_summary">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">레이아웃 폼 팩터 변경하기</string>
@@ -1314,8 +1336,24 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="microg_settings_title">GmsCore 설정</string>
   <string name="microg_settings_summary">알림 수신을 위한 클라우드 메시징을 설정할 수 있습니다</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">진동 피드백</string>
+  <string name="revanced_disable_haptic_feedback_summary">진동 피드백을 활성화하거나 비활성화할 수 있습니다</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">챕터 진동 피드백 비활성화하기</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">챕터 진동 피드백을 비활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">챕터 진동 피드백을 활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">세밀한 탐색 진동 피드백 비활성화하기</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">세밀한 탐색 진동 피드백을 비활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">세밀한 탐색 진동 피드백을 활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">탐색 취소 진동 피드백 비활성화하기</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">탐색 취소 진동 피드백을 비활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">탐색 취소 진동 피드백을 활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">동영상 확대 진동 피드백 비활성화하기</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">동영상 확대 진동 피드백을 비활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">동영상 확대 진동 피드백을 활성화합니다</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
-  <string name="microg_offline_account_login_error">최근에 계정 로그인 정보를 변경했다면 MicroG를 제거하고 다시 설치하세요.</string>
+  <string name="microg_offline_account_login_error">최근에 계정 로그인 정보를 변경했다면 MicroG를 삭제하고 다시 설치하세요.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">리다이렉션 없이 링크 바로 열기</string>
@@ -1328,14 +1366,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_external_browser_summary_off">앱 내에서 외부 링크를 열 때, 내부 브라우저를 사용합니다</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">추적 쿼리를 제거한 링크 공유하기</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 제거합니다 (URL의 뒷부분 \'?si=...\' 이 제거됨)</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 제거하지 않습니다</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">동영상을 확대할 때, 진동 피드백 비활성화하기</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">진동 피드백을 비활성화합니다</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">진동 피드백을 활성화합니다</string>
+  <string name="revanced_remove_tracking_query_parameter_title">추적 쿼리를 삭제한 링크 공유하기</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_on">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 삭제합니다 (URL의 뒷부분 \'?si=...\' 이 삭제됨)</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_off">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 삭제하지 않습니다</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">원본 오디오 스트림 언어 강제로 활성화하기</string>
@@ -1411,8 +1444,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
   <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 강제로 활성화합니다\n\n• 일부 VP9 코덱 동영상에서 제거되었던 화질 값이 표시될 수 있습니다\n• 최대 화질 값이 1080p이므로, 초고화질 동영상을 재생할 수 없습니다\n• HDR 동영상을 재생할 수 없습니다</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 자동으로 결정합니다\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질값이 제거되어 360p와 1080p(Premium 기능)만 선택가능할 수 있거나 화질 메뉴를 선택불가능할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 강제로 활성화합니다\n\n• 일부 VP9 코덱 동영상에서 삭제되었던 화질 값이 표시될 수 있습니다\n• 최대 화질 값이 1080p이므로, 초고화질 동영상을 재생할 수 없습니다\n• HDR 동영상을 재생할 수 없습니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 자동으로 결정합니다\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질값이 삭제되어 360p와 1080p(Premium 기능)만 선택가능할 수 있거나 화질 메뉴를 선택불가능할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"이 설정를 활성화하면 배터리 수명이 향상되고, 동영상 재생 끊김 문제가 해결될 수 있습니다.
 
 AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동영상을 재생할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요."</string>
@@ -1452,11 +1485,11 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
   <string name="revanced_block_video_ads_summary_off">동영상 광고를 차단하지 않습니다</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">메시지를 제거합니다</string>
-  <string name="revanced_show_deleted_messages_title">제거된 메시지 표시하기</string>
-  <string name="revanced_show_deleted_messages_entry_1">제거된 메시지 표시하지 않기</string>
-  <string name="revanced_show_deleted_messages_entry_2">스포일러 뒤에 제거된 메시지 숨기기</string>
-  <string name="revanced_show_deleted_messages_entry_3">제거된 메시지를 줄이 그어진 텍스트로 표시하기</string>
+  <string name="revanced_deleted_msg">메시지를 삭제합니다</string>
+  <string name="revanced_show_deleted_messages_title">삭제된 메시지 표시하기</string>
+  <string name="revanced_show_deleted_messages_entry_1">삭제된 메시지 표시하지 않기</string>
+  <string name="revanced_show_deleted_messages_entry_2">스포일러 뒤에 삭제된 메시지 숨기기</string>
+  <string name="revanced_show_deleted_messages_entry_3">삭제된 메시지를 줄이 그어진 텍스트로 표시하기</string>
   </patch>
   <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
   <string name="revanced_auto_claim_channel_points_title">채널 포인트 자동 적립하기</string>
@@ -1484,8 +1517,8 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
   <string name="revanced_client_ads_category_title">클라이언트 광고</string>
   <string name="revanced_surestream_ads_category_title">서버 광고</string>
   <string name="revanced_twitch_debug_title">디버그 로깅</string>
-  <string name="revanced_twitch_debug_summary_on">디버그 로그를 출력합니다</string>
-  <string name="revanced_twitch_debug_summary_off">디버그 로그를 출력하지 않습니다</string>
+  <string name="revanced_twitch_debug_summary_on">디버그 로깅을 활성화합니다</string>
+  <string name="revanced_twitch_debug_summary_off">디버그 로깅을 비활성화합니다</string>
   </patch>
   </app>
 </resources>

@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">設定</string>
   <string name="revanced_settings_confirm_user_dialog_title">続行しますか？</string>
   <string name="revanced_settings_reset">リセット</string>
+  <string name="revanced_settings_reset_color">色をリセット</string>
+  <string name="revanced_settings_color_invalid">色の値が無効です</string>
   <string name="revanced_settings_restart_title">更新して再起動</string>
   <string name="revanced_settings_restart">再起動</string>
   <string name="revanced_settings_import">インポート</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced 設定をデフォルトにリセット</string>
   <string name="revanced_settings_import_success">%d 個の設定をインポートしました</string>
   <string name="revanced_settings_import_failure_parse">インポート失敗: %s</string>
+  <string name="revanced_settings_search_hint">ReVanced の設定を検索</string>
+  <string name="revanced_settings_search_no_results_title">\'%s\' に一致する ReVanced の設定は見つかりませんでした</string>
+  <string name="revanced_settings_search_no_results_summary">別のキーワードを試してください</string>
+  <string name="revanced_settings_search_remove_message">検索履歴から削除しますか？</string>
   <string name="revanced_show_menu_icons_title">ReVanced 設定にアイコンを表示する</string>
   <string name="revanced_show_menu_icons_summary_on">ReVanced 設定にアイコンが表示されます</string>
   <string name="revanced_show_menu_icons_summary_off">ReVanced 設定にアイコンは表示されません</string>
@@ -94,6 +100,9 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_restore_old_settings_menus_title">設定メニューを旧バージョンに戻す</string>
   <string name="revanced_restore_old_settings_menus_summary_on">旧バージョンの設定メニューが表示されます</string>
   <string name="revanced_restore_old_settings_menus_summary_off">通常の設定メニューが表示されます</string>
+  <string name="revanced_settings_search_history_title">設定検索の履歴を表示する</string>
+  <string name="revanced_settings_search_history_summary_on">設定検索の履歴は表示されます</string>
+  <string name="revanced_settings_search_history_summary_off">設定検索の履歴は表示されません</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">ショート動画のバックグラウンド再生を無効にする</string>
@@ -109,6 +118,11 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_debug_protobuffer_title">protocol buffer を記録する</string>
   <string name="revanced_debug_protobuffer_summary_on">デバッグ ログに protocol buffer が含まれます</string>
   <string name="revanced_debug_protobuffer_summary_off">デバッグ ログに protocol buffer は含まれません</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"この設定を有効にすると、一部のUIコンポーネントの画面上のテキストなど、追加のレイアウトデータが記録されます。
+
+これにより、カスタムフィルターを作成するときにコンポーネントを特定できます。
+
+ただし、これを有効にすると、IPアドレスなどの一部のユーザーデータも記録されます。"</string>
   <string name="revanced_debug_stacktrace_title">stack trace を記録する</string>
   <string name="revanced_debug_stacktrace_summary_on">デバッグ ログにstack trace が含まれます</string>
   <string name="revanced_debug_stacktrace_summary_off">デバッグ ログにstack trace は含まれません</string>
@@ -118,6 +132,15 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"この機能をオフにすると、すべてのReVanced エラー通知が非表示になります。
 
 あらゆる予期せぬイベントが通知されなくなります。"</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">デバッグログをエクスポート</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVancedデバッグログをクリップボードにコピーします</string>
+  <string name="revanced_debug_logs_disabled">デバッグログは無効です</string>
+  <string name="revanced_debug_logs_none_found">ログが見つかりませんでした</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">ログがコピーされました</string>
+  <string name="revanced_debug_logs_failed_to_export">ログのエクスポートに失敗しました：$s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">デバッグログをクリア</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">保存されているすべてのReVancedデバッグログをクリアします</string>
+  <string name="revanced_debug_logs_clear_toast">ログがクリアされました</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">アルバム情報を非表示</string>
@@ -156,15 +179,18 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_notify_me_button_title">「通知を受け取る」ボタンを非表示</string>
   <string name="revanced_hide_notify_me_button_summary_on">「通知を受け取る」ボタンは表示されません</string>
   <string name="revanced_hide_notify_me_button_summary_off">「通知を受け取る」ボタンは表示されます</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">「他の人はこの動画も視聴しています」ラベルを非表示</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">「他の人はこの動画も視聴しています」ラベルは表示されません</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">「他の人はこの動画も視聴しています」ラベルは表示されます</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">おすすめラベルを非表示</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">サムネイル下の「他の人はこの動画も視聴しています」ラベルと「あなたへのおすすめ」ラベルは表示されません</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">サムネイル下の「他の人はこの動画も視聴しています」ラベルと「あなたへのおすすめ」ラベルは表示されます</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">「もっと見る」ボタンを非表示</string>
   <string name="revanced_hide_show_more_button_summary_on">「もっと見る」ボタンは表示されません</string>
   <string name="revanced_hide_show_more_button_summary_off">「もっと見る」ボタンは表示されます</string>
+  <string name="revanced_hide_ticket_shelf_title">チケット欄を非表示</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">チケット欄は表示されません</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">チケット欄は表示されます</string>
   <string name="revanced_hide_timed_reactions_title">Timed Reaction を非表示</string>
   <string name="revanced_hide_timed_reactions_summary_on">Timed Reaction とチャット欄のハートマーク アイコンは表示されません</string>
   <string name="revanced_hide_timed_reactions_summary_off">Timed Reaction とチャット欄のハートマー ク アイコンは表示されます</string>
@@ -234,6 +260,9 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_ai_generated_video_summary_section_title">「AI 生成による動画の要約」を非表示</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">動画の要約セクションは表示されません</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">動画の要約セクションは表示されます</string>
+  <string name="revanced_hide_ask_section_title">質問セクションを非表示</string>
+  <string name="revanced_hide_ask_section_summary_on">質問セクションは表示されません</string>
+  <string name="revanced_hide_ask_section_summary_off">質問セクションは表示されます</string>
   <string name="revanced_hide_attributes_section_title">関連情報を非表示</string>
   <string name="revanced_hide_attributes_section_summary_on">注目の場所 / ゲーム / 音楽 / 言及された人物セクションは表示されません</string>
   <string name="revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 言及された人物セクションは表示されます</string>
@@ -355,9 +384,6 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
 
 この機能は、古いデバイスでのみ利用できます"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">全画面広告は、アプリ起動時に表示されます</string>
-  <string name="revanced_hide_buttoned_ads_title">ボタン付き広告を非表示</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">ボタン付き広告は表示されません</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">ボタン付き広告は表示されます</string>
   <string name="revanced_hide_paid_promotion_label_title">「プロモーションを含みます」ボタンを非表示</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">「プロモーションを含みます」ボタンはプレーヤー画面に表示されません</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">「プロモーションを含みます」ボタンはプレーヤー画面に表示されます</string>
@@ -468,9 +494,6 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_swipe_overlay_background_opacity_title">オーバーレイの背景の透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">透明度の範囲は 0-100 で、0 が透明です</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">スワイプ: 透明度の範囲は 0-100 です</string>
-  <string name="revanced_swipe_overlay_progress_color_title">オーバーレイのグラフの色</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">スワイプ中の音量や明るさの現在値を視覚的に表示するグラフの色</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">グラフの色の値が無効です</string>
   <string name="revanced_swipe_text_overlay_size_title">オーバーレイのテキストサイズ</string>
   <string name="revanced_swipe_text_overlay_size_summary">スワイプ オーバーレイのテキストサイズ (1-30)</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">テキストサイズの範囲は 1-30 です</string>
@@ -790,12 +813,17 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_shorts_navigation_bar_summary_off">ナビゲーション バーは表示されます</string>
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
-  <string name="revanced_end_screen_suggested_video_title">再生終了時の「関連動画」を非表示</string>
-  <string name="revanced_end_screen_suggested_video_summary_on">"「関連動画」は、再生終了時にプレーヤー画面に表示されませんが、自動再生がオンの場合は自動で再生されます
+  <string name="revanced_end_screen_suggested_video_title">再生終了時の「関連動画」オーバーレイを非表示</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"再生終了時に、「関連動画」オーバーレイはプレーヤー画面に表示されませんが、自動再生がオンの場合は次の動画が自動で再生されます
 
 自動再生の設定は YouTube の設定で変更できます:
 設定 → 再生 → 次の動画を自動再生"</string>
-  <string name="revanced_end_screen_suggested_video_summary_off">「関連動画」は、再生終了時にプレーヤー画面に表示されます</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">再生終了時に、「関連動画」オーバーレイがプレーヤー画面に表示されます</string>
+  </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">全画面表示の「次の動画」オーバーレイを非表示</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">「次の動画」オーバーレイは表示されません</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">「次の動画」オーバーレイは表示されます</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">タイムスタンプを非表示</string>
@@ -834,10 +862,10 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Return YouTube Dislike を使用するには動画を再読み込みしてください</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">所有者によって非表示</string>
-  <string name="revanced_ryd_enable_summary_on">低評価数が表示されます</string>
-  <string name="revanced_ryd_enable_summary_off">低評価数は表示されません</string>
+  <string name="revanced_ryd_enabled_summary_on">低評価数が表示されます</string>
+  <string name="revanced_ryd_enabled_summary_off">低評価数は表示されません</string>
   <string name="revanced_ryd_shorts_title">Shortsで低評価数を表示する</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shortsの低評価が表示されます
+  <string name="revanced_ryd_shorts_summary_on">"Shortsの低評価が表示されます
 
 制限事項: シークレット モードでは低評価が表示されない場合があります"</string>
   <string name="revanced_ryd_shorts_summary_off">Shortsの低評価は表示されません</string>
@@ -854,7 +882,6 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_ryd_toast_on_connection_error_title">API 利用不可時にトーストを表示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合、トースト ポップアップが表示されます</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike が利用できない場合でもトースト ポップアップは表示されません</string>
-  <string name="revanced_ryd_about">Return YouTube Dislike について</string>
   <string name="revanced_ryd_attribution_summary">このデータはReturn YouTube Dislike APIによって提供されています。詳細はここをタップしてください</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">このデバイスでのReturnYouTubeDislike API 統計情報</string>
@@ -1058,7 +1085,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_new_segment_edit_by_hand_title">セグメントのタイミングを手動で編集</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">セグメントの開始または終了のタイミングを編集しますか?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">時間の値が無効です</string>
-  <string name="revanced_sb_stats">統計</string>
+  <string name="revanced_sb_stats_title">統計</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">統計情報は一時的に利用できません (API がダウンしています)</string>
   <string name="revanced_sb_stats_loading">読み込み中...</string>
@@ -1082,13 +1109,8 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_stats_saved_second_format">%s 秒</string>
   <string name="revanced_sb_color_opacity_label">透明度:</string>
   <string name="revanced_sb_color_dot_label">色:</string>
-  <string name="revanced_sb_color_changed">色を変更しました</string>
-  <string name="revanced_sb_color_reset">色がリセットされました</string>
-  <string name="revanced_sb_color_invalid">色の値が無効です</string>
-  <string name="revanced_sb_reset_color">色をリセット</string>
-  <string name="revanced_sb_reset">リセット</string>
-  <string name="revanced_sb_about">SponsorBlock について</string>
-  <string name="revanced_sb_about_api_sum">SponsorBlock APIによって提供されるデータです。詳細はこちらをタップしてください。</string>
+  <string name="revanced_sb_about_title">SponsorBlock について</string>
+  <string name="revanced_sb_about_api_summary">SponsorBlock APIによって提供されるデータです。詳細はこちらをタップしてください。</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">レイアウト</string>
@@ -1150,7 +1172,7 @@ Automotive レイアウト
   <string name="revanced_change_start_page_always_summary_on">"スタート画面の変更は常時適用されます
 
 制限事項: ツールバーの [戻る] ボタンが機能しない可能性があります"</string>
-  <string name="revanced_change_start_page_always_summary_off">スタート画面の変更はアプリ起動時にのみ適用されます</string>
+  <string name="revanced_change_start_page_always_summary_off">スタート画面の変更は、アプリ起動時にのみ適用されます</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">ショート動画プレーヤーの再開を無効にする</string>
@@ -1231,9 +1253,9 @@ Automotive レイアウト
   <string name="revanced_seekbar_custom_color_summary_on">編集したシークバーの色が表示されます</string>
   <string name="revanced_seekbar_custom_color_summary_off">デフォルトのシークバーの色が表示されます</string>
   <string name="revanced_seekbar_custom_color_primary_title">シークバーの色</string>
-  <string name="revanced_seekbar_custom_color_primary_summary">シークバーの色を編集します</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">シークバーの色の値を編集します</string>
   <string name="revanced_seekbar_custom_color_accent_title">シークバーのアクセント カラー</string>
-  <string name="revanced_seekbar_custom_color_accent_summary">シークバーのアクセントカラーを編集します</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">シークバーのアクセントカラーの値を編集します</string>
   <string name="revanced_seekbar_custom_color_invalid">シークバーの色の値が無効です</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1279,8 +1301,8 @@ Automotive レイアウト
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">ReVanced のお知らせを表示する</string>
-  <string name="revanced_announcements_summary_on">アプリ起動時にお知らせが表示されます</string>
-  <string name="revanced_announcements_summary_off">アプリ起動時にお知らせは表示されません</string>
+  <string name="revanced_announcements_summary_on">お知らせは、アプリ起動時に表示されます</string>
+  <string name="revanced_announcements_summary_off">お知らせは、アプリ起動時に表示されません</string>
   <string name="revanced_announcements_enabled_summary">アプリ起動時にお知らせを表示する</string>
   <string name="revanced_announcements_connection_failed">お知らせの取得に失敗しました</string>
   <string name="revanced_announcements_dialog_dismiss">閉じる</string>
@@ -1310,6 +1332,22 @@ Automotive レイアウト
   <string name="microg_settings_title">GmsCore 設定</string>
   <string name="microg_settings_summary">GmsCore の設定</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">触覚フィードバック</string>
+  <string name="revanced_disable_haptic_feedback_summary">触覚フィードバックを変更</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">チャプターの触覚フィードバックは無効です</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">チャプターの触覚フィードバックは有効です</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">正確なシークの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">正確なシークの触覚フィードバックは無効になっています</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">正確なシークの触覚フィードバックは有効です</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">シーク取り消しの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">シーク取り消しの触覚フィードバックは無効です</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">シーク取り消しの触覚フィードバックは有効です</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">ズームの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">ズームの触覚フィードバックは無効です</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">ズームの触覚フィードバックは有効です</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">最近アカウントのログイン情報を変更した場合は、MicroG をアンインストールして再インストールしてください。</string>
   </patch>
@@ -1327,11 +1365,6 @@ Automotive レイアウト
   <string name="revanced_remove_tracking_query_parameter_title">追跡パラメータをリンクから削除する</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">追跡パラメータはリンクから削除されます</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">追跡パラメータはリンクから削除されません</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">ズームの触覚フィードバックを無効にする</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">ズームの触覚フィードバックは無効です</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">ズームの触覚フィードバックは有効です</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">デフォルトの吹き替えを無効にする</string>

@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Indstillinger</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ønsker du at fortsætte?</string>
   <string name="revanced_settings_reset">Nulstil</string>
+  <string name="revanced_settings_reset_color">Nulstil farve</string>
+  <string name="revanced_settings_color_invalid">Ugyldig farve</string>
   <string name="revanced_settings_restart_title">Opdater og genstart</string>
   <string name="revanced_settings_restart">Genstart</string>
   <string name="revanced_settings_import">Importer</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-indstillinger nulstillet til standard</string>
   <string name="revanced_settings_import_success">%d indstillinger importeret</string>
   <string name="revanced_settings_import_failure_parse">Import mislykkedes: %s</string>
+  <string name="revanced_settings_search_hint">Søg i indstillinger</string>
+  <string name="revanced_settings_search_no_results_title">Ingen resultater fundet for \'%s\'</string>
+  <string name="revanced_settings_search_no_results_summary">Prøv et andet søgeord</string>
+  <string name="revanced_settings_search_remove_message">Fjern fra søgehistorik?</string>
   <string name="revanced_show_menu_icons_title">Vis ReVanced-indstillingsikoner</string>
   <string name="revanced_show_menu_icons_summary_on">Indstillingsikoner vises</string>
   <string name="revanced_show_menu_icons_summary_off">Indstillingsikoner vises ikke</string>
@@ -93,6 +99,9 @@ Tap på knappen Fortsæt, og tillad optimeringsændringer."</string>
   <string name="revanced_restore_old_settings_menus_title">Gendan gamle indstillingsmenuer</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Gamle indstillingsmenuer er vist</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Gamle indstillingsmenuer er ikke vist</string>
+  <string name="revanced_settings_search_history_title">Vis indstillingssøgehistorik</string>
+  <string name="revanced_settings_search_history_summary_on">Indstillingssøgehistorik vises</string>
+  <string name="revanced_settings_search_history_summary_off">Søgehistorik for indstillinger vises ikke</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Deaktiver baggrundsafspilning af Shorts</string>
@@ -108,6 +117,11 @@ Tap på knappen Fortsæt, og tillad optimeringsændringer."</string>
   <string name="revanced_debug_protobuffer_title">Logprotokolbuffer</string>
   <string name="revanced_debug_protobuffer_summary_on">Fejlfindingslogge inkluderer protobuffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Fejlfindingslogge inkluderer ikke protobuffer</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Aktivering af denne indstilling logger yderligere layoutdata, inklusive tekst på skærmen for nogle UI-komponenter.
+
+Dette kan hjælpe med at identificere komponenter, når der oprettes brugerdefinerede filtre.
+
+Aktivering af dette vil dog også logge nogle brugerdata, såsom din IP-adresse."</string>
   <string name="revanced_debug_stacktrace_title">Logstakspor</string>
   <string name="revanced_debug_stacktrace_summary_on">Fejlfindingslogge inkluderer stakspor</string>
   <string name="revanced_debug_stacktrace_summary_off">Fejlfindingslogge inkluderer ikke stakspor</string>
@@ -117,6 +131,15 @@ Tap på knappen Fortsæt, og tillad optimeringsændringer."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Hvis du deaktiverer fejl-toasts, skjules alle ReVanced-fejlmeddelelser.
 
 Du modtager ikke notifikationer om uventede hændelser."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportér fejlsøgningslogfiler</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopierer ReVanced-fejlsøgningslogfiler til udklipsholderen</string>
+  <string name="revanced_debug_logs_disabled">Fejlsøgningslogning er deaktiveret</string>
+  <string name="revanced_debug_logs_none_found">Ingen logfiler fundet</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Logfiler kopieret</string>
+  <string name="revanced_debug_logs_failed_to_export">Kunne ikke eksportere logfiler: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Ryd fejlsøgningslogfiler</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Rydder alle gemte ReVanced-fejlsøgningslogfiler</string>
+  <string name="revanced_debug_logs_clear_toast">Logfiler ryddet</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Skjul albumkort</string>
@@ -151,12 +174,18 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_notify_me_button_title">Skjul knappen \'Underret mig\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Knappen er skjult</string>
   <string name="revanced_hide_notify_me_button_summary_off">Knappen er vist</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Skjul etiketter for videoanbefalinger</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Etiketterne \"Folk så også\" og \"Du kan måske også lide\" er skjulte</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Etiketterne \"Folk så også\" og \"Du kan måske også lide\" vises</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Skjul knappen \'Vis mere\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Knappen er skjult</string>
   <string name="revanced_hide_show_more_button_summary_off">Knappen er vist</string>
+  <string name="revanced_hide_ticket_shelf_title">Skjul billetreolen</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Billetreolen er skjult</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Billetreolen vises</string>
   <string name="revanced_hide_timed_reactions_title">Skjul tidsreaktioner</string>
   <string name="revanced_hide_timed_reactions_summary_on">Tidsreaktioner skjules</string>
   <string name="revanced_hide_timed_reactions_summary_off">Tidsreaktioner vises</string>
@@ -223,6 +252,9 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Skjul \"AI-genereret videooversigt\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videooversigtssektionen er skjult</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videooversigtssektionen vises</string>
+  <string name="revanced_hide_ask_section_title">Skjul Spørg</string>
+  <string name="revanced_hide_ask_section_summary_on">Spørgsmål sektionen er skjult</string>
+  <string name="revanced_hide_ask_section_summary_off">Spørgsmål sektionen vises</string>
   <string name="revanced_hide_chapters_section_summary_on">Kapitler sektion er skjult</string>
   <string name="revanced_hide_chapters_section_summary_off">Kapitel afsnit er vist</string>
   <string name="revanced_hide_info_cards_section_summary_on">Info-kort sektion er skjult</string>
@@ -322,9 +354,6 @@ Begrænsninger
 
 Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Fuldskærms annoncer vises</string>
-  <string name="revanced_hide_buttoned_ads_title">Skjul knapfyldte annoncer</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Knappede annoncer er skjult</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Knappede annoncer vises</string>
   <string name="revanced_hide_paid_promotion_label_title">Skjul betalt kampagneetiket</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Betalt reklamemærke er skjult</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Betalt salgsfremmende mærke er vist</string>
@@ -429,9 +458,6 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Baggrundsgennemsigtighed for swipe-overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Gennemsigtighedsværdi mellem 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Gennemsigtighed for swipe skal være mellem 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Farve på statuslinje for strygeoverlejring</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Farven på statuslinjen for lydstyrke- og lysstyrkeknapper</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ugyldig farve til statuslinjen</string>
   <string name="revanced_swipe_text_overlay_size_title">Tekststørrelse for strygeoverlejring</string>
   <string name="revanced_swipe_text_overlay_size_summary">Tekststørrelsen for strygeoverlejring mellem 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Tekststørrelsen skal være mellem 1-30</string>
@@ -757,6 +783,11 @@ Automatisk afspilning kan ændres i YouTube-indstillinger:
 Indstillinger → Afspilning → Afspil næste video automatisk"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Foreslået video på slutskærmen vises</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Skjul relateret video-overlay i fuldskærm</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Relateret video-overlay er skjult</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Relateret video-overlay vises</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skjul tidsstempel på video</string>
   <string name="revanced_hide_timestamp_summary_on">Tidsstempel er skjult</string>
@@ -793,8 +824,8 @@ Indstillinger → Afspilning → Afspil næste video automatisk"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Genindlæs video for at stemme ved hjælp af Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skjult af ejer</string>
-  <string name="revanced_ryd_enable_summary_on">Dislikationer vises</string>
-  <string name="revanced_ryd_enable_summary_off">Dislikationer vises ikke</string>
+  <string name="revanced_ryd_enabled_summary_on">Dislikationer vises</string>
+  <string name="revanced_ryd_enabled_summary_off">Dislikationer vises ikke</string>
   <string name="revanced_ryd_shorts_title">Vis ikke på Shorts</string>
   <string name="revanced_ryd_dislike_percentage_title">Synes ikke som procent</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
@@ -807,7 +838,6 @@ Indstillinger → Afspilning → Afspil næste video automatisk"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Vis en toast hvis API ikke er tilgængelig</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast vises, hvis Return YouTube Dislike ikke er tilgængelig</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast vises ikke, hvis Return YouTube Dislike ikke er tilgængelig</string>
-  <string name="revanced_ryd_about">Om</string>
   <string name="revanced_ryd_attribution_summary">Data leveres af Return YouTube Dislike API. Tryk her for at få mere at vide</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statistikker for denne enhed</string>
@@ -1005,7 +1035,7 @@ Er du klar til at indsende?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Rediger timing af segment manuelt</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Vil du redigere timingen for start eller afslutning af segmentet?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Ugyldig tid givet</string>
-  <string name="revanced_sb_stats">Statistik</string>
+  <string name="revanced_sb_stats_title">Statistik</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_loading">Indlæser...</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBloker er deaktiveret</string>
@@ -1028,13 +1058,8 @@ Er du klar til at indsende?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekunder</string>
   <string name="revanced_sb_color_opacity_label">Opacitet:</string>
   <string name="revanced_sb_color_dot_label">Farve:</string>
-  <string name="revanced_sb_color_changed">Farve ændret</string>
-  <string name="revanced_sb_color_reset">Nulstil farve</string>
-  <string name="revanced_sb_color_invalid">Ugyldig farvekode</string>
-  <string name="revanced_sb_reset_color">Nulstil farve</string>
-  <string name="revanced_sb_reset">Nulstil</string>
-  <string name="revanced_sb_about">Om</string>
-  <string name="revanced_sb_about_api_sum">Data leveres af SponsorBlock API. Tryk her for at få flere oplysninger og se downloads til andre platforme</string>
+  <string name="revanced_sb_about_title">Om</string>
+  <string name="revanced_sb_about_api_summary">Data leveres af SponsorBlock API. Tryk her for at få flere oplysninger og se downloads til andre platforme</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Layout-formfaktor</string>
@@ -1252,6 +1277,22 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="microg_settings_title">GmsCore Indstillinger</string>
   <string name="microg_settings_summary">Indstillinger for GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptisk feedback</string>
+  <string name="revanced_disable_haptic_feedback_summary">Skift haptisk feedback</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Deaktivér haptics for kapitler</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptics for kapitler er deaktiveret</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptics for kapitler er aktiveret</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Deaktivér præcis søge-haptics</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Præcis søge-haptik er deaktiveret</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Præcis søge-haptics er aktiveret</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Deaktivér fortryd søge-haptik</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Fortryd søge-haptik er deaktiveret</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Fortryd søge-haptik er aktiveret</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Deaktivér zoom haptics</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoom haptics er deaktiveret</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoom haptics er aktiveret</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Hvis du for nylig har ændret dine kontooplysninger, skal du afinstallere og geninstallere MicroG.</string>
   </patch>
@@ -1269,11 +1310,6 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Fjern sporingsforespørgselsparameter</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Sporingsparameteren er fjernet fra links</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Sporingsforespørgselsparameteren er ikke fjernet fra links</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Deaktivér zoom haptics</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptics er deaktiveret</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptics er aktiveret</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Tving originalt lydsprog</string>

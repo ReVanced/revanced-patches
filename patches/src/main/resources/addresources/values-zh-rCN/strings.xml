@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">设置</string>
   <string name="revanced_settings_confirm_user_dialog_title">您想要继续吗？</string>
   <string name="revanced_settings_reset">重置</string>
+  <string name="revanced_settings_reset_color">重置颜色</string>
+  <string name="revanced_settings_color_invalid">无效的颜色</string>
   <string name="revanced_settings_restart_title">刷新并重启</string>
   <string name="revanced_settings_restart">重启</string>
   <string name="revanced_settings_import">导入</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced 设置重置为默认</string>
   <string name="revanced_settings_import_success">导入 %d 个设置</string>
   <string name="revanced_settings_import_failure_parse">导入失败：%s</string>
+  <string name="revanced_settings_search_hint">搜索设置</string>
+  <string name="revanced_settings_search_no_results_title">未找到“%s”的结果</string>
+  <string name="revanced_settings_search_no_results_summary">尝试其他关键字</string>
+  <string name="revanced_settings_search_remove_message">从搜索历史记录中删除？</string>
   <string name="revanced_show_menu_icons_title">显示ReVanced设置图标</string>
   <string name="revanced_show_menu_icons_summary_on">设置图标已显示</string>
   <string name="revanced_show_menu_icons_summary_off">未显示设置图标</string>
@@ -93,6 +99,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">恢复旧设置菜单</string>
   <string name="revanced_restore_old_settings_menus_summary_on">显示旧设置菜单</string>
   <string name="revanced_restore_old_settings_menus_summary_off">不显示旧设置菜单</string>
+  <string name="revanced_settings_search_history_title">显示设置搜索历史记录</string>
+  <string name="revanced_settings_search_history_summary_on">设置搜索历史记录已显示</string>
+  <string name="revanced_settings_search_history_summary_off">不显示设置搜索历史记录</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">禁用 Shorts 后台播放</string>
@@ -108,6 +117,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">记录协议缓冲区</string>
   <string name="revanced_debug_protobuffer_summary_on">调试日志包括协议缓冲区</string>
   <string name="revanced_debug_protobuffer_summary_off">调试日志不包括协议缓冲区</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"启用此设置将记录额外的布局数据，包括某些 UI 组件的屏幕文本。
+
+这有助于在创建自定义过滤器时识别组件。
+
+但是，启用此设置也会记录一些用户数据，例如您的 IP 地址。"</string>
   <string name="revanced_debug_stacktrace_title">记录堆栈跟踪</string>
   <string name="revanced_debug_stacktrace_summary_on">调试日志包括堆栈跟踪</string>
   <string name="revanced_debug_stacktrace_summary_off">调试日志不包括堆栈跟踪</string>
@@ -117,6 +131,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"关闭错误 Toast 会隐藏所有 ReVanced 错误通知。
 
 您不会收到任何意外事件的通知。"</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">导出调试日志</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">将 ReVanced 调试日志复制到剪贴板</string>
+  <string name="revanced_debug_logs_disabled">调试日志记录已禁用</string>
+  <string name="revanced_debug_logs_none_found">未找到日志</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">日志已复制</string>
+  <string name="revanced_debug_logs_failed_to_export">导出日志失败：$s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">清除调试日志</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">清除所有存储的 ReVanced 调试日志</string>
+  <string name="revanced_debug_logs_clear_toast">日志已清除</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">隐藏专辑卡片</string>
@@ -153,15 +176,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">隐藏「通知我」按钮</string>
   <string name="revanced_hide_notify_me_button_summary_on">按钮已隐藏</string>
   <string name="revanced_hide_notify_me_button_summary_off">按钮已显示</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">隐藏“大家也在看”标签</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">标签已隐藏</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">标签已显示</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">隐藏视频推荐标签</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">“人们还观看过”和“您可能也喜欢”标签已隐藏</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">“人们还观看过”和“您可能也喜欢”标签已显示</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">隐藏「显示更多」按钮</string>
   <string name="revanced_hide_show_more_button_summary_on">按钮已隐藏</string>
   <string name="revanced_hide_show_more_button_summary_off">按钮已显示</string>
+  <string name="revanced_hide_ticket_shelf_title">隐藏票券架</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">票券架已隐藏</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">票券架已显示</string>
   <string name="revanced_hide_timed_reactions_title">隐藏限时反应</string>
   <string name="revanced_hide_timed_reactions_summary_on">定时表情反应已隐藏</string>
   <string name="revanced_hide_timed_reactions_summary_off">定时表情反应已显示</string>
@@ -231,6 +257,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">隐藏“AI 生成的视频摘要”</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">视频摘要部分已隐藏</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">视频摘要部分已显示</string>
+  <string name="revanced_hide_ask_section_title">隐藏“提问”</string>
+  <string name="revanced_hide_ask_section_summary_on">“提问”部分已隐藏</string>
+  <string name="revanced_hide_ask_section_summary_off">“提问”部分已显示</string>
   <string name="revanced_hide_attributes_section_title">隐藏属性</string>
   <string name="revanced_hide_attributes_section_summary_on">已隐藏“精选地点”、“游戏”、“音乐”和“提及的人物”部分</string>
   <string name="revanced_hide_attributes_section_summary_off">已显示“精选地点”、“游戏”、“音乐”和“提及的人物”部分</string>
@@ -352,9 +381,6 @@ Second \"item\" text"</string>
 
 此功能仅适用于旧设备"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">全屏广告已显示</string>
-  <string name="revanced_hide_buttoned_ads_title">隐藏信息流视频广告</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">按钮广告已隐藏</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">按钮广告已显示</string>
   <string name="revanced_hide_paid_promotion_label_title">隐藏付费推广标签</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">付费推广标签已隐藏</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">付费推广标签已显示</string>
@@ -465,9 +491,6 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">滑动提示层背景的不透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">不透明度值介于 0-100 之间</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑动不透明度必须介于 0-100 之间</string>
-  <string name="revanced_swipe_overlay_progress_color_title">滑动提示层进度条颜色</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">音量和亮度控件的进度条颜色</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">无效的进度条颜色</string>
   <string name="revanced_swipe_text_overlay_size_title">滑动提示层文字大小</string>
   <string name="revanced_swipe_text_overlay_size_summary">滑动提示层的文字大小，范围为 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">文字大小必须在 1-30 之间</string>
@@ -794,6 +817,11 @@ Second \"item\" text"</string>
 设置 → 播放 → 自动播放下一个视频"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">显示片尾画面推荐视频</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">在全屏模式下隐藏相关视频叠加层</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">相关视频叠加层已隐藏</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">相关视频叠加层已显示</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">隐藏视频时间戳</string>
   <string name="revanced_hide_timestamp_summary_on">时间戳已隐藏</string>
@@ -831,10 +859,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新加载视频，使用 Return YouTube Dislike 投票</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">所有者已隐藏</string>
-  <string name="revanced_ryd_enable_summary_on">点踩数已显示</string>
-  <string name="revanced_ryd_enable_summary_off">点踩数已隐藏</string>
+  <string name="revanced_ryd_enabled_summary_on">点踩数已显示</string>
+  <string name="revanced_ryd_enabled_summary_off">点踩数已隐藏</string>
   <string name="revanced_ryd_shorts_title">在 Shorts 上显示点踩数</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts 上显示“不喜欢”
+  <string name="revanced_ryd_shorts_summary_on">"Shorts 上显示“不喜欢”
 
 限制：在隐身模式下可能不显示“不喜欢”"</string>
   <string name="revanced_ryd_shorts_summary_off">Shorts 上不显示“不喜欢”</string>
@@ -851,7 +879,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">如果 API 不可用，则显示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 不可用，则显示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 不可用，则不显示提示</string>
-  <string name="revanced_ryd_about">关于</string>
   <string name="revanced_ryd_attribution_summary">数据由 Return YouTube Dislike API 提供。点击此处了解更多</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API 设备统计信息</string>
@@ -1062,7 +1089,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">手动编辑线段时间</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">您想要编辑片段开始或结束的时间吗？</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">给定的时间无效</string>
-  <string name="revanced_sb_stats">统计</string>
+  <string name="revanced_sb_stats_title">统计</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">统计信息暂时不可用（API 已关闭）</string>
   <string name="revanced_sb_stats_loading">正在加载…</string>
@@ -1086,13 +1113,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s 秒</string>
   <string name="revanced_sb_color_opacity_label">不透明度：</string>
   <string name="revanced_sb_color_dot_label">颜色:</string>
-  <string name="revanced_sb_color_changed">已更改颜色</string>
-  <string name="revanced_sb_color_reset">重置颜色</string>
-  <string name="revanced_sb_color_invalid">无效的颜色代码</string>
-  <string name="revanced_sb_reset_color">重置颜色</string>
-  <string name="revanced_sb_reset">重置</string>
-  <string name="revanced_sb_about">关于</string>
-  <string name="revanced_sb_about_api_sum">数据由 SponsorBlock API 提供。点击这里了解更多信息并查看其他平台的下载内容</string>
+  <string name="revanced_sb_about_title">关于</string>
+  <string name="revanced_sb_about_api_summary">数据由 SponsorBlock API 提供。点击这里了解更多信息并查看其他平台的下载内容</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">设备外形尺寸</string>
@@ -1315,6 +1337,22 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">GmsCore 设置</string>
   <string name="microg_settings_summary">GmsCore 的设置</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_summary">更改触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">禁用章节触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">已禁用章节触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">已启用章节触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">禁用精确搜索触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">精确查找触觉反馈已禁用</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">已启用精确搜索触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">禁用撤销查找触觉反馈</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">撤销查找触觉反馈已禁用</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">撤销查找触觉反馈已启用</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">禁用缩放触觉反馈</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">缩放触觉反馈已禁用</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">缩放触觉反馈已启用</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">如果您最近更改了帐户登录详细信息，请卸载并重新安装 MicroG。</string>
   </patch>
@@ -1332,11 +1370,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">删除跟踪查询参数</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">链接中跟踪参数已去除</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">链接中跟踪参数未去除</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">禁用缩放触觉反馈</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">触觉反馈已禁用</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">触觉反馈已启用</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">强制使用原始音频语言</string>

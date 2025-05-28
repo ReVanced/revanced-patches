@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Configuració</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vols continuar?</string>
   <string name="revanced_settings_reset">Restablir</string>
+  <string name="revanced_settings_reset_color">Restablir el color</string>
+  <string name="revanced_settings_color_invalid">Color no vàlid</string>
   <string name="revanced_settings_restart_title">Actualitza i reinicia</string>
   <string name="revanced_settings_restart">Reinicia</string>
   <string name="revanced_settings_import">Importa</string>
@@ -42,6 +44,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">La configuració de ReVanced s\'ha restablert als valors predeterminats</string>
   <string name="revanced_settings_import_success">S\'han importat %d configuracions</string>
   <string name="revanced_settings_import_failure_parse">No s\'ha pogut importar: %s</string>
+  <string name="revanced_settings_search_hint">Cerca a la configuració</string>
+  <string name="revanced_settings_search_no_results_title">No s\'han trobat resultats per a «%s»</string>
+  <string name="revanced_settings_search_no_results_summary">Prova una altra paraula clau</string>
+  <string name="revanced_settings_search_remove_message">Voleu suprimir-ho de l\'historial de cerca?</string>
   <string name="revanced_show_menu_icons_title">Mostra les icones de configuració de ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Es mostren les icones de configuració</string>
   <string name="revanced_show_menu_icons_summary_off">No es mostren les icones de configuració</string>
@@ -93,6 +99,9 @@ Toca el botó Continua i permet els canvis d'optimització."</string>
   <string name="revanced_restore_old_settings_menus_title">Restaurar els menús de configuració antics</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Es mostren els menús de configuració antics</string>
   <string name="revanced_restore_old_settings_menus_summary_off">No es mostren els menús de configuració antics</string>
+  <string name="revanced_settings_search_history_title">Mostra l\'historial de cerca de la configuració</string>
+  <string name="revanced_settings_search_history_summary_on">Es mostra l\'historial de cerca de la configuració</string>
+  <string name="revanced_settings_search_history_summary_off">L\'historial de cerca de la configuració no es mostra</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Desactivar la reproducció en segon pla de Shorts</string>
@@ -108,6 +117,11 @@ Toca el botó Continua i permet els canvis d'optimització."</string>
   <string name="revanced_debug_protobuffer_title">Iniciar sesión en el buffer de protocolo</string>
   <string name="revanced_debug_protobuffer_summary_on">El registro de depuración incluye el búfer de protocolo</string>
   <string name="revanced_debug_protobuffer_summary_off">Els registres de depuració no inclouen l\'amortiment de proto</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Si activeu aquest paràmetre, es registraran dades de disseny addicionals, inclòs el text en pantalla per a alguns components de la IU.
+
+Això pot ajudar a identificar components quan creeu filtres personalitzats.
+
+Tot i això, si activeu aquesta opció, també es registraran algunes dades de l'usuari, com ara la vostra adreça IP."</string>
   <string name="revanced_debug_stacktrace_title">Registre dels rastrejos de la pila</string>
   <string name="revanced_debug_stacktrace_summary_on">Els registres de depuració inclouen el rastreig de la pila</string>
   <string name="revanced_debug_stacktrace_summary_off">Els registres de depuració no inclouen el rastreig de la pila</string>
@@ -117,6 +131,15 @@ Toca el botó Continua i permet els canvis d'optimització."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Desactivar els missatges d'error d'avis oculta totes les notificacions d'error de ReVanced.
 
 No se t'informarà de cap esdeveniment inesperat."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exporta els registres de depuració</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Copia els registres de depuració de ReVanced al porta-retalls</string>
+  <string name="revanced_debug_logs_disabled">El registre de depuració està desactivat</string>
+  <string name="revanced_debug_logs_none_found">No s\'ha trobat cap registre</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Registres copiats</string>
+  <string name="revanced_debug_logs_failed_to_export">No s\'han pogut exportar els registres: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Esborra els registres de depuració</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Esborra tots els registres de depuració de ReVanced emmagatzemats</string>
+  <string name="revanced_debug_logs_clear_toast">Registres esborrats</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Amagar les targetes d\'àlbums</string>
@@ -153,15 +176,18 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_notify_me_button_title">Amaga el botó \"M\'avisa\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">El botó està amagat</string>
   <string name="revanced_hide_notify_me_button_summary_off">El botó es mostra</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Amaga l\'etiqueta \"La gent també ha mirat\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">L\'etiqueta s\'amaga</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">L\'etiqueta es mostra</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Amaga les etiquetes de recomanació de vídeos</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Les etiquetes «Altres usuaris també han vist» i «Potser també t\'agradarà» estan ocultes</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Les etiquetes «Altres usuaris també han vist» i «Potser també t\'agradarà» es mostren</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Amaga el botó \'Mostra més\'</string>
   <string name="revanced_hide_show_more_button_summary_on">El botó està amagat</string>
   <string name="revanced_hide_show_more_button_summary_off">El botó es mostra</string>
+  <string name="revanced_hide_ticket_shelf_title">Amaga la secció de tiquets</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">La secció de tiquets està amagada</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">La secció de tiquets es mostra</string>
   <string name="revanced_hide_timed_reactions_title">Amaga les reaccions temporitzades</string>
   <string name="revanced_hide_timed_reactions_summary_on">S\'han amagat les reaccions temporitzades</string>
   <string name="revanced_hide_timed_reactions_summary_off">Es mostren les reaccions temporitzades</string>
@@ -231,6 +257,9 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Amaga «Resum de vídeo generat per IA»</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">S\'ha amagat la secció de resum del vídeo</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Es mostra la secció de resum del vídeo</string>
+  <string name="revanced_hide_ask_section_title">Amaga la secció «Pregunta»</string>
+  <string name="revanced_hide_ask_section_summary_on">La secció «Pregunta» està amagada</string>
+  <string name="revanced_hide_ask_section_summary_off">La secció «Pregunta» es mostra</string>
   <string name="revanced_hide_attributes_section_title">Amaga els atributs</string>
   <string name="revanced_hide_attributes_section_summary_on">Les seccions Llocs destacats, Jocs, Música i Persones esmentades s\'amaguen</string>
   <string name="revanced_hide_attributes_section_summary_off">Les seccions Llocs destacats, Jocs, Música i Persones esmentades es mostren</string>
@@ -352,9 +381,6 @@ Limitacions
 
 Aquesta funció només està disponible per a dispositius antics"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Els anuncis de pantalla completa es mostren</string>
-  <string name="revanced_hide_buttoned_ads_title">Amaga els anuncis amb botó</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Els anuncis amb botó estan amagats</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Els anuncis amb botó es mostren</string>
   <string name="revanced_hide_paid_promotion_label_title">Amaga l\'etiqueta de promoció de pagament</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">L\'etiqueta de promoció de pagament està amagada</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Es mostra l\'etiqueta de promoció de pagament</string>
@@ -465,9 +491,6 @@ Ajusteu el volum lliscant verticalment a la part dreta de la pantalla"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacitat del fons de la superposició de lliscament</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valor d\'opacitat entre 0 i 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacitat de lliscament ha d\'estar entre 0 i 100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Color de la barra de progrés de la superposició lliscant</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">El color de la barra de progrés per als controls de volum i brillantor</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Color de barra de progrés no vàlid</string>
   <string name="revanced_swipe_text_overlay_size_title">Mida del text de la superposició lliscant</string>
   <string name="revanced_swipe_text_overlay_size_summary">La mida del text per a la superposició lliscant entre 1 i 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">La mida del text ha d\'estar entre 1 i 30</string>
@@ -794,6 +817,11 @@ La reproducció automàtica es pot canviar a la configuració de YouTube:
 Configuració → Reproducció → Reprodueix el vídeo següent automàticament"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Es mostra el vídeo suggerit de la pantalla final</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Amaga la superposició de vídeos relacionats a pantalla completa</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">La superposició de vídeos relacionats està amagada</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Es mostra la superposició de vídeos relacionats</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Amagar segell de temps del vídeo</string>
   <string name="revanced_hide_timestamp_summary_on">El segell de temps està ocult</string>
@@ -831,10 +859,10 @@ Configuració → Reproducció → Reprodueix el vídeo següent automàticament
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recarrega el vídeo per votar utilitzant Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Amagat per l\'amo</string>
-  <string name="revanced_ryd_enable_summary_on">Els \"no m\'agrada\" es mostren</string>
-  <string name="revanced_ryd_enable_summary_off">Els \"no m\'agrada\" no es mostren</string>
+  <string name="revanced_ryd_enabled_summary_on">Els \"no m\'agrada\" es mostren</string>
+  <string name="revanced_ryd_enabled_summary_off">Els \"no m\'agrada\" no es mostren</string>
   <string name="revanced_ryd_shorts_title">Mostrar \"no m\'agrada\" a Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Els \"no m'agrada\" als Shorts es mostren
+  <string name="revanced_ryd_shorts_summary_on">"Els \"no m'agrada\" als Shorts es mostren
 
 Limitació: és possible que els \"no m'agrada\" no apareguin en mode d'incògnit"</string>
   <string name="revanced_ryd_shorts_summary_off">Els \"no m\'agrada\" als Shorts no es mostren</string>
@@ -851,7 +879,6 @@ Limitació: és possible que els \"no m'agrada\" no apareguin en mode d'incògni
   <string name="revanced_ryd_toast_on_connection_error_title">Mostrar una \"toast\" si l\'API no està disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">La \"toast\" es mostra si Return YouTube Dislike no està disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">La \"toast\" no es mostra si Return YouTube Dislike no està disponible</string>
-  <string name="revanced_ryd_about">Quant a</string>
   <string name="revanced_ryd_attribution_summary">Les dades són proporcionades per l\'API de Return YouTube Dislike. Toca aquí per obtenir més informació</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Estadístiques de l\'API de ReturnYouTubeDislike d\'aquest dispositiu</string>
@@ -1057,7 +1084,7 @@ Preparat per enviar?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Editeu el temps del segment manualment</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Voleu editar el temps per a l\'inici o el final del segment?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Temps invàlid proporcionat</string>
-  <string name="revanced_sb_stats">Estadístiques</string>
+  <string name="revanced_sb_stats_title">Estadístiques</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Les estadístiques no estan disponibles temporalment (l\'API no funciona)</string>
   <string name="revanced_sb_stats_loading">S\'està carregant...</string>
@@ -1081,13 +1108,8 @@ Preparat per enviar?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s segons</string>
   <string name="revanced_sb_color_opacity_label">Opacitat:</string>
   <string name="revanced_sb_color_dot_label">Color:</string>
-  <string name="revanced_sb_color_changed">Color canviat</string>
-  <string name="revanced_sb_color_reset">Color restablert</string>
-  <string name="revanced_sb_color_invalid">Codi de color invàlid</string>
-  <string name="revanced_sb_reset_color">Restableix el color</string>
-  <string name="revanced_sb_reset">Restablir</string>
-  <string name="revanced_sb_about">Quant a</string>
-  <string name="revanced_sb_about_api_sum">Les dades són proporcionades per l\'API de SponsorBlock. Toca aquí per a saber-ne més i veure les descàrregues per a altres plataformes</string>
+  <string name="revanced_sb_about_title">Quant a</string>
+  <string name="revanced_sb_about_api_summary">Les dades són proporcionades per l\'API de SponsorBlock. Toca aquí per a saber-ne més i veure les descàrregues per a altres plataformes</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Factor de forma del disseny</string>
@@ -1310,6 +1332,22 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   <string name="microg_settings_title">Configuració de GmsCore</string>
   <string name="microg_settings_summary">Configuració de GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Hàptica</string>
+  <string name="revanced_disable_haptic_feedback_summary">Canvia la resposta hàptica</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Desactiva els hàptics dels capítols</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Els hàptics dels capítols estan desactivats</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Els hàptics dels capítols estan activats</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Desactiva els hàptics de cerca precisa</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Els hàptics de cerca precisa estan desactivats</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Els hàptics de cerca precisa estan activats</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Desactiva els hàptics de desfer la cerca</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Els hàptics de desfer la cerca estan desactivats</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Els hàptics de desfer la cerca estan activats</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Desactiva els hàptics d\'enfocament</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Els hàptics de zoom estan desactivats</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Els hàptics de zoom estan habilitats</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Si recentment heu canviat les dades d\'inici de sessió del vostre compte, desinstal·leu i torneu a instal·lar MicroG.</string>
   </patch>
@@ -1327,11 +1365,6 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   <string name="revanced_remove_tracking_query_parameter_title">Elimina el paràmetre de consulta de seguiment</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">El paràmetre de consulta de seguiment s\'elimina dels enllaços</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">El paràmetre de consulta de seguiment no s\'elimina dels enllaços</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Desactiva els hàptics d\'enfocament</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Els hàptics estan desactivats</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Els hàptics estan habilitats</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forçar l\'idioma d\'àudio original</string>

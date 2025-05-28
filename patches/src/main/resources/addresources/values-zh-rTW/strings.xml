@@ -42,6 +42,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">將 ReVanced 設定重設為預設值</string>
   <string name="revanced_settings_import_success">已匯入 %d 個設定</string>
   <string name="revanced_settings_import_failure_parse">無法匯入：%s</string>
+  <string name="revanced_settings_search_hint">搜尋設定</string>
+  <string name="revanced_settings_search_remove_message">要從搜尋記錄中移除嗎？</string>
   <string name="revanced_show_menu_icons_title">顯示 ReVanced 設定圖示</string>
   <string name="revanced_show_menu_icons_summary_on">已顯示設定圖示</string>
   <string name="revanced_show_menu_icons_summary_off">未顯示設定圖示</string>
@@ -93,6 +95,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">還原舊版設定選單</string>
   <string name="revanced_restore_old_settings_menus_summary_on">已顯示舊版設定選單</string>
   <string name="revanced_restore_old_settings_menus_summary_off">不顯示舊版設定選單</string>
+  <string name="revanced_settings_search_history_title">顯示設定搜尋記錄</string>
+  <string name="revanced_settings_search_history_summary_on">顯示設定搜尋記錄</string>
+  <string name="revanced_settings_search_history_summary_off">不顯示設定搜尋記錄</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">停用背景播放 Shorts</string>
@@ -153,10 +158,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">隱藏「通知我」按鈕</string>
   <string name="revanced_hide_notify_me_button_summary_on">已隱藏按鈕</string>
   <string name="revanced_hide_notify_me_button_summary_off">已顯示按鈕</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">隱藏「其他人還看了」標籤</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">已隱藏標籤</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">已顯示標籤</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">隱藏「顯示更多」按鈕</string>
@@ -231,6 +233,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">隱藏「AI 產生的影片摘要」</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">已隱藏影片摘要區塊</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">已顯示影片摘要區塊</string>
+  <string name="revanced_hide_ask_section_title">隱藏詢問</string>
   <string name="revanced_hide_attributes_section_title">隱藏屬性</string>
   <string name="revanced_hide_attributes_section_summary_on">已隱藏精選地點、遊戲、音樂和提及的人區塊</string>
   <string name="revanced_hide_attributes_section_summary_off">已顯示精選地點、遊戲、音樂和提及的人區塊</string>
@@ -352,9 +355,6 @@ Second \"item\" text"</string>
 
 此功能僅適用於舊版裝置"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">已顯示全螢幕廣告</string>
-  <string name="revanced_hide_buttoned_ads_title">隱藏按鈕型廣告</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">已隱藏按鈕型廣告</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">已顯示按鈕型廣告</string>
   <string name="revanced_hide_paid_promotion_label_title">隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">已隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">已顯示付費推廣標籤</string>
@@ -465,7 +465,6 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">滑動覆蓋背景透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">不透明度值介於 0 到 100 之間</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑動透明度必須介於 0 到 100 之間</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">音量和亮度控制的進度列顏色</string>
   <string name="revanced_swipe_threshold_title">滑動幅度臨界點</string>
   <string name="revanced_swipe_threshold_summary">滑動幅度臨界點</string>
   <string name="revanced_swipe_volume_sensitivity_title">音量滑動靈敏度</string>
@@ -782,6 +781,8 @@ Second \"item\" text"</string>
 設定 → 播放 → 自動播放下一個影片"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">已顯示片尾推薦影片</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">隱藏影片時間戳記</string>
   <string name="revanced_hide_timestamp_summary_on">已隱藏時間戳記</string>
@@ -819,10 +820,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新載入影片以使用 Return YouTube Dislike 進行投票</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">已由擁有者隱藏</string>
-  <string name="revanced_ryd_enable_summary_on">已顯示不喜歡人數</string>
-  <string name="revanced_ryd_enable_summary_off">不顯示不喜歡人數</string>
+  <string name="revanced_ryd_enabled_summary_on">已顯示不喜歡人數</string>
+  <string name="revanced_ryd_enabled_summary_off">不顯示不喜歡人數</string>
   <string name="revanced_ryd_shorts_title">在 Shorts 中顯示不喜歡人數</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"已顯示 Shorts 的不喜歡人數
+  <string name="revanced_ryd_shorts_summary_on">"已顯示 Shorts 的不喜歡人數
 
 限制：在無痕模式下可能不會顯示不喜歡人數"</string>
   <string name="revanced_ryd_shorts_summary_off">不顯示 Shorts 的不喜歡人數</string>
@@ -839,7 +840,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">若 API 無法使用，顯示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 無法使用，則顯示提示訊息</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 無法使用，則不會顯示提示訊息</string>
-  <string name="revanced_ryd_about">關於</string>
   <string name="revanced_ryd_attribution_summary">資料由 Return YouTube Dislike API 提供。輕觸這裡來了解詳情</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">回傳這部裝置的 ReturnYouTubeDislike API 統計資料</string>
@@ -1047,7 +1047,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">手動編輯片段的時間</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">您想編輯片段開始或結束的時間嗎？</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">所選擇的時間無效</string>
-  <string name="revanced_sb_stats">統計</string>
+  <string name="revanced_sb_stats_title">統計</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">統計資料暫時不可用（API 離線）</string>
   <string name="revanced_sb_stats_loading">載入中…</string>
@@ -1071,13 +1071,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s 秒</string>
   <string name="revanced_sb_color_opacity_label">不透明度：</string>
   <string name="revanced_sb_color_dot_label">顏色：</string>
-  <string name="revanced_sb_color_changed">已變更顏色</string>
-  <string name="revanced_sb_color_reset">重設顏色</string>
-  <string name="revanced_sb_color_invalid">無效的顏色代碼</string>
-  <string name="revanced_sb_reset_color">重設顏色</string>
-  <string name="revanced_sb_reset">重設</string>
-  <string name="revanced_sb_about">關於</string>
-  <string name="revanced_sb_about_api_sum">資料由 SponsorBlock API 提供。輕觸這裡來了解更多資訊和查看其他平台的下載</string>
+  <string name="revanced_sb_about_title">關於</string>
+  <string name="revanced_sb_about_api_summary">資料由 SponsorBlock API 提供。輕觸這裡來了解更多資訊和查看其他平台的下載</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">版面配置形式</string>
@@ -1304,6 +1299,9 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">GmsCore 設定</string>
   <string name="microg_settings_summary">GmsCore 設定</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_zoom_title">停用縮放震動</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">如果您最近變更了帳戶登入詳細資訊，請解除安裝並重新安裝 MicroG。</string>
   </patch>
@@ -1321,11 +1319,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">移除追蹤查詢參數</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">已從連結移除追蹤查詢參數</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">未從連結移除追蹤查詢參數</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">停用縮放震動</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">已停用震動</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">已啟用震動</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">強制使用原始音訊語言</string>

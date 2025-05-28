@@ -74,6 +74,8 @@ private val settingsResourcePatch = resourcePatch {
 
         arrayOf(
             ResourceGroup("drawable",
+                "revanced_settings_circle_background.xml",
+                "revanced_settings_cursor.xml",
                 "revanced_settings_icon.xml",
                 "revanced_settings_screen_00_about.xml",
                 "revanced_settings_screen_01_ads.xml",
@@ -84,12 +86,18 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_settings_screen_06_shorts.xml",
                 "revanced_settings_screen_07_seekbar.xml",
                 "revanced_settings_screen_08_swipe_controls.xml",
-                "revanced_settings_screen_09_ryd.xml",
-                "revanced_settings_screen_10_sb.xml",
+                "revanced_settings_screen_09_return_youtube_dislike.xml",
+                "revanced_settings_screen_10_sponsorblock.xml",
                 "revanced_settings_screen_11_misc.xml",
                 "revanced_settings_screen_12_video.xml",
             ),
-            ResourceGroup("layout", "revanced_settings_with_toolbar.xml"),
+            ResourceGroup("layout",
+                "revanced_color_dot_widget.xml",
+                "revanced_color_picker.xml",
+                "revanced_preference_with_icon_no_search_result.xml",
+                "revanced_search_suggestion_item.xml",
+                "revanced_settings_with_toolbar.xml"),
+            ResourceGroup("menu", "revanced_search_menu.xml")
         ).forEach { resourceGroup ->
             copyResources("settings", resourceGroup)
         }
@@ -188,6 +196,7 @@ val settingsPatch = bytecodePatch(
         }
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_settings_search_history"),
             SwitchPreference("revanced_show_menu_icons")
         )
 
@@ -201,7 +210,8 @@ val settingsPatch = bytecodePatch(
             ),
             ListPreference(
                 key = "revanced_language",
-                summaryKey = null
+                summaryKey = null,
+                tag = "app.revanced.extension.shared.settings.preference.SortedListPreference"
             )
         )
 
@@ -347,10 +357,20 @@ object PreferenceScreen : BasePreferenceScreen() {
         layout = "@layout/preference_with_icon",
         sorting = Sorting.UNSORTED,
     )
-
-    // RYD and SB are items 9 and 10.
-    // Menus are added in their own patch because they use an Intent and not a Screen.
-
+    val RETURN_YOUTUBE_DISLIKE = Screen(
+        key = "revanced_settings_screen_09_return_youtube_dislike",
+        summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_09_return_youtube_dislike",
+        layout = "@layout/preference_with_icon",
+        sorting = Sorting.UNSORTED,
+    )
+    val SPONSORBLOCK = Screen(
+        key = "revanced_settings_screen_10_sponsorblock",
+        summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_10_sponsorblock",
+        layout = "@layout/preference_with_icon",
+        sorting = Sorting.UNSORTED,
+    )
     val MISC = Screen(
         key = "revanced_settings_screen_11_misc",
         summaryKey = null,

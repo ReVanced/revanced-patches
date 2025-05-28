@@ -64,48 +64,45 @@ public final class AdsFilter extends Filter {
                 "_interstitial"
         );
 
-        final var buttonedAd = new StringFilterGroup(
-                Settings.HIDE_BUTTONED_ADS,
-                "_ad_with",
-                "_buttoned_layout",
-                // text_image_button_group_layout, landscape_image_button_group_layout, full_width_square_image_button_group_layout
-                "image_button_group_layout",
-                "full_width_square_image_layout",
-                "video_display_button_group_layout",
-                "landscape_image_wide_button_layout",
-                "video_display_carousel_button_group_layout",
-                "video_display_full_buttoned_short_dr_layout",
-                "compact_landscape_image_layout", // Tablet layout search results.
-                "text_image_no_button_layout" // Tablet layout search results.
-        );
-
         final var generalAds = new StringFilterGroup(
                 Settings.HIDE_GENERAL_ADS,
+                "_ad_with",
+                "_buttoned_layout",
                 "ads_video_with_context",
                 "banner_text_icon",
-                "square_image_layout",
-                "watch_metadata_app_promo",
-                "video_display_full_layout",
-                "hero_promo_image",
-                "statement_banner",
+                "brand_video_shelf",
+                "brand_video_singleton",
                 "carousel_footered_layout",
-                "text_image_button_layout",
+                "carousel_headered_layout",
+                "compact_landscape_image_layout", // Tablet layout search results.
+                "composite_concurrent_carousel_layout",
+                "full_width_portrait_image_layout",
+                "full_width_square_image_carousel_layout",
+                "full_width_square_image_layout",
+                "hero_promo_image",
+                // text_image_button_group_layout, landscape_image_button_group_layout, full_width_square_image_button_group_layout
+                "image_button_group_layout",
+                "landscape_image_wide_button_layout",
                 "primetime_promo",
                 "product_details",
-                "composite_concurrent_carousel_layout",
-                "carousel_headered_layout",
-                "full_width_portrait_image_layout",
-                "brand_video_shelf",
-                "brand_video_singleton"
+                "square_image_layout",
+                "statement_banner",
+                "text_image_button_layout",
+                "text_image_no_button_layout", // Tablet layout search results.
+                "video_display_button_group_layout",
+                "video_display_carousel_button_group_layout",
+                "video_display_full_buttoned_short_dr_layout",
+                "video_display_full_layout",
+                "watch_metadata_app_promo"
         );
 
         final var movieAds = new StringFilterGroup(
                 Settings.HIDE_MOVIES_SECTION,
                 "browsy_bar",
                 "compact_movie",
+                "compact_tvfilm_item",
                 "horizontal_movie_shelf",
                 "movie_and_show_upsell_card",
-                "compact_tvfilm_item",
                 "offer_module_root"
         );
 
@@ -160,7 +157,6 @@ public final class AdsFilter extends Filter {
 
         addPathCallbacks(
                 generalAds,
-                buttonedAd,
                 merchandise,
                 viewProducts,
                 selfSponsor,
@@ -177,34 +173,30 @@ public final class AdsFilter extends Filter {
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == playerShoppingShelf) {
-            if (contentIndex == 0 && playerShoppingShelfBuffer.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return contentIndex == 0 && playerShoppingShelfBuffer.check(protobufBufferArray).isFiltered();
         }
 
         // Check for the index because of likelihood of false positives.
-        if (matchedGroup == shoppingLinks && contentIndex != 0) {
+        if (contentIndex != 0 && matchedGroup == shoppingLinks) {
             return false;
         }
 
-        if (exceptions.matches(path))
+        if (exceptions.matches(path)) {
             return false;
+        }
 
         if (matchedGroup == fullscreenAd) {
             if (path.contains("|ImageType|")) closeFullscreenAd();
 
-            return false; // Do not actually filter the fullscreen ad otherwise it will leave a dimmed screen.
-        }
-
-        if (matchedGroup == channelProfile) {
-            if (visitStoreButton.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
+            // Do not actually filter the fullscreen ad otherwise it will leave a dimmed screen.
             return false;
         }
 
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        if (matchedGroup == channelProfile) {
+            return visitStoreButton.check(protobufBufferArray).isFiltered();
+        }
+
+        return true;
     }
 
     /**
