@@ -35,7 +35,7 @@ val changeLyricsProviderPatch = bytecodePatch(
         key = "lyricsProviderHost",
         title = "Lyrics provider host",
         description = "The domain name or IP address of a custom lyrics provider.",
-        required = true,
+        required = false,
         default = "lyrics.natanchiodi.fr"
     ) {
         // Fix bad data if the user enters a URL (https://whatever.com/path).
