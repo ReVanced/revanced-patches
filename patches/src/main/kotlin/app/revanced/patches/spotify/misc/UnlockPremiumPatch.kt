@@ -146,10 +146,8 @@ val unlockPremiumPatch = bytecodePatch(
         // Protobuf array list has an 'isMutable' boolean parameter that sets the mutability.
         // Forcing that always on breaks unrelated code in strange ways.
         // Instead, return early in the method that throws an error if the list is unmutable.
-        abstractProtobufListEnsureIsMutableFingerprint
-            .match(abstractProtobufListClassDef)
-            .method
-            .returnEarly()
+        abstractProtobufListEnsureIsMutableFingerprint.match(abstractProtobufListClassDef)
+            .method.returnEarly()
 
         // Make featureTypeCase_ accessible so we can check the home section type in the extension.
         homeSectionFingerprint.classDef.publicizeField("featureTypeCase_")
