@@ -69,7 +69,8 @@ internal val abstractProtobufListEnsureIsMutableFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     returns("V")
-    custom { method, _ -> method.indexOfFirstInstruction {
+    custom { method, _ ->
+    	method.indexOfFirstInstruction {
             getReference<TypeReference>()?.type == "Ljava/lang/UnsupportedOperationException;"
         } >= 0
     }
