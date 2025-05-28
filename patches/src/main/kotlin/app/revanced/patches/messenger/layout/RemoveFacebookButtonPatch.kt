@@ -1,10 +1,10 @@
 package app.revanced.patches.messenger.layout
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.messenger.config.overrideMobileConfigPatch
-import app.revanced.patches.messenger.config.addConfigOverrider
+import app.revanced.patches.messenger.config.appFeatureFlagsPatch
+import app.revanced.patches.messenger.config.addAppFeatureFlagsOverrider
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messenger/layout/FacebookButtonConfigDisabler;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messenger/layout/FacebookButtonDisabler;"
 
 @Suppress("unused")
 val removeFacebookButtonPatch = bytecodePatch(
@@ -13,9 +13,9 @@ val removeFacebookButtonPatch = bytecodePatch(
 ) {
     compatibleWith("com.facebook.orca")
 
-    dependsOn(overrideMobileConfigPatch)
+    dependsOn(appFeatureFlagsPatch)
 
     execute {
-        addConfigOverrider(EXTENSION_CLASS_DESCRIPTOR)
+        addAppFeatureFlagsOverrider(EXTENSION_CLASS_DESCRIPTOR)
     }
 }

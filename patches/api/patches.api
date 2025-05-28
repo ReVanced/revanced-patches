@@ -268,9 +268,9 @@ public final class app/revanced/patches/memegenerator/misc/pro/UnlockProVersionP
 	public static final fun getUnlockProVersionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/messenger/config/OverrideMobileConfigPatchKt {
-	public static final fun getAddConfigOverrider ()Lkotlin/jvm/functions/Function1;
-	public static final fun getOverrideMobileConfigPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/messenger/config/AppFeatureFlagsPatchKt {
+	public static final fun getAddAppFeatureFlagsOverrider ()Lkotlin/jvm/functions/Function1;
+	public static final fun getAppFeatureFlagsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/messenger/inbox/HideInboxAdsPatchKt {

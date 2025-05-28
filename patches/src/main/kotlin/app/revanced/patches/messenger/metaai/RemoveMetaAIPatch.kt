@@ -1,10 +1,10 @@
 package app.revanced.patches.messenger.metaai
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.messenger.config.overrideMobileConfigPatch
-import app.revanced.patches.messenger.config.addConfigOverrider
+import app.revanced.patches.messenger.config.appFeatureFlagsPatch
+import app.revanced.patches.messenger.config.addAppFeatureFlagsOverrider
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messenger/metaai/MetaAIConfigDisabler;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messenger/metaai/MetaAIDisabler;"
 
 @Suppress("unused")
 val removeMetaAIPatch = bytecodePatch(
@@ -13,9 +13,9 @@ val removeMetaAIPatch = bytecodePatch(
 ) {
     compatibleWith("com.facebook.orca")
 
-    dependsOn(overrideMobileConfigPatch)
+    dependsOn(appFeatureFlagsPatch)
 
     execute {
-        addConfigOverrider(EXTENSION_CLASS_DESCRIPTOR)
+        addAppFeatureFlagsOverrider(EXTENSION_CLASS_DESCRIPTOR)
     }
 }
