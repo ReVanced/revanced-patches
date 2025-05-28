@@ -42,9 +42,9 @@ public class Logger {
     }
 
     /**
-     * Log tag prefix.  Only used for system logging.
+     * Log tag prefix. Only used for system logging.
      */
-    private static final String REVANCED_LOG_PREFIX = "revanced: ";
+    private static final String REVANCED_LOG_TAG_PREFIX = "revanced: ";
 
     private static final String LOGGER_CLASS_NAME = Logger.class.getName();
 
@@ -117,7 +117,7 @@ public class Logger {
         String managerToastString = className + ": " + logText;
         LogBufferManager.appendToLogBuffer(managerToastString);
 
-        String logTag = REVANCED_LOG_PREFIX + className;
+        String logTag = REVANCED_LOG_TAG_PREFIX + className;
         switch (logLevel) {
             case DEBUG:
                 if (ex == null) Log.d(logTag, logText);
