@@ -122,7 +122,7 @@
         </patch>
     </app>
     <app id="youtube">
-        <patch id="alernativethumbnails.alternativeThumbnailsPatch">
+        <patch id="alternativethumbnails.alternativeThumbnailsPatch">
             <string-array name="revanced_alt_thumbnail_options_entries">
                 <item>@string/revanced_alt_thumbnail_options_entry_1</item>
                 <item>@string/revanced_alt_thumbnail_options_entry_2</item>
