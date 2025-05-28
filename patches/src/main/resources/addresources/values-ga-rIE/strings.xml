@@ -491,6 +491,10 @@ Coigeartaigh an toirt trí haisceartán go hingearach ar thaobh deas an scáile�
   <string name="revanced_swipe_overlay_background_opacity_title">Réabhlóid thrasláiteachta na gcúlra léaráidí</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Luach léaráidí idir 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Caithfidh léaráidí traslaithe a bheith idir 0-100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Dath gile forleagan swipe</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Dath an bharra dul chun cinn do rialuithe gile</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Dath toirte forleagan swipe</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Dath an bharra dul chun cinn do rialuithe toirte</string>
   <string name="revanced_swipe_text_overlay_size_title">Méid téacs an fhorleagain swipe</string>
   <string name="revanced_swipe_text_overlay_size_summary">Méid téacs an fhorleagain swipe idir 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Caithfidh an méid téacs a bheith idir 1-30</string>

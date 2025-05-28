@@ -493,6 +493,10 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Αδιαφάνεια φόντου σάρωσης</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Η αδιαφάνεια σάρωσης πρέπει να είναι μεταξύ 0-100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Χρώμα φωτεινότητας σάρωσης</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Το χρώμα της γραμμής προόδου για τα στοιχεία ελέγχου φωτεινότητας</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Χρώμα έντασης ήχου σάρωσης</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Το χρώμα της γραμμής προόδου για τα στοιχεία ελέγχου έντασης ήχου</string>
   <string name="revanced_swipe_text_overlay_size_title">Μέγεθος κειμένου σάρωσης</string>
   <string name="revanced_swipe_text_overlay_size_summary">Το μέγεθος κειμένου για τα στοιχεία ελέγχου σάρωσης μεταξύ 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Το μέγεθος κειμένου πρέπει να είναι μεταξύ 1-30</string>

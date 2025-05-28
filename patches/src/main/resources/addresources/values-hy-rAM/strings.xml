@@ -491,6 +491,10 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_swipe_overlay_background_opacity_title">Սողացման ծածկույթի ֆոնի անթափանցություն</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Անթափանցության արժեք 0-100 միջակայքում</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Սողալու անթափանցությունը պետք է լինի 0-100 միջակայքում</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Սահեցնել վառության գույնի վրադիրը</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Վառության կառավարման առաջընթացի սանդղակի գույնը</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Սահեցնել ձայնի գույնի վրադիրը</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Ձայնի կառավարման առաջընթացի սանդղակի գույնը</string>
   <string name="revanced_swipe_text_overlay_size_title">Սահեցրեք շերտի տեքստի չափը</string>
   <string name="revanced_swipe_text_overlay_size_summary">Սահեցրեք շերտի տեքստի չափը 1-30 միջակայքում</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Տեքստի չափը պետք է լինի 1-30 միջակայքում</string>
