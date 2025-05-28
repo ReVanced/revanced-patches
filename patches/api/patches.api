@@ -1476,8 +1476,10 @@ public final class app/revanced/patches/youtube/misc/settings/PreferenceScreen :
 	public final fun getGENERAL_LAYOUT ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getMISC ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getPLAYER ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getRETURN_YOUTUBE_DISLIKE ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getSEEKBAR ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getSHORTS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getSPONSORBLOCK ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getSWIPE_CONTROLS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getVIDEO ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 }

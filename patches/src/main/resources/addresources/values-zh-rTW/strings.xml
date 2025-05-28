@@ -42,6 +42,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">將 ReVanced 設定重設為預設值</string>
   <string name="revanced_settings_import_success">已匯入 %d 個設定</string>
   <string name="revanced_settings_import_failure_parse">無法匯入：%s</string>
+  <string name="revanced_settings_search_hint">搜尋設定</string>
+  <string name="revanced_settings_search_remove_message">要從搜尋記錄中移除嗎？</string>
   <string name="revanced_show_menu_icons_title">顯示 ReVanced 設定圖示</string>
   <string name="revanced_show_menu_icons_summary_on">已顯示設定圖示</string>
   <string name="revanced_show_menu_icons_summary_off">未顯示設定圖示</string>
@@ -93,6 +95,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">還原舊版設定選單</string>
   <string name="revanced_restore_old_settings_menus_summary_on">已顯示舊版設定選單</string>
   <string name="revanced_restore_old_settings_menus_summary_off">不顯示舊版設定選單</string>
+  <string name="revanced_settings_search_history_title">顯示設定搜尋記錄</string>
+  <string name="revanced_settings_search_history_summary_on">顯示設定搜尋記錄</string>
+  <string name="revanced_settings_search_history_summary_off">不顯示設定搜尋記錄</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">停用背景播放 Shorts</string>
@@ -153,10 +158,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">隱藏「通知我」按鈕</string>
   <string name="revanced_hide_notify_me_button_summary_on">已隱藏按鈕</string>
   <string name="revanced_hide_notify_me_button_summary_off">已顯示按鈕</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">隱藏「其他人還看了」標籤</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">已隱藏標籤</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">已顯示標籤</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">隱藏「顯示更多」按鈕</string>
@@ -231,6 +233,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">隱藏「AI 產生的影片摘要」</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">已隱藏影片摘要區塊</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">已顯示影片摘要區塊</string>
+  <string name="revanced_hide_ask_section_title">隱藏詢問</string>
   <string name="revanced_hide_attributes_section_title">隱藏屬性</string>
   <string name="revanced_hide_attributes_section_summary_on">已隱藏精選地點、遊戲、音樂和提及的人區塊</string>
   <string name="revanced_hide_attributes_section_summary_off">已顯示精選地點、遊戲、音樂和提及的人區塊</string>
@@ -821,10 +824,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新載入影片以使用 Return YouTube Dislike 進行投票</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">已由擁有者隱藏</string>
-  <string name="revanced_ryd_enable_summary_on">已顯示不喜歡人數</string>
-  <string name="revanced_ryd_enable_summary_off">不顯示不喜歡人數</string>
+  <string name="revanced_ryd_enabled_summary_on">已顯示不喜歡人數</string>
+  <string name="revanced_ryd_enabled_summary_off">不顯示不喜歡人數</string>
   <string name="revanced_ryd_shorts_title">在 Shorts 中顯示不喜歡人數</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"已顯示 Shorts 的不喜歡人數
+  <string name="revanced_ryd_shorts_summary_on">"已顯示 Shorts 的不喜歡人數
 
 限制：在無痕模式下可能不會顯示不喜歡人數"</string>
   <string name="revanced_ryd_shorts_summary_off">不顯示 Shorts 的不喜歡人數</string>
@@ -841,7 +844,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">若 API 無法使用，顯示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 無法使用，則顯示提示訊息</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 無法使用，則不會顯示提示訊息</string>
-  <string name="revanced_ryd_about">關於</string>
   <string name="revanced_ryd_attribution_summary">資料由 Return YouTube Dislike API 提供。輕觸這裡來了解詳情</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">回傳這部裝置的 ReturnYouTubeDislike API 統計資料</string>
@@ -1049,7 +1051,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">手動編輯片段的時間</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">您想編輯片段開始或結束的時間嗎？</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">所選擇的時間無效</string>
-  <string name="revanced_sb_stats">統計</string>
+  <string name="revanced_sb_stats_title">統計</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">統計資料暫時不可用（API 離線）</string>
   <string name="revanced_sb_stats_loading">載入中…</string>
@@ -1078,8 +1080,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_color_invalid">無效的顏色代碼</string>
   <string name="revanced_sb_reset_color">重設顏色</string>
   <string name="revanced_sb_reset">重設</string>
-  <string name="revanced_sb_about">關於</string>
-  <string name="revanced_sb_about_api_sum">資料由 SponsorBlock API 提供。輕觸這裡來了解更多資訊和查看其他平台的下載</string>
+  <string name="revanced_sb_about_title">關於</string>
+  <string name="revanced_sb_about_api_summary">資料由 SponsorBlock API 提供。輕觸這裡來了解更多資訊和查看其他平台的下載</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">版面配置形式</string>

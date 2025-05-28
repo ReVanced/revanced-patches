@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Nastavení ReVanced obnoveno do výchozího stavu</string>
   <string name="revanced_settings_import_success">Importováno %d nastavení</string>
   <string name="revanced_settings_import_failure_parse">Importováni selhalo: %s</string>
+  <string name="revanced_settings_search_hint">Hledat nastavení</string>
+  <string name="revanced_settings_search_no_results_title">Nebyly nalezeny žádné výsledky pro \",%s\"</string>
+  <string name="revanced_settings_search_no_results_summary">Zkuste jiné klíčové slovo</string>
+  <string name="revanced_settings_search_remove_message">Odebrat z historie vyhledávání?</string>
   <string name="revanced_show_menu_icons_title">Zobrazit ikony nastavení ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikony nastavení se zobrazují</string>
   <string name="revanced_show_menu_icons_summary_off">Ikony nastavení se nezobrazují</string>
@@ -93,6 +97,9 @@ Klepněte na tlačítko Pokračovat a povolte změny optimalizace."</string>
   <string name="revanced_restore_old_settings_menus_title">Obnovit staré menu nastavení</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Staré menu nastavení se zobrazují</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Staré menu nastavení se nezobrazují</string>
+  <string name="revanced_settings_search_history_title">Zobrazit historii vyhledávání v nastavení</string>
+  <string name="revanced_settings_search_history_summary_on">Historie vyhledávání v nastavení je zobrazena</string>
+  <string name="revanced_settings_search_history_summary_off">Historie vyhledávání nastavení se nezobrazuje</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Zakázat automatické přehrávání Shorts v pozadí</string>
@@ -153,15 +160,18 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_notify_me_button_title">Skrýt tlačitko \'Upozorněte mě\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Tlačítko je skryté</string>
   <string name="revanced_hide_notify_me_button_summary_off">Tlačítko je zobrazeno</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Skrýt štítek „Lidé také sledovali“</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Štítek je skrytý</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Štítek je zobrazen</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Skrýt popisky doporučení videí</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Popisky „Lidé také sledovali“ a „Mohlo by se vám také líbit“ jsou skryté</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Popisky „Lidé také sledovali“ a „Mohlo by se vám také líbit“ jsou zobrazené</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Skrýt tlačítko „Zobrazit více“</string>
   <string name="revanced_hide_show_more_button_summary_on">Tlačítko je skryto</string>
   <string name="revanced_hide_show_more_button_summary_off">Tlačítko je zobrazeno</string>
+  <string name="revanced_hide_ticket_shelf_title">Skrýt panel Vstupenek</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Panel Vstupenek je skrytý</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Panel Vstupenek je zobrazen</string>
   <string name="revanced_hide_timed_reactions_title">Skrýt reakce zobrazené po čase</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reakce zobrazené po čase jsou skryty</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakce se zobrazují po čase</string>
@@ -231,6 +241,9 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Skrýt „Souhrn videa generovaný pomocí AI“</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sekce se souhrnem videa je skrytá</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sekce se souhrnem videa je zobrazena</string>
+  <string name="revanced_hide_ask_section_title">Skrýt sekci Zeptat se</string>
+  <string name="revanced_hide_ask_section_summary_on">Sekce Zeptat se je skrytá</string>
+  <string name="revanced_hide_ask_section_summary_off">Sekce Zeptat se je zobrazena</string>
   <string name="revanced_hide_attributes_section_title">Skrýt atributy</string>
   <string name="revanced_hide_attributes_section_summary_on">Sekce Doporučená místa, Hry, Hudba a Zmínění lidé jsou skryté</string>
   <string name="revanced_hide_attributes_section_summary_off">Sekce Doporučená místa, Hry, Hudba a Zmínění lidé jsou zobrazené</string>
@@ -836,10 +849,10 @@ Nastavení → Přehrávání → Automatické přehrávání dalšího videa"</
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Načtěte video znovu, abyste hlasovali pomocí Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skryto vlastníkem</string>
-  <string name="revanced_ryd_enable_summary_on">Nelíbí se se zobrazují</string>
-  <string name="revanced_ryd_enable_summary_off">Nelíbí se se nezobrazují</string>
+  <string name="revanced_ryd_enabled_summary_on">Nelíbí se se zobrazují</string>
+  <string name="revanced_ryd_enabled_summary_off">Nelíbí se se nezobrazují</string>
   <string name="revanced_ryd_shorts_title">Zobrazit nelíbí se v Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Počty „Nelíbí se mi“ u Shorts jsou zobrazeny
+  <string name="revanced_ryd_shorts_summary_on">"Počty „Nelíbí se mi“ u Shorts jsou zobrazeny
 
 Omezení: Počty „Nelíbí se mi“ se nemusí zobrazit v anonymním režimu"</string>
   <string name="revanced_ryd_shorts_summary_off">Počty „Nelíbí se mi“ u Shorts nejsou zobrazeny</string>
@@ -856,7 +869,6 @@ Omezení: Počty „Nelíbí se mi“ se nemusí zobrazit v anonymním režimu"<
   <string name="revanced_ryd_toast_on_connection_error_title">Zobrazit toast, pokud API není dostupné</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast se zobrazí, pokud Return YouTube Dislike není dostupný</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast se nezobrazí, pokud Return YouTube Dislike není dostupný</string>
-  <string name="revanced_ryd_about">O aplikaci</string>
   <string name="revanced_ryd_attribution_summary">Data jsou poskytována API Return YouTube Dislike. Klepnutím se dozvíte více</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Statistiky API ReturnYouTubeDislike tohoto zařízení</string>
@@ -1062,7 +1074,7 @@ Jste připraveni k odeslání?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Upravit načasování segmentu ručně</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Chcete upravit načasování pro začátek nebo konec segmentu?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Zadán neplatný čas</string>
-  <string name="revanced_sb_stats">Statistiky</string>
+  <string name="revanced_sb_stats_title">Statistiky</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistiky jsou dočasně nedostupné (server API je mimo provoz)</string>
   <string name="revanced_sb_stats_loading">Načítání...</string>
@@ -1091,8 +1103,8 @@ Jste připraveni k odeslání?"</string>
   <string name="revanced_sb_color_invalid">Neplatný kód barvy</string>
   <string name="revanced_sb_reset_color">Resetovat barvu</string>
   <string name="revanced_sb_reset">Výchozí</string>
-  <string name="revanced_sb_about">O aplikaci</string>
-  <string name="revanced_sb_about_api_sum">Data poskytuje rozhraní API SponsorBlock. Klepněte zde, abyste se dozvěděli více a zobrazili si soubory ke stažení pro další platformy</string>
+  <string name="revanced_sb_about_title">O aplikaci</string>
+  <string name="revanced_sb_about_api_summary">Data poskytuje rozhraní API SponsorBlock. Klepněte zde, abyste se dozvěděli více a zobrazili si soubory ke stažení pro další platformy</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Rozvržení formuláře</string>

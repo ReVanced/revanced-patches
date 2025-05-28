@@ -143,6 +143,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 key = "revanced_hide_description_components_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_ai_generated_video_summary_section"),
+                    SwitchPreference("revanced_hide_ask_section"),
                     SwitchPreference("revanced_hide_attributes_section"),
                     SwitchPreference("revanced_hide_chapters_section"),
                     SwitchPreference("revanced_hide_info_cards_section"),
@@ -224,6 +225,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_playables"),
             SwitchPreference("revanced_hide_search_result_recommendation_labels"),
             SwitchPreference("revanced_hide_show_more_button"),
+            SwitchPreference("revanced_hide_ticket_shelf"),
             SwitchPreference("revanced_hide_doodles"),
         )
 

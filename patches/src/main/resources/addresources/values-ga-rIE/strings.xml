@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Athshocraigh socruithe ReVanced go réamhshocrú</string>
   <string name="revanced_settings_import_success">Iompórtáladh %d socruithe</string>
   <string name="revanced_settings_import_failure_parse">Theip ar allmhairiú: %s</string>
+  <string name="revanced_settings_search_hint">Cuardaigh socruithe</string>
+  <string name="revanced_settings_search_no_results_title">Ní bhfuarthas aon toradh ar \'%s\'</string>
+  <string name="revanced_settings_search_no_results_summary">Bain triail as eochairfhocal eile</string>
+  <string name="revanced_settings_search_remove_message">Bain as stair an chuardaigh?</string>
   <string name="revanced_show_menu_icons_title">Taispeáin deilbhíní socruithe ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Taispeántar deilbhíní socruithe</string>
   <string name="revanced_show_menu_icons_summary_off">Ní thaispeántar deilbhíní socraithe</string>
@@ -93,6 +97,9 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_restore_old_settings_menus_title">Athshocraigh roghanna seanghléasanna</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Taispeántar sean-roghchláir socruithe</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Ní thaispeántar sean-roghchláir socruithe</string>
+  <string name="revanced_settings_search_history_title">Taispeáin stair cuardaigh na socruithe</string>
+  <string name="revanced_settings_search_history_summary_on">Taispeántar stair cuardaigh na socruithe</string>
+  <string name="revanced_settings_search_history_summary_off">Ní thaispeántar stair cuardaigh na socruithe</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Díchumasaigh seinnte Cúlra Shorts</string>
@@ -153,15 +160,18 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_hide_notify_me_button_title">Folaigh cnaipe \'Cuir in iúl dom\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Tá an cnaipe i bhfolach</string>
   <string name="revanced_hide_notify_me_button_summary_off">Taispeántar an cnaipe</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Folaigh an lipéad \'D\'amharc daoine eile freisin\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Tá an lipéad i bhfolach</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Taispeántar an lipéad</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Folaigh lipéid moltaí físeáin</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Tá lipéid \",,D’fhéach daoine eile air freisin\",, agus \",,B’fhéidir gur mhaith leat é seo freisin\",, folaithe</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Tá lipéid \",,D’fhéach daoine eile air freisin\",, agus \",,B’fhéidir gur mhaith leat é seo freisin\",, ar taispeáint</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Folaigh cnaipe \'Taispeáin tuilleadh\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Tá an cnaipe i bhfolach</string>
   <string name="revanced_hide_show_more_button_summary_off">Taispeántar an cnaipe</string>
+  <string name="revanced_hide_ticket_shelf_title">Folaigh an seilf ticéad</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Tá an seilf ticéad i bhfolach</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Taispeántar an seilf ticéad</string>
   <string name="revanced_hide_timed_reactions_title">Folaigh frithghníomhartha ama</string>
   <string name="revanced_hide_timed_reactions_summary_on">Tá frithghníomhartha ama i bhfolach</string>
   <string name="revanced_hide_timed_reactions_summary_off">Taispeántar frithghníomhartha ama</string>
@@ -231,6 +241,9 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Folaigh \'Achoimre físeáin arna giniúint ag AI\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Tá an chuid achoimre físeáin i bhfolach</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Taispeántar an chuid achoimre físeáin</string>
+  <string name="revanced_hide_ask_section_title">Folaigh Fiafraigh</string>
+  <string name="revanced_hide_ask_section_summary_on">Tá rannóg na Fiafraí i bhfolach</string>
+  <string name="revanced_hide_ask_section_summary_off">Taispeántar rannóg na Fiafraí</string>
   <string name="revanced_hide_attributes_section_title">Folaigh Tréithe</string>
   <string name="revanced_hide_attributes_section_summary_on">Tá ailt d\'áiteanna sonracha, Cluichí, Ceol agus Daoine a luaitear i bhfolach</string>
   <string name="revanced_hide_attributes_section_summary_off">Taispeántar ailt d\'áiteanna sonracha, Cluichí, Ceol agus Daoine a luaitear</string>
@@ -836,10 +849,10 @@ Socruithe → Athsheinm → Uathshein físeán eile"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Athlódáil físeán chun vótáil ag baint úsáide as Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">I bhfolach ag úinéir</string>
-  <string name="revanced_ryd_enable_summary_on">Taispeántar rudaí nach dtaitníonn leo</string>
-  <string name="revanced_ryd_enable_summary_off">Ní thaispeántar nach dtaitníonn leat</string>
+  <string name="revanced_ryd_enabled_summary_on">Taispeántar rudaí nach dtaitníonn leo</string>
+  <string name="revanced_ryd_enabled_summary_off">Ní thaispeántar nach dtaitníonn leat</string>
   <string name="revanced_ryd_shorts_title">Taispeáin neamhthaitníonn ar Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Taispeántar easaontais ar Shorts
+  <string name="revanced_ryd_shorts_summary_on">"Taispeántar easaontais ar Shorts
 
 Srianadh: Bíodh easaontais gan teacht ar taispeáint sa mhodh incognito"</string>
   <string name="revanced_ryd_shorts_summary_off">Ní thaispeántar easaontais ar Shorts</string>
@@ -856,7 +869,6 @@ Srianadh: Bíodh easaontais gan teacht ar taispeáint sa mhodh incognito"</strin
   <string name="revanced_ryd_toast_on_connection_error_title">Taispeáin tósta mura bhfuil API ar fáil</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Taispeántar tósta mura bhfuil Return YouTube Dislike ar fáil</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Ní thaispeántar tóst mura bhfuil Return YouTube Dislike ar fáil</string>
-  <string name="revanced_ryd_about">Maidir</string>
   <string name="revanced_ryd_attribution_summary">Soláthraíonn an API Return YouTube Dislike sonraí. Tapáil anseo chun tuilleadh a fhoghlaim</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Staitisticí API returnieYouTubeDislike den fheiste seo</string>
@@ -1063,7 +1075,7 @@ Maithe chun cur isteach?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Cuir uainiú deighleog in eagar</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Ar mhaith leat an t-am a chur in eagar do thús nó deireadh an deighleog?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Am neamhbhailí tugtha</string>
-  <string name="revanced_sb_stats">Staitisticí</string>
+  <string name="revanced_sb_stats_title">Staitisticí</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Níl stats ar fáil go sealadach (tá API síos)</string>
   <string name="revanced_sb_stats_loading">Á lódáil...</string>
@@ -1092,8 +1104,8 @@ Maithe chun cur isteach?"</string>
   <string name="revanced_sb_color_invalid">Cód dath neamhbhailí</string>
   <string name="revanced_sb_reset_color">Athshocraigh dath</string>
   <string name="revanced_sb_reset">Athshocraigh</string>
-  <string name="revanced_sb_about">Maidir</string>
-  <string name="revanced_sb_about_api_sum">Soláthraíonn an API SponsorBlock sonraí. Tapáil anseo chun níos mó a fhoghlaim agus íoslódálacha a fheiceáil d\'ardáin eile</string>
+  <string name="revanced_sb_about_title">Maidir</string>
+  <string name="revanced_sb_about_api_summary">Soláthraíonn an API SponsorBlock sonraí. Tapáil anseo chun níos mó a fhoghlaim agus íoslódálacha a fheiceáil d\'ardáin eile</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Fábos fóirmeanna foirmiúin</string>

@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">As definições do ReVanced foram redefinidas para a predefinição</string>
   <string name="revanced_settings_import_success">Configurações importadas: %d</string>
   <string name="revanced_settings_import_failure_parse">A importação falhou: %s</string>
+  <string name="revanced_settings_search_hint">Configurações de pesquisa</string>
+  <string name="revanced_settings_search_no_results_title">Nenhum resultado encontrado para \"%s\"</string>
+  <string name="revanced_settings_search_no_results_summary">Tente outra palavra-chave</string>
+  <string name="revanced_settings_search_remove_message">Remover do histórico de pesquisa?</string>
   <string name="revanced_show_menu_icons_title">Mostrar ícones de configuração do ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Os ícones de configuração são mostrados</string>
   <string name="revanced_show_menu_icons_summary_off">Os ícones de configuração não são mostrados</string>
@@ -93,6 +97,9 @@ Toque no botão continuar e permita as alterações de otimização."</string>
   <string name="revanced_restore_old_settings_menus_title">Restaurar menus de configurações antigos</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Os menus de configurações antigos são mostrados</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Os menus de configurações antigos não são mostrados</string>
+  <string name="revanced_settings_search_history_title">Mostrar histórico de pesquisa de configurações</string>
+  <string name="revanced_settings_search_history_summary_on">O histórico de pesquisa de configurações é exibido</string>
+  <string name="revanced_settings_search_history_summary_off">O histórico de pesquisa de configurações não é exibido</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Desativar reprodução de fundo de Shorts</string>
@@ -153,15 +160,18 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_hide_notify_me_button_title">Ocultar botão \'Notificar-me\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">O botão está escondido</string>
   <string name="revanced_hide_notify_me_button_summary_off">O botão está visível</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Ocultar o rótulo \"Pessoas também assistiram\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">O rótulo está oculto</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">O rótulo é mostrado</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Ocultar rótulos de recomendação de vídeo</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Os rótulos \"As pessoas também assistiram\" e \"Você também pode gostar\" estão ocultos</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Os rótulos \"As pessoas também assistiram\" e \"Você também pode gostar\" são mostrados</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Ocultar botão \'Mostrar mais\'</string>
   <string name="revanced_hide_show_more_button_summary_on">O botão está escondido</string>
   <string name="revanced_hide_show_more_button_summary_off">O botão está visível</string>
+  <string name="revanced_hide_ticket_shelf_title">Ocultar prateleira de ingressos</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Prateleira de ingressos oculta</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Prateleira de ingressos exibida</string>
   <string name="revanced_hide_timed_reactions_title">Esconder reações cronometradas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reações temporizadas estão escondidas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reações temporizadas são visíveis</string>
@@ -231,6 +241,9 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ocultar \"Resumo de vídeo gerado por IA\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">A seção de resumo do vídeo está oculta</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">A seção de resumo do vídeo é mostrada</string>
+  <string name="revanced_hide_ask_section_title">Ocultar \"Perguntar\"</string>
+  <string name="revanced_hide_ask_section_summary_on">A seção \"Perguntar\" está oculta</string>
+  <string name="revanced_hide_ask_section_summary_off">A seção \"Perguntar\" está visível</string>
   <string name="revanced_hide_attributes_section_title">Ocultar atributos</string>
   <string name="revanced_hide_attributes_section_summary_on">As seções Lugares em destaque, Jogos, Música e Pessoas mencionadas estão ocultas</string>
   <string name="revanced_hide_attributes_section_summary_off">As seções Lugares em destaque, Jogos, Música e Pessoas mencionadas são mostradas</string>
@@ -836,10 +849,10 @@ Configurações → Reprodução → Reproduzir o próximo vídeo automaticament
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recarregue para votar usando Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto pelo proprietário</string>
-  <string name="revanced_ryd_enable_summary_on">Descurtidas são visíveis</string>
-  <string name="revanced_ryd_enable_summary_off">Não há curtidas visíveis</string>
+  <string name="revanced_ryd_enabled_summary_on">Descurtidas são visíveis</string>
+  <string name="revanced_ryd_enabled_summary_off">Não há curtidas visíveis</string>
   <string name="revanced_ryd_shorts_title">Mostrar não curtidas na abreviação</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"As não gostos em Shorts são mostradas
+  <string name="revanced_ryd_shorts_summary_on">"As não gostos em Shorts são mostradas
 
 Limitação: As não gostos podem não aparecer no modo anônimo"</string>
   <string name="revanced_ryd_shorts_summary_off">As não gostos em Shorts não são mostradas</string>
@@ -856,7 +869,6 @@ Limitação: As não gostos podem não aparecer no modo anônimo"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Mostrar uma notificação flutuante se a API não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast é exibida se Retornar o Youtube Dislike não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast não é exibida se Retornar o YouTube Dislike não estiver disponível</string>
-  <string name="revanced_ryd_about">Sobre</string>
   <string name="revanced_ryd_attribution_summary">Os dados são fornecidos pela API Return Dislike do YouTube. Toque aqui para saber mais</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Estatísticas da API deste dispositivo RetnYouTubeDislike</string>
@@ -1063,7 +1075,7 @@ Pronto para enviar?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Editar tempo de segmento manualmente</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Você deseja editar o tempo para o início ou o fim do segmento?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Data inválida</string>
-  <string name="revanced_sb_stats">Estatísticas</string>
+  <string name="revanced_sb_stats_title">Estatísticas</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">As estatísticas não estão disponíveis temporariamente (API está em baixo)</string>
   <string name="revanced_sb_stats_loading">A carregar...</string>
@@ -1092,8 +1104,8 @@ Pronto para enviar?"</string>
   <string name="revanced_sb_color_invalid">Código de cor inválido</string>
   <string name="revanced_sb_reset_color">Redefinir cor</string>
   <string name="revanced_sb_reset">Repor</string>
-  <string name="revanced_sb_about">Sobre</string>
-  <string name="revanced_sb_about_api_sum">Os dados são fornecidos pela API do SponsorBlock. Toque aqui para aprender mais e ver downloads para outras plataformas</string>
+  <string name="revanced_sb_about_title">Sobre</string>
+  <string name="revanced_sb_about_api_summary">Os dados são fornecidos pela API do SponsorBlock. Toque aqui para aprender mais e ver downloads para outras plataformas</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Fator de forma do layout</string>

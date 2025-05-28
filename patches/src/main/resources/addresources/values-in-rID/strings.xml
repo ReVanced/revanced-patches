@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Pengaturan ReVanced diatur ke setelan awal</string>
   <string name="revanced_settings_import_success">Mengimpor setelan %d</string>
   <string name="revanced_settings_import_failure_parse">Impor gagal: %s</string>
+  <string name="revanced_settings_search_hint">Pengaturan pencarian</string>
+  <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk \'%s\'</string>
+  <string name="revanced_settings_search_no_results_summary">Coba kata kunci lain</string>
+  <string name="revanced_settings_search_remove_message">Hapus dari riwayat pencarian?</string>
   <string name="revanced_show_menu_icons_title">Tampilkan ikon pengaturan ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikon pengaturan ditampilkan</string>
   <string name="revanced_show_menu_icons_summary_off">Ikon pengaturan tidak ditampilkan</string>
@@ -93,6 +97,9 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_restore_old_settings_menus_title">Pulihkan menu pengaturan lama</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Menu pengaturan lama ditampilkan</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Menu pengaturan lama tidak ditampilkan</string>
+  <string name="revanced_settings_search_history_title">Tampilkan pengaturan riwayat pencarian</string>
+  <string name="revanced_settings_search_history_summary_on">Pengaturan riwayat pencarian ditampilkan</string>
+  <string name="revanced_settings_search_history_summary_off">Pengaturan riwayat pencarian tidak ditampilkan</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Nonaktifkan pemutaran Shorts di latar belakang</string>
@@ -153,15 +160,18 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_notify_me_button_title">Sembunyikan \'Beri tahu saya\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_notify_me_button_summary_off">Tombol ditampilkan</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Sembunyikan label \'Orang juga menonton\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Label disembunyikan</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Label ditampilkan</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Sembunyikan label rekomendasi video</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Label \'Orang lain juga menonton\' dan \'Anda mungkin juga suka\' disembunyikan</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Label \'Orang lain juga menonton\' dan \'Anda mungkin juga suka\' ditampilkan</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Sembunyikan tombol \'Tampilkan selengkapnya\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_show_more_button_summary_off">Tombol ditampilkan</string>
+  <string name="revanced_hide_ticket_shelf_title">Sembunyikan rak tiket</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Rak tiket disembunyikan</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Rak tiket ditampilkan</string>
   <string name="revanced_hide_timed_reactions_title">Sembunyikan reaksi terjadwal</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reaksi terjadwal disembunyikan</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reaksi terjadwal ditampilkan</string>
@@ -231,6 +241,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Sembunyikan \'Ringkasan video yang dibuat AI\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Bagian ringkasan video disembunyikan</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Bagian ringkasan video ditampilkan</string>
+  <string name="revanced_hide_ask_section_title">Sembunyikan Tanya</string>
+  <string name="revanced_hide_ask_section_summary_on">Bagian Tanya disembunyikan</string>
+  <string name="revanced_hide_ask_section_summary_off">Bagian Tanya ditampilkan</string>
   <string name="revanced_hide_attributes_section_title">Sembunyikan Atribut</string>
   <string name="revanced_hide_attributes_section_summary_on">Bagian tempat Unggulan, Game, Musik, dan disebutkan Orang disembunyikan</string>
   <string name="revanced_hide_attributes_section_summary_off">Bagian tempat Unggulan, Game, Musik, dan disebutkan Orang ditampilkan</string>
@@ -795,9 +808,9 @@ Pengaturan → Pemutaran → Putar otomatis video berikutnya"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Video yang disarankan di layar akhir ditampilkan</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  <string name="revanced_hide_related_video_overlay_title">Sembunyikan overlay video terkait dalam layar penuh</string>
-  <string name="revanced_hide_related_video_overlay_summary_on">Overlay video terkait disembunyikan</string>
-  <string name="revanced_hide_related_video_overlay_summary_off">Overlay video terkait ditampilkan</string>
+  <string name="revanced_hide_related_video_overlay_title">Sembunyikan hamparan video terkait dalam layar penuh</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Hamparan video terkait disembunyikan</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Hamparan video terkait ditampilkan</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Sembunyikan timestamp video</string>
@@ -836,10 +849,10 @@ Pengaturan → Pemutaran → Putar otomatis video berikutnya"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Muat ulang video untuk memilih Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Disembunyikan oleh pemilik</string>
-  <string name="revanced_ryd_enable_summary_on">Dislike ditampilkan</string>
-  <string name="revanced_ryd_enable_summary_off">Dislike tidak ditampilkan</string>
+  <string name="revanced_ryd_enabled_summary_on">Dislike ditampilkan</string>
+  <string name="revanced_ryd_enabled_summary_off">Dislike tidak ditampilkan</string>
   <string name="revanced_ryd_shorts_title">Tampilkan dislike di Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislike pada Shorts ditampilkan
+  <string name="revanced_ryd_shorts_summary_on">"Dislike pada Shorts ditampilkan
 
 Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
   <string name="revanced_ryd_shorts_summary_off">Dislike pada Shorts tidak ditampilkan</string>
@@ -856,7 +869,6 @@ Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan pesan timbul jika API tidak tersedia</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
-  <string name="revanced_ryd_about">Tentang</string>
   <string name="revanced_ryd_attribution_summary">Data disediakan oleh API Return YouTube Dislike. Tekan di sini untuk mempelajari lebih lanjut</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Statistik API ReturnYoutubeDislike dari perangkat ini</string>
@@ -1062,7 +1074,7 @@ Siap mengirim?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Ubah waktu segmen secara manual</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Apakah Anda ingin menubah waktu awal atau akhir segmen?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Waktu yang diberikan tidak sah</string>
-  <string name="revanced_sb_stats">Statistik</string>
+  <string name="revanced_sb_stats_title">Statistik</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistik sementara tidak tersedia (API tidak aktif)</string>
   <string name="revanced_sb_stats_loading">Memuat...</string>
@@ -1091,8 +1103,8 @@ Siap mengirim?"</string>
   <string name="revanced_sb_color_invalid">Kode warna tidak sah</string>
   <string name="revanced_sb_reset_color">Atur ulang warna</string>
   <string name="revanced_sb_reset">Setel ulang</string>
-  <string name="revanced_sb_about">Tentang</string>
-  <string name="revanced_sb_about_api_sum">Data disediakan oleh API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat hasil pengunduhan untuk platform lain</string>
+  <string name="revanced_sb_about_title">Tentang</string>
+  <string name="revanced_sb_about_api_summary">Data disediakan oleh API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat hasil pengunduhan untuk platform lain</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Faktor bentuk tata letak</string>

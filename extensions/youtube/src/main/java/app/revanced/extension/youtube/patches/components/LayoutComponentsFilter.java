@@ -38,6 +38,7 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup compactChannelBarInnerButton;
     private final ByteArrayFilterGroup joinMembershipButton;
     private final StringFilterGroup horizontalShelves;
+    private final ByteArrayFilterGroup ticketShelf;
 
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
@@ -244,6 +245,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "horizontal_tile_shelf.eml"
         );
 
+        ticketShelf = new ByteArrayFilterGroup(
+                Settings.HIDE_TICKET_SHELF,
+                "ticket"
+        );
+
         addPathCallbacks(
                 expandableMetadata,
                 inFeedSurvey,
@@ -286,43 +292,29 @@ public final class LayoutComponentsFilter extends Filter {
         // From 2025, the medical information panel is no longer shown in the search results.
         // Therefore, this identifier does not filter when the search bar is activated.
         if (matchedGroup == singleItemInformationPanel) {
-            if (PlayerType.getCurrent().isMaximizedOrFullscreen() || !NavigationBar.isSearchBarActive()) {
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-
-            return false;
+            return PlayerType.getCurrent().isMaximizedOrFullscreen() || !NavigationBar.isSearchBarActive();
         }
 
         // The groups are excluded from the filter due to the exceptions list below.
         // Filter them separately here.
-        if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata)
-        {
-            return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata) {
+            return true;
         }
 
         if (exceptions.matches(path)) return false; // Exceptions are not filtered.
 
         if (matchedGroup == compactChannelBarInner) {
-            if (compactChannelBarInnerButton.check(path).isFiltered()) {
-                // The filter may be broad, but in the context of a compactChannelBarInnerButton,
-                // it's safe to assume that the button is the only thing that should be hidden.
-                if (joinMembershipButton.check(protobufBufferArray).isFiltered()) {
-                    return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-                }
-            }
-
-            return false;
+            return compactChannelBarInnerButton.check(path).isFiltered()
+                    // The filter may be broad, but in the context of a compactChannelBarInnerButton,
+                    // it's safe to assume that the button is the only thing that should be hidden.
+                    && joinMembershipButton.check(protobufBufferArray).isFiltered();
         }
 
         if (matchedGroup == horizontalShelves) {
-            if (contentIndex == 0 && hideShelves()) {
-                return super.isFiltered(path, identifier, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-
-            return false;
+            return contentIndex == 0 && (hideShelves() || ticketShelf.check(protobufBufferArray).isFiltered());
         }
 
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return true;
     }
 
     /**

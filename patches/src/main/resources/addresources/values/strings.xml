@@ -42,6 +42,10 @@ Second \"item\" text"</string>
             <string name="revanced_settings_import_reset">ReVanced settings reset to default</string>
             <string name="revanced_settings_import_success">Imported %d settings</string>
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
+            <string name="revanced_settings_search_hint">Search settings</string>
+            <string name="revanced_settings_search_no_results_title">No results found for \'%s\'</string>
+            <string name="revanced_settings_search_no_results_summary">Try another keyword</string>
+            <string name="revanced_settings_search_remove_message">Remove from search history?</string>
             <string name="revanced_show_menu_icons_title">Show ReVanced setting icons</string>
             <string name="revanced_show_menu_icons_summary_on">Setting icons are shown</string>
             <string name="revanced_show_menu_icons_summary_off">Setting icons are not shown</string>
@@ -145,11 +149,15 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
             <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
             <string name="revanced_settings_screen_08_swipe_controls_title">Swipe controls</string>
+            <string name="revanced_settings_screen_09_return_youtube_dislike_title" translatable="false">Return YouTube Dislike</string>
             <string name="revanced_settings_screen_11_misc_title">Miscellaneous</string>
             <string name="revanced_settings_screen_12_video_title">Video</string>
             <string name="revanced_restore_old_settings_menus_title">Restore old settings menus</string>
             <string name="revanced_restore_old_settings_menus_summary_on">Old settings menus are shown</string>
             <string name="revanced_restore_old_settings_menus_summary_off">Old settings menus are not shown</string>
+            <string name="revanced_settings_search_history_title">Show settings search history</string>
+            <string name="revanced_settings_search_history_summary_on">Settings search history is shown</string>
+            <string name="revanced_settings_search_history_summary_off">Settings search history is not shown</string>
         </patch>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
             <string name="revanced_shorts_disable_background_playback_title">Disable Shorts background play</string>
@@ -219,6 +227,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_show_more_button_title">Hide \'Show more\' button</string>
             <string name="revanced_hide_show_more_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_show_more_button_summary_off">Button is shown</string>
+            <string name="revanced_hide_ticket_shelf_title">Hide ticket shelf</string>
+            <string name="revanced_hide_ticket_shelf_summary_on">Ticket shelf is hidden</string>
+            <string name="revanced_hide_ticket_shelf_summary_off">Ticket shelf is shown</string>
             <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
             <string name="revanced_hide_timed_reactions_summary_on">Timed reactions are hidden</string>
             <string name="revanced_hide_timed_reactions_summary_off">Timed reactions are shown</string>
@@ -288,6 +299,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_ai_generated_video_summary_section_title">Hide \'AI-generated video summary\'</string>
             <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video summary section is hidden</string>
             <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video summary section is shown</string>
+            <string name="revanced_hide_ask_section_title">Hide Ask</string>
+            <string name="revanced_hide_ask_section_summary_on">Ask section is hidden</string>
+            <string name="revanced_hide_ask_section_summary_off">Ask section is shown</string>
             <string name="revanced_hide_attributes_section_title">Hide Attributes</string>
             <string name="revanced_hide_attributes_section_summary_on">Featured places, Games, Music, and People mentioned sections are hidden</string>
             <string name="revanced_hide_attributes_section_summary_off">Featured places, Games, Music, and People mentioned sections are shown</string>
@@ -888,7 +902,6 @@ Settings → Playback → Autoplay next video"</string>
             <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
         </patch>
         <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
-            <string name="revanced_ryd_settings_title" translatable="false">Return YouTube Dislike</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <string name="revanced_ryd_failure_connection_timeout">Dislikes are temporarily not available (API timed out)</string>
             <string name="revanced_ryd_failure_connection_status_code">Dislikes are not available (status %d)</string>
@@ -898,11 +911,11 @@ Settings → Playback → Autoplay next video"</string>
             <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reload video to vote using Return YouTube Dislike</string>
             <!-- Video likes have been set to hidden by the video uploader. -->
             <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden by owner</string>
-            <string name="revanced_ryd_enable_title" translatable="false">Return YouTube Dislike</string>
-            <string name="revanced_ryd_enable_summary_on">Dislikes are shown</string>
-            <string name="revanced_ryd_enable_summary_off">Dislikes are not shown</string>
+            <string name="revanced_ryd_enabled_title" translatable="false">Return YouTube Dislike</string>
+            <string name="revanced_ryd_enabled_summary_on">Dislikes are shown</string>
+            <string name="revanced_ryd_enabled_summary_off">Dislikes are not shown</string>
             <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
-            <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislikes on Shorts are shown
+            <string name="revanced_ryd_shorts_summary_on">"Dislikes on Shorts are shown
 
 Limitation: Dislikes may not appear in incognito mode"</string>
             <string name="revanced_ryd_shorts_summary_off">Dislikes on Shorts are not shown</string>
@@ -919,7 +932,6 @@ Limitation: Dislikes may not appear in incognito mode"</string>
             <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is not available</string>
             <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is not available</string>
             <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube Dislike is not available</string>
-            <string name="revanced_ryd_about">About</string>
             <string name="revanced_ryd_attribution_title" translatable="false">ReturnYouTubeDislike.com</string>
             <string name="revanced_ryd_attribution_summary">Data is provided by the Return YouTube Dislike API. Tap here to learn more</string>
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
@@ -961,7 +973,7 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in fullscreen</string>
         </patch>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
-            <string name="revanced_sb_settings_title" translatable="false">SponsorBlock</string>
+            <string name="revanced_settings_screen_10_sponsorblock_title" translatable="false">SponsorBlock</string>
             <string name="revanced_sb_enable_sb">Enable SponsorBlock</string>
             <string name="revanced_sb_enable_sb_sum">SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos</string>
             <string name="revanced_sb_appearance_category">Appearance</string>
@@ -1128,7 +1140,7 @@ Ready to submit?"</string>
             <string name="revanced_sb_new_segment_edit_by_hand_title">Edit timing of segment manually</string>
             <string name="revanced_sb_new_segment_edit_by_hand_content">Do you want to edit the timing for the start or end of the segment?</string>
             <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Invalid time given</string>
-            <string name="revanced_sb_stats">Stats</string>
+            <string name="revanced_sb_stats_title">Stats</string>
             <!-- Shown in the settings preferences, and translations can be any text length. -->
             <string name="revanced_sb_stats_connection_failure">Stats are temporarily not available (API is down)</string>
             <string name="revanced_sb_stats_loading">Loading...</string>
@@ -1157,9 +1169,9 @@ Ready to submit?"</string>
             <string name="revanced_sb_color_invalid">Invalid color code</string>
             <string name="revanced_sb_reset_color">Reset color</string>
             <string name="revanced_sb_reset">Reset</string>
-            <string name="revanced_sb_about">About</string>
-            <string name="revanced_sb_about_api" translatable="false">sponsor.ajay.app</string>
-            <string name="revanced_sb_about_api_sum">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
+            <string name="revanced_sb_about_title">About</string>
+            <string name="revanced_sb_about_api_title" translatable="false">sponsor.ajay.app</string>
+            <string name="revanced_sb_about_api_summary">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
         </patch>
         <patch id="layout.formfactor.changeFormFactorPatch">
             <string name="revanced_change_form_factor_title">Layout form factor</string>

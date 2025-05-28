@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">การตั้งค่า ReVanced ถูกตั้งค่าเป็นค่าเริ่มต้น</string>
   <string name="revanced_settings_import_success">นำเข้าการตั้งค่า %d</string>
   <string name="revanced_settings_import_failure_parse">การนำเข้าล้มเหลว: %s</string>
+  <string name="revanced_settings_search_hint">ค้นหาในการตั้งค่า</string>
+  <string name="revanced_settings_search_no_results_title">ไม่พบผลลัพธ์สำหรับ \",%s\"</string>
+  <string name="revanced_settings_search_no_results_summary">ลองใช้คำหลักอื่น</string>
+  <string name="revanced_settings_search_remove_message">นำออกจากประวัติการค้นหาใช่ไหม</string>
   <string name="revanced_show_menu_icons_title">แสดงไอคอนการตั้งค่า ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">ไอคอนการตั้งค่าจะปรากฏขึ้น</string>
   <string name="revanced_show_menu_icons_summary_off">ไม่แสดงไอคอนการตั้งค่า</string>
@@ -93,6 +97,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">กู้คืนเมนูการตั้งค่าแบบเก่า</string>
   <string name="revanced_restore_old_settings_menus_summary_on">แสดงเมนูการตั้งค่าแบบเก่า</string>
   <string name="revanced_restore_old_settings_menus_summary_off">ไม่แสดงเมนูการตั้งค่าแบบเก่า</string>
+  <string name="revanced_settings_search_history_title">แสดงประวัติการค้นหาในการตั้งค่า</string>
+  <string name="revanced_settings_search_history_summary_on">ประวัติการค้นหาในการตั้งค่าจะปรากฏ</string>
+  <string name="revanced_settings_search_history_summary_off">ไม่แสดงประวัติการค้นหาการตั้งค่า</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">ปิดการเล่นพื้นหลัง Shorts</string>
@@ -153,15 +160,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">ซ่อนปุ่ม \"แจ้งเตือนฉัน\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">ปุ่มถูกซ่อน</string>
   <string name="revanced_hide_notify_me_button_summary_off">ปุ่มถูกแสดง</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">ซ่อนป้ายกำกับ \'ผู้ที่รับชมคนอื่น ๆ\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">ป้ายกำกับถูกซ่อน</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">ป้ายกำกับแสดงอยู่</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">ซ่อนป้ายกำกับแนะนำวิดีโอ</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">ป้ายกำกับ \"คนอื่นๆ ก็ดู\" และ \"คุณอาจจะชอบ\" ถูกซ่อนอยู่</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">ป้ายกำกับ \"คนอื่นๆ ก็ดู\" และ \"คุณอาจจะชอบ\" แสดงอยู่</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">ซ่อนปุ่ม \"แสดงเพิ่มเติม\"</string>
   <string name="revanced_hide_show_more_button_summary_on">ปุ่มถูกซ่อน</string>
   <string name="revanced_hide_show_more_button_summary_off">ปุ่มถูกแสดง</string>
+  <string name="revanced_hide_ticket_shelf_title">ซ่อนชั้นวางตั๋ว</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">ชั้นวางตั๋วถูกซ่อนอยู่</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">ชั้นวางตั๋วแสดงอยู่</string>
   <string name="revanced_hide_timed_reactions_title">ซ่อนปฏิกิริยาตามเวลา</string>
   <string name="revanced_hide_timed_reactions_summary_on">ปฏิกิริยาตามเวลาถูกซ่อน</string>
   <string name="revanced_hide_timed_reactions_summary_off">ปฏิกิริยาตามเวลาถูกแสดง</string>
@@ -231,6 +241,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">ซ่อน \",สรุปวิดีโอที่สร้างโดย AI\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">ส่วนสรุปวิดีโอถูกซ่อน</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">ส่วนสรุปวิดีโอปรากฏ</string>
+  <string name="revanced_hide_ask_section_title">ซ่อน Ask</string>
+  <string name="revanced_hide_ask_section_summary_on">ส่วน Ask ถูกซ่อนไว้</string>
+  <string name="revanced_hide_ask_section_summary_off">ส่วน Ask ถูกแสดง</string>
   <string name="revanced_hide_attributes_section_title">ซ่อนแอตทริบิวต์</string>
   <string name="revanced_hide_attributes_section_summary_on">ส่วนสถานที่แนะนำ, เกม, เพลง และบุคคลที่กล่าวถึงถูกซ่อน</string>
   <string name="revanced_hide_attributes_section_summary_off">ส่วนสถานที่แนะนำ, เกม, เพลง และบุคคลที่กล่าวถึงแสดงอยู่</string>
@@ -834,10 +847,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">รีโหลดวิดีโอเพื่อลงคะแนนโดยใช้ Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">ซ่อนโดยเจ้าของ</string>
-  <string name="revanced_ryd_enable_summary_on">แสดง \"ไม่ชอบ\"</string>
-  <string name="revanced_ryd_enable_summary_off">ไม่แสดง \"ไม่ชอบ\"</string>
+  <string name="revanced_ryd_enabled_summary_on">แสดง \"ไม่ชอบ\"</string>
+  <string name="revanced_ryd_enabled_summary_off">ไม่แสดง \"ไม่ชอบ\"</string>
   <string name="revanced_ryd_shorts_title">แสดง \"ไม่ชอบ\" ใน Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"การไม่ถูกใจใน Shorts แสดงอยู่
+  <string name="revanced_ryd_shorts_summary_on">"การไม่ถูกใจใน Shorts แสดงอยู่
 
 ข้อจำกัด: การไม่ถูกใจอาจไม่ปรากฏในโหมดไม่ระบุตัวตน"</string>
   <string name="revanced_ryd_shorts_summary_off">การไม่ถูกใจใน Shorts ไม่ได้แสดงอยู่</string>
@@ -854,7 +867,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">แสดงคำอวยพรถ้า API ไม่พร้อมใช้งาน</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">ข้อความแจ้งเตือนแสดงขึ้น หาก Return YouTube Dislike ไม่พร้อมใช้งาน</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast ไม่ปรากฏขึ้นหาก ไม่สามารถใช้งาน Return YouTube Dislike</string>
-  <string name="revanced_ryd_about">เกี่ยวกับ</string>
   <string name="revanced_ryd_attribution_summary">ข้อมูลนี้ให้มาโดย Return YouTube Dislike API。 แตะที่นี่เพื่อเรียนรู้เพิ่มเติม</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">อุปกรณ์นี้</string>
@@ -1061,7 +1073,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_sb_new_segment_edit_by_hand_title">แก้ไขส่วนแบบมือ</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">คุณต้องการแก้ไขจุดเริ่มต้นและจุดจบของส่วนนี้ไหม?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">ค่าเวลาที่ให้มาผิดพลาด</string>
-  <string name="revanced_sb_stats">สถิติ</string>
+  <string name="revanced_sb_stats_title">สถิติ</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">สถิติไม่พร้อมใช้งานชั่วคราว (API ไม่ทำงาน)</string>
   <string name="revanced_sb_stats_loading">กำลังโหลด...</string>
@@ -1090,8 +1102,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_sb_color_invalid">รหัสสีไม่ถูกต้อง</string>
   <string name="revanced_sb_reset_color">รีเซ็ตสี</string>
   <string name="revanced_sb_reset">รีเซ็ต</string>
-  <string name="revanced_sb_about">เกี่ยวกับ</string>
-  <string name="revanced_sb_about_api_sum">ข้อมูลนี้มาจาก SponsorBlock API แตะที่นี่เพื่อเรียนรู้เพิ่มเติมและดูการดาวน์โหลดสำหรับแพลตฟอร์มอื่น ๆ</string>
+  <string name="revanced_sb_about_title">เกี่ยวกับ</string>
+  <string name="revanced_sb_about_api_summary">ข้อมูลนี้มาจาก SponsorBlock API แตะที่นี่เพื่อเรียนรู้เพิ่มเติมและดูการดาวน์โหลดสำหรับแพลตฟอร์มอื่น ๆ</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">รูปแบบเค้าโครง</string>

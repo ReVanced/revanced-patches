@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">La configuració de ReVanced s\'ha restablert als valors predeterminats</string>
   <string name="revanced_settings_import_success">S\'han importat %d configuracions</string>
   <string name="revanced_settings_import_failure_parse">No s\'ha pogut importar: %s</string>
+  <string name="revanced_settings_search_hint">Cerca a la configuració</string>
+  <string name="revanced_settings_search_no_results_title">No s\'han trobat resultats per a «%s»</string>
+  <string name="revanced_settings_search_no_results_summary">Prova una altra paraula clau</string>
+  <string name="revanced_settings_search_remove_message">Voleu suprimir-ho de l\'historial de cerca?</string>
   <string name="revanced_show_menu_icons_title">Mostra les icones de configuració de ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Es mostren les icones de configuració</string>
   <string name="revanced_show_menu_icons_summary_off">No es mostren les icones de configuració</string>
@@ -93,6 +97,9 @@ Toca el botó Continua i permet els canvis d'optimització."</string>
   <string name="revanced_restore_old_settings_menus_title">Restaurar els menús de configuració antics</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Es mostren els menús de configuració antics</string>
   <string name="revanced_restore_old_settings_menus_summary_off">No es mostren els menús de configuració antics</string>
+  <string name="revanced_settings_search_history_title">Mostra l\'historial de cerca de la configuració</string>
+  <string name="revanced_settings_search_history_summary_on">Es mostra l\'historial de cerca de la configuració</string>
+  <string name="revanced_settings_search_history_summary_off">L\'historial de cerca de la configuració no es mostra</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Desactivar la reproducció en segon pla de Shorts</string>
@@ -153,15 +160,18 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_notify_me_button_title">Amaga el botó \"M\'avisa\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">El botó està amagat</string>
   <string name="revanced_hide_notify_me_button_summary_off">El botó es mostra</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Amaga l\'etiqueta \"La gent també ha mirat\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">L\'etiqueta s\'amaga</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">L\'etiqueta es mostra</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Amaga les etiquetes de recomanació de vídeos</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Les etiquetes «Altres usuaris també han vist» i «Potser també t\'agradarà» estan ocultes</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Les etiquetes «Altres usuaris també han vist» i «Potser també t\'agradarà» es mostren</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Amaga el botó \'Mostra més\'</string>
   <string name="revanced_hide_show_more_button_summary_on">El botó està amagat</string>
   <string name="revanced_hide_show_more_button_summary_off">El botó es mostra</string>
+  <string name="revanced_hide_ticket_shelf_title">Amaga la secció de tiquets</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">La secció de tiquets està amagada</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">La secció de tiquets es mostra</string>
   <string name="revanced_hide_timed_reactions_title">Amaga les reaccions temporitzades</string>
   <string name="revanced_hide_timed_reactions_summary_on">S\'han amagat les reaccions temporitzades</string>
   <string name="revanced_hide_timed_reactions_summary_off">Es mostren les reaccions temporitzades</string>
@@ -231,6 +241,9 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Amaga «Resum de vídeo generat per IA»</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">S\'ha amagat la secció de resum del vídeo</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Es mostra la secció de resum del vídeo</string>
+  <string name="revanced_hide_ask_section_title">Amaga la secció «Pregunta»</string>
+  <string name="revanced_hide_ask_section_summary_on">La secció «Pregunta» està amagada</string>
+  <string name="revanced_hide_ask_section_summary_off">La secció «Pregunta» es mostra</string>
   <string name="revanced_hide_attributes_section_title">Amaga els atributs</string>
   <string name="revanced_hide_attributes_section_summary_on">Les seccions Llocs destacats, Jocs, Música i Persones esmentades s\'amaguen</string>
   <string name="revanced_hide_attributes_section_summary_off">Les seccions Llocs destacats, Jocs, Música i Persones esmentades es mostren</string>
@@ -836,10 +849,10 @@ Configuració → Reproducció → Reprodueix el vídeo següent automàticament
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recarrega el vídeo per votar utilitzant Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Amagat per l\'amo</string>
-  <string name="revanced_ryd_enable_summary_on">Els \"no m\'agrada\" es mostren</string>
-  <string name="revanced_ryd_enable_summary_off">Els \"no m\'agrada\" no es mostren</string>
+  <string name="revanced_ryd_enabled_summary_on">Els \"no m\'agrada\" es mostren</string>
+  <string name="revanced_ryd_enabled_summary_off">Els \"no m\'agrada\" no es mostren</string>
   <string name="revanced_ryd_shorts_title">Mostrar \"no m\'agrada\" a Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Els \"no m'agrada\" als Shorts es mostren
+  <string name="revanced_ryd_shorts_summary_on">"Els \"no m'agrada\" als Shorts es mostren
 
 Limitació: és possible que els \"no m'agrada\" no apareguin en mode d'incògnit"</string>
   <string name="revanced_ryd_shorts_summary_off">Els \"no m\'agrada\" als Shorts no es mostren</string>
@@ -856,7 +869,6 @@ Limitació: és possible que els \"no m'agrada\" no apareguin en mode d'incògni
   <string name="revanced_ryd_toast_on_connection_error_title">Mostrar una \"toast\" si l\'API no està disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">La \"toast\" es mostra si Return YouTube Dislike no està disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">La \"toast\" no es mostra si Return YouTube Dislike no està disponible</string>
-  <string name="revanced_ryd_about">Quant a</string>
   <string name="revanced_ryd_attribution_summary">Les dades són proporcionades per l\'API de Return YouTube Dislike. Toca aquí per obtenir més informació</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Estadístiques de l\'API de ReturnYouTubeDislike d\'aquest dispositiu</string>
@@ -1062,7 +1074,7 @@ Preparat per enviar?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Editeu el temps del segment manualment</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Voleu editar el temps per a l\'inici o el final del segment?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Temps invàlid proporcionat</string>
-  <string name="revanced_sb_stats">Estadístiques</string>
+  <string name="revanced_sb_stats_title">Estadístiques</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Les estadístiques no estan disponibles temporalment (l\'API no funciona)</string>
   <string name="revanced_sb_stats_loading">S\'està carregant...</string>
@@ -1091,8 +1103,8 @@ Preparat per enviar?"</string>
   <string name="revanced_sb_color_invalid">Codi de color invàlid</string>
   <string name="revanced_sb_reset_color">Restableix el color</string>
   <string name="revanced_sb_reset">Restablir</string>
-  <string name="revanced_sb_about">Quant a</string>
-  <string name="revanced_sb_about_api_sum">Les dades són proporcionades per l\'API de SponsorBlock. Toca aquí per a saber-ne més i veure les descàrregues per a altres plataformes</string>
+  <string name="revanced_sb_about_title">Quant a</string>
+  <string name="revanced_sb_about_api_summary">Les dades són proporcionades per l\'API de SponsorBlock. Toca aquí per a saber-ne més i veure les descàrregues per a altres plataformes</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Factor de forma del disseny</string>

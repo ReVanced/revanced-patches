@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Налаштування ReVanced скинуто до стандартних</string>
   <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
   <string name="revanced_settings_import_failure_parse">Не вдалося імпортувати: %s</string>
+  <string name="revanced_settings_search_hint">Пошук налаштувань</string>
+  <string name="revanced_settings_search_no_results_title">За запитом \'%s\' нічого не знайдено</string>
+  <string name="revanced_settings_search_no_results_summary">Спробуйте інше ключове слово</string>
+  <string name="revanced_settings_search_remove_message">Видалити з історії пошуку?</string>
   <string name="revanced_show_menu_icons_title">Показувати іконки в налаштуваннях ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Іконки в налаштуваннях показуються</string>
   <string name="revanced_show_menu_icons_summary_off">Іконки в налаштуваннях не показуються</string>
@@ -93,6 +97,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Відновити старе меню налаштувань</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Показується старе меню налаштувань</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Показується нове меню налаштувань</string>
+  <string name="revanced_settings_search_history_title">Показувати історію пошуку налаштувань</string>
+  <string name="revanced_settings_search_history_summary_on">Історія пошуку налаштувань показується</string>
+  <string name="revanced_settings_search_history_summary_off">Історія пошуку налаштувань не показується</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Вимкнути фонове відтворення Shorts</string>
@@ -154,15 +161,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">Приховати кнопку \"Сповістити\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Кнопку \"Сповістити\" приховано</string>
   <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Сповістити\" показується</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Приховати мітку \"Люди також дивилися\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Мітку приховано</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Мітка показується </string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Приховати мітки відеорекомендацій</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Мітки \"Інші користувачі також переглядали це відео\" та \"Вам також може сподобатися\" приховано</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Мітки \"Інші користувачі також переглядали це відео\" та \"Вам також може сподобатися\" показуються</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Приховати кнопку \"Показати більше\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Кнопку \"Показати більше\" приховано</string>
   <string name="revanced_hide_show_more_button_summary_off">Кнопка \"Показати більше\" показується</string>
+  <string name="revanced_hide_ticket_shelf_title">Приховати полицю квитків</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Полицю квитків приховано</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Полиця квитків показується</string>
   <string name="revanced_hide_timed_reactions_title">Приховати тимчасові реакції</string>
   <string name="revanced_hide_timed_reactions_summary_on">Тимчасові реакції приховано</string>
   <string name="revanced_hide_timed_reactions_summary_off">Тимчасові реакції показуються</string>
@@ -232,6 +242,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Приховати секцію \"Короткий переказ від ШІ\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Секцію \"Короткий переказ\" приховано</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Секція \"Короткий переказ\" показується</string>
+  <string name="revanced_hide_ask_section_title">Приховати \"Запитати\"</string>
+  <string name="revanced_hide_ask_section_summary_on">Секцію \"Запитати\" приховано</string>
+  <string name="revanced_hide_ask_section_summary_off">Секція \"Запитати\" показується</string>
   <string name="revanced_hide_attributes_section_title">Приховати секції атрибутів</string>
   <string name="revanced_hide_attributes_section_summary_on">Секції \"Місця на відео\", \"Ігри\", \"Музика\" та \"Люди, згадані у відео\" приховано</string>
   <string name="revanced_hide_attributes_section_summary_off">Секції \"Місця на відео\", \"Ігри\", \"Музика\" та \"Люди, згадані у відео\" показуються</string>
@@ -837,10 +850,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Оновіть відео, щоб проголосувати за допомогою Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано власником</string>
-  <string name="revanced_ryd_enable_summary_on">Дизлайки показуються</string>
-  <string name="revanced_ryd_enable_summary_off">Дизлайки не показуються</string>
+  <string name="revanced_ryd_enabled_summary_on">Дизлайки показуються</string>
+  <string name="revanced_ryd_enabled_summary_off">Дизлайки не показуються</string>
   <string name="revanced_ryd_shorts_title">Показувати дизлайки в Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Дизлайки в Shorts показуються
+  <string name="revanced_ryd_shorts_summary_on">"Дизлайки в Shorts показуються
 
 Обмеження: Дизлайки не можуть показуватися в анонімному режимі"</string>
   <string name="revanced_ryd_shorts_summary_off">Дизлайки в Shorts не показуються</string>
@@ -857,7 +870,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо API не доступний</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо Return YouTube Dislike не доступний</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не показується, якщо Return YouTube Dislike не доступний</string>
-  <string name="revanced_ryd_about">Про інтеграцію</string>
   <string name="revanced_ryd_attribution_summary">Дані надаються через API Return YouTube Dislike. Натисніть тут, щоб дізнатися більше</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Статистика API ReturnYouTubeDislike цього пристрою</string>
@@ -1063,7 +1075,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Редагувати час сегмента вручну</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Ви хочете змінити час початку чи кінця сегмента?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Вказано неправильний час</string>
-  <string name="revanced_sb_stats">Статистика</string>
+  <string name="revanced_sb_stats_title">Статистика</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Статистика тимчасово недоступна (API не працює)</string>
   <string name="revanced_sb_stats_loading">Завантаження...</string>
@@ -1092,8 +1104,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_color_invalid">Невірний код кольору</string>
   <string name="revanced_sb_reset_color">Скинути колір</string>
   <string name="revanced_sb_reset">Скинути</string>
-  <string name="revanced_sb_about">Про інтеграцію</string>
-  <string name="revanced_sb_about_api_sum">Дані надаються через API SponsorBlock. Натисніть тут, щоб дізнатися більше та побачити завантаження для інших платформ</string>
+  <string name="revanced_sb_about_title">Про інтеграцію</string>
+  <string name="revanced_sb_about_api_summary">Дані надаються через API SponsorBlock. Натисніть тут, щоб дізнатися більше та побачити завантаження для інших платформ</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Макет інтерфейсу</string>

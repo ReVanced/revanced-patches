@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced সেটিং ডিফল্ট সেট করা হয়েছে</string>
   <string name="revanced_settings_import_success">%d সেটিং আমদানি হয়েছে</string>
   <string name="revanced_settings_import_failure_parse">আমদানি করা যায়নি: %s</string>
+  <string name="revanced_settings_search_hint">অনুসন্ধান সেটিংস</string>
+  <string name="revanced_settings_search_no_results_title">\'%s\'-এর জন্য কোন ফলাফল পাওয়া যায়নি</string>
+  <string name="revanced_settings_search_no_results_summary">অন্য কোনো কীওয়ার্ড চেষ্টা করুন</string>
+  <string name="revanced_settings_search_remove_message">অনুসন্ধান ইতিহাস থেকে সরাবেন?</string>
   <string name="revanced_show_menu_icons_title">ReVanced সেটিং আইকন দেখান</string>
   <string name="revanced_show_menu_icons_summary_on">সেটিং আইকন দেখানো হয়েছে</string>
   <string name="revanced_show_menu_icons_summary_off">সেটিং আইকন দেখানো হচ্ছে না</string>
@@ -93,6 +97,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_restore_old_settings_menus_title">পুরানো সেটিংস মেনু পুনরুদ্ধার করুন</string>
   <string name="revanced_restore_old_settings_menus_summary_on">পুরাতন সেটিংস মেনু দেখানো হচ্ছে</string>
   <string name="revanced_restore_old_settings_menus_summary_off">পুরাতন সেটিংস মেনু দেখানো হচ্ছে না</string>
+  <string name="revanced_settings_search_history_title">অনুসন্ধান সেটিংসের ইতিহাস দেখান</string>
+  <string name="revanced_settings_search_history_summary_on">সেটিংস অনুসন্ধান ইতিহাস দেখানো হয়েছে</string>
+  <string name="revanced_settings_search_history_summary_off">সেটিংস অনুসন্ধান ইতিহাস দেখানো হয় না</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts ব্যাকগ্রাউন্ড প্লে অক্ষম করুন</string>
@@ -153,15 +160,18 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_notify_me_button_title">\'আমাকে জানান\' বোতাম লুকান</string>
   <string name="revanced_hide_notify_me_button_summary_on">বোতাম লুকানো আছে</string>
   <string name="revanced_hide_notify_me_button_summary_off">বোতাম দেখানো আছে</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">\'People also watched\' লেবেল লুকান</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">লেবেল লুকানো আছে</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">লেবেল দেখানো হয়েছে</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">ভিডিও প্রস্তাবনা লেবেল লুকান</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">\"\'লোকেরা আরও দেখেছে\' এবং \'আপনি সম্ভবত পছন্দ করতে পারেন\' লেবেলগুলি লুকানো আছে\"</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">\"\'লোকেরা আরও দেখেছে\' এবং \'আপনি সম্ভবত পছন্দ করতে পারেন\' লেবেলগুলি দেখানো হয়েছে\"</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">\'আরও দেখান\' বোতাম লুকান</string>
   <string name="revanced_hide_show_more_button_summary_on">বোতাম লুকানো আছে</string>
   <string name="revanced_hide_show_more_button_summary_off">বোতাম দেখানো আছে</string>
+  <string name="revanced_hide_ticket_shelf_title">টিকিট তাক লুকান</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">টিকিট তাক লুকানো আছে</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">টিকিট তাক দেখানো হয়েছে</string>
   <string name="revanced_hide_timed_reactions_title">সময় অনুযায়ী প্রতিক্রিয়া লুকান</string>
   <string name="revanced_hide_timed_reactions_summary_on">সময় অনুযায়ী প্রতিক্রিয়া লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_timed_reactions_summary_off">সময় অনুযায়ী প্রতিক্রিয়া প্রদর্শিত হয়েছে</string>
@@ -231,6 +241,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_ai_generated_video_summary_section_title">\'AI-জেনারেটেড ভিডিও সারসংক্ষেপ\' লুকান</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">ভিডিও সারসংক্ষেপ বিভাগ লুকানো আছে</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">ভিডিও সারসংক্ষেপ বিভাগ দেখানো হয়েছে</string>
+  <string name="revanced_hide_ask_section_title">জিজ্ঞাসা লুকান</string>
+  <string name="revanced_hide_ask_section_summary_on">জিজ্ঞাসা বিভাগ লুকানো আছে</string>
+  <string name="revanced_hide_ask_section_summary_off">জিজ্ঞাসা বিভাগ দেখানো হয়েছে</string>
   <string name="revanced_hide_attributes_section_title">বৈশিষ্ট্যাবলী লুকান</string>
   <string name="revanced_hide_attributes_section_summary_on">বৈশিষ্ট্যযুক্ত স্থান, গেমস, সঙ্গীত, এবং উল্লিখিত ব্যক্তি বিভাগগুলি লুকানো আছে</string>
   <string name="revanced_hide_attributes_section_summary_off">বৈশিষ্ট্যযুক্ত স্থান, গেমস, সঙ্গীত, এবং উল্লিখিত ব্যক্তি বিভাগগুলি দেখানো হয়েছে</string>
@@ -836,10 +849,10 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">ReturnYouTubeDislike দিয়ে ভোট দিতে ভিডিও আবার লোড করুন</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">মালিক কর্তৃক লুকানো</string>
-  <string name="revanced_ryd_enable_summary_on">অপছন্দগুলো প্রদর্শিত হয়েছে</string>
-  <string name="revanced_ryd_enable_summary_off">অপছন্দগুলো প্রদর্শিত হয়নি</string>
+  <string name="revanced_ryd_enabled_summary_on">অপছন্দগুলো প্রদর্শিত হয়েছে</string>
+  <string name="revanced_ryd_enabled_summary_off">অপছন্দগুলো প্রদর্শিত হয়নি</string>
   <string name="revanced_ryd_shorts_title">Shorts এ অপছন্দ দেখান</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts-এ অপছন্দগুলি দেখানো হয়েছে
+  <string name="revanced_ryd_shorts_summary_on">"Shorts-এ অপছন্দগুলি দেখানো হয়েছে
 
 সীমাবদ্ধতা: ছদ্মবেশী মোডে অপছন্দগুলি নাও দেখা যেতে পারে"</string>
   <string name="revanced_ryd_shorts_summary_off">Shorts-এ অপছন্দগুলি দেখানো হয়নি</string>
@@ -856,7 +869,6 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_ryd_toast_on_connection_error_title">API উপলভ্য না থাকলে একটি টোস্ট দেখান</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike উপলভ্য না থাকলে টোস্ট দেখানো হবে</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike উপলভ্য না থাকলে টোস্ট দেখানো হবে না</string>
-  <string name="revanced_ryd_about">সম্পর্কিত</string>
   <string name="revanced_ryd_attribution_summary">তথ্য প্রদান করা হয় Return YouTube Dislike API দ্বারা। আরও জানতে এখানে ট্যাপ করুন</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">এই ডিভাইসের ReturnYouTubeDislike API পরিসংখ্যান</string>
@@ -1063,7 +1075,7 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_sb_new_segment_edit_by_hand_title">সেগমেন্টের সময় ম্যানুয়ালি সম্পাদনা করুন</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">আপনি কি সেগমেন্টের শুরু বা শেষের সময় সম্পাদনা করতে চান?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">ভুল সময় দেয়া হয়েছে</string>
-  <string name="revanced_sb_stats">পরিসংখ্যান</string>
+  <string name="revanced_sb_stats_title">পরিসংখ্যান</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">পরিসংখ্যান সাময়িকভাবে উপলব্ধ নেই (API ডাউন)</string>
   <string name="revanced_sb_stats_loading">লোড হচ্ছে...</string>
@@ -1092,8 +1104,8 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_sb_color_invalid">রংয়ের ভুল কোড</string>
   <string name="revanced_sb_reset_color">রং আবার সেট করুন</string>
   <string name="revanced_sb_reset">পুনরায় সেট করুন</string>
-  <string name="revanced_sb_about">সম্পর্কিত</string>
-  <string name="revanced_sb_about_api_sum">ডেটা SponsorBlock API দ্বারা সরবরাহ করা হয়। আরও জানতে এবং অন্যান্য প্ল্যাটফর্মের ডাউনলোড দেখতে এখানে ট্যাপ করুন</string>
+  <string name="revanced_sb_about_title">সম্পর্কিত</string>
+  <string name="revanced_sb_about_api_summary">ডেটা SponsorBlock API দ্বারা সরবরাহ করা হয়। আরও জানতে এবং অন্যান্য প্ল্যাটফর্মের ডাউনলোড দেখতে এখানে ট্যাপ করুন</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">লেআউট ফর্ম ফ্যাক্টর</string>

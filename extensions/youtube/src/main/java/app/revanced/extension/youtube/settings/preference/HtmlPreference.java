@@ -19,12 +19,15 @@ public class HtmlPreference extends Preference {
     public HtmlPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
+
     public HtmlPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
     public HtmlPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
+
     public HtmlPreference(Context context) {
         super(context);
     }
