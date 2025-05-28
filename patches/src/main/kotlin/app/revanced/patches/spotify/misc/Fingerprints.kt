@@ -60,18 +60,24 @@ internal val readPlayerOptionOverridesFingerprint by fingerprint {
     }
 }
 
-internal val homeSectionFingerprint by fingerprint {
-    custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
-}
-
 internal val protobufListsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     custom { method, _ -> method.name == "emptyProtobufList" }
 }
 
-internal val homeStructureFingerprint by fingerprint {
-    opcodes(Opcode.IGET_OBJECT, Opcode.RETURN_OBJECT)
-    custom { _, classDef -> classDef.endsWith("homeapi/proto/HomeStructure;") }
+internal val abstractProtobufListEnsureIsMutableFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters()
+    returns("V")
+    custom { method, _ ->
+    	method.indexOfFirstInstruction {
+            getReference<TypeReference>()?.type == "Ljava/lang/UnsupportedOperationException;"
+        } >= 0
+    }
+}
+
+internal val homeSectionFingerprint by fingerprint {
+    custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
 }
 
 internal val homeStructureGetSectionsFingerprint by fingerprint {

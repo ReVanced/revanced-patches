@@ -1,3 +1,10 @@
+# [5.25.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.11...v5.25.0-dev.12) (2025-05-28)
+
+
+### Features
+
+* **YouTube - Swipe controls:** Add separate color settings for the brightness and volume bars ([#5043](https://github.com/ReVanced/revanced-patches/issues/5043)) ([80f50e8](https://github.com/ReVanced/revanced-patches/commit/80f50e8c50ca6a8366b7fd7b01459fb16fa1074a))
+
 # [5.25.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.10...v5.25.0-dev.11) (2025-05-27)
 
 

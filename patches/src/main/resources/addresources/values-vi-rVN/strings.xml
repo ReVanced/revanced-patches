@@ -117,6 +117,11 @@ Nhấn nút tiếp tục và cho phép thay đổi lựa chọn tối ưu hóa."
   <string name="revanced_debug_protobuffer_title">Bộ đệm giao thức nhật ký</string>
   <string name="revanced_debug_protobuffer_summary_on">Ghi nhật ký gỡ lỗi bao gồm thông tin bộ đệm nguyên mẫu</string>
   <string name="revanced_debug_protobuffer_summary_off">Ghi nhật ký gỡ lỗi mà không có thông tin bộ đệm nguyên mẫu</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Bật cài đặt này sẽ ghi lại dữ liệu bố cục bổ sung, bao gồm cả văn bản trên màn hình cho một số thành phần giao diện người dùng.
+
+Điều này có thể giúp xác định các thành phần khi tạo bộ lọc tùy chỉnh.
+
+Tuy nhiên, việc bật tính năng này cũng sẽ ghi lại một số dữ liệu người dùng, chẳng hạn như địa chỉ IP của bạn."</string>
   <string name="revanced_debug_stacktrace_title">Ghi nhật ký truy vết stack</string>
   <string name="revanced_debug_stacktrace_summary_on">Nhật ký gỡ lỗi bao gồm truy vết stack</string>
   <string name="revanced_debug_stacktrace_summary_off">Nhật ký gỡ lỗi không bao gồm truy vết stack</string>
@@ -126,6 +131,15 @@ Nhấn nút tiếp tục và cho phép thay đổi lựa chọn tối ưu hóa."
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Tắt thông báo lỗi sẽ ẩn tất cả thông báo lỗi của ReVanced.
 
 Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ nào."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Xuất nhật ký gỡ lỗi</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Sao chép nhật ký gỡ lỗi ReVanced vào bảng nhớ tạm</string>
+  <string name="revanced_debug_logs_disabled">Tính năng ghi nhật ký gỡ lỗi bị tắt</string>
+  <string name="revanced_debug_logs_none_found">Không tìm thấy nhật ký</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Đã sao chép nhật ký</string>
+  <string name="revanced_debug_logs_failed_to_export">Không xuất được nhật ký: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Xóa nhật ký gỡ lỗi</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Xóa tất cả nhật ký gỡ lỗi ReVanced đã lưu trữ</string>
+  <string name="revanced_debug_logs_clear_toast">Đã xóa nhật ký</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Ẩn các thẻ album</string>
@@ -477,9 +491,10 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Độ mờ nền phủ vuốt</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Giá trị độ mờ từ 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Độ mờ vuốt phải nằm trong khoảng từ 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Màu thanh tiến trình lớp phủ vuốt</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Màu của thanh tiến trình cho các điều khiển âm lượng và độ sáng</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Màu thanh tiến trình không hợp lệ</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Màu độ sáng lớp phủ vuốt</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Màu của thanh tiến trình cho điều khiển độ sáng</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Màu âm lượng lớp phủ vuốt</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Màu của thanh tiến trình cho điều khiển âm lượng</string>
   <string name="revanced_swipe_text_overlay_size_title">Kích thước văn bản lớp phủ vuốt</string>
   <string name="revanced_swipe_text_overlay_size_summary">Kích thước văn bản cho lớp phủ vuốt từ 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Kích thước văn bản phải nằm trong khoảng 1-30</string>
@@ -1321,6 +1336,22 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="microg_settings_title">Cài đặt GmsCore</string>
   <string name="microg_settings_summary">Các cài đặt cho GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Phản hồi xúc giác</string>
+  <string name="revanced_disable_haptic_feedback_summary">Thay đổi phản hồi xúc giác</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Tắt phản hồi xúc giác chương</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Phản hồi xúc giác chương đã tắt</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Phản hồi xúc giác chương đã bật</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Tắt phản hồi xúc giác khi tua chính xác</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Phản hồi xúc giác khi tua chính xác đã tắt</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Phản hồi xúc giác khi tua chính xác đã bật</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Tắt phản hồi xúc giác khi huỷ tua</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Phản hồi xúc giác khi huỷ tua đã tắt</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Phản hồi xúc giác khi huỷ tua đã bật</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Tắt phản hồi xúc giác khi thu phóng</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Phản hồi xúc giác khi thu phóng đã tắt</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Phản hồi xúc giác khi thu phóng đã bật</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Nếu gần đây bạn đã cập nhật thông tin đăng nhập tài khoản của mình, hãy gỡ và cài đặt lại MicroG.</string>
   </patch>
@@ -1338,11 +1369,6 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remove_tracking_query_parameter_title">Loại bỏ tham số truy vấn theo dõi</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Tham số truy vấn theo dõi đã bị loại bỏ khỏi liên kết</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Tham số truy vấn theo dõi không được loại bỏ khỏi liên kết</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Tắt phản hồi xúc giác khi thu phóng</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Phản hồi xúc giác được tắt</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Phản hồi xúc giác được bật</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Buộc sử dụng ngôn ngữ âm thanh gốc</string>

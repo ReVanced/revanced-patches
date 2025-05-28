@@ -118,6 +118,11 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_debug_protobuffer_title">protocol buffer を記録する</string>
   <string name="revanced_debug_protobuffer_summary_on">デバッグ ログに protocol buffer が含まれます</string>
   <string name="revanced_debug_protobuffer_summary_off">デバッグ ログに protocol buffer は含まれません</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"この設定を有効にすると、一部のUIコンポーネントの画面上のテキストなど、追加のレイアウトデータが記録されます。
+
+これにより、カスタムフィルターを作成するときにコンポーネントを特定できます。
+
+ただし、これを有効にすると、IPアドレスなどの一部のユーザーデータも記録されます。"</string>
   <string name="revanced_debug_stacktrace_title">stack trace を記録する</string>
   <string name="revanced_debug_stacktrace_summary_on">デバッグ ログにstack trace が含まれます</string>
   <string name="revanced_debug_stacktrace_summary_off">デバッグ ログにstack trace は含まれません</string>
@@ -127,6 +132,15 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"この機能をオフにすると、すべてのReVanced エラー通知が非表示になります。
 
 あらゆる予期せぬイベントが通知されなくなります。"</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">デバッグログをエクスポート</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVancedデバッグログをクリップボードにコピーします</string>
+  <string name="revanced_debug_logs_disabled">デバッグログは無効です</string>
+  <string name="revanced_debug_logs_none_found">ログが見つかりませんでした</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">ログがコピーされました</string>
+  <string name="revanced_debug_logs_failed_to_export">ログのエクスポートに失敗しました：$s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">デバッグログをクリア</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">保存されているすべてのReVancedデバッグログをクリアします</string>
+  <string name="revanced_debug_logs_clear_toast">ログがクリアされました</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">アルバム情報を非表示</string>
@@ -480,9 +494,6 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_swipe_overlay_background_opacity_title">オーバーレイの背景の透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">透明度の範囲は 0-100 で、0 が透明です</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">スワイプ: 透明度の範囲は 0-100 です</string>
-  <string name="revanced_swipe_overlay_progress_color_title">オーバーレイのグラフの色</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">スワイプ中の音量や明るさの現在値を視覚的に表示するグラフの色</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">グラフの色の値が無効です</string>
   <string name="revanced_swipe_text_overlay_size_title">オーバーレイのテキストサイズ</string>
   <string name="revanced_swipe_text_overlay_size_summary">スワイプ オーバーレイのテキストサイズ (1-30)</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">テキストサイズの範囲は 1-30 です</string>
@@ -1321,6 +1332,22 @@ Automotive レイアウト
   <string name="microg_settings_title">GmsCore 設定</string>
   <string name="microg_settings_summary">GmsCore の設定</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">触覚フィードバック</string>
+  <string name="revanced_disable_haptic_feedback_summary">触覚フィードバックを変更</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">チャプターの触覚フィードバックは無効です</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">チャプターの触覚フィードバックは有効です</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">正確なシークの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">正確なシークの触覚フィードバックは無効になっています</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">正確なシークの触覚フィードバックは有効です</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">シーク取り消しの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">シーク取り消しの触覚フィードバックは無効です</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">シーク取り消しの触覚フィードバックは有効です</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">ズームの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">ズームの触覚フィードバックは無効です</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">ズームの触覚フィードバックは有効です</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">最近アカウントのログイン情報を変更した場合は、MicroG をアンインストールして再インストールしてください。</string>
   </patch>
@@ -1338,11 +1365,6 @@ Automotive レイアウト
   <string name="revanced_remove_tracking_query_parameter_title">追跡パラメータをリンクから削除する</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">追跡パラメータはリンクから削除されます</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">追跡パラメータはリンクから削除されません</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">ズームの触覚フィードバックを無効にする</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">ズームの触覚フィードバックは無効です</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">ズームの触覚フィードバックは有効です</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">デフォルトの吹き替えを無効にする</string>
