@@ -376,7 +376,11 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     Utils.setEditTextDialogTheme(builder);
 
                     builder.setNeutralButton(str("revanced_sb_settings_copy"), (dialog, which) -> {
-                        Utils.setClipboard(getEditText().getText().toString());
+                        try {
+                            Utils.setClipboard(getEditText().getText());
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "Copy settings failure", ex);
+                        }
                     });
                 }
             };
@@ -421,7 +425,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         .setTitle(apiUrl.getTitle())
                         .setView(editText)
                         .setNegativeButton(android.R.string.cancel, null)
-                        .setNeutralButton(str("revanced_sb_reset"), urlChangeListener)
+                        .setNeutralButton(str("revanced_settings_reset"), urlChangeListener)
                         .setPositiveButton(android.R.string.ok, urlChangeListener)
                         .show();
                 return true;
@@ -433,7 +437,11 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     Utils.setEditTextDialogTheme(builder);
 
                     builder.setNeutralButton(str("revanced_sb_settings_copy"), (dialog, which) -> {
-                        Utils.setClipboard(getEditText().getText().toString());
+                        try {
+                            Utils.setClipboard(getEditText().getText());
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "Copy settings failure", ex);
+                        }
                     });
                 }
             };

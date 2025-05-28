@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">সেটিংস</string>
   <string name="revanced_settings_confirm_user_dialog_title">আপনি কি এগিয়ে যেতে ইচ্ছুক?</string>
   <string name="revanced_settings_reset">আবার সেট করুন</string>
+  <string name="revanced_settings_reset_color">রঙ রিসেট করুন</string>
+  <string name="revanced_settings_color_invalid">অবৈধ রঙ</string>
   <string name="revanced_settings_restart_title">রিফ্রেশ করুন এবং আবার চালু করুন</string>
   <string name="revanced_settings_restart">আবার চালু করুন</string>
   <string name="revanced_settings_import">আমদানি করুন</string>
@@ -115,6 +117,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_debug_protobuffer_title">প্রটোকল বাফার লগ</string>
   <string name="revanced_debug_protobuffer_summary_on">ডিবাগ লগ প্রটোকল বাফার সংযুক্ত করবে</string>
   <string name="revanced_debug_protobuffer_summary_off">ডিবাগ লগ প্রটোকল বাফার সংযুক্ত করবে না</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"এই সেটিংস সক্ষম করলে কিছু UI উপাদানের জন্য অন-স্ক্রীন পাঠ্য সহ অতিরিক্ত লেআউট ডেটা লগ করা হবে।\n\nএটি কাস্টম ফিল্টার তৈরি করার সময় উপাদান সনাক্ত করতে সাহায্য করতে পারে।\n\nতবে, এটি সক্রিয় করলে আপনার আইপি ঠিকানার মতো কিছু ব্যবহারকারীর ডেটাও লগ করা হবে।"</string>
   <string name="revanced_debug_stacktrace_title">স্টেক ট্রেস লগ</string>
   <string name="revanced_debug_stacktrace_summary_on">ডিবাগ লগ স্টেক ট্রেস সংযুক্ত করবে</string>
   <string name="revanced_debug_stacktrace_summary_off">ডিবাগ লগ স্টেক ট্রেস সংযুক্ত করবে না</string>
@@ -124,6 +127,15 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"ত্রুটি \"toast\" বন্ধ করে ReVanced ত্রুটি বিজ্ঞপ্তিগুলি লুকানো হয়।
 
 আপনি কোনও অপ্রত্যাশিত ঘটনার বিষয়ে অবহিত হবেন না।"</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">ডিবাগ লগগুলি রফতানি করুন</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">ক্লিপবোর্ডে ReVanced ডিবাগ লগগুলি অনুলিপি করে</string>
+  <string name="revanced_debug_logs_disabled">ডিবাগ লগিং নিষ্ক্রিয় করা হয়েছে</string>
+  <string name="revanced_debug_logs_none_found">কোনো লগ পাওয়া যায়নি</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">লগ অনুলিপি করা হয়েছে</string>
+  <string name="revanced_debug_logs_failed_to_export">লগ রপ্তানি করতে ব্যর্থ: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">ডিবাগ লগগুলি সাফ করুন</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">সমস্ত সঞ্চিত ReVanced ডিবাগ লগ সাফ করে</string>
+  <string name="revanced_debug_logs_clear_toast">লগ সাফ করা হয়েছে</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">অ্যালবাম কার্ড লুকান</string>
@@ -365,9 +377,6 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
 
 এই বৈশিষ্ট্যটি কেবল পুরনো ডিভাইসের জন্য উপলব্ধ"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">পূর্ণ স্ক্রীন বিজ্ঞাপন প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_buttoned_ads_title">বোতামযুক্ত বিজ্ঞাপন লুকান</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">বোতামযুক্ত বিজ্ঞাপন লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">বোতামযুক্ত বিজ্ঞাপন প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_paid_promotion_label_title">অর্থের বিনিময়ে প্রচার অন্তর্ভুক্ত রয়েছে ব্যানার লুকান</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">অর্থের বিনিময়ে প্রচার অন্তর্ভুক্ত রয়েছে ব্যানার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">অর্থের বিনিময়ে প্রচার অন্তর্ভুক্ত রয়েছে ব্যানার প্রদর্শিত হয়েছে</string>
@@ -478,9 +487,10 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_swipe_overlay_background_opacity_title">অস্বচ্ছতা</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">0-100 এর মধ্যে অস্বচ্ছতার মান</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">সোয়াইপের অস্বচ্ছতা অবশ্যই 0-100 এর মধ্যে হতে হবে</string>
-  <string name="revanced_swipe_overlay_progress_color_title">সোয়াইপ ওভারলে প্রগ্রেস বার এর রং</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">ভলিউম এবং উজ্জ্বলতা নিয়ন্ত্রণের জন্য প্রগ্রেস বার এর রং</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">অবৈধ প্রগ্রেস বার রং</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">সোয়াইপ ওভারলে উজ্জ্বলতা রঙ</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">উজ্জ্বলতা নিয়ন্ত্রণের জন্য প্রগ্রেস বারের রঙ</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">সোয়াইপ ওভারলে ভলিউম রঙ</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">ভলিউম নিয়ন্ত্রণের জন্য প্রগ্রেস বারের রঙ</string>
   <string name="revanced_swipe_text_overlay_size_title">সোয়াইপ ওভারলে টেক্সট সাইজ</string>
   <string name="revanced_swipe_text_overlay_size_summary">সোয়াইপ ওভারলে-এর জন্য টেক্সট সাইজ ১-৩০ এর মধ্যে</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">টেক্সট সাইজ অবশ্যই ১-৩০ এর মধ্যে হতে হবে</string>
@@ -1099,11 +1109,6 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_sb_stats_saved_second_format">%s সেকেন্ড</string>
   <string name="revanced_sb_color_opacity_label">স্বচ্ছতা:</string>
   <string name="revanced_sb_color_dot_label">রং:</string>
-  <string name="revanced_sb_color_changed">রং পরিবর্তন করা হয়েছে</string>
-  <string name="revanced_sb_color_reset">রং আবার সেট করুন</string>
-  <string name="revanced_sb_color_invalid">রংয়ের ভুল কোড</string>
-  <string name="revanced_sb_reset_color">রং আবার সেট করুন</string>
-  <string name="revanced_sb_reset">পুনরায় সেট করুন</string>
   <string name="revanced_sb_about_title">সম্পর্কিত</string>
   <string name="revanced_sb_about_api_summary">ডেটা SponsorBlock API দ্বারা সরবরাহ করা হয়। আরও জানতে এবং অন্যান্য প্ল্যাটফর্মের ডাউনলোড দেখতে এখানে ট্যাপ করুন</string>
   </patch>
@@ -1328,6 +1333,22 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="microg_settings_title">GmsCore সেটিং</string>
   <string name="microg_settings_summary">GmsCore এর জন্য সেটিং</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">কম্পন প্রতিক্রিয়া</string>
+  <string name="revanced_disable_haptic_feedback_summary">কম্পন প্রতিক্রিয়া পরিবর্তন করুন</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">অধ্যায়গুলোর কম্পন নিষ্ক্রিয় করুন</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">অধ্যায়গুলোর কম্পন নিষ্ক্রিয় করা হয়েছে</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">অধ্যায়গুলোর কম্পন সক্রিয় করা হয়েছে</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">নির্দিষ্ট স্থানে খোঁজার কম্পন নিষ্ক্রিয় করুন</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">সূক্ষ্ম সিকিং কম্পন নিষ্ক্রিয় করা হয়েছে</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">নির্দিষ্ট স্থানে খোঁজার কম্পন সক্রিয় করা হয়েছে</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">সীক আনডু কম্পন নিষ্ক্রিয় করুন</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">সীক আনডু কম্পন নিষ্ক্রিয় করা হয়েছে</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">সীক আনডু কম্পন সক্রিয় করা হয়েছে</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">জুম করার কম্পন নিষ্ক্রিয় করুন</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">জুম করার কম্পন নিষ্ক্রিয় করা হয়েছে</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">জুম করার কম্পন সক্রিয় করা হয়েছে</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">আপনি যদি সম্প্রতি আপনার অ্যাকাউন্ট লগইন বিশদ পরিবর্তন করে থাকেন, তবে MicroG আনইনস্টল করুন এবং পুনরায় ইনস্টল করুন।</string>
   </patch>
@@ -1345,11 +1366,6 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_remove_tracking_query_parameter_title">ট্র্যাকিং করার প্যারামিটার মুছুন</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়েছে</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়নি</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">জুম করার কম্পন নিষ্ক্রিয় করুন</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">কম্পন নিষ্ক্রিয় করা হয়েছে</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">কম্পন সক্রিয় করা হয়েছে</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">মূল অডিও ভাষা বলপূর্বক চালু করুন</string>

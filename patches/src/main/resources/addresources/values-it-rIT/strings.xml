@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Impostazioni</string>
   <string name="revanced_settings_confirm_user_dialog_title">Sei sicuro di voler continuare?</string>
   <string name="revanced_settings_reset">Reimposta</string>
+  <string name="revanced_settings_reset_color">Reimposta colore</string>
+  <string name="revanced_settings_color_invalid">Colore non valido</string>
   <string name="revanced_settings_restart_title">Aggiorna e riavvia</string>
   <string name="revanced_settings_restart">Riavvia</string>
   <string name="revanced_settings_import">Importa</string>
@@ -115,6 +117,11 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
   <string name="revanced_debug_protobuffer_title">Buffer di protocollo per log</string>
   <string name="revanced_debug_protobuffer_summary_on">I log di debug includono proto buffer</string>
   <string name="revanced_debug_protobuffer_summary_off">I log di debug non includono proto buffer</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"L'abilitazione di questa impostazione registrerà dati di layout aggiuntivi, incluso il testo su schermo per alcuni componenti dell'interfaccia utente.
+
+Questo può aiutare a identificare i componenti durante la creazione di filtri personalizzati.
+
+Tuttavia, l'abilitazione di questa opzione registrerà anche alcuni dati dell'utente come il tuo indirizzo IP."</string>
   <string name="revanced_debug_stacktrace_title">Registra stack trace</string>
   <string name="revanced_debug_stacktrace_summary_on">I log di debug includono lo stack trace</string>
   <string name="revanced_debug_stacktrace_summary_off">I log di debug non includono lo stack trace</string>
@@ -124,6 +131,15 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Disabilitare i toast di errore nasconde tutte le notifiche di errore di ReVanced.
 
 Non sarai notificato di eventi imprevisti."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Esporta i log di debug</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Copia i log di debug di ReVanced negli Appunti</string>
+  <string name="revanced_debug_logs_disabled">La registrazione di debug è disabilitata</string>
+  <string name="revanced_debug_logs_none_found">Nessun log trovato</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Log copiati</string>
+  <string name="revanced_debug_logs_failed_to_export">Esportazione dei log non riuscita: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Cancella i log di debug</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Cancella tutti i log di debug di ReVanced memorizzati</string>
+  <string name="revanced_debug_logs_clear_toast">Log cancellati</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Nascondi le schede degli album</string>
@@ -365,9 +381,6 @@ Note:
 
 Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Le pubblicità a schermo intero sono visibili</string>
-  <string name="revanced_hide_buttoned_ads_title">Nascondi le pubblicità a pulsante</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Le pubblicità a pulsante sono nascoste</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Le pubblicità a pulsante sono visibili</string>
   <string name="revanced_hide_paid_promotion_label_title">Nascondi l\'etichetta della promozione a pagamento</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">L\'etichetta della promozione a pagamento è nascosta</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">L\'etichetta della promozione a pagamento è visibile</string>
@@ -478,9 +491,10 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacità di sfondo della sovrapposizione di scorrimento</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valore di opacità tra 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacità di scorrimento deve essere tra 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Colore della barra di avanzamento della sovrapposizione a scorrimento</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Il colore della barra di avanzamento per i controlli di volume e luminosità</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Colore della barra di avanzamento non valido</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Colore della luminosit												 dell\'overlay a scorrimento</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Il colore della barra di avanzamento per i controlli della luminosit</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Colore del volume dell\'overlay a scorrimento</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Il colore della barra di avanzamento per i controlli del volume</string>
   <string name="revanced_swipe_text_overlay_size_title">Dimensione del testo della sovrapposizione a scorrimento</string>
   <string name="revanced_swipe_text_overlay_size_summary">La dimensione del testo per la sovrapposizione a scorrimento tra 1 e 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">La dimensione del testo deve essere compresa tra 1 e 30</string>
@@ -1098,11 +1112,6 @@ Pronto per l'invio?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s secondi</string>
   <string name="revanced_sb_color_opacity_label">Opacità:</string>
   <string name="revanced_sb_color_dot_label">Colore:</string>
-  <string name="revanced_sb_color_changed">Colore modificato</string>
-  <string name="revanced_sb_color_reset">Ripristino colore</string>
-  <string name="revanced_sb_color_invalid">Codice colore non valido</string>
-  <string name="revanced_sb_reset_color">Ripristina colore</string>
-  <string name="revanced_sb_reset">Reimposta</string>
   <string name="revanced_sb_about_title">Informazioni</string>
   <string name="revanced_sb_about_api_summary">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme</string>
   </patch>
@@ -1327,6 +1336,22 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="microg_settings_title">Impostazioni di GmsCore</string>
   <string name="microg_settings_summary">Impostazioni per GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Feedback aptico</string>
+  <string name="revanced_disable_haptic_feedback_summary">Modifica feedback aptico</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Disabilita aptica capitoli</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Aptica capitoli disabilitata</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Aptica capitoli abilitata</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Disabilita aptica di ricerca precisa</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">L\'aptica di ricerca precisa è disabilitata</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Aptica di ricerca precisa abilitata</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Disabilita l\'aptica di annullamento della ricerca</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">L\'aptica di annullamento della ricerca è disabilitata</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">L\'aptica di annullamento della ricerca è abilitata</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Disabilita zoom aptico</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Lo zoom aptico è disabilitato</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Lo zoom aptico è abilitato</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Se di recente hai modificato i dettagli di accesso al tuo account, disinstalla e reinstalla MicroG.</string>
   </patch>
@@ -1344,11 +1369,6 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Rimuovi il parametro di tracciamento della query</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Il parametro di tracciamento della query viene rimosso dai link</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Il parametro di tracciamento della query non viene rimosso dai link</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Disabilita zoom aptico</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Il feedback aptico è disabilitato</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Il feedback aptico è abilitato</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forza la lingua audio originale</string>

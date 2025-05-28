@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Iestatījumi</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vai vēlaties turpināt?</string>
   <string name="revanced_settings_reset">Atiestatīt</string>
+  <string name="revanced_settings_reset_color">Atiestatīt krāsu</string>
+  <string name="revanced_settings_color_invalid">Nederīga krāsa</string>
   <string name="revanced_settings_restart_title">Atjaunināt un restartēt</string>
   <string name="revanced_settings_restart">Restartēt</string>
   <string name="revanced_settings_import">Importēt</string>
@@ -115,6 +117,11 @@ Nospiediet turpināt pogu un atļaujiet optimizācijas izmaiņas."</string>
   <string name="revanced_debug_protobuffer_title">Reģistrēt protokola buferi</string>
   <string name="revanced_debug_protobuffer_summary_on">Atkļūdošanas žurnāli ietver protokola buferi</string>
   <string name="revanced_debug_protobuffer_summary_off">Atkļūdošanas žurnāli neietver protokola buferi</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Iespējojot šo iestatījumu, tiks reģistrēti papildu izkārtojuma dati, tostarp teksta attēlojums ekrānā dažiem lietotāja interfeisa komponentiem.
+
+Tas var palīdzēt identificēt komponentus, veidojot pielāgotus filtrus.
+
+Tomēr, iespējojot šo iestatījumu, tiks reģistrēti arī daži lietotāja dati, piemēram, jūsu IP adrese."</string>
   <string name="revanced_debug_stacktrace_title">Reģistrēt steka izsekošanu</string>
   <string name="revanced_debug_stacktrace_summary_on">Atkļūdošanas žurnāli ietver steka izsekošanu</string>
   <string name="revanced_debug_stacktrace_summary_off">Atkļūdošanas žurnāli neietver steka izsekošanu</string>
@@ -124,6 +131,15 @@ Nospiediet turpināt pogu un atļaujiet optimizācijas izmaiņas."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Kļūdu paziņojumu izslēgšana paslēpj visus ReVanced kļūdu paziņojumus.
 
 Jūs netiksit informēts par neparedzētiem notikumiem."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportēt atkļūdošanas žurnālus</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopē ReVanced atkļūdošanas žurnālus starpliktuvē</string>
+  <string name="revanced_debug_logs_disabled">Atkļūdošanas žurnālu reģistrēšana ir atspējota</string>
+  <string name="revanced_debug_logs_none_found">Žurnāli nav atrasti</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Žurnāli ir kopēti</string>
+  <string name="revanced_debug_logs_failed_to_export">Neizdevās eksportēt žurnālus: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Notīrīt atkļūdošanas žurnālus</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Notīra visus saglabātos ReVanced atkļūdošanas žurnālus</string>
+  <string name="revanced_debug_logs_clear_toast">Žurnāli ir notīrīti</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Paslēpt albumu kartītes</string>
@@ -365,9 +381,6 @@ Ierobežojumi
 
 Šī funkcija ir pieejama tikai vecākiem ierīcēm"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Pilnekrāna reklāmas ir redzamas</string>
-  <string name="revanced_hide_buttoned_ads_title">Paslēpt reklāmas ar pogām</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Reklāmas ar pogām ir paslēptas</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Reklāmas ar pogām ir redzamas</string>
   <string name="revanced_hide_paid_promotion_label_title">Paslēpt apmaksātas reklāmas etiķeti</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Apmaksātas reklāmas etiķete ir paslēpta</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Apmaksātas reklāmas etiķete ir redzama</string>
@@ -478,9 +491,10 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Pārvilkšanas pārklājuma fona necaurredzamība</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Necaurredzamības vērtība no 0 līdz 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pārvilkšanas necaurredzamībai jābūt no 0 līdz 100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Pārvelciet pārklājuma progresa joslas krāsu</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Skaļuma un spilgtuma vadīklu progresa joslas krāsa</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Nederīga progresa joslas krāsa</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Velciet pārklājuma spilgtuma krāsu</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Spilgtuma vadīklu progresa joslas krāsa</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Velciet pārklājuma skaļuma krāsu</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Skaļuma vadīklu progresa joslas krāsa</string>
   <string name="revanced_swipe_text_overlay_size_title">Pārvelciet pārklājuma teksta lielumu</string>
   <string name="revanced_swipe_text_overlay_size_summary">Pārvelciet pārklājuma teksta lielumu starp 1–30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Teksta lielumam jābūt starp 1–30</string>
@@ -1098,11 +1112,6 @@ Vai esat gatavs iesniegt?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekundes</string>
   <string name="revanced_sb_color_opacity_label">Necaurredzamība:</string>
   <string name="revanced_sb_color_dot_label">Krāsa:</string>
-  <string name="revanced_sb_color_changed">Krāsa mainīta</string>
-  <string name="revanced_sb_color_reset">Krāsa atiestatīta</string>
-  <string name="revanced_sb_color_invalid">Nederīgs krāsas kods</string>
-  <string name="revanced_sb_reset_color">Atiestatīt krāsu</string>
-  <string name="revanced_sb_reset">Atiestatīt</string>
   <string name="revanced_sb_about_title">Par</string>
   <string name="revanced_sb_about_api_summary">Dati tiek sniegti no SponsorBlock API. Pieskarieties šeit, lai uzzinātu vairāk un skatītu lejupielādes citām platformām</string>
   </patch>
@@ -1327,6 +1336,22 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="microg_settings_title">GmsCore iestatījumi</string>
   <string name="microg_settings_summary">GmsCore iestatījumi</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptiskā atgriezeniskā saite</string>
+  <string name="revanced_disable_haptic_feedback_summary">Mainīt haptisko atgriezenisko saiti</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Atspējot nodaļu haptisko atgriezenisko saiti</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Nodaļu haptiskā atgriezeniskā saite ir atspējota</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Nodaļu haptiskā atgriezeniskā saite ir iespējota</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Atspējot precīzas meklēšanas haptisko atgriezenisko saiti</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Precīza meklēšanas haptiskā atgriezeniskā saite ir atspējota</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Precīzas meklēšanas haptiskā atgriezeniskā saite ir iespējota</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Atspējot meklēšanas atsaukšanas haptisko atgriezenisko saiti</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Meklēšanas atsaukšanas haptiskā atgriezeniskā saite ir atspējota</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Meklēšanas atsaukšanas haptiskā atgriezeniskā saite ir iespējota</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Atspējot tālummaiņas haptisko atgriezenisko saiti</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Tālummaiņas haptiskā atgriezeniskā saite ir atspējota</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Tālummaiņas haptiskā atgriezeniskā saite ir iespējota</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Ja nesen mainījāt sava konta pieteikšanās informāciju, atinstalējiet un atkārtoti instalējiet MicroG.</string>
   </patch>
@@ -1344,11 +1369,6 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_remove_tracking_query_parameter_title">Noņemt izsekošanas vaicājuma parametru</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Izsekošanas vaicājuma parametrs tiek noņemts no saitēm</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Izsekošanas vaicājuma parametrs netiek noņemts no saitēm</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Atspējot tālummaiņas haptisko atgriezenisko saiti</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptiskā atgriezeniskā saite ir atspējota</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptiskā atgriezeniskā saite ir iespējota</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Piespiest oriģinālo audio valodu</string>

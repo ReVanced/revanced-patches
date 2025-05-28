@@ -7,7 +7,5 @@ import app.revanced.patcher.patch.bytecodePatch
 val spoofSignaturePatch = bytecodePatch(
     description = "Spoofs the signature of the app fix various functions of the app.",
 ) {
-    compatibleWith("com.spotify.music")
-
     dependsOn(spoofPackageInfoPatch)
 }

@@ -284,6 +284,14 @@ public final class app/revanced/patches/messenger/inputfield/DisableTypingIndica
 	public static final fun getDisableTypingIndicatorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/messenger/metaai/RemoveMetaAIPatchKt {
+	public static final fun getRemoveMetaAIPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/messenger/misc/extension/ExtensionPatchKt {
+	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/messenger/navbar/RemoveMetaAITabPatchKt {
 	public static final fun getRemoveMetaAITabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -430,6 +438,10 @@ public final class app/revanced/patches/primevideo/ads/SkipAdsPatchKt {
 
 public final class app/revanced/patches/primevideo/misc/extension/ExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/primevideo/misc/permissions/RenamePermissionsPatchKt {
+	public static final fun getRenamePermissionsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/protonmail/account/RemoveFreeAccountsLimitKt {
@@ -656,6 +668,10 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch
 	public static final fun getResourceMappings ()Ljava/util/List;
 }
 
+public final class app/revanced/patches/shared/misc/pairip/license/DisableLicenseCheckPatchKt {
+	public static final fun getDisableLicenseCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/shared/misc/settings/SettingsPatchKt {
 	public static final fun settingsPatch (Ljava/util/List;Ljava/util/Set;)Lapp/revanced/patcher/patch/ResourcePatch;
 	public static final fun settingsPatch (Lkotlin/Pair;Ljava/util/Set;)Lapp/revanced/patcher/patch/ResourcePatch;
@@ -874,6 +890,10 @@ public final class app/revanced/patches/spotify/misc/fix/SpoofPackageInfoPatchKt
 
 public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {
 	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/fix/login/FixFacebookLoginPatchKt {
+	public static final fun getFixFacebookLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/misc/privacy/SanitizeSharingLinksPatchKt {
@@ -1387,6 +1407,10 @@ public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/misc/hapticfeedback/DisableHapticFeedbackPatchKt {
+	public static final fun getDisableHapticFeedbackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/misc/imageurlhook/CronetImageUrlHookKt {
 	public static final fun addImageUrlErrorCallbackHook (Ljava/lang/String;)V
 	public static final fun addImageUrlHook (Ljava/lang/String;Z)V
@@ -1619,8 +1643,23 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun indexOfFirstResourceIdOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun injectHideViewCall (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;IILjava/lang/String;Ljava/lang/String;)V
 	public static final fun literal (Lapp/revanced/patcher/FingerprintBuilder;Lkotlin/jvm/functions/Function0;)V
+	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;B)V
+	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;C)V
+	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;D)V
+	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;F)V
+	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;I)V
+	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;J)V
+	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;S)V
 	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Z)V
 	public static synthetic fun returnEarly$default (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ZILjava/lang/Object;)V
+	public static final fun returnLate (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;B)V
+	public static final fun returnLate (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;C)V
+	public static final fun returnLate (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;D)V
+	public static final fun returnLate (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;F)V
+	public static final fun returnLate (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;I)V
+	public static final fun returnLate (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;J)V
+	public static final fun returnLate (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;S)V
+	public static final fun returnLate (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Z)V
 	public static final fun transformMethods (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lkotlin/jvm/functions/Function1;)V
 	public static final fun traverseClassHierarchy (Lapp/revanced/patcher/patch/BytecodePatchContext;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lkotlin/jvm/functions/Function1;)V
 }

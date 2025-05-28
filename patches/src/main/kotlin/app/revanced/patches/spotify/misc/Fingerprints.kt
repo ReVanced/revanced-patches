@@ -65,8 +65,15 @@ internal val protobufListsFingerprint = fingerprint {
     custom { method, _ -> method.name == "emptyProtobufList" }
 }
 
-internal val protobufListRemoveFingerprint = fingerprint {
-    custom { method, _ -> method.name == "remove" }
+internal val abstractProtobufListEnsureIsMutableFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters()
+    returns("V")
+    custom { method, _ ->
+    	method.indexOfFirstInstruction {
+            getReference<TypeReference>()?.type == "Ljava/lang/UnsupportedOperationException;"
+        } >= 0
+    }
 }
 
 internal val homeSectionFingerprint = fingerprint {

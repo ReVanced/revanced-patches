@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Mga Setting</string>
   <string name="revanced_settings_confirm_user_dialog_title">Gusto mo bang magpatuloy?</string>
   <string name="revanced_settings_reset">I-reset</string>
+  <string name="revanced_settings_reset_color">I-reset ang kulay</string>
+  <string name="revanced_settings_color_invalid">Hindi wasto ang kulay</string>
   <string name="revanced_settings_restart_title">I-refresh at i-restart</string>
   <string name="revanced_settings_restart">I-restart</string>
   <string name="revanced_settings_import">Angkat</string>
@@ -115,6 +117,11 @@ Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimiz
   <string name="revanced_debug_protobuffer_title">Mag-log protocol buffer</string>
   <string name="revanced_debug_protobuffer_summary_on">Kasama sa mga debug log ang proto buffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Ang mga debug log ay hindi kasama ang proto buffer</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Ang pagpapagana sa setting na ito ay magtatala ng karagdagang data ng layout, kabilang ang on-screen na teksto para sa ilang bahagi ng UI.
+
+Maaaring makatulong ito na matukoy ang mga bahagi kapag lumilikha ng mga custom na filter.
+
+Gayunpaman, ang pagpapagana nito ay magtatala rin ng ilang data ng user gaya ng iyong IP address."</string>
   <string name="revanced_debug_stacktrace_title">Mga bakas ng stack ng log</string>
   <string name="revanced_debug_stacktrace_summary_on">Kasama sa mga debug log ang stack trace</string>
   <string name="revanced_debug_stacktrace_summary_off">Hindi kasama sa mga debug log ang stack trace</string>
@@ -124,6 +131,15 @@ Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimiz
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Ang pag-off ng mga toast ng error ay nagtatago ng lahat ng mga abiso ng error ng ReVanced.
 
 Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">I-export ang mga debug log</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kinokopya ang mga ReVanced debug log sa clipboard</string>
+  <string name="revanced_debug_logs_disabled">Hindi pinagana ang pag-log ng debug</string>
+  <string name="revanced_debug_logs_none_found">Walang nakitang mga log</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Nakopya ang mga log</string>
+  <string name="revanced_debug_logs_failed_to_export">Nabigong i-export ang mga log: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">I-clear ang mga debug log</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Iki-clear ang lahat ng nakaimbak na ReVanced debug log</string>
+  <string name="revanced_debug_logs_clear_toast">Na-clear ang mga log</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Itago ang mga album card</string>
@@ -365,9 +381,6 @@ Mga limitasyon
 
 Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Ipinapakita ang mga fullscreen na ad</string>
-  <string name="revanced_hide_buttoned_ads_title">Itago ang mga naka-button na ad</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Nakatago ang mga naka-button na ad</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Ipinapakita ang mga naka-button na ad</string>
   <string name="revanced_hide_paid_promotion_label_title">Itago ang may bayad na label ng promosyon</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Nakatago ang label ng bayad na promosyon</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Ipinapakita ang may bayad na label ng promosyon</string>
@@ -478,9 +491,10 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_swipe_overlay_background_opacity_title">Transparency ng background ng swipe overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Halaga ng opacity sa pagitan ng 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Ang opacity ng swipe ay dapat nasa pagitan ng 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Kulay ng progress bar ng swipe overlay</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Ang kulay ng progress bar para sa mga kontrol ng volume at brightness</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Hindi wasto ang kulay ng progress bar</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Kulay ng liwanag ng swipe overlay</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Ang kulay ng progress bar para sa mga kontrol ng liwanag</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Kulay ng volume ng swipe overlay</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Ang kulay ng progress bar para sa mga kontrol ng volume</string>
   <string name="revanced_swipe_text_overlay_size_title">Laki ng teksto ng swipe overlay</string>
   <string name="revanced_swipe_text_overlay_size_summary">Ang laki ng teksto para sa swipe overlay sa pagitan ng 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Ang laki ng teksto ay dapat sa pagitan ng 1-30</string>
@@ -1097,11 +1111,6 @@ Isumite na ba?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s segundo</string>
   <string name="revanced_sb_color_opacity_label">Opacity:</string>
   <string name="revanced_sb_color_dot_label">Kulay:</string>
-  <string name="revanced_sb_color_changed">Nagbago ang kulay</string>
-  <string name="revanced_sb_color_reset">Pag-reset ng kulay</string>
-  <string name="revanced_sb_color_invalid">Di-wastong code ng kulay</string>
-  <string name="revanced_sb_reset_color">I-reset ang kulay</string>
-  <string name="revanced_sb_reset">I-reset</string>
   <string name="revanced_sb_about_title">Tungkol</string>
   <string name="revanced_sb_about_api_summary">Ang data ay ibinibigay ng SponsorBlock API. Mag-tap dito para matuto pa at makakita ng mga download para sa iba pang platform</string>
   </patch>
@@ -1326,6 +1335,22 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="microg_settings_title">Mga Setting ng GmsCore</string>
   <string name="microg_settings_summary">Mga setting para sa GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptic feedback</string>
+  <string name="revanced_disable_haptic_feedback_summary">Baguhin ang haptic feedback</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Huwag paganahin ang chapters haptics</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Hindi pinagana ang Chapters haptics</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Pinagana ang Chapters haptics</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Huwag paganahin ang tumpak na paghahanap ng haptics</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Hindi pinagana ang tumpak na paghahanap ng haptics</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Pinagana ang tumpak na paghahanap ng haptics</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Huwag paganahin ang seek undo haptics</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Hindi pinagana ang seek undo haptics</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Pinagana ang seek undo haptics</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Huwag paganahin ang zoom haptics</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Hindi pinagana ang zoom haptics</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Pinagana ang zoom haptics</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Kung kamakailan mo lang binago ang mga detalye sa pag-login sa iyong account, i-uninstall at muling i-install ang MicroG.</string>
   </patch>
@@ -1343,11 +1368,6 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_remove_tracking_query_parameter_title">Alisin ang parameter ng query sa pagsubaybay</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Ang parameter ng query sa pagsubaybay ay tinanggal mula sa mga link</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Ang parameter ng query sa pagsubaybay ay hindi inaalis sa mga link</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Huwag paganahin ang zoom haptics</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Naka-disable ang Haptics</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Pinagana ang Haptics</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>

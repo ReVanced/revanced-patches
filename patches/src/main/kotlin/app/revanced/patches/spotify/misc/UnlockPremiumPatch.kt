@@ -3,7 +3,6 @@ package app.revanced.patches.spotify.misc
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
@@ -12,9 +11,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.*
 import app.revanced.util.toPublicAccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -133,29 +130,24 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
 
-        val protobufListClassDef = with(protobufListsFingerprint.originalMethod) {
+        val protobufArrayListClassDef = with(protobufListsFingerprint.originalMethod) {
             val emptyProtobufListGetIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
-            // Find the protobuffer list class using the definingClass which contains the empty list static value.
+            // Find the protobuf array list class using the definingClass which contains the empty list static value.
             val classType = getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
 
-            classes.find { it.type == classType } ?: throw PatchException("Could not find protobuffer list class.")
+            classes.find { it.type == classType } ?: throw PatchException("Could not find protobuf array list class.")
         }
+
+        val abstractProtobufListClassDef = classes.find {
+            it.type == protobufArrayListClassDef.superclass
+        } ?: throw PatchException("Could not find abstract protobuf list class.")
 
         // Need to allow mutation of the list so the home ads sections can be removed.
-        // Protobuffer list has an 'isMutable' boolean parameter that sets the mutability.
+        // Protobuf array list has an 'isMutable' boolean parameter that sets the mutability.
         // Forcing that always on breaks unrelated code in strange ways.
-        // Instead, remove the method call that checks if the list is unmodifiable.
-        protobufListRemoveFingerprint.match(protobufListClassDef).method.apply {
-            val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        reference?.returnType == "V" && reference.parameterTypes.isEmpty()
-            }
-
-            // Remove the method call that throws an exception if the list is not mutable.
-            removeInstruction(invokeThrowUnmodifiableIndex)
-        }
-
+        // Instead, return early in the method that throws an error if the list is unmutable.
+        abstractProtobufListEnsureIsMutableFingerprint.match(abstractProtobufListClassDef)
+            .method.returnEarly()
 
         // Make featureTypeCase_ accessible so we can check the home section type in the extension.
         homeSectionFingerprint.classDef.publicizeField("featureTypeCase_")

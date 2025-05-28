@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">設定</string>
   <string name="revanced_settings_confirm_user_dialog_title">続行しますか？</string>
   <string name="revanced_settings_reset">リセット</string>
+  <string name="revanced_settings_reset_color">色をリセット</string>
+  <string name="revanced_settings_color_invalid">色の値が無効です</string>
   <string name="revanced_settings_restart_title">更新して再起動</string>
   <string name="revanced_settings_restart">再起動</string>
   <string name="revanced_settings_import">インポート</string>
@@ -42,8 +44,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced 設定をデフォルトにリセット</string>
   <string name="revanced_settings_import_success">%d 個の設定をインポートしました</string>
   <string name="revanced_settings_import_failure_parse">インポート失敗: %s</string>
-  <string name="revanced_settings_search_hint">設定を検索</string>
-  <string name="revanced_settings_search_no_results_title">\'%s\' に一致する設定は見つかりませんでした</string>
+  <string name="revanced_settings_search_hint">ReVanced の設定を検索</string>
+  <string name="revanced_settings_search_no_results_title">\'%s\' に一致する ReVanced の設定は見つかりませんでした</string>
   <string name="revanced_settings_search_no_results_summary">別のキーワードを試してください</string>
   <string name="revanced_settings_search_remove_message">検索履歴から削除しますか？</string>
   <string name="revanced_show_menu_icons_title">ReVanced 設定にアイコンを表示する</string>
@@ -98,9 +100,9 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_restore_old_settings_menus_title">設定メニューを旧バージョンに戻す</string>
   <string name="revanced_restore_old_settings_menus_summary_on">旧バージョンの設定メニューが表示されます</string>
   <string name="revanced_restore_old_settings_menus_summary_off">通常の設定メニューが表示されます</string>
-  <string name="revanced_settings_search_history_title">設定の検索履歴を表示する</string>
-  <string name="revanced_settings_search_history_summary_on">設定の検索履歴は表示されます</string>
-  <string name="revanced_settings_search_history_summary_off">設定の検索履歴は表示されません</string>
+  <string name="revanced_settings_search_history_title">設定検索の履歴を表示する</string>
+  <string name="revanced_settings_search_history_summary_on">設定検索の履歴は表示されます</string>
+  <string name="revanced_settings_search_history_summary_off">設定検索の履歴は表示されません</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">ショート動画のバックグラウンド再生を無効にする</string>
@@ -116,6 +118,11 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_debug_protobuffer_title">protocol buffer を記録する</string>
   <string name="revanced_debug_protobuffer_summary_on">デバッグ ログに protocol buffer が含まれます</string>
   <string name="revanced_debug_protobuffer_summary_off">デバッグ ログに protocol buffer は含まれません</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"この設定を有効にすると、一部のUIコンポーネントの画面上のテキストなど、追加のレイアウトデータが記録されます。
+
+これにより、カスタムフィルターを作成するときにコンポーネントを特定できます。
+
+ただし、これを有効にすると、IPアドレスなどの一部のユーザーデータも記録されます。"</string>
   <string name="revanced_debug_stacktrace_title">stack trace を記録する</string>
   <string name="revanced_debug_stacktrace_summary_on">デバッグ ログにstack trace が含まれます</string>
   <string name="revanced_debug_stacktrace_summary_off">デバッグ ログにstack trace は含まれません</string>
@@ -125,6 +132,15 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"この機能をオフにすると、すべてのReVanced エラー通知が非表示になります。
 
 あらゆる予期せぬイベントが通知されなくなります。"</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">デバッグログをエクスポート</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVancedデバッグログをクリップボードにコピーします</string>
+  <string name="revanced_debug_logs_disabled">デバッグログは無効です</string>
+  <string name="revanced_debug_logs_none_found">ログが見つかりませんでした</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">ログがコピーされました</string>
+  <string name="revanced_debug_logs_failed_to_export">ログのエクスポートに失敗しました：$s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">デバッグログをクリア</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">保存されているすべてのReVancedデバッグログをクリアします</string>
+  <string name="revanced_debug_logs_clear_toast">ログがクリアされました</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">アルバム情報を非表示</string>
@@ -368,9 +384,6 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
 
 この機能は、古いデバイスでのみ利用できます"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">全画面広告は、アプリ起動時に表示されます</string>
-  <string name="revanced_hide_buttoned_ads_title">ボタン付き広告を非表示</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">ボタン付き広告は表示されません</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">ボタン付き広告は表示されます</string>
   <string name="revanced_hide_paid_promotion_label_title">「プロモーションを含みます」ボタンを非表示</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">「プロモーションを含みます」ボタンはプレーヤー画面に表示されません</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">「プロモーションを含みます」ボタンはプレーヤー画面に表示されます</string>
@@ -481,9 +494,10 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_swipe_overlay_background_opacity_title">オーバーレイの背景の透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">透明度の範囲は 0-100 で、0 が透明です</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">スワイプ: 透明度の範囲は 0-100 です</string>
-  <string name="revanced_swipe_overlay_progress_color_title">オーバーレイのグラフの色</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">スワイプ中の音量や明るさの現在値を視覚的に表示するグラフの色</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">グラフの色の値が無効です</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">スワイプ オーバーレイの明るさの色</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">明るさ調節の進行状況バーの色</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">スワイプ オーバーレイの音量</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">音量調節の進行状況バーの色</string>
   <string name="revanced_swipe_text_overlay_size_title">オーバーレイのテキストサイズ</string>
   <string name="revanced_swipe_text_overlay_size_summary">スワイプ オーバーレイのテキストサイズ (1-30)</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">テキストサイズの範囲は 1-30 です</string>
@@ -1099,11 +1113,6 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_stats_saved_second_format">%s 秒</string>
   <string name="revanced_sb_color_opacity_label">透明度:</string>
   <string name="revanced_sb_color_dot_label">色:</string>
-  <string name="revanced_sb_color_changed">色を変更しました</string>
-  <string name="revanced_sb_color_reset">色がリセットされました</string>
-  <string name="revanced_sb_color_invalid">色の値が無効です</string>
-  <string name="revanced_sb_reset_color">色をリセット</string>
-  <string name="revanced_sb_reset">リセット</string>
   <string name="revanced_sb_about_title">SponsorBlock について</string>
   <string name="revanced_sb_about_api_summary">SponsorBlock APIによって提供されるデータです。詳細はこちらをタップしてください。</string>
   </patch>
@@ -1167,7 +1176,7 @@ Automotive レイアウト
   <string name="revanced_change_start_page_always_summary_on">"スタート画面の変更は常時適用されます
 
 制限事項: ツールバーの [戻る] ボタンが機能しない可能性があります"</string>
-  <string name="revanced_change_start_page_always_summary_off">スタート画面の変更はアプリ起動時にのみ適用されます</string>
+  <string name="revanced_change_start_page_always_summary_off">スタート画面の変更は、アプリ起動時にのみ適用されます</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">ショート動画プレーヤーの再開を無効にする</string>
@@ -1296,8 +1305,8 @@ Automotive レイアウト
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">ReVanced のお知らせを表示する</string>
-  <string name="revanced_announcements_summary_on">アプリ起動時にお知らせが表示されます</string>
-  <string name="revanced_announcements_summary_off">アプリ起動時にお知らせは表示されません</string>
+  <string name="revanced_announcements_summary_on">お知らせは、アプリ起動時に表示されます</string>
+  <string name="revanced_announcements_summary_off">お知らせは、アプリ起動時に表示されません</string>
   <string name="revanced_announcements_enabled_summary">アプリ起動時にお知らせを表示する</string>
   <string name="revanced_announcements_connection_failed">お知らせの取得に失敗しました</string>
   <string name="revanced_announcements_dialog_dismiss">閉じる</string>
@@ -1327,6 +1336,22 @@ Automotive レイアウト
   <string name="microg_settings_title">GmsCore 設定</string>
   <string name="microg_settings_summary">GmsCore の設定</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">触覚フィードバック</string>
+  <string name="revanced_disable_haptic_feedback_summary">触覚フィードバックを変更</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">チャプターの触覚フィードバックは無効です</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">チャプターの触覚フィードバックは有効です</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">正確なシークの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">正確なシークの触覚フィードバックは無効になっています</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">正確なシークの触覚フィードバックは有効です</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">シーク取り消しの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">シーク取り消しの触覚フィードバックは無効です</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">シーク取り消しの触覚フィードバックは有効です</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">ズームの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">ズームの触覚フィードバックは無効です</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">ズームの触覚フィードバックは有効です</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">最近アカウントのログイン情報を変更した場合は、MicroG をアンインストールして再インストールしてください。</string>
   </patch>
@@ -1344,11 +1369,6 @@ Automotive レイアウト
   <string name="revanced_remove_tracking_query_parameter_title">追跡パラメータをリンクから削除する</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">追跡パラメータはリンクから削除されます</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">追跡パラメータはリンクから削除されません</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">ズームの触覚フィードバックを無効にする</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">ズームの触覚フィードバックは無効です</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">ズームの触覚フィードバックは有効です</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">デフォルトの吹き替えを無効にする</string>
