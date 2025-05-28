@@ -11,7 +11,7 @@ public final class FacebookButtonConfigDisabler extends MobileConfigOverrider {
         // so we mask out the bits that seem to change, and use that.
         // This unfortunately makes it also disable around 2 other configs,
         // but the effects of that have not been noticed yet.
-        if ((id & 0xffffff0ffffff00L) == 0x101021000011A00L)
+        if ((id & 0xffffff0ffffff00L) == 0x101021000011a00L)
             return false;
 
         return value;
