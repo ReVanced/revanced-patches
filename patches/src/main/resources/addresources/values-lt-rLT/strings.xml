@@ -117,6 +117,11 @@ Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
   <string name="revanced_debug_protobuffer_title">Žurnalų protokolo buferis</string>
   <string name="revanced_debug_protobuffer_summary_on">Debugavimo žurnalai apima protokolo buferį</string>
   <string name="revanced_debug_protobuffer_summary_off">Debugavimo žurnalai neapima protokolo buferio</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Įjungus šį nustatymą bus registruojami papildomi išdėstymo duomenys, įskaitant ekrane rodomą tekstą kai kuriems vartotojo sąsajos komponentams.
+
+Tai gali padėti identifikuoti komponentus kuriant pasirinktinius filtrus.
+
+Tačiau įjungus šį nustatymą taip pat bus registruojami kai kurie vartotojo duomenys, pvz., jūsų IP adresas."</string>
   <string name="revanced_debug_stacktrace_title">Žurnalų steko pėdsakai</string>
   <string name="revanced_debug_stacktrace_summary_on">Debugavimo žurnalai apima steko pėdsaką</string>
   <string name="revanced_debug_stacktrace_summary_off">Debugavimo žurnalai neapima steko pėdsako</string>
@@ -126,6 +131,15 @@ Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Klaidos isjungimas paslepia visus „ReVanced“ klaidu pranesimus.
 
 Apie netikėtus įvykius nebus pranešta."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportuoti derinimo žurnalus</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Nukopijuoja „ReVanced“ derinimo žurnalus į mainų sritį</string>
+  <string name="revanced_debug_logs_disabled">Derinimo žurnalų registravimas išjungtas</string>
+  <string name="revanced_debug_logs_none_found">Žurnalų nerasta</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Žurnalai nukopijuoti</string>
+  <string name="revanced_debug_logs_failed_to_export">Nepavyko eksportuoti žurnalų: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Išvalyti derinimo žurnalus</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Išvalo visus išsaugotus „ReVanced“ derinimo žurnalus</string>
+  <string name="revanced_debug_logs_clear_toast">Žurnalai išvalyti</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Slėpti albumo korteles</string>
@@ -477,9 +491,6 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Užšliaukite dangos nušveitimo fono permatinumas</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Permatnumo vertė nuo 0 iki 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Slinkties permatnumas turi būti nuo 0 iki 100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Perbraukimo perdangos eigos juostos spalva</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Garso ir ryškumo valdiklių eigos juostos spalva</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Netinkama eigos juostos spalva</string>
   <string name="revanced_swipe_text_overlay_size_title">Perbraukimo perdangos teksto dydis</string>
   <string name="revanced_swipe_text_overlay_size_summary">Perbraukimo perdangos teksto dydis turi būti nuo 1 iki 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Teksto dydis turi būti nuo 1 iki 30</string>
@@ -1321,6 +1332,22 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="microg_settings_title">„GmsCore“ nustatymai</string>
   <string name="microg_settings_summary">„GmsCore“ nustatymai</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Vibracijos grįžtamasis ryšys</string>
+  <string name="revanced_disable_haptic_feedback_summary">Keisti vibracijos grįžtamąjį ryšį</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Išjungti skyrių vibraciją</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Skyrių vibracija išjungta</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Skyrių vibracija įjungta</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Išjungti tikslaus slinkimo vibraciją</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Tikslus ieškojimo vibracijos grįžtamasis ryšys išjungtas</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Tikslaus slinkimo vibracija įjungta</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Išjungti ieškojimo anuliavimo vibraciją</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Ieškojimo anuliavimo vibracijos grįžtamasis ryšys išjungtas</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Ieškojimo anuliavimo vibracijos grįžtamasis ryšys įjungtas</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Išjungti priartinimo vibraciją</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Priartinimo vibracija išjungta</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Priartinimo vibracija įjungta</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Jei neseniai pakeitėte savo paskyros prisijungimo duomenis, išdiekite ir iš naujo įdiekite „MicroG“.</string>
   </patch>
@@ -1338,11 +1365,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_remove_tracking_query_parameter_title">Pašalinti stebėjimo užklausų parametrą</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Stebėjimo užklausų parametras pašalinamas iš nuorodų</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Stebėjimo užklausų parametras nėra pašalinamas iš nuorodų</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Išjungti priartinimo vibraciją</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Vibracija išjungta</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Vibracija įjungta</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Priversti originalią garso kalbą</string>

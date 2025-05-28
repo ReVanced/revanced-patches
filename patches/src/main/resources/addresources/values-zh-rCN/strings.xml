@@ -117,6 +117,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">记录协议缓冲区</string>
   <string name="revanced_debug_protobuffer_summary_on">调试日志包括协议缓冲区</string>
   <string name="revanced_debug_protobuffer_summary_off">调试日志不包括协议缓冲区</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"启用此设置将记录额外的布局数据，包括某些 UI 组件的屏幕文本。
+
+这有助于在创建自定义过滤器时识别组件。
+
+但是，启用此设置也会记录一些用户数据，例如您的 IP 地址。"</string>
   <string name="revanced_debug_stacktrace_title">记录堆栈跟踪</string>
   <string name="revanced_debug_stacktrace_summary_on">调试日志包括堆栈跟踪</string>
   <string name="revanced_debug_stacktrace_summary_off">调试日志不包括堆栈跟踪</string>
@@ -126,6 +131,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"关闭错误 Toast 会隐藏所有 ReVanced 错误通知。
 
 您不会收到任何意外事件的通知。"</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">导出调试日志</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">将 ReVanced 调试日志复制到剪贴板</string>
+  <string name="revanced_debug_logs_disabled">调试日志记录已禁用</string>
+  <string name="revanced_debug_logs_none_found">未找到日志</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">日志已复制</string>
+  <string name="revanced_debug_logs_failed_to_export">导出日志失败：$s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">清除调试日志</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">清除所有存储的 ReVanced 调试日志</string>
+  <string name="revanced_debug_logs_clear_toast">日志已清除</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">隐藏专辑卡片</string>
@@ -477,9 +491,6 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">滑动提示层背景的不透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">不透明度值介于 0-100 之间</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑动不透明度必须介于 0-100 之间</string>
-  <string name="revanced_swipe_overlay_progress_color_title">滑动提示层进度条颜色</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">音量和亮度控件的进度条颜色</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">无效的进度条颜色</string>
   <string name="revanced_swipe_text_overlay_size_title">滑动提示层文字大小</string>
   <string name="revanced_swipe_text_overlay_size_summary">滑动提示层的文字大小，范围为 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">文字大小必须在 1-30 之间</string>
@@ -1326,6 +1337,22 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">GmsCore 设置</string>
   <string name="microg_settings_summary">GmsCore 的设置</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_summary">更改触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">禁用章节触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">已禁用章节触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">已启用章节触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">禁用精确搜索触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">精确查找触觉反馈已禁用</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">已启用精确搜索触感反馈</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">禁用撤销查找触觉反馈</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">撤销查找触觉反馈已禁用</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">撤销查找触觉反馈已启用</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">禁用缩放触觉反馈</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">缩放触觉反馈已禁用</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">缩放触觉反馈已启用</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">如果您最近更改了帐户登录详细信息，请卸载并重新安装 MicroG。</string>
   </patch>
@@ -1343,11 +1370,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">删除跟踪查询参数</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">链接中跟踪参数已去除</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">链接中跟踪参数未去除</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">禁用缩放触觉反馈</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">触觉反馈已禁用</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">触觉反馈已启用</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">强制使用原始音频语言</string>

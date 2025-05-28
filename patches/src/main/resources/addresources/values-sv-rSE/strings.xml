@@ -117,6 +117,11 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_debug_protobuffer_title">Logga protokollbuffert</string>
   <string name="revanced_debug_protobuffer_summary_on">Felsökningsloggar inkluderar protobuffert</string>
   <string name="revanced_debug_protobuffer_summary_off">Felsökningsloggar inkluderar inte protobuffert</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Om du aktiverar den här inställningen loggas ytterligare layoutdata, inklusive text på skärmen för vissa UI-komponenter.
+
+Detta kan hjälpa till att identifiera komponenter när du skapar anpassade filter.
+
+Men om du aktiverar detta kommer även vissa användardata, t.ex. din IP-adress, att loggas."</string>
   <string name="revanced_debug_stacktrace_title">Logga stackspår</string>
   <string name="revanced_debug_stacktrace_summary_on">Felsökningsloggar inkluderar stackspår</string>
   <string name="revanced_debug_stacktrace_summary_off">Felsökningsloggar inkluderar inte stackspår</string>
@@ -126,6 +131,15 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Att stänga av felmeddelanden döljer alla ReVanced-felmeddelanden.
 
 Du kommer inte att bli meddelad om oväntade händelser."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exportera felsökningsloggar</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopierar ReVanced-felsökningsloggar till Urklipp</string>
+  <string name="revanced_debug_logs_disabled">Felsökningsloggar är inaktiverade</string>
+  <string name="revanced_debug_logs_none_found">Inga loggar hittades</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Loggar kopierade</string>
+  <string name="revanced_debug_logs_failed_to_export">Det gick inte att exportera loggar: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Rensa felsökningsloggar</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Rensar alla lagrade ReVanced-felsökningsloggar</string>
+  <string name="revanced_debug_logs_clear_toast">Loggar rensade</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Dölj albumkort</string>
@@ -477,9 +491,10 @@ Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Överlägg svepbakgrund opacitet</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Opacitetsvärde mellan 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Överlagrad svepopacitet måste vara mellan 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Färg på förloppsindikatorn för svepöverlagring</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Färgen på förloppsindikatorn för volym- och ljusstyrkekontroller</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ogiltig färg på förloppsindikatorn</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Färg för svepgestöverlagringens ljusstyrka</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Färgen på förloppsindikatorn för ljusstyrkekontroller</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Färg för svepgestöverlagringens volym</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Färgen på förloppsindikatorn för volymkontroller</string>
   <string name="revanced_swipe_text_overlay_size_title">Textstorlek för svepöverlagring</string>
   <string name="revanced_swipe_text_overlay_size_summary">Textstorleken för svepöverlagring mellan 1 och 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Textstorleken måste vara mellan 1 och 30</string>
@@ -1321,6 +1336,22 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="microg_settings_title">GmsCore inställningar</string>
   <string name="microg_settings_summary">Inställningar för GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptisk återkoppling</string>
+  <string name="revanced_disable_haptic_feedback_summary">Ändra haptisk återkoppling</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Inaktivera haptik för kapitel</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptik för kapitel är inaktiverad</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptik för kapitel är aktiverad</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Inaktivera exakt sökhaptik</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Precisionssökning med haptik är inaktiverad</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Exakt sökhaptik är aktiverad</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Inaktivera ångra-sökning haptik</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Ångra-sökning haptik är inaktiverad</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Ångra-sökning haptik är aktiverad</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Inaktivera zoomhaptik</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoomhaptik är inaktiverad</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoomhaptik är aktiverad</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Om du nyligen har ändrat dina inloggningsuppgifter, avinstallera och installera om MicroG.</string>
   </patch>
@@ -1338,11 +1369,6 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Ta bort spårningsfrågeparameter</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Spårnings frågeparameter har tagits bort från länkar</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Spårnings frågeparameter har inte tagits bort från länkar</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Inaktivera zoomhaptik</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptikerna är inaktiverade</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptikerna är aktiverade</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forcera originalljudspråk</string>

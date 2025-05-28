@@ -117,6 +117,11 @@ Tapnite gumb za nadaljevanje in dovolite spremembe optimizacij."</string>
   <string name="revanced_debug_protobuffer_title">Dnevnik protokola pufra</string>
   <string name="revanced_debug_protobuffer_summary_on">Dnevniki napak vključujejo protokol pufra</string>
   <string name="revanced_debug_protobuffer_summary_off">Dnevniki napak ne vključujejo protokola pufra</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Če omogočite to nastavitev, se bodo beležili dodatni podatki o postavitvi, vključno z besedilom na zaslonu za nekatere komponente uporabniškega vmesnika.
+
+To lahko pomaga prepoznati komponente pri ustvarjanju filtrov po meri.
+
+Vendar pa bo omogočitev tega beležila tudi nekatere uporabniške podatke, kot je vaš naslov IP."</string>
   <string name="revanced_debug_stacktrace_title">Dnevnik sledov steka</string>
   <string name="revanced_debug_stacktrace_summary_on">Dnevniki napak vključujejo sled sledov</string>
   <string name="revanced_debug_stacktrace_summary_off">Dnevniki napak ne vključujejo sledi sledov</string>
@@ -126,6 +131,15 @@ Tapnite gumb za nadaljevanje in dovolite spremembe optimizacij."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Onemogočanje obvestil o napakah skrije vsa obvestila o napakah v ReVancedu.
 
 Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Izvozi dnevnike napak</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopira dnevnike napak ReVanced v odložišče</string>
+  <string name="revanced_debug_logs_disabled">Beleženje napak je onemogočeno</string>
+  <string name="revanced_debug_logs_none_found">Dnevnikov ni mogoče najti</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Dnevniki so bili kopirani</string>
+  <string name="revanced_debug_logs_failed_to_export">Izvoz dnevnikov ni uspel: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Počisti dnevnike napak</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Počisti vse shranjene dnevnike napak ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Dnevniki so bili izbrisani</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Skrij kartice albuma</string>
@@ -477,9 +491,10 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Prosojnost prekrivanja poteze</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Vrednost prosojnosti med 0 in 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Prosojnost drsenja mora biti med 0 in 100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Barva vrstice napredka prekrivnega drsenja</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Barva vrstice napredka za upravljanje glasnosti in svetlosti</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Neveljavna barva vrstice napredka</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Barva svetlosti prekrivnega potega</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Barva vrstice napredka za upravljanje svetlosti</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Barva glasnosti prekrivnega potega</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Barva vrstice napredka za upravljanje glasnosti</string>
   <string name="revanced_swipe_text_overlay_size_title">Velikost besedila prekrivnega drsenja</string>
   <string name="revanced_swipe_text_overlay_size_summary">Velikost besedila za prekrivni sloj drsenja med 1 in 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Velikost besedila mora biti med 1 in 30</string>
@@ -1321,6 +1336,22 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="microg_settings_title">Nastavitve GmsCore</string>
   <string name="microg_settings_summary">Nastavitve za GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptični odziv</string>
+  <string name="revanced_disable_haptic_feedback_summary">Spremeni haptični odziv</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Onemogoči haptiko poglavij</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptika poglavij je onemogočena</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptika poglavij je omogočena</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Onemogoči haptiko natančnega iskanja</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Natančna haptika pri iskanju je onemogočena</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Haptika natančnega iskanja je omogočena</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Onemogoči haptiko za razveljavitev iskanja</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Haptika za razveljavitev iskanja je onemogočena</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Haptika za razveljavitev iskanja je omogočena</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Onemogoči haptiko pri povečavi</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Haptika pri povečavi je onemogočena</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Haptika pri povečavi je omogočena</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Če ste nedavno spremenili podatke za prijavo v račun, odstranite in znova namestite MicroG.</string>
   </patch>
@@ -1338,11 +1369,6 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Odstrani parameter poizvedbe za sledenje</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parameter poizvedbe za sledenje je odstranjen iz povezav</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parameter poizvedbe za sledenje ni odstranjen iz povezav</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Onemogoči haptiko pri povečavi</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptika je onemogočena</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptika je omogočena</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Izsili izvirni jezik zvoka</string>

@@ -117,6 +117,11 @@ Tap på knappen Fortsæt, og tillad optimeringsændringer."</string>
   <string name="revanced_debug_protobuffer_title">Logprotokolbuffer</string>
   <string name="revanced_debug_protobuffer_summary_on">Fejlfindingslogge inkluderer protobuffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Fejlfindingslogge inkluderer ikke protobuffer</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Aktivering af denne indstilling logger yderligere layoutdata, inklusive tekst på skærmen for nogle UI-komponenter.
+
+Dette kan hjælpe med at identificere komponenter, når der oprettes brugerdefinerede filtre.
+
+Aktivering af dette vil dog også logge nogle brugerdata, såsom din IP-adresse."</string>
   <string name="revanced_debug_stacktrace_title">Logstakspor</string>
   <string name="revanced_debug_stacktrace_summary_on">Fejlfindingslogge inkluderer stakspor</string>
   <string name="revanced_debug_stacktrace_summary_off">Fejlfindingslogge inkluderer ikke stakspor</string>
@@ -126,6 +131,15 @@ Tap på knappen Fortsæt, og tillad optimeringsændringer."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Hvis du deaktiverer fejl-toasts, skjules alle ReVanced-fejlmeddelelser.
 
 Du modtager ikke notifikationer om uventede hændelser."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportér fejlsøgningslogfiler</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopierer ReVanced-fejlsøgningslogfiler til udklipsholderen</string>
+  <string name="revanced_debug_logs_disabled">Fejlsøgningslogning er deaktiveret</string>
+  <string name="revanced_debug_logs_none_found">Ingen logfiler fundet</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Logfiler kopieret</string>
+  <string name="revanced_debug_logs_failed_to_export">Kunne ikke eksportere logfiler: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Ryd fejlsøgningslogfiler</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Rydder alle gemte ReVanced-fejlsøgningslogfiler</string>
+  <string name="revanced_debug_logs_clear_toast">Logfiler ryddet</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Skjul albumkort</string>
@@ -444,9 +458,6 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Baggrundsgennemsigtighed for swipe-overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Gennemsigtighedsværdi mellem 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Gennemsigtighed for swipe skal være mellem 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Farve på statuslinje for strygeoverlejring</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Farven på statuslinjen for lydstyrke- og lysstyrkeknapper</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ugyldig farve til statuslinjen</string>
   <string name="revanced_swipe_text_overlay_size_title">Tekststørrelse for strygeoverlejring</string>
   <string name="revanced_swipe_text_overlay_size_summary">Tekststørrelsen for strygeoverlejring mellem 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Tekststørrelsen skal være mellem 1-30</string>
@@ -1266,6 +1277,22 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="microg_settings_title">GmsCore Indstillinger</string>
   <string name="microg_settings_summary">Indstillinger for GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptisk feedback</string>
+  <string name="revanced_disable_haptic_feedback_summary">Skift haptisk feedback</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Deaktivér haptics for kapitler</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptics for kapitler er deaktiveret</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptics for kapitler er aktiveret</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Deaktivér præcis søge-haptics</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Præcis søge-haptik er deaktiveret</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Præcis søge-haptics er aktiveret</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Deaktivér fortryd søge-haptik</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Fortryd søge-haptik er deaktiveret</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Fortryd søge-haptik er aktiveret</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Deaktivér zoom haptics</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoom haptics er deaktiveret</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoom haptics er aktiveret</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Hvis du for nylig har ændret dine kontooplysninger, skal du afinstallere og geninstallere MicroG.</string>
   </patch>
@@ -1283,11 +1310,6 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Fjern sporingsforespørgselsparameter</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Sporingsparameteren er fjernet fra links</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Sporingsforespørgselsparameteren er ikke fjernet fra links</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Deaktivér zoom haptics</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptics er deaktiveret</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptics er aktiveret</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Tving originalt lydsprog</string>
