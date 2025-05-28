@@ -494,6 +494,10 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_swipe_overlay_background_opacity_title">オーバーレイの背景の透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">透明度の範囲は 0-100 で、0 が透明です</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">スワイプ: 透明度の範囲は 0-100 です</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">スワイプ オーバーレイの明るさの色</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">明るさ調節の進行状況バーの色</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">スワイプ オーバーレイの音量</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">音量調節の進行状況バーの色</string>
   <string name="revanced_swipe_text_overlay_size_title">オーバーレイのテキストサイズ</string>
   <string name="revanced_swipe_text_overlay_size_summary">スワイプ オーバーレイのテキストサイズ (1-30)</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">テキストサイズの範囲は 1-30 です</string>

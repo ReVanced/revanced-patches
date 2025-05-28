@@ -487,6 +487,10 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Przejrzystość tła nakładki przesuwania</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Wartość przezroczystości od 0 do 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Przezroczystość przesuwania musi być między 0 a 100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Kolor nakładki przesunięcia dla jasności</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Kolor paska postępu dla elementów sterujących jasnością</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Kolor nakładki przesunięcia dla głośności</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Kolor paska postępu dla elementów sterujących głośnością</string>
   <string name="revanced_swipe_text_overlay_size_title">Rozmiar tekstu nakładki przesuwania</string>
   <string name="revanced_swipe_text_overlay_size_summary">Rozmiar tekstu dla nakładki przesunięcia między 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Rozmiar tekstu musi mieścić się w przedziale 1-30</string>

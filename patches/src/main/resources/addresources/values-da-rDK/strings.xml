@@ -458,6 +458,10 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Baggrundsgennemsigtighed for swipe-overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Gennemsigtighedsværdi mellem 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Gennemsigtighed for swipe skal være mellem 0-100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Farve på lysstyrke for strygeoverlejring</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Farven på statuslinjen for lysstyrkekontroller</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Farve på lydstyrke for strygeoverlejring</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Farven på statuslinjen for lydstyrkekontroller</string>
   <string name="revanced_swipe_text_overlay_size_title">Tekststørrelse for strygeoverlejring</string>
   <string name="revanced_swipe_text_overlay_size_summary">Tekststørrelsen for strygeoverlejring mellem 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Tekststørrelsen skal være mellem 1-30</string>

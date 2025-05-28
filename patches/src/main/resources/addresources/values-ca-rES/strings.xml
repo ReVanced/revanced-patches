@@ -491,6 +491,10 @@ Ajusteu el volum lliscant verticalment a la part dreta de la pantalla"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacitat del fons de la superposició de lliscament</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valor d\'opacitat entre 0 i 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacitat de lliscament ha d\'estar entre 0 i 100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Color de la lluminositat de la superposició de lliscament</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">El color de la barra de progrés per als controls de brillantor</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Color del volum de la superposició de lliscament</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">El color de la barra de progrés per als controls de volum</string>
   <string name="revanced_swipe_text_overlay_size_title">Mida del text de la superposició lliscant</string>
   <string name="revanced_swipe_text_overlay_size_summary">La mida del text per a la superposició lliscant entre 1 i 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">La mida del text ha d\'estar entre 1 i 30</string>
