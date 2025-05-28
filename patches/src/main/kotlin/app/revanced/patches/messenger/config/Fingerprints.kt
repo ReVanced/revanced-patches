@@ -20,6 +20,6 @@ internal val overrideMobileConfigPatchFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     custom { _, classDef ->
-        classDef.endsWith("/OverrideMobileConfigPatch;")
+        classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
 }
