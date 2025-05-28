@@ -6,8 +6,7 @@ import app.revanced.util.returnEarly
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
-    description = "Hides ads in stories, discover, profile, etc. " +
-        "An ad can still appear once when refreshing the home feed.",
+    description = "Hides ads in stories, discover, profile, etc."
 ) {
     /**
      * Patch is identical for both Instagram and Threads app.
