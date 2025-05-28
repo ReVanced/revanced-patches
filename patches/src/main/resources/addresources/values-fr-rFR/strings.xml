@@ -491,6 +491,10 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_swipe_overlay_background_opacity_title">Opacité de l\'arrière-plan de l\'overlay des gestes</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valeur de l\'opacité entre 0 et 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacité doit être comprise entre 0 et 100 pour les gestes</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Couleur de l\'overlay des gestes de contrôle de la luminosité</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">La couleur de la barre de progression des commandes de luminosité</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Couleur de l\'overlay des gestes de contrôle du volume</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">La couleur de la barre de progression des commandes de volume</string>
   <string name="revanced_swipe_text_overlay_size_title">Taille du texte de l\'overlay des gestes</string>
   <string name="revanced_swipe_text_overlay_size_summary">La taille du texte de l\'overlay des gestes comprise entre 1 et 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">La taille du texte doit être comprise entre 1 et 30</string>

@@ -491,6 +491,10 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_swipe_overlay_background_opacity_title">Dekking van de Swipe overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Dekking tussen 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Dekking moet tussen 0-100 zijn</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Veeg-overlay helderheidskleur</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">De kleur van de voortgangsbalk voor helderheidsbediening</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Veeg-overlay volumekleur</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">De kleur van de voortgangsbalk voor volumebediening</string>
   <string name="revanced_swipe_text_overlay_size_title">Tekengrootte swipe-overlay</string>
   <string name="revanced_swipe_text_overlay_size_summary">De tekstgrootte voor swipe-overlay tussen 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">De tekstgrootte moet tussen 1-30 liggen</string>

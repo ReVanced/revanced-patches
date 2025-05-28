@@ -491,6 +491,10 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacidade do plano de fundo da sobreposição de deslizar</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valor de opacidade entre 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A opacidade do deslizar deve estar entre 0-100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Cor da cor do brilho da sobreposição de deslizamento</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">A cor da barra de progresso para controles de brilho</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Cor do volume da sobreposição de deslizamento</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">A cor da barra de progresso para controles de volume</string>
   <string name="revanced_swipe_text_overlay_size_title">Tamanho do texto da sobreposição de deslize</string>
   <string name="revanced_swipe_text_overlay_size_summary">O tamanho do texto para a sobreposição de deslize entre 1 e 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">O tamanho do texto deve estar entre 1 e 30</string>

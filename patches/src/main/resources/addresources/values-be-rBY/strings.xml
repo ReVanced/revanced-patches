@@ -491,6 +491,10 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Непразрыстасць фону накладкі пракруткі</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значэнне непразрыстасці паміж 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непразрыстасць пракруткі павінна быць паміж 0-100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Колер яркасці накладкі правядзення</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Колер шкалы прагрэсу для элементаў кіравання яркасцю</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Колер гучнасці накладкі правядзення</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Колер шкалы прагрэсу для элементаў кіравання гучнасцю</string>
   <string name="revanced_swipe_text_overlay_size_title">Памер тэксту накладкі правядзення</string>
   <string name="revanced_swipe_text_overlay_size_summary">Памер тэксту для накладкі правядзення ад 1 да 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Памер тэксту павінен быць у межах ад 1 да 30</string>

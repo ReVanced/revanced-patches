@@ -90,7 +90,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_01_ads_title">Реклами</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Алтернативни миниатюри</string>
   <string name="revanced_settings_screen_03_feed_title">Поток</string>
-  <string name="revanced_settings_screen_04_general_title">Общ</string>
+  <string name="revanced_settings_screen_04_general_title">Общи</string>
   <string name="revanced_settings_screen_05_player_title">Плеър</string>
   <string name="revanced_settings_screen_07_seekbar_title">Лента за прогрес на видеото</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроли с плъзгане</string>
@@ -491,6 +491,10 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Плъзгане на фона на наслагването непрозрачност</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Стойност на непрозрачността между 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непрозрачността на плъзгането трябва да е между 0-100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Цвят на наслагването за яркост при плъзгане</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Цветът на лентата за състояние при контролиране на яркостта</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Цвят на наслагването за сила на звука при плъзгане</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Цветът на лентата за състояние при контролиране на силата на звука</string>
   <string name="revanced_swipe_text_overlay_size_title">Размер на текста на наслагването при плъзгане</string>
   <string name="revanced_swipe_text_overlay_size_summary">Размерът на текста за наслагването при плъзгане между 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Размерът на текста трябва да е между 1-30</string>
