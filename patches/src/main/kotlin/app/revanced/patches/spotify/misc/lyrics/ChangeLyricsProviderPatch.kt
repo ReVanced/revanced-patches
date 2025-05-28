@@ -1,5 +1,6 @@
 package app.revanced.patches.spotify.misc.lyrics
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint
@@ -12,7 +13,7 @@ import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import java.net.InetAddress
@@ -26,7 +27,7 @@ import java.util.logging.Logger
 val changeLyricsProviderPatch = bytecodePatch(
     name = "Change lyrics provider",
     description = "Changes the lyrics provider to a custom one.",
-    use = false
+    use = true
 ) {
     compatibleWith("com.spotify.music")
 
@@ -70,15 +71,18 @@ val changeLyricsProviderPatch = bytecodePatch(
         // region Create a modified copy of the HTTP client builder method with the custom lyrics provider URL.
 
         val patchedHttpClientBuilderMethod = with(httpClientBuilderFingerprint) {
-            val urlAssignmentIndex = stringMatches!!.first().index
-            val urlRegister = method.getInstruction<OneRegisterInstruction>(
-                urlAssignmentIndex,
-            ).registerA
+            val urlBuilderIndex = method.indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.returnType == "Lokhttp3/HttpUrl;"
+            }
+
+            val urlRegister = method
+                .getInstruction<FiveRegisterInstruction>(urlBuilderIndex - 1)
+                .registerD
 
             MutableMethod(method).apply {
                 name = "patch_getCustomLyricsProviderHttpClient"
-                replaceInstruction(
-                    urlAssignmentIndex,
+                addInstruction(
+                    urlBuilderIndex - 1,
                     "const-string v$urlRegister, \"$lyricsProviderHost\""
                 )
                 classDef.methods.add(this)

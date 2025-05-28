@@ -4,11 +4,5 @@ import app.revanced.patcher.fingerprint
 
 // This method builds and returns an HTTP client with a hardcoded host (declared in this method).
 internal val httpClientBuilderFingerprint = fingerprint {
-    parameters(
-        "Lokhttp3/OkHttpClient;",
-        "Lcom/fasterxml/jackson/databind/ObjectMapper;",
-        "L",
-        "Lio/reactivex/rxjava3/core/Scheduler;"
-    )
-    strings("spclient.wg.spotify.com")
+    strings("client == null")
 }
