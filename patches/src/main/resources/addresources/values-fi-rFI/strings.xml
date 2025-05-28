@@ -471,9 +471,6 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_swipe_overlay_background_opacity_title">Pyyhkäisypeittokuvan taustan läpinäkymättömyys</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Läpinäkymättömyysarvo 0–100 välillä</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pyyhkäisypeittokuvan läpinäkymättömyyden tulee olla 0–100 välillä</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Pyyhkäisypeittokuvan edistymispalkin väri</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Äänenvoimakkuuden ja kirkkauden säätimien edistymispalkin väri</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Virheellinen edistymispalkin väri</string>
   <string name="revanced_swipe_text_overlay_size_title">Pyyhkäisypeittokuvan tekstin koko</string>
   <string name="revanced_swipe_text_overlay_size_summary">Pyyhkäisypeittokuvan tekstin koko 1–30 välillä</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Tekstin koon tulee olla 1–30 välillä</string>
@@ -1313,6 +1310,9 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="microg_settings_title">GmsCore-asetukset</string>
   <string name="microg_settings_summary">GmsCoren asetukset</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_zoom_title">Poista zoomaushaptiikka käytöstä</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Jos olet äskettäin muuttanut tilisi kirjautumistietoja, poista ja asenna MicroG uudelleen.</string>
   </patch>
@@ -1330,11 +1330,6 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Poista seurantakyselyparametrit</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Seurantakyselyparametrit poistetaan linkeistä</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Seurantakyselyparametrejä ei poisteta linkeistä</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Poista zoomaushaptiikka käytöstä</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptiikka ei ole käytössä</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptiikka on käytössä</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Pakota alkuperäinen äänen kieli</string>

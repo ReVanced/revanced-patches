@@ -41,7 +41,10 @@ public class Logger {
         ERROR
     }
 
-    private static final String REVANCED_LOG_TAG = "revanced";
+    /**
+     * Log tag prefix. Only used for system logging.
+     */
+    private static final String REVANCED_LOG_TAG_PREFIX = "revanced: ";
 
     private static final String LOGGER_CLASS_NAME = Logger.class.getName();
 
@@ -90,17 +93,13 @@ public class Logger {
         String messageString = message.buildMessageString();
         String className = getOuterClassSimpleName(message);
 
-        StringBuilder logBuilder = new StringBuilder(className.length() + 2
-                + messageString.length());
-        logBuilder.append(className).append(": ").append(messageString);
-
-        String toastMessage = showToast ? logBuilder.toString() : null;
+        String logText = messageString;
 
         // Append exception message if present.
         if (ex != null) {
             var exceptionMessage = ex.getMessage();
             if (exceptionMessage != null) {
-                logBuilder.append("\nException: ").append(exceptionMessage);
+                logText += "\nException: " + exceptionMessage;
             }
         }
 
@@ -111,29 +110,31 @@ public class Logger {
             // Remove the stacktrace elements of this class.
             final int loggerIndex = stackTrace.lastIndexOf(LOGGER_CLASS_NAME);
             final int loggerBegins = stackTrace.indexOf('\n', loggerIndex);
-            logBuilder.append(stackTrace, loggerBegins, stackTrace.length());
+            logText += stackTrace.substring(loggerBegins);
         }
 
-        String logText = logBuilder.toString();
-        LogBufferManager.appendToLogBuffer(logText);
+        // Do not include "revanced:" prefix in clipboard logs.
+        String managerToastString = className + ": " + logText;
+        LogBufferManager.appendToLogBuffer(managerToastString);
 
+        String logTag = REVANCED_LOG_TAG_PREFIX + className;
         switch (logLevel) {
             case DEBUG:
-                if (ex == null) Log.d(REVANCED_LOG_TAG, logText);
-                else Log.d(REVANCED_LOG_TAG, logText, ex);
+                if (ex == null) Log.d(logTag, logText);
+                else Log.d(logTag, logText, ex);
                 break;
             case INFO:
-                if (ex == null) Log.i(REVANCED_LOG_TAG, logText);
-                else Log.i(REVANCED_LOG_TAG, logText, ex);
+                if (ex == null) Log.i(logTag, logText);
+                else Log.i(logTag, logText, ex);
                 break;
             case ERROR:
-                if (ex == null) Log.e(REVANCED_LOG_TAG, logText);
-                else Log.e(REVANCED_LOG_TAG, logText, ex);
+                if (ex == null) Log.e(logTag, logText);
+                else Log.e(logTag, logText, ex);
                 break;
         }
 
-        if (toastMessage != null) {
-            Utils.showToastLong(toastMessage);
+        if (showToast) {
+            Utils.showToastLong(managerToastString);
         }
     }
 

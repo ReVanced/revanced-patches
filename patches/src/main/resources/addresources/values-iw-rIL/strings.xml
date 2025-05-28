@@ -36,6 +36,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_confirm_user_dialog_title">האם ברצונך להמשיך?</string>
   <string name="revanced_settings_reset">איפוס</string>
   <string name="revanced_settings_reset_color">אפס צבע</string>
+  <string name="revanced_settings_color_invalid">צבע לא חוקי</string>
   <string name="revanced_settings_restart_title">רענן והפעל מחדש</string>
   <string name="revanced_settings_restart">הפעלה מחדש</string>
   <string name="revanced_settings_import">ייבוא</string>
@@ -43,6 +44,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">הגדרות ReVanced אופסו לברירת מחדל</string>
   <string name="revanced_settings_import_success">%d הגדרות יובאו</string>
   <string name="revanced_settings_import_failure_parse">ייבוא נכשל: %s</string>
+  <string name="revanced_settings_search_hint">חפש בהגדרות</string>
+  <string name="revanced_settings_search_no_results_title">לא נמצאו תוצאות עבור \'%s\'</string>
   <string name="revanced_show_menu_icons_title">הצג סמלי הגדרות ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">סמלי ההגדרות מוצגים</string>
   <string name="revanced_show_menu_icons_summary_off">סמלי ההגדרות אינם מוצגים</string>
@@ -1285,7 +1288,11 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">הגדרות GmsCore</string>
   <string name="microg_settings_summary">הגדרות עבור GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_zoom_title">השבת משוב זום ברטט</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">אם שיניתם לאחרונה את פרטי הכניסה לחשבון שלכם, הסירו והתקינו מחדש את MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">עקוף הפניות מחדש של URL</string>
@@ -1301,11 +1308,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">הסר פרמטר מעקב של שאילתה</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">פרמטר מעקב של שאילתה מוסר מקישורים</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">פרמטר מעקב של שאילתה אינו מוסר מקישורים</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">השבת משוב זום ברטט</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">משוב ברטט מושבת</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">משוב ברטט מופעל</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">כפה שפת שמע מקורית</string>

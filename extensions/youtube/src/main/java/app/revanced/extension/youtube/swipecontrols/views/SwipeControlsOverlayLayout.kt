@@ -39,7 +39,7 @@ class SwipeControlsOverlayLayout(
 
     constructor(context: Context) : this(context, SwipeControlsConfigurationProvider())
 
-    // Drawable icons for brightness and volume
+    // Drawable icons for brightness and volume.
     private val autoBrightnessIcon: Drawable = getDrawable("revanced_ic_sc_brightness_auto")
     private val lowBrightnessIcon: Drawable = getDrawable("revanced_ic_sc_brightness_low")
     private val mediumBrightnessIcon: Drawable = getDrawable("revanced_ic_sc_brightness_medium")
@@ -50,7 +50,7 @@ class SwipeControlsOverlayLayout(
     private val normalVolumeIcon: Drawable = getDrawable("revanced_ic_sc_volume_normal")
     private val fullVolumeIcon: Drawable = getDrawable("revanced_ic_sc_volume_high")
 
-    // Function to retrieve drawable resources by name
+    // Function to retrieve drawable resources by name.
     private fun getDrawable(name: String): Drawable {
         val drawable = resources.getDrawable(
             Utils.getResourceIdentifier(context, name, "drawable"),
@@ -60,19 +60,19 @@ class SwipeControlsOverlayLayout(
         return drawable
     }
 
-    // Initialize progress bars
+    // Initialize progress bars.
     private val circularProgressView: CircularProgressView
     private val horizontalProgressView: HorizontalProgressView
     private val verticalBrightnessProgressView: VerticalProgressView
     private val verticalVolumeProgressView: VerticalProgressView
 
     init {
-        // Initialize circular progress bar
+        // Initialize circular progress bar.
         circularProgressView = CircularProgressView(
             context,
             config.overlayBackgroundOpacity,
             config.overlayStyle.isMinimal,
-            config.overlayProgressColor,
+            config.overlayBrightnessProgressColor, // Placeholder, updated in showFeedbackView.
             config.overlayFillBackgroundPaint,
             config.overlayTextColor,
             config.overlayTextSize
@@ -80,18 +80,18 @@ class SwipeControlsOverlayLayout(
             layoutParams = LayoutParams(100f.toDisplayPixels().toInt(), 100f.toDisplayPixels().toInt()).apply {
                 addRule(CENTER_IN_PARENT, TRUE)
             }
-            visibility = GONE // Initially hidden
+            visibility = GONE // Initially hidden.
         }
         addView(circularProgressView)
 
-        // Initialize horizontal progress bar
+        // Initialize horizontal progress bar.
         val screenWidth = resources.displayMetrics.widthPixels
-        val layoutWidth = (screenWidth * 4 / 5).toInt() // Cap at ~360dp
+        val layoutWidth = (screenWidth * 4 / 5).toInt() // Cap at ~360dp.
         horizontalProgressView = HorizontalProgressView(
             context,
             config.overlayBackgroundOpacity,
             config.overlayStyle.isMinimal,
-            config.overlayProgressColor,
+            config.overlayBrightnessProgressColor, // Placeholder, updated in showFeedbackView.
             config.overlayFillBackgroundPaint,
             config.overlayTextColor,
             config.overlayTextSize
@@ -104,16 +104,16 @@ class SwipeControlsOverlayLayout(
                     topMargin = 20f.toDisplayPixels().toInt()
                 }
             }
-            visibility = GONE // Initially hidden
+            visibility = GONE // Initially hidden.
         }
         addView(horizontalProgressView)
 
-        // Initialize vertical progress bar for brightness (right side)
+        // Initialize vertical progress bar for brightness (right side).
         verticalBrightnessProgressView = VerticalProgressView(
             context,
             config.overlayBackgroundOpacity,
             config.overlayStyle.isMinimal,
-            config.overlayProgressColor,
+            config.overlayBrightnessProgressColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor,
             config.overlayTextSize
@@ -123,16 +123,16 @@ class SwipeControlsOverlayLayout(
                 rightMargin = 40f.toDisplayPixels().toInt()
                 addRule(CENTER_VERTICAL)
             }
-            visibility = GONE // Initially hidden
+            visibility = GONE // Initially hidden.
         }
         addView(verticalBrightnessProgressView)
 
-        // Initialize vertical progress bar for volume (left side)
+        // Initialize vertical progress bar for volume (left side).
         verticalVolumeProgressView = VerticalProgressView(
             context,
             config.overlayBackgroundOpacity,
             config.overlayStyle.isMinimal,
-            config.overlayProgressColor,
+            config.overlayVolumeProgressColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor,
             config.overlayTextSize
@@ -142,12 +142,12 @@ class SwipeControlsOverlayLayout(
                 leftMargin = 40f.toDisplayPixels().toInt()
                 addRule(CENTER_VERTICAL)
             }
-            visibility = GONE // Initially hidden
+            visibility = GONE // Initially hidden.
         }
         addView(verticalVolumeProgressView)
     }
 
-    // Handler and callback for hiding progress bars
+    // Handler and callback for hiding progress bars.
     private val feedbackHideHandler = Handler(Looper.getMainLooper())
     private val feedbackHideCallback = Runnable {
         circularProgressView.visibility = GONE
@@ -165,29 +165,42 @@ class SwipeControlsOverlayLayout(
 
         val viewToShow = when {
             config.overlayStyle.isCircular -> circularProgressView
-            config.overlayStyle.isVertical -> if (isBrightness) verticalBrightnessProgressView else verticalVolumeProgressView
+            config.overlayStyle.isVertical ->
+                if (isBrightness)
+                    verticalBrightnessProgressView
+                else
+                    verticalVolumeProgressView
             else -> horizontalProgressView
         }
         viewToShow.apply {
+            // Set the appropriate progress color.
+            if (this is CircularProgressView || this is HorizontalProgressView) {
+                setProgressColor(
+                    if (isBrightness)
+                        config.overlayBrightnessProgressColor
+                    else
+                        config.overlayVolumeProgressColor
+                )
+            }
             setProgress(progress, max, value, isBrightness)
             this.icon = icon
             visibility = VISIBLE
         }
     }
 
-    // Handle volume change
+    // Handle volume change.
     override fun onVolumeChanged(newVolume: Int, maximumVolume: Int) {
         val volumePercentage = (newVolume.toFloat() / maximumVolume) * 100
         val icon = when {
             newVolume == 0 -> mutedVolumeIcon
-            volumePercentage < 33 -> lowVolumeIcon
-            volumePercentage < 66 -> normalVolumeIcon
+            volumePercentage < 25 -> lowVolumeIcon
+            volumePercentage < 50 -> normalVolumeIcon
             else -> fullVolumeIcon
         }
         showFeedbackView("$newVolume", newVolume, maximumVolume, icon, isBrightness = false)
     }
 
-    // Handle brightness change
+    // Handle brightness change.
     override fun onBrightnessChanged(brightness: Double) {
         if (config.shouldLowestValueEnableAutoBrightness && brightness <= 0) {
             val displayText = if (config.overlayStyle.isVertical) "А"
@@ -195,18 +208,19 @@ class SwipeControlsOverlayLayout(
             showFeedbackView(displayText, 0, 100, autoBrightnessIcon, isBrightness = true)
         } else {
             val brightnessValue = round(brightness).toInt()
+            val clampedProgress = max(0, brightnessValue)
             val icon = when {
-                brightnessValue < 25 -> lowBrightnessIcon
-                brightnessValue < 50 -> mediumBrightnessIcon
-                brightnessValue < 75 -> highBrightnessIcon
+                clampedProgress < 25 -> lowBrightnessIcon
+                clampedProgress < 50 -> mediumBrightnessIcon
+                clampedProgress < 75 -> highBrightnessIcon
                 else -> fullBrightnessIcon
             }
-            val displayText = if (config.overlayStyle.isVertical) "$brightnessValue" else "$brightnessValue%"
-            showFeedbackView(displayText, brightnessValue, 100, icon, isBrightness = true)
+            val displayText = if (config.overlayStyle.isVertical) "$clampedProgress" else "$clampedProgress%"
+            showFeedbackView(displayText, clampedProgress, 100, icon, isBrightness = true)
         }
     }
 
-    // Begin swipe session
+    // Begin swipe session.
     override fun onEnterSwipeSession() {
         if (config.shouldEnableHapticFeedback) {
             @Suppress("DEPRECATION")
@@ -233,25 +247,41 @@ abstract class AbstractProgressView(
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
-    // Combined paint creation function for both fill and stroke styles
-    private fun createPaint(color: Int, style: Paint.Style = Paint.Style.FILL, strokeCap: Paint.Cap = Paint.Cap.BUTT, strokeWidth: Float = 0f) = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+    // Combined paint creation function for both fill and stroke styles.
+    private fun createPaint(
+        color: Int,
+        style: Paint.Style = Paint.Style.FILL,
+        strokeCap: Paint.Cap = Paint.Cap.BUTT,
+        strokeWidth: Float = 0f
+    ) = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         this.style = style
         this.color = color
         this.strokeCap = strokeCap
         this.strokeWidth = strokeWidth
     }
 
-    // Initialize paints
-    val backgroundPaint     = createPaint(overlayBackgroundOpacity,   style = Paint.Style.FILL)
-    val progressPaint       = createPaint(overlayProgressColor,       style = Paint.Style.STROKE, strokeCap = Paint.Cap.ROUND, strokeWidth = 6f.toDisplayPixels())
-    val fillBackgroundPaint = createPaint(overlayFillBackgroundPaint, style = Paint.Style.FILL)
-    val textPaint           = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color     = overlayTextColor
+    // Initialize paints.
+    val backgroundPaint = createPaint(
+        overlayBackgroundOpacity,
+        style = Paint.Style.FILL
+    )
+    val progressPaint = createPaint(
+        overlayProgressColor,
+        style = Paint.Style.STROKE,
+        strokeCap = Paint.Cap.ROUND,
+        strokeWidth = 6f.toDisplayPixels()
+    )
+    val fillBackgroundPaint = createPaint(
+        overlayFillBackgroundPaint,
+        style = Paint.Style.FILL
+    )
+    val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = overlayTextColor
         textAlign = Paint.Align.CENTER
-        textSize  = overlayTextSize.toFloat().toDisplayPixels()
+        textSize = overlayTextSize.toFloat().toDisplayPixels()
     }
 
-    // Rect for text measurement
+    // Rect for text measurement.
     protected val textBounds = Rect()
 
     protected var progress = 0
@@ -268,13 +298,18 @@ abstract class AbstractProgressView(
         invalidate()
     }
 
+    fun setProgressColor(color: Int) {
+        progressPaint.color = color
+        invalidate()
+    }
+
     protected fun measureTextWidth(text: String, paint: Paint): Int {
         paint.getTextBounds(text, 0, text.length, textBounds)
         return textBounds.width()
     }
 
     override fun onDraw(canvas: Canvas) {
-        // Base class implementation can be empty
+        // Base class implementation can be empty.
     }
 }
 
@@ -393,8 +428,8 @@ class HorizontalProgressView(
     }
 
     /**
-     * Calculate required width based on content
-     * @return Required width to display all elements
+     * Calculate required width based on content.
+     * @return Required width to display all elements.
      */
     private fun calculateRequiredWidth(): Float {
         textWidth = measureTextWidth(displayText, textPaint).toFloat()
@@ -537,8 +572,8 @@ class VerticalProgressView(
     }
 
     /**
-     * Calculate required height based on content
-     * @return Required height to display all elements
+     * Calculate required height based on content.
+     * @return Required height to display all elements.
      */
     private fun calculateRequiredHeight(): Float {
         return if (!isMinimalStyle) {
