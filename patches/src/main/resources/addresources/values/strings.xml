@@ -343,7 +343,7 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_video_ads_summary_on">Video ads are hidden</string>
             <string name="revanced_hide_video_ads_summary_off">Video ads are shown</string>
         </patch>
-        <patch id="alernativethumbnails.alternativeThumbnailsPatch">
+        <patch id="alternativethumbnails.alternativeThumbnailsPatch">
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
             <string name="revanced_alt_thumbnail_home_title">Home tab</string>
             <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->

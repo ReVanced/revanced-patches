@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.alernativethumbnails
+package app.revanced.patches.youtube.alternativethumbnails
 
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources

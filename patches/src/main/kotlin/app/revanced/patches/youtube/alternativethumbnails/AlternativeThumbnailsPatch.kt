@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.alernativethumbnails
+package app.revanced.patches.youtube.alternativethumbnails
 
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -44,7 +44,7 @@ val alternativeThumbnailsPatch = bytecodePatch(
     )
 
     execute {
-        addResources("youtube", "alernativethumbnails.alternativeThumbnailsPatch")
+        addResources("youtube", "alternativethumbnails.alternativeThumbnailsPatch")
 
         val entries = "revanced_alt_thumbnail_options_entries"
         val values = "revanced_alt_thumbnail_options_entry_values"
