@@ -13,7 +13,7 @@ val fixThirdPartyLaunchersWidgets = bytecodePatch(
 
     execute {
         if (IS_SPOTIFY_LEGACY_APP_TARGET)  {
-            // The permission check does not exist on legacy versions. No patches are needed.
+            // The permission check does not exist in legacy versions.
             return@execute
         }
 

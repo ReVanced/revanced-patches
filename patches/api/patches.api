@@ -864,7 +864,7 @@ public final class app/revanced/patches/spotify/layout/theme/CustomThemePatchKt 
 	public static final fun getCustomThemePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/spotify/layout/theme/hide/createbutton/FingerprintsKt {
+public final class app/revanced/patches/spotify/layout/theme/hide/createbutton/HideCreateButtonKt {
 	public static final fun getHideCreateButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
