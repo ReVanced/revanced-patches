@@ -1,3 +1,10 @@
+# [5.25.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.12...v5.25.0-dev.13) (2025-05-28)
+
+
+### Features
+
+* **Prime Video:** Add `Rename shared permissions` patch ([#5049](https://github.com/ReVanced/revanced-patches/issues/5049)) ([80f1fc6](https://github.com/ReVanced/revanced-patches/commit/80f1fc629e30e391bd5877f07dbdf4b6613bd1cf))
+
 # [5.25.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.11...v5.25.0-dev.12) (2025-05-28)
 
 
