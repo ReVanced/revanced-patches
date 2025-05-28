@@ -86,28 +86,30 @@ val changeLyricsProviderPatch = bytecodePatch(
 
             MutableMethod(method).apply {
                 name = "patch_getCustomLyricsProviderHttpClient"
-                addInstruction(
+                classDef.methods.add(this)
+            }.also {
+                method.addInstruction(
                     urlBuilderIndex - 1,
                     "const-string v$urlRegister, \"$lyricsProviderHost\""
                 )
-                classDef.methods.add(this)
             }
         }
 
         //endregion
 
         // region Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
+        val httpClientBuilderMethod = httpClientBuilderFingerprint.originalMethod
         fingerprint {
-            returns(httpClientBuilderFingerprint.originalMethod.returnType)
+            returns(httpClientBuilderMethod.returnType)
             parameters()
             custom { method, _ ->
                 method.indexOfFirstInstruction {
-                    getReference<MethodReference>() == httpClientBuilderFingerprint.originalMethod
+                    getReference<MethodReference>() == httpClientBuilderMethod
                 } >= 0
             }
         }.method.apply {
             val getLyricsHttpClientIndex = indexOfFirstInstructionOrThrow() {
-                getReference<MethodReference>() == httpClientBuilderFingerprint.originalMethod
+                getReference<MethodReference>() == httpClientBuilderMethod
             }
 
             val getLyricsHttpClientInstruction = getInstruction<BuilderInstruction35c>(getLyricsHttpClientIndex)
