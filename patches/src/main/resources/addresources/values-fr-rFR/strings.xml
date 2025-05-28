@@ -117,6 +117,11 @@ Appuyez sur le bouton Continuer et autorisez les modifications."</string>
   <string name="revanced_debug_protobuffer_title">Journaliser les protobufs</string>
   <string name="revanced_debug_protobuffer_summary_on">Les journaux de débogage incluent les protocol buffers</string>
   <string name="revanced_debug_protobuffer_summary_off">Les journaux de débogage n\'incluent pas les protocol buffers</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"En activant cette option, des données supplémentaires relatives à la mise en page seront enregistrées, dont le texte à l'écran de certains composants de l'interface utilisateur.
+
+Cela peut aider à identifier les composants lors de la création de filtres personnalisés.
+
+Toutefois, l'activation de cette option entraînera également l'enregistrement de certaines données utilisateur, telles que votre adresse IP."</string>
   <string name="revanced_debug_stacktrace_title">Journaliser les stack traces</string>
   <string name="revanced_debug_stacktrace_summary_on">Les journaux de débogage incluent les stack traces</string>
   <string name="revanced_debug_stacktrace_summary_off">Les journaux de débogage n\'incluent pas les stack traces</string>
@@ -126,6 +131,15 @@ Appuyez sur le bouton Continuer et autorisez les modifications."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"La désactivation des messages toasts d'erreur masque toutes les notifications d'erreur ReVanced.
 
 Vous ne serez pas informé des événements inattendus."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exporter les journaux de débogage</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Copie les journaux de débogage ReVanced dans le presse-papiers</string>
+  <string name="revanced_debug_logs_disabled">La journalisation de débogage est désactivée</string>
+  <string name="revanced_debug_logs_none_found">Aucun journal trouvé</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Journaux copiés</string>
+  <string name="revanced_debug_logs_failed_to_export">Échec de l\'exportation des journaux : $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Effacer les journaux de débogage</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Efface tous les journaux de débogage ReVanced stockés</string>
+  <string name="revanced_debug_logs_clear_toast">Journaux effacés</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Masquer les fiches d\'album</string>
@@ -477,9 +491,6 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_swipe_overlay_background_opacity_title">Opacité de l\'arrière-plan de l\'overlay des gestes</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valeur de l\'opacité entre 0 et 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacité doit être comprise entre 0 et 100 pour les gestes</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Couleur de la barre de progression de l\'overlay des gestes</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">La couleur de la barre de progression pour les commandes de volume et de luminosité</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Couleur de barre de progression invalide</string>
   <string name="revanced_swipe_text_overlay_size_title">Taille du texte de l\'overlay des gestes</string>
   <string name="revanced_swipe_text_overlay_size_summary">La taille du texte de l\'overlay des gestes comprise entre 1 et 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">La taille du texte doit être comprise entre 1 et 30</string>
@@ -1321,6 +1332,22 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="microg_settings_title">Paramètres GmsCore</string>
   <string name="microg_settings_summary">Paramètres relatifs à GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Retour haptique</string>
+  <string name="revanced_disable_haptic_feedback_summary">Modifiez les retours haptiques</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Désactiver le retour haptique des chapitres</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Le retour haptique des chapitres est désactivé</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Le retour haptique des chapitres est activé</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Désactiver le retour haptique de la recherche précise</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Le retour haptique de la recherche précise est désactivé</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Le retour haptique de la recherche précise est activé</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Désactiver le retour haptique d\'annulation de la recherche</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Le retour haptique d\'annulation de la recherche est désactivé</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Le retour haptique d\'annulation de la recherche est activé</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Désactiver le retour haptique des actions de zoom</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Le retour haptique du zoom est désactivé</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Le retour haptique du zoom est activé</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Si vous avez récemment modifié vos informations de connexion, désinstallez et réinstallez MicroG.</string>
   </patch>
@@ -1338,11 +1365,6 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_remove_tracking_query_parameter_title">Supprimer le paramètre de suivi</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Le paramètre de requête destiné au suivi est supprimé des liens</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Le paramètre de requête destiné au suivi n\'est pas supprimé des liens</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Désactiver le retour haptique des actions de zoom</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Le retour haptique est désactivé</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Le retour haptique est activé</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forcer la langue audio d\'origine</string>

@@ -117,6 +117,11 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_debug_protobuffer_title">Maolán prótacal logála</string>
   <string name="revanced_debug_protobuffer_summary_on">Cuimsíonn logaí dífhabhtaithe maolán</string>
   <string name="revanced_debug_protobuffer_summary_off">Ní chuimsíonn logaí dífhabhtaithe maolán proto</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Logálfaidh an socrú seo sonraí breise leagain amach, lena n-áirítear téacs ar an scáileán do chomhpháirteanna UI áirithe.
+
+Is féidir leis seo cabhrú le comhpháirteanna a aithint agus scagairí saincheaptha á gcruthú.
+
+Mar sin féin, logálfaidh sé seo roinnt sonraí úsáideora freisin, mar shampla do sheoladh IP."</string>
   <string name="revanced_debug_stacktrace_title">Rianta cruach logála</string>
   <string name="revanced_debug_stacktrace_summary_on">Cuimsíonn logaí dífhabhtaithe rian cruach</string>
   <string name="revanced_debug_stacktrace_summary_off">Ní chuimsíonn logaí dífhabhtaithe rian cruach</string>
@@ -126,6 +131,15 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Má mhúchtar tóstaí earráide, folaítear gach fógra earráide ReVanced.
 
 Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Easpórtáil logaí dífhabhtaithe</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Cóipeálann sé logaí dífhabhtaithe ReVanced chuig an gearrthaisce</string>
+  <string name="revanced_debug_logs_disabled">Tá logáil dífhabhtaithe díchumasaithe</string>
+  <string name="revanced_debug_logs_none_found">Ní bhfuarthas aon loga</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Lógaí cóipeáilte</string>
+  <string name="revanced_debug_logs_failed_to_export">Theip ar lógaí a easpórtáil: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Glan logaí dífhabhtaithe</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Glanann sé gach loga dífhabhtaithe ReVanced stóráilte</string>
+  <string name="revanced_debug_logs_clear_toast">Lógaí glanta</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Folaigh cártaí albam</string>
@@ -477,9 +491,6 @@ Coigeartaigh an toirt trí haisceartán go hingearach ar thaobh deas an scáile�
   <string name="revanced_swipe_overlay_background_opacity_title">Réabhlóid thrasláiteachta na gcúlra léaráidí</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Luach léaráidí idir 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Caithfidh léaráidí traslaithe a bheith idir 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Dath an bharra dul chun cinn forleagain swipe</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Dath an bharra dul chun cinn le haghaidh rialuithe toirte agus gile</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Dath barra dul chun cinn neamhbhailí</string>
   <string name="revanced_swipe_text_overlay_size_title">Méid téacs an fhorleagain swipe</string>
   <string name="revanced_swipe_text_overlay_size_summary">Méid téacs an fhorleagain swipe idir 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Caithfidh an méid téacs a bheith idir 1-30</string>
@@ -1322,6 +1333,22 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="microg_settings_title">Socruithe GmsCore</string>
   <string name="microg_settings_summary">Socruithe le haghaidh GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Aiseolas haptach</string>
+  <string name="revanced_disable_haptic_feedback_summary">Athraigh aiseolas haptach</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Díchumasaigh haptics caibidlí</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Tá haptics caibidlí díchumasaithe</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Tá haptics caibidlí cumasaithe</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Díchumasaigh haptics beacht cuardaigh</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Tá haptics beachtais díchumasaithe</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Tá haptics beacht cuardaigh cumasaithe</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Díchumasaigh haptics díthurais</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Tá haptics díthurais díchumasaithe</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Tá haptics díthurais cumasaithe</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Díchumasaigh súmáil haptics</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Tá súmáil haptics díchumasaithe</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Tá súmáil haptics cumasaithe</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Má d’athraigh tú sonraí logála isteach do chuntais le déanaí, ansin díshuiteáil agus athshuiteáil MicroG.</string>
   </patch>
@@ -1339,11 +1366,6 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Bain paraiméadar ceist rianaithe</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Baintear paraiméadar ceisteanna rianaithe ó naisc</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Ní bhaintear paraiméadar fiosrúcháin rianaithe ó naisc</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Díchumasaigh súmáil haptics</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Tá Haptics díchumasaithe</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Tá Haptics cumasaithe</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Fórsaigh teanga bhunaidh na fuaime</string>

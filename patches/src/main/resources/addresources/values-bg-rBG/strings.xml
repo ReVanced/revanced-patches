@@ -117,6 +117,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">Буфер на протокола за дневника</string>
   <string name="revanced_debug_protobuffer_summary_on">Файлове с дневници за грешки включват буфера</string>
   <string name="revanced_debug_protobuffer_summary_off">Файлове с дневници за грешки не включват буфера</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Активирането на тази настройка ще регистрира допълнителни данни за оформлението, включително текст на екрана за някои компоненти на потребителския интерфейс.
+
+Това може да помогне за идентифициране на компоненти при създаване на персонализирани филтри.
+
+Активирането на тази настройка обаче ще регистрира и някои потребителски данни, като например вашия IP адрес."</string>
   <string name="revanced_debug_stacktrace_title">Следи от стека на дневника</string>
   <string name="revanced_debug_stacktrace_summary_on">Дневникът за отстраняване на грешки съдържа следи от стека</string>
   <string name="revanced_debug_stacktrace_summary_off">Дневникът за отстраняване на грешки не съдържа следи от стека</string>
@@ -126,6 +131,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Изключването на изскачащи съобщения за грешки крие всички известия за грешки на ReVanced.
 
 Няма да бъдете уведомени за неочаквани събития."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Експортиране на логове за отстраняване на грешки</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Копира логовете за отстраняване на грешки на ReVanced в клипборда</string>
+  <string name="revanced_debug_logs_disabled">Отстраняването на грешки е деактивирано</string>
+  <string name="revanced_debug_logs_none_found">Не са намерени логове</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Логовете са копирани</string>
+  <string name="revanced_debug_logs_failed_to_export">Неуспешно експортиране на логове: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Изчистване на логовете за отстраняване на грешки</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Изчиства всички съхранени логове за отстраняване на грешки на ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Логовете са изчистени</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">\"Карти на албумите\"</string>
@@ -477,9 +491,6 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Плъзгане на фона на наслагването непрозрачност</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Стойност на непрозрачността между 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непрозрачността на плъзгането трябва да е между 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Цвят на лентата за напредък при плъзгане</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Цветът на лентата за напредък за контролите за сила на звука и яркост</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Невалиден цвят на лентата за напредък</string>
   <string name="revanced_swipe_text_overlay_size_title">Размер на текста на наслагването при плъзгане</string>
   <string name="revanced_swipe_text_overlay_size_summary">Размерът на текста за наслагването при плъзгане между 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Размерът на текста трябва да е между 1-30</string>
@@ -1322,6 +1333,22 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">GmsCore Настройки</string>
   <string name="microg_settings_summary">Настройки на GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Вибрационна обратна връзка</string>
+  <string name="revanced_disable_haptic_feedback_summary">Промяна на вибрационната обратна връзка</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Деактивиране на вибрацията при главите</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Вибрацията при главите е деактивирана</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Вибрацията при главите е активирана</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Деактивиране на вибрацията при прецизното търсене</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Прецизната вибрация при търсене е деактивирана</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Вибрацията при прецизното търсене е активирана</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Деактивиране на вибрация при отмяна на търсене</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Вибрацията при отмяна на търсене е деактивирана</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Вибрацията при отмяна на търсене е активирана</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Деактивиране на вибрация при мащабиране</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Вибрацията при мащабиране е деактивирана</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Вибрацията при мащабиране е активирана</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Ако наскоро сте променили данните си за вход в профила, деинсталирайте и инсталирайте отново MicroG.</string>
   </patch>
@@ -1339,11 +1366,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Премахнете параметъра на заявката за проследяване</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Параметърът на заявката за проследяване е премахнат от връзките</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Параметърът на заявката за проследяване не е премахнат от връзките</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Деактивиране на вибрация при мащабиране</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Вибрациите са деактивирани</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Вибрациите са активирани</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Принудително оригинално аудио език</string>

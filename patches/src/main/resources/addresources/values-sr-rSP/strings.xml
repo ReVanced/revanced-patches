@@ -35,8 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Подешавања</string>
   <string name="revanced_settings_confirm_user_dialog_title">Желите ли да наставите?</string>
   <string name="revanced_settings_reset">Ресетуј</string>
-  <string name="revanced_settings_reset_color">Врати подразумевану боју</string>
-  <string name="revanced_settings_color_invalid">Неисправна боја</string>
+  <string name="revanced_settings_reset_color">Ресетуј боју</string>
+  <string name="revanced_settings_color_invalid">Неважећа боја</string>
   <string name="revanced_settings_restart_title">Освежите и рестартујте</string>
   <string name="revanced_settings_restart">Рестартуј</string>
   <string name="revanced_settings_import">Увоз</string>
@@ -117,6 +117,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">Евидентирање бафера протокола</string>
   <string name="revanced_debug_protobuffer_summary_on">Евиденције отклањања грешака садрже бафер протокола</string>
   <string name="revanced_debug_protobuffer_summary_off">Евиденције отклањања грешака не садрже бафер протокола</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Омогућавањем ове опције ће се евидентирати додатни подаци о изгледу, укључујући текст на екрану за неке компоненте корисничког интерфејса.
+
+Ово може помоћи у идентификацији компоненти приликом прављења прилагођених филтера.
+
+Међутим, омогућавање овога ће такође евидентирати неке корисничке податке, као што је ваша IP адреса."</string>
   <string name="revanced_debug_stacktrace_title">Евидентирање праћења стека</string>
   <string name="revanced_debug_stacktrace_summary_on">Евиденције отклањања грешака садрже праћење стека</string>
   <string name="revanced_debug_stacktrace_summary_off">Евиденције отклањања грешака не садрже праћење стека</string>
@@ -126,6 +131,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Искључивање искачућих обавештења о грешкама сакрива сва обавештења о грешкама у ReVanced-у.
 
 Нећете бити обавештени ни о каквим неочекиваним догађајима."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Извези евиденције отклањања грешака</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Копира евиденције отклањања грешака ReVanced-а у привремену меморију</string>
+  <string name="revanced_debug_logs_disabled">Евидентирање отклањања грешака је онемогућено</string>
+  <string name="revanced_debug_logs_none_found">Нема пронађених евиденција</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Евиденције су копиране</string>
+  <string name="revanced_debug_logs_failed_to_export">Извоз евиденција није успео: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Избриши евиденције отклањања грешака</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Брише све сачуване евиденције отклањања грешака ReVanced-а</string>
+  <string name="revanced_debug_logs_clear_toast">Евиденције су избрисане</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Сакриј картице албума</string>
@@ -477,9 +491,10 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Непрозирност позадине покрета превлачења</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Вредност непрозирности између 0 и 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непрозирност покрета превлачења мора бити између 0 и 100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Боја траке напретка покрета превлачења</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Боја траке напретка за контролу јачине звука и осветљености</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Неважећа боја траке напретка</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Боја осветљености превлачења преко екрана</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Боја траке напретка за контроле осветљености</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Боја јачине звука превлачења преко екрана</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Боја траке напретка за контроле јачине звука</string>
   <string name="revanced_swipe_text_overlay_size_title">Величина текста покрета превлачења</string>
   <string name="revanced_swipe_text_overlay_size_summary">Величина текста за покрет превлачења између 1 и 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Величина текста мора бити између 1 и 30</string>
@@ -1321,6 +1336,22 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">Подешавања GmsCore-а</string>
   <string name="microg_settings_summary">Подешавања за GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Вибрација при додиру</string>
+  <string name="revanced_disable_haptic_feedback_summary">Промени вибрацију при додиру</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Онемогући вибрацију поглавља</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Вибрација поглавља је онемогућена</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Вибрација поглавља је омогућена</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Онемогући вибрацију прецизног премотавања</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Вибрација прецизног премотавања је онемогућена</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Вибрација прецизног премотавања је омогућена</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Онемогући вибрацију поништавања премотавања </string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Вибрација поништавања премотавања је онемогућена</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Вибрација поништавања премотавања је омогућена</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Онемогући вибрацију при увеличавању</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Вибрација при увеличавању је онемогућена</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Вибрација при увеличавању је омогућена</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Ако сте недавно променили податке за пријаву на налог, деинсталирајте и поново инсталирајте MicroG.</string>
   </patch>
@@ -1338,11 +1369,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Уклони параметар упита за праћење</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Параметар упита за праћење је уклоњен из линкова</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Параметар упита за праћење није уклоњен из линкова</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Онемогући вибрацију при увеличавању</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Вибрација при увеличавању је онемогућена</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Вибрација при увеличавању је омогућена</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Присили оригинални језик звука</string>

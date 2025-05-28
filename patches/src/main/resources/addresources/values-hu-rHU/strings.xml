@@ -117,6 +117,11 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_debug_protobuffer_title">Napló protokoll puffer</string>
   <string name="revanced_debug_protobuffer_summary_on">A hibakeresési naplók protopuffert tartalmaznak</string>
   <string name="revanced_debug_protobuffer_summary_off">A hibakeresési naplók nem tartalmaznak protopuffert</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Ennek a beállításnak az engedélyezése további elrendezési adatokat fog naplózni, beleértve néhány felhasználói felületi komponens képernyőn megjelenő szövegét.
+
+Ez segíthet azonosítani az összetevőket egyedi szűrők létrehozásakor.
+
+Ez a funkció azonban néhány felhasználói adatot is naplóz, például az IP-címét."</string>
   <string name="revanced_debug_stacktrace_title">Naplóverem nyomai</string>
   <string name="revanced_debug_stacktrace_summary_on">A hibakeresési naplók tartalmazzák a verem nyomkövetését</string>
   <string name="revanced_debug_stacktrace_summary_off">A hibakeresési naplók nem tartalmazzák a verem nyomkövetését</string>
@@ -126,6 +131,15 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"A hibaüzenetek kikapcsolása elrejti az összes ReVanced hibaértesítést.
 
 Nem fog értesülni semmilyen váratlan eseményről."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Hibakeresési naplók exportálása</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">A ReVanced hibakeresési naplóit a vágólapra másolja</string>
+  <string name="revanced_debug_logs_disabled">A hibakeresési naplózás ki van kapcsolva</string>
+  <string name="revanced_debug_logs_none_found">Nem találhatók naplók</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Naplók másolva</string>
+  <string name="revanced_debug_logs_failed_to_export">Nem sikerült exportálni a naplókat: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Hibakeresési naplók törlése</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Törli az összes tárolt ReVanced hibakeresési naplót</string>
+  <string name="revanced_debug_logs_clear_toast">Naplók törölve</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Album kártyák elrejtése</string>
@@ -477,9 +491,6 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <string name="revanced_swipe_overlay_background_opacity_title">Az áthúzás átfedésének átlátszósága</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Az átlátszóság értéke 0-100 között legyen</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A csúsztatás átlátszóságának 0 és 100 között kell lennie</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Áthúzás fedvény folyamatjelző sáv színe</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">A hangerő és fényerő szabályozók folyamatjelző sávjának színe</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Érvénytelen folyamatjelző sávszín</string>
   <string name="revanced_swipe_text_overlay_size_title">Áthúzás fedvény szövegmérete</string>
   <string name="revanced_swipe_text_overlay_size_summary">Az áthúzás fedvény szövegmérete 1-30 között</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">A szövegméretnek 1-30 között kell lennie</string>
@@ -1319,6 +1330,22 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="microg_settings_title">GmsCore beállítások</string>
   <string name="microg_settings_summary">A GmsCore beállításai</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptikus visszajelzés</string>
+  <string name="revanced_disable_haptic_feedback_summary">Haptikus visszajelzés módosítása</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Fejezetek haptikus visszajelzésének letiltása</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">A fejezetek haptikus visszajelzése le van tiltva</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">A fejezetek haptikus visszajelzése engedélyezve van</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Pontos keresés haptikus visszajelzésének letiltása</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">A pontos keresés haptikus visszajelzése ki van kapcsolva</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">A pontos keresés haptikus visszajelzése engedélyezve van</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Keresés visszavonása haptikus visszajelzésének letiltása</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">A keresés visszavonása haptikus visszajelzése ki van kapcsolva</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">A keresés visszavonása haptikus visszajelzése be van kapcsolva</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Haptikus zoom letiltása</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Haptikus zoom le van tiltva</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Haptikus zoom be van kapcsolva</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Ha nemrég módosította a fiókja bejelentkezési adatait, távolítsa el, majd telepítse újra a MicroG-t.</string>
   </patch>
@@ -1336,11 +1363,6 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_remove_tracking_query_parameter_title">Nyomkövetési lekérdezési paraméter eltávolítása</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">A nyomkövetési lekérdezési paraméter eltávolítva a linkekből</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">A nyomkövetési lekérdezési paraméter nincs eltávolítva a linkekből</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Haptikus zoom letiltása</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">A haptikus zoom letiltva</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">A haptikus zoom engedélyezve</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Eredeti hang kikényszerítése</string>

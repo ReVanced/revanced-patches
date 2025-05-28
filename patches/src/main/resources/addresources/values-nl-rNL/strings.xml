@@ -117,6 +117,11 @@ Tik op de knop Doorgaan en sta wijzigingen in de optimalisatie toe."</string>
   <string name="revanced_debug_protobuffer_title">Stamlogboek</string>
   <string name="revanced_debug_protobuffer_summary_on">Debuglogboeken bevatten stamlogboek</string>
   <string name="revanced_debug_protobuffer_summary_off">Debuglogboeken bevatten geen stamlogboek</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Als u deze instelling inschakelt, worden extra lay-outgegevens geregistreerd, waaronder tekst op het scherm voor sommige UI-componenten.
+
+Dit kan helpen bij het identificeren van componenten bij het maken van aangepaste filters.
+
+Als u dit inschakelt, worden echter ook bepaalde gebruikersgegevens, zoals uw IP-adres, vastgelegd."</string>
   <string name="revanced_debug_stacktrace_title">Stacktraces loggen</string>
   <string name="revanced_debug_stacktrace_summary_on">Debuglogboeken bevatten stacktrace</string>
   <string name="revanced_debug_stacktrace_summary_off">Debuglogs bevatten geen stacktrace</string>
@@ -126,6 +131,15 @@ Tik op de knop Doorgaan en sta wijzigingen in de optimalisatie toe."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Het uitschakelen van foutmeldingen verbergt alle ReVanced-foutmeldingen.
 
 U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Foutopsporingslogboeken exporteren</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopieert ReVanced-foutopsporingslogboeken naar het klembord</string>
+  <string name="revanced_debug_logs_disabled">Foutopsporing is uitgeschakeld</string>
+  <string name="revanced_debug_logs_none_found">Geen logboeken gevonden</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Logboeken gekopieerd</string>
+  <string name="revanced_debug_logs_failed_to_export">Kan logboeken niet exporteren: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Foutopsporingslogboeken wissen</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Wist alle opgeslagen ReVanced-foutopsporingslogboeken</string>
+  <string name="revanced_debug_logs_clear_toast">Logboeken gewist</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Verberg albumkaarten</string>
@@ -477,9 +491,6 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_swipe_overlay_background_opacity_title">Dekking van de Swipe overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Dekking tussen 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Dekking moet tussen 0-100 zijn</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Kleur van voortgangsbalk voor swipe-overlay</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">De kleur van de voortgangsbalk voor volume- en helderheidsbediening</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ongeldige kleur voor de voortgangsbalk</string>
   <string name="revanced_swipe_text_overlay_size_title">Tekengrootte swipe-overlay</string>
   <string name="revanced_swipe_text_overlay_size_summary">De tekstgrootte voor swipe-overlay tussen 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">De tekstgrootte moet tussen 1-30 liggen</string>
@@ -1320,6 +1331,22 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="microg_settings_title">GmsCore-instellingen</string>
   <string name="microg_settings_summary">Instellingen voor GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptische feedback</string>
+  <string name="revanced_disable_haptic_feedback_summary">Haptische feedback wijzigen</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Hoofdstuk-haptiek uitschakelen</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Hoofdstuk-haptiek is uitgeschakeld</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Hoofdstuk-haptiek is ingeschakeld</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Precisie-zoekhaptiek uitschakelen</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Precieze haptiek voor zoeken is uitgeschakeld</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Precisie-zoekhaptiek is ingeschakeld</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Haptiek voor ongedaan maken van zoeken uitschakelen</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Haptiek voor ongedaan maken van zoeken is uitgeschakeld</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Haptiek voor ongedaan maken van zoeken is ingeschakeld</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Zoom-haptics uitschakelen</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoom-haptics is uitgeschakeld</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoom-haptics is ingeschakeld</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Als u onlangs de inloggegevens van uw account hebt gewijzigd, verwijder dan MicroG en installeer het opnieuw.</string>
   </patch>
@@ -1337,11 +1364,6 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Verwijder tracking-queryparameter</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking-queryparameter wordt verwijderd uit koppelingen</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking-queryparameter wordt niet verwijderd uit koppelingen</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Zoom-haptics uitschakelen</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptics zijn uitgeschakeld</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptics zijn ingeschakeld</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forceer de originele audiotaal</string>
