@@ -268,6 +268,11 @@ public final class app/revanced/patches/memegenerator/misc/pro/UnlockProVersionP
 	public static final fun getUnlockProVersionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/messenger/config/OverrideMobileConfigPatchKt {
+	public static final fun getAddConfigOverrider ()Lkotlin/jvm/functions/Function1;
+	public static final fun getOverrideMobileConfigPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/messenger/inbox/HideInboxAdsPatchKt {
 	public static final fun getHideInboxAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -282,6 +287,10 @@ public final class app/revanced/patches/messenger/inputfield/DisableSwitchingEmo
 
 public final class app/revanced/patches/messenger/inputfield/DisableTypingIndicatorPatchKt {
 	public static final fun getDisableTypingIndicatorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/messenger/layout/RemoveFacebookButtonPatchKt {
+	public static final fun getRemoveFacebookButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/messenger/metaai/RemoveMetaAIPatchKt {
