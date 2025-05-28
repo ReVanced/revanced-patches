@@ -117,6 +117,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">Καταγραφή του buffer πρωτοκόλλου</string>
   <string name="revanced_debug_protobuffer_summary_on">Τα αρχεία καταγραφής σφαλμάτων περιλαμβάνουν το buffer του πρωτοκόλλου</string>
   <string name="revanced_debug_protobuffer_summary_off">Τα αρχεία καταγραφής σφαλμάτων δεν περιλαμβάνουν τον buffer πρωτοκόλλου</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Η ενεργοποίηση αυτής της ρύθμισης θα καταγράψει επιπλέον δεδομένα διάταξης, συμπεριλαμβανομένου του κειμένου στην οθόνη για ορισμένα στοιχεία διεπαφής χρήστη.
+
+Αυτό μπορεί να βοηθήσει στον εντοπισμό στοιχείων κατά τη δημιουργία προσαρμοσμένων φίλτρων.
+
+Ωστόσο, η ενεργοποίηση αυτής της ρύθμισης θα καταγράψει επίσης ορισμένα δεδομένα χρήστη, όπως τη διεύθυνση IP σας."</string>
   <string name="revanced_debug_stacktrace_title">Καταγραφή ιχνών στοίβας</string>
   <string name="revanced_debug_stacktrace_summary_on">Τα αρχεία καταγραφής σφαλμάτων περιλαμβάνουν ίχνη στοίβας</string>
   <string name="revanced_debug_stacktrace_summary_off">Τα αρχεία καταγραφής σφαλμάτων δεν περιλαμβάνουν ίχνη στοίβας</string>
@@ -126,6 +131,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Η απενεργοποίηση των μηνυμάτων σφαλμάτων κρύβει όλες τις ειδοποιήσεις σφαλμάτων που αφορούν το ReVanced.
 
 Δεν θα ειδοποιηθείτε για τυχόν απρόβλεπτα γεγονότα."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Εξαγωγή αρχείων καταγραφής εντοπισμού σφαλμάτων</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Αντιγραφή των αρχείων καταγραφής εντοπισμού σφαλμάτων ReVanced στο πρόχειρο</string>
+  <string name="revanced_debug_logs_disabled">Η καταγραφή εντοπισμού σφαλμάτων είναι απενεργοποιημένη</string>
+  <string name="revanced_debug_logs_none_found">Δεν βρέθηκαν αρχεία καταγραφής</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Τα αρχεία καταγραφής αντιγράφηκαν</string>
+  <string name="revanced_debug_logs_failed_to_export">Αποτυχία εξαγωγής αρχείων καταγραφής: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Εκκαθάριση αρχείων καταγραφής εντοπισμού σφαλμάτων</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Εκκαθάριση όλων των αποθηκευμένων αρχειών καταγραφής εντοπισμού σφαλμάτων ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Τα αρχεία καταγραφής εκκαθαρίστηκαν</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Κάρτες άλμπουμ</string>
@@ -479,9 +493,6 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Αδιαφάνεια φόντου σάρωσης</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Η αδιαφάνεια σάρωσης πρέπει να είναι μεταξύ 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Χρώμα γραμμής προόδου σάρωσης</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Το χρώμα της γραμμής προόδου για τα στοιχεία ελέγχου έντασης ήχου και φωτεινότητας</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Μη έγκυρο χρώμα γραμμής προόδου</string>
   <string name="revanced_swipe_text_overlay_size_title">Μέγεθος κειμένου σάρωσης</string>
   <string name="revanced_swipe_text_overlay_size_summary">Το μέγεθος κειμένου για τα στοιχεία ελέγχου σάρωσης μεταξύ 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Το μέγεθος κειμένου πρέπει να είναι μεταξύ 1-30</string>
@@ -1321,6 +1332,22 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">Ρυθμίσεις GmsCore</string>
   <string name="microg_settings_summary">Ρυθμίσεις για το MicroG GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Απόκριση δόνησης</string>
+  <string name="revanced_disable_haptic_feedback_summary">Αλλαγή απόκρισης δόνησης</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Απενεργοποίηση απόκρισης δόνησης κατά την αλλαγή κεφαλαίων</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Η απόκριση δόνησης κατά την αλλαγή κεφαλαίων είναι απενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Η απόκριση δόνησης κατά την αλλαγή κεφαλαίων είναι ενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Απενεργοποίηση απόκρισης δόνησης κατά τη λειτουργία ακριβής αναζήτησης</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Η απόκριση δόνησης κατά τη λειτουργία ακριβής αναζήτησης είναι απενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Η απόκριση δόνησης κατά τη λειτουργία ακριβής αναζήτησης είναι ενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Απενεργοποίηση απόκρισης δόνησης κατά τη λειτουργία «Αφήστε για ακύρωση»</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Η απόκριση δόνησης κατά τη λειτουργία «Αφήστε για ακύρωση» είναι απενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Η απόκριση δόνησης κατά τη λειτουργία «Αφήστε για ακύρωση» είναι ενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Απενεργοποίηση απόκρισης δόνησης χειρονομίας ζουμ</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Η απόκριση δόνησης της χειρονομίας ζουμ είναι απενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Η απόκριση δόνησης της χειρονομίας ζουμ είναι ενεργοποιημένη</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Εάν αλλάξατε πρόσφατα τα στοιχεία σύνδεσης του λογαριασμού σας, απεγκαταστήστε και εγκαταστήστε ξανά το MicroG.</string>
   </patch>
@@ -1338,11 +1365,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Η παράμετρος παρακολούθησης αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Η παράμετρος παρακολούθησης δεν αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Απενεργοποίηση απόκρισης δόνησης χειρονομίας ζουμ</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Η απόκριση δόνησης είναι απενεργοποιημένη</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Η απόκριση δόνησης είναι ενεργοποιημένη</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>

@@ -117,6 +117,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">Буфер пратаколу часопіса</string>
   <string name="revanced_debug_protobuffer_summary_on">Журналы адладкі ўключаюць пратабуфер</string>
   <string name="revanced_debug_protobuffer_summary_off">Журналы адладкі не ўключаюць пратабуфер</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Уключэнне гэтага параметра будзе запісваць дадатковыя даныя макета, у тым ліку тэкст на экране для некаторых кампанентаў інтэрфейсу.
+
+Гэта можа дапамагчы ідэнтыфікаваць кампаненты пры стварэнні карыстацкіх фільтраў.
+
+Аднак уключэнне гэтага параметра таксама будзе запісваць некаторыя даныя карыстальніка, такія як ваш IP-адрас."</string>
   <string name="revanced_debug_stacktrace_title">Сляды стэка журнала</string>
   <string name="revanced_debug_stacktrace_summary_on">Журналы адладкі ўключаюць трасіроўку стэка</string>
   <string name="revanced_debug_stacktrace_summary_off">Журналы адладкі не ўключаюць трасіроўку стэка</string>
@@ -126,6 +131,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Адключэнне паведамленняў пра памылкі схавае ўсе апавяшчэнні ReVanced пра памылкі.
 
 Вы не будзеце атрымліваць апавяшчэнні пра нечаканыя падзеі."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Экспартаваць адладачныя лагі</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Капіруе адладачныя лагі ReVanced у буфер абмену</string>
+  <string name="revanced_debug_logs_disabled">Адладачнае лагаванне адключана</string>
+  <string name="revanced_debug_logs_none_found">Лагі не знойдзены</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Лагі скапіяваны</string>
+  <string name="revanced_debug_logs_failed_to_export">Не атрымалася экспартаваць лагі: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Ачысціць адладачныя лагі</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Ачышчае ўсе захаваныя адладачныя лагі ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Лагі ачышчаны</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Схаваць карты альбома</string>
@@ -477,9 +491,6 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Непразрыстасць фону накладкі пракруткі</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значэнне непразрыстасці паміж 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непразрыстасць пракруткі павінна быць паміж 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Колер слупка прагрэсу накладкі правядзення</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Колер слупка прагрэсу для рэгулявання гучнасці і яркасці</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Несапраўдны колер слупка прагрэсу</string>
   <string name="revanced_swipe_text_overlay_size_title">Памер тэксту накладкі правядзення</string>
   <string name="revanced_swipe_text_overlay_size_summary">Памер тэксту для накладкі правядзення ад 1 да 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Памер тэксту павінен быць у межах ад 1 да 30</string>
@@ -1323,6 +1334,22 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">Налады GmsCore</string>
   <string name="microg_settings_summary">Налады для GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Тактыльная зваротная сувязь</string>
+  <string name="revanced_disable_haptic_feedback_summary">Змяніць тактыльную зваротную сувязь</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Адключыць тактыльныя эфекты раздзелаў</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Тактыльныя эфекты раздзелаў адключаны</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Тактыльныя эфекты раздзелаў уключаны</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Адключыць тактыльны эфект дакладнага пошуку</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Дакладны тактыльны эфект пошуку адключаны</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Тактыльны эфект дакладнага пошуку ўключаны</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Адключыць тактыльны эфект адмены пошуку</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Тактыльны эфект адмены пошуку адключаны</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Тактыльны эфект адмены пошуку ўключаны</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Адключыць тактыльны эфект маштабавання</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Тактыльны эфект маштабавання адключаны</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Тактыльны эфект маштабавання ўключаны</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Калі вы нядаўна змянілі даныя для ўваходу ў свой уліковы запіс, выдаліце і пераўсталюйце MicroG.</string>
   </patch>
@@ -1340,11 +1367,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Выдаліць параметр запыту адсочвання</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Параметр запыту адсочвання выдалены са спасылак</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Параметр адсочвання запыту не выдаляецца са спасылак</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Адключыць тактыльны эфект маштабавання</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Тактыльныя функцыі адключаны</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Тактыльныя сігналы ўключаны</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Вымушаная арыгінальная мова аўдыё</string>

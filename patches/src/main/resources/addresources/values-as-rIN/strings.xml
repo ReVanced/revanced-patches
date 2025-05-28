@@ -201,6 +201,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
@@ -208,8 +210,6 @@ Second \"item\" text"</string>
   <patch id="misc.links.openLinksExternallyPatch">
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
