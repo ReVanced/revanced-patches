@@ -30,12 +30,15 @@ val hideCreateButtonPatch = bytecodePatch(
             // The default position is NOWHERE, which means hidden.
             val defaultPositionRegister = getInstruction<FiveRegisterInstruction>(invokeGetCreateButtonPositionIndex)
                 .registerF
-            val moveRegister = getInstruction<OneRegisterInstruction>(invokeGetCreateButtonPositionIndex + 1)
+            val moveGetCreateButtonPositionResultIndex = indexOfFirstInstructionOrThrow(
+                invokeGetCreateButtonPositionIndex, Opcode.MOVE_RESULT_OBJECT
+            )
+            val moveResultRegister = getInstruction<OneRegisterInstruction>(moveGetCreateButtonPositionResultIndex)
                 .registerA
 
             replaceInstruction(
-                invokeGetCreateButtonPositionIndex + 1,
-                "move-object v$moveRegister, v$defaultPositionRegister"
+                moveGetCreateButtonPositionResultIndex,
+                "move-object v$moveResultRegister, v$defaultPositionRegister"
             )
         }
     }
