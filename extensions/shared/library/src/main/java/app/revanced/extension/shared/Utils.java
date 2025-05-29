@@ -1,7 +1,11 @@
 package app.revanced.extension.shared;
 
 import android.annotation.SuppressLint;
-import android.app.*;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -18,6 +22,8 @@ import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.util.Pair;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -357,15 +363,17 @@ public class Utils {
 
     public static Context getContext() {
         if (context == null) {
-            Logger.initializationException(Utils.class, "Context is not set by extension hook, returning null",  null);
+            Logger.initializationException(() -> "Context is not set by extension hook, returning null",  null);
         }
         return context;
     }
 
     public static void setContext(Context appContext) {
+        // Intentionally use logger before context is set,
+        // to expose any bugs in the 'no context available' logger method.
+        Logger.initializationInfo(() -> "Set context: " + appContext);
         // Must initially set context to check the app language.
         context = appContext;
-        Logger.initializationInfo(Utils.class, "Set context: " + appContext);
 
         AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
         if (language != AppLanguage.DEFAULT) {
@@ -377,8 +385,9 @@ public class Utils {
         }
     }
 
-    public static void setClipboard(@NonNull String text) {
-        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+    public static void setClipboard(CharSequence text) {
+        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context
+                .getSystemService(Context.CLIPBOARD_SERVICE);
         android.content.ClipData clip = android.content.ClipData.newPlainText("ReVanced", text);
         clipboard.setPrimaryClip(clip);
     }
@@ -542,24 +551,25 @@ public class Utils {
     private static void showToast(@NonNull String messageToToast, int toastDuration) {
         Objects.requireNonNull(messageToToast);
         runOnMainThreadNowOrLater(() -> {
-                    if (context == null) {
-                        Logger.initializationException(Utils.class, "Cannot show toast (context is null): " + messageToToast, null);
-                    } else {
-                        Logger.printDebug(() -> "Showing toast: " + messageToToast);
-                        Toast.makeText(context, messageToToast, toastDuration).show();
-                    }
-                }
-        );
+            Context currentContext = context;
+
+            if (currentContext == null) {
+                Logger.initializationException(() -> "Cannot show toast (context is null): " + messageToToast, null);
+            } else {
+                Logger.printDebug(() -> "Showing toast: " + messageToToast);
+                Toast.makeText(currentContext, messageToToast, toastDuration).show();
+            }
+        });
     }
 
-    public static boolean isDarkModeEnabled(Context context) {
-        Configuration config = context.getResources().getConfiguration();
+    public static boolean isDarkModeEnabled() {
+        Configuration config = Resources.getSystem().getConfiguration();
         final int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
         return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
     }
 
     public static boolean isLandscapeOrientation() {
-        final int orientation = context.getResources().getConfiguration().orientation;
+        final int orientation = Resources.getSystem().getConfiguration().orientation;
         return orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
@@ -573,7 +583,7 @@ public class Utils {
     }
 
     /**
-     * Automatically logs any exceptions the runnable throws
+     * Automatically logs any exceptions the runnable throws.
      */
     public static void runOnMainThreadDelayed(@NonNull Runnable runnable, long delayMillis) {
         Runnable loggingRunnable = () -> {
@@ -599,14 +609,14 @@ public class Utils {
     }
 
     /**
-     * @return if the calling thread is on the main thread
+     * @return if the calling thread is on the main thread.
      */
     public static boolean isCurrentlyOnMainThread() {
         return Looper.getMainLooper().isCurrentThread();
     }
 
     /**
-     * @throws IllegalStateException if the calling thread is _off_ the main thread
+     * @throws IllegalStateException if the calling thread is _off_ the main thread.
      */
     public static void verifyOnMainThread() throws IllegalStateException {
         if (!isCurrentlyOnMainThread()) {
@@ -615,7 +625,7 @@ public class Utils {
     }
 
     /**
-     * @throws IllegalStateException if the calling thread is _on_ the main thread
+     * @throws IllegalStateException if the calling thread is _on_ the main thread.
      */
     public static void verifyOffMainThread() throws IllegalStateException {
         if (isCurrentlyOnMainThread()) {
@@ -629,13 +639,23 @@ public class Utils {
         OTHER,
     }
 
+    /**
+     * Calling extension code must ensure the un-patched app has the permission
+     * <code>android.permission.ACCESS_NETWORK_STATE</code>, otherwise the app will crash
+     * if this method is used.
+     */
     public static boolean isNetworkConnected() {
         NetworkType networkType = getNetworkType();
         return networkType == NetworkType.MOBILE
                 || networkType == NetworkType.OTHER;
     }
 
-    @SuppressLint({"MissingPermission", "deprecation"}) // Permission already included in YouTube.
+    /**
+     * Calling extension code must ensure the un-patched app has the permission
+     * <code>android.permission.ACCESS_NETWORK_STATE</code>, otherwise the app will crash
+     * if this method is used.
+     */
+    @SuppressLint({"MissingPermission", "deprecation"})
     public static NetworkType getNetworkType() {
         Context networkContext = getContext();
         if (networkContext == null) {
@@ -738,9 +758,9 @@ public class Utils {
      * then the preferences are left unsorted.
      */
     @SuppressWarnings("deprecation")
-    public static void sortPreferenceGroups(@NonNull PreferenceGroup group) {
+    public static void sortPreferenceGroups(PreferenceGroup group) {
         Sort groupSort = Sort.fromKey(group.getKey(), Sort.UNSORTED);
-        SortedMap<String, Preference> preferences = new TreeMap<>();
+        List<Pair<String, Preference>> preferences = new ArrayList<>();
 
         for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
             Preference preference = group.getPreference(i);
@@ -769,17 +789,22 @@ public class Utils {
                     throw new IllegalStateException();
             }
 
-            preferences.put(sortValue, preference);
+            preferences.add(new Pair<>(sortValue, preference));
         }
 
+        //noinspection ComparatorCombinators
+        Collections.sort(preferences, (pair1, pair2)
+                -> pair1.first.compareTo(pair2.first));
+
         int index = 0;
-        for (Preference pref : preferences.values()) {
+        for (Pair<String, Preference> pair : preferences) {
             int order = index++;
+            Preference pref = pair.second;
 
             // Move any screens, intents, and the one off About preference to the top.
             if (pref instanceof PreferenceScreen || pref instanceof ReVancedAboutPreference
                     || pref.getIntent() != null) {
-                // Arbitrary high number.
+                // Any arbitrary large number.
                 order -= 1000;
             }
 
@@ -841,6 +866,20 @@ public class Utils {
             return Color.parseColor(colorString);
         }
         return getResourceColor(colorString);
+    }
+
+    /**
+     * Converts dip value to actual device pixels.
+     *
+     * @param dip The density-independent pixels value
+     * @return The device pixel value
+     */
+    public static int dipToPixels(float dip) {
+        return (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                dip,
+                Resources.getSystem().getDisplayMetrics()
+        );
     }
 
     public static int clamp(int value, int lower, int upper) {
