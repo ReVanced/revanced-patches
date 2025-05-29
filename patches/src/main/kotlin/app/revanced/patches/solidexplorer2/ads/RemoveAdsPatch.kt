@@ -5,8 +5,8 @@ import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val removeAdsPatch = bytecodePatch(
-    name = "Remove Ads",
-    description = "Removes ads from the app"
+    name = "Remove ads",
+    description = "Removes ads from the app."
 ) {
     compatibleWith("pl.solidexplorer2")
 
