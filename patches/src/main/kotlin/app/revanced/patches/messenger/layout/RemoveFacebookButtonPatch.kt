@@ -8,7 +8,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messenge
 
 @Suppress("unused")
 val removeFacebookButtonPatch = bytecodePatch(
-    name = "Remove Facebook Button",
+    name = "Remove Facebook button",
     description = "Removes the Facebook button in the top right corner."
 ) {
     compatibleWith("com.facebook.orca")
