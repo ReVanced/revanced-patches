@@ -1,3 +1,10 @@
+# [5.25.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.13...v5.25.0-dev.14) (2025-05-29)
+
+
+### Features
+
+* **Threads:** Hide Ads ([#5064](https://github.com/ReVanced/revanced-patches/issues/5064)) ([3c4cecb](https://github.com/ReVanced/revanced-patches/commit/3c4cecb966c2f99bfde99552686dda19ade5f67e))
+
 # [5.25.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.25.0-dev.12...v5.25.0-dev.13) (2025-05-28)
 
 
