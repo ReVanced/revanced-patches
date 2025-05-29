@@ -840,6 +840,10 @@ public final class app/revanced/patches/shared/misc/spoof/UserAgentClientSpoofPa
 	public static final fun userAgentClientSpoofPatch (Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/solidexplorer2/ads/RemoveAdsKt {
+	public static final fun getRemoveAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/solidexplorer2/functionality/filesize/RemoveFileSizeLimitPatchKt {
 	public static final fun getRemoveFileSizeLimitPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
