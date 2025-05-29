@@ -1,7 +1,7 @@
 package app.revanced.patches.spotify.misc.widgets
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
+import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.returnEarly
 
 @Suppress("unused")

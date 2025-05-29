@@ -1,7 +1,8 @@
 package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -9,7 +10,8 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
-internal val accountAttributeFingerprint = fingerprint {
+context(BytecodePatchContext)
+internal val accountAttributeFingerprint get() = fingerprint {
     custom { _, classDef ->
         classDef.type == if (IS_SPOTIFY_LEGACY_APP_TARGET) {
             "Lcom/spotify/useraccount/v1/AccountAttribute;"
@@ -19,7 +21,8 @@ internal val accountAttributeFingerprint = fingerprint {
     }
 }
 
-internal val productStateProtoGetMapFingerprint = fingerprint {
+context(BytecodePatchContext)
+internal val productStateProtoGetMapFingerprint get() = fingerprint {
     returns("Ljava/util/Map;")
     custom { _, classDef ->
         classDef.type == if (IS_SPOTIFY_LEGACY_APP_TARGET) {
@@ -47,15 +50,15 @@ internal val contextFromJsonFingerprint = fingerprint {
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_STATIC
     )
-    custom { methodDef, classDef ->
-        methodDef.name == "fromJson" &&
+    custom { method, classDef ->
+        method.name == "fromJson" &&
                 classDef.endsWith("voiceassistants/playermodels/ContextJsonAdapter;")
     }
 }
 
 internal val readPlayerOptionOverridesFingerprint = fingerprint {
-    custom { methodDef, classDef ->
-        methodDef.name == "readPlayerOptionOverrides" &&
+    custom { method, classDef ->
+        method.name == "readPlayerOptionOverrides" &&
                 classDef.endsWith("voiceassistants/playermodels/PreparePlayOptionsJsonAdapter;")
     }
 }
@@ -91,7 +94,8 @@ internal val homeStructureGetSectionsFingerprint = fingerprint {
 internal fun reactivexFunctionApplyWithClassInitFingerprint(className: String) = fingerprint {
     returns("Ljava/lang/Object;")
     parameters("Ljava/lang/Object;")
-    custom { method, _ -> method.name == "apply" && method.indexOfFirstInstruction {
+    custom { method, _ ->
+        method.name == "apply" && method.indexOfFirstInstruction {
             opcode == Opcode.NEW_INSTANCE && getReference<TypeReference>()?.type?.endsWith(className) == true
         } >= 0
     }
