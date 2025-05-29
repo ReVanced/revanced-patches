@@ -5,8 +5,12 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.Settings;
+
+import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.shared.Utils.showToastShort;
 
 @SuppressWarnings("unused")
 public class PlaybackSpeedDialogButton {
@@ -23,8 +27,27 @@ public class PlaybackSpeedDialogButton {
                     "revanced_playback_speed_dialog_button",
                     "revanced_playback_speed_dialog_button_placeholder",
                     Settings.PLAYBACK_SPEED_DIALOG_BUTTON::get,
-                    view -> CustomPlaybackSpeedPatch.showOldPlaybackSpeedMenu(),
-                    null
+                    view -> {
+                        if (Settings.CUSTOM_PLAYBACK_SPEED_MENU_TYPE.get()) {
+                            // Open modern speed dialog.
+                            CustomPlaybackSpeedPatch.showModernCustomPlaybackSpeedDialog(view.getContext());
+                        } else {
+                            // Open old style flyout menu.
+                            CustomPlaybackSpeedPatch.showOldPlaybackSpeedMenu();
+                        }
+                    },
+                    view -> {
+                        if (!Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get() ||
+                                VideoInformation.getPlaybackSpeed() == Settings.PLAYBACK_SPEED_DEFAULT.get()) {
+                            VideoInformation.overridePlaybackSpeed(1.0f);
+                            showToastShort(str("revanced_custom_playback_speeds_reset_toast", "1.0"));
+                        } else {
+                            float defaultSpeed = Settings.PLAYBACK_SPEED_DEFAULT.get();
+                            VideoInformation.overridePlaybackSpeed(defaultSpeed);
+                            showToastShort(str("revanced_custom_playback_speeds_reset_toast", defaultSpeed));
+                        }
+                        return true;
+                    }
             );
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);
