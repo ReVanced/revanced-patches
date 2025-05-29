@@ -896,10 +896,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">네트워크 호출한 적이 없습니다</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d 건의 네트워크 호출이 이루어졌습니다</string>
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API 투표 가져오기, 시간 초과 횟수</string>
-  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">네트워크 호출 시간 초과한 적이 없습니다</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">네트워크 호출이 시간 초과한 적이 없습니다</string>
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d 건의 네트워크 호출이 시간 초과하였습니다</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API 클라이언트 비율 제한</string>
-  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">클라이언트 비율 제한한 적이 없습니다</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">클라이언트 비율을 제한한 적이 없습니다</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">%d 건의 클라이언트 비율 제한이 발생하였습니다</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d 밀리초</string>
   </patch>
@@ -1409,7 +1409,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_custom_speed_menu_summary_on">사용자 정의 동영상 재생 속도를 활성화합니다</string>
   <string name="revanced_custom_speed_menu_summary_off">사용자 정의 동영상 재생 속도를 비활성화합니다</string>
   <string name="revanced_custom_playback_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
-  <string name="revanced_custom_playback_speeds_summary">사용하고 싶은 동영상 재생 속도 값을 추가 또는 변경할 수 있습니다</string>
+  <string name="revanced_custom_playback_speeds_summary">사용자 정의 동영상 재생 속도 값을 추가 또는 변경할 수 있습니다</string>
   <string name="revanced_custom_playback_speeds_invalid">재생 속도 값은 %s배속보다 작아야 합니다</string>
   <string name="revanced_custom_playback_speeds_parse_exception">잘못된 사용자 정의 재생 속도 값입니다</string>
   <string name="revanced_custom_playback_speeds_auto">자동</string>
