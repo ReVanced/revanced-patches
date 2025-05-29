@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Nastavenia</string>
   <string name="revanced_settings_confirm_user_dialog_title">Chcete pokračovať?</string>
   <string name="revanced_settings_reset">Resetovať</string>
+  <string name="revanced_settings_reset_color">Obnovi	 farbu</string>
+  <string name="revanced_settings_color_invalid">Neplatn	 farba</string>
   <string name="revanced_settings_restart_title">Obnovte a reštartujte</string>
   <string name="revanced_settings_restart">Reštart</string>
   <string name="revanced_settings_import">Importovať</string>
@@ -113,6 +115,11 @@ Vypnutie optimalizácie batérie pre MicroG nebude mať negatívny vplyv na spot
   <string name="revanced_debug_protobuffer_title">Vyrovnávacia pamäť protokolu</string>
   <string name="revanced_debug_protobuffer_summary_on">Protokoly ladenia obsahujú proto buffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Protokoly ladenia neobsahujú proto buffer</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Povolením tohto nastavenia sa budú zaznamenávať ďalšie údaje o rozložení, vrátane textu na obrazovke pre niektoré komponenty používateľského rozhrania.
+
+Toto môže pomôcť identifikovať komponenty pri vytváraní vlastných filtrov.
+
+Povolením tejto funkcie sa však budú zaznamenávať aj niektoré používateľské údaje, ako napríklad vaša IP adresa."</string>
   <string name="revanced_debug_stacktrace_title">Zaznamenať stopy zásobníka</string>
   <string name="revanced_debug_stacktrace_summary_on">Denníky ladenia obsahujú sledovanie zásobníka</string>
   <string name="revanced_debug_stacktrace_summary_off">Denníky ladenia neobsahujú sledovanie zásobníka</string>
@@ -122,6 +129,15 @@ Vypnutie optimalizácie batérie pre MicroG nebude mať negatívny vplyv na spot
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Vypnutie upozornení o chybách skryje všetky upozornenia o chybách v ReVanced.
 
 Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exportovať protokoly ladenia</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Skopíruje protokoly ladenia ReVanced do schránky</string>
+  <string name="revanced_debug_logs_disabled">Protokolovanie ladenia je vypnuté</string>
+  <string name="revanced_debug_logs_none_found">Nenašli sa žiadne protokoly</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Protokoly skopírované</string>
+  <string name="revanced_debug_logs_failed_to_export">Nepodarilo sa exportovať protokoly: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Vymazať protokoly ladenia</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Vymaže všetky uložené protokoly ladenia ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Protokoly vymazané</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Skryť karty albumov</string>
@@ -358,9 +374,6 @@ Slová s veľkými písmenami v strede musia byť zadané s použitím veľkých
 
 Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Zobrazujú sa reklamy na celú obrazovku</string>
-  <string name="revanced_hide_buttoned_ads_title">Skryť zapnuté reklamy</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Zapnuté reklamy sú skryté</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Zobrazujú sa reklamy s tlačidlami</string>
   <string name="revanced_hide_paid_promotion_label_title">Skryť štítok platenej propagácie</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Štítok platenej propagácie je skrytý</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Zobrazuje sa štítok platenej propagácie</string>
@@ -471,9 +484,10 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Priehľadnosť pozadia prekrytia potiahnutia</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Hodnota priehľadnosti medzi 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Priehľadnosť prekrytia potiahnutia musí byť medzi 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Farba panela priebehu prekrytia posunutím</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Farba panela priebehu pre ovládanie hlasitosti a jasu</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Neplatná farba panela priebehu</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Farba prekrytia jasu potiahnutím</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Farba panela s indikátorom priebehu pre ovládacie prvky jasu</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Farba prekrytia hlasitosti potiahnutím</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Farba panela s indikátorom priebehu pre ovládacie prvky hlasitosti</string>
   <string name="revanced_swipe_text_overlay_size_title">Veľkosť textu prekrytia posunutím</string>
   <string name="revanced_swipe_text_overlay_size_summary">Veľkosť textu pre prekrytie posunutím medzi 1 – 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Veľkosť textu musí byť medzi 1 – 30</string>
@@ -1089,11 +1103,6 @@ Pripravené na odoslanie?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekúnd</string>
   <string name="revanced_sb_color_opacity_label">Priehľadnosť:</string>
   <string name="revanced_sb_color_dot_label">Farba:</string>
-  <string name="revanced_sb_color_changed">Farba bola zmenená</string>
-  <string name="revanced_sb_color_reset">Farba bola resetovaná</string>
-  <string name="revanced_sb_color_invalid">Neplatný kód farby</string>
-  <string name="revanced_sb_reset_color">Obnoviť farbu</string>
-  <string name="revanced_sb_reset">Resetovať</string>
   <string name="revanced_sb_about_title">Informácie</string>
   <string name="revanced_sb_about_api_summary">Údaje poskytuje SponsorBlock API. Klepnutím sem sa dozviete viac a zobrazíte súbory na stiahnutie pre iné platformy</string>
   </patch>
@@ -1316,6 +1325,22 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="microg_settings_title">Nastavenia GmsCore</string>
   <string name="microg_settings_summary">Nastavenia pre GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptická odozva</string>
+  <string name="revanced_disable_haptic_feedback_summary">Zmeniť haptickú odozvu</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Zakázať haptiku kapitol</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptika kapitol je zakázaná</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptika kapitol je povolená</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Zakázať haptiku presného vyhľadávania</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Haptika presného vyhľadávania je vypnutá</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Haptika presného vyhľadávania je povolená</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Vypnúť haptiku vrátenia späť vyhľadávania</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Haptika vrátenia späť vyhľadávania je vypnutá</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Haptika vrátenia späť vyhľadávania je zapnutá</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Zakázať haptiku priblíženia</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Haptika priblíženia je vypnutá</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Haptika priblíženia je zapnutá</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Ak ste nedávno zmenili prihlasovacie údaje svojho účtu, odinštalujte a znova nainštalujte MicroG.</string>
   </patch>
@@ -1333,11 +1358,6 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Odstráňte parameter dopytu sledovania</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parameter dopytu sledovania je odstránený z odkazov</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parameter dopytu sledovania nie je odstránený z odkazov</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Zakázať haptiku priblíženia</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptika je vypnutá</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptika je povolená</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Vynútiť pôvodný jazyk zvuku</string>

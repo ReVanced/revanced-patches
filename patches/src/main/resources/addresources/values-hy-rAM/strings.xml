@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Կարգավորումներ</string>
   <string name="revanced_settings_confirm_user_dialog_title">Դուք ցանկանում եք շարունակել?</string>
   <string name="revanced_settings_reset">Վերականգնել</string>
+  <string name="revanced_settings_reset_color">Գույնը վերականգնել</string>
+  <string name="revanced_settings_color_invalid">Անվավեր գույն</string>
   <string name="revanced_settings_restart_title">Թարմացնել և վերագործարկել</string>
   <string name="revanced_settings_restart">Վերսկսել</string>
   <string name="revanced_settings_import">Ներմուծել</string>
@@ -115,6 +117,11 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_debug_protobuffer_title">Բուֆերի արձանագրությունը մտնել</string>
   <string name="revanced_debug_protobuffer_summary_on">Մարմնացման առաջնորդման մատնանշումները պարունակում են բուֆերի տարր</string>
   <string name="revanced_debug_protobuffer_summary_off">Մարմնացման առաջնորդման մատնանշումները ներառում են բուֆերի տարր</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Այս կարգավորումը միացնելը կգրանցի լրացուցիչ դասավորության տվյալներ, ներառյալ էկրանի տեքստը որոշ UI բաղադրիչների համար։
+
+Սա կարող է օգնել բացահայտել բաղադրիչները՝ հատուկ զտիչներ ստեղծելիս։
+
+Այնուամենայնիվ, սա միացնելը կգրանցի նաև օգտատիրոջ որոշ տվյալներ, ինչպիսիք են ձեր IP հասցեն:"</string>
   <string name="revanced_debug_stacktrace_title">Մուտքագրել կուտակային կետերի հետքեր</string>
   <string name="revanced_debug_stacktrace_summary_on">Մարմնացման առաջնորդման մատնանշումները պարունակում են կուտակային կետի հետք</string>
   <string name="revanced_debug_stacktrace_summary_off">Մարմնացման առաջնորդման մատնանշումները չեն պարունակում կուտակային կետի հետք</string>
@@ -124,6 +131,15 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Սխալների տոաստի անջատումը թաքցնում է ReVanced-ի բոլոր սխալների ծանուցումները։
 
 Դուք չեք ստանա ան予期した出来事ի մասին ծանուցում։"</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Արտահանել վրեժխնդրության կարգաբերման մատյանները</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Պատճենում է ReVanced-ի կարգաբերման մատյանները սեղմատախտակին</string>
+  <string name="revanced_debug_logs_disabled">Վրեժխնդրության մատյանների գրանցումն անջատված է</string>
+  <string name="revanced_debug_logs_none_found">Մատյաններ չեն գտնվել</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Մատյանները պատճենված են</string>
+  <string name="revanced_debug_logs_failed_to_export">Մատյանների արտահանումը ձախողվեց. $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Մաքրել վրեժխնդրության մատյանները</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Մաքրում է բոլոր պահված ReVanced կարգաբերման մատյանները</string>
+  <string name="revanced_debug_logs_clear_toast">Մատյանները մաքրվել են</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Թաքցնել  ալբոմի  քարտերը</string>
@@ -365,9 +381,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
 
 Այս հատկությունը հասանելի է միայն հին սարքերի համար"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Լի էկրանի գովազդները երևում են</string>
-  <string name="revanced_hide_buttoned_ads_title">Թաքցնել կոճակավորված գովազդները</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Կոճակավորված գովազդները թաքցված են</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Կոճակավորված գովազդները երևում են</string>
   <string name="revanced_hide_paid_promotion_label_title">Թաքցնել վճարված խթանման նշանը</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Վճարված խթանման նշանը թաքցված է</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Վճարված խթանման նշանը երևում է</string>
@@ -478,9 +491,10 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_swipe_overlay_background_opacity_title">Սողացման ծածկույթի ֆոնի անթափանցություն</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Անթափանցության արժեք 0-100 միջակայքում</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Սողալու անթափանցությունը պետք է լինի 0-100 միջակայքում</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Սահեցրեք շերտի առաջընթացի սանդղակի գույնը</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Ձայնի և պայծառության կառավարման համար նախատեսված առաջընթացի սանդղակի գույնը</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Առաջընթացի սանդղակի անվավեր գույն</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Սահեցնել վառության գույնի վրադիրը</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Վառության կառավարման առաջընթացի սանդղակի գույնը</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Սահեցնել ձայնի գույնի վրադիրը</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Ձայնի կառավարման առաջընթացի սանդղակի գույնը</string>
   <string name="revanced_swipe_text_overlay_size_title">Սահեցրեք շերտի տեքստի չափը</string>
   <string name="revanced_swipe_text_overlay_size_summary">Սահեցրեք շերտի տեքստի չափը 1-30 միջակայքում</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Տեքստի չափը պետք է լինի 1-30 միջակայքում</string>
@@ -1099,11 +1113,6 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_stats_saved_second_format">%s վայրկյան</string>
   <string name="revanced_sb_color_opacity_label">Թափանցիկություն․</string>
   <string name="revanced_sb_color_dot_label">Գույն։</string>
-  <string name="revanced_sb_color_changed">Գույնը փոխվել է</string>
-  <string name="revanced_sb_color_reset">Գույնը վերագործարկվել է</string>
-  <string name="revanced_sb_color_invalid">Անվավեր գույնի կոդ</string>
-  <string name="revanced_sb_reset_color">Վերագործարկել գույնը</string>
-  <string name="revanced_sb_reset">Վերագործարկել</string>
   <string name="revanced_sb_about_title">Ծրագրի մասին</string>
   <string name="revanced_sb_about_api_summary">Տվյալները մատուցվում են SponsorBlock API-ի կողմից։ Սեղմեք այստեղ՝ ավելի շատ իմանալու և այլ հարթակների համար ներբեռնումները տեսնելու</string>
   </patch>
@@ -1328,6 +1337,22 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="microg_settings_title">GmsCore  կարգավորումներ</string>
   <string name="microg_settings_summary">GmsCore-ի  կարգավորումներ</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Հպումային արձագանք</string>
+  <string name="revanced_disable_haptic_feedback_summary">Փոխել հպումային արձագանքը</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Անջատել գլուխների հպումները</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Գլուխների հպումներն անջատված են</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Գլուխների հպումները միացված են</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Անջատել ճշգրիտ փնտրման հպումները</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Ճշգրիտ որոնման հպումն անջատված է</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Ճշգրիտ փնտրման հպումները միացված են</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Անջատել հետարկել որոնման հպումը</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Հետարկել որոնման հպումն անջատված է</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Հետարկել որոնման հպումը միացված է</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Զուումի  հպումների  ակտիվացումը  անջատել</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Զուումի հպումն անջատված է</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Զուումի հպումը միացված է</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Եթե վերջերս փոխել եք ձեր հաշվի մուտքի տվյալները, ապա ջնջեք և նորից տեղադրեք MicroG-ն:</string>
   </patch>
@@ -1345,11 +1370,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_remove_tracking_query_parameter_title">Հետևողականության  հարցումի  պարամետրը  հեռացնել</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Հետևողականության  հարցումի  պարամետրը  հեռացվում է  հղումներից</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Հետևողականության  հարցումի  պարամետրը  չի  հեռացվում  հղումներից</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Զուումի  հպումների  ակտիվացումը  անջատել</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Հպումները  անջատված են</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Հպումները  ակտիվացված են</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել լեզուն</string>

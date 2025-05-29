@@ -35,6 +35,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Asetukset</string>
   <string name="revanced_settings_confirm_user_dialog_title">Haluatko jatkaa?</string>
   <string name="revanced_settings_reset">Nollaa</string>
+  <string name="revanced_settings_reset_color">Nollaa väri</string>
   <string name="revanced_settings_restart_title">Päivitä ja käynnistä uudelleen</string>
   <string name="revanced_settings_restart">Käynnistä uudelleen</string>
   <string name="revanced_settings_import">Tuo</string>
@@ -360,9 +361,6 @@ Rajoitukset
 
 Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Koko näytön mainokset näytetään</string>
-  <string name="revanced_hide_buttoned_ads_title">Piilota painikkeelliset mainokset</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Painikkeelliset mainokset on piilotettu</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Painikkeelliset mainokset näytetään</string>
   <string name="revanced_hide_paid_promotion_label_title">Piilota maksetun mainostuksen tunniste</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Maksetun mainostuksen tunniste on piilotettu</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Maksetun mainostuksen tunniste näytetään</string>
@@ -473,9 +471,6 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_swipe_overlay_background_opacity_title">Pyyhkäisypeittokuvan taustan läpinäkymättömyys</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Läpinäkymättömyysarvo 0–100 välillä</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pyyhkäisypeittokuvan läpinäkymättömyyden tulee olla 0–100 välillä</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Pyyhkäisypeittokuvan edistymispalkin väri</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Äänenvoimakkuuden ja kirkkauden säätimien edistymispalkin väri</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Virheellinen edistymispalkin väri</string>
   <string name="revanced_swipe_text_overlay_size_title">Pyyhkäisypeittokuvan tekstin koko</string>
   <string name="revanced_swipe_text_overlay_size_summary">Pyyhkäisypeittokuvan tekstin koko 1–30 välillä</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Tekstin koon tulee olla 1–30 välillä</string>
@@ -1091,11 +1086,6 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekuntia</string>
   <string name="revanced_sb_color_opacity_label">Läpikuultamattomuus:</string>
   <string name="revanced_sb_color_dot_label">Väri:</string>
-  <string name="revanced_sb_color_changed">Väri vaihdettu</string>
-  <string name="revanced_sb_color_reset">Väri nollattu</string>
-  <string name="revanced_sb_color_invalid">Virheellinen värikoodi</string>
-  <string name="revanced_sb_reset_color">Nollaa väri</string>
-  <string name="revanced_sb_reset">Nollaa</string>
   <string name="revanced_sb_about_title">Tietoja</string>
   <string name="revanced_sb_about_api_summary">Tiedot tarjoaa SponsorBlock API. Napauta tätä saadaksesi lisätietoja ja nähdäksesi lataukset muille alustoille</string>
   </patch>
@@ -1320,6 +1310,9 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="microg_settings_title">GmsCore-asetukset</string>
   <string name="microg_settings_summary">GmsCoren asetukset</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_zoom_title">Poista zoomaushaptiikka käytöstä</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Jos olet äskettäin muuttanut tilisi kirjautumistietoja, poista ja asenna MicroG uudelleen.</string>
   </patch>
@@ -1337,11 +1330,6 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Poista seurantakyselyparametrit</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Seurantakyselyparametrit poistetaan linkeistä</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Seurantakyselyparametrejä ei poisteta linkeistä</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Poista zoomaushaptiikka käytöstä</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptiikka ei ole käytössä</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptiikka on käytössä</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Pakota alkuperäinen äänen kieli</string>

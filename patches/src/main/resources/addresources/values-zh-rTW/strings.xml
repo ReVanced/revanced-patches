@@ -355,9 +355,6 @@ Second \"item\" text"</string>
 
 此功能僅適用於舊版裝置"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">已顯示全螢幕廣告</string>
-  <string name="revanced_hide_buttoned_ads_title">隱藏按鈕型廣告</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">已隱藏按鈕型廣告</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">已顯示按鈕型廣告</string>
   <string name="revanced_hide_paid_promotion_label_title">隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">已隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">已顯示付費推廣標籤</string>
@@ -468,7 +465,6 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">滑動覆蓋背景透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">不透明度值介於 0 到 100 之間</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑動透明度必須介於 0 到 100 之間</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">音量和亮度控制的進度列顏色</string>
   <string name="revanced_swipe_threshold_title">滑動幅度臨界點</string>
   <string name="revanced_swipe_threshold_summary">滑動幅度臨界點</string>
   <string name="revanced_swipe_volume_sensitivity_title">音量滑動靈敏度</string>
@@ -1075,11 +1071,6 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s 秒</string>
   <string name="revanced_sb_color_opacity_label">不透明度：</string>
   <string name="revanced_sb_color_dot_label">顏色：</string>
-  <string name="revanced_sb_color_changed">已變更顏色</string>
-  <string name="revanced_sb_color_reset">重設顏色</string>
-  <string name="revanced_sb_color_invalid">無效的顏色代碼</string>
-  <string name="revanced_sb_reset_color">重設顏色</string>
-  <string name="revanced_sb_reset">重設</string>
   <string name="revanced_sb_about_title">關於</string>
   <string name="revanced_sb_about_api_summary">資料由 SponsorBlock API 提供。輕觸這裡來了解更多資訊和查看其他平台的下載</string>
   </patch>
@@ -1308,6 +1299,9 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">GmsCore 設定</string>
   <string name="microg_settings_summary">GmsCore 設定</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_zoom_title">停用縮放震動</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">如果您最近變更了帳戶登入詳細資訊，請解除安裝並重新安裝 MicroG。</string>
   </patch>
@@ -1325,11 +1319,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">移除追蹤查詢參數</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">已從連結移除追蹤查詢參數</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">未從連結移除追蹤查詢參數</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">停用縮放震動</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">已停用震動</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">已啟用震動</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">強制使用原始音訊語言</string>

@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Seaded</string>
   <string name="revanced_settings_confirm_user_dialog_title">Kas soovite jätkata?</string>
   <string name="revanced_settings_reset">Lähtesta</string>
+  <string name="revanced_settings_reset_color">Lähtesta värv</string>
+  <string name="revanced_settings_color_invalid">Vigane värv</string>
   <string name="revanced_settings_restart_title">Värskenda ja taaskäivita</string>
   <string name="revanced_settings_restart">Taaskäivita</string>
   <string name="revanced_settings_import">Impordi</string>
@@ -115,6 +117,11 @@ Vajutage jätkamise nuppu ja lubage optimeerimismuutused."</string>
   <string name="revanced_debug_protobuffer_title">Logi protokolipuffari</string>
   <string name="revanced_debug_protobuffer_summary_on">Vea logid sisaldavad protokolipuffari</string>
   <string name="revanced_debug_protobuffer_summary_off">Vea logid ei sisalda protokolipuffari</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Selle sätte lubamine logib täiendavaid paigutuse andmeid, sealhulgas mõne kasutajaliidese komponendi ekraanil kuvatavat teksti.
+
+See võib aidata komponente tuvastada kohandatud filtrite loomisel.
+
+Selle lubamine logib aga ka mõningaid kasutajaandmeid, näiteks teie IP-aadressi."</string>
   <string name="revanced_debug_stacktrace_title">Logi stekira jäljed</string>
   <string name="revanced_debug_stacktrace_summary_on">Silumispäevikud sisaldavad virna jäljendamise</string>
   <string name="revanced_debug_stacktrace_summary_off">Silumispäevikud ei sisalda virna jäljendamise</string>
@@ -124,6 +131,15 @@ Vajutage jätkamise nuppu ja lubage optimeerimismuutused."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Vea teadete väljalülitamine peidab kõik ReVanced i veateadete märguanded.
 
 Teid ei teavitata ühestki ootamatust sündmusest."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Ekspordi silumislogid</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopeerib ReVanced silumislogid lõikelauale</string>
+  <string name="revanced_debug_logs_disabled">Silumislogimine on keelatud</string>
+  <string name="revanced_debug_logs_none_found">Logisid ei leitud</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Logid kopeeritud</string>
+  <string name="revanced_debug_logs_failed_to_export">Logide eksportimine ebaõnnestus: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Puhasta silumislogid</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Puhastab kõik salvestatud ReVanced silumislogid</string>
+  <string name="revanced_debug_logs_clear_toast">Logid puhastatud</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Peida albumikaardid</string>
@@ -365,9 +381,6 @@ Piirangud
 
 See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Täisekraanireklaamid kuvatakse</string>
-  <string name="revanced_hide_buttoned_ads_title">Peida nuppudega reklaamid</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Nuppudega reklaamid on peidetud</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Nuked onukleitud reklaamid näidatakse</string>
   <string name="revanced_hide_paid_promotion_label_title">Peida makstud edendamise silt</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Makstud edendamise silt on peidus</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Makstud edendamise silt on näidatud</string>
@@ -478,9 +491,10 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_swipe_overlay_background_opacity_title">Pühkiva katte tausta läbipaistvus</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Läbipaistvuse väärtus vahemikus 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pühkiva katte läbipaistvus peab olema vahemikus 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Liigutamise ülekatte edenemisriba värv</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Helitugevuse ja heleduse juhtnuppude edenemisriba värv</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Vigane edenemisriba värv</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Pühkige ekraani heleduse värvi</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Heleduse juhtnuppude edenemisriba värv</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Pühkige ekraani helitugevuse värvi</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Helitugevuse juhtnuppude edenemisriba värv</string>
   <string name="revanced_swipe_text_overlay_size_title">Liigutamise ülekatte teksti suurus</string>
   <string name="revanced_swipe_text_overlay_size_summary">Liigutamise ülekatte teksti suurus vahemikus 1–30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Teksti suurus peab olema vahemikus 1–30</string>
@@ -1099,11 +1113,6 @@ Kas olete esitamiseks valmis?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekundit</string>
   <string name="revanced_sb_color_opacity_label">Läbipaistmatus:</string>
   <string name="revanced_sb_color_dot_label">Värv:</string>
-  <string name="revanced_sb_color_changed">Värv muudetud</string>
-  <string name="revanced_sb_color_reset">Värv lähtestatud</string>
-  <string name="revanced_sb_color_invalid">Vigane värvikood</string>
-  <string name="revanced_sb_reset_color">Lähtesta värv</string>
-  <string name="revanced_sb_reset">Lähtesta</string>
   <string name="revanced_sb_about_title">Teave</string>
   <string name="revanced_sb_about_api_summary">Andmed on pärit SponsorBlock API-st. Puudutage siia, et saada lisateavet ja vaadata allalaadimisi teistele platvormidele</string>
   </patch>
@@ -1328,6 +1337,22 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="microg_settings_title">GmsCore seaded</string>
   <string name="microg_settings_summary">GmsCore seaded</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptiline tagasiside</string>
+  <string name="revanced_disable_haptic_feedback_summary">Muuda haptilist tagasisidet</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Keela peatükkide hääled</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Peatükkide hääled on keelatud</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Peatükkide hääled on lubatud</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Keela täpse otsingu hääled</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Täpse otsimise haptika on keelatud</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Täpse otsingu hääled on lubatud</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Keela otsimise tagasivõtmise haptika</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Otsimise tagasivõtmise haptika on keelatud</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Otsimise tagasivõtmise haptika on lubatud</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Keela suumimise hääled</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Suumi haptika on keelatud</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Suumi haptika on lubatud</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Kui sa hiljuti muutsid oma konto sisselogimisandmeid, siis eemalda ja installeeri MicroG uuesti.</string>
   </patch>
@@ -1345,11 +1370,6 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Eemalda jälgimise päringuparameeter</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Jälgimise päringuparameeter eemaldatakse linkidest</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Jälgimise päringuparameeter ei eemaldata linkidest</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Keela suumimise hääled</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Hääled on keelatud</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Hääled on lubatud</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Sunni originaalheli keel</string>

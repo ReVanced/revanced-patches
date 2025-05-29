@@ -42,7 +42,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced tənzimləmələr standarta təyin edildi</string>
   <string name="revanced_settings_import_success">%d tənzimləmə idxal edildi</string>
   <string name="revanced_settings_import_failure_parse">Uğursuz idxal prosesi: %s</string>
-  <string name="revanced_settings_search_hint">Axtarış tənzimləmələri</string>
+  <string name="revanced_settings_search_hint">Tənzimləmələri axtar</string>
   <string name="revanced_settings_search_no_results_title">‘%s’ üçün nəticə tapılmadı</string>
   <string name="revanced_settings_search_no_results_summary">Başqa açar sözü yoxla</string>
   <string name="revanced_settings_search_remove_message">Axtarış tarixçəsindən silinsin?</string>
@@ -365,9 +365,6 @@ Məhdudiyyətlər
 
 Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamları göstərilir</string>
-  <string name="revanced_hide_buttoned_ads_title">Düyməli reklamları gizlət</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Düyməli reklamlar gizlədilir</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Düyməli reklamlar göstərilir</string>
   <string name="revanced_hide_paid_promotion_label_title">Ödənişli tanıtım etiketini gizlət</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Ödənişli reklam etiketi gizlədilib</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Ödənişli reklam etiketi göstərilir</string>
@@ -478,9 +475,6 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_swipe_overlay_background_opacity_title">Sürüşdürmə cildi arxa plan qeyri-şəffaflığı</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">0-100 arası qeyri-şəffaflıq dəyəri</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Sürüşmə qeyri-şəffaflığı 0-100 arası olmalıdır</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Sürüşdürmə örtüyü irəliləyiş cizgisi rəngi</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Səs səviyyəsinə və parlaqlığa nəzarət üçün irəliləyiş cizgisi rəngi</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Yanlış irəliləyiş cizgisi rəngi</string>
   <string name="revanced_swipe_text_overlay_size_title">Sürüşdürmə örtüyü mətn ölçüsü</string>
   <string name="revanced_swipe_text_overlay_size_summary">Sürüşmə üçün mətn ölçüsü 1-30 arasındadır</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Mətn ölçüsü 1-30 arası olmalıdır</string>
@@ -1098,11 +1092,6 @@ Təqdim etməyə hazırdır?"</string>
   <string name="revanced_sb_stats_saved_second_format">%s saniyə</string>
   <string name="revanced_sb_color_opacity_label">Qeyri-şəffaflıq:</string>
   <string name="revanced_sb_color_dot_label">Rəng:</string>
-  <string name="revanced_sb_color_changed">Rəng dəyişdirildi</string>
-  <string name="revanced_sb_color_reset">Rəngi sıfırla</string>
-  <string name="revanced_sb_color_invalid">Etibarsız rəng kodu</string>
-  <string name="revanced_sb_reset_color">Rəngi sıfırla</string>
-  <string name="revanced_sb_reset">Sıfırlayın</string>
   <string name="revanced_sb_about_title">Haqqında</string>
   <string name="revanced_sb_about_api_summary">Məlumat SponsorBlock API tərəfindən təqdim edilir. Daha ətraflı öyrənmək və digər platformalar üzrə yükləmələrə baxmaq üçün bura toxunun</string>
   </patch>
@@ -1327,6 +1316,9 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="microg_settings_title">GmsCore Tənzimləmələri</string>
   <string name="microg_settings_summary">GmsCore üçün Tənzimləmələr</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_zoom_title">Yaxınlaşdırma reaksiyasın qapat</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Bu yaxınlarda hesabınıza giriş məlumatlarınızı dəyişmisinizsə, MicroG-ni silin və təkrar quraşdırın.</string>
   </patch>
@@ -1344,11 +1336,6 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_remove_tracking_query_parameter_title">İzləmə sorğusu faktorun sil</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">İzləmə sorğusu faktoru bağlantılardan silinir</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">İzləmə sorğusu faktoru bağlantılardan silinmir</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Yaxınlaşdırma reaksiyasın qapat</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Reaksiya qapalıdır</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Reaksiya aktivdir</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Orijinal səs dilini zorla</string>

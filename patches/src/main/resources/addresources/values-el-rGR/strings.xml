@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Ρυθμίσεις</string>
   <string name="revanced_settings_confirm_user_dialog_title">Θέλετε να συνεχίσετε;</string>
   <string name="revanced_settings_reset">Επαναφορά</string>
+  <string name="revanced_settings_reset_color">Επαναφορά χρώματος</string>
+  <string name="revanced_settings_color_invalid">Μη έγκυρο χρώμα</string>
   <string name="revanced_settings_restart_title">Ανανέωση και επανεκκίνηση</string>
   <string name="revanced_settings_restart">Επανεκκίνηση</string>
   <string name="revanced_settings_import">Εισαγωγή</string>
@@ -115,6 +117,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">Καταγραφή του buffer πρωτοκόλλου</string>
   <string name="revanced_debug_protobuffer_summary_on">Τα αρχεία καταγραφής σφαλμάτων περιλαμβάνουν το buffer του πρωτοκόλλου</string>
   <string name="revanced_debug_protobuffer_summary_off">Τα αρχεία καταγραφής σφαλμάτων δεν περιλαμβάνουν τον buffer πρωτοκόλλου</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Η ενεργοποίηση αυτής της ρύθμισης θα καταγράψει επιπλέον δεδομένα διάταξης, συμπεριλαμβανομένου του κειμένου στην οθόνη για ορισμένα στοιχεία διεπαφής χρήστη.
+
+Αυτό μπορεί να βοηθήσει στον εντοπισμό στοιχείων κατά τη δημιουργία προσαρμοσμένων φίλτρων.
+
+Ωστόσο, η ενεργοποίηση αυτής της ρύθμισης θα καταγράψει επίσης ορισμένα δεδομένα χρήστη, όπως τη διεύθυνση IP σας."</string>
   <string name="revanced_debug_stacktrace_title">Καταγραφή ιχνών στοίβας</string>
   <string name="revanced_debug_stacktrace_summary_on">Τα αρχεία καταγραφής σφαλμάτων περιλαμβάνουν ίχνη στοίβας</string>
   <string name="revanced_debug_stacktrace_summary_off">Τα αρχεία καταγραφής σφαλμάτων δεν περιλαμβάνουν ίχνη στοίβας</string>
@@ -124,6 +131,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Η απενεργοποίηση των μηνυμάτων σφαλμάτων κρύβει όλες τις ειδοποιήσεις σφαλμάτων που αφορούν το ReVanced.
 
 Δεν θα ειδοποιηθείτε για τυχόν απρόβλεπτα γεγονότα."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Εξαγωγή αρχείων καταγραφής εντοπισμού σφαλμάτων</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Αντιγραφή των αρχείων καταγραφής εντοπισμού σφαλμάτων ReVanced στο πρόχειρο</string>
+  <string name="revanced_debug_logs_disabled">Η καταγραφή εντοπισμού σφαλμάτων είναι απενεργοποιημένη</string>
+  <string name="revanced_debug_logs_none_found">Δεν βρέθηκαν αρχεία καταγραφής</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Τα αρχεία καταγραφής αντιγράφηκαν</string>
+  <string name="revanced_debug_logs_failed_to_export">Αποτυχία εξαγωγής αρχείων καταγραφής: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Εκκαθάριση αρχείων καταγραφής εντοπισμού σφαλμάτων</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Εκκαθάριση όλων των αποθηκευμένων αρχειών καταγραφής εντοπισμού σφαλμάτων ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Τα αρχεία καταγραφής εκκαθαρίστηκαν</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Κάρτες άλμπουμ</string>
@@ -367,9 +383,6 @@ Second \"item\" text"</string>
 
 Αυτή η λειτουργία είναι διαθέσιμη μόνο για παλιότερες συσκευές"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Οι διαφημίσεις πλήρους οθόνης εμφανίζονται</string>
-  <string name="revanced_hide_buttoned_ads_title">Διαφημίσεις κουμπιών</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Κρυμμένες</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_paid_promotion_label_title">Ετικέτες προώθησης επί πληρωμή</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Εμφανίζονται</string>
@@ -480,9 +493,10 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Αδιαφάνεια φόντου σάρωσης</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Η αδιαφάνεια σάρωσης πρέπει να είναι μεταξύ 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Χρώμα γραμμής προόδου σάρωσης</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Το χρώμα της γραμμής προόδου για τα στοιχεία ελέγχου έντασης ήχου και φωτεινότητας</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Μη έγκυρο χρώμα γραμμής προόδου</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Χρώμα φωτεινότητας σάρωσης</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Το χρώμα της γραμμής προόδου για τα στοιχεία ελέγχου φωτεινότητας</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Χρώμα έντασης ήχου σάρωσης</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Το χρώμα της γραμμής προόδου για τα στοιχεία ελέγχου έντασης ήχου</string>
   <string name="revanced_swipe_text_overlay_size_title">Μέγεθος κειμένου σάρωσης</string>
   <string name="revanced_swipe_text_overlay_size_summary">Το μέγεθος κειμένου για τα στοιχεία ελέγχου σάρωσης μεταξύ 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Το μέγεθος κειμένου πρέπει να είναι μεταξύ 1-30</string>
@@ -1100,11 +1114,6 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_second_format">%s δευτερόλεπτα</string>
   <string name="revanced_sb_color_opacity_label">Αδιαφάνεια:</string>
   <string name="revanced_sb_color_dot_label">Χρώμα:</string>
-  <string name="revanced_sb_color_changed">Το χρώμα άλλαξε</string>
-  <string name="revanced_sb_color_reset">Το χρώμα επαναφέρθηκε</string>
-  <string name="revanced_sb_color_invalid">Μη έγκυρος κωδικός χρώματος</string>
-  <string name="revanced_sb_reset_color">Επαναφορά χρώματος</string>
-  <string name="revanced_sb_reset">Επαναφορά</string>
   <string name="revanced_sb_about_title">Σχετικά με</string>
   <string name="revanced_sb_about_api_summary">Τα δεδομένα παρέχονται από το SponsorBlock API. Πατήστε για να μάθετε περισσότερα και να δείτε λήψεις για άλλες πλατφόρμες</string>
   </patch>
@@ -1327,6 +1336,22 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">Ρυθμίσεις GmsCore</string>
   <string name="microg_settings_summary">Ρυθμίσεις για το MicroG GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Απόκριση δόνησης</string>
+  <string name="revanced_disable_haptic_feedback_summary">Αλλαγή απόκρισης δόνησης</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Απενεργοποίηση απόκρισης δόνησης κατά την αλλαγή κεφαλαίων</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Η απόκριση δόνησης κατά την αλλαγή κεφαλαίων είναι απενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Η απόκριση δόνησης κατά την αλλαγή κεφαλαίων είναι ενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Απενεργοποίηση απόκρισης δόνησης κατά τη λειτουργία ακριβής αναζήτησης</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Η απόκριση δόνησης κατά τη λειτουργία ακριβής αναζήτησης είναι απενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Η απόκριση δόνησης κατά τη λειτουργία ακριβής αναζήτησης είναι ενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Απενεργοποίηση απόκρισης δόνησης κατά τη λειτουργία «Αφήστε για ακύρωση»</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Η απόκριση δόνησης κατά τη λειτουργία «Αφήστε για ακύρωση» είναι απενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Η απόκριση δόνησης κατά τη λειτουργία «Αφήστε για ακύρωση» είναι ενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Απενεργοποίηση απόκρισης δόνησης χειρονομίας ζουμ</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Η απόκριση δόνησης της χειρονομίας ζουμ είναι απενεργοποιημένη</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Η απόκριση δόνησης της χειρονομίας ζουμ είναι ενεργοποιημένη</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Εάν αλλάξατε πρόσφατα τα στοιχεία σύνδεσης του λογαριασμού σας, απεγκαταστήστε και εγκαταστήστε ξανά το MicroG.</string>
   </patch>
@@ -1344,11 +1369,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Η παράμετρος παρακολούθησης αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Η παράμετρος παρακολούθησης δεν αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Απενεργοποίηση απόκρισης δόνησης χειρονομίας ζουμ</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Η απόκριση δόνησης είναι απενεργοποιημένη</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Η απόκριση δόνησης είναι ενεργοποιημένη</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>
