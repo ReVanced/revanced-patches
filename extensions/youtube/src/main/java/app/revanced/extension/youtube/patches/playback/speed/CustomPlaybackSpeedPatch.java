@@ -32,6 +32,7 @@ import android.widget.TextView;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.VideoInformation;
+import app.revanced.extension.youtube.patches.playback.speed.RememberPlaybackSpeedPatch;
 import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilterPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.ThemeHelper;
@@ -507,6 +508,7 @@ public class CustomPlaybackSpeedPatch {
     @SuppressLint("DefaultLocale")
     private static void applyPlaybackSpeed(float speed, boolean showToast) {
         VideoInformation.overridePlaybackSpeed(speed);
+        RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(speed);
         Logger.printDebug(() -> "Applying playback speed: " + speed);
         if (showToast) {
             Utils.showToastShort(str("revanced_custom_playback_speeds_changed_toast", formatSpeed(speed)));
