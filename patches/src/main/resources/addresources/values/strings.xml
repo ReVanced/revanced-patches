@@ -1478,9 +1478,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s</string>
             <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_auto">Auto</string>
-            <string name="revanced_custom_playback_speed_menu_type_title">Custom speed menu type</string>
-            <string name="revanced_custom_playback_speed_menu_type_summary_on">Modern style speed menu is shown</string>
-            <string name="revanced_custom_playback_speed_menu_type_summary_off">Old style flyout menu is shown</string>
             <string name="revanced_custom_playback_speeds_changed_toast">Changed playback speed to: %sx</string>
             <string name="revanced_custom_playback_speeds_reset_toast">Playback speed reset to: %sx</string>
             <string name="revanced_custom_playback_speeds_normal_speed">Normal</string>

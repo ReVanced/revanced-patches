@@ -78,7 +78,6 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                     "revanced_custom_playback_speeds",
                     inputType = InputType.TEXT_MULTI_LINE
                 ),
-                SwitchPreference("revanced_custom_playback_speed_menu_type"),
             )
         )
 

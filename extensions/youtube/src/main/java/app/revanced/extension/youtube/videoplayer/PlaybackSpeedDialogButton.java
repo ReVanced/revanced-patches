@@ -27,15 +27,7 @@ public class PlaybackSpeedDialogButton {
                     "revanced_playback_speed_dialog_button",
                     "revanced_playback_speed_dialog_button_placeholder",
                     Settings.PLAYBACK_SPEED_DIALOG_BUTTON::get,
-                    view -> {
-                        if (Settings.CUSTOM_PLAYBACK_SPEED_MENU_TYPE.get()) {
-                            // Open modern speed dialog.
-                            CustomPlaybackSpeedPatch.showModernCustomPlaybackSpeedDialog(view.getContext());
-                        } else {
-                            // Open old style flyout menu.
-                            CustomPlaybackSpeedPatch.showOldPlaybackSpeedMenu();
-                        }
-                    },
+                    view -> { CustomPlaybackSpeedPatch.showModernCustomPlaybackSpeedDialog(view.getContext());},
                     view -> {
                         if (!Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get() ||
                                 VideoInformation.getPlaybackSpeed() == Settings.PLAYBACK_SPEED_DEFAULT.get()) {
