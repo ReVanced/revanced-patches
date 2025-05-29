@@ -243,7 +243,7 @@ public class CustomPlaybackSpeedPatch {
                 int height = getBounds().height();
                 float centerX = width / 2f;
                 float centerY = height / 2f;
-                float size = Math.min(width, height) * 0.2f; // Symbol size 20% of button.
+                float size = Math.min(width, height) * 0.25f; // Symbol size 25% of button.
 
                 // Draw horizontal line for both plus and minus.
                 canvas.drawLine(centerX - size, centerY, centerX + size, centerY, paint);
@@ -440,7 +440,7 @@ public class CustomPlaybackSpeedPatch {
 
             if (speed == 1.0f) {
                 TextView normalLabel = new TextView(context);
-                normalLabel.setText(str("revanced_custom_playback_speeds_normal_speed");
+                normalLabel.setText(str("revanced_custom_playback_speeds_normal_speed"));
                 normalLabel.setTextColor(ThemeHelper.getForegroundColor());
                 normalLabel.setTextSize(10);
                 normalLabel.setGravity(Gravity.CENTER);
