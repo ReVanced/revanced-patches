@@ -440,7 +440,7 @@ public class CustomPlaybackSpeedPatch {
 
             if (speed == 1.0f) {
                 TextView normalLabel = new TextView(context);
-                normalLabel.setText("Normal");
+                normalLabel.setText(str("revanced_custom_playback_speeds_normal_speed");
                 normalLabel.setTextColor(ThemeHelper.getForegroundColor());
                 normalLabel.setTextSize(10);
                 normalLabel.setGravity(Gravity.CENTER);

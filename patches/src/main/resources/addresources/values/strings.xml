@@ -1483,6 +1483,7 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_custom_playback_speed_menu_type_summary_off">Old style flyout menu is shown</string>
             <string name="revanced_custom_playback_speeds_changed_toast">Changed playback speed to: %sx</string>
             <string name="revanced_custom_playback_speeds_reset_toast">Playback speed reset to: %sx</string>
+            <string name="revanced_custom_playback_speeds_normal_speed">Normal</string>
             <string name="revanced_speed_tap_and_hold_title">Custom tap and hold speed</string>
             <string name="revanced_speed_tap_and_hold_summary">Playback speed between 0-8</string>
         </patch>
