@@ -33,7 +33,7 @@ public final class RememberPlaybackSpeedPatch {
     public static void userSelectedPlaybackSpeed(float playbackSpeed) {
         try {
             if (Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get()) {
-                // With the 0.05x menu, if the speed is set by integrations to higher than 2.0x
+                // With the 0.05x menu, if the speed is set by a patch to higher than 2.0x
                 // then the menu will allow increasing without bounds but the max speed is
                 // still capped to 8.0x.
                 playbackSpeed = Math.min(playbackSpeed, CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MAXIMUM);
