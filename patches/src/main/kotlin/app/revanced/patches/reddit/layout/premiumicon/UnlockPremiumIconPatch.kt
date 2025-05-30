@@ -5,8 +5,8 @@ import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
 val unlockPremiumIconPatch = bytecodePatch(
-    name = "Unlock premium Reddit icons",
-    description = "Unlocks the premium Reddit icons.",
+    name = "Unlock Premium icons",
+    description = "Unlocks the Reddit Premium icons.",
 ) {
     compatibleWith("com.reddit.frontpage")
 
