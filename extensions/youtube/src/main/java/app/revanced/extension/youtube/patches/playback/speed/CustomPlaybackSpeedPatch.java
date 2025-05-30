@@ -525,7 +525,7 @@ public class CustomPlaybackSpeedPatch {
      * @return user speed converted to a value for {@link SeekBar#setProgress(int)}, true.
      */
     private static int speedToProgressValue(float speed) {
-        return (int) ((speed - PLAYBACK_SPEED_MINIMUM) * 20f);
+        return (int) ((speed - PLAYBACK_SPEED_MINIMUM) * 100f);
     }
 
     /**
@@ -538,7 +538,7 @@ public class CustomPlaybackSpeedPatch {
         final float maxSpeed = customPlaybackSpeeds[customPlaybackSpeeds.length - 1];
 
         // Round to nearest 0.05 increment.
-        float roundedSpeed = Math.round(speed * 20f) / 20f;
+        final float roundedSpeed = Math.round(speed * 100f) / 100f;
         // Constrain to valid bounds.
         return Utils.clamp(roundedSpeed, CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MINIMUM, maxSpeed);
     }
