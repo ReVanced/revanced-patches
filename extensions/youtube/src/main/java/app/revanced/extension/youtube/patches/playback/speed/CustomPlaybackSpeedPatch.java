@@ -26,20 +26,21 @@ import android.view.ViewParent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.FrameLayout;
+import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.util.Arrays;
+import java.util.function.Function;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilterPatch;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.ThemeHelper;
-
-import java.util.Arrays;
 
 @SuppressWarnings("unused")
 public class CustomPlaybackSpeedPatch {
@@ -298,9 +299,6 @@ public class CustomPlaybackSpeedPatch {
         sliderLayout.setGravity(Gravity.CENTER_VERTICAL);
         sliderLayout.setPadding(dip5, dip5, dip5, dip5); // 5dp padding.
 
-        // Get the maximum speed from customPlaybackSpeeds array.
-        float maxCustomSpeed = customPlaybackSpeeds[customPlaybackSpeeds.length - 1];
-
         // Create minus button.
         Button minusButton = new Button(context, null, 0); // Disable default theme style.
         minusButton.setText(""); // No text on button.
@@ -315,8 +313,8 @@ public class CustomPlaybackSpeedPatch {
 
         // Create slider for speed adjustment.
         SeekBar speedSlider = new SeekBar(context);
-        speedSlider.setMax((int) ((maxCustomSpeed - PLAYBACK_SPEED_MINIMUM) * 20)); // Set max based on custom speed range.
-        speedSlider.setProgress((int) ((currentSpeed - PLAYBACK_SPEED_MINIMUM) * 20)); // Set initial progress.
+        speedSlider.setMax(speedToProgressValue(customPlaybackSpeeds[customPlaybackSpeeds.length - 1]));
+        speedSlider.setProgress(speedToProgressValue(currentSpeed));
         speedSlider.getProgressDrawable().setColorFilter(
                 ThemeHelper.getForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme progress bar.
         speedSlider.getThumb().setColorFilter(
@@ -357,12 +355,12 @@ public class CustomPlaybackSpeedPatch {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
                     // Calculate speed and round to nearest 0.05.
-                    float speed = PLAYBACK_SPEED_MINIMUM + (progress / 20f);
-                    speed = roundSpeedToNearestIncrement(speed, PLAYBACK_SPEED_MINIMUM, maxCustomSpeed);
+                    final float speed = roundSpeedToNearestIncrement(PLAYBACK_SPEED_MINIMUM + (progress / 20f));
+
                     currentSpeedText.setText(formatSpeedStringX(speed)); // Update displayed speed.
-                    applyPlaybackSpeed(speed);
+                    applyUserSelectedPlaybackSpeed(speed);
                     // Ensure slider progress is consistent with rounded speed.
-                    seekBar.setProgress((int) ((speed - PLAYBACK_SPEED_MINIMUM) * 20f));
+                    seekBar.setProgress(speedToProgressValue(speed));
                 }
             }
 
@@ -373,24 +371,20 @@ public class CustomPlaybackSpeedPatch {
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
-        // Set listener for minus button to decrease speed.
-        minusButton.setOnClickListener(v -> {
-            float current = VideoInformation.getPlaybackSpeed();
-            // Decrease by 0.05 and round to nearest 0.05.
-            float newSpeed = roundSpeedToNearestIncrement(current - 0.05f, PLAYBACK_SPEED_MINIMUM, maxCustomSpeed);
-            applyPlaybackSpeed(newSpeed);
-            currentSpeedText.setText(formatSpeedStringX(newSpeed)); // Update display.
-            speedSlider.setProgress((int) ((newSpeed - PLAYBACK_SPEED_MINIMUM) * 20f)); // Update slider.
-        });
-
-        // Set listener for plus button to increase speed.
-        plusButton.setOnClickListener(v -> {
-            float current = VideoInformation.getPlaybackSpeed();
+        Function<Float, Void> changeButtonOnClickAction = speedChange -> {
             // Increase by 0.05 and round to nearest 0.05.
-            float newSpeed = roundSpeedToNearestIncrement(current + 0.05f, PLAYBACK_SPEED_MINIMUM, maxCustomSpeed);
-            applyPlaybackSpeed(newSpeed);
+            final float newSpeed = roundSpeedToNearestIncrement(
+                    VideoInformation.getPlaybackSpeed() + speedChange);
+            applyUserSelectedPlaybackSpeed(newSpeed);
             currentSpeedText.setText(formatSpeedStringX(newSpeed)); // Update display.
-            speedSlider.setProgress((int) ((newSpeed - PLAYBACK_SPEED_MINIMUM) * 20f)); // Update slider.
+            speedSlider.setProgress(speedToProgressValue(newSpeed)); // Update slider.
+            return null;
+        };
+        minusButton.setOnClickListener(v -> {
+            changeButtonOnClickAction.apply(-0.05f);
+        });
+        plusButton.setOnClickListener(v -> {
+            changeButtonOnClickAction.apply(0.05f);
         });
 
         // Create GridLayout for preset speed buttons.
@@ -459,10 +453,10 @@ public class CustomPlaybackSpeedPatch {
             // Set listener to apply selected speed.
             speedButton.setOnClickListener(v -> {
                 // Round preset speed to nearest 0.05 using helper method.
-                float newSpeed = roundSpeedToNearestIncrement(speed, PLAYBACK_SPEED_MINIMUM, maxCustomSpeed);
-                applyPlaybackSpeed(newSpeed);
+                final float newSpeed = roundSpeedToNearestIncrement(speed);
+                applyUserSelectedPlaybackSpeed(newSpeed);
                 currentSpeedText.setText(formatSpeedStringX(newSpeed)); // Update display.
-                speedSlider.setProgress((int) ((newSpeed - PLAYBACK_SPEED_MINIMUM) * 20f)); // Update slider.
+                speedSlider.setProgress(speedToProgressValue(newSpeed)); // Update slider.
                 // dialog.dismiss(); // Optionally close dialog after selection.
             });
 
@@ -508,7 +502,7 @@ public class CustomPlaybackSpeedPatch {
      *
      * @param speed The playback speed to apply (e.g., 1.0f for normal speed).
      */
-    private static void applyPlaybackSpeed(float speed) {
+    private static void applyUserSelectedPlaybackSpeed(float speed) {
         Logger.printDebug(() -> "Applying playback speed: " + speed);
         VideoInformation.overridePlaybackSpeed(speed);
         RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(speed);
@@ -522,7 +516,7 @@ public class CustomPlaybackSpeedPatch {
      * (top-left, top-right, bottom-right, bottom-left).
      */
     private static float[] createCornerRadii(float dp) {
-        float radius = dipToPixels(dp);
+        final float radius = dipToPixels(dp);
         return new float[]{radius, radius, radius, radius, radius, radius, radius, radius};
     }
 
@@ -535,18 +529,25 @@ public class CustomPlaybackSpeedPatch {
     }
 
     /**
+     * @return user speed converted to a value for {@link SeekBar#setProgress(int)}, true.
+     */
+    private static int speedToProgressValue(float speed) {
+        return (int) ((speed - PLAYBACK_SPEED_MINIMUM) * 100f);
+    }
+
+    /**
      * Rounds the given playback speed to the nearest 0.05 increment and ensures it is within valid bounds.
      *
      * @param speed The playback speed to round.
-     * @param minSpeed The minimum allowed speed (e.g., PLAYBACK_SPEED_MINIMUM).
-     * @param maxSpeed The maximum allowed speed (e.g., maxCustomSpeed).
      * @return The rounded speed, constrained to the specified bounds.
      */
-    private static float roundSpeedToNearestIncrement(float speed, float minSpeed, float maxSpeed) {
+    private static float roundSpeedToNearestIncrement(float speed) {
+        final float maxSpeed = customPlaybackSpeeds[customPlaybackSpeeds.length - 1];
+
         // Round to nearest 0.05 increment.
-        float roundedSpeed = Math.round(speed * 20f) / 20f;
+        final float roundedSpeed = Math.round(speed * 100f) / 100f;
         // Constrain to valid bounds.
-        return Math.max(minSpeed, Math.min(maxSpeed, roundedSpeed));
+        return Utils.clamp(roundedSpeed, CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MINIMUM, maxSpeed);
     }
 
     /**
