@@ -228,14 +228,31 @@ public class CustomPlaybackSpeedPatch {
         LinearLayout mainLayout = new LinearLayout(context);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
         final int dip7 = dipToPixels(7);
-        final int dip20 = dipToPixels(20);
-        mainLayout.setPadding(dip7, dip20, dip7, dip7); // 7dp sides, 20dp top padding.
+        mainLayout.setPadding(dip7, dip7, dip7, dip7); // 7dp padding.
 
         // Set rounded rectangle background for the main layout.
-        RoundRectShape roundRectShape = new RoundRectShape(outerRadii(), null, null);
+        RoundRectShape roundRectShape = new RoundRectShape(createCornerRadii(12), null, null);
         ShapeDrawable background = new ShapeDrawable(roundRectShape);
         background.getPaint().setColor(ThemeHelper.getBackgroundColor());
         mainLayout.setBackground(background);
+
+        // Add handle bar at the top.
+        View handleBar = new View(context);
+        ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(createCornerRadii(4), null, null));
+        handleBackground.getPaint().setColor(getAdjustedBackgroundColor()); // Use adjusted background color.
+        handleBar.setBackground(handleBackground);
+        final int dip4 = dipToPixels(4);
+        final int dip40 = dipToPixels(40);
+        LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(
+                dip40, // 40dp width.
+                dip4 // 4dp height.
+        );
+        handleParams.gravity = Gravity.CENTER_HORIZONTAL; // Center horizontally.
+        final int dip1 = dipToPixels(1);
+        final int dip20 = dipToPixels(20);
+        handleParams.setMargins(0, dip1, 0, dip20); // 20dp bottom margins.
+        handleBar.setLayoutParams(handleParams);
+        mainLayout.addView(handleBar); // Add handle bar view.
 
         // Display current playback speed.
         TextView currentSpeedText = new TextView(context);
@@ -264,16 +281,14 @@ public class CustomPlaybackSpeedPatch {
         // Create minus button.
         Button minusButton = new Button(context, null, 0); // Disable default theme style.
         minusButton.setText(""); // No text on button.
-        float[] radii = buttonRadii(); // Get corner radii for buttons.
-        ShapeDrawable minusBackground = new ShapeDrawable(new RoundRectShape(radii, null, null));
+        ShapeDrawable minusBackground = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
         minusBackground.getPaint().setColor(getAdjustedBackgroundColor());
         minusButton.setBackground(minusBackground);
         OutlineSymbolDrawable minusDrawable = new OutlineSymbolDrawable(false); // Minus symbol.
         minusButton.setForeground(minusDrawable);
-        final int dip14 = dipToPixels(14);
         final int dip36 = dipToPixels(36);
         LinearLayout.LayoutParams minusParams = new LinearLayout.LayoutParams(dip36, dip36);
-        minusParams.setMargins(0, 0, dip14, 0); // 0dp from edge, 14dp to slider.
+        minusParams.setMargins(0, 0, dip10, 0); // 0dp from edge, 14dp to slider.
         minusButton.setLayoutParams(minusParams);
 
         // Create slider for speed adjustment.
@@ -291,13 +306,13 @@ public class CustomPlaybackSpeedPatch {
         // Create plus button.
         Button plusButton = new Button(context, null, 0); // Disable default theme style.
         plusButton.setText(""); // No text on button.
-        ShapeDrawable plusBackground = new ShapeDrawable(new RoundRectShape(radii, null, null));
+        ShapeDrawable plusBackground = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
         plusBackground.getPaint().setColor(getAdjustedBackgroundColor());
         plusButton.setBackground(plusBackground);
         OutlineSymbolDrawable plusDrawable = new OutlineSymbolDrawable(true); // Plus symbol.
         plusButton.setForeground(plusDrawable);
         LinearLayout.LayoutParams plusParams = new LinearLayout.LayoutParams(dip36, dip36);
-        plusParams.setMargins(dip14, 0, 0, 0); // 14dp to slider, 0dp from edge.
+        plusParams.setMargins(dip10, 0, 0, 0); // 14dp to slider, 0dp from edge.
         plusButton.setLayoutParams(plusParams);
 
         // Add views to slider layout.
@@ -306,6 +321,7 @@ public class CustomPlaybackSpeedPatch {
         sliderLayout.addView(plusButton);
         LinearLayout.LayoutParams sliderLayoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        final int dip14 = dipToPixels(14);
         sliderLayoutParams.setMargins(0, 0, 0, dip14); // 14dp bottom margin.
         sliderLayout.setLayoutParams(sliderLayoutParams);
         mainLayout.addView(sliderLayout);
@@ -368,8 +384,9 @@ public class CustomPlaybackSpeedPatch {
             GridLayout.LayoutParams containerParams = new GridLayout.LayoutParams();
             containerParams.width = 0; // Equal width for columns.
             containerParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f);
-            containerParams.setMargins(dip5, dip5, dip5, dip5); // 5dp margins.
-            containerParams.height = dipToPixels(65); // Fixed height for button and label.
+            final int dip2 = dipToPixels(2);
+            containerParams.setMargins(dip5, dip2, dip5, dip2); // Button margins.
+            containerParams.height = dipToPixels(60); // Fixed height for button and label.
             buttonContainer.setLayoutParams(containerParams);
 
             // Create speed button.
@@ -380,8 +397,7 @@ public class CustomPlaybackSpeedPatch {
             speedButton.setAllCaps(false);
             speedButton.setGravity(Gravity.CENTER);
 
-            final float[] btnRadii = new float[]{dip20, dip20, dip20, dip20, dip20, dip20, dip20, dip20};
-            ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(btnRadii, null, null));
+            ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
             buttonBackground.getPaint().setColor(getAdjustedBackgroundColor());
             speedButton.setBackground(buttonBackground);
             final int dip10 = dipToPixels(10);
@@ -438,7 +454,11 @@ public class CustomPlaybackSpeedPatch {
             WindowManager.LayoutParams params = window.getAttributes();
             params.gravity = Gravity.BOTTOM; // Position at bottom of screen.
             params.y = dip7; // 7dp margin from bottom.
-            params.width = WindowManager.LayoutParams.MATCH_PARENT;
+            int maxWidth = Math.min(
+                    context.getResources().getDisplayMetrics().widthPixels, // Current screen width.
+                    dipToPixels(400) // Maximum width (400dp).
+            );
+            params.width = maxWidth;
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
             window.setAttributes(params);
             window.setBackgroundDrawable(null); // Remove default dialog background.
@@ -459,18 +479,14 @@ public class CustomPlaybackSpeedPatch {
     }
 
     /**
-     * Defines corner radii for the plus and minus buttons.
+     * Creates an array of corner radii for a rounded rectangle shape.
+     *
+     * @param dp The radius in density-independent pixels (dp) to apply to all corners.
+     * @return An array of eight float values representing the corner radii
+     * (top-left, top-right, bottom-right, bottom-left).
      */
-    private static float[] buttonRadii() {
-        final float radius = dipToPixels(20); // 20dp radius for all corners.
-        return new float[]{radius, radius, radius, radius, radius, radius, radius, radius};
-    }
-
-    /**
-     * Defines corner radii for the main dialog.
-     */
-    private static float[] outerRadii() {
-        final float radius = dipToPixels(12); // 12dp corner radius.
+    private static float[] createCornerRadii(float dp) {
+        float radius = dipToPixels(dp);
         return new float[]{radius, radius, radius, radius, radius, radius, radius, radius};
     }
 
