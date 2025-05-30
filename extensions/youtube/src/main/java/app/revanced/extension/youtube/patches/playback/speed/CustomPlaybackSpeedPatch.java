@@ -17,6 +17,8 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.icu.text.NumberFormat;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.widget.RecyclerView;
 import android.view.animation.Animation;
 import android.view.Gravity;
@@ -41,6 +43,7 @@ import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilterPatch;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 public class CustomPlaybackSpeedPatch {
@@ -217,7 +220,7 @@ public class CustomPlaybackSpeedPatch {
      * corners and themed colors, positioned at the bottom of the screen. The playback speed
      * can be adjusted in 0.05 increments using the slider or buttons, or set directly to preset
      * values. The dialog updates the displayed speed in real-time and applies changes to the
-     * video playback.
+     * video playback. The dialog is dismissed if the player enters Picture-in-Picture (PiP) mode.
      */
     @SuppressLint("SetTextI18n")
     public static void showModernCustomPlaybackSpeedDialog(Context context) {
@@ -340,7 +343,7 @@ public class CustomPlaybackSpeedPatch {
         Function<Float, Void> userSelectedSpeed = newSpeed -> {
             final float roundedSpeed = roundSpeedToNearestIncrement(newSpeed);
             if (VideoInformation.getPlaybackSpeed() == roundedSpeed) {
-                // Nothing has hanged. New speed rounds to the current speed.
+                // Nothing has changed. New speed rounds to the current speed.
                 return null;
             }
 
@@ -468,6 +471,22 @@ public class CustomPlaybackSpeedPatch {
             window.setAttributes(params);
             window.setBackgroundDrawable(null); // Remove default dialog background.
         }
+
+        // Poll for PiP mode to dismiss the dialog.
+        final Handler handler = new Handler(Looper.getMainLooper());
+        final Runnable checkPiP = new Runnable() {
+            @Override
+            public void run() {
+                if (dialog.isShowing() && PlayerType.getCurrent() == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE) {
+                    Logger.printDebug(() -> "Dismissing dialog due to PiP mode");
+                    dialog.dismiss();
+                } else if (dialog.isShowing()) {
+                    handler.postDelayed(this, 500); // Check again after 500ms.
+                }
+            }
+        };
+        handler.post(checkPiP); // Start polling.
+        dialog.setOnDismissListener(d -> handler.removeCallbacks(checkPiP)); // Stop polling on dismiss.
 
         // Apply slide-in animation when showing the dialog.
         final int fadeDurationFast = Utils.getResourceInteger("fade_duration_fast");
