@@ -349,18 +349,20 @@ public class CustomPlaybackSpeedPatch {
         // Add slider layout to main layout.
         mainLayout.addView(sliderLayout);
 
+        Function<Float, Void> updateSpeedAndUI = newSpeed -> {
+            final float roundedSpeed = roundSpeedToNearestIncrement(newSpeed);
+            applyUserSelectedPlaybackSpeed(roundedSpeed);
+            currentSpeedText.setText(formatSpeedStringX(roundedSpeed)); // Update display.
+            speedSlider.setProgress(speedToProgressValue(roundedSpeed)); // Update slider.
+            return null;
+        };
+
         // Set listener for slider to update playback speed.
         speedSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
-                    // Calculate speed and round to nearest 0.05.
-                    final float speed = roundSpeedToNearestIncrement(PLAYBACK_SPEED_MINIMUM + (progress / 20f));
-
-                    currentSpeedText.setText(formatSpeedStringX(speed)); // Update displayed speed.
-                    applyUserSelectedPlaybackSpeed(speed);
-                    // Ensure slider progress is consistent with rounded speed.
-                    seekBar.setProgress(speedToProgressValue(speed));
+                    updateSpeedAndUI.apply(PLAYBACK_SPEED_MINIMUM + (progress / 20f));
                 }
             }
 
@@ -371,21 +373,10 @@ public class CustomPlaybackSpeedPatch {
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
-        Function<Float, Void> changeButtonOnClickAction = speedChange -> {
-            // Increase by 0.05 and round to nearest 0.05.
-            final float newSpeed = roundSpeedToNearestIncrement(
-                    VideoInformation.getPlaybackSpeed() + speedChange);
-            applyUserSelectedPlaybackSpeed(newSpeed);
-            currentSpeedText.setText(formatSpeedStringX(newSpeed)); // Update display.
-            speedSlider.setProgress(speedToProgressValue(newSpeed)); // Update slider.
-            return null;
-        };
-        minusButton.setOnClickListener(v -> {
-            changeButtonOnClickAction.apply(-0.05f);
-        });
-        plusButton.setOnClickListener(v -> {
-            changeButtonOnClickAction.apply(0.05f);
-        });
+        minusButton.setOnClickListener(v -> updateSpeedAndUI.apply(
+                VideoInformation.getPlaybackSpeed() - 0.05f));
+        plusButton.setOnClickListener(v -> updateSpeedAndUI.apply(
+                VideoInformation.getPlaybackSpeed() + 0.05f));
 
         // Create GridLayout for preset speed buttons.
         GridLayout gridLayout = new GridLayout(context);
@@ -418,7 +409,8 @@ public class CustomPlaybackSpeedPatch {
             speedButton.setAllCaps(false);
             speedButton.setGravity(Gravity.CENTER);
 
-            ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
+            ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(
+                    createCornerRadii(20), null, null));
             buttonBackground.getPaint().setColor(getAdjustedBackgroundColor());
             speedButton.setBackground(buttonBackground);
             speedButton.setPadding(dip5, dip5, dip5, dip5);
@@ -451,14 +443,7 @@ public class CustomPlaybackSpeedPatch {
             }
 
             // Set listener to apply selected speed.
-            speedButton.setOnClickListener(v -> {
-                // Round preset speed to nearest 0.05 using helper method.
-                final float newSpeed = roundSpeedToNearestIncrement(speed);
-                applyUserSelectedPlaybackSpeed(newSpeed);
-                currentSpeedText.setText(formatSpeedStringX(newSpeed)); // Update display.
-                speedSlider.setProgress(speedToProgressValue(newSpeed)); // Update slider.
-                // dialog.dismiss(); // Optionally close dialog after selection.
-            });
+            speedButton.setOnClickListener(v -> updateSpeedAndUI.apply(speed));
 
             gridLayout.addView(buttonContainer);
         }
