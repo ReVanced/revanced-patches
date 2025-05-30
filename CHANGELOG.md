@@ -1,3 +1,10 @@
+# [5.26.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.25.0...v5.26.0-dev.1) (2025-05-30)
+
+
+### Features
+
+* **Proton Mail:** Add `Remove free accounts limit` patch ([#4970](https://github.com/ReVanced/revanced-patches/issues/4970)) ([b0440ad](https://github.com/ReVanced/revanced-patches/commit/b0440ad6af0e190e516974ce896dcc54c8d2e122))
+
 # [5.25.0](https://github.com/ReVanced/revanced-patches/compare/v5.24.0...v5.25.0) (2025-05-29)
 
 
