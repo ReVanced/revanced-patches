@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.seekbar
 
+import app.revanced.patcher.anyInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
@@ -177,7 +178,7 @@ internal val lottieCompositionFactoryFromJsonInputStreamFingerprint by fingerpri
     parameters("Ljava/io/InputStream;", "Ljava/lang/String;")
     returns("L")
     instructions(
-        literal(2)
+        anyInstruction(literal(2), literal(3))
     )
 }
 

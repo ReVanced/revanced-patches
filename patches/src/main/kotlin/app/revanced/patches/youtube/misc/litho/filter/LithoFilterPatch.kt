@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
 import app.revanced.util.addInstructionsAtControlFlowLabel
@@ -26,6 +27,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import java.util.logging.Logger
 
 lateinit var addLithoFilter: (String) -> Unit
     private set
@@ -236,11 +238,22 @@ val lithoFilterPatch = bytecodePatch(
         // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
         // If this is enabled, then the litho protobuffer hook will always show an empty buffer
         // since it's no longer handled by the hooked Java code.
-        lithoConverterBufferUpbFeatureFlagFingerprint.method.apply {
-            val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
-            val register = getInstruction<OneRegisterInstruction>(index).registerA
+        lithoConverterBufferUpbFeatureFlagFingerprint.let {
+            // FIXME: Procool buffer has changed in 20.22, and the buffer is always null.
+            // The UPB native code may be always enabled.
+            if (is_20_22_or_greater) {
+                Logger.getLogger(this::class.java.name).severe(
+                    "Litho filtering does not yet support 20.22+  Many UI components will not be hidden.")
+            }
 
-            addInstruction(index + 1, "const/4 v$register, 0x0")
+            it.method.apply {
+                // 20.22+ flag is inverted.
+                val override = if (is_20_22_or_greater) 0x1 else 0x0
+                val index = indexOfFirstInstructionOrThrow(it.instructionMatches.first().index, Opcode.MOVE_RESULT)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstruction(index + 1, "const/4 v$register, $override")
+            }
         }
 
         // endregion

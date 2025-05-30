@@ -64,9 +64,7 @@ internal val lithoComponentNameUpbFeatureFlagFingerprint by fingerprint {
 }
 
 internal val lithoConverterBufferUpbFeatureFlagFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
-    parameters("L")
     instructions(
         literal(45419603L)
     )
