@@ -289,8 +289,8 @@ public final class app/revanced/patches/messenger/inputfield/DisableTypingIndica
 	public static final fun getDisableTypingIndicatorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/messenger/layout/RemoveFacebookButtonPatchKt {
-	public static final fun getRemoveFacebookButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/messenger/layout/HideFacebookButtonPatchKt {
+	public static final fun getHideFacebookButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/messenger/metaai/RemoveMetaAIPatchKt {
