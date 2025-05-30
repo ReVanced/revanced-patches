@@ -62,7 +62,7 @@ public class CustomPlaybackSpeedPatch {
     /**
      * Scale used to convert user speed to {@link android.widget.ProgressBar#setProgress(int)}.
      */
-    private static final float SPEED_PROGRESS_SCALE = 100;
+    private static final float PROGRESS_BAR_SPEED_SCALE = 100;
 
     /**
      * Tap and hold speed.
@@ -78,12 +78,11 @@ public class CustomPlaybackSpeedPatch {
      * Formats speeds to UI strings.
      */
     private static final NumberFormat speedFormatter = NumberFormat.getNumberInstance();
+
     static {
         // Cap at 2 decimals (rounds automatically).
         speedFormatter.setMaximumFractionDigits(2);
-    }
 
-    static {
         final float holdSpeed = Settings.SPEED_TAP_AND_HOLD.get();
 
         if (holdSpeed > 0 && holdSpeed <= PLAYBACK_SPEED_MAXIMUM) {
@@ -137,7 +136,7 @@ public class CustomPlaybackSpeedPatch {
                 customPlaybackSpeeds[i++] = speedFloat;
             }
         } catch (Exception ex) {
-            Logger.printInfo(() -> "parse error", ex);
+            Logger.printInfo(() -> "Parse error", ex);
             Utils.showToastShort(str("revanced_custom_playback_speeds_parse_exception"));
             Settings.CUSTOM_PLAYBACK_SPEEDS.resetToDefault();
             loadCustomSpeeds();
@@ -163,7 +162,7 @@ public class CustomPlaybackSpeedPatch {
                     }
                 }
             } catch (Exception ex) {
-                Logger.printException(() -> "isPlaybackRateSelectorMenuVisible failure", ex);
+                Logger.printException(() -> "onFlyoutMenuCreate failure", ex);
             }
         });
     }
@@ -358,7 +357,7 @@ public class CustomPlaybackSpeedPatch {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
                     // Convert from progress value to video playback speed.
-                    userSelectedSpeed.apply(PLAYBACK_SPEED_MINIMUM + (progress / SPEED_PROGRESS_SCALE));
+                    userSelectedSpeed.apply(PLAYBACK_SPEED_MINIMUM + (progress / PROGRESS_BAR_SPEED_SCALE));
                 }
             }
 
@@ -437,11 +436,9 @@ public class CustomPlaybackSpeedPatch {
                 labelParams.bottomMargin = 0; // Position label below button.
                 normalLabel.setLayoutParams(labelParams);
 
-                // Add "Normal" label view to buttons container layout.
                 buttonContainer.addView(normalLabel);
             }
 
-            // Set listener to apply selected speed.
             speedButton.setOnClickListener(v -> userSelectedSpeed.apply(speed));
 
             gridLayout.addView(buttonContainer);
@@ -503,10 +500,10 @@ public class CustomPlaybackSpeedPatch {
     }
 
     /**
-     * @return user speed converted to a value for {@link SeekBar#setProgress(int)}, true.
+     * @return user speed converted to a value for {@link SeekBar#setProgress(int)}.
      */
     private static int speedToProgressValue(float speed) {
-        return (int) ((speed - PLAYBACK_SPEED_MINIMUM) * SPEED_PROGRESS_SCALE);
+        return (int) ((speed - PLAYBACK_SPEED_MINIMUM) * PROGRESS_BAR_SPEED_SCALE);
     }
 
     /**
@@ -516,12 +513,10 @@ public class CustomPlaybackSpeedPatch {
      * @return The rounded speed, constrained to the specified bounds.
      */
     private static float roundSpeedToNearestIncrement(float speed) {
-        final float maxSpeed = customPlaybackSpeeds[customPlaybackSpeeds.length - 1];
-
         // Round to nearest 0.05 speed.
         final float roundedSpeed = Math.round(speed / 0.05f) * 0.05f;
         // Constrain to valid bounds.
-        return Utils.clamp(roundedSpeed, PLAYBACK_SPEED_MINIMUM, maxSpeed);
+        return Utils.clamp(roundedSpeed, PLAYBACK_SPEED_MINIMUM, PLAYBACK_SPEED_MAXIMUM);
     }
 
     /**
