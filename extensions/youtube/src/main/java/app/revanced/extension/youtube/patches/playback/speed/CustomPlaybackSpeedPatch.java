@@ -414,7 +414,8 @@ public class CustomPlaybackSpeedPatch {
             // Add "Normal" label for 1.0x speed.
             if (speed == 1.0f) {
                 TextView normalLabel = new TextView(context);
-                normalLabel.setText(str("revanced_custom_playback_speeds_normal_speed"));
+                // Use same 'Normal' string as stock YouTube.
+                normalLabel.setText(str("normal_playback_rate_label"));
                 normalLabel.setTextColor(ThemeHelper.getForegroundColor());
                 normalLabel.setTextSize(10);
                 normalLabel.setGravity(Gravity.CENTER);
