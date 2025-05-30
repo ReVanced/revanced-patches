@@ -208,18 +208,6 @@ public class CustomPlaybackSpeedPatch {
         return true;
     }
 
-    public static void showOldPlaybackSpeedMenu() {
-        // This method is sometimes used multiple times.
-        // To prevent this, ignore method reuse within 1 second.
-        final long now = System.currentTimeMillis();
-        if (now - lastTimeOldPlaybackMenuInvoked < 1000) {
-            Logger.printDebug(() -> "Ignoring call to showOldPlaybackSpeedMenu");
-            return;
-        }
-        lastTimeOldPlaybackMenuInvoked = now;
-        Logger.printDebug(() -> "Old video quality menu shown");
-    }
-
     /**
      * Displays a modern custom dialog for adjusting video playback speed.
      * <p>
