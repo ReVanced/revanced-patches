@@ -109,8 +109,8 @@ public class CustomPlaybackSpeedPatch {
 
     private static void loadCustomSpeeds() {
         try {
-            // Automatically replace commas with periods, if the user
-            // added speeds in a localized format.
+            // Automatically replace commas with periods,
+            // if the user added speeds in a localized format.
             String[] speedStrings = Settings.CUSTOM_PLAYBACK_SPEEDS.get()
                     .replace(',', '.').split("\\s+");
             Arrays.sort(speedStrings);
@@ -229,8 +229,6 @@ public class CustomPlaybackSpeedPatch {
      * can be adjusted in 0.05 increments using the slider or buttons, or set directly to preset
      * values. The dialog updates the displayed speed in real-time and applies changes to the
      * video playback.
-     *
-     * @param context The context used to create and display the dialog.
      */
     @SuppressLint("SetTextI18n")
     public static void showModernCustomPlaybackSpeedDialog(Context context) {
@@ -518,7 +516,7 @@ public class CustomPlaybackSpeedPatch {
 
     /**
      * @param speed The playback speed value to format.
-     * @return A string representation of the speed (e.g., "1.25" or "1.0").
+     * @return A string representation of the speed with 'x' (e.g. "1.25x" or "1.0x").
      */
     private static String formatSpeedStringX(float speed) {
         return speedFormatter.format(speed) + 'x';
@@ -526,11 +524,9 @@ public class CustomPlaybackSpeedPatch {
 
     /**
      * Adjusts the background color based on the current theme.
-     * <p>
-     * This method returns a modified background color, lightening it by 20% for dark themes
-     * or darkening it by 5% for light themes, to ensure visual contrast.
      *
-     * @return The adjusted background color as an integer.
+     * @return A modified background color, lightening by 20% for dark themes
+     *         or darkening by 5% for light themes, to ensure visual contrast.
      */
     public static int getAdjustedBackgroundColor() {
         final int baseColor = ThemeHelper.getBackgroundColor();
