@@ -964,7 +964,7 @@ private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean
     }
 }
 
-fun BytecodePatchContext.addStaticFieldToExtension(
+internal fun BytecodePatchContext.addStaticFieldToExtension(
     className: String,
     methodName: String,
     fieldName: String,

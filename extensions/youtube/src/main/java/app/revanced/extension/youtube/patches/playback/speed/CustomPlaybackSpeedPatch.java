@@ -11,6 +11,7 @@ import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
@@ -542,8 +543,9 @@ class OutlineSymbolDrawable extends Drawable {
 
     @Override
     public void draw(Canvas canvas) {
-        int width = getBounds().width();
-        int height = getBounds().height();
+        Rect bounds = getBounds();
+        final int width = bounds.width();
+        final int height = bounds.height();
         final float centerX = width / 2f; // Center X coordinate.
         final float centerY = height / 2f; // Center Y coordinate.
         final float size = Math.min(width, height) * 0.25f; // Symbol size is 25% of button dimensions.

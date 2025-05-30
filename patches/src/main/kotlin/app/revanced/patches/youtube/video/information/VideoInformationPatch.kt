@@ -194,7 +194,7 @@ val videoInformationPatch = bytecodePatch(
                     .mutableClass.methods.first { it.name == setPlaybackSpeedMethodReference.name }
             setPlaybackSpeedMethodIndex = 0
 
-            // add override playback speed method
+            // Add override playback speed method.
             onPlaybackSpeedItemClickFingerprint.classDef.methods.add(
                 ImmutableMethod(
                     definingClass,
@@ -237,7 +237,7 @@ val videoInformationPatch = bytecodePatch(
             val register = getInstruction<OneRegisterInstruction>(index).registerA
             val playbackSpeedClass = this.returnType
 
-            // set playback speed class
+            // Set playback speed class.
             addInstructionsAtControlFlowLabel(
                 index,
                 "sput-object v$register, $EXTENSION_CLASS_DESCRIPTOR->playbackSpeedClass:$playbackSpeedClass"
@@ -250,7 +250,7 @@ val videoInformationPatch = bytecodePatch(
                     return-void
                     :ignore
                     nop
-                    """
+                """
 
             addStaticFieldToExtension(
                 EXTENSION_CLASS_DESCRIPTOR,
