@@ -78,9 +78,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
             replaceInstruction(limitMaxIndex, "const/high16 v$limitMaxRegister, 8.0f")
         }
 
-        // region Force old video quality menu.
-        // This is necessary, because there is no known way of adding custom playback speeds to the new menu.
-
+        // Close the unpatched playback dialog and show the modern custom dialog.
         addRecyclerViewTreeHook(EXTENSION_CLASS_DESCRIPTOR)
 
         // Required to check if the playback speed menu is currently shown.

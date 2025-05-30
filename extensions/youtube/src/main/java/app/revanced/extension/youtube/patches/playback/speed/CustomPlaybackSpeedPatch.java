@@ -286,6 +286,7 @@ public class CustomPlaybackSpeedPatch {
         minusButton.setBackground(minusBackground);
         OutlineSymbolDrawable minusDrawable = new OutlineSymbolDrawable(false); // Minus symbol.
         minusButton.setForeground(minusDrawable);
+        final int dip10 = dipToPixels(10);
         final int dip36 = dipToPixels(36);
         LinearLayout.LayoutParams minusParams = new LinearLayout.LayoutParams(dip36, dip36);
         minusParams.setMargins(0, 0, dip10, 0); // 0dp from edge, 14dp to slider.
@@ -400,7 +401,6 @@ public class CustomPlaybackSpeedPatch {
             ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
             buttonBackground.getPaint().setColor(getAdjustedBackgroundColor());
             speedButton.setBackground(buttonBackground);
-            final int dip10 = dipToPixels(10);
             final int dip8 = dipToPixels(8);
             speedButton.setPadding(dip10, dip8, dip10, dip8);
 
@@ -454,11 +454,10 @@ public class CustomPlaybackSpeedPatch {
             WindowManager.LayoutParams params = window.getAttributes();
             params.gravity = Gravity.BOTTOM; // Position at bottom of screen.
             params.y = dip7; // 7dp margin from bottom.
-            int maxWidth = Math.min(
+            params.width = Math.min(
                     context.getResources().getDisplayMetrics().widthPixels, // Current screen width.
                     dipToPixels(400) // Maximum width (400dp).
             );
-            params.width = maxWidth;
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
             window.setAttributes(params);
             window.setBackgroundDrawable(null); // Remove default dialog background.
