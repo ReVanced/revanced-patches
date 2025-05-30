@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.findElementByAttributeValueOrThrow
 
 @Suppress("unused")
-val removeFreeAccountsLimit = resourcePatch(
+val removeFreeAccountsLimitPatch = resourcePatch(
     name = "Remove free accounts limit",
     description = "Removes the limit for maximum free accounts logged in.",
 ) {
