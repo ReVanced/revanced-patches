@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val hideCreateButtonPatch = bytecodePatch(
     name = "Hide Create button",
-    description = "Hides the navigation bar \"Create\" button."
+    description = "Hides the \"Create\" button in the navigation bar."
 ) {
     compatibleWith("com.spotify.music")
 
