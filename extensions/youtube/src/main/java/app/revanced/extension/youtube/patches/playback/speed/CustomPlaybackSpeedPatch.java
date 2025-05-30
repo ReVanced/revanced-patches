@@ -57,7 +57,12 @@ public class CustomPlaybackSpeedPatch {
     /**
      * Minimum playback speed for the slider.
      */
-    public static final float PLAYBACK_SPEED_MINIMUM = 0.25f;
+    private static final float PLAYBACK_SPEED_MINIMUM = 0.25f;
+
+    /**
+     * Scale used to convert user speed to {@link android.widget.ProgressBar#setProgress(int)}.
+     */
+    private static final float SPEED_PROGRESS_SCALE = 100;
 
     /**
      * Tap and hold speed.
@@ -68,11 +73,6 @@ public class CustomPlaybackSpeedPatch {
      * Custom playback speeds.
      */
     public static float[] customPlaybackSpeeds;
-
-    /**
-     * The last time the old playback menu was forcefully called.
-     */
-    private static long lastTimeOldPlaybackMenuInvoked;
 
     /**
      * Formats speeds to UI strings.
@@ -340,8 +340,12 @@ public class CustomPlaybackSpeedPatch {
         mainLayout.addView(sliderLayout);
 
         Function<Float, Void> userSelectedSpeed = newSpeed -> {
+            Logger.printDebug(() -> "User selected playback speed: " + newSpeed);
             final float roundedSpeed = roundSpeedToNearestIncrement(newSpeed);
-            applyUserSelectedPlaybackSpeed(roundedSpeed);
+            Logger.printDebug(() -> "User selected playback speed: " + roundedSpeed);
+
+            VideoInformation.overridePlaybackSpeed(roundedSpeed);
+            RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(roundedSpeed);
             currentSpeedText.setText(formatSpeedStringX(roundedSpeed)); // Update display.
             speedSlider.setProgress(speedToProgressValue(roundedSpeed)); // Update slider.
             return null;
@@ -352,7 +356,8 @@ public class CustomPlaybackSpeedPatch {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
-                    userSelectedSpeed.apply(PLAYBACK_SPEED_MINIMUM + (progress / 20f));
+                    // Convert from progress to playback speed value.
+                    userSelectedSpeed.apply(PLAYBACK_SPEED_MINIMUM + (progress / SPEED_PROGRESS_SCALE));
                 }
             }
 
@@ -473,17 +478,6 @@ public class CustomPlaybackSpeedPatch {
     }
 
     /**
-     * Applies the specified playback speed to the video and optionally shows a toast.
-     *
-     * @param speed The playback speed to apply (e.g., 1.0f for normal speed).
-     */
-    private static void applyUserSelectedPlaybackSpeed(float speed) {
-        Logger.printDebug(() -> "Applying playback speed: " + speed);
-        VideoInformation.overridePlaybackSpeed(speed);
-        RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(speed);
-    }
-
-    /**
      * Creates an array of corner radii for a rounded rectangle shape.
      *
      * @param dp The radius in density-independent pixels (dp) to apply to all corners.
@@ -507,7 +501,7 @@ public class CustomPlaybackSpeedPatch {
      * @return user speed converted to a value for {@link SeekBar#setProgress(int)}, true.
      */
     private static int speedToProgressValue(float speed) {
-        return (int) ((speed - PLAYBACK_SPEED_MINIMUM) * 100f);
+        return (int) ((speed - PLAYBACK_SPEED_MINIMUM) * SPEED_PROGRESS_SCALE);
     }
 
     /**
@@ -519,10 +513,10 @@ public class CustomPlaybackSpeedPatch {
     private static float roundSpeedToNearestIncrement(float speed) {
         final float maxSpeed = customPlaybackSpeeds[customPlaybackSpeeds.length - 1];
 
-        // Round to nearest 0.05 increment.
-        final float roundedSpeed = Math.round(speed * 100f) / 100f;
+        // Round to nearest 0.05 speed.
+        final float roundedSpeed = Math.round(speed / 0.05f) * 0.05f;
         // Constrain to valid bounds.
-        return Utils.clamp(roundedSpeed, CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MINIMUM, maxSpeed);
+        return Utils.clamp(roundedSpeed, PLAYBACK_SPEED_MINIMUM, maxSpeed);
     }
 
     /**
