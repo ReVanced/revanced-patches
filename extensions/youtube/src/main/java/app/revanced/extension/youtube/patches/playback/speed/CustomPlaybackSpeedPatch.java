@@ -79,8 +79,6 @@ public class CustomPlaybackSpeedPatch {
      */
     private static final NumberFormat speedFormatter = NumberFormat.getNumberInstance();
     static {
-        // Ensure at least one decimal (2 -> "2.0").
-        speedFormatter.setMinimumFractionDigits(1);
         // Cap at 2 decimals (rounds automatically).
         speedFormatter.setMaximumFractionDigits(2);
     }
@@ -270,8 +268,9 @@ public class CustomPlaybackSpeedPatch {
 
         // Display current playback speed.
         TextView currentSpeedText = new TextView(context);
-        float currentSpeed = VideoInformation.getPlaybackSpeed(); // Get current playback speed.
-        currentSpeedText.setText(formatSpeedStringX(currentSpeed));
+        float currentSpeed = VideoInformation.getPlaybackSpeed();
+        // Initially show with only 0 minimum digits, so 1.0 shows as 1x
+        currentSpeedText.setText(formatSpeedStringX(currentSpeed, 0));
         currentSpeedText.setTextColor(ThemeHelper.getForegroundColor());
         currentSpeedText.setTextSize(16);
         currentSpeedText.setTypeface(Typeface.DEFAULT_BOLD);
@@ -348,7 +347,7 @@ public class CustomPlaybackSpeedPatch {
 
             VideoInformation.overridePlaybackSpeed(roundedSpeed);
             RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(roundedSpeed);
-            currentSpeedText.setText(formatSpeedStringX(roundedSpeed)); // Update display.
+            currentSpeedText.setText(formatSpeedStringX(roundedSpeed, 2)); // Update display.
             speedSlider.setProgress(speedToProgressValue(roundedSpeed)); // Update slider.
             return null;
         };
@@ -384,6 +383,9 @@ public class CustomPlaybackSpeedPatch {
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         gridParams.setMargins(0, 0, 0, 0); // No margins around GridLayout.
         gridLayout.setLayoutParams(gridParams);
+
+        // Show at least 1 zero in decimal (2 -> "2.0").
+        speedFormatter.setMinimumFractionDigits(1);
 
         // Add buttons for each preset playback speed.
         for (float speed : customPlaybackSpeeds) {
@@ -493,9 +495,10 @@ public class CustomPlaybackSpeedPatch {
 
     /**
      * @param speed The playback speed value to format.
-     * @return A string representation of the speed with 'x' (e.g. "1.25x" or "1.0x").
+     * @return A string representation of the speed with 'x' (e.g. "1.25x" or "1.00x").
      */
-    private static String formatSpeedStringX(float speed) {
+    private static String formatSpeedStringX(float speed, int minimumFractionDigits) {
+        speedFormatter.setMinimumFractionDigits(minimumFractionDigits);
         return speedFormatter.format(speed) + 'x';
     }
 
