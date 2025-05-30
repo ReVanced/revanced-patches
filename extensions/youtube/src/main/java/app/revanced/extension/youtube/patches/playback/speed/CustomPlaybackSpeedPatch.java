@@ -18,6 +18,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.icu.text.NumberFormat;
 import android.support.v7.widget.RecyclerView;
+import android.view.animation.Animation;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -492,6 +493,12 @@ public class CustomPlaybackSpeedPatch {
             window.setAttributes(params);
             window.setBackgroundDrawable(null); // Remove default dialog background.
         }
+
+        // Apply slide-in animation when showing the dialog.
+        final int fadeDurationFast = Utils.getResourceInteger("fade_duration_fast");
+        final Animation slideInABottomAnimation = Utils.getResourceAnimation("slide_in_bottom");
+        slideInABottomAnimation.setDuration(fadeDurationFast);
+        mainLayout.startAnimation(slideInABottomAnimation);
 
         dialog.show(); // Display the dialog.
     }
