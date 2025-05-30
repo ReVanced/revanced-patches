@@ -17,8 +17,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.icu.text.NumberFormat;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.v7.widget.RecyclerView;
 import android.view.animation.Animation;
 import android.view.Gravity;
@@ -34,6 +32,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.function.Function;
 
@@ -44,6 +43,8 @@ import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilterPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 @SuppressWarnings("unused")
 public class CustomPlaybackSpeedPatch {
@@ -81,6 +82,11 @@ public class CustomPlaybackSpeedPatch {
      * Formats speeds to UI strings.
      */
     private static final NumberFormat speedFormatter = NumberFormat.getNumberInstance();
+
+    /**
+     * Weak reference to the currently open dialog.
+     */
+    private static WeakReference<Dialog> currentDialog = new WeakReference<>(null);
 
     static {
         // Cap at 2 decimals (rounds automatically).
@@ -227,6 +233,9 @@ public class CustomPlaybackSpeedPatch {
         // Create a dialog without a theme for custom appearance.
         Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
+
+        // Store the dialog reference.
+        currentDialog = new WeakReference<>(dialog);
 
         // Create main vertical LinearLayout for dialog content.
         LinearLayout mainLayout = new LinearLayout(context);
@@ -472,21 +481,26 @@ public class CustomPlaybackSpeedPatch {
             window.setBackgroundDrawable(null); // Remove default dialog background.
         }
 
-        // Poll for PiP mode to dismiss the dialog.
-        final Handler handler = new Handler(Looper.getMainLooper());
-        final Runnable checkPiP = new Runnable() {
-            @Override
-            public void run() {
-                if (dialog.isShowing() && PlayerType.getCurrent() == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE) {
-                    Logger.printDebug(() -> "Dismissing dialog due to PiP mode");
-                    dialog.dismiss();
-                } else if (dialog.isShowing()) {
-                    handler.postDelayed(this, 500); // Check again after 500ms.
+        // Create observer for PlayerType changes.
+        Function1<PlayerType, Unit> playerTypeObserver = (PlayerType type) -> {
+            if (type == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE) {
+                Dialog current = currentDialog.get();
+                if (current != null && current.isShowing()) {
+                    current.dismiss();
+                    Logger.printDebug(() -> "Playback speed dialog dismissed due to PiP mode");
                 }
             }
+            return Unit.INSTANCE;
         };
-        handler.post(checkPiP); // Start polling.
-        dialog.setOnDismissListener(d -> handler.removeCallbacks(checkPiP)); // Stop polling on dismiss.
+
+        // Add observer to dismiss dialog when entering PiP mode.
+        PlayerType.getOnChange().addObserver(playerTypeObserver);
+
+        // Remove observer when dialog is dismissed.
+        dialog.setOnDismissListener(d -> {
+            PlayerType.getOnChange().removeObserver(playerTypeObserver);
+            Logger.printDebug(() -> "PlayerType observer removed on dialog dismiss");
+        });
 
         // Apply slide-in animation when showing the dialog.
         final int fadeDurationFast = Utils.getResourceInteger("fade_duration_fast");
