@@ -32,7 +32,6 @@ import android.widget.TextView;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.VideoInformation;
-import app.revanced.extension.youtube.patches.playback.speed.RememberPlaybackSpeedPatch;
 import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilterPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.ThemeHelper;
@@ -360,7 +359,7 @@ public class CustomPlaybackSpeedPatch {
                     float speed = PLAYBACK_SPEED_MINIMUM + (progress / 20f); // Calculate speed with 0.05 step.
                     speed = Math.round(speed * 20) / 20f; // Round to nearest 0.05 increment.
                     currentSpeedText.setText(formatSpeed(speed) + "x"); // Update displayed speed.
-                    applyPlaybackSpeed(speed, false);
+                    applyPlaybackSpeed(speed);
                 }
             }
 
@@ -376,7 +375,7 @@ public class CustomPlaybackSpeedPatch {
             float current = VideoInformation.getPlaybackSpeed();
             float newSpeed = Math.max(PLAYBACK_SPEED_MINIMUM, current - 0.05f); // Decrease by 0.05, respect minimum.
             if (newSpeed <= maxCustomSpeed) {
-                applyPlaybackSpeed(newSpeed, false);
+                applyPlaybackSpeed(newSpeed);
                 currentSpeedText.setText(formatSpeed(newSpeed) + "x"); // Update display.
                 speedSlider.setProgress((int) ((newSpeed - PLAYBACK_SPEED_MINIMUM) * 20)); // Update slider.
             }
@@ -386,7 +385,7 @@ public class CustomPlaybackSpeedPatch {
         plusButton.setOnClickListener(v -> {
             float current = VideoInformation.getPlaybackSpeed();
             float newSpeed = Math.min(maxCustomSpeed, current + 0.05f); // Increase by 0.05, respect maximum.
-            applyPlaybackSpeed(newSpeed, false);
+            applyPlaybackSpeed(newSpeed);
             currentSpeedText.setText(formatSpeed(newSpeed) + "x"); // Update display.
             speedSlider.setProgress((int) ((newSpeed - PLAYBACK_SPEED_MINIMUM) * 20)); // Update slider.
         });
@@ -455,7 +454,7 @@ public class CustomPlaybackSpeedPatch {
 
             // Set listener to apply selected speed.
             speedButton.setOnClickListener(v -> {
-                applyPlaybackSpeed(speed, true);
+                applyPlaybackSpeed(speed);
                 currentSpeedText.setText(formatSpeed(speed) + "x"); // Update display.
                 speedSlider.setProgress((int) ((speed - PLAYBACK_SPEED_MINIMUM) * 20)); // Update slider.
                 // dialog.dismiss(); // Optionally close dialog after selection.
@@ -492,15 +491,11 @@ public class CustomPlaybackSpeedPatch {
      * Applies the specified playback speed to the video and optionally shows a toast.
      *
      * @param speed The playback speed to apply (e.g., 1.0f for normal speed).
-     * @param showToast If true, displays a toast with the new speed.
      */
-    private static void applyPlaybackSpeed(float speed, boolean showToast) {
+    private static void applyPlaybackSpeed(float speed) {
         VideoInformation.overridePlaybackSpeed(speed);
         RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(speed);
         Logger.printDebug(() -> "Applying playback speed: " + speed);
-        if (showToast) {
-            Utils.showToastShort(str("revanced_custom_playback_speeds_changed_toast", formatSpeed(speed)));
-        }
     }
 
     /**
