@@ -16,6 +16,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
+import android.icu.text.NumberFormat;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
@@ -37,9 +38,7 @@ import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilter
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.ThemeHelper;
 
-import java.math.RoundingMode;
 import java.util.Arrays;
-import java.math.BigDecimal;
 
 @SuppressWarnings("unused")
 public class CustomPlaybackSpeedPatch {
@@ -73,6 +72,17 @@ public class CustomPlaybackSpeedPatch {
      */
     private static long lastTimeOldPlaybackMenuInvoked;
 
+    /**
+     * Formats speeds to UI strings.
+     */
+    private static final NumberFormat speedFormatter = NumberFormat.getNumberInstance();
+    static {
+        // Ensure at least one decimal (2 -> "2.0").
+        speedFormatter.setMinimumFractionDigits(1);
+        // Cap at 2 decimals (rounds automatically).
+        speedFormatter.setMaximumFractionDigits(2);
+    }
+
     static {
         final float holdSpeed = Settings.SPEED_TAP_AND_HOLD.get();
 
@@ -99,7 +109,10 @@ public class CustomPlaybackSpeedPatch {
 
     private static void loadCustomSpeeds() {
         try {
-            String[] speedStrings = Settings.CUSTOM_PLAYBACK_SPEEDS.get().split("\\s+");
+            // Automatically replace commas with periods, if the user
+            // added speeds in a localized format.
+            String[] speedStrings = Settings.CUSTOM_PLAYBACK_SPEEDS.get()
+                    .replace(',', '.').split("\\s+");
             Arrays.sort(speedStrings);
             if (speedStrings.length == 0) {
                 throw new IllegalArgumentException();
@@ -232,7 +245,7 @@ public class CustomPlaybackSpeedPatch {
         // Preset size constants.
         final int dip4 = dipToPixels(4);   // Height for handle bar.
         final int dip5 = dipToPixels(5);
-        final int dip8 = dipToPixels(8);   // Paddind for mainLayout.
+        final int dip8 = dipToPixels(8);   // Padding for mainLayout.
         final int dip10 = dipToPixels(10);
         final int dip20 = dipToPixels(20);
         final int dip32 = dipToPixels(32); // Height for in-rows speed buttons.
@@ -243,14 +256,16 @@ public class CustomPlaybackSpeedPatch {
         mainLayout.setPadding(dip5, dip8, dip5, dip8);
 
         // Set rounded rectangle background for the main layout.
-        RoundRectShape roundRectShape = new RoundRectShape(createCornerRadii(12), null, null);
+        RoundRectShape roundRectShape = new RoundRectShape(
+                createCornerRadii(12), null, null);
         ShapeDrawable background = new ShapeDrawable(roundRectShape);
         background.getPaint().setColor(ThemeHelper.getBackgroundColor());
         mainLayout.setBackground(background);
 
         // Add handle bar at the top.
         View handleBar = new View(context);
-        ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(createCornerRadii(4), null, null));
+        ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
+                createCornerRadii(4), null, null));
         handleBackground.getPaint().setColor(getAdjustedBackgroundColor());
         handleBar.setBackground(handleBackground);
         LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(
@@ -266,7 +281,7 @@ public class CustomPlaybackSpeedPatch {
         // Display current playback speed.
         TextView currentSpeedText = new TextView(context);
         float currentSpeed = VideoInformation.getPlaybackSpeed(); // Get current playback speed.
-        currentSpeedText.setText(formatSpeed(currentSpeed) + "x");
+        currentSpeedText.setText(formatSpeedStringX(currentSpeed));
         currentSpeedText.setTextColor(ThemeHelper.getForegroundColor());
         currentSpeedText.setTextSize(16);
         currentSpeedText.setTypeface(Typeface.DEFAULT_BOLD);
@@ -314,7 +329,8 @@ public class CustomPlaybackSpeedPatch {
         // Create plus button.
         Button plusButton = new Button(context, null, 0); // Disable default theme style.
         plusButton.setText(""); // No text on button.
-        ShapeDrawable plusBackground = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
+        ShapeDrawable plusBackground = new ShapeDrawable(new RoundRectShape(
+                createCornerRadii(20), null, null));
         plusBackground.getPaint().setColor(getAdjustedBackgroundColor());
         plusButton.setBackground(plusBackground);
         OutlineSymbolDrawable plusDrawable = new OutlineSymbolDrawable(true); // Plus symbol.
@@ -343,7 +359,7 @@ public class CustomPlaybackSpeedPatch {
                 if (fromUser) {
                     float speed = PLAYBACK_SPEED_MINIMUM + (progress / 20f); // Calculate speed with 0.05 step.
                     speed = Math.round(speed * 20) / 20f; // Round to nearest 0.05 increment.
-                    currentSpeedText.setText(formatSpeed(speed) + "x"); // Update displayed speed.
+                    currentSpeedText.setText(formatSpeedStringX(speed)); // Update displayed speed.
                     applyPlaybackSpeed(speed);
                 }
             }
@@ -361,7 +377,7 @@ public class CustomPlaybackSpeedPatch {
             float newSpeed = Math.max(PLAYBACK_SPEED_MINIMUM, current - 0.05f); // Decrease by 0.05, respect minimum.
             if (newSpeed <= maxCustomSpeed) {
                 applyPlaybackSpeed(newSpeed);
-                currentSpeedText.setText(formatSpeed(newSpeed) + "x"); // Update display.
+                currentSpeedText.setText(formatSpeedStringX(newSpeed)); // Update display.
                 speedSlider.setProgress((int) ((newSpeed - PLAYBACK_SPEED_MINIMUM) * 20)); // Update slider.
             }
         });
@@ -371,7 +387,7 @@ public class CustomPlaybackSpeedPatch {
             float current = VideoInformation.getPlaybackSpeed();
             float newSpeed = Math.min(maxCustomSpeed, current + 0.05f); // Increase by 0.05, respect maximum.
             applyPlaybackSpeed(newSpeed);
-            currentSpeedText.setText(formatSpeed(newSpeed) + "x"); // Update display.
+            currentSpeedText.setText(formatSpeedStringX(newSpeed)); // Update display.
             speedSlider.setProgress((int) ((newSpeed - PLAYBACK_SPEED_MINIMUM) * 20)); // Update slider.
         });
 
@@ -400,7 +416,7 @@ public class CustomPlaybackSpeedPatch {
 
             // Create speed button.
             Button speedButton = new Button(context);
-            speedButton.setText(formatSpeed(speed));
+            speedButton.setText(speedFormatter.format(speed)); // Do not use 'x' speed format.
             speedButton.setTextColor(ThemeHelper.getForegroundColor());
             speedButton.setTextSize(12);
             speedButton.setAllCaps(false);
@@ -441,7 +457,7 @@ public class CustomPlaybackSpeedPatch {
             // Set listener to apply selected speed.
             speedButton.setOnClickListener(v -> {
                 applyPlaybackSpeed(speed);
-                currentSpeedText.setText(formatSpeed(speed) + "x"); // Update display.
+                currentSpeedText.setText(formatSpeedStringX(speed)); // Update display.
                 speedSlider.setProgress((int) ((speed - PLAYBACK_SPEED_MINIMUM) * 20)); // Update slider.
                 // dialog.dismiss(); // Optionally close dialog after selection.
             });
@@ -501,22 +517,11 @@ public class CustomPlaybackSpeedPatch {
     }
 
     /**
-     * Formats a playback speed value as a string with no trailing zeros.
-     * <p>
-     * This helper method converts a float speed value to a string, rounding to two decimal places
-     * and removing trailing zeros. For whole numbers, it ensures at least one decimal place (e.g., "1.0").
-     *
      * @param speed The playback speed value to format.
      * @return A string representation of the speed (e.g., "1.25" or "1.0").
      */
-    private static String formatSpeed(float speed) {
-        BigDecimal bd = new BigDecimal(speed).setScale(2, RoundingMode.HALF_UP);
-        bd = bd.stripTrailingZeros(); // Remove trailing zeros.
-        String plainString = bd.toPlainString();
-        if (bd.scale() <= 0) {
-            return plainString + ".0"; // Ensure at least one decimal for whole numbers.
-        }
-        return plainString;
+    private static String formatSpeedStringX(float speed) {
+        return speedFormatter.format(speed) + 'x';
     }
 
     /**
