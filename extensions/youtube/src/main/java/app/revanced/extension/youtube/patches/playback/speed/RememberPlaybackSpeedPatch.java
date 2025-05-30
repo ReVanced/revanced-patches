@@ -35,8 +35,8 @@ public final class RememberPlaybackSpeedPatch {
             if (Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get()) {
                 // With the 0.05x menu, if the speed is set by integrations to higher than 2.0x
                 // then the menu will allow increasing without bounds but the max speed is
-                // still capped to under 8.0x.
-                playbackSpeed = Math.min(playbackSpeed, CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MAXIMUM - 0.05f);
+                // still capped to 8.0x.
+                playbackSpeed = Math.min(playbackSpeed, CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MAXIMUM);
 
                 // Prevent toast spamming if using the 0.05x adjustments.
                 // Show exactly one toast after the user stops interacting with the speed menu.
