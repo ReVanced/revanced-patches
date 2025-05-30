@@ -37,6 +37,7 @@ import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilter
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.ThemeHelper;
 
+import java.math.RoundingMode;
 import java.util.Arrays;
 import java.math.BigDecimal;
 
@@ -231,7 +232,7 @@ public class CustomPlaybackSpeedPatch {
      *
      * @param context The context used to create and display the dialog.
      */
-    @SuppressLint("DefaultLocale")
+    @SuppressLint("SetTextI18n")
     public static void showModernCustomPlaybackSpeedDialog(Context context) {
         // Custom Drawable for rendering outlined plus and minus symbols on buttons.
         class OutlineSymbolDrawable extends Drawable {
@@ -505,7 +506,6 @@ public class CustomPlaybackSpeedPatch {
      * @param speed The playback speed to apply (e.g., 1.0f for normal speed).
      * @param showToast If true, displays a toast with the new speed.
      */
-    @SuppressLint("DefaultLocale")
     private static void applyPlaybackSpeed(float speed, boolean showToast) {
         VideoInformation.overridePlaybackSpeed(speed);
         RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(speed);
@@ -540,14 +540,14 @@ public class CustomPlaybackSpeedPatch {
      * @param speed The playback speed value to format.
      * @return A string representation of the speed (e.g., "1.25" or "1.0").
      */
-    @SuppressLint("DefaultLocale")
     private static String formatSpeed(float speed) {
-        BigDecimal bd = new BigDecimal(speed).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal bd = new BigDecimal(speed).setScale(2, RoundingMode.HALF_UP);
         bd = bd.stripTrailingZeros(); // Remove trailing zeros.
+        String plainString = bd.toPlainString();
         if (bd.scale() <= 0) {
-            return bd.toPlainString() + ".0"; // Ensure at least one decimal for whole numbers.
+            return plainString + ".0"; // Ensure at least one decimal for whole numbers.
         }
-        return bd.toPlainString();
+        return plainString;
     }
 
     /**
