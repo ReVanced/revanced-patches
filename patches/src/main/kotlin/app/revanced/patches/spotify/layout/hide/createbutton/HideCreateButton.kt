@@ -8,6 +8,7 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import java.util.logging.Logger
 
 @Suppress("unused")
 val hideCreateButtonPatch = bytecodePatch(
@@ -18,7 +19,9 @@ val hideCreateButtonPatch = bytecodePatch(
 
     execute {
         if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            // Create button does not exist in legacy versions.
+            Logger.getLogger(this::class.java.name).warning(
+                "Create button does not exist in legacy app target.  No changes applied."
+            )
             return@execute
         }
 
