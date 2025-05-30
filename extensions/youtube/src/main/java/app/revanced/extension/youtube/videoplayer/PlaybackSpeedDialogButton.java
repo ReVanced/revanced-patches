@@ -27,16 +27,24 @@ public class PlaybackSpeedDialogButton {
                     "revanced_playback_speed_dialog_button",
                     "revanced_playback_speed_dialog_button_placeholder",
                     Settings.PLAYBACK_SPEED_DIALOG_BUTTON::get,
-                    view -> { CustomPlaybackSpeedPatch.showModernCustomPlaybackSpeedDialog(view.getContext());},
                     view -> {
-                        if (!Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get() ||
-                                VideoInformation.getPlaybackSpeed() == Settings.PLAYBACK_SPEED_DEFAULT.get()) {
-                            VideoInformation.overridePlaybackSpeed(1.0f);
-                            showToastShort(str("revanced_custom_playback_speeds_reset_toast", "1.0"));
-                        } else {
-                            float defaultSpeed = Settings.PLAYBACK_SPEED_DEFAULT.get();
-                            VideoInformation.overridePlaybackSpeed(defaultSpeed);
-                            showToastShort(str("revanced_custom_playback_speeds_reset_toast", defaultSpeed));
+                        try {
+                            CustomPlaybackSpeedPatch.showModernCustomPlaybackSpeedDialog(view.getContext());
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "speed button onClick failure", ex);
+                        }
+                    },
+                    view -> {
+                        try {
+                            final float speed = (!Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get() ||
+                                    VideoInformation.getPlaybackSpeed() == Settings.PLAYBACK_SPEED_DEFAULT.get())
+                                    ? 1.0f
+                                    : Settings.PLAYBACK_SPEED_DEFAULT.get();
+
+                            VideoInformation.overridePlaybackSpeed(speed);
+                            showToastShort(str("revanced_custom_playback_speeds_reset_toast", speed));
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "speed button reset failure", ex);
                         }
                         return true;
                     }

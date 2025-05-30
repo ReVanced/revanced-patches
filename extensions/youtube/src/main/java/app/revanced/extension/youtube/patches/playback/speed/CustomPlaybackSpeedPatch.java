@@ -144,7 +144,7 @@ public class CustomPlaybackSpeedPatch {
         recyclerView.getViewTreeObserver().addOnDrawListener(() -> {
             try {
                 if (PlaybackSpeedMenuFilterPatch.isPlaybackRateSelectorMenuVisible) {
-                    if (hideLithoMenuAndShowOldSpeedMenu(recyclerView, 5)) {
+                    if (hideLithoMenuAndShowCustomSpeedMenu(recyclerView, 5)) {
                         PlaybackSpeedMenuFilterPatch.isPlaybackRateSelectorMenuVisible = false;
                     }
                     return;
@@ -155,7 +155,7 @@ public class CustomPlaybackSpeedPatch {
 
             try {
                 if (PlaybackSpeedMenuFilterPatch.isOldPlaybackSpeedMenuVisible) {
-                    if (hideLithoMenuAndShowOldSpeedMenu(recyclerView, 8)) {
+                    if (hideLithoMenuAndShowCustomSpeedMenu(recyclerView, 8)) {
                         PlaybackSpeedMenuFilterPatch.isOldPlaybackSpeedMenuVisible = false;
                     }
                 }
@@ -165,18 +165,17 @@ public class CustomPlaybackSpeedPatch {
         });
     }
 
-    private static boolean hideLithoMenuAndShowOldSpeedMenu(RecyclerView recyclerView, int expectedChildCount) {
+    private static boolean hideLithoMenuAndShowCustomSpeedMenu(RecyclerView recyclerView, int expectedChildCount) {
         if (recyclerView.getChildCount() == 0) {
             return false;
         }
 
         View firstChild = recyclerView.getChildAt(0);
-        if (!(firstChild instanceof ViewGroup)) {
+        if (!(firstChild instanceof ViewGroup playbackSpeedParentView)) {
             return false;
         }
 
-        ViewGroup PlaybackSpeedParentView = (ViewGroup) firstChild;
-        if (PlaybackSpeedParentView.getChildCount() != expectedChildCount) {
+        if (playbackSpeedParentView.getChildCount() != expectedChildCount) {
             return false;
         }
 
@@ -221,51 +220,6 @@ public class CustomPlaybackSpeedPatch {
      */
     @SuppressLint("SetTextI18n")
     public static void showModernCustomPlaybackSpeedDialog(Context context) {
-        // Custom Drawable for rendering outlined plus and minus symbols on buttons.
-        class OutlineSymbolDrawable extends Drawable {
-            private final boolean isPlus; // Determines if the symbol is a plus or minus.
-            private final Paint paint;
-
-            OutlineSymbolDrawable(boolean isPlus) {
-                this.isPlus = isPlus;
-                paint = new Paint(Paint.ANTI_ALIAS_FLAG); // Enable anti-aliasing for smooth rendering.
-                paint.setColor(ThemeHelper.getForegroundColor());
-                paint.setStyle(Paint.Style.STROKE); // Use stroke style for outline.
-                paint.setStrokeWidth(dipToPixels(1)); // 1dp stroke width.
-            }
-
-            @Override
-            public void draw(Canvas canvas) {
-                int width = getBounds().width();
-                int height = getBounds().height();
-                float centerX = width / 2f; // Center X coordinate.
-                float centerY = height / 2f; // Center Y coordinate.
-                float size = Math.min(width, height) * 0.25f; // Symbol size is 25% of button dimensions.
-
-                // Draw horizontal line for both plus and minus symbols.
-                canvas.drawLine(centerX - size, centerY, centerX + size, centerY, paint);
-                if (isPlus) {
-                    // Draw vertical line for plus symbol.
-                    canvas.drawLine(centerX, centerY - size, centerX, centerY + size, paint);
-                }
-            }
-
-            @Override
-            public void setAlpha(int alpha) {
-                paint.setAlpha(alpha);
-            }
-
-            @Override
-            public void setColorFilter(ColorFilter colorFilter) {
-                paint.setColorFilter(colorFilter);
-            }
-
-            @Override
-            public int getOpacity() {
-                return PixelFormat.TRANSLUCENT;
-            }
-        }
-
         // Create a dialog without a theme for custom appearance.
         Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
@@ -273,7 +227,9 @@ public class CustomPlaybackSpeedPatch {
         // Create main vertical LinearLayout for dialog content.
         LinearLayout mainLayout = new LinearLayout(context);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
-        mainLayout.setPadding(dipToPixels(7), dipToPixels(20), dipToPixels(7), dipToPixels(7)); // 7dp sides, 20dp top padding.
+        final int dip7 = dipToPixels(7);
+        final int dip20 = dipToPixels(20);
+        mainLayout.setPadding(dip7, dip20, dip7, dip7); // 7dp sides, 20dp top padding.
 
         // Set rounded rectangle background for the main layout.
         RoundRectShape roundRectShape = new RoundRectShape(outerRadii(), null, null);
@@ -299,7 +255,8 @@ public class CustomPlaybackSpeedPatch {
         LinearLayout sliderLayout = new LinearLayout(context);
         sliderLayout.setOrientation(LinearLayout.HORIZONTAL);
         sliderLayout.setGravity(Gravity.CENTER_VERTICAL);
-        sliderLayout.setPadding(dipToPixels(5), dipToPixels(5), dipToPixels(5), dipToPixels(5)); // 5dp padding.
+        final int dip5 = dipToPixels(5);
+        sliderLayout.setPadding(dip5, dip5, dip5, dip5); // 5dp padding.
 
         // Get the maximum speed from customPlaybackSpeeds array.
         float maxCustomSpeed = customPlaybackSpeeds[customPlaybackSpeeds.length - 1];
@@ -313,8 +270,10 @@ public class CustomPlaybackSpeedPatch {
         minusButton.setBackground(minusBackground);
         OutlineSymbolDrawable minusDrawable = new OutlineSymbolDrawable(false); // Minus symbol.
         minusButton.setForeground(minusDrawable);
-        LinearLayout.LayoutParams minusParams = new LinearLayout.LayoutParams(dipToPixels(36), dipToPixels(36));
-        minusParams.setMargins(dipToPixels(0), 0, dipToPixels(14), 0); // 0dp from edge, 14dp to slider.
+        final int dip14 = dipToPixels(14);
+        final int dip36 = dipToPixels(36);
+        LinearLayout.LayoutParams minusParams = new LinearLayout.LayoutParams(dip36, dip36);
+        minusParams.setMargins(0, 0, dip14, 0); // 0dp from edge, 14dp to slider.
         minusButton.setLayoutParams(minusParams);
 
         // Create slider for speed adjustment.
@@ -337,8 +296,8 @@ public class CustomPlaybackSpeedPatch {
         plusButton.setBackground(plusBackground);
         OutlineSymbolDrawable plusDrawable = new OutlineSymbolDrawable(true); // Plus symbol.
         plusButton.setForeground(plusDrawable);
-        LinearLayout.LayoutParams plusParams = new LinearLayout.LayoutParams(dipToPixels(36), dipToPixels(36));
-        plusParams.setMargins(dipToPixels(14), 0, dipToPixels(0), 0); // 14dp to slider, 0dp from edge.
+        LinearLayout.LayoutParams plusParams = new LinearLayout.LayoutParams(dip36, dip36);
+        plusParams.setMargins(dip14, 0, 0, 0); // 14dp to slider, 0dp from edge.
         plusButton.setLayoutParams(plusParams);
 
         // Add views to slider layout.
@@ -347,7 +306,7 @@ public class CustomPlaybackSpeedPatch {
         sliderLayout.addView(plusButton);
         LinearLayout.LayoutParams sliderLayoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        sliderLayoutParams.setMargins(0, 0, 0, dipToPixels(14)); // 14dp bottom margin.
+        sliderLayoutParams.setMargins(0, 0, 0, dip14); // 14dp bottom margin.
         sliderLayout.setLayoutParams(sliderLayoutParams);
         mainLayout.addView(sliderLayout);
 
@@ -409,7 +368,7 @@ public class CustomPlaybackSpeedPatch {
             GridLayout.LayoutParams containerParams = new GridLayout.LayoutParams();
             containerParams.width = 0; // Equal width for columns.
             containerParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f);
-            containerParams.setMargins(dipToPixels(5), dipToPixels(5), dipToPixels(5), dipToPixels(5)); // 5dp margins.
+            containerParams.setMargins(dip5, dip5, dip5, dip5); // 5dp margins.
             containerParams.height = dipToPixels(65); // Fixed height for button and label.
             buttonContainer.setLayoutParams(containerParams);
 
@@ -421,12 +380,13 @@ public class CustomPlaybackSpeedPatch {
             speedButton.setAllCaps(false);
             speedButton.setGravity(Gravity.CENTER);
 
-            float[] btnRadii = new float[]{dipToPixels(20), dipToPixels(20), dipToPixels(20), dipToPixels(20),
-                    dipToPixels(20), dipToPixels(20), dipToPixels(20), dipToPixels(20)};
+            final float[] btnRadii = new float[]{dip20, dip20, dip20, dip20, dip20, dip20, dip20, dip20};
             ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(btnRadii, null, null));
             buttonBackground.getPaint().setColor(getAdjustedBackgroundColor());
             speedButton.setBackground(buttonBackground);
-            speedButton.setPadding(dipToPixels(10), dipToPixels(8), dipToPixels(10), dipToPixels(8));
+            final int dip10 = dipToPixels(10);
+            final int dip8 = dipToPixels(8);
+            speedButton.setPadding(dip10, dip8, dip10, dip8);
 
             // Center button vertically in container.
             FrameLayout.LayoutParams buttonParams = new FrameLayout.LayoutParams(
@@ -446,7 +406,7 @@ public class CustomPlaybackSpeedPatch {
                 FrameLayout.LayoutParams labelParams = new FrameLayout.LayoutParams(
                         FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT,
                         Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
-                labelParams.bottomMargin = dipToPixels(0); // Position label below button.
+                labelParams.bottomMargin = 0; // Position label below button.
                 normalLabel.setLayoutParams(labelParams);
 
                 buttonContainer.addView(normalLabel);
@@ -468,7 +428,7 @@ public class CustomPlaybackSpeedPatch {
         // Wrap mainLayout in another LinearLayout for side margins.
         LinearLayout wrapperLayout = new LinearLayout(context);
         wrapperLayout.setOrientation(LinearLayout.VERTICAL);
-        wrapperLayout.setPadding(dipToPixels(7), 0, dipToPixels(7), 0); // 7dp side margins.
+        wrapperLayout.setPadding(dip7, 0, dip7, 0); // 7dp side margins.
         wrapperLayout.addView(mainLayout);
         dialog.setContentView(wrapperLayout);
 
@@ -477,7 +437,7 @@ public class CustomPlaybackSpeedPatch {
         if (window != null) {
             WindowManager.LayoutParams params = window.getAttributes();
             params.gravity = Gravity.BOTTOM; // Position at bottom of screen.
-            params.y = dipToPixels(7); // 7dp margin from bottom.
+            params.y = dip7; // 7dp margin from bottom.
             params.width = WindowManager.LayoutParams.MATCH_PARENT;
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
             window.setAttributes(params);
@@ -493,16 +453,16 @@ public class CustomPlaybackSpeedPatch {
      * @param speed The playback speed to apply (e.g., 1.0f for normal speed).
      */
     private static void applyPlaybackSpeed(float speed) {
+        Logger.printDebug(() -> "Applying playback speed: " + speed);
         VideoInformation.overridePlaybackSpeed(speed);
         RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(speed);
-        Logger.printDebug(() -> "Applying playback speed: " + speed);
     }
 
     /**
      * Defines corner radii for the plus and minus buttons.
      */
     private static float[] buttonRadii() {
-        float radius = dipToPixels(20); // 20dp radius for all corners.
+        final float radius = dipToPixels(20); // 20dp radius for all corners.
         return new float[]{radius, radius, radius, radius, radius, radius, radius, radius};
     }
 
@@ -510,7 +470,7 @@ public class CustomPlaybackSpeedPatch {
      * Defines corner radii for the main dialog.
      */
     private static float[] outerRadii() {
-        float radius = dipToPixels(12); // 12dp corner radius.
+        final float radius = dipToPixels(12); // 12dp corner radius.
         return new float[]{radius, radius, radius, radius, radius, radius, radius, radius};
     }
 
@@ -546,5 +506,52 @@ public class CustomPlaybackSpeedPatch {
         return ThemeHelper.isDarkTheme()
                 ? ThemeHelper.adjustColorBrightness(baseColor, 1.20f)  // Lighten for dark theme.
                 : ThemeHelper.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
+    }
+}
+
+/**
+ * Custom Drawable for rendering outlined plus and minus symbols on buttons.
+ */
+class OutlineSymbolDrawable extends Drawable {
+    private final boolean isPlus; // Determines if the symbol is a plus or minus.
+    private final Paint paint;
+
+    OutlineSymbolDrawable(boolean isPlus) {
+        this.isPlus = isPlus;
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG); // Enable anti-aliasing for smooth rendering.
+        paint.setColor(ThemeHelper.getForegroundColor());
+        paint.setStyle(Paint.Style.STROKE); // Use stroke style for outline.
+        paint.setStrokeWidth(dipToPixels(1)); // 1dp stroke width.
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        int width = getBounds().width();
+        int height = getBounds().height();
+        final float centerX = width / 2f; // Center X coordinate.
+        final float centerY = height / 2f; // Center Y coordinate.
+        final float size = Math.min(width, height) * 0.25f; // Symbol size is 25% of button dimensions.
+
+        // Draw horizontal line for both plus and minus symbols.
+        canvas.drawLine(centerX - size, centerY, centerX + size, centerY, paint);
+        if (isPlus) {
+            // Draw vertical line for plus symbol.
+            canvas.drawLine(centerX, centerY - size, centerX, centerY + size, paint);
+        }
+    }
+
+    @Override
+    public void setAlpha(int alpha) {
+        paint.setAlpha(alpha);
+    }
+
+    @Override
+    public void setColorFilter(ColorFilter colorFilter) {
+        paint.setColorFilter(colorFilter);
+    }
+
+    @Override
+    public int getOpacity() {
+        return PixelFormat.TRANSLUCENT;
     }
 }
