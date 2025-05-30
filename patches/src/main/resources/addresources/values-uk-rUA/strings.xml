@@ -460,8 +460,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Увімкнути перемотку натисканням</string>
-  <string name="revanced_seekbar_tapping_summary_on">Перемотку натисканням на панель прогресу ввімкнено</string>
-  <string name="revanced_seekbar_tapping_summary_off">Перемотку натисканням на панель прогресу вимкнено</string>
+  <string name="revanced_seekbar_tapping_summary_on">Перемотку натисканням на смугу прогресу ввімкнено</string>
+  <string name="revanced_seekbar_tapping_summary_off">Перемотку натисканням на смугу прогресу вимкнено</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Зміна яскравості жестом</string>
@@ -492,9 +492,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Затемнення фону панелі жесту</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значення затемнення від 0 до 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значення затемнення панелі жесту має бути в межах від 0 до 100</string>
-  <string name="revanced_swipe_overlay_progress_brightness_color_title">Колір яскравості смуги жесту</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Колір смуги прогресу яскравості</string>
   <string name="revanced_swipe_overlay_progress_brightness_color_summary">Колір смуги прогресу під час регулювання яскравості</string>
-  <string name="revanced_swipe_overlay_progress_volume_color_title">Колір гучності смуги жесту</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Колір смуги прогресу гучності</string>
   <string name="revanced_swipe_overlay_progress_volume_color_summary">Колір смуги прогресу під час регулювання гучності</string>
   <string name="revanced_swipe_text_overlay_size_title">Розмір тексту панелі жесту</string>
   <string name="revanced_swipe_text_overlay_size_summary">Розмір тексту панелі жесту від 1 до 30</string>
@@ -1254,13 +1254,13 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екран завантаження макета матиме градієнтне тло</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екран завантаження макета матиме суцільне тло</string>
   <string name="revanced_seekbar_custom_color_title">Увімкнути користувацький колір</string>
-  <string name="revanced_seekbar_custom_color_summary_on">Показується користувацький колір панелі прогресу</string>
-  <string name="revanced_seekbar_custom_color_summary_off">Показується оригінальний колір панелі прогресу</string>
-  <string name="revanced_seekbar_custom_color_primary_title">Користувацький колір</string>
-  <string name="revanced_seekbar_custom_color_primary_summary">Значення кольору панелі прогресу</string>
-  <string name="revanced_seekbar_custom_color_accent_title">Користувацький вторинний колір</string>
-  <string name="revanced_seekbar_custom_color_accent_summary">Значення вторинного кольору панелі прогресу</string>
-  <string name="revanced_seekbar_custom_color_invalid">Недійсне значення кольору панелі прогресу</string>
+  <string name="revanced_seekbar_custom_color_summary_on">Показується користувацький колір смуги прогресу</string>
+  <string name="revanced_seekbar_custom_color_summary_off">Показується оригінальний колір смуги прогресу</string>
+  <string name="revanced_seekbar_custom_color_primary_title">Користувацький колір смуги</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">Значення кольору смуги прогресу</string>
+  <string name="revanced_seekbar_custom_color_accent_title">Користувацький вторинний колір смуги</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">Значення вторинного кольору смуги прогресу</string>
+  <string name="revanced_seekbar_custom_color_invalid">Недійсне значення кольору смуги прогресу</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Змінити хост зображень</string>

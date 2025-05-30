@@ -491,6 +491,10 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacitate suprapunere glisare</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valoare opacitate între 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opacitatea glisării trebuie să fie între 0-100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Culoarea luminozității suprapunerii glisante</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Culoarea barei de progres pentru comenzile de luminozitate</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Culoarea volumului suprapunerii glisante</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Culoarea barei de progres pentru comenzile de volum</string>
   <string name="revanced_swipe_text_overlay_size_title">Dimensiune text suprapunere glisare</string>
   <string name="revanced_swipe_text_overlay_size_summary">Dimensiunea textului pentru suprapunerea glisării între 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Dimensiunea textului trebuie să fie între 1-30</string>

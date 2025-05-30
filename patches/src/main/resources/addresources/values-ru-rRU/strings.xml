@@ -491,6 +491,10 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Затемнение фона панели жестов</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значение затемнения всплывающей панели при жестах от 0 до 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значение затемнения панели жестов должно быть от 0 до 100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Цвет наложения жестов для яркости</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Цвет полосы прогресса при изменении яркости жестами</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Цвет наложения жестов для громкости</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Цвет полосы прогресса при изменении громкости жестами</string>
   <string name="revanced_swipe_text_overlay_size_title">Размер текста панели жестов</string>
   <string name="revanced_swipe_text_overlay_size_summary">Размер текста панели жестов от 1 до 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Размер текста должен быть в диапазоне от 1 до 30</string>

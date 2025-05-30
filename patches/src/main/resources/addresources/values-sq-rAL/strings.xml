@@ -491,6 +491,10 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_swipe_overlay_background_opacity_title">Opasiteti i sfondit mbivendosës shtypëse</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Vlera e opacitetit midis 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opaciteti i shtypjes duhet të jetë midis 0-100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Ngjyra e ndriçimit të mbivendosjes me rrëshqitje</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Ngjyra e shiritit të progresit për kontrollet e ndriçimit</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Ngjyra e volumit të mbivendosjes me rrëshqitje</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Ngjyra e shiritit të progresit për kontrollet e volumit</string>
   <string name="revanced_swipe_text_overlay_size_title">Madhësia e tekstit të mbivendosjes së rrëshqitjes</string>
   <string name="revanced_swipe_text_overlay_size_summary">Madhësia e tekstit për mbivendosjen e rrëshqitjes midis 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Madhësia e tekstit duhet të jetë midis 1-30</string>

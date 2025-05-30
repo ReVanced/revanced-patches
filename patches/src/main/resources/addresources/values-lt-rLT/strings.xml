@@ -491,6 +491,10 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Užšliaukite dangos nušveitimo fono permatinumas</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Permatnumo vertė nuo 0 iki 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Slinkties permatnumas turi būti nuo 0 iki 100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Perbraukimo perdangos ryškumo spalva</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Ryškumo valdiklių eigos juostos spalva</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Perbraukimo perdangos garsumo spalva</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Garsumo valdiklių eigos juostos spalva</string>
   <string name="revanced_swipe_text_overlay_size_title">Perbraukimo perdangos teksto dydis</string>
   <string name="revanced_swipe_text_overlay_size_summary">Perbraukimo perdangos teksto dydis turi būti nuo 1 iki 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Teksto dydis turi būti nuo 1 iki 30</string>
