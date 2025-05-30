@@ -340,9 +340,11 @@ public class CustomPlaybackSpeedPatch {
         mainLayout.addView(sliderLayout);
 
         Function<Float, Void> userSelectedSpeed = newSpeed -> {
-            Logger.printDebug(() -> "User selected playback speed: " + newSpeed);
             final float roundedSpeed = roundSpeedToNearestIncrement(newSpeed);
-            Logger.printDebug(() -> "User selected playback speed: " + roundedSpeed);
+            if (VideoInformation.getPlaybackSpeed() == roundedSpeed) {
+                // Nothing has hanged. New speed rounds to the current speed.
+                return null;
+            }
 
             VideoInformation.overridePlaybackSpeed(roundedSpeed);
             RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(roundedSpeed);
@@ -356,7 +358,7 @@ public class CustomPlaybackSpeedPatch {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
-                    // Convert from progress to playback speed value.
+                    // Convert from progress value to video playback speed.
                     userSelectedSpeed.apply(PLAYBACK_SPEED_MINIMUM + (progress / SPEED_PROGRESS_SCALE));
                 }
             }
@@ -470,7 +472,7 @@ public class CustomPlaybackSpeedPatch {
 
         // Apply slide-in animation when showing the dialog.
         final int fadeDurationFast = Utils.getResourceInteger("fade_duration_fast");
-        final Animation slideInABottomAnimation = Utils.getResourceAnimation("slide_in_bottom");
+        Animation slideInABottomAnimation = Utils.getResourceAnimation("slide_in_bottom");
         slideInABottomAnimation.setDuration(fadeDurationFast);
         mainLayout.startAnimation(slideInABottomAnimation);
 
