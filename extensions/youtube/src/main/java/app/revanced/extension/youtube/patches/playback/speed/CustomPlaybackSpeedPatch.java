@@ -45,7 +45,7 @@ import java.math.BigDecimal;
 public class CustomPlaybackSpeedPatch {
 
     /**
-     * Maximum playback speed, exclusive value.  Custom speeds must be less than this value.
+     * Maximum playback speed, inclusive.  Custom speeds must be this or less.
      * <p>
      * Going over 8x does not increase the actual playback speed any higher,
      * and the UI selector starts flickering and acting weird.
@@ -114,7 +114,7 @@ public class CustomPlaybackSpeedPatch {
                     throw new IllegalArgumentException();
                 }
 
-                if (speedFloat >= PLAYBACK_SPEED_MAXIMUM) {
+                if (speedFloat > PLAYBACK_SPEED_MAXIMUM) {
                     showInvalidCustomSpeedToast();
                     Settings.CUSTOM_PLAYBACK_SPEEDS.resetToDefault();
                     loadCustomSpeeds();
