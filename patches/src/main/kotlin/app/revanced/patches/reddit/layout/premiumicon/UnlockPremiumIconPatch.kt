@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
-val unlockPremiumIconPatch = bytecodePatch(
+val unlockPremiumIconsPatch = bytecodePatch(
     name = "Unlock Premium icons",
     description = "Unlocks the Reddit Premium icons.",
 ) {
@@ -19,4 +19,10 @@ val unlockPremiumIconPatch = bytecodePatch(
             """,
         )
     }
+}
+
+@Deprecated("Patch was renamed", ReplaceWith("unlockPremiumIconsPatch"))
+@Suppress("unused")
+val unlockPremiumIconPatch = bytecodePatch{
+    dependsOn(unlockPremiumIconsPatch)
 }
