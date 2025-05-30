@@ -163,24 +163,14 @@ public class CustomPlaybackSpeedPatch {
                     if (hideLithoMenuAndShowCustomSpeedMenu(recyclerView, 5)) {
                         PlaybackSpeedMenuFilterPatch.isPlaybackRateSelectorMenuVisible = false;
                     }
-                    return;
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "isPlaybackRateSelectorMenuVisible failure", ex);
             }
-
-            try {
-                if (PlaybackSpeedMenuFilterPatch.isOldPlaybackSpeedMenuVisible) {
-                    if (hideLithoMenuAndShowCustomSpeedMenu(recyclerView, 8)) {
-                        PlaybackSpeedMenuFilterPatch.isOldPlaybackSpeedMenuVisible = false;
-                    }
-                }
-            } catch (Exception ex) {
-                Logger.printException(() -> "isOldPlaybackSpeedMenuVisible failure", ex);
-            }
         });
     }
 
+    @SuppressWarnings("SameParameterValue")
     private static boolean hideLithoMenuAndShowCustomSpeedMenu(RecyclerView recyclerView, int expectedChildCount) {
         if (recyclerView.getChildCount() == 0) {
             return false;
@@ -349,7 +339,7 @@ public class CustomPlaybackSpeedPatch {
         // Add slider layout to main layout.
         mainLayout.addView(sliderLayout);
 
-        Function<Float, Void> updateSpeedAndUI = newSpeed -> {
+        Function<Float, Void> userSelectedSpeed = newSpeed -> {
             final float roundedSpeed = roundSpeedToNearestIncrement(newSpeed);
             applyUserSelectedPlaybackSpeed(roundedSpeed);
             currentSpeedText.setText(formatSpeedStringX(roundedSpeed)); // Update display.
@@ -362,7 +352,7 @@ public class CustomPlaybackSpeedPatch {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
-                    updateSpeedAndUI.apply(PLAYBACK_SPEED_MINIMUM + (progress / 20f));
+                    userSelectedSpeed.apply(PLAYBACK_SPEED_MINIMUM + (progress / 20f));
                 }
             }
 
@@ -373,9 +363,9 @@ public class CustomPlaybackSpeedPatch {
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
-        minusButton.setOnClickListener(v -> updateSpeedAndUI.apply(
+        minusButton.setOnClickListener(v -> userSelectedSpeed.apply(
                 VideoInformation.getPlaybackSpeed() - 0.05f));
-        plusButton.setOnClickListener(v -> updateSpeedAndUI.apply(
+        plusButton.setOnClickListener(v -> userSelectedSpeed.apply(
                 VideoInformation.getPlaybackSpeed() + 0.05f));
 
         // Create GridLayout for preset speed buttons.
@@ -443,7 +433,7 @@ public class CustomPlaybackSpeedPatch {
             }
 
             // Set listener to apply selected speed.
-            speedButton.setOnClickListener(v -> updateSpeedAndUI.apply(speed));
+            speedButton.setOnClickListener(v -> userSelectedSpeed.apply(speed));
 
             gridLayout.addView(buttonContainer);
         }
