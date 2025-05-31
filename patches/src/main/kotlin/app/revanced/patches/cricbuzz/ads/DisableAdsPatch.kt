@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11x
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
 val disableAdsPatch = bytecodePatch (
@@ -16,7 +16,7 @@ val disableAdsPatch = bytecodePatch (
     execute {
         userStateSwitchFingerprint.method.apply {
             val opcodeIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
-            val register = getInstruction<Instruction11x>(opcodeIndex).registerA
+            val register = getInstruction<OneRegisterInstruction>(opcodeIndex).registerA
             val insertIndex = opcodeIndex + 1
 
             addInstructions(
