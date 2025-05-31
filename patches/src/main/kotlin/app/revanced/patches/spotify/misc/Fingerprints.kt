@@ -8,6 +8,7 @@ import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 context(BytecodePatchContext)
@@ -37,9 +38,20 @@ internal val buildQueryParametersFingerprint = fingerprint {
     strings("trackRows", "device_type:tablet")
 }
 
-internal val contextMenuExperimentsFingerprint = fingerprint {
-    parameters("L")
-    strings("remove_ads_upsell_enabled")
+internal val contextMenuViewModelClassFingerprint = fingerprint {
+    strings("ContextMenuViewModel(header=")
+}
+
+internal val contextMenuViewModelAddItemFingerprint = fingerprint {
+    custom { method, _ ->
+        method.indexOfFirstInstruction {
+            getReference<MethodReference>()?.name == "add"
+        } >= 0
+    }
+}
+
+internal val getViewModelFingerprint = fingerprint {
+    custom { method, _ -> method.name == "getViewModel" }
 }
 
 internal val contextFromJsonFingerprint = fingerprint {

@@ -2,6 +2,7 @@ package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -9,13 +10,13 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.*
 import app.revanced.util.toPublicAccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -119,14 +120,32 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
 
-        // Disable the "Spotify Premium" upsell experiment in context menus.
-        contextMenuExperimentsFingerprint.method.apply {
-            val moveIsEnabledIndex = indexOfFirstInstructionOrThrow(
-                contextMenuExperimentsFingerprint.stringMatches!!.first().index, Opcode.MOVE_RESULT
-            )
-            val isUpsellEnabledRegister = getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
+        // Return early before adding context menu items which are Premium ads.
+        val contextMenuViewModelClassDef = contextMenuViewModelClassFingerprint.originalClassDef
+        contextMenuViewModelAddItemFingerprint.match(contextMenuViewModelClassDef).method.apply {
+            val itemClassType = parameterTypes.first()
+            val itemClassDef = classes.find {
+                it.type == itemClassType
+            } ?: throw PatchException("Could not find context menu item class.")
+            val viewModelClassType = getViewModelFingerprint.match(itemClassDef).originalMethod.returnType
+            val firstInstruction = getInstruction(0)
 
-            replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
+            addInstructionsWithLabels(
+                0,
+                """
+                    invoke-interface { p1 }, $itemClassType->getViewModel()$viewModelClassType
+                    move-result-object v0
+                    invoke-virtual { v0 }, $viewModelClassType->toString()Ljava/lang/String;
+                    move-result-object v0
+                    
+                    invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->isFilteredContextMenuItem(Ljava/lang/String;)Z
+                    move-result v0
+                    
+                    if-eqz v0, :skip-return-early
+                    return-void
+                """,
+                ExternalLabel("skip-return-early", firstInstruction)
+            )
         }
 
 

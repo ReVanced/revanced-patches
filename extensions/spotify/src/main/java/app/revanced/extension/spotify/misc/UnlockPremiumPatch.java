@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 
 @SuppressWarnings("unused")
 public final class UnlockPremiumPatch {
@@ -96,6 +97,19 @@ public final class UnlockPremiumPatch {
             Section.IMAGE_BRAND_AD_FIELD_NUMBER
     );
 
+    private static final List<List<String>> FILTERED_CONTEXT_MENU_ITEMS_BY_STRINGS = List.of(
+            List.of(getResourceIdentifier("context_menu_remove_ads")),
+            List.of(getResourceIdentifier("playlist_entity_reinventfree_adsfree_context_menu_item")),
+            List.of(
+                    getResourceIdentifier("group_session_context_menu_start"),
+                    "isPremiumUpsell=true"
+            )
+    );
+
+    private static String getResourceIdentifier(String resourceIdentifierName) {
+        return String.valueOf(Utils.getResourceIdentifier(resourceIdentifierName, "id"));
+    }
+
     /**
      * Injection point. Override account attributes.
      */
@@ -138,5 +152,13 @@ public final class UnlockPremiumPatch {
         } catch (Exception ex) {
             Logger.printException(() -> "Remove home sections failure", ex);
         }
+    }
+
+    /**
+     * Injection point. Filter context menu items which are Premium ads.
+     */
+    public static boolean isFilteredContextMenuItem(String stringifiedItem) {
+        return FILTERED_CONTEXT_MENU_ITEMS_BY_STRINGS.stream()
+                .anyMatch(filters -> filters.stream().allMatch(stringifiedItem::contains));
     }
 }
