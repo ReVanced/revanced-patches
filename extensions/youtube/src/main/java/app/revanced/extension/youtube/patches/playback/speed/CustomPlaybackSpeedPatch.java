@@ -72,7 +72,7 @@ public class CustomPlaybackSpeedPatch {
     /**
      * Custom playback speeds.
      */
-    public static float[] customPlaybackSpeeds;
+    public static final float[] customPlaybackSpeeds;
 
     /**
      * Formats speeds to UI strings.
@@ -94,7 +94,6 @@ public class CustomPlaybackSpeedPatch {
         speedFormatter.setMaximumFractionDigits(2);
 
         final float holdSpeed = Settings.SPEED_TAP_AND_HOLD.get();
-
         if (holdSpeed > 0 && holdSpeed <= PLAYBACK_SPEED_MAXIMUM) {
             TAP_AND_HOLD_SPEED = holdSpeed;
         } else {
@@ -102,8 +101,7 @@ public class CustomPlaybackSpeedPatch {
             TAP_AND_HOLD_SPEED = Settings.SPEED_TAP_AND_HOLD.resetToDefault();
         }
 
-        loadCustomSpeeds();
-
+        customPlaybackSpeeds = loadCustomSpeeds();
         customPlaybackSpeedsMin = customPlaybackSpeeds[0];
         customPlaybackSpeedsMax = customPlaybackSpeeds[customPlaybackSpeeds.length - 1];
     }
@@ -119,7 +117,7 @@ public class CustomPlaybackSpeedPatch {
         Utils.showToastLong(str("revanced_custom_playback_speeds_invalid", PLAYBACK_SPEED_MAXIMUM));
     }
 
-    private static void loadCustomSpeeds() {
+    private static float[] loadCustomSpeeds() {
         try {
             // Automatically replace commas with periods,
             // if the user added speeds in a localized format.
@@ -130,29 +128,30 @@ public class CustomPlaybackSpeedPatch {
                 throw new IllegalArgumentException();
             }
 
-            customPlaybackSpeeds = new float[speedStrings.length];
+            float[] speeds = new float[speedStrings.length];
 
             int i = 0;
             for (String speedString : speedStrings) {
                 final float speedFloat = Float.parseFloat(speedString);
-                if (speedFloat <= 0 || arrayContains(customPlaybackSpeeds, speedFloat)) {
+                if (speedFloat <= 0 || arrayContains(speeds, speedFloat)) {
                     throw new IllegalArgumentException();
                 }
 
                 if (speedFloat > PLAYBACK_SPEED_MAXIMUM) {
                     showInvalidCustomSpeedToast();
                     Settings.CUSTOM_PLAYBACK_SPEEDS.resetToDefault();
-                    loadCustomSpeeds();
-                    return;
+                    return loadCustomSpeeds();
                 }
 
-                customPlaybackSpeeds[i++] = speedFloat;
+                speeds[i++] = speedFloat;
             }
+
+            return speeds;
         } catch (Exception ex) {
             Logger.printInfo(() -> "Parse error", ex);
             Utils.showToastShort(str("revanced_custom_playback_speeds_parse_exception"));
             Settings.CUSTOM_PLAYBACK_SPEEDS.resetToDefault();
-            loadCustomSpeeds();
+            return loadCustomSpeeds();
         }
     }
 
