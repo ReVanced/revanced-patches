@@ -22,3 +22,7 @@ internal val navigationBarItemSetConstructorFingerprint = fingerprint {
         } >= 0
     }
 }
+
+internal val oldNavigationBarAddItemFingerprint = fingerprint {
+    strings("Bottom navigation tabs exceeds maximum of 5 tabs")
+}

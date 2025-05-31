@@ -1,9 +1,16 @@
 package app.revanced.patches.spotify.layout.hide.createbutton
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -26,30 +33,75 @@ val hideCreateButtonPatch = bytecodePatch(
             return@execute
         }
 
-        val navigationBarItemSetClassDef = navigationBarItemSetClassFingerprint.originalClassDef
+        val oldNavigationBarAddItemMethod = oldNavigationBarAddItemFingerprint.originalMethodOrNull
+        val navigationBarItemSetClassDef = if (oldNavigationBarAddItemMethod == null) {
+            navigationBarItemSetClassFingerprint.originalClassDef
+        } else {
+            navigationBarItemSetClassFingerprint.originalClassDefOrNull
+        }
 
-        // The NavigationBarItemSet constructor accepts multiple parameters which represent each navigation bar item.
-        // Each item is manually checked whether it is not null and then added to a LinkedHashSet.
-        // Since the order of the items can differ, we are required to check every parameter to see whether it is the
-        // Create button. So, for every parameter passed to the method, invoke our extension method and overwrite it
-        // to null in case it is Create button.
-        navigationBarItemSetConstructorFingerprint.match(navigationBarItemSetClassDef).method.apply {
-            // Add 1 to the index because the first parameter register is `this`.
-            val parameterTypesWithRegister = parameterTypes.mapIndexed { index, parameterType ->
-                parameterType to (index + 1)
-            }
+        if (navigationBarItemSetClassDef != null) {
+            // Main patch for newest and most versions.
+            // The NavigationBarItemSet constructor accepts multiple parameters which represent each navigation bar item.
+            // Each item is manually checked whether it is not null and then added to a LinkedHashSet.
+            // Since the order of the items can differ, we are required to check every parameter to see whether it is the
+            // Create button. So, for every parameter passed to the method, invoke our extension method and overwrite it
+            // to null in case it is Create button.
+            navigationBarItemSetConstructorFingerprint.match(navigationBarItemSetClassDef).method.apply {
+                // Add 1 to the index because the first parameter register is `this`.
+                val parameterTypesWithRegister = parameterTypes.mapIndexed { index, parameterType ->
+                    parameterType to (index + 1)
+                }
 
-            val returnNullIfIsCreateButtonDescriptor =
-                "$EXTENSION_CLASS_DESCRIPTOR->returnNullIfIsCreateButton(Ljava/lang/Object;)Ljava/lang/Object;"
+                val returnNullIfIsCreateButtonDescriptor =
+                    "$EXTENSION_CLASS_DESCRIPTOR->returnNullIfIsCreateButton(Ljava/lang/Object;)Ljava/lang/Object;"
 
-            parameterTypesWithRegister.reversed().forEach { (parameterType, parameterRegister) ->
-                addInstructions(
-                    0,
-                    """
+                parameterTypesWithRegister.reversed().forEach { (parameterType, parameterRegister) ->
+                    addInstructions(
+                        0,
+                        """
                         invoke-static { p$parameterRegister }, $returnNullIfIsCreateButtonDescriptor
                         move-result-object p$parameterRegister
                         check-cast p$parameterRegister, $parameterType
                     """
+                    )
+                }
+            }
+        }
+
+        if (oldNavigationBarAddItemMethod != null) {
+            // In case an older version of the app is being patched, hook the old method which adds navigation bar items.
+            // Return null early if the navigation bar item title resource id is old Create button title resource id.
+            oldNavigationBarAddItemFingerprint.methodOrNull?.apply {
+                val getNavigationBarItemTitleStringIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    reference?.definingClass == "Landroid/content/res/Resources;" && reference.name == "getString"
+                }
+                // This register is a parameter register, so it can be used at the start of the method when adding
+                // the new instructions.
+                val oldNavigationBarItemTitleResIdRegister =
+                    getInstruction<FiveRegisterInstruction>(getNavigationBarItemTitleStringIndex).registerD
+
+                // The instruction where the normal method logic starts.
+                val firstInstruction = getInstruction(0)
+
+                val isOldCreateButtonDescriptor =
+                    "$EXTENSION_CLASS_DESCRIPTOR->isOldCreateButton(I)Z"
+
+                addInstructionsWithLabels(
+                    0,
+                    """
+                    invoke-static { v$oldNavigationBarItemTitleResIdRegister }, $isOldCreateButtonDescriptor
+                    move-result v0
+                    
+                    # If this navigation bar item is not the Create button, jump to the normal method logic.
+                    if-eqz v0, :normal-method-logic
+                    
+                    # Return null early because this method return value is a BottomNavigationItemView.
+                    const/4 v0, 0
+                    return-object v0
+                """,
+                    ExternalLabel("normal-method-logic", firstInstruction)
                 )
             }
         }

@@ -12,9 +12,14 @@ public final class HideCreateButtonPatch {
      * A list of ids of resources which contain the Create button title.
      */
     private static final List<String> CREATE_BUTTON_TITLE_RES_ID_LIST = List.of(
-            // Resource which is currently used by latest versions.
             Integer.toString(Utils.getResourceIdentifier("navigationbar_musicappitems_create_title", "string"))
     );
+
+    /**
+     * The old id of the resource which contained the Create button title. Used in older versions of the app.
+     */
+    private static final int OLD_CREATE_BUTTON_TITLE_RES_ID =
+            Utils.getResourceIdentifier("bottom_navigation_bar_create_tab_title", "string");
 
     /**
      * Injection point. This method is called on every navigation bar item to check whether it is the Create button.
@@ -35,5 +40,13 @@ public final class HideCreateButtonPatch {
         }
 
         return navigationBarItem;
+    }
+
+    /**
+     * Injection point. Called in older versions of the app. Returns whether the old navigation bar item is the old
+     * Create button.
+     */
+    public static boolean isOldCreateButton(int oldNavigationBarItemTitleResId) {
+        return oldNavigationBarItemTitleResId == OLD_CREATE_BUTTON_TITLE_RES_ID;
     }
 }
