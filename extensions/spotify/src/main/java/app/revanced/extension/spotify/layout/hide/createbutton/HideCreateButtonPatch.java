@@ -7,13 +7,19 @@ import app.revanced.extension.shared.Utils;
 @SuppressWarnings("unused")
 public final class HideCreateButtonPatch {
 
-    private static final String CREATE_BUTTON_TITLE_RES =
-            String.valueOf(Utils.getResourceIdentifier("navigationbar_musicappitems_create_title", "string"));
+    /**
+     * A list of ids of resources which contain the Create button title.
+     */
+    private static final List<String> CREATE_BUTTON_TITLE_RES_ID_LIST = List.of(
+            // Currently used resource.
+            String.valueOf(Utils.getResourceIdentifier("navigationbar_musicappitems_create_title", "string"))
+    );
 
     /**
-     * Injection point.
+     * Injection point. This method is called on every navigation bar item to check whether it is the create button.
      */
     public static boolean isCreateButton(String stringifiedNavBarItem) {
-        return stringifiedNavBarItem.contains(CREATE_BUTTON_TITLE_RES);
+        return CREATE_BUTTON_TITLE_RES_ID_LIST.stream()
+                .anyMatch(createButtonTitleRes -> stringifiedNavBarItem.contains(createButtonTitleRes));
     }
 }

@@ -23,15 +23,15 @@ public final class UnlockPremiumPatch {
     private static final boolean IS_SPOTIFY_LEGACY_APP_TARGET;
 
     static {
-        boolean legacy;
+        boolean isLegacy;
         try {
             Class.forName(SPOTIFY_MAIN_ACTIVITY_LEGACY);
-            legacy = true;
+            isLegacy = true;
         } catch (ClassNotFoundException ex) {
-            legacy = false;
+            isLegacy = false;
         }
 
-        IS_SPOTIFY_LEGACY_APP_TARGET = legacy;
+        IS_SPOTIFY_LEGACY_APP_TARGET = isLegacy;
     }
 
     private static class OverrideAttribute {
@@ -62,11 +62,12 @@ public final class UnlockPremiumPatch {
         }
     }
 
-    private static final List<OverrideAttribute> OVERRIDES = List.of(
+    private static final List<OverrideAttribute> PREMIUM_OVERRIDES = List.of(
             // Disables player and app ads.
             new OverrideAttribute("ads", FALSE),
             // Works along on-demand, allows playing any song without restriction.
             new OverrideAttribute("player-license", "premium"),
+            new OverrideAttribute("player-license-v2", "premium", !IS_SPOTIFY_LEGACY_APP_TARGET),
             // Disables shuffle being initially enabled when first playing a playlist.
             new OverrideAttribute("shuffle", FALSE),
             // Allows playing any song on-demand, without a shuffled order.
@@ -92,20 +93,35 @@ public final class UnlockPremiumPatch {
             new OverrideAttribute("tablet-free", FALSE, false)
     );
 
+    /**
+     * A list of home sections feature types ids which should be removed. These ids match the ones from the protobuf
+     * response which delivers home sections.
+     */
     private static final List<Integer> REMOVED_HOME_SECTIONS = List.of(
             Section.VIDEO_BRAND_AD_FIELD_NUMBER,
             Section.IMAGE_BRAND_AD_FIELD_NUMBER
     );
 
+    /**
+     * A list of lists which contain strings that match whether a context menu item should be filtered out.
+     * The main approach used is matching context menu items by the id of their text resource.
+     */
     private static final List<List<String>> FILTERED_CONTEXT_MENU_ITEMS_BY_STRINGS = List.of(
+            // "Listen to music ad-free" upsell on playlists.
             List.of(getResourceIdentifier("context_menu_remove_ads")),
+            // "Listen to music ad-free" upsell on albums.
             List.of(getResourceIdentifier("playlist_entity_reinventfree_adsfree_context_menu_item")),
+            // "Start a Jam" context menu item, but only filtered if the user does not have premium and the item is
+            // being used as a Premium upsell (ad).
             List.of(
                     getResourceIdentifier("group_session_context_menu_start"),
                     "isPremiumUpsell=true"
             )
     );
 
+    /**
+     * Utility method for returning resources ids as strings.
+     */
     private static String getResourceIdentifier(String resourceIdentifierName) {
         return String.valueOf(Utils.getResourceIdentifier(resourceIdentifierName, "id"));
     }
@@ -115,7 +131,7 @@ public final class UnlockPremiumPatch {
      */
     public static void overrideAttribute(Map<String, /*AccountAttribute*/ Object> attributes) {
         try {
-            for (var override : OVERRIDES) {
+            for (var override : PREMIUM_OVERRIDES) {
                 var attribute = attributes.get(override.key);
                 if (attribute == null) {
                     if (override.isExpected) {
@@ -144,7 +160,7 @@ public final class UnlockPremiumPatch {
 
     /**
      * Injection point. Remove ads sections from home.
-     * Depends on patching protobuffer list remove method.
+     * Depends on patching abstract protobuf list ensureIsMutable method.
      */
     public static void removeHomeSections(List<Section> sections) {
         try {
