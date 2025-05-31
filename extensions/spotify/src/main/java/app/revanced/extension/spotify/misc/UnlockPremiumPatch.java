@@ -173,8 +173,9 @@ public final class UnlockPremiumPatch {
     /**
      * Injection point. Filter context menu items which are Premium ads.
      */
-    public static boolean isFilteredContextMenuItem(String stringifiedItem) {
+    public static boolean isFilteredContextMenuItem(Object contextMenuItem) {
+        String stringifiedContextMenuItem = contextMenuItem.toString();
         return FILTERED_CONTEXT_MENU_ITEMS_BY_STRINGS.stream()
-                .anyMatch(filters -> filters.stream().allMatch(stringifiedItem::contains));
+                .anyMatch(filters -> filters.stream().allMatch(stringifiedContextMenuItem::contains));
     }
 }

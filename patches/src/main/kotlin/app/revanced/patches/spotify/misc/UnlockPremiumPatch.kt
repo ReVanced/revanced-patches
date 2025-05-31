@@ -136,16 +136,14 @@ val unlockPremiumPatch = bytecodePatch(
             val firstInstruction = getInstruction(0)
 
             val isFilteredContextMenuItemDescriptor =
-                "$EXTENSION_CLASS_DESCRIPTOR->isFilteredContextMenuItem(Ljava/lang/String;)Z"
+                "$EXTENSION_CLASS_DESCRIPTOR->isFilteredContextMenuItem(Ljava/lang/Object;)Z"
 
             addInstructionsWithLabels(
                 0,
                 """
                     # The first parameter is the context menu item being added.
+                    # Invoke getViewModel to get the actual context menu item.
                     invoke-interface { p1 }, $contextMenuItemClassType->getViewModel()$viewModelClassType
-                    move-result-object v0
-                    # Stringify the context menu item.
-                    invoke-virtual { v0 }, $viewModelClassType->toString()Ljava/lang/String;
                     move-result-object v0
                     
                     # Check if this context menu item should be filtered out.
