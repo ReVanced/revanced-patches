@@ -593,6 +593,7 @@ public final class app/revanced/patches/reddit/layout/disablescreenshotpopup/Dis
 
 public final class app/revanced/patches/reddit/layout/premiumicon/UnlockPremiumIconPatchKt {
 	public static final fun getUnlockPremiumIconPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getUnlockPremiumIconsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/reddit/misc/extension/ExtensionPatchKt {

@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.stringOption
 @Suppress("unused")
 val spoofBuildInfoPatch = bytecodePatch(
     name = "Spoof build info",
-    description = "Spoof the information about the current build.",
+    description = "Spoofs the information about the current build.",
     use = false,
 ) {
     val board by stringOption(
@@ -141,14 +141,14 @@ val spoofBuildInfoPatch = bytecodePatch(
     val socManufacturer by stringOption(
         key = "soc-manufacturer",
         default = null,
-        title = "SOC Manufacturer",
+        title = "SOC manufacturer",
         description = "The manufacturer of the device's primary system-on-chip.",
     )
 
     val socModel by stringOption(
         key = "soc-model",
         default = null,
-        title = "SOC Model",
+        title = "SOC model",
         description = "The model name of the device's primary system-on-chip.",
     )
 
