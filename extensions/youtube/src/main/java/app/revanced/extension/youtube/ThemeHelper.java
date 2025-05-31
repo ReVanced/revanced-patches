@@ -105,6 +105,14 @@ public class ThemeHelper {
         return isDarkTheme() ? getLightThemeColor() : getDarkThemeColor();
     }
 
+    public static int getDialogBackgroundColor() {
+        final String colorName = isDarkTheme()
+                ? "yt_black1"
+                : "yt_white1";
+
+        return Utils.getColorFromString(colorName);
+    }
+
     public static int getToolbarBackgroundColor() {
         final String colorName = isDarkTheme()
                 ? "yt_black3"
