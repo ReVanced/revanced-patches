@@ -33,7 +33,7 @@ public final class HideCreateButtonPatch {
 
         String stringifiedNavigationBarItem = navigationBarItem.toString();
         boolean isCreateButton = CREATE_BUTTON_TITLE_RES_ID_LIST.stream()
-                .anyMatch(createButtonTitleRes -> stringifiedNavigationBarItem.contains(createButtonTitleRes));
+                .anyMatch(createButtonTitleResId -> stringifiedNavigationBarItem.contains(createButtonTitleResId));
 
         if (isCreateButton) {
             return null;
