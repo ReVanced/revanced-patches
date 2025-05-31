@@ -61,10 +61,10 @@ val hideCreateButtonPatch = bytecodePatch(
                     addInstructions(
                         0,
                         """
-                        invoke-static { p$parameterRegister }, $returnNullIfIsCreateButtonDescriptor
-                        move-result-object p$parameterRegister
-                        check-cast p$parameterRegister, $parameterType
-                    """
+                            invoke-static { p$parameterRegister }, $returnNullIfIsCreateButtonDescriptor
+                            move-result-object p$parameterRegister
+                            check-cast p$parameterRegister, $parameterType
+                        """
                     )
                 }
             }
@@ -92,16 +92,16 @@ val hideCreateButtonPatch = bytecodePatch(
                 addInstructionsWithLabels(
                     0,
                     """
-                    invoke-static { v$oldNavigationBarItemTitleResIdRegister }, $isOldCreateButtonDescriptor
-                    move-result v0
-                    
-                    # If this navigation bar item is not the Create button, jump to the normal method logic.
-                    if-eqz v0, :normal-method-logic
-                    
-                    # Return null early because this method return value is a BottomNavigationItemView.
-                    const/4 v0, 0
-                    return-object v0
-                """,
+                        invoke-static { v$oldNavigationBarItemTitleResIdRegister }, $isOldCreateButtonDescriptor
+                        move-result v0
+                        
+                        # If this navigation bar item is not the Create button, jump to the normal method logic.
+                        if-eqz v0, :normal-method-logic
+                        
+                        # Return null early because this method return value is a BottomNavigationItemView.
+                        const/4 v0, 0
+                        return-object v0
+                    """,
                     ExternalLabel("normal-method-logic", firstInstruction)
                 )
             }
