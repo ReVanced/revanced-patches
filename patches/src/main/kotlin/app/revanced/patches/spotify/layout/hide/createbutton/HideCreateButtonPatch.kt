@@ -34,6 +34,7 @@ val hideCreateButtonPatch = bytecodePatch(
         }
 
         val oldNavigationBarAddItemMethod = oldNavigationBarAddItemFingerprint.originalMethodOrNull
+        // Only throw the fingerprint error when oldNavigationBarAddItemMethod does not exist.
         val navigationBarItemSetClassDef = if (oldNavigationBarAddItemMethod == null) {
             navigationBarItemSetClassFingerprint.originalClassDef
         } else {
