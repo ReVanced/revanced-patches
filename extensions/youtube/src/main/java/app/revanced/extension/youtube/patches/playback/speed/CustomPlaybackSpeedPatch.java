@@ -399,7 +399,7 @@ public class CustomPlaybackSpeedPatch {
         gridParams.setMargins(0, 0, 0, 0); // No margins around GridLayout.
         gridLayout.setLayoutParams(gridParams);
 
-        // Show at least 1 zero in decimal (2 -> "2.0").
+        // For all buttons show at least 1 zero in decimal (2 -> "2.0").
         speedFormatter.setMinimumFractionDigits(1);
 
         // Add buttons for each preset playback speed.
@@ -490,15 +490,20 @@ public class CustomPlaybackSpeedPatch {
         }
 
         // Create observer for PlayerType changes.
-        Function1<PlayerType, Unit> playerTypeObserver = (PlayerType type) -> {
-            if (type == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE) {
+        Function1<PlayerType, Unit> playerTypeObserver = new Function1<>() {
+            @Override
+            public Unit invoke(PlayerType type) {
                 Dialog current = currentDialog.get();
-                if (current != null && current.isShowing()) {
+                if (current == null || !current.isShowing()) {
+                    // Should never happen.
+                    PlayerType.getOnChange().removeObserver(this);
+                    Logger.printException(() -> "Removing player type listener as dialog is null or closed");
+                } else if (type == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE) {
                     current.dismiss();
                     Logger.printDebug(() -> "Playback speed dialog dismissed due to PiP mode");
                 }
+                return Unit.INSTANCE;
             }
-            return Unit.INSTANCE;
         };
 
         // Add observer to dismiss dialog when entering PiP mode.
