@@ -247,8 +247,8 @@ public class CustomPlaybackSpeedPatch {
         // Preset size constants.
         final int dip4 = dipToPixels(4);   // Height for handle bar.
         final int dip5 = dipToPixels(5);
-        final int dip8 = dipToPixels(8);   // Padding for mainLayout.
-        final int dip10 = dipToPixels(10);
+        final int dip6 = dipToPixels(6);   // Padding for mainLayout from bottom.
+        final int dip8 = dipToPixels(8);   // Padding for mainLayout from left and right.
         final int dip20 = dipToPixels(20);
         final int dip32 = dipToPixels(32); // Height for in-rows speed buttons.
         final int dip36 = dipToPixels(36); // Height for minus and plus buttons.
@@ -268,7 +268,7 @@ public class CustomPlaybackSpeedPatch {
         View handleBar = new View(context);
         ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
                 createCornerRadii(4), null, null));
-        handleBackground.getPaint().setColor(getAdjustedBackgroundColor());
+        handleBackground.getPaint().setColor(getAdjustedBackgroundColor(true));
         handleBar.setBackground(handleBackground);
         LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(
                 dip40, // handle bar width.
@@ -306,12 +306,12 @@ public class CustomPlaybackSpeedPatch {
         Button minusButton = new Button(context, null, 0); // Disable default theme style.
         minusButton.setText(""); // No text on button.
         ShapeDrawable minusBackground = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
-        minusBackground.getPaint().setColor(getAdjustedBackgroundColor());
+        minusBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
         minusButton.setBackground(minusBackground);
         OutlineSymbolDrawable minusDrawable = new OutlineSymbolDrawable(false); // Minus symbol.
         minusButton.setForeground(minusDrawable);
         LinearLayout.LayoutParams minusParams = new LinearLayout.LayoutParams(dip36, dip36);
-        minusParams.setMargins(0, 0, dip10, 0); // 10dp to slider.
+        minusParams.setMargins(0, 0, dip5, 0); // 5dp to slider.
         minusButton.setLayoutParams(minusParams);
 
         // Create slider for speed adjustment.
@@ -324,6 +324,7 @@ public class CustomPlaybackSpeedPatch {
                 ThemeHelper.getForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme slider thumb.
         LinearLayout.LayoutParams sliderParams = new LinearLayout.LayoutParams(
                 0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+        sliderParams.setMargins(dip5, 0, dip5, 0); // 5dp to -/+ buttons.
         speedSlider.setLayoutParams(sliderParams);
 
         // Create plus button.
@@ -331,12 +332,12 @@ public class CustomPlaybackSpeedPatch {
         plusButton.setText(""); // No text on button.
         ShapeDrawable plusBackground = new ShapeDrawable(new RoundRectShape(
                 createCornerRadii(20), null, null));
-        plusBackground.getPaint().setColor(getAdjustedBackgroundColor());
+        plusBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
         plusButton.setBackground(plusBackground);
         OutlineSymbolDrawable plusDrawable = new OutlineSymbolDrawable(true); // Plus symbol.
         plusButton.setForeground(plusDrawable);
         LinearLayout.LayoutParams plusParams = new LinearLayout.LayoutParams(dip36, dip36);
-        plusParams.setMargins(dip10, 0, 0, 0); // 10dp to slider.
+        plusParams.setMargins(dip5, 0, 0, 0); // 5dp to slider.
         plusButton.setLayoutParams(plusParams);
 
         // Add -/+ and slider views to slider layout.
@@ -415,7 +416,7 @@ public class CustomPlaybackSpeedPatch {
             buttonContainer.setLayoutParams(containerParams);
 
             // Create speed button.
-            Button speedButton = new Button(context);
+            Button speedButton = new Button(context, null, 0);
             speedButton.setText(speedFormatter.format(speed)); // Do not use 'x' speed format.
             speedButton.setTextColor(ThemeHelper.getForegroundColor());
             speedButton.setTextSize(12);
@@ -424,13 +425,13 @@ public class CustomPlaybackSpeedPatch {
 
             ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(
                     createCornerRadii(20), null, null));
-            buttonBackground.getPaint().setColor(getAdjustedBackgroundColor());
+            buttonBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
             speedButton.setBackground(buttonBackground);
             speedButton.setPadding(dip5, dip5, dip5, dip5);
 
-            // Center button vertically in container.
+            // Center button vertically and stretch horizontally in container.
             FrameLayout.LayoutParams buttonParams = new FrameLayout.LayoutParams(
-                    FrameLayout.LayoutParams.WRAP_CONTENT, dip32, Gravity.CENTER);
+                    FrameLayout.LayoutParams.MATCH_PARENT, dip32, Gravity.CENTER);
             speedButton.setLayoutParams(buttonParams);
 
             // Add speed buttons view to buttons container layout.
@@ -474,7 +475,7 @@ public class CustomPlaybackSpeedPatch {
         if (window != null) {
             WindowManager.LayoutParams params = window.getAttributes();
             params.gravity = Gravity.BOTTOM; // Position at bottom of screen.
-            params.y = dip8; // 8dp margin from bottom.
+            params.y = dip6; // 6dp margin from bottom.
             // In landscape, use the smaller dimension (height) as portrait width.
             int portraitWidth = context.getResources().getDisplayMetrics().widthPixels;
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -566,14 +567,17 @@ public class CustomPlaybackSpeedPatch {
     /**
      * Adjusts the background color based on the current theme.
      *
-     * @return A modified background color, lightening by 20% for dark themes
-     *         or darkening by 5% for light themes, to ensure visual contrast.
+     * @param isHandleBar If true, applies a stronger darkening factor (0.9) for the handle bar in light theme;
+     *                    if false, applies a standard darkening factor (0.95) for other elements in light theme.
+     * @return A modified background color, lightened by 20% for dark themes or darkened by 5% (or 10% for handle bar)
+     *         for light themes to ensure visual contrast.
      */
-    public static int getAdjustedBackgroundColor() {
+    public static int getAdjustedBackgroundColor(boolean isHandleBar) {
         final int baseColor = ThemeHelper.getBackgroundColor();
+        float lightThemeFactor = isHandleBar ? 0.9f : 0.95f; // 0.9f for handleBar, 0.95f for others in light theme.
         return ThemeHelper.isDarkTheme()
                 ? ThemeHelper.adjustColorBrightness(baseColor, 1.20f)  // Lighten for dark theme.
-                : ThemeHelper.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
+                : ThemeHelper.adjustColorBrightness(baseColor, lightThemeFactor); // Darken for light theme.
     }
 }
 
