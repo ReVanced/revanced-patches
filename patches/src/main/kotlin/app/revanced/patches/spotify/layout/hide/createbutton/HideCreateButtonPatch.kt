@@ -32,14 +32,14 @@ val hideCreateButtonPatch = bytecodePatch(
         }
 
         // Add a check before each navigation bar item is added to the LinkedHashSet to check if the item being added
-        // is the Create button, and in case it is, skip adding it.
+        // is the Create button and, in case it is, skip adding it.
         val navigationBarItemSetClassDef = navigationBarItemSetClassFingerprint.originalClassDef
         navigationBarItemSetConstructorFingerprint.match(navigationBarItemSetClassDef).method.let { method ->
             val navigationBarItemClassType = method.parameterTypes.first()
 
             method.instructions.forEachIndexed { instructionIndex, instruction ->
                 if (
-                    // The instruction which calls add should an invoke-virtual.
+                    // The instruction which calls LinkedHashSet->add should be an invoke-virtual.
                     instruction as? FiveRegisterInstruction == null ||
                     // Method call to LinkedHashSet->add.
                     instruction.getReference<MethodReference>()?.name != "add" ||

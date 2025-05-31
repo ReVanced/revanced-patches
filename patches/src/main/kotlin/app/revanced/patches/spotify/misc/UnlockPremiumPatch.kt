@@ -148,10 +148,11 @@ val unlockPremiumPatch = bytecodePatch(
                     invoke-static { v$freeRegister }, $isFilteredContextMenuItemDescriptor
                     move-result v$freeRegister
                     
-                    if-eqz v$freeRegister, :skip-return-early
+                    # If this context menu item should not be skipped, jump to the normal method logic.
+                    if-eqz v$freeRegister, :normal-method-logic
                     return-void
                 """,
-                ExternalLabel("skip-return-early", firstInstruction)
+                ExternalLabel("normal-method-logic", firstInstruction)
             )
         }
 
