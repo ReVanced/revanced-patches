@@ -1,5 +1,6 @@
 package app.revanced.extension.spotify.layout.hide.createbutton;
 
+import java.util.List;
 import java.util.LinkedHashSet;
 
 import app.revanced.extension.shared.Utils;
