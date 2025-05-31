@@ -36,7 +36,7 @@ internal val miscUtilsFingerprint = fingerprint {
     strings("The specified color must be encoded in an RGB color space.")
 }
 
-// Requires matching against miscUtilsFingerprint
+// Requires matching against miscUtilsFingerprint.
 internal val removeAlphaFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL)
     returns("J")

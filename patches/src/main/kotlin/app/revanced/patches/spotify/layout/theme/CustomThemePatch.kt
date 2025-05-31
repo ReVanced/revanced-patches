@@ -127,36 +127,46 @@ private val customThemeBytecodePatch = bytecodePatch {
             backgroundColorSecondary!!
         )
 
-        // Hijacks a util method that removes alpha to replace hardcoded accent colors
+        // Hijacks a util method that removes alpha to replace hardcoded accent colors.
         removeAlphaFingerprint.match(miscUtilsFingerprint.classDef).method.apply {
-            addInstructions(0, """
-                invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(J)J
-                move-result-wide p0
-            """)
+            addInstructions(
+                0,
+                """
+                    invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(J)J
+                    move-result-wide p0
+                """
+            )
         }
 
-        // Lottie JSON parser method
-        // It's a gigantic method that parses each value, including the solid color
+        // Lottie JSON parser method.
+        // It's a gigantic method that parses each value, including the solid color.
         parseLottieJsonFingerprint.method.apply {
-            val invokeIdx = indexOfFirstInstructionOrThrow {
-                val ref = this.getReference<MethodReference>()
-                ref?.definingClass == "Landroid/graphics/Color;" && ref.name == "parseColor"
+            val invokeIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.definingClass == "Landroid/graphics/Color;"
+                        && reference.name == "parseColor"
             }
-            val resultRegister = getInstruction<OneRegisterInstruction>(invokeIdx + 1).registerA
-            addInstructions(invokeIdx + 2, """
-                invoke-static/range { v$resultRegister .. v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I
-                move-result v$resultRegister
-            """)
+            val resultRegister = getInstruction<OneRegisterInstruction>(invokeIndex + 1).registerA
+            addInstructions(
+                invokeIndex + 2,
+                """
+                    invoke-static/range { v$resultRegister .. v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I
+                    move-result v$resultRegister
+                """
+            )
         }
 
-        // Lottie animated color parser
+        // Lottie animated color parser.
         parseAnimatedColorFingerprint.method.apply {
-            val idx = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT)
-            val resultRegister = getInstruction<OneRegisterInstruction>(idx).registerA
-            addInstructions(idx + 1, """
-                invoke-static { v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I
-                move-result v$resultRegister
-            """)
+            val index = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT)
+            val resultRegister = getInstruction<OneRegisterInstruction>(index).registerA
+            addInstructions(
+                index + 1,
+                """
+                    invoke-static { v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I
+                    move-result v$resultRegister
+                """
+            )
         }
     }
 }
