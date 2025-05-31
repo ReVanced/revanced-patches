@@ -43,6 +43,8 @@ internal val contextMenuViewModelClassFingerprint = fingerprint {
 }
 
 internal val contextMenuViewModelAddItemFingerprint = fingerprint {
+    parameters("L")
+    returns("V")
     custom { method, _ ->
         method.indexOfFirstInstruction {
             getReference<MethodReference>()?.name == "add"

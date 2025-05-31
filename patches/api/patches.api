@@ -860,7 +860,7 @@ public final class app/revanced/patches/soundcloud/offlinesync/EnableOfflineSync
 	public static final fun getEnableOfflineSync ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/spotify/layout/hide/createbutton/HideCreateButtonKt {
+public final class app/revanced/patches/spotify/layout/hide/createbutton/HideCreateButtonPatchKt {
 	public static final fun getHideCreateButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 

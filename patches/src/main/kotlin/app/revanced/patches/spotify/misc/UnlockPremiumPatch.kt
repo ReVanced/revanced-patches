@@ -123,25 +123,32 @@ val unlockPremiumPatch = bytecodePatch(
         // Return early before adding context menu items which are Premium ads.
         val contextMenuViewModelClassDef = contextMenuViewModelClassFingerprint.originalClassDef
         contextMenuViewModelAddItemFingerprint.match(contextMenuViewModelClassDef).method.apply {
-            val itemClassType = parameterTypes.first()
-            val itemClassDef = classes.find {
-                it.type == itemClassType
+            val contextMenuItemClassType = parameterTypes.first()
+            val contextMenuItemClassDef = classes.find {
+                it.type == contextMenuItemClassType
             } ?: throw PatchException("Could not find context menu item class.")
-            val viewModelClassType = getViewModelFingerprint.match(itemClassDef).originalMethod.returnType
+
+            val viewModelClassType = getViewModelFingerprint.match(contextMenuItemClassDef).originalMethod.returnType
+            val freeRegister = findFreeRegister(0)
+            // The instruction where the normal method logic starts.
             val firstInstruction = getInstruction(0)
+
+            val isFilteredContextMenuItemDescriptor =
+                "$EXTENSION_CLASS_DESCRIPTOR->isFilteredContextMenuItem(Ljava/lang/String;)Z"
 
             addInstructionsWithLabels(
                 0,
                 """
-                    invoke-interface { p1 }, $itemClassType->getViewModel()$viewModelClassType
-                    move-result-object v0
-                    invoke-virtual { v0 }, $viewModelClassType->toString()Ljava/lang/String;
-                    move-result-object v0
+                    # The first parameter is the context menu item being added.
+                    invoke-interface { p1 }, $contextMenuItemClassType->getViewModel()$viewModelClassType
+                    move-result-object v$freeRegister
+                    invoke-virtual { v$freeRegister }, $viewModelClassType->toString()Ljava/lang/String;
+                    move-result-object v$freeRegister
                     
-                    invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->isFilteredContextMenuItem(Ljava/lang/String;)Z
-                    move-result v0
+                    invoke-static { v$freeRegister }, $isFilteredContextMenuItemDescriptor
+                    move-result v$freeRegister
                     
-                    if-eqz v0, :skip-return-early
+                    if-eqz v$freeRegister, :skip-return-early
                     return-void
                 """,
                 ExternalLabel("skip-return-early", firstInstruction)
