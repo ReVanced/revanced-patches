@@ -47,7 +47,7 @@ val hideCreateButtonPatch = bytecodePatch(
             // Each item is manually checked whether it is not null and then added to a LinkedHashSet.
             // Since the order of the items can differ, we are required to check every parameter to see whether it is the
             // Create button. So, for every parameter passed to the method, invoke our extension method and overwrite it
-            // to null in case it is Create button.
+            // to null in case it is the Create button.
             navigationBarItemSetConstructorFingerprint.match(navigationBarItemSetClassDef).method.apply {
                 // Add 1 to the index because the first parameter register is `this`.
                 val parameterTypesWithRegister = parameterTypes.mapIndexed { index, parameterType ->
