@@ -19,7 +19,6 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.icu.text.NumberFormat;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
 import android.view.animation.Animation;
 import android.view.Gravity;
 import android.view.View;
@@ -474,18 +473,14 @@ public class CustomPlaybackSpeedPatch {
             WindowManager.LayoutParams params = window.getAttributes();
             params.gravity = Gravity.BOTTOM; // Position at bottom of screen.
             params.y = dip8; // 8dp margin from bottom.
-
-            // Get screen dimensions
-            DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-            int portraitWidth;
+            // In landscape, use the smaller dimension (height) as portrait width.
+            int portraitWidth = context.getResources().getDisplayMetrics().widthPixels;
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                // In landscape, use the smaller dimension (height) as portrait width
-                portraitWidth = Math.min(metrics.widthPixels, metrics.heightPixels);
-            } else {
-                // In portrait or undefined, use the current width
-                portraitWidth = metrics.widthPixels;
+                portraitWidth = Math.min(
+                        portraitWidth,
+                        context.getResources().getDisplayMetrics().heightPixels);
             }
-            params.width = portraitWidth; // Use portrait width
+            params.width = portraitWidth; // Use portrait width.
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
             window.setAttributes(params);
             window.setBackgroundDrawable(null); // Remove default dialog background.
