@@ -60,14 +60,9 @@ public class CustomPlaybackSpeedPatch {
     public static final float PLAYBACK_SPEED_MAXIMUM = 8;
 
     /**
-     * Minimum playback speed for the slider.
-     */
-    private static final float PLAYBACK_SPEED_MINIMUM = 0.25f;
-
-    /**
      * Scale used to convert user speed to {@link android.widget.ProgressBar#setProgress(int)}.
      */
-    private static final float PROGRESS_BAR_SPEED_SCALE = 100;
+    private static final float PROGRESS_BAR_VALUE_SCALE = 100;
 
     /**
      * Tap and hold speed.
@@ -89,6 +84,11 @@ public class CustomPlaybackSpeedPatch {
      */
     private static WeakReference<Dialog> currentDialog = new WeakReference<>(null);
 
+    /**
+     * Minimum and maximum custom playback speeds of {@link #customPlaybackSpeeds}.
+     */
+    private static final float customPlaybackSpeedsMin, customPlaybackSpeedsMax;
+
     static {
         // Cap at 2 decimals (rounds automatically).
         speedFormatter.setMaximumFractionDigits(2);
@@ -103,6 +103,9 @@ public class CustomPlaybackSpeedPatch {
         }
 
         loadCustomSpeeds();
+
+        customPlaybackSpeedsMin = customPlaybackSpeeds[0];
+        customPlaybackSpeedsMax = customPlaybackSpeeds[customPlaybackSpeeds.length - 1];
     }
 
     /**
@@ -314,7 +317,7 @@ public class CustomPlaybackSpeedPatch {
 
         // Create slider for speed adjustment.
         SeekBar speedSlider = new SeekBar(context);
-        speedSlider.setMax(speedToProgressValue(customPlaybackSpeeds[customPlaybackSpeeds.length - 1]));
+        speedSlider.setMax(speedToProgressValue(customPlaybackSpeedsMax));
         speedSlider.setProgress(speedToProgressValue(currentSpeed));
         speedSlider.getProgressDrawable().setColorFilter(
                 ThemeHelper.getForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme progress bar.
@@ -370,7 +373,7 @@ public class CustomPlaybackSpeedPatch {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
                     // Convert from progress value to video playback speed.
-                    userSelectedSpeed.apply(PLAYBACK_SPEED_MINIMUM + (progress / PROGRESS_BAR_SPEED_SCALE));
+                    userSelectedSpeed.apply(customPlaybackSpeedsMin + (progress / PROGRESS_BAR_VALUE_SCALE));
                 }
             }
 
@@ -541,7 +544,7 @@ public class CustomPlaybackSpeedPatch {
      * @return user speed converted to a value for {@link SeekBar#setProgress(int)}.
      */
     private static int speedToProgressValue(float speed) {
-        return (int) ((speed - PLAYBACK_SPEED_MINIMUM) * PROGRESS_BAR_SPEED_SCALE);
+        return (int) ((speed - customPlaybackSpeedsMin) * PROGRESS_BAR_VALUE_SCALE);
     }
 
     /**
@@ -553,8 +556,7 @@ public class CustomPlaybackSpeedPatch {
     private static float roundSpeedToNearestIncrement(float speed) {
         // Round to nearest 0.05 speed.
         final float roundedSpeed = Math.round(speed / 0.05f) * 0.05f;
-        // Constrain to valid bounds.
-        return Utils.clamp(roundedSpeed, PLAYBACK_SPEED_MINIMUM, PLAYBACK_SPEED_MAXIMUM);
+        return Utils.clamp(roundedSpeed, 0.05f, PLAYBACK_SPEED_MAXIMUM);
     }
 
     /**
