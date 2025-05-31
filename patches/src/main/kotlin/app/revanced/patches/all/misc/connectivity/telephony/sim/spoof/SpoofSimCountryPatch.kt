@@ -36,12 +36,12 @@ val spoofSimCountryPatch = bytecodePatch(
 
     val networkCountryIso by isoCountryPatchOption(
         "networkCountryIso",
-        "Network ISO Country Code",
+        "Network ISO country code",
     )
 
     val simCountryIso by isoCountryPatchOption(
         "simCountryIso",
-        "Sim ISO Country Code",
+        "SIM ISO country code",
     )
 
     dependsOn(
