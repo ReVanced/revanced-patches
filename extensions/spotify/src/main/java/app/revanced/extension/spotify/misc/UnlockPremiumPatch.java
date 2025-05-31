@@ -171,7 +171,7 @@ public final class UnlockPremiumPatch {
     }
 
     /**
-     * Injection point. Filter context menu items which are Premium ads.
+     * Injection point. Returns whether the context menu item is a Premium ad.
      */
     public static boolean isFilteredContextMenuItem(Object contextMenuItem) {
         String stringifiedContextMenuItem = contextMenuItem.toString();
