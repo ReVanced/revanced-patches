@@ -11,8 +11,8 @@ public final class HideCreateButtonPatch {
      * A list of ids of resources which contain the Create button title.
      */
     private static final List<String> CREATE_BUTTON_TITLE_RES_ID_LIST = List.of(
-            // Currently used resource.
-            String.valueOf(Utils.getResourceIdentifier("navigationbar_musicappitems_create_title", "string"))
+            // Resource which is currently used by latest versions.
+            Integer.toString(Utils.getResourceIdentifier("navigationbar_musicappitems_create_title", "string"))
     );
 
     /**

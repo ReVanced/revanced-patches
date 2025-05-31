@@ -120,16 +120,18 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
 
-        // Return early before adding context menu items which are Premium ads.
         val contextMenuViewModelClassDef = contextMenuViewModelClassFingerprint.originalClassDef
+
+        // Hook the method which adds context menu items and return before adding if the item is a Premium ad.
         contextMenuViewModelAddItemFingerprint.match(contextMenuViewModelClassDef).method.apply {
             val contextMenuItemClassType = parameterTypes.first()
             val contextMenuItemClassDef = classes.find {
                 it.type == contextMenuItemClassType
             } ?: throw PatchException("Could not find context menu item class.")
 
+            // The class returned by ContextMenuItem->getViewModel, which represents the actual context menu item.
             val viewModelClassType = getViewModelFingerprint.match(contextMenuItemClassDef).originalMethod.returnType
-            val freeRegister = findFreeRegister(0)
+
             // The instruction where the normal method logic starts.
             val firstInstruction = getInstruction(0)
 
@@ -141,15 +143,17 @@ val unlockPremiumPatch = bytecodePatch(
                 """
                     # The first parameter is the context menu item being added.
                     invoke-interface { p1 }, $contextMenuItemClassType->getViewModel()$viewModelClassType
-                    move-result-object v$freeRegister
-                    invoke-virtual { v$freeRegister }, $viewModelClassType->toString()Ljava/lang/String;
-                    move-result-object v$freeRegister
+                    move-result-object v0
+                    # Stringify the context menu item.
+                    invoke-virtual { v0 }, $viewModelClassType->toString()Ljava/lang/String;
+                    move-result-object v0
                     
-                    invoke-static { v$freeRegister }, $isFilteredContextMenuItemDescriptor
-                    move-result v$freeRegister
+                    # Check if this context menu item should be filtered out.
+                    invoke-static { v0 }, $isFilteredContextMenuItemDescriptor
+                    move-result v0
                     
-                    # If this context menu item should not be skipped, jump to the normal method logic.
-                    if-eqz v$freeRegister, :normal-method-logic
+                    # If this context menu item should not be filtered out, jump to the normal method logic.
+                    if-eqz v0, :normal-method-logic
                     return-void
                 """,
                 ExternalLabel("normal-method-logic", firstInstruction)

@@ -123,7 +123,7 @@ public final class UnlockPremiumPatch {
      * Utility method for returning resources ids as strings.
      */
     private static String getResourceIdentifier(String resourceIdentifierName) {
-        return String.valueOf(Utils.getResourceIdentifier(resourceIdentifierName, "id"));
+        return Integer.toString(Utils.getResourceIdentifier(resourceIdentifierName, "id"));
     }
 
     /**
