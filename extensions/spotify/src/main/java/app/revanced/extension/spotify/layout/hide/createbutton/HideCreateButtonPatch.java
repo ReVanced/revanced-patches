@@ -17,10 +17,23 @@ public final class HideCreateButtonPatch {
     );
 
     /**
-     * Injection point. This method is called on every navigation bar item to check whether it is the create button.
+     * Injection point. This method is called on every navigation bar item to check whether it is the Create button.
+     * If the navigation bar item is the Create button, it returns null to erase it.
+     * The method fingerprint used to patch ensures we can safely return null here.
      */
-    public static boolean isCreateButton(String stringifiedNavBarItem) {
-        return CREATE_BUTTON_TITLE_RES_ID_LIST.stream()
-                .anyMatch(createButtonTitleRes -> stringifiedNavBarItem.contains(createButtonTitleRes));
+    public static Object returnNullIfIsCreateButton(Object navigationBarItem) {
+        if (navigationBarItem == null) {
+            return navigationBarItem;
+        }
+
+        String stringifiedNavigationBarItem = navigationBarItem.toString();
+        boolean isCreateButton = CREATE_BUTTON_TITLE_RES_ID_LIST.stream()
+                .anyMatch(createButtonTitleRes -> stringifiedNavigationBarItem.contains(createButtonTitleRes));
+
+        if (isCreateButton) {
+            return null;
+        }
+
+        return navigationBarItem;
     }
 }
