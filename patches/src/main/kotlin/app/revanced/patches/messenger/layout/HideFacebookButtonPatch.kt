@@ -1,21 +1,16 @@
 package app.revanced.patches.messenger.layout
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.messenger.config.appFeatureFlagsPatch
-import app.revanced.patches.messenger.config.addAppFeatureFlagsOverrider
-
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messenger/layout/FacebookButtonDisabler;"
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val hideFacebookButtonPatch = bytecodePatch(
     name = "Hide Facebook button",
-    description = "Hides the top bar Facebook button."
+    description = "Hides the Facebook button in the top toolbar."
 ) {
     compatibleWith("com.facebook.orca")
 
-    dependsOn(appFeatureFlagsPatch)
-
     execute {
-        addAppFeatureFlagsOverrider(EXTENSION_CLASS_DESCRIPTOR)
+        isFacebookButtonEnabledFingerprint.method.returnEarly(false)
     }
 }
