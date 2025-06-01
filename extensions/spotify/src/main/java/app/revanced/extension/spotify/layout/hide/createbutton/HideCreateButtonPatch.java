@@ -1,7 +1,6 @@
 package app.revanced.extension.spotify.layout.hide.createbutton;
 
 import java.util.List;
-import java.util.LinkedHashSet;
 
 import app.revanced.extension.shared.Utils;
 
@@ -28,12 +27,12 @@ public final class HideCreateButtonPatch {
      */
     public static Object returnNullIfIsCreateButton(Object navigationBarItem) {
         if (navigationBarItem == null) {
-            return navigationBarItem;
+            return null;
         }
 
         String stringifiedNavigationBarItem = navigationBarItem.toString();
         boolean isCreateButton = CREATE_BUTTON_TITLE_RES_ID_LIST.stream()
-                .anyMatch(createButtonTitleResId -> stringifiedNavigationBarItem.contains(createButtonTitleResId));
+                .anyMatch(stringifiedNavigationBarItem::contains);
 
         if (isCreateButton) {
             return null;

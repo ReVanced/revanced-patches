@@ -131,8 +131,8 @@ public final class UnlockPremiumPatch {
      */
     public static void overrideAttribute(Map<String, /*AccountAttribute*/ Object> attributes) {
         try {
-            for (var override : PREMIUM_OVERRIDES) {
-                var attribute = attributes.get(override.key);
+            for (OverrideAttribute override : PREMIUM_OVERRIDES) {
+                Object attribute = attributes.get(override.key);
                 if (attribute == null) {
                     if (override.isExpected) {
                         Logger.printException(() -> "'" + override.key + "' expected but not found");
@@ -152,7 +152,7 @@ public final class UnlockPremiumPatch {
     }
 
     /**
-     * Injection point. Remove station data from Google assistant URI.
+     * Injection point. Remove station data from Google Assistant URI.
      */
     public static String removeStationString(String spotifyUriOrUrl) {
         return spotifyUriOrUrl.replace("spotify:station:", "spotify:");
@@ -174,6 +174,10 @@ public final class UnlockPremiumPatch {
      * Injection point. Returns whether the context menu item is a Premium ad.
      */
     public static boolean isFilteredContextMenuItem(Object contextMenuItem) {
+        if (contextMenuItem == null) {
+            return false;
+        }
+
         String stringifiedContextMenuItem = contextMenuItem.toString();
         return FILTERED_CONTEXT_MENU_ITEMS_BY_STRINGS.stream()
                 .anyMatch(filters -> filters.stream().allMatch(stringifiedContextMenuItem::contains));
