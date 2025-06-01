@@ -488,14 +488,14 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_timeout_title">스와이프 오버레이 타임아웃</string>
   <string name="revanced_swipe_overlay_timeout_summary">오버레이가 표시되는 시간을 지정할 수 있습니다 (밀리초)</string>
   <string name="revanced_swipe_overlay_background_opacity_title">스와이프 오버레이 배경 불투명도</string>
-  <string name="revanced_swipe_overlay_background_opacity_summary">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
-  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">배경 불투명도 값을 지정할 수 있습니다 (0-100)</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 배경 불투명도 값은 0-100 사이여야 합니다</string>
   <string name="revanced_swipe_overlay_progress_brightness_color_title">스와이프 오버레이 밝기 조절바 색상</string>
-  <string name="revanced_swipe_overlay_progress_brightness_color_summary">스와이프 오버레이 밝기 조절바 색상을 변경할 수 있습니다</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">밝기 조절바 색상을 지정할 수 있습니다</string>
   <string name="revanced_swipe_overlay_progress_volume_color_title">스와이프 오버레이 볼륨 조절바 색상</string>
-  <string name="revanced_swipe_overlay_progress_volume_color_summary">스와이프 오버레이 볼륨 조절바 색상을 변경할 수 있습니다</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">볼륨 조절바 색상을 지정할 수 있습니다</string>
   <string name="revanced_swipe_text_overlay_size_title">스와이프 오버레이 텍스트 크기</string>
-  <string name="revanced_swipe_text_overlay_size_summary">스와이프 오버레이 텍스트 크기를 지정할 수 있습니다 (1-30)</string>
+  <string name="revanced_swipe_text_overlay_size_summary">텍스트 크기를 지정할 수 있습니다 (1-30)</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">텍스트 크기는 1-30 사이여야 합니다</string>
   <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
   <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
@@ -1260,9 +1260,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_seekbar_custom_color_summary_on">사용자 정의 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_primary_title">사용자 정의 재생바 메인 색상</string>
-  <string name="revanced_seekbar_custom_color_primary_summary">재생바 메인 색상을 변경할 수 있습니다</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">재생바 메인 색상을 지정할 수 있습니다</string>
   <string name="revanced_seekbar_custom_color_accent_title">사용자 정의 재생바 보조 색상</string>
-  <string name="revanced_seekbar_custom_color_accent_summary">재생바 보조 색상을 변경할 수 있습니다</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">재생바 보조 색상을 지정할 수 있습니다</string>
   <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상입니다</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1409,7 +1409,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_custom_speed_menu_summary_on">사용자 정의 동영상 재생 속도를 활성화합니다</string>
   <string name="revanced_custom_speed_menu_summary_off">사용자 정의 동영상 재생 속도를 비활성화합니다</string>
   <string name="revanced_custom_playback_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
-  <string name="revanced_custom_playback_speeds_summary">사용자 정의 동영상 재생 속도 값을 추가 또는 변경할 수 있습니다</string>
+  <string name="revanced_custom_playback_speeds_summary">동영상 재생 속도 값을 추가 또는 변경할 수 있습니다</string>
   <string name="revanced_custom_playback_speeds_invalid">재생 속도 값은 %s배속보다 작아야 합니다</string>
   <string name="revanced_custom_playback_speeds_parse_exception">잘못된 사용자 정의 재생 속도 값입니다</string>
   <string name="revanced_custom_playback_speeds_auto">자동</string>

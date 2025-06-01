@@ -491,10 +491,10 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Непрозирност позадине покрета превлачења</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Вредност непрозирности између 0 и 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непрозирност покрета превлачења мора бити између 0 и 100</string>
-  <string name="revanced_swipe_overlay_progress_brightness_color_title">Боја осветљености превлачења преко екрана</string>
-  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Боја траке напретка за контроле осветљености</string>
-  <string name="revanced_swipe_overlay_progress_volume_color_title">Боја јачине звука превлачења преко екрана</string>
-  <string name="revanced_swipe_overlay_progress_volume_color_summary">Боја траке напретка за контроле јачине звука</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Боја покрета превлачења за осветљеност</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Боја траке напретка за контролу осветљености</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Боја покрета превлачења за јачину звука</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Боја траке напретка за контролу јачине звука</string>
   <string name="revanced_swipe_text_overlay_size_title">Величина текста покрета превлачења</string>
   <string name="revanced_swipe_text_overlay_size_summary">Величина текста за покрет превлачења између 1 и 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Величина текста мора бити између 1 и 30</string>
