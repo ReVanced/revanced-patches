@@ -36,6 +36,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_confirm_user_dialog_title">Haluatko jatkaa?</string>
   <string name="revanced_settings_reset">Nollaa</string>
   <string name="revanced_settings_reset_color">Nollaa väri</string>
+  <string name="revanced_settings_color_invalid">Virheellinen väri</string>
   <string name="revanced_settings_restart_title">Päivitä ja käynnistä uudelleen</string>
   <string name="revanced_settings_restart">Käynnistä uudelleen</string>
   <string name="revanced_settings_import">Tuo</string>
@@ -91,7 +92,7 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_settings_screen_03_feed_title">Syöte</string>
   <string name="revanced_settings_screen_04_general_title">Yleiset</string>
   <string name="revanced_settings_screen_05_player_title">Soitin</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Liukusäädin</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Etenemispalkki</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Pyyhkäisyohjaus</string>
   <string name="revanced_settings_screen_11_misc_title">Sekalaiset</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
@@ -116,6 +117,11 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_debug_protobuffer_title">Loki protokollan puskuri</string>
   <string name="revanced_debug_protobuffer_summary_on">Virheenkorjauslokit sisältävät proto-puskurin</string>
   <string name="revanced_debug_protobuffer_summary_off">Virheenkorjauslokit eivät sisällä proto-puskuria</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Tämän asetuksen käyttöönotto kirjaa lisätietoja asettelusta, mm. joidenkin käyttöliittymäkomponenttien näyttötekstiä.
+
+Tämä voi auttaa komponenttien tunnistamisessa, kun luot mukautettuja suodattimia.
+
+Tämän käyttöönotto kirjaa myös joitakin käyttäjätietoja, kuten IP-osoitteesi."</string>
   <string name="revanced_debug_stacktrace_title">Loki pinojäljet</string>
   <string name="revanced_debug_stacktrace_summary_on">Vianetsintälokit sisältävät pinojäljet</string>
   <string name="revanced_debug_stacktrace_summary_off">Vianetsintälokit eivät sisällä pinojälkiä</string>
@@ -125,6 +131,15 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Virheilmoitusten poistaminen käytöstä piilottaa kaikki ReVancedin virheilmoitukset.
 
 Et saa ilmoituksia odottamattomista tapahtumista."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Vie virheenkorjauslokit</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopioi ReVancedin virheenkorjauslokit leikepöydälle</string>
+  <string name="revanced_debug_logs_disabled">Virheenkorjausloki ei ole käytössä</string>
+  <string name="revanced_debug_logs_none_found">Lokeja ei löytynyt</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Lokit kopioitu</string>
+  <string name="revanced_debug_logs_failed_to_export">Lokien vienti epäonnistui: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Tyhjennä virheenkorjauslokit</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Tyhjentää kaikki tallennetut ReVanced-virheenkorjauslokit</string>
+  <string name="revanced_debug_logs_clear_toast">Lokit tyhjennetty</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Piilota albumikortit</string>
@@ -163,6 +178,8 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_notify_me_button_summary_off">Painike näytetään</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_search_result_recommendation_labels_title">Piilota videosuositusten otsikot</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">\"Ihmiset katsoivat myös\"- ja \"Saatat pitää myös\" -tunnisteet on piilotettu</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">\"Ihmiset katsoivat myös\"- ja \"Saatat pitää myös\" -tunnisteet näytetään</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Piilota \"Näytä lisää\" -painike</string>
@@ -240,6 +257,9 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Piilota \"tekoälyn luoma videoyhteenveto\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videon yhteenveto-osio on piilotettu</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videon yhteenveto-osio näytetään</string>
+  <string name="revanced_hide_ask_section_title">Piilota Ask</string>
+  <string name="revanced_hide_ask_section_summary_on">Ask-osio on piilotettu</string>
+  <string name="revanced_hide_ask_section_summary_off">Ask-osio näytetään</string>
   <string name="revanced_hide_attributes_section_title">Piilota Määritteet</string>
   <string name="revanced_hide_attributes_section_summary_on">Esitellyt paikat, Pelit, Musiikki ja Mainitut ihmiset -osiot on piilotettu</string>
   <string name="revanced_hide_attributes_section_summary_off">Esitellyt paikat, Pelit, Musiikki ja Mainitut ihmiset -osiot näytetään</string>
@@ -433,26 +453,26 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ei ole asennettu. Asenna se.</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
-  <string name="revanced_disable_precise_seeking_gesture_title">Poista tarkka hakuele käytöstä</string>
+  <string name="revanced_disable_precise_seeking_gesture_title">Poista tarkka etsintäele käytöstä</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Ele ei ole käytössä</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Ele on käytössä</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Ota kelaus napauttamalla käyttöön</string>
-  <string name="revanced_seekbar_tapping_summary_on">Kelaus napauttamalla on käytössä</string>
-  <string name="revanced_seekbar_tapping_summary_off">Kelaus napauttamalla ei ole käytössä</string>
+  <string name="revanced_seekbar_tapping_title">Ota etsintä napauttamalla käyttöön</string>
+  <string name="revanced_seekbar_tapping_summary_on">Etsintä napauttamalla on käytössä</string>
+  <string name="revanced_seekbar_tapping_summary_off">Etsintä napauttamalla ei ole käytössä</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Ota kirkkauden ele käyttöön</string>
-  <string name="revanced_swipe_brightness_summary_on">"Koko näytön kirkkauden pyyhkäisy on käytössä
+  <string name="revanced_swipe_brightness_summary_on">"Koko näytön kirkkauspyyhkäisy on käytössä
 
 Säädä kirkkautta pyyhkäisemällä pystysuoraan näytön vasemmalla puolella"</string>
-  <string name="revanced_swipe_brightness_summary_off">Koko näytön kirkkauden pyyhkäisy ei ole käytössä</string>
+  <string name="revanced_swipe_brightness_summary_off">Koko näytön kirkkauspyyhkäisy ei ole käytössä</string>
   <string name="revanced_swipe_volume_title">Ota äänenvoimakkuuden ele käyttöön</string>
-  <string name="revanced_swipe_volume_summary_on">"Koko näytön äänenvoimakkuuden pyyhkäisy on käytössä
+  <string name="revanced_swipe_volume_summary_on">"Koko näytön äänenvoimakkuuspyyhkäisy on käytössä
 
 Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta puolella"</string>
-  <string name="revanced_swipe_volume_summary_off">Koko näytön äänenvoimakkuuden pyyhkäisy ei ole käytössä</string>
+  <string name="revanced_swipe_volume_summary_off">Koko näytön äänenvoimakkuuspyyhkäisy ei ole käytössä</string>
   <string name="revanced_swipe_press_to_engage_title">Ota pyyhkäise painamalla -ele käyttöön</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Pyyhkäise painamalla -ele on käytössä</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Pyyhkäise painamalla -ele ei ole käytössä</string>
@@ -466,19 +486,23 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Automaattinen kirkkaus otetaan käyttöön pyyhkäisemällä alhaisimpaan arvoon</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Pienimpään arvoon alas pyyhkäiseminen ei ota käyttöön automaattista kirkkautta</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automaattinen</string>
-  <string name="revanced_swipe_overlay_timeout_title">Pyyhkäisypeittokuvan aikakatkaisu</string>
+  <string name="revanced_swipe_overlay_timeout_title">Pyyhkäisyn peittokuvan aikakatkaisu</string>
   <string name="revanced_swipe_overlay_timeout_summary">Kuinka monta millisekuntia ikkuna on näkyvissä</string>
-  <string name="revanced_swipe_overlay_background_opacity_title">Pyyhkäisypeittokuvan taustan läpinäkymättömyys</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Pyyhkäisyn peittokuvan taustan läpinäkymättömyys</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Läpinäkymättömyysarvo 0–100 välillä</string>
-  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pyyhkäisypeittokuvan läpinäkymättömyyden tulee olla 0–100 välillä</string>
-  <string name="revanced_swipe_text_overlay_size_title">Pyyhkäisypeittokuvan tekstin koko</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Pyyhkäisypeittokuvan tekstin koko 1–30 välillä</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pyyhkäisyn peittokuvan läpinäkymättömyyden tulee olla 0–100 välillä</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Kirkkauspyyhkäisyn peittokuvan väri</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Kirkkauden liukusäätimien väri</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Äänenvoimakkuuspyyhkäisyn peittokuvan väri</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Äänenvoimakkuuden liukusäätimien väri</string>
+  <string name="revanced_swipe_text_overlay_size_title">Pyyhkäisyn peittokuvan tekstin koko</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Pyyhkäisyn peittokuvan tekstin koko 1–30 välillä</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Tekstin koon tulee olla 1–30 välillä</string>
   <string name="revanced_swipe_threshold_title">Pyyhkäisyn kynnysraja</string>
   <string name="revanced_swipe_threshold_summary">Pyyhkäisyä varten tarvittavan kynnyksen määrä</string>
-  <string name="revanced_swipe_volume_sensitivity_title">Äänenvoimakkuuden pyyhkäisyn herkkyys</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Äänenvoimakkuuspyyhkäisyn herkkyys</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Kuinka paljon äänenvoimakkuus muuttuu pyyhkäisyä kohden</string>
-  <string name="revanced_swipe_overlay_style_title">Pyyhkäisypeittokuvan tyyli</string>
+  <string name="revanced_swipe_overlay_style_title">Pyyhkäisyn peittokuvan tyyli</string>
   <string name="revanced_swipe_overlay_style_entry_1">Vaakasuuntainen peittokuva</string>
   <string name="revanced_swipe_overlay_style_entry_2">Vaakasuuntainen peittokuva (minimaalinen – ylhäällä)</string>
   <string name="revanced_swipe_overlay_style_entry_3">Vaakasuuntainen peittokuva (minimaalinen – keskellä)</string>
@@ -527,6 +551,9 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_thanks_button_summary_off">Kiitos-painike näytetään</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
                  Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Piilota Ask</string>
+  <string name="revanced_hide_ask_button_summary_on">Ask-painike on piilotettu</string>
+  <string name="revanced_hide_ask_button_summary_off">Ask-painike näytetään</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Piilota Klippi</string>
   <string name="revanced_hide_clip_button_summary_on">Klippi-painike on piilotettu</string>
@@ -676,12 +703,12 @@ Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Vierivät numerot animoidaan</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Piilota liukusäädin videosoittimessa</string>
-  <string name="revanced_hide_seekbar_summary_on">Videosoittimen liukusäädin on piilotettu</string>
-  <string name="revanced_hide_seekbar_summary_off">Videosoittimen liukusäädin näytetään</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Piilota liukusäädin videon pikkukuvissa</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Pikkukuvan liukusäädin on piilotettu</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Pikkukuvan liukusäädin näytetään</string>
+  <string name="revanced_hide_seekbar_title">Piilota etenemispalkki videosoittimessa</string>
+  <string name="revanced_hide_seekbar_summary_on">Videosoittimen etenemispalkki on piilotettu</string>
+  <string name="revanced_hide_seekbar_summary_off">Videosoittimen etenemispalkki näytetään</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Piilota etenemispalkki videon pikkukuvissa</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Pikkukuvan etenemispalkki on piilotettu</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Pikkukuvan etenemispalkki näytetään</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts-soitin</string>
@@ -882,18 +909,18 @@ Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
   <string name="revanced_seekbar_thumbnails_high_quality_title">Ota korkealaatuiset pikkukuvat käyttöön</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Liukusäätimen pikkukuvat ovat korkealaatuisia</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Liukusäätimen pikkukuvat ovat keskilaatuisia</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Koko näytön liukusäätimen pikkukuvat ovat korkealaatuisia</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Koko näytön liukusäätimen pikkukuvat ovat keskilaatuisia</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Tämä palauttaa myös pienoiskuvat livestriimeissä, joilla ei ole liukusäätimen pikkukuvia.
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Etenemispalkin pikkukuvat ovat korkealaatuisia</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Etenemispalkin pikkukuvat ovat keskilaatuisia</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Koko näytön etenemispalkin pikkukuvat ovat korkealaatuisia</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Koko näytön etenemispalkin pikkukuvat ovat keskilaatuisia</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Tämä palauttaa myös pienoiskuvat livestriimeissä, joilla ei ole etenemispalkin pikkukuvia.
 
-Liukusäätimen pikkukuvat käyttävät samaa laatua kuin nykyinen video.
+Etenemispalkin pikkukuvat käyttävät samaa laatua kuin nykyinen video.
 
 Tämä ominaisuus toimii parhaiten, kun videon laatu on 720p tai alhaisempi ja kun käytössä on erittäin nopea Internet-yhteys."</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_title">Palauta vanhat liukusäätimen pikkukuvat</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Liukusäätimen pikkukuvat näkyvät liukusäätimen yläpuolella</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Liukusäätimen pikkukuvat näkyvät kokoruututilassa</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">Palauta vanhat etenemispalkin pikkukuvat</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Etenemispalkin pikkukuvat näkyvät etenemispalkin yläpuolella</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Etenemispalkin pikkukuvat näkyvät kokoruututilassa</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Ota SponsorBlock käyttöön</string>
@@ -1014,7 +1041,7 @@ UserID on kuin salasana, eikä sitä pidä jakaa kenellekään.
   <string name="revanced_sb_skip_automatically">Ohita automaattisesti</string>
   <string name="revanced_sb_skip_automatically_once">Ohita automaattisesti kerran</string>
   <string name="revanced_sb_skip_showbutton">Näytä Ohita-painike</string>
-  <string name="revanced_sb_skip_seekbaronly">Näytä liukusäätimessä</string>
+  <string name="revanced_sb_skip_seekbaronly">Näytä etenemispalkissa</string>
   <string name="revanced_sb_skip_ignore">Poista käytöstä</string>
   <string name="revanced_sb_submit_failed_invalid">Osiota ei voitu lähettää: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock on tilapäisesti poissa käytöstä</string>
@@ -1226,14 +1253,14 @@ Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
   <string name="revanced_gradient_loading_screen_title">Ota liukuvärillinen latausruutu käyttöön</string>
   <string name="revanced_gradient_loading_screen_summary_on">Latausruudulla on liukuvärillinen tausta</string>
   <string name="revanced_gradient_loading_screen_summary_off">Latausruudulla on yksivärinen tausta</string>
-  <string name="revanced_seekbar_custom_color_title">Ota oma liukusäätimen väri käyttöön</string>
-  <string name="revanced_seekbar_custom_color_summary_on">Oma liukusäätimen väri näytetään</string>
-  <string name="revanced_seekbar_custom_color_summary_off">Alkuperäinen liukusäätimen väri näytetään</string>
-  <string name="revanced_seekbar_custom_color_primary_title">Oma liukusäätimen väri</string>
-  <string name="revanced_seekbar_custom_color_primary_summary">Liukusäätimen väri</string>
-  <string name="revanced_seekbar_custom_color_accent_title">Oma liukusäätimen korostusväri</string>
-  <string name="revanced_seekbar_custom_color_accent_summary">Liukusäätimen korostusväri</string>
-  <string name="revanced_seekbar_custom_color_invalid">Virheellinen liukusäätimen väriarvo</string>
+  <string name="revanced_seekbar_custom_color_title">Ota oma etenemispalkin väri käyttöön</string>
+  <string name="revanced_seekbar_custom_color_summary_on">Oma etenemispalkin väri näytetään</string>
+  <string name="revanced_seekbar_custom_color_summary_off">Alkuperäinen etenemispalkin väri näytetään</string>
+  <string name="revanced_seekbar_custom_color_primary_title">Oma etenemispalkin väri</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">Etenemispalkin väri</string>
+  <string name="revanced_seekbar_custom_color_accent_title">Oma etenemispalkin korostusväri</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">Etenemispalkin korostusväri</string>
+  <string name="revanced_seekbar_custom_color_invalid">Virheellinen etenemispalkin väriarvo</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Ohita kuvien alueelliset rajoitukset</string>
@@ -1311,7 +1338,20 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="microg_settings_summary">GmsCoren asetukset</string>
   </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptinen palaute</string>
+  <string name="revanced_disable_haptic_feedback_summary">Muuta haptista palautetta</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Poista videon osien haptiikka käytöstä</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Videon osien haptiikka ei ole käytössä</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Videon osien haptiikka on käytössä</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Poista tarkan etsintäeleen haptiikka käytöstä</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Tarkan etsinnän haptiikka ei ole käytössä</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Tarkan etsinnän haptiikka on  käytössä</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Poista etsinnän kumoamisen haptiikka käytöstä</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Etsinnän kumoamisen haptiikka ei ole käytössä</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Etsinnän kumoamisen haptiikka on käytössä</string>
   <string name="revanced_disable_haptic_feedback_zoom_title">Poista zoomaushaptiikka käytöstä</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoomaushaptiikka ei ole käytössä</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoomaushaptiikka on käytössä</string>
   </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Jos olet äskettäin muuttanut tilisi kirjautumistietoja, poista ja asenna MicroG uudelleen.</string>

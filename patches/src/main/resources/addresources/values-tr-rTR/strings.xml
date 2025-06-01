@@ -131,15 +131,15 @@ Ancak, bunun etkinleştirilmesi IP adresiniz gibi bazı kullanıcı verilerini d
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Hata bildirimlerini kapatmak, tüm ReVanced hata bildirimlerini gizler.
 
 Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Hata ayıklama günlüklerini dışa aktar</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced hata ayıklama günlüklerini panoya kopyalar</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Hata ayıklama kayıtlarını dışa aktar</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced hata ayıklama kayıtlarını panoya kopyalar</string>
   <string name="revanced_debug_logs_disabled">Hata ayıklama kaydı devre dışı</string>
   <string name="revanced_debug_logs_none_found">Kayıt bulunamadı</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Günlükler kopyalandı</string>
-  <string name="revanced_debug_logs_failed_to_export">Günlükler dışa aktarılamadı: $s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Hata ayıklama günlüklerini temizle</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Kaydedilmiş tüm ReVanced hata ayıklama günlüklerini temizler</string>
-  <string name="revanced_debug_logs_clear_toast">Günlükler temizlendi</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Kayıtlar kopyalandı</string>
+  <string name="revanced_debug_logs_failed_to_export">Kayıtlar dışa aktarılamadı: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Hata ayıklama kayıtlarını temizle</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Kaydedilmiş tüm ReVanced hata ayıklama kayıtlarını temizler</string>
+  <string name="revanced_debug_logs_clear_toast">Kayıtlar temizlendi</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Albüm kartlarını gizle</string>

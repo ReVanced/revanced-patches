@@ -112,20 +112,20 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">デバッグ</string>
   <string name="revanced_debug_screen_summary">デバッグの設定</string>
-  <string name="revanced_debug_title">デバッグ ログを有効にする</string>
-  <string name="revanced_debug_summary_on">デバッグ ログは有効です</string>
-  <string name="revanced_debug_summary_off">デバッグ ログは無効です</string>
+  <string name="revanced_debug_title">デバッグログを有効にする</string>
+  <string name="revanced_debug_summary_on">デバッグログは有効です</string>
+  <string name="revanced_debug_summary_off">デバッグログは無効です</string>
   <string name="revanced_debug_protobuffer_title">protocol buffer を記録する</string>
-  <string name="revanced_debug_protobuffer_summary_on">デバッグ ログに protocol buffer が含まれます</string>
-  <string name="revanced_debug_protobuffer_summary_off">デバッグ ログに protocol buffer は含まれません</string>
+  <string name="revanced_debug_protobuffer_summary_on">protocol buffer はデバッグログに含まれます</string>
+  <string name="revanced_debug_protobuffer_summary_off">protocol buffer はデバッグログに含まれません</string>
   <string name="revanced_debug_protobuffer_user_dialog_message">"この設定を有効にすると、一部の UI コンポーネントの画面上のテキストなど、追加のレイアウト データがデバッグログに記録されます。
 
 この追加されたデータは、カスタム フィルタを作成する際にコンポーネントを特定するのに役立つ可能性があります。
 
-ただし、IP アドレスなどの一部のユーザーデータもデバッグログに記録されるようになることに注意が必要です。"</string>
+ただし、この機能によりデバッグログに追加で記録されるデータには、IP アドレスなど、一部のユーザーデータも含まれます。"</string>
   <string name="revanced_debug_stacktrace_title">stack trace を記録する</string>
-  <string name="revanced_debug_stacktrace_summary_on">デバッグ ログにstack trace が含まれます</string>
-  <string name="revanced_debug_stacktrace_summary_off">デバッグ ログにstack trace は含まれません</string>
+  <string name="revanced_debug_stacktrace_summary_on">stack trace はデバッグログに含まれます</string>
+  <string name="revanced_debug_stacktrace_summary_off">stack trace はデバッグログに含まれません</string>
   <string name="revanced_debug_toast_on_error_title">ReVanced エラーのトーストを表示する</string>
   <string name="revanced_debug_toast_on_error_summary_on">エラー発生時にトースト ポップアップが表示されます</string>
   <string name="revanced_debug_toast_on_error_summary_off">エラーが発生してもトースト ポップアップは表示されません</string>
@@ -134,7 +134,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
 あらゆる予期せぬイベントが通知されなくなります。"</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">デバッグログをエクスポート</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced のデバッグログをクリップボードにコピーします</string>
-  <string name="revanced_debug_logs_disabled">デバッグログは無効です</string>
+  <string name="revanced_debug_logs_disabled">デバッグログが無効です</string>
   <string name="revanced_debug_logs_none_found">ログが見つかりませんでした</string>
   <string name="revanced_debug_logs_copied_to_clipboard">ログをコピーしました</string>
   <string name="revanced_debug_logs_failed_to_export">ログのエクスポートに失敗: $s</string>
@@ -264,8 +264,8 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_ask_section_summary_on">質問セクションは表示されません</string>
   <string name="revanced_hide_ask_section_summary_off">質問セクションは表示されます</string>
   <string name="revanced_hide_attributes_section_title">関連情報を非表示</string>
-  <string name="revanced_hide_attributes_section_summary_on">注目の場所 / ゲーム / 音楽 / 言及された人物セクションは表示されません</string>
-  <string name="revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 言及された人物セクションは表示されます</string>
+  <string name="revanced_hide_attributes_section_summary_on">注目の場所 / ゲーム / 音楽 / 言及されている人物セクションは表示されません</string>
+  <string name="revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 言及されている人物セクションは表示されます</string>
   <string name="revanced_hide_chapters_section_title">チャプター セクションを非表示</string>
   <string name="revanced_hide_chapters_section_summary_on">チャプター セクションは表示されません</string>
   <string name="revanced_hide_chapters_section_summary_off">チャプター セクションは表示されます</string>
@@ -1517,9 +1517,9 @@ AVC は、最大解像度が 1080p であり、Opus オーディオ コーデッ
   <string name="revanced_other_category_title">その他の設定</string>
   <string name="revanced_client_ads_category_title">クライアントサイド広告</string>
   <string name="revanced_surestream_ads_category_title">サーバー側サレストリーム広告</string>
-  <string name="revanced_twitch_debug_title">デバッグ ログ</string>
-  <string name="revanced_twitch_debug_summary_on">デバッグ ログは有効です</string>
-  <string name="revanced_twitch_debug_summary_off">デバッグ ログは無効です</string>
+  <string name="revanced_twitch_debug_title">デバッグログ</string>
+  <string name="revanced_twitch_debug_summary_on">デバッグログは有効です</string>
+  <string name="revanced_twitch_debug_summary_off">デバッグログは無効です</string>
   </patch>
   </app>
 </resources>
