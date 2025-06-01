@@ -37,13 +37,13 @@ val sanitizeSharingLinksPatch = bytecodePatch(
             val newPlainTextInvokeIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "newPlainText"
             }
-            val register = getInstruction<FiveRegisterInstruction>(newPlainTextInvokeIndex).registerD
+            val urlRegister = getInstruction<FiveRegisterInstruction>(newPlainTextInvokeIndex).registerD
 
             addInstructions(
                 newPlainTextInvokeIndex,
                 """
-                    invoke-static { v$register }, $extensionMethodDescriptor
-                    move-result-object v$register
+                    invoke-static { v$urlRegister }, $extensionMethodDescriptor
+                    move-result-object v$urlRegister
                 """
             )
         }
