@@ -9,7 +9,7 @@ agp = "8.2.2"
 annotation = "1.9.1"
 appcompat = "1.7.0"
 okhttp = "5.0.0-alpha.14"
-retrofit = "2.11.0"
+retrofit = "3.0.0"
 guava = "33.4.0-jre"
 
 [libraries]
