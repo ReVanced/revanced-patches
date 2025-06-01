@@ -354,4 +354,23 @@ public final class VideoInformation {
         return videoTime >= videoLength && videoLength > 0;
     }
 
+    /**
+     * Overrides the current playback speed.
+     * Rest of the implementation added by patch.
+     */
+    public static void overridePlaybackSpeed(float speedOverride) {
+        Logger.printDebug(() -> "Overriding playback speed to: " + speedOverride);
+    }
+
+    /**
+     * Injection point.
+     *
+     * @param newlyLoadedPlaybackSpeed The current playback speed.
+     */
+    public static void setPlaybackSpeed(float newlyLoadedPlaybackSpeed) {
+        if (playbackSpeed != newlyLoadedPlaybackSpeed) {
+            Logger.printDebug(() -> "Video speed changed: " + newlyLoadedPlaybackSpeed);
+            playbackSpeed = newlyLoadedPlaybackSpeed;
+        }
+    }
 }

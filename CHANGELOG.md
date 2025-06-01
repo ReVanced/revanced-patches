@@ -1,3 +1,10 @@
+# [5.26.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.1...v5.26.0-dev.2) (2025-06-01)
+
+
+### Bug Fixes
+
+* **YouTube:** Support A/B Shorts layout for RYD and component hiding ([#5081](https://github.com/ReVanced/revanced-patches/issues/5081)) ([8ecacaa](https://github.com/ReVanced/revanced-patches/commit/8ecacaad27162d9380014a9a13ac9220b12257b2))
+
 # [5.26.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.25.0...v5.26.0-dev.1) (2025-05-30)
 
 

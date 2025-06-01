@@ -129,3 +129,13 @@ internal val playbackSpeedMenuSpeedChangedFingerprint by fingerprint {
         fieldAccess(opcode = Opcode.IGET, type = "F")
     )
 }
+
+internal val playbackSpeedClassFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("L")
+    parameters("L")
+    opcodes(
+        Opcode.RETURN_OBJECT
+    )
+    strings("PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT")
+}

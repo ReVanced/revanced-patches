@@ -28,7 +28,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
-    name = "Unlock Spotify Premium",
+    name = "Unlock Premium",
     description = "Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked.",
 ) {
     compatibleWith("com.spotify.music")

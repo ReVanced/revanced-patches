@@ -10,6 +10,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
+import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.misc.mapping.getResourceId
@@ -30,6 +31,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstructio
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
+import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.EnumSet
 
@@ -969,6 +971,40 @@ private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean
         }
     } else {
         addInstructions(0, instructions)
+    }
+}
+
+internal fun BytecodePatchContext.addStaticFieldToExtension(
+    className: String,
+    methodName: String,
+    fieldName: String,
+    objectClass: String,
+    smaliInstructions: String
+) {
+    val mutableClass = mutableClassBy(className)
+    val objectCall = "$mutableClass->$fieldName:$objectClass"
+
+    mutableClass.apply {
+        methods.first { method -> method.name == methodName }.apply {
+            staticFields.add(
+                ImmutableField(
+                    definingClass,
+                    fieldName,
+                    objectClass,
+                    AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
+                    null,
+                    annotations,
+                    null
+                ).toMutable()
+            )
+
+            addInstructionsWithLabels(
+                0,
+                """
+                    sget-object v0, $objectCall
+                """ + smaliInstructions
+            )
+        }
     }
 }
 

@@ -60,7 +60,7 @@ public final class SeekbarColorPatch {
      * this is the color value of {@link Settings#SEEKBAR_CUSTOM_COLOR_PRIMARY}.
      * Otherwise this is {@link #ORIGINAL_SEEKBAR_COLOR}.
      */
-    private static int customSeekbarColor = ORIGINAL_SEEKBAR_COLOR;
+    private static final int customSeekbarColor;
 
     /**
      * Custom seekbar hue, saturation, and brightness values.
@@ -77,24 +77,25 @@ public final class SeekbarColorPatch {
         Color.colorToHSV(ORIGINAL_SEEKBAR_COLOR, hsv);
         ORIGINAL_SEEKBAR_COLOR_BRIGHTNESS = hsv[2];
 
-        if (SEEKBAR_CUSTOM_COLOR_ENABLED) {
-            loadCustomSeekbarColor();
-        }
+        customSeekbarColor = SEEKBAR_CUSTOM_COLOR_ENABLED
+                ? loadCustomSeekbarColor()
+                : ORIGINAL_SEEKBAR_COLOR;
     }
 
-    private static void loadCustomSeekbarColor() {
+    private static int loadCustomSeekbarColor() {
         try {
-            customSeekbarColor = Color.parseColor(Settings.SEEKBAR_CUSTOM_COLOR_PRIMARY.get());
-            Color.colorToHSV(customSeekbarColor, customSeekbarColorHSV);
-
-            customSeekbarColorGradient[0] = customSeekbarColor;
+            final int color = Color.parseColor(Settings.SEEKBAR_CUSTOM_COLOR_PRIMARY.get());
+            Color.colorToHSV(color, customSeekbarColorHSV);
+            customSeekbarColorGradient[0] = color;
             customSeekbarColorGradient[1] = Color.parseColor(Settings.SEEKBAR_CUSTOM_COLOR_ACCENT.get());
+
+            return color;
         } catch (Exception ex) {
             Utils.showToastShort(str("revanced_seekbar_custom_color_invalid"));
             Settings.SEEKBAR_CUSTOM_COLOR_PRIMARY.resetToDefault();
             Settings.SEEKBAR_CUSTOM_COLOR_ACCENT.resetToDefault();
 
-            loadCustomSeekbarColor();
+            return loadCustomSeekbarColor();
         }
     }
 
@@ -114,6 +115,7 @@ public final class SeekbarColorPatch {
                 : (int) channel3Bits;
     }
 
+    @SuppressWarnings("SameParameterValue")
     private static String get9BitStyleIdentifier(int color24Bit) {
         final int r3 = colorChannelTo3Bits(Color.red(color24Bit));
         final int g3 = colorChannelTo3Bits(Color.green(color24Bit));
