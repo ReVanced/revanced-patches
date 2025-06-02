@@ -27,33 +27,24 @@ public final class CustomThemePatch {
     }
 
     /**
-     * Injection point. Returns an int representation of the mapped constant color name.
-     * These constants match the ones present in the CustomThemePatch.
-     */
-    public static int getCustomThemeColor(String colorName) {
-        if (colorName == null) {
-            return Color.BLACK;
-        }
-
-        switch (colorName) {
-            case "backgroundColor":
-                return BACKGROUND_COLOR;
-
-            case "backgrundColorSecondary":
-                return BACKGROUND_COLOR_SECONDARY;
-
-            default: {
-                Logger.printException(() -> "Unmapped color name: " + colorName);
-                return Color.BLACK;
-            }
-        }
-    }
-
-    /**
      * Injection point. Returns an int representation of the replaced color from the original color.
      */
     public static int replaceColor(int originalColor) {
         switch (originalColor) {
+            // Playlist background color.
+            case 0xFF121212:
+                return BACKGROUND_COLOR;
+
+            // Share menu background color.
+            case 0xFF1F1F1F:
+            // Home category pills background color.
+            case 0xFF333333:
+            // Settings header background color.
+            case 0xFF282828:
+             // Spotify Connect device list background color.
+            case 0xFF2A2A2A:
+                return BACKGROUND_COLOR_SECONDARY;
+
             // Some Lottie animations have a color that's slightly off due to rounding errors.
             case 0xFF1ED760: case 0xFF1ED75F:
             // Intermediate color used in some animations, same rounding issue.

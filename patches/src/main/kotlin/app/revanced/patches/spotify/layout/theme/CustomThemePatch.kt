@@ -2,26 +2,18 @@ package app.revanced.patches.spotify.layout.theme
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.*
-import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/layout/theme/CustomThemePatch;"
-
-private const val EXTENSION_BACKGROUND_COLOR_CONST = "backgroundColor"
-private const val EXTENSION_BACKGROUND_COLOR_SECONDARY_CONST = "backgrundColorSecondary"
 
 private val customThemeBytecodePatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
@@ -33,65 +25,10 @@ private val customThemeBytecodePatch = bytecodePatch {
             return@execute
         }
 
-        fun MutableMethod.addColorChangeInstructions(originalColorLiteral: Long, colorName: String) {
-            val originalColorConstIndex = indexOfFirstLiteralInstructionOrThrow(originalColorLiteral)
-            val colorRegister = getInstruction<OneRegisterInstruction>(originalColorConstIndex).registerA
-
-            val getCustomThemeColorDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->getCustomThemeColor(Ljava/lang/String;)I"
-
-            addInstructions(
-                originalColorConstIndex + 1,
-                """
-                    const-string v$colorRegister, "$colorName"
-                    invoke-static { v$colorRegister }, $getCustomThemeColorDescriptor
-                    move-result v$colorRegister
-                    int-to-long v$colorRegister, v$colorRegister
-                """
-            )
-        }
-
-        val encoreColorsClassName = with(encoreThemeFingerprint.originalMethod) {
-            // "Encore" colors are referenced right before the value of POSITIVE_INFINITY is returned.
-            // Begin the instruction find using the index of where POSITIVE_INFINITY is set into the register.
-            val positiveInfinityIndex = indexOfFirstLiteralInstructionOrThrow(
-                Float.POSITIVE_INFINITY
-            )
-            val encoreColorsFieldReferenceIndex = indexOfFirstInstructionReversedOrThrow(
-                positiveInfinityIndex,
-                Opcode.SGET_OBJECT
-            )
-
-            getInstruction(encoreColorsFieldReferenceIndex)
-                .getReference<FieldReference>()!!.definingClass
-        }
-
-        val encoreColorsConstructorFingerprint = fingerprint {
-            accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-            custom { method, classDef ->
-                classDef.type == encoreColorsClassName &&
-                        method.containsLiteralInstruction(PLAYLIST_BACKGROUND_COLOR_LITERAL)
-            }
-        }
-
-        encoreColorsConstructorFingerprint.method.apply {
-            addColorChangeInstructions(PLAYLIST_BACKGROUND_COLOR_LITERAL, EXTENSION_BACKGROUND_COLOR_CONST)
-            addColorChangeInstructions(SHARE_MENU_BACKGROUND_COLOR_LITERAL, EXTENSION_BACKGROUND_COLOR_SECONDARY_CONST)
-        }
-
-        homeCategoryPillColorsFingerprint.method.addColorChangeInstructions(
-            HOME_CATEGORY_PILL_COLOR_LITERAL,
-            EXTENSION_BACKGROUND_COLOR_SECONDARY_CONST
-        )
-
-        settingsHeaderColorFingerprint.method.addColorChangeInstructions(
-            SETTINGS_HEADER_COLOR_LITERAL,
-            EXTENSION_BACKGROUND_COLOR_SECONDARY_CONST
-        )
-
         val colorSpaceUtilsClassDef = colorSpaceUtilsClassFingerprint.originalClassDef
 
-        // Hook a util method that removes alpha to replace hardcoded accent colors.
-        removeAlphaFingerprint.match(colorSpaceUtilsClassDef).method.apply {
+        // Hook a util method that converts ARGB to RGBA in the sRGB color space to replace hardcoded accent colors.
+        convertArgbToRgbaFingerprint.match(colorSpaceUtilsClassDef).method.apply {
             addInstructions(
                 0,
                 """
@@ -215,25 +152,25 @@ val customThemePatch = resourcePatch(
                 }
 
                 node.textContent = when (name) {
-                    // Main background.
+                    // Main background color.
                     "gray_7",
-                    // Left sidebar background in tablet mode.
+                    // Left sidebar background color in tablet mode.
                     "gray_10",
                     // Gradient next to user photo and "All" in home page.
                     "dark_base_background_base",
-                    // "Add account", "Settings and privacy", "View Profile" left sidebar background.
+                    // "Add account", "Settings and privacy", "View Profile" left sidebar background color.
                     "dark_base_background_elevated_base",
                     // Song/player gradient start/end color.
                     "bg_gradient_start_color", "bg_gradient_end_color",
-                    // Login screen background and gradient start.
+                    // Login screen background color and gradient start.
                     "sthlm_blk", "sthlm_blk_grad_start",
                     // Misc.
                     "image_placeholder_color",
                         -> backgroundColor
 
-                    // "About the artist" background in song player.
+                    // "About the artist" background color in song player.
                     "gray_15",
-                    // Track credits, merch background in song player.
+                    // Track credits, merch background color in song player.
                     "track_credits_card_bg", "benefit_list_default_color", "merch_card_background",
                     // Playlist list background in home page.
                     "opacity_white_10",
