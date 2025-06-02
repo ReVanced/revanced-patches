@@ -1,3 +1,10 @@
+# [5.26.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.2...v5.26.0-dev.3) (2025-06-01)
+
+
+### Features
+
+* **YouTube - Playback Speed:** Use modern custom speed dialog ([#5069](https://github.com/ReVanced/revanced-patches/issues/5069)) ([9a1e6ca](https://github.com/ReVanced/revanced-patches/commit/9a1e6ca178d9833ee2c681fb130b9290a4e89cd8))
+
 # [5.26.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.1...v5.26.0-dev.2) (2025-06-01)
 
 
