@@ -4,8 +4,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
@@ -72,7 +72,7 @@ val unlockPremiumPatch = bytecodePatch(
                 buildQueryParametersFingerprint.stringMatches!!.first().index, Opcode.IF_EQZ
             )
 
-            replaceInstruction(addQueryParameterConditionIndex, "nop")
+            removeInstruction(addQueryParameterConditionIndex)
         }
 
 
