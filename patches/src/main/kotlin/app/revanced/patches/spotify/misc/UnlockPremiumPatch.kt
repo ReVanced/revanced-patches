@@ -61,7 +61,7 @@ val unlockPremiumPatch = bytecodePatch(
             addInstruction(
                 getAttributesMapIndex + 1,
                 "invoke-static { v$attributesMapRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->overrideAttribute(Ljava/util/Map;)V"
+                        "$EXTENSION_CLASS_DESCRIPTOR->overrideAttributes(Ljava/util/Map;)V"
             )
         }
 
@@ -145,11 +145,11 @@ val unlockPremiumPatch = bytecodePatch(
                     # Invoke getViewModel to get the actual context menu item.
                     invoke-interface { p1 }, $contextMenuItemClassType->getViewModel()$viewModelClassType
                     move-result-object v0
-                    
+
                     # Check if this context menu item should be filtered out.
                     invoke-static { v0 }, $isFilteredContextMenuItemDescriptor
                     move-result v0
-                    
+
                     # If this context menu item should not be filtered out, jump to the normal method logic.
                     if-eqz v0, :normal-method-logic
                     return-void

@@ -129,7 +129,7 @@ public final class UnlockPremiumPatch {
     /**
      * Injection point. Override account attributes.
      */
-    public static void overrideAttribute(Map<String, /*AccountAttribute*/ Object> attributes) {
+    public static void overrideAttributes(Map<String, /*AccountAttribute*/ Object> attributes) {
         try {
             for (OverrideAttribute override : PREMIUM_OVERRIDES) {
                 Object attribute = attributes.get(override.key);
@@ -147,7 +147,7 @@ public final class UnlockPremiumPatch {
                 }
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "overrideAttribute failure", ex);
+            Logger.printException(() -> "overrideAttributes failure", ex);
         }
     }
 
