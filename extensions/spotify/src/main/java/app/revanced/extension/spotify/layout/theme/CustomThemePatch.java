@@ -21,7 +21,7 @@ public final class CustomThemePatch {
         try {
             return Utils.getColorFromString(colorString);
         } catch (Exception ex) {
-            Logger.printException(() -> "Invalid custom color: " + colorString, ex);
+            Logger.printException(() -> "Invalid color string: " + colorString, ex);
             return Color.BLACK;
         }
     }
