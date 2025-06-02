@@ -32,11 +32,10 @@ internal val settingsHeaderColorFingerprint = fingerprint {
     }
 }
 
-internal val miscUtilsFingerprint = fingerprint {
-    strings("The specified color must be encoded in an RGB color space.")
+internal val colorSpaceUtilsClassFingerprint = fingerprint {
+    strings("The specified color must be encoded in an RGB color space.") // Partial string match.
 }
 
-// Requires matching against miscUtilsFingerprint.
 internal val removeAlphaFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL)
     returns("J")
@@ -44,7 +43,7 @@ internal val removeAlphaFingerprint = fingerprint {
 }
 
 internal val parseLottieJsonFingerprint = fingerprint {
-    strings("Unsupported matte type")
+    strings("Unsupported matte type: ")
 }
 
 internal val parseAnimatedColorFingerprint = fingerprint {
