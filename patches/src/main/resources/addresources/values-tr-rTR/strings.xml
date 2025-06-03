@@ -117,6 +117,11 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
   <string name="revanced_debug_protobuffer_title">Protocol buffer\'ın kaydını tut</string>
   <string name="revanced_debug_protobuffer_summary_on">Hata ayıklama kayıtları proto buffer\'ı içerir</string>
   <string name="revanced_debug_protobuffer_summary_off">Hata ayıklama kayıtları proto buffer\'ı içermez</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Bu ayarın etkinleştirilmesi, bazı kullanıcı arayüzü bileşenleri için ek düzen verilerini, ekran üzerindeki metin dahil olmak üzere günlüğe kaydeder.
+
+Bu, özel filtreler oluştururken bileşenlerin belirlenmesine yardımcı olabilir.
+
+Ancak, bunun etkinleştirilmesi IP adresiniz gibi bazı kullanıcı verilerini de günlüğe kaydeder."</string>
   <string name="revanced_debug_stacktrace_title">Stack traces\'in kaydını tut</string>
   <string name="revanced_debug_stacktrace_summary_on">Hata ayıklama kayıtları stack traces\'i içerir</string>
   <string name="revanced_debug_stacktrace_summary_off">Hata ayıklama kayıtları stack traces\'i içermez</string>
@@ -126,6 +131,15 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Hata bildirimlerini kapatmak, tüm ReVanced hata bildirimlerini gizler.
 
 Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Hata ayıklama kayıtlarını dışa aktar</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced hata ayıklama kayıtlarını panoya kopyalar</string>
+  <string name="revanced_debug_logs_disabled">Hata ayıklama kaydı devre dışı</string>
+  <string name="revanced_debug_logs_none_found">Kayıt bulunamadı</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Kayıtlar kopyalandı</string>
+  <string name="revanced_debug_logs_failed_to_export">Kayıtlar dışa aktarılamadı: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Hata ayıklama kayıtlarını temizle</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Kaydedilmiş tüm ReVanced hata ayıklama kayıtlarını temizler</string>
+  <string name="revanced_debug_logs_clear_toast">Kayıtlar temizlendi</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Albüm kartlarını gizle</string>
@@ -477,9 +491,10 @@ Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Kaydırma paneli arka plan opaklığı</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">0-100 arasında opaklık değeri</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Kaydırma opaklığı 0-100 arasında olmalıdır</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Kaydırma katmanı ilerleme çubuğu rengi</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Ses ve parlaklık kontrolleri için ilerleme çubuğunun rengi</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Geçersiz ilerleme çubuğu rengi</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Kaydırma katmanı parlaklık rengi</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Parlaklık kontrolleri için ilerleme çubuğunun rengi</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Kaydırma katmanı ses rengi</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Ses kontrolleri için ilerleme çubuğunun rengi</string>
   <string name="revanced_swipe_text_overlay_size_title">Kaydırma katmanı metin boyutu</string>
   <string name="revanced_swipe_text_overlay_size_summary">Kaydırma katmanı için 1-30 arası metin boyutu</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Metin boyutu 1-30 arasında olmalıdır</string>
@@ -1322,6 +1337,22 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="microg_settings_title">GmsCore Ayarları</string>
   <string name="microg_settings_summary">GmsCore için ayarlar</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Titreşimli geri bildirim</string>
+  <string name="revanced_disable_haptic_feedback_summary">Titreşimli geri bildirimi değiştir</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Bölümler titreşimini devre dışı bırak</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Bölümler titreşimi devre dışı</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Bölümler titreşimi etkin</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Hassas sarma titreşimini devre dışı bırak</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Hassas sarma titreşimi devre dışı</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Hassas sarma titreşimi etkin</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Sardırmayı geri alma titreşimini devre dışı bırak</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Sardırmayı geri alma titreşimi devre dışı</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Sardırmayı geri alma titreşimi etkin</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Yakınlaştırma titreşimini devre dışı bırak</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Yakınlaştırma titreşimi devre dışı</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Yakınlaştırma titreşimi etkin</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Yakın zamanda hesap giriş bilgilerinizi değiştirdiyseniz MicroG\'yi kaldırıp yeniden yükleyin.</string>
   </patch>
@@ -1339,11 +1370,6 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_remove_tracking_query_parameter_title">İzleyici sorgu parametresini kaldır</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Bağlantılardan izleyici sorgu parametresi kaldırılır</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Yakınlaştırırken titreşimi devre dışı bırak</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Titreşim devre dışı</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Titreşim etkin</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Orijinal ses dilini zorla</string>

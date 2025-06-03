@@ -152,11 +152,15 @@ public class ReturnYouTubeDislikePatch {
                 return original; // No need to check for Shorts in the context.
             }
 
-            if (conversionContextString.contains("|shorts_dislike_button.eml")) {
+            if (Utils.containsAny(conversionContextString,
+                    "|shorts_dislike_button.eml", "|reel_dislike_button.eml"
+            )) {
                 return getShortsSpan(original, true);
             }
 
-            if (conversionContextString.contains("|shorts_like_button.eml")) {
+            if (Utils.containsAny(conversionContextString,
+                    "|shorts_like_button.eml", "|reel_like_button.eml"
+            )) {
                 if (!Utils.containsNumber(original)) {
                     Logger.printDebug(() -> "Replacing hidden likes count");
                     return getShortsSpan(original, false);
@@ -361,6 +365,11 @@ public class ReturnYouTubeDislikePatch {
             if (videoId.equals(lastPrefetchedVideoId)) {
                 return;
             }
+            if (!Utils.isNetworkConnected()) {
+                Logger.printDebug(() -> "Cannot pre-fetch RYD, network is not connected");
+                lastPrefetchedVideoId = null;
+                return;
+            }
 
             final boolean videoIdIsShort = VideoInformation.lastPlayerResponseIsShort();
             // Shorts shelf in home and subscription feed causes player response hook to be called,
@@ -414,6 +423,12 @@ public class ReturnYouTubeDislikePatch {
                 return;
             }
             Logger.printDebug(() -> "New video id: " + videoId + " playerType: " + currentPlayerType);
+
+            if (!Utils.isNetworkConnected()) {
+                Logger.printDebug(() -> "Cannot fetch RYD, network is not connected");
+                currentVideoData = null;
+                return;
+            }
 
             ReturnYouTubeDislike data = ReturnYouTubeDislike.getFetchForVideoId(videoId);
             // Pre-emptively set the data to short status.

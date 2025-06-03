@@ -113,6 +113,11 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
   <string name="revanced_debug_protobuffer_title">Protokollpuffer protokollieren</string>
   <string name="revanced_debug_protobuffer_summary_on">Debug-Protokolle enthalten Protokollpuffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Debug-Protokolle enthalten kein Protokollpuffer</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Wenn Sie diese Einstellung aktivieren, werden zusätzliche Layoutdaten protokolliert, einschließlich Text auf dem Bildschirm für einige UI-Komponenten.
+
+Dies kann helfen, Komponenten bei der Erstellung benutzerdefinierter Filter zu identifizieren.
+
+Wenn Sie dies aktivieren, werden jedoch auch einige Benutzerdaten wie Ihre IP-Adresse protokolliert."</string>
   <string name="revanced_debug_stacktrace_title">Stacktraces protokollieren</string>
   <string name="revanced_debug_stacktrace_summary_on">Debug-Protokolle enthalten Stacktrace</string>
   <string name="revanced_debug_stacktrace_summary_off">Debug-Logs enthalten keine Stack-Traces</string>
@@ -122,6 +127,15 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Das Ausschalten von Fehler-Toasts blendet alle Benachrichtigungen über Fehler in ReVanced aus.
 
 Sie werden nicht über unerwartete Ereignisse informiert."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Debug-Protokolle exportieren</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopiert ReVanced-Debug-Protokolle in die Zwischenablage</string>
+  <string name="revanced_debug_logs_disabled">Debug-Protokollierung ist deaktiviert</string>
+  <string name="revanced_debug_logs_none_found">Keine Protokolle gefunden</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Protokolle kopiert</string>
+  <string name="revanced_debug_logs_failed_to_export">Fehler beim Exportieren von Protokollen: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Debug-Protokolle löschen</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Löscht alle gespeicherten ReVanced-Debug-Protokolle</string>
+  <string name="revanced_debug_logs_clear_toast">Protokolle gelöscht</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Albumkarten ausblenden</string>
@@ -470,9 +484,10 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_swipe_overlay_background_opacity_title">Bildschirmüberlagerung Deckkraft Swipe</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Deckkraftwert zwischen 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Die Wischdeckkraft muss zwischen 0 und 100 liegen</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Farbe des Fortschrittsbalkens für die Wischgesten-Überlagerung</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Die Farbe des Fortschrittsbalkens für Lautstärke- und Helligkeitsregler</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ungültige Farbe für den Fortschrittsbalken</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Farbe der Helligkeit des Wisch-Overlays</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Die Farbe der Fortschrittsanzeige für Helligkeitsregler</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Farbe der Lautstärke des Wisch-Overlays</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Die Farbe der Fortschrittsanzeige für Lautstärkeregler</string>
   <string name="revanced_swipe_text_overlay_size_title">Textgröße der Wischgesten-Überlagerung</string>
   <string name="revanced_swipe_text_overlay_size_summary">Die Textgröße für die Wischgesten-Überlagerung zwischen 1 und 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Die Textgröße muss zwischen 1 und 30 liegen</string>
@@ -1315,6 +1330,22 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="microg_settings_title">GmsCore Einstellungen</string>
   <string name="microg_settings_summary">Einstellungen für GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Haptisches Feedback</string>
+  <string name="revanced_disable_haptic_feedback_summary">Haptisches Feedback ändern</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Kapitelhaptik deaktivieren</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Kapitelhaptik ist deaktiviert</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Kapitelhaptik ist aktiviert</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Präzise Suchhaptik deaktivieren</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Die präzise Suchhaptik ist deaktiviert</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Präzise Suchhaptik ist aktiviert</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Haptik für das Rückgängigmachen der Suche deaktivieren</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Die Haptik für das Rückgängigmachen der Suche ist deaktiviert</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Die Haptik für das Rückgängigmachen der Suche ist aktiviert</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Zoomhaptik deaktivieren</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoomhaptik ist deaktiviert</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoomhaptik ist aktiviert</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Wenn Sie kürzlich Ihre Kontoanmeldedaten geändert haben, deinstallieren Sie MicroG und installieren Sie es erneut.</string>
   </patch>
@@ -1332,11 +1363,6 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_remove_tracking_query_parameter_title">Tracking-Abfrageparameter entfernen</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking-Abfrageparameter wird von Links entfernt</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking-Abfrageparameter wird nicht von Links entfernt</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Zoomhaptik deaktivieren</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptik ist deaktiviert</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptik ist aktiviert</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Original Audio erzwingen</string>

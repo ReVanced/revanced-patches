@@ -112,11 +112,16 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_debug_screen_title">디버깅</string>
   <string name="revanced_debug_screen_summary">디버깅 옵션을 활성화하거나 비활성화할 수 있습니다</string>
   <string name="revanced_debug_title">디버그 로깅</string>
-  <string name="revanced_debug_summary_on">디버그 로그를 출력합니다</string>
-  <string name="revanced_debug_summary_off">디버그 로그를 출력하지 않습니다</string>
+  <string name="revanced_debug_summary_on">디버그 로깅을 활성화합니다</string>
+  <string name="revanced_debug_summary_off">디버그 로깅을 비활성화합니다</string>
   <string name="revanced_debug_protobuffer_title">로그 프로토콜 버퍼</string>
   <string name="revanced_debug_protobuffer_summary_on">디버그 로그에 프로토콜 버퍼를 포함합니다</string>
   <string name="revanced_debug_protobuffer_summary_off">디버그 로그에 프로토콜 버퍼를 포함하지 않습니다</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"이 설정을 활성화하면 일부 UI 구성 요소에 대한 화면 텍스트를 포함한 추가 레이아웃 데이터가 기록됩니다.
+
+이 설정은 사용자 정의 필터를 만들 경우에 구성 요소를 식별하는 데 도움이 될 수 있습니다.
+
+그러나 이 설정을 활성화하면 IP 주소와 같은 일부 사용자 데이터도 기록됩니다."</string>
   <string name="revanced_debug_stacktrace_title">로그 스택 트레이스</string>
   <string name="revanced_debug_stacktrace_summary_on">디버그 로그에 로그 스택 트레이스를 포함합니다</string>
   <string name="revanced_debug_stacktrace_summary_off">디버그 로그에 로그 스택 트레이스를 포함하지 않습니다</string>
@@ -126,6 +131,15 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"오류 메시지를 비활성화하면 모든 ReVanced 오류 알림이 숨겨집니다.
 
 예상되지 않은 이벤트에 대한 알림을 받지 못할 수 있습니다."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">디버그 로그 내보내기</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced 디버그 로그를 클립보드에 복사할 수 있습니다</string>
+  <string name="revanced_debug_logs_disabled">디버그 로깅이 비활성화되어 있습니다</string>
+  <string name="revanced_debug_logs_none_found">디버그 로그를 찾을 수 없습니다</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">디버그 로그를 복사하였습니다</string>
+  <string name="revanced_debug_logs_failed_to_export">디버그 로그를 내보낼 수 없습니다: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">디버그 로그 지우기</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">저장된 모든 ReVanced 디버그 로그를 지울 수 있습니다</string>
+  <string name="revanced_debug_logs_clear_toast">디버그 로그가 지워졌습니다</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">음악 앨범 카드 숨기기</string>
@@ -442,9 +456,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_external_downloader_not_installed_warning">%s 는 설치되어 있지 않습니다. 설치하세요</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
-  <string name="revanced_disable_precise_seeking_gesture_title">세밀하게 보면서 탐색 제스처 비활성화하기</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_on">세밀하게 보면서 탐색 제스처를 비활성화합니다\n• 필름 스트립 오버레이</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_off">세밀하게 보면서 탐색 제스처를 활성화합니다\n• 필름 스트립 오버레이</string>
+  <string name="revanced_disable_precise_seeking_gesture_title">세밀한 탐색 제스처 비활성화하기</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_on">세밀한 탐색 제스처를 비활성화합니다</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_off">세밀한 탐색 제스처를 활성화합니다</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
@@ -474,13 +488,14 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_timeout_title">스와이프 오버레이 타임아웃</string>
   <string name="revanced_swipe_overlay_timeout_summary">오버레이가 표시되는 시간을 지정할 수 있습니다 (밀리초)</string>
   <string name="revanced_swipe_overlay_background_opacity_title">스와이프 오버레이 배경 불투명도</string>
-  <string name="revanced_swipe_overlay_background_opacity_summary">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
-  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
-  <string name="revanced_swipe_overlay_progress_color_title">스와이프 오버레이 진행바 색상</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">볼륨 및 밝기 조절 진행바 색상의 헥스 코드를 입력하세요</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">잘못된 진행바 헥스 코드입니다</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">배경 불투명도 값을 지정할 수 있습니다 (0-100)</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 배경 불투명도 값은 0-100 사이여야 합니다</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">스와이프 오버레이 밝기 조절바 색상</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">밝기 조절바 색상을 지정할 수 있습니다</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">스와이프 오버레이 볼륨 조절바 색상</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">볼륨 조절바 색상을 지정할 수 있습니다</string>
   <string name="revanced_swipe_text_overlay_size_title">스와이프 오버레이 텍스트 크기</string>
-  <string name="revanced_swipe_text_overlay_size_summary">스와이프 오버레이 텍스트 크기를 지정할 수 있습니다 (1-30)</string>
+  <string name="revanced_swipe_text_overlay_size_summary">텍스트 크기를 지정할 수 있습니다 (1-30)</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">텍스트 크기는 1-30 사이여야 합니다</string>
   <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
   <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
@@ -881,10 +896,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">네트워크 호출한 적이 없습니다</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d 건의 네트워크 호출이 이루어졌습니다</string>
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API 투표 가져오기, 시간 초과 횟수</string>
-  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">네트워크 호출 시간 초과한 적이 없습니다</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">네트워크 호출이 시간 초과한 적이 없습니다</string>
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d 건의 네트워크 호출이 시간 초과하였습니다</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API 클라이언트 비율 제한</string>
-  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">클라이언트 비율 제한한 적이 없습니다</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">클라이언트 비율을 제한한 적이 없습니다</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">%d 건의 클라이언트 비율 제한이 발생하였습니다</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d 밀리초</string>
   </patch>
@@ -1245,10 +1260,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_seekbar_custom_color_summary_on">사용자 정의 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_primary_title">사용자 정의 재생바 메인 색상</string>
-  <string name="revanced_seekbar_custom_color_primary_summary">사용하고 싶은 재생바 메인 색상의 헥스 코드를 입력하세요</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">재생바 메인 색상을 지정할 수 있습니다</string>
   <string name="revanced_seekbar_custom_color_accent_title">사용자 정의 재생바 보조 색상</string>
-  <string name="revanced_seekbar_custom_color_accent_summary">사용하고 싶은 재생바 보조 색상의 헥스 코드를 입력하세요</string>
-  <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 헥스 코드입니다</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">재생바 보조 색상을 지정할 수 있습니다</string>
+  <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상입니다</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회하기</string>
@@ -1325,6 +1340,22 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="microg_settings_title">GmsCore 설정</string>
   <string name="microg_settings_summary">알림 수신을 위한 클라우드 메시징을 설정할 수 있습니다</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">진동 피드백</string>
+  <string name="revanced_disable_haptic_feedback_summary">진동 피드백을 활성화하거나 비활성화할 수 있습니다</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">챕터 진동 피드백 비활성화하기</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">챕터 진동 피드백을 비활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">챕터 진동 피드백을 활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">세밀한 탐색 진동 피드백 비활성화하기</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">세밀한 탐색 진동 피드백을 비활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">세밀한 탐색 진동 피드백을 활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">탐색 취소 진동 피드백 비활성화하기</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">탐색 취소 진동 피드백을 비활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">탐색 취소 진동 피드백을 활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">동영상 확대 진동 피드백 비활성화하기</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">동영상 확대 진동 피드백을 비활성화합니다</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">동영상 확대 진동 피드백을 활성화합니다</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">최근에 계정 로그인 정보를 변경했다면 MicroG를 삭제하고 다시 설치하세요.</string>
   </patch>
@@ -1342,11 +1373,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_remove_tracking_query_parameter_title">추적 쿼리를 삭제한 링크 공유하기</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 삭제합니다 (URL의 뒷부분 \'?si=...\' 이 삭제됨)</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 삭제하지 않습니다</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">동영상을 확대할 때, 진동 피드백 비활성화하기</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">진동 피드백을 비활성화합니다</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">진동 피드백을 활성화합니다</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">원본 오디오 스트림 언어 강제로 활성화하기</string>
@@ -1383,7 +1409,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_custom_speed_menu_summary_on">사용자 정의 동영상 재생 속도를 활성화합니다</string>
   <string name="revanced_custom_speed_menu_summary_off">사용자 정의 동영상 재생 속도를 비활성화합니다</string>
   <string name="revanced_custom_playback_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
-  <string name="revanced_custom_playback_speeds_summary">사용하고 싶은 동영상 재생 속도 값을 추가 또는 변경할 수 있습니다</string>
+  <string name="revanced_custom_playback_speeds_summary">동영상 재생 속도 값을 추가 또는 변경할 수 있습니다</string>
   <string name="revanced_custom_playback_speeds_invalid">재생 속도 값은 %s배속보다 작아야 합니다</string>
   <string name="revanced_custom_playback_speeds_parse_exception">잘못된 사용자 정의 재생 속도 값입니다</string>
   <string name="revanced_custom_playback_speeds_auto">자동</string>
@@ -1495,8 +1521,8 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
   <string name="revanced_client_ads_category_title">클라이언트 광고</string>
   <string name="revanced_surestream_ads_category_title">서버 광고</string>
   <string name="revanced_twitch_debug_title">디버그 로깅</string>
-  <string name="revanced_twitch_debug_summary_on">디버그 로그를 출력합니다</string>
-  <string name="revanced_twitch_debug_summary_off">디버그 로그를 출력하지 않습니다</string>
+  <string name="revanced_twitch_debug_summary_on">디버그 로깅을 활성화합니다</string>
+  <string name="revanced_twitch_debug_summary_off">디버그 로깅을 비활성화합니다</string>
   </patch>
   </app>
 </resources>

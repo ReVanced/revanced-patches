@@ -35,6 +35,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Tənzimləmələr</string>
   <string name="revanced_settings_confirm_user_dialog_title">Davam etmək istəyirsiniz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
+  <string name="revanced_settings_reset_color">Rəngi sıfırla</string>
+  <string name="revanced_settings_color_invalid">Yanlış rəng</string>
   <string name="revanced_settings_restart_title">Yenilə və yenidən başlat</string>
   <string name="revanced_settings_restart">Yenidən başlat</string>
   <string name="revanced_settings_import">İdxal et</string>
@@ -115,6 +117,11 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
   <string name="revanced_debug_protobuffer_title">Bufer protokol jurnalı</string>
   <string name="revanced_debug_protobuffer_summary_on">Sazlama jurnallarına protokol buferi daxildir</string>
   <string name="revanced_debug_protobuffer_summary_off">Sazlama jurnallarına protokol buferi daxil deyil</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Bu seçimi aktivləşdirmə bəzi UI quruluşları üçün ekran mətni də olmaqla əlavə tərtibat bazasını daxil edəcək.
+
+Bu, xüsusi filtrlər yaradarkən quruluşları müəyyən etməyə kömək edə bilər.
+
+Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlumatın da daxil edəcək."</string>
   <string name="revanced_debug_stacktrace_title">Yığın izləri jurnalı</string>
   <string name="revanced_debug_stacktrace_summary_on">Sazlama jurnalına yığın izləri daxildir</string>
   <string name="revanced_debug_stacktrace_summary_off">Sazlama jurnalına yığın izləri daxil deyil</string>
@@ -124,6 +131,15 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Xəta ani bildirişlərin qapatmaq, bütün ReVanced xəta bildirişlərin gizlədir.
 
 Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Sazlama qeydlərini ixrac edin</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced sazlama qeydlərini buferə köçürür</string>
+  <string name="revanced_debug_logs_disabled">Sazlama qeydi qapalıdır</string>
+  <string name="revanced_debug_logs_none_found">Qeydlər tapılmadı</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Qeydlər köçürüldü</string>
+  <string name="revanced_debug_logs_failed_to_export">Qeydləri ixrac etmək alınmadı: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Sazlama qeydlərini təmizlə</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Saxlanılan bütün ReVanced sazlama qeydlərini təmizləyir</string>
+  <string name="revanced_debug_logs_clear_toast">Qeydlər silindi</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Albom kartlarını gizlət</string>
@@ -475,9 +491,10 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_swipe_overlay_background_opacity_title">Sürüşdürmə cildi arxa plan qeyri-şəffaflığı</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">0-100 arası qeyri-şəffaflıq dəyəri</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Sürüşmə qeyri-şəffaflığı 0-100 arası olmalıdır</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Sürüşdürmə örtüyü irəliləyiş cizgisi rəngi</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Səs səviyyəsinə və parlaqlığa nəzarət üçün irəliləyiş cizgisi rəngi</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Yanlış irəliləyiş cizgisi rəngi</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Sürüşdürmə örtüyü parlaqlıq rəngi</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Parlaqlığa nəzarət üçün irəliləyiş zolağının rəngi</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Sürüşdürmə örtüyü səs səviyyəsi rəngi</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Səs səviyyəsinə nəzarət üçün irəliləyiş zolağının rəngi</string>
   <string name="revanced_swipe_text_overlay_size_title">Sürüşdürmə örtüyü mətn ölçüsü</string>
   <string name="revanced_swipe_text_overlay_size_summary">Sürüşmə üçün mətn ölçüsü 1-30 arasındadır</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Mətn ölçüsü 1-30 arası olmalıdır</string>
@@ -1319,6 +1336,22 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="microg_settings_title">GmsCore Tənzimləmələri</string>
   <string name="microg_settings_summary">GmsCore üçün Tənzimləmələr</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Əks-əlaqə reaksiyası</string>
+  <string name="revanced_disable_haptic_feedback_summary">Əks-əlaqə reaksiyasını dəyişdir</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Fəsillər reaksiyasın qapat</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Fəsillər reaksiyası qapalıdır</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Fəsillər reaksiyası aktivdir</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Dəqiq axtarış reaksiyasın qapat</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Dəqiq axtarış reaksiyası qapalıdır</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Dəqiq axtarış reaksiyası aktivdir</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Axtarış geriyə reaksiyasın qapat</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Axtarış geri reaksiyası qapalıdır</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Axtarış geri reaksiyası aktivdir</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Yaxınlaşdırma reaksiyasın qapat</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Yaxınlaşdırma reaksiyası qapalıdır</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Yaxınlaşdırma reaksiyası aktivdir</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Bu yaxınlarda hesabınıza giriş məlumatlarınızı dəyişmisinizsə, MicroG-ni silin və təkrar quraşdırın.</string>
   </patch>
@@ -1336,11 +1369,6 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_remove_tracking_query_parameter_title">İzləmə sorğusu faktorun sil</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">İzləmə sorğusu faktoru bağlantılardan silinir</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">İzləmə sorğusu faktoru bağlantılardan silinmir</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Yaxınlaşdırma reaksiyasın qapat</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Reaksiya qapalıdır</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Reaksiya aktivdir</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Orijinal səs dilini zorla</string>

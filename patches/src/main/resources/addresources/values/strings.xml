@@ -175,6 +175,11 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
             <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
             <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
+            <string name="revanced_debug_protobuffer_user_dialog_message">"Enabling this setting will log additional layout data, including on-screen text for some UI components.
+
+This can help identify components when creating custom filters.
+
+However, enabling this will also log some user data such as your IP address."</string>
             <string name="revanced_debug_stacktrace_title">Log stack traces</string>
             <string name="revanced_debug_stacktrace_summary_on">Debug logs include stack trace</string>
             <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
@@ -184,6 +189,15 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_debug_toast_on_error_user_dialog_message">"Turning off error toasts hides all ReVanced error notifications.
 
 You will not be notified of any unexpected events."</string>
+            <string name="revanced_debug_export_logs_to_clipboard_title">Export debug logs</string>
+            <string name="revanced_debug_export_logs_to_clipboard_summary">Copies ReVanced debug logs to the clipboard</string>
+            <string name="revanced_debug_logs_disabled">Debug logging is disabled</string>
+            <string name="revanced_debug_logs_none_found">No logs found</string>
+            <string name="revanced_debug_logs_copied_to_clipboard">Logs copied</string>
+            <string name="revanced_debug_logs_failed_to_export">Failed to export logs: $s</string>
+            <string name="revanced_debug_logs_clear_buffer_title">Clear debug logs</string>
+            <string name="revanced_debug_logs_clear_buffer_summary">Clears all stored ReVanced debug logs</string>
+            <string name="revanced_debug_logs_clear_toast">Logs cleared</string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <string name="revanced_hide_album_cards_title">Hide album cards</string>
@@ -539,9 +553,10 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_swipe_overlay_background_opacity_title">Swipe overlay background opacity</string>
             <string name="revanced_swipe_overlay_background_opacity_summary">Opacity value between 0-100</string>
             <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Swipe opacity must be between 0-100</string>
-            <string name="revanced_swipe_overlay_progress_color_title">Swipe overlay progress bar color</string>
-            <string name="revanced_swipe_overlay_progress_color_summary">The color of the progress bar for volume and brightness controls</string>
-            <string name="revanced_swipe_overlay_progress_color_invalid_toast">Invalid progress bar color</string>
+            <string name="revanced_swipe_overlay_progress_brightness_color_title">Swipe overlay brightness color</string>
+            <string name="revanced_swipe_overlay_progress_brightness_color_summary">The color of the progress bar for brightness controls</string>
+            <string name="revanced_swipe_overlay_progress_volume_color_title">Swipe overlay volume color</string>
+            <string name="revanced_swipe_overlay_progress_volume_color_summary">The color of the progress bar for volume controls</string>
             <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
             <string name="revanced_swipe_text_overlay_size_summary">The text size for swipe overlay between 1-30</string>
             <string name="revanced_swipe_text_overlay_size_invalid_toast">The text size must be between 1-30</string>
@@ -1390,6 +1405,22 @@ Enabling this can unlock higher video qualities"</string>
             <string name="microg_settings_title">GmsCore Settings</string>
             <string name="microg_settings_summary">Settings for GmsCore</string>
         </patch>
+        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+            <string name="revanced_disable_haptic_feedback_title">Haptic feedback</string>
+            <string name="revanced_disable_haptic_feedback_summary">Change haptic feedback</string>
+            <string name="revanced_disable_haptic_feedback_chapters_title">Disable chapters haptics</string>
+            <string name="revanced_disable_haptic_feedback_chapters_summary_on">Chapters haptics is disabled</string>
+            <string name="revanced_disable_haptic_feedback_chapters_summary_off">Chapters haptics is enabled</string>
+            <string name="revanced_disable_haptic_feedback_precise_seeking_title">Disable precise seeking haptics</string>
+            <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Precise seeking haptics is disabled</string>
+            <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Precise seeking haptics is enabled</string>
+            <string name="revanced_disable_haptic_feedback_seek_undo_title">Disable seek undo haptics</string>
+            <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Seek undo haptics is disabled</string>
+            <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Seek undo haptics is enabled</string>
+            <string name="revanced_disable_haptic_feedback_zoom_title">Disable zoom haptics</string>
+            <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoom haptics is disabled</string>
+            <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoom haptics is enabled</string>
+        </patch>
         <patch id="misc.gms.accountCredentialsInvalidTextPatch">
             <string name="microg_offline_account_login_error">If you recently changed your account login details, then uninstall and reinstall MicroG.</string>
         </patch>
@@ -1407,11 +1438,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
             <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking query parameter is removed from links</string>
             <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking query parameter is not removed from links</string>
-        </patch>
-        <patch id="misc.zoomhaptics.zoomHapticsPatch">
-            <string name="revanced_disable_zoom_haptics_title">Disable zoom haptics</string>
-            <string name="revanced_disable_zoom_haptics_summary_on">Haptics are disabled</string>
-            <string name="revanced_disable_zoom_haptics_summary_off">Haptics are enabled</string>
         </patch>
         <patch id="video.audio.forceOriginalAudioPatch">
             <string name="revanced_force_original_audio_title">Force original audio language</string>
@@ -1440,7 +1466,7 @@ Enabling this can unlock higher video qualities"</string>
         </patch>
         <patch id="video.speed.button.playbackSpeedButtonPatch">
             <string name="revanced_playback_speed_dialog_button_title">Show speed dialog button</string>
-            <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown</string>
+            <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown. Tap and hold to reset playback speed to default</string>
             <string name="revanced_playback_speed_dialog_button_summary_off">Button is not shown</string>
         </patch>
         <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1452,6 +1478,7 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s</string>
             <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_auto">Auto</string>
+            <string name="revanced_custom_playback_speeds_reset_toast">Playback speed reset to: %s</string>
             <string name="revanced_speed_tap_and_hold_title">Custom tap and hold speed</string>
             <string name="revanced_speed_tap_and_hold_summary">Playback speed between 0-8</string>
         </patch>

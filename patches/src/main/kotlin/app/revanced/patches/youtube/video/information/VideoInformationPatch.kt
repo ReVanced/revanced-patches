@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.playerresponse.Hook
@@ -16,6 +17,8 @@ import app.revanced.patches.youtube.video.videoid.hookBackgroundPlayVideoId
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
+import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.addStaticFieldToExtension
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -29,6 +32,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
@@ -189,6 +193,72 @@ val videoInformationPatch = bytecodePatch(
                 proxy(classes.first { it.type == setPlaybackSpeedMethodReference.definingClass })
                     .mutableClass.methods.first { it.name == setPlaybackSpeedMethodReference.name }
             setPlaybackSpeedMethodIndex = 0
+
+            // Add override playback speed method.
+            onPlaybackSpeedItemClickFingerprint.classDef.methods.add(
+                ImmutableMethod(
+                    definingClass,
+                    "overridePlaybackSpeed",
+                    listOf(ImmutableMethodParameter("F", annotations, null)),
+                    "V",
+                    AccessFlags.PUBLIC.value or AccessFlags.PUBLIC.value,
+                    annotations,
+                    null,
+                    ImmutableMethodImplementation(
+                        4,
+                        """
+                            # Check if the playback speed is not auto (-2.0f)
+                            const/4 v0, 0x0
+                            cmpg-float v0, v3, v0
+                            if-lez v0, :ignore
+                            
+                            # Get the container class field.
+                            iget-object v0, v2, $setPlaybackSpeedContainerClassFieldReference  
+
+                            # For some reason, in YouTube 19.44.39 this value is sometimes null.
+                            if-eqz v0, :ignore
+
+                            # Get the field from its class.
+                            iget-object v1, v0, $setPlaybackSpeedClassFieldReference
+                            
+                            # Invoke setPlaybackSpeed on that class.
+                            invoke-virtual {v1, v3}, $setPlaybackSpeedMethodReference
+
+                            :ignore
+                            return-void
+                        """.toInstructions(), null, null
+                    )
+                ).toMutable()
+            )
+        }
+
+        playbackSpeedClassFingerprint.method.apply {
+            val index = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+            val playbackSpeedClass = this.returnType
+
+            // Set playback speed class.
+            addInstructionsAtControlFlowLabel(
+                index,
+                "sput-object v$register, $EXTENSION_CLASS_DESCRIPTOR->playbackSpeedClass:$playbackSpeedClass"
+            )
+
+            val smaliInstructions =
+                """
+                    if-eqz v0, :ignore
+                    invoke-virtual {v0, p0}, $playbackSpeedClass->overridePlaybackSpeed(F)V
+                    return-void
+                    :ignore
+                    nop
+                """
+
+            addStaticFieldToExtension(
+                EXTENSION_CLASS_DESCRIPTOR,
+                "overridePlaybackSpeed",
+                "playbackSpeedClass",
+                playbackSpeedClass,
+                smaliInstructions
+            )
         }
 
         // Handle new playback speed menu.

@@ -117,6 +117,11 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="revanced_debug_protobuffer_title">Regjistro protokol buffer</string>
   <string name="revanced_debug_protobuffer_summary_on">Regjistrimet e depurimit përfshijnë proto buffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Regjistrimet e depurimit nuk përfshijnë proto buffer</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Aktivizimi i këtij opsioni do të regjistrojë të dhëna shtesë të paraqitjes, duke përfshirë tekstin në ekran për disa komponentë të ndërfaqes përdoruese.
+
+Kjo mund të ndihmojë në identifikimin e komponentëve kur krijoni filtra të personalizuar.
+
+Gjithsesi, aktivizimi i këtij opsioni do të regjistrojë edhe disa të dhëna të përdoruesit, siç është adresa juaj IP."</string>
   <string name="revanced_debug_stacktrace_title">Regjistro gjurmët e grumbullimit</string>
   <string name="revanced_debug_stacktrace_summary_on">Regjistrimet e depurimit përfshijnë gjurmë grumbullimi</string>
   <string name="revanced_debug_stacktrace_summary_off">Regjistrimet e depurimit nuk përfshijnë gjurmë grumbullimi</string>
@@ -126,6 +131,15 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Fshirja e toast-eve të gabimit fsheh të gjitha njoftimet e gabimeve të ReVanced.
 
 Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Eksporto regjistrat e korrigjimit</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopjon regjistrat e korrigjimit të ReVanced në kujtesën e shkurtër</string>
+  <string name="revanced_debug_logs_disabled">Regjistrimi i korrigjimeve është çaktivizuar</string>
+  <string name="revanced_debug_logs_none_found">Nuk u gjetën regjistra</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Regjistrat u kopjuan</string>
+  <string name="revanced_debug_logs_failed_to_export">Eksportimi i regjistrave dështoi: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Pastro regjistrat e korrigjimit</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Pastro të gjithë regjistrat e ruajtur të korrigjimit të ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Regjistrat u pastruan</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Fshih kartat e albumit</string>
@@ -477,9 +491,10 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_swipe_overlay_background_opacity_title">Opasiteti i sfondit mbivendosës shtypëse</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Vlera e opacitetit midis 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opaciteti i shtypjes duhet të jetë midis 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Ngjyra e shiritit të progresit të mbivendosjes së rrëshqitjes</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Ngjyra e shiritit të progresit për kontrollet e volumit dhe të ndriçimit</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ngjyrë e pavlefshme e shiritit të progresit</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Ngjyra e ndriçimit të mbivendosjes me rrëshqitje</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Ngjyra e shiritit të progresit për kontrollet e ndriçimit</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Ngjyra e volumit të mbivendosjes me rrëshqitje</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Ngjyra e shiritit të progresit për kontrollet e volumit</string>
   <string name="revanced_swipe_text_overlay_size_title">Madhësia e tekstit të mbivendosjes së rrëshqitjes</string>
   <string name="revanced_swipe_text_overlay_size_summary">Madhësia e tekstit për mbivendosjen e rrëshqitjes midis 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Madhësia e tekstit duhet të jetë midis 1-30</string>
@@ -1320,6 +1335,22 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="microg_settings_title">Cilësimet e GmsCore</string>
   <string name="microg_settings_summary">Cilësimet për GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Reagimi haptik</string>
+  <string name="revanced_disable_haptic_feedback_summary">Ndrysho reagimin haptik</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Çaktivizo haptikën e kapitujve</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptika e kapitujve është çaktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptika e kapitujve është aktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Çaktivizo haptikën e kërkimit të saktë</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Haptika e kërkimit të saktë është çaktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Haptika e saktë e kërkimit është aktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Çaktivizo haptikën e zhbërjes së kërkimit</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Haptika e zhbërjes së kërkimit është çaktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Haptika e zhbërjes së kërkimit është aktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Çaktivizo haptikën e zmadhimit</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Haptika e zmadhimit është çaktivizuar</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Haptika e zmadhimit është aktivizuar</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Nëse së fundmi keni ndryshuar detajet e hyrjes në llogarinë tuaj, atëherë çinstaloni dhe riinstaloni MicroG.</string>
   </patch>
@@ -1337,11 +1368,6 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Hiq parametrin e gjurmimit të kërkesës</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parametri i gjurmimit të kërkesës hiqet nga linket</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parametri i gjurmimit të kërkesës nuk hiqet nga linket</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Çaktivizo haptikën e zmadhimit</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Haptikët janë të çaktivizuar</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Haptikët janë të aktivizuar</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forco gjuhën origjinale të audios</string>

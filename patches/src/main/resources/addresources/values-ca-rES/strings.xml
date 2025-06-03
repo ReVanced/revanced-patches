@@ -117,6 +117,11 @@ Toca el botó Continua i permet els canvis d'optimització."</string>
   <string name="revanced_debug_protobuffer_title">Iniciar sesión en el buffer de protocolo</string>
   <string name="revanced_debug_protobuffer_summary_on">El registro de depuración incluye el búfer de protocolo</string>
   <string name="revanced_debug_protobuffer_summary_off">Els registres de depuració no inclouen l\'amortiment de proto</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Si activeu aquest paràmetre, es registraran dades de disseny addicionals, inclòs el text en pantalla per a alguns components de la IU.
+
+Això pot ajudar a identificar components quan creeu filtres personalitzats.
+
+Tot i això, si activeu aquesta opció, també es registraran algunes dades de l'usuari, com ara la vostra adreça IP."</string>
   <string name="revanced_debug_stacktrace_title">Registre dels rastrejos de la pila</string>
   <string name="revanced_debug_stacktrace_summary_on">Els registres de depuració inclouen el rastreig de la pila</string>
   <string name="revanced_debug_stacktrace_summary_off">Els registres de depuració no inclouen el rastreig de la pila</string>
@@ -126,6 +131,15 @@ Toca el botó Continua i permet els canvis d'optimització."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Desactivar els missatges d'error d'avis oculta totes les notificacions d'error de ReVanced.
 
 No se t'informarà de cap esdeveniment inesperat."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exporta els registres de depuració</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Copia els registres de depuració de ReVanced al porta-retalls</string>
+  <string name="revanced_debug_logs_disabled">El registre de depuració està desactivat</string>
+  <string name="revanced_debug_logs_none_found">No s\'ha trobat cap registre</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Registres copiats</string>
+  <string name="revanced_debug_logs_failed_to_export">No s\'han pogut exportar els registres: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Esborra els registres de depuració</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Esborra tots els registres de depuració de ReVanced emmagatzemats</string>
+  <string name="revanced_debug_logs_clear_toast">Registres esborrats</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Amagar les targetes d\'àlbums</string>
@@ -477,9 +491,10 @@ Ajusteu el volum lliscant verticalment a la part dreta de la pantalla"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacitat del fons de la superposició de lliscament</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valor d\'opacitat entre 0 i 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacitat de lliscament ha d\'estar entre 0 i 100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Color de la barra de progrés de la superposició lliscant</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">El color de la barra de progrés per als controls de volum i brillantor</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Color de barra de progrés no vàlid</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Color de la lluminositat de la superposició de lliscament</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">El color de la barra de progrés per als controls de brillantor</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Color del volum de la superposició de lliscament</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">El color de la barra de progrés per als controls de volum</string>
   <string name="revanced_swipe_text_overlay_size_title">Mida del text de la superposició lliscant</string>
   <string name="revanced_swipe_text_overlay_size_summary">La mida del text per a la superposició lliscant entre 1 i 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">La mida del text ha d\'estar entre 1 i 30</string>
@@ -1321,6 +1336,22 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   <string name="microg_settings_title">Configuració de GmsCore</string>
   <string name="microg_settings_summary">Configuració de GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Hàptica</string>
+  <string name="revanced_disable_haptic_feedback_summary">Canvia la resposta hàptica</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Desactiva els hàptics dels capítols</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Els hàptics dels capítols estan desactivats</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Els hàptics dels capítols estan activats</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Desactiva els hàptics de cerca precisa</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Els hàptics de cerca precisa estan desactivats</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Els hàptics de cerca precisa estan activats</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Desactiva els hàptics de desfer la cerca</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Els hàptics de desfer la cerca estan desactivats</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Els hàptics de desfer la cerca estan activats</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Desactiva els hàptics d\'enfocament</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Els hàptics de zoom estan desactivats</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Els hàptics de zoom estan habilitats</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Si recentment heu canviat les dades d\'inici de sessió del vostre compte, desinstal·leu i torneu a instal·lar MicroG.</string>
   </patch>
@@ -1338,11 +1369,6 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   <string name="revanced_remove_tracking_query_parameter_title">Elimina el paràmetre de consulta de seguiment</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">El paràmetre de consulta de seguiment s\'elimina dels enllaços</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">El paràmetre de consulta de seguiment no s\'elimina dels enllaços</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Desactiva els hàptics d\'enfocament</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Els hàptics estan desactivats</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Els hàptics estan habilitats</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forçar l\'idioma d\'àudio original</string>

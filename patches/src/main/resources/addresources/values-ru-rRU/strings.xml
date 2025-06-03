@@ -117,6 +117,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">Журнал буфера протоколов</string>
   <string name="revanced_debug_protobuffer_summary_on">В журналы отладки включен буфер протоколов</string>
   <string name="revanced_debug_protobuffer_summary_off">В журналы отладки не включен буфер протоколов</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Включение этой настройки позволит регистрировать дополнительные данные макета, включая текст на экране для некоторых компонентов пользовательского интерфейса.
+
+Это может помочь определить компоненты при создании пользовательских фильтров.
+
+Однако включение этой функции также приведет к регистрации некоторых пользовательских данных, таких как ваш IP-адрес."</string>
   <string name="revanced_debug_stacktrace_title">Журнал трассировки стека</string>
   <string name="revanced_debug_stacktrace_summary_on">В журналы отладки включена трассировка стека</string>
   <string name="revanced_debug_stacktrace_summary_off">В журналы отладки не включена трассировка стека</string>
@@ -126,6 +131,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Отключение всплывающих уведомлений об ошибках скроет все сообщения об ошибках ReVanced.
 
 Вы не будете уведомлены о каких-либо непредвиденных событиях."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Экспортировать журналы отладки</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Копирует журналы отладки ReVanced в буфер обмена</string>
+  <string name="revanced_debug_logs_disabled">Журналы отладки отключены</string>
+  <string name="revanced_debug_logs_none_found">Журналы не найдены</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Журналы скопированы</string>
+  <string name="revanced_debug_logs_failed_to_export">Не удалось экспортировать журналы: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Очистить журналы отладки</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Очищает все сохраненные журналы отладки ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Журналы очищены</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Скрыть карточки альбомов</string>
@@ -477,9 +491,10 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Затемнение фона панели жестов</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значение затемнения всплывающей панели при жестах от 0 до 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значение затемнения панели жестов должно быть от 0 до 100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Цвет полосы прогресса при жестах</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Цвет полосы прогресса при изменении громкости и яркости жестами</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Недопустимый цвет полосы прогресса</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Цвет индикатора яркости при жестах</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Цвет полосы прогресса при изменении яркости жестами</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Цвет индикатора громкости при жестах</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Цвет полосы прогресса при изменении громкости жестами</string>
   <string name="revanced_swipe_text_overlay_size_title">Размер текста панели жестов</string>
   <string name="revanced_swipe_text_overlay_size_summary">Размер текста панели жестов от 1 до 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Размер текста должен быть в диапазоне от 1 до 30</string>
@@ -1322,6 +1337,22 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">GmsCore</string>
   <string name="microg_settings_summary">Настройки GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Виброотклик</string>
+  <string name="revanced_disable_haptic_feedback_summary">Изменить виброотклик</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Отключить виброотклик между эпизодов</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Виброотклик между эпизодов отключен</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Виброотклик между эпизодов включен</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Отключить виброотклик при покадровой перемотке</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Виброотклик при покадровой перемотке отключен</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Виброотклик при покадровой перемотке включен</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Отключить виброотклик отмены перемотки</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Виброотклик отмены перемотки отключен</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Виброотклик отмены перемотки включен</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Отключить виброотклик при масштабировании</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Виброотклик при масштабировании отключен</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Виброотклик при масштабировании включен</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Если Вы недавно изменили данные для входа в свою учетную запись, удалите и переустановите MicroG.</string>
   </patch>
@@ -1339,11 +1370,6 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Удалить параметр отслеживания запросов</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Параметр отслеживания запросов из ссылок удален</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Параметр отслеживания запросов из ссылок не удален</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Отключить виброотклик при масштабировании</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Виброотклик при масштабировании отключен</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Виброотклик при масштабировании включен</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>

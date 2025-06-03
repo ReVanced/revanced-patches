@@ -117,6 +117,11 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_debug_protobuffer_title">Buffer protokol log</string>
   <string name="revanced_debug_protobuffer_summary_on">Log debug termasuk buffer proto</string>
   <string name="revanced_debug_protobuffer_summary_off">Log debug tidak menyertakan buffer proto</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Mengaktifkan setelan ini akan mencatat data tata letak tambahan, termasuk teks pada layar untuk beberapa komponen UI.
+
+Ini dapat membantu mengidentifikasi komponen saat membuat filter khusus.
+
+Namun, mengaktifkan ini juga akan mencatat beberapa data pengguna seperti alamat IP Anda."</string>
   <string name="revanced_debug_stacktrace_title">Jejak log stack</string>
   <string name="revanced_debug_stacktrace_summary_on">Log debug menyertakan jejak stack</string>
   <string name="revanced_debug_stacktrace_summary_off">Log debug tidak menyertakan jejak stack</string>
@@ -126,6 +131,15 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Mematikan notifikasi kesalahan menyembunyikan semua notifikasi kesalahan ReVanced.
 
 Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Ekspor catatan debug</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Salin catatan debug ReVanced ke papan klip</string>
+  <string name="revanced_debug_logs_disabled">Pencatatan debug dinonaktifkan</string>
+  <string name="revanced_debug_logs_none_found">Tidak ditemukan catatan</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Catatan disalin</string>
+  <string name="revanced_debug_logs_failed_to_export">Gagal mengekspor catatan: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Bersihkan catatan debug</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Menghapus semua catatan debug ReVanced yang tersimpan</string>
+  <string name="revanced_debug_logs_clear_toast">Catatan dibersihkan</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Sembunyikan kartu album</string>
@@ -477,9 +491,10 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_swipe_overlay_background_opacity_title">Opasitas latar belakang hamparan geser</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Nilai opasitas antara 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opasitas geser harus antara 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Warna bilah kemajuan lapisan usap</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">Warna bilah kemajuan untuk kontrol volume dan kecerahan</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Warna bilah kemajuan tidak sah</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Warna kecerahan lapisan usap</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Warna bilah kemajuan untuk kontrol kecerahan</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Warna volume lapisan usap</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Warna bilah kemajuan untuk kontrol volume</string>
   <string name="revanced_swipe_text_overlay_size_title">Ukuran teks lapisan usap</string>
   <string name="revanced_swipe_text_overlay_size_summary">Ukuran teks untuk lapisan usap antara 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Ukuran teks harus antara 1-30</string>
@@ -1321,6 +1336,22 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="microg_settings_title">Pengaturan GmsCore</string>
   <string name="microg_settings_summary">Pengaturan untuk GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Umpan balik sentuh getar</string>
+  <string name="revanced_disable_haptic_feedback_summary">Ubah umpan balik sentuh getar</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Nonaktifkan sentuh getar bab</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Sentuh getar bab dinonaktifkan</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Sentuh getar bab diaktifkan</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Nonaktifkan sentuh getar pencarian presisi</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Sentuh getar pencarian presisi dinonaktifkan</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Sentuh getar pencarian presisi diaktifkan</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Nonaktifkan sentuh getar urungkan pencarian</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Sentuh getar urungkan pencarian dinonaktifkan</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Sentuh getar urungkan pencarian diaktifkan</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Matikan sentuh getar zoom</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">Sentuh getar zoom dinonaktifkan</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">Sentuh getar zoom diaktifkan</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Jika Anda baru saja mengubah detail login akun Anda, hapus pemasangan dan ulangi memasang MicroG.</string>
   </patch>
@@ -1338,11 +1369,6 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Hapus parameter kueri pelacakan</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parameter kueri pelacakan dihapus dari tautan</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Matikan sentuh getar zoom</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Sentuh getar dinonaktifkan</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Sentuh getar diaktifkan</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Paksa bahasa audio asli</string>

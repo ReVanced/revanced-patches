@@ -115,6 +115,11 @@ Toque no botão continuar e permita as mudanças de otimização. "</string>
   <string name="revanced_debug_protobuffer_title">Registro de buffer de protocolo</string>
   <string name="revanced_debug_protobuffer_summary_on">Registro de depuração incluem buffer de protocolo</string>
   <string name="revanced_debug_protobuffer_summary_off">Registro de depuração não incluem buffer de protocolo</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Ativar esta configuração registrará dados de layout adicionais, incluindo texto na tela para alguns componentes da IU.
+
+Isso pode ajudar a identificar componentes ao criar filtros personalizados.
+
+No entanto, ativar isso também registrará alguns dados do usuário, como seu endereço IP."</string>
   <string name="revanced_debug_stacktrace_title">Registro de rastreamento em pilha</string>
   <string name="revanced_debug_stacktrace_summary_on">Registro de depuração incluem rastreamento em pilha</string>
   <string name="revanced_debug_stacktrace_summary_off">Registro de depuração não incluem rastreamento em pilha</string>
@@ -124,6 +129,15 @@ Toque no botão continuar e permita as mudanças de otimização. "</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Desligar as notificações de erro oculta todas as notificações de erro do ReVanced. 
 
 Você não será notificado sobre nenhum evento inesperado."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exportar registros de depuração</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Copia os registros de depuração do ReVanced para a área de transferência</string>
+  <string name="revanced_debug_logs_disabled">O registro de depuração está desativado</string>
+  <string name="revanced_debug_logs_none_found">Nenhum registro encontrado</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Registros copiados</string>
+  <string name="revanced_debug_logs_failed_to_export">Falha ao exportar os registros: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Limpar registros de depuração</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Limpa todos os registros de depuração do ReVanced armazenados</string>
+  <string name="revanced_debug_logs_clear_toast">Registros limpos</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Ocultar cartões de álbum</string>
@@ -475,9 +489,10 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacidade do plano de fundo de sobreposição de deslize</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valor da opacidade entre 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A opacidade do deslizar deve estar entre 0-100</string>
-  <string name="revanced_swipe_overlay_progress_color_title">Cor da barra de progresso da sobreposição de deslize</string>
-  <string name="revanced_swipe_overlay_progress_color_summary">A cor da barra de progresso para controles de volume e brilho</string>
-  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Cor da barra de progresso inválida</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Cor da barra de brilho da sobreposição de deslize</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">A cor da barra de progresso para controles de brilho</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Cor da barra de volume da sobreposição de deslize</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">A cor da barra de progresso para controles de volume</string>
   <string name="revanced_swipe_text_overlay_size_title">Tamanho do texto da sobreposição de deslize</string>
   <string name="revanced_swipe_text_overlay_size_summary">O tamanho do texto para sobreposição de deslize entre 1 e 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">O tamanho do texto deve estar entre 1 e 30</string>
@@ -1319,6 +1334,22 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="microg_settings_title">Configurações do GmsCore</string>
   <string name="microg_settings_summary">Configurações do GmsCore</string>
   </patch>
+  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">Feedback tátil</string>
+  <string name="revanced_disable_haptic_feedback_summary">Alterar feedback tátil</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Desativar haptics de capítulos</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Haptics de capítulos desativado</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Haptics de capítulos ativado</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">Desativar haptics de busca precisa</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">O feedback tátil de busca precisa está desativado</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Haptics de busca precisa ativado</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Desativar feedback tátil de desfazer busca</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">O feedback tátil de desfazer busca está desativado</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">O feedback tátil de desfazer busca está ativado</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">Desativar zoom tátil</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">O zoom tátil está desativado</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">O zoom tátil está ativado</string>
+  </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   <string name="microg_offline_account_login_error">Se você alterou recentemente os detalhes de login da sua conta, desinstale e reinstale o MicroG.</string>
   </patch>
@@ -1336,11 +1367,6 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_remove_tracking_query_parameter_title">Remover parâmetro de consulta de rastreamento</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parâmetro da consulta de rastreamento foi removido dos links</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parâmetro da consulta de rastreamento não foi removido dos links</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Desativar zoom tátil</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Zoom tátil está ativado</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Zoom tátil está desativado</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forçar idioma do áudio original</string>
