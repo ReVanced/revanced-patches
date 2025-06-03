@@ -1398,7 +1398,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Показване бутон за скорост</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Бутона \"Уведоми ме\" се показва.</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Бутонът е показан. Докоснете и задръжте, за да върнете скоростта на възпроизвеждане към стойността по подразбиране</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Бутонът не е показан</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1410,6 +1410,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Персонализираните скорости трябва да са по-малки от %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Невалидни персонализирани скорости на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_auto">Авто</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Скоростта на възпроизвеждане е нулирана на: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Персонализирана скорост при докосване и задържане</string>
   <string name="revanced_speed_tap_and_hold_summary">Скорост на възпроизвеждане между 0-8</string>
   </patch>

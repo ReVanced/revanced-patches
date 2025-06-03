@@ -1397,7 +1397,7 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Mostra il pulsante Velocità Video</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Il pulsante è visibile</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Il pulsante è visualizzato. Tieni premuto per ripristinare la velocità di riproduzione predefinita</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Il pulsante non è visibile</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1409,6 +1409,7 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_custom_playback_speeds_invalid">Le velocità personalizzate devono essere inferiori a %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Velocità di riproduzione personalizzata non valida</string>
   <string name="revanced_custom_playback_speeds_auto">Automatico</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Velocità di riproduzione reimpostata su: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Velocità personalizzata di tocca e tieni premuto</string>
   <string name="revanced_speed_tap_and_hold_summary">Velocità di riproduzione tra 0-8</string>
   </patch>

@@ -1397,7 +1397,7 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Rodyti greičio dialogo mygtuką</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Mygtukas rodomas</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Mygtukas rodomas. Palieskite ir palaikykite, kad atkūrimo greitį nustatytumėte į numatytąjį.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Mygtukas nerodomas</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1409,6 +1409,7 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_custom_playback_speeds_invalid">Pasirinktinis greitis turi būti mažesnis nei %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Netinkamas pasirinktinis atkūrimo greitis</string>
   <string name="revanced_custom_playback_speeds_auto">Automatinis</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Atkūrimo greitis nustatytas iš naujo: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Pritaikytas bakstelėjimo ir laikymo greitis</string>
   <string name="revanced_speed_tap_and_hold_summary">Atkūrimo greitis: nuo 0 iki 8</string>
   </patch>

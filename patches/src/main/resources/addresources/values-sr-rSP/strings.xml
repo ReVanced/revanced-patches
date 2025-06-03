@@ -1397,7 +1397,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Прикажи дугме дијалога за брзину</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Дугме дијалога за брзину је приказано</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Дуго притисните дугме да бисте вратили подразумевану брзину репродукције</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Дугме дијалога за брзину није приказано</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1409,6 +1409,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Прилагођене брзине морају бити мање од %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Неважеће прилагођене брзине репродукције</string>
   <string name="revanced_custom_playback_speeds_auto">Аутоматски</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Брзина репродукције враћена на: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Прилагођена брзина додиривања и задржавања</string>
   <string name="revanced_speed_tap_and_hold_summary">Брзина репродукције између 0 и 8</string>
   </patch>

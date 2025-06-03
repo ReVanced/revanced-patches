@@ -1399,7 +1399,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Паказаць дыялогавую кнопку хуткасці</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Паказана кнопка</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка паказана. Націсніце і ўтрымлівайце, каб скінуць хуткасць прайгравання да стандартнай</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка не паказваецца</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1411,6 +1411,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Нестандартныя хуткасці павінны быць менш за %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Несапраўдныя нестандартныя хуткасці прайгравання</string>
   <string name="revanced_custom_playback_speeds_auto">Аўто</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Хуткасць прайгравання скінута да: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Уласны хуткасць націску і ўтрымання</string>
   <string name="revanced_speed_tap_and_hold_summary">Хуткасць прайгравання між 0-8</string>
   </patch>
