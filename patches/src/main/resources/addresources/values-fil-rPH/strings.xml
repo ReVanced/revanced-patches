@@ -1396,7 +1396,7 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Ipakita ang pindutan ng dialog ng bilis</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Ang pindutan ay ipinapakita</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Ipinapakita ang button. I-tap at i-hold para i-reset ang bilis ng pag-playback sa default</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Hindi ipinapakita ang button</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1408,6 +1408,7 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_custom_playback_speeds_invalid">Ang mga custom na bilis ay dapat na mas mababa sa %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Hindi wastong custom na bilis ng paglalaro</string>
   <string name="revanced_custom_playback_speeds_auto">Awtomatik</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Na-reset ang bilis ng pag-playback sa: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Custom speed para sa pag-tap at pag-hold</string>
   <string name="revanced_speed_tap_and_hold_summary">Tugtugin ang bilis ng playback sa pagitan ng 0-8</string>
   </patch>

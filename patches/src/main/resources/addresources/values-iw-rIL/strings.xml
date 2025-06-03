@@ -1398,7 +1398,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">הצג לחצן דו-שיח של מהירות</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">הלחצן מוצג</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">הלחצן מוצג. יש להקיש ולהחזיק כדי לאפס את מהירות ההפעלה לברירת מחדל</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">הלחצן אינו מוצג</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1410,6 +1410,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">מהירויות מותאמות אישית חייבות להיות קטנות מ-%s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">מהירויות הפעלה מותאמות אישית לא חוקיות</string>
   <string name="revanced_custom_playback_speeds_auto">אוטומטי</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">מהירות ההפעלה אופסה ל: %s</string>
   <string name="revanced_speed_tap_and_hold_title">מהירות הקשה והחזקה מותאמת אישית</string>
   <string name="revanced_speed_tap_and_hold_summary">מהירות הפעלה בין 0 ל-8</string>
   </patch>

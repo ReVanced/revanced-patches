@@ -1398,7 +1398,7 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Kuva kiiruse dialoogi nupp</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Nupp kuvatakse</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Nupp on nähtaval. Puudutage ja hoidke all, et taastada taasesituse kiirus vaikeväärtusele</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Nuppi ei kuvata</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1410,6 +1410,7 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_custom_playback_speeds_invalid">Kohandatud kiirused peavad olema alla %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Kehtetud kohandatud video taasesituse kiirused</string>
   <string name="revanced_custom_playback_speeds_auto">Automaatne</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Taasesituse kiirus on lähtestatud: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Kohandatud puuduta ja hoia kiiruse tase</string>
   <string name="revanced_speed_tap_and_hold_summary">Taasesituse kiirus vahemikus 0-8</string>
   </patch>

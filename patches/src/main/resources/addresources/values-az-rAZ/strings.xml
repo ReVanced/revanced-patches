@@ -1397,7 +1397,6 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Sürət dialoq düyməsini göstər</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Düymə göstərilir</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Düymə göstərilmir</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
