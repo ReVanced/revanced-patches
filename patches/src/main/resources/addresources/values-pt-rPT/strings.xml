@@ -1398,7 +1398,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Mostrar botão de diálogo de velocidade</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">O botão está visível</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">O botão é mostrado. Toque e segure para redefinir a velocidade de reprodução para o padrão</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">O botão não está visível</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1410,6 +1410,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_custom_playback_speeds_invalid">Tốc độ tùy chỉnh phải nhỏ hơn %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát lại tùy chỉnh không hợp lệ</string>
   <string name="revanced_custom_playback_speeds_auto">Automático</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Velocidade de reprodução redefinida para: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Velocidade personalizada ao tocar e segurar</string>
   <string name="revanced_speed_tap_and_hold_summary">Velocidade de reprodução de 0 a 8</string>
   </patch>

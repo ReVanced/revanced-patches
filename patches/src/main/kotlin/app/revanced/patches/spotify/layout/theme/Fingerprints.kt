@@ -4,30 +4,25 @@ import app.revanced.patcher.fingerprint
 import app.revanced.util.containsLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val encoreThemeFingerprint by fingerprint {
-    strings("Encore theme was not provided.") // Partial string match.
-    custom { method, _ ->
-        method.name == "invoke"
-    }
+internal val colorSpaceUtilsClassFingerprint by fingerprint {
+    strings("The specified color must be encoded in an RGB color space.") // Partial string match.
 }
 
-internal const val PLAYLIST_BACKGROUND_COLOR_LITERAL = 0xFF121212
-internal const val SHARE_MENU_BACKGROUND_COLOR_LITERAL = 0xFF1F1F1F
-internal const val HOME_CATEGORY_PILL_COLOR_LITERAL = 0xFF333333
-internal const val SETTINGS_HEADER_COLOR_LITERAL = 0xFF282828
-
-internal val homeCategoryPillColorsFingerprint by fingerprint{
-    accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    custom { method, _ ->
-        method.containsLiteralInstruction(HOME_CATEGORY_PILL_COLOR_LITERAL) &&
-                method.containsLiteralInstruction(0x33000000)
-    }
+internal val convertArgbToRgbaFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL)
+    returns("J")
+    parameters("J")
 }
 
-internal val settingsHeaderColorFingerprint by fingerprint {
-    accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
+internal val parseLottieJsonFingerprint by fingerprint {
+    strings("Unsupported matte type: ")
+}
+
+internal val parseAnimatedColorFingerprint by fingerprint {
+    parameters("L", "F")
+    returns("Ljava/lang/Object;")
     custom { method, _ ->
-        method.containsLiteralInstruction(SETTINGS_HEADER_COLOR_LITERAL) &&
-                method.containsLiteralInstruction(0)
+        method.containsLiteralInstruction(255.0) &&
+                method.containsLiteralInstruction(1.0)
     }
 }

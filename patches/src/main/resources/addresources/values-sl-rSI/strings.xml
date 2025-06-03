@@ -1397,7 +1397,7 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Pokaži gumb za pogovor o hitrosti</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Gumb je prikazan</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Gumb je prikazan. Dotaknite se ga in ga pridržite, da ponastavite hitrost predvajanja na privzeto.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Gumb ni prikazan</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1409,6 +1409,7 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Hitrosti predvajanja po meri morajo biti manjše od %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Neveljavne hitrosti predvajanja po meri</string>
   <string name="revanced_custom_playback_speeds_auto">Samodejno</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Hitrost predvajanja je bila ponastavljena na: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Hitrost pritiska in pridržanja po meri</string>
   <string name="revanced_speed_tap_and_hold_summary">Hitrost predvajanja med 0 in 8</string>
   </patch>
