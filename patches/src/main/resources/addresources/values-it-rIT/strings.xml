@@ -491,6 +491,10 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacità di sfondo della sovrapposizione di scorrimento</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valore di opacità tra 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacità di scorrimento deve essere tra 0-100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Colore della luminosit												 dell\'overlay a scorrimento</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Il colore della barra di avanzamento per i controlli della luminosit</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Colore del volume dell\'overlay a scorrimento</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Il colore della barra di avanzamento per i controlli del volume</string>
   <string name="revanced_swipe_text_overlay_size_title">Dimensione del testo della sovrapposizione a scorrimento</string>
   <string name="revanced_swipe_text_overlay_size_summary">La dimensione del testo per la sovrapposizione a scorrimento tra 1 e 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">La dimensione del testo deve essere compresa tra 1 e 30</string>

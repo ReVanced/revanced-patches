@@ -296,6 +296,10 @@ public final class app/revanced/patches/messenger/navbar/RemoveMetaAITabPatchKt 
 	public static final fun getRemoveMetaAITabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/meta/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/mifitness/misc/locale/ForceEnglishLocalePatchKt {
 	public static final fun getForceEnglishLocalePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -440,6 +444,14 @@ public final class app/revanced/patches/primevideo/misc/extension/ExtensionPatch
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/primevideo/misc/permissions/RenamePermissionsPatchKt {
+	public static final fun getRenamePermissionsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/protonmail/account/RemoveFreeAccountsLimitPatchKt {
+	public static final fun getRemoveFreeAccountsLimitPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public final class app/revanced/patches/protonmail/signature/RemoveSentFromSignaturePatchKt {
 	public static final fun getRemoveSentFromSignaturePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
@@ -581,6 +593,7 @@ public final class app/revanced/patches/reddit/layout/disablescreenshotpopup/Dis
 
 public final class app/revanced/patches/reddit/layout/premiumicon/UnlockPremiumIconPatchKt {
 	public static final fun getUnlockPremiumIconPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getUnlockPremiumIconsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/reddit/misc/extension/ExtensionPatchKt {

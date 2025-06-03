@@ -491,6 +491,10 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Průsvitnost pozadí překrytí tažením</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Hodnota průsvitnosti mezi 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Průsvitnost tažení musí být mezi 0-100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Barva jasu překryvné vrstvy tažení</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Barva ukazatele průběhu pro ovládání jasu</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Barva hlasitosti překryvné vrstvy tažení</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Barva ukazatele průběhu pro ovládání hlasitosti</string>
   <string name="revanced_swipe_text_overlay_size_title">Velikost textu překrytí přejetím</string>
   <string name="revanced_swipe_text_overlay_size_summary">Velikost textu překrytí přejetím mezi 1–30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Velikost textu musí být mezi 1–30</string>

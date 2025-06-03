@@ -491,9 +491,9 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_swipe_overlay_background_opacity_title">Neprozirnost pozadine pokreta prevlačenja</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Vrednost neprozirnosti između 0 i 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Neprozirnost pokreta prevlačenja mora biti između 0 i 100</string>
-  <string name="revanced_swipe_overlay_progress_brightness_color_title">Boja osvetljenosti trake pokreta prevlačenja</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Boja pokreta prevlačenja za osvetljenost</string>
   <string name="revanced_swipe_overlay_progress_brightness_color_summary">Boja trake napretka za kontrolu osvetljenosti</string>
-  <string name="revanced_swipe_overlay_progress_volume_color_title">Boja jačine zvuka trake pokreta prevlačenja</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Boja pokreta prevlačenja za jačinu zvuka</string>
   <string name="revanced_swipe_overlay_progress_volume_color_summary">Boja trake napretka za kontrolu jačine zvuka</string>
   <string name="revanced_swipe_text_overlay_size_title">Veličina teksta pokreta prevlačenja</string>
   <string name="revanced_swipe_text_overlay_size_summary">Veličina teksta za pokret prevlačenja između 1 i 30</string>

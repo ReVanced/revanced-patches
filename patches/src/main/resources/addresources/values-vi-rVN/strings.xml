@@ -133,7 +133,7 @@ Tuy nhiên, việc bật tính năng này cũng sẽ ghi lại một số dữ l
 Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ nào."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Xuất nhật ký gỡ lỗi</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Sao chép nhật ký gỡ lỗi ReVanced vào bảng nhớ tạm</string>
-  <string name="revanced_debug_logs_disabled">Tính năng ghi nhật ký gỡ lỗi bị tắt</string>
+  <string name="revanced_debug_logs_disabled">Tính năng ghi nhật ký gỡ lỗi đã tắt</string>
   <string name="revanced_debug_logs_none_found">Không tìm thấy nhật ký</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Đã sao chép nhật ký</string>
   <string name="revanced_debug_logs_failed_to_export">Không xuất được nhật ký: $s</string>
@@ -459,8 +459,8 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Bật nhấn để tua</string>
-  <string name="revanced_seekbar_tapping_summary_on">Nhấn để tua được bật</string>
-  <string name="revanced_seekbar_tapping_summary_off">Nhấn để tua bị tắt</string>
+  <string name="revanced_seekbar_tapping_summary_on">Nhấn để tua đã bật</string>
+  <string name="revanced_seekbar_tapping_summary_off">Nhấn để tua đã tắt</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Bật cử chỉ độ sáng</string>
@@ -491,10 +491,10 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Độ mờ nền phủ vuốt</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Giá trị độ mờ từ 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Độ mờ vuốt phải nằm trong khoảng từ 0-100</string>
-  <string name="revanced_swipe_overlay_progress_brightness_color_title">Màu độ sáng lớp phủ vuốt</string>
-  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Màu của thanh tiến trình cho điều khiển độ sáng</string>
-  <string name="revanced_swipe_overlay_progress_volume_color_title">Màu âm lượng lớp phủ vuốt</string>
-  <string name="revanced_swipe_overlay_progress_volume_color_summary">Màu của thanh tiến trình cho điều khiển âm lượng</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Màu lớp phủ vuốt độ sáng</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Màu của thanh điều chỉnh độ sáng</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Màu lớp phủ vuốt âm lượng</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Màu của thanh điều chỉnh âm lượng</string>
   <string name="revanced_swipe_text_overlay_size_title">Kích thước văn bản lớp phủ vuốt</string>
   <string name="revanced_swipe_text_overlay_size_summary">Kích thước văn bản cho lớp phủ vuốt từ 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Kích thước văn bản phải nằm trong khoảng 1-30</string>
@@ -690,7 +690,7 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Tắt Chế độ môi trường khi toàn màn hình</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Chế độ môi trường đã tắt</string>
-  <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Chế độ môi trường được bật</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Chế độ môi trường đã bật</string>
   </patch>
   <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
   <string name="revanced_hide_info_cards_title">Ẩn thẻ thông tin</string>
@@ -904,8 +904,8 @@ Hạn chế: Số lượt không thích có thể không xuất hiện ở chế
   </patch>
   <patch id="layout.searchbar.wideSearchbarPatch">
   <string name="revanced_wide_searchbar_title">Bật thanh tìm kiếm rộng</string>
-  <string name="revanced_wide_searchbar_summary_on">Thanh tìm kiếm rộng được bật</string>
-  <string name="revanced_wide_searchbar_summary_off">Thanh tìm kiếm rộng được tắt</string>
+  <string name="revanced_wide_searchbar_summary_on">Thanh tìm kiếm rộng đã bật</string>
+  <string name="revanced_wide_searchbar_summary_off">Thanh tìm kiếm rộng đã tắt</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
   <string name="revanced_seekbar_thumbnails_high_quality_title">Bật hình thu nhỏ chất lượng cao</string>
@@ -963,8 +963,8 @@ Tính năng này hoạt động tốt nhất với chất lượng video 720p tr
   <string name="revanced_sb_toast_on_connection_error_summary_on">Thông báo nổi được hiển thị nếu SponsorBlock không khả dụng</string>
   <string name="revanced_sb_toast_on_connection_error_summary_off">Thông báo nổi không được hiển thị nếu SponsorBlock không khả dụng</string>
   <string name="revanced_sb_general_skipcount">Bật theo dõi số lần bỏ qua</string>
-  <string name="revanced_sb_general_skipcount_sum_on">Để bảng xếp hạng SponsorBlock biết đã tiết kiệm bao nhiêu thời gian. Một tin nhắn được gửi đến bảng xếp hạng mỗi khi một phân đoạn được bỏ qua</string>
-  <string name="revanced_sb_general_skipcount_sum_off">Theo dõi số lần bỏ qua được bật</string>
+  <string name="revanced_sb_general_skipcount_sum_on">Cho phép bảng xếp hạng SponsorBlock biết đã tiết kiệm được bao nhiêu thời gian. Một tin nhắn được gửi đến bảng xếp hạng mỗi khi một phân đoạn bị bỏ qua</string>
+  <string name="revanced_sb_general_skipcount_sum_off">Theo dõi số lần bỏ qua không được bật</string>
   <string name="revanced_sb_general_min_duration">Thời lượng phân đoạn tối thiểu</string>
   <string name="revanced_sb_general_min_duration_sum">Các phân đoạn ngắn hơn giá trị này (bằng giây) sẽ không được hiển thị hoặc bị bỏ qua</string>
   <string name="revanced_sb_general_min_duration_invalid">Thời lượng không hợp lệ</string>
@@ -1431,7 +1431,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Bật vuốt để tua</string>
-  <string name="revanced_slide_to_seek_summary_on">Vuốt để tua được bật</string>
+  <string name="revanced_slide_to_seek_summary_on">Vuốt để tua đã bật</string>
   <string name="revanced_slide_to_seek_summary_off">Vuốt để tua không được bật</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
@@ -1500,8 +1500,8 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Bật chế độ gỡ lỗi Twitch</string>
-  <string name="revanced_twitch_debug_mode_summary_on">Chế độ gỡ lỗi Twitch được bật (không khuyến nghị)</string>
-  <string name="revanced_twitch_debug_mode_summary_off">Chế độ gỡ lỗi Twitch được tắt</string>
+  <string name="revanced_twitch_debug_mode_summary_on">Chế độ gỡ lỗi Twitch đã bật (không khuyến nghị)</string>
+  <string name="revanced_twitch_debug_mode_summary_off">Chế độ gỡ lỗi Twitch đã tắt</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Cài đặt ReVanced</string>
@@ -1518,8 +1518,8 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_client_ads_category_title">Quảng cáo phía máy khách</string>
   <string name="revanced_surestream_ads_category_title">Quảng cáo luồng đảm bảo phía máy khách</string>
   <string name="revanced_twitch_debug_title">Nhật ký gỡ lỗi</string>
-  <string name="revanced_twitch_debug_summary_on">Nhật ký gỡ lỗi được bật</string>
-  <string name="revanced_twitch_debug_summary_off">Nhật ký gỡ lỗi được tắt</string>
+  <string name="revanced_twitch_debug_summary_on">Nhật ký gỡ lỗi đã bật</string>
+  <string name="revanced_twitch_debug_summary_off">Nhật ký gỡ lỗi đã tắt</string>
   </patch>
   </app>
 </resources>

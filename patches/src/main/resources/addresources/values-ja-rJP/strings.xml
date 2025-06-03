@@ -112,20 +112,20 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">デバッグ</string>
   <string name="revanced_debug_screen_summary">デバッグの設定</string>
-  <string name="revanced_debug_title">デバッグ ログを有効にする</string>
-  <string name="revanced_debug_summary_on">デバッグ ログは有効です</string>
-  <string name="revanced_debug_summary_off">デバッグ ログは無効です</string>
+  <string name="revanced_debug_title">デバッグログを有効にする</string>
+  <string name="revanced_debug_summary_on">デバッグログは有効です</string>
+  <string name="revanced_debug_summary_off">デバッグログは無効です</string>
   <string name="revanced_debug_protobuffer_title">protocol buffer を記録する</string>
-  <string name="revanced_debug_protobuffer_summary_on">デバッグ ログに protocol buffer が含まれます</string>
-  <string name="revanced_debug_protobuffer_summary_off">デバッグ ログに protocol buffer は含まれません</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"この設定を有効にすると、一部のUIコンポーネントの画面上のテキストなど、追加のレイアウトデータが記録されます。
+  <string name="revanced_debug_protobuffer_summary_on">protocol buffer はデバッグログに含まれます</string>
+  <string name="revanced_debug_protobuffer_summary_off">protocol buffer はデバッグログに含まれません</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"この設定を有効にすると、一部の UI コンポーネントの画面上のテキストなど、追加のレイアウト データがデバッグログに記録されます。
 
-これにより、カスタムフィルターを作成するときにコンポーネントを特定できます。
+この追加されたデータは、カスタム フィルタを作成する際にコンポーネントを特定するのに役立つ可能性があります。
 
-ただし、これを有効にすると、IPアドレスなどの一部のユーザーデータも記録されます。"</string>
+ただし、この機能によりデバッグログに追加で記録されるデータには、IP アドレスなど、一部のユーザーデータも含まれます。"</string>
   <string name="revanced_debug_stacktrace_title">stack trace を記録する</string>
-  <string name="revanced_debug_stacktrace_summary_on">デバッグ ログにstack trace が含まれます</string>
-  <string name="revanced_debug_stacktrace_summary_off">デバッグ ログにstack trace は含まれません</string>
+  <string name="revanced_debug_stacktrace_summary_on">stack trace はデバッグログに含まれます</string>
+  <string name="revanced_debug_stacktrace_summary_off">stack trace はデバッグログに含まれません</string>
   <string name="revanced_debug_toast_on_error_title">ReVanced エラーのトーストを表示する</string>
   <string name="revanced_debug_toast_on_error_summary_on">エラー発生時にトースト ポップアップが表示されます</string>
   <string name="revanced_debug_toast_on_error_summary_off">エラーが発生してもトースト ポップアップは表示されません</string>
@@ -133,14 +133,14 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
 
 あらゆる予期せぬイベントが通知されなくなります。"</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">デバッグログをエクスポート</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVancedデバッグログをクリップボードにコピーします</string>
-  <string name="revanced_debug_logs_disabled">デバッグログは無効です</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced のデバッグログをクリップボードにコピーします</string>
+  <string name="revanced_debug_logs_disabled">デバッグログが無効です</string>
   <string name="revanced_debug_logs_none_found">ログが見つかりませんでした</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">ログがコピーされました</string>
-  <string name="revanced_debug_logs_failed_to_export">ログのエクスポートに失敗しました：$s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">デバッグログをクリア</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">保存されているすべてのReVancedデバッグログをクリアします</string>
-  <string name="revanced_debug_logs_clear_toast">ログがクリアされました</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">ログをコピーしました</string>
+  <string name="revanced_debug_logs_failed_to_export">ログのエクスポートに失敗: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">デバッグログを消去する</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">保存されている ReVanced のデバッグログをすべて消去します</string>
+  <string name="revanced_debug_logs_clear_toast">ログが消去されました</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">アルバム情報を非表示</string>
@@ -264,8 +264,8 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_ask_section_summary_on">質問セクションは表示されません</string>
   <string name="revanced_hide_ask_section_summary_off">質問セクションは表示されます</string>
   <string name="revanced_hide_attributes_section_title">関連情報を非表示</string>
-  <string name="revanced_hide_attributes_section_summary_on">注目の場所 / ゲーム / 音楽 / 言及された人物セクションは表示されません</string>
-  <string name="revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 言及された人物セクションは表示されます</string>
+  <string name="revanced_hide_attributes_section_summary_on">注目の場所 / ゲーム / 音楽 / 言及されている人物セクションは表示されません</string>
+  <string name="revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 言及されている人物セクションは表示されます</string>
   <string name="revanced_hide_chapters_section_title">チャプター セクションを非表示</string>
   <string name="revanced_hide_chapters_section_summary_on">チャプター セクションは表示されません</string>
   <string name="revanced_hide_chapters_section_summary_off">チャプター セクションは表示されます</string>
@@ -456,9 +456,9 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_external_downloader_not_installed_warning">%s はインストールされていません。インストールしてください。</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
-  <string name="revanced_disable_precise_seeking_gesture_title">シーク ジェスチャーを無効にする</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_on">シークバーを上へスワイプしても、何も起こりません</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_off">シークバーを上へスワイプすると、再生位置を細かく調整できます</string>
+  <string name="revanced_disable_precise_seeking_gesture_title">精密シークモードを無効にする</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_on">シークバーを上へスワイプしても、精密シークモードになりません</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_off">シークバーを上へスワイプすると、精密シークモードになります</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">タップによるシークを有効にする</string>
@@ -494,6 +494,10 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_swipe_overlay_background_opacity_title">オーバーレイの背景の透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">透明度の範囲は 0-100 で、0 が透明です</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">スワイプ: 透明度の範囲は 0-100 です</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">明るさグラフの色</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">スワイプ中の明るさの現在値を視覚的に表示するグラフの色</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">音量グラフの色</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">スワイプ中の音量の現在値を視覚的に表示するグラフの色</string>
   <string name="revanced_swipe_text_overlay_size_title">オーバーレイのテキストサイズ</string>
   <string name="revanced_swipe_text_overlay_size_summary">スワイプ オーバーレイのテキストサイズ (1-30)</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">テキストサイズの範囲は 1-30 です</string>
@@ -713,17 +717,17 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_shorts_player_screen_title">ショート動画プレーヤー</string>
   <string name="revanced_shorts_player_screen_summary">ショート動画プレーヤーの設定</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">ホームフィードのショート動画を非表示</string>
+  <string name="revanced_hide_shorts_home_title">ホームフィードでショート動画を非表示</string>
   <string name="revanced_hide_shorts_home_summary_on">ショート動画はホームフィードや関連動画に表示されません</string>
   <string name="revanced_hide_shorts_home_summary_off">ショート動画はホームフィードや関連動画に表示されます</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">登録チャンネル フィードのショート動画を非表示</string>
+  <string name="revanced_hide_shorts_subscriptions_title">登録チャンネル フィードでショート動画を非表示</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">ショート動画は登録チャンネル フィードに表示されません</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">ショート動画は登録チャンネル フィードに表示されます</string>
-  <string name="revanced_hide_shorts_search_title">検索結果のショート動画を非表示</string>
+  <string name="revanced_hide_shorts_search_title">検索結果でショート動画を非表示</string>
   <string name="revanced_hide_shorts_search_summary_on">ショート動画は検索結果に表示されません</string>
   <string name="revanced_hide_shorts_search_summary_off">ショート動画は検索結果に表示されます</string>
-  <string name="revanced_hide_shorts_history_title">再生履歴のショート動画を非表示</string>
+  <string name="revanced_hide_shorts_history_title">再生履歴でショート動画を非表示</string>
   <string name="revanced_hide_shorts_history_summary_on">ショート動画は再生履歴に表示されません</string>
   <string name="revanced_hide_shorts_history_summary_off">ショート動画は再生履歴に表示されます</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
@@ -1334,13 +1338,13 @@ Automotive レイアウト
   </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">触覚フィードバック</string>
-  <string name="revanced_disable_haptic_feedback_summary">触覚フィードバックを変更</string>
+  <string name="revanced_disable_haptic_feedback_summary">触覚フィードバックの設定</string>
   <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの触覚フィードバックを無効にする</string>
   <string name="revanced_disable_haptic_feedback_chapters_summary_on">チャプターの触覚フィードバックは無効です</string>
   <string name="revanced_disable_haptic_feedback_chapters_summary_off">チャプターの触覚フィードバックは有効です</string>
-  <string name="revanced_disable_haptic_feedback_precise_seeking_title">正確なシークの触覚フィードバックを無効にする</string>
-  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">正確なシークの触覚フィードバックは無効になっています</string>
-  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">正確なシークの触覚フィードバックは有効です</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">精密シークモードの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">精密シークモードの触覚フィードバックは無効です</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">精密シークモードの触覚フィードバックは有効です</string>
   <string name="revanced_disable_haptic_feedback_seek_undo_title">シーク取り消しの触覚フィードバックを無効にする</string>
   <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">シーク取り消しの触覚フィードバックは無効です</string>
   <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">シーク取り消しの触覚フィードバックは有効です</string>
@@ -1513,9 +1517,9 @@ AVC は、最大解像度が 1080p であり、Opus オーディオ コーデッ
   <string name="revanced_other_category_title">その他の設定</string>
   <string name="revanced_client_ads_category_title">クライアントサイド広告</string>
   <string name="revanced_surestream_ads_category_title">サーバー側サレストリーム広告</string>
-  <string name="revanced_twitch_debug_title">デバッグ ログ</string>
-  <string name="revanced_twitch_debug_summary_on">デバッグ ログは有効です</string>
-  <string name="revanced_twitch_debug_summary_off">デバッグ ログは無効です</string>
+  <string name="revanced_twitch_debug_title">デバッグログ</string>
+  <string name="revanced_twitch_debug_summary_on">デバッグログは有効です</string>
+  <string name="revanced_twitch_debug_summary_off">デバッグログは無効です</string>
   </patch>
   </app>
 </resources>

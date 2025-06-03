@@ -1466,7 +1466,7 @@ Enabling this can unlock higher video qualities"</string>
         </patch>
         <patch id="video.speed.button.playbackSpeedButtonPatch">
             <string name="revanced_playback_speed_dialog_button_title">Show speed dialog button</string>
-            <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown</string>
+            <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown. Tap and hold to reset playback speed to default</string>
             <string name="revanced_playback_speed_dialog_button_summary_off">Button is not shown</string>
         </patch>
         <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1478,6 +1478,7 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s</string>
             <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_auto">Auto</string>
+            <string name="revanced_custom_playback_speeds_reset_toast">Playback speed reset to: %s</string>
             <string name="revanced_speed_tap_and_hold_title">Custom tap and hold speed</string>
             <string name="revanced_speed_tap_and_hold_summary">Playback speed between 0-8</string>
         </patch>

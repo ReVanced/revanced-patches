@@ -491,6 +491,10 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">تعتيم خلفية واجهة التمرير السريع</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">قيمة التعتيم بين 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">يجب أن يكون تعتيم التمرير السريع بين 0-100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">لون سطوع واجهة التمرير</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">لون شريط التقدم لعناصر التحكم في السطوع</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">لون مستوى صوت واجهة التمرير</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">لون شريط التقدم لعناصر التحكم في مستوى الصوت</string>
   <string name="revanced_swipe_text_overlay_size_title">حجم نص واجهة التمرير</string>
   <string name="revanced_swipe_text_overlay_size_summary">حجم النص لواجهة التمرير بين 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">يجب أن يكون حجم النص بين 1-30</string>

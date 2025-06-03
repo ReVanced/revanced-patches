@@ -491,6 +491,10 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <string name="revanced_swipe_overlay_background_opacity_title">Az áthúzás átfedésének átlátszósága</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Az átlátszóság értéke 0-100 között legyen</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A csúsztatás átlátszóságának 0 és 100 között kell lennie</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">A húzással előhívható fedőréteg fényerejének színe</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">A fényerő-szabályozókhoz tartozó folyamatjelző sáv színe</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">A húzással előhívható fedőréteg hangerejének színe</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">A hangerő-szabályozókhoz tartozó folyamatjelző sáv színe</string>
   <string name="revanced_swipe_text_overlay_size_title">Áthúzás fedvény szövegmérete</string>
   <string name="revanced_swipe_text_overlay_size_summary">Az áthúzás fedvény szövegmérete 1-30 között</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">A szövegméretnek 1-30 között kell lennie</string>

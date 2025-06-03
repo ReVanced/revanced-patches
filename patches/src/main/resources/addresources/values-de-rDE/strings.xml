@@ -484,6 +484,10 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_swipe_overlay_background_opacity_title">Bildschirmüberlagerung Deckkraft Swipe</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Deckkraftwert zwischen 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Die Wischdeckkraft muss zwischen 0 und 100 liegen</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Farbe der Helligkeit des Wisch-Overlays</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Die Farbe der Fortschrittsanzeige für Helligkeitsregler</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Farbe der Lautstärke des Wisch-Overlays</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Die Farbe der Fortschrittsanzeige für Lautstärkeregler</string>
   <string name="revanced_swipe_text_overlay_size_title">Textgröße der Wischgesten-Überlagerung</string>
   <string name="revanced_swipe_text_overlay_size_summary">Die Textgröße für die Wischgesten-Überlagerung zwischen 1 und 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Die Textgröße muss zwischen 1 und 30 liegen</string>
