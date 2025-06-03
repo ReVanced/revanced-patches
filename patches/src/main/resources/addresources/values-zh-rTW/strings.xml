@@ -1347,7 +1347,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">顯示速度對話方塊按鈕</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">已顯示按鈕</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">不顯示按鈕</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1359,6 +1358,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">自訂速度必須小於 %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">自訂播放速度格式不正確</string>
   <string name="revanced_custom_playback_speeds_auto">自動</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">已將播放速度重設為：%s</string>
   <string name="revanced_speed_tap_and_hold_title">自訂輕觸和按住的速度</string>
   <string name="revanced_speed_tap_and_hold_summary">播放速度介於 0 到 8 之間</string>
   </patch>

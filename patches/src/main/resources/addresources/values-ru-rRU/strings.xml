@@ -1398,7 +1398,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Показать кнопку скорости воспроизведения</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка выбора скорости воспроизведения показана</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка показана. Нажмите и удерживайте, чтобы сбросить скорость воспроизведения до значения по умолчанию</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1410,6 +1410,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Кастомные скорости должны быть меньше, чем %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Недопустимые кастомные скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_auto">Автоматически</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Скорость воспроизведения сброшена до: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Кастомная скорость при нажатии и удержании</string>
   <string name="revanced_speed_tap_and_hold_summary">Значение кастомной скорости воспроизведения при нажатии и удержании от 0 до 8</string>
   </patch>
