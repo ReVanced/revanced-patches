@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -52,10 +53,12 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
         // Make _value accessible so that it can be overridden in the extension.
-        accountAttributeFingerprint.classDef.publicizeField("value_")
+        val accountFingerprint by accountAttributeFingerprint
+        accountFingerprint.classDef.publicizeField("value_")
 
         // Override the attributes map in the getter method.
-        productStateProtoGetMapFingerprint.method.apply {
+        val productFingerprint by productStateProtoGetMapFingerprint
+        productFingerprint.method.apply {
             val getAttributesMapIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
             val attributesMapRegister = getInstruction<TwoRegisterInstruction>(getAttributesMapIndex).registerA
 
@@ -126,9 +129,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Hook the method which adds context menu items and return before adding if the item is a Premium ad.
         contextMenuViewModelAddItemFingerprint.match(contextMenuViewModelClassDef).method.apply {
             val contextMenuItemClassType = parameterTypes.first()
-            val contextMenuItemClassDef = classes.find {
-                it.type == contextMenuItemClassType
-            } ?: throw PatchException("Could not find context menu item class.")
+            val contextMenuItemClassDef = classBy(contextMenuItemClassType.toString())
 
             // The class returned by ContextMenuItem->getViewModel, which represents the actual context menu item.
             val viewModelClassType = getViewModelFingerprint.match(contextMenuItemClassDef).originalMethod.returnType

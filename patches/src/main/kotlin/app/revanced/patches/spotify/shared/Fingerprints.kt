@@ -28,7 +28,8 @@ private var isLegacyAppTarget: Boolean? = null
 context(BytecodePatchContext)
 internal val IS_SPOTIFY_LEGACY_APP_TARGET get(): Boolean {
     if (isLegacyAppTarget == null) {
-        isLegacyAppTarget = mainActivityOnCreateHook.fingerprint.originalClassDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY
+        isLegacyAppTarget = mainActivityOnCreateHook.invoke()
+            .fingerprint.originalClassDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY
     }
     return isLegacyAppTarget!!
 }
