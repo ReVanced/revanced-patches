@@ -1,3 +1,10 @@
+# [5.26.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.4...v5.26.0-dev.5) (2025-06-03)
+
+
+### Bug Fixes
+
+* **Spotify - Custom theme:** Apply accent color in more places ([#5039](https://github.com/ReVanced/revanced-patches/issues/5039)) ([9357887](https://github.com/ReVanced/revanced-patches/commit/9357887b6fca7aaf34dfb0163645b6a998e1db76))
+
 # [5.26.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.3...v5.26.0-dev.4) (2025-06-03)
 
 
