@@ -79,13 +79,11 @@ val changeLyricsProviderPatch = bytecodePatch(
 
             MutableMethod(method).apply {
                 name = "patch_getCustomLyricsProviderHttpClient"
-                classDef.methods.add(this)
-            }.also {
-                method.addInstruction(
+                addInstruction(
                     urlBuilderIndex - 1,
                     "const-string v$urlRegister, \"$lyricsProviderHost\""
                 )
-            }
+            }.apply(classDef.methods::add)
         }
 
         //endregion
