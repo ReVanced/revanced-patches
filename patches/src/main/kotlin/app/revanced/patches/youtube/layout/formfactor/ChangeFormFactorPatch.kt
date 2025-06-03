@@ -2,6 +2,8 @@ package app.revanced.patches.youtube.layout.formfactor
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.fieldAccess
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -11,6 +13,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ChangeFormFactorPatch;"
@@ -50,6 +53,20 @@ val changeFormFactorPatch = bytecodePatch(
         )
 
         hookNavigationButtonCreated(EXTENSION_CLASS_DESCRIPTOR)
+
+        val createPlayerRequestBodyWithModelFingerprint by fingerprint {
+            accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+            returns("L")
+            parameters()
+            instructions(
+                fieldAccess(smali = "Landroid/os/Build;->MODEL:Ljava/lang/String;"),
+                fieldAccess(
+                    definingClass = { formFactorEnumConstructorFingerprint.originalClassDef.type },
+                    type = { "I" },
+                    maxAfter = 50
+                )
+            )
+        }
 
         createPlayerRequestBodyWithModelFingerprint.let {
             it.method.apply {

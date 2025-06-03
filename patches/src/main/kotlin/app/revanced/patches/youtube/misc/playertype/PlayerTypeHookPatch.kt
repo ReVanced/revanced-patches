@@ -3,9 +3,13 @@ package app.revanced.patches.youtube.misc.playertype
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.fieldAccess
+import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
@@ -32,6 +36,22 @@ val playerTypeHookPatch = bytecodePatch(
                     "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->onShortsCreate(Landroid/view/View;)V"
                 )
             }
+        }
+
+        val videoStateFingerprint by fingerprint {
+            accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+            returns("V")
+            parameters("Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;")
+            instructions(
+                literal(1),
+                literal(literal = 0, maxAfter = 10),
+                // Obfuscated parameter field name.
+                fieldAccess(
+                    definingClass = { "Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;"},
+                    type = { videoStateEnumFingerprint.originalClassDef.type },
+                    maxAfter = 5
+                )
+            )
         }
 
         videoStateFingerprint.let {
