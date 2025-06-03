@@ -38,7 +38,7 @@ val unlockPremiumPatch = bytecodePatch(
         // so for now this is a dependent of this patch.
         //
         // FIXME: Modifying string resources (such as adding patch strings)
-        //  is currently failing with ReVanced manager.
+        // is currently failing with ReVanced Manager.
         // checkEnvironmentPatch,
     )
 
