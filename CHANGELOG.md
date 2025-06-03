@@ -1,3 +1,10 @@
+# [5.26.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.5...v5.26.0-dev.6) (2025-06-03)
+
+
+### Features
+
+* **Sync for Reddit:** Add `Fix post thumbnails` patch ([e1ec30c](https://github.com/ReVanced/revanced-patches/commit/e1ec30c5b07560a39d7b8ab293b0c1f39fd59ef2))
+
 # [5.26.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.4...v5.26.0-dev.5) (2025-06-03)
 
 
