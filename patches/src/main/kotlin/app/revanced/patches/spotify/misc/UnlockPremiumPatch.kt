@@ -78,7 +78,7 @@ val unlockPremiumPatch = bytecodePatch(
 
         if (IS_SPOTIFY_LEGACY_APP_TARGET) {
             Logger.getLogger(this::class.java.name).warning(
-                "Patching a legacy Spotify version. Patch functionality may be limited."
+                "Patching a legacy Spotify version.  Patch functionality may be limited."
             )
             return@execute
         }

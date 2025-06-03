@@ -3,15 +3,13 @@ package app.revanced.patches.spotify.misc.lyrics
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -66,50 +64,45 @@ val changeLyricsProviderPatch = bytecodePatch(
             return@execute
         }
 
-        // region Create a modified copy of the HTTP client builder method with the custom lyrics provider URL.
+        val httpClientBuilderMethod = httpClientBuilderFingerprint.originalMethod
 
-        val patchedHttpClientBuilderMethod = with(httpClientBuilderFingerprint) {
-            val urlBuilderIndex = method.indexOfFirstInstructionOrThrow {
+        // region Create a modified copy of the HTTP client builder method with the custom lyrics provider host.
+        val patchedHttpClientBuilderMethod = with(httpClientBuilderMethod) {
+            val invokeBuildUrlIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.returnType == "Lokhttp3/HttpUrl;"
             }
+            val setUrlBuilderHostIndex = indexOfFirstInstructionReversedOrThrow(invokeBuildUrlIndex) {
+                val reference = getReference<MethodReference>()
+                reference?.definingClass == "Lokhttp3/HttpUrl${"$"}Builder;" &&
+                        reference.parameterTypes.firstOrNull() == "Ljava/lang/String;"
+            }
+            val hostRegister = getInstruction<FiveRegisterInstruction>(setUrlBuilderHostIndex).registerD
 
-            val urlRegister = method
-                .getInstruction<FiveRegisterInstruction>(urlBuilderIndex - 1)
-                .registerD
-
-            MutableMethod(method).apply {
-                name = "patch_getCustomLyricsProviderHttpClient"
+            MutableMethod(this).apply {
+                name = "rv_getCustomLyricsProviderHttpClient"
                 addInstruction(
-                    urlBuilderIndex - 1,
-                    "const-string v$urlRegister, \"$lyricsProviderHost\""
+                    setUrlBuilderHostIndex,
+                    "const-string v$hostRegister, \"$lyricsProviderHost\""
                 )
-            }.apply(classDef.methods::add)
-        }
 
+                // Add the patched method to the class.
+                httpClientBuilderFingerprint.classDef.methods.add(this)
+            }
+        }
         //endregion
 
         // region Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
-        val httpClientBuilderMethod = httpClientBuilderFingerprint.originalMethod
-        fingerprint {
-            returns(httpClientBuilderMethod.returnType)
-            parameters()
-            custom { method, _ ->
-                method.indexOfFirstInstruction {
-                    getReference<MethodReference>() == httpClientBuilderMethod
-                } >= 0
-            }
-        }.method.apply {
-            val getLyricsHttpClientIndex = indexOfFirstInstructionOrThrow() {
+        getLyricsHttpClientFingerprint(httpClientBuilderMethod).method.apply {
+            val getLyricsHttpClientIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>() == httpClientBuilderMethod
             }
-
             val getLyricsHttpClientInstruction = getInstruction<BuilderInstruction35c>(getLyricsHttpClientIndex)
 
-            // Call the modified method.
+            // Replace the original method call with a call to our patched method.
             replaceInstruction(
                 getLyricsHttpClientIndex,
                 BuilderInstruction35c(
-                    Opcode.INVOKE_STATIC,
+                    getLyricsHttpClientInstruction.opcode,
                     getLyricsHttpClientInstruction.registerCount,
                     getLyricsHttpClientInstruction.registerC,
                     getLyricsHttpClientInstruction.registerD,
@@ -118,14 +111,13 @@ val changeLyricsProviderPatch = bytecodePatch(
                     getLyricsHttpClientInstruction.registerG,
                     ImmutableMethodReference(
                         patchedHttpClientBuilderMethod.definingClass,
-                        patchedHttpClientBuilderMethod.name, // Only difference to the original method.
+                        patchedHttpClientBuilderMethod.name, // Only difference from the original method.
                         patchedHttpClientBuilderMethod.parameters,
                         patchedHttpClientBuilderMethod.returnType
                     )
                 )
             )
         }
-
         //endregion
     }
 }
