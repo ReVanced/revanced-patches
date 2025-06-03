@@ -26,16 +26,16 @@ import java.util.logging.Logger
 val changeLyricsProviderPatch = bytecodePatch(
     name = "Change lyrics provider",
     description = "Changes the lyrics provider to a custom one.",
-    use = false
+    use = false,
 ) {
     compatibleWith("com.spotify.music")
 
     val lyricsProviderHost by stringOption(
         key = "lyricsProviderHost",
+        default = "lyrics.natanchiodi.fr",
         title = "Lyrics provider host",
         description = "The domain name or IP address of a custom lyrics provider.",
         required = false,
-        default = "lyrics.natanchiodi.fr"
     ) {
         // Fix bad data if the user enters a URL (https://whatever.com/path).
         val host = try {
