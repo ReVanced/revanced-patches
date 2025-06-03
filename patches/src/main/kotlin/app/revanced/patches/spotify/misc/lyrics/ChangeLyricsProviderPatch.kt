@@ -7,8 +7,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
-import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
+import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -31,10 +30,6 @@ val changeLyricsProviderPatch = bytecodePatch(
     use = true
 ) {
     compatibleWith("com.spotify.music")
-
-    dependsOn(
-        sharedExtensionPatch
-    )
 
     val lyricsProviderHost by stringOption(
         key = "lyricsProviderHost",
@@ -66,7 +61,7 @@ val changeLyricsProviderPatch = bytecodePatch(
     }
 
     execute {
-        if(IS_SPOTIFY_LEGACY_APP_TARGET) {
+        if (IS_SPOTIFY_LEGACY_APP_TARGET) {
             Logger.getLogger(this::class.java.name).severe(
                 "Change lyrics provider patch is not supported for this target version."
             )
