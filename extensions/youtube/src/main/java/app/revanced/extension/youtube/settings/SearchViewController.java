@@ -60,8 +60,8 @@ public class SearchViewController {
         background.setCornerRadius(28 * context.getResources().getDisplayMetrics().density); // 28dp corner radius.
         int baseColor = ThemeHelper.getBackgroundColor();
         int adjustedColor = ThemeHelper.isDarkTheme()
-                ? ThemeHelper.adjustColorBrightness(baseColor, 1.11f)  // Lighten for dark theme.
-                : ThemeHelper.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
+                ? Utils.adjustColorBrightness(baseColor, 1.11f)  // Lighten for dark theme.
+                : Utils.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
         background.setColor(adjustedColor);
         return background;
     }

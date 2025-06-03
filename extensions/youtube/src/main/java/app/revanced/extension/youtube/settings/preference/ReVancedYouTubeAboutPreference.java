@@ -9,11 +9,11 @@ import app.revanced.extension.youtube.ThemeHelper;
 @SuppressWarnings("unused")
 public class ReVancedYouTubeAboutPreference extends ReVancedAboutPreference {
 
-    public int getLightColor() {
+    public static int getLightColor() {
         return ThemeHelper.getLightThemeColor();
     }
 
-    public int getDarkColor() {
+    public static int getDarkColor() {
         return ThemeHelper.getDarkThemeColor();
     }
 

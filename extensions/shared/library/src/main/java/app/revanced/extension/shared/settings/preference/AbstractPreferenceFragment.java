@@ -1,13 +1,29 @@
 package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.shared.Utils.dipToPixels;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.*;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -106,6 +122,161 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         Utils.setPreferenceTitlesToMultiLineIfNeeded(screen);
     }
 
+    private static Dialog createCustomDialog(Context context, String title, String message, String okButtonText,
+                                             Runnable onOkClick, Runnable onCancelClick) {
+        Logger.printDebug(() -> "Creating custom dialog with title: " + title);
+
+        // Use a theme to remove default dialog styling.
+        Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
+
+        // Create main layout
+        LinearLayout mainLayout = new LinearLayout(context);
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
+
+        // Preset size constants.
+        final int dip4 = dipToPixels(4);
+        final int dip8 = dipToPixels(8);
+        final int dip28 = dipToPixels(28); // Padding for mainLayout.
+        final int dip36 = dipToPixels(36); // Height for buttons.
+
+        mainLayout.setPadding(dip28, dip28, dip28, dip28);
+        // Set rounded rectangle background with black color.
+        ShapeDrawable mainBackground = new ShapeDrawable(new RoundRectShape(
+                createCornerRadii(28), null, null));
+        mainBackground.getPaint().setColor(Utils.isDarkModeEnabled()
+                ? ReVancedAboutPreference.getDarkColor()
+                : ReVancedAboutPreference.getLightColor());
+        mainLayout.setBackground(mainBackground);
+
+        // Title.
+        if (!TextUtils.isEmpty(title)) {
+            TextView titleView = new TextView(context);
+            titleView.setText(title);
+            titleView.setTypeface(Typeface.DEFAULT_BOLD);
+            titleView.setTextSize(20);
+            titleView.setTextColor(Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
+            titleView.setPadding(0, 0, 0, dip8);
+            mainLayout.addView(titleView);
+        }
+
+        // Message.
+        TextView messageView = new TextView(context);
+        messageView.setText(message != null ? message : "");
+        messageView.setTextSize(14);
+        messageView.setTextColor(Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
+        messageView.setPadding(0, 0, 0, dip8);
+        mainLayout.addView(messageView);
+
+        // Button container.
+        LinearLayout buttonContainer = new LinearLayout(context);
+        buttonContainer.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams buttonContainerParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        buttonContainerParams.setMargins(0, dip8, 0, 0);
+        buttonContainer.setLayoutParams(buttonContainerParams);
+        buttonContainer.setGravity(Gravity.CENTER);
+
+        // Cancel Button.
+        if (onCancelClick != null) {
+            Button cancelButton = new Button(context, null, 0);
+            cancelButton.setText(context.getString(android.R.string.cancel));
+            cancelButton.setTextSize(14);
+            cancelButton.setAllCaps(false); // Normal case text.
+            cancelButton.setSingleLine(true); // Ensure single line for truncation.
+            cancelButton.setEllipsize(TextUtils.TruncateAt.END); // Truncate with ellipsis.
+            cancelButton.setGravity(Gravity.CENTER); // Center text vertically and horizontally.
+            ShapeDrawable cancelBackground = new ShapeDrawable(new RoundRectShape(
+                    createCornerRadii(20), null, null));
+            final int cancelButtonBackgroundColor = Utils.isDarkModeEnabled()
+                    ? Utils.adjustColorBrightness(Color.BLACK, 1.10f)
+                    : Utils.adjustColorBrightness(Color.WHITE, 0.95f);
+            cancelBackground.getPaint().setColor(cancelButtonBackgroundColor);
+            cancelButton.setBackground(cancelBackground);
+            cancelButton.setTextColor(Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
+            cancelButton.setPadding(0, 0, 0, 0);
+            LinearLayout.LayoutParams cancelParams = new LinearLayout.LayoutParams(
+                    0, // Weight will control width.
+                    dip36 // Exact height of 36dp.
+            );
+            cancelParams.weight = 1; // Equal weight for horizontal stretching
+            cancelParams.setMargins(0, 0, dip4, 0); // 4dp right margin (half of 8dp total).
+            cancelButton.setLayoutParams(cancelParams);
+            cancelButton.setOnClickListener(v -> {
+                onCancelClick.run();
+                dialog.dismiss();
+            });
+            buttonContainer.addView(cancelButton);
+        }
+
+        // OK Button.
+        Button okButton = new Button(context, null, 0);
+        String okDialogButtonText = okButtonText != null ? okButtonText : context.getString(android.R.string.ok);
+        okButton.setText(okDialogButtonText);
+        okButton.setTextSize(14);
+        okButton.setAllCaps(false); // Normal case text.
+        okButton.setSingleLine(true); // Ensure single line for truncation.
+        okButton.setEllipsize(TextUtils.TruncateAt.END); // Truncate with ellipsis.
+        okButton.setGravity(Gravity.CENTER); // Center text vertically and horizontally.
+        ShapeDrawable okBackground = new ShapeDrawable(new RoundRectShape(
+                createCornerRadii(20), null, null));
+        okBackground.getPaint().setColor(Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
+        okButton.setBackground(okBackground);
+        okButton.setTextColor(Utils.isDarkModeEnabled() ? Color.BLACK : Color.WHITE);
+        okButton.setPadding(0, 0, 0, 0); // Remove all padding to control height precisely.
+        LinearLayout.LayoutParams okParams = new LinearLayout.LayoutParams(
+                0, // Weight will control width
+                dip36 // Exact height of 36dp
+        );
+        okParams.weight = 1; // Equal weight for horizontal stretching
+        okParams.setMargins(dip4, 0, 0, 0); // 4dp left margin (half of 8dp total).
+        okButton.setLayoutParams(okParams);
+        okButton.setOnClickListener(v -> {
+            if (onOkClick != null) {
+                onOkClick.run();
+            }
+            dialog.dismiss();
+        });
+        buttonContainer.addView(okButton);
+
+        mainLayout.addView(buttonContainer);
+        dialog.setContentView(mainLayout);
+
+        // Set dialog window attributes.
+        Window window = dialog.getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams params = window.getAttributes();
+            params.gravity = Gravity.CENTER;
+            int portraitWidth = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.9);
+            if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                portraitWidth = (int) Math.min(
+                        portraitWidth,
+                        context.getResources().getDisplayMetrics().heightPixels * 0.9);
+            }
+            params.width = portraitWidth;
+            params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            window.setAttributes(params);
+            window.setBackgroundDrawable(null); // Remove default dialog background.
+        }
+
+        return dialog;
+    }
+
+    /**
+     * Creates an array of corner radii for a rounded rectangle shape.
+     *
+     * @param context The context to convert dp to pixels.
+     * @param dp The radius in density-independent pixels (dp) to apply to all corners.
+     * @return An array of eight float values representing the corner radii
+     * (top-left, top-right, bottom-right, bottom-left).
+     */
+    private static float[] createCornerRadii(float dp) {
+        final float radius = dipToPixels(dp);
+        return new float[]{radius, radius, radius, radius, radius, radius, radius, radius};
+    }
+
     private void showSettingUserDialogConfirmation(Preference pref, Setting<?> setting) {
         Utils.verifyOnMainThread();
 
@@ -116,10 +287,11 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
         showingUserDialogMessage = true;
 
-        new AlertDialog.Builder(context)
-                .setTitle(confirmDialogTitle)
-                .setMessage(Objects.requireNonNull(setting.userDialogMessage).toString())
-                .setPositiveButton(android.R.string.ok, (dialog, id) -> {
+        Dialog dialog = createCustomDialog(context,
+                confirmDialogTitle,
+                Objects.requireNonNull(setting.userDialogMessage).toString(),
+                null,
+                () -> {
                     // User confirmed, save to the Setting.
                     updatePreference(pref, setting, true, false);
 
@@ -129,23 +301,19 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     if (setting.rebootApp) {
                         showRestartDialog(context);
                     }
-                })
-                .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
-                    // Restore whatever the setting was before the change.
-                    updatePreference(pref, setting, true, true);
-                })
-                .setOnDismissListener(dialog -> {
-                    showingUserDialogMessage = false;
-                })
-                .setCancelable(false)
-                .show();
+                },
+                () -> updatePreference(pref, setting, true, true) // Restore whatever the setting was before the change.
+        );
+
+        dialog.setOnDismissListener(d -> showingUserDialogMessage = false);
+        dialog.show();
     }
 
     /**
      * Updates all Preferences values and their availability using the current values in {@link Setting}.
      */
     protected void updateUIToSettingValues() {
-        updatePreferenceScreen(getPreferenceScreen(), true,true);
+        updatePreferenceScreen(getPreferenceScreen(), true, true);
     }
 
     /**
@@ -284,13 +452,15 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             restartDialogButtonText = str("revanced_settings_restart");
         }
 
-        new AlertDialog.Builder(context)
-                .setMessage(restartDialogTitle)
-                .setPositiveButton(restartDialogButtonText, (dialog, id)
-                        -> Utils.restartApp(context))
-                .setNegativeButton(android.R.string.cancel, null)
-                .setCancelable(false)
-                .show();
+        Dialog dialog = createCustomDialog(context,
+                restartDialogTitle,
+                null,
+                restartDialogButtonText,
+                () -> Utils.restartApp(context),
+                () -> {} // Cancel action just dismisses the dialog
+        );
+
+        dialog.show();
     }
 
     @SuppressLint("ResourceType")

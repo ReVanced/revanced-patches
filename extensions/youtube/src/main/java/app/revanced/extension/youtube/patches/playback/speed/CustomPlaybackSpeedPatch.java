@@ -577,8 +577,8 @@ public class CustomPlaybackSpeedPatch {
         float darkThemeFactor = isHandleBar ? 1.25f : 1.115f; // 1.25f for handleBar, 1.115f for others in dark theme.
         float lightThemeFactor = isHandleBar ? 0.9f : 0.95f; // 0.9f for handleBar, 0.95f for others in light theme.
         return ThemeHelper.isDarkTheme()
-                ? ThemeHelper.adjustColorBrightness(baseColor, darkThemeFactor)  // Lighten for dark theme.
-                : ThemeHelper.adjustColorBrightness(baseColor, lightThemeFactor); // Darken for light theme.
+                ? Utils.adjustColorBrightness(baseColor, darkThemeFactor)  // Lighten for dark theme.
+                : Utils.adjustColorBrightness(baseColor, lightThemeFactor); // Darken for light theme.
     }
 }
 
