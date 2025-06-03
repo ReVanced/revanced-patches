@@ -2,64 +2,18 @@ package app.revanced.patches.spotify.layout.theme
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.*
-import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/layout/theme/CustomThemePatch;"
-
-internal val spotifyBackgroundColor = stringOption(
-    key = "backgroundColor",
-    default = "@android:color/black",
-    title = "Primary background color",
-    description = "The background color. Can be a hex color or a resource reference.",
-    required = true,
-)
-
-internal val overridePlayerGradientColor = booleanOption(
-    key = "overridePlayerGradientColor",
-    default = false,
-    title = "Override player gradient color",
-    description = "Apply primary background color to the player gradient color, which changes dynamically with the song.",
-    required = false
-)
-
-internal val spotifyBackgroundColorSecondary = stringOption(
-    key = "backgroundColorSecondary",
-    default = "#FF121212",
-    title = "Secondary background color",
-    description =
-        "The secondary background color. (e.g. playlist list in home, player artist, song credits). Can be a hex color or a resource reference.",
-    required = true,
-)
-
-internal val spotifyAccentColor = stringOption(
-    key = "accentColor",
-    default = "#FF1ED760",
-    title = "Accent color",
-    description = "The accent color ('Spotify green' by default). Can be a hex color or a resource reference.",
-    required = true,
-)
-
-internal val spotifyAccentColorPressed = stringOption(
-    key = "accentColorPressed",
-    default = "#FF169C46",
-    title = "Pressed dark theme accent color",
-    description =
-        "The color when accented buttons are pressed, by default slightly darker than accent. Can be a hex color or a resource reference.",
-    required = true,
-)
 
 private val customThemeBytecodePatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
@@ -71,60 +25,60 @@ private val customThemeBytecodePatch = bytecodePatch {
             return@execute
         }
 
-        fun MutableMethod.addColorChangeInstructions(literal: Long, colorString: String) {
-            val index = indexOfFirstLiteralInstructionOrThrow(literal)
-            val register = getInstruction<OneRegisterInstruction>(index).registerA
+        val colorSpaceUtilsClassDef = colorSpaceUtilsClassFingerprint.originalClassDef
+
+        // Hook a util method that converts ARGB to RGBA in the sRGB color space to replace hardcoded accent colors.
+        convertArgbToRgbaFingerprint.match(colorSpaceUtilsClassDef).method.apply {
+            addInstructions(
+                0,
+                """
+                    long-to-int p0, p0
+                    invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I
+                    move-result p0
+                    int-to-long p0, p0
+                """
+            )
+        }
+
+        // Lottie JSON parser method. It parses the JSON Lottie animation into its own class,
+        // including the solid color of it.
+        parseLottieJsonFingerprint.method.apply {
+            val invokeParseColorIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.definingClass == "Landroid/graphics/Color;"
+                        && reference.name == "parseColor"
+            }
+            val parsedColorRegister = getInstruction<OneRegisterInstruction>(invokeParseColorIndex + 1).registerA
+
+            val replaceColorDescriptor =  "$EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I"
 
             addInstructions(
-                index + 1,
+                invokeParseColorIndex + 2,
                 """
-                    const-string v$register, "$colorString"
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getThemeColor(Ljava/lang/String;)J
-                    move-result-wide v$register
+                    # Use invoke-static/range because the register number is too large.
+                    invoke-static/range { v$parsedColorRegister .. v$parsedColorRegister }, $replaceColorDescriptor
+                    move-result v$parsedColorRegister
                 """
             )
         }
 
-        val encoreColorsClassName = with(encoreThemeFingerprint.originalMethod) {
-            // "Encore" colors are referenced right before the value of POSITIVE_INFINITY is returned.
-            // Begin the instruction find using the index of where POSITIVE_INFINITY is set into the register.
-            val positiveInfinityIndex = indexOfFirstLiteralInstructionOrThrow(
-                Float.POSITIVE_INFINITY
-            )
-            val encoreColorsFieldReferenceIndex = indexOfFirstInstructionReversedOrThrow(
-                positiveInfinityIndex,
-                Opcode.SGET_OBJECT
-            )
-
-            getInstruction(encoreColorsFieldReferenceIndex)
-                .getReference<FieldReference>()!!.definingClass
-        }
-
-        val encoreColorsConstructorFingerprint = fingerprint {
-            accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-            custom { method, classDef ->
-                classDef.type == encoreColorsClassName &&
-                        method.containsLiteralInstruction(PLAYLIST_BACKGROUND_COLOR_LITERAL)
+        // Lottie animated color parser.
+        parseAnimatedColorFingerprint.method.apply {
+            val invokeArgbIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.definingClass == "Landroid/graphics/Color;"
+                        && reference.name == "argb"
             }
+            val argbColorRegister = getInstruction<OneRegisterInstruction>(invokeArgbIndex + 1).registerA
+
+            addInstructions(
+                invokeArgbIndex + 2,
+                """
+                    invoke-static { v$argbColorRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I
+                    move-result v$argbColorRegister
+                """
+            )
         }
-
-        val backgroundColor by spotifyBackgroundColor
-        val backgroundColorSecondary by spotifyBackgroundColorSecondary
-
-        encoreColorsConstructorFingerprint.method.apply {
-            addColorChangeInstructions(PLAYLIST_BACKGROUND_COLOR_LITERAL, backgroundColor!!)
-            addColorChangeInstructions(SHARE_MENU_BACKGROUND_COLOR_LITERAL, backgroundColorSecondary!!)
-        }
-
-        homeCategoryPillColorsFingerprint.method.addColorChangeInstructions(
-            HOME_CATEGORY_PILL_COLOR_LITERAL,
-            backgroundColorSecondary!!
-        )
-
-        settingsHeaderColorFingerprint.method.addColorChangeInstructions(
-            SETTINGS_HEADER_COLOR_LITERAL,
-            backgroundColorSecondary!!
-        )
     }
 }
 
@@ -138,11 +92,48 @@ val customThemePatch = resourcePatch(
 
     dependsOn(customThemeBytecodePatch)
 
-    val backgroundColor by spotifyBackgroundColor()
-    val overridePlayerGradientColor by overridePlayerGradientColor()
-    val backgroundColorSecondary by spotifyBackgroundColorSecondary()
-    val accentColor by spotifyAccentColor()
-    val accentColorPressed by spotifyAccentColorPressed()
+    val backgroundColor by stringOption(
+        key = "backgroundColor",
+        default = "@android:color/black",
+        title = "Primary background color",
+        description = "The background color. Can be a hex color or a resource reference.",
+        required = true,
+    )
+
+    val overridePlayerGradientColor by booleanOption(
+        key = "overridePlayerGradientColor",
+        default = false,
+        title = "Override player gradient color",
+        description =
+            "Apply primary background color to the player gradient color, which changes dynamically with the song.",
+        required = false,
+    )
+
+    val backgroundColorSecondary by stringOption(
+        key = "backgroundColorSecondary",
+        default = "#FF121212",
+        title = "Secondary background color",
+        description = "The secondary background color. (e.g. playlist list in home, player artist, song credits). " +
+                "Can be a hex color or a resource reference.\",",
+        required = true,
+    )
+
+    val accentColor by stringOption(
+        key = "accentColor",
+        default = "#FF1ED760",
+        title = "Accent color",
+        description = "The accent color ('Spotify green' by default). Can be a hex color or a resource reference.",
+        required = true,
+    )
+
+    val accentColorPressed by stringOption(
+        key = "accentColorPressed",
+        default = "#FF1ABC54",
+        title = "Pressed dark theme accent color",
+        description = "The color when accented buttons are pressed, by default slightly darker than accent. " +
+                "Can be a hex color or a resource reference.",
+        required = true,
+    )
 
     execute {
         document("res/values/colors.xml").use { document ->
@@ -161,34 +152,41 @@ val customThemePatch = resourcePatch(
                 }
 
                 node.textContent = when (name) {
+                    // Main background color.
+                    "gray_7",
+                    // Left sidebar background color in tablet mode.
+                    "gray_10",
                     // Gradient next to user photo and "All" in home page.
                     "dark_base_background_base",
-                    // Main background.
-                    "gray_7",
-                    // Left sidebar background in tablet mode.
-                    "gray_10",
-                    // "Add account", "Settings and privacy", "View Profile" left sidebar background.
+                    // "Add account", "Settings and privacy", "View Profile" left sidebar background color.
                     "dark_base_background_elevated_base",
                     // Song/player gradient start/end color.
                     "bg_gradient_start_color", "bg_gradient_end_color",
-                    // Login screen background and gradient start.
+                    // Login screen background color and gradient start.
                     "sthlm_blk", "sthlm_blk_grad_start",
                     // Misc.
                     "image_placeholder_color",
                         -> backgroundColor
 
-                    // Track credits, merch background in song player.
+                    // "About the artist" background color in song player.
+                    "gray_15",
+                    // Track credits, merch background color in song player.
                     "track_credits_card_bg", "benefit_list_default_color", "merch_card_background",
                     // Playlist list background in home page.
                     "opacity_white_10",
-                    // "About the artist" background in song player.
-                    "gray_15",
                     // "What's New" pills background.
                     "dark_base_background_tinted_highlight"
                         -> backgroundColorSecondary
 
-                    "dark_brightaccent_background_base", "dark_base_text_brightaccent", "green_light" -> accentColor
-                    "dark_brightaccent_background_press" -> accentColorPressed
+                    "dark_brightaccent_background_base",
+                    "dark_base_text_brightaccent",
+                    "green_light",
+                    "spotify_green_157"
+                        -> accentColor
+
+                    "dark_brightaccent_background_press"
+                        -> accentColorPressed
+
                     else -> continue
                 }
             }
@@ -198,8 +196,8 @@ val customThemePatch = resourcePatch(
         document("res/drawable/start_screen_gradient.xml").use { document ->
             val gradientNode = document.getElementsByTagName("gradient").item(0) as Element
 
-            gradientNode.setAttribute("android:startColor", backgroundColor)
-            gradientNode.setAttribute("android:endColor", backgroundColor)
+            gradientNode.setAttribute("android:startColor", "@color/gray_7")
+            gradientNode.setAttribute("android:endColor", "@color/gray_7")
         }
     }
 }
