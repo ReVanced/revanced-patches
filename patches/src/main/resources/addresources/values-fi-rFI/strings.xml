@@ -1398,7 +1398,6 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Näytä nopeuden valintapainike</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Painike näytetään</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Painiketta ei näytetä</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">

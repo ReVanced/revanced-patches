@@ -1396,7 +1396,7 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Shfaq butonin e dialogut të shpejtësisë</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Butoni shfaqet</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Butoni shfaqet. Prekni dhe mbani për të rivendosur shpejtësinë e riprodhimit në atë të parazgjedhur</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Butoni nuk shfaqet</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1408,6 +1408,7 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_custom_playback_speeds_invalid">Shpejtësitë e personalizuara duhet të jenë më të vogla se %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Shpejtësi të pavlefshme të personalizuar të riprodhimit</string>
   <string name="revanced_custom_playback_speeds_auto">Automatik</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Shpejtësia e riprodhimit u rivendos në: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Shpejtësia sipas dëshirës së përdoruesit gjatë përdorimit</string>
   <string name="revanced_speed_tap_and_hold_summary">Shpejtësi e riprodhimit midis 0 dhe 8</string>
   </patch>

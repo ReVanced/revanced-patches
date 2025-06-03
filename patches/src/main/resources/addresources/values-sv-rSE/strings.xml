@@ -1397,7 +1397,7 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Visa hastighetsdialogruta knapp</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Knappen är synlig</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Knappen visas. Tryck och håll ned för att återställa uppspelningshastigheten till standard.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Knappen är dold</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1409,6 +1409,7 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_custom_playback_speeds_invalid">Anpassade hastigheter måste vara mindre än %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ogiltiga anpassade uppspelningshastigheter</string>
   <string name="revanced_custom_playback_speeds_auto">Automatiskt</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Uppspelningshastighet återställd till: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Anpassad hastighet vid tryck och håll</string>
   <string name="revanced_speed_tap_and_hold_summary">Uppspelningshastighet mellan 0 och 8.</string>
   </patch>

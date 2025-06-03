@@ -1396,7 +1396,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">แสดงปุ่มกล่องโต้ตอบความเร็ว</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">แสดงปุ่ม</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">ปุ่มจะปรากฏขึ้น แตะค้างไว้เพื่อรีเซ็ตความเร็วในการเล่นเป็นค่าเริ่มต้น</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">ไม่แสดงปุ่ม</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1408,6 +1408,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_custom_playback_speeds_invalid">ความเร็วที่กําหนดเองต้องน้อยกว่า %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">ความเร็วในการเล่นที่กําหนดเองไม่ถูกต้อง</string>
   <string name="revanced_custom_playback_speeds_auto">อัตโนมัติ</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">ความเร็วในการเล่นรีเซ็ตเป็น: %s</string>
   <string name="revanced_speed_tap_and_hold_title">**Custom tap and hold speed**</string>
   <string name="revanced_speed_tap_and_hold_summary">ความเร็วในการเล่นระหว่าง 0-8</string>
   </patch>
