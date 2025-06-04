@@ -143,12 +143,14 @@ public final class ShortsFilter extends Filter {
 
         StringFilterGroup likeButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_LIKE_BUTTON,
-                "shorts_like_button.eml"
+                "shorts_like_button.eml",
+                "reel_like_button.eml"
         );
 
         StringFilterGroup dislikeButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_DISLIKE_BUTTON,
-                "shorts_dislike_button.eml"
+                "shorts_dislike_button.eml",
+                "reel_dislike_button.eml"
         );
 
         joinButton = new StringFilterGroup(
@@ -168,12 +170,13 @@ public final class ShortsFilter extends Filter {
 
         shortsActionBar = new StringFilterGroup(
                 null,
-                "shorts_action_bar.eml"
+                "shorts_action_bar.eml",
+                "reel_action_bar.eml"
         );
 
         actionButton = new StringFilterGroup(
                 null,
-                // Can be simply 'button.eml' or 'shorts_video_action_button.eml'
+                // Can be simply 'button.eml', 'shorts_video_action_button.eml' or 'reel_action_button.eml'
                 "button.eml"
         );
 
@@ -195,15 +198,18 @@ public final class ShortsFilter extends Filter {
         videoActionButtonGroupList.addAll(
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_COMMENTS_BUTTON,
-                        "reel_comment_button"
+                        "reel_comment_button",
+                        "youtube_shorts_comment_outline"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SHARE_BUTTON,
-                        "reel_share_button"
+                        "reel_share_button",
+                        "youtube_shorts_share_outline"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_REMIX_BUTTON,
-                        "reel_remix_button"
+                        "reel_remix_button",
+                        "youtube_shorts_remix_outline"
                 )
         );
 
@@ -211,6 +217,12 @@ public final class ShortsFilter extends Filter {
         // Suggested actions.
         //
         suggestedActionsGroupList.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_COMMENT_PANEL,
+                        // Preview comment that can popup while a Short is playing.
+                        // Uses no bundled icons, and instead the users profile photo is shown.
+                        "shorts-comments-panel"
+                ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SHOP_BUTTON,
                         "yt_outline_bag_"

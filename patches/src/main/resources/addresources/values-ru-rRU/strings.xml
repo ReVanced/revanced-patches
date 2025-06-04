@@ -491,9 +491,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Затемнение фона панели жестов</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значение затемнения всплывающей панели при жестах от 0 до 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значение затемнения панели жестов должно быть от 0 до 100</string>
-  <string name="revanced_swipe_overlay_progress_brightness_color_title">Цвет наложения жестов для яркости</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Цвет индикатора яркости при жестах</string>
   <string name="revanced_swipe_overlay_progress_brightness_color_summary">Цвет полосы прогресса при изменении яркости жестами</string>
-  <string name="revanced_swipe_overlay_progress_volume_color_title">Цвет наложения жестов для громкости</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Цвет индикатора громкости при жестах</string>
   <string name="revanced_swipe_overlay_progress_volume_color_summary">Цвет полосы прогресса при изменении громкости жестами</string>
   <string name="revanced_swipe_text_overlay_size_title">Размер текста панели жестов</string>
   <string name="revanced_swipe_text_overlay_size_summary">Размер текста панели жестов от 1 до 30</string>
@@ -750,6 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Скрыть метку местоположения</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Метка местоположения в Shorts скрыта</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Метка местоположения в Shorts показана</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Скрыть панель комментариев</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Панель комментариев скрыта</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Панель комментариев отображается</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Скрыть кнопку \"Сохранить музыку\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка \"Сохранить музыку\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Сохранить музыку\" в Shorts показана</string>
@@ -1340,15 +1343,15 @@ Second \"item\" text"</string>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Виброотклик</string>
   <string name="revanced_disable_haptic_feedback_summary">Изменить виброотклик</string>
-  <string name="revanced_disable_haptic_feedback_chapters_title">Отключить виброотклик глав</string>
-  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Виброотклик глав отключен</string>
-  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Виброотклик глав включен</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">Отключить виброотклик между эпизодов</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">Виброотклик между эпизодов отключен</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">Виброотклик между эпизодов включен</string>
   <string name="revanced_disable_haptic_feedback_precise_seeking_title">Отключить виброотклик при покадровой перемотке</string>
-  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Виброотклик при точном поиске отключен</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">Виброотклик при покадровой перемотке отключен</string>
   <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">Виброотклик при покадровой перемотке включен</string>
-  <string name="revanced_disable_haptic_feedback_seek_undo_title">Отключить виброотклик отмены поиска</string>
-  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Виброотклик отмены поиска отключен</string>
-  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Виброотклик отмены поиска включен</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">Отключить виброотклик отмены перемотки</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Виброотклик отмены перемотки отключен</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Виброотклик отмены перемотки включен</string>
   <string name="revanced_disable_haptic_feedback_zoom_title">Отключить виброотклик при масштабировании</string>
   <string name="revanced_disable_haptic_feedback_zoom_summary_on">Виброотклик при масштабировании отключен</string>
   <string name="revanced_disable_haptic_feedback_zoom_summary_off">Виброотклик при масштабировании включен</string>
@@ -1398,7 +1401,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Показать кнопку скорости воспроизведения</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка выбора скорости воспроизведения показана</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка показана. Нажмите и удерживайте, чтобы сбросить скорость воспроизведения до значения по умолчанию</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1410,6 +1413,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Кастомные скорости должны быть меньше, чем %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Недопустимые кастомные скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_auto">Автоматически</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Скорость воспроизведения сброшена до: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Кастомная скорость при нажатии и удержании</string>
   <string name="revanced_speed_tap_and_hold_summary">Значение кастомной скорости воспроизведения при нажатии и удержании от 0 до 8</string>
   </patch>

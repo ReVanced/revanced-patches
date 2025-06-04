@@ -812,6 +812,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_shorts_location_label_title">Hide location label</string>
             <string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden</string>
             <string name="revanced_hide_shorts_location_label_summary_off">Location label is shown</string>
+            <string name="revanced_hide_shorts_comment_panel_title">Hide Comment panel</string>
+            <string name="revanced_hide_shorts_comment_panel_summary_on">Comment panel is hidden</string>
+            <string name="revanced_hide_shorts_comment_panel_summary_off">Comment panel is shown</string>
             <string name="revanced_hide_shorts_save_sound_button_title">Hide Save music button</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music button is hidden</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music button is shown</string>
@@ -1466,7 +1469,7 @@ Enabling this can unlock higher video qualities"</string>
         </patch>
         <patch id="video.speed.button.playbackSpeedButtonPatch">
             <string name="revanced_playback_speed_dialog_button_title">Show speed dialog button</string>
-            <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown</string>
+            <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown. Tap and hold to reset playback speed to default</string>
             <string name="revanced_playback_speed_dialog_button_summary_off">Button is not shown</string>
         </patch>
         <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1478,6 +1481,7 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s</string>
             <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_auto">Auto</string>
+            <string name="revanced_custom_playback_speeds_reset_toast">Playback speed reset to: %s</string>
             <string name="revanced_speed_tap_and_hold_title">Custom tap and hold speed</string>
             <string name="revanced_speed_tap_and_hold_summary">Playback speed between 0-8</string>
         </patch>

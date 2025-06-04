@@ -131,15 +131,15 @@ Ancak, bunun etkinleştirilmesi IP adresiniz gibi bazı kullanıcı verilerini d
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Hata bildirimlerini kapatmak, tüm ReVanced hata bildirimlerini gizler.
 
 Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Hata ayıklama günlüklerini dışa aktar</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced hata ayıklama günlüklerini panoya kopyalar</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Hata ayıklama kayıtlarını dışa aktar</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced hata ayıklama kayıtlarını panoya kopyalar</string>
   <string name="revanced_debug_logs_disabled">Hata ayıklama kaydı devre dışı</string>
   <string name="revanced_debug_logs_none_found">Kayıt bulunamadı</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Günlükler kopyalandı</string>
-  <string name="revanced_debug_logs_failed_to_export">Günlükler dışa aktarılamadı: $s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Hata ayıklama günlüklerini temizle</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Kaydedilmiş tüm ReVanced hata ayıklama günlüklerini temizler</string>
-  <string name="revanced_debug_logs_clear_toast">Günlükler temizlendi</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Kayıtlar kopyalandı</string>
+  <string name="revanced_debug_logs_failed_to_export">Kayıtlar dışa aktarılamadı: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Hata ayıklama kayıtlarını temizle</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Kaydedilmiş tüm ReVanced hata ayıklama kayıtlarını temizler</string>
+  <string name="revanced_debug_logs_clear_toast">Kayıtlar temizlendi</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Albüm kartlarını gizle</string>
@@ -750,6 +750,9 @@ Ses parçası menüsünü göstermek için \"Video akışlarını taklit et\" ay
   <string name="revanced_hide_shorts_location_label_title">Konum etiketini gizle</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Konum etiketi gizli</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Konum etiketi görünür</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Yorum panelini gizle</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Yorum paneli gizli</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Yorum paneli görünür</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Müziği kaydet düğmesini gizle</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Müziği kaydet düğmesi gizli</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Müziği kaydet düğmesi görünür</string>
@@ -1398,7 +1401,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Hız diyaloğu düğmesini göster</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Düğme gösterilir</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Düğme görünür. Oynatma hızını varsayılana sıfırlamak için dokunup basılı tutun</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Düğme gösterilmez</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1410,6 +1413,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_custom_playback_speeds_invalid">Özel hızlar %s\'den az olmalıdır</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Geçersiz özel oynatma hızları</string>
   <string name="revanced_custom_playback_speeds_auto">Oto</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Oynatma hızı şu değere sıfırlandı: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Dokunup basılı tutma özel hızı</string>
   <string name="revanced_speed_tap_and_hold_summary">0-8 arası oynatma hızı</string>
   </patch>

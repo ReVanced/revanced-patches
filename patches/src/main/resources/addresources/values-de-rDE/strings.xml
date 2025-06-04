@@ -743,6 +743,9 @@ Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS T
   <string name="revanced_hide_shorts_location_label_title">Standortbezeichnung ausblenden</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Ortsbezeichnung ist ausgeblendet</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Ortsbezeichnung wird angezeigt</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Kommentarbereich ausblenden</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Das Kommentarfeld ist ausgeblendet</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Kommentarbereich wird angezeigt</string>
   <string name="revanced_hide_shorts_save_sound_button_title">\'Musik speichern\'-Button ausblenden</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Musikspeicher Button ist ausgeblendet</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Musikspeicher Button wird angezeigt</string>
@@ -1391,7 +1394,7 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Zeige Geschwindigkeitsdialog Taste</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Button wird angezeigt</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Die Schaltfläche wird angezeigt. Tippen und halten, um die Wiedergabegeschwindigkeit auf die Standardeinstellung zurückzusetzen.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Button wird nicht angezeigt</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1403,6 +1406,7 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_custom_playback_speeds_invalid">Benutzerdefinierte Geschwindigkeiten müssen kleiner als %s sein</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ungültige benutzerdefinierte Wiedergabegeschwindigkeiten</string>
   <string name="revanced_custom_playback_speeds_auto">Autom</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Wiedergabegeschwindigkeit zurückgesetzt auf: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Benutzerdefinierte Geschwindigkeit bei Tippen und Halten</string>
   <string name="revanced_speed_tap_and_hold_summary">Abspielgeschwindigkeit zwischen 0-8x</string>
   </patch>

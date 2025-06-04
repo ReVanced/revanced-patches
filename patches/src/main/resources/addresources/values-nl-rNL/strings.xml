@@ -750,6 +750,9 @@ Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS T
   <string name="revanced_hide_shorts_location_label_title">Verberg locatie-etiket</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Locatie-etiket is verborgen</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Locatie-etiket wordt weergegeven</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Commentaarvenster verbergen</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Commentaarvenster is verborgen</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Het commentaarvenster wordt weergegeven</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Verberg de knop \"Muziek opslaan\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Muziek opslaan-knop is verborgen</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Muziek opslaan-knop wordt weergegeven</string>
@@ -1396,7 +1399,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Snelheidsdialoogknop weergeven</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Knop wordt weergegeven</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">De knop wordt weergegeven. Tik en houd vast om de afspeelsnelheid terug te zetten naar de standaardwaarde</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Knop wordt niet weergegeven</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1408,6 +1411,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_custom_playback_speeds_invalid">Aangepaste snelheden moeten lager zijn dan %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ongeldige aangepaste afspeelsnelheden</string>
   <string name="revanced_custom_playback_speeds_auto">Automatisch</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Afspeelsnelheid hersteld naar: %s</string>
   <string name="revanced_speed_tap_and_hold_title">De snelheid van aangepast tikken en vasthouden</string>
   <string name="revanced_speed_tap_and_hold_summary">Afspeelsnelheid tussen 0-8</string>
   </patch>

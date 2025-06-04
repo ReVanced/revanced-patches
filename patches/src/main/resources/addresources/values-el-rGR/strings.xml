@@ -752,6 +752,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Ετικέτα τοποθεσίας</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Απόκρυψη πίνακα σχολίων</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Η καρτέλα σχολίων είναι κρυμμένη</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Εμφανίζεται ο πίνακας σχολίων</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Κουμπί «Αποθήκευση μουσικής»</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Εμφανίζεται</string>
@@ -1397,7 +1400,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Εμφάνιση κουμπιού αλλαγής ταχύτητας</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Το κουμπί εμφανίζεται</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Το κουμπί εμφανίζεται. Πατήστε παρατεταμένα για επαναφορά της ταχύτητας αναπαραγωγής στην προεπιλογή</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Το κουμπί δεν εμφανίζεται</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1409,6 +1412,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Οι ταχύτητες πρέπει να είναι μικρότερες από %sx</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Μη έγκυρες προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
   <string name="revanced_custom_playback_speeds_auto">Αυτόματη</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Η ταχύτητα αναπαραγωγής επαναφέρθηκε σε: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Προσαρμοσμένη ταχύτητα παρατεταμένου πατήματος</string>
   <string name="revanced_speed_tap_and_hold_summary">Ταχύτητα αναπαραγωγής μεταξύ 0-8</string>
   </patch>

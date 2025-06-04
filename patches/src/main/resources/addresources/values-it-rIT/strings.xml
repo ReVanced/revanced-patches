@@ -750,6 +750,9 @@ Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS 
   <string name="revanced_hide_shorts_location_label_title">Nascondi etichetta di posizione</string>
   <string name="revanced_hide_shorts_location_label_summary_on">L\'etichetta di posizione è nascosta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">L\'etichetta di posizione è visibile</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Nascondi pannello dei commenti</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Il pannello dei commenti è nascosto</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Il pannello dei commenti è visibile</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante Salva Musica</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Il pulsante Salva traccia è nascosto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Il pulsante Salva traccia è visibile</string>
@@ -1397,7 +1400,7 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Mostra il pulsante Velocità Video</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Il pulsante è visibile</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Il pulsante è visualizzato. Tieni premuto per ripristinare la velocità di riproduzione predefinita</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Il pulsante non è visibile</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1409,6 +1412,7 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_custom_playback_speeds_invalid">Le velocità personalizzate devono essere inferiori a %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Velocità di riproduzione personalizzata non valida</string>
   <string name="revanced_custom_playback_speeds_auto">Automatico</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Velocità di riproduzione reimpostata su: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Velocità personalizzata di tocca e tieni premuto</string>
   <string name="revanced_speed_tap_and_hold_summary">Velocità di riproduzione tra 0-8</string>
   </patch>

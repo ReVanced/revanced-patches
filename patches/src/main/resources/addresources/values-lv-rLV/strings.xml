@@ -750,6 +750,9 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_hide_shorts_location_label_title">Paslēpt atrašanās vietas nosaukumu</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Atrašanās vietas nosaukums ir paslēpts</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Atrašanās vietas nosaukums ir redzams</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Slēpt komentāru paneli</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Komentāru panelis ir paslēpts</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Komentāru panelis ir redzams</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Paslēpt pogu \"Saglabāt mūziku\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">“Saglabāt mūziku” poga ir paslēpta</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">“Saglabāt mūziku” poga ir redzama</string>
@@ -1397,7 +1400,7 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Rādīt ātruma dialoga pogu</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Poga tiek rādīta</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Poga ir redzama. Pieskarieties un turiet, lai atiestatītu atskaņošanas ātrumu uz noklusējuma</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Poga netiek rādīta</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1409,6 +1412,7 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_custom_playback_speeds_invalid">Pielāgoti ātrumi ir jābūt mazākiem par %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nederīgi pielāgoti video atskaņošanas ātrumi</string>
   <string name="revanced_custom_playback_speeds_auto">Automātiski</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Atskaņošanas ātrums atiestatīts uz: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Pielāgots pieskaršanās un turēšanas ātrums</string>
   <string name="revanced_speed_tap_and_hold_summary">Atskaņošanas ātrums no 0 līdz 8</string>
   </patch>

@@ -2,20 +2,21 @@ package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
+import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.*
 import app.revanced.util.toPublicAccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -26,7 +27,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
-    name = "Unlock Spotify Premium",
+    name = "Unlock Premium",
     description = "Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked.",
 ) {
     compatibleWith("com.spotify.music")
@@ -60,7 +61,7 @@ val unlockPremiumPatch = bytecodePatch(
             addInstruction(
                 getAttributesMapIndex + 1,
                 "invoke-static { v$attributesMapRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->overrideAttribute(Ljava/util/Map;)V"
+                        "$EXTENSION_CLASS_DESCRIPTOR->overrideAttributes(Ljava/util/Map;)V"
             )
         }
 
@@ -71,7 +72,7 @@ val unlockPremiumPatch = bytecodePatch(
                 buildQueryParametersFingerprint.stringMatches!!.first().index, Opcode.IF_EQZ
             )
 
-            replaceInstruction(addQueryParameterConditionIndex, "nop")
+            removeInstruction(addQueryParameterConditionIndex)
         }
 
 
@@ -119,14 +120,42 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
 
-        // Disable the "Spotify Premium" upsell experiment in context menus.
-        contextMenuExperimentsFingerprint.method.apply {
-            val moveIsEnabledIndex = indexOfFirstInstructionOrThrow(
-                contextMenuExperimentsFingerprint.stringMatches!!.first().index, Opcode.MOVE_RESULT
-            )
-            val isUpsellEnabledRegister = getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
+        val contextMenuViewModelClassDef = contextMenuViewModelClassFingerprint.originalClassDef
 
-            replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
+        // Hook the method which adds context menu items and return before adding if the item is a Premium ad.
+        contextMenuViewModelAddItemFingerprint.match(contextMenuViewModelClassDef).method.apply {
+            val contextMenuItemClassType = parameterTypes.first()
+            val contextMenuItemClassDef = classes.find {
+                it.type == contextMenuItemClassType
+            } ?: throw PatchException("Could not find context menu item class.")
+
+            // The class returned by ContextMenuItem->getViewModel, which represents the actual context menu item.
+            val viewModelClassType = getViewModelFingerprint.match(contextMenuItemClassDef).originalMethod.returnType
+
+            // The instruction where the normal method logic starts.
+            val firstInstruction = getInstruction(0)
+
+            val isFilteredContextMenuItemDescriptor =
+                "$EXTENSION_CLASS_DESCRIPTOR->isFilteredContextMenuItem(Ljava/lang/Object;)Z"
+
+            addInstructionsWithLabels(
+                0,
+                """
+                    # The first parameter is the context menu item being added.
+                    # Invoke getViewModel to get the actual context menu item.
+                    invoke-interface { p1 }, $contextMenuItemClassType->getViewModel()$viewModelClassType
+                    move-result-object v0
+
+                    # Check if this context menu item should be filtered out.
+                    invoke-static { v0 }, $isFilteredContextMenuItemDescriptor
+                    move-result v0
+
+                    # If this context menu item should not be filtered out, jump to the normal method logic.
+                    if-eqz v0, :normal-method-logic
+                    return-void
+                """,
+                ExternalLabel("normal-method-logic", firstInstruction)
+            )
         }
 
 

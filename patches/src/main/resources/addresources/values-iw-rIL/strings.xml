@@ -46,6 +46,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_failure_parse">ייבוא נכשל: %s</string>
   <string name="revanced_settings_search_hint">חפש בהגדרות</string>
   <string name="revanced_settings_search_no_results_title">לא נמצאו תוצאות עבור \'%s\'</string>
+  <string name="revanced_settings_search_no_results_summary">נסה מילת מפתח אחרת</string>
+  <string name="revanced_settings_search_remove_message">להסיר מהיסטוריית חיפוש?</string>
   <string name="revanced_show_menu_icons_title">הצג סמלי הגדרות ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">סמלי ההגדרות מוצגים</string>
   <string name="revanced_show_menu_icons_summary_off">סמלי ההגדרות אינם מוצגים</string>
@@ -97,6 +99,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">שחזר תפריטי הגדרות ישנים</string>
   <string name="revanced_restore_old_settings_menus_summary_on">תפריטי הגדרות ישנים מוצגים</string>
   <string name="revanced_restore_old_settings_menus_summary_off">תפריטי הגדרות ישנים אינם מוצגים</string>
+  <string name="revanced_settings_search_history_title">הצג הגדרות היסטוריית חיפוש</string>
+  <string name="revanced_settings_search_history_summary_on">הגדרות היסטוריית חיפוש מוצגות</string>
+  <string name="revanced_settings_search_history_summary_off">הגדרות היסטוריית חיפוש אינן מוצגות</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">השבת הפעלה ברקע של Shorts</string>
@@ -112,6 +117,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">רשום פרוטוקול חוצץ</string>
   <string name="revanced_debug_protobuffer_summary_on">יומני איתור באגים כוללים פרוטוקול חוצץ</string>
   <string name="revanced_debug_protobuffer_summary_off">יומני איתור באגים אינם כוללים פרוטוקול חוצץ</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"הפעלת הגדרה זו תתעד נתוני פריסה נוספים, כולל טקסט שעל המסך עבור רכיבי ממשק משתמש מסוימים.
+
+זה יכול לעזור לזהות רכיבים בעת יצירת מסננים מותאמים אישית.
+
+עם זאת, הפעלת הגדרה זו תתעד גם כמה נתוני משתמש כמו כתובת ה-IP שלך."</string>
   <string name="revanced_debug_stacktrace_title">רשום עקבות מחסנית</string>
   <string name="revanced_debug_stacktrace_summary_on">יומני איתור באגים כוללים עקבות מחסנית</string>
   <string name="revanced_debug_stacktrace_summary_off">יומני איתור באגים אינם כוללים עקבות מחסנית</string>
@@ -121,6 +131,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"השבתת הודעות שגיאה קופצות מסתירה את כל הודעות השגיאה של ReVanced.
 
 לא תקבל הודעה על אירועים בלתי צפויים."</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">ייצוא יומני איתור באגים</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">מעתיק יומנים לאיתור באגים של Revanced ללוח ההעתקה</string>
+  <string name="revanced_debug_logs_disabled">תיעוד איתור באגים מושבת</string>
+  <string name="revanced_debug_logs_none_found">לא נמצאו יומנים</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">היומנים הועתקו</string>
+  <string name="revanced_debug_logs_failed_to_export">נכשל לייצא יומנים: $s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">נקה יומני איתור באגים</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">מנקה את כל היומנים לאיתור באגים של Revanced המאוחסנים</string>
+  <string name="revanced_debug_logs_clear_toast">היומנים נוקו</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">הסתר כרטיסי אלבום</string>
@@ -158,11 +177,17 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_summary_on">הלחצן מוסתר</string>
   <string name="revanced_hide_notify_me_button_summary_off">הלחצן מוצג</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">הסתר תוויות המלצה על סרטון</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">\'אנשים צפו גם\' ו\'את/ה עשוי/ה לאהוב\' מוסתרים</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">\'אנשים צפו גם\' ו\'את/ה עשוי/ה לאהוב\' מוצגים</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">הסתר לחצן \'הצג עוד\'</string>
   <string name="revanced_hide_show_more_button_summary_on">הלחצן מוסתר</string>
   <string name="revanced_hide_show_more_button_summary_off">הלחצן מוצג</string>
+  <string name="revanced_hide_ticket_shelf_title">הסתר מדף כרטיסים</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">מדף כרטיסים מוסתר</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">מדף כרטיסים מוצג</string>
   <string name="revanced_hide_timed_reactions_title">הסתר תגובות באמוג\'י מתוזמנות</string>
   <string name="revanced_hide_timed_reactions_summary_on">תגובות באמוג\'י מתוזמנות מוסתרות</string>
   <string name="revanced_hide_timed_reactions_summary_off">תגובות באמוג\'י מתוזמנות מוצגות</string>
@@ -232,6 +257,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">הסתר את \'סיכום הווידאו שנוצר על ידי בינה מלאכותית\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">מדור סיכום הסרטון מוסתר</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">מדור סיכום הסרטון מוצג</string>
+  <string name="revanced_hide_ask_section_title">הסתר Ask</string>
+  <string name="revanced_hide_ask_section_summary_on">מדור Ask מוסתר</string>
+  <string name="revanced_hide_ask_section_summary_off">מדור Ask מוצג</string>
   <string name="revanced_hide_attributes_section_title">הסתר מאפיינים</string>
   <string name="revanced_hide_attributes_section_summary_on">המדורים \'מקומות שמככבים בסרטון\', \'משחקים\', \'מוזיקה\', ו\'אנשים שאוזכרו\' מוסתרים</string>
   <string name="revanced_hide_attributes_section_summary_off">המדורים \'מקומות שמככבים בסרטון\', \'משחקים\', \'מוזיקה\', ו\'אנשים שאוזכרו\' מוצגים</string>
@@ -463,10 +491,25 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">אטימות רקע שכבת-על של החלקה</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">ערך אטימות בין 0 ל-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">אטימות החלקה חייבת להיות בין 0 ל-100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">צבע שכבת-על של החלקת בהירות</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">הצבע של סרגל ההתקדמות עבור בקרות בהירות</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">צבע שכבת-על של החלקת עוצמת קול</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">הצבע של סרגל ההתקדמות עבור בקרות עוצמת קול</string>
+  <string name="revanced_swipe_text_overlay_size_title">גודל טקסט שכבת-על של החלקה</string>
+  <string name="revanced_swipe_text_overlay_size_summary">גודל הטקסט עבור שכבת-על של החלקה בין 1 ל-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">גודל הטקסט חייב להיות בין 1 ל-30</string>
   <string name="revanced_swipe_threshold_title">סף גודל החלקה</string>
   <string name="revanced_swipe_threshold_summary">כמות הסף להתרחשות החלקה</string>
   <string name="revanced_swipe_volume_sensitivity_title">רגישות החלקה בעוצמת הקול</string>
   <string name="revanced_swipe_volume_sensitivity_summary">כמה משתנה עוצמת השמע לכל החלקה</string>
+  <string name="revanced_swipe_overlay_style_title">סגנון שכבת-על להחלקה</string>
+  <string name="revanced_swipe_overlay_style_entry_1">שכבת-על אופקית</string>
+  <string name="revanced_swipe_overlay_style_entry_2">שכבת-על אופקית (מזערית - עליונה)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">שכבת-על אופקית (מזערית - מרכזית)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">שכבת-על מעגלית</string>
+  <string name="revanced_swipe_overlay_style_entry_5">שכבת-על מעגלית (מזערית)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">שכבת-על אנכית</string>
+  <string name="revanced_swipe_overlay_style_entry_7">שכבת-על אנכית (מזערית)</string>
   <string name="revanced_swipe_change_video_title">הפעל החלקה כדי לשנות סרטונים</string>
   <string name="revanced_swipe_change_video_summary_on">החלקה במצב מסך מלא תשנה לסרטון הבא/הקודם</string>
   <string name="revanced_swipe_change_video_summary_off">החלקה במצב מסך מלא לא תשנה לסרטון הבא/הקודם</string>
@@ -508,6 +551,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_summary_off">לחצן תודה מוצג</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
                  Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">הסתר Ask</string>
+  <string name="revanced_hide_ask_button_summary_on">לחצן Ask מוסתר</string>
+  <string name="revanced_hide_ask_button_summary_off">לחצן Ask מוצג</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">הסתר קליפ</string>
   <string name="revanced_hide_clip_button_summary_on">לחצן קליפ מוסתר</string>
@@ -704,6 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">הסתר תווית מיקום</string>
   <string name="revanced_hide_shorts_location_label_summary_on">תווית מיקום מוסתרת</string>
   <string name="revanced_hide_shorts_location_label_summary_off">תווית מיקום מוצגת</string>
+  <string name="revanced_hide_shorts_comment_panel_title">הסתר את לוח התגובות</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">לוח התגובות מוסתר</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">לוח התגובות מוצג</string>
   <string name="revanced_hide_shorts_save_sound_button_title">הסתר לחצן שמור מוזיקה</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">לחצן שמור מוזיקה מוסתר</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">לחצן שמור מוזיקה מוצג</string>
@@ -777,6 +826,9 @@ Second \"item\" text"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">סרטון מוצע של מסך סיום מוצג</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">הסתר שכבת-על של סרטונים קשורים במסך מלא</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">שכבת-על של סרטונים קשורים מוסתרת</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">שכבת-על של סרטונים קשורים מוצגת</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">הסתר חותמת זמן של סרטון</string>
@@ -1289,10 +1341,23 @@ Second \"item\" text"</string>
   <string name="microg_settings_summary">הגדרות עבור GmsCore</string>
   </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <string name="revanced_disable_haptic_feedback_title">משוב ברטט</string>
+  <string name="revanced_disable_haptic_feedback_summary">שנה משוב ברטט</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">השבת משוב ברטט עבור פרקים</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_on">משוב ברטט עבור פרקים מושבת</string>
+  <string name="revanced_disable_haptic_feedback_chapters_summary_off">משוב ברטט עבור פרקים מופעל</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_title">השבת משוב ברטט עבור דילוג מדויק</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">משוב ברטט עבור דילוג מדויק מושבת</string>
+  <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">משוב ברטט עבור דילוג מדויק מופעל</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">השבת משוב ברטט עבור ביטול דילוג</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">משוב ברטט עבור ביטול דילוג מושבת</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">משוב ברטט עבור ביטול דילוג מופעל</string>
   <string name="revanced_disable_haptic_feedback_zoom_title">השבת משוב זום ברטט</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_on">משוב ברטט עבור זום מושבת</string>
+  <string name="revanced_disable_haptic_feedback_zoom_summary_off">משוב ברטט עבור זום מופעל</string>
   </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
-  <string name="microg_offline_account_login_error">אם שיניתם לאחרונה את פרטי הכניסה לחשבון שלכם, הסירו והתקינו מחדש את MicroG.</string>
+  <string name="microg_offline_account_login_error">אם פרטי הכניסה לחשבונך השתנו לאחרונה, אז יש להסיר ולהתקין מחדש את MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">עקוף הפניות מחדש של URL</string>
@@ -1336,7 +1401,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">הצג לחצן דו-שיח של מהירות</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">הלחצן מוצג</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">הלחצן מוצג. יש להקיש ולהחזיק כדי לאפס את מהירות ההפעלה לברירת מחדל</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">הלחצן אינו מוצג</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1348,6 +1413,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">מהירויות מותאמות אישית חייבות להיות קטנות מ-%s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">מהירויות הפעלה מותאמות אישית לא חוקיות</string>
   <string name="revanced_custom_playback_speeds_auto">אוטומטי</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">מהירות ההפעלה אופסה ל: %s</string>
   <string name="revanced_speed_tap_and_hold_title">מהירות הקשה והחזקה מותאמת אישית</string>
   <string name="revanced_speed_tap_and_hold_summary">מהירות הפעלה בין 0 ל-8</string>
   </patch>

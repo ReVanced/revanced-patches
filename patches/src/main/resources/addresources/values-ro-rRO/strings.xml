@@ -750,6 +750,9 @@ Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fl
   <string name="revanced_hide_shorts_location_label_title">Ascunde eticheta locației</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Eticheta locației este ascunsă</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Eticheta locației este afișată</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Ascunde panoul de comentarii</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Panoul de comentarii este ascuns</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Panoul de comentarii este afișat</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ascunde butonul Salvează melodia</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Butonul de salvare a muzicii este ascuns</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Butonul de salvare a muzicii este afișat</string>
@@ -1397,7 +1400,7 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Arată butonul de dialog de viteză</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Butonul este afișat</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Butonul este afișat. Atingeți și mențineți apăsat pentru a reseta viteza de redare la cea implicită</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Butonul nu este afișat</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1409,6 +1412,7 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_custom_playback_speeds_invalid">Vitezele personalizate trebuie să fie mai mici de %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Viteze de redare personalizate nevalide</string>
   <string name="revanced_custom_playback_speeds_auto">Automat</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Viteza de redare a fost resetată la: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Viteză personalizată de apăsare și menținere</string>
   <string name="revanced_speed_tap_and_hold_summary">Viteză de redare între 0-8</string>
   </patch>

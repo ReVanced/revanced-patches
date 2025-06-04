@@ -746,6 +746,9 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_hide_shorts_location_label_title">Etykieta lokalizacji</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Etykieta lokalizacji jest ukryta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Etykieta lokalizacji jest widoczna</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Ukryj panel komentarzy</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Panel komentarzy jest ukryty</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Panel komentarzy jest wyświetlany</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ukryj przycisk \"Zapisz muzykę\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Przycisk od zapisywania muzyki jest ukryty</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Przycisk od zapisywania muzyki jest widoczny</string>
@@ -1394,7 +1397,7 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Przycisk od prędkości</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Przycisk jest widoczny</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Przycisk jest widoczny. Dotknij i przytrzymaj, aby zresetować prędkość odtwarzania do domyślnej</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Przycisk nie jest widoczny</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1406,6 +1409,7 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_custom_playback_speeds_invalid">Prędkości niestandardowe muszą być mniejsze niż %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nieprawidłowe prędkości odtwarzania niestandardowego</string>
   <string name="revanced_custom_playback_speeds_auto">Automatyczne</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Prędkość odtwarzania zresetowana do: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Szybkość dostosowywania dotknięciem i przytrzymaniem</string>
   <string name="revanced_speed_tap_and_hold_summary">Prędkość odtwarzania w granicach 0-8</string>
   </patch>

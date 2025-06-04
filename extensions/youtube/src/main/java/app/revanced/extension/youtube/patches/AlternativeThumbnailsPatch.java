@@ -686,7 +686,7 @@ public final class AlternativeThumbnailsPatch {
                     ? "" : fullUrl.substring(imageExtensionEndIndex);
         }
 
-        /** @noinspection SameParameterValue */
+        @SuppressWarnings("SameParameterValue")
         String createStillsUrl(@NonNull ThumbnailQuality qualityToUse, boolean includeViewTracking) {
             // Images could be upgraded to webp if they are not already, but this fails quite often,
             // especially for new videos uploaded in the last hour.

@@ -750,6 +750,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_location_label_title">Թաքցնել տեղանքի նշումը</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Տեղանքի նշումը թաքցված է</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Տեղանքի նշումը ցուցադրվում է</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Թաքցնել մեկնաբանության վահանակը</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Մեկնաբանությունների վահանակը թաքցված է</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Ցուցադրվում է մեկնաբանության վահանակը</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Թաքցնել երաժշտությունը պահպանել կոճակը</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">«Save music» կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">«Save music» կոճակը ցուցադրվում է</string>
@@ -1398,7 +1401,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Ցուցադրել  արագության  դիալոգի  պատուհանի  կոճակը</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Կոճակը  ցուցադրվում է</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Կոճակը ցուցադրվում է: Հպեք և պահեք՝ նվագարկման արագությունը լռելյայնի վերականգնելու համար</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Կոճակը  չի  ցուցադրվում</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1410,6 +1413,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_custom_playback_speeds_invalid">Պատրաստված արագությունները պետք է լինեն ավելի քիչ քան %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Չի աշխատում պատրաստված վերարտադրման արագությունները։</string>
   <string name="revanced_custom_playback_speeds_auto">Ավտո</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Նվագարկման արագությունը վերականգնվել է. %s</string>
   <string name="revanced_speed_tap_and_hold_title">Զգայական վերահսկում՝ անվանափոխման համար</string>
   <string name="revanced_speed_tap_and_hold_summary">Վերարտադրման արագությունը 0-8 միջակայքում</string>
   </patch>
