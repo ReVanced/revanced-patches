@@ -1,3 +1,10 @@
+# [5.26.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.6...v5.26.0-dev.7) (2025-06-04)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add option to hide comment panel ([#5102](https://github.com/ReVanced/revanced-patches/issues/5102)) ([22b9bee](https://github.com/ReVanced/revanced-patches/commit/22b9beedd3243a8d6a5635f591b91cdcf307be37))
+
 # [5.26.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.5...v5.26.0-dev.6) (2025-06-03)
 
 
