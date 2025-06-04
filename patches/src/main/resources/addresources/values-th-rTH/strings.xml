@@ -748,6 +748,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">ซ่อนป้ายกำกับสถานที่</string>
   <string name="revanced_hide_shorts_location_label_summary_on">ป้ายกำกับสถานที่ถูกซ่อน</string>
   <string name="revanced_hide_shorts_location_label_summary_off">ป้ายกำกับสถานที่แสดงอยู่</string>
+  <string name="revanced_hide_shorts_comment_panel_title">ซ่อนแผงความคิดเห็น</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">ส่วนความคิดเห็นถูกซ่อนไว้</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">แผงความคิดเห็นจะแสดง</string>
   <string name="revanced_hide_shorts_save_sound_button_title">ซ่อนปุ่มบันทึกเพลง</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">ปุ่มบันทึกเพลงถูกซ่อน</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">ปุ่มบันทึกเพลงแสดงอยู่</string>

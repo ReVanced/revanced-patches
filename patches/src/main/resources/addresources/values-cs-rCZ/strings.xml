@@ -750,6 +750,9 @@ Chcete-li zobrazit nabídku zvukové stopy, změňte možnost „Zfalšovat stre
   <string name="revanced_hide_shorts_location_label_title">Skrýt štítek umístění</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Štítek umístění je skrytý</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Štítek umístění je zobrazen</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Skrýt panel Komentáře</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Panel komentářů je skrytý</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Panel Komentáře je zobrazen</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Skrýt tlačítko Uložit hudbu</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tlačítko Uložit hudbu je skryté</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tlačítko Uložit hudbu je zobrazeno</string>
