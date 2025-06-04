@@ -200,17 +200,17 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         buttonContainer.setGravity(Gravity.CENTER);
 
         if (neutralButtonText != null && onNeutralClick != null) {
-            addButton(buttonContainer, context, neutralButtonText, onNeutralClick, false, true, dip4, dip36, dialog);
+            addButton(buttonContainer, context, neutralButtonText, onNeutralClick, false,false, true, dialog);
         }
 
         if (onCancelClick != null) {
             addButton(buttonContainer, context, context.getString(android.R.string.cancel),
-                    onCancelClick, false, neutralButtonText != null, dip4, dip36, dialog);
+                    onCancelClick, false, neutralButtonText != null, false, dialog);
         }
 
         addButton(buttonContainer, context,
                 okButtonText != null ? okButtonText : context.getString(android.R.string.ok),
-                onOkClick, true, neutralButtonText != null, dip4, dip36, dialog);
+                onOkClick, true, neutralButtonText != null, false, dialog);
 
         mainLayout.addView(buttonContainer);
         dialog.setContentView(mainLayout);
@@ -241,24 +241,22 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * based on the button type and presence of a neutral button.
      *
      * @param buttonContainer The LinearLayout to which the button will be added.
-     * @param context        The Context used to create the button and access resources.
-     * @param buttonText     The text to display on the button.
-     * @param onClick        The Runnable to execute when the button is clicked, or null if no action is needed.
-     * @param isOkButton     True if the button is the OK button, affecting its background and text color.
-     * @param hasNeutralButton True if a neutral button exists, affecting margin settings for non-OK buttons.
-     * @param dip4           The dimension in pixels for a 4dp margin.
-     * @param dip36          The dimension in pixels for a 36dp height.
-     * @param dialog         The Dialog to dismiss when the button is clicked.
+     * @param context         The Context used to create the button and access resources.
+     * @param buttonText      The text to display on the button.
+     * @param onClick         The Runnable to execute when the button is clicked, or null if no action is needed.
+     * @param isOkButton      True if the button is the OK button, affecting its background and text color.
+     * @param isCancelButton  True if the button is the Cancel button, affecting its background and text color.
+     * @param isNeutralButton True if a neutral button exists, affecting margin settings for non-OK buttons.
+     * @param dialog          The Dialog to dismiss when the button is clicked.
      */
-    private static void addButton(
+    protected static void addButton(
             LinearLayout buttonContainer,
             Context context,
             String buttonText,
             Runnable onClick,
             boolean isOkButton,
-            boolean hasNeutralButton,
-            int dip4,
-            int dip36,
+            boolean isCancelButton,
+            boolean isNeutralButton,
             Dialog dialog) {
 
         Button button = new Button(context, null, 0);
@@ -283,12 +281,16 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 : (isOkButton ? Color.WHITE : Color.BLACK));
         button.setPadding(0, 0, 0, 0);
 
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, dip36);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, dipToPixels(36));
         params.weight = 1;
         if (isOkButton) {
-            params.setMargins(dip4, 0, 0, 0);
-        } else {
-            params.setMargins(hasNeutralButton && !isOkButton ? dip4 : 0, 0, dip4, 0);
+            params.setMargins(dipToPixels(4), 0, 0, 0);
+        }
+        if (isCancelButton) {
+            params.setMargins(0, 0, dipToPixels(4), 0);
+        }
+        if (isNeutralButton) {
+            params.setMargins(dipToPixels(8), 0, 0, 0);
         }
         button.setLayoutParams(params);
 
