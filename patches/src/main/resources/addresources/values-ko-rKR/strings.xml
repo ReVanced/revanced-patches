@@ -750,6 +750,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_location_label_title">위치 라벨 숨기기</string>
   <string name="revanced_hide_shorts_location_label_summary_on">위치 라벨이 숨겨집니다</string>
   <string name="revanced_hide_shorts_location_label_summary_off">위치 라벨이 표시됩니다</string>
+  <string name="revanced_hide_shorts_comment_panel_title">댓글 패널 숨기기</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">댓글 패널이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">댓글 패널이 표시됩니다</string>
   <string name="revanced_hide_shorts_save_sound_button_title">(재생목록에) 음악 저장 버튼 숨기기</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">(재생목록에) 음악 저장 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">(재생목록에) 음악 저장 버튼이 표시됩니다</string>

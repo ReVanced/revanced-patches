@@ -491,6 +491,10 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_title">滑动提示层背景的不透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">不透明度值介于 0-100 之间</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑动不透明度必须介于 0-100 之间</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">滑动提示层亮度颜色</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">亮度控件进度条的颜色</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">滑动提示层音量颜色</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">音量控件进度条的颜色</string>
   <string name="revanced_swipe_text_overlay_size_title">滑动提示层文字大小</string>
   <string name="revanced_swipe_text_overlay_size_summary">滑动提示层的文字大小，范围为 1-30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">文字大小必须在 1-30 之间</string>
@@ -746,6 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">隐藏位置标签</string>
   <string name="revanced_hide_shorts_location_label_summary_on">位置标签已隐藏</string>
   <string name="revanced_hide_shorts_location_label_summary_off">位置标签已显示</string>
+  <string name="revanced_hide_shorts_comment_panel_title">隐藏评论面板</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">已隐藏评论面板</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">评论面板已显示</string>
   <string name="revanced_hide_shorts_save_sound_button_title">隐藏「保存音乐」按钮</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">保存音乐按钮已隐藏</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">保存音乐按钮已显示</string>
@@ -1398,6 +1405,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">显示播放速度对话框按钮</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">按钮已显示。点住即可将播放速度重置为默认值</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">按钮未显示</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">

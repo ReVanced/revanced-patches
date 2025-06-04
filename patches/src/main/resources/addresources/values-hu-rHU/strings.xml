@@ -750,6 +750,9 @@ Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítá
   <string name="revanced_hide_shorts_location_label_title">Helycímke elrejtése</string>
   <string name="revanced_hide_shorts_location_label_summary_on">A helycízke címke el van rejtve</string>
   <string name="revanced_hide_shorts_location_label_summary_off">A helycízke címke meg van jelenítve</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Kommentpanel elrejtése</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">A megjegyzés panel rejtett</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">A Kommentpanel látható</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Zene mentése gomb elrejtése</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">A zene mentés gomb el van rejtve</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">A zene mentés gomb látható</string>
