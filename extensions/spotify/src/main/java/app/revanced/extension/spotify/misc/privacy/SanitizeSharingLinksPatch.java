@@ -21,6 +21,11 @@ public final class SanitizeSharingLinksPatch {
      * Injection point.
      */
     public static String sanitizeUrl(String url) {
+        if (url == null) {
+            Logger.printInfo(() -> "sanitizeUrl called with null url");
+            return null;
+        }
+
         try {
             Uri uri = Uri.parse(url);
             Uri.Builder builder = uri.buildUpon().clearQuery();
@@ -33,10 +38,11 @@ public final class SanitizeSharingLinksPatch {
                 }
             }
 
-            return builder.build().toString();
+            String sanitizedUrl = builder.build().toString();
+            Logger.printInfo(() -> "Sanitized url " + url + " to " + sanitizedUrl);
+            return sanitizedUrl;
         } catch (Exception ex) {
-            Logger.printException(() -> "sanitizeUrl failure", ex);
-
+            Logger.printException(() -> "Exception while sanitizing url " + url, ex);
             return url;
         }
     }

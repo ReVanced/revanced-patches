@@ -5,6 +5,7 @@ import static java.lang.Boolean.TRUE;
 
 import com.spotify.home.evopage.homeapi.proto.Section;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -133,21 +134,37 @@ public final class UnlockPremiumPatch {
         try {
             for (OverrideAttribute override : PREMIUM_OVERRIDES) {
                 Object attribute = attributes.get(override.key);
+
                 if (attribute == null) {
                     if (override.isExpected) {
-                        Logger.printException(() -> "'" + override.key + "' expected but not found");
+                        Logger.printException(() -> "Account attribute " + override.key + " expected but not found");
                     }
+                    continue;
+                }
+
+                Object overrideValue = override.overrideValue;
+                Object originalValue;
+                if (IS_SPOTIFY_LEGACY_APP_TARGET) {
+                    originalValue = ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_;
                 } else {
-                    Object overrideValue = override.overrideValue;
-                    if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-                        ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_ = overrideValue;
-                    } else {
-                        ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_ = overrideValue;
-                    }
+                    originalValue = ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_;
+                }
+
+                if (overrideValue == originalValue) {
+                    continue;
+                }
+
+                Logger.printInfo(() -> "Overriding account attribute " + override.key +
+                        " from " + originalValue + " to " + overrideValue);
+
+                if (IS_SPOTIFY_LEGACY_APP_TARGET) {
+                    ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_ = overrideValue;
+                } else {
+                    ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_ = overrideValue;
                 }
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "overrideAttributes failure", ex);
+            Logger.printException(() -> "Exception while overriding account attributes", ex);
         }
     }
 
@@ -155,6 +172,12 @@ public final class UnlockPremiumPatch {
      * Injection point. Remove station data from Google Assistant URI.
      */
     public static String removeStationString(String spotifyUriOrUrl) {
+        if (spotifyUriOrUrl == null) {
+            Logger.printInfo(() -> "removeStationString called with null spotifyUriOrUrl");
+            return null;
+        }
+
+        Logger.printInfo(() -> "Removing station string from " + spotifyUriOrUrl);
         return spotifyUriOrUrl.replace("spotify:station:", "spotify:");
     }
 
@@ -164,9 +187,17 @@ public final class UnlockPremiumPatch {
      */
     public static void removeHomeSections(List<Section> sections) {
         try {
-            sections.removeIf(section -> REMOVED_HOME_SECTIONS.contains(section.featureTypeCase_));
+            Iterator<Section> iterator = sections.iterator();
+
+            while (iterator.hasNext()) {
+                Section section = iterator.next();
+                if (REMOVED_HOME_SECTIONS.contains(section.featureTypeCase_)) {
+                    Logger.printInfo(() -> "Removing home section with feature type id " + section.featureTypeCase_);
+                    iterator.remove();
+                }
+            }
         } catch (Exception ex) {
-            Logger.printException(() -> "Remove home sections failure", ex);
+            Logger.printException(() -> "Exception while removing home sections", ex);
         }
     }
 
@@ -179,7 +210,30 @@ public final class UnlockPremiumPatch {
         }
 
         String stringifiedContextMenuItem = contextMenuItem.toString();
-        return FILTERED_CONTEXT_MENU_ITEMS_BY_STRINGS.stream()
-                .anyMatch(filters -> filters.stream().allMatch(stringifiedContextMenuItem::contains));
+        for (List<String> stringList : FILTERED_CONTEXT_MENU_ITEMS_BY_STRINGS) {
+            boolean allMatch = true;
+            StringBuilder matchedStrings = new StringBuilder();
+
+            for (int i = 0; i < stringList.size(); i++) {
+                String string = stringList.get(i);
+                if (!stringifiedContextMenuItem.contains(string)) {
+                    allMatch = false;
+                    break;
+                }
+
+                matchedStrings.append(string);
+                if (i < stringList.size() - 1) {
+                    matchedStrings.append(", ");
+                }
+            }
+
+            if (allMatch) {
+                Logger.printInfo(() -> "Filtering context menu item " + stringifiedContextMenuItem +
+                        " because the following strings matched: " + matchedStrings);
+                return true;
+            }
+        }
+
+        return false;
     }
 }
