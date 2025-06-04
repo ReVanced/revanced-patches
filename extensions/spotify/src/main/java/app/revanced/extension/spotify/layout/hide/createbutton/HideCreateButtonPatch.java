@@ -36,8 +36,7 @@ public final class HideCreateButtonPatch {
         boolean isCreateButton = false;
         String matchedTitleResId = null;
 
-        for (int i = 0; i < CREATE_BUTTON_TITLE_RES_ID_LIST.size(); i++) {
-            String titleResId = CREATE_BUTTON_TITLE_RES_ID_LIST.get(0);
+        for (String titleResId : CREATE_BUTTON_TITLE_RES_ID_LIST) {
             if (stringifiedNavigationBarItem.contains(titleResId)) {
                 isCreateButton = true;
                 matchedTitleResId = titleResId;
