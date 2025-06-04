@@ -1,3 +1,10 @@
+# [5.26.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.7...v5.26.0-dev.8) (2025-06-04)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Disable A/B player that prevents hiding buttons ([#5104](https://github.com/ReVanced/revanced-patches/issues/5104)) ([835b7bd](https://github.com/ReVanced/revanced-patches/commit/835b7bd7bd667abd632822c98898972e5124dbb6))
+
 # [5.26.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.6...v5.26.0-dev.7) (2025-06-04)
 
 
