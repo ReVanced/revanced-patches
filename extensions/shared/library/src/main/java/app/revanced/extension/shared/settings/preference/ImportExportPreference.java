@@ -10,12 +10,14 @@ import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.graphics.Color;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
@@ -108,6 +110,11 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
 
             // Add the EditText to the dialog's layout.
             LinearLayout mainLayout = dialogPair.second;
+            // Remove empty message TextView from the dialog's layout
+            TextView messageView = (TextView) mainLayout.getChildAt(1); // Message is added at index 1 in createCustomDialog
+            if (TextUtils.isEmpty(messageView.getText())) {
+                mainLayout.removeView(messageView);
+            }
             LinearLayout.LayoutParams editTextParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT

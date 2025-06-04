@@ -68,7 +68,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * Set by subclasses if Strings cannot be added as a resource.
      */
     @Nullable
-    protected static String restartDialogButtonText, restartDialogTitle, confirmDialogTitle;
+    protected static String restartDialogButtonText, restartDialogTitle, confirmDialogTitle, restartDialogMessage;
 
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
@@ -167,7 +167,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             TextView titleView = new TextView(context);
             titleView.setText(title);
             titleView.setTypeface(Typeface.DEFAULT_BOLD);
-            titleView.setTextSize(20);
+            titleView.setTextSize(18);
             titleView.setTextColor(Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
             titleView.setPadding(0, 0, 0, dip8);
             titleView.setGravity(Gravity.CENTER);
@@ -183,7 +183,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         // Message.
         TextView messageView = new TextView(context);
         messageView.setText(message != null ? message : "");
-        messageView.setTextSize(14);
+        messageView.setTextSize(16);
         messageView.setTextColor(Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
         messageView.setPadding(0, dip8, 0, dip16);
         mainLayout.addView(messageView);
@@ -487,13 +487,16 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         if (restartDialogTitle == null) {
             restartDialogTitle = str("revanced_settings_restart_title");
         }
+        if (restartDialogMessage == null) {
+            restartDialogMessage = str("revanced_settings_restart_dialog_message");
+        }
         if (restartDialogButtonText == null) {
             restartDialogButtonText = str("revanced_settings_restart");
         }
 
         Pair<Dialog, LinearLayout> dialogPair = createCustomDialog(context,
                 restartDialogTitle,
-                null,
+                restartDialogMessage,
                 restartDialogButtonText,
                 () -> Utils.restartApp(context),
                 () -> {}, // Cancel action just dismisses the dialog
