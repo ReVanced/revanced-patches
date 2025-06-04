@@ -243,8 +243,8 @@ val hideShortsComponentsPatch = bytecodePatch(
         // If these flags are forced on, the experimental layout is still not used and
         // it appears the features requires additional server side data to fully use.
         if (is_20_07_or_greater) {
-            // Experimental Shorts player uses Android native buttons and not Litho.
-            // Player uses a server provided layout.
+            // Experimental Shorts player uses Android native buttons and not Litho,
+            // and the layout is provided by the server.
             //
             // Since the buttons are native components and not Litho, it should be possible to
             // fix the RYD Shorts loading delay by asynchronously loading RYD and updating
