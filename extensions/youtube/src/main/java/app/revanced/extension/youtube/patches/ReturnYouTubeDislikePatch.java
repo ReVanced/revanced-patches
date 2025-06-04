@@ -153,14 +153,12 @@ public class ReturnYouTubeDislikePatch {
             }
 
             if (Utils.containsAny(conversionContextString,
-                    "|shorts_dislike_button.eml", "|reel_dislike_button.eml"
-            )) {
+                    "|shorts_dislike_button.eml", "|reel_dislike_button.eml")) {
                 return getShortsSpan(original, true);
             }
 
             if (Utils.containsAny(conversionContextString,
-                    "|shorts_like_button.eml", "|reel_like_button.eml"
-            )) {
+                    "|shorts_like_button.eml", "|reel_like_button.eml")) {
                 if (!Utils.containsNumber(original)) {
                     Logger.printDebug(() -> "Replacing hidden likes count");
                     return getShortsSpan(original, false);
