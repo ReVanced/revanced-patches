@@ -17,6 +17,7 @@ import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_41_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -24,9 +25,10 @@ import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.forEachLiteralValueInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstruction
+import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.google.common.primitives.Shorts
 
 internal val hideShortsAppShortcutOption = booleanOption(
     key = "hideShortsAppShortcut",
@@ -229,6 +231,29 @@ val hideShortsComponentsPatch = bytecodePatch(
                     """
                 )
             }
+        }
+
+        // endregion
+
+
+        // region Disable experimental Shorts flags.
+
+        // Flags might be present in earlier targets, but they are not found in 19.47.53.
+        // If these flags are forced on, the experimental layout is still not used and
+        // it appears the features requires additional server side data to fully use.
+        if (is_20_07_or_greater) {
+            // Experimental Shorts player uses Android native buttons and not Litho.
+            // Player uses a server provided layout.
+            //
+            // Since the buttons are native components and not Litho, it should be possible to
+            // fix the RYD Shorts loading delay by asynchronously loading RYD and updating
+            // the button text after RYD has loaded.
+            shortsExperimentalPlayerFeatureFlagFingerprint.method.returnLate(true)
+
+            // Experimental UI renderer must also be disabled since it requires the
+            // experimental Shorts player.  If this is enabled but Shorts player
+            // is disabled then the app crashes when the Shorts player is opened.
+            renderNextUIFeatureFlagFingerprint.method.returnLate(true)
         }
 
         // endregion

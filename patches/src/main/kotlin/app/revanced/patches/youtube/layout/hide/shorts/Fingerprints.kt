@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
@@ -85,5 +86,23 @@ internal val setPivotBarVisibilityParentFingerprint by fingerprint {
     parameters("Z")
     instructions(
         string("FEnotifications_inbox")
+    )
+}
+
+internal val shortsExperimentalPlayerFeatureFlagFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    instructions(
+        literal(45677719L)
+    )
+}
+
+internal val renderNextUIFeatureFlagFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    instructions(
+        literal(45649743L)
     )
 }
