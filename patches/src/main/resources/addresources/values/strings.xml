@@ -812,6 +812,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_shorts_location_label_title">Hide location label</string>
             <string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden</string>
             <string name="revanced_hide_shorts_location_label_summary_off">Location label is shown</string>
+            <string name="revanced_hide_shorts_comment_panel_title">Hide Comment panel</string>
+            <string name="revanced_hide_shorts_comment_panel_summary_on">Comment panel is hidden</string>
+            <string name="revanced_hide_shorts_comment_panel_summary_off">Comment panel is shown</string>
             <string name="revanced_hide_shorts_save_sound_button_title">Hide Save music button</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music button is hidden</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music button is shown</string>

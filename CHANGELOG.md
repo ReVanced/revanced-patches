@@ -1,3 +1,24 @@
+# [5.26.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.6...v5.26.0-dev.7) (2025-06-04)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add option to hide comment panel ([#5102](https://github.com/ReVanced/revanced-patches/issues/5102)) ([22b9bee](https://github.com/ReVanced/revanced-patches/commit/22b9beedd3243a8d6a5635f591b91cdcf307be37))
+
+# [5.26.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.5...v5.26.0-dev.6) (2025-06-03)
+
+
+### Features
+
+* **Sync for Reddit:** Add `Fix post thumbnails` patch ([e1ec30c](https://github.com/ReVanced/revanced-patches/commit/e1ec30c5b07560a39d7b8ab293b0c1f39fd59ef2))
+
+# [5.26.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.4...v5.26.0-dev.5) (2025-06-03)
+
+
+### Bug Fixes
+
+* **Spotify - Custom theme:** Apply accent color in more places ([#5039](https://github.com/ReVanced/revanced-patches/issues/5039)) ([9357887](https://github.com/ReVanced/revanced-patches/commit/9357887b6fca7aaf34dfb0163645b6a998e1db76))
+
 # [5.26.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.3...v5.26.0-dev.4) (2025-06-03)
 
 
