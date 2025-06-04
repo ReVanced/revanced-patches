@@ -750,6 +750,9 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_shorts_location_label_title">Sakrij oznaku lokacije</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Oznaka lokacije je skrivena</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Oznaka lokacije je prikazana</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Sakrij tablu sa komentarima</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Panel sa komentarima je skriven</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Tabla sa komentarima je prikazana</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Sakrij dugme „Sačuvaj muziku”</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Dugme „Sačuvaj zvuk” je skriveno</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Dugme „Sačuvaj zvuk” je prikazano</string>
@@ -1397,7 +1400,7 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Prikaži dugme dijaloga za brzinu</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Dugme je prikazano. Dodirnite i držite da biste vratili brzinu reprodukcije na podrazumevanu</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Dugme je prikazano. Dodirnite i zadržite da biste vratili brzinu reprodukcije na podrazumevanu vrednost</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Dugme dijaloga za brzinu nije prikazano</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1409,7 +1412,7 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Prilagođene brzine moraju biti manje od %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nevažeće prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_auto">Automatski</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Brzina reprodukcije resetovana na: %s</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Brzina reprodukcije vraćena na: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Prilagođena brzina dodirivanja i zadržavanja</string>
   <string name="revanced_speed_tap_and_hold_summary">Brzina reprodukcije između 0 i 8</string>
   </patch>

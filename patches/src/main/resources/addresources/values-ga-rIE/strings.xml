@@ -750,6 +750,9 @@ Chun roghchlár na rian fuaime a thaispeáint, athraigh 'Srutháin físeáin bhr
   <string name="revanced_hide_shorts_location_label_title">Folaigh lipéad suímh</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Tá lipéad suímh i bhfolach</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Taispeántar lipéad suímh</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Folaigh painéal na dtuairimí</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Tá an painéal tuairimí i bhfolach</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Taispeántar painéal na dtuairimí</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Folaigh cnaipe \'Sábháil ceol\'</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tá an cnaipe Sábháil ceoil i bhfolach</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Taispeántar an cnaipe Sábháil ceoil</string>
