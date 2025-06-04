@@ -74,3 +74,21 @@ internal val setPivotBarVisibilityParentFingerprint = fingerprint {
     parameters("Z")
     strings("FEnotifications_inbox")
 }
+
+internal val shortsExperimentalPlayerFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    literal {
+        45677719L
+    }
+}
+
+internal val renderNextUIFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    literal {
+        45649743L
+    }
+}
