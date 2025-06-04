@@ -71,9 +71,7 @@ final class PlayerRoutes {
         return innerTubeBody.toString();
     }
 
-    /**
-     * @noinspection SameParameterValue
-     */
+    @SuppressWarnings("SameParameterValue")
     static HttpURLConnection getPlayerResponseConnectionFromRoute(Route.CompiledRoute route, ClientType clientType) throws IOException {
         var connection = Requester.getConnectionFromCompiledRoute(YT_API_URL, route);
 

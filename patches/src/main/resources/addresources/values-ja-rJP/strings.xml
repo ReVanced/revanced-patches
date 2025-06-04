@@ -112,20 +112,20 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">デバッグ</string>
   <string name="revanced_debug_screen_summary">デバッグの設定</string>
-  <string name="revanced_debug_title">デバッグ ログを有効にする</string>
-  <string name="revanced_debug_summary_on">デバッグ ログは有効です</string>
-  <string name="revanced_debug_summary_off">デバッグ ログは無効です</string>
+  <string name="revanced_debug_title">デバッグログを有効にする</string>
+  <string name="revanced_debug_summary_on">デバッグログは有効です</string>
+  <string name="revanced_debug_summary_off">デバッグログは無効です</string>
   <string name="revanced_debug_protobuffer_title">protocol buffer を記録する</string>
-  <string name="revanced_debug_protobuffer_summary_on">デバッグ ログに protocol buffer が含まれます</string>
-  <string name="revanced_debug_protobuffer_summary_off">デバッグ ログに protocol buffer は含まれません</string>
+  <string name="revanced_debug_protobuffer_summary_on">protocol buffer はデバッグログに含まれます</string>
+  <string name="revanced_debug_protobuffer_summary_off">protocol buffer はデバッグログに含まれません</string>
   <string name="revanced_debug_protobuffer_user_dialog_message">"この設定を有効にすると、一部の UI コンポーネントの画面上のテキストなど、追加のレイアウト データがデバッグログに記録されます。
 
 この追加されたデータは、カスタム フィルタを作成する際にコンポーネントを特定するのに役立つ可能性があります。
 
-ただし、IP アドレスなどの一部のユーザーデータもデバッグログに記録されるようになることに注意が必要です。"</string>
+ただし、この機能によりデバッグログに追加で記録されるデータには、IP アドレスなど、一部のユーザーデータも含まれます。"</string>
   <string name="revanced_debug_stacktrace_title">stack trace を記録する</string>
-  <string name="revanced_debug_stacktrace_summary_on">デバッグ ログにstack trace が含まれます</string>
-  <string name="revanced_debug_stacktrace_summary_off">デバッグ ログにstack trace は含まれません</string>
+  <string name="revanced_debug_stacktrace_summary_on">stack trace はデバッグログに含まれます</string>
+  <string name="revanced_debug_stacktrace_summary_off">stack trace はデバッグログに含まれません</string>
   <string name="revanced_debug_toast_on_error_title">ReVanced エラーのトーストを表示する</string>
   <string name="revanced_debug_toast_on_error_summary_on">エラー発生時にトースト ポップアップが表示されます</string>
   <string name="revanced_debug_toast_on_error_summary_off">エラーが発生してもトースト ポップアップは表示されません</string>
@@ -134,13 +134,13 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
 あらゆる予期せぬイベントが通知されなくなります。"</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">デバッグログをエクスポート</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced のデバッグログをクリップボードにコピーします</string>
-  <string name="revanced_debug_logs_disabled">デバッグログは無効です</string>
+  <string name="revanced_debug_logs_disabled">デバッグログが無効です</string>
   <string name="revanced_debug_logs_none_found">ログが見つかりませんでした</string>
   <string name="revanced_debug_logs_copied_to_clipboard">ログをコピーしました</string>
   <string name="revanced_debug_logs_failed_to_export">ログのエクスポートに失敗: $s</string>
   <string name="revanced_debug_logs_clear_buffer_title">デバッグログを消去する</string>
   <string name="revanced_debug_logs_clear_buffer_summary">保存されている ReVanced のデバッグログをすべて消去します</string>
-  <string name="revanced_debug_logs_clear_toast">ログが消去されました</string>
+  <string name="revanced_debug_logs_clear_toast">ログを消去しました</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">アルバム情報を非表示</string>
@@ -264,8 +264,8 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_ask_section_summary_on">質問セクションは表示されません</string>
   <string name="revanced_hide_ask_section_summary_off">質問セクションは表示されます</string>
   <string name="revanced_hide_attributes_section_title">関連情報を非表示</string>
-  <string name="revanced_hide_attributes_section_summary_on">注目の場所 / ゲーム / 音楽 / 言及された人物セクションは表示されません</string>
-  <string name="revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 言及された人物セクションは表示されます</string>
+  <string name="revanced_hide_attributes_section_summary_on">注目の場所 / ゲーム / 音楽 / 言及されている人物セクションは表示されません</string>
+  <string name="revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 言及されている人物セクションは表示されます</string>
   <string name="revanced_hide_chapters_section_title">チャプター セクションを非表示</string>
   <string name="revanced_hide_chapters_section_summary_on">チャプター セクションは表示されません</string>
   <string name="revanced_hide_chapters_section_summary_off">チャプター セクションは表示されます</string>
@@ -428,10 +428,10 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました</string>
   <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL がコピーされました</string>
-  <string name="revanced_copy_video_url_title">「動画の URL をコピー」ボタンを表示</string>
+  <string name="revanced_copy_video_url_title">「動画の URL をコピー」ボタンを表示する</string>
   <string name="revanced_copy_video_url_summary_on">ボタンはオーバーレイに表示されます。タップすると動画の URL を、長押しするとタイムスタンプ付きの URL をそれぞれコピーできます</string>
   <string name="revanced_copy_video_url_summary_off">ボタンはオーバーレイに表示されません</string>
-  <string name="revanced_copy_video_url_timestamp_title">「動画のタイムスタンプ付き URL をコピー」ボタンを表示</string>
+  <string name="revanced_copy_video_url_timestamp_title">「動画のタイムスタンプ付き URL をコピー」ボタンを表示する</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">ボタンはオーバーレイに表示されます。タップするとタイムスタンプ付きの URL を、長押しするとタイムスタンプなしの URL をそれぞれコピーできます</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">ボタンはオーバーレイに表示されません</string>
   </patch>
@@ -753,6 +753,9 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_shorts_location_label_title">位置情報ラベルを非表示</string>
   <string name="revanced_hide_shorts_location_label_summary_on">位置情報ラベルは表示されません</string>
   <string name="revanced_hide_shorts_location_label_summary_off">位置情報ラベルは表示されます</string>
+  <string name="revanced_hide_shorts_comment_panel_title">コメント パネルを非表示</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">コメント パネルは表示されません</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">コメント パネルが表示されます</string>
   <string name="revanced_hide_shorts_save_sound_button_title">「音楽を保存」ボタンを非表示</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">「音楽を保存」ボタンは表示されません</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">「音楽を保存」ボタンは表示されます</string>
@@ -1371,9 +1374,9 @@ Automotive レイアウト
   <string name="revanced_remove_tracking_query_parameter_summary_off">追跡パラメータはリンクから削除されません</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">デフォルトの吹き替えを無効にする</string>
-  <string name="revanced_force_original_audio_summary_on">デフォルトの吹き替えは無効です</string>
-  <string name="revanced_force_original_audio_summary_off">デフォルトの吹き替えは有効です</string>
+  <string name="revanced_force_original_audio_title">デフォルトの吹き替え再生を無効にする</string>
+  <string name="revanced_force_original_audio_summary_on">デフォルトの吹き替え再生は無効です</string>
+  <string name="revanced_force_original_audio_summary_off">デフォルトの吹き替え再生は有効です</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装する」のクライアントを iOS TV に変更してください</string>
   </patch>
@@ -1396,9 +1399,9 @@ Automotive レイアウト
   <string name="revanced_remember_video_quality_toast_shorts">ショートの画質 (%1$s): %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
-  <string name="revanced_playback_speed_dialog_button_title">再生速度設定ボタンを非表示</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">再生速度設定ボタンはオーバーレイに表示されます</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">再生速度設定ボタンはオーバーレイに表示されません</string>
+  <string name="revanced_playback_speed_dialog_button_title">再生速度設定ボタンを表示する</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">ボタンはオーバーレイに表示されます。長押しすると、再生速度がデフォルトの値にリセットされます</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">ボタンはオーバーレイに表示されません</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">カスタムした再生速度リストを使用する</string>
@@ -1409,8 +1412,9 @@ Automotive レイアウト
   <string name="revanced_custom_playback_speeds_invalid">再生速度は %s 未満である必要があります</string>
   <string name="revanced_custom_playback_speeds_parse_exception">カスタム再生速度リストが無効です</string>
   <string name="revanced_custom_playback_speeds_auto">自動</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">再生速度をリセットしました: %s</string>
   <string name="revanced_speed_tap_and_hold_title">長押し倍速再生の速度</string>
-  <string name="revanced_speed_tap_and_hold_summary">長押し倍速再生の速度の値は 0-8 の範囲で、0 および 8 は含まれません</string>
+  <string name="revanced_speed_tap_and_hold_summary">再生速度の範囲は 0-8 で、0 および 8 は含まれません</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">再生速度の変更を保存する</string>
@@ -1436,7 +1440,7 @@ Automotive レイアウト
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">動画ストリームを偽装する</string>
-  <string name="revanced_spoof_video_streams_screen_summary">動画の再生に失敗しないために、クライアントの動画ストリームを偽装します</string>
+  <string name="revanced_spoof_video_streams_screen_summary">動画再生の失敗を回避するために、クライアントの動画ストリームを偽装します</string>
   <string name="revanced_spoof_video_streams_title">動画ストリームを偽装する</string>
   <string name="revanced_spoof_video_streams_summary_on">動画ストリームは偽装されます</string>
   <string name="revanced_spoof_video_streams_summary_off">"動画ストリームは偽装されません
@@ -1457,7 +1461,7 @@ AVC は、最大解像度が 1080p であり、Opus オーディオ コーデッ
   <string name="revanced_spoof_video_streams_about_android_title">Android クライアントの副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 「音声トラック」がフライアウト メニューに表示されない
 • 「一定音量」が利用できない
-• 「デフォルトの吹き替えを無効にする」が利用できない"</string>
+• 「デフォルトの吹き替え再生を無効にする」が利用できない"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 コーデックが利用できない</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ログアウト時またはシークレット モード時に、子ども向け動画が再生されない可能性がある</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報に表示する</string>
@@ -1517,9 +1521,9 @@ AVC は、最大解像度が 1080p であり、Opus オーディオ コーデッ
   <string name="revanced_other_category_title">その他の設定</string>
   <string name="revanced_client_ads_category_title">クライアントサイド広告</string>
   <string name="revanced_surestream_ads_category_title">サーバー側サレストリーム広告</string>
-  <string name="revanced_twitch_debug_title">デバッグ ログ</string>
-  <string name="revanced_twitch_debug_summary_on">デバッグ ログは有効です</string>
-  <string name="revanced_twitch_debug_summary_off">デバッグ ログは無効です</string>
+  <string name="revanced_twitch_debug_title">デバッグログ</string>
+  <string name="revanced_twitch_debug_summary_on">デバッグログは有効です</string>
+  <string name="revanced_twitch_debug_summary_off">デバッグログは無効です</string>
   </patch>
   </app>
 </resources>

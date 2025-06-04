@@ -750,6 +750,9 @@ Chcete-li zobrazit nabídku zvukové stopy, změňte možnost „Zfalšovat stre
   <string name="revanced_hide_shorts_location_label_title">Skrýt štítek umístění</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Štítek umístění je skrytý</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Štítek umístění je zobrazen</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Skrýt panel Komentáře</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Panel komentářů je skrytý</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Panel Komentáře je zobrazen</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Skrýt tlačítko Uložit hudbu</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tlačítko Uložit hudbu je skryté</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tlačítko Uložit hudbu je zobrazeno</string>
@@ -1397,7 +1400,7 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Zobrazit tlačítko dialogu rychlosti</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Tlačítko je zobrazeno</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Tlačítko je zobrazeno. Klepnutím a podržením obnovíte výchozí rychlost přehrávání</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tlačítko se nezobrazuje</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1409,6 +1412,7 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Vlastní rychlosti musí být menší než %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Neplatné vlastní rychlosti přehrávání</string>
   <string name="revanced_custom_playback_speeds_auto">Automaticky</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Rychlost přehrávání obnovena na: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Vlastní rychlost stisknutí a podržení</string>
   <string name="revanced_speed_tap_and_hold_summary">Rychlost přehrávání 0 až 8</string>
   </patch>

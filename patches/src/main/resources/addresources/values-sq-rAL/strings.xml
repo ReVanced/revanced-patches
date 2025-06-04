@@ -750,6 +750,9 @@ Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet vide
   <string name="revanced_hide_shorts_location_label_title">Fsheh etiketën e vendndodhjes</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Etiketë e vendndodhjes është e fshehur</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Etiketë e vendndodhjes shfaqet</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Fshih panelin e komenteve</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Paneli i komenteve është i fshehur</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Paneli i komenteve është i dukshëm</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Fsheh butonin Ruaj muzikën</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Butoni \"Ruaj muzikën\" është i fshehur</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Butoni \"Ruaj muzikën\" shfaqet</string>
@@ -1396,7 +1399,7 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Shfaq butonin e dialogut të shpejtësisë</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Butoni shfaqet</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Butoni shfaqet. Prekni dhe mbani për të rivendosur shpejtësinë e riprodhimit në atë të parazgjedhur</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Butoni nuk shfaqet</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1408,6 +1411,7 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_custom_playback_speeds_invalid">Shpejtësitë e personalizuara duhet të jenë më të vogla se %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Shpejtësi të pavlefshme të personalizuar të riprodhimit</string>
   <string name="revanced_custom_playback_speeds_auto">Automatik</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Shpejtësia e riprodhimit u rivendos në: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Shpejtësia sipas dëshirës së përdoruesit gjatë përdorimit</string>
   <string name="revanced_speed_tap_and_hold_summary">Shpejtësi e riprodhimit midis 0 dhe 8</string>
   </patch>

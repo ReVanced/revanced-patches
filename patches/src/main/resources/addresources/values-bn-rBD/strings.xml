@@ -746,6 +746,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_location_label_title">অবস্থান লেবেল লুকান</string>
   <string name="revanced_hide_shorts_location_label_summary_on">অবস্থান লেবেল লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_location_label_summary_off">অবস্থান লেবেল প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_shorts_comment_panel_title">মন্তব্য প্যানেল লুকান</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">মন্তব্য প্যানেল লুকানো আছে</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">মন্তব্য প্যানেল দেখানো হয়েছে</string>
   <string name="revanced_hide_shorts_save_sound_button_title">সেভ মিউজিক বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music বোতাম দেখানো হচ্ছে</string>
@@ -1394,7 +1397,7 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">স্পিড ডায়ালগ বোতাম দেখান</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">বোতাম প্রদর্শিত হয়েছে</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">বোতামটি দেখানো হয়েছে। প্লেব্যাক স্পীড ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন।</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">বোতাম প্রদর্শিত হয়নি</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1406,6 +1409,7 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_custom_playback_speeds_invalid">কাস্টম গতি %s এর চেয়ে কম হতে হবে</string>
   <string name="revanced_custom_playback_speeds_parse_exception">অবৈধ কাস্টম প্লেব্যাক গতি</string>
   <string name="revanced_custom_playback_speeds_auto">স্বতস্ফূর্তভাবে</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">প্লেব্যাক গতি রিসেট করা হয়েছে: %s</string>
   <string name="revanced_speed_tap_and_hold_title">কাস্টম ট্যাপ এন্ড হোল্ড স্পিড</string>
   <string name="revanced_speed_tap_and_hold_summary">০-৮ এর মধ্যে প্লেব্যাক স্পিড</string>
   </patch>

@@ -750,6 +750,9 @@ Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítá
   <string name="revanced_hide_shorts_location_label_title">Helycímke elrejtése</string>
   <string name="revanced_hide_shorts_location_label_summary_on">A helycízke címke el van rejtve</string>
   <string name="revanced_hide_shorts_location_label_summary_off">A helycízke címke meg van jelenítve</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Kommentpanel elrejtése</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">A megjegyzés panel rejtett</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">A Kommentpanel látható</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Zene mentése gomb elrejtése</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">A zene mentés gomb el van rejtve</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">A zene mentés gomb látható</string>
@@ -1395,7 +1398,7 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Sebesség párbeszédpanel megjelenítése</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">A gomb megjelenik</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">A gomb látható. Tartsa lenyomva a lejátszási sebesség alapértelmezettre állításához</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">A gomb nem látható</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1407,6 +1410,7 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_custom_playback_speeds_invalid">Az egyéni sebességeknek kevesebbnek kell lenniük, mint %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Érvénytelen egyéni lejátszási sebességek</string>
   <string name="revanced_custom_playback_speeds_auto">Automatikus</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Lejátszási sebesség visszaállítva: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Egyéni koppintás és tartás sebesség</string>
   <string name="revanced_speed_tap_and_hold_summary">Lejátszási sebesség 0-8 között</string>
   </patch>
