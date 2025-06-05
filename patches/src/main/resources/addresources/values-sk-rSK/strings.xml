@@ -309,9 +309,9 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Skryť tlačidlo „Vytvoriť krátke video“</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačidlo Vytvoriť Short je skryté</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tlačidlo Vytvoriť Short je zobrazené</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skryť tlačidlá s emoji a časovou pečiatkou</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tlačidlá s emoji a časovou pečiatkou sú skryté</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tlačidlá s emoji a časovou pečiatkou sú zobrazené</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Skryť tlačidlo s časovou pečiatkou</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tlačidlo s časovou pečiatkou je skryté</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Zobrazí sa tlačidlo s časovou pečiatkou</string>
   <string name="revanced_hide_comments_preview_comment_title">Skryť ukážkový komentár</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentár ukážky je skrytý</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Zobrazí sa ukážka komentára</string>

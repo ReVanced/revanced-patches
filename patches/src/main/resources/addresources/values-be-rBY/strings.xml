@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Схаваць кнопку \"Створиць Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопка «Стварыць Shorts» схаваная</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка «Стварыць Shorts» паказаная</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Схаваць кнопкі эмодзі і адзнак часу</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Кнопкі эмодзі і адзнак часу схаваныя</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Кнопкі эмодзі і адзнак часу паказаныя</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Схаваць кнопку часу</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Кнопка часу схаваная</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Кнопка часу паказаная</string>
   <string name="revanced_hide_comments_preview_comment_title">Схаваць каментарый для папярэдняга прагляду</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Каментарый перад праглядам схаваны</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Паказваецца папярэдні прагляд каментарыя</string>

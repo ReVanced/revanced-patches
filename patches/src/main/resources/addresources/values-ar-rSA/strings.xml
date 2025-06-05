@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">إخفاء زر \'إنشاء Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">تم إخفاء زر إنشاء Short</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">يتم عرض زر إنشاء Short</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">إخفاء أزرار الرموز التعبيرية والطوابع الزمنية</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">تم إخفاء أزرار الرموز التعبيرية والطوابع الزمنية</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">يتم عرض أزرار الرموز التعبيرية والطوابع الزمنية</string>
+  <string name="revanced_hide_comments_timestamp_button_title">زر إخفاء الطابع الزمني</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">زر الطابع الزمني مخفي</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">زر الطابع الزمني معروض</string>
   <string name="revanced_hide_comments_preview_comment_title">إخفاء تعليق المعاينة</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">تم إخفاء تعليق المعاينة</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">يتم عرض تعليق المعاينة</string>

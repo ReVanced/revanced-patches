@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Скрыть кнопку \"Создать Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопка \"Создать Short\" при ответе на комментарий скрыта</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка \"Создать Short\" при ответе на комментарий показана</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Скрыть кнопки эмодзи и меток времени</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Кнопки эмодзи и меток времени скрыты</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Кнопки эмодзи и меток времени показаны</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Скрыть кнопку меток времени</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Кнопка меток времени скрыта</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Кнопка меток времени отображается</string>
   <string name="revanced_hide_comments_preview_comment_title">Скрыть предпросмотр комментария</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Предпросмотр комментария под плеером скрыт</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Предпросмотр комментария под плеером показан</string>

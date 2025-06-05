@@ -307,9 +307,9 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">\'Verknüpfung erstellen\'-Button ausblenden</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Schaltfläche \" Short erstellen\" ist ausgeblendet</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Schaltfläche \" Short erstellen\" wird angezeigt</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Emoji- und Zeitstempel-Buttons ausblenden</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji- und Zeitstempel-Buttons sind ausgeblendet</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji- und Zeitstempel-Buttons werden angezeigt</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Timestamp-Button ausblenden</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Timestamp-Button ist ausgeblendet</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Timestamp-Button wird angezeigt</string>
   <string name="revanced_hide_comments_preview_comment_title">Vorschaukommentar ausblenden</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Vorschaukommentar ist ausgeblendet</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Vorschau des Kommentars wird angezeigt</string>

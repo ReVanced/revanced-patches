@@ -311,9 +311,9 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_comments_create_a_short_button_title">Ẩn nút \'Tạo video ngắn\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Nút Tạo video ngắn đã bị ẩn</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Nút Tạo video ngắn được hiển thị</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ẩn nút biểu tượng cảm xúc và dấu thời gian</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Nút biểu tượng cảm xúc và dấu thời gian được ẩn</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Nút biểu tượng cảm xúc và dấu thời gian được hiển thị</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ẩn nút dấu thời gian</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Nút dấu thời gian được ẩn</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Nút dấu thời gian được hiện</string>
   <string name="revanced_hide_comments_preview_comment_title">Ẩn xem trước bình luận</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Xem trước bình luận đã bị ẩn</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Xem trước bình luận được hiển thị</string>

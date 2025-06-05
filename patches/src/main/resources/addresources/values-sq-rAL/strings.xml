@@ -311,9 +311,9 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Fsheh butonin \"Krijo një Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Butoni Krijo një Short është i fshehur</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Butoni Krijo një Short është i shfaqur</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Fshih butonat emoji dhe timestamp</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Butonat Emoji dhe timestamp janë të fshehur</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Butonat Emoji dhe timestamp janë të shfaqur</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Fshih butonin e kohëshënimit</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Butoni i kohëshënimit është i fshehur</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Butoni i kohëshënimit është shfaqur</string>
   <string name="revanced_hide_comments_preview_comment_title">Fsheh komentin e parashikimit</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komenti i parashikimit është i fshehur</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komenti i parashikimit është i dukshëm</string>

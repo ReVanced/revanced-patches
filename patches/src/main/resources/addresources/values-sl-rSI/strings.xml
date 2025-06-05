@@ -311,9 +311,9 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Skrij gumb \"Ustvari Shorts\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Gumb »Ustvari Short« je skrit</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Gumb »Ustvari Short« je prikazan</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skrij gumbe z emojiji in časovnim žigom</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Gumbi z emojiji in časovnim žigom so skriti</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Gumbi z emojiji in časovnim žigom so prikazani</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Skrij gumb časovnega žiga</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Gumb časovnega žiga je skrit</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Gumb časovnega žiga je prikazan</string>
   <string name="revanced_hide_comments_preview_comment_title">Skrij predogled komentarja</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Predogled komentarja je skrit</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Predogled komentarja je prikazan</string>

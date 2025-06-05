@@ -311,9 +311,6 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Piilota \"Luo Shorts-video\" -painike</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Luo Shorts-video -painike on piilotettu</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Luo Shorts-video -painike näytetään</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Piilota emoji- ja aikaleima-painikkeet</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji- ja aikaleima-painikkeet on piilotettu</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji- ja aikaleima-painikkeet näytetään</string>
   <string name="revanced_hide_comments_preview_comment_title">Piilota kommentin esikatselu</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Kommentin esikatselu on piilotettu</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Kommentin esikatselu näytetään</string>
