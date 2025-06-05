@@ -14,6 +14,10 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,35 +26,41 @@ import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.text.TextUtils;
 import android.util.Pair;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.shared.settings.AppLanguage;
+import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.settings.BooleanSetting;
+import app.revanced.extension.shared.settings.preference.ReVancedAboutPreference;
+
 import java.text.Bidi;
 import java.util.*;
-import java.util.regex.Pattern;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-
-import app.revanced.extension.shared.settings.AppLanguage;
-import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.settings.BooleanSetting;
-import app.revanced.extension.shared.settings.preference.ReVancedAboutPreference;
+import java.util.regex.Pattern;
 
 public class Utils {
 
@@ -235,7 +245,6 @@ public class Utils {
         // leaving an empty loop that hammers on the System.currentTimeMillis native call
         return meaninglessValue;
     }
-
 
     public static boolean containsAny(@NonNull String value, @NonNull String... targets) {
         return indexOfFirstFound(value, targets) >= 0;
@@ -698,6 +707,259 @@ public class Utils {
             params.height = 0;
             view.setLayoutParams(params);
         }
+    }
+
+    /**
+     * Creates a custom dialog with a styled layout, including a title, message, and buttons.
+     * The dialog's appearance adapts to the system's dark mode setting, with rounded corners
+     * and customizable button actions.
+     *
+     * @param context         The Context used to create the dialog.
+     * @param title           The title text of the dialog.
+     * @param message         The message text of the dialog.
+     * @param okButtonText    The text for the OK button, or null to use the default "OK" string.
+     * @param onOkClick       The action to perform when the OK button is clicked.
+     * @param onCancelClick   The action to perform when the Cancel button is clicked, or null if no Cancel button is needed.
+     * @param neutralButtonText The text for the Neutral button, or null if no Neutral button is needed.
+     * @param onNeutralClick  The action to perform when the Neutral button is clicked, or null if no Neutral button is needed.
+     * @return A Pair containing the Dialog and its main LinearLayout container.
+     */
+    public static Pair<Dialog, LinearLayout> createCustomDialog(
+            Context context, String title, String message,
+            String okButtonText, Runnable onOkClick,
+            Runnable onCancelClick,
+            @Nullable String neutralButtonText, @Nullable Runnable onNeutralClick
+    ) {
+        Logger.printDebug(() -> "Creating custom dialog with title: " + title);
+
+        // Use a theme to remove default dialog styling.
+        Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
+
+        // Create main layout
+        LinearLayout mainLayout = new LinearLayout(context);
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
+
+        // Preset size constants.
+        final int dip4 = dipToPixels(4);
+        final int dip8 = dipToPixels(8);
+        final int dip16 = dipToPixels(16);
+        final int dip28 = dipToPixels(28); // Padding for mainLayout.
+        final int dip36 = dipToPixels(36); // Height for buttons.
+
+        mainLayout.setPadding(dip28, dip16, dip28, dip28);
+        // Set rounded rectangle background with black color.
+        ShapeDrawable mainBackground = new ShapeDrawable(new RoundRectShape(
+                createCornerRadii(28), null, null));
+        mainBackground.getPaint().setColor(getAppBackground()); // Dialog background.
+        mainLayout.setBackground(mainBackground);
+
+        // Title.
+        if (!TextUtils.isEmpty(title)) {
+            TextView titleView = new TextView(context);
+            titleView.setText(title);
+            titleView.setTypeface(Typeface.DEFAULT_BOLD);
+            titleView.setTextSize(18);
+            titleView.setTextColor(isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
+            titleView.setPadding(0, 0, 0, dip8);
+            titleView.setGravity(Gravity.CENTER);
+            // Set layout parameters to match parent width and wrap content height.
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+            );
+            titleView.setLayoutParams(layoutParams);
+            mainLayout.addView(titleView);
+        }
+
+        // Message.
+        TextView messageView = new TextView(context);
+        messageView.setText(message != null ? message : "");
+        messageView.setTextSize(16);
+        messageView.setTextColor(isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
+        messageView.setPadding(0, dip8, 0, dip16);
+        mainLayout.addView(messageView);
+
+        // Button container.
+        LinearLayout buttonContainer = new LinearLayout(context);
+        buttonContainer.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams buttonContainerParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        buttonContainerParams.setMargins(0, dip8, 0, 0);
+        buttonContainer.setLayoutParams(buttonContainerParams);
+        buttonContainer.setGravity(Gravity.CENTER);
+
+        if (neutralButtonText != null && onNeutralClick != null) {
+            addButton(
+                    buttonContainer,
+                    context,
+                    neutralButtonText,
+                    onNeutralClick,
+                    false,
+                    false,
+                    true,
+                    dialog);
+        }
+
+        if (onCancelClick != null) {
+            addButton(
+                    buttonContainer,
+                    context,
+                    context.getString(android.R.string.cancel),
+                    onCancelClick,
+                    false,
+                    true,
+                    false,
+                    dialog);
+        }
+
+        addButton(
+                buttonContainer,
+                context,
+                okButtonText != null ? okButtonText : context.getString(android.R.string.ok),
+                onOkClick,
+                true,
+                false,
+                false,
+                dialog);
+
+        mainLayout.addView(buttonContainer);
+        dialog.setContentView(mainLayout);
+
+        // Set dialog window attributes.
+        Window window = dialog.getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams params = window.getAttributes();
+            params.gravity = Gravity.CENTER;
+            int portraitWidth = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.9);
+            if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                portraitWidth = (int) Math.min(
+                        portraitWidth,
+                        context.getResources().getDisplayMetrics().heightPixels * 0.9);
+            }
+            params.width = portraitWidth;
+            params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            window.setAttributes(params);
+            window.setBackgroundDrawable(null); // Remove default dialog background.
+        }
+
+        return new Pair<>(dialog, mainLayout);
+    }
+
+    // TODO: find a way how to get app theme background.
+    public static int getAppBackground() {
+        if (isDarkModeEnabled()) {
+            return getSafeColor("yt_black1", Color.BLACK);
+        } else {
+            return getSafeColor("yt_white1", Color.WHITE);
+        }
+    }
+
+    private static int getSafeColor(String resourceName, int defaultColor) {
+        try {
+            return getResourceColor(resourceName);
+        } catch (Resources.NotFoundException e) {
+            return defaultColor;
+        }
+    }
+
+    /**
+     * Adds a styled button to a dialog's button container with customizable text, click behavior, and appearance.
+     * The button's background and text colors adapt to the system's dark mode setting. Margins are dynamically
+     * adjusted based on the button's role (OK, Cancel, or Neutral) and the presence of other buttons.
+     *
+     * @param buttonContainer The LinearLayout container where the button will be added.
+     * @param context         The Context used to create the button and access resources.
+     * @param buttonText      The text displayed on the button.
+     * @param onClick         The Runnable executed when the button is clicked, or null if no action is required.
+     * @param isOkButton      True if this is the OK button, which uses distinct background and text colors.
+     * @param isCancelButton  True if this is the Cancel button, which uses distinct background and text colors.
+     * @param isNeutralButton True if this is a Neutral button or if a Neutral button exists, affecting margin settings.
+     * @param dialog          The Dialog to dismiss when the button is clicked.
+     */
+    public static void addButton(
+            LinearLayout buttonContainer,
+            Context context,
+            String buttonText,
+            Runnable onClick,
+            boolean isOkButton,
+            boolean isCancelButton,
+            boolean isNeutralButton,
+            Dialog dialog) {
+
+        Button button = new Button(context, null, 0);
+        button.setText(buttonText);
+        button.setTextSize(14);
+        button.setAllCaps(false);
+        button.setSingleLine(true);
+        button.setEllipsize(android.text.TextUtils.TruncateAt.END);
+        button.setGravity(Gravity.CENTER);
+
+        ShapeDrawable background = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
+        int backgroundColor = isOkButton
+                ? (isDarkModeEnabled() ? Color.WHITE : Color.BLACK) // Background color for OK button (inversion).
+                : isDarkModeEnabled()
+                // Background color for Cancel or Neutral buttons.
+                ? adjustColorBrightness(getSafeColor("yt_black1", Color.BLACK), 1.10f)
+                : adjustColorBrightness(getSafeColor("yt_white1", Color.WHITE), 0.95f);
+        background.getPaint().setColor(backgroundColor);
+        button.setBackground(background);
+
+        button.setTextColor(isDarkModeEnabled()
+                ? (isOkButton ? Color.BLACK : Color.WHITE)
+                : (isOkButton ? Color.WHITE : Color.BLACK));
+        button.setPadding(0, 0, 0, 0);
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, dipToPixels(36));
+        params.weight = 1;
+        // OK Button.
+        if (isOkButton) {
+            // OK on the right - 4dp left margin (next to Cancel), no right margin.
+            params.setMargins(dipToPixels(4), 0, 0, 0);
+        }
+        // Cancel Button.
+        if (isCancelButton) {
+            if (!isOkButton && !isNeutralButton) {
+                // Only Cancel - no margins.
+                params.setMargins(0, 0, 0, 0);
+            } else if (isOkButton && !isNeutralButton) {
+                // Only OK and Cancel - Cancel is on the left, 0dp left margin, 4dp right margin.
+                params.setMargins(0, 0, dipToPixels(4), 0);
+            } else {
+                // Cancel in the middle - 4dp margins on both sides.
+                params.setMargins(dipToPixels(4), 0, dipToPixels(4), 0);
+            }
+        }
+        // Neutral Button.
+        if (isNeutralButton) {
+            // Neutral on the left - no left margin, 4dp right margin (next to Cancel).
+            params.setMargins(0, 0, dipToPixels(4), 0);
+        }
+
+        button.setLayoutParams(params);
+
+        button.setOnClickListener(v -> {
+            if (onClick != null) {
+                onClick.run();
+            }
+            dialog.dismiss();
+        });
+
+        buttonContainer.addView(button);
+    }
+
+    /**
+     * Creates an array of corner radii for a rounded rectangle shape.
+     *
+     * @param dp The radius in density-independent pixels (dp) to apply to all corners.
+     * @return An array of eight float values representing the corner radii
+     * (top-left, top-right, bottom-right, bottom-left).
+     */
+    public static float[] createCornerRadii(float dp) {
+        final float radius = dipToPixels(dp);
+        return new float[]{radius, radius, radius, radius, radius, radius, radius, radius};
     }
 
     /**

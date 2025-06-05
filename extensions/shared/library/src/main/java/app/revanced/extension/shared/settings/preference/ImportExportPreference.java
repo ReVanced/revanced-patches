@@ -92,12 +92,12 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
             editText.setBackgroundColor(Utils.isDarkModeEnabled() ? Color.BLACK : Color.WHITE);
             editText.setPadding(dipToPixels(8), dipToPixels(8), dipToPixels(8), dipToPixels(8));
             ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
-                    AbstractPreferenceFragment.createCornerRadii(10), null, null));
-            editTextBackground.getPaint().setColor(Utils.isDarkModeEnabled() ? Color.BLACK : Color.WHITE);
+                    Utils.createCornerRadii(10), null, null));
+            editTextBackground.getPaint().setColor(Utils.getAppBackground()); // EditText background color.
             editText.setBackground(editTextBackground);
 
             // Create a custom dialog using the same style as AbstractPreferenceFragment.
-            Pair<Dialog, LinearLayout> dialogPair = AbstractPreferenceFragment.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                     context,
                     str("revanced_pref_import_export_title"),    // Title for the dialog.
                     null,                                        // Message is replaced by EditText.

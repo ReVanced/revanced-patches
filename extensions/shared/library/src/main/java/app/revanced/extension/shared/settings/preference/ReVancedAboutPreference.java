@@ -59,14 +59,14 @@ public class ReVancedAboutPreference extends Preference {
     /**
      * Subclasses can override this and provide a themed color.
      */
-    protected static int getLightColor() {
+    protected int getLightColor() {
         return Color.WHITE;
     }
 
     /**
      * Subclasses can override this and provide a themed color.
      */
-    protected static int getDarkColor() {
+    protected int getDarkColor() {
         return Color.BLACK;
     }
 
