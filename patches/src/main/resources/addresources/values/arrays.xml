@@ -187,6 +187,21 @@
                 <item>AUTOMOTIVE</item>
             </string-array>
         </patch>
+        <patch id="layout.theme.themePatch">
+            <!-- Since the 30fps looks bad, and the 2/5 second styles are not useful
+                 (YouTube closes the animation as soon as the feed is loaded),
+                 only the 60fps 1 second styles are exposed in the settings.
+                 Imported settings data can still be manually edited to force the other styles. -->
+            <string-array name="splash_screen_animation_style_entries">
+                <item>@string/splash_screen_animation_style_entry_1</item>
+                <item>@string/splash_screen_animation_style_entry_2</item>
+            </string-array>
+            <string-array name="splash_screen_animation_style_entry_values">
+                <item>FPS_60_ONE_SECOND</item>
+                <item>FPS_60_BLACK_AND_WHITE</item>
+            </string-array>
+        </patch>
+
         <patch id="layout.player.fullscreen.exitFullscreenPatch">
             <string-array name="revanced_exit_fullscreen_entries">
                 <item>@string/revanced_exit_fullscreen_entry_1</item>
