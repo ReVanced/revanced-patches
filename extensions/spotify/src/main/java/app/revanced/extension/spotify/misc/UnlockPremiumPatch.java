@@ -3,7 +3,6 @@ package app.revanced.extension.spotify.misc;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-import androidx.annotation.NonNull;
 import com.spotify.home.evopage.homeapi.proto.Section;
 
 import java.util.Iterator;
@@ -124,7 +123,6 @@ public final class UnlockPremiumPatch {
     /**
      * Utility method for returning resources ids as strings.
      */
-    @NonNull
     private static String getResourceIdentifier(String resourceIdentifierName) {
         return Integer.toString(Utils.getResourceIdentifier(resourceIdentifierName, "id"));
     }
