@@ -128,6 +128,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 confirmDialogTitle,
                 Objects.requireNonNull(setting.userDialogMessage).toString(),
                 null,
+                null,
                 () -> {
                     // User confirmed, save to the Setting.
                     updatePreference(pref, setting, true, false);
@@ -297,6 +298,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(context,
                 restartDialogTitle,
                 restartDialogMessage,
+                null,
                 restartDialogButtonText,
                 () -> Utils.restartApp(context),
                 () -> {}, // Cancel action just dismisses the dialog

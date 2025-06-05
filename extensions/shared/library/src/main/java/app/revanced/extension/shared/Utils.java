@@ -38,6 +38,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -710,22 +711,23 @@ public class Utils {
     }
 
     /**
-     * Creates a custom dialog with a styled layout, including a title, message, and buttons.
+     * Creates a custom dialog with a styled layout, including a title, message, buttons, and an optional EditText.
      * The dialog's appearance adapts to the system's dark mode setting, with rounded corners
      * and customizable button actions.
      *
-     * @param context         The Context used to create the dialog.
-     * @param title           The title text of the dialog.
-     * @param message         The message text of the dialog.
-     * @param okButtonText    The text for the OK button, or null to use the default "OK" string.
-     * @param onOkClick       The action to perform when the OK button is clicked.
-     * @param onCancelClick   The action to perform when the Cancel button is clicked, or null if no Cancel button is needed.
+     * @param context           The Context used to create the dialog.
+     * @param title             The title text of the dialog.
+     * @param message           The message text of the dialog, or null if replaced by EditText.
+     * @param editText          The EditText to include in the dialog, or null if no EditText is needed.
+     * @param okButtonText      The text for the OK button, or null to use the default "OK" string.
+     * @param onOkClick         The action to perform when the OK button is clicked.
+     * @param onCancelClick     The action to perform when the Cancel button is clicked, or null if no Cancel button is needed.
      * @param neutralButtonText The text for the Neutral button, or null if no Neutral button is needed.
-     * @param onNeutralClick  The action to perform when the Neutral button is clicked, or null if no Neutral button is needed.
+     * @param onNeutralClick    The action to perform when the Neutral button is clicked, or null if no Neutral button is needed.
      * @return A Pair containing the Dialog and its main LinearLayout container.
      */
-    public static Pair<Dialog, LinearLayout> createCustomDialog(
-            Context context, String title, String message,
+    public static Pair<Dialog, LinearLayout> createCustomDialog(Context context,
+            String title, String message, @Nullable EditText editText,
             String okButtonText, Runnable onOkClick,
             Runnable onCancelClick,
             @Nullable String neutralButtonText, @Nullable Runnable onNeutralClick
@@ -736,7 +738,7 @@ public class Utils {
         Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
 
-        // Create main layout
+        // Create main layout.
         LinearLayout mainLayout = new LinearLayout(context);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
 
@@ -772,13 +774,44 @@ public class Utils {
             mainLayout.addView(titleView);
         }
 
-        // Message.
-        TextView messageView = new TextView(context);
-        messageView.setText(message != null ? message : "");
-        messageView.setTextSize(16);
-        messageView.setTextColor(isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
-        messageView.setPadding(0, dip8, 0, dip16);
-        mainLayout.addView(messageView);
+        // Message (if not replaced by EditText).
+        if (editText == null && message != null && !TextUtils.isEmpty(message)) {
+            TextView messageView = new TextView(context);
+            messageView.setText(message);
+            messageView.setTextSize(16);
+            messageView.setTextColor(isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
+            messageView.setPadding(0, dip8, 0, dip16);
+            mainLayout.addView(messageView);
+        }
+
+        // EditText (if provided).
+        if (editText != null) {
+            // Remove EditText from its current parent, if any.
+            ViewGroup parent = (ViewGroup) editText.getParent();
+            if (parent != null) {
+                parent.removeView(editText);
+            }
+            // Style the EditText to match the dialog theme.
+            editText.setTextColor(isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
+            editText.setBackgroundColor(isDarkModeEnabled() ? Color.BLACK : Color.WHITE);
+            editText.setPadding(dip8, dip8, dip8, dip8);
+            ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
+                    createCornerRadii(10), null, null));
+            editTextBackground.getPaint().setColor(isDarkModeEnabled()
+                    ? adjustColorBrightness(getSafeColor("yt_black1", Color.BLACK), 1.20f)
+                    : adjustColorBrightness(getSafeColor("yt_white1", Color.WHITE), 0.90f));
+            editText.setBackground(editTextBackground);
+
+            LinearLayout.LayoutParams editTextParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            editTextParams.setMargins(0, dip8, 0, dip8);
+            // Prevent buttons from moving off the screen by fixing the height of the EditText.
+            int maxHeight = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.6);
+            editText.setMaxHeight(maxHeight);
+            mainLayout.addView(editText, editText != null ? 1 : mainLayout.getChildCount(), editTextParams);
+        }
 
         // Button container.
         LinearLayout buttonContainer = new LinearLayout(context);

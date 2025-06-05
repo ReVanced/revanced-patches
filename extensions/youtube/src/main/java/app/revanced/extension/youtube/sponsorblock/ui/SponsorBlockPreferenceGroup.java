@@ -293,6 +293,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                             preference1.getContext(),
                             str("revanced_sb_guidelines_popup_title"), // Title.
                             str("revanced_sb_guidelines_popup_content"), // Message.
+                            null, // No EditText.
                             str("revanced_sb_guidelines_popup_open"), // OK button text.
                             () -> openGuidelines(), // OK button action.
                             () -> {}, // Cancel button action (using empty Runnable for Negative button).
@@ -396,24 +397,6 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         Context context = getContext();
                         EditText editText = getEditText();
 
-                        // Remove EditText from its current parent, if any.
-                        ViewGroup parent = (ViewGroup) editText.getParent();
-                        if (parent != null) {
-                            parent.removeView(editText);
-                        }
-
-                        // Style the EditText to match the dialog theme.
-                        editText.setTextColor(Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
-                        editText.setBackgroundColor(Utils.isDarkModeEnabled() ? Color.BLACK : Color.WHITE);
-                        editText.setPadding(dipToPixels(8), dipToPixels(8), dipToPixels(8), dipToPixels(8));
-                        ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
-                                Utils.createCornerRadii(10), null, null));
-                        editTextBackground.getPaint().setColor(Utils.isDarkModeEnabled()
-                                ? Utils.adjustColorBrightness(Utils.getSafeColor("yt_black1", Color.BLACK), 1.20f)
-                                : Utils.adjustColorBrightness(Utils.getSafeColor("yt_white1", Color.WHITE), 0.90f)
-                        );
-                        editText.setBackground(editTextBackground);
-
                         // Set initial EditText value to the current persisted value or empty string.
                         String initialValue = getText() != null ? getText() : "";
                         editText.setText(initialValue);
@@ -424,6 +407,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                                 context,
                                 getTitle() != null ? getTitle().toString() : "", // Dialog title.
                                 null, // Message is replaced by EditText.
+                                editText, // Pass the EditText.
                                 null, // OK button text.
                                 () -> {
                                     // Persist the EditText value when OK is clicked.
@@ -442,22 +426,6 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                                     }
                                 } // Neutral button action (Copy).
                         );
-
-                        // Add the EditText to the dialog's layout.
-                        LinearLayout mainLayout = dialogPair.second;
-                        // Remove empty message TextView from the dialog's layout.
-                        TextView messageView = (TextView) mainLayout.getChildAt(1);
-                        if (TextUtils.isEmpty(messageView.getText())) {
-                            mainLayout.removeView(messageView);
-                        }
-                        LinearLayout.LayoutParams editTextParams = new LinearLayout.LayoutParams(
-                                LinearLayout.LayoutParams.MATCH_PARENT,
-                                LinearLayout.LayoutParams.WRAP_CONTENT
-                        );
-                        editTextParams.setMargins(0, dipToPixels(8), 0, dipToPixels(8));
-                        int maxHeight = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.6);
-                        editText.setMaxHeight(maxHeight);
-                        mainLayout.addView(editText, 1, editTextParams);
 
                         // Set cancelable to true (default EditTextPreference behavior)
                         dialogPair.first.setCancelable(true);
@@ -491,22 +459,12 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
                 editText.setText(Settings.SB_API_URL.get());
 
-                // Style the EditText to match the dialog theme.
-                editText.setTextColor(Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
-                editText.setBackgroundColor(Utils.isDarkModeEnabled() ? Color.BLACK : Color.WHITE);
-                editText.setPadding(dipToPixels(8), dipToPixels(8), dipToPixels(8), dipToPixels(8));
-                ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
-                        Utils.createCornerRadii(10), null, null));
-                editTextBackground.getPaint().setColor(Utils.isDarkModeEnabled()
-                        ? Utils.adjustColorBrightness(Utils.getSafeColor("yt_black1", Color.BLACK), 1.20f)
-                        : Utils.adjustColorBrightness(Utils.getSafeColor("yt_white1", Color.WHITE), 0.90f));
-                editText.setBackground(editTextBackground);
-
                 // Create a custom dialog
                 Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                         context,
                         str("revanced_sb_general_api_url"), // Title.
                         null, // No message, EditText replaces it.
+                        editText, // Pass the EditText.
                         null, // OK button text.
                         () -> {}, // Placeholder for OK button action (set after dialogPair creation).
                         () -> {}, // Cancel button action (dismiss dialog).
@@ -553,26 +511,6 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     }
                 });
 
-                // Add the EditText to the dialog's layout.
-                LinearLayout mainLayout = dialogPair.second;
-                // Remove empty message TextView from the dialog's layout.
-                TextView messageView = (TextView) mainLayout.getChildAt(1);
-                if (TextUtils.isEmpty(messageView.getText())) {
-                    mainLayout.removeView(messageView);
-                }
-
-                // Configure EditText layout parameters.
-                LinearLayout.LayoutParams editTextParams = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                );
-                editTextParams.setMargins(0, dipToPixels(8), 0, dipToPixels(8));
-                int maxHeight = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.6);
-                editText.setMaxHeight(maxHeight);
-
-                // Add EditText after title, before buttons.
-                mainLayout.addView(editText, 1, editTextParams);
-
                 // Show the dialog.
                 dialogPair.first.show();
                 return true;
@@ -586,28 +524,12 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         Context context = getContext();
                         EditText editText = getEditText();
 
-                        // Remove EditText from its current parent, if any.
-                        ViewGroup parent = (ViewGroup) editText.getParent();
-                        if (parent != null) {
-                            parent.removeView(editText);
-                        }
-
-                        // Style the EditText to match the dialog theme.
-                        editText.setTextColor(Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
-                        editText.setBackgroundColor(Utils.isDarkModeEnabled() ? Color.BLACK : Color.WHITE);
-                        editText.setPadding(dipToPixels(8), dipToPixels(8), dipToPixels(8), dipToPixels(8));
-                        ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
-                                Utils.createCornerRadii(10), null, null));
-                        editTextBackground.getPaint().setColor(Utils.isDarkModeEnabled()
-                                ? Utils.adjustColorBrightness(Utils.getSafeColor("yt_black1", Color.BLACK), 1.20f)
-                                : Utils.adjustColorBrightness(Utils.getSafeColor("yt_white1", Color.WHITE), 0.90f));
-                        editText.setBackground(editTextBackground);
-
                         // Create a custom dialog.
                         Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                                 context,
                                 str("revanced_sb_settings_ie"), // Title.
                                 null, // No message, EditText replaces it.
+                                editText, // Pass the EditText.
                                 str("revanced_settings_import"), // OK button text.
                                 () -> {
                                     // Trigger OnPreferenceChangeListener.
@@ -624,28 +546,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                                     } catch (Exception ex) {
                                         Logger.printException(() -> "Copy settings failure", ex);
                                     }
-                                } // Copy button action
+                                } // Copy button action.
                         );
-
-                        // Add the EditText to the dialog's layout.
-                        LinearLayout mainLayout = dialogPair.second;
-                        // Remove empty message TextView from the dialog's layout.
-                        TextView messageView = (TextView) mainLayout.getChildAt(1);
-                        if (TextUtils.isEmpty(messageView.getText())) {
-                            mainLayout.removeView(messageView);
-                        }
-
-                        // Configure EditText layout parameters.
-                        LinearLayout.LayoutParams editTextParams = new LinearLayout.LayoutParams(
-                                LinearLayout.LayoutParams.MATCH_PARENT,
-                                LinearLayout.LayoutParams.WRAP_CONTENT
-                        );
-                        editTextParams.setMargins(0, dipToPixels(8), 0, dipToPixels(8));
-                        int maxHeight = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.6);
-                        editText.setMaxHeight(maxHeight);
-
-                        // Add EditText after title, before buttons.
-                        mainLayout.addView(editText, 1, editTextParams);
 
                         // Show the dialog.
                         dialogPair.first.show();

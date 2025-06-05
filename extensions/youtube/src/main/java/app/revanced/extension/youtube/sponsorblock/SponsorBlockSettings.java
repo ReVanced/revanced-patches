@@ -187,6 +187,7 @@ public class SponsorBlockSettings {
                     dialogContext,
                     null, // No title.
                     str("revanced_sb_settings_revanced_export_user_id_warning"), // Message,
+                    null, // No EditText.
                     null, // OK button text,
                     () -> {}, // Empty Runnable for OK button.
                     null, // No cancel button action (setCancelable(false).

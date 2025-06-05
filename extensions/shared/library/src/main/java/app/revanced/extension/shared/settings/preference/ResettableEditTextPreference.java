@@ -64,25 +64,6 @@ public class ResettableEditTextPreference extends EditTextPreference {
             Context context = getContext();
             EditText editText = getEditText();
 
-            // Remove EditText from its current parent, if any.
-            ViewGroup parent = (ViewGroup) editText.getParent();
-            if (parent != null) {
-                parent.removeView(editText);
-            }
-
-            // Style the EditText to match the dialog theme.
-            editText.setTextColor(Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
-            editText.setBackgroundColor(Utils.isDarkModeEnabled() ? Color.BLACK : Color.WHITE);
-            editText.setPadding(dipToPixels(8), dipToPixels(8), dipToPixels(8), dipToPixels(8));
-            ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
-                    Utils.createCornerRadii(10), null, null));
-            editTextBackground.getPaint().setColor(Utils.isDarkModeEnabled()
-                    // EditText background color.
-                    ? Utils.adjustColorBrightness(Utils.getSafeColor("yt_black1", Color.BLACK), 1.20f)
-                    : Utils.adjustColorBrightness(Utils.getSafeColor("yt_white1", Color.WHITE), 0.90f)
-            );
-            editText.setBackground(editTextBackground);
-
             // Resolve setting if not already set.
             if (setting == null) {
                 String key = getKey();
@@ -102,6 +83,7 @@ public class ResettableEditTextPreference extends EditTextPreference {
                     context,
                     getTitle() != null ? getTitle().toString() : "", // Dialog title.
                     null, // Message is replaced by EditText.
+                    editText, // Pass the EditText.
                     null, // OK button text.
                     () -> {
                         // Persist the EditText value when OK is clicked.
@@ -115,24 +97,9 @@ public class ResettableEditTextPreference extends EditTextPreference {
                     () -> {} // Overrides to prevent dialog dismissal.
             );
 
-            // Add the EditText to the dialog's layout.
-            LinearLayout mainLayout = dialogPair.second;
-            // Remove empty message TextView from the dialog's layout.
-            TextView messageView = (TextView) mainLayout.getChildAt(1);
-            if (TextUtils.isEmpty(messageView.getText())) {
-                mainLayout.removeView(messageView);
-            }
-            LinearLayout.LayoutParams editTextParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-            );
-            editTextParams.setMargins(0, dipToPixels(8), 0, dipToPixels(8));
-            int maxHeight = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.6);
-            editText.setMaxHeight(maxHeight);
-            mainLayout.addView(editText, 1, editTextParams);
-
             // Override the neutral button's OnClickListener to prevent dialog dismissal.
             if (setting != null) {
+                LinearLayout mainLayout = dialogPair.second;
                 LinearLayout buttonContainer = (LinearLayout) mainLayout.getChildAt(mainLayout.getChildCount() - 1);
                 Button neutralButton = (Button) buttonContainer.getChildAt(0); // Neutral button is first.
                 neutralButton.setOnClickListener(v -> {
