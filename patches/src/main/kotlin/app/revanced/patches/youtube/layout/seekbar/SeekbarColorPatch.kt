@@ -399,17 +399,6 @@ val seekbarColorPatch = bytecodePatch(
             })
         }
 
-        // Add development hook to force old drawable splash animation.
-        arrayOf(
-            launchScreenLayoutTypeFingerprint,
-            mainActivityOnCreateSplashScreenImageViewFingerprint
-        ).forEach { fingerprint ->
-            fingerprint.method.insertLiteralOverride(
-                launchScreenLayoutTypeLotteFeatureFlag,
-                "$EXTENSION_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z"
-            )
-        }
-
         // endregion
     }
 }
