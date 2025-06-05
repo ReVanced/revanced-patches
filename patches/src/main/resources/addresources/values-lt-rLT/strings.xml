@@ -748,9 +748,9 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_shorts_location_label_title">Slėpti vietovės etiketę</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Vietovės etiketė paslėpta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Vietovės etiketė rodoma</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Slėpti komentarų skydelį</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Komentarų skydelis yra paslėptas</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Komentarų skydelis rodomas</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Slėpti peržiūros komentarą</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Komentaro peržiūra paslėpta</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Parodyta komentaro peržiūra</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Paslėpti mygtuką „Įrašyti muziką\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">\"Išsaugoti muziką\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">\"Išsaugoti muziką\" mygtukas rodomas</string>

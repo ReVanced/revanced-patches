@@ -750,9 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Етикет за местоположение</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Етикет за местоположение е скрит</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Етикет за местоположение се показва</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Скриване на панела за коментари</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Панелът за коментари е скрит</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Панелът за коментари е показан</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Скриване на коментара за визуализация</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Коментарът за визуализация е скрит</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Показва се визуализация на коментара</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Скриване на бутона Save music</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Бутонът за запазване на музика е скрит</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Показан е бутонът за запазване на музика</string>

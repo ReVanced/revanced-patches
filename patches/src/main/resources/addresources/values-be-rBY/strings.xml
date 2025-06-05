@@ -750,9 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Схаваць метку месцазнаходжання</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Метка месцазнаходжання схавана</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Паказана метка месцазнаходжання</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Схаваць панэль каментарыяў</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Панель каментарыяў схаваная</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Панэль каментарыяў паказана</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Схаваць папярэдні прагляд каментарыя</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Папярэдні прагляд каментарыя схаваны</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Паказваецца папярэдні прагляд каментарыя</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Схаваць кнопку «Захаваць музыку»</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка захавання музыкі схавана</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка захавання музыкі паказана</string>

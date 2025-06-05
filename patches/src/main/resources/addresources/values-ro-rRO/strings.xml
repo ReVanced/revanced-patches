@@ -750,9 +750,9 @@ Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fl
   <string name="revanced_hide_shorts_location_label_title">Ascunde eticheta locației</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Eticheta locației este ascunsă</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Eticheta locației este afișată</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Ascunde panoul de comentarii</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Panoul de comentarii este ascuns</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Panoul de comentarii este afișat</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Ascunde comentariul de previzualizare</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Comentariul de previzualizare este ascuns</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Previzualizarea comentariului este afișată</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ascunde butonul Salvează melodia</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Butonul de salvare a muzicii este ascuns</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Butonul de salvare a muzicii este afișat</string>
