@@ -257,16 +257,17 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     }
 
     /**
-     * Adds a styled button to a dialog's button container with specified text, click behavior, and appearance.
-     * The button's background and text color adapt to the system's dark mode setting, and margins are adjusted
-     * based on the button type and presence of a neutral button.
+     * Adds a styled button to a dialog's button container with customizable text, click behavior, and appearance.
+     * The button's background and text colors adapt to the system's dark mode setting. Margins are dynamically
+     * adjusted based on the button's role (OK, Cancel, or Neutral) and the presence of other buttons.
      *
-     * @param buttonContainer The LinearLayout to which the button will be added.
+     * @param buttonContainer The LinearLayout container where the button will be added.
      * @param context         The Context used to create the button and access resources.
-     * @param buttonText      The text to display on the button.
-     * @param onClick         The Runnable to execute when the button is clicked, or null if no action is needed.
-     * @param isOkButton      True if the button is the OK button, affecting its background and text color.
-     * @param isNeutralButton True if a neutral button exists, affecting margin settings for non-OK buttons.
+     * @param buttonText      The text displayed on the button.
+     * @param onClick         The Runnable executed when the button is clicked, or null if no action is required.
+     * @param isOkButton      True if this is the OK button, which uses distinct background and text colors.
+     * @param isCancelButton  True if this is the Cancel button, which uses distinct background and text colors.
+     * @param isNeutralButton True if this is a Neutral button or if a Neutral button exists, affecting margin settings.
      * @param dialog          The Dialog to dismiss when the button is clicked.
      */
     protected static void addButton(
