@@ -1,11 +1,33 @@
 package app.revanced.extension.youtube.patches.theme;
 
+import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class ThemePatch {
+
+    public enum SplashScreenAnimationStyle {
+        DEFAULT(-1),
+        FPS_60_ONE_SECOND(1),
+        FPS_60_TWO_SECOND(2),
+        FPS_60_FIVE_SECOND(3),
+        FPS_60_BLACK_AND_WHITE(4),
+        FPS_30_ONE_SECOND(5),
+        FPS_30_TWO_SECOND(6),
+        FPS_30_FIVE_SECOND(7),
+        FPS_30_BLACK_AND_WHITE(8);
+        // There exists a 10th json style used as the switch statement default,
+        // but visually it is identical to 60fps one second.
+
+        final int style;
+
+        SplashScreenAnimationStyle(int style) {
+            this.style = style;
+        }
+    }
+
     // color constants used in relation with litho components
     private static final int[] WHITE_VALUES = {
             -1, // comments chip background
@@ -57,5 +79,22 @@ public class ThemePatch {
      */
     public static boolean gradientLoadingScreenEnabled(boolean original) {
         return GRADIENT_LOADING_SCREEN_ENABLED;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int getLoadingScreenType(int original) {
+        SplashScreenAnimationStyle style = Settings.SPLASH_SCREEN_ANIMATION_STYLE.get();
+        if (style == SplashScreenAnimationStyle.DEFAULT) {
+            return original;
+        }
+
+        final int styleInt = style.style;
+        if (original != styleInt) {
+            Logger.printDebug(() -> "Overriding splash screen style from: " + original + " to: " + style);
+        }
+
+        return styleInt;
     }
 }

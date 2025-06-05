@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.patches.theme;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.clamp;
+import static app.revanced.extension.youtube.patches.theme.ThemePatch.SplashScreenAnimationStyle;
 
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -173,21 +174,13 @@ public final class SeekbarColorPatch {
      */
     public static void setSplashAnimationLottie(LottieAnimationView view, int resourceId) {
         try {
-            if (!SEEKBAR_CUSTOM_COLOR_ENABLED) {
+            SplashScreenAnimationStyle animationStyle = Settings.SPLASH_SCREEN_ANIMATION_STYLE.get();
+            if (!SEEKBAR_CUSTOM_COLOR_ENABLED
+                    // Black and white animations don't need color replacements.
+                    || animationStyle == SplashScreenAnimationStyle.FPS_30_BLACK_AND_WHITE
+                    || animationStyle == SplashScreenAnimationStyle.FPS_60_BLACK_AND_WHITE) {
                 view.patch_setAnimation(resourceId);
                 return;
-            }
-
-            //noinspection ConstantConditions
-            if (false) { // Set true to force slow animation for development.
-                final int longAnimation = Utils.getResourceIdentifier(
-                        Utils.isDarkModeEnabled()
-                                ? "startup_animation_5s_30fps_dark"
-                                : "startup_animation_5s_30fps_light",
-                        "raw");
-                if (longAnimation != 0) {
-                    resourceId = longAnimation;
-                }
             }
 
             // Must specify primary key name otherwise the morphing YT logo color is also changed.
@@ -200,7 +193,7 @@ public final class SeekbarColorPatch {
 
             String json = loadRawResourceAsString(resourceId);
             if (json == null) {
-                return; // Should never happen.
+                throw new IllegalStateException(); // Should never happen.
             }
 
             if (BaseSettings.DEBUG.get() && (!json.contains(originalPrimary) || !json.contains(originalAccent))) {
