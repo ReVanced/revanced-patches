@@ -2,6 +2,7 @@ package app.revanced.extension.spotify.layout.hide.createbutton;
 
 import java.util.List;
 
+import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
 @SuppressWarnings("unused")
@@ -31,10 +32,21 @@ public final class HideCreateButtonPatch {
         }
 
         String stringifiedNavigationBarItem = navigationBarItem.toString();
-        boolean isCreateButton = CREATE_BUTTON_TITLE_RES_ID_LIST.stream()
-                .anyMatch(stringifiedNavigationBarItem::contains);
+
+        boolean isCreateButton = false;
+        String matchedTitleResId = null;
+
+        for (String titleResId : CREATE_BUTTON_TITLE_RES_ID_LIST) {
+            if (stringifiedNavigationBarItem.contains(titleResId)) {
+                isCreateButton = true;
+                matchedTitleResId = titleResId;
+            }
+        }
 
         if (isCreateButton) {
+            String finalMatchedTitleResId = matchedTitleResId;
+            Logger.printInfo(() -> "Hiding Create button because the navigation bar item " + navigationBarItem +
+                    " matched the title resource id " + finalMatchedTitleResId);
             return null;
         }
 
@@ -46,6 +58,14 @@ public final class HideCreateButtonPatch {
      * Create button.
      */
     public static boolean isOldCreateButton(int oldNavigationBarItemTitleResId) {
-        return oldNavigationBarItemTitleResId == OLD_CREATE_BUTTON_TITLE_RES_ID;
+        boolean isCreateButton = oldNavigationBarItemTitleResId == OLD_CREATE_BUTTON_TITLE_RES_ID;
+
+        if (isCreateButton) {
+            Logger.printInfo(() -> "Hiding old Create button because the navigation bar item title resource id" +
+                    " matched " + OLD_CREATE_BUTTON_TITLE_RES_ID);
+            return true;
+        }
+
+        return false;
     }
 }

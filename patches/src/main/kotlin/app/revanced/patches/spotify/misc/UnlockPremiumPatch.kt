@@ -38,7 +38,7 @@ val unlockPremiumPatch = bytecodePatch(
         // so for now this is a dependent of this patch.
         //
         // FIXME: Modifying string resources (such as adding patch strings)
-        //  is currently failing with ReVanced manager.
+        // is currently failing with ReVanced Manager.
         // checkEnvironmentPatch,
     )
 
@@ -78,7 +78,7 @@ val unlockPremiumPatch = bytecodePatch(
 
         if (IS_SPOTIFY_LEGACY_APP_TARGET) {
             Logger.getLogger(this::class.java.name).warning(
-                "Patching a legacy Spotify version. Patch functionality may be limited."
+                "Patching a legacy Spotify version.  Patch functionality may be limited."
             )
             return@execute
         }
@@ -174,7 +174,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Need to allow mutation of the list so the home ads sections can be removed.
         // Protobuf array list has an 'isMutable' boolean parameter that sets the mutability.
         // Forcing that always on breaks unrelated code in strange ways.
-        // Instead, return early in the method that throws an error if the list is unmutable.
+        // Instead, return early in the method that throws an error if the list is immutable.
         abstractProtobufListEnsureIsMutableFingerprint.match(abstractProtobufListClassDef)
             .method.returnEarly()
 
