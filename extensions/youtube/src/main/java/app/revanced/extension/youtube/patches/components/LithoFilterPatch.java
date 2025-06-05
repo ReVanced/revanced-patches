@@ -46,11 +46,6 @@ public final class LithoFilterPatch {
         }
 
         /**
-         * Placeholder for actual filters.
-         */
-        private static final class DummyFilter extends Filter { }
-
-        /**
          * Search through a byte array for all ASCII strings.
          */
         private static void findAsciiStrings(StringBuilder builder, byte[] buffer) {
@@ -80,7 +75,7 @@ public final class LithoFilterPatch {
     }
 
     private static final Filter[] filters = new Filter[] {
-            new LithoFilterParameters.DummyFilter() // Replaced by patch.
+            new DummyFilter() // Replaced by patch.
     };
 
     private static final StringTrieSearch pathSearchTree = new StringTrieSearch();
@@ -92,7 +87,7 @@ public final class LithoFilterPatch {
      * Because litho filtering is multi-threaded and the buffer is passed in from a different injection point,
      * the buffer is saved to a ThreadLocal so each calling thread does not interfere with other threads.
      */
-    private static final ThreadLocal<byte[]> bufferThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<ByteBuffer> bufferThreadLocal = new ThreadLocal<>();
     /**
      * Results of calling {@link #filter(String, StringBuilder)}.
      */
@@ -150,33 +145,20 @@ public final class LithoFilterPatch {
     }
 
     /**
-     * Injection point. Target 20.21 and lower.
+     * Injection point.  Called off the main thread.
      */
-    public static void setProtoBuffer(@Nullable ByteBuffer buffer) {
-        if (buffer == null) {
-            setProtoBuffer(EMPTY_BYTE_ARRAY);
-        } else if (buffer.hasArray()) {
-            setProtoBuffer(buffer.array());
-        } else {
-            Logger.printDebug(() -> "Proto buffer does not have an array, using an empty buffer array");
-            setProtoBuffer(EMPTY_BYTE_ARRAY);
-        }
-    }
-
-    /**
-     * Injection point.  Called off the main thread. Target 20.22+
-     */
-    public static void setProtoBuffer(@Nullable byte[] buffer) {
+    @SuppressWarnings("unused")
+    public static void setProtoBuffer(@Nullable ByteBuffer protobufBuffer) {
         // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
         // This is intentional, as it appears the buffer can be set once and then filtered multiple times.
         // The buffer will be cleared from memory after a new buffer is set by the same thread,
         // or when the calling thread eventually dies.
-        if (buffer == null) {
+        if (protobufBuffer == null) {
             // It appears the buffer can be cleared out just before the call to #filter()
             // Ignore this null value and retain the last buffer that was set.
             Logger.printDebug(() -> "Ignoring null protobuffer");
         } else {
-            bufferThreadLocal.set(buffer);
+            bufferThreadLocal.set(protobufBuffer);
         }
     }
 
@@ -201,11 +183,17 @@ public final class LithoFilterPatch {
                 return false;
             }
 
-            byte[] bufferArray = bufferThreadLocal.get();
+            ByteBuffer protobufBuffer = bufferThreadLocal.get();
+            final byte[] bufferArray;
             // Potentially the buffer may have been null or never set up until now.
             // Use an empty buffer so the litho id/path filters still work correctly.
-            if (bufferArray == null) {
+            if (protobufBuffer == null) {
                 bufferArray = EMPTY_BYTE_ARRAY;
+            } else if (!protobufBuffer.hasArray()) {
+                Logger.printDebug(() -> "Proto buffer does not have an array, using an empty buffer array");
+                bufferArray = EMPTY_BYTE_ARRAY;
+            } else {
+                bufferArray = protobufBuffer.array();
             }
 
             LithoFilterParameters parameter = new LithoFilterParameters(lithoIdentifier,
@@ -226,3 +214,8 @@ public final class LithoFilterPatch {
         return false;
     }
 }
+
+/**
+ * Placeholder for actual filters.
+ */
+final class DummyFilter extends Filter { }
