@@ -176,7 +176,7 @@ public final class SeekbarColorPatch {
         try {
             SplashScreenAnimationStyle animationStyle = Settings.SPLASH_SCREEN_ANIMATION_STYLE.get();
             if (!SEEKBAR_CUSTOM_COLOR_ENABLED
-                    // Black and white animations don't need color replacements.
+                    // Black and white animations cannot use color replacements.
                     || animationStyle == SplashScreenAnimationStyle.FPS_30_BLACK_AND_WHITE
                     || animationStyle == SplashScreenAnimationStyle.FPS_60_BLACK_AND_WHITE) {
                 view.patch_setAnimation(resourceId);
@@ -192,21 +192,16 @@ public final class SeekbarColorPatch {
             String replacementAccent = originalKey + getColorStringArray(customSeekbarColorGradient[1]);
 
             String json = loadRawResourceAsString(resourceId);
-            if (json == null) {
-                throw new IllegalStateException(); // Should never happen.
-            }
+            String replacement = json
+                    .replace(originalPrimary, replacementPrimary)
+                    .replace(originalAccent, replacementAccent);
 
             if (BaseSettings.DEBUG.get() && (!json.contains(originalPrimary) || !json.contains(originalAccent))) {
-                String jsonFinal = json;
-                Logger.printException(() -> "Could not replace launch animation colors: " + jsonFinal);
+                Logger.printException(() -> "Could not replace splash animation colors: " + json);
             }
 
-            Logger.printDebug(() -> "Replacing Lottie animation JSON");
-            json = json.replace(originalPrimary, replacementPrimary);
-            json = json.replace(originalAccent, replacementAccent);
-
             // cacheKey is not needed since the animation will not be reused.
-            view.patch_setAnimation(new ByteArrayInputStream(json.getBytes()), null);
+            view.patch_setAnimation(new ByteArrayInputStream(replacement.getBytes()), null);
         } catch (Exception ex) {
             Logger.printException(() -> "setSplashAnimationLottie failure", ex);
         }
@@ -227,8 +222,7 @@ public final class SeekbarColorPatch {
              Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8.name()).useDelimiter("\\A")) {
             return scanner.next();
         } catch (IOException e) {
-            Logger.printException(() -> "Could not load resource: " + resourceId);
-            return null;
+            throw new IllegalStateException("Could not load resource: " + resourceId);
         }
     }
 
