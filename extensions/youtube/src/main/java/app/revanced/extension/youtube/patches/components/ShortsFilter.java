@@ -218,7 +218,7 @@ public final class ShortsFilter extends Filter {
         //
         suggestedActionsGroupList.addAll(
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_SHORTS_COMMENT_PANEL,
+                        Settings.HIDE_SHORTS_PREVIEW_COMMENT,
                         // Preview comment that can popup while a Short is playing.
                         // Uses no bundled icons, and instead the users profile photo is shown.
                         "shorts-comments-panel"

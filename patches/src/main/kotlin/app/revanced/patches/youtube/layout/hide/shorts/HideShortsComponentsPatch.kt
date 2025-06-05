@@ -86,7 +86,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                     SwitchPreference("revanced_hide_shorts_paused_overlay_buttons"),
 
                     // Suggested actions.
-                    SwitchPreference("revanced_hide_shorts_comment_panel"),
+                    SwitchPreference("revanced_hide_shorts_preview_comment"),
                     SwitchPreference("revanced_hide_shorts_save_sound_button"),
                     SwitchPreference("revanced_hide_shorts_use_template_button"),
                     SwitchPreference("revanced_hide_shorts_upcoming_button"),
@@ -249,12 +249,12 @@ val hideShortsComponentsPatch = bytecodePatch(
             // Since the buttons are native components and not Litho, it should be possible to
             // fix the RYD Shorts loading delay by asynchronously loading RYD and updating
             // the button text after RYD has loaded.
-            shortsExperimentalPlayerFeatureFlagFingerprint.method.returnLate(true)
+            shortsExperimentalPlayerFeatureFlagFingerprint.method.returnLate(false)
 
             // Experimental UI renderer must also be disabled since it requires the
             // experimental Shorts player.  If this is enabled but Shorts player
             // is disabled then the app crashes when the Shorts player is opened.
-            renderNextUIFeatureFlagFingerprint.method.returnLate(true)
+            renderNextUIFeatureFlagFingerprint.method.returnLate(false)
         }
 
         // endregion

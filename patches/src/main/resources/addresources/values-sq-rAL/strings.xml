@@ -750,6 +750,9 @@ Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet vide
   <string name="revanced_hide_shorts_location_label_title">Fsheh etiketën e vendndodhjes</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Etiketë e vendndodhjes është e fshehur</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Etiketë e vendndodhjes shfaqet</string>
+  <string name="revanced_hide_shorts_comment_panel_title">Fshih panelin e komenteve</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">Paneli i komenteve është i fshehur</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">Paneli i komenteve është i dukshëm</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Fsheh butonin Ruaj muzikën</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Butoni \"Ruaj muzikën\" është i fshehur</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Butoni \"Ruaj muzikën\" shfaqet</string>

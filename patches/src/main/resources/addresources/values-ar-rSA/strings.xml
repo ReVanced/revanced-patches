@@ -35,7 +35,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">الإعدادات</string>
   <string name="revanced_settings_confirm_user_dialog_title">هل ترغب في المتابعة؟</string>
   <string name="revanced_settings_reset">إعادة التعيين</string>
-  <string name="revanced_settings_reset_color">إعادة تعيين اللون</string>
+  <string name="revanced_settings_reset_color">Reset color</string>
   <string name="revanced_settings_color_invalid">لون غير صالح</string>
   <string name="revanced_settings_restart_title">تحديث وإعادة التشغيل</string>
   <string name="revanced_settings_restart">إعادة التشغيل</string>
@@ -750,6 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">إخفاء تسمية الموقع</string>
   <string name="revanced_hide_shorts_location_label_summary_on">تم إخفاء تسمية الموقع</string>
   <string name="revanced_hide_shorts_location_label_summary_off">يتم عرض تسمية الموقع</string>
+  <string name="revanced_hide_shorts_comment_panel_title">إخفاء لوحة التعليقات</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_on">تم إخفاء لوحة التعليقات</string>
+  <string name="revanced_hide_shorts_comment_panel_summary_off">يتم عرض لوحة التعليقات</string>
   <string name="revanced_hide_shorts_save_sound_button_title">إخفاء زر حفظ الموسيقى</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">تم إخفاء زر حفظ الموسيقى</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">يتم عرض زر حفظ الموسيقى</string>
