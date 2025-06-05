@@ -746,9 +746,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_location_label_title">অবস্থান লেবেল লুকান</string>
   <string name="revanced_hide_shorts_location_label_summary_on">অবস্থান লেবেল লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_location_label_summary_off">অবস্থান লেবেল প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_comment_panel_title">মন্তব্য প্যানেল লুকান</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">মন্তব্য প্যানেল লুকানো আছে</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">মন্তব্য প্যানেল দেখানো হয়েছে</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Preview comment লুকান</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Preview comment লুকানো আছে</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Preview comment দেখানো হয়েছে</string>
   <string name="revanced_hide_shorts_save_sound_button_title">সেভ মিউজিক বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music বোতাম দেখানো হচ্ছে</string>

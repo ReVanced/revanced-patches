@@ -750,9 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">隐藏位置标签</string>
   <string name="revanced_hide_shorts_location_label_summary_on">位置标签已隐藏</string>
   <string name="revanced_hide_shorts_location_label_summary_off">位置标签已显示</string>
-  <string name="revanced_hide_shorts_comment_panel_title">隐藏评论面板</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">已隐藏评论面板</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">评论面板已显示</string>
+  <string name="revanced_hide_shorts_preview_comment_title">隐藏预览评论</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">预览评论已隐藏</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">预览评论已显示</string>
   <string name="revanced_hide_shorts_save_sound_button_title">隐藏「保存音乐」按钮</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">保存音乐按钮已隐藏</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">保存音乐按钮已显示</string>
