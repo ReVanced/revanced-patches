@@ -857,7 +857,7 @@ public class Utils {
         }
     }
 
-    private static int getSafeColor(String resourceName, int defaultColor) {
+    public static int getSafeColor(String resourceName, int defaultColor) {
         try {
             return getResourceColor(resourceName);
         } catch (Resources.NotFoundException e) {

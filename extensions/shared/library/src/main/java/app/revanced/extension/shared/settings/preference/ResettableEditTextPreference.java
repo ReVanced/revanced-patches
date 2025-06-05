@@ -6,8 +6,12 @@ import static app.revanced.extension.shared.Utils.dipToPixels;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+import android.graphics.drawable.shapes.RectShape;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.graphics.drawable.ShapeDrawable;
+import android.graphics.Paint.Style;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.text.TextUtils;
@@ -16,6 +20,7 @@ import android.util.Pair;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -71,7 +76,11 @@ public class ResettableEditTextPreference extends EditTextPreference {
             editText.setPadding(dipToPixels(8), dipToPixels(8), dipToPixels(8), dipToPixels(8));
             ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
                     Utils.createCornerRadii(10), null, null));
-            editTextBackground.getPaint().setColor(Utils.getAppBackground()); // EditText background color.
+            editTextBackground.getPaint().setColor(Utils.isDarkModeEnabled()
+                    // EditText background color.
+                    ? Utils.adjustColorBrightness(Utils.getSafeColor("yt_black1", Color.BLACK), 1.10f)
+                    : Utils.adjustColorBrightness(Utils.getSafeColor("yt_white1", Color.WHITE), 0.95f)
+            );
             editText.setBackground(editTextBackground);
 
             // Resolve setting if not already set.
