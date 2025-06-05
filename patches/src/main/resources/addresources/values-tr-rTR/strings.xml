@@ -311,9 +311,9 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">\'Short oluştur\' düğmesini gizle</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Short oluştur düğmesi gizli</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Short oluştur düğmesi görünür</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Emoji ve zaman damgası düğmelerini gizle</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji ve zaman damgası düğmeleri gizli</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji ve zaman damgası düğmeleri görünür</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Zaman damgası düğmesini gizle</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Zaman damgası düğmesi gizli</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Zaman damgası düğmesi görünür</string>
   <string name="revanced_hide_comments_preview_comment_title">Ön izlenen yorumu gizle</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Ön izlenen yorum gizli</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Ön izlenen yorum görünür</string>

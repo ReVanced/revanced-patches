@@ -311,9 +311,9 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Folaigh an cnaipe \'Cruthaigh Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tá cnaipe Cruthaigh gearrscéal i bhfolach</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Taispeántar cnaipe Cruthaigh gearrscéal</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Folaigh cnaipí emoji agus amlínte</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tá cnaipí emoji agus amlínte i bhfolach</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Taispeántar cnaipí emoji agus amlínte</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Folaigh cnaipe an stampa ama</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tá cnaipe an stampa ama i bhfolach</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Taispeántar cnaipe an stampa ama</string>
   <string name="revanced_hide_comments_preview_comment_title">Folaigh trácht réamhamharc</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Tá trácht réamhamhar i bhfolach</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Taispeántar trácht réamhamharc</string>

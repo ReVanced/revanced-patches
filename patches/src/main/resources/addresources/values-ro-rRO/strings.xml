@@ -311,9 +311,9 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Ascunde butonul \'Creare Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Butonul Creează un Short este ascuns</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Butonul Creează un Short este afișat</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ascunde butoanele emoji și timestamp</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Butoanele Emoji și timestamp sunt ascunse</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Butoanele Emoji și timestamp sunt afișate</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ascunde butonul de marcaj temporal</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Butonul de marcaj temporal este ascuns</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Butonul de marcaj temporal este afișat</string>
   <string name="revanced_hide_comments_preview_comment_title">Ascunde previzualizarea comentariului</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Previzualizarea comentariului este ascunsă</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Previzualizarea comentariului este afișată</string>

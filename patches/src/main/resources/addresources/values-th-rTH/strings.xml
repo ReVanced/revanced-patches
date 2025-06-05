@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">ซ่อนปุ่ม \'สร้าง Shorts\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">ปุ่มสร้าง Short ถูกซ่อน</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">ปุ่มสร้าง Short แสดงอยู่</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">ซ่อนอิโมจิและปุ่มประทับเวลา</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">ปุ่มอิโมจิและประทับเวลาถูกซ่อน</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">ปุ่มอิโมจิและประทับเวลาแสดงอยู่</string>
+  <string name="revanced_hide_comments_timestamp_button_title">ซ่อนปุ่มประทับเวลา</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">ปุ่มประทับเวลาถูกซ่อน</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">ปุ่มประทับเวลาแสดงอยู่</string>
   <string name="revanced_hide_comments_preview_comment_title">ซ่อนความคิดเห็นตัวอย่าง</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">ความคิดเห็นตัวอย่างถูกซ่อนไว้</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">ความคิดเห็นตัวอย่างแสดงอยู่</string>

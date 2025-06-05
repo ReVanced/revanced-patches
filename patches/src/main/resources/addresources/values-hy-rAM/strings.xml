@@ -311,9 +311,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_comments_create_a_short_button_title">Թաքցնել \"Ստեղծել Shorts\" կոճակը</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">\"Ստեղծել Short\" կոճակը թաքցված է</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">\"Ստեղծել Short\" կոճակը ցուցադրվում է</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Թաքցնել էմոջիների և ժամանակային կնիքի կոճակները</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Էմոջիների և ժամանակային կնիքի կոճակները թաքցված են</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Էմոջիների և ժամանակային կնիքի կոճակները ցուցադրվում են</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Թաքցնել ժամանակային նշումով կոճակը</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Ժամանակային նշումով կոճակը թաքցված է</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Ժամանակային նշումով կոճակը ցուցադրվում է</string>
   <string name="revanced_hide_comments_preview_comment_title">Թաքցնել նախադիտման մեկնաբանությունը</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Նախադիտման մեկնաբանությունը թաքցված է</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Նախադիտման մեկնաբանությունը երևում է</string>

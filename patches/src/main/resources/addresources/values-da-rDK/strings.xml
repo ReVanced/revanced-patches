@@ -311,9 +311,9 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Skjul knappen \"Opret en Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Opret en Short knap er skjult</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Opret en Short knap vises</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skjul emoji- og tidsstempelknapper</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji- og tidsstempelknapper er skjult</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji- og tidsstempelknapper vises</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Skjul tidsstempelknap</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tidsstempelknappen er skjult</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Tidsstempelknappen vises</string>
   <string name="revanced_hide_comments_preview_comment_title">Skjul forhåndsvisning kommentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Forhåndsvisning kommentar er skjult</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Forhåndsvis kommentar er vist</string>
