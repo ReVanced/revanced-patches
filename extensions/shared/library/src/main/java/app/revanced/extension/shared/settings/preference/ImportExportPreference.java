@@ -121,6 +121,11 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
             editTextParams.setMargins(0, dipToPixels(8), 0, dipToPixels(8));
+            // Prevent buttons from moving off the screen by fixing the height of the EditText.
+            editTextParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
+            int maxHeight = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.6);
+            editText.setMaxHeight(maxHeight);
+
             // Add EditText after title, before buttons.
             mainLayout.addView(editText, 1, editTextParams);
 
