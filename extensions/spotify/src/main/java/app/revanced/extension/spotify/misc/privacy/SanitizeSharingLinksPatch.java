@@ -21,11 +21,6 @@ public final class SanitizeSharingLinksPatch {
      * Injection point.
      */
     public static String sanitizeUrl(String url) {
-        if (url == null) {
-            Logger.printInfo(() -> "sanitizeUrl called with null url");
-            return null;
-        }
-
         try {
             Uri uri = Uri.parse(url);
             Uri.Builder builder = uri.buildUpon().clearQuery();
@@ -42,7 +37,7 @@ public final class SanitizeSharingLinksPatch {
             Logger.printInfo(() -> "Sanitized url " + url + " to " + sanitizedUrl);
             return sanitizedUrl;
         } catch (Exception ex) {
-            Logger.printException(() -> "Exception while sanitizing url " + url, ex);
+            Logger.printException(() -> "sanitizeUrl failure with " + url, ex);
             return url;
         }
     }

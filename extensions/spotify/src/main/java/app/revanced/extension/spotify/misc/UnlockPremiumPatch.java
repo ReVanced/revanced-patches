@@ -137,7 +137,7 @@ public final class UnlockPremiumPatch {
 
                 if (attribute == null) {
                     if (override.isExpected) {
-                        Logger.printException(() -> "Account attribute " + override.key + " expected but not found");
+                        Logger.printException(() -> "Attribute " + override.key + " expected but not found");
                     }
                     continue;
                 }
@@ -164,7 +164,7 @@ public final class UnlockPremiumPatch {
                 }
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "Exception while overriding account attributes", ex);
+            Logger.printException(() -> "overrideAttributes failure", ex);
         }
     }
 
@@ -172,13 +172,13 @@ public final class UnlockPremiumPatch {
      * Injection point. Remove station data from Google Assistant URI.
      */
     public static String removeStationString(String spotifyUriOrUrl) {
-        if (spotifyUriOrUrl == null) {
-            Logger.printInfo(() -> "removeStationString called with null spotifyUriOrUrl");
-            return null;
+        try {
+            Logger.printInfo(() -> "Removing station string from " + spotifyUriOrUrl);
+            return spotifyUriOrUrl.replace("spotify:station:", "spotify:");
+        } catch (Exception ex) {
+            Logger.printException(() -> "removeStationString failure", ex);
+            return spotifyUriOrUrl;
         }
-
-        Logger.printInfo(() -> "Removing station string from " + spotifyUriOrUrl);
-        return spotifyUriOrUrl.replace("spotify:station:", "spotify:");
     }
 
     /**
@@ -197,7 +197,7 @@ public final class UnlockPremiumPatch {
                 }
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "Exception while removing home sections", ex);
+            Logger.printException(() -> "removeHomeSections failure", ex);
         }
     }
 
