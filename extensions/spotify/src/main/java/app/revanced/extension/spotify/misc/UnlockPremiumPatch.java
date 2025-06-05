@@ -3,6 +3,7 @@ package app.revanced.extension.spotify.misc;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
+import androidx.annotation.NonNull;
 import com.spotify.home.evopage.homeapi.proto.Section;
 
 import java.util.Iterator;
@@ -123,6 +124,7 @@ public final class UnlockPremiumPatch {
     /**
      * Utility method for returning resources ids as strings.
      */
+    @NonNull
     private static String getResourceIdentifier(String resourceIdentifierName) {
         return Integer.toString(Utils.getResourceIdentifier(resourceIdentifierName, "id"));
     }
@@ -216,6 +218,12 @@ public final class UnlockPremiumPatch {
 
             for (int i = 0; i < stringList.size(); i++) {
                 String string = stringList.get(i);
+
+                // In case the string is a resource id, and it has not been found.
+                if (string.equals("0")) {
+                    continue;
+                }
+
                 if (!stringifiedContextMenuItem.contains(string)) {
                     allMatch = false;
                     break;
