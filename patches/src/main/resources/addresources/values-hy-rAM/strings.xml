@@ -750,9 +750,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_location_label_title">Թաքցնել տեղանքի նշումը</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Տեղանքի նշումը թաքցված է</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Տեղանքի նշումը ցուցադրվում է</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Թաքցնել մեկնաբանության վահանակը</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Մեկնաբանությունների վահանակը թաքցված է</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Ցուցադրվում է մեկնաբանության վահանակը</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Թաքցնել նախադիտման մեկնաբանությունը</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Նախադիտման մեկնաբանությունը թաքնված է</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Ցուցադրվում է մեկնաբանության նախադիտումը</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Թաքցնել երաժշտությունը պահպանել կոճակը</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">«Save music» կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">«Save music» կոճակը ցուցադրվում է</string>

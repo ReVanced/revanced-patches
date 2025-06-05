@@ -743,9 +743,9 @@ Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS T
   <string name="revanced_hide_shorts_location_label_title">Standortbezeichnung ausblenden</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Ortsbezeichnung ist ausgeblendet</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Ortsbezeichnung wird angezeigt</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Kommentarbereich ausblenden</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Das Kommentarfeld ist ausgeblendet</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Kommentarbereich wird angezeigt</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Kommentarvorschau ausblenden</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Vorschaukommentar ist ausgeblendet</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Vorschaukommentar wird angezeigt</string>
   <string name="revanced_hide_shorts_save_sound_button_title">\'Musik speichern\'-Button ausblenden</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Musikspeicher Button ist ausgeblendet</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Musikspeicher Button wird angezeigt</string>

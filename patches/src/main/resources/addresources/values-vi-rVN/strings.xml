@@ -750,9 +750,9 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_shorts_location_label_title">Ẩn nhãn vị trí</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Nhãn vị trí đã bị ẩn</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Nhãn vị trí được hiển thị</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Ẩn bảng Bình luận</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Đã ẩn bảng điều khiển bình luận</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Bảng bình luận đang hiển thị</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Ẩn xem trước bình luận</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Xem trước bình luận được ẩn</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Xem trước bình luận được hiện</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ẩn nút Lưu âm thanh</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Nút lưu nhạc đã bị ẩn</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Nút lưu nhạc được hiển thị</string>

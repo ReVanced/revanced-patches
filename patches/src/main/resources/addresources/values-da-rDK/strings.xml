@@ -750,9 +750,9 @@ For at vise lydspormenuen skal du ændre \"Spoof videostream\" til iOS TV"</stri
   <string name="revanced_hide_shorts_location_label_title">Skjul placeringsetiket</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Placeringsetiket er skjult</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Placeringsetiket er vist</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Skjul kommentarfeltet</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Kommentarfeltet er skjult</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Kommentarfeltet vises</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Skjul forhåndsvisning af kommentar</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Forhåndsvisning af kommentar er skjult</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Forhåndsvisningskommentar vises</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Skjul knappen Gem musik</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Gem musik knap er skjult</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Gem musik knap er vist</string>
