@@ -1,3 +1,10 @@
+## [5.26.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.26.0...v5.26.1-dev.1) (2025-06-05)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Disable A/B player flags that prevents hiding buttons ([bef0dac](https://github.com/ReVanced/revanced-patches/commit/bef0dacac54caf1ca9511d7bc19b19140ccb4eaf))
+
 # [5.26.0](https://github.com/ReVanced/revanced-patches/compare/v5.25.0...v5.26.0) (2025-06-04)
 
 
