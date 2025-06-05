@@ -750,9 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Сакриј ознаку локације</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Ознака локације је скривена</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Ознака локације је приказана</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Сакриј панел за коментаре</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Панел за коментаре је сакривен</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">„Резиме коментара” је приказан</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Сакриј преглед коментара</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Преглед коментара је сакривен</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Приказ коментара је приказан</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Сакриј дугме „Сачувај музику”</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Дугме „Сачувај звук” је скривено</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Дугме „Сачувај звук” је приказано</string>

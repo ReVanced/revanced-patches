@@ -750,9 +750,9 @@ För att visa ljudspårsmenyn, ändra \"Spoof video streams\" till iOS TV"</stri
   <string name="revanced_hide_shorts_location_label_title">Dölj platsetikett</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Platsetiketten är dold</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Platsetikett är synlig</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Dölj kommentarsfältet</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Kommentarsfältet är dolt</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Kommentarsfältet visas</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Dölj förhandsgranskningskommentar</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Förhandsgranskningskommentar är dold</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Förhandsvisningskommentaren visas</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Dölj knapp \'Spara musik\'</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Spara musikknappen är dold</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Spara musikknappen visas</string>

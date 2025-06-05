@@ -746,9 +746,9 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_hide_shorts_location_label_title">Etykieta lokalizacji</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Etykieta lokalizacji jest ukryta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Etykieta lokalizacji jest widoczna</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Ukryj panel komentarzy</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Panel komentarzy jest ukryty</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Panel komentarzy jest wyświetlany</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Ukryj komentarz podglądu</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Komentarz podglądu jest ukryty</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Podgląd komentarza jest wyświetlany</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ukryj przycisk \"Zapisz muzykę\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Przycisk od zapisywania muzyki jest ukryty</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Przycisk od zapisywania muzyki jest widoczny</string>

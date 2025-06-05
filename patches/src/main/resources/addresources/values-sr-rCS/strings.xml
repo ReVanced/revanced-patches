@@ -750,9 +750,9 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_shorts_location_label_title">Sakrij oznaku lokacije</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Oznaka lokacije je skrivena</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Oznaka lokacije je prikazana</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Sakrij tablu sa komentarima</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Panel sa komentarima je skriven</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Tabla sa komentarima je prikazana</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Sakrij komentar u pregledu</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Komentar u pregledu je sakriven</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Prikazan je pregled komentara</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Sakrij dugme „Sačuvaj muziku”</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Dugme „Sačuvaj zvuk” je skriveno</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Dugme „Sačuvaj zvuk” je prikazano</string>

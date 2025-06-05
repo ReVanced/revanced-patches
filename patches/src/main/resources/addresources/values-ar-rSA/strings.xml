@@ -750,9 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">إخفاء تسمية الموقع</string>
   <string name="revanced_hide_shorts_location_label_summary_on">تم إخفاء تسمية الموقع</string>
   <string name="revanced_hide_shorts_location_label_summary_off">يتم عرض تسمية الموقع</string>
-  <string name="revanced_hide_shorts_comment_panel_title">إخفاء لوحة التعليقات</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">تم إخفاء لوحة التعليقات</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">يتم عرض لوحة التعليقات</string>
+  <string name="revanced_hide_shorts_preview_comment_title">إخفاء تعليق المعاينة</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">تم إخفاء تعليق المعاينة</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">يتم عرض تعليق المعاينة</string>
   <string name="revanced_hide_shorts_save_sound_button_title">إخفاء زر حفظ الموسيقى</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">تم إخفاء زر حفظ الموسيقى</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">يتم عرض زر حفظ الموسيقى</string>
