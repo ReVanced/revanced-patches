@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_15_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -69,6 +70,12 @@ val navigationButtonsPatch = bytecodePatch(
             )
         }
 
+        if (is_20_15_or_greater) {
+            PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+                SwitchPreference("revanced_navigation_bar_animations")
+            )
+        }
+
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             PreferenceScreenPreference(
                 key = "revanced_navigation_buttons_screen",
@@ -111,7 +118,6 @@ val navigationButtonsPatch = bytecodePatch(
         // Hook navigation button created, in order to hide them.
         hookNavigationButtonCreated(EXTENSION_CLASS_DESCRIPTOR)
 
-
         // Force on/off translucent effect on status bar and navigation buttons.
         if (is_19_25_or_greater) {
             translucentNavigationStatusBarFeatureFlagFingerprint.let {
@@ -132,6 +138,15 @@ val navigationButtonsPatch = bytecodePatch(
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
+                )
+            }
+        }
+
+        if (is_20_15_or_greater) {
+            animatedNavigationTabsFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z"
                 )
             }
         }

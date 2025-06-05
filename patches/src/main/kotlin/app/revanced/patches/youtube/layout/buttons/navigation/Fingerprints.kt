@@ -29,6 +29,14 @@ internal val createPivotBarFingerprint by fingerprint {
     )
 }
 
+internal val animatedNavigationTabsFeatureFlagFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    instructions(
+        literal(45680008L)
+    )
+}
+
 internal val translucentNavigationStatusBarFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
