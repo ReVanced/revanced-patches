@@ -2,9 +2,11 @@ package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.StringRef.str;
 
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.util.Pair;
 import android.util.Patterns;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -181,13 +183,20 @@ public class SponsorBlockSettings {
         // If user has a SponsorBlock user id then show a warning.
         if (dialogContext != null && SponsorBlockSettings.userHasSBPrivateId()
                 && !Settings.SB_HIDE_EXPORT_WARNING.get()) {
-            new AlertDialog.Builder(dialogContext)
-                    .setMessage(str("revanced_sb_settings_revanced_export_user_id_warning"))
-                    .setNeutralButton(str("revanced_sb_settings_revanced_export_user_id_warning_dismiss"),
-                            (dialog, which) -> Settings.SB_HIDE_EXPORT_WARNING.save(true))
-                    .setPositiveButton(android.R.string.ok, null)
-                    .setCancelable(false)
-                    .show();
+            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                    dialogContext,
+                    null, // No title.
+                    str("revanced_sb_settings_revanced_export_user_id_warning"), // Message,
+                    null, // OK button text,
+                    () -> {}, // Empty Runnable for OK button.
+                    null, // No cancel button action (setCancelable(false).
+                    str("revanced_sb_settings_revanced_export_user_id_warning_dismiss"), // Neutral button text,
+                    () -> Settings.SB_HIDE_EXPORT_WARNING.save(true) // Neutral button action,
+            );
+
+            dialogPair.first.setCancelable(false);
+
+            dialogPair.first.show();
         }
     }
 

@@ -78,8 +78,8 @@ public class ResettableEditTextPreference extends EditTextPreference {
                     Utils.createCornerRadii(10), null, null));
             editTextBackground.getPaint().setColor(Utils.isDarkModeEnabled()
                     // EditText background color.
-                    ? Utils.adjustColorBrightness(Utils.getSafeColor("yt_black1", Color.BLACK), 1.10f)
-                    : Utils.adjustColorBrightness(Utils.getSafeColor("yt_white1", Color.WHITE), 0.95f)
+                    ? Utils.adjustColorBrightness(Utils.getSafeColor("yt_black1", Color.BLACK), 1.20f)
+                    : Utils.adjustColorBrightness(Utils.getSafeColor("yt_white1", Color.WHITE), 0.90f)
             );
             editText.setBackground(editTextBackground);
 
