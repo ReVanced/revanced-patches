@@ -311,9 +311,9 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Amaga el botó \"Crear un Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">El botó Crea un Short s\'amaga</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">El botó Crea un Short es mostra</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Amaga els botons d\'emojis i marca de temps</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Els botons d\'emojis i marca de temps s\'amaguen</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Els botons d\'emojis i marca de temps es mostren</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Amaga el botó de marca de temps</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">S\'amaga el botó de marca de temps</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Es mostra el botó de marca de temps</string>
   <string name="revanced_hide_comments_preview_comment_title">Amaga la vista prèvia del comentari</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">La vista prèvia del comentari s\'amaga</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">La vista prèvia del comentari es mostra</string>

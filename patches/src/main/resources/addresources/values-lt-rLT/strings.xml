@@ -311,9 +311,9 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Slėpti \"Kurti Short\" mygtuką</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Mygtukas „Sukurti Short“ paslėptas</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Mygtukas „Sukurti Short“ rodomas</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Slėpti jaustukų ir laiko žymų mygtukus</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Jaustukų ir laiko žymų mygtukai paslėpti</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Jaustukų ir laiko žymų mygtukai rodomi</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Slėpti datos ir laiko žymos mygtuką</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Datos ir laiko žymos mygtukas paslėptas</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Datos ir laiko žymos mygtukas rodomas</string>
   <string name="revanced_hide_comments_preview_comment_title">Slėpti peržiūros komentarą</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Peržiūros komentaras yra paslėptas</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Peržiūros komentaras yra rodomas</string>

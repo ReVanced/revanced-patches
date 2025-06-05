@@ -307,9 +307,9 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Przycisk od tworzenia Shortsów</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Przycisk Utwórz Short jest ukryty</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Przycisk Utwórz Short jest widoczny</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ukryj przyciski emoji i znacznika czasu</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Przyciski emoji i znacznika czasu są ukryte</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Przyciski emoji i znacznika czasu są widoczne</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ukryj przycisk znacznika czasu</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Przycisk znacznika czasu jest ukryty</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Przycisk znacznika czasu jest widoczny</string>
   <string name="revanced_hide_comments_preview_comment_title">Ukryj podgląd komentarzy</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Podgląd komentarzy jest ukryty</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Podgląd komentarzy jest widoczny</string>

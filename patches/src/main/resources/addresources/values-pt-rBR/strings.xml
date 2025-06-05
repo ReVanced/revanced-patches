@@ -309,9 +309,9 @@ Você não será notificado sobre nenhum evento inesperado."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Ocultar botão \'Criar um Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">O botão Criar um Short está oculto</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">O botão Criar um Short é mostrado</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ocultar botões de emoji e carimbo de data/hora</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Os botões de emoji e carimbo de data/hora estão ocultos</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Os botões de emoji e carimbo de data/hora são mostrados</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ocultar o botão de carimbo de data/hora</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">O botão de carimbo de data/hora está oculto</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">O botão de carimbo de data/hora é mostrado</string>
   <string name="revanced_hide_comments_preview_comment_title">Ocultar prévia de comentário</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Prévia de comentário está oculta</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">A prévia de comentário é exibida</string>

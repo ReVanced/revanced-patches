@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Сакриј дугме „Направи Short”</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Дугме „Направи Short” је скривено</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Дугме „Направи Short” је приказано</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Сакриј дугмад за емоџи и временску ознаку</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Дугмад за емоџи и временску ознаку су скривена</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Дугмад за емоџи и временску ознаку су приказана</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Сакриј дугме временске ознаке</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Дугме временске ознаке је сакривено</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Дугме временске ознаке је приказано</string>
   <string name="revanced_hide_comments_preview_comment_title">Сакриј коментар за преглед</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Коментар за преглед је скривен</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Коментар за преглед је приказан</string>

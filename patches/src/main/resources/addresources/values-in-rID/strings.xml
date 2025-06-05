@@ -311,9 +311,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Sembunyikan tombol \'Buat Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tombol Buat Short disembunyikan</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tombol Buat Short ditampilkan</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Sembunyikan tombol emoji dan stempel waktu</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tombol emoji dan stempel waktu disembunyikan</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tombol emoji dan stempel waktu ditampilkan</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Sembunyikan tombol stempel waktu</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tombol stempel waktu disembunyikan</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Tombol stempel waktu ditampilkan</string>
   <string name="revanced_hide_comments_preview_comment_title">Sembunyikan pratinjau komentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Pratinjau komentar disembunyikan</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Pratinjau komentar ditampilkan</string>
@@ -750,7 +750,7 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_hide_shorts_location_label_title">Sembunyikan label lokasi</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Label lokasi disembunyikan</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Label lokasi ditampilkan</string>
-  <string name="revanced_hide_shorts_preview_comment_title">Sembunyikan komentar pratinjau</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Sembunyikan pratinjau komentar</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Pratinjau komentar disembunyikan</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">Pratinjau komentar ditampilkan</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Sembunyikan Simpan musik</string>

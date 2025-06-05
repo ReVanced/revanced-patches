@@ -308,9 +308,9 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
   <string name="revanced_hide_comments_create_a_short_button_title">Ocultar botón \'Crear un Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">El botón Crear un Short está oculto</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Se muestra el botón Crear un Short</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ocultar los botones de emoji y marca de tiempo</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Los botones de emoji y marca de tiempo están ocultos</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Se muestran los botones de emoji y marca de tiempo</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ocultar botón de marca de tiempo</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Botón de marca de tiempo oculto</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Botón de marca de tiempo mostrado</string>
   <string name="revanced_hide_comments_preview_comment_title">Ocultar comentario de vista previa</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">El comentario de la vista previa está oculto</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Vista previa del comentario se muestra</string>

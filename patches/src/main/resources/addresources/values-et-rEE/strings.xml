@@ -311,9 +311,9 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Peida nupp \"Loo lühis\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Nupp Loo lühivideo on peidetud</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Nupp Loo lühivideo on kuvatud</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Peida emotikonide ja ajatempli nupud</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emotikonide ja ajatempli nupud on peidetud</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emotikonide ja ajatempli nupud on kuvatud</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Peida ajatempli nupp</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Ajatempli nupp on peidetud</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Ajatempli nupp on nähtav</string>
   <string name="revanced_hide_comments_preview_comment_title">Peida eelvaate kommentaar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Eelvaate kommentaar on peidetud</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Eelvaate kommentaar on kuvatud</string>
