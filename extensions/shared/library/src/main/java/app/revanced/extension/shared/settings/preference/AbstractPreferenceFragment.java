@@ -200,17 +200,38 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         buttonContainer.setGravity(Gravity.CENTER);
 
         if (neutralButtonText != null && onNeutralClick != null) {
-            addButton(buttonContainer, context, neutralButtonText, onNeutralClick, false,false, true, dialog);
+            addButton(
+                    buttonContainer,
+                    context,
+                    neutralButtonText,
+                    onNeutralClick,
+                    false,
+                    false,
+                    true,
+                    dialog);
         }
 
         if (onCancelClick != null) {
-            addButton(buttonContainer, context, context.getString(android.R.string.cancel),
-                    onCancelClick, false, neutralButtonText != null, false, dialog);
+            addButton(
+                    buttonContainer,
+                    context,
+                    context.getString(android.R.string.cancel),
+                    onCancelClick,
+                    false,
+                    true,
+                    false,
+                    dialog);
         }
 
-        addButton(buttonContainer, context,
+        addButton(
+                buttonContainer,
+                context,
                 okButtonText != null ? okButtonText : context.getString(android.R.string.ok),
-                onOkClick, true, neutralButtonText != null, false, dialog);
+                onOkClick,
+                true,
+                false,
+                false,
+                dialog);
 
         mainLayout.addView(buttonContainer);
         dialog.setContentView(mainLayout);
@@ -245,7 +266,6 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * @param buttonText      The text to display on the button.
      * @param onClick         The Runnable to execute when the button is clicked, or null if no action is needed.
      * @param isOkButton      True if the button is the OK button, affecting its background and text color.
-     * @param isCancelButton  True if the button is the Cancel button, affecting its background and text color.
      * @param isNeutralButton True if a neutral button exists, affecting margin settings for non-OK buttons.
      * @param dialog          The Dialog to dismiss when the button is clicked.
      */
@@ -283,15 +303,30 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, dipToPixels(36));
         params.weight = 1;
+        // OK Button.
         if (isOkButton) {
+            // OK on the right - 4dp left margin (next to Cancel), no right margin.
             params.setMargins(dipToPixels(4), 0, 0, 0);
         }
+        // Cancel Button.
         if (isCancelButton) {
+            if (!isOkButton && !isNeutralButton) {
+                // Only Cancel - no margins.
+                params.setMargins(0, 0, 0, 0);
+            } else if (isOkButton && !isNeutralButton) {
+                // Only OK and Cancel - Cancel is on the left, 0dp left margin, 4dp right margin.
+                params.setMargins(0, 0, dipToPixels(4), 0);
+            } else {
+                // Cancel in the middle - 4dp margins on both sides.
+                params.setMargins(dipToPixels(4), 0, dipToPixels(4), 0);
+            }
+        }
+        // Neutral Button.
+        if (isNeutralButton) {
+            // Neutral on the left - no left margin, 4dp right margin (next to Cancel).
             params.setMargins(0, 0, dipToPixels(4), 0);
         }
-        if (isNeutralButton) {
-            params.setMargins(dipToPixels(8), 0, 0, 0);
-        }
+
         button.setLayoutParams(params);
 
         button.setOnClickListener(v -> {

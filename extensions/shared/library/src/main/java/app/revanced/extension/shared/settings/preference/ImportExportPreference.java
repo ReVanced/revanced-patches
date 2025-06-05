@@ -99,19 +99,20 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
             // Create a custom dialog using the same style as AbstractPreferenceFragment.
             Pair<Dialog, LinearLayout> dialogPair = AbstractPreferenceFragment.createCustomDialog(
                     context,
-                    str("revanced_pref_import_export_title"), // Title for the dialog.
-                    null, // Message is replaced by EditText.
-                    null, // OK button text (will be customized below).
-                    null, // OK action (will be customized below).
-                    null, // Cancel action (will be customized below).
-                    null, // Neutral button text (will be customized below).
-                    null  // Neutral button action (will be customized below).
+                    str("revanced_pref_import_export_title"),    // Title for the dialog.
+                    null,                                        // Message is replaced by EditText.
+                    str("revanced_settings_import"),             // OK button text.
+                    () -> importSettings(context, editText.getText().toString()), // On OK click.
+                    () -> {},                                    // On Cancel click (just dismiss the dialog).
+                    str("revanced_settings_import_copy"),        // Neutral button (Copy) text.
+                    () -> Utils.setClipboard(editText.getText()) // Neutral button (Copy) click action.
             );
 
             // Add the EditText to the dialog's layout.
             LinearLayout mainLayout = dialogPair.second;
-            // Remove empty message TextView from the dialog's layout
-            TextView messageView = (TextView) mainLayout.getChildAt(1); // Message is added at index 1 in createCustomDialog
+            // Remove empty message TextView from the dialog's layout.
+            // Message is added at index 1 in createCustomDialog.
+            TextView messageView = (TextView) mainLayout.getChildAt(1);
             if (TextUtils.isEmpty(messageView.getText())) {
                 mainLayout.removeView(messageView);
             }
@@ -120,82 +121,8 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
             editTextParams.setMargins(0, dipToPixels(8), 0, dipToPixels(8));
-            mainLayout.addView(editText, 1, editTextParams); // Add EditText after title, before buttons.
-
-            // Remove the existing button container
-            int childCount = mainLayout.getChildCount();
-            if (childCount > 2) {
-                mainLayout.removeViewAt(childCount - 1);
-            }
-
-            // Create first row button container (Cancel and Import)
-            LinearLayout firstButtonRow = new LinearLayout(context);
-            firstButtonRow.setOrientation(LinearLayout.HORIZONTAL);
-            LinearLayout.LayoutParams firstRowParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-            );
-            firstRowParams.setMargins(0, dipToPixels(8), 0, dipToPixels(4));
-            firstButtonRow.setLayoutParams(firstRowParams);
-            firstButtonRow.setGravity(android.view.Gravity.START);
-
-            // Add Cancel button (left)
-            AbstractPreferenceFragment.addButton(
-                    firstButtonRow,
-                    context,
-                    context.getString(android.R.string.cancel),
-                    () -> {}, // Cancel action just dismisses the dialog
-                    false,
-                    true,
-                    false,
-                    dialogPair.first
-            );
-
-            // Add Import button (right)
-            AbstractPreferenceFragment.addButton(
-                    firstButtonRow,
-                    context,
-                    str("revanced_settings_import"),
-                    () -> importSettings(context, editText.getText().toString()),
-                    true,
-                    false,
-                    false,
-                    dialogPair.first
-            );
-
-            // Create second row button container (Export)
-            LinearLayout secondButtonRow = new LinearLayout(context);
-            secondButtonRow.setOrientation(LinearLayout.HORIZONTAL);
-            LinearLayout.LayoutParams secondRowParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-            );
-            secondRowParams.setMargins(0, dipToPixels(4), 0, 0);
-            secondButtonRow.setLayoutParams(secondRowParams);
-            secondButtonRow.setGravity(android.view.Gravity.END);
-
-            // Create a spacer to align Export button with Import button
-            View spacer = new View(context);
-            LinearLayout.LayoutParams spacerParams = new LinearLayout.LayoutParams(0, dipToPixels(36));
-            spacerParams.weight = 1;
-            spacer.setLayoutParams(spacerParams);
-            secondButtonRow.addView(spacer);
-
-            // Add Export button (right, same width as Import)
-            AbstractPreferenceFragment.addButton(
-                    secondButtonRow,
-                    context,
-                    str("revanced_settings_import_copy"),
-                    () -> Utils.setClipboard(editText.getText()),
-                    false,
-                    false,
-                    true,
-                    dialogPair.first
-            );
-
-            // Add button rows to main layout
-            mainLayout.addView(firstButtonRow);
-            mainLayout.addView(secondButtonRow);
+            // Add EditText after title, before buttons.
+            mainLayout.addView(editText, 1, editTextParams);
 
             dialogPair.first.show();
         } catch (Exception ex) {

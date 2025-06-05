@@ -38,7 +38,7 @@ Second \"item\" text"</string>
             <string name="revanced_settings_reset_color">Reset color</string>
             <string name="revanced_settings_color_invalid">Invalid color</string>
             <string name="revanced_settings_restart_title">Restart required</string>
-            <string name="revanced_settings_restart_dialog_message">Restart the app for this change to take affect</string>
+            <string name="revanced_settings_restart_dialog_message">Restart the app for this change to take affect.</string>
             <string name="revanced_settings_restart">Restart</string>
             <string name="revanced_settings_import">Import</string>
             <string name="revanced_settings_import_copy">Copy</string>
