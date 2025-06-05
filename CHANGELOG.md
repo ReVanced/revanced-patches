@@ -1,3 +1,10 @@
+# [5.27.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.3...v5.27.0-dev.1) (2025-06-05)
+
+
+### Features
+
+* **YouTube - Theme:** Add option for black and white splash screen animation ([#5119](https://github.com/ReVanced/revanced-patches/issues/5119)) ([42db0c2](https://github.com/ReVanced/revanced-patches/commit/42db0c2e36fefccdbeaa072edcec48b1e05b6270))
+
 ## [5.26.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.2...v5.26.1-dev.3) (2025-06-05)
 
 
