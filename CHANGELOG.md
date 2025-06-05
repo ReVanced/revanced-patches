@@ -1,3 +1,10 @@
+## [5.26.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.1...v5.26.1-dev.2) (2025-06-05)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Remove broken option 'Hide comments emoji picker' ([#5121](https://github.com/ReVanced/revanced-patches/issues/5121)) ([9a6a639](https://github.com/ReVanced/revanced-patches/commit/9a6a639c4905b00d6dffb0923c839c8e3ae54d0c))
+
 ## [5.26.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.26.0...v5.26.1-dev.1) (2025-06-05)
 
 
