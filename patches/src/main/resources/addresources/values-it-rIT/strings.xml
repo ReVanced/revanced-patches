@@ -750,6 +750,9 @@ Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS 
   <string name="revanced_hide_shorts_location_label_title">Nascondi etichetta di posizione</string>
   <string name="revanced_hide_shorts_location_label_summary_on">L\'etichetta di posizione è nascosta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">L\'etichetta di posizione è visibile</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Nascondi commento di anteprima</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Il commento di anteprima è nascosto</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Viene mostrata l\'anteprima del commento</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante Salva Musica</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Il pulsante Salva traccia è nascosto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Il pulsante Salva traccia è visibile</string>

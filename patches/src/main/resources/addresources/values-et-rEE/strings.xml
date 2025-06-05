@@ -750,6 +750,9 @@ Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ vä
   <string name="revanced_hide_shorts_location_label_title">Peida asukoha silt</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Asukoha silt on peidetud</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Asukoha silt on nähtav</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Peida eelvaate kommentaar</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Kommentaari eelvaade on peidetud</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Kommentaari eelvaade on nähtav</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Peida Salvesta muusika nupp</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Muusika salvestamise nupp on peidetud</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Muusika salvestamise nupp on nähtav</string>

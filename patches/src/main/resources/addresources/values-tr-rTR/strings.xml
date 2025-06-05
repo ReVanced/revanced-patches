@@ -750,6 +750,9 @@ Ses parçası menüsünü göstermek için \"Video akışlarını taklit et\" ay
   <string name="revanced_hide_shorts_location_label_title">Konum etiketini gizle</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Konum etiketi gizli</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Konum etiketi görünür</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Ön izlenen yorumu gizle</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Ön izlenen yorum gizli</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Ön izlenen yorum görünür</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Müziği kaydet düğmesini gizle</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Müziği kaydet düğmesi gizli</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Müziği kaydet düğmesi görünür</string>
@@ -1398,7 +1401,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Hız diyaloğu düğmesini göster</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Düğme gösteriliyor. Oynatma hızını varsayılana sıfırlamak için dokunup basılı tutun</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Düğme görünür. Oynatma hızını varsayılana sıfırlamak için dokunup basılı tutun</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Düğme gösterilmez</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">

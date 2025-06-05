@@ -743,6 +743,9 @@ Ak chcete zobraziť ponuku zvukovej stopy, zmeňte možnosť „Oklamať videost
   <string name="revanced_hide_shorts_location_label_title">Skryť štítok polohy</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Štítok miesta je skrytý</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Zobrazí sa štítok s umiestnením</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Skryť náhľadový komentár</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Náhľadový komentár je skrytý</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Zobrazuje sa ukážka komentára</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Skryť tlačidlo Uložiť hudbu</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tlačidlo na uloženie hudby je skryté</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tlačidlo na uloženie hudby sa zobrazuje</string>

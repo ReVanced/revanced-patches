@@ -750,6 +750,9 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_shorts_location_label_title">Skrij oznako lokacije</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Oznaka lokacije je skrita</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Oznaka lokacije je prikazana</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Skrij predogled komentarja</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Predogled komentarja je skrit</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Predogled komentarja je prikazan</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Skrij gumb \'Shrani glasbo\'</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Gumb za shranjevanje glasbe je skrit</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Gumb za shranjevanje glasbe je prikazan</string>

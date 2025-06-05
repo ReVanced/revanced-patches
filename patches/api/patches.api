@@ -575,6 +575,10 @@ public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/
 	public static final fun getFixSLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/fix/thumbnail/FixPostThumbnailsPatchKt {
+	public static final fun getFixPostThumbnailsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/fix/user/UseUserEndpointPatchKt {
 	public static final fun getUseUserEndpointPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

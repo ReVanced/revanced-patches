@@ -748,6 +748,9 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <string name="revanced_hide_shorts_location_label_title">Itago ang label ng lokasyon</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Nakatago ang label ng lokasyon</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Ipinapakita ang label ng lokasyon</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Itago ang komento sa preview</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Nakatago ang komento sa preview</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Ipinapakita ang preview na komento</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Itago ang Save music button</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Ang buton ng pag-save ng musika ay nakatago</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Ang buton ng pag-save ng musika ay ipinapakita</string>

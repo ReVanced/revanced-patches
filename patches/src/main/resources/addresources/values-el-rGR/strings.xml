@@ -752,6 +752,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Ετικέτα τοποθεσίας</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Απόκρυψη προεπισκόπησης σχολίου</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Το σχόλιο προεπισκόπησης είναι κρυφό</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Εμφανίζεται η προεπισκόπηση του σχολίου</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Κουμπί «Αποθήκευση μουσικής»</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Εμφανίζεται</string>
@@ -1397,7 +1400,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Εμφάνιση κουμπιού αλλαγής ταχύτητας</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Εμφανίζεται το κουμπί. Πατήστε παρατεταμένα για να επαναφέρετε την ταχύτητα αναπαραγωγής στην προεπιλογή</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Το κουμπί εμφανίζεται. Πατήστε παρατεταμένα για επαναφορά της ταχύτητας αναπαραγωγής στην προεπιλογή</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Το κουμπί δεν εμφανίζεται</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">

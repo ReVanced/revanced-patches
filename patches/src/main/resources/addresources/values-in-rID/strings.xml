@@ -750,6 +750,9 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_hide_shorts_location_label_title">Sembunyikan label lokasi</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Label lokasi disembunyikan</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Label lokasi ditampilkan</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Sembunyikan komentar pratinjau</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Pratinjau komentar disembunyikan</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Pratinjau komentar ditampilkan</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Sembunyikan Simpan musik</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tombol simpan musik disembunyikan</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tombol simpan musik ditampilkan</string>

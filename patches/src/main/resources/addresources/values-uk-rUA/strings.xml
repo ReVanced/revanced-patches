@@ -751,6 +751,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Приховати мітку місцезнаходження</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Мітку місцезнаходження приховано</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Мітка місцезнаходження показується</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Приховати прев\'ю коментар</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Прев\'ю коментар в секції коментарів приховано</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Прев\'ю коментар в секції коментарів показується</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Приховати \"Зберегти музику\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопку \"Зберегти музику\" приховано</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Зберегти музику\" показується</string>

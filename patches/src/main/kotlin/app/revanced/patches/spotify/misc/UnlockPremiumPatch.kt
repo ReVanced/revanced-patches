@@ -174,7 +174,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Need to allow mutation of the list so the home ads sections can be removed.
         // Protobuf array list has an 'isMutable' boolean parameter that sets the mutability.
         // Forcing that always on breaks unrelated code in strange ways.
-        // Instead, return early in the method that throws an error if the list is unmutable.
+        // Instead, return early in the method that throws an error if the list is immutable.
         abstractProtobufListEnsureIsMutableFingerprint.match(abstractProtobufListClassDef)
             .method.returnEarly()
 
