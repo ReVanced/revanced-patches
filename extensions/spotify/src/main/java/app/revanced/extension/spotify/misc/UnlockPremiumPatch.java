@@ -216,6 +216,12 @@ public final class UnlockPremiumPatch {
 
             for (int i = 0; i < stringList.size(); i++) {
                 String string = stringList.get(i);
+
+                // In case the string is a resource id, and it has not been found.
+                if (string.equals("0")) {
+                    continue;
+                }
+
                 if (!stringifiedContextMenuItem.contains(string)) {
                     allMatch = false;
                     break;
