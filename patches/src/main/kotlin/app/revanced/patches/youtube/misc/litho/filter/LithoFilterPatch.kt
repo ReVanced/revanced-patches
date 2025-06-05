@@ -107,10 +107,17 @@ val lithoFilterPatch = bytecodePatch(
 
         // region Pass the buffer into extension.
 
-        protobufBufferReferenceFingerprint.method.addInstruction(
-            0,
-            "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
-        )
+        if (is_20_22_or_greater) {
+            protobufBufferReferenceFingerprint.method.addInstruction(
+                0,
+                "invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer([B)V",
+            )
+        } else {
+            protobufBufferReferenceLegacyFingerprint.method.addInstruction(
+                0,
+                "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
+            )
+        }
 
         // endregion
 
@@ -239,13 +246,6 @@ val lithoFilterPatch = bytecodePatch(
         // If this is enabled, then the litho protobuffer hook will always show an empty buffer
         // since it's no longer handled by the hooked Java code.
         lithoConverterBufferUpbFeatureFlagFingerprint.let {
-            // FIXME: Procool buffer has changed in 20.22, and the buffer is always null.
-            // The UPB native code may be always enabled.
-            if (is_20_22_or_greater) {
-                Logger.getLogger(this::class.java.name).severe(
-                    "Litho filtering does not yet support 20.22+  Many UI components will not be hidden.")
-            }
-
             it.method.apply {
                 // 20.22+ flag is inverted.
                 val override = if (is_20_22_or_greater) 0x1 else 0x0

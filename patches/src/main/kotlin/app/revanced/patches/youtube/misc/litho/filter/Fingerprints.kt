@@ -31,7 +31,24 @@ internal val lithoFilterFingerprint by fingerprint {
     }
 }
 
+/**
+ * 20.22+
+ */
 internal val protobufBufferReferenceFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("L")
+//    instructions(
+//        methodCall(parameters = listOf("L", "L", "[B", "L", "L"))
+//    )
+    custom { method, classDef ->
+        method.name == "b" && classDef.type == "Lrqi;"
+    }
+}
+
+/**
+ * 20.21 and lower.
+ */
+internal val protobufBufferReferenceLegacyFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "Ljava/nio/ByteBuffer;")
