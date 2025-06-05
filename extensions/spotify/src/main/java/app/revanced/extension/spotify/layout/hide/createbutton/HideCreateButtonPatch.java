@@ -37,6 +37,11 @@ public final class HideCreateButtonPatch {
         String matchedTitleResId = null;
 
         for (String titleResId : CREATE_BUTTON_TITLE_RES_ID_LIST) {
+            // In case the resource id has not been found.
+            if (titleResId.equals("0")) {
+                continue;
+            }
+
             if (stringifiedNavigationBarItem.contains(titleResId)) {
                 isCreateButton = true;
                 matchedTitleResId = titleResId;
@@ -58,6 +63,11 @@ public final class HideCreateButtonPatch {
      * Create button.
      */
     public static boolean isOldCreateButton(int oldNavigationBarItemTitleResId) {
+        // In case the resource id has not been found.
+        if (OLD_CREATE_BUTTON_TITLE_RES_ID == 0) {
+            return false;
+        }
+
         boolean isCreateButton = oldNavigationBarItemTitleResId == OLD_CREATE_BUTTON_TITLE_RES_ID;
 
         if (isCreateButton) {
