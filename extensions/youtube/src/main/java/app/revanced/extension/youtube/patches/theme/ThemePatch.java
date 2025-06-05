@@ -1,5 +1,9 @@
 package app.revanced.extension.youtube.patches.theme;
 
+import static app.revanced.extension.youtube.patches.theme.ThemePatch.SplashScreenAnimationStyle.styleFromOrdinal;
+
+import androidx.annotation.Nullable;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.ThemeHelper;
@@ -9,7 +13,7 @@ import app.revanced.extension.youtube.settings.Settings;
 public class ThemePatch {
 
     public enum SplashScreenAnimationStyle {
-        DEFAULT(-1),
+        DEFAULT(0),
         FPS_60_ONE_SECOND(1),
         FPS_60_TWO_SECOND(2),
         FPS_60_FIVE_SECOND(3),
@@ -20,6 +24,18 @@ public class ThemePatch {
         FPS_30_BLACK_AND_WHITE(8);
         // There exists a 10th json style used as the switch statement default,
         // but visually it is identical to 60fps one second.
+
+        @Nullable
+        static SplashScreenAnimationStyle styleFromOrdinal(int style) {
+            // Alternatively can return using values()[style]
+            for (SplashScreenAnimationStyle value : values()) {
+                if (value.style == style) {
+                    return value;
+                }
+            }
+
+            return null;
+        }
 
         final int style;
 
@@ -90,11 +106,12 @@ public class ThemePatch {
             return original;
         }
 
-        final int styleInt = style.style;
-        if (original != styleInt) {
-            Logger.printDebug(() -> "Overriding splash screen style from: " + original + " to: " + style);
+        final int replacement = style.style;
+        if (original != replacement) {
+            Logger.printDebug(() -> "Overriding splash screen style from: "
+                    + styleFromOrdinal(original)  + " to: " + style);
         }
 
-        return styleInt;
+        return replacement;
     }
 }
