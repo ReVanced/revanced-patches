@@ -1,3 +1,7 @@
+public final class app/revanced/patches/all/layout/branding/IconPatchKt {
+	public static final fun getChangeIconPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public final class app/revanced/patches/all/misc/activity/exportall/ExportAllActivitiesPatchKt {
 	public static final fun getExportAllActivitiesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
