@@ -311,9 +311,9 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Ascunde butonul \'Creare Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Butonul Creează un Short este ascuns</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Butonul Creează un Short este afișat</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ascunde butoanele emoji și timestamp</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Butoanele Emoji și timestamp sunt ascunse</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Butoanele Emoji și timestamp sunt afișate</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ascunde butonul de marcaj temporal</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Butonul de marcaj temporal este ascuns</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Butonul de marcaj temporal este afișat</string>
   <string name="revanced_hide_comments_preview_comment_title">Ascunde previzualizarea comentariului</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Previzualizarea comentariului este ascunsă</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Previzualizarea comentariului este afișată</string>
@@ -750,9 +750,9 @@ Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fl
   <string name="revanced_hide_shorts_location_label_title">Ascunde eticheta locației</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Eticheta locației este ascunsă</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Eticheta locației este afișată</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Ascunde panoul de comentarii</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Panoul de comentarii este ascuns</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Panoul de comentarii este afișat</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Ascunde comentariul de previzualizare</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Comentariul de previzualizare este ascuns</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Previzualizarea comentariului este afișată</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ascunde butonul Salvează melodia</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Butonul de salvare a muzicii este ascuns</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Butonul de salvare a muzicii este afișat</string>
@@ -1255,6 +1255,9 @@ Trageți pentru a extinde sau a închide"</string>
   <string name="revanced_gradient_loading_screen_title">Activează ecranul de încărcare gradient</string>
   <string name="revanced_gradient_loading_screen_summary_on">Încărcarea ecranului va avea un fundal pentru gradient</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ecranul de încărcare va avea un fundal solid</string>
+  <string name="splash_screen_animation_style_title">Stil ecran de pornire</string>
+  <string name="splash_screen_animation_style_entry_1">Culoare</string>
+  <string name="splash_screen_animation_style_entry_2">Alb-negru</string>
   <string name="revanced_seekbar_custom_color_title">Activează culoarea barei de căutare personalizate</string>
   <string name="revanced_seekbar_custom_color_summary_on">Culoarea personalizată a barei de căutare este afișată</string>
   <string name="revanced_seekbar_custom_color_summary_off">Culoarea bara de căutare originală este afișată</string>

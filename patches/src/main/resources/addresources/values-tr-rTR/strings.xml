@@ -311,9 +311,9 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">\'Short oluştur\' düğmesini gizle</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Short oluştur düğmesi gizli</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Short oluştur düğmesi görünür</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Emoji ve zaman damgası düğmelerini gizle</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji ve zaman damgası düğmeleri gizli</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji ve zaman damgası düğmeleri görünür</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Zaman damgası düğmesini gizle</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Zaman damgası düğmesi gizli</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Zaman damgası düğmesi görünür</string>
   <string name="revanced_hide_comments_preview_comment_title">Ön izlenen yorumu gizle</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Ön izlenen yorum gizli</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Ön izlenen yorum görünür</string>
@@ -750,9 +750,9 @@ Ses parçası menüsünü göstermek için \"Video akışlarını taklit et\" ay
   <string name="revanced_hide_shorts_location_label_title">Konum etiketini gizle</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Konum etiketi gizli</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Konum etiketi görünür</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Yorum panelini gizle</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Yorum paneli gizli</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Yorum paneli görünür</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Ön izlenen yorumu gizle</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Ön izlenen yorum gizli</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Ön izlenen yorum görünür</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Müziği kaydet düğmesini gizle</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Müziği kaydet düğmesi gizli</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Müziği kaydet düğmesi görünür</string>
@@ -1256,6 +1256,9 @@ Genişletmek veya kapatmak için kaydırın"</string>
   <string name="revanced_gradient_loading_screen_title">Gradyan yükleme ekranını etkinleştir</string>
   <string name="revanced_gradient_loading_screen_summary_on">Yükleme ekranı gradyan bir arka plana sahip olacak</string>
   <string name="revanced_gradient_loading_screen_summary_off">Yükleme ekranı tek renk bir arka plana sahip olacak</string>
+  <string name="splash_screen_animation_style_title">Açılış ekranı stili</string>
+  <string name="splash_screen_animation_style_entry_1">Renk</string>
+  <string name="splash_screen_animation_style_entry_2">Siyah ve beyaz</string>
   <string name="revanced_seekbar_custom_color_title">Özel zaman çubuğu rengini etkinleştir</string>
   <string name="revanced_seekbar_custom_color_summary_on">Özel zaman çubuğu rengi gösterilir</string>
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal zaman çubuğu rengi gösterilir</string>

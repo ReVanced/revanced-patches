@@ -311,9 +311,9 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Amaga el botó \"Crear un Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">El botó Crea un Short s\'amaga</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">El botó Crea un Short es mostra</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Amaga els botons d\'emojis i marca de temps</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Els botons d\'emojis i marca de temps s\'amaguen</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Els botons d\'emojis i marca de temps es mostren</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Amaga el botó de marca de temps</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">S\'amaga el botó de marca de temps</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Es mostra el botó de marca de temps</string>
   <string name="revanced_hide_comments_preview_comment_title">Amaga la vista prèvia del comentari</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">La vista prèvia del comentari s\'amaga</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">La vista prèvia del comentari es mostra</string>
@@ -750,9 +750,9 @@ Per mostrar el menú de la pista d'àudio, canvieu \"Suplanta els fluxos de víd
   <string name="revanced_hide_shorts_location_label_title">Amaga l\'etiqueta de ubicació</string>
   <string name="revanced_hide_shorts_location_label_summary_on">L\'etiqueta de ubicació està oculta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">L\'etiqueta de ubicació es mostra</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Amaga el panell de comentaris</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">El panell de comentaris està ocult</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Es mostra el panell de comentaris</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Amaga el comentari de vista prèvia</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">El comentari de vista prèvia s\'ha amagat</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Es mostra la vista prèvia del comentari</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Amaga el botó Desa música</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">El botó de desar música està ocult</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">El botó de desar música es mostra</string>
@@ -1255,6 +1255,9 @@ Llisca per expandir o tancar"</string>
   <string name="revanced_gradient_loading_screen_title">Habilita la pantalla de càrrega amb degradació</string>
   <string name="revanced_gradient_loading_screen_summary_on">La pantalla de càrrega tindrà un fons de degradació</string>
   <string name="revanced_gradient_loading_screen_summary_off">La pantalla de càrrega tindrà un fons sòlid</string>
+  <string name="splash_screen_animation_style_title">Estil de la pantalla de presentació</string>
+  <string name="splash_screen_animation_style_entry_1">Color</string>
+  <string name="splash_screen_animation_style_entry_2">Blanc i negre</string>
   <string name="revanced_seekbar_custom_color_title">Habilita el color personalitzat de la barra de cerca</string>
   <string name="revanced_seekbar_custom_color_summary_on">El color personalitzat de la barra de cerca es mostra</string>
   <string name="revanced_seekbar_custom_color_summary_off">El color original de la barra de cerca es mostra</string>

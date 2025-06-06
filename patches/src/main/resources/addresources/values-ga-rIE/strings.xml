@@ -311,9 +311,9 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Folaigh an cnaipe \'Cruthaigh Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tá cnaipe Cruthaigh gearrscéal i bhfolach</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Taispeántar cnaipe Cruthaigh gearrscéal</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Folaigh cnaipí emoji agus amlínte</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tá cnaipí emoji agus amlínte i bhfolach</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Taispeántar cnaipí emoji agus amlínte</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Folaigh cnaipe an stampa ama</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tá cnaipe an stampa ama i bhfolach</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Taispeántar cnaipe an stampa ama</string>
   <string name="revanced_hide_comments_preview_comment_title">Folaigh trácht réamhamharc</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Tá trácht réamhamhar i bhfolach</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Taispeántar trácht réamhamharc</string>
@@ -750,9 +750,9 @@ Chun roghchlár na rian fuaime a thaispeáint, athraigh 'Srutháin físeáin bhr
   <string name="revanced_hide_shorts_location_label_title">Folaigh lipéad suímh</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Tá lipéad suímh i bhfolach</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Taispeántar lipéad suímh</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Folaigh painéal na dtuairimí</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Tá an painéal tuairimí i bhfolach</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Taispeántar painéal na dtuairimí</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Folaigh réamhamharc ar an nóta tráchta</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Tá réamhamharc ar an nóta tráchta i bhfolach</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Taispeántar réamhamharc ar an nóta tráchta</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Folaigh cnaipe \'Sábháil ceol\'</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tá an cnaipe Sábháil ceoil i bhfolach</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Taispeántar an cnaipe Sábháil ceoil</string>
@@ -1256,6 +1256,9 @@ Svaidhpeáil chun leathnú nó dúnadh"</string>
   <string name="revanced_gradient_loading_screen_title">Cumasaigh scáileán luchtaithe</string>
   <string name="revanced_gradient_loading_screen_summary_on">Beidh cúlra grádáin ag an scáileán lódála</string>
   <string name="revanced_gradient_loading_screen_summary_off">Beidh cúlra láidir ag scáileán luchtaithe</string>
+  <string name="splash_screen_animation_style_title">Stíl scáileáin splancais</string>
+  <string name="splash_screen_animation_style_entry_1">Dath</string>
+  <string name="splash_screen_animation_style_entry_2">Dubh agus bán</string>
   <string name="revanced_seekbar_custom_color_title">Cumasaigh dath barra cuardaigh saincheaptha</string>
   <string name="revanced_seekbar_custom_color_summary_on">Taispeántar dath barra cuardaigh saincheaptha</string>
   <string name="revanced_seekbar_custom_color_summary_off">Taispeántar dath barr cuardaigh bunaidh</string>

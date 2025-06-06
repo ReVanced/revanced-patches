@@ -307,9 +307,9 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">\'Verknüpfung erstellen\'-Button ausblenden</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Schaltfläche \" Short erstellen\" ist ausgeblendet</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Schaltfläche \" Short erstellen\" wird angezeigt</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Emoji- und Zeitstempel-Buttons ausblenden</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji- und Zeitstempel-Buttons sind ausgeblendet</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji- und Zeitstempel-Buttons werden angezeigt</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Timestamp-Button ausblenden</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Timestamp-Button ist ausgeblendet</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Timestamp-Button wird angezeigt</string>
   <string name="revanced_hide_comments_preview_comment_title">Vorschaukommentar ausblenden</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Vorschaukommentar ist ausgeblendet</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Vorschau des Kommentars wird angezeigt</string>
@@ -743,9 +743,9 @@ Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS T
   <string name="revanced_hide_shorts_location_label_title">Standortbezeichnung ausblenden</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Ortsbezeichnung ist ausgeblendet</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Ortsbezeichnung wird angezeigt</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Kommentarbereich ausblenden</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Das Kommentarfeld ist ausgeblendet</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Kommentarbereich wird angezeigt</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Kommentarvorschau ausblenden</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Vorschaukommentar ist ausgeblendet</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Vorschaukommentar wird angezeigt</string>
   <string name="revanced_hide_shorts_save_sound_button_title">\'Musik speichern\'-Button ausblenden</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Musikspeicher Button ist ausgeblendet</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Musikspeicher Button wird angezeigt</string>
@@ -1249,6 +1249,9 @@ Zum Erweitern oder Schließen wischen"</string>
   <string name="revanced_gradient_loading_screen_title">Gradientenladebildschirm aktivieren</string>
   <string name="revanced_gradient_loading_screen_summary_on">Lade Bildschirm hat einen Farbverlauf Hintergrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Das Laden des Bildschirms wird einen soliden Hintergrund haben</string>
+  <string name="splash_screen_animation_style_title">Art des Begrüßungsbildschirms</string>
+  <string name="splash_screen_animation_style_entry_1">Farbe</string>
+  <string name="splash_screen_animation_style_entry_2">Schwarz und Weiß</string>
   <string name="revanced_seekbar_custom_color_title">Eigene Suchleistenfarbe aktivieren</string>
   <string name="revanced_seekbar_custom_color_summary_on">Angepasste Suchleistenfarbe wird angezeigt</string>
   <string name="revanced_seekbar_custom_color_summary_off">Originalfarbe der Suchleiste wird angezeigt</string>

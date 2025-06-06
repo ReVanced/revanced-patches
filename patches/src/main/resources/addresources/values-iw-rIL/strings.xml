@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">הסתר לחצן \'יצירת Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">לחצן יצירת Short מוסתר</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">לחצן יצירת Short מוצג</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">הסתר לחצני אמוג\'י וחותמת זמן</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">לחצני אמוג\'י וחותמת זמן מוסתרים</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">לחצני אמוג\'י וחותמת זמן מוצגים</string>
+  <string name="revanced_hide_comments_timestamp_button_title">הסתר לחצן חותם זמן</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">לחצן חותם זמן מוסתר</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">לחצן חותם זמן מוצג</string>
   <string name="revanced_hide_comments_preview_comment_title">הסתר תצוגה מקדימה של תגובה</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">תצוגה מקדימה של תגובה מוסתרת</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">תצוגה מקדימה של תגובה מוצגת</string>
@@ -750,9 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">הסתר תווית מיקום</string>
   <string name="revanced_hide_shorts_location_label_summary_on">תווית מיקום מוסתרת</string>
   <string name="revanced_hide_shorts_location_label_summary_off">תווית מיקום מוצגת</string>
-  <string name="revanced_hide_shorts_comment_panel_title">הסתר את לוח התגובות</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">לוח התגובות מוסתר</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">לוח התגובות מוצג</string>
+  <string name="revanced_hide_shorts_preview_comment_title">הסתר תצוגה מקדימה של תגובה</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">תצוגה מקדימה של תגובה מוסתרת</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">תצוגה מקדימה של תגובה מוצגת</string>
   <string name="revanced_hide_shorts_save_sound_button_title">הסתר לחצן שמור מוזיקה</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">לחצן שמור מוזיקה מוסתר</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">לחצן שמור מוזיקה מוצג</string>
@@ -1256,6 +1256,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">הפעל מסך טעינה עם מעבר צבע</string>
   <string name="revanced_gradient_loading_screen_summary_on">מסך הטעינה יהיה בעל רקע עם מעבר צבע</string>
   <string name="revanced_gradient_loading_screen_summary_off">מסך הטעינה יהיה בעל רקע מוצק</string>
+  <string name="splash_screen_animation_style_title">סגנון מסך פתיחה</string>
+  <string name="splash_screen_animation_style_entry_1">צבע</string>
+  <string name="splash_screen_animation_style_entry_2">שחור ולבן</string>
   <string name="revanced_seekbar_custom_color_title">הפעל צבע סרגל דילוג מותאם אישית</string>
   <string name="revanced_seekbar_custom_color_summary_on">צבע סרגל דילוג מותאם אישית מוצג</string>
   <string name="revanced_seekbar_custom_color_summary_off">צבע סרגל דילוג מקורי מוצג</string>

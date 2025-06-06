@@ -311,9 +311,9 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Sakrij dugme „Napravi Short”</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Dugme „Napravi Short” je skriveno</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Dugme „Napravi Short” je prikazano</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Sakrij dugmad za emodži i vremensku oznaku</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Dugmad za emodži i vremensku oznaku su skrivena</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Dugmad za emodži i vremensku oznaku su prikazana</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Sakrij dugme vremenske oznake</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Dugme vremenske oznake je skriveno</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Dugme vremenske oznake je prikazano</string>
   <string name="revanced_hide_comments_preview_comment_title">Sakrij komentar za pregled</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentar za pregled je skriven</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komentar za pregled je prikazan</string>
@@ -750,9 +750,9 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_shorts_location_label_title">Sakrij oznaku lokacije</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Oznaka lokacije je skrivena</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Oznaka lokacije je prikazana</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Sakrij tablu sa komentarima</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Panel sa komentarima je skriven</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Tabla sa komentarima je prikazana</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Sakrij pregled komentara</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Pregled komentara je skriven</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Pregled komentara je prikazan</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Sakrij dugme „Sačuvaj muziku”</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Dugme „Sačuvaj zvuk” je skriveno</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Dugme „Sačuvaj zvuk” je prikazano</string>
@@ -1255,6 +1255,9 @@ Prevucite da biste proširili ili zatvorili"</string>
   <string name="revanced_gradient_loading_screen_title">Omogući gradijentnu pozadinu ekrana učitavanja</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ekran učitavanja će imati gradijentnu pozadinu</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ekran učitavanja će imati običnu pozadinu</string>
+  <string name="splash_screen_animation_style_title">Stil ekrana pokretanja</string>
+  <string name="splash_screen_animation_style_entry_1">Boja</string>
+  <string name="splash_screen_animation_style_entry_2">Crno-belo</string>
   <string name="revanced_seekbar_custom_color_title">Omogući prilagođenu boju trake za premotavanje</string>
   <string name="revanced_seekbar_custom_color_summary_on">Prilagođena boja trake za premotavanje je prikazana</string>
   <string name="revanced_seekbar_custom_color_summary_off">Originalna boja trake za premotavanje je prikazana</string>

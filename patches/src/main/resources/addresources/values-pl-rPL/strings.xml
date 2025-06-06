@@ -307,9 +307,9 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Przycisk od tworzenia Shortsów</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Przycisk Utwórz Short jest ukryty</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Przycisk Utwórz Short jest widoczny</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ukryj przyciski emoji i znacznika czasu</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Przyciski emoji i znacznika czasu są ukryte</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Przyciski emoji i znacznika czasu są widoczne</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ukryj przycisk znacznika czasu</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Przycisk znacznika czasu jest ukryty</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Przycisk znacznika czasu jest widoczny</string>
   <string name="revanced_hide_comments_preview_comment_title">Ukryj podgląd komentarzy</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Podgląd komentarzy jest ukryty</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Podgląd komentarzy jest widoczny</string>
@@ -746,9 +746,9 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_hide_shorts_location_label_title">Etykieta lokalizacji</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Etykieta lokalizacji jest ukryta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Etykieta lokalizacji jest widoczna</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Ukryj panel komentarzy</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Panel komentarzy jest ukryty</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Panel komentarzy jest wyświetlany</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Ukryj komentarz podglądu</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Komentarz podglądu jest ukryty</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Podgląd komentarza jest wyświetlany</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ukryj przycisk \"Zapisz muzykę\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Przycisk od zapisywania muzyki jest ukryty</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Przycisk od zapisywania muzyki jest widoczny</string>
@@ -1252,6 +1252,9 @@ Przesuń, aby rozwinąć lub zamknąć"</string>
   <string name="revanced_gradient_loading_screen_title">Kolorowy ekran ładowania</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ekran ładowania będzie miał kolorowe tło</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ekran ładowania będzie miał stałe tło</string>
+  <string name="splash_screen_animation_style_title">Styl ekranu powitalnego</string>
+  <string name="splash_screen_animation_style_entry_1">Kolor</string>
+  <string name="splash_screen_animation_style_entry_2">Czarno-biały</string>
   <string name="revanced_seekbar_custom_color_title">Niestandardowy kolor paska postępu</string>
   <string name="revanced_seekbar_custom_color_summary_on">Niestandardowy</string>
   <string name="revanced_seekbar_custom_color_summary_off">Oryginalny</string>

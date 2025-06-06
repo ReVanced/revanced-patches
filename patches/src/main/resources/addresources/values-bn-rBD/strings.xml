@@ -307,9 +307,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_comments_create_a_short_button_title">\'Short তৈরি করুন\' বোতাম লুকান</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">একটি Shorts বোতাম তৈরি করুন লুকানো আছে</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">একটি Shorts বোতাম তৈরি করুন দেখানো হয়েছে</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">ইমোজি এবং টাইমস্ট্যাম্প বোতাম লুকান</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">ইমোজি এবং টাইমস্ট্যাম্প বোতাম লুকানো আছে</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">ইমোজি এবং টাইমস্ট্যাম্প বোতাম দেখানো হয়েছে</string>
+  <string name="revanced_hide_comments_timestamp_button_title">সময় চিহ্নিত করার বোতাম লুকান</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">সময় চিহ্নিত করার বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">সময় চিহ্নিত করার বোতাম দেখানো হয়েছে</string>
   <string name="revanced_hide_comments_preview_comment_title">মন্তব্যের পূর্বরূপ লুকান</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">মন্তব্যের পূর্বরূপ লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">মন্তব্যের পূর্বরূপ প্রদর্শিত হয়েছে</string>
@@ -746,9 +746,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_location_label_title">অবস্থান লেবেল লুকান</string>
   <string name="revanced_hide_shorts_location_label_summary_on">অবস্থান লেবেল লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_location_label_summary_off">অবস্থান লেবেল প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_comment_panel_title">মন্তব্য প্যানেল লুকান</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">মন্তব্য প্যানেল লুকানো আছে</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">মন্তব্য প্যানেল দেখানো হয়েছে</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Preview comment লুকান</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Preview comment লুকানো আছে</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Preview comment দেখানো হয়েছে</string>
   <string name="revanced_hide_shorts_save_sound_button_title">সেভ মিউজিক বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music বোতাম দেখানো হচ্ছে</string>
@@ -1252,6 +1252,9 @@ Miniplayer স্ক্রিন থেকে বামে বা ডানে �
   <string name="revanced_gradient_loading_screen_title">গ্রেডিয়েন্ট লোডিং স্ক্রিণ সক্রিয় করুন</string>
   <string name="revanced_gradient_loading_screen_summary_on">লোডিং স্ক্রিণে একটি গ্রেডিয়েন্ড ব্যাকগ্রাউন্ড থাকবে</string>
   <string name="revanced_gradient_loading_screen_summary_off">লোডিং স্ক্রিণে একটি সলিড ব্যাকগ্রাউন্ড থাকবে</string>
+  <string name="splash_screen_animation_style_title">স্প্ল্যাশ স্ক্রিন শৈলী</string>
+  <string name="splash_screen_animation_style_entry_1">রং</string>
+  <string name="splash_screen_animation_style_entry_2">কালো এবং সাদা</string>
   <string name="revanced_seekbar_custom_color_title">সিকবারে নিজস্ব রং সক্রিয় করুন</string>
   <string name="revanced_seekbar_custom_color_summary_on">সিকবারে নিজস্ব রং প্রদর্শিত হয়েছে</string>
   <string name="revanced_seekbar_custom_color_summary_off">সিকবারে মূল রং প্রদর্শিত হয়েছে</string>

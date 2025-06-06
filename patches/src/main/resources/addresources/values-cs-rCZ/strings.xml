@@ -311,9 +311,9 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Skrýt tlačítko \"Vytvořit Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačítko Vytvořit Short je skryté</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tlačítko Vytvořit Short je zobrazeno</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skrýt tlačítka emoji a časového razítka</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tlačítka emoji a časového razítka jsou skryta</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tlačítka emoji a časového razítka jsou zobrazena</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Skrýt tlačítko časové osy</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tlačítko časové osy je skryté</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Tlačítko časové osy je zobrazeno</string>
   <string name="revanced_hide_comments_preview_comment_title">Skrýt náhled komentáře</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Náhled komentáře je skryt</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Náhled komentáře je zobrazen</string>
@@ -750,9 +750,9 @@ Chcete-li zobrazit nabídku zvukové stopy, změňte možnost „Zfalšovat stre
   <string name="revanced_hide_shorts_location_label_title">Skrýt štítek umístění</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Štítek umístění je skrytý</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Štítek umístění je zobrazen</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Skrýt panel Komentáře</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Panel komentářů je skrytý</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Panel Komentáře je zobrazen</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Skrýt náhled komentáře</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Náhled komentáře je skrytý</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Zobrazuje se náhled komentáře</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Skrýt tlačítko Uložit hudbu</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tlačítko Uložit hudbu je skryté</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tlačítko Uložit hudbu je zobrazeno</string>
@@ -1255,6 +1255,9 @@ Rozbalte nebo zavřete přejetím prstem"</string>
   <string name="revanced_gradient_loading_screen_title">Povolit přechodovou obrazovku načítání</string>
   <string name="revanced_gradient_loading_screen_summary_on">Obrazovka načítání bude mít přechodové pozadí</string>
   <string name="revanced_gradient_loading_screen_summary_off">Obrazovka načítání bude mít pevné pozadí</string>
+  <string name="splash_screen_animation_style_title">Styl úvodní obrazovky</string>
+  <string name="splash_screen_animation_style_entry_1">Barva</string>
+  <string name="splash_screen_animation_style_entry_2">Černobílá</string>
   <string name="revanced_seekbar_custom_color_title">Povolit vlastní barvu posuvníku</string>
   <string name="revanced_seekbar_custom_color_summary_on">Vlasní barva posuvníku je zobrazena</string>
   <string name="revanced_seekbar_custom_color_summary_off">Původní barva posuvníku je zobrazena</string>

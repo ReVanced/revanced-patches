@@ -311,9 +311,9 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Skrij gumb \"Ustvari Shorts\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Gumb »Ustvari Short« je skrit</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Gumb »Ustvari Short« je prikazan</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skrij gumbe z emojiji in časovnim žigom</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Gumbi z emojiji in časovnim žigom so skriti</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Gumbi z emojiji in časovnim žigom so prikazani</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Skrij gumb časovnega žiga</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Gumb časovnega žiga je skrit</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Gumb časovnega žiga je prikazan</string>
   <string name="revanced_hide_comments_preview_comment_title">Skrij predogled komentarja</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Predogled komentarja je skrit</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Predogled komentarja je prikazan</string>
@@ -750,9 +750,9 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_shorts_location_label_title">Skrij oznako lokacije</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Oznaka lokacije je skrita</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Oznaka lokacije je prikazana</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Skrij ploščo s komentarji</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Plošča s komentarji je skrita</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Plošča s komentarji je prikazana</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Skrij predogled komentarja</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Predogled komentarja je skrit</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Predogled komentarja je prikazan</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Skrij gumb \'Shrani glasbo\'</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Gumb za shranjevanje glasbe je skrit</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Gumb za shranjevanje glasbe je prikazan</string>
@@ -1255,6 +1255,9 @@ Podrsnite za razširitev ali zapiranje"</string>
   <string name="revanced_gradient_loading_screen_title">Omogoči zaslon za nalaganje z gradientom</string>
   <string name="revanced_gradient_loading_screen_summary_on">Zaslon za nalaganje bo imel ozadje z gradientom</string>
   <string name="revanced_gradient_loading_screen_summary_off">Zaslon za nalaganje bo imel enobarvno ozadje</string>
+  <string name="splash_screen_animation_style_title">Slog uvodnega zaslona</string>
+  <string name="splash_screen_animation_style_entry_1">Barva</string>
+  <string name="splash_screen_animation_style_entry_2">Črno-belo</string>
   <string name="revanced_seekbar_custom_color_title">Omogoči prilagojeno barvo drsnika</string>
   <string name="revanced_seekbar_custom_color_summary_on">Prilagojena barva drsnika je prikazana</string>
   <string name="revanced_seekbar_custom_color_summary_off">Izvorna barva drsnika je prikazana</string>

@@ -314,9 +314,9 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_comments_create_a_short_button_title">「ショートを作成」ボタンを非表示</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">「ショートを作成」ボタンは表示されません</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">「ショートを作成」ボタンは表示されます</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">絵文字ボタンとタイムスタンプ ボタンを非表示</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">絵文字ボタンとタイムスタンプ ボタンは表示されません</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">絵文字ボタンとタイムスタンプ ボタンは表示されます</string>
+  <string name="revanced_hide_comments_timestamp_button_title">タイムスタンプ ボタンを非表示</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">タイムスタンプ ボタンは表示されません</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">タイムスタンプ ボタンは表示されます</string>
   <string name="revanced_hide_comments_preview_comment_title">コメントのプレビューを非表示</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">コメントのプレビューは表示されません</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">コメントのプレビューは表示されます</string>
@@ -753,9 +753,9 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_shorts_location_label_title">位置情報ラベルを非表示</string>
   <string name="revanced_hide_shorts_location_label_summary_on">位置情報ラベルは表示されません</string>
   <string name="revanced_hide_shorts_location_label_summary_off">位置情報ラベルは表示されます</string>
-  <string name="revanced_hide_shorts_comment_panel_title">コメント パネルを非表示</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">コメント パネルは表示されません</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">コメント パネルが表示されます</string>
+  <string name="revanced_hide_shorts_preview_comment_title">コメントのプレビューを非表示</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">コメントのプレビューは表示されません</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">コメントのプレビューは表示されます</string>
   <string name="revanced_hide_shorts_save_sound_button_title">「音楽を保存」ボタンを非表示</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">「音楽を保存」ボタンは表示されません</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">「音楽を保存」ボタンは表示されます</string>
@@ -1256,6 +1256,9 @@ Automotive レイアウト
   <string name="revanced_gradient_loading_screen_title">グラデーションの読み込み画面を使用する</string>
   <string name="revanced_gradient_loading_screen_summary_on">画面読み込み時にグラデーションの背景が表示されます</string>
   <string name="revanced_gradient_loading_screen_summary_off">画面読み込み時に通常の背景が表示されます</string>
+  <string name="splash_screen_animation_style_title">スプラッシュ スクリーンのスタイル</string>
+  <string name="splash_screen_animation_style_entry_1">カラー</string>
+  <string name="splash_screen_animation_style_entry_2">白黒</string>
   <string name="revanced_seekbar_custom_color_title">編集したシークバーの色を使用する</string>
   <string name="revanced_seekbar_custom_color_summary_on">編集したシークバーの色が表示されます</string>
   <string name="revanced_seekbar_custom_color_summary_off">デフォルトのシークバーの色が表示されます</string>

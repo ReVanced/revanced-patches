@@ -311,9 +311,9 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Fsheh butonin \"Krijo një Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Butoni Krijo një Short është i fshehur</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Butoni Krijo një Short është i shfaqur</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Fshih butonat emoji dhe timestamp</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Butonat Emoji dhe timestamp janë të fshehur</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Butonat Emoji dhe timestamp janë të shfaqur</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Fshih butonin e kohëshënimit</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Butoni i kohëshënimit është i fshehur</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Butoni i kohëshënimit është shfaqur</string>
   <string name="revanced_hide_comments_preview_comment_title">Fsheh komentin e parashikimit</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komenti i parashikimit është i fshehur</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komenti i parashikimit është i dukshëm</string>
@@ -750,9 +750,9 @@ Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet vide
   <string name="revanced_hide_shorts_location_label_title">Fsheh etiketën e vendndodhjes</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Etiketë e vendndodhjes është e fshehur</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Etiketë e vendndodhjes shfaqet</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Fshih panelin e komenteve</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Paneli i komenteve është i fshehur</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Paneli i komenteve është i dukshëm</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Fshih komentin e shikimit paraprak</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Komenti i shikimit paraprak është i fshehur</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Parashikimi i komentit shfaqet</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Fsheh butonin Ruaj muzikën</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Butoni \"Ruaj muzikën\" është i fshehur</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Butoni \"Ruaj muzikën\" shfaqet</string>
@@ -1254,6 +1254,9 @@ Rrëshqit për të zgjeruar ose mbyllur"</string>
   <string name="revanced_gradient_loading_screen_title">Aktivizo ekranin e ngarkimit me gradient</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ekrani i ngarkimit do të ketë një sfond me gradient</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ekrani i ngarkimit do të ketë një sfond të ngurtë</string>
+  <string name="splash_screen_animation_style_title">Stili i ekranit hapës</string>
+  <string name="splash_screen_animation_style_entry_1">Ngjyra</string>
+  <string name="splash_screen_animation_style_entry_2">E zezë dhe e bardhë</string>
   <string name="revanced_seekbar_custom_color_title">Aktivizo ngjyrën e personalizuar të shkallës së kërkimit</string>
   <string name="revanced_seekbar_custom_color_summary_on">Ngjyra e personalizuar e shkallës së kërkimit është e dukshme</string>
   <string name="revanced_seekbar_custom_color_summary_off">Ngjyra origjinale e shkallës së kërkimit është e dukshme</string>

@@ -311,9 +311,9 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Dölj knappen \'Skapa en kort\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Knappen Skapa en Short är dold</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Knappen Skapa en Short visas</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Dölj emoji- och tidsstämpelknappar</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji- och tidsstämpelknappar är dolda</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji- och tidsstämpelknappar visas</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Dölj tidsstämpelknappen</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tidsstämpelknappen är dold</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Tidsstämpelknappen är synlig</string>
   <string name="revanced_hide_comments_preview_comment_title">Dölj förhandsgranskningskommentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Förhandsgranska kommentaren är dold</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Förhandsgranska kommentar är synlig</string>
@@ -750,9 +750,9 @@ För att visa ljudspårsmenyn, ändra \"Spoof video streams\" till iOS TV"</stri
   <string name="revanced_hide_shorts_location_label_title">Dölj platsetikett</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Platsetiketten är dold</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Platsetikett är synlig</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Dölj kommentarsfältet</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Kommentarsfältet är dolt</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Kommentarsfältet visas</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Dölj förhandsgranskningskommentar</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Förhandsgranskningskommentar är dold</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Förhandsvisningskommentaren visas</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Dölj knapp \'Spara musik\'</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Spara musikknappen är dold</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Spara musikknappen visas</string>
@@ -1255,6 +1255,9 @@ Svep för att expandera eller stänga"</string>
   <string name="revanced_gradient_loading_screen_title">Aktivera gradient laddar skärmen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Laddar skärmen kommer att ha en lutande bakgrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Laddar skärmen kommer att ha en solid bakgrund</string>
+  <string name="splash_screen_animation_style_title">Startskärmens stil</string>
+  <string name="splash_screen_animation_style_entry_1">Färg</string>
+  <string name="splash_screen_animation_style_entry_2">Svartvitt</string>
   <string name="revanced_seekbar_custom_color_title">Aktivera anpassad sökfält färg</string>
   <string name="revanced_seekbar_custom_color_summary_on">Anpassad sökfält färg visas</string>
   <string name="revanced_seekbar_custom_color_summary_off">Original sökfält färg visas</string>

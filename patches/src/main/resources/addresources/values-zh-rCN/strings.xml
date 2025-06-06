@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">隐藏「创建 Short」按钮</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">“创建Shorts”按钮已隐藏</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">“创建Shorts”按钮已显示</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">隐藏表情符号和时间戳按钮</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">表情符号和时间戳按钮已隐藏</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">表情符号和时间戳按钮已显示</string>
+  <string name="revanced_hide_comments_timestamp_button_title">隐藏时间戳按钮</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">时间戳按钮已隐藏</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">时间戳按钮已显示</string>
   <string name="revanced_hide_comments_preview_comment_title">隐藏评论预览</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">评论预览已隐藏</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">评论预览已显示</string>
@@ -750,9 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">隐藏位置标签</string>
   <string name="revanced_hide_shorts_location_label_summary_on">位置标签已隐藏</string>
   <string name="revanced_hide_shorts_location_label_summary_off">位置标签已显示</string>
-  <string name="revanced_hide_shorts_comment_panel_title">隐藏评论面板</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">已隐藏评论面板</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">评论面板已显示</string>
+  <string name="revanced_hide_shorts_preview_comment_title">隐藏预览评论</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">预览评论已隐藏</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">预览评论已显示</string>
   <string name="revanced_hide_shorts_save_sound_button_title">隐藏「保存音乐」按钮</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">保存音乐按钮已隐藏</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">保存音乐按钮已显示</string>
@@ -1260,6 +1260,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">启用渐变加载屏幕</string>
   <string name="revanced_gradient_loading_screen_summary_on">加载屏幕将具有渐变背景</string>
   <string name="revanced_gradient_loading_screen_summary_off">加载屏幕将具有纯色背景</string>
+  <string name="splash_screen_animation_style_title">启动画面样式</string>
+  <string name="splash_screen_animation_style_entry_1">颜色</string>
+  <string name="splash_screen_animation_style_entry_2">黑白</string>
   <string name="revanced_seekbar_custom_color_title">启用自定义进度条颜色</string>
   <string name="revanced_seekbar_custom_color_summary_on">自定义进度条颜色显示</string>
   <string name="revanced_seekbar_custom_color_summary_off">显示原始进度条颜色</string>

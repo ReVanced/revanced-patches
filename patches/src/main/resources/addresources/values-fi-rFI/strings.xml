@@ -117,7 +117,7 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_debug_protobuffer_title">Loki protokollan puskuri</string>
   <string name="revanced_debug_protobuffer_summary_on">Virheenkorjauslokit sisältävät proto-puskurin</string>
   <string name="revanced_debug_protobuffer_summary_off">Virheenkorjauslokit eivät sisällä proto-puskuria</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Tämän asetuksen käyttöönotto kirjaa lisätietoja asettelusta, mm. joidenkin käyttöliittymäkomponenttien näyttötekstiä.
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Tämän asetuksen käyttöönotto kirjaa lisätietoja asettelusta, mm. joidenkin käyttöliittymän osien näyttötekstiä.
 
 Tämä voi auttaa komponenttien tunnistamisessa, kun luot mukautettuja suodattimia.
 
@@ -311,9 +311,6 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Piilota \"Luo Shorts-video\" -painike</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Luo Shorts-video -painike on piilotettu</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Luo Shorts-video -painike näytetään</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Piilota emoji- ja aikaleima-painikkeet</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji- ja aikaleima-painikkeet on piilotettu</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji- ja aikaleima-painikkeet näytetään</string>
   <string name="revanced_hide_comments_preview_comment_title">Piilota kommentin esikatselu</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Kommentin esikatselu on piilotettu</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Kommentin esikatselu näytetään</string>
@@ -327,15 +324,15 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodlet näkyvät muutamana päivänä vuodessa.
 
 Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käytössä, myös hakupalkin alla oleva suodatinpalkki piilotetaan."</string>
-  <string name="revanced_custom_filter_screen_title">Oma suodatin</string>
-  <string name="revanced_custom_filter_screen_summary">Piilota osia omilla suodattimilla</string>
-  <string name="revanced_custom_filter_title">Ota oma suodatin käyttöön</string>
-  <string name="revanced_custom_filter_summary_on">Oma suodatin on käytössä</string>
-  <string name="revanced_custom_filter_summary_off">Oma suodatin ei ole käytössä</string>
-  <string name="revanced_custom_filter_strings_title">Oma suodatin</string>
+  <string name="revanced_custom_filter_screen_title">Mukautettu suodatin</string>
+  <string name="revanced_custom_filter_screen_summary">Piilota osia mukautetuilla suodattimilla</string>
+  <string name="revanced_custom_filter_title">Ota mukautettu suodatin käyttöön</string>
+  <string name="revanced_custom_filter_summary_on">Mukautettu suodatin on käytössä</string>
+  <string name="revanced_custom_filter_summary_off">Mukautettu suodatin ei ole käytössä</string>
+  <string name="revanced_custom_filter_strings_title">Mukautettu suodatin</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Luettelo komponentin polun rakentajan merkkijonoista suodatettavaksi uudella rivillä erotettuna</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Virheellinen oma suodatin: %s</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Virheellinen mukautettu suodatin: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">Piilota sisältöä avainsanojen mukaan</string>
   <string name="revanced_hide_keyword_content_screen_summary">Piilota haku- ja syötevideoita avainsanasuodattimilla</string>
   <string name="revanced_hide_keyword_content_home_title">Piilota koti-videoita avainsanojen mukaan</string>
@@ -750,6 +747,9 @@ Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <string name="revanced_hide_shorts_location_label_title">Piilota sijaintitieto</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Sijaintitieto on piilotettu</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Sijaintitieto näytetään</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Piilota kommentin esikatselu</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Kommentin esikatselu on piilotettu</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Kommentin esikatselu näytetään</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Piilota Tallenna musiikki -painike</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tallenna musiikki -painike on piilotettu</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tallenna musiikki -painike näytetään</string>
@@ -1253,12 +1253,13 @@ Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
   <string name="revanced_gradient_loading_screen_title">Ota liukuvärillinen latausruutu käyttöön</string>
   <string name="revanced_gradient_loading_screen_summary_on">Latausruudulla on liukuvärillinen tausta</string>
   <string name="revanced_gradient_loading_screen_summary_off">Latausruudulla on yksivärinen tausta</string>
-  <string name="revanced_seekbar_custom_color_title">Ota oma etenemispalkin väri käyttöön</string>
-  <string name="revanced_seekbar_custom_color_summary_on">Oma etenemispalkin väri näytetään</string>
+  <string name="splash_screen_animation_style_entry_1">Väri</string>
+  <string name="revanced_seekbar_custom_color_title">Ota mukautettu etenemispalkin väri käyttöön</string>
+  <string name="revanced_seekbar_custom_color_summary_on">Mukautettu etenemispalkin väri näytetään</string>
   <string name="revanced_seekbar_custom_color_summary_off">Alkuperäinen etenemispalkin väri näytetään</string>
-  <string name="revanced_seekbar_custom_color_primary_title">Oma etenemispalkin väri</string>
+  <string name="revanced_seekbar_custom_color_primary_title">Mukautettu etenemispalkin väri</string>
   <string name="revanced_seekbar_custom_color_primary_summary">Etenemispalkin väri</string>
-  <string name="revanced_seekbar_custom_color_accent_title">Oma etenemispalkin korostusväri</string>
+  <string name="revanced_seekbar_custom_color_accent_title">Mukautettu etenemispalkin korostusväri</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Etenemispalkin korostusväri</string>
   <string name="revanced_seekbar_custom_color_invalid">Virheellinen etenemispalkin väriarvo</string>
   </patch>
@@ -1398,18 +1399,20 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Näytä nopeuden valintapainike</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Painike näytetään. Napauta ja pidä pohjassa palauttaaksesi soiton nopeuden oletukseksi</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Painiketta ei näytetä</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
-  <string name="revanced_custom_speed_menu_title">Oma toistonopeusvalikko</string>
-  <string name="revanced_custom_speed_menu_summary_on">Oma nopeusvalikko näytetään</string>
-  <string name="revanced_custom_speed_menu_summary_off">Omaa nopeusvalikkoa ei näytetä</string>
-  <string name="revanced_custom_playback_speeds_title">Omat toistonopeudet</string>
-  <string name="revanced_custom_playback_speeds_summary">Lisää tai muuta omia toistonopeuksia</string>
-  <string name="revanced_custom_playback_speeds_invalid">Omien nopeuksien tulee olla alle %s</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Virheelliset omat toistonopeudet</string>
+  <string name="revanced_custom_speed_menu_title">Mukautettu toistonopeusvalikko</string>
+  <string name="revanced_custom_speed_menu_summary_on">Mukautettu nopeusvalikko näytetään</string>
+  <string name="revanced_custom_speed_menu_summary_off">Mukautettua nopeusvalikkoa ei näytetä</string>
+  <string name="revanced_custom_playback_speeds_title">Mukautetut toistonopeudet</string>
+  <string name="revanced_custom_playback_speeds_summary">Lisää tai muuta mukautettuja toistonopeuksia</string>
+  <string name="revanced_custom_playback_speeds_invalid">Mukautettujen nopeuksien tulee olla alle %s</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Virheelliset mukautetut toistonopeudet</string>
   <string name="revanced_custom_playback_speeds_auto">Automaattinen</string>
-  <string name="revanced_speed_tap_and_hold_title">Oma napauta ja pidä pohjassa -nopeus</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Toistonopeus palautettu: %s</string>
+  <string name="revanced_speed_tap_and_hold_title">Mukautettu napauta ja pidä pohjassa -nopeus</string>
   <string name="revanced_speed_tap_and_hold_summary">Toistonopeus 0–8 välillä</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">

@@ -7,11 +7,6 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings("unused")
 final class CommentsFilter extends Filter {
 
-    private static final String TIMESTAMP_OR_EMOJI_BUTTONS_ENDS_WITH_PATH
-            = "|CellType|ContainerType|ContainerType|ContainerType|ContainerType|ContainerType|";
-
-    private final StringFilterGroup commentComposer;
-    private final ByteArrayFilterGroup emojiPickerBufferGroup;
     private final StringFilterGroup filterChipBar;
     private final ByteArrayFilterGroup aiCommentsSummary;
     
@@ -50,14 +45,9 @@ final class CommentsFilter extends Filter {
                 "super_thanks_button.eml"
         );
 
-        commentComposer = new StringFilterGroup(
-                Settings.HIDE_COMMENTS_TIMESTAMP_AND_EMOJI_BUTTONS,
-                "comment_composer.eml"
-        );
-
-        emojiPickerBufferGroup = new ByteArrayFilterGroup(
-                null,
-                "id.comment.quick_emoji.button"
+        StringFilterGroup timestampButton = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_TIMESTAMP_BUTTON,
+                "composer_timestamp_button.eml"
         );
 
         filterChipBar = new StringFilterGroup(
@@ -77,7 +67,7 @@ final class CommentsFilter extends Filter {
                 createAShort,
                 previewComment,
                 thanksButton,
-                commentComposer,
+                timestampButton,
                 filterChipBar
         );
     }
@@ -85,14 +75,6 @@ final class CommentsFilter extends Filter {
     @Override
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (matchedGroup == commentComposer) {
-            // To completely hide the emoji buttons (and leave no empty space), the timestamp button is
-            // also hidden because the buffer is exactly the same and there's no way selectively hide.
-            return contentIndex == 0
-                    && path.endsWith(TIMESTAMP_OR_EMOJI_BUTTONS_ENDS_WITH_PATH)
-                    && emojiPickerBufferGroup.check(protobufBufferArray).isFiltered();
-        }
-
         if (matchedGroup == filterChipBar) {
             return aiCommentsSummary.check(protobufBufferArray).isFiltered();
         }

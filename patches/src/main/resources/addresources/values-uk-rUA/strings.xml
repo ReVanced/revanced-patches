@@ -312,9 +312,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Приховати кнопку \"Створити Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопку \"Створити Short\" приховано</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка \"Створити Short\" показується</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Приховати кнопки емодзі та позначки часу</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Кнопки емодзі та позначки часу приховано</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Кнопки емодзі та позначки часу показуються</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Приховати кнопку позначки часу</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Кнопку позначки часу приховано</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Кнопка позначки часу показується</string>
   <string name="revanced_hide_comments_preview_comment_title">Приховати прев\'ю коментар</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Прев\'ю коментар в секції коментарів приховано</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Прев\'ю коментар в секції коментарів показується</string>
@@ -751,9 +751,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Приховати мітку місцезнаходження</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Мітку місцезнаходження приховано</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Мітка місцезнаходження показується</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Приховати панель коментарів</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Панель коментарів приховано</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Панель коментарів показується</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Приховати прев\'ю коментар</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Прев\'ю коментар в секції коментарів приховано</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Прев\'ю коментар в секції коментарів показується</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Приховати \"Зберегти музику\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопку \"Зберегти музику\" приховано</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Зберегти музику\" показується</string>
@@ -1256,6 +1256,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Увімкнути градієнт завантаження</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екран завантаження макета матиме градієнтне тло</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екран завантаження макета матиме суцільне тло</string>
+  <string name="splash_screen_animation_style_title">Стиль заставки</string>
+  <string name="splash_screen_animation_style_entry_1">Колір</string>
+  <string name="splash_screen_animation_style_entry_2">Чорно-білий</string>
   <string name="revanced_seekbar_custom_color_title">Увімкнути користувацький колір</string>
   <string name="revanced_seekbar_custom_color_summary_on">Показується користувацький колір смуги прогресу</string>
   <string name="revanced_seekbar_custom_color_summary_off">Показується оригінальний колір смуги прогресу</string>

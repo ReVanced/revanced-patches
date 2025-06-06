@@ -311,9 +311,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_comments_create_a_short_button_title">Թաքցնել \"Ստեղծել Shorts\" կոճակը</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">\"Ստեղծել Short\" կոճակը թաքցված է</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">\"Ստեղծել Short\" կոճակը ցուցադրվում է</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Թաքցնել էմոջիների և ժամանակային կնիքի կոճակները</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Էմոջիների և ժամանակային կնիքի կոճակները թաքցված են</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Էմոջիների և ժամանակային կնիքի կոճակները ցուցադրվում են</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Թաքցնել ժամանակային նշումով կոճակը</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Ժամանակային նշումով կոճակը թաքցված է</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Ժամանակային նշումով կոճակը ցուցադրվում է</string>
   <string name="revanced_hide_comments_preview_comment_title">Թաքցնել նախադիտման մեկնաբանությունը</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Նախադիտման մեկնաբանությունը թաքցված է</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Նախադիտման մեկնաբանությունը երևում է</string>
@@ -750,9 +750,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_location_label_title">Թաքցնել տեղանքի նշումը</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Տեղանքի նշումը թաքցված է</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Տեղանքի նշումը ցուցադրվում է</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Թաքցնել մեկնաբանության վահանակը</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Մեկնաբանությունների վահանակը թաքցված է</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Ցուցադրվում է մեկնաբանության վահանակը</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Թաքցնել նախադիտման մեկնաբանությունը</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Նախադիտման մեկնաբանությունը թաքնված է</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Ցուցադրվում է մեկնաբանության նախադիտումը</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Թաքցնել երաժշտությունը պահպանել կոճակը</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">«Save music» կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">«Save music» կոճակը ցուցադրվում է</string>
@@ -1256,6 +1256,9 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_gradient_loading_screen_title">Աктиվացնել գրադիենտի բեռնման էկրանը</string>
   <string name="revanced_gradient_loading_screen_summary_on">Բեռնման էկրանը կունենա գրադիենտի ֆոն</string>
   <string name="revanced_gradient_loading_screen_summary_off">Բեռնման էկրանը կունենա մեկ գույնի ֆոն</string>
+  <string name="splash_screen_animation_style_title">Մեկնարկային էկրանի ոճը</string>
+  <string name="splash_screen_animation_style_entry_1">Գույն</string>
+  <string name="splash_screen_animation_style_entry_2">Սև և սպիտակ</string>
   <string name="revanced_seekbar_custom_color_title">Աктиվացնել հարմարեցված seekbar-ի գույնը</string>
   <string name="revanced_seekbar_custom_color_summary_on">Հարմարեցված seekbar-ի գույնը ցուցադրվում է</string>
   <string name="revanced_seekbar_custom_color_summary_off">Սկզբնական seekbar-ի գույնը ցուցադրվում է</string>

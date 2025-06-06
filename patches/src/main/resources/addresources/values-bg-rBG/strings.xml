@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Бутон за създаване на Shorts</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Бутонът \"Създаване на Short\" е скрит</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Бутонът \"Създаване на Short\" е показан</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Скриване на бутоните за емоджи и времеви печат</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Бутоните за емоджи и времеви печат са скрити</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Бутоните за емоджи и времеви печат са показани</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Скриване на бутона за времеви печат</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Бутонът за времеви печат е скрит</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Бутонът за времеви печат е показан</string>
   <string name="revanced_hide_comments_preview_comment_title">Преглед на коментари</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Прегледа на коментари е скрит</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Прегледа на коментари се показва</string>
@@ -750,9 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Етикет за местоположение</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Етикет за местоположение е скрит</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Етикет за местоположение се показва</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Скриване на панела за коментари</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Панелът за коментари е скрит</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Панелът за коментари е показан</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Скриване на коментара за визуализация</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Коментарът за визуализация е скрит</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Показва се визуализация на коментара</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Скриване на бутона Save music</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Бутонът за запазване на музика е скрит</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Показан е бутонът за запазване на музика</string>
@@ -1256,6 +1256,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Фон на екрана при зареждане на видео</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екранът за зареждане ще има градиентен фон</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екранът за зареждане ще има плътен фон</string>
+  <string name="splash_screen_animation_style_title">Стил на началния екран</string>
+  <string name="splash_screen_animation_style_entry_1">Цвят</string>
+  <string name="splash_screen_animation_style_entry_2">Черно и бяло</string>
   <string name="revanced_seekbar_custom_color_title">Промяна на цвета на индикатора за време</string>
   <string name="revanced_seekbar_custom_color_summary_on">Показва се персонализиран цвят на лентата за напредък</string>
   <string name="revanced_seekbar_custom_color_summary_off">Показва се оригиналния цвят на лентата за напредък</string>

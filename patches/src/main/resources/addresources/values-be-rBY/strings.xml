@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Схаваць кнопку \"Створиць Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопка «Стварыць Shorts» схаваная</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка «Стварыць Shorts» паказаная</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Схаваць кнопкі эмодзі і адзнак часу</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Кнопкі эмодзі і адзнак часу схаваныя</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Кнопкі эмодзі і адзнак часу паказаныя</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Схаваць кнопку часу</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Кнопка часу схаваная</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Кнопка часу паказаная</string>
   <string name="revanced_hide_comments_preview_comment_title">Схаваць каментарый для папярэдняга прагляду</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Каментарый перад праглядам схаваны</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Паказваецца папярэдні прагляд каментарыя</string>
@@ -750,9 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Схаваць метку месцазнаходжання</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Метка месцазнаходжання схавана</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Паказана метка месцазнаходжання</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Схаваць панэль каментарыяў</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Панель каментарыяў схаваная</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Панэль каментарыяў паказана</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Схаваць папярэдні прагляд каментарыя</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Папярэдні прагляд каментарыя схаваны</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Паказваецца папярэдні прагляд каментарыя</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Схаваць кнопку «Захаваць музыку»</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка захавання музыкі схавана</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка захавання музыкі паказана</string>
@@ -1257,6 +1257,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Уключыць градыентны экран загрузкі</string>
   <string name="revanced_gradient_loading_screen_summary_on">Экран загрузкі будзе мець градыентны фон</string>
   <string name="revanced_gradient_loading_screen_summary_off">Экран загрузкі будзе мець суцэльны фон</string>
+  <string name="splash_screen_animation_style_title">Стыль застаўкі</string>
+  <string name="splash_screen_animation_style_entry_1">Колер</string>
+  <string name="splash_screen_animation_style_entry_2">Чорна-белы</string>
   <string name="revanced_seekbar_custom_color_title">Уключыць уласны колер панэлі пошуку</string>
   <string name="revanced_seekbar_custom_color_summary_on">Паказваецца карыстальніцкі колер панэлі пошуку</string>
   <string name="revanced_seekbar_custom_color_summary_off">Паказаны зыходны колер панэлі пошуку</string>

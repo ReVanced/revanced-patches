@@ -311,9 +311,9 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">A „Rövid létrehozása” gomb elrejtése</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">A Rövidfilm létrehozása gomb rejtett</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">A Rövidfilm létrehozása gomb látható</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hangulatjel- és időbélyegző gombok elrejtése</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">A hangulatjel- és időbélyegző gombok rejtettek</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">A hangulatjel- és időbélyegző gombok láthatók</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Az időbélyegző gomb elrejtése</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Az időbélyegző gomb el van rejtve</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Az időbélyegző gomb megjelenik</string>
   <string name="revanced_hide_comments_preview_comment_title">Megjegyzés előnézet elrejtése</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">A megjegyzés előnézet el van rejtve</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">A megjegyzés előnézet megjelenik</string>
@@ -750,9 +750,9 @@ Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítá
   <string name="revanced_hide_shorts_location_label_title">Helycímke elrejtése</string>
   <string name="revanced_hide_shorts_location_label_summary_on">A helycízke címke el van rejtve</string>
   <string name="revanced_hide_shorts_location_label_summary_off">A helycízke címke meg van jelenítve</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Kommentpanel elrejtése</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">A megjegyzés panel rejtett</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">A Kommentpanel látható</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Elrejtés előnézeti megjegyzés</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Az előnézeti megjegyzés rejtve van</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Megjelenik a megjegyzés előnézete</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Zene mentése gomb elrejtése</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">A zene mentés gomb el van rejtve</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">A zene mentés gomb látható</string>
@@ -1253,6 +1253,9 @@ Húzza el a képernyőt a kibontáshoz vagy bezáráshoz"</string>
   <string name="revanced_gradient_loading_screen_title">Színátmenetes betöltési képernyő engedélyezése</string>
   <string name="revanced_gradient_loading_screen_summary_on">A betöltési képernyő színátmenetes hatterű lesz</string>
   <string name="revanced_gradient_loading_screen_summary_off">A betöltési képernyő egyszínű hátterű lesz</string>
+  <string name="splash_screen_animation_style_title">Üdvözlőképernyő stílusa</string>
+  <string name="splash_screen_animation_style_entry_1">Színes</string>
+  <string name="splash_screen_animation_style_entry_2">Fekete-fehér</string>
   <string name="revanced_seekbar_custom_color_title">Egyéni keresősáv szín engedélyezése</string>
   <string name="revanced_seekbar_custom_color_summary_on">Az egyéni keresősáv szín megjelenik</string>
   <string name="revanced_seekbar_custom_color_summary_off">Az egyéni keresősáv szín nem jelenik meg</string>

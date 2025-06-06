@@ -309,9 +309,9 @@ Você não será notificado sobre nenhum evento inesperado."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Ocultar botão \'Criar um Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">O botão Criar um Short está oculto</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">O botão Criar um Short é mostrado</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ocultar botões de emoji e carimbo de data/hora</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Os botões de emoji e carimbo de data/hora estão ocultos</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Os botões de emoji e carimbo de data/hora são mostrados</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ocultar o botão de carimbo de data/hora</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">O botão de carimbo de data/hora está oculto</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">O botão de carimbo de data/hora é mostrado</string>
   <string name="revanced_hide_comments_preview_comment_title">Ocultar prévia de comentário</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Prévia de comentário está oculta</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">A prévia de comentário é exibida</string>
@@ -748,9 +748,9 @@ Para exibir o menu da faixa de áudio, altere \"Spoof video streams\" para iOS T
   <string name="revanced_hide_shorts_location_label_title">Ocultar rótulo de localização</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Rótulo de localização está oculto</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Rótulo de localização é mostrado</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Ocultar painel de comentários</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Painel de comentários está oculto</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">O painel de comentários é mostrado</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Ocultar comentário de visualização</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">O comentário de visualização está oculto</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">A visualização do comentário é mostrada</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ocultar botão Salvar música</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">O botão Salvar música está oculto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">O botão Salvar música será exibido</string>
@@ -1253,6 +1253,9 @@ Passe o dedo para expandir ou fechar"</string>
   <string name="revanced_gradient_loading_screen_title">Ativar tela de carregamento em gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_on">Tela de carregamento terá um fundo em gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_off">Tela de carregamento terá um fundo sólido</string>
+  <string name="splash_screen_animation_style_title">Estilo da tela inicial</string>
+  <string name="splash_screen_animation_style_entry_1">Cor</string>
+  <string name="splash_screen_animation_style_entry_2">Preto e branco</string>
   <string name="revanced_seekbar_custom_color_title">Ativar cor personalizada da barra de busca</string>
   <string name="revanced_seekbar_custom_color_summary_on">Cor personalizada da barra de busca é mostrada</string>
   <string name="revanced_seekbar_custom_color_summary_off">Cor original da barra de busca é mostrada</string>

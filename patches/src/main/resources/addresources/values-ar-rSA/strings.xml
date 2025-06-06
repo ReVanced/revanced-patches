@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">إخفاء زر \'إنشاء Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">تم إخفاء زر إنشاء Short</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">يتم عرض زر إنشاء Short</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">إخفاء أزرار الرموز التعبيرية والطوابع الزمنية</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">تم إخفاء أزرار الرموز التعبيرية والطوابع الزمنية</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">يتم عرض أزرار الرموز التعبيرية والطوابع الزمنية</string>
+  <string name="revanced_hide_comments_timestamp_button_title">زر إخفاء الطابع الزمني</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">زر الطابع الزمني مخفي</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">زر الطابع الزمني معروض</string>
   <string name="revanced_hide_comments_preview_comment_title">إخفاء تعليق المعاينة</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">تم إخفاء تعليق المعاينة</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">يتم عرض تعليق المعاينة</string>
@@ -750,9 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">إخفاء تسمية الموقع</string>
   <string name="revanced_hide_shorts_location_label_summary_on">تم إخفاء تسمية الموقع</string>
   <string name="revanced_hide_shorts_location_label_summary_off">يتم عرض تسمية الموقع</string>
-  <string name="revanced_hide_shorts_comment_panel_title">إخفاء لوحة التعليقات</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">تم إخفاء لوحة التعليقات</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">يتم عرض لوحة التعليقات</string>
+  <string name="revanced_hide_shorts_preview_comment_title">إخفاء تعليق المعاينة</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">تم إخفاء تعليق المعاينة</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">يتم عرض تعليق المعاينة</string>
   <string name="revanced_hide_shorts_save_sound_button_title">إخفاء زر حفظ الموسيقى</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">تم إخفاء زر حفظ الموسيقى</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">يتم عرض زر حفظ الموسيقى</string>
@@ -1256,6 +1256,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">تمكين شاشة التحميل المتدرجة</string>
   <string name="revanced_gradient_loading_screen_summary_on">ستحتوي شاشة التحميل على خلفية متدرجة</string>
   <string name="revanced_gradient_loading_screen_summary_off">ستحتوي شاشة التحميل على خلفية ثابتة</string>
+  <string name="splash_screen_animation_style_title">نمط الشاشة الترحيبية</string>
+  <string name="splash_screen_animation_style_entry_1">اللون</string>
+  <string name="splash_screen_animation_style_entry_2">أبيض وأسود</string>
   <string name="revanced_seekbar_custom_color_title">تمكين لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_summary_on">يتم عرض لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_summary_off">يتم عرض لون شريط تقدم الفيديو الاصلي</string>

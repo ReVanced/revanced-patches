@@ -311,9 +311,9 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Peida nupp \"Loo lühis\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Nupp Loo lühivideo on peidetud</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Nupp Loo lühivideo on kuvatud</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Peida emotikonide ja ajatempli nupud</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emotikonide ja ajatempli nupud on peidetud</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emotikonide ja ajatempli nupud on kuvatud</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Peida ajatempli nupp</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Ajatempli nupp on peidetud</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Ajatempli nupp on nähtav</string>
   <string name="revanced_hide_comments_preview_comment_title">Peida eelvaate kommentaar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Eelvaate kommentaar on peidetud</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Eelvaate kommentaar on kuvatud</string>
@@ -750,9 +750,9 @@ Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ vä
   <string name="revanced_hide_shorts_location_label_title">Peida asukoha silt</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Asukoha silt on peidetud</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Asukoha silt on nähtav</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Peida kommentaaripaneel</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Kommentaaripaneel on peidetud</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Kommentaaripaneel on nähtaval</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Peida eelvaate kommentaar</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Kommentaari eelvaade on peidetud</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Kommentaari eelvaade on nähtav</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Peida Salvesta muusika nupp</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Muusika salvestamise nupp on peidetud</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Muusika salvestamise nupp on nähtav</string>
@@ -1256,6 +1256,9 @@ Laiendamiseks või sulgemiseks libista"</string>
   <string name="revanced_gradient_loading_screen_title">Lülita gradientega laadimiskuva sisse</string>
   <string name="revanced_gradient_loading_screen_summary_on">Laadimiskuval on gradientega taust</string>
   <string name="revanced_gradient_loading_screen_summary_off">Laadimiskuval on tahke taust</string>
+  <string name="splash_screen_animation_style_title">Sissejuhatava ekraani stiil</string>
+  <string name="splash_screen_animation_style_entry_1">Värv</string>
+  <string name="splash_screen_animation_style_entry_2">Mustvalge</string>
   <string name="revanced_seekbar_custom_color_title">Lülita kohandatud edastusriba värv sisse</string>
   <string name="revanced_seekbar_custom_color_summary_on">Kohandatud edastusriba värv on nähtav</string>
   <string name="revanced_seekbar_custom_color_summary_off">Originaal edastusriba värv on nähtav</string>

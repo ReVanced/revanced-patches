@@ -311,9 +311,9 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Masquer le bouton Créer un Short</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Le bouton \"Créer un Short\" est masqué</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Le bouton \"Créer un Short\" est affiché</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Masquer les boutons emoji et d\'horodatage</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Les boutons emoji et d\'horodatage sont masqués</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Les boutons emoji et d\'horodatage sont affichés</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Masquer le bouton d’horodatage</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Le bouton d’horodatage est masqué</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Le bouton d’horodatage est affiché</string>
   <string name="revanced_hide_comments_preview_comment_title">Masquer le commentaire servant d\'aperçu</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Le commentaire servant d\'aperçu est masqué</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Le commentaire servant d\'aperçu est affiché</string>
@@ -750,9 +750,9 @@ Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur
   <string name="revanced_hide_shorts_location_label_title">Masquer le libellé de lieu</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Le libellé de lieu est masqué</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Le libellé de lieu est affiché</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Masquer le panneau de commentaire</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Le panneau de commentaire est masqué</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Le panneau de commentaire est affiché</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Masquer le commentaire servant d\'aperçu</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Le commentaire servant d\'aperçu est masqué</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Le commentaire servant d\'aperçu est affiché</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Masquer le bouton Enregistrer la musique</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Le bouton Enregistrer la musique est masqué</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Le bouton Enregistrer la musique est affiché</string>
@@ -1255,6 +1255,9 @@ Balayez pour agrandir ou fermer"</string>
   <string name="revanced_gradient_loading_screen_title">Activer le dégradé sur l\'écran de chargement</string>
   <string name="revanced_gradient_loading_screen_summary_on">Le fond de l\'écran de chargement sera un dégradé de couleurs</string>
   <string name="revanced_gradient_loading_screen_summary_off">Le fond de l\'écran de chargement sera une couleur unie</string>
+  <string name="splash_screen_animation_style_title">Style d\'écran de démarrage</string>
+  <string name="splash_screen_animation_style_entry_1">Couleur </string>
+  <string name="splash_screen_animation_style_entry_2">Noir et blanc</string>
   <string name="revanced_seekbar_custom_color_title">Personnaliser la couleur de la barre de progression</string>
   <string name="revanced_seekbar_custom_color_summary_on">La couleur de la barre de progression est personnalisée</string>
   <string name="revanced_seekbar_custom_color_summary_off">La couleur originale de la barre de progression est affichée</string>

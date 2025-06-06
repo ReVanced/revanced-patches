@@ -309,9 +309,9 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Skryť tlačidlo „Vytvoriť krátke video“</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačidlo Vytvoriť Short je skryté</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tlačidlo Vytvoriť Short je zobrazené</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skryť tlačidlá s emoji a časovou pečiatkou</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tlačidlá s emoji a časovou pečiatkou sú skryté</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tlačidlá s emoji a časovou pečiatkou sú zobrazené</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Skryť tlačidlo s časovou pečiatkou</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tlačidlo s časovou pečiatkou je skryté</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Zobrazí sa tlačidlo s časovou pečiatkou</string>
   <string name="revanced_hide_comments_preview_comment_title">Skryť ukážkový komentár</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentár ukážky je skrytý</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Zobrazí sa ukážka komentára</string>
@@ -743,9 +743,9 @@ Ak chcete zobraziť ponuku zvukovej stopy, zmeňte možnosť „Oklamať videost
   <string name="revanced_hide_shorts_location_label_title">Skryť štítok polohy</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Štítok miesta je skrytý</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Zobrazí sa štítok s umiestnením</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Skryť panel komentárov</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Panel komentárov je skrytý</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Panel komentárov je zobrazený</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Skryť náhľadový komentár</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Náhľadový komentár je skrytý</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Zobrazuje sa ukážka komentára</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Skryť tlačidlo Uložiť hudbu</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tlačidlo na uloženie hudby je skryté</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tlačidlo na uloženie hudby sa zobrazuje</string>
@@ -1244,6 +1244,9 @@ Potiahnutím rozbalíte alebo zatvoríte"</string>
   <string name="revanced_gradient_loading_screen_title">Povoliť obrazovku načítania gradientu</string>
   <string name="revanced_gradient_loading_screen_summary_on">Načítavacia obrazovka bude mať pozadie s prechodom</string>
   <string name="revanced_gradient_loading_screen_summary_off">Načítavacia obrazovka bude mať pevné pozadie</string>
+  <string name="splash_screen_animation_style_title">Štýl úvodnej obrazovky</string>
+  <string name="splash_screen_animation_style_entry_1">Farba</string>
+  <string name="splash_screen_animation_style_entry_2">Čiernobiela</string>
   <string name="revanced_seekbar_custom_color_title">Povoliť vlastnú farbu vyhľadávacieho panela</string>
   <string name="revanced_seekbar_custom_color_summary_on">Zobrazí sa vlastná farba panela vyhľadávania</string>
   <string name="revanced_seekbar_custom_color_summary_off">Zobrazí sa pôvodná farba vyhľadávacieho panela</string>

@@ -311,9 +311,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Sembunyikan tombol \'Buat Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tombol Buat Short disembunyikan</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tombol Buat Short ditampilkan</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Sembunyikan tombol emoji dan stempel waktu</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tombol emoji dan stempel waktu disembunyikan</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tombol emoji dan stempel waktu ditampilkan</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Sembunyikan tombol stempel waktu</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tombol stempel waktu disembunyikan</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Tombol stempel waktu ditampilkan</string>
   <string name="revanced_hide_comments_preview_comment_title">Sembunyikan pratinjau komentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Pratinjau komentar disembunyikan</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Pratinjau komentar ditampilkan</string>
@@ -750,9 +750,9 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_hide_shorts_location_label_title">Sembunyikan label lokasi</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Label lokasi disembunyikan</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Label lokasi ditampilkan</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Sembunyikan panel Komentar</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Panel komentar disembunyikan</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Panel komentar ditampilkan</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Sembunyikan pratinjau komentar</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Pratinjau komentar disembunyikan</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Pratinjau komentar ditampilkan</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Sembunyikan Simpan musik</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tombol simpan musik disembunyikan</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tombol simpan musik ditampilkan</string>
@@ -1255,6 +1255,9 @@ Geser untuk memperluas atau menutup"</string>
   <string name="revanced_gradient_loading_screen_title">Aktifkan layar pemuatan gradien</string>
   <string name="revanced_gradient_loading_screen_summary_on">Layar pemuatan akan memiliki latar belakang gradien</string>
   <string name="revanced_gradient_loading_screen_summary_off">Layar pemuatan akan memiliki latar belakang yang solid</string>
+  <string name="splash_screen_animation_style_title">Gaya layar splash</string>
+  <string name="splash_screen_animation_style_entry_1">Warna</string>
+  <string name="splash_screen_animation_style_entry_2">Hitam dan putih</string>
   <string name="revanced_seekbar_custom_color_title">Aktifkan warna seekbar khusus</string>
   <string name="revanced_seekbar_custom_color_summary_on">Warna seekbar khusus ditampilkan</string>
   <string name="revanced_seekbar_custom_color_summary_off">Warna seekbar asli ditampilkan</string>

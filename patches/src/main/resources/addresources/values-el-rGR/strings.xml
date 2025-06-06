@@ -313,9 +313,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Κουμπί «Δημιουργία Short»</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Κουμπιά χρονοσήμανσης και emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Κρυμμένα</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Εμφανίζονται</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Απόκρυψη κουμπιού χρονοσήμανσης</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Το κουμπί χρονοσήμανσης είναι κρυφό</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Εμφανίζεται το κουμπί χρονοσήμανσης</string>
   <string name="revanced_hide_comments_preview_comment_title">Προεπισκόπηση σχολίου</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Εμφανίζεται</string>
@@ -752,9 +752,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Ετικέτα τοποθεσίας</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Απόκρυψη πίνακα σχολίων</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Η καρτέλα σχολίων είναι κρυμμένη</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Εμφανίζεται ο πίνακας σχολίων</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Απόκρυψη προεπισκόπησης σχολίου</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Το σχόλιο προεπισκόπησης είναι κρυφό</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Εμφανίζεται η προεπισκόπηση του σχολίου</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Κουμπί «Αποθήκευση μουσικής»</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Εμφανίζεται</string>
@@ -1257,6 +1257,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Διαβάθμιση οθόνης φόρτωσης</string>
   <string name="revanced_gradient_loading_screen_summary_on">Η οθόνη φόρτωσης θα έχει σταδιακές αποχρώσεις φόντο</string>
   <string name="revanced_gradient_loading_screen_summary_off">Η οθόνη φόρτωσης θα έχει στατική απόχρωση φόντο</string>
+  <string name="splash_screen_animation_style_title">Στυλ οθόνης εκκίνησης</string>
+  <string name="splash_screen_animation_style_entry_1">Χρώμα</string>
+  <string name="splash_screen_animation_style_entry_2">Μαύρο και άσπρο</string>
   <string name="revanced_seekbar_custom_color_title">Προσαρμοσμένο χρώμα γραμμής προόδου</string>
   <string name="revanced_seekbar_custom_color_summary_on">Η γραμμή προόδου εμφανίζεται με προσαρμοσμένο χρώμα</string>
   <string name="revanced_seekbar_custom_color_summary_off">Η γραμμή προόδου εμφανίζεται με το αρχικό χρώμα</string>

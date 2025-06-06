@@ -311,9 +311,9 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Nascondi il pulsante \'Crea uno Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Il pulsante Crea uno Short è nascosto</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Il pulsante Crea uno Short è visibile</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Nascondi i pulsanti emoji e timestamp</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">I pulsanti emoji e timestamp sono nascosti</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">I pulsanti emoji e timestamp sono visibili</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Nascondi pulsante timestamp</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Il pulsante timestamp è nascosto</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Il pulsante timestamp è visibile</string>
   <string name="revanced_hide_comments_preview_comment_title">Nascondi il commento di anteprima</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Il commento di anteprima è nascosto</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Il commento di anteprima è visibile</string>
@@ -750,9 +750,9 @@ Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS 
   <string name="revanced_hide_shorts_location_label_title">Nascondi etichetta di posizione</string>
   <string name="revanced_hide_shorts_location_label_summary_on">L\'etichetta di posizione è nascosta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">L\'etichetta di posizione è visibile</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Nascondi pannello dei commenti</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Il pannello dei commenti è nascosto</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Il pannello dei commenti è visibile</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Nascondi commento di anteprima</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Il commento di anteprima è nascosto</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Viene mostrata l\'anteprima del commento</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante Salva Musica</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Il pulsante Salva traccia è nascosto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Il pulsante Salva traccia è visibile</string>
@@ -1255,6 +1255,9 @@ Scorri per espandere o chiudere"</string>
   <string name="revanced_gradient_loading_screen_title">Abilita la schermata di caricamento col gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_on">La schermata di caricamento avrà uno sfondo col gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_off">La schermata di caricamento avrà uno sfondo a tinta unita</string>
+  <string name="splash_screen_animation_style_title">Stile schermata iniziale</string>
+  <string name="splash_screen_animation_style_entry_1">Colore</string>
+  <string name="splash_screen_animation_style_entry_2">Bianco e nero</string>
   <string name="revanced_seekbar_custom_color_title">Abilita colore personalizzato della barra di avanzamento</string>
   <string name="revanced_seekbar_custom_color_summary_on">Il colore personalizzato della barra di avanzamento è visibile</string>
   <string name="revanced_seekbar_custom_color_summary_off">Il colore originale della barra di avanzamento è visibile</string>

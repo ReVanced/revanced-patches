@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Сакриј дугме „Направи Short”</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Дугме „Направи Short” је скривено</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Дугме „Направи Short” је приказано</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Сакриј дугмад за емоџи и временску ознаку</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Дугмад за емоџи и временску ознаку су скривена</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Дугмад за емоџи и временску ознаку су приказана</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Сакриј дугме временске ознаке</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Дугме временске ознаке је скривено</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Дугме временске ознаке је приказано</string>
   <string name="revanced_hide_comments_preview_comment_title">Сакриј коментар за преглед</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Коментар за преглед је скривен</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Коментар за преглед је приказан</string>
@@ -750,9 +750,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Сакриј ознаку локације</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Ознака локације је скривена</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Ознака локације је приказана</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Сакриј панел за коментаре</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Панел за коментаре је сакривен</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">„Резиме коментара” је приказан</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Сакриј преглед коментара</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Преглед коментара је скривен</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Преглед коментара је приказан</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Сакриј дугме „Сачувај музику”</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Дугме „Сачувај звук” је скривено</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Дугме „Сачувај звук” је приказано</string>
@@ -1255,6 +1255,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Омогући градијентну позадину екрана учитавања</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екран учитавања ће имати градијентну позадину</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екран учитавања ће имати обичну позадину</string>
+  <string name="splash_screen_animation_style_title">Стил екрана покретања</string>
+  <string name="splash_screen_animation_style_entry_1">Боја</string>
+  <string name="splash_screen_animation_style_entry_2">Црно-бело</string>
   <string name="revanced_seekbar_custom_color_title">Омогући прилагођену боју траке за премотавање</string>
   <string name="revanced_seekbar_custom_color_summary_on">Прилагођена боја траке за премотавање је приказана</string>
   <string name="revanced_seekbar_custom_color_summary_off">Оригинална боја траке за премотавање је приказана</string>

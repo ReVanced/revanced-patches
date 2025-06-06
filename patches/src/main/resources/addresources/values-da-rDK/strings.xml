@@ -311,9 +311,9 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Skjul knappen \"Opret en Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Opret en Short knap er skjult</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Opret en Short knap vises</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skjul emoji- og tidsstempelknapper</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji- og tidsstempelknapper er skjult</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji- og tidsstempelknapper vises</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Skjul tidsstempelknap</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tidsstempelknappen er skjult</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Tidsstempelknappen vises</string>
   <string name="revanced_hide_comments_preview_comment_title">Skjul forhåndsvisning kommentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Forhåndsvisning kommentar er skjult</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Forhåndsvis kommentar er vist</string>
@@ -750,9 +750,9 @@ For at vise lydspormenuen skal du ændre \"Spoof videostream\" til iOS TV"</stri
   <string name="revanced_hide_shorts_location_label_title">Skjul placeringsetiket</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Placeringsetiket er skjult</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Placeringsetiket er vist</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Skjul kommentarfeltet</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Kommentarfeltet er skjult</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Kommentarfeltet vises</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Skjul forhåndsvisning af kommentar</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Forhåndsvisning af kommentar er skjult</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Forhåndsvisningskommentar vises</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Skjul knappen Gem musik</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Gem musik knap er skjult</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Gem musik knap er vist</string>
@@ -1256,6 +1256,9 @@ Stryg for at udvide eller lukke"</string>
   <string name="revanced_gradient_loading_screen_title">Aktiver gradient indlæsning af skærmen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Indlæser skærmen vil have en gradient baggrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Indlæser skærmen vil have en solid baggrund</string>
+  <string name="splash_screen_animation_style_title">Splash screens udseende</string>
+  <string name="splash_screen_animation_style_entry_1">Farve</string>
+  <string name="splash_screen_animation_style_entry_2">Sort og hvid</string>
   <string name="revanced_seekbar_custom_color_title">Aktivér brugerdefineret søgelinjefarve</string>
   <string name="revanced_seekbar_custom_color_summary_on">Brugerdefineret søgelinje farve vises</string>
   <string name="revanced_seekbar_custom_color_summary_off">Original søgelinje farve vises</string>

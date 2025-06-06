@@ -285,9 +285,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">隱藏「建立 Short」按鈕</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">已隱藏「建立 Short」按鈕</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">已顯示「建立 Short」按鈕</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">隱藏表情符號和時間戳記按鈕</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">已隱藏表情符號和時間戳記按鈕</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">已顯示表情符號和時間戳記按鈕</string>
   <string name="revanced_hide_comments_preview_comment_title">隱藏留言預覽</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">已隱藏留言預覽</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">已顯示留言預覽</string>

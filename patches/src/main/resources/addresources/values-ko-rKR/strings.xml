@@ -315,9 +315,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_comments_create_a_short_button_title">Shorts 만들기 버튼 숨기기</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Shorts 만들기 버튼이 숨겨집니다</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Shorts 만들기 버튼이 표시됩니다</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">타임스탬프 &amp; 이모지 버튼 숨기기</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">타임스탬프 &amp; 이모지 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">타임스탬프 &amp; 이모지 버튼이 표시됩니다</string>
+  <string name="revanced_hide_comments_timestamp_button_title">타임스탬프 버튼 숨기기</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">타임스탬프 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">타임스탬프 버튼이 표시됩니다</string>
   <string name="revanced_hide_comments_preview_comment_title">댓글 미리보기 숨기기</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">댓글 미리보기가 숨겨집니다</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">댓글 미리보기가 표시됩니다</string>
@@ -750,9 +750,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_location_label_title">위치 라벨 숨기기</string>
   <string name="revanced_hide_shorts_location_label_summary_on">위치 라벨이 숨겨집니다</string>
   <string name="revanced_hide_shorts_location_label_summary_off">위치 라벨이 표시됩니다</string>
-  <string name="revanced_hide_shorts_comment_panel_title">댓글 패널 숨기기</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">댓글 패널이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">댓글 패널이 표시됩니다</string>
+  <string name="revanced_hide_shorts_preview_comment_title">댓글 미리보기 숨기기</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">댓글 미리보기가 숨겨집니다</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">댓글 미리보기가 표시됩니다</string>
   <string name="revanced_hide_shorts_save_sound_button_title">(재생목록에) 음악 저장 버튼 숨기기</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">(재생목록에) 음악 저장 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">(재생목록에) 음악 저장 버튼이 표시됩니다</string>
@@ -1259,6 +1259,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_gradient_loading_screen_title">그라데이션 색상 로딩 화면 활성화하기</string>
   <string name="revanced_gradient_loading_screen_summary_on">그라데이션 색상 로딩 화면을 활성화합니다</string>
   <string name="revanced_gradient_loading_screen_summary_off">기본 로딩 화면을 활성화합니다</string>
+  <string name="splash_screen_animation_style_title">스플래시 애니메이션 스타일</string>
+  <string name="splash_screen_animation_style_entry_1">컬러</string>
+  <string name="splash_screen_animation_style_entry_2">흑백</string>
   <string name="revanced_seekbar_custom_color_title">사용자 정의 재생바 색상 활성화하기</string>
   <string name="revanced_seekbar_custom_color_summary_on">사용자 정의 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>

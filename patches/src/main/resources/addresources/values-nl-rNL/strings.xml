@@ -311,9 +311,9 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Verberg \'Create a Short\' knop</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Knop \'Een Short maken\' is verborgen</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Knop \'Een Short maken\' wordt weergegeven</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Emoji- en tijdstempelknoppen verbergen</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji- en tijdstempelknoppen zijn verborgen</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji- en tijdstempelknoppen worden weergegeven</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Knop voor tijdstempel verbergen</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Knop voor tijdstempel is verborgen</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Knop voor tijdstempel wordt weergegeven</string>
   <string name="revanced_hide_comments_preview_comment_title">Reactie in preview verbergen</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Preview reactie is verborgen</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Preview reactie wordt getoond</string>
@@ -750,9 +750,9 @@ Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS T
   <string name="revanced_hide_shorts_location_label_title">Verberg locatie-etiket</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Locatie-etiket is verborgen</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Locatie-etiket wordt weergegeven</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Commentaarvenster verbergen</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Commentaarvenster is verborgen</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Het commentaarvenster wordt weergegeven</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Voorbeeldcommentaar verbergen</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Voorbeeldcommentaar is verborgen</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Voorbeeldcommentaar wordt weergegeven</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Verberg de knop \"Muziek opslaan\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Muziek opslaan-knop is verborgen</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Muziek opslaan-knop wordt weergegeven</string>
@@ -1254,6 +1254,9 @@ Swipe om uit te vouwen of te sluiten"</string>
   <string name="revanced_gradient_loading_screen_title">Schakel het laden van het verloopscherm in</string>
   <string name="revanced_gradient_loading_screen_summary_on">Het laadscherm heeft een verlopende achtergrond</string>
   <string name="revanced_gradient_loading_screen_summary_off">Het laadscherm heeft een effen achtergrond</string>
+  <string name="splash_screen_animation_style_title">Stijl van opstartscherm</string>
+  <string name="splash_screen_animation_style_entry_1">Kleur</string>
+  <string name="splash_screen_animation_style_entry_2">Zwart-wit</string>
   <string name="revanced_seekbar_custom_color_title">Schakel aangepaste schuifregelaar kleur in</string>
   <string name="revanced_seekbar_custom_color_summary_on">De aangepaste kleur van de schuifregelaar is zichtbaar</string>
   <string name="revanced_seekbar_custom_color_summary_off">De oorspronkelijke kleur van de schuifregelaar is zichtbaar</string>

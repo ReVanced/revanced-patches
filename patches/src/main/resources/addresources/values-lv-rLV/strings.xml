@@ -311,9 +311,9 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Paslēpt \"Izveidot īso\" pogu</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Poga Izveidot Short ir paslēpta</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Poga Izveidot Short ir redzama</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Paslēpt emocijzīmju un laikazīmogu pogas</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emocijzīmju un laikazīmogu pogas ir paslēptas</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emocijzīmju un laikazīmogu pogas ir redzamas</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Paslēpt laika zīmoga pogu</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Laika zīmoga poga ir paslēpta</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Laika zīmoga poga ir redzama</string>
   <string name="revanced_hide_comments_preview_comment_title">Paslēpt priekšskatījuma komentāru</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Priekšskatījuma komentārs ir paslēpts</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Priekšskatījuma komentārs ir redzams</string>
@@ -750,9 +750,9 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_hide_shorts_location_label_title">Paslēpt atrašanās vietas nosaukumu</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Atrašanās vietas nosaukums ir paslēpts</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Atrašanās vietas nosaukums ir redzams</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Slēpt komentāru paneli</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Komentāru panelis ir paslēpts</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Komentāru panelis ir redzams</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Paslēpt priekšskatījuma komentāru</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Komentāra priekšskatījums ir paslēpts</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Priekšskatījuma komentārs tiek rādīts</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Paslēpt pogu \"Saglabāt mūziku\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">“Saglabāt mūziku” poga ir paslēpta</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">“Saglabāt mūziku” poga ir redzama</string>
@@ -1255,6 +1255,9 @@ Velciet, lai izvērstu vai aizvērtu"</string>
   <string name="revanced_gradient_loading_screen_title">Iespējot gradientu ielādes ekrānu</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ielādes ekrānam būs gradientu fons</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ielādes ekrānam būs ciets fons</string>
+  <string name="splash_screen_animation_style_title">Sākuma ekrāna stils</string>
+  <string name="splash_screen_animation_style_entry_1">Krāsa</string>
+  <string name="splash_screen_animation_style_entry_2">Melnbalts</string>
   <string name="revanced_seekbar_custom_color_title">Iespējot pielāgotu meklēšanas joslas krāsu</string>
   <string name="revanced_seekbar_custom_color_summary_on">Pielāgota meklēšanas joslas krāsa ir redzama</string>
   <string name="revanced_seekbar_custom_color_summary_off">Oriģinālā meklēšanas joslas krāsa ir redzama</string>

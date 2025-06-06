@@ -311,9 +311,9 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Itago ang butong \'Gumawa ng Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Nakatago ang button na Gumawa ng isang Short</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Ipinapakita ang button na Gumawa ng isang Short</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Itago ang mga button ng emoji at timestamp</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Nakatago ang mga button ng Emoji at timestamp</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Ipinapakita ang mga button ng Emoji at timestamp</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Itago ang button na timestamp</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Nakatago ang button na timestamp</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Ipinapakita ang button na timestamp</string>
   <string name="revanced_hide_comments_preview_comment_title">Itago ang preview na komento</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Nakatago ang preview ng komento</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Ang pag-preview ng komento ay ipinapakita</string>
@@ -748,9 +748,9 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <string name="revanced_hide_shorts_location_label_title">Itago ang label ng lokasyon</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Nakatago ang label ng lokasyon</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Ipinapakita ang label ng lokasyon</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Itago ang panel ng Komento</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Nakatago ang panel ng mga komento</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Ipinapakita ang panel ng Komento</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Itago ang komento sa preview</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Nakatago ang komento sa preview</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Ipinapakita ang preview na komento</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Itago ang Save music button</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Ang buton ng pag-save ng musika ay nakatago</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Ang buton ng pag-save ng musika ay ipinapakita</string>
@@ -1254,6 +1254,9 @@ Mag-swipe para palawakin o isara"</string>
   <string name="revanced_gradient_loading_screen_title">Paganahin ang gradient loading screen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ang paglo-load ng screen ay magkakaroon ng gradient na background</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ang paglo-load ng screen ay magkakaroon ng solidong background</string>
+  <string name="splash_screen_animation_style_title">Estilo ng splash screen</string>
+  <string name="splash_screen_animation_style_entry_1">Kulay</string>
+  <string name="splash_screen_animation_style_entry_2">Itim at puti</string>
   <string name="revanced_seekbar_custom_color_title">Paganahin ang custom na kulay ng seekbar</string>
   <string name="revanced_seekbar_custom_color_summary_on">Ipinapakita ang kulay ng custom na seekbar</string>
   <string name="revanced_seekbar_custom_color_summary_off">Ipinapakita ang orihinal na kulay ng seekbar</string>
