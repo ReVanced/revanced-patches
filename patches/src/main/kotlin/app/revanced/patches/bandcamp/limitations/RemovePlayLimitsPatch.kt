@@ -1,7 +1,7 @@
 package app.revanced.patches.bandcamp.limitations
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val removePlayLimitsPatch = bytecodePatch(
@@ -11,6 +11,6 @@ val removePlayLimitsPatch = bytecodePatch(
     compatibleWith("com.bandcamp.android")
 
     execute {
-        handlePlaybackLimitsFingerprint.method.addInstructions(0, "return-void")
+        handlePlaybackLimitsFingerprint.method.returnEarly()
     }
 }
