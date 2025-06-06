@@ -61,20 +61,18 @@ internal val themeHelperLightColorFingerprint by fingerprint {
     }
 }
 
-internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
-
 internal val useGradientLoadingScreenFingerprint by fingerprint {
     instructions(
         literal(45412406L)
     )
 }
 
-internal const val SPLASH_SCREEN_STYLE_FEATURE_FLAG = 269032877L
-
-internal val splashScreenStyleFingerprint = fingerprint {
+internal val splashScreenStyleFingerprint by fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
-    literal { SPLASH_SCREEN_STYLE_FEATURE_FLAG }
+    instructions(
+        literal(269032877L)
+    )
     custom { method, classDef ->
         method.name == "onCreate" && classDef.endsWith("/MainActivity;")
     }

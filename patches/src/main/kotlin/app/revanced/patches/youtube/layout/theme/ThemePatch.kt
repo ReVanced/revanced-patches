@@ -253,10 +253,12 @@ val themePatch = bytecodePatch(
 
         if (is_19_47_or_greater) {
             // Lottie splash screen exists in earlier versions, but it may not be always on.
-            splashScreenStyleFingerprint.method.insertLiteralOverride(
-                SPLASH_SCREEN_STYLE_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I"
-            )
+            splashScreenStyleFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I"
+                )
+            }
         }
 
         arrayOf(
