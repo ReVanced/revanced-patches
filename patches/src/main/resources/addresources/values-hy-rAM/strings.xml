@@ -1256,6 +1256,9 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_gradient_loading_screen_title">Աктиվացնել գրադիենտի բեռնման էկրանը</string>
   <string name="revanced_gradient_loading_screen_summary_on">Բեռնման էկրանը կունենա գրադիենտի ֆոն</string>
   <string name="revanced_gradient_loading_screen_summary_off">Բեռնման էկրանը կունենա մեկ գույնի ֆոն</string>
+  <string name="splash_screen_animation_style_title">Մեկնարկային էկրանի ոճը</string>
+  <string name="splash_screen_animation_style_entry_1">Գույն</string>
+  <string name="splash_screen_animation_style_entry_2">Սև և սպիտակ</string>
   <string name="revanced_seekbar_custom_color_title">Աктиվացնել հարմարեցված seekbar-ի գույնը</string>
   <string name="revanced_seekbar_custom_color_summary_on">Հարմարեցված seekbar-ի գույնը ցուցադրվում է</string>
   <string name="revanced_seekbar_custom_color_summary_off">Սկզբնական seekbar-ի գույնը ցուցադրվում է</string>

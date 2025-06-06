@@ -1256,6 +1256,9 @@ Genişletmek veya kapatmak için kaydırın"</string>
   <string name="revanced_gradient_loading_screen_title">Gradyan yükleme ekranını etkinleştir</string>
   <string name="revanced_gradient_loading_screen_summary_on">Yükleme ekranı gradyan bir arka plana sahip olacak</string>
   <string name="revanced_gradient_loading_screen_summary_off">Yükleme ekranı tek renk bir arka plana sahip olacak</string>
+  <string name="splash_screen_animation_style_title">Açılış ekranı stili</string>
+  <string name="splash_screen_animation_style_entry_1">Renk</string>
+  <string name="splash_screen_animation_style_entry_2">Siyah ve beyaz</string>
   <string name="revanced_seekbar_custom_color_title">Özel zaman çubuğu rengini etkinleştir</string>
   <string name="revanced_seekbar_custom_color_summary_on">Özel zaman çubuğu rengi gösterilir</string>
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal zaman çubuğu rengi gösterilir</string>

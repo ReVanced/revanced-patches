@@ -1255,6 +1255,9 @@ Llisca per expandir o tancar"</string>
   <string name="revanced_gradient_loading_screen_title">Habilita la pantalla de càrrega amb degradació</string>
   <string name="revanced_gradient_loading_screen_summary_on">La pantalla de càrrega tindrà un fons de degradació</string>
   <string name="revanced_gradient_loading_screen_summary_off">La pantalla de càrrega tindrà un fons sòlid</string>
+  <string name="splash_screen_animation_style_title">Estil de la pantalla de presentació</string>
+  <string name="splash_screen_animation_style_entry_1">Color</string>
+  <string name="splash_screen_animation_style_entry_2">Blanc i negre</string>
   <string name="revanced_seekbar_custom_color_title">Habilita el color personalitzat de la barra de cerca</string>
   <string name="revanced_seekbar_custom_color_summary_on">El color personalitzat de la barra de cerca es mostra</string>
   <string name="revanced_seekbar_custom_color_summary_off">El color original de la barra de cerca es mostra</string>

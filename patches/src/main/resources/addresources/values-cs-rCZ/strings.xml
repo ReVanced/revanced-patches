@@ -1255,6 +1255,9 @@ Rozbalte nebo zavřete přejetím prstem"</string>
   <string name="revanced_gradient_loading_screen_title">Povolit přechodovou obrazovku načítání</string>
   <string name="revanced_gradient_loading_screen_summary_on">Obrazovka načítání bude mít přechodové pozadí</string>
   <string name="revanced_gradient_loading_screen_summary_off">Obrazovka načítání bude mít pevné pozadí</string>
+  <string name="splash_screen_animation_style_title">Styl úvodní obrazovky</string>
+  <string name="splash_screen_animation_style_entry_1">Barva</string>
+  <string name="splash_screen_animation_style_entry_2">Černobílá</string>
   <string name="revanced_seekbar_custom_color_title">Povolit vlastní barvu posuvníku</string>
   <string name="revanced_seekbar_custom_color_summary_on">Vlasní barva posuvníku je zobrazena</string>
   <string name="revanced_seekbar_custom_color_summary_off">Původní barva posuvníku je zobrazena</string>

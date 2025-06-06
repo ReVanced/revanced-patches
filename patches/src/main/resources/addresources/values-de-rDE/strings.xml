@@ -1249,6 +1249,9 @@ Zum Erweitern oder Schließen wischen"</string>
   <string name="revanced_gradient_loading_screen_title">Gradientenladebildschirm aktivieren</string>
   <string name="revanced_gradient_loading_screen_summary_on">Lade Bildschirm hat einen Farbverlauf Hintergrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Das Laden des Bildschirms wird einen soliden Hintergrund haben</string>
+  <string name="splash_screen_animation_style_title">Art des Begrüßungsbildschirms</string>
+  <string name="splash_screen_animation_style_entry_1">Farbe</string>
+  <string name="splash_screen_animation_style_entry_2">Schwarz und Weiß</string>
   <string name="revanced_seekbar_custom_color_title">Eigene Suchleistenfarbe aktivieren</string>
   <string name="revanced_seekbar_custom_color_summary_on">Angepasste Suchleistenfarbe wird angezeigt</string>
   <string name="revanced_seekbar_custom_color_summary_off">Originalfarbe der Suchleiste wird angezeigt</string>

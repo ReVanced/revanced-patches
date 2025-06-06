@@ -1257,6 +1257,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Уключыць градыентны экран загрузкі</string>
   <string name="revanced_gradient_loading_screen_summary_on">Экран загрузкі будзе мець градыентны фон</string>
   <string name="revanced_gradient_loading_screen_summary_off">Экран загрузкі будзе мець суцэльны фон</string>
+  <string name="splash_screen_animation_style_title">Стыль застаўкі</string>
+  <string name="splash_screen_animation_style_entry_1">Колер</string>
+  <string name="splash_screen_animation_style_entry_2">Чорна-белы</string>
   <string name="revanced_seekbar_custom_color_title">Уключыць уласны колер панэлі пошуку</string>
   <string name="revanced_seekbar_custom_color_summary_on">Паказваецца карыстальніцкі колер панэлі пошуку</string>
   <string name="revanced_seekbar_custom_color_summary_off">Паказаны зыходны колер панэлі пошуку</string>

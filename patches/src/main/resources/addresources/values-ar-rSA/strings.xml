@@ -1256,6 +1256,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">تمكين شاشة التحميل المتدرجة</string>
   <string name="revanced_gradient_loading_screen_summary_on">ستحتوي شاشة التحميل على خلفية متدرجة</string>
   <string name="revanced_gradient_loading_screen_summary_off">ستحتوي شاشة التحميل على خلفية ثابتة</string>
+  <string name="splash_screen_animation_style_title">نمط الشاشة الترحيبية</string>
+  <string name="splash_screen_animation_style_entry_1">اللون</string>
+  <string name="splash_screen_animation_style_entry_2">أبيض وأسود</string>
   <string name="revanced_seekbar_custom_color_title">تمكين لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_summary_on">يتم عرض لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_summary_off">يتم عرض لون شريط تقدم الفيديو الاصلي</string>
