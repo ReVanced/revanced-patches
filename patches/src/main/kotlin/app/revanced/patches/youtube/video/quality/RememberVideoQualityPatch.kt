@@ -52,14 +52,14 @@ val rememberVideoQualityPatch = bytecodePatch {
             ListPreference(
                 key = "revanced_shorts_quality_default_mobile",
                 summaryKey = null,
-                entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values",
+                entriesKey = "revanced_shorts_quality_default_entries",
+                entryValuesKey = "revanced_shorts_quality_default_entry_values",
             ),
             ListPreference(
                 key = "revanced_shorts_quality_default_wifi",
                 summaryKey = null,
-                entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values",
+                entriesKey = "revanced_shorts_quality_default_entries",
+                entryValuesKey = "revanced_shorts_quality_default_entry_values",
             ),
             SwitchPreference("revanced_remember_shorts_quality_last_selected")
         ))

@@ -1,3 +1,24 @@
+# [5.27.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.3...v5.27.0-dev.1) (2025-06-05)
+
+
+### Features
+
+* **YouTube - Theme:** Add option for black and white splash screen animation ([#5119](https://github.com/ReVanced/revanced-patches/issues/5119)) ([42db0c2](https://github.com/ReVanced/revanced-patches/commit/42db0c2e36fefccdbeaa072edcec48b1e05b6270))
+
+## [5.26.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.2...v5.26.1-dev.3) (2025-06-05)
+
+
+### Bug Fixes
+
+* **Spotify:** Prevent hiding all navigation bar buttons ([#5122](https://github.com/ReVanced/revanced-patches/issues/5122)) ([8afbef0](https://github.com/ReVanced/revanced-patches/commit/8afbef01343c1e3e6e7e4a4cec6319aebfa4b11c))
+
+## [5.26.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.1...v5.26.1-dev.2) (2025-06-05)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Remove broken option 'Hide comments emoji picker' ([#5121](https://github.com/ReVanced/revanced-patches/issues/5121)) ([9a6a639](https://github.com/ReVanced/revanced-patches/commit/9a6a639c4905b00d6dffb0923c839c8e3ae54d0c))
+
 ## [5.26.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.26.0...v5.26.1-dev.1) (2025-06-05)
 
 

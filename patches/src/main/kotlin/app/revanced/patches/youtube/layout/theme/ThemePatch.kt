@@ -10,6 +10,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -17,6 +18,7 @@ import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.seekbar.seekbarColorPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -230,13 +232,30 @@ val themePatch = bytecodePatch(
         addResources("youtube", "layout.theme.themePatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_gradient_loading_screen"),
+            SwitchPreference("revanced_gradient_loading_screen")
         )
+
+        if (is_19_47_or_greater) {
+            PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+                ListPreference(
+                    key = "splash_screen_animation_style",
+                    summaryKey = null
+                )
+            )
+        }
 
         useGradientLoadingScreenFingerprint.let {
             it.method.insertLiteralOverride(
                 it.instructionMatches.first().index,
                 "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
+            )
+        }
+
+        if (is_19_47_or_greater) {
+            // Lottie splash screen exists in earlier versions, but it may not be always on.
+            splashScreenStyleFingerprint.method.insertLiteralOverride(
+                SPLASH_SCREEN_STYLE_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I"
             )
         }
 
