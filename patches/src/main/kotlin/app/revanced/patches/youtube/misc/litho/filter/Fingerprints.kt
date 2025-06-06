@@ -1,7 +1,9 @@
 package app.revanced.patches.youtube.misc.litho.filter
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
 import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -32,6 +34,23 @@ internal val lithoFilterFingerprint by fingerprint {
 }
 
 internal val protobufBufferReferenceFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("[B")
+    instructions(
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            type = "Lcom/google/android/libraries/elements/adl/UpbMessage;"
+        ),
+        methodCall(
+            definingClass = "Lcom/google/android/libraries/elements/adl/UpbMessage;",
+            name = "jniDecode"
+        )
+    )
+}
+
+internal val protobufBufferReferenceLegacyFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "Ljava/nio/ByteBuffer;")

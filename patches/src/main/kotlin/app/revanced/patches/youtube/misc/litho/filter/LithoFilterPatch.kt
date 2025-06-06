@@ -108,10 +108,22 @@ val lithoFilterPatch = bytecodePatch(
 
         // region Pass the buffer into extension.
 
-        protobufBufferReferenceFingerprint.method.addInstruction(
-            0,
-            "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
-        )
+        if (is_20_22_or_greater) {
+            // 20.22+ the protocol buffer is now handled in native code,
+            // but there is a bridge method where a java byte buffer is copied using a jni method.
+            protobufBufferReferenceFingerprint.let {
+                // Hook the buffer after the call to jniDecode().
+                it.method.addInstruction(
+                    it.instructionMatches.last().index + 1,
+                    "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer([B)V",
+                )
+            }
+        } else {
+            protobufBufferReferenceLegacyFingerprint.method.addInstruction(
+                0,
+                "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
+            )
+        }
 
         // endregion
 
