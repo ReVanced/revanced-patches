@@ -212,7 +212,7 @@ public final class UnlockPremiumPatch {
                 ComponentFilter componentFilter = componentFilters.get(i);
 
                 if (!componentFilter.filterAvailable()) {
-                    Logger.printInfo(() -> "returnNullIfIsCreateButton: Filter +" +
+                    Logger.printInfo(() -> "isFilteredContextMenuItem: Filter " +
                             componentFilter.getFilterRepresentation() + " not available, skipping");
                     continue;
                 }
