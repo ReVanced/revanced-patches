@@ -39,9 +39,6 @@ public final class HideCreateButtonPatch {
 
         String stringifiedNavigationBarItem = navigationBarItem.toString();
 
-        boolean isCreateButton = false;
-        String matchedFilterRepresentation = null;
-
         for (ComponentFilter componentFilter : CREATE_BUTTON_COMPONENT_FILTERS) {
             if (componentFilter.filterUnavailable()) {
                 Logger.printInfo(() -> "returnNullIfIsCreateButton: Filter " +
@@ -50,17 +47,10 @@ public final class HideCreateButtonPatch {
             }
 
             if (stringifiedNavigationBarItem.contains(componentFilter.getFilterValue())) {
-                isCreateButton = true;
-                matchedFilterRepresentation = componentFilter.getFilterRepresentation();
-                break;
+                Logger.printInfo(() -> "Hiding Create button because the navigation bar item " + navigationBarItem +
+                        " matched the filter " + componentFilter.getFilterRepresentation());
+                return null;
             }
-        }
-
-        if (isCreateButton) {
-            String finalMatchedFilterRepresentation = matchedFilterRepresentation;
-            Logger.printInfo(() -> "Hiding Create button because the navigation bar item " + navigationBarItem +
-                    " matched the filter " + finalMatchedFilterRepresentation);
-            return null;
         }
 
         return navigationBarItem;
@@ -77,8 +67,7 @@ public final class HideCreateButtonPatch {
             return false;
         }
 
-        boolean isCreateButton = oldNavigationBarItemTitleResId == OLD_CREATE_BUTTON_COMPONENT_FILTER.getResourceId();
-        if (isCreateButton) {
+        if (oldNavigationBarItemTitleResId == OLD_CREATE_BUTTON_COMPONENT_FILTER.getResourceId()) {
             Logger.printInfo(() -> "Hiding old Create button because the navigation bar item title resource id" +
                     " matched " + OLD_CREATE_BUTTON_COMPONENT_FILTER.getFilterRepresentation());
             return true;
