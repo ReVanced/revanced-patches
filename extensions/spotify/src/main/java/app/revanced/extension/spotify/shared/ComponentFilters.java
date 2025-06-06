@@ -8,8 +8,8 @@ public final class ComponentFilters {
     public interface ComponentFilter {
         String getFilterValue();
         String getFilterRepresentation();
-        default boolean filterAvailable() {
-            return true;
+        default boolean filterUnavailable() {
+            return false;
         }
     }
 
@@ -44,16 +44,17 @@ public final class ComponentFilters {
 
         @Override
         public String getFilterRepresentation() {
-            return (filterAvailable() ? getFilterValue() + " " : "") + "(" + resourceName + ")";
+            boolean resourceFound = getResourceId() != 0;
+            return (resourceFound ? getFilterValue() + " (" : "") + resourceName + (resourceFound ? ")" : "");
         }
 
         @Override
-        public boolean filterAvailable() {
-            boolean resourceFound = getResourceId() != 0;
-            if (!resourceFound) {
+        public boolean filterUnavailable() {
+            boolean resourceNotFound = getResourceId() == 0;
+            if (resourceNotFound) {
                 Logger.printInfo(() -> "Resource id " + resourceName + " was not found");
             }
-            return resourceFound;
+            return resourceNotFound;
         }
     }
 

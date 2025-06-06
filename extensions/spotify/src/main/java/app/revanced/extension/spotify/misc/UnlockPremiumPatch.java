@@ -211,7 +211,7 @@ public final class UnlockPremiumPatch {
             for (int i = 0, filterSize = componentFilters.size(); i < filterSize; i++) {
                 ComponentFilter componentFilter = componentFilters.get(i);
 
-                if (!componentFilter.filterAvailable()) {
+                if (componentFilter.filterUnavailable()) {
                     Logger.printInfo(() -> "isFilteredContextMenuItem: Filter " +
                             componentFilter.getFilterRepresentation() + " not available, skipping");
                     continue;

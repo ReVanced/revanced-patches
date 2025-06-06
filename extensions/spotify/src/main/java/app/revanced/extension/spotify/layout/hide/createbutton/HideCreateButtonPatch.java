@@ -43,7 +43,7 @@ public final class HideCreateButtonPatch {
         String matchedFilterRepresentation = null;
 
         for (ComponentFilter componentFilter : CREATE_BUTTON_COMPONENT_FILTERS) {
-            if (!componentFilter.filterAvailable()) {
+            if (componentFilter.filterUnavailable()) {
                 Logger.printInfo(() -> "returnNullIfIsCreateButton: Filter " +
                         componentFilter.getFilterRepresentation() + " not available, skipping");
                 continue;
