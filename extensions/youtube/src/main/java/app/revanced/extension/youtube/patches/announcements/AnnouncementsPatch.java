@@ -2,13 +2,17 @@ package app.revanced.extension.youtube.patches.announcements;
 
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
 import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENTS;
 import static app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENT_IDS;
 
 import android.app.Activity;
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.util.Pair;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -120,25 +124,46 @@ public final class AnnouncementsPatch {
                 final Level finalLevel = level;
 
                 Utils.runOnMainThread(() -> {
-                    // Show the announcement.
-                    var alert = new AlertDialog.Builder(context)
-                            .setTitle(finalTitle)
-                            .setMessage(finalMessage)
-                            .setIcon(finalLevel.icon)
-                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                    // Create the custom dialog.
+                    Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                            context,
+                            finalTitle,                           // Title.
+                            finalMessage,                         // Message.
+                            null,                                 // No EditText.
+                            null,                                 // OK button text.
+                            () -> {                               // OK button action.
                                 Settings.ANNOUNCEMENT_LAST_ID.save(finalId);
-                                dialog.dismiss();
-                            }).setNegativeButton(str("revanced_announcements_dialog_dismiss"), (dialog, which) -> {
-                                dialog.dismiss();
-                            })
-                            .setCancelable(false)
-                            .create();
+                            },
+                            () -> {},                             // Cancel button action (dismiss only).
+                            str("revanced_announcements_dialog_dismiss"), // Negative button text (as Neutral).
+                            () -> {}                              // Neutral button action (dismiss only).
+                    );
 
-                    Utils.showDialog(context, alert, false, (AlertDialog dialog) -> {
-                        // Make links clickable.
-                        ((TextView) dialog.findViewById(android.R.id.message))
-                                .setMovementMethod(LinkMovementMethod.getInstance());
-                    });
+                    Dialog dialog = dialogPair.first;
+                    LinearLayout mainLayout = dialogPair.second;
+
+                    // Make the message TextView clickable for links
+                    for (int i = 0; i < mainLayout.getChildCount(); i++) {
+                        View child = mainLayout.getChildAt(i);
+                        if (child instanceof TextView && finalMessage.equals(((TextView) child).getText())) {
+                            ((TextView) child).setMovementMethod(LinkMovementMethod.getInstance());
+                        }
+                    }
+
+                    // Set the icon for the title TextView
+                    for (int i = 0; i < mainLayout.getChildCount(); i++) {
+                        View child = mainLayout.getChildAt(i);
+                        if (child instanceof TextView && finalTitle.equals(((TextView) child).getText())) {
+                            ((TextView) child).setCompoundDrawablesWithIntrinsicBounds(finalLevel.icon, 0, 0, 0);
+                            ((TextView) child).setCompoundDrawablePadding(dipToPixels(8));
+                        }
+                    }
+
+                    // Set dialog as non-cancelable
+                    dialog.setCancelable(false);
+
+                    // Show the dialog
+                    Utils.showDialog(context, dialog);
                 });
             } catch (Exception e) {
                 final var message = "Failed to get announcement";

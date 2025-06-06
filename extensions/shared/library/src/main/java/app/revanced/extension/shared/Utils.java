@@ -497,7 +497,7 @@ public class Utils {
                 super.onStart();
 
                 if (onStartAction != null) {
-                    onStartAction.onStart((AlertDialog) getDialog());
+                    onStartAction.onStart((Dialog) getDialog());
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "onStart failure: " + dialog.getClass().getSimpleName(), ex);
@@ -506,11 +506,11 @@ public class Utils {
     }
 
     /**
-     * Interface for {@link #showDialog(Activity, AlertDialog, boolean, DialogFragmentOnStartAction)}.
+     * Interface for {@link #showDialog(Activity, Dialog, boolean, DialogFragmentOnStartAction)}.
      */
     @FunctionalInterface
     public interface DialogFragmentOnStartAction {
-        void onStart(AlertDialog dialog);
+        void onStart(Dialog dialog);
     }
 
     public static void showDialog(Activity activity, Dialog dialog) {

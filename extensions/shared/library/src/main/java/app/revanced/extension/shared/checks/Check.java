@@ -3,15 +3,20 @@ package app.revanced.extension.shared.checks;
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.DialogFragmentOnStartAction;
+import static app.revanced.extension.shared.Utils.dipToPixels;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.Html;
+import android.util.Pair;
+import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
@@ -86,38 +91,55 @@ abstract class Check {
         );
 
         Utils.runOnMainThreadDelayed(() -> {
-            AlertDialog alert = new AlertDialog.Builder(activity)
-                    .setCancelable(false)
-                    .setIconAttribute(android.R.attr.alertDialogIcon)
-                    .setTitle(str("revanced_check_environment_failed_title"))
-                    .setMessage(message)
-                    .setPositiveButton(
-                            " ",
-                            (dialog, which) -> {
-                                final var intent = new Intent(Intent.ACTION_VIEW, GOOD_SOURCE);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                activity.startActivity(intent);
+            // Create the custom dialog.
+            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                    activity,
+                    str("revanced_check_environment_failed_title"),
+                    message,
+                    null, // No EditText needed.
+                    str("revanced_check_environment_dialog_open_official_source_button"),
+                    () -> {
+                        // Action for the OK (website) button.
+                        final var intent = new Intent(Intent.ACTION_VIEW, GOOD_SOURCE);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        activity.startActivity(intent);
 
-                                // Shutdown to prevent the user from navigating back to this app,
-                                // which is no longer showing a warning dialog.
-                                activity.finishAffinity();
-                                System.exit(0);
-                            }
-                    ).setNegativeButton(
-                            " ",
-                            (dialog, which) -> {
-                                // Cleanup data if the user incorrectly imported a huge negative number.
-                                final int current = Math.max(0, BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.get());
-                                BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.save(current + 1);
+                        // Shutdown to prevent the user from navigating back to this app,
+                        // which is no longer showing a warning dialog.
+                        activity.finishAffinity();
+                        System.exit(0);
+                    },
+                    null, // No cancel button.
+                    str("revanced_check_environment_dialog_ignore_button"),
+                    () -> {
+                        // Action for the Neutral (ignore) button.
+                        final int current = Math.max(0, BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.get());
+                        BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.save(current + 1);
+                    }
+            );
 
-                                dialog.dismiss();
-                            }
-                    ).create();
+            // Get the dialog and main layout.
+            Dialog dialog = dialogPair.first;
+            LinearLayout mainLayout = dialogPair.second;
 
-            Utils.showDialog(activity, alert, false, new DialogFragmentOnStartAction() {
+            // Add icon to the dialog.
+            ImageView iconView = new ImageView(activity);
+            iconView.setImageResource(android.R.drawable.ic_dialog_alert);
+            iconView.setPadding(0, dipToPixels(8), 0, dipToPixels(8));
+            LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            iconParams.gravity = Gravity.CENTER;
+            mainLayout.addView(iconView, 0); // Add icon at the top.
+
+            dialog.setCancelable(false);
+
+            // Show the dialog.
+            Utils.showDialog(activity, dialog, false, new DialogFragmentOnStartAction() {
                 boolean hasRun;
                 @Override
-                public void onStart(AlertDialog dialog) {
+                public void onStart(Dialog dialog) {
                     // Only run this once, otherwise if the user changes to a different app
                     // then changes back, this handler will run again and disable the buttons.
                     if (hasRun) {
@@ -125,19 +147,25 @@ abstract class Check {
                     }
                     hasRun = true;
 
-                    var openWebsiteButton = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+                    // Get the button container to access buttons.
+                    LinearLayout buttonContainer = (LinearLayout) mainLayout.getChildAt(mainLayout.getChildCount() - 1);
+                    Button openWebsiteButton = (Button) buttonContainer.getChildAt(buttonContainer.getChildCount() - 1);
+                    Button ignoreButton = (Button) buttonContainer.getChildAt(0);
+
+                    // Initially set buttons to INVISIBLE and disabled.
+                    openWebsiteButton.setVisibility(View.INVISIBLE);
                     openWebsiteButton.setEnabled(false);
+                    ignoreButton.setVisibility(View.INVISIBLE);
+                    ignoreButton.setEnabled(false);
 
-                    var dismissButton = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    dismissButton.setEnabled(false);
-
-                    getCountdownRunnable(dismissButton, openWebsiteButton).run();
+                    // Start the countdown for showing and enabling buttons.
+                    getCountdownRunnable(ignoreButton, openWebsiteButton).run();
                 }
             });
         }, 1000); // Use a delay, so this dialog is shown on top of any other startup dialogs.
     }
 
-    private static Runnable getCountdownRunnable(Button dismissButton, Button openWebsiteButton) {
+    private static Runnable getCountdownRunnable(Button ignoreButton, Button openWebsiteButton) {
         return new Runnable() {
             private int secondsRemaining = SECONDS_BEFORE_SHOWING_IGNORE_BUTTON;
 
@@ -146,17 +174,15 @@ abstract class Check {
                 Utils.verifyOnMainThread();
 
                 if (secondsRemaining > 0) {
-                    if (secondsRemaining - SECONDS_BEFORE_SHOWING_WEBSITE_BUTTON == 0) {
-                        openWebsiteButton.setText(str("revanced_check_environment_dialog_open_official_source_button"));
+                    if (secondsRemaining == SECONDS_BEFORE_SHOWING_WEBSITE_BUTTON) {
+                        openWebsiteButton.setVisibility(View.VISIBLE);
                         openWebsiteButton.setEnabled(true);
                     }
-
                     secondsRemaining--;
-
                     Utils.runOnMainThreadDelayed(this, 1000);
                 } else {
-                    dismissButton.setText(str("revanced_check_environment_dialog_ignore_button"));
-                    dismissButton.setEnabled(true);
+                    ignoreButton.setVisibility(View.VISIBLE);
+                    ignoreButton.setEnabled(true);
                 }
             }
         };
