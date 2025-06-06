@@ -52,6 +52,7 @@ public final class HideCreateButtonPatch {
             if (stringifiedNavigationBarItem.contains(componentFilter.getFilterValue())) {
                 isCreateButton = true;
                 matchedFilterRepresentation = componentFilter.getFilterRepresentation();
+                break;
             }
         }
 
