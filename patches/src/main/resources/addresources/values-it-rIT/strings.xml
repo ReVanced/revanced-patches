@@ -1255,6 +1255,9 @@ Scorri per espandere o chiudere"</string>
   <string name="revanced_gradient_loading_screen_title">Abilita la schermata di caricamento col gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_on">La schermata di caricamento avrà uno sfondo col gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_off">La schermata di caricamento avrà uno sfondo a tinta unita</string>
+  <string name="splash_screen_animation_style_title">Stile schermata iniziale</string>
+  <string name="splash_screen_animation_style_entry_1">Colore</string>
+  <string name="splash_screen_animation_style_entry_2">Bianco e nero</string>
   <string name="revanced_seekbar_custom_color_title">Abilita colore personalizzato della barra di avanzamento</string>
   <string name="revanced_seekbar_custom_color_summary_on">Il colore personalizzato della barra di avanzamento è visibile</string>
   <string name="revanced_seekbar_custom_color_summary_off">Il colore originale della barra di avanzamento è visibile</string>

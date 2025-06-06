@@ -1257,6 +1257,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Διαβάθμιση οθόνης φόρτωσης</string>
   <string name="revanced_gradient_loading_screen_summary_on">Η οθόνη φόρτωσης θα έχει σταδιακές αποχρώσεις φόντο</string>
   <string name="revanced_gradient_loading_screen_summary_off">Η οθόνη φόρτωσης θα έχει στατική απόχρωση φόντο</string>
+  <string name="splash_screen_animation_style_title">Στυλ οθόνης εκκίνησης</string>
+  <string name="splash_screen_animation_style_entry_1">Χρώμα</string>
+  <string name="splash_screen_animation_style_entry_2">Μαύρο και άσπρο</string>
   <string name="revanced_seekbar_custom_color_title">Προσαρμοσμένο χρώμα γραμμής προόδου</string>
   <string name="revanced_seekbar_custom_color_summary_on">Η γραμμή προόδου εμφανίζεται με προσαρμοσμένο χρώμα</string>
   <string name="revanced_seekbar_custom_color_summary_off">Η γραμμή προόδου εμφανίζεται με το αρχικό χρώμα</string>

@@ -1255,6 +1255,9 @@ Braukite, kad išplėstumėte arba uždarytumėte"</string>
   <string name="revanced_gradient_loading_screen_title">Įgalinti gradientinį įkėlimo ekraną</string>
   <string name="revanced_gradient_loading_screen_summary_on">Įkėlimo ekranas turės gradientinį foną</string>
   <string name="revanced_gradient_loading_screen_summary_off">Įkėlimo ekranas turės tvirtą foną</string>
+  <string name="splash_screen_animation_style_title">Paleidimo ekrano stilius</string>
+  <string name="splash_screen_animation_style_entry_1">Spalva</string>
+  <string name="splash_screen_animation_style_entry_2">Juoda ir balta</string>
   <string name="revanced_seekbar_custom_color_title">Įgalinti pritaikytą slankiklio spalvą</string>
   <string name="revanced_seekbar_custom_color_summary_on">Rodoma pritaikyta slankiklio spalva</string>
   <string name="revanced_seekbar_custom_color_summary_off">Rodoma originali slankiklio spalva</string>
