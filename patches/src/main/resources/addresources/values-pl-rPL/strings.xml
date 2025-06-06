@@ -1252,6 +1252,9 @@ Przesuń, aby rozwinąć lub zamknąć"</string>
   <string name="revanced_gradient_loading_screen_title">Kolorowy ekran ładowania</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ekran ładowania będzie miał kolorowe tło</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ekran ładowania będzie miał stałe tło</string>
+  <string name="splash_screen_animation_style_title">Styl ekranu powitalnego</string>
+  <string name="splash_screen_animation_style_entry_1">Kolor</string>
+  <string name="splash_screen_animation_style_entry_2">Czarno-biały</string>
   <string name="revanced_seekbar_custom_color_title">Niestandardowy kolor paska postępu</string>
   <string name="revanced_seekbar_custom_color_summary_on">Niestandardowy</string>
   <string name="revanced_seekbar_custom_color_summary_off">Oryginalny</string>

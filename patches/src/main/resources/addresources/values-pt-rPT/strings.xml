@@ -1256,6 +1256,9 @@ Deslize para expandir ou fechar"</string>
   <string name="revanced_gradient_loading_screen_title">Ativar ecrã de carregamento do gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_on">Carregar ecrã terá um fundo em gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_off">Carregar ecrã terá um fundo sólido</string>
+  <string name="splash_screen_animation_style_title">Estilo da tela inicial</string>
+  <string name="splash_screen_animation_style_entry_1">Cor</string>
+  <string name="splash_screen_animation_style_entry_2">Preto e branco</string>
   <string name="revanced_seekbar_custom_color_title">Ativar a cor personalizada</string>
   <string name="revanced_seekbar_custom_color_summary_on">Cor personalizada da barra de busca é visível</string>
   <string name="revanced_seekbar_custom_color_summary_off">Cor original da barra de busca é visível</string>

@@ -1255,6 +1255,9 @@ Svep för att expandera eller stänga"</string>
   <string name="revanced_gradient_loading_screen_title">Aktivera gradient laddar skärmen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Laddar skärmen kommer att ha en lutande bakgrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Laddar skärmen kommer att ha en solid bakgrund</string>
+  <string name="splash_screen_animation_style_title">Startskärmens stil</string>
+  <string name="splash_screen_animation_style_entry_1">Färg</string>
+  <string name="splash_screen_animation_style_entry_2">Svartvitt</string>
   <string name="revanced_seekbar_custom_color_title">Aktivera anpassad sökfält färg</string>
   <string name="revanced_seekbar_custom_color_summary_on">Anpassad sökfält färg visas</string>
   <string name="revanced_seekbar_custom_color_summary_off">Original sökfält färg visas</string>

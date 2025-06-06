@@ -1256,6 +1256,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Увімкнути градієнт завантаження</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екран завантаження макета матиме градієнтне тло</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екран завантаження макета матиме суцільне тло</string>
+  <string name="splash_screen_animation_style_title">Стиль заставки</string>
+  <string name="splash_screen_animation_style_entry_1">Колір</string>
+  <string name="splash_screen_animation_style_entry_2">Чорно-білий</string>
   <string name="revanced_seekbar_custom_color_title">Увімкнути користувацький колір</string>
   <string name="revanced_seekbar_custom_color_summary_on">Показується користувацький колір смуги прогресу</string>
   <string name="revanced_seekbar_custom_color_summary_off">Показується оригінальний колір смуги прогресу</string>

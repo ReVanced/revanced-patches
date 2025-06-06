@@ -1255,6 +1255,9 @@ Vuốt để mở rộng hoặc đóng"</string>
   <string name="revanced_gradient_loading_screen_title">Bật màn hình tải màu dốc</string>
   <string name="revanced_gradient_loading_screen_summary_on">Màn hình tải sẽ có một nền màu dốc</string>
   <string name="revanced_gradient_loading_screen_summary_off">Màn hình tải sẽ có một nền màu đặc</string>
+  <string name="splash_screen_animation_style_title">Kiểu màn hình chờ</string>
+  <string name="splash_screen_animation_style_entry_1">Màu</string>
+  <string name="splash_screen_animation_style_entry_2">Đen và trắng</string>
   <string name="revanced_seekbar_custom_color_title">Bật màu tùy chỉnh thanh tiến trình</string>
   <string name="revanced_seekbar_custom_color_summary_on">Màu tùy chỉnh thanh tiến trình được hiển thị</string>
   <string name="revanced_seekbar_custom_color_summary_off">Màu gốc thanh tiến trình được hiển thị</string>
