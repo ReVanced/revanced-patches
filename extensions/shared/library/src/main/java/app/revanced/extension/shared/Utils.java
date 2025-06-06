@@ -26,7 +26,9 @@ import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -511,27 +513,27 @@ public class Utils {
         void onStart(AlertDialog dialog);
     }
 
-    public static void showDialog(Activity activity, AlertDialog dialog) {
+    public static void showDialog(Activity activity, Dialog dialog) {
         showDialog(activity, dialog, true, null);
     }
 
     /**
-     * Utility method to allow showing an AlertDialog on top of other alert dialogs.
+     * Utility method to allow showing a Dialog on top of other dialogs.
      * Calling this will always display the dialog on top of all other dialogs
      * previously called using this method.
      * <br>
      * Be aware the on start action can be called multiple times for some situations,
      * such as the user switching apps without dismissing the dialog then switching back to this app.
-     *<br>
+     * <br>
      * This method is only useful during app startup and multiple patches may show their own dialog,
      * and the most important dialog can be called last (using a delay) so it's always on top.
-     *<br>
+     * <br>
      * For all other situations it's better to not use this method and
-     * call {@link AlertDialog#show()} on the dialog.
+     * call {@link Dialog#show()} on the dialog.
      */
     @SuppressWarnings("deprecation")
     public static void showDialog(Activity activity,
-                                  AlertDialog dialog,
+                                  Dialog dialog,
                                   boolean isCancelable,
                                   @Nullable DialogFragmentOnStartAction onStartAction) {
         verifyOnMainThread();
@@ -717,7 +719,7 @@ public class Utils {
      *
      * @param context           The Context used to create the dialog.
      * @param title             The title text of the dialog.
-     * @param message           The message text of the dialog, or null if replaced by EditText.
+     * @param message           The message text of the dialog (supports Spanned for HTML), or null if replaced by EditText.
      * @param editText          The EditText to include in the dialog, or null if no EditText is needed.
      * @param okButtonText      The text for the OK button, or null to use the default "OK" string.
      * @param onOkClick         The action to perform when the OK button is clicked.
@@ -727,7 +729,7 @@ public class Utils {
      * @return A Pair containing the Dialog and its main LinearLayout container.
      */
     public static Pair<Dialog, LinearLayout> createCustomDialog(Context context,
-            String title, String message, @Nullable EditText editText,
+            String title, CharSequence message, @Nullable EditText editText,
             String okButtonText, Runnable onOkClick,
             Runnable onCancelClick,
             @Nullable String neutralButtonText, @Nullable Runnable onNeutralClick
@@ -775,12 +777,16 @@ public class Utils {
         }
 
         // Message (if not replaced by EditText).
-        if (editText == null && message != null && !TextUtils.isEmpty(message)) {
+        if (editText == null && message != null) {
             TextView messageView = new TextView(context);
-            messageView.setText(message);
+            messageView.setText(message); // Supports Spanned (HTML)
             messageView.setTextSize(16);
             messageView.setTextColor(isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
             messageView.setPadding(0, dip8, 0, dip16);
+            // Enable HTML link clicking if the message contains links
+            if (message instanceof Spanned) {
+                messageView.setMovementMethod(LinkMovementMethod.getInstance());
+            }
             mainLayout.addView(messageView);
         }
 
