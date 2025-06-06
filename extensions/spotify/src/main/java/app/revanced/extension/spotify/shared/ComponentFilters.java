@@ -52,7 +52,7 @@ public final class ComponentFilters {
         public boolean filterUnavailable() {
             boolean resourceNotFound = getResourceId() == 0;
             if (resourceNotFound) {
-                Logger.printInfo(() -> "Resource id " + resourceName + " was not found");
+                Logger.printInfo(() -> "Resource id for " + resourceName + " was not found");
             }
             return resourceNotFound;
         }

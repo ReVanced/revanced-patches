@@ -70,10 +70,9 @@ public final class HideCreateButtonPatch {
      * Create button.
      */
     public static boolean isOldCreateButton(int oldNavigationBarItemTitleResId) {
-        // In case the resource id has not been found.
-        if (OLD_CREATE_BUTTON_COMPONENT_FILTER.getResourceId() == 0) {
-            Logger.printInfo(() -> "Resource id " +  OLD_CREATE_BUTTON_COMPONENT_FILTER.resourceName +
-                    " was not found, skipping hiding old Create button");
+        if (OLD_CREATE_BUTTON_COMPONENT_FILTER.filterUnavailable()) {
+            Logger.printInfo(() -> "Skipping hiding old Create button because the resource id for " +
+                    OLD_CREATE_BUTTON_COMPONENT_FILTER.resourceName + " is not available");
             return false;
         }
 
