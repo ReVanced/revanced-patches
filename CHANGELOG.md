@@ -1,3 +1,10 @@
+# [5.27.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.1...v5.27.0-dev.2) (2025-06-06)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Remove non-functional Shorts 144p default quality ([3113cd6](https://github.com/ReVanced/revanced-patches/commit/3113cd6d092952c8657454452f34c0ae85358ec9))
+
 # [5.27.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.3...v5.27.0-dev.1) (2025-06-05)
 
 
