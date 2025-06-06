@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">ซ่อนปุ่ม \'สร้าง Shorts\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">ปุ่มสร้าง Short ถูกซ่อน</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">ปุ่มสร้าง Short แสดงอยู่</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">ซ่อนอิโมจิและปุ่มประทับเวลา</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">ปุ่มอิโมจิและประทับเวลาถูกซ่อน</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">ปุ่มอิโมจิและประทับเวลาแสดงอยู่</string>
+  <string name="revanced_hide_comments_timestamp_button_title">ซ่อนปุ่มประทับเวลา</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">ปุ่มประทับเวลาถูกซ่อน</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">ปุ่มประทับเวลาแสดงอยู่</string>
   <string name="revanced_hide_comments_preview_comment_title">ซ่อนความคิดเห็นตัวอย่าง</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">ความคิดเห็นตัวอย่างถูกซ่อนไว้</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">ความคิดเห็นตัวอย่างแสดงอยู่</string>
@@ -748,6 +748,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">ซ่อนป้ายกำกับสถานที่</string>
   <string name="revanced_hide_shorts_location_label_summary_on">ป้ายกำกับสถานที่ถูกซ่อน</string>
   <string name="revanced_hide_shorts_location_label_summary_off">ป้ายกำกับสถานที่แสดงอยู่</string>
+  <string name="revanced_hide_shorts_preview_comment_title">ซ่อนความคิดเห็นตัวอย่าง</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">ซ่อนความคิดเห็นตัวอย่างแล้ว</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">แสดงตัวอย่างความคิดเห็น</string>
   <string name="revanced_hide_shorts_save_sound_button_title">ซ่อนปุ่มบันทึกเพลง</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">ปุ่มบันทึกเพลงถูกซ่อน</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">ปุ่มบันทึกเพลงแสดงอยู่</string>
@@ -1251,6 +1254,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_gradient_loading_screen_title">เปิดใช้งานหน้าจอโหลดแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_on">หน้าจอโหลดจะมีพื้นหลังแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_off">หน้าจอโหลดจะมีพื้นหลังแบบทึบ</string>
+  <string name="splash_screen_animation_style_title">รูปแบบหน้าจอ Splash</string>
+  <string name="splash_screen_animation_style_entry_1">สี</string>
+  <string name="splash_screen_animation_style_entry_2">ขาวดำ</string>
   <string name="revanced_seekbar_custom_color_title">เปิดใช้งานสีแถบเลื่อนแบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_summary_on">แสดงสีแถบเลื่อนแบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_summary_off">แสดงสีแถบเลื่อนดั้งเดิม</string>

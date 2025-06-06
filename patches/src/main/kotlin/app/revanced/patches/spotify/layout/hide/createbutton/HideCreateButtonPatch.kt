@@ -72,7 +72,7 @@ val hideCreateButtonPatch = bytecodePatch(
 
         if (oldNavigationBarAddItemMethod != null) {
             // In case an older version of the app is being patched, hook the old method which adds navigation bar items.
-            // Return null early if the navigation bar item title resource id is old Create button title resource id.
+            // Return null early if the navigation bar item title resource id is the old Create button title resource id.
             oldNavigationBarAddItemFingerprint.methodOrNull?.apply {
                 val getNavigationBarItemTitleStringIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<MethodReference>()

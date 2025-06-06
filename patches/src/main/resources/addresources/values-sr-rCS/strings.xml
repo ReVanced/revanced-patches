@@ -311,9 +311,9 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Sakrij dugme „Napravi Short”</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Dugme „Napravi Short” je skriveno</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Dugme „Napravi Short” je prikazano</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Sakrij dugmad za emodži i vremensku oznaku</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Dugmad za emodži i vremensku oznaku su skrivena</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Dugmad za emodži i vremensku oznaku su prikazana</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Sakrij dugme vremenske oznake</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Dugme vremenske oznake je skriveno</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Dugme vremenske oznake je prikazano</string>
   <string name="revanced_hide_comments_preview_comment_title">Sakrij komentar za pregled</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentar za pregled je skriven</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komentar za pregled je prikazan</string>
@@ -750,6 +750,9 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_shorts_location_label_title">Sakrij oznaku lokacije</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Oznaka lokacije je skrivena</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Oznaka lokacije je prikazana</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Sakrij pregled komentara</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Pregled komentara je skriven</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Pregled komentara je prikazan</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Sakrij dugme „Sačuvaj muziku”</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Dugme „Sačuvaj zvuk” je skriveno</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Dugme „Sačuvaj zvuk” je prikazano</string>
@@ -1252,6 +1255,9 @@ Prevucite da biste proširili ili zatvorili"</string>
   <string name="revanced_gradient_loading_screen_title">Omogući gradijentnu pozadinu ekrana učitavanja</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ekran učitavanja će imati gradijentnu pozadinu</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ekran učitavanja će imati običnu pozadinu</string>
+  <string name="splash_screen_animation_style_title">Stil ekrana pokretanja</string>
+  <string name="splash_screen_animation_style_entry_1">Boja</string>
+  <string name="splash_screen_animation_style_entry_2">Crno-belo</string>
   <string name="revanced_seekbar_custom_color_title">Omogući prilagođenu boju trake za premotavanje</string>
   <string name="revanced_seekbar_custom_color_summary_on">Prilagođena boja trake za premotavanje je prikazana</string>
   <string name="revanced_seekbar_custom_color_summary_off">Originalna boja trake za premotavanje je prikazana</string>
@@ -1397,7 +1403,7 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Prikaži dugme dijaloga za brzinu</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Dugme je prikazano. Dodirnite i držite da biste vratili brzinu reprodukcije na podrazumevanu</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Dugme je prikazano. Dodirnite i zadržite da biste vratili brzinu reprodukcije na podrazumevanu vrednost</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Dugme dijaloga za brzinu nije prikazano</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1409,7 +1415,7 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Prilagođene brzine moraju biti manje od %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nevažeće prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_auto">Automatski</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Brzina reprodukcije resetovana na: %s</string>
+  <string name="revanced_custom_playback_speeds_reset_toast">Brzina reprodukcije vraćena na: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Prilagođena brzina dodirivanja i zadržavanja</string>
   <string name="revanced_speed_tap_and_hold_summary">Brzina reprodukcije između 0 i 8</string>
   </patch>

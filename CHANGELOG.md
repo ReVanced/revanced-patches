@@ -1,3 +1,70 @@
+# [5.27.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.1...v5.27.0-dev.2) (2025-06-06)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Remove non-functional Shorts 144p default quality ([3113cd6](https://github.com/ReVanced/revanced-patches/commit/3113cd6d092952c8657454452f34c0ae85358ec9))
+
+# [5.27.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.3...v5.27.0-dev.1) (2025-06-05)
+
+
+### Features
+
+* **YouTube - Theme:** Add option for black and white splash screen animation ([#5119](https://github.com/ReVanced/revanced-patches/issues/5119)) ([42db0c2](https://github.com/ReVanced/revanced-patches/commit/42db0c2e36fefccdbeaa072edcec48b1e05b6270))
+
+## [5.26.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.2...v5.26.1-dev.3) (2025-06-05)
+
+
+### Bug Fixes
+
+* **Spotify:** Prevent hiding all navigation bar buttons ([#5122](https://github.com/ReVanced/revanced-patches/issues/5122)) ([8afbef0](https://github.com/ReVanced/revanced-patches/commit/8afbef01343c1e3e6e7e4a4cec6319aebfa4b11c))
+
+## [5.26.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.1...v5.26.1-dev.2) (2025-06-05)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Remove broken option 'Hide comments emoji picker' ([#5121](https://github.com/ReVanced/revanced-patches/issues/5121)) ([9a6a639](https://github.com/ReVanced/revanced-patches/commit/9a6a639c4905b00d6dffb0923c839c8e3ae54d0c))
+
+## [5.26.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.26.0...v5.26.1-dev.1) (2025-06-05)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Disable A/B player flags that prevents hiding buttons ([bef0dac](https://github.com/ReVanced/revanced-patches/commit/bef0dacac54caf1ca9511d7bc19b19140ccb4eaf))
+
+# [5.26.0](https://github.com/ReVanced/revanced-patches/compare/v5.25.0...v5.26.0) (2025-06-04)
+
+
+### Bug Fixes
+
+* **Spotify - Custom theme:** Apply accent color in more places ([#5039](https://github.com/ReVanced/revanced-patches/issues/5039)) ([9357887](https://github.com/ReVanced/revanced-patches/commit/9357887b6fca7aaf34dfb0163645b6a998e1db76))
+* **YouTube - Hide Shorts components:** Disable A/B player that prevents hiding buttons ([#5104](https://github.com/ReVanced/revanced-patches/issues/5104)) ([835b7bd](https://github.com/ReVanced/revanced-patches/commit/835b7bd7bd667abd632822c98898972e5124dbb6))
+* **YouTube:** Support A/B Shorts layout for RYD and component hiding ([#5081](https://github.com/ReVanced/revanced-patches/issues/5081)) ([8ecacaa](https://github.com/ReVanced/revanced-patches/commit/8ecacaad27162d9380014a9a13ac9220b12257b2))
+
+
+### Features
+
+* **Proton Mail:** Add `Remove free accounts limit` patch ([#4970](https://github.com/ReVanced/revanced-patches/issues/4970)) ([b0440ad](https://github.com/ReVanced/revanced-patches/commit/b0440ad6af0e190e516974ce896dcc54c8d2e122))
+* **Spotify:** Add `Hide Create button` patch ([#5062](https://github.com/ReVanced/revanced-patches/issues/5062)) ([3201681](https://github.com/ReVanced/revanced-patches/commit/32016819d2adbdfdd5e028941d56feda36d20b00))
+* **Sync for Reddit:** Add `Fix post thumbnails` patch ([e1ec30c](https://github.com/ReVanced/revanced-patches/commit/e1ec30c5b07560a39d7b8ab293b0c1f39fd59ef2))
+* **YouTube - Hide Shorts components:** Add option to hide comment panel ([#5102](https://github.com/ReVanced/revanced-patches/issues/5102)) ([22b9bee](https://github.com/ReVanced/revanced-patches/commit/22b9beedd3243a8d6a5635f591b91cdcf307be37))
+* **YouTube - Playback Speed:** Use modern custom speed dialog ([#5069](https://github.com/ReVanced/revanced-patches/issues/5069)) ([9a1e6ca](https://github.com/ReVanced/revanced-patches/commit/9a1e6ca178d9833ee2c681fb130b9290a4e89cd8))
+
+# [5.26.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.7...v5.26.0-dev.8) (2025-06-04)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Disable A/B player that prevents hiding buttons ([#5104](https://github.com/ReVanced/revanced-patches/issues/5104)) ([835b7bd](https://github.com/ReVanced/revanced-patches/commit/835b7bd7bd667abd632822c98898972e5124dbb6))
+
+# [5.26.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.6...v5.26.0-dev.7) (2025-06-04)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add option to hide comment panel ([#5102](https://github.com/ReVanced/revanced-patches/issues/5102)) ([22b9bee](https://github.com/ReVanced/revanced-patches/commit/22b9beedd3243a8d6a5635f591b91cdcf307be37))
+
 # [5.26.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.26.0-dev.5...v5.26.0-dev.6) (2025-06-03)
 
 
