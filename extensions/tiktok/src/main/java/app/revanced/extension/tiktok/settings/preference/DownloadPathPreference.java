@@ -59,7 +59,13 @@ public class DownloadPathPreference extends DialogPreference {
         mediaPathIndex = findIndexOf(currentMedia);
 
         Context context = getContext();
+
         LinearLayout dialogView = new LinearLayout(context);
+        dialogView.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+        dialogView.setOrientation(LinearLayout.VERTICAL);
+        int padding = (int) (16 * context.getResources().getDisplayMetrics().density);
+        dialogView.setPadding(padding, padding, padding, padding);
+
         RadioGroup mediaPath = new RadioGroup(context);
         mediaPath.setLayoutParams(new RadioGroup.LayoutParams(-1, -2));
         for (String entryValue : entryValues) {
@@ -90,10 +96,10 @@ public class DownloadPathPreference extends DialogPreference {
                 childDownloadPath = editable.toString();
             }
         });
-        dialogView.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-        dialogView.setOrientation(LinearLayout.VERTICAL);
+
         dialogView.addView(mediaPath);
         dialogView.addView(downloadPath);
+
         return dialogView;
     }
 
