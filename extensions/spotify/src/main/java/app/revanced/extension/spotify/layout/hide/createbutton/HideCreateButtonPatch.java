@@ -43,15 +43,10 @@ public final class HideCreateButtonPatch {
         String matchedFilterRepresentation = null;
 
         for (ComponentFilter componentFilter : CREATE_BUTTON_COMPONENT_FILTERS) {
-            if (componentFilter instanceof ResourceIdComponentFilter) {
-                ResourceIdComponentFilter resourceIdFilter = (ResourceIdComponentFilter) componentFilter;
-
-                // In case the resource id has not been found.
-                if (resourceIdFilter.getResourceId() == 0) {
-                    Logger.printInfo(() -> "returnNullIfIsCreateButton: Resource id " +
-                            resourceIdFilter.resourceName + " was not found, skipping");
-                    continue;
-                }
+            if (!componentFilter.filterAvailable()) {
+                Logger.printInfo(() -> "returnNullIfIsCreateButton: Filter +" +
+                        componentFilter.getFilterRepresentation() + " not available, skipping");
+                continue;
             }
 
             if (stringifiedNavigationBarItem.contains(componentFilter.getFilterValue())) {

@@ -1,5 +1,6 @@
 package app.revanced.extension.spotify.shared;
 
+import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
 public final class ComponentFilters {
@@ -7,12 +8,17 @@ public final class ComponentFilters {
     public interface ComponentFilter {
         String getFilterValue();
         String getFilterRepresentation();
+        default boolean filterAvailable() {
+            return true;
+        }
     }
 
     public static final class ResourceIdComponentFilter implements ComponentFilter {
 
         public final String resourceName;
         public final String resourceType;
+        // Android resources are always positive, so -1 is a valid sentinel value to indicate it has not been loaded.
+        // 0 is returned when a resource has not been found.
         private int resourceId = -1;
         private String stringfiedResourceId = null;
 
@@ -38,7 +44,16 @@ public final class ComponentFilters {
 
         @Override
         public String getFilterRepresentation() {
-            return getFilterValue() + " (" + resourceName + ")";
+            return (filterAvailable() ? getFilterValue() + " " : "") + "(" + resourceName + ")";
+        }
+
+        @Override
+        public boolean filterAvailable() {
+            boolean resourceFound = getResourceId() != 0;
+            if (!resourceFound) {
+                Logger.printInfo(() -> "Resource id " + resourceName + " was not found");
+            }
+            return resourceFound;
         }
     }
 

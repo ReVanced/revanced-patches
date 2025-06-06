@@ -208,18 +208,13 @@ public final class UnlockPremiumPatch {
             boolean allMatch = true;
             StringBuilder matchedFilterRepresentations = new StringBuilder();
 
-            for (int i = 0; i < componentFilters.size(); i++) {
+            for (int i = 0, filterSize = componentFilters.size(); i < filterSize; i++) {
                 ComponentFilter componentFilter = componentFilters.get(i);
 
-                if (componentFilter instanceof ResourceIdComponentFilter) {
-                    ResourceIdComponentFilter resourceIdFilter = (ResourceIdComponentFilter) componentFilter;
-
-                    // In case the resource id has not been found.
-                    if (resourceIdFilter.getResourceId() == 0) {
-                        Logger.printInfo(() -> "isFilteredContextMenuItem: Resource id " +
-                                resourceIdFilter.resourceName + " was not found, skipping");
-                        continue;
-                    }
+                if (!componentFilter.filterAvailable()) {
+                    Logger.printInfo(() -> "returnNullIfIsCreateButton: Filter +" +
+                            componentFilter.getFilterRepresentation() + " not available, skipping");
+                    continue;
                 }
 
                 if (!stringifiedContextMenuItem.contains(componentFilter.getFilterValue())) {
@@ -228,7 +223,7 @@ public final class UnlockPremiumPatch {
                 }
 
                 matchedFilterRepresentations.append(componentFilter.getFilterRepresentation());
-                if (i < componentFilters.size() - 1) {
+                if (i < filterSize - 1) {
                     matchedFilterRepresentations.append(", ");
                 }
             }
