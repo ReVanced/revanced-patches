@@ -50,6 +50,7 @@ val changeFormFactorPatch = bytecodePatch(
             ListPreference(
                 "revanced_change_form_factor",
                 summaryKey = null,
+                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             )
         )
 

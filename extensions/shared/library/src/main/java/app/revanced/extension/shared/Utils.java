@@ -848,15 +848,17 @@ public class Utils {
                     dialog);
         }
 
-        addButton(
-                buttonContainer,
-                context,
-                okButtonText != null ? okButtonText : context.getString(android.R.string.ok),
-                onOkClick,
-                true,
-                false,
-                false,
-                dialog);
+        if (onOkClick != null) {
+            addButton(
+                    buttonContainer,
+                    context,
+                    okButtonText != null ? okButtonText : context.getString(android.R.string.ok),
+                    onOkClick,
+                    true,
+                    false,
+                    false,
+                    dialog);
+        }
 
         mainLayout.addView(buttonContainer);
         dialog.setContentView(mainLayout);

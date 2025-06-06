@@ -187,6 +187,7 @@ val miniplayerPatch = bytecodePatch(
                 ListPreference(
                     "revanced_miniplayer_type",
                     summaryKey = null,
+                    tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
                 )
             } else if (is_19_43_or_greater) {
                 ListPreference(
@@ -194,6 +195,7 @@ val miniplayerPatch = bytecodePatch(
                     summaryKey = null,
                     entriesKey = "revanced_miniplayer_type_legacy_19_43_entries",
                     entryValuesKey = "revanced_miniplayer_type_legacy_19_43_entry_values",
+                    tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
                 )
             } else {
                 ListPreference(
@@ -201,6 +203,7 @@ val miniplayerPatch = bytecodePatch(
                     summaryKey = null,
                     entriesKey = "revanced_miniplayer_type_legacy_19_16_entries",
                     entryValuesKey = "revanced_miniplayer_type_legacy_19_16_entry_values",
+                    tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
                 )
             }
 

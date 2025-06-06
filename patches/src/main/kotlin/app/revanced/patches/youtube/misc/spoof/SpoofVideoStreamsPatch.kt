@@ -51,6 +51,7 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch({
                 ListPreference(
                     "revanced_spoof_video_streams_client_type",
                     summaryKey = null,
+                    tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
                 ),
                 NonInteractivePreference(
                     // Requires a key and title but the actual text is chosen at runtime.
