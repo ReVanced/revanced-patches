@@ -287,9 +287,8 @@ public class SegmentCategoryListPreference extends ListPreference {
 
                             updateUI();
                         }
-                        dialog.dismiss();
                     },
-                    () -> dialog.dismiss(), // Cancel button action.
+                    () -> {}, // Cancel button action.
                     str("revanced_settings_reset_color"), // Neutral button text.
                     () -> { // Neutral button action (Reset).
                         try {
