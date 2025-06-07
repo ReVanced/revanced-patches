@@ -726,13 +726,14 @@ public class Utils {
      * @param onCancelClick     The action to perform when the Cancel button is clicked, or null if no Cancel button is needed.
      * @param neutralButtonText The text for the Neutral button, or null if no Neutral button is needed.
      * @param onNeutralClick    The action to perform when the Neutral button is clicked, or null if no Neutral button is needed.
+     * @param dismissDialogOnNeutralClick If true, the dialog will be dismissed when the Neutral button is clicked.
      * @return A Pair containing the Dialog and its main LinearLayout container.
      */
     public static Pair<Dialog, LinearLayout> createCustomDialog(Context context,
             String title, CharSequence message, @Nullable EditText editText,
             String okButtonText, Runnable onOkClick,
             Runnable onCancelClick,
-            @Nullable String neutralButtonText, @Nullable Runnable onNeutralClick
+            @Nullable String neutralButtonText, @Nullable Runnable onNeutralClick, boolean dismissDialogOnNeutralClick
     ) {
         Logger.printDebug(() -> "Creating custom dialog with title: " + title);
 
@@ -779,11 +780,11 @@ public class Utils {
         // Message (if not replaced by EditText).
         if (editText == null && message != null) {
             TextView messageView = new TextView(context);
-            messageView.setText(message); // Supports Spanned (HTML)
+            messageView.setText(message); // Supports Spanned (HTML).
             messageView.setTextSize(16);
             messageView.setTextColor(isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
             messageView.setPadding(0, dip8, 0, dip16);
-            // Enable HTML link clicking if the message contains links
+            // Enable HTML link clicking if the message contains links.
             if (message instanceof Spanned) {
                 messageView.setMovementMethod(LinkMovementMethod.getInstance());
             }
@@ -803,9 +804,7 @@ public class Utils {
             editText.setPadding(dip8, dip8, dip8, dip8);
             ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
                     createCornerRadii(10), null, null));
-            editTextBackground.getPaint().setColor(isDarkModeEnabled()
-                    ? adjustColorBrightness(getSafeColor("yt_black1", Color.BLACK), 1.20f)
-                    : adjustColorBrightness(getSafeColor("yt_white1", Color.WHITE), 0.90f));
+            editTextBackground.getPaint().setColor(getEditTextBackground()); // Background color for EditText.
             editText.setBackground(editTextBackground);
 
             LinearLayout.LayoutParams editTextParams = new LinearLayout.LayoutParams(
@@ -839,6 +838,7 @@ public class Utils {
                     false,
                     false,
                     true,
+                    dismissDialogOnNeutralClick,
                     dialog);
         }
 
@@ -851,6 +851,7 @@ public class Utils {
                     false,
                     true,
                     false,
+                    true,
                     dialog);
         }
 
@@ -863,6 +864,7 @@ public class Utils {
                     true,
                     false,
                     false,
+                    true,
                     dialog);
         }
 
@@ -889,23 +891,6 @@ public class Utils {
         return new Pair<>(dialog, mainLayout);
     }
 
-    // TODO: find a way how to get app theme background.
-    public static int getAppBackground() {
-        if (isDarkModeEnabled()) {
-            return getSafeColor("yt_black1", Color.BLACK);
-        } else {
-            return getSafeColor("yt_white1", Color.WHITE);
-        }
-    }
-
-    public static int getSafeColor(String resourceName, int defaultColor) {
-        try {
-            return getResourceColor(resourceName);
-        } catch (Resources.NotFoundException e) {
-            return defaultColor;
-        }
-    }
-
     /**
      * Adds a styled button to a dialog's button container with customizable text, click behavior, and appearance.
      * The button's background and text colors adapt to the system's dark mode setting. Margins are dynamically
@@ -918,6 +903,7 @@ public class Utils {
      * @param isOkButton      True if this is the OK button, which uses distinct background and text colors.
      * @param isCancelButton  True if this is the Cancel button, which uses distinct background and text colors.
      * @param isNeutralButton True if this is a Neutral button or if a Neutral button exists, affecting margin settings.
+     * @param dismissDialog   If true, the dialog will be dismissed when the button is clicked (applies to Neutral button).
      * @param dialog          The Dialog to dismiss when the button is clicked.
      */
     public static void addButton(
@@ -928,6 +914,7 @@ public class Utils {
             boolean isOkButton,
             boolean isCancelButton,
             boolean isNeutralButton,
+            boolean dismissDialog,
             Dialog dialog) {
 
         Button button = new Button(context, null, 0);
@@ -940,11 +927,8 @@ public class Utils {
 
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
         int backgroundColor = isOkButton
-                ? (isDarkModeEnabled() ? Color.WHITE : Color.BLACK) // Background color for OK button (inversion).
-                : isDarkModeEnabled()
-                // Background color for Cancel or Neutral buttons.
-                ? adjustColorBrightness(getSafeColor("yt_black1", Color.BLACK), 1.10f)
-                : adjustColorBrightness(getSafeColor("yt_white1", Color.WHITE), 0.95f);
+                ? getOkButtonBackground() // Background color for OK button (inversion).
+                : getCancelorNeutralbuttonsBackground(); // Background color for Cancel or Neutral buttons.
         background.getPaint().setColor(backgroundColor);
         button.setBackground(background);
 
@@ -985,7 +969,9 @@ public class Utils {
             if (onClick != null) {
                 onClick.run();
             }
-            dialog.dismiss();
+            if (dismissDialog) {
+                dialog.dismiss();
+            }
         });
 
         buttonContainer.addView(button);
@@ -1001,6 +987,48 @@ public class Utils {
     public static float[] createCornerRadii(float dp) {
         final float radius = dipToPixels(dp);
         return new float[]{radius, radius, radius, radius, radius, radius, radius, radius};
+    }
+
+    // TODO: find a way how to get app theme background.
+    public static int getAppBackground() {
+        if (isDarkModeEnabled()) {
+            return getSafeColor("yt_black1", Color.BLACK);
+        } else {
+            return getSafeColor("yt_white1", Color.WHITE);
+        }
+    }
+
+    public static int getOkButtonBackground() {
+        if (isDarkModeEnabled()) {
+            // Must be inverted color.
+            return Color.WHITE;
+        } else {
+            return Color.BLACK;
+        }
+    }
+
+    public static int getCancelorNeutralbuttonsBackground() {
+        if (isDarkModeEnabled()) {
+            return adjustColorBrightness(getSafeColor("yt_black1", Color.BLACK), 1.10f);
+        } else {
+            return adjustColorBrightness(getSafeColor("yt_white1", Color.WHITE), 0.95f);
+        }
+    }
+
+    public static int getEditTextBackground() {
+        if (isDarkModeEnabled()) {
+            return adjustColorBrightness(getSafeColor("yt_black1", Color.BLACK), 1.20f);
+        } else {
+            return adjustColorBrightness(getSafeColor("yt_white1", Color.WHITE), 0.90f);
+        }
+    }
+
+    public static int getSafeColor(String resourceName, int defaultColor) {
+        try {
+            return getResourceColor(resourceName);
+        } catch (Resources.NotFoundException e) {
+            return defaultColor;
+        }
     }
 
     /**

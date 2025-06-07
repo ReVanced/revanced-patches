@@ -142,7 +142,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 },
                 () -> updatePreference(pref, setting, true, true), // Restore whatever the setting was before the change.
                 null, // No neutral button for this dialog
-                null
+                null,
+                true // Dismiss dialog when onNeutralClick.
         );
 
         dialogPair.first.setOnDismissListener(d -> showingUserDialogMessage = false);
@@ -303,7 +304,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 () -> Utils.restartApp(context),
                 () -> {}, // Cancel action just dismisses the dialog
                 null, // No neutral button for this dialog
-                null
+                null,
+                true // Dismiss dialog when onNeutralClick.
         );
 
         dialogPair.first.show();

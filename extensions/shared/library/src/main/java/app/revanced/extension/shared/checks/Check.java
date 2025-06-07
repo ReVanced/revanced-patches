@@ -115,7 +115,8 @@ abstract class Check {
                         // Action for the Neutral (ignore) button.
                         final int current = Math.max(0, BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.get());
                         BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.save(current + 1);
-                    }
+                    },
+                    true // Dismiss dialog when onNeutralClick.
             );
 
             // Get the dialog and main layout.

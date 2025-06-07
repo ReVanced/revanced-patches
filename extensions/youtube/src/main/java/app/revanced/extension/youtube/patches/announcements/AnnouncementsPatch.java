@@ -136,7 +136,8 @@ public final class AnnouncementsPatch {
                             },
                             () -> {},                             // Cancel button action (dismiss only).
                             str("revanced_announcements_dialog_dismiss"), // Negative button text (as Neutral).
-                            () -> {}                              // Neutral button action (dismiss only).
+                            () -> {},                             // Neutral button action (dismiss only).
+                            true                                  // Dismiss dialog when onNeutralClick.
                     );
 
                     Dialog dialog = dialogPair.first;

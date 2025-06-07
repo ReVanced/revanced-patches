@@ -94,24 +94,19 @@ public class ResettableEditTextPreference extends EditTextPreference {
                     }, // On OK click.
                     () -> {}, // On Cancel click (just dismiss).
                     neutralButtonText, // Neutral button text (Reset).
-                    () -> {} // Overrides to prevent dialog dismissal.
+                    () -> {
+                        if (setting != null) {
+                            try {
+                                String defaultStringValue = Objects.requireNonNull(setting).defaultValue.toString();
+                                editText.setText(defaultStringValue);
+                                editText.setSelection(defaultStringValue.length());
+                            } catch (Exception ex) {
+                                Logger.printException(() -> "reset failure", ex);
+                            }
+                        }
+                    },
+                    false // Do not dismiss dialog when onNeutralClick.
             );
-
-            // Override the neutral button's OnClickListener to prevent dialog dismissal.
-            if (setting != null) {
-                LinearLayout mainLayout = dialogPair.second;
-                LinearLayout buttonContainer = (LinearLayout) mainLayout.getChildAt(mainLayout.getChildCount() - 1);
-                Button neutralButton = (Button) buttonContainer.getChildAt(0); // Neutral button is first.
-                neutralButton.setOnClickListener(v -> {
-                    try {
-                        String defaultStringValue = Objects.requireNonNull(setting).defaultValue.toString();
-                        editText.setText(defaultStringValue);
-                        editText.setSelection(defaultStringValue.length());
-                    } catch (Exception ex) {
-                        Logger.printException(() -> "reset failure", ex);
-                    }
-                });
-            }
 
             dialogPair.first.show();
         } catch (Exception ex) {

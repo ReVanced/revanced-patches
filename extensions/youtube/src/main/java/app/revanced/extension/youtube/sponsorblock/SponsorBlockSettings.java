@@ -191,8 +191,9 @@ public class SponsorBlockSettings {
                     null, // OK button text,
                     () -> {}, // Empty Runnable for OK button.
                     null, // No cancel button action (setCancelable(false).
-                    str("revanced_sb_settings_revanced_export_user_id_warning_dismiss"), // Neutral button text,
-                    () -> Settings.SB_HIDE_EXPORT_WARNING.save(true) // Neutral button action,
+                    str("revanced_sb_settings_revanced_export_user_id_warning_dismiss"), // Neutral button text.
+                    () -> Settings.SB_HIDE_EXPORT_WARNING.save(true), // Neutral button action.
+                    true // Dismiss dialog when onNeutralClick.
             );
 
             dialogPair.first.setCancelable(false);

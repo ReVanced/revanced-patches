@@ -298,7 +298,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                             () -> openGuidelines(), // OK button action.
                             () -> {}, // Cancel button action (using empty Runnable for Negative button).
                             str("revanced_sb_guidelines_popup_already_read"), // Neutral button text.
-                            null // No action for Neutral button.
+                            null, // No action for Neutral button.
+                            true // Dismiss dialog when onNeutralClick.
                     );
 
                     dialogPair.first.setCancelable(false);
@@ -424,7 +425,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                                     } catch (Exception ex) {
                                         Logger.printException(() -> "Copy settings failure", ex);
                                     }
-                                } // Neutral button action (Copy).
+                                }, // Neutral button action (Copy).
+                                true // Dismiss dialog when onNeutralClick.
                         );
 
                         // Set cancelable to true (default EditTextPreference behavior)
@@ -469,7 +471,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         () -> {}, // Placeholder for OK button action (set after dialogPair creation).
                         () -> {}, // Cancel button action (dismiss dialog).
                         str("revanced_settings_reset"), // Neutral (Reset) button text.
-                        () -> {} // Placeholder for Neutral button action (set after dialogPair creation).
+                        () -> {}, // Placeholder for Neutral button action (set after dialogPair creation).
+                        true // Dismiss dialog when onNeutralClick.
                 );
 
                 // Define the URL change listener after dialogPair is initialized.
@@ -546,7 +549,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                                     } catch (Exception ex) {
                                         Logger.printException(() -> "Copy settings failure", ex);
                                     }
-                                } // Copy button action.
+                                }, // Copy button action.
+                                true // Dismiss dialog when onNeutralClick.
                         );
 
                         // Show the dialog.

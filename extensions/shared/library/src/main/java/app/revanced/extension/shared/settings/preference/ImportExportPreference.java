@@ -91,7 +91,8 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
                     () -> importSettings(context, editText.getText().toString()), // On OK click.
                     () -> {}, // On Cancel click (just dismiss the dialog).
                     str("revanced_settings_import_copy"), // Neutral button (Copy) text.
-                    () -> Utils.setClipboard(editText.getText()) // Neutral button (Copy) click action.
+                    () -> Utils.setClipboard(editText.getText()), // Neutral button (Copy) click action.
+                    true // Dismiss dialog when onNeutralClick.
             );
 
             dialogPair.first.show();

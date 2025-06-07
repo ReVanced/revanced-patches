@@ -113,7 +113,8 @@ public final class CustomVideoSpeedListPreference extends ListPreference {
                 null, // No OK button action.
                 () -> {}, // Cancel button action (just dismiss).
                 null,
-                null
+                null,
+                true
         );
 
         Dialog dialog = dialogPair.first;

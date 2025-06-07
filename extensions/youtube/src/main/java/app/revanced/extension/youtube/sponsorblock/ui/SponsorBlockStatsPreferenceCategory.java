@@ -209,7 +209,8 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                     }, // OK button action.
                     () -> {}, // Cancel button action (dismiss dialog).
                     null, // No neutral button.
-                    null // No neutral button action.
+                    null, // No neutral button action.
+                    true  // Dismiss dialog when onNeutralClick.
             );
 
             // Show the dialog

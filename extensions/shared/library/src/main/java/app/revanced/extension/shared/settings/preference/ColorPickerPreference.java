@@ -366,7 +366,15 @@ public class ColorPickerPreference extends EditTextPreference {
                     }
                 },
                 str("revanced_settings_reset_color"),
-                () -> {} // Overrides to prevent dialog dismissal.
+                () -> {
+                    try {
+                        final int defaultColor = Color.parseColor(colorSetting.defaultValue) & 0x00FFFFFF;
+                        dialogColorPickerView.setColor(defaultColor);
+                    } catch (Exception ex) {
+                        Logger.printException(() -> "Reset button failure", ex);
+                    }
+                },
+                false // Do not dismiss dialog when onNeutralClick.
         );
 
         // Add the custom container to the dialog's main layout.
@@ -390,19 +398,6 @@ public class ColorPickerPreference extends EditTextPreference {
 
             updateColorPreview();
             updateWidgetColorDot();
-        });
-
-        // Override the neutral button's OnClickListener to prevent dialog dismissal.
-        LinearLayout mainLayout = dialogPair.second;
-        LinearLayout buttonContainer = (LinearLayout) mainLayout.getChildAt(mainLayout.getChildCount() - 1);
-        Button neutralButton = (Button) buttonContainer.getChildAt(0); // Neutral button is first.
-        neutralButton.setOnClickListener(v -> {
-            try {
-                final int defaultColor = Color.parseColor(colorSetting.defaultValue) & 0x00FFFFFF;
-                dialogColorPickerView.setColor(defaultColor);
-            } catch (Exception ex) {
-                Logger.printException(() -> "Reset button failure", ex);
-            }
         });
 
         // Configure and show the dialog.
