@@ -92,7 +92,7 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
                 return bestFreeRegisterFound
             }
             // This method is simple and does not follow branching.
-            throw IllegalArgumentException("Encountered a branch statement before" +
+            throw IllegalArgumentException("Encountered a branch statement before " +
                     "a free register could be found from startIndex: $startIndex")
         }
 
