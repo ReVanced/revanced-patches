@@ -48,7 +48,7 @@ public final class LithoFilterPatch {
         /**
          * Search through a byte array for all ASCII strings.
          */
-        private static void findAsciiStrings(StringBuilder builder, byte[] buffer) {
+        static void findAsciiStrings(StringBuilder builder, byte[] buffer) {
             // Valid ASCII values (ignore control characters).
             final int minimumAscii = 32;  // 32 = space character
             final int maximumAscii = 126; // 127 = delete character
@@ -74,8 +74,13 @@ public final class LithoFilterPatch {
         }
     }
 
+    /**
+     * Placeholder for actual filters.
+     */
+    private static final class DummyFilter extends Filter { }
+
     private static final Filter[] filters = new Filter[] {
-            new DummyFilter() // Replaced by patch.
+            new DummyFilter() // Replaced patching, do not touch.
     };
 
     private static final StringTrieSearch pathSearchTree = new StringTrieSearch();
@@ -87,11 +92,7 @@ public final class LithoFilterPatch {
      * Because litho filtering is multi-threaded and the buffer is passed in from a different injection point,
      * the buffer is saved to a ThreadLocal so each calling thread does not interfere with other threads.
      */
-    private static final ThreadLocal<ByteBuffer> bufferThreadLocal = new ThreadLocal<>();
-    /**
-     * Results of calling {@link #filter(String, StringBuilder)}.
-     */
-    private static final ThreadLocal<Boolean> filterResult = new ThreadLocal<>();
+    private static final ThreadLocal<byte[]> bufferThreadLocal = new ThreadLocal<>();
 
     static {
         for (Filter filter : filters) {
@@ -146,58 +147,52 @@ public final class LithoFilterPatch {
 
     /**
      * Injection point.  Called off the main thread.
+     * Targets 20.22+
      */
-    @SuppressWarnings("unused")
-    public static void setProtoBuffer(@Nullable ByteBuffer protobufBuffer) {
+    public static void setProtoBuffer(byte[] buffer) {
         // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
         // This is intentional, as it appears the buffer can be set once and then filtered multiple times.
         // The buffer will be cleared from memory after a new buffer is set by the same thread,
         // or when the calling thread eventually dies.
-        if (protobufBuffer == null) {
+        bufferThreadLocal.set(buffer);
+    }
+
+    /**
+     * Injection point.  Called off the main thread.
+     * Targets 20.21 and lower.
+     */
+    public static void setProtoBuffer(@Nullable ByteBuffer buffer) {
+        // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
+        // This is intentional, as it appears the buffer can be set once and then filtered multiple times.
+        // The buffer will be cleared from memory after a new buffer is set by the same thread,
+        // or when the calling thread eventually dies.
+        if (buffer == null || !buffer.hasArray()) {
             // It appears the buffer can be cleared out just before the call to #filter()
             // Ignore this null value and retain the last buffer that was set.
-            Logger.printDebug(() -> "Ignoring null protobuffer");
+            Logger.printDebug(() -> "Ignoring null or empty buffer: " + buffer);
         } else {
-            bufferThreadLocal.set(protobufBuffer);
+            setProtoBuffer(buffer.array());
         }
     }
 
     /**
      * Injection point.
      */
-    public static boolean shouldFilter() {
-        Boolean shouldFilter = filterResult.get();
-        return shouldFilter != null && shouldFilter;
-    }
-
-    /**
-     * Injection point.  Called off the main thread, and commonly called by multiple threads at the same time.
-     */
-    public static void filter(@Nullable String lithoIdentifier, StringBuilder pathBuilder) {
-        filterResult.set(handleFiltering(lithoIdentifier, pathBuilder));
-    }
-
-    private static boolean handleFiltering(@Nullable String lithoIdentifier, StringBuilder pathBuilder) {
+    public static boolean shouldFilter(@Nullable String lithoIdentifier, StringBuilder pathBuilder) {
         try {
             if (pathBuilder.length() == 0) {
                 return false;
             }
 
-            ByteBuffer protobufBuffer = bufferThreadLocal.get();
-            final byte[] bufferArray;
+            byte[] buffer = bufferThreadLocal.get();
             // Potentially the buffer may have been null or never set up until now.
             // Use an empty buffer so the litho id/path filters still work correctly.
-            if (protobufBuffer == null) {
-                bufferArray = EMPTY_BYTE_ARRAY;
-            } else if (!protobufBuffer.hasArray()) {
-                Logger.printDebug(() -> "Proto buffer does not have an array, using an empty buffer array");
-                bufferArray = EMPTY_BYTE_ARRAY;
-            } else {
-                bufferArray = protobufBuffer.array();
+            if (buffer == null) {
+                buffer = EMPTY_BYTE_ARRAY;
             }
 
-            LithoFilterParameters parameter = new LithoFilterParameters(lithoIdentifier,
-                    pathBuilder.toString(), bufferArray);
+            LithoFilterParameters parameter = new LithoFilterParameters(
+                    lithoIdentifier, pathBuilder.toString(), buffer);
             Logger.printDebug(() -> "Searching " + parameter);
 
             if (parameter.identifier != null && identifierSearchTree.matches(parameter.identifier, parameter)) {
@@ -214,8 +209,3 @@ public final class LithoFilterPatch {
         return false;
     }
 }
-
-/**
- * Placeholder for actual filters.
- */
-final class DummyFilter extends Filter { }

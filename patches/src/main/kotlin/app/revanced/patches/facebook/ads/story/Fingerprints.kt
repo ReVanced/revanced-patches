@@ -3,11 +3,11 @@ package app.revanced.patches.facebook.ads.story
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.iface.value.StringEncodedValue
 
-internal val adsInsertionFingerprint = fieldFingerprint(
+internal val adsInsertionFingerprint by fieldFingerprint(
     fieldValue = "AdBucketDataSourceUtil\$attemptAdsInsertion\$1",
 )
 
-internal val fetchMoreAdsFingerprint = fieldFingerprint(
+internal val fetchMoreAdsFingerprint by fieldFingerprint(
     fieldValue = "AdBucketDataSourceUtil\$attemptFetchMoreAds\$1",
 )
 

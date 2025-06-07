@@ -1,10 +1,17 @@
 package app.revanced.patches.youtube.shared
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.newInstance
+import app.revanced.patcher.opcode
+import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val conversionContextFingerprintToString = fingerprint {
+internal val conversionContextFingerprintToString by fingerprint {
     parameters()
     strings(
         "ConversionContext{containerInternal=",
@@ -19,7 +26,7 @@ internal val conversionContextFingerprintToString = fingerprint {
     }
 }
 
-internal val autoRepeatFingerprint = fingerprint {
+internal val autoRepeatFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -28,31 +35,27 @@ internal val autoRepeatFingerprint = fingerprint {
     }
 }
 
-internal val autoRepeatParentFingerprint = fingerprint {
+internal val autoRepeatParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
-    strings(
-        "play() called when the player wasn't loaded.",
-        "play() blocked because Background Playability failed",
+    instructions(
+        string("play() called when the player wasn't loaded."),
+        string("play() blocked because Background Playability failed")
     )
 }
 
-internal val layoutConstructorFingerprint = fingerprint {
+internal val layoutConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
-    parameters()
-    strings("1.0x")
+    instructions(
+        literal(159962),
+        resourceLiteral("id", "player_control_previous_button_touch_area"),
+        resourceLiteral("id", "player_control_next_button_touch_area"),
+        methodCall(parameters = listOf("Landroid/view/View;", "I"))
+    )
 }
 
-internal val mainActivityFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters()
-    custom { _, classDef ->
-        classDef.endsWith("MainActivity;")
-    }
-}
-
-internal val mainActivityOnCreateFingerprint = fingerprint {
+internal val mainActivityOnCreateFingerprint by fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
     custom { method, classDef ->
@@ -60,7 +63,7 @@ internal val mainActivityOnCreateFingerprint = fingerprint {
     }
 }
 
-internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
+internal val rollingNumberTextViewAnimationUpdateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/graphics/Bitmap;")
@@ -86,16 +89,25 @@ internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
     }
 }
 
-internal val seekbarFingerprint = fingerprint {
+internal val seekbarFingerprint by fingerprint {
     returns("V")
-    strings("timed_markers_width")
+    instructions(
+        string("timed_markers_width"),
+    )
 }
 
-internal val seekbarOnDrawFingerprint = fingerprint {
+/**
+ * Matches to _mutable_ class found in [seekbarFingerprint].
+ */
+internal val seekbarOnDrawFingerprint by fingerprint {
+    instructions(
+        methodCall(smali = "Ljava/lang/Math;->round(F)I"),
+        opcode(Opcode.MOVE_RESULT, maxAfter = 0)
+    )
     custom { method, _ -> method.name == "onDraw" }
 }
 
-internal val subtitleButtonControllerFingerprint = fingerprint {
+internal val subtitleButtonControllerFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")
@@ -112,28 +124,14 @@ internal val subtitleButtonControllerFingerprint = fingerprint {
     )
 }
 
-internal val newVideoQualityChangedFingerprint = fingerprint {
+internal val newVideoQualityChangedFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")
-    opcodes(
-        Opcode.IGET, // Video resolution (human readable).
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_BOOLEAN,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_DIRECT,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.GOTO,
-        Opcode.CONST_4,
-        Opcode.IF_NE,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET,
+    instructions(
+        newInstance("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"),
+        opcode(Opcode.IGET_OBJECT),
+        opcode(Opcode.CHECK_CAST),
+        fieldAccess(type = "I", opcode = Opcode.IGET, maxAfter = 0), // Video resolution (human readable).
     )
 }

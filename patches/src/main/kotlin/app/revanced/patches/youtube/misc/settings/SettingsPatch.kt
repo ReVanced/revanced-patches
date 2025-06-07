@@ -1,18 +1,14 @@
 package app.revanced.patches.youtube.misc.settings
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.settingsPatch
@@ -29,10 +25,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
-
-// Used by a fingerprint() from SettingsPatch.
-internal var appearanceStringId = -1L
-    private set
 
 private val preferences = mutableSetOf<BasePreference>()
 
@@ -69,9 +61,6 @@ private val settingsResourcePatch = resourcePatch {
     )
 
     execute {
-        // Used for a fingerprint from SettingsPatch.
-        appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
-
         arrayOf(
             ResourceGroup("drawable",
                 "revanced_settings_circle_background.xml",
@@ -215,38 +204,32 @@ val settingsPatch = bytecodePatch(
             )
         )
 
-        setThemeFingerprint.method.let { setThemeMethod ->
-            setThemeMethod.implementation!!.instructions.mapIndexedNotNull { i, instruction ->
-                if (instruction.opcode == Opcode.RETURN_OBJECT) i else null
-            }.asReversed().forEach { returnIndex ->
-                // The following strategy is to replace the return instruction with the setTheme instruction,
-                // then add a return instruction after the setTheme instruction.
-                // This is done because the return instruction is a target of another instruction.
-
-                setThemeMethod.apply {
-                    // This register is returned by the setTheme method.
-                    val register = getInstruction<OneRegisterInstruction>(returnIndex).registerA
-                    replaceInstruction(
-                        returnIndex,
-                        "invoke-static { v$register }, " +
-                            "$themeHelperDescriptor->$setThemeMethodName(Ljava/lang/Enum;)V",
-                    )
-                    addInstruction(returnIndex + 1, "return-object v$register")
-                }
+        setThemeFingerprint.method.apply {
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { returnIndex ->
+                val register = getInstruction<OneRegisterInstruction>(returnIndex).registerA
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
+                    "invoke-static { v$register }, $themeHelperDescriptor->$setThemeMethodName(Ljava/lang/Enum;)V",
+                )
             }
         }
 
         // Modify the license activity and remove all existing layout code.
         // Must modify an existing activity and cannot add a new activity to the manifest,
         // as that fails for root installations.
+        licenseActivityOnCreateFingerprint.let {
+            val superClass = it.classDef.superclass
 
-        licenseActivityOnCreateFingerprint.method.addInstructions(
-            1,
-            """
-                invoke-static { p0 }, $activityHookClassDescriptor->initialize(Landroid/app/Activity;)V
-                return-void
-            """,
-        )
+            it.method.addInstructions(
+                0,
+                """
+                    # Some targets have extra instructions before the call to super method.
+                    invoke-super { p0, p1 }, $superClass->onCreate(Landroid/os/Bundle;)V
+                    invoke-static { p0 }, $activityHookClassDescriptor->initialize(Landroid/app/Activity;)V
+                    return-void
+                """
+            )
+        }
 
         // Remove other methods as they will break as the onCreate method is modified above.
         licenseActivityOnCreateFingerprint.classDef.apply {
@@ -279,11 +262,13 @@ val settingsPatch = bytecodePatch(
         }
 
         // Add setting to force cairo settings fragment on/off.
-        cairoFragmentConfigFingerprint.method.insertLiteralOverride(
-            CAIRO_CONFIG_LITERAL_VALUE,
-            "$activityHookClassDescriptor->useCairoSettingsFragment(Z)Z"
-        )
-    }
+        cairoFragmentConfigFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.last().index,
+                    "$activityHookClassDescriptor->useCairoSettingsFragment(Z)Z"
+                )
+            }
+        }
 
     finalize {
         PreferenceScreen.close()

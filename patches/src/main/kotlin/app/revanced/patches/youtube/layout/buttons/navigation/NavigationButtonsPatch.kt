@@ -13,15 +13,13 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_15_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/NavigationButtonsPatch;"
@@ -72,6 +70,12 @@ val navigationButtonsPatch = bytecodePatch(
             )
         }
 
+        if (is_20_15_or_greater) {
+            PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+                SwitchPreference("revanced_navigation_bar_animations")
+            )
+        }
+
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             PreferenceScreenPreference(
                 key = "revanced_navigation_buttons_screen",
@@ -81,59 +85,70 @@ val navigationButtonsPatch = bytecodePatch(
         )
 
         // Switch create with notifications button.
-        addCreateButtonViewFingerprint.method.apply {
-            val stringIndex = addCreateButtonViewFingerprint.stringMatches!!.find { match ->
-                match.string == ANDROID_AUTOMOTIVE_STRING
-            }!!.index
+        addCreateButtonViewFingerprint.let {
+            it.method.apply {
+                val conditionalCheckIndex = it.instructionMatches[1].index
+                val conditionRegister =
+                    getInstruction<OneRegisterInstruction>(conditionalCheckIndex).registerA
 
-            val conditionalCheckIndex = stringIndex - 1
-            val conditionRegister =
-                getInstruction<OneRegisterInstruction>(conditionalCheckIndex).registerA
-
-            addInstructions(
-                conditionalCheckIndex,
-                """
-                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->switchCreateWithNotificationButton()Z
-                    move-result v$conditionRegister
-                """,
-            )
+                addInstructions(
+                    conditionalCheckIndex,
+                    """
+                        invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->switchCreateWithNotificationButton()Z
+                        move-result v$conditionRegister
+                    """,
+                )
+            }
         }
 
         // Hide navigation button labels.
-        createPivotBarFingerprint.method.apply {
-            val setTextIndex = indexOfFirstInstructionOrThrow {
-                getReference<MethodReference>()?.name == "setText"
+        createPivotBarFingerprint.let {
+            it.method.apply {
+                val setTextIndex = it.instructionMatches.first().index
+                val targetRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
+
+                addInstruction(
+                    setTextIndex,
+                    "invoke-static { v$targetRegister }, " +
+                            "$EXTENSION_CLASS_DESCRIPTOR->hideNavigationButtonLabels(Landroid/widget/TextView;)V",
+                )
             }
-
-            val targetRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
-
-            addInstruction(
-                setTextIndex,
-                "invoke-static { v$targetRegister }, " +
-                    "$EXTENSION_CLASS_DESCRIPTOR->hideNavigationButtonLabels(Landroid/widget/TextView;)V",
-            )
         }
 
         // Hook navigation button created, in order to hide them.
         hookNavigationButtonCreated(EXTENSION_CLASS_DESCRIPTOR)
 
-
         // Force on/off translucent effect on status bar and navigation buttons.
         if (is_19_25_or_greater) {
-            translucentNavigationStatusBarFeatureFlagFingerprint.method.insertLiteralOverride(
-                TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
-            )
+            translucentNavigationStatusBarFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
+                )
+            }
 
-            translucentNavigationButtonsFeatureFlagFingerprint.method.insertLiteralOverride(
-                TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
-            )
+            translucentNavigationButtonsFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
+                )
+            }
 
-            translucentNavigationButtonsSystemFeatureFlagFingerprint.method.insertLiteralOverride(
-                TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
-            )
+            translucentNavigationButtonsSystemFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
+                )
+            }
+        }
+
+        if (is_20_15_or_greater) {
+            animatedNavigationTabsFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z"
+                )
+            }
         }
     }
 }

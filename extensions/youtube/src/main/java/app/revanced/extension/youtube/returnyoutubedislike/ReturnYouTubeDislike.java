@@ -254,7 +254,8 @@ public class ReturnYouTubeDislike {
         // middle separator
         String middleSeparatorString = compactLayout
                 ? "  " + MIDDLE_SEPARATOR_CHARACTER + "  "
-                : "  \u2009" + MIDDLE_SEPARATOR_CHARACTER + "\u2009  "; // u2009 = 'narrow space' character
+                : " \u2009\u2009" + MIDDLE_SEPARATOR_CHARACTER + "\u2009\u2009 "; // u2009 = 'narrow space'
+
         final int shapeInsertionIndex = middleSeparatorString.length() / 2;
         Spannable middleSeparatorSpan = new SpannableString(middleSeparatorString);
         ShapeDrawable shapeDrawable = new ShapeDrawable(new OvalShape());

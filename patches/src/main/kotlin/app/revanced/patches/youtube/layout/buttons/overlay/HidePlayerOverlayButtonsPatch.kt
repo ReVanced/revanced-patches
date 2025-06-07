@@ -5,38 +5,23 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
 import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
-import app.revanced.util.*
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstResourceIdOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-internal var playerControlPreviousButtonTouchArea = -1L
-    private set
-internal var playerControlNextButtonTouchArea = -1L
-    private set
-
-private val hidePlayerOverlayButtonsResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        playerControlPreviousButtonTouchArea = resourceMappings["id", "player_control_previous_button_touch_area"]
-        playerControlNextButtonTouchArea = resourceMappings["id", "player_control_next_button_touch_area"]
-    }
-}
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HidePlayerOverlayButtonsPatch;"
@@ -49,7 +34,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        hidePlayerOverlayButtonsResourcePatch,
+        resourceMappingPatch // Used by fingerprints
     )
 
     compatibleWith(
@@ -76,21 +61,19 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide player next/previous button.
 
-        playerControlsPreviousNextOverlayTouchFingerprint.method.apply {
-            val resourceIndex = indexOfFirstLiteralInstructionOrThrow(playerControlPreviousButtonTouchArea)
+        layoutConstructorFingerprint.let {
+            it.clearMatch() // Fingerprint is shared with other patches.
 
-            val insertIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
-                opcode == Opcode.INVOKE_STATIC &&
-                    getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Landroid/view/View;"
+            it.method.apply {
+                val insertIndex = it.instructionMatches.last().index
+                val viewRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+
+                addInstruction(
+                    insertIndex,
+                    "invoke-static { v$viewRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
+                            "->hidePreviousNextButtons(Landroid/view/View;)V",
+                )
             }
-
-            val viewRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
-
-            addInstruction(
-                insertIndex,
-                "invoke-static { v$viewRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
-                    "->hidePreviousNextButtons(Landroid/view/View;)V",
-            )
         }
 
         // endregion

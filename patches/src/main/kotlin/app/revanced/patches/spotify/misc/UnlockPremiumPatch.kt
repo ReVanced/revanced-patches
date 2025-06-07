@@ -6,14 +6,16 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
-import app.revanced.util.*
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.returnEarly
 import app.revanced.util.toPublicAccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -51,10 +53,12 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
         // Make _value accessible so that it can be overridden in the extension.
-        accountAttributeFingerprint.classDef.publicizeField("value_")
+        val accountFingerprint by accountAttributeFingerprint
+        accountFingerprint.classDef.publicizeField("value_")
 
         // Override the attributes map in the getter method.
-        productStateProtoGetMapFingerprint.method.apply {
+        val productFingerprint by productStateProtoGetMapFingerprint
+        productFingerprint.method.apply {
             val getAttributesMapIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
             val attributesMapRegister = getInstruction<TwoRegisterInstruction>(getAttributesMapIndex).registerA
 
@@ -69,7 +73,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Add the query parameter trackRows to show popular tracks in the artist page.
         buildQueryParametersFingerprint.method.apply {
             val addQueryParameterConditionIndex = indexOfFirstInstructionReversedOrThrow(
-                buildQueryParametersFingerprint.stringMatches!!.first().index, Opcode.IF_EQZ
+                buildQueryParametersFingerprint.stringMatches.first().index, Opcode.IF_EQZ
             )
 
             removeInstruction(addQueryParameterConditionIndex)
@@ -86,7 +90,7 @@ val unlockPremiumPatch = bytecodePatch(
 
         // Enable choosing a specific song/artist via Google Assistant.
         contextFromJsonFingerprint.method.apply {
-            val insertIndex = contextFromJsonFingerprint.patternMatch!!.startIndex
+            val insertIndex = contextFromJsonFingerprint.patternMatch.startIndex
             // Both the URI and URL need to be modified.
             val registerUrl = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
             val registerUri = getInstruction<FiveRegisterInstruction>(insertIndex + 2).registerD
@@ -125,9 +129,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Hook the method which adds context menu items and return before adding if the item is a Premium ad.
         contextMenuViewModelAddItemFingerprint.match(contextMenuViewModelClassDef).method.apply {
             val contextMenuItemClassType = parameterTypes.first()
-            val contextMenuItemClassDef = classes.find {
-                it.type == contextMenuItemClassType
-            } ?: throw PatchException("Could not find context menu item class.")
+            val contextMenuItemClassDef = classBy(contextMenuItemClassType.toString())
 
             // The class returned by ContextMenuItem->getViewModel, which represents the actual context menu item.
             val viewModelClassType = getViewModelFingerprint.match(contextMenuItemClassDef).originalMethod.returnType
@@ -164,12 +166,12 @@ val unlockPremiumPatch = bytecodePatch(
             // Find the protobuf array list class using the definingClass which contains the empty list static value.
             val classType = getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
 
-            classes.find { it.type == classType } ?: throw PatchException("Could not find protobuf array list class.")
+            classBy { it.type == classType }
         }
 
-        val abstractProtobufListClassDef = classes.find {
+        val abstractProtobufListClassDef = classBy {
             it.type == protobufArrayListClassDef.superclass
-        } ?: throw PatchException("Could not find abstract protobuf list class.")
+        }
 
         // Need to allow mutation of the list so the home ads sections can be removed.
         // Protobuf array list has an 'isMutable' boolean parameter that sets the mutability.

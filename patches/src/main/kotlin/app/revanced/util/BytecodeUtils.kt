@@ -13,9 +13,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.util.InstructionUtils.Companion.branchOpcodes
 import app.revanced.util.InstructionUtils.Companion.returnOpcodes
 import app.revanced.util.InstructionUtils.Companion.writeOpcodes
@@ -93,7 +92,8 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
                 return bestFreeRegisterFound
             }
             // This method is simple and does not follow branching.
-            throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
+            throw IllegalArgumentException("Encountered a branch statement before " +
+                    "a free register could be found from startIndex: $startIndex")
         }
 
         if (instruction.isReturnInstruction) {
@@ -281,7 +281,7 @@ fun MutableMethod.addInstructionsAtControlFlowLabel(
  * @see [indexOfFirstResourceIdOrThrow], [indexOfFirstLiteralInstructionReversed]
  */
 fun Method.indexOfFirstResourceId(resourceName: String): Int {
-    val resourceId = resourceMappings["id", resourceName]
+    val resourceId = getResourceId("id", resourceName)
     return indexOfFirstLiteralInstruction(resourceId)
 }
 
@@ -466,7 +466,7 @@ fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callb
 
     targetClass.superclass ?: return
 
-    classBy { targetClass.superclass == it.type }?.mutableClass?.let {
+    mutableClassByOrNull(targetClass.superclass!!)?.let {
         traverseClassHierarchy(it, callback)
     }
 }
@@ -678,8 +678,12 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
  * Suitable for calls to extension code to override boolean and integer values.
  */
 internal fun MutableMethod.insertLiteralOverride(literal: Long, extensionMethodDescriptor: String) {
-    // TODO: make this work with objects and wide values.
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    insertLiteralOverride(literalIndex, extensionMethodDescriptor)
+}
+
+internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, extensionMethodDescriptor: String) {
+    // TODO: make this work with objects and wide primitive values.
     val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -703,6 +707,13 @@ internal fun MutableMethod.insertLiteralOverride(literal: Long, extensionMethodD
  */
 internal fun MutableMethod.insertLiteralOverride(literal: Long, override: Boolean) {
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    return insertLiteralOverride(literalIndex, override)
+}
+
+/**
+ * Constant value override of the first MOVE_RESULT after the index parameter.
+ */
+internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, override: Boolean) {
     val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
     val overrideValue = if (override) "0x1" else "0x0"
@@ -726,7 +737,7 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
                 if (instruction.opcode == CONST &&
                     (instruction as WideLiteralInstruction).wideLiteral == literal
                 ) {
-                    val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)
+                    val mutableMethod = mutableClassBy(classDef).findMutableMethodOf(method)
                     block.invoke(mutableMethod, index)
                 }
             }
@@ -971,10 +982,7 @@ internal fun BytecodePatchContext.addStaticFieldToExtension(
     objectClass: String,
     smaliInstructions: String
 ) {
-    val classDef = classes.find { classDef -> classDef.type == className }
-        ?: throw PatchException("No matching methods found in: $className")
-    val mutableClass = proxy(classDef).mutableClass
-
+    val mutableClass = mutableClassBy(className)
     val objectCall = "$mutableClass->$fieldName:$objectClass"
 
     mutableClass.apply {
@@ -1006,7 +1014,7 @@ internal fun BytecodePatchContext.addStaticFieldToExtension(
  *
  * @param literalSupplier The supplier for the literal value to check for.
  */
-// TODO: add a way for subclasses to also use their own custom fingerprint.
+@Deprecated("Instead use instruction filters and `literal()`")
 fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
     custom { method, _ ->
         method.containsLiteralInstruction(literalSupplier())

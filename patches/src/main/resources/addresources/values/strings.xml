@@ -659,6 +659,9 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_hide_navigation_button_labels_title">Hide navigation button labels</string>
             <string name="revanced_hide_navigation_button_labels_summary_on">Labels are hidden</string>
             <string name="revanced_hide_navigation_button_labels_summary_off">Labels are shown</string>
+            <string name="revanced_navigation_bar_animations_title">Enable navigation bar animations</string>
+            <string name="revanced_navigation_bar_animations_summary_on">Navigation transitions are animated</string>
+            <string name="revanced_navigation_bar_animations_summary_off">Navigation transitions are not animated</string>
             <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
             <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque</string>
             <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent</string>

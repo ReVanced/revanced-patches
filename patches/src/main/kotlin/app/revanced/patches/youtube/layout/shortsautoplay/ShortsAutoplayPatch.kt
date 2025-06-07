@@ -74,23 +74,25 @@ val shortsAutoplayPatch = bytecodePatch(
                 "setMainActivity(Landroid/app/Activity;)V",
         )
 
-        val reelEnumClass = reelEnumConstructorFingerprint.originalClassDef.type
+        var reelEnumClass : String
 
-        reelEnumConstructorFingerprint.method.apply {
-            val insertIndex = reelEnumConstructorFingerprint.patternMatch!!.startIndex
+        reelEnumConstructorFingerprint.let {
+            reelEnumClass = it.originalClassDef.type
 
-            addInstructions(
-                insertIndex,
+            it.method.addInstructions(
+                it.instructionMatches.last().index,
                 """
                     # Pass the first enum value to extension.
                     # Any enum value of this type will work.
                     sget-object v0, $reelEnumClass->a:$reelEnumClass
                     invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->setYTShortsRepeatEnum(Ljava/lang/Enum;)V
-                """,
+                """
             )
         }
-
-        reelPlaybackRepeatFingerprint.method.apply {
+        
+        reelPlaybackRepeatFingerprint.match(
+            reelPlaybackRepeatParentFingerprint.originalClassDef
+        ).method.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
@@ -105,7 +107,7 @@ val shortsAutoplayPatch = bytecodePatch(
                     """
                         invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->changeShortsRepeatBehavior(Ljava/lang/Enum;)Ljava/lang/Enum;
                         move-result-object v$register
-                    """,
+                    """
                 )
             }
         }
@@ -114,13 +116,10 @@ val shortsAutoplayPatch = bytecodePatch(
         // Manually restore the removed 'Autoplay' code.
         if (is_20_09_or_greater) {
             // Variable names are only a rough guess of what these methods do.
-            val userActionMethodIndex = indexOfInitializationInstruction(reelPlaybackFingerprint.method)
-            val userActionMethodReference = reelPlaybackFingerprint.method
-                .getInstruction<ReferenceInstruction>(userActionMethodIndex).reference as MethodReference
-            val reelSequenceControllerMethodIndex = reelPlaybackFingerprint.method
-                .indexOfFirstInstructionOrThrow(userActionMethodIndex, Opcode.INVOKE_VIRTUAL)
-            val reelSequenceControllerMethodReference = reelPlaybackFingerprint.method
-                .getInstruction<ReferenceInstruction>(reelSequenceControllerMethodIndex).reference as MethodReference
+            val userActionMethodReference = reelPlaybackFingerprint.instructionMatches[1]
+                .getInstruction<ReferenceInstruction>().reference as MethodReference
+            val reelSequenceControllerMethodReference = reelPlaybackFingerprint.instructionMatches[2]
+                .getInstruction<ReferenceInstruction>().reference as MethodReference
 
             reelPlaybackRepeatFingerprint.method.apply {
                 // Find the first call modified by extension code above.

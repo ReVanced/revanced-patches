@@ -244,17 +244,21 @@ val themePatch = bytecodePatch(
             )
         }
 
-        useGradientLoadingScreenFingerprint.method.insertLiteralOverride(
-            GRADIENT_LOADING_SCREEN_AB_CONSTANT,
-            "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
-        )
+        useGradientLoadingScreenFingerprint.let {
+            it.method.insertLiteralOverride(
+                it.instructionMatches.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
+            )
+        }
 
         if (is_19_47_or_greater) {
             // Lottie splash screen exists in earlier versions, but it may not be always on.
-            splashScreenStyleFingerprint.method.insertLiteralOverride(
-                SPLASH_SCREEN_STYLE_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I"
-            )
+            splashScreenStyleFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I"
+                )
+            }
         }
 
         arrayOf(

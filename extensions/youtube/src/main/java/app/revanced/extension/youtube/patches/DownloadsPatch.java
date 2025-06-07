@@ -23,7 +23,7 @@ public final class DownloadsPatch {
     /**
      * Injection point.
      */
-    public static void activityCreated(Activity mainActivity) {
+    public static void setMainActivity(Activity mainActivity) {
         activityRef = new WeakReference<>(mainActivity);
     }
 

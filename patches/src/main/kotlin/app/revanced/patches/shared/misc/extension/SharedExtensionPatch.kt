@@ -2,11 +2,10 @@ package app.revanced.patches.shared.misc.extension
 
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.FingerprintBuilder
+import app.revanced.patcher.FingerprintDelegate
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.Method
 import java.net.URLDecoder
@@ -21,7 +20,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/
  */
 fun sharedExtensionPatch(
     extensionName: String,
-    vararg hooks: ExtensionHook,
+    vararg hooks: () -> ExtensionHook,
 ) = bytecodePatch {
     dependsOn(sharedExtensionPatch(*hooks))
 
@@ -35,19 +34,18 @@ fun sharedExtensionPatch(
  * commonly for the onCreate method of exported activities.
  */
 fun sharedExtensionPatch(
-    vararg hooks: ExtensionHook,
+    vararg hooks: () -> ExtensionHook,
 ) = bytecodePatch {
     extendWith("extensions/shared.rve")
 
     execute {
-        if (classes.none { EXTENSION_CLASS_DESCRIPTOR == it.type }) {
-            throw PatchException("Shared extension is not available. This patch can not succeed without it.")
-        }
+        // Verify the extension class exists.
+        classBy(EXTENSION_CLASS_DESCRIPTOR)
     }
 
     finalize {
         // The hooks are made in finalize to ensure that the context is hooked before any other patches.
-        hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
+        hooks.forEach { hook -> hook()(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
         revancedUtilsPatchesVersionFingerprint.method.apply {
@@ -120,4 +118,7 @@ fun extensionHook(
     insertIndexResolver: ((Method) -> Int) = { 0 },
     contextRegisterResolver: (Method) -> String = { "p0" },
     fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
-) = extensionHook(insertIndexResolver, contextRegisterResolver, fingerprint(block = fingerprintBuilderBlock))
+) = {
+    val fingerprint by FingerprintDelegate(block = fingerprintBuilderBlock)
+    ExtensionHook(fingerprint, insertIndexResolver, contextRegisterResolver)
+}
