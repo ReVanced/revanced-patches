@@ -14,16 +14,15 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.addRecyclerViewTreeHook
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.recyclerViewTreeHookPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.speed.settingsMenuVideoSpeedGroup
-import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstruction
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/components/PlaybackSpeedMenuFilterPatch;"
@@ -56,7 +55,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
             )
         )
 
-        if (is_19_25_or_greater) {
+        if (is_19_47_or_greater) {
             settingsMenuVideoSpeedGroup.add(
                 TextPreference("revanced_speed_tap_and_hold", inputType = InputType.NUMBER_DECIMAL),
             )
@@ -89,7 +88,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // region Custom tap and hold 2x speed.
 
-        if (is_19_25_or_greater) {
+        if (is_19_47_or_greater) {
             customTapAndHoldFingerprint.method.apply {
                 val index = indexOfFirstLiteralInstructionOrThrow(2.0f)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
