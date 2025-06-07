@@ -2,6 +2,7 @@ package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.shared.Utils.dipToPixels;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -297,7 +298,7 @@ public class ColorPickerPreference extends EditTextPreference {
         // Horizontal layout for preview and EditText.
         LinearLayout inputLayout = new LinearLayout(context);
         inputLayout.setOrientation(LinearLayout.HORIZONTAL);
-        inputLayout.setPadding(0, 20, 0, 0);
+        inputLayout.setPadding(0, 0, 0, dipToPixels(10));
 
         dialogColorPreview = new TextView(context);
         inputLayout.addView(dialogColorPreview);

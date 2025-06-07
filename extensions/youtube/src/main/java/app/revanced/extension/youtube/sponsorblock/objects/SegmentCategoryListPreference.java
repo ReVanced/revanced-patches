@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.sponsorblock.objects;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.getColorString;
 import static app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory.applyOpacityToColor;
 
@@ -87,6 +88,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             // Create the main layout for the dialog content.
             LinearLayout contentLayout = new LinearLayout(context);
             contentLayout.setOrientation(LinearLayout.VERTICAL);
+            contentLayout.setPadding(0, 0, 0, dipToPixels(10));
 
             // Add behavior selection radio buttons.
             RadioGroup radioGroup = new RadioGroup(context);
@@ -126,7 +128,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             gridParams = new GridLayout.LayoutParams();
             gridParams.rowSpec = GridLayout.spec(0); // First row.
             gridParams.columnSpec = GridLayout.spec(1); // Second column.
-            gridParams.setMargins(0, 0, 10, 0);
+            gridParams.setMargins(0, 0, dipToPixels(10), 0);
             dialogColorDotView = new TextView(context);
             dialogColorDotView.setLayoutParams(gridParams);
             gridLayout.addView(dialogColorDotView);
