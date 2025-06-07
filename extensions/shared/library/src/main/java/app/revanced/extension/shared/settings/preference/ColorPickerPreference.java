@@ -301,6 +301,12 @@ public class ColorPickerPreference extends EditTextPreference {
         inputLayout.setPadding(0, 0, 0, dipToPixels(10));
 
         dialogColorPreview = new TextView(context);
+        LinearLayout.LayoutParams previewParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        previewParams.setMargins(0, 0, dipToPixels(10), 0);
+        dialogColorPreview.setLayoutParams(previewParams);
         inputLayout.addView(dialogColorPreview);
         updateColorPreview();
 
