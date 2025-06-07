@@ -40,12 +40,14 @@ val rememberVideoQualityPatch = bytecodePatch {
                 summaryKey = null,
                 entriesKey = "revanced_video_quality_default_entries",
                 entryValuesKey = "revanced_video_quality_default_entry_values",
+                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             ),
             ListPreference(
                 key = "revanced_video_quality_default_wifi",
                 summaryKey = null,
                 entriesKey = "revanced_video_quality_default_entries",
                 entryValuesKey = "revanced_video_quality_default_entry_values",
+                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             ),
             SwitchPreference("revanced_remember_video_quality_last_selected"),
 
@@ -54,12 +56,14 @@ val rememberVideoQualityPatch = bytecodePatch {
                 summaryKey = null,
                 entriesKey = "revanced_shorts_quality_default_entries",
                 entryValuesKey = "revanced_shorts_quality_default_entry_values",
+                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             ),
             ListPreference(
                 key = "revanced_shorts_quality_default_wifi",
                 summaryKey = null,
                 entriesKey = "revanced_shorts_quality_default_entries",
                 entryValuesKey = "revanced_shorts_quality_default_entry_values",
+                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             ),
             SwitchPreference("revanced_remember_shorts_quality_last_selected")
         ))

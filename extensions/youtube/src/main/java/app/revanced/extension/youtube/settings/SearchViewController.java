@@ -4,9 +4,10 @@ import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.app.Activity;
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -60,8 +61,8 @@ public class SearchViewController {
         background.setCornerRadius(28 * context.getResources().getDisplayMetrics().density); // 28dp corner radius.
         int baseColor = ThemeHelper.getBackgroundColor();
         int adjustedColor = ThemeHelper.isDarkTheme()
-                ? ThemeHelper.adjustColorBrightness(baseColor, 1.11f)  // Lighten for dark theme.
-                : ThemeHelper.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
+                ? Utils.adjustColorBrightness(baseColor, 1.11f)  // Lighten for dark theme.
+                : Utils.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
         background.setColor(adjustedColor);
         return background;
     }
@@ -365,13 +366,22 @@ public class SearchViewController {
 
             // Set long click listener for deletion confirmation.
             convertView.setOnLongClickListener(v -> {
-                new AlertDialog.Builder(activity)
-                        .setTitle(query)
-                        .setMessage(str("revanced_settings_search_remove_message"))
-                        .setPositiveButton(android.R.string.ok,
-                                (dialog, which) -> removeSearchQuery(query))
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
+                Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                        activity,
+                        query,                                // Title.
+                        str("revanced_settings_search_remove_message"), // Message.
+                        null,                                 // No EditText.
+                        null,                                 // OK button text.
+                        () -> removeSearchQuery(query),       // OK button action.
+                        () -> {},                             // Cancel button action (dismiss only).
+                        null,                                 // Cancel button text (used as Neutral button).
+                        () -> {},                             // Neutral button action (dismiss only).
+                        true                                  // Dismiss dialog when onNeutralClick.
+                );
+
+                Dialog dialog = dialogPair.first;
+                dialog.setCancelable(true); // Allow dismissal via back button.
+                dialog.show();
                 return true;
             });
 

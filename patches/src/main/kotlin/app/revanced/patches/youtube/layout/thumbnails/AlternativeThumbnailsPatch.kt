@@ -54,30 +54,35 @@ val alternativeThumbnailsPatch = bytecodePatch(
                 summaryKey = null,
                 entriesKey = entries,
                 entryValuesKey = values,
+                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             ),
             ListPreference(
                 "revanced_alt_thumbnail_subscription",
                 summaryKey = null,
                 entriesKey = entries,
                 entryValuesKey = values,
+                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             ),
             ListPreference(
                 "revanced_alt_thumbnail_library",
                 summaryKey = null,
                 entriesKey = entries,
                 entryValuesKey = values,
+                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             ),
             ListPreference(
                 "revanced_alt_thumbnail_player",
                 summaryKey = null,
                 entriesKey = entries,
                 entryValuesKey = values,
+                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             ),
             ListPreference(
                 "revanced_alt_thumbnail_search",
                 summaryKey = null,
                 entriesKey = entries,
                 entryValuesKey = values,
+                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             ),
             NonInteractivePreference(
                 "revanced_alt_thumbnail_dearrow_about",

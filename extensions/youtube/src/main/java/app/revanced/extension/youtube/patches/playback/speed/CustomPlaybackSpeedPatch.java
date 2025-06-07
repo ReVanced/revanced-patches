@@ -259,7 +259,7 @@ public class CustomPlaybackSpeedPatch {
 
         // Set rounded rectangle background for the main layout.
         RoundRectShape roundRectShape = new RoundRectShape(
-                createCornerRadii(12), null, null);
+                Utils.createCornerRadii(12), null, null);
         ShapeDrawable background = new ShapeDrawable(roundRectShape);
         background.getPaint().setColor(ThemeHelper.getDialogBackgroundColor());
         mainLayout.setBackground(background);
@@ -267,7 +267,7 @@ public class CustomPlaybackSpeedPatch {
         // Add handle bar at the top.
         View handleBar = new View(context);
         ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
-                createCornerRadii(4), null, null));
+                Utils.createCornerRadii(4), null, null));
         handleBackground.getPaint().setColor(getAdjustedBackgroundColor(true));
         handleBar.setBackground(handleBackground);
         LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(
@@ -305,7 +305,8 @@ public class CustomPlaybackSpeedPatch {
         // Create minus button.
         Button minusButton = new Button(context, null, 0); // Disable default theme style.
         minusButton.setText(""); // No text on button.
-        ShapeDrawable minusBackground = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
+        ShapeDrawable minusBackground = new ShapeDrawable(new RoundRectShape(
+                Utils.createCornerRadii(20), null, null));
         minusBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
         minusButton.setBackground(minusBackground);
         OutlineSymbolDrawable minusDrawable = new OutlineSymbolDrawable(false); // Minus symbol.
@@ -331,7 +332,7 @@ public class CustomPlaybackSpeedPatch {
         Button plusButton = new Button(context, null, 0); // Disable default theme style.
         plusButton.setText(""); // No text on button.
         ShapeDrawable plusBackground = new ShapeDrawable(new RoundRectShape(
-                createCornerRadii(20), null, null));
+                Utils.createCornerRadii(20), null, null));
         plusBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
         plusButton.setBackground(plusBackground);
         OutlineSymbolDrawable plusDrawable = new OutlineSymbolDrawable(true); // Plus symbol.
@@ -424,7 +425,7 @@ public class CustomPlaybackSpeedPatch {
             speedButton.setGravity(Gravity.CENTER);
 
             ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(
-                    createCornerRadii(20), null, null));
+                    Utils.createCornerRadii(20), null, null));
             buttonBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
             speedButton.setBackground(buttonBackground);
             speedButton.setPadding(dip5, dip5, dip5, dip5);
@@ -525,18 +526,6 @@ public class CustomPlaybackSpeedPatch {
     }
 
     /**
-     * Creates an array of corner radii for a rounded rectangle shape.
-     *
-     * @param dp The radius in density-independent pixels (dp) to apply to all corners.
-     * @return An array of eight float values representing the corner radii
-     * (top-left, top-right, bottom-right, bottom-left).
-     */
-    private static float[] createCornerRadii(float dp) {
-        final float radius = dipToPixels(dp);
-        return new float[]{radius, radius, radius, radius, radius, radius, radius, radius};
-    }
-
-    /**
      * @param speed The playback speed value to format.
      * @return A string representation of the speed with 'x' (e.g. "1.25x" or "1.00x").
      */
@@ -577,8 +566,8 @@ public class CustomPlaybackSpeedPatch {
         float darkThemeFactor = isHandleBar ? 1.25f : 1.115f; // 1.25f for handleBar, 1.115f for others in dark theme.
         float lightThemeFactor = isHandleBar ? 0.9f : 0.95f; // 0.9f for handleBar, 0.95f for others in light theme.
         return ThemeHelper.isDarkTheme()
-                ? ThemeHelper.adjustColorBrightness(baseColor, darkThemeFactor)  // Lighten for dark theme.
-                : ThemeHelper.adjustColorBrightness(baseColor, lightThemeFactor); // Darken for light theme.
+                ? Utils.adjustColorBrightness(baseColor, darkThemeFactor)  // Lighten for dark theme.
+                : Utils.adjustColorBrightness(baseColor, lightThemeFactor); // Darken for light theme.
     }
 }
 

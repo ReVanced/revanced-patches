@@ -46,6 +46,7 @@ private val swipeControlsResourcePatch = resourcePatch {
             ListPreference(
                 "revanced_swipe_overlay_style",
                 summaryKey = null,
+                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             ),
             TextPreference("revanced_swipe_overlay_background_opacity", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_progress_brightness_color",

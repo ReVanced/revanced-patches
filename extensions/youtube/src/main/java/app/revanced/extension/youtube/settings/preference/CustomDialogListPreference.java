@@ -1,11 +1,11 @@
-package app.revanced.extension.shared.settings.preference;
+package app.revanced.extension.youtube.settings.preference;
 
 import static app.revanced.extension.shared.Utils.dipToPixels;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.preference.ListPreference;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -17,112 +17,28 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import app.revanced.extension.shared.Utils;
 
 /**
- * PreferenceList that sorts itself.
- * By default the first entry is preserved in its original position,
- * and all other entries are sorted alphabetically.
- *
- * Ideally the 'keep first entries to preserve' is an xml parameter,
- * but currently that's not so simple since Extensions code cannot use
- * generated code from the Patches repo (which is required for custom xml parameters).
- *
- * If any class wants to use a different getFirstEntriesToPreserve value,
- * it needs to subclass this preference and override {@link #getFirstEntriesToPreserve}.
+ * A custom ListPreference that uses a styled custom dialog with a checkmark indicator.
  */
 @SuppressWarnings({"unused", "deprecation"})
-public class SortedListPreference extends ListPreference {
+public class CustomDialogListPreference extends ListPreference {
 
-    /**
-     * Sorts the current list entries.
-     *
-     * @param firstEntriesToPreserve The number of entries to preserve in their original position.
-     */
-    public void sortEntryAndValues(int firstEntriesToPreserve) {
-        CharSequence[] entries = getEntries();
-        CharSequence[] entryValues = getEntryValues();
-        if (entries == null || entryValues == null) {
-            return;
-        }
-
-        final int entrySize = entries.length;
-        if (entrySize != entryValues.length) {
-            // Xml array declaration has a missing/extra entry.
-            throw new IllegalStateException();
-        }
-
-        List<Pair<CharSequence, CharSequence>> firstEntries = new ArrayList<>(firstEntriesToPreserve);
-
-        // Android does not have a triple class like Kotlin, So instead use a nested pair.
-        // Cannot easily use a SortedMap, because if two entries incorrectly have
-        // identical names then the duplicates entries are not preserved.
-        List<Pair<String, Pair<CharSequence, CharSequence>>> lastEntries = new ArrayList<>();
-
-        for (int i = 0; i < entrySize; i++) {
-            Pair<CharSequence, CharSequence> pair = new Pair<>(entries[i], entryValues[i]);
-            if (i < firstEntriesToPreserve) {
-                firstEntries.add(pair);
-            } else {
-                lastEntries.add(new Pair<>(Utils.removePunctuationToLowercase(pair.first), pair));
-            }
-        }
-
-        //noinspection ComparatorCombinators
-        Collections.sort(lastEntries, (pair1, pair2)
-                -> pair1.first.compareTo(pair2.first));
-
-        CharSequence[] sortedEntries = new CharSequence[entrySize];
-        CharSequence[] sortedEntryValues = new CharSequence[entrySize];
-
-        int i = 0;
-        for (Pair<CharSequence, CharSequence> pair : firstEntries) {
-            sortedEntries[i] = pair.first;
-            sortedEntryValues[i] = pair.second;
-            i++;
-        }
-
-        for (Pair<String, Pair<CharSequence, CharSequence>> outer : lastEntries) {
-            Pair<CharSequence, CharSequence> inner = outer.second;
-            sortedEntries[i] = inner.first;
-            sortedEntryValues[i] = inner.second;
-            i++;
-        }
-
-        super.setEntries(sortedEntries);
-        super.setEntryValues(sortedEntryValues);
-    }
-
-    protected int getFirstEntriesToPreserve() {
-        return 1;
-    }
-
-    public SortedListPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public CustomDialogListPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-
-        sortEntryAndValues(getFirstEntriesToPreserve());
     }
 
-    public SortedListPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomDialogListPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
-        sortEntryAndValues(getFirstEntriesToPreserve());
     }
 
-    public SortedListPreference(Context context, AttributeSet attrs) {
+    public CustomDialogListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        sortEntryAndValues(getFirstEntriesToPreserve());
     }
 
-    public SortedListPreference(Context context) {
+    public CustomDialogListPreference(Context context) {
         super(context);
-
-        sortEntryAndValues(getFirstEntriesToPreserve());
     }
 
     @Override
@@ -179,7 +95,7 @@ public class SortedListPreference extends ListPreference {
         );
         listViewParams.setMargins(0, dipToPixels(8), 0, dipToPixels(8));
         int maxHeight = (int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.6);
-        listViewParams.height = maxHeight;
+        listViewParams.height = Math.min(listViewParams.height, maxHeight);
         mainLayout.addView(listView, mainLayout.getChildCount() - 1, listViewParams);
 
         // Handle item click to select value and dismiss dialog.

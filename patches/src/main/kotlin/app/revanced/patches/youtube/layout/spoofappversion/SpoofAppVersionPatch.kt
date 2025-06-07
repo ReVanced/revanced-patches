@@ -84,13 +84,15 @@ val spoofAppVersionPatch = bytecodePatch(
                         ListPreference(
                             key = "revanced_spoof_app_version_target",
                             summaryKey = null,
+                            tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
                         )
                     } else {
                         ListPreference(
                             key = "revanced_spoof_app_version_target",
                             summaryKey = null,
                             entriesKey = "revanced_spoof_app_version_target_legacy_entries",
-                            entryValuesKey = "revanced_spoof_app_version_target_legacy_entry_values"
+                            entryValuesKey = "revanced_spoof_app_version_target_legacy_entry_values",
+                            tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
                         )
                     }
                 )

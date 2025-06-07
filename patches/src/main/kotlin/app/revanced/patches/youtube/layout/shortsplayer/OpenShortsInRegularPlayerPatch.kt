@@ -82,13 +82,15 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
                 ListPreference(
                     key = "revanced_shorts_player_type",
                     summaryKey = null,
+                    tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
                 )
             } else {
                 ListPreference(
                     key = "revanced_shorts_player_type",
                     summaryKey = null,
                     entriesKey = "revanced_shorts_player_type_legacy_entries",
-                    entryValuesKey = "revanced_shorts_player_type_legacy_entry_values"
+                    entryValuesKey = "revanced_shorts_player_type_legacy_entry_values",
+                    tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
                 )
             }
         )

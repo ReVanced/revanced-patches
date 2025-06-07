@@ -52,6 +52,7 @@ internal val exitFullscreenPatch = bytecodePatch(
             ListPreference(
                 "revanced_exit_fullscreen",
                 summaryKey = null,
+                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             )
         )
 
