@@ -1,3 +1,17 @@
+# [5.27.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.3...v5.27.0-dev.4) (2025-06-06)
+
+
+### Bug Fixes
+
+* **Bandcamp - Remove play limits:** Support latest app version ([#5124](https://github.com/ReVanced/revanced-patches/issues/5124)) ([863e92b](https://github.com/ReVanced/revanced-patches/commit/863e92b20ad6682f10524e475ed18f879048ecae))
+
+# [5.27.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.2...v5.27.0-dev.3) (2025-06-06)
+
+
+### Bug Fixes
+
+* **Spotify:** `Hide Create button` patch failing in edge cases ([#5131](https://github.com/ReVanced/revanced-patches/issues/5131)) ([0923600](https://github.com/ReVanced/revanced-patches/commit/0923600739a126329fc62100b500216860d7005e))
+
 # [5.27.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.1...v5.27.0-dev.2) (2025-06-06)
 
 
