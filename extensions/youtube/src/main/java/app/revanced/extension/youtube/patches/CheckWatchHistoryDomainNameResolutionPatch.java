@@ -5,6 +5,7 @@ import static app.revanced.extension.shared.StringRef.str;
 import android.app.Activity;
 import android.app.Dialog;
 import android.text.Html;
+import android.util.Pair;
 import android.widget.LinearLayout;
 
 import java.net.InetAddress;
@@ -67,7 +68,7 @@ public class CheckWatchHistoryDomainNameResolutionPatch {
                 Utils.runOnMainThread(() -> {
                     try {
                         // Create the custom dialog.
-                        android.util.Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                                 context,
                                 str("revanced_check_watch_history_domain_name_dialog_title"), // Title.
                                 Html.fromHtml(str("revanced_check_watch_history_domain_name_dialog_message")), // Message (HTML).
