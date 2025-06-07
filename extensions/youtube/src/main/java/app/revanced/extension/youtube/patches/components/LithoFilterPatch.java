@@ -93,10 +93,6 @@ public final class LithoFilterPatch {
      * the buffer is saved to a ThreadLocal so each calling thread does not interfere with other threads.
      */
     private static final ThreadLocal<byte[]> bufferThreadLocal = new ThreadLocal<>();
-    /**
-     * Results of calling {@link #filter(String, StringBuilder)}.
-     */
-    private static final ThreadLocal<Boolean> filterResult = new ThreadLocal<>();
 
     static {
         for (Filter filter : filters) {
@@ -182,19 +178,7 @@ public final class LithoFilterPatch {
     /**
      * Injection point.
      */
-    public static boolean shouldFilter() {
-        Boolean shouldFilter = filterResult.get();
-        return shouldFilter != null && shouldFilter;
-    }
-
-    /**
-     * Injection point.  Called off the main thread, and commonly called by multiple threads at the same time.
-     */
-    public static void filter(@Nullable String lithoIdentifier, StringBuilder pathBuilder) {
-        filterResult.set(handleFiltering(lithoIdentifier, pathBuilder));
-    }
-
-    private static boolean handleFiltering(@Nullable String lithoIdentifier, StringBuilder pathBuilder) {
+    public static boolean handleFiltering(@Nullable String lithoIdentifier, StringBuilder pathBuilder) {
         try {
             if (pathBuilder.length() == 0) {
                 return false;

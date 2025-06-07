@@ -26,6 +26,13 @@ internal val componentContextSubParserFingerprint by fingerprint {
     )
 }
 
+internal val componentCreateFingerprint by fingerprint {
+    instructions(
+        string("Element missing correct type extension"),
+        string("Element missing type")
+    )
+}
+
 internal val lithoFilterFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     custom { _, classDef ->
