@@ -5,9 +5,8 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.getColorString;
 import static app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory.applyOpacityToColor;
 
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -15,12 +14,14 @@ import android.preference.ListPreference;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
@@ -52,6 +53,7 @@ public class SegmentCategoryListPreference extends ListPreference {
     private EditText dialogColorEditText;
     private EditText dialogOpacityEditText;
     private ColorPickerView dialogColorPickerView;
+    private Dialog dialog;
 
     public SegmentCategoryListPreference(Context context, SegmentCategory category) {
         super(context);
@@ -75,17 +77,30 @@ public class SegmentCategoryListPreference extends ListPreference {
     }
 
     @Override
-    protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
+    protected void showDialog(Bundle state) {
         try {
-            Utils.setEditTextDialogTheme(builder);
-
+            Context context = getContext();
             categoryColor = category.getColorNoOpacity();
             categoryOpacity = category.getOpacity();
+            selectedDialogEntryIndex = findIndexOfValue(getValue());
 
-            Context context = builder.getContext();
-            LinearLayout mainLayout = new LinearLayout(context);
-            mainLayout.setOrientation(LinearLayout.VERTICAL);
-            mainLayout.setPadding(70, 0, 70, 0);
+            // Create the main layout for the dialog content.
+            LinearLayout contentLayout = new LinearLayout(context);
+            contentLayout.setOrientation(LinearLayout.VERTICAL);
+
+            // Add behavior selection radio buttons.
+            RadioGroup radioGroup = new RadioGroup(context);
+            radioGroup.setOrientation(RadioGroup.VERTICAL);
+            CharSequence[] entries = getEntries();
+            for (int i = 0; i < entries.length; i++) {
+                RadioButton radioButton = new RadioButton(context);
+                radioButton.setText(entries[i]);
+                radioButton.setId(i);
+                radioButton.setChecked(i == selectedDialogEntryIndex);
+                radioGroup.addView(radioButton);
+            }
+            radioGroup.setOnCheckedChangeListener((group, checkedId) -> selectedDialogEntryIndex = checkedId);
+            contentLayout.addView(radioGroup);
 
             // Inflate the color picker view.
             View colorPickerContainer = LayoutInflater.from(context)
@@ -93,7 +108,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             dialogColorPickerView = colorPickerContainer.findViewById(
                     getResourceIdentifier("color_picker_view", "id"));
             dialogColorPickerView.setColor(categoryColor);
-            mainLayout.addView(colorPickerContainer);
+            contentLayout.addView(colorPickerContainer);
 
             // Grid layout for color and opacity inputs.
             GridLayout gridLayout = new GridLayout(context);
@@ -162,8 +177,7 @@ public class SegmentCategoryListPreference extends ListPreference {
                     }
                 }
             });
-            dialogColorEditText.setLayoutParams(gridParams);
-            gridLayout.addView(dialogColorEditText);
+            gridLayout.addView(dialogColorEditText, gridParams);
 
             gridParams = new GridLayout.LayoutParams();
             gridParams.rowSpec = GridLayout.spec(1); // Second row.
@@ -226,11 +240,10 @@ public class SegmentCategoryListPreference extends ListPreference {
                     }
                 }
             });
-            dialogOpacityEditText.setLayoutParams(gridParams);
-            gridLayout.addView(dialogOpacityEditText);
+            gridLayout.addView(dialogOpacityEditText, gridParams);
             updateOpacityText();
 
-            mainLayout.addView(gridLayout);
+            contentLayout.addView(gridLayout);
 
             // Set up color picker listener.
             // Do last to prevent listener callbacks while setting up view.
@@ -247,62 +260,64 @@ public class SegmentCategoryListPreference extends ListPreference {
                 dialogColorEditText.setSelection(hexColor.length());
             });
 
-            builder.setView(mainLayout);
-            builder.setTitle(category.title.toString());
+            // Create the custom dialog.
+            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                    context,
+                    category.title.toString(), // Title.
+                    null, // Message (replaced by contentLayout).
+                    null, // EditText (not used here).
+                    null, // OK button text.
+                    () -> { // OK button action.
+                        if (selectedDialogEntryIndex >= 0 && getEntryValues() != null) {
+                            String value = getEntryValues()[selectedDialogEntryIndex].toString();
+                            if (callChangeListener(value)) {
+                                setValue(value);
+                                category.setBehaviour(Objects.requireNonNull(CategoryBehaviour.byReVancedKeyValue(value)));
+                                SegmentCategory.updateEnabledCategories();
+                            }
 
-            builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                onClick(dialog, DialogInterface.BUTTON_POSITIVE);
-            });
-            builder.setNeutralButton(str("revanced_settings_reset_color"), null);
-            builder.setNegativeButton(android.R.string.cancel, null);
+                            try {
+                                category.setColor(dialogColorEditText.getText().toString());
+                                category.setOpacity(categoryOpacity);
+                            } catch (IllegalArgumentException ex) {
+                                Utils.showToastShort(str("revanced_settings_color_invalid"));
+                            }
 
-            selectedDialogEntryIndex = findIndexOfValue(getValue());
-            builder.setSingleChoiceItems(getEntries(), selectedDialogEntryIndex,
-                    (dialog, which) -> selectedDialogEntryIndex = which);
+                            updateUI();
+                        }
+                        dialog.dismiss();
+                    },
+                    () -> dialog.dismiss(), // Cancel button action.
+                    str("revanced_settings_reset_color"), // Neutral button text.
+                    () -> { // Neutral button action (Reset).
+                        try {
+                            dialogColorPickerView.setColor(category.getColorNoOpacityDefault());
+                            categoryOpacity = category.getOpacityDefault();
+                            updateOpacityText();
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "resetButton onClick failure", ex);
+                        }
+                    },
+                    false // Do not dismiss dialog on Neutral button click.
+            );
+
+            dialog = dialogPair.first;
+            LinearLayout dialogMainLayout = dialogPair.second;
+
+            // Add the custom content to the dialog's main layout.
+            dialogMainLayout.addView(contentLayout, 1); // Add after title, before buttons.
+
+            // Show the dialog.
+            dialog.show();
         } catch (Exception ex) {
-            Logger.printException(() -> "onPrepareDialogBuilder failure", ex);
+            Logger.printException(() -> "showDialog failure", ex);
         }
-    }
-
-    @Override
-    protected void showDialog(Bundle state) {
-        super.showDialog(state);
-
-        // Do not close dialog when reset is pressed.
-        Button button = ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEUTRAL);
-        button.setOnClickListener(view -> {
-            try {
-                // Setting view color causes callback to update the UI.
-                dialogColorPickerView.setColor(category.getColorNoOpacityDefault());
-
-                categoryOpacity = category.getOpacityDefault();
-                updateOpacityText();
-            } catch (Exception ex) {
-                Logger.printException(() -> "setOnClickListener failure", ex);
-            }
-        });
     }
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         try {
-            if (positiveResult && selectedDialogEntryIndex >= 0 && getEntryValues() != null) {
-                String value = getEntryValues()[selectedDialogEntryIndex].toString();
-                if (callChangeListener(value)) {
-                    setValue(value);
-                    category.setBehaviour(Objects.requireNonNull(CategoryBehaviour.byReVancedKeyValue(value)));
-                    SegmentCategory.updateEnabledCategories();
-                }
-
-                try {
-                    category.setColor(dialogColorEditText.getText().toString());
-                    category.setOpacity(categoryOpacity);
-                } catch (IllegalArgumentException ex) {
-                    Utils.showToastShort(str("revanced_settings_color_invalid"));
-                }
-
-                updateUI();
-            }
+            // Dialog is already handled in the OK button action.
         } catch (Exception ex) {
             Logger.printException(() -> "onDialogClosed failure", ex);
         } finally {
@@ -310,6 +325,10 @@ public class SegmentCategoryListPreference extends ListPreference {
             dialogColorEditText = null;
             dialogOpacityEditText = null;
             dialogColorPickerView = null;
+            if (dialog != null) {
+                dialog.dismiss();
+                dialog = null;
+            }
         }
     }
 
