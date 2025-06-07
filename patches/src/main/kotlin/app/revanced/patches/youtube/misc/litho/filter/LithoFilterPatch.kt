@@ -12,7 +12,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
@@ -22,9 +21,9 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.insertLiteralOverride
+import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import java.util.logging.Logger
@@ -73,12 +72,6 @@ val lithoFilterPatch = bytecodePatch(
      *    public Component parseComponent() {
      *        ...
      *
-     *        // Checks if the component should be filtered.
-     *        // Sets a thread local with the filtering result.
-     *        extensionClass.filter(identifier, pathBuilder);  // Inserted by this patch.
-     *
-     *        ...
-     *
      *        if (extensionClass.shouldFilter()) {  // Inserted by this patch.
      *            return emptyComponent;
      *        }
@@ -100,16 +93,15 @@ val lithoFilterPatch = bytecodePatch(
                         invoke-direct { v1 }, $classDescriptor-><init>()V
                         const/16 v2, ${filterCount++}
                         aput-object v1, v0, v2
-                    """,
+                    """
                 )
             }
         }
 
         // region Pass the buffer into extension.
 
-        if (is_20_22_or_greater) {
-            // 20.22+ the protocol buffer is now handled in native code,
-            // but there is a bridge method where a java byte buffer is copied using a jni method.
+        if (is_19_25_or_greater) {
+            // Hook method that bridges between UPB buffer native code and FB Litho.
             protobufBufferReferenceFingerprint.let {
                 // Hook the buffer after the call to jniDecode().
                 it.method.addInstruction(
@@ -117,92 +109,84 @@ val lithoFilterPatch = bytecodePatch(
                     "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer([B)V",
                 )
             }
-        } else {
-            protobufBufferReferenceLegacyFingerprint.method.addInstruction(
-                0,
-                "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
+        }
+
+        // Legacy Non native buffer.
+        protobufBufferReferenceLegacyFingerprint.method.addInstruction(
+            0,
+            "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
+        )
+
+        // endregion
+
+
+        // region Modify the create component method and
+        // if the component is filtered then return an empty component.
+
+        // Find the identifier/path fields of the conversion context.
+        val conversionContextIdentifierField = componentContextSubParserFingerprint.match().let {
+            // Identifier field is loaded just before the string declaration.
+            val index = it.method.indexOfFirstInstructionReversedOrThrow(
+                it.instructionMatches.first().index
+            ) {
+                val reference = getReference<FieldReference>()
+                reference?.definingClass == conversionContextFingerprintToString.originalClassDef.type
+                        && reference.type == "Ljava/lang/String;"
+            }
+
+            it.method.getInstruction<ReferenceInstruction>(index).getReference<FieldReference>()!!
+        }
+
+        val conversionContextPathBuilderField = conversionContextFingerprintToString.originalClassDef
+            .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
+
+        // Find class and methods to create an empty component.
+        val builderMethodDescriptor = emptyComponentFingerprint.classDef.methods.single {
+            // The only static method in the class.
+                method -> AccessFlags.STATIC.isSet(method.accessFlags)
+        }
+        val emptyComponentField = classBy {
+            // Only one field that matches.
+            it.type == builderMethodDescriptor.returnType
+        }.fields.single()
+
+        componentCreateFingerprint.method.apply {
+            val insertIndex = if (is_19_17_or_greater) {
+                indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
+            } else {
+                // 19.16 clobbers p2 so must check at start of the method and not at the return index.
+                0
+            }
+
+            val freeRegister = findFreeRegister(insertIndex)
+            val identifierRegister = findFreeRegister(insertIndex, freeRegister)
+            val pathRegister = findFreeRegister(insertIndex, freeRegister, identifierRegister)
+
+            addInstructionsAtControlFlowLabel(
+                insertIndex,
+                """
+                    move-object/from16 v$freeRegister, p2
+                    iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
+                    iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
+                    invoke-static { v$identifierRegister, v$pathRegister }, $EXTENSION_CLASS_DESCRIPTOR->shouldFilter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
+                    move-result v$freeRegister
+                    if-eqz v$freeRegister, :unfiltered
+                    
+                    # Return an empty component
+                    move-object/from16 v$freeRegister, p1
+                    invoke-static { v$freeRegister }, $builderMethodDescriptor
+                    move-result-object v$freeRegister
+                    iget-object v$freeRegister, v$freeRegister, $emptyComponentField
+                    return-object v$freeRegister
+        
+                    :unfiltered
+                    nop
+                """
             )
         }
 
         // endregion
 
-        // region Hook the method that parses bytes into a ComponentContext.
-
-        // 20.20+ has combined the two methods together,
-        // and the sub parser fingerprint identifies the method to patch.
-        val contextParserMethodFingerprint =
-            if (is_20_20_or_greater) componentContextSubParserFingerprint
-            else componentContextParserFingerprint
-
-        contextParserMethodFingerprint.method.apply {
-            val conversionContextClass = conversionContextFingerprintToString.originalClassDef
-
-            val conversionContextIdentifierField = componentContextSubParserFingerprint.match(
-                contextParserMethodFingerprint.originalClassDef
-            ).let {
-                // Identifier field is loaded just before the string declaration.
-                val index = it.method.indexOfFirstInstructionReversedOrThrow(
-                    it.instructionMatches.first().index
-                ) {
-                    val reference = getReference<FieldReference>()
-                    reference?.definingClass == conversionContextClass.type
-                            && reference.type == "Ljava/lang/String;"
-                }
-                it.method.getInstruction<ReferenceInstruction>(index).getReference<FieldReference>()
-            }
-
-            // StringBuilder field for the litho path.
-            val conversionContextPathBuilderField = conversionContextClass.fields
-                .single { field -> field.type == "Ljava/lang/StringBuilder;" }
-
-            // Get the only static method in the class.
-            val builderMethodDescriptor = emptyComponentFingerprint.classDef.methods.single {
-                method -> AccessFlags.STATIC.isSet(method.accessFlags)
-            }
-            // Only one field.
-            val emptyComponentField = classBy {
-                it.type == builderMethodDescriptor.returnType
-            }.fields.single()
-
-            // Modify the create component method and
-            // if the component is filtered then return an empty component.
-            componentCreateFingerprint.method.apply {
-                val insertIndex = if (is_19_17_or_greater) {
-                    indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
-                } else {
-                    // 19.16 clobbers p2 so must check at start of the method and not at return index.
-                    0
-                }
-
-                val freeRegister = findFreeRegister(insertIndex)
-                val identifierRegister = findFreeRegister(insertIndex, freeRegister)
-                val pathRegister = findFreeRegister(insertIndex, freeRegister, identifierRegister)
-
-                addInstructionsAtControlFlowLabel(
-                    insertIndex,
-                    """
-                        move-object/from16 v$freeRegister, p2
-                        iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
-                        iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
-                        invoke-static { v$identifierRegister, v$pathRegister }, $EXTENSION_CLASS_DESCRIPTOR->handleFiltering(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
-                        move-result v$freeRegister
-                        if-eqz v$freeRegister, :unfiltered
-                        
-                        # Return an empty component
-                        move-object/from16 v$freeRegister, p1
-                        invoke-static { v$freeRegister }, $builderMethodDescriptor
-                        move-result-object v$freeRegister
-                        iget-object v$freeRegister, v$freeRegister, $emptyComponentField
-                        return-object v$freeRegister
-            
-                        :unfiltered
-                        nop
-                    """
-                )
-            }
-        }
-
-        // endregion
 
         // region A/B test of new Litho native code.
 
@@ -212,18 +196,10 @@ val lithoFilterPatch = bytecodePatch(
         // Flag was removed in 20.05. It appears a new flag might be used instead (45660109L),
         // but if the flag is forced on then litho filtering still works correctly.
         if (is_19_25_or_greater && !is_20_05_or_greater) {
-            lithoComponentNameUpbFeatureFlagFingerprint.method.apply {
-                // Don't use return early, so the debug patch logs if this was originally on.
-                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN)
-                val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstruction(insertIndex, "const/4 v$register, 0x0")
-            }
+            lithoComponentNameUpbFeatureFlagFingerprint.method.returnLate(false)
         }
 
         // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
-        // If this is enabled, then the litho protobuffer hook will always show an empty buffer
-        // since it's no longer handled by the hooked Java code.
         lithoConverterBufferUpbFeatureFlagFingerprint.let {
             // FIXME: Procool buffer has changed in 20.22, and UPB native code is now always enabled.
             if (is_20_22_or_greater) {

@@ -178,7 +178,7 @@ public final class LithoFilterPatch {
     /**
      * Injection point.
      */
-    public static boolean handleFiltering(@Nullable String lithoIdentifier, StringBuilder pathBuilder) {
+    public static boolean shouldFilter(@Nullable String lithoIdentifier, StringBuilder pathBuilder) {
         try {
             if (pathBuilder.length() == 0) {
                 return false;

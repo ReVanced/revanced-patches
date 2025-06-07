@@ -8,14 +8,6 @@ import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val componentContextParserFingerprint by fingerprint {
-    instructions(
-        string("TreeNode result must be set."),
-        // String changed slightly in 20.03+
-        string("it was removed due to duplicate converter bindings.", partialMatch = true)
-    )
-}
-
 /**
  * Resolves to the class found in [componentContextParserFingerprint].
  * When patching 19.16 this fingerprint matches the same method as [componentContextParserFingerprint].
