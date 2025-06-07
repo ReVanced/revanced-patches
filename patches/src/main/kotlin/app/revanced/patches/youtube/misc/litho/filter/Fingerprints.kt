@@ -8,11 +8,7 @@ import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-/**
- * Resolves to the class found in [componentContextParserFingerprint].
- * When patching 19.16 this fingerprint matches the same method as [componentContextParserFingerprint].
- */
-internal val componentContextSubParserFingerprint by fingerprint {
+internal val componentContextParserFingerprint by fingerprint {
     instructions(
         string("Number of bits must be positive")
     )

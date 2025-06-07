@@ -124,7 +124,7 @@ val lithoFilterPatch = bytecodePatch(
         // if the component is filtered then return an empty component.
 
         // Find the identifier/path fields of the conversion context.
-        val conversionContextIdentifierField = componentContextSubParserFingerprint.match().let {
+        val conversionContextIdentifierField = componentContextParserFingerprint.match().let {
             // Identifier field is loaded just before the string declaration.
             val index = it.method.indexOfFirstInstructionReversedOrThrow(
                 it.instructionMatches.first().index
