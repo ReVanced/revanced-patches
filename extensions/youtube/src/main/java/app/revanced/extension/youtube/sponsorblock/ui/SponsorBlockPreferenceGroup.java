@@ -296,9 +296,9 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                             null, // No EditText.
                             str("revanced_sb_guidelines_popup_open"), // OK button text.
                             () -> openGuidelines(), // OK button action.
-                            () -> {}, // Cancel button action (using empty Runnable for Negative button).
+                            null, // Cancel button action.
                             str("revanced_sb_guidelines_popup_already_read"), // Neutral button text.
-                            null, // No action for Neutral button.
+                            () -> {}, // No action for Neutral button (Dismiss dialog).
                             true // Dismiss dialog when onNeutralClick.
                     );
 
