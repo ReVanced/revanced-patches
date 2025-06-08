@@ -7,8 +7,7 @@ internal val getMobileConfigBoolFingerprint = fingerprint {
     parameters("J")
     returns("Z")
     opcodes(Opcode.RETURN)
-    custom { method, classDef ->
-        method.implementation ?: return@custom false  // unsure if this is necessary
+    custom { _, classDef ->
         classDef.interfaces.contains("Lcom/facebook/mobileconfig/factory/MobileConfigUnsafeContext;")
     }
 }
