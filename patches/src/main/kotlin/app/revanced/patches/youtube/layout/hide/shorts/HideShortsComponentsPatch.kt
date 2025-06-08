@@ -92,6 +92,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                     SwitchPreference("revanced_hide_shorts_upcoming_button"),
                     SwitchPreference("revanced_hide_shorts_green_screen_button"),
                     SwitchPreference("revanced_hide_shorts_hashtag_button"),
+                    SwitchPreference("revanced_hide_shorts_new_posts_button"),
                     SwitchPreference("revanced_hide_shorts_shop_button"),
                     SwitchPreference("revanced_hide_shorts_tagged_products"),
                     SwitchPreference("revanced_hide_shorts_search_suggestions"),

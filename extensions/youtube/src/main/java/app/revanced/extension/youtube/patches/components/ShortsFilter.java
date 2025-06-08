@@ -268,6 +268,10 @@ public final class ShortsFilter extends Filter {
                         "greenscreen_temp"
                 ),
                 new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_NEW_POSTS_BUTTON,
+                        "yt_outline_box_pencil"
+                ),
+                new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_HASHTAG_BUTTON,
                         "yt_outline_hashtag_"
                 )
