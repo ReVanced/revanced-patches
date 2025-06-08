@@ -743,6 +743,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_autoplay_button_title">Hide Autoplay button</string>
             <string name="revanced_hide_autoplay_button_summary_on">Autoplay button is hidden</string>
             <string name="revanced_hide_autoplay_button_summary_off">Autoplay button is shown</string>
+            <string name="revanced_hide_player_control_buttons_background_title">Hide player control buttons background</string>
+            <string name="revanced_hide_player_control_buttons_background_summary_on">Player control buttons background is hidden</string>
+            <string name="revanced_hide_player_control_buttons_background_summary_off">Player control buttons background is shown</string>
         </patch>
         <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
             <string name="revanced_hide_endscreen_cards_title">Hide end screen cards</string>
