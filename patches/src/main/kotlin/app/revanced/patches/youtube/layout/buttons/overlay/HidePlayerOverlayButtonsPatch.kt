@@ -164,7 +164,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
                 }
 
             val freeRegister = findFreeRegister(inflateControlsGroupLayoutStubIndex)
-            val removePlayerControlButtonsBackgroundDescriptor =
+            val hidePlayerControlButtonsBackgroundDescriptor =
                 "$EXTENSION_CLASS_DESCRIPTOR->hidePlayerControlButtonsBackground(Landroid/view/View;)V"
 
             addInstructions(
@@ -173,7 +173,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
                    # Move the inflated layout to a temporary register.
                    # The result of the inflate method is by default not moved to a register after the method is called.
                    move-result-object v$freeRegister
-                   invoke-static { v$freeRegister }, $removePlayerControlButtonsBackgroundDescriptor
+                   invoke-static { v$freeRegister }, $hidePlayerControlButtonsBackgroundDescriptor
                 """
             )
         }
