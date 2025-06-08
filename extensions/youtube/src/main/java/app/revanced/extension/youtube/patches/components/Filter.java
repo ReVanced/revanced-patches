@@ -13,8 +13,8 @@ import java.util.List;
  * and {@link #addPathCallbacks(StringFilterGroup...)}.
  *
  * To filter {@link FilterContentType#PROTOBUFFER}, first add a callback to
- * either an identifier or a path.
- * Then inside {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
+ * either an identifier or a path. Then inside
+ * {@link #isFiltered(String, String, String, byte[], StringFilterGroup, FilterContentType, int)}
  * search for the buffer content using either a {@link ByteArrayFilterGroup} (if searching for 1 pattern)
  * or a {@link ByteArrayFilterGroupList} (if searching for more than 1 pattern).
  *
@@ -40,7 +40,7 @@ abstract class Filter {
     protected final List<StringFilterGroup> pathCallbacks = new ArrayList<>();
 
     /**
-     * Adds callbacks to {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
+     * Adds callbacks to {@link #isFiltered(String, String, String, byte[], StringFilterGroup, FilterContentType, int)}
      * if any of the groups are found.
      */
     protected final void addIdentifierCallbacks(StringFilterGroup... groups) {
@@ -48,7 +48,7 @@ abstract class Filter {
     }
 
     /**
-     * Adds callbacks to {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
+     * Adds callbacks to {@link #isFiltered(String, String, String, byte[], StringFilterGroup, FilterContentType, int)}
      * if any of the groups are found.
      */
     protected final void addPathCallbacks(StringFilterGroup... groups) {
@@ -59,16 +59,16 @@ abstract class Filter {
      * Called after an enabled filter has been matched.
      * Default implementation is to always filter the matched component and log the action.
      * Subclasses can perform additional or different checks if needed.
-     *
      * <p>
      * Method is called off the main thread.
      *
-     * @param matchedGroup The actual filter that matched.
-     * @param contentType  The type of content matched.
-     * @param contentIndex Matched index of the identifier or path.
+     * @param componentType Litho component type that is being created.
+     * @param matchedGroup  The actual filter that matched.
+     * @param contentType   The type of content matched.
+     * @param contentIndex  Matched index of the identifier or path.
      * @return True if the litho component should be filtered out.
      */
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String componentType, @Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         return true;
     }

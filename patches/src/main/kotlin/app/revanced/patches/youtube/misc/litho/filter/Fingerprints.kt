@@ -4,6 +4,7 @@ import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
 import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -16,8 +17,16 @@ internal val componentContextParserFingerprint by fingerprint {
 
 internal val componentCreateFingerprint by fingerprint {
     instructions(
+        opcode(Opcode.RETURN_OBJECT),
         string("Element missing correct type extension"),
         string("Element missing type")
+    )
+}
+
+internal val componentNameFingerprint by fingerprint {
+    instructions(
+        methodCall(returnType = "Ljava/lang/String;", parameters = listOf()),
+        string("Component created null mount content, but mount content must never be null! Component: ")
     )
 }
 

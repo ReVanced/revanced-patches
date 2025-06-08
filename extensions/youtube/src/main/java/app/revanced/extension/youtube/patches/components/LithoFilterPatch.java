@@ -17,12 +17,14 @@ public final class LithoFilterPatch {
      * Simple wrapper to pass the litho parameters through the prefix search.
      */
     private static final class LithoFilterParameters {
+        final String componentType;
         @Nullable
         final String identifier;
         final String path;
         final byte[] protoBuffer;
 
-        LithoFilterParameters(@Nullable String lithoIdentifier, String lithoPath, byte[] protoBuffer) {
+        LithoFilterParameters(String componentType, @Nullable String lithoIdentifier, String lithoPath, byte[] protoBuffer) {
+            this.componentType = componentType;
             this.identifier = lithoIdentifier;
             this.path = lithoPath;
             this.protoBuffer = protoBuffer;
@@ -33,7 +35,9 @@ public final class LithoFilterPatch {
         public String toString() {
             // Estimate the percentage of the buffer that are Strings.
             StringBuilder builder = new StringBuilder(Math.max(100, protoBuffer.length / 2));
-            builder.append( "ID: ");
+            builder.append( "Type: ");
+            builder.append(componentType);
+            builder.append( " ID: ");
             builder.append(identifier);
             builder.append(" Path: ");
             builder.append(path);
@@ -125,15 +129,18 @@ public final class LithoFilterPatch {
                             if (!group.isEnabled()) return false;
 
                             LithoFilterParameters parameters = (LithoFilterParameters) callbackParameter;
-                            final boolean isFiltered = filter.isFiltered(parameters.identifier,
-                                    parameters.path, parameters.protoBuffer, group, type, matchedStartIndex);
+                            final boolean isFiltered = filter.isFiltered(parameters.componentType,
+                                    parameters.identifier, parameters.path, parameters.protoBuffer,
+                                    group, type, matchedStartIndex);
 
                             if (isFiltered && BaseSettings.DEBUG.get()) {
                                 if (type == Filter.FilterContentType.IDENTIFIER) {
                                     Logger.printDebug(() -> "Filtered " + filterSimpleName
+                                            + " type: " + parameters.componentType
                                             + " identifier: " + parameters.identifier);
                                 } else {
                                     Logger.printDebug(() -> "Filtered " + filterSimpleName
+                                            + " type: " + parameters.componentType
                                             + " path: " + parameters.path);
                                 }
                             }
@@ -178,12 +185,8 @@ public final class LithoFilterPatch {
     /**
      * Injection point.
      */
-    public static boolean shouldFilter(@Nullable String lithoIdentifier, StringBuilder pathBuilder) {
+    public static boolean shouldFilter(@Nullable String lithoIdentifier, StringBuilder pathBuilder, String componentName) {
         try {
-            if (pathBuilder.length() == 0) {
-                return false;
-            }
-
             byte[] buffer = bufferThreadLocal.get();
             // Potentially the buffer may have been null or never set up until now.
             // Use an empty buffer so the litho id/path filters still work correctly.
