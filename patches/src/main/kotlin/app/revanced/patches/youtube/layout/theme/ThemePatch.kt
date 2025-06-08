@@ -240,7 +240,7 @@ val themePatch = bytecodePatch(
                 ListPreference(
                     key = "splash_screen_animation_style",
                     summaryKey = null,
-                    tag = "app.revanced.extension.shared.settings.preference.ColorPickerPreference",
+                    tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
                 )
             )
         }

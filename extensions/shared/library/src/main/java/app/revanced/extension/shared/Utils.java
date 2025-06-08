@@ -995,7 +995,6 @@ public class Utils {
 
     /**
      * Sets the dark theme color to be used by the app.
-     * Can be called by the YouTube theme patch to customize the dark theme.
      *
      * @param color The color to set for dark theme in ARGB format.
      */
