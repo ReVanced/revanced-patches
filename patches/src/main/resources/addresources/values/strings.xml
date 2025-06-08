@@ -827,6 +827,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_shorts_green_screen_button_title">Hide Green screen button</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_on">Green screen button is hidden</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_off">Green screen button is shown</string>
+            <string name="revanced_hide_shorts_new_posts_button_title">Hide New posts button</string>
+            <string name="revanced_hide_shorts_new_posts_button_summary_off">New posts button is shown</string>
+            <string name="revanced_hide_shorts_new_posts_button_summary_on">New posts button is hidden</string>
             <string name="revanced_hide_shorts_hashtag_button_title">Hide hashtag button</string>
             <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag button is hidden</string>
             <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag button is shown</string>
