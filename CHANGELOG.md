@@ -1,3 +1,10 @@
+# [5.27.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.4...v5.27.0-dev.5) (2025-06-08)
+
+
+### Features
+
+* **Google Photos:** Add `Enable DCIM folders backup control` patch ([#5138](https://github.com/ReVanced/revanced-patches/issues/5138)) ([328d232](https://github.com/ReVanced/revanced-patches/commit/328d232fe77406fa93a14768fc66e7b998506fba))
+
 # [5.27.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.3...v5.27.0-dev.4) (2025-06-06)
 
 
