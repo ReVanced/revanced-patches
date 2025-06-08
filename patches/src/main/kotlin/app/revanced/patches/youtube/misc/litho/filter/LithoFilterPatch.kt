@@ -18,14 +18,14 @@ import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.insertLiteralOverride
 import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import java.util.logging.Logger
 
 lateinit var addLithoFilter: (String) -> Unit
@@ -150,51 +150,39 @@ val lithoFilterPatch = bytecodePatch(
             it.type == builderMethodDescriptor.returnType
         }.fields.single()
 
-        val componentNameMethod = componentNameFingerprint.let {
-            it.method.getInstruction(
-                it.instructionMatches.first().index
-            ).getReference<MethodReference>()
-        }
-
-        componentCreateFingerprint.let {
-            it.method.apply {
-                val insertIndex = if (is_19_17_or_greater) {
-                   it.instructionMatches.first().index
-                } else {
-                    // 19.16 clobbers p2 so must check at start of the method and not at the return index.
-                    0
-                }
-
-                val componentRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-                val freeRegister = findFreeRegister(insertIndex, componentRegister)
-                val identifierRegister = findFreeRegister(insertIndex, componentRegister, freeRegister)
-                val pathRegister = findFreeRegister(insertIndex, componentRegister, freeRegister, identifierRegister)
-
-                addInstructionsAtControlFlowLabel(
-                    insertIndex,
-                    """
-                        move-object/from16 v$freeRegister, p2
-                        iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
-                        iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
-                        invoke-virtual { v$componentRegister }, $componentNameMethod
-                        move-result-object v$freeRegister
-                        
-                        invoke-static { v$identifierRegister, v$pathRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->shouldFilter(Ljava/lang/String;Ljava/lang/StringBuilder;Ljava/lang/String;)Z
-                        move-result v$freeRegister
-                        if-eqz v$freeRegister, :unfiltered
-                        
-                        # Return an empty component
-                        move-object/from16 v$freeRegister, p1
-                        invoke-static { v$freeRegister }, $builderMethodDescriptor
-                        move-result-object v$freeRegister
-                        iget-object v$freeRegister, v$freeRegister, $emptyComponentField
-                        return-object v$freeRegister
-            
-                        :unfiltered
-                        nop
-                    """
-                )
+        componentCreateFingerprint.method.apply {
+            val insertIndex = if (is_19_17_or_greater) {
+                indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
+            } else {
+                // 19.16 clobbers p2 so must check at start of the method and not at the return index.
+                0
             }
+
+            val freeRegister = findFreeRegister(insertIndex)
+            val identifierRegister = findFreeRegister(insertIndex, freeRegister)
+            val pathRegister = findFreeRegister(insertIndex, freeRegister, identifierRegister)
+
+            addInstructionsAtControlFlowLabel(
+                insertIndex,
+                """
+                    move-object/from16 v$freeRegister, p2
+                    iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
+                    iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
+                    invoke-static { v$identifierRegister, v$pathRegister }, $EXTENSION_CLASS_DESCRIPTOR->shouldFilter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
+                    move-result v$freeRegister
+                    if-eqz v$freeRegister, :unfiltered
+                    
+                    # Return an empty component
+                    move-object/from16 v$freeRegister, p1
+                    invoke-static { v$freeRegister }, $builderMethodDescriptor
+                    move-result-object v$freeRegister
+                    iget-object v$freeRegister, v$freeRegister, $emptyComponentField
+                    return-object v$freeRegister
+        
+                    :unfiltered
+                    nop
+                """
+            )
         }
 
         // endregion

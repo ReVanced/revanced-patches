@@ -146,7 +146,7 @@ final class CustomFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String componentType, @Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // All callbacks are custom filter groups.
         CustomFilterGroup custom = (CustomFilterGroup) matchedGroup;

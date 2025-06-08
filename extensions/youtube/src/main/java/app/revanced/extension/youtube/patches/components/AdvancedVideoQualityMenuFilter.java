@@ -21,7 +21,7 @@ public final class AdvancedVideoQualityMenuFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String componentType, @Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         isVideoQualityMenuVisible = true;
 

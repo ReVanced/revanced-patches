@@ -96,7 +96,7 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String componentType, @Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == videoQualityMenuFooter) {
             return true;

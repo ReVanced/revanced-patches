@@ -96,7 +96,7 @@ final class ButtonsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String componentType, @Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == likeSubscribeGlow) {
             return (path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX) || path.startsWith(COMPACT_CHANNEL_BAR_PATH_PREFIX))
