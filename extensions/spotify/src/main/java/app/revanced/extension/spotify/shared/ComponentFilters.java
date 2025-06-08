@@ -8,6 +8,7 @@ import app.revanced.extension.shared.Utils;
 public final class ComponentFilters {
 
     public interface ComponentFilter {
+        @NonNull
         String getFilterValue();
         String getFilterRepresentation();
         default boolean filterUnavailable() {
@@ -37,8 +38,8 @@ public final class ComponentFilters {
             return resourceId;
         }
 
-        @Override
         @NonNull
+        @Override
         public String getFilterValue() {
             if (stringfiedResourceId == null) {
                 stringfiedResourceId = Integer.toString(getResourceId());
@@ -70,6 +71,7 @@ public final class ComponentFilters {
             this.string = string;
         }
 
+        @NonNull
         @Override
         public String getFilterValue() {
             return string;
