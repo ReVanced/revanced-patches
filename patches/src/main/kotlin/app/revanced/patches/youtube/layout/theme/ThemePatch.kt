@@ -239,7 +239,8 @@ val themePatch = bytecodePatch(
             PreferenceScreen.GENERAL_LAYOUT.addPreferences(
                 ListPreference(
                     key = "splash_screen_animation_style",
-                    summaryKey = null
+                    summaryKey = null,
+                    tag = "app.revanced.extension.shared.settings.preference.ColorPickerPreference",
                 )
             )
         }
