@@ -102,6 +102,7 @@ public class SegmentCategoryListPreference extends ListPreference {
                 radioGroup.addView(radioButton);
             }
             radioGroup.setOnCheckedChangeListener((group, checkedId) -> selectedDialogEntryIndex = checkedId);
+            radioGroup.setPadding(dipToPixels(10), 0, 0, 0);
             contentLayout.addView(radioGroup);
 
             // Inflate the color picker view.
@@ -116,6 +117,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             GridLayout gridLayout = new GridLayout(context);
             gridLayout.setColumnCount(3);
             gridLayout.setRowCount(2);
+            gridLayout.setPadding(dipToPixels(16), 0, 0, 0);
 
             GridLayout.LayoutParams gridParams = new GridLayout.LayoutParams();
             gridParams.rowSpec = GridLayout.spec(0); // First row.

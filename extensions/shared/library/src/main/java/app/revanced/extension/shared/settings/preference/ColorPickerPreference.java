@@ -305,7 +305,7 @@ public class ColorPickerPreference extends EditTextPreference {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        previewParams.setMargins(0, 0, dipToPixels(10), 0);
+        previewParams.setMargins(dipToPixels(15), 0, dipToPixels(10), 0); // text dot has its own indents so 15, instead 16.
         dialogColorPreview.setLayoutParams(previewParams);
         inputLayout.addView(dialogColorPreview);
         updateColorPreview();
