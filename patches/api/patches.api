@@ -1294,7 +1294,7 @@ public final class app/revanced/patches/youtube/layout/panels/popup/PlayerPopupP
 }
 
 public final class app/revanced/patches/youtube/layout/player/background/PlayerControlsBackgroundPatchKt {
-	public static final fun getPlayerControlsBackgroundPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getPlayerControlsBackgroundPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/player/fullscreen/OpenVideosFullscreenKt {
