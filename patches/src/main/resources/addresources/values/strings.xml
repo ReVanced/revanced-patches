@@ -901,6 +901,11 @@ Settings → Playback → Autoplay next video"</string>
             <string name="revanced_hide_player_popup_panels_summary_on">Player popup panels are hidden</string>
             <string name="revanced_hide_player_popup_panels_summary_off">Player popup panels are shown</string>
         </patch>
+        <patch id="layout.player.background.playerControlsBackgroundPatch">
+            <string name="revanced_remove_player_control_buttons_background_title">Remove player control buttons background</string>
+            <string name="revanced_remove_player_control_buttons_background_summary_on">Player control buttons background is hidden</string>
+            <string name="revanced_remove_player_control_buttons_background_summary_off">Player control buttons background is shown</string>
+        </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch">
             <string name="revanced_exit_fullscreen_title">Exit fullscreen mode at end of video</string>
             <string name="revanced_exit_fullscreen_entry_1">Disabled</string>
