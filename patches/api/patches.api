@@ -192,6 +192,10 @@ public final class app/revanced/patches/googlenews/misc/gms/GmsCoreSupportPatchK
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/googlephotos/misc/backup/EnableDCIMFoldersBackupControlPatchKt {
+	public static final fun getEnableDCIMFoldersBackupControlPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/googlephotos/misc/extension/ExtensionPatchKt {
 	public static final fun getExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
