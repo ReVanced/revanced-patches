@@ -371,9 +371,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
             <string name="revanced_hide_comments_create_a_short_button_summary_on">Create a Short button is hidden</string>
             <string name="revanced_hide_comments_create_a_short_button_summary_off">Create a Short button is shown</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide emoji and timestamp buttons</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji and timestamp buttons are hidden</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji and timestamp buttons are shown</string>
+            <string name="revanced_hide_comments_timestamp_button_title">Hide timestamp button</string>
+            <string name="revanced_hide_comments_timestamp_button_summary_on">Timestamp button is hidden</string>
+            <string name="revanced_hide_comments_timestamp_button_summary_off">Timestamp button is shown</string>
             <string name="revanced_hide_comments_preview_comment_title">Hide preview comment</string>
             <string name="revanced_hide_comments_preview_comment_summary_on">Preview comment is hidden</string>
             <string name="revanced_hide_comments_preview_comment_summary_off">Preview comment is shown</string>
@@ -1323,6 +1323,9 @@ Swipe to expand or close"</string>
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
             <string name="revanced_gradient_loading_screen_summary_on">Loading screen will have a gradient background</string>
             <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background</string>
+            <string name="splash_screen_animation_style_title">Splash screen style</string>
+            <string name="splash_screen_animation_style_entry_1">Color</string>
+            <string name="splash_screen_animation_style_entry_2">Black and white</string>
             <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
             <string name="revanced_seekbar_custom_color_summary_on">Custom seekbar color is shown</string>
             <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>

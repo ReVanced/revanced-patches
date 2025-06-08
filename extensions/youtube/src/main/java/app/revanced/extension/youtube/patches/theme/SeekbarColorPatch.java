@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.patches.theme;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.clamp;
+import static app.revanced.extension.youtube.patches.theme.ThemePatch.SplashScreenAnimationStyle;
 
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -173,21 +174,13 @@ public final class SeekbarColorPatch {
      */
     public static void setSplashAnimationLottie(LottieAnimationView view, int resourceId) {
         try {
-            if (!SEEKBAR_CUSTOM_COLOR_ENABLED) {
+            SplashScreenAnimationStyle animationStyle = Settings.SPLASH_SCREEN_ANIMATION_STYLE.get();
+            if (!SEEKBAR_CUSTOM_COLOR_ENABLED
+                    // Black and white animations cannot use color replacements.
+                    || animationStyle == SplashScreenAnimationStyle.FPS_30_BLACK_AND_WHITE
+                    || animationStyle == SplashScreenAnimationStyle.FPS_60_BLACK_AND_WHITE) {
                 view.patch_setAnimation(resourceId);
                 return;
-            }
-
-            //noinspection ConstantConditions
-            if (false) { // Set true to force slow animation for development.
-                final int longAnimation = Utils.getResourceIdentifier(
-                        Utils.isDarkModeEnabled()
-                                ? "startup_animation_5s_30fps_dark"
-                                : "startup_animation_5s_30fps_light",
-                        "raw");
-                if (longAnimation != 0) {
-                    resourceId = longAnimation;
-                }
             }
 
             // Must specify primary key name otherwise the morphing YT logo color is also changed.
@@ -199,21 +192,16 @@ public final class SeekbarColorPatch {
             String replacementAccent = originalKey + getColorStringArray(customSeekbarColorGradient[1]);
 
             String json = loadRawResourceAsString(resourceId);
-            if (json == null) {
-                return; // Should never happen.
-            }
+            String replacement = json
+                    .replace(originalPrimary, replacementPrimary)
+                    .replace(originalAccent, replacementAccent);
 
             if (BaseSettings.DEBUG.get() && (!json.contains(originalPrimary) || !json.contains(originalAccent))) {
-                String jsonFinal = json;
-                Logger.printException(() -> "Could not replace launch animation colors: " + jsonFinal);
+                Logger.printException(() -> "Could not replace splash animation colors: " + json);
             }
 
-            Logger.printDebug(() -> "Replacing Lottie animation JSON");
-            json = json.replace(originalPrimary, replacementPrimary);
-            json = json.replace(originalAccent, replacementAccent);
-
             // cacheKey is not needed since the animation will not be reused.
-            view.patch_setAnimation(new ByteArrayInputStream(json.getBytes()), null);
+            view.patch_setAnimation(new ByteArrayInputStream(replacement.getBytes()), null);
         } catch (Exception ex) {
             Logger.printException(() -> "setSplashAnimationLottie failure", ex);
         }
@@ -234,8 +222,7 @@ public final class SeekbarColorPatch {
              Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8.name()).useDelimiter("\\A")) {
             return scanner.next();
         } catch (IOException e) {
-            Logger.printException(() -> "Could not load resource: " + resourceId);
-            return null;
+            throw new IllegalStateException("Could not load resource: " + resourceId);
         }
     }
 

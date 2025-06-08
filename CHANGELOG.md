@@ -1,3 +1,45 @@
+# [5.27.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.3...v5.27.0-dev.4) (2025-06-06)
+
+
+### Bug Fixes
+
+* **Bandcamp - Remove play limits:** Support latest app version ([#5124](https://github.com/ReVanced/revanced-patches/issues/5124)) ([863e92b](https://github.com/ReVanced/revanced-patches/commit/863e92b20ad6682f10524e475ed18f879048ecae))
+
+# [5.27.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.2...v5.27.0-dev.3) (2025-06-06)
+
+
+### Bug Fixes
+
+* **Spotify:** `Hide Create button` patch failing in edge cases ([#5131](https://github.com/ReVanced/revanced-patches/issues/5131)) ([0923600](https://github.com/ReVanced/revanced-patches/commit/0923600739a126329fc62100b500216860d7005e))
+
+# [5.27.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.1...v5.27.0-dev.2) (2025-06-06)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Remove non-functional Shorts 144p default quality ([3113cd6](https://github.com/ReVanced/revanced-patches/commit/3113cd6d092952c8657454452f34c0ae85358ec9))
+
+# [5.27.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.3...v5.27.0-dev.1) (2025-06-05)
+
+
+### Features
+
+* **YouTube - Theme:** Add option for black and white splash screen animation ([#5119](https://github.com/ReVanced/revanced-patches/issues/5119)) ([42db0c2](https://github.com/ReVanced/revanced-patches/commit/42db0c2e36fefccdbeaa072edcec48b1e05b6270))
+
+## [5.26.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.2...v5.26.1-dev.3) (2025-06-05)
+
+
+### Bug Fixes
+
+* **Spotify:** Prevent hiding all navigation bar buttons ([#5122](https://github.com/ReVanced/revanced-patches/issues/5122)) ([8afbef0](https://github.com/ReVanced/revanced-patches/commit/8afbef01343c1e3e6e7e4a4cec6319aebfa4b11c))
+
+## [5.26.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.26.1-dev.1...v5.26.1-dev.2) (2025-06-05)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Remove broken option 'Hide comments emoji picker' ([#5121](https://github.com/ReVanced/revanced-patches/issues/5121)) ([9a6a639](https://github.com/ReVanced/revanced-patches/commit/9a6a639c4905b00d6dffb0923c839c8e3ae54d0c))
+
 ## [5.26.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.26.0...v5.26.1-dev.1) (2025-06-05)
 
 
