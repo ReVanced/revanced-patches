@@ -34,5 +34,17 @@
             android:paddingTop="3dp"
             android:paddingBottom="3dp"
             android:src="@drawable/quantum_ic_skip_next_white_24" />
+
+        <ImageView
+            android:id="@+id/revanced_sb_undo_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:alpha="0.8"
+            android:contentDescription="@null"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:src="@drawable/revanced_sb_undo"
+            android:visibility="gone" />
     </LinearLayout>
 </merge>

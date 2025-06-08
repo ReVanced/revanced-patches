@@ -28,6 +28,7 @@ public class SponsorBlockViewController {
     private static WeakReference<ViewGroup> youtubeOverlaysLayoutRef = new WeakReference<>(null);
     private static WeakReference<SkipSponsorButton> skipHighlightButtonRef = new WeakReference<>(null);
     private static WeakReference<SkipSponsorButton> skipSponsorButtonRef = new WeakReference<>(null);
+    private static WeakReference<ImageView> undoButtonRef = new WeakReference<>(null); // New field
     private static WeakReference<NewSegmentLayout> newSegmentLayoutRef = new WeakReference<>(null);
     private static boolean canShowViewElements;
     private static boolean newSegmentLayoutVisible;
@@ -89,6 +90,10 @@ public class SponsorBlockViewController {
             skipSponsorButtonRef = new WeakReference<>(Objects.requireNonNull(
                     layout.findViewById(getResourceIdentifier("revanced_sb_skip_sponsor_button", "id"))));
 
+            // Get reference to undo button
+            undoButtonRef = new WeakReference<>(Objects.requireNonNull(
+                    skipSponsorButtonRef.get().getUndoButton()));
+
             NewSegmentLayout newSegmentLayout = Objects.requireNonNull(
                     layout.findViewById(getResourceIdentifier("revanced_sb_new_segment_view", "id")));
             newSegmentLayoutRef = new WeakReference<>(newSegmentLayout);
@@ -106,6 +111,7 @@ public class SponsorBlockViewController {
         hideSkipHighlightButton();
         hideSkipSegmentButton();
         hideNewSegmentLayout();
+        hideUndoSkipButton();
     }
 
     public static void updateLayout() {
@@ -144,6 +150,14 @@ public class SponsorBlockViewController {
     public static void hideSkipSegmentButton() {
         skipSegment = null;
         updateSkipButton(skipSponsorButtonRef.get(), null, false);
+    }
+
+    public static void showUndoSkipButton() {
+        setViewVisibility(undoButtonRef.get(), true);
+    }
+
+    public static void hideUndoSkipButton() {
+        setViewVisibility(undoButtonRef.get(), false);
     }
 
     private static void updateSkipButton(@Nullable SkipSponsorButton button,
@@ -202,6 +216,9 @@ public class SponsorBlockViewController {
             SkipSponsorButton skipSponsorButton = skipSponsorButtonRef.get();
             setSkipButtonMargins(skipSponsorButton, isWatchFullScreen);
             setViewVisibility(skipSponsorButton, skipSegment != null);
+
+            // Hide undo button on player type change
+            setViewVisibility(undoButtonRef.get(), false);
         } catch (Exception ex) {
             Logger.printException(() -> "Player type changed failure", ex);
         }

@@ -35,6 +35,8 @@ public class SkipSponsorButton extends FrameLayout {
     private static final boolean highContrast = false;
     private final LinearLayout skipSponsorBtnContainer;
     private final TextView skipSponsorTextView;
+    private final ImageView skipSponsorButtonIcon; // Existing field, but adding it here for clarity in diff
+    private final ImageView undoButton; // New field
     private final Paint background;
     private final Paint border;
     private SponsorSegment segment;
@@ -70,6 +72,8 @@ public class SkipSponsorButton extends FrameLayout {
         border.setStyle(Paint.Style.STROKE);
 
         skipSponsorTextView = Objects.requireNonNull(findViewById(getResourceIdentifier(context, "revanced_sb_skip_sponsor_button_text", "id")));  // id:skip_ad_button_text;
+        skipSponsorButtonIcon = Objects.requireNonNull(findViewById(getResourceIdentifier(context, "revanced_sb_skip_sponsor_button_icon", "id")));
+        undoButton = Objects.requireNonNull(findViewById(getResourceIdentifier(context, "revanced_sb_undo_button", "id")));
         defaultBottomMargin = getResourceDimensionPixelSize("skip_button_default_bottom_margin");  // dimen:skip_button_default_bottom_margin
         ctaBottomMargin = getResourceDimensionPixelSize("skip_button_cta_bottom_margin");  // dimen:skip_button_cta_bottom_margin
 
@@ -80,6 +84,14 @@ public class SkipSponsorButton extends FrameLayout {
             setVisibility(View.GONE);
             SegmentPlaybackController.onSkipSegmentClicked(segment);
         });
+
+        undoButton.setOnClickListener(v -> {
+            SegmentPlaybackController.undoLastAutoSkip();
+        });
+    }
+
+    public ImageView getUndoButton() {
+        return undoButton;
     }
 
     @Override  // android.view.ViewGroup
