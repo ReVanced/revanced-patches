@@ -25,6 +25,7 @@ public class ThemeHelper {
 
     /**
      * Injection point.
+     * Updates the theme and sets the shared Utils colors.
      */
     @SuppressWarnings("unused")
     public static void setTheme(Enum<?> value) {
@@ -32,7 +33,22 @@ public class ThemeHelper {
         if (themeValue != newOrdinalValue) {
             themeValue = newOrdinalValue;
             Logger.printDebug(() -> "Theme value: " + newOrdinalValue);
+            // Update colors when theme changes.
+            updateThemeColors();
         }
+    }
+
+    /**
+     * Updates theme colors.
+     */
+    private static void updateThemeColors() {
+        // Run on main thread to ensure thread safety for UI-related operations.
+        Utils.runOnMainThreadNowOrLater(() -> {
+            int darkColor = getDarkThemeColor();
+            int lightColor = getLightThemeColor();
+            Utils.setDarkColor(darkColor);
+            Utils.setLightColor(lightColor);
+        });
     }
 
     public static boolean isDarkTheme() {

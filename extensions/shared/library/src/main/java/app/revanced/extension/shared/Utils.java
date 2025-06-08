@@ -73,6 +73,10 @@ public class Utils {
     private static String versionName;
     private static String applicationLabel;
 
+    // Static fields to store theme colors.
+    private static int darkColor = Color.BLACK; // Default dark color.
+    private static int lightColor = Color.WHITE; // Default light color.
+
     private Utils() {
     } // utility class
 
@@ -989,12 +993,50 @@ public class Utils {
         return new float[]{radius, radius, radius, radius, radius, radius, radius, radius};
     }
 
-    // TODO: find a way how to get app theme background.
+    /**
+     * Sets the dark theme color to be used by the app.
+     * Can be called by the YouTube theme patch to customize the dark theme.
+     *
+     * @param color The color to set for dark theme in ARGB format.
+     */
+    public static void setDarkColor(int color) {
+        Logger.printDebug(() -> "Setting dark color: " + getColorHexString(color));
+        darkColor = color;
+    }
+
+    /**
+     * Sets the light theme color to be used by the app.
+     *
+     * @param color The color to set for light theme in ARGB format.
+     */
+    public static void setLightColor(int color) {
+        Logger.printDebug(() -> "Setting light color: " + getColorHexString(color));
+        lightColor = color;
+    }
+
+    /**
+     * Returns the themed dark color.
+     *
+     * @return The dark color in ARGB format.
+     */
+    public static int getDarkColor() {
+        return darkColor;
+    }
+
+    /**
+     * Returns the themed light color.
+     *
+     * @return The light color in ARGB format.
+     */
+    public static int getLightColor() {
+        return lightColor;
+    }
+
     public static int getAppBackground() {
         if (isDarkModeEnabled()) {
-            return getSafeColor("yt_black1", Color.BLACK);
+            return getDarkColor();
         } else {
-            return getSafeColor("yt_white1", Color.WHITE);
+            return getLightColor();
         }
     }
 
@@ -1009,26 +1051,22 @@ public class Utils {
 
     public static int getCancelorNeutralbuttonsBackground() {
         if (isDarkModeEnabled()) {
-            return adjustColorBrightness(getSafeColor("yt_black1", Color.BLACK), 1.10f);
+            return adjustColorBrightness(getDarkColor(), 1.10f);
         } else {
-            return adjustColorBrightness(getSafeColor("yt_white1", Color.WHITE), 0.95f);
+            return adjustColorBrightness(getLightColor(), 0.95f);
         }
     }
 
     public static int getEditTextBackground() {
         if (isDarkModeEnabled()) {
-            return adjustColorBrightness(getSafeColor("yt_black1", Color.BLACK), 1.20f);
+            return adjustColorBrightness(getDarkColor(), 1.20f);
         } else {
-            return adjustColorBrightness(getSafeColor("yt_white1", Color.WHITE), 0.90f);
+            return adjustColorBrightness(getLightColor(), 0.90f);
         }
     }
 
-    public static int getSafeColor(String resourceName, int defaultColor) {
-        try {
-            return getResourceColor(resourceName);
-        } catch (Resources.NotFoundException e) {
-            return defaultColor;
-        }
+    public static String getColorHexString(int color) {
+        return String.format("#%06X", (0x00FFFFFF & color));
     }
 
     /**

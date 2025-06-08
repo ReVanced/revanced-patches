@@ -48,28 +48,6 @@ public class ReVancedAboutPreference extends Preference {
         return text.replace("-", "&#8209;"); // #8209 = non breaking hyphen.
     }
 
-    private static String getColorHexString(int color) {
-        return String.format("#%06X", (0x00FFFFFF & color));
-    }
-
-    protected boolean isDarkModeEnabled() {
-        return Utils.isDarkModeEnabled();
-    }
-
-    /**
-     * Subclasses can override this and provide a themed color.
-     */
-    protected int getLightColor() {
-        return Color.WHITE;
-    }
-
-    /**
-     * Subclasses can override this and provide a themed color.
-     */
-    protected int getDarkColor() {
-        return Color.BLACK;
-    }
-
     /**
      * Apps that do not support bundling resources must override this.
      *
@@ -86,9 +64,9 @@ public class ReVancedAboutPreference extends Preference {
         builder.append("<html>");
         builder.append("<body style=\"text-align: center; padding: 10px;\">");
 
-        final boolean isDarkMode = isDarkModeEnabled();
-        String backgroundColorHex = getColorHexString(isDarkMode ? getDarkColor() : getLightColor());
-        String foregroundColorHex = getColorHexString(isDarkMode ? getLightColor() : getDarkColor());
+        final boolean isDarkMode = Utils.isDarkModeEnabled();
+        String backgroundColorHex = Utils.getColorHexString(isDarkMode ? Utils.getDarkColor() : Utils.getLightColor());
+        String foregroundColorHex = Utils.getColorHexString(isDarkMode ? Utils.getLightColor() : Utils.getDarkColor());
         // Apply light/dark mode colors.
         builder.append(String.format(
                 "<style> body { background-color: %s; color: %s; } a { color: %s; } </style>",
@@ -315,7 +293,7 @@ class AboutLinksRoutes {
             // Do not show an exception toast if the server is down
             final int responseCode = connection.getResponseCode();
             if (responseCode != 200) {
-                Logger.printDebug(() -> "Failed to get social links.  Response code: " + responseCode);
+                Logger.printDebug(() -> "Failed to get social links. Response code: " + responseCode);
                 return NO_CONNECTION_STATIC_LINKS;
             }
 
