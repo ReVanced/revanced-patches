@@ -681,6 +681,9 @@ Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet vide
   <string name="revanced_hide_autoplay_button_title">Fsheh butonin Autoplay</string>
   <string name="revanced_hide_autoplay_button_summary_on">Butoni \"Riprodho automatikisht\" është i fshehur</string>
   <string name="revanced_hide_autoplay_button_summary_off">Butoni \"Riprodho automatikisht\" është i dukshëm</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Fshihni sfondin e butonave të kontrollit të luajtësit</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Sfondi i butonave të kontrollit të luajtësit është i fshehur</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Sfondi i butonave të kontrollit të luajtësit është shfaqur</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Fsheh kartat e ekranit të fundit</string>
@@ -765,6 +768,9 @@ Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet vide
   <string name="revanced_hide_shorts_green_screen_button_title">Fsheh butonin Ekran jeshil</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Butoni \"Ekrani i gjelbër\" është i fshehur</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Butoni \"Ekrani i gjelbër\" është i dukshëm</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Fshih butonin e postimeve të reja</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Butoni i postimeve të reja shfaqet</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Butoni i postimeve të reja është i fshehur</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Fsheh butonin \"Hashtag\"</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Butoni \"Hashtag\" është i fshehur</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Butoni \"Hashtag\" është i dukshëm</string>

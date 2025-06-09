@@ -681,6 +681,9 @@ Chun roghchlár na rian fuaime a thaispeáint, athraigh 'Srutháin físeáin bhr
   <string name="revanced_hide_autoplay_button_title">Folaigh cnaipe an Uathoimh</string>
   <string name="revanced_hide_autoplay_button_summary_on">Tá cnaipe Autoplay i bhfolach</string>
   <string name="revanced_hide_autoplay_button_summary_off">Taispeántar cnaipe Autoplay</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Folaigh cúlra cnaipí rialaithe an tseinnteora</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Tá cúlra cnaipí rialaithe an tseinnteora folaithe</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Taispeántar cúlra cnaipí rialaithe an tseinnteora</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Folaigh cártaí scáileáin deireadh</string>
@@ -765,6 +768,9 @@ Chun roghchlár na rian fuaime a thaispeáint, athraigh 'Srutháin físeáin bhr
   <string name="revanced_hide_shorts_green_screen_button_title">Folaigh cnaipe \'Scáileán glas\'</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tá cnaipe an scáileáin glas i bhfolach</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Taispeántar cnaipe an scáileáin glas</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Folaigh cnaipe na bpostálacha nua</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Taispeántar cnaipe na bpostálacha nua</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Tá cnaipe na bpostálacha nua i bhfolach</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Folaigh an cnaipe hashtag</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Tá cnaipe hashtag i bhfolach</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Taispeántar an cnaipe hashtag</string>

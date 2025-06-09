@@ -679,6 +679,9 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <string name="revanced_hide_autoplay_button_title">Itago ang Autoplay button</string>
   <string name="revanced_hide_autoplay_button_summary_on">Nakatago ang autoplay button</string>
   <string name="revanced_hide_autoplay_button_summary_off">Ang autoplay na button ay ipinapakita</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Itago ang background ng mga button ng kontrol ng player</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Nakatago ang background ng mga button ng kontrol ng player</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Ipinapakita ang background ng mga button ng kontrol ng player</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Itago ang mga end screen card</string>
@@ -763,6 +766,9 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <string name="revanced_hide_shorts_green_screen_button_title">Itago ang Green screen button</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Nakatago ang pindutan ng \"Green screen\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Ipinapakita ang pindutan ng \"Green screen\"</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Itago ang button na Mga bagong post</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Ipinapakita ang button na Mga bagong post</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Nakatago ang button na Mga bagong post</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Itago ang pindutan ng \"Hashtag\"</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Nakatago ang pindutan ng \"Hashtag\"</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Ipinapakita ang pindutan ng \"Hashtag\"</string>
