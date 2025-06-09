@@ -813,6 +813,15 @@ fun MutableMethod.returnEarly(value: Double) {
 }
 
 /**
+ * Overrides the first instruction of a method with a constant String return value.
+ * None of the method code will ever execute.
+ */
+fun MutableMethod.returnEarly(value: String) {
+    check(returnType == "Ljava/lang/String;") { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value, false)
+}
+
+/**
  * Overrides all return statements with a constant `Boolean` value.
  * All method code is executed the same as unpatched.
  *
@@ -908,8 +917,24 @@ fun MutableMethod.returnLate(value: Double) {
     overrideReturnValue(value.toString(), true)
 }
 
+/**
+ * Overrides all return statements with a constant `Double` value.
+ * All method code is executed the same as unpatched.
+ *
+ * @see returnEarly
+ */
+fun MutableMethod.returnLate(value: String) {
+    check(returnType == "Ljava/lang/String;") { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
+
 private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean) {
-    val instructions = when (returnType.first()) {
+    val instructions = if (returnType == "Ljava/lang/String;") {
+        """
+            const-string v0, "value"
+            return-object v0
+        """
+    } else when (returnType.first()) {
         // If return type is an object, always return null.
         'L', '[' -> {
             """

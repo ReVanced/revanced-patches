@@ -26,6 +26,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.forEachChildElement
 import app.revanced.util.insertLiteralOverride
+import app.revanced.util.returnEarly
 import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -248,8 +249,6 @@ val themePatch = bytecodePatch(
             "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setThemeColors()V"
         )
 
-
-
         useGradientLoadingScreenFingerprint.method.insertLiteralOverride(
             GRADIENT_LOADING_SCREEN_AB_CONSTANT,
             "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
@@ -267,15 +266,7 @@ val themePatch = bytecodePatch(
             themeLightColorFingerprint to lightThemeBackgroundColor,
             themeDarkColorFingerprint to darkThemeBackgroundColor,
         ).forEach { (fingerprint, color) ->
-            fingerprint.method.apply {
-                addInstructions(
-                    0,
-                    """
-                        const-string v0, "$color"
-                        return-object v0
-                    """,
-                )
-            }
+            fingerprint.method.returnEarly(color!!)
         }
 
         lithoColorOverrideHook(EXTENSION_CLASS_DESCRIPTOR, "getValue")
