@@ -1,8 +1,8 @@
 package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.requests.Route.Method.GET;
 import static app.revanced.extension.shared.Utils.dipToPixels;
+import static app.revanced.extension.shared.requests.Route.Method.GET;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -10,7 +10,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.net.Uri;
@@ -22,9 +21,9 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -72,7 +71,7 @@ public class ReVancedAboutPreference extends Preference {
         builder.append("<body style=\"text-align: center; padding: 10px;\">");
 
         final boolean isDarkMode = Utils.isDarkModeEnabled();
-        String backgroundColorHex = Utils.getColorHexString(Utils.getAppBackground());
+        String backgroundColorHex = Utils.getColorHexString(Utils.getDialogBackgroundColor());
         String foregroundColorHex = Utils.getColorHexString(Utils.getAppForeground());
         // Apply light/dark mode colors.
         builder.append(String.format(
@@ -215,7 +214,7 @@ class WebViewDialog extends Dialog {
         // Set rounded rectangle background.
         ShapeDrawable mainBackground = new ShapeDrawable(new RoundRectShape(
                 Utils.createCornerRadii(28), null, null));
-        mainBackground.getPaint().setColor(Utils.getAppBackground()); // Dialog background.
+        mainBackground.getPaint().setColor(Utils.getDialogBackgroundColor());
         mainLayout.setBackground(mainBackground);
 
         // Create WebView.

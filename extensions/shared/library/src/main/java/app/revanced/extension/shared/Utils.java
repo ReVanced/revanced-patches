@@ -2,10 +2,8 @@ package app.revanced.extension.shared;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -14,10 +12,9 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.graphics.Typeface;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
-import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -48,22 +45,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import app.revanced.extension.shared.settings.AppLanguage;
-import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.settings.BooleanSetting;
-import app.revanced.extension.shared.settings.preference.ReVancedAboutPreference;
-
 import java.text.Bidi;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
+
+import app.revanced.extension.shared.settings.AppLanguage;
+import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.settings.BooleanSetting;
+import app.revanced.extension.shared.settings.preference.ReVancedAboutPreference;
 
 public class Utils {
 
@@ -73,7 +75,6 @@ public class Utils {
     private static String versionName;
     private static String applicationLabel;
 
-    // Store theme colors.
     private static int darkColor = Color.BLACK; // Default dark color.
     private static int lightColor = Color.WHITE; // Default light color.
 
@@ -225,12 +226,11 @@ public class Utils {
                 return t;
             });
 
-    public static void runOnBackgroundThread(@NonNull Runnable task) {
+    public static void runOnBackgroundThread(Runnable task) {
         backgroundThreadPool.execute(task);
     }
 
-    @NonNull
-    public static <T> Future<T> submitOnBackgroundThread(@NonNull Callable<T> call) {
+    public static <T> Future<T> submitOnBackgroundThread(Callable<T> call) {
         return backgroundThreadPool.submit(call);
     }
 
@@ -253,11 +253,11 @@ public class Utils {
         return meaninglessValue;
     }
 
-    public static boolean containsAny(@NonNull String value, @NonNull String... targets) {
+    public static boolean containsAny(String value, String... targets) {
         return indexOfFirstFound(value, targets) >= 0;
     }
 
-    public static int indexOfFirstFound(@NonNull String value, @NonNull String... targets) {
+    public static int indexOfFirstFound(String value, String... targets) {
         for (String string : targets) {
             if (!string.isEmpty()) {
                 final int indexOf = value.indexOf(string);
@@ -271,36 +271,35 @@ public class Utils {
      * @return zero, if the resource is not found
      */
     @SuppressLint("DiscouragedApi")
-    public static int getResourceIdentifier(@NonNull Context context, @NonNull String resourceIdentifierName, @NonNull String type) {
+    public static int getResourceIdentifier(Context context, String resourceIdentifierName, String type) {
         return context.getResources().getIdentifier(resourceIdentifierName, type, context.getPackageName());
     }
 
     /**
      * @return zero, if the resource is not found
      */
-    public static int getResourceIdentifier(@NonNull String resourceIdentifierName, @NonNull String type) {
+    public static int getResourceIdentifier(String resourceIdentifierName, String type) {
         return getResourceIdentifier(getContext(), resourceIdentifierName, type);
     }
 
-    public static int getResourceInteger(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {
+    public static int getResourceInteger(String resourceIdentifierName) throws Resources.NotFoundException {
         return getContext().getResources().getInteger(getResourceIdentifier(resourceIdentifierName, "integer"));
     }
 
-    @NonNull
-    public static Animation getResourceAnimation(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {
+    public static Animation getResourceAnimation(String resourceIdentifierName) throws Resources.NotFoundException {
         return AnimationUtils.loadAnimation(getContext(), getResourceIdentifier(resourceIdentifierName, "anim"));
     }
 
-    public static int getResourceColor(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {
+    public static int getResourceColor(String resourceIdentifierName) throws Resources.NotFoundException {
         //noinspection deprecation
         return getContext().getResources().getColor(getResourceIdentifier(resourceIdentifierName, "color"));
     }
 
-    public static int getResourceDimensionPixelSize(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {
+    public static int getResourceDimensionPixelSize(String resourceIdentifierName) throws Resources.NotFoundException {
         return getContext().getResources().getDimensionPixelSize(getResourceIdentifier(resourceIdentifierName, "dimen"));
     }
 
-    public static float getResourceDimension(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {
+    public static float getResourceDimension(String resourceIdentifierName) throws Resources.NotFoundException {
         return getContext().getResources().getDimension(getResourceIdentifier(resourceIdentifierName, "dimen"));
     }
 
@@ -313,7 +312,7 @@ public class Utils {
      *
      * @noinspection unchecked
      */
-    public static <R extends View> R getChildViewByResourceName(@NonNull View view, @NonNull String str) {
+    public static <R extends View> R getChildViewByResourceName(View view, String str) {
         var child = view.findViewById(Utils.getResourceIdentifier(str, "id"));
         if (child != null) {
             return (R) child;
@@ -328,8 +327,8 @@ public class Utils {
      * @return The first child view that matches the filter.
      */
     @Nullable
-    public static <T extends View> T getChildView(@NonNull ViewGroup viewGroup, boolean searchRecursively,
-                                                  @NonNull MatchFilter<View> filter) {
+    public static <T extends View> T getChildView(ViewGroup viewGroup, boolean searchRecursively,
+                                                  MatchFilter<View> filter) {
         for (int i = 0, childCount = viewGroup.getChildCount(); i < childCount; i++) {
             View childAt = viewGroup.getChildAt(i);
 
@@ -348,7 +347,7 @@ public class Utils {
     }
 
     @Nullable
-    public static ViewParent getParentView(@NonNull View view, int nthParent) {
+    public static ViewParent getParentView(View view, int nthParent) {
         ViewParent parent = view.getParent();
 
         int currentDepth = 0;
@@ -366,7 +365,7 @@ public class Utils {
         return null;
     }
 
-    public static void restartApp(@NonNull Context context) {
+    public static void restartApp(Context context) {
         String packageName = context.getPackageName();
         Intent intent = Objects.requireNonNull(context.getPackageManager().getLaunchIntentForPackage(packageName));
         Intent mainIntent = Intent.makeRestartActivityTask(intent.getComponent());
@@ -462,7 +461,7 @@ public class Utils {
      *         including any unicode numbers such as Arabic.
      */
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    public static boolean containsNumber(@NonNull CharSequence text) {
+    public static boolean containsNumber(CharSequence text) {
         for (int index = 0, length = text.length(); index < length;) {
             final int codePoint = Character.codePointAt(text, index);
             if (Character.isDigit(codePoint)) {
@@ -553,18 +552,18 @@ public class Utils {
     /**
      * Safe to call from any thread
      */
-    public static void showToastShort(@NonNull String messageToToast) {
+    public static void showToastShort(String messageToToast) {
         showToast(messageToToast, Toast.LENGTH_SHORT);
     }
 
     /**
      * Safe to call from any thread
      */
-    public static void showToastLong(@NonNull String messageToToast) {
+    public static void showToastLong(String messageToToast) {
         showToast(messageToToast, Toast.LENGTH_LONG);
     }
 
-    private static void showToast(@NonNull String messageToToast, int toastDuration) {
+    private static void showToast(String messageToToast, int toastDuration) {
         Objects.requireNonNull(messageToToast);
         runOnMainThreadNowOrLater(() -> {
             Context currentContext = context;
@@ -594,14 +593,14 @@ public class Utils {
      *
      * @see #runOnMainThreadNowOrLater(Runnable)
      */
-    public static void runOnMainThread(@NonNull Runnable runnable) {
+    public static void runOnMainThread(Runnable runnable) {
         runOnMainThreadDelayed(runnable, 0);
     }
 
     /**
      * Automatically logs any exceptions the runnable throws.
      */
-    public static void runOnMainThreadDelayed(@NonNull Runnable runnable, long delayMillis) {
+    public static void runOnMainThreadDelayed(Runnable runnable, long delayMillis) {
         Runnable loggingRunnable = () -> {
             try {
                 runnable.run();
@@ -616,7 +615,7 @@ public class Utils {
      * If called from the main thread, the code is run immediately.<p>
      * If called off the main thread, this is the same as {@link #runOnMainThread(Runnable)}.
      */
-    public static void runOnMainThreadNowOrLater(@NonNull Runnable runnable) {
+    public static void runOnMainThreadNowOrLater(Runnable runnable) {
         if (isCurrentlyOnMainThread()) {
             runnable.run();
         } else {
@@ -720,23 +719,24 @@ public class Utils {
      * Creates a custom dialog with a styled layout, including a title, message, buttons, and an optional EditText.
      * The dialog's appearance adapts to the app's dark mode setting, with rounded corners and customizable button actions.
      *
-     * @param context           The Context used to create the dialog.
-     * @param title             The title text of the dialog.
-     * @param message           The message text of the dialog (supports Spanned for HTML), or null if replaced by EditText.
-     * @param editText          The EditText to include in the dialog, or null if no EditText is needed.
-     * @param okButtonText      The text for the OK button, or null to use the default "OK" string.
-     * @param onOkClick         The action to perform when the OK button is clicked.
-     * @param onCancelClick     The action to perform when the Cancel button is clicked, or null if no Cancel button is needed.
-     * @param neutralButtonText The text for the Neutral button, or null if no Neutral button is needed.
-     * @param onNeutralClick    The action to perform when the Neutral button is clicked, or null if no Neutral button is needed.
-     * @param dismissDialogOnNeutralClick If true, the dialog will be dismissed when the Neutral button is clicked.
-     * @return A Pair containing the Dialog and its main LinearLayout container.
+     * @param context           Context used to create the dialog.
+     * @param title             Title text of the dialog.
+     * @param message           Message text of the dialog (supports Spanned for HTML), or null if replaced by EditText.
+     * @param editText          EditText to include in the dialog, or null if no EditText is needed.
+     * @param okButtonText      OK button text, or null to use the default "OK" string.
+     * @param onOkClick         Action to perform when the OK button is clicked.
+     * @param onCancelClick     Action to perform when the Cancel button is clicked, or null if no Cancel button is needed.
+     * @param neutralButtonText Neutral button text, or null if no Neutral button is needed.
+     * @param onNeutralClick    Action to perform when the Neutral button is clicked, or null if no Neutral button is needed.
+     * @param dismissDialogOnNeutralClick If the dialog should be dismissed when the Neutral button is clicked.
+     * @return The Dialog and its main LinearLayout container.
      */
-    public static Pair<Dialog, LinearLayout> createCustomDialog(Context context,
-            String title, CharSequence message, @Nullable EditText editText,
-            String okButtonText, Runnable onOkClick,
-            Runnable onCancelClick,
-            @Nullable String neutralButtonText, @Nullable Runnable onNeutralClick, boolean dismissDialogOnNeutralClick
+    @SuppressWarnings("ExtractMethodRecommender")
+    public static Pair<Dialog, LinearLayout> createCustomDialog(
+            Context context, String title, CharSequence message, @Nullable EditText editText,
+            String okButtonText, Runnable onOkClick, Runnable onCancelClick,
+            @Nullable String neutralButtonText, @Nullable Runnable onNeutralClick,
+            boolean dismissDialogOnNeutralClick
     ) {
         Logger.printDebug(() -> "Creating custom dialog with title: " + title);
 
@@ -748,17 +748,15 @@ public class Utils {
         mainLayout.setOrientation(LinearLayout.VERTICAL);
 
         // Preset size constants.
-        final int dip4 = dipToPixels(4);
         final int dip8 = dipToPixels(8);
         final int dip16 = dipToPixels(16);
         final int dip28 = dipToPixels(28); // Padding for mainLayout.
-        final int dip36 = dipToPixels(36); // Height for buttons.
 
         mainLayout.setPadding(dip28, dip16, dip28, dip28);
         // Set rounded rectangle background.
         ShapeDrawable mainBackground = new ShapeDrawable(new RoundRectShape(
                 createCornerRadii(28), null, null));
-        mainBackground.getPaint().setColor(getAppBackground()); // Dialog background.
+        mainBackground.getPaint().setColor(getDialogBackgroundColor()); // Dialog background.
         mainLayout.setBackground(mainBackground);
 
         // Title.
@@ -815,9 +813,9 @@ public class Utils {
             );
             editTextParams.setMargins(0, dip8, 0, dip8);
             // Prevent buttons from moving off the screen by fixing the height of the EditText.
-            int maxHeight = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.6);
+            final int maxHeight = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.6);
             editText.setMaxHeight(maxHeight);
-            mainLayout.addView(editText, editText != null ? 1 : mainLayout.getChildCount(), editTextParams);
+            mainLayout.addView(editText, 1, editTextParams);
         }
 
         // Button container.
@@ -898,17 +896,17 @@ public class Utils {
      * The button's background and text colors adapt to the app's dark mode setting. Margins are dynamically
      * adjusted based on the button's role (OK, Cancel, or Neutral) and the presence of other buttons.
      *
-     * @param buttonContainer The LinearLayout container where the button will be added.
-     * @param context         The Context used to create the button and access resources.
-     * @param buttonText      The text displayed on the button.
-     * @param onClick         The Runnable executed when the button is clicked, or null if no action is required.
-     * @param isOkButton      True if this is the OK button, which uses distinct background and text colors.
-     * @param isCancelButton  True if this is the Cancel button, which uses distinct background and text colors.
-     * @param isNeutralButton True if this is a Neutral button or if a Neutral button exists, affecting margin settings.
-     * @param dismissDialog   If true, the dialog will be dismissed when the button is clicked (applies to Neutral button).
+     * @param buttonContainer Container where the button will be added.
+     * @param context         Context to create the button and access resources.
+     * @param buttonText      Button text to display.
+     * @param onClick         Block executed when the button is clicked, or null if no action is required.
+     * @param isOkButton      If this is the OK button, which uses distinct background and text colors.
+     * @param isCancelButton  If this is the Cancel button, which uses distinct background and text colors.
+     * @param isNeutralButton If this is a Neutral button or if a Neutral button exists, affecting margin settings.
+     * @param dismissDialog   If the dialog should be dismissed when the button is clicked (applies to Neutral button).
      * @param dialog          The Dialog to dismiss when the button is clicked.
      */
-    public static void addButton(
+    private static void addButton(
             LinearLayout buttonContainer,
             Context context,
             String buttonText,
@@ -929,8 +927,8 @@ public class Utils {
 
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
         int backgroundColor = isOkButton
-                ? getOkButtonBackground() // Background color for OK button (inversion).
-                : getCancelorNeutralbuttonsBackground(); // Background color for Cancel or Neutral buttons.
+                ? getOkButtonBackgroundColor() // Background color for OK button (inversion).
+                : getCancelOrNeutralButtonBackgroundColor(); // Background color for Cancel or Neutral buttons.
         background.getPaint().setColor(backgroundColor);
         button.setBackground(background);
 
@@ -941,12 +939,12 @@ public class Utils {
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, dipToPixels(36));
         params.weight = 1;
-        // OK Button.
+
         if (isOkButton) {
             // OK on the right - 4dp left margin (next to Cancel), no right margin.
             params.setMargins(dipToPixels(4), 0, 0, 0);
         }
-        // Cancel Button.
+
         if (isCancelButton) {
             if (!isOkButton && !isNeutralButton) {
                 // Only Cancel - no margins.
@@ -959,7 +957,7 @@ public class Utils {
                 params.setMargins(dipToPixels(4), 0, dipToPixels(4), 0);
             }
         }
-        // Neutral Button.
+
         if (isNeutralButton) {
             // Neutral on the left - no left margin, 4dp right margin (next to Cancel).
             params.setMargins(0, 0, dipToPixels(4), 0);
@@ -982,7 +980,7 @@ public class Utils {
     /**
      * Creates an array of corner radii for a rounded rectangle shape.
      *
-     * @param dp The radius in density-independent pixels (dp) to apply to all corners.
+     * @param dp Radius in density-independent pixels (dip) to apply to all corners.
      * @return An array of eight float values representing the corner radii
      * (top-left, top-right, bottom-right, bottom-left).
      */
@@ -992,68 +990,82 @@ public class Utils {
     }
 
     /**
-     * Sets the dark theme color to be used by the app.
+     * Sets the theme dark used by the app.
      */
-    public static void setDarkColor(int color) {
-        Logger.printDebug(() -> "Setting dark color: " + getColorHexString(color));
+    public static void setThemeDarkColor(@ColorInt int color) {
+        Logger.printDebug(() -> "Setting theme dark color: " + getColorHexString(color));
         darkColor = color;
     }
 
     /**
-     * Sets the light theme color to be used by the app.
+     * Sets the theme light color used by the app.
      */
-    public static void setLightColor(int color) {
-        Logger.printDebug(() -> "Setting light color: " + getColorHexString(color));
+    public static void setThemeLightColor(@ColorInt int color) {
+        Logger.printDebug(() -> "Setting theme light color: " + getColorHexString(color));
         lightColor = color;
     }
 
     /**
-     * Returns the themed dark color.
+     * Returns the themed dark color, or {@link Color#BLACK} if no theme was set using
+     * {@link #setThemeDarkColor(int)}.
      */
-    public static int getDarkColor() {
+    @ColorInt
+    public static int getThemeDarkColor() {
         return darkColor;
     }
 
     /**
-     * Returns the themed light color.
+     * Returns the themed light color, or {@link Color#WHITE} if no theme was set using
+     * {@link #setThemeLightColor(int).
      */
-    public static int getLightColor() {
+    @ColorInt
+    public static int getThemeLightColor() {
         return lightColor;
     }
 
-    public static int getAppBackground() {
-        return isDarkModeEnabled()
-                // Lighten the background a little, when using the AMOLED theme dialogs are almost invisible.
-                ? (getDarkColor() == Color.BLACK ? 0xFF0D0D0D : getDarkColor())
-                : getLightColor();
+    @ColorInt
+    public static int getDialogBackgroundColor() {
+        if (isDarkModeEnabled()) {
+            final int darkColor = getThemeDarkColor();
+            return darkColor == Color.BLACK
+                    // Lighten the background a little if using AMOLED dark theme
+                    // as the dialogs are almost invisible.
+                    ? 0xFF0D0D0D
+                    : darkColor;
+        }
+        return getThemeLightColor();
     }
 
+    @ColorInt
     public static int getAppForeground() {
         return isDarkModeEnabled()
-                ? getLightColor()
-                : getDarkColor();
+                ? getThemeLightColor()
+                : getThemeDarkColor();
     }
 
-    public static int getOkButtonBackground() {
+    @ColorInt
+    public static int getOkButtonBackgroundColor() {
         return isDarkModeEnabled()
                 // Must be inverted color.
                 ? Color.WHITE
                 : Color.BLACK;
     }
 
-    public static int getCancelorNeutralbuttonsBackground() {
+    @ColorInt
+    public static int getCancelOrNeutralButtonBackgroundColor() {
         return isDarkModeEnabled()
-                ? adjustColorBrightness(getAppBackground(), 1.10f)
-                : adjustColorBrightness(getLightColor(), 0.95f);
+                ? adjustColorBrightness(getDialogBackgroundColor(), 1.10f)
+                : adjustColorBrightness(getThemeLightColor(), 0.95f);
     }
 
+    @ColorInt
     public static int getEditTextBackground() {
         return isDarkModeEnabled()
-                ? adjustColorBrightness(getAppBackground(), 1.05f)
-                : adjustColorBrightness(getLightColor(), 0.97f);
+                ? adjustColorBrightness(getDialogBackgroundColor(), 1.05f)
+                : adjustColorBrightness(getThemeLightColor(), 0.97f);
     }
 
-    public static String getColorHexString(int color) {
+    public static String getColorHexString(@ColorInt int color) {
         return String.format("#%06X", (0x00FFFFFF & color));
     }
 
@@ -1082,8 +1094,7 @@ public class Utils {
             this.keySuffix = keySuffix;
         }
 
-        @NonNull
-        static Sort fromKey(@Nullable String key, @NonNull Sort defaultSort) {
+        static Sort fromKey(@Nullable String key, Sort defaultSort) {
             if (key != null) {
                 for (Sort sort : values()) {
                     if (key.endsWith(sort.keySuffix)) {
@@ -1199,25 +1210,9 @@ public class Utils {
     }
 
     /**
-     * If {@link Fragment} uses [Android library] rather than [AndroidX library],
-     * the Dialog theme corresponding to [Android library] should be used.
-     * <p>
-     * If not, the following issues will occur:
-     * <a href="https://github.com/ReVanced/revanced-patches/issues/3061">ReVanced/revanced-patches#3061</a>
-     * <p>
-     * To prevent these issues, apply the Dialog theme corresponding to [Android library].
-     */
-    public static void setEditTextDialogTheme(AlertDialog.Builder builder) {
-        final int editTextDialogStyle = getResourceIdentifier(
-                "revanced_edit_text_dialog_style", "style");
-        if (editTextDialogStyle != 0) {
-            builder.getContext().setTheme(editTextDialogStyle);
-        }
-    }
-
-    /**
      * Parse a color resource or hex code to an int representation of the color.
      */
+    @ColorInt
     public static int getColorFromString(String colorString) throws IllegalArgumentException, Resources.NotFoundException {
         if (colorString.startsWith("#")) {
             return Color.parseColor(colorString);
@@ -1251,7 +1246,8 @@ public class Utils {
      *               or values <= 1.0f to darken (e.g., 0.95f for slight darkening).
      * @return The adjusted color in ARGB format.
      */
-    public static int adjustColorBrightness(int color, float factor) {
+    @ColorInt
+    public static int adjustColorBrightness(@ColorInt int color, float factor) {
         final int alpha = Color.alpha(color);
         int red = Color.red(color);
         int green = Color.green(color);

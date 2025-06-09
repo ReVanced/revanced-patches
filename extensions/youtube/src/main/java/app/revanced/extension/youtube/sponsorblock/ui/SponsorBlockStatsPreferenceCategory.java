@@ -196,7 +196,6 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
         updateStatsSelfSaved.run();
 
         preference.setOnPreferenceClickListener(preference1 -> {
-            // Create the custom dialog.
             Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                     preference.getContext(),
                     str("revanced_sb_stats_self_saved_reset_title"), // Title.

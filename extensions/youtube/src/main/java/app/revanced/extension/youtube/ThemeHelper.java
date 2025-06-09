@@ -1,18 +1,10 @@
 package app.revanced.extension.youtube;
 
-import static app.revanced.extension.shared.Utils.clamp;
-
 import android.app.Activity;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.RectF;
 import android.os.Build;
-import android.text.style.ReplacementSpan;
-import android.text.TextPaint;
 import android.view.Window;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
@@ -46,8 +38,8 @@ public class ThemeHelper {
         Utils.runOnMainThreadNowOrLater(() -> {
             int darkColor = getDarkThemeColor();
             int lightColor = getLightThemeColor();
-            Utils.setDarkColor(darkColor);
-            Utils.setLightColor(lightColor);
+            Utils.setThemeDarkColor(darkColor);
+            Utils.setThemeLightColor(lightColor);
         });
     }
 
