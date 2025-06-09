@@ -17,10 +17,9 @@ val disableAdsPatch = bytecodePatch (
         userStateSwitchFingerprint.method.apply {
             val opcodeIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
             val register = getInstruction<OneRegisterInstruction>(opcodeIndex).registerA
-            val insertIndex = opcodeIndex + 1
 
-            addInstructions(
-                insertIndex,
+            addInstruction(
+                opcodeIndex + 1,
                 "const-string v$register, \"ACTIVE\""
             )
         }
