@@ -99,9 +99,9 @@ public class ThemePatch {
         try {
             return Utils.getColorFromString(resourceName);
         } catch (Exception ex) {
-            // User entered an invalid custom theme color.
-            // Normally this should never be reached, and no localized strings are needed.
-            Utils.showToastLong("Invalid custom theme color: " + resourceName);
+            // This code can never be reached since a bad custom color will
+            // fail during resource compilation. So no localized strings are needed here.
+            Logger.printException(() -> "Invalid custom theme color: " + resourceName, ex);
             return defaultColor;
         }
     }

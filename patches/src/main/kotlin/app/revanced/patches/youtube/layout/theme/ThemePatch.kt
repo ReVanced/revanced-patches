@@ -22,7 +22,6 @@ import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.forEachChildElement
 import app.revanced.util.insertLiteralOverride
 import app.revanced.util.returnEarly
@@ -243,7 +242,9 @@ val themePatch = bytecodePatch(
             )
         }
 
-        mainActivityOnCreateFingerprint.method.addInstruction(
+        // FIXME: For unknown reason this change is not applied
+        //        if the shared fingerprint is used here.
+        youTubeMainActivityOnCreateFingerprint.method.addInstruction(
             1,
             "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setThemeColors()V"
         )

@@ -67,9 +67,8 @@ public class ReVancedAboutPreference extends Preference {
         builder.append("<html>");
         builder.append("<body style=\"text-align: center; padding: 10px;\">");
 
-        final boolean isDarkMode = Utils.isDarkModeEnabled();
-        String backgroundColorHex = Utils.getColorHexString(Utils.getDialogBackgroundColor());
         String foregroundColorHex = Utils.getColorHexString(Utils.getAppForegroundColor());
+        String backgroundColorHex = Utils.getColorHexString(Utils.getDialogBackgroundColor());
         // Apply light/dark mode colors.
         builder.append(String.format(
                 "<style> body { background-color: %s; color: %s; } a { color: %s; } </style>",

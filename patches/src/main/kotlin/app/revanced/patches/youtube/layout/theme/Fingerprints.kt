@@ -44,6 +44,14 @@ internal val themeLightColorFingerprint = fingerprint {
     }
 }
 
+internal val youTubeMainActivityOnCreateFingerprint = fingerprint {
+    returns("V")
+    parameters("Landroid/os/Bundle;")
+    custom { method, classDef ->
+        method.name == "onCreate" && classDef.endsWith("/MainActivity;")
+    }
+}
+
 internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
 
 internal val useGradientLoadingScreenFingerprint = fingerprint {

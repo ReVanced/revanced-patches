@@ -80,7 +80,7 @@ public class Utils {
     private static int lightColor = Color.WHITE;
 
     @Nullable
-    private static volatile Boolean isDarkModeEnabled;
+    private static Boolean isDarkModeEnabled;
 
     private Utils() {
     } // utility class
