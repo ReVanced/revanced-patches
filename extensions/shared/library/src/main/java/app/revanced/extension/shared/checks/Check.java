@@ -154,8 +154,26 @@ abstract class Check {
 
                     // Get the button container to access buttons.
                     LinearLayout buttonContainer = (LinearLayout) mainLayout.getChildAt(mainLayout.getChildCount() - 1);
-                    Button openWebsiteButton = (Button) buttonContainer.getChildAt(buttonContainer.getChildCount() - 1);
-                    Button ignoreButton = (Button) buttonContainer.getChildAt(0);
+
+                    Button openWebsiteButton;
+                    Button ignoreButton;
+
+                    // Check if buttons are in a single-row layout (buttonContainer has one child: rowContainer).
+                    if (buttonContainer.getChildCount() == 1 && buttonContainer.getChildAt(0) instanceof LinearLayout) {
+                        LinearLayout rowContainer = (LinearLayout) buttonContainer.getChildAt(0);
+                        // Neutral button is in the first child (neutralContainer).
+                        LinearLayout neutralContainer = (LinearLayout) rowContainer.getChildAt(0);
+                        ignoreButton = (Button) neutralContainer.getChildAt(0);
+                        // OK button is in the last child (okCancelContainer).
+                        LinearLayout okCancelContainer = (LinearLayout) rowContainer.getChildAt(rowContainer.getChildCount() - 1);
+                        openWebsiteButton = (Button) okCancelContainer.getChildAt(0);
+                    } else {
+                        // Multi-row layout: buttons are in separate containers.
+                        LinearLayout okContainer = (LinearLayout) buttonContainer.getChildAt(buttonContainer.getChildCount() - 1);
+                        openWebsiteButton = (Button) okContainer.getChildAt(0);
+                        LinearLayout neutralContainer = (LinearLayout) buttonContainer.getChildAt(0);
+                        ignoreButton = (Button) neutralContainer.getChildAt(0);
+                    }
 
                     // Initially set buttons to INVISIBLE and disabled.
                     openWebsiteButton.setVisibility(View.INVISIBLE);
