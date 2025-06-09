@@ -2,23 +2,30 @@ package app.revanced.extension.spotify.layout.hide.createbutton;
 
 import java.util.List;
 
-import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.Logger;
+import app.revanced.extension.spotify.shared.ComponentFilters.*;
 
 @SuppressWarnings("unused")
 public final class HideCreateButtonPatch {
 
     /**
-     * A list of ids of resources which contain the Create button title.
+     * A list of component filters that match whether a navigation bar item is the Create button.
+     * The main approach used is matching the resource id for the Create button title.
      */
-    private static final List<String> CREATE_BUTTON_TITLE_RES_ID_LIST = List.of(
-            Integer.toString(Utils.getResourceIdentifier("navigationbar_musicappitems_create_title", "string"))
+    private static final List<ComponentFilter> CREATE_BUTTON_COMPONENT_FILTERS = List.of(
+            new ResourceIdComponentFilter("navigationbar_musicappitems_create_title", "string"),
+            // Temporary fallback and fix for APKs merged with AntiSplit-M not having resources properly encoded,
+            // and thus getting the resource identifier for the Create button title always return 0.
+            // FIXME: Remove this once the above issue is no longer relevant.
+            new StringComponentFilter("spotify:create-menu")
     );
 
     /**
-     * The old id of the resource which contained the Create button title. Used in older versions of the app.
+     * A component filter for the old id of the resource which contained the Create button title.
+     * Used in older versions of the app.
      */
-    private static final int OLD_CREATE_BUTTON_TITLE_RES_ID =
-            Utils.getResourceIdentifier("bottom_navigation_bar_create_tab_title", "string");
+    private static final ResourceIdComponentFilter OLD_CREATE_BUTTON_COMPONENT_FILTER =
+            new ResourceIdComponentFilter("bottom_navigation_bar_create_tab_title", "string");
 
     /**
      * Injection point. This method is called on every navigation bar item to check whether it is the Create button.
@@ -31,11 +38,19 @@ public final class HideCreateButtonPatch {
         }
 
         String stringifiedNavigationBarItem = navigationBarItem.toString();
-        boolean isCreateButton = CREATE_BUTTON_TITLE_RES_ID_LIST.stream()
-                .anyMatch(stringifiedNavigationBarItem::contains);
 
-        if (isCreateButton) {
-            return null;
+        for (ComponentFilter componentFilter : CREATE_BUTTON_COMPONENT_FILTERS) {
+            if (componentFilter.filterUnavailable()) {
+                Logger.printInfo(() -> "returnNullIfIsCreateButton: Filter " +
+                        componentFilter.getFilterRepresentation() + " not available, skipping");
+                continue;
+            }
+
+            if (stringifiedNavigationBarItem.contains(componentFilter.getFilterValue())) {
+                Logger.printInfo(() -> "Hiding Create button because the navigation bar item " + navigationBarItem +
+                        " matched the filter " + componentFilter.getFilterRepresentation());
+                return null;
+            }
         }
 
         return navigationBarItem;
@@ -46,6 +61,18 @@ public final class HideCreateButtonPatch {
      * Create button.
      */
     public static boolean isOldCreateButton(int oldNavigationBarItemTitleResId) {
-        return oldNavigationBarItemTitleResId == OLD_CREATE_BUTTON_TITLE_RES_ID;
+        if (OLD_CREATE_BUTTON_COMPONENT_FILTER.filterUnavailable()) {
+            Logger.printInfo(() -> "Skipping hiding old Create button because the resource id for " +
+                    OLD_CREATE_BUTTON_COMPONENT_FILTER.resourceName + " is not available");
+            return false;
+        }
+
+        if (oldNavigationBarItemTitleResId == OLD_CREATE_BUTTON_COMPONENT_FILTER.getResourceId()) {
+            Logger.printInfo(() -> "Hiding old Create button because the navigation bar item title resource id" +
+                    " matched " + OLD_CREATE_BUTTON_COMPONENT_FILTER.getFilterRepresentation());
+            return true;
+        }
+
+        return false;
     }
 }

@@ -311,9 +311,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">ซ่อนปุ่ม \'สร้าง Shorts\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">ปุ่มสร้าง Short ถูกซ่อน</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">ปุ่มสร้าง Short แสดงอยู่</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">ซ่อนอิโมจิและปุ่มประทับเวลา</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">ปุ่มอิโมจิและประทับเวลาถูกซ่อน</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">ปุ่มอิโมจิและประทับเวลาแสดงอยู่</string>
+  <string name="revanced_hide_comments_timestamp_button_title">ซ่อนปุ่มประทับเวลา</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">ปุ่มประทับเวลาถูกซ่อน</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">ปุ่มประทับเวลาแสดงอยู่</string>
   <string name="revanced_hide_comments_preview_comment_title">ซ่อนความคิดเห็นตัวอย่าง</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">ความคิดเห็นตัวอย่างถูกซ่อนไว้</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">ความคิดเห็นตัวอย่างแสดงอยู่</string>
@@ -679,6 +679,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">ซ่อนปุ่มเล่นอัตโนมัติ</string>
   <string name="revanced_hide_autoplay_button_summary_on">ปุ่มเล่นอัตโนมัติซ่อนอยู่</string>
   <string name="revanced_hide_autoplay_button_summary_off">ปุ่มเล่นอัตโนมัติแสดงอยู่</string>
+  <string name="revanced_hide_player_control_buttons_background_title">ซ่อนพื้นหลังปุ่มควบคุมเครื่องเล่น</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">พื้นหลังปุ่มควบคุมเครื่องเล่นถูกซ่อนอยู่</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">พื้นหลังปุ่มควบคุมเครื่องเล่นปรากฏ</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">ซ่อนการ์ดหน้าจอสิ้นสุด</string>
@@ -748,9 +751,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">ซ่อนป้ายกำกับสถานที่</string>
   <string name="revanced_hide_shorts_location_label_summary_on">ป้ายกำกับสถานที่ถูกซ่อน</string>
   <string name="revanced_hide_shorts_location_label_summary_off">ป้ายกำกับสถานที่แสดงอยู่</string>
-  <string name="revanced_hide_shorts_comment_panel_title">ซ่อนแผงความคิดเห็น</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">ส่วนความคิดเห็นถูกซ่อนไว้</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">แผงความคิดเห็นจะแสดง</string>
+  <string name="revanced_hide_shorts_preview_comment_title">ซ่อนความคิดเห็นตัวอย่าง</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">ซ่อนความคิดเห็นตัวอย่างแล้ว</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">แสดงตัวอย่างความคิดเห็น</string>
   <string name="revanced_hide_shorts_save_sound_button_title">ซ่อนปุ่มบันทึกเพลง</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">ปุ่มบันทึกเพลงถูกซ่อน</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">ปุ่มบันทึกเพลงแสดงอยู่</string>
@@ -763,6 +766,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">ซ่อนปุ่มกรีนสกรีน</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">ปุ่ม Green Screen ถูกซ่อน</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">ปุ่ม Green Screen  แสดงขึ้น</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">ซ่อนปุ่มโพสต์ใหม่</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">ปุ่มโพสต์ใหม่แสดงอยู่</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">ปุ่มโพสต์ใหม่ถูกซ่อน</string>
   <string name="revanced_hide_shorts_hashtag_button_title">ซ่อนปุ่ม Hashtag</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">ปุ่ม Hashtag ถูกซ่อน</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">ปุ่ม Hashtag  แสดงขึ้น</string>
@@ -1254,6 +1260,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_gradient_loading_screen_title">เปิดใช้งานหน้าจอโหลดแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_on">หน้าจอโหลดจะมีพื้นหลังแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_off">หน้าจอโหลดจะมีพื้นหลังแบบทึบ</string>
+  <string name="splash_screen_animation_style_title">รูปแบบหน้าจอ Splash</string>
+  <string name="splash_screen_animation_style_entry_1">สี</string>
+  <string name="splash_screen_animation_style_entry_2">ขาวดำ</string>
   <string name="revanced_seekbar_custom_color_title">เปิดใช้งานสีแถบเลื่อนแบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_summary_on">แสดงสีแถบเลื่อนแบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_summary_off">แสดงสีแถบเลื่อนดั้งเดิม</string>

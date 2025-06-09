@@ -311,9 +311,9 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Slėpti \"Kurti Short\" mygtuką</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Mygtukas „Sukurti Short“ paslėptas</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Mygtukas „Sukurti Short“ rodomas</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Slėpti jaustukų ir laiko žymų mygtukus</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Jaustukų ir laiko žymų mygtukai paslėpti</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Jaustukų ir laiko žymų mygtukai rodomi</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Slėpti datos ir laiko žymos mygtuką</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Datos ir laiko žymos mygtukas paslėptas</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Datos ir laiko žymos mygtukas rodomas</string>
   <string name="revanced_hide_comments_preview_comment_title">Slėpti peržiūros komentarą</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Peržiūros komentaras yra paslėptas</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Peržiūros komentaras yra rodomas</string>
@@ -679,6 +679,9 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_autoplay_button_title">Paslėpti mygtuką „Automatinis atkūrimas\"</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automatinio paleidimo mygtukas yra paslėptas</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automatinio paleidimo mygtukas yra rodomas</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Slėpti grotuvo valdymo mygtukų foną</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Grotuvo valdymo mygtukų fonas paslėptas</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Grotuvo valdymo mygtukų fonas rodomas</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Slėpti ekrano pabaigos korteles</string>
@@ -748,9 +751,9 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_shorts_location_label_title">Slėpti vietovės etiketę</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Vietovės etiketė paslėpta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Vietovės etiketė rodoma</string>
-  <string name="revanced_hide_shorts_comment_panel_title">Slėpti komentarų skydelį</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_on">Komentarų skydelis yra paslėptas</string>
-  <string name="revanced_hide_shorts_comment_panel_summary_off">Komentarų skydelis rodomas</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Slėpti peržiūros komentarą</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Komentaro peržiūra paslėpta</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Parodyta komentaro peržiūra</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Paslėpti mygtuką „Įrašyti muziką\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">\"Išsaugoti muziką\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">\"Išsaugoti muziką\" mygtukas rodomas</string>
@@ -763,6 +766,9 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_shorts_green_screen_button_title">Paslėpti mygtuką „Žalias ekranas\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Žaliojo ekrano\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Žaliojo ekrano\" mygtukas rodomas</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Slėpti mygtuką „Nauji įrašai“</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Rodomas mygtukas „Nauji įrašai“</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Paslėptas mygtukas „Nauji įrašai“</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Slėpti grotažymės mygtuką</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Grotažymės mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Grotažymės mygtukas rodomas</string>
@@ -1255,6 +1261,9 @@ Braukite, kad išplėstumėte arba uždarytumėte"</string>
   <string name="revanced_gradient_loading_screen_title">Įgalinti gradientinį įkėlimo ekraną</string>
   <string name="revanced_gradient_loading_screen_summary_on">Įkėlimo ekranas turės gradientinį foną</string>
   <string name="revanced_gradient_loading_screen_summary_off">Įkėlimo ekranas turės tvirtą foną</string>
+  <string name="splash_screen_animation_style_title">Paleidimo ekrano stilius</string>
+  <string name="splash_screen_animation_style_entry_1">Spalva</string>
+  <string name="splash_screen_animation_style_entry_2">Juoda ir balta</string>
   <string name="revanced_seekbar_custom_color_title">Įgalinti pritaikytą slankiklio spalvą</string>
   <string name="revanced_seekbar_custom_color_summary_on">Rodoma pritaikyta slankiklio spalva</string>
   <string name="revanced_seekbar_custom_color_summary_off">Rodoma originali slankiklio spalva</string>

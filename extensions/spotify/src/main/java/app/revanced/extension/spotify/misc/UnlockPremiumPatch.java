@@ -3,14 +3,15 @@ package app.revanced.extension.spotify.misc;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
+import app.revanced.extension.spotify.shared.ComponentFilters.*;
 import com.spotify.home.evopage.homeapi.proto.Section;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 
 @SuppressWarnings("unused")
 public final class UnlockPremiumPatch {
@@ -103,28 +104,21 @@ public final class UnlockPremiumPatch {
     );
 
     /**
-     * A list of lists which contain strings that match whether a context menu item should be filtered out.
-     * The main approach used is matching context menu items by the id of their text resource.
+     * A list of lists which contain component filters that match whether a context menu item should be filtered out.
+     * The main approach used is matching context menu items by the id of their title resource.
      */
-    private static final List<List<String>> FILTERED_CONTEXT_MENU_ITEMS_BY_STRINGS = List.of(
+    private static final List<List<ComponentFilter>> CONTEXT_MENU_ITEMS_COMPONENT_FILTERS = List.of(
             // "Listen to music ad-free" upsell on playlists.
-            List.of(getResourceIdentifier("context_menu_remove_ads")),
+            List.of(new ResourceIdComponentFilter("context_menu_remove_ads", "id")),
             // "Listen to music ad-free" upsell on albums.
-            List.of(getResourceIdentifier("playlist_entity_reinventfree_adsfree_context_menu_item")),
+            List.of(new ResourceIdComponentFilter("playlist_entity_reinventfree_adsfree_context_menu_item", "id")),
             // "Start a Jam" context menu item, but only filtered if the user does not have premium and the item is
             // being used as a Premium upsell (ad).
             List.of(
-                    getResourceIdentifier("group_session_context_menu_start"),
-                    "isPremiumUpsell=true"
+                    new ResourceIdComponentFilter("group_session_context_menu_start", "id"),
+                    new StringComponentFilter("isPremiumUpsell=true")
             )
     );
-
-    /**
-     * Utility method for returning resources ids as strings.
-     */
-    private static String getResourceIdentifier(String resourceIdentifierName) {
-        return Integer.toString(Utils.getResourceIdentifier(resourceIdentifierName, "id"));
-    }
 
     /**
      * Injection point. Override account attributes.
@@ -133,17 +127,33 @@ public final class UnlockPremiumPatch {
         try {
             for (OverrideAttribute override : PREMIUM_OVERRIDES) {
                 Object attribute = attributes.get(override.key);
+
                 if (attribute == null) {
                     if (override.isExpected) {
-                        Logger.printException(() -> "'" + override.key + "' expected but not found");
+                        Logger.printException(() -> "Attribute " + override.key + " expected but not found");
                     }
+                    continue;
+                }
+
+                Object overrideValue = override.overrideValue;
+                Object originalValue;
+                if (IS_SPOTIFY_LEGACY_APP_TARGET) {
+                    originalValue = ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_;
                 } else {
-                    Object overrideValue = override.overrideValue;
-                    if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-                        ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_ = overrideValue;
-                    } else {
-                        ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_ = overrideValue;
-                    }
+                    originalValue = ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_;
+                }
+
+                if (overrideValue == originalValue) {
+                    continue;
+                }
+
+                Logger.printInfo(() -> "Overriding account attribute " + override.key +
+                        " from " + originalValue + " to " + overrideValue);
+
+                if (IS_SPOTIFY_LEGACY_APP_TARGET) {
+                    ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_ = overrideValue;
+                } else {
+                    ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_ = overrideValue;
                 }
             }
         } catch (Exception ex) {
@@ -155,7 +165,13 @@ public final class UnlockPremiumPatch {
      * Injection point. Remove station data from Google Assistant URI.
      */
     public static String removeStationString(String spotifyUriOrUrl) {
-        return spotifyUriOrUrl.replace("spotify:station:", "spotify:");
+        try {
+            Logger.printInfo(() -> "Removing station string from " + spotifyUriOrUrl);
+            return spotifyUriOrUrl.replace("spotify:station:", "spotify:");
+        } catch (Exception ex) {
+            Logger.printException(() -> "removeStationString failure", ex);
+            return spotifyUriOrUrl;
+        }
     }
 
     /**
@@ -164,9 +180,17 @@ public final class UnlockPremiumPatch {
      */
     public static void removeHomeSections(List<Section> sections) {
         try {
-            sections.removeIf(section -> REMOVED_HOME_SECTIONS.contains(section.featureTypeCase_));
+            Iterator<Section> iterator = sections.iterator();
+
+            while (iterator.hasNext()) {
+                Section section = iterator.next();
+                if (REMOVED_HOME_SECTIONS.contains(section.featureTypeCase_)) {
+                    Logger.printInfo(() -> "Removing home section with feature type id " + section.featureTypeCase_);
+                    iterator.remove();
+                }
+            }
         } catch (Exception ex) {
-            Logger.printException(() -> "Remove home sections failure", ex);
+            Logger.printException(() -> "removeHomeSections failure", ex);
         }
     }
 
@@ -179,7 +203,38 @@ public final class UnlockPremiumPatch {
         }
 
         String stringifiedContextMenuItem = contextMenuItem.toString();
-        return FILTERED_CONTEXT_MENU_ITEMS_BY_STRINGS.stream()
-                .anyMatch(filters -> filters.stream().allMatch(stringifiedContextMenuItem::contains));
+
+        for (List<ComponentFilter> componentFilters : CONTEXT_MENU_ITEMS_COMPONENT_FILTERS) {
+            boolean allMatch = true;
+            StringBuilder matchedFilterRepresentations = new StringBuilder();
+
+            for (int i = 0, filterSize = componentFilters.size(); i < filterSize; i++) {
+                ComponentFilter componentFilter = componentFilters.get(i);
+
+                if (componentFilter.filterUnavailable()) {
+                    Logger.printInfo(() -> "isFilteredContextMenuItem: Filter " +
+                            componentFilter.getFilterRepresentation() + " not available, skipping");
+                    continue;
+                }
+
+                if (!stringifiedContextMenuItem.contains(componentFilter.getFilterValue())) {
+                    allMatch = false;
+                    break;
+                }
+
+                matchedFilterRepresentations.append(componentFilter.getFilterRepresentation());
+                if (i < filterSize - 1) {
+                    matchedFilterRepresentations.append(", ");
+                }
+            }
+
+            if (allMatch) {
+                Logger.printInfo(() -> "Filtering context menu item " + stringifiedContextMenuItem +
+                        " because the following filters matched: " + matchedFilterRepresentations);
+                return true;
+            }
+        }
+
+        return false;
     }
 }

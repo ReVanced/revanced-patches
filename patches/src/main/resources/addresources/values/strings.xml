@@ -371,9 +371,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
             <string name="revanced_hide_comments_create_a_short_button_summary_on">Create a Short button is hidden</string>
             <string name="revanced_hide_comments_create_a_short_button_summary_off">Create a Short button is shown</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide emoji and timestamp buttons</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji and timestamp buttons are hidden</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji and timestamp buttons are shown</string>
+            <string name="revanced_hide_comments_timestamp_button_title">Hide timestamp button</string>
+            <string name="revanced_hide_comments_timestamp_button_summary_on">Timestamp button is hidden</string>
+            <string name="revanced_hide_comments_timestamp_button_summary_off">Timestamp button is shown</string>
             <string name="revanced_hide_comments_preview_comment_title">Hide preview comment</string>
             <string name="revanced_hide_comments_preview_comment_summary_on">Preview comment is hidden</string>
             <string name="revanced_hide_comments_preview_comment_summary_off">Preview comment is shown</string>
@@ -743,6 +743,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_autoplay_button_title">Hide Autoplay button</string>
             <string name="revanced_hide_autoplay_button_summary_on">Autoplay button is hidden</string>
             <string name="revanced_hide_autoplay_button_summary_off">Autoplay button is shown</string>
+            <string name="revanced_hide_player_control_buttons_background_title">Hide player control buttons background</string>
+            <string name="revanced_hide_player_control_buttons_background_summary_on">Player control buttons background is hidden</string>
+            <string name="revanced_hide_player_control_buttons_background_summary_off">Player control buttons background is shown</string>
         </patch>
         <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
             <string name="revanced_hide_endscreen_cards_title">Hide end screen cards</string>
@@ -812,9 +815,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_shorts_location_label_title">Hide location label</string>
             <string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden</string>
             <string name="revanced_hide_shorts_location_label_summary_off">Location label is shown</string>
-            <string name="revanced_hide_shorts_comment_panel_title">Hide Comment panel</string>
-            <string name="revanced_hide_shorts_comment_panel_summary_on">Comment panel is hidden</string>
-            <string name="revanced_hide_shorts_comment_panel_summary_off">Comment panel is shown</string>
+            <string name="revanced_hide_shorts_preview_comment_title">Hide preview comment</string>
+            <string name="revanced_hide_shorts_preview_comment_summary_on">Preview comment is hidden</string>
+            <string name="revanced_hide_shorts_preview_comment_summary_off">Preview comment is shown</string>
             <string name="revanced_hide_shorts_save_sound_button_title">Hide Save music button</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music button is hidden</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music button is shown</string>
@@ -827,6 +830,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_shorts_green_screen_button_title">Hide Green screen button</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_on">Green screen button is hidden</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_off">Green screen button is shown</string>
+            <string name="revanced_hide_shorts_new_posts_button_title">Hide New posts button</string>
+            <string name="revanced_hide_shorts_new_posts_button_summary_off">New posts button is shown</string>
+            <string name="revanced_hide_shorts_new_posts_button_summary_on">New posts button is hidden</string>
             <string name="revanced_hide_shorts_hashtag_button_title">Hide hashtag button</string>
             <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag button is hidden</string>
             <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag button is shown</string>
@@ -1323,6 +1329,9 @@ Swipe to expand or close"</string>
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
             <string name="revanced_gradient_loading_screen_summary_on">Loading screen will have a gradient background</string>
             <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background</string>
+            <string name="splash_screen_animation_style_title">Splash screen style</string>
+            <string name="splash_screen_animation_style_entry_1">Color</string>
+            <string name="splash_screen_animation_style_entry_2">Black and white</string>
             <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
             <string name="revanced_seekbar_custom_color_summary_on">Custom seekbar color is shown</string>
             <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>

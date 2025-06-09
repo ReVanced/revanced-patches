@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.layout.buttons.overlay
 
 import app.revanced.patcher.fingerprint
 import app.revanced.util.containsLiteralInstruction
+import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val playerControlsPreviousNextOverlayTouchFingerprint = fingerprint {
@@ -19,4 +20,11 @@ internal val mediaRouteButtonFingerprint = fingerprint {
     custom { methodDef, _ ->
         methodDef.definingClass.endsWith("/MediaRouteButton;") && methodDef.name == "setVisibility"
     }
+}
+
+internal val inflateControlsGroupLayoutStubFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters()
+    returns("V")
+    literal { controlsButtonGroupLayoutStub }
 }
