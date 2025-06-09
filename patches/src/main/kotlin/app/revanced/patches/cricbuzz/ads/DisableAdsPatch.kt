@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 val disableAdsPatch = bytecodePatch (
     "Hide ads",
 ) {
-    compatibleWith("com.cricbuzz.android" ("6.23.02"))
+    compatibleWith("com.cricbuzz.android"("6.23.02"))
 
     execute {
         userStateSwitchFingerprint.method.apply {
