@@ -183,7 +183,7 @@ val settingsPatch = bytecodePatch(
             icon = "@drawable/revanced_settings_screen_00_about",
             layout = "@layout/preference_with_icon",
             summaryKey = null,
-            tag = "app.revanced.extension.youtube.settings.preference.ReVancedYouTubeAboutPreference",
+            tag = "app.revanced.extension.shared.settings.preference.ReVancedAboutPreference",
             selectable = true,
         )
 
