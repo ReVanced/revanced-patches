@@ -30,6 +30,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceListItem"
-            android:textColor="?ytTextPrimary" />
+            android:textColor="?android:textColorPrimary" />
 
 </LinearLayout>
