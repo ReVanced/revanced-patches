@@ -2,20 +2,27 @@ package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.requests.Route.Method.GET;
+import static app.revanced.extension.shared.Utils.dipToPixels;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.Preference;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.Window;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -65,15 +72,8 @@ public class ReVancedAboutPreference extends Preference {
         builder.append("<body style=\"text-align: center; padding: 10px;\">");
 
         final boolean isDarkMode = Utils.isDarkModeEnabled();
-        String backgroundColorHex = Utils.getColorHexString(
-                isDarkMode
-                // Lighten the background a little, when using the AMOLED theme dialogs are almost invisible.
-                ? Utils.getDarkColor() == Color.BLACK
-                    ? 0xFF0D0D0D
-                    : Utils.getDarkColor()
-                : Utils.getLightColor()
-        );
-        String foregroundColorHex = Utils.getColorHexString(isDarkMode ? Utils.getLightColor() : Utils.getDarkColor());
+        String backgroundColorHex = Utils.getColorHexString(Utils.getAppBackground());
+        String foregroundColorHex = Utils.getColorHexString(Utils.getAppForeground());
         // Apply light/dark mode colors.
         builder.append(String.format(
                 "<style> body { background-color: %s; color: %s; } a { color: %s; } </style>",
@@ -205,14 +205,46 @@ class WebViewDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
 
+        // Create main layout.
+        LinearLayout mainLayout = new LinearLayout(getContext());
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
+
+        mainLayout.setPadding(dipToPixels(10), dipToPixels(10), dipToPixels(10), dipToPixels(10));
+        // Set rounded rectangle background.
+        ShapeDrawable mainBackground = new ShapeDrawable(new RoundRectShape(
+                Utils.createCornerRadii(28), null, null));
+        mainBackground.getPaint().setColor(Utils.getAppBackground()); // Dialog background.
+        mainLayout.setBackground(mainBackground);
+
+        // Create WebView.
         WebView webView = new WebView(getContext());
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new OpenLinksExternallyWebClient());
         webView.loadDataWithBaseURL(null, htmlContent, "text/html", "utf-8", null);
 
-        setContentView(webView);
+        // Add WebView to layout.
+        mainLayout.addView(webView);
+
+        setContentView(mainLayout);
+
+        // Set dialog window attributes
+        Window window = getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams params = window.getAttributes();
+            params.gravity = Gravity.CENTER;
+            int portraitWidth = (int) (getContext().getResources().getDisplayMetrics().widthPixels * 0.9);
+            if (getContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                portraitWidth = (int) Math.min(
+                        portraitWidth,
+                        getContext().getResources().getDisplayMetrics().heightPixels * 0.9);
+            }
+            params.width = portraitWidth;
+            params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            window.setAttributes(params);
+            window.setBackgroundDrawable(null); // Remove default dialog background
+        }
     }
 
     private class OpenLinksExternallyWebClient extends WebViewClient {

@@ -767,7 +767,7 @@ public class Utils {
             titleView.setText(title);
             titleView.setTypeface(Typeface.DEFAULT_BOLD);
             titleView.setTextSize(18);
-            titleView.setTextColor(isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
+            titleView.setTextColor(getAppForeground());
             titleView.setPadding(0, 0, 0, dip8);
             titleView.setGravity(Gravity.CENTER);
             // Set layout parameters to match parent width and wrap content height.
@@ -784,7 +784,7 @@ public class Utils {
             TextView messageView = new TextView(context);
             messageView.setText(message); // Supports Spanned (HTML).
             messageView.setTextSize(16);
-            messageView.setTextColor(isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
+            messageView.setTextColor(getAppForeground());
             messageView.setPadding(0, dip8, 0, dip16);
             // Enable HTML link clicking if the message contains links.
             if (message instanceof Spanned) {
@@ -801,7 +801,7 @@ public class Utils {
                 parent.removeView(editText);
             }
             // Style the EditText to match the dialog theme.
-            editText.setTextColor(isDarkModeEnabled() ? Color.WHITE : Color.BLACK);
+            editText.setTextColor(getAppForeground());
             editText.setBackgroundColor(isDarkModeEnabled() ? Color.BLACK : Color.WHITE);
             editText.setPadding(dip8, dip8, dip8, dip8);
             ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
@@ -1026,6 +1026,12 @@ public class Utils {
                 // Lighten the background a little, when using the AMOLED theme dialogs are almost invisible.
                 ? (getDarkColor() == Color.BLACK ? 0xFF0D0D0D : getDarkColor())
                 : getLightColor();
+    }
+
+    public static int getAppForeground() {
+        return isDarkModeEnabled()
+                ? getLightColor()
+                : getDarkColor();
     }
 
     public static int getOkButtonBackground() {
