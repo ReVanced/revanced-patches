@@ -43,16 +43,16 @@ public class SortedListPreference extends ListPreference {
     /**
      * Custom ArrayAdapter to handle checkmark visibility.
      */
-    public static class ListPreferenceArrayAdapter extends ArrayAdapter<CharSequence> {
+    private static class ListPreferenceArrayAdapter extends ArrayAdapter<CharSequence> {
         private static class SubViewDataContainer {
             ImageView checkIcon;
             View placeholder;
             TextView itemText;
         }
 
-        private final CharSequence[] entryValues;
-        private String selectedValue;
-        private final int layoutResourceId;
+        final int layoutResourceId;
+        final CharSequence[] entryValues;
+        String selectedValue;
 
         public ListPreferenceArrayAdapter(Context context, int resource, CharSequence[] entries,
                                           CharSequence[] entryValues, String selectedValue) {
@@ -99,30 +99,12 @@ public class SortedListPreference extends ListPreference {
         }
     }
 
-
-    /**
-     * Sets the current selected value in the ListView.
-     */
-    public static void setCheckedListView(ListPreference preference, ListView listView) {
-        String currentValue = preference.getValue();
-        if (currentValue != null) {
-            CharSequence[] entryValues = preference.getEntryValues();
-            for (int i = 0, length = entryValues.length; i < length; i++) {
-                if (currentValue.equals(entryValues[i].toString())) {
-                    listView.setItemChecked(i, true);
-                    listView.setSelection(i);
-                    return;
-                }
-            }
-        }
-    }
-
     /**
      * Sorts the current list entries.
      *
      * @param firstEntriesToPreserve The number of entries to preserve in their original position,
-     *                               or a negative value not sort any entries and leave them as
-     *                               they current are.
+     *                               or a negative value to not sort and leave entries
+     *                               as they current are.
      */
     public void sortEntryAndValues(int firstEntriesToPreserve) {
         CharSequence[] entries = getEntries();
@@ -182,14 +164,6 @@ public class SortedListPreference extends ListPreference {
         super.setEntryValues(sortedEntryValues);
     }
 
-    /**
-     * @return The number of first entries to leave exactly where they are, and do not sort them.
-     *         A negative value indicates do not sort any entries.
-     */
-    protected int getFirstEntriesToPreserve() {
-        return 1;
-    }
-
     public SortedListPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
@@ -214,6 +188,14 @@ public class SortedListPreference extends ListPreference {
         sortEntryAndValues(getFirstEntriesToPreserve());
     }
 
+    /**
+     * @return The number of first entries to leave exactly where they are, and do not sort them.
+     *         A negative value indicates do not sort any entries.
+     */
+    protected int getFirstEntriesToPreserve() {
+        return 1;
+    }
+
     @Override
     protected void showDialog(Bundle state) {
         // Create ListView.
@@ -231,7 +213,18 @@ public class SortedListPreference extends ListPreference {
         );
         listView.setAdapter(adapter);
 
-        setCheckedListView(this, listView);
+        // Set checked item.
+        String currentValue = getValue();
+        if (currentValue != null) {
+            CharSequence[] entryValues = getEntryValues();
+            for (int i = 0, length = entryValues.length; i < length; i++) {
+                if (currentValue.equals(entryValues[i].toString())) {
+                    listView.setItemChecked(i, true);
+                    listView.setSelection(i);
+                    break;
+                }
+            }
+        }
 
         // Create the custom dialog without OK button.
         Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
@@ -255,7 +248,8 @@ public class SortedListPreference extends ListPreference {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        listViewParams.setMargins(0, dipToPixels(8), 0, dipToPixels(8));
+        final int marginHorizontal = dipToPixels(8);
+        listViewParams.setMargins(0, marginHorizontal, 0, marginHorizontal);
         listViewParams.height = (int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.6);
         mainLayout.addView(listView, mainLayout.getChildCount() - 1, listViewParams);
 
