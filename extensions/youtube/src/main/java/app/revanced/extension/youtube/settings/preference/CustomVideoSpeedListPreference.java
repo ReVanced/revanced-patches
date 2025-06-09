@@ -5,7 +5,7 @@ import static app.revanced.extension.shared.StringRef.sf;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import app.revanced.extension.shared.settings.preference.SortedListPreference;
+import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -14,7 +14,7 @@ import app.revanced.extension.youtube.settings.Settings;
  * Custom video speeds used by {@link CustomPlaybackSpeedPatch}.
  */
 @SuppressWarnings({"unused", "deprecation"})
-public final class CustomVideoSpeedListPreference extends SortedListPreference {
+public final class CustomVideoSpeedListPreference extends CustomDialogListPreference {
 
     /**
      * Initialize a settings preference list with the available playback speeds.
@@ -61,8 +61,4 @@ public final class CustomVideoSpeedListPreference extends SortedListPreference {
         super(context);
     }
 
-    @Override
-    protected int getFirstEntriesToPreserve() {
-        return -1; // Do not sort.
-    }
 }
