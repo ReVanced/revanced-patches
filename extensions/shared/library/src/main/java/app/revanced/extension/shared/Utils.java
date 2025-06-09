@@ -772,6 +772,7 @@ public class Utils {
         mainLayout.setOrientation(LinearLayout.VERTICAL);
 
         // Preset size constants.
+        final int dip4 = dipToPixels(4);
         final int dip8 = dipToPixels(8);
         final int dip16 = dipToPixels(16);
         final int dip28 = dipToPixels(28); // Padding for mainLayout.
@@ -872,7 +873,7 @@ public class Utils {
                     dialog
             );
             LinearLayout.LayoutParams neutralParams = (LinearLayout.LayoutParams) neutralButton.getLayoutParams();
-            neutralParams.setMargins(0, dipToPixels(4), 0, dipToPixels(4));
+            neutralParams.setMargins(0, dip4, 0, dip4);
             neutralButton.setLayoutParams(neutralParams);
             neutralContainer.addView(neutralButton);
             buttons.add(neutralButton);
@@ -897,7 +898,7 @@ public class Utils {
                     dialog
             );
             LinearLayout.LayoutParams cancelParams = (LinearLayout.LayoutParams) cancelButton.getLayoutParams();
-            cancelParams.setMargins(0, dipToPixels(4), 0, dipToPixels(4));
+            cancelParams.setMargins(0, dip4, 0, dip4);
             cancelButton.setLayoutParams(cancelParams);
             cancelContainer.addView(cancelButton);
             buttons.add(cancelButton);
@@ -922,7 +923,7 @@ public class Utils {
                     dialog
             );
             LinearLayout.LayoutParams okParams = (LinearLayout.LayoutParams) okButton.getLayoutParams();
-            okParams.setMargins(0, dipToPixels(4), 0, dipToPixels(4));
+            okParams.setMargins(0, dip4, 0, dip4);
             okButton.setLayoutParams(okParams);
             okContainer.addView(okButton);
             buttons.add(okButton);
@@ -934,7 +935,7 @@ public class Utils {
         // Check if buttons fit in one row.
         int totalWidth = 0;
         for (Integer width : buttonWidths) {
-            totalWidth += width + dipToPixels(8); // Include margins.
+            totalWidth += width + dip8; // Include margins.
         }
         int screenWidth = context.getResources().getDisplayMetrics().widthPixels;
 
@@ -960,7 +961,7 @@ public class Utils {
                 }
                 // Update margins for Neutral button in single row.
                 LinearLayout.LayoutParams neutralParams = (LinearLayout.LayoutParams) neutralButton.getLayoutParams();
-                neutralParams.setMargins(0, dipToPixels(4), dipToPixels(4), dipToPixels(4));
+                neutralParams.setMargins(0, dip4, dip4, dip4);
                 neutralButton.setLayoutParams(neutralParams);
                 neutralContainer.addView(neutralButton);
                 rowContainer.addView(neutralContainer);
@@ -985,13 +986,13 @@ public class Utils {
                 LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) button.getLayoutParams();
                 if (i == buttons.size() - 1 && onOkClick != null) {
                     // OK button: left 4, right 0.
-                    params.setMargins(dipToPixels(4), dipToPixels(4), 0, dipToPixels(4));
+                    params.setMargins(dip4, dip4, 0, dip4);
                 } else if (neutralButtonText == null && onNeutralClick == null && buttons.size() == 2) {
                     // Cancel button in Cancel+OK case: left 0, right 4.
-                    params.setMargins(0, dipToPixels(4), dipToPixels(4), dipToPixels(4));
+                    params.setMargins(0, dip4, dip4, dip4);
                 } else {
                     // Cancel button in other cases.
-                    params.setMargins(dipToPixels(4), dipToPixels(4), dipToPixels(4), dipToPixels(4));
+                    params.setMargins(dip4, dip4, dip4, dip4);
                 }
                 button.setLayoutParams(params);
                 okCancelContainer.addView(button);
@@ -1002,7 +1003,7 @@ public class Utils {
             // Single button case: margins 0 left and right.
             Button singleButton = buttons.get(0);
             LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) singleButton.getLayoutParams();
-            params.setMargins(0, dipToPixels(4), 0, dipToPixels(4));
+            params.setMargins(0, dip4, 0, dip4);
             singleButton.setLayoutParams(params);
         }
 
@@ -1082,14 +1083,16 @@ public class Utils {
                 : (isOkButton ? Color.WHITE : Color.BLACK));
 
         // Set internal padding.
-        button.setPadding(dipToPixels(16), 0, dipToPixels(16), 0);
+        final int dip16 = dipToPixels(16);
+        button.setPadding(dip16, 0, dip16, 0);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 dipToPixels(36)
         );
         // Default margins, will be overridden.
-        params.setMargins(dipToPixels(4), dipToPixels(4), dipToPixels(4), dipToPixels(4));
+        final int dip4 = dipToPixels(4);
+        params.setMargins(dip4, dip4, dip4, dip4);
         button.setLayoutParams(params);
 
         button.setOnClickListener(v -> {

@@ -1,22 +1,21 @@
 package app.revanced.extension.youtube.sponsorblock.ui;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RoundRectShape;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.*;
+import android.preference.EditTextPreference;
+import android.preference.Preference;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceGroup;
+import android.preference.SwitchPreference;
 import android.text.Html;
 import android.text.InputType;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -25,7 +24,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;

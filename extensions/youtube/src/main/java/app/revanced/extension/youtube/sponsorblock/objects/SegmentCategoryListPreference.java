@@ -88,7 +88,8 @@ public class SegmentCategoryListPreference extends ListPreference {
             // Create the main layout for the dialog content.
             LinearLayout contentLayout = new LinearLayout(context);
             contentLayout.setOrientation(LinearLayout.VERTICAL);
-            contentLayout.setPadding(0, 0, 0, dipToPixels(10));
+            final int dip10 = dipToPixels(10);
+            contentLayout.setPadding(0, 0, 0, dip10);
 
             // Add behavior selection radio buttons.
             RadioGroup radioGroup = new RadioGroup(context);
@@ -102,7 +103,7 @@ public class SegmentCategoryListPreference extends ListPreference {
                 radioGroup.addView(radioButton);
             }
             radioGroup.setOnCheckedChangeListener((group, checkedId) -> selectedDialogEntryIndex = checkedId);
-            radioGroup.setPadding(dipToPixels(10), 0, 0, 0);
+            radioGroup.setPadding(dip10, 0, 0, 0);
             contentLayout.addView(radioGroup);
 
             // Inflate the color picker view.
@@ -130,7 +131,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             gridParams = new GridLayout.LayoutParams();
             gridParams.rowSpec = GridLayout.spec(0); // First row.
             gridParams.columnSpec = GridLayout.spec(1); // Second column.
-            gridParams.setMargins(0, 0, dipToPixels(10), 0);
+            gridParams.setMargins(0, 0, dip10, 0);
             dialogColorDotView = new TextView(context);
             dialogColorDotView.setLayoutParams(gridParams);
             gridLayout.addView(dialogColorDotView);

@@ -9,7 +9,6 @@ import static app.revanced.extension.youtube.patches.announcements.requests.Anno
 import android.app.Activity;
 import android.app.Dialog;
 import android.text.Html;
-import android.text.method.LinkMovementMethod;
 import android.util.Pair;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -142,11 +141,12 @@ public final class AnnouncementsPatch {
                     LinearLayout mainLayout = dialogPair.second;
 
                     // Set the icon for the title TextView
-                    for (int i = 0; i < mainLayout.getChildCount(); i++) {
+                    for (int i = 0, childCould = mainLayout.getChildCount(); i < childCould; i++) {
                         View child = mainLayout.getChildAt(i);
-                        if (child instanceof TextView && finalTitle.equals(((TextView) child).getText())) {
-                            ((TextView) child).setCompoundDrawablesWithIntrinsicBounds(finalLevel.icon, 0, 0, 0);
-                            ((TextView) child).setCompoundDrawablePadding(dipToPixels(8));
+                        if (child instanceof TextView childTextView && finalTitle.equals(childTextView.getText().toString())) {
+                            childTextView.setCompoundDrawablesWithIntrinsicBounds(
+                                    finalLevel.icon, 0, 0, 0);
+                            childTextView.setCompoundDrawablePadding(dipToPixels(8));
                         }
                     }
 
