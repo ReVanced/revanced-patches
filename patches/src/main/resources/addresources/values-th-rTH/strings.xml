@@ -679,6 +679,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">ซ่อนปุ่มเล่นอัตโนมัติ</string>
   <string name="revanced_hide_autoplay_button_summary_on">ปุ่มเล่นอัตโนมัติซ่อนอยู่</string>
   <string name="revanced_hide_autoplay_button_summary_off">ปุ่มเล่นอัตโนมัติแสดงอยู่</string>
+  <string name="revanced_hide_player_control_buttons_background_title">ซ่อนพื้นหลังปุ่มควบคุมเครื่องเล่น</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">พื้นหลังปุ่มควบคุมเครื่องเล่นถูกซ่อนอยู่</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">พื้นหลังปุ่มควบคุมเครื่องเล่นปรากฏ</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">ซ่อนการ์ดหน้าจอสิ้นสุด</string>
@@ -763,6 +766,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">ซ่อนปุ่มกรีนสกรีน</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">ปุ่ม Green Screen ถูกซ่อน</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">ปุ่ม Green Screen  แสดงขึ้น</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">ซ่อนปุ่มโพสต์ใหม่</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">ปุ่มโพสต์ใหม่แสดงอยู่</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">ปุ่มโพสต์ใหม่ถูกซ่อน</string>
   <string name="revanced_hide_shorts_hashtag_button_title">ซ่อนปุ่ม Hashtag</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">ปุ่ม Hashtag ถูกซ่อน</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">ปุ่ม Hashtag  แสดงขึ้น</string>
