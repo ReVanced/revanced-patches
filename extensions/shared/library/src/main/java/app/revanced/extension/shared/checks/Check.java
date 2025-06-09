@@ -176,7 +176,7 @@ abstract class Check {
                 Utils.verifyOnMainThread();
 
                 if (secondsRemaining > 0) {
-                    if (secondsRemaining == SECONDS_BEFORE_SHOWING_WEBSITE_BUTTON) {
+                    if (secondsRemaining - SECONDS_BEFORE_SHOWING_WEBSITE_BUTTON <= 0) {
                         openWebsiteButton.setVisibility(View.VISIBLE);
                         openWebsiteButton.setEnabled(true);
                     }
