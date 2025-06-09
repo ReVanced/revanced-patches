@@ -821,7 +821,7 @@ public class Utils {
 
         // Button container.
         LinearLayout buttonContainer = new LinearLayout(context);
-        buttonContainer.setOrientation(LinearLayout.HORIZONTAL);
+        buttonContainer.setOrientation(LinearLayout.VERTICAL); // Default to vertical to allow wrapping.
         LinearLayout.LayoutParams buttonContainerParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -830,43 +830,80 @@ public class Utils {
         buttonContainer.setLayoutParams(buttonContainerParams);
         buttonContainer.setGravity(Gravity.CENTER);
 
+        // List to store buttons for width calculation.
+        List<Button> buttons = new ArrayList<>();
+        List<String> buttonTexts = new ArrayList<>();
+        List<Runnable> buttonActions = new ArrayList<>();
+        List<Boolean> buttonDismissFlags = new ArrayList<>();
+        List<Boolean> isOkButtonFlags = new ArrayList<>();
+        List<Boolean> isCancelButtonFlags = new ArrayList<>();
+        List<Boolean> isNeutralButtonFlags = new ArrayList<>();
+
+        // Collect buttons to add.
         if (neutralButtonText != null && onNeutralClick != null) {
-            addButton(
-                    buttonContainer,
-                    context,
-                    neutralButtonText,
-                    onNeutralClick,
-                    false,
-                    false,
-                    true,
-                    dismissDialogOnNeutralClick,
-                    dialog);
+            buttonTexts.add(neutralButtonText);
+            buttonActions.add(onNeutralClick);
+            buttonDismissFlags.add(dismissDialogOnNeutralClick);
+            isOkButtonFlags.add(false);
+            isCancelButtonFlags.add(false);
+            isNeutralButtonFlags.add(true);
         }
 
         if (onCancelClick != null) {
-            addButton(
-                    buttonContainer,
-                    context,
-                    context.getString(android.R.string.cancel),
-                    onCancelClick,
-                    false,
-                    true,
-                    false,
-                    true,
-                    dialog);
+            buttonTexts.add(context.getString(android.R.string.cancel));
+            buttonActions.add(onCancelClick);
+            buttonDismissFlags.add(true);
+            isOkButtonFlags.add(false);
+            isCancelButtonFlags.add(true);
+            isNeutralButtonFlags.add(false);
         }
 
         if (onOkClick != null) {
+            buttonTexts.add(okButtonText != null ? okButtonText : context.getString(android.R.string.ok));
+            buttonActions.add(onOkClick);
+            buttonDismissFlags.add(true);
+            isOkButtonFlags.add(true);
+            isCancelButtonFlags.add(false);
+            isNeutralButtonFlags.add(false);
+        }
+
+        // Calculate total button width and check if they fit horizontally.
+        float totalWidth = 0;
+        final int dip4 = dipToPixels(4);
+        // Account for dialog padding.
+        final int availableWidth = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.9) - dip28 * 2;
+
+        for (String text : buttonTexts) {
+            Button tempButton = new Button(context);
+            tempButton.setText(text);
+            tempButton.setTextSize(14);
+            tempButton.setPadding(dip8, 0, dip8, 0);
+            tempButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+            totalWidth += tempButton.getMeasuredWidth() + dip4 * 2; // Include margins.
+            buttons.add(tempButton);
+        }
+
+        // If buttons fit horizontally, use horizontal layout with equal weights.
+        if (totalWidth <= availableWidth && !buttons.isEmpty()) {
+            buttonContainer.setOrientation(LinearLayout.HORIZONTAL);
+            buttonContainer.setGravity(Gravity.CENTER);
+        }
+
+        // Add buttons to the container.
+        for (int i = 0; i < buttons.size(); i++) {
             addButton(
                     buttonContainer,
                     context,
-                    okButtonText != null ? okButtonText : context.getString(android.R.string.ok),
-                    onOkClick,
-                    true,
-                    false,
-                    false,
-                    true,
-                    dialog);
+                    buttonTexts.get(i),
+                    buttonActions.get(i),
+                    isOkButtonFlags.get(i),
+                    isCancelButtonFlags.get(i),
+                    isNeutralButtonFlags.get(i),
+                    buttonDismissFlags.get(i),
+                    dialog,
+                    buttonContainer.getOrientation() == LinearLayout.HORIZONTAL,
+                    buttons.size()
+            );
         }
 
         mainLayout.addView(buttonContainer);
@@ -899,8 +936,9 @@ public class Utils {
 
     /**
      * Adds a styled button to a dialog's button container with customizable text, click behavior, and appearance.
-     * The button's background and text colors adapt to the app's dark mode setting. Margins are dynamically
-     * adjusted based on the button's role (OK, Cancel, or Neutral) and the presence of other buttons.
+     * The button's background and text colors adapt to the app's dark mode setting. Width and margins are dynamically
+     * adjusted based on the button's text content and layout orientation. In horizontal layout, buttons stretch
+     * proportionally to fill the container width.
      *
      * @param buttonContainer Container where the button will be added.
      * @param context         Context to create the button and access resources.
@@ -908,9 +946,11 @@ public class Utils {
      * @param onClick         Block executed when the button is clicked, or null if no action is required.
      * @param isOkButton      If this is the OK button, which uses distinct background and text colors.
      * @param isCancelButton  If this is the Cancel button, which uses distinct background and text colors.
-     * @param isNeutralButton If this is a Neutral button or if a Neutral button exists, affecting margin settings.
-     * @param dismissDialog   If the dialog should be dismissed when the button is clicked (applies to Neutral button).
+     * @param isNeutralButton If this is a Neutral button, affecting margin settings.
+     * @param dismissDialog   If the dialog should be dismissed when the button is clicked.
      * @param dialog          The Dialog to dismiss when the button is clicked.
+     * @param isHorizontalLayout If the button container is using a horizontal layout.
+     * @param totalButtons    Total number of buttons in the container.
      */
     private static void addButton(
             LinearLayout buttonContainer,
@@ -921,7 +961,9 @@ public class Utils {
             boolean isCancelButton,
             boolean isNeutralButton,
             boolean dismissDialog,
-            Dialog dialog) {
+            Dialog dialog,
+            boolean isHorizontalLayout,
+            int totalButtons) {
 
         Button button = new Button(context, null, 0);
         button.setText(buttonText);
@@ -941,32 +983,41 @@ public class Utils {
         button.setTextColor(isDarkModeEnabled()
                 ? (isOkButton ? Color.BLACK : Color.WHITE)
                 : (isOkButton ? Color.WHITE : Color.BLACK));
-        button.setPadding(0, 0, 0, 0);
+        button.setPadding(dipToPixels(8), 0, dipToPixels(8), 0);
 
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, dipToPixels(36));
-        params.weight = 1;
+        LinearLayout.LayoutParams params;
+        final int dip4 = dipToPixels(4);
+        if (isHorizontalLayout) {
+            params = new LinearLayout.LayoutParams(
+                    0, // Width set to 0 for equal weight distribution.
+                    dipToPixels(36)
+            );
+            params.weight = 1; // Equal weight to stretch proportionally.
 
-        if (isOkButton) {
-            // OK on the right - 4dp left margin (next to Cancel), no right margin.
-            params.setMargins(dipToPixels(4), 0, 0, 0);
-        }
-
-        if (isCancelButton) {
-            if (!isOkButton && !isNeutralButton) {
-                // Only Cancel - no margins.
-                params.setMargins(0, 0, 0, 0);
-            } else if (isOkButton && !isNeutralButton) {
-                // Only OK and Cancel - Cancel is on the left, 0dp left margin, 4dp right margin.
-                params.setMargins(0, 0, dipToPixels(4), 0);
-            } else {
-                // Cancel in the middle - 4dp margins on both sides.
-                params.setMargins(dipToPixels(4), 0, dipToPixels(4), 0);
+            // Adjust margins based on button position.
+            if (totalButtons == 1) {
+                params.setMargins(0, 0, 0, 0); // Single button: no margins.
+            } else if (totalButtons == 2) {
+                if (isNeutralButton || isCancelButton) {
+                    params.setMargins(0, 0, dip4, 0); // Left button in pair: margin right 4.
+                } else if (isOkButton) {
+                    params.setMargins(dip4, 0, 0, 0); // Right button in pair: margin left 4.
+                }
+            } else if (totalButtons == 3) {
+                if (isNeutralButton) {
+                    params.setMargins(0, 0, dip4, 0); // Neutral (left): margin right 4.
+                } else if (isCancelButton) {
+                    params.setMargins(dip4, 0, dip4, 0); // Cancel (middle): margin left and right 4.
+                } else if (isOkButton) {
+                    params.setMargins(dip4, 0, 0, 0); // OK (right): margin left 4.
+                }
             }
-        }
-
-        if (isNeutralButton) {
-            // Neutral on the left - no left margin, 4dp right margin (next to Cancel).
-            params.setMargins(0, 0, dipToPixels(4), 0);
+        } else {
+            params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    dipToPixels(36)
+            );
+            params.setMargins(0, dip4, 0, dip4); // Vertical layout: margins between buttons.
         }
 
         button.setLayoutParams(params);

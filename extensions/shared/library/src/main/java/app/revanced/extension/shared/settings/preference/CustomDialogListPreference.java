@@ -152,14 +152,32 @@ public class CustomDialogListPreference extends ListPreference {
         Dialog dialog = dialogPair.first;
         LinearLayout mainLayout = dialogPair.second;
 
-        // Add ListView to the main layout.
+        // Measure content height before adding ListView to layout.
+        // Otherwise, the ListView will push the buttons off the screen.
+        int totalHeight = 0;
+        int widthSpec = View.MeasureSpec.makeMeasureSpec(
+                getContext().getResources().getDisplayMetrics().widthPixels,
+                View.MeasureSpec.AT_MOST
+        );
+        int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+
+        for (int i = 0; i < adapter.getCount(); i++) {
+            View listItem = adapter.getView(i, null, listView);
+            listItem.measure(widthSpec, heightSpec);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        // Cap the height at maxHeight.
+        int maxHeight = (int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.6);
+        int finalHeight = Math.min(totalHeight, maxHeight);
+
+        // Add ListView to the main layout with calculated height.
         LinearLayout.LayoutParams listViewParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
+                finalHeight // Use calculated height directly.
         );
-        final int verticalMargin = dipToPixels(8);
-        listViewParams.setMargins(0, verticalMargin, 0, verticalMargin);
-        listViewParams.height = (int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.6);
+        final int marginHorizontal = dipToPixels(8);
+        listViewParams.setMargins(0, marginHorizontal, 0, marginHorizontal);
         mainLayout.addView(listView, mainLayout.getChildCount() - 1, listViewParams);
 
         // Handle item click to select value and dismiss dialog.
