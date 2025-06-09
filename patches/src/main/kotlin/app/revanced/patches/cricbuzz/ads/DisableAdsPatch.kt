@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
 val disableAdsPatch = bytecodePatch (
-    "Hide ads",
+    name = "Hide ads",
 ) {
     compatibleWith("com.cricbuzz.android"("6.23.02"))
 
