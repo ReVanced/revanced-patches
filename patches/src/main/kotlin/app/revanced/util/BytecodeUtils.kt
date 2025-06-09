@@ -742,16 +742,22 @@ private const val RETURN_TYPE_MISMATCH = "Mismatch between override type and Met
  *
  * For methods that return an object or any array type, calling this method with `false`
  * will force the method to return a `null` value.
+ *
+ * @see returnLate
  */
 fun MutableMethod.returnEarly(value: Boolean = false) {
     val returnType = returnType.first()
-    check(returnType == 'Z' || (!value && (returnType in setOf('V', 'L', '[')))) { RETURN_TYPE_MISMATCH }
+    check(returnType == 'Z' || (!value && (returnType == 'V' || returnType == 'L' || returnType != '['))) {
+        RETURN_TYPE_MISMATCH
+    }
     overrideReturnValue(value.toHexString(), false)
 }
 
 /**
  * Overrides the first instruction of a method with a constant `Byte` return value.
  * None of the method code will ever execute.
+ *
+ * @see returnLate
  */
 fun MutableMethod.returnEarly(value: Byte) {
     check(returnType.first() == 'B') { RETURN_TYPE_MISMATCH }
@@ -761,6 +767,8 @@ fun MutableMethod.returnEarly(value: Byte) {
 /**
  * Overrides the first instruction of a method with a constant `Short` return value.
  * None of the method code will ever execute.
+ *
+ * @see returnLate
  */
 fun MutableMethod.returnEarly(value: Short) {
     check(returnType.first() == 'S') { RETURN_TYPE_MISMATCH }
@@ -770,6 +778,8 @@ fun MutableMethod.returnEarly(value: Short) {
 /**
  * Overrides the first instruction of a method with a constant `Char` return value.
  * None of the method code will ever execute.
+ *
+ * @see returnLate
  */
 fun MutableMethod.returnEarly(value: Char) {
     check(returnType.first() == 'C') { RETURN_TYPE_MISMATCH }
@@ -779,6 +789,8 @@ fun MutableMethod.returnEarly(value: Char) {
 /**
  * Overrides the first instruction of a method with a constant `Int` return value.
  * None of the method code will ever execute.
+ *
+ * @see returnLate
  */
 fun MutableMethod.returnEarly(value: Int) {
     check(returnType.first() == 'I') { RETURN_TYPE_MISMATCH }
@@ -788,6 +800,8 @@ fun MutableMethod.returnEarly(value: Int) {
 /**
  * Overrides the first instruction of a method with a constant `Long` return value.
  * None of the method code will ever execute.
+ *
+ * @see returnLate
  */
 fun MutableMethod.returnEarly(value: Long) {
     check(returnType.first() == 'J') { RETURN_TYPE_MISMATCH }
@@ -797,6 +811,8 @@ fun MutableMethod.returnEarly(value: Long) {
 /**
  * Overrides the first instruction of a method with a constant `Float` return value.
  * None of the method code will ever execute.
+ *
+ * @see returnLate
  */
 fun MutableMethod.returnEarly(value: Float) {
     check(returnType.first() == 'F') { RETURN_TYPE_MISMATCH }
@@ -806,6 +822,8 @@ fun MutableMethod.returnEarly(value: Float) {
 /**
  * Overrides the first instruction of a method with a constant `Double` return value.
  * None of the method code will ever execute.
+ *
+ * @see returnLate
  */
 fun MutableMethod.returnEarly(value: Double) {
     check(returnType.first() == 'J') { RETURN_TYPE_MISMATCH }
@@ -815,9 +833,16 @@ fun MutableMethod.returnEarly(value: Double) {
 /**
  * Overrides the first instruction of a method with a constant String return value.
  * None of the method code will ever execute.
+ *
+ * Target method must have return type
+ * Ljava/lang/String; or Ljava/lang/CharSequence;
+ *
+ * @see returnLate
  */
 fun MutableMethod.returnEarly(value: String) {
-    check(returnType == "Ljava/lang/String;") { RETURN_TYPE_MISMATCH }
+    check(returnType == "Ljava/lang/String;" || returnType == "Ljava/lang/CharSequence;") {
+        RETURN_TYPE_MISMATCH
+    }
     overrideReturnValue(value, false)
 }
 
@@ -835,7 +860,9 @@ fun MutableMethod.returnLate(value: Boolean) {
     if (returnType == 'V') {
         error("Cannot return late for Method of void type")
     }
-    check(returnType == 'Z' || (!value && returnType in setOf('L', '['))) { RETURN_TYPE_MISMATCH }
+    check(returnType == 'Z' || (!value && (returnType == 'L' || returnType == '['))) {
+        RETURN_TYPE_MISMATCH
+    }
 
     overrideReturnValue(value.toHexString(), true)
 }
@@ -918,20 +945,25 @@ fun MutableMethod.returnLate(value: Double) {
 }
 
 /**
- * Overrides all return statements with a constant `Double` value.
+ * Overrides all return statements with a constant String value.
  * All method code is executed the same as unpatched.
+ *
+ * Target method must have return type
+ * Ljava/lang/String; or Ljava/lang/CharSequence;
  *
  * @see returnEarly
  */
 fun MutableMethod.returnLate(value: String) {
-    check(returnType == "Ljava/lang/String;") { RETURN_TYPE_MISMATCH }
-    overrideReturnValue(value.toString(), true)
+    check(returnType == "Ljava/lang/String;" || returnType == "Ljava/lang/CharSequence;") {
+        RETURN_TYPE_MISMATCH
+    }
+    overrideReturnValue(value, true)
 }
 
 private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean) {
-    val instructions = if (returnType == "Ljava/lang/String;") {
+    val instructions = if (returnType == "Ljava/lang/String;" || returnType == "Ljava/lang/CharSequence;" ) {
         """
-            const-string v0, "value"
+            const-string v0, "$value"
             return-object v0
         """
     } else when (returnType.first()) {
