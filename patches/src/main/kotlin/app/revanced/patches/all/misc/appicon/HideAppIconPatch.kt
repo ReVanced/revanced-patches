@@ -1,9 +1,10 @@
 package app.revanced.patches.all.misc.appicon
 
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.util.asSequence
 import app.revanced.util.childElementsSequence
-import org.w3c.dom.Element
 import java.util.logging.Logger
+import org.w3c.dom.Element
 
 @Suppress("unused")
 val hideAppIconPatch = resourcePatch(
@@ -16,9 +17,7 @@ val hideAppIconPatch = resourcePatch(
             var changed = false
 
             val intentFilters = document.getElementsByTagName("intent-filter")
-            for (i in 0 until intentFilters.length) {
-                val node = intentFilters.item(i) as? Element ?: continue
-
+            for (node in intentFilters.asSequence().filterIsInstance<Element>()) {
                 var hasMainAction = false
                 var launcherCategory: Element? = null
 
