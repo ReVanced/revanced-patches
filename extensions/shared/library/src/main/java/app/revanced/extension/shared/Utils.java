@@ -1022,36 +1022,29 @@ public class Utils {
     }
 
     public static int getAppBackground() {
-        if (isDarkModeEnabled()) {
-            return getDarkColor();
-        } else {
-            return getLightColor();
-        }
+        return isDarkModeEnabled()
+                // Lighten the background a little, when using the AMOLED theme dialogs are almost invisible.
+                ? (getDarkColor() == Color.BLACK ? 0xFF0D0D0D : getDarkColor())
+                : getLightColor();
     }
 
     public static int getOkButtonBackground() {
-        if (isDarkModeEnabled()) {
-            // Must be inverted color.
-            return Color.WHITE;
-        } else {
-            return Color.BLACK;
-        }
+        return isDarkModeEnabled()
+                // Must be inverted color.
+                ? Color.WHITE
+                : Color.BLACK;
     }
 
     public static int getCancelorNeutralbuttonsBackground() {
-        if (isDarkModeEnabled()) {
-            return adjustColorBrightness(getDarkColor(), 1.10f);
-        } else {
-            return adjustColorBrightness(getLightColor(), 0.95f);
-        }
+        return isDarkModeEnabled()
+                ? adjustColorBrightness(getDarkColor(), 1.10f)
+                : adjustColorBrightness(getLightColor(), 0.95f);
     }
 
     public static int getEditTextBackground() {
-        if (isDarkModeEnabled()) {
-            return adjustColorBrightness(getDarkColor(), 1.20f);
-        } else {
-            return adjustColorBrightness(getLightColor(), 0.90f);
-        }
+        return isDarkModeEnabled()
+                ? adjustColorBrightness(getDarkColor(), 1.20f)
+                : adjustColorBrightness(getLightColor(), 0.90f);
     }
 
     public static String getColorHexString(int color) {

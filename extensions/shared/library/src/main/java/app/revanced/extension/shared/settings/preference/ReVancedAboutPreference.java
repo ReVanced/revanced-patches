@@ -65,7 +65,14 @@ public class ReVancedAboutPreference extends Preference {
         builder.append("<body style=\"text-align: center; padding: 10px;\">");
 
         final boolean isDarkMode = Utils.isDarkModeEnabled();
-        String backgroundColorHex = Utils.getColorHexString(isDarkMode ? Utils.getDarkColor() : Utils.getLightColor());
+        String backgroundColorHex = Utils.getColorHexString(
+                isDarkMode
+                // Lighten the background a little, when using the AMOLED theme dialogs are almost invisible.
+                ? Utils.getDarkColor() == Color.BLACK
+                    ? 0xFF0D0D0D
+                    : Utils.getDarkColor()
+                : Utils.getLightColor()
+        );
         String foregroundColorHex = Utils.getColorHexString(isDarkMode ? Utils.getLightColor() : Utils.getDarkColor());
         // Apply light/dark mode colors.
         builder.append(String.format(
