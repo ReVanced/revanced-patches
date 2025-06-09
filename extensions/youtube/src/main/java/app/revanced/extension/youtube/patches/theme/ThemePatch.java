@@ -2,6 +2,9 @@ package app.revanced.extension.youtube.patches.theme;
 
 import static app.revanced.extension.youtube.patches.theme.ThemePatch.SplashScreenAnimationStyle.styleFromOrdinal;
 
+import android.graphics.Color;
+
+import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
@@ -63,6 +66,46 @@ public class ThemePatch {
     private static final int BLACK_COLOR = Utils.getResourceColor("yt_black1");
 
     private static final boolean GRADIENT_LOADING_SCREEN_ENABLED = Settings.GRADIENT_LOADING_SCREEN.get();
+
+    /**
+     * Injection point.
+     * Updates the theme and sets theme's colors.
+     */
+    @SuppressWarnings("unused")
+    public static void setThemeColors() {
+        Utils.setThemeLightColor(getThemeColor(lightThemeResourceName(), Color.WHITE));
+        Utils.setThemeDarkColor(getThemeColor(darkThemeResourceName(), Color.BLACK));
+    }
+
+    /**
+     * Injection point.
+     */
+    @SuppressWarnings("SameReturnValue")
+    private static String lightThemeResourceName() {
+        // Value is changed by Theme patch, if included.
+        return "@color/yt_white1";
+    }
+
+    /**
+     * Injection point.
+     */
+    @SuppressWarnings("SameReturnValue")
+    private static String darkThemeResourceName() {
+        // Value is changed by Theme patch, if included.
+        return "@color/yt_black3";
+    }
+
+    @ColorInt
+    private static int getThemeColor(String resourceName, int defaultColor) {
+        try {
+            return Utils.getColorFromString(resourceName);
+        } catch (Exception ex) {
+            // User entered an invalid custom theme color.
+            // Normally this should never be reached, and no localized strings are needed.
+            Utils.showToastLong("Invalid custom theme color: " + resourceName);
+            return defaultColor;
+        }
+    }
 
     /**
      * Injection point.

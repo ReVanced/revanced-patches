@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.theme
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -22,6 +23,7 @@ import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.forEachChildElement
 import app.revanced.util.insertLiteralOverride
 import org.w3c.dom.Element
@@ -240,6 +242,11 @@ val themePatch = bytecodePatch(
                 ListPreference("splash_screen_animation_style")
             )
         }
+
+        mainActivityOnCreateFingerprint.method.addInstruction(
+            1,
+            "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setThemeColors()V"
+        )
 
         useGradientLoadingScreenFingerprint.method.insertLiteralOverride(
             GRADIENT_LOADING_SCREEN_AB_CONSTANT,

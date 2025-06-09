@@ -18,6 +18,7 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -40,7 +41,6 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
-import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.LicenseActivityHook;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
@@ -76,6 +76,23 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                         : "yt_outline_arrow_left_black_24",
                 "drawable");
         return Utils.getContext().getResources().getDrawable(backButtonResource);
+    }
+
+    /**
+     * Sets the system navigation bar color for the activity.
+     * Applies the background color obtained from {@link Utils#getAppBackgroundColor()} to the navigation bar.
+     * For Android 10 (API 29) and above, enforces navigation bar contrast to ensure visibility.
+     */
+    public static void setNavigationBarColor(@Nullable Window window) {
+        if (window == null) {
+            Logger.printDebug(() -> "Cannot set navigation bar color, window is null");
+            return;
+        }
+
+        window.setNavigationBarColor(Utils.getAppBackgroundColor());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.setNavigationBarContrastEnforced(true);
+        }
     }
 
     /**
@@ -226,7 +243,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                                     .getParent();
 
                             // Fix the system navigation bar color for submenus.
-                            ThemeHelper.setNavigationBarColor(preferenceScreenDialog.getWindow());
+                            setNavigationBarColor(preferenceScreenDialog.getWindow());
 
                             // Fix edge-to-edge screen with Android 15 and YT 19.45+
                             // https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets

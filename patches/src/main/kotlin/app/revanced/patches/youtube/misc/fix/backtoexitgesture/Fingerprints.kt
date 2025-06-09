@@ -4,15 +4,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
 
-internal val onBackPressedFingerprint = fingerprint {
-    returns("V")
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    opcodes(Opcode.RETURN_VOID)
-    custom { method, classDef ->
-        method.name == "onBackPressed" && classDef.endsWith("MainActivity;")
-    }
-}
-
 internal val scrollPositionFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")

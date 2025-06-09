@@ -14,7 +14,6 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
@@ -78,8 +77,8 @@ public class LicenseActivityHook {
      */
     public static void initialize(Activity licenseActivity) {
         try {
-            ThemeHelper.setActivityTheme(licenseActivity);
-            ThemeHelper.setNavigationBarColor(licenseActivity.getWindow());
+            setActivityTheme(licenseActivity);
+            ReVancedPreferenceFragment.setNavigationBarColor(licenseActivity.getWindow());
             licenseActivity.setContentView(getResourceIdentifier(
                     "revanced_settings_with_toolbar", "layout"));
 
@@ -114,7 +113,7 @@ public class LicenseActivityHook {
         toolBarParent.removeView(dummyToolbar);
 
         Toolbar toolbar = new Toolbar(toolBarParent.getContext());
-        toolbar.setBackgroundColor(ThemeHelper.getToolbarBackgroundColor());
+        toolbar.setBackgroundColor(getToolbarBackgroundColor());
         toolbar.setNavigationIcon(ReVancedPreferenceFragment.getBackButtonDrawable());
         toolbar.setTitle(getResourceIdentifier("revanced_settings_title", "string"));
 
@@ -134,5 +133,20 @@ public class LicenseActivityHook {
         }
 
         toolBarParent.addView(toolbar, 0);
+    }
+
+    public static void setActivityTheme(Activity activity) {
+        final var theme = Utils.isDarkModeEnabled()
+                ? "Theme.YouTube.Settings.Dark"
+                : "Theme.YouTube.Settings";
+        activity.setTheme(getResourceIdentifier(theme, "style"));
+    }
+
+    public static int getToolbarBackgroundColor() {
+        final String colorName = Utils.isDarkModeEnabled()
+                ? "yt_black3"
+                : "yt_white1";
+
+        return Utils.getColorFromString(colorName);
     }
 }
