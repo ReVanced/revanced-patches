@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.settings.preference;
 
 import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.shared.settings.preference.SortedListPreference.setCheckedListView;
+import static app.revanced.extension.shared.settings.preference.SortedListPreference.ViewHolder;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -19,8 +20,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.preference.SortedListPreference;
 
 /**
  * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator.
@@ -123,14 +126,14 @@ public class CustomDialogListPreference extends ListPreference {
 
         @NonNull
         @Override
-        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             View view = convertView;
-            ViewHolder holder;
+            SortedListPreference.ViewHolder holder;
 
             if (view == null) {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 view = inflater.inflate(layoutResourceId, parent, false);
-                holder = new ViewHolder();
+                holder = new SortedListPreference.ViewHolder();
                 holder.checkIcon = view.findViewById(Utils.getResourceIdentifier("revanced_check_icon", "id"));
                 holder.placeholder = view.findViewById(Utils.getResourceIdentifier("revanced_check_icon_placeholder", "id"));
                 holder.itemText = view.findViewById(Utils.getResourceIdentifier("revanced_item_text", "id"));
@@ -155,12 +158,6 @@ public class CustomDialogListPreference extends ListPreference {
 
         public void setSelectedValue(String value) {
             this.selectedValue = value;
-        }
-
-        private static class ViewHolder {
-            ImageView checkIcon;
-            View placeholder;
-            TextView itemText;
         }
     }
 }

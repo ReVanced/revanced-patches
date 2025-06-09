@@ -41,6 +41,15 @@ import app.revanced.extension.shared.Utils;
 public class SortedListPreference extends ListPreference {
 
     /**
+     * Pseudo private class used to store data by different ListPreference implementations.
+     */
+    public static class ViewHolder {
+        public ImageView checkIcon;
+        public View placeholder;
+        public TextView itemText;
+    }
+
+    /**
      * Sets the current selected value in the ListView.
      */
     public static void setCheckedListView(ListPreference preference, ListView listView) {
@@ -254,12 +263,6 @@ public class SortedListPreference extends ListPreference {
 
         public void setSelectedValue(String value) {
             this.selectedValue = value;
-        }
-
-        private static class ViewHolder {
-            ImageView checkIcon;
-            View placeholder;
-            TextView itemText;
         }
     }
 }

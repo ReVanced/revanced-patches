@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.settings.preference;
 import static app.revanced.extension.shared.StringRef.sf;
 import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.shared.settings.preference.SortedListPreference.setCheckedListView;
+import static app.revanced.extension.shared.settings.preference.SortedListPreference.ViewHolder;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -23,6 +24,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.preference.SortedListPreference;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -117,11 +119,11 @@ public final class CustomVideoSpeedListPreference extends ListPreference {
         // Measure content height before adding ListView to layout.
         // Otherwise, the ListView will push the buttons off the screen.
         int totalHeight = 0;
-        int widthSpec = View.MeasureSpec.makeMeasureSpec(
+        final int widthSpec = View.MeasureSpec.makeMeasureSpec(
                 getContext().getResources().getDisplayMetrics().widthPixels,
                 View.MeasureSpec.AT_MOST
         );
-        int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
 
         for (int i = 0; i < adapter.getCount(); i++) {
             View listItem = adapter.getView(i, null, listView);
@@ -130,8 +132,8 @@ public final class CustomVideoSpeedListPreference extends ListPreference {
         }
 
         // Cap the height at maxHeight.
-        int maxHeight = (int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.6);
-        int finalHeight = Math.min(totalHeight, maxHeight);
+        final int maxHeight = (int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.6);
+        final int finalHeight = Math.min(totalHeight, maxHeight);
 
         // Add ListView to the main layout with calculated height.
         LinearLayout.LayoutParams listViewParams = new LinearLayout.LayoutParams(
@@ -161,8 +163,8 @@ public final class CustomVideoSpeedListPreference extends ListPreference {
      */
     private static class CustomArrayAdapter extends ArrayAdapter<CharSequence> {
         private final CharSequence[] entryValues;
-        private String selectedValue;
         private final int layoutResourceId;
+        private String selectedValue;
 
         public CustomArrayAdapter(Context context, int resource, CharSequence[] entries,
                                   CharSequence[] entryValues, String selectedValue) {
@@ -196,7 +198,7 @@ public final class CustomVideoSpeedListPreference extends ListPreference {
 
             // Show or hide checkmark and placeholder.
             String currentValue = entryValues[position].toString();
-            boolean isSelected = currentValue.equals(selectedValue);
+            final boolean isSelected = currentValue.equals(selectedValue);
             holder.checkIcon.setVisibility(isSelected ? View.VISIBLE : View.GONE);
             holder.checkIcon.setColorFilter(Utils.getAppForegroundColor());
             holder.placeholder.setVisibility(isSelected ? View.GONE : View.VISIBLE);
@@ -206,12 +208,6 @@ public final class CustomVideoSpeedListPreference extends ListPreference {
 
         public void setSelectedValue(String value) {
             this.selectedValue = value;
-        }
-
-        private static class ViewHolder {
-            ImageView checkIcon;
-            View placeholder;
-            TextView itemText;
         }
     }
 }
