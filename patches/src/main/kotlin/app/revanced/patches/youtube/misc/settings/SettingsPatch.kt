@@ -89,6 +89,7 @@ private val settingsResourcePatch = resourcePatch {
 
         arrayOf(
             ResourceGroup("drawable",
+                "revanced_settings_icon.xml",
                 "revanced_settings_screen_00_about.xml",
                 "revanced_settings_screen_01_ads.xml",
                 "revanced_settings_screen_02_alt_thumbnails.xml",
@@ -104,12 +105,10 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_settings_screen_12_video.xml",
             ),
             ResourceGroup("layout",
-                "revanced_color_dot_widget.xml",
-                "revanced_color_picker.xml",
-                "revanced_custom_list_item_checked.xml",
                 "revanced_preference_with_icon_no_search_result.xml",
                 "revanced_search_suggestion_item.xml",
-                "revanced_settings_with_toolbar.xml"),
+                "revanced_settings_with_toolbar.xml"
+            ),
             ResourceGroup("menu", "revanced_search_menu.xml")
         ).forEach { resourceGroup ->
             copyResources("settings", resourceGroup)
