@@ -744,6 +744,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_autoplay_button_title">Hide Autoplay button</string>
             <string name="revanced_hide_autoplay_button_summary_on">Autoplay button is hidden</string>
             <string name="revanced_hide_autoplay_button_summary_off">Autoplay button is shown</string>
+            <string name="revanced_hide_player_control_buttons_background_title">Hide player control buttons background</string>
+            <string name="revanced_hide_player_control_buttons_background_summary_on">Player control buttons background is hidden</string>
+            <string name="revanced_hide_player_control_buttons_background_summary_off">Player control buttons background is shown</string>
         </patch>
         <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
             <string name="revanced_hide_endscreen_cards_title">Hide end screen cards</string>
@@ -828,6 +831,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_shorts_green_screen_button_title">Hide Green screen button</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_on">Green screen button is hidden</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_off">Green screen button is shown</string>
+            <string name="revanced_hide_shorts_new_posts_button_title">Hide New posts button</string>
+            <string name="revanced_hide_shorts_new_posts_button_summary_off">New posts button is shown</string>
+            <string name="revanced_hide_shorts_new_posts_button_summary_on">New posts button is hidden</string>
             <string name="revanced_hide_shorts_hashtag_button_title">Hide hashtag button</string>
             <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag button is hidden</string>
             <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag button is shown</string>

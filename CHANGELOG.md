@@ -1,3 +1,17 @@
+# [5.27.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.6...v5.27.0-dev.7) (2025-06-08)
+
+
+### Features
+
+* **YouTube - Hide player overlay buttons:** Add in app setting for "Hide player control buttons background" ([#5147](https://github.com/ReVanced/revanced-patches/issues/5147)) ([dd8afa2](https://github.com/ReVanced/revanced-patches/commit/dd8afa2b07b50be24d764c0f6ddc9e1bbdb91bf1))
+
+# [5.27.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.5...v5.27.0-dev.6) (2025-06-08)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add hide 'New posts' button ([ac6b916](https://github.com/ReVanced/revanced-patches/commit/ac6b916c0c212167c4645e2110500dc811b3e54a))
+
 # [5.27.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.4...v5.27.0-dev.5) (2025-06-08)
 
 

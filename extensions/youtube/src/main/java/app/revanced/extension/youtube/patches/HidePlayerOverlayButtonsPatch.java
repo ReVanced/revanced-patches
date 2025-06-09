@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.patches;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import app.revanced.extension.shared.Logger;
@@ -58,6 +59,22 @@ public final class HidePlayerOverlayButtonsPatch {
         });
     }
 
+    /**
+     * Injection point.
+     */
+    public static void hidePlayerControlButtonsBackground(View rootView) {
+        try {
+            if (!Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+                return;
+            }
+
+            // Each button is an ImageView with a background set to another drawable.
+            removeImageViewsBackgroundRecursive(rootView);
+        } catch (Exception ex) {
+            Logger.printException(() -> "removePlayerControlButtonsBackground failure", ex);
+        }
+    }
+
     private static void hideView(View parentView, int resourceId) {
         View nextPreviousButton = parentView.findViewById(resourceId);
 
@@ -68,5 +85,17 @@ public final class HidePlayerOverlayButtonsPatch {
 
         Logger.printDebug(() -> "Hiding previous/next button");
         Utils.hideViewByRemovingFromParentUnderCondition(true, nextPreviousButton);
+    }
+
+    private static void removeImageViewsBackgroundRecursive(View currentView) {
+        if (currentView instanceof ImageView imageView) {
+            imageView.setBackground(null);
+        }
+
+        if (currentView instanceof ViewGroup viewGroup) {
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                removeImageViewsBackgroundRecursive(viewGroup.getChildAt(i));
+            }
+        }
     }
 }
