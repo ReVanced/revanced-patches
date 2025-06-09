@@ -41,6 +41,23 @@ import app.revanced.extension.shared.Utils;
 public class SortedListPreference extends ListPreference {
 
     /**
+     * Sets the current selected value in the ListView.
+     */
+    public static void setCheckedListView(ListPreference preference, ListView listView) {
+        String currentValue = preference.getValue();
+        if (currentValue != null) {
+            CharSequence[] entryValues = preference.getEntryValues();
+            for (int i = 0, length = entryValues.length; i < length; i++) {
+                if (currentValue.equals(entryValues[i].toString())) {
+                    listView.setItemChecked(i, true);
+                    listView.setSelection(i);
+                    return;
+                }
+            }
+        }
+    }
+
+    /**
      * Sorts the current list entries.
      *
      * @param firstEntriesToPreserve The number of entries to preserve in their original position.
@@ -144,18 +161,7 @@ public class SortedListPreference extends ListPreference {
         );
         listView.setAdapter(adapter);
 
-        // Set the currently selected value.
-        String currentValue = getValue();
-        if (currentValue != null) {
-            CharSequence[] entryValues = getEntryValues();
-            for (int i = 0; i < entryValues.length; i++) {
-                if (currentValue.equals(entryValues[i])) {
-                    listView.setItemChecked(i, true);
-                    listView.setSelection(i);
-                    break;
-                }
-            }
-        }
+        setCheckedListView(this, listView);
 
         // Create the custom dialog without OK button.
         Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
@@ -180,8 +186,7 @@ public class SortedListPreference extends ListPreference {
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
         listViewParams.setMargins(0, dipToPixels(8), 0, dipToPixels(8));
-        int maxHeight = (int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.6);
-        listViewParams.height = maxHeight;
+        listViewParams.height = (int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.6);
         mainLayout.addView(listView, mainLayout.getChildCount() - 1, listViewParams);
 
         // Handle item click to select value and dismiss dialog.

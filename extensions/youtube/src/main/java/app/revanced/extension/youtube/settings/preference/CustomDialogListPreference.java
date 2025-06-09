@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.settings.preference;
 
 import static app.revanced.extension.shared.Utils.dipToPixels;
+import static app.revanced.extension.shared.settings.preference.SortedListPreference.setCheckedListView;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -16,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import app.revanced.extension.shared.Utils;
 
@@ -58,18 +61,7 @@ public class CustomDialogListPreference extends ListPreference {
         );
         listView.setAdapter(adapter);
 
-        // Set the currently selected value.
-        String currentValue = getValue();
-        if (currentValue != null) {
-            CharSequence[] entryValues = getEntryValues();
-            for (int i = 0; i < entryValues.length; i++) {
-                if (currentValue.equals(entryValues[i])) {
-                    listView.setItemChecked(i, true);
-                    listView.setSelection(i);
-                    break;
-                }
-            }
-        }
+        setCheckedListView(this, listView);
 
         // Create the custom dialog without OK button.
         Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
@@ -129,8 +121,9 @@ public class CustomDialogListPreference extends ListPreference {
             this.selectedValue = selectedValue;
         }
 
+        @NonNull
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
             View view = convertView;
             ViewHolder holder;
 
