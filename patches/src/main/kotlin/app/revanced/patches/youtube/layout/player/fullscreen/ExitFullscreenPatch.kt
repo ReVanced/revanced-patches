@@ -49,11 +49,7 @@ internal val exitFullscreenPatch = bytecodePatch(
         addResources("youtube", "layout.player.fullscreen.exitFullscreenPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            ListPreference(
-                "revanced_exit_fullscreen",
-                summaryKey = null,
-                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
-            )
+            ListPreference("revanced_exit_fullscreen")
         )
 
         autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.apply {

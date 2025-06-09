@@ -74,10 +74,6 @@ private val settingsResourcePatch = resourcePatch {
 
         arrayOf(
             ResourceGroup("drawable",
-                "revanced_settings_circle_background.xml",
-                "revanced_settings_cursor.xml",
-                "revanced_settings_custom_checkmark.xml",
-                "revanced_settings_icon.xml",
                 "revanced_settings_screen_00_about.xml",
                 "revanced_settings_screen_01_ads.xml",
                 "revanced_settings_screen_02_alt_thumbnails.xml",
@@ -212,7 +208,6 @@ val settingsPatch = bytecodePatch(
             ),
             ListPreference(
                 key = "revanced_language",
-                summaryKey = null,
                 tag = "app.revanced.extension.shared.settings.preference.SortedListPreference"
             )
         )

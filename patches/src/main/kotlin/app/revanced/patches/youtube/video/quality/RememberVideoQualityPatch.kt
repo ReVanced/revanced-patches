@@ -37,33 +37,25 @@ val rememberVideoQualityPatch = bytecodePatch {
         settingsMenuVideoQualityGroup.addAll(listOf(
             ListPreference(
                 key = "revanced_video_quality_default_mobile",
-                summaryKey = null,
                 entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values",
-                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
+                entryValuesKey = "revanced_video_quality_default_entry_values"
             ),
             ListPreference(
                 key = "revanced_video_quality_default_wifi",
-                summaryKey = null,
                 entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values",
-                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
+                entryValuesKey = "revanced_video_quality_default_entry_values"
             ),
             SwitchPreference("revanced_remember_video_quality_last_selected"),
 
             ListPreference(
                 key = "revanced_shorts_quality_default_mobile",
-                summaryKey = null,
                 entriesKey = "revanced_shorts_quality_default_entries",
                 entryValuesKey = "revanced_shorts_quality_default_entry_values",
-                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
             ),
             ListPreference(
                 key = "revanced_shorts_quality_default_wifi",
-                summaryKey = null,
                 entriesKey = "revanced_shorts_quality_default_entries",
-                entryValuesKey = "revanced_shorts_quality_default_entry_values",
-                tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
+                entryValuesKey = "revanced_shorts_quality_default_entry_values"
             ),
             SwitchPreference("revanced_remember_shorts_quality_last_selected")
         ))

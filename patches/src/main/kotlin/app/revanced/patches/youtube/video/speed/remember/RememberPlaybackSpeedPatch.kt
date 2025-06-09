@@ -34,7 +34,6 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
             listOf(
                 ListPreference(
                     key = "revanced_playback_speed_default",
-                    summaryKey = null,
                     // Entries and values are set by the extension code based on the actual speeds available.
                     entriesKey = null,
                     entryValuesKey = null,

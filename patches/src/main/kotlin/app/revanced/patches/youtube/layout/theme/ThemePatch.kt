@@ -237,11 +237,7 @@ val themePatch = bytecodePatch(
 
         if (is_19_47_or_greater) {
             PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-                ListPreference(
-                    key = "splash_screen_animation_style",
-                    summaryKey = null,
-                    tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
-                )
+                ListPreference("splash_screen_animation_style")
             )
         }
 

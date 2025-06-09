@@ -48,11 +48,7 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch({
             sorting = PreferenceScreenPreference.Sorting.UNSORTED,
             preferences = setOf(
                 SwitchPreference("revanced_spoof_video_streams"),
-                ListPreference(
-                    "revanced_spoof_video_streams_client_type",
-                    summaryKey = null,
-                    tag = "app.revanced.extension.youtube.settings.preference.CustomDialogListPreference"
-                ),
+                ListPreference("revanced_spoof_video_streams_client_type"),
                 NonInteractivePreference(
                     // Requires a key and title but the actual text is chosen at runtime.
                     key = "revanced_spoof_video_streams_about_android",
@@ -60,7 +56,6 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch({
                 ),
                 ListPreference(
                     key = "revanced_spoof_video_streams_language",
-                    summaryKey = null,
                     // Language strings are declared in Setting patch.
                     entriesKey = "revanced_language_entries",
                     entryValuesKey = "revanced_language_entry_values",
