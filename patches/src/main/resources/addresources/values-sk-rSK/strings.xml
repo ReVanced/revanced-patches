@@ -674,6 +674,9 @@ Ak chcete zobraziť ponuku zvukovej stopy, zmeňte možnosť „Oklamať videost
   <string name="revanced_hide_autoplay_button_title">Skryť tlačidlo Automatické prehrávanie</string>
   <string name="revanced_hide_autoplay_button_summary_on">Tlačidlo automatického prehrávania je skryté</string>
   <string name="revanced_hide_autoplay_button_summary_off">Zobrazí sa tlačidlo automatického prehrávania</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Skryť pozadie tlačidiel ovládania prehrávača</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Pozadie tlačidiel ovládania prehrávača je skryté</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Zobrazuje sa pozadie tlačidiel ovládania prehrávača</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skryť karty záverečnej obrazovky</string>
@@ -758,6 +761,9 @@ Ak chcete zobraziť ponuku zvukovej stopy, zmeňte možnosť „Oklamať videost
   <string name="revanced_hide_shorts_green_screen_button_title">Skryť tlačidlo Zelená obrazovka</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tlačidlo pre zelené pozadie bude skryté</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Tlačidlo pre zelené pozadie bude zobrazené</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Skryť tlačidlo Nové príspevky</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Zobrazí sa tlačidlo Nové príspevky</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Tlačidlo Nové príspevky je skryté</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Skryť tlačidlo pre hashtag</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Tlačidlo pre hashtag bude skryté</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Tlačidlo pre hashtag bude zobrazené</string>

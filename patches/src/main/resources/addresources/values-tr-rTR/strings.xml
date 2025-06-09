@@ -681,6 +681,9 @@ Ses parçası menüsünü göstermek için \"Video akışlarını taklit et\" ay
   <string name="revanced_hide_autoplay_button_title">Otomatik oynatma düğmesini gizle</string>
   <string name="revanced_hide_autoplay_button_summary_on">Otomatik oynatma düğmesi gizli</string>
   <string name="revanced_hide_autoplay_button_summary_off">Otomatik oynatma düğmesi görünür</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Oynatıcı kontrol düğmeleri arka planını gizle</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Oynatıcı kontrol düğmeleri arka planı gizlendi</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Oynatıcı kontrol düğmeleri arka planı gösteriliyor</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Bitiş ekranı kartlarını gizle</string>
@@ -765,6 +768,9 @@ Ses parçası menüsünü göstermek için \"Video akışlarını taklit et\" ay
   <string name="revanced_hide_shorts_green_screen_button_title">Yeşil ekran düğmesini gizle</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Yeşil ekran düğmesi gizli</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Yeşil ekran düğmesi görünür</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Yeni gönderiler düğmesini gizle</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Yeni gönderiler düğmesi görünür</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Yeni gönderiler düğmesi gizli</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Hashtag düğmesini gizle</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag düğmesi gizli</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag düğmesi görünür</string>

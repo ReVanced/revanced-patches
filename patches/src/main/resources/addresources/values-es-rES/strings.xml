@@ -678,6 +678,9 @@ Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de 
   <string name="revanced_hide_autoplay_button_title">Ocultar el botón Reproducción automática</string>
   <string name="revanced_hide_autoplay_button_summary_on">El botón de reproducción automática está oculto</string>
   <string name="revanced_hide_autoplay_button_summary_off">Se muestra el botón de reproducción automática</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Ocultar el fondo de los botones de control del reproductor</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">El fondo de los botones de control del reproductor está oculto</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Se muestra el fondo de los botones de control del reproductor</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ocultar tarjetas de pantalla final</string>
@@ -762,6 +765,9 @@ Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de 
   <string name="revanced_hide_shorts_green_screen_button_title">Ocultar el botón Pantalla verde</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">El botón verde de pantalla está oculto</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Se muestra el botón verde de pantalla</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Ocultar el botón Publicaciones nuevas</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Se muestra el botón Publicaciones nuevas</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">El botón Publicaciones nuevas está oculto</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Ocultar botón de hashtag</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">El botón Hashtag está oculto</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Se muestra el botón Hashtag</string>

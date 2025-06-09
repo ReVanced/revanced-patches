@@ -677,6 +677,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_autoplay_button_title">অটোপ্লে বোতামটি লুকান</string>
   <string name="revanced_hide_autoplay_button_summary_on">autoplay বোতাম লুকানো আছে</string>
   <string name="revanced_hide_autoplay_button_summary_off">autoplay বোতাম দেখানো হচ্ছে</string>
+  <string name="revanced_hide_player_control_buttons_background_title">প্লেয়ার কন্ট্রোল বোতামগুলির পটভূমি লুকান</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">প্লেয়ার কন্ট্রোল বোতামগুলির পটভূমি লুকানো আছে</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">প্লেয়ার কন্ট্রোল বোতামগুলির পটভূমি দেখানো হয়েছে</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">শেষ স্ক্রীন কার্ড লুকান</string>
@@ -761,6 +764,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_green_screen_button_title">গ্রিন স্ক্রিন বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">সবুজ পর্দা বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">সবুজ পর্দা বোতাম দেখানো হচ্ছে</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">নতুন পোস্ট বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">নতুন পোস্ট বোতাম দেখানো হয়েছে</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">নতুন পোস্ট বোতাম লুকানো হয়েছে</string>
   <string name="revanced_hide_shorts_hashtag_button_title">হ্যাশট্যাগ বোতাম লুকান</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">হ্যাশট্যাগ বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">হ্যাশট্যাগ বোতাম দেখানো হচ্ছে</string>

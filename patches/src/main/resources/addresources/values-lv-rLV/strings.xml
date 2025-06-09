@@ -681,6 +681,9 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_hide_autoplay_button_title">Paslēpt pogu \"Automātiskā atskaņošana\"</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automātiskās atskaņošanas poga ir paslēpta</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automātiskās atskaņošanas poga ir redzama</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Slēpt atskaņotāja vadības pogu fonu</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Atskaņotāja vadības pogu fons ir paslēpts</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Atskaņotāja vadības pogu fons ir redzams</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Paslēpt ekrāna beigās esošās kartītes</string>
@@ -765,6 +768,9 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_hide_shorts_green_screen_button_title">Paslēpt pogu \"Zaļais ekrāns\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Zaļā ekrāna poga ir paslēpta</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Zaļā ekrāna poga ir redzama</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Paslēpt pogu Jauni ieraksti</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Poga Jauni ieraksti ir redzama</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Poga Jauni ieraksti ir paslēpta</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Paslēpt hashtags pogu</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtags poga ir paslēpta</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtags poga ir redzama</string>

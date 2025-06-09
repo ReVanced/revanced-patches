@@ -681,6 +681,9 @@ För att visa ljudspårsmenyn, ändra \"Spoof video streams\" till iOS TV"</stri
   <string name="revanced_hide_autoplay_button_title">Dölj knappen för automatisk uppspelning</string>
   <string name="revanced_hide_autoplay_button_summary_on">Knappen för automatisk uppspelning är dold</string>
   <string name="revanced_hide_autoplay_button_summary_off">Knappen för automatisk uppspelning är synlig</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Dölj bakgrunden för spelarens kontrollknappar</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Bakgrunden för spelarens kontrollknappar är dold</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Bakgrunden för spelarens kontrollknappar visas</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Dölj slutskärmskort</string>
@@ -765,6 +768,9 @@ För att visa ljudspårsmenyn, ändra \"Spoof video streams\" till iOS TV"</stri
   <string name="revanced_hide_shorts_green_screen_button_title">Dölj grön skärm-knapp</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Grön skärm-knappen är dold</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Grön skärmknapp visas</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Dölj knappen Nya inlägg</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Knappen Nya inlägg är synlig</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Knappen Nya inlägg är dold</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Dölj hashtag-knapp</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag-knappen är dold</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag-knappen visas</string>

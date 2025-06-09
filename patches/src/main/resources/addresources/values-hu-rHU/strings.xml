@@ -681,6 +681,9 @@ Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítá
   <string name="revanced_hide_autoplay_button_title">Automatikus lejátszás gomb elrejtése</string>
   <string name="revanced_hide_autoplay_button_summary_on">Az automatikus lejátszás gomb el van rejtve</string>
   <string name="revanced_hide_autoplay_button_summary_off">Az automatikus lejátszás gomb látható</string>
+  <string name="revanced_hide_player_control_buttons_background_title">A lejátszó vezérlőgombjainak hátterének elrejtése</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">A lejátszó vezérlőgombjainak háttere rejtve</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">A lejátszó vezérlőgombjainak háttere látható</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Záróképernyő kártyák elrejtése</string>
@@ -765,6 +768,9 @@ Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítá
   <string name="revanced_hide_shorts_green_screen_button_title">Zöld háttér gomb elrejtése</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">A zöld képernyő gomb el van rejtve</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">A zöld képernyő gomb látható</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Új bejegyzések gomb elrejtése</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Az új bejegyzések gomb megjelenik</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Az új bejegyzések gomb rejtve van</string>
   <string name="revanced_hide_shorts_hashtag_button_title">A hashtag gomb elrejtése</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">A Hashtag gomb el van rejtve</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">A Hashtag gomb látható</string>

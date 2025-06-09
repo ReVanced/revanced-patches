@@ -681,6 +681,9 @@ Chcete-li zobrazit nabídku zvukové stopy, změňte možnost „Zfalšovat stre
   <string name="revanced_hide_autoplay_button_title">Skrýt tlačítko Automatické přehrávání</string>
   <string name="revanced_hide_autoplay_button_summary_on">Tlačítko automatického přehrávání je skryto</string>
   <string name="revanced_hide_autoplay_button_summary_off">Tlačítko automatického přehrávání je zobrazeno</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Skrýt pozadí ovládacích tlačítek přehrávače</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Pozadí ovládacích tlačítek přehrávače je skryté</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Zobrazuje se pozadí ovládacích tlačítek přehrávače</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skrýt karty s informacemi o videu</string>
@@ -765,6 +768,9 @@ Chcete-li zobrazit nabídku zvukové stopy, změňte možnost „Zfalšovat stre
   <string name="revanced_hide_shorts_green_screen_button_title">Skrýt tlačítko Zelená obrazovka</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tlačítko zelené obrazovky je skryté</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Tlačítko zelené obrazovky je zobrazeno</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Skrýt tlačítko Nové příspěvky</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Tlačítko Nové příspěvky je zobrazeno</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Tlačítko Nové příspěvky je skryto</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Skrýt tlačítko hashtagů</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Tlačítko hashtagů je skryté</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Tlačítko hashtagů je zobrazeno</string>
