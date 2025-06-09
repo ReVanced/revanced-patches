@@ -719,6 +719,9 @@ public class Utils {
     /**
      * Creates a custom dialog with a styled layout, including a title, message, buttons, and an optional EditText.
      * The dialog's appearance adapts to the app's dark mode setting, with rounded corners and customizable button actions.
+     * Buttons adjust dynamically to their text content and are arranged in a single row if they fit within 80% of the screen width,
+     * with the Neutral button aligned to the left and OK/Cancel buttons centered on the right.
+     * If buttons do not fit, each is placed on a separate row, all aligned to the right.
      *
      * @param context           Context used to create the dialog.
      * @param title             Title text of the dialog.
@@ -828,82 +831,127 @@ public class Utils {
         );
         buttonContainerParams.setMargins(0, dip8, 0, 0);
         buttonContainer.setLayoutParams(buttonContainerParams);
-        buttonContainer.setGravity(Gravity.CENTER);
 
-        // List to store buttons for width calculation.
+        // Lists to track buttons
         List<Button> buttons = new ArrayList<>();
-        List<String> buttonTexts = new ArrayList<>();
-        List<Runnable> buttonActions = new ArrayList<>();
-        List<Boolean> buttonDismissFlags = new ArrayList<>();
-        List<Boolean> isOkButtonFlags = new ArrayList<>();
-        List<Boolean> isCancelButtonFlags = new ArrayList<>();
-        List<Boolean> isNeutralButtonFlags = new ArrayList<>();
+        List<Integer> buttonWidths = new ArrayList<>();
 
-        // Collect buttons to add.
         if (neutralButtonText != null && onNeutralClick != null) {
-            buttonTexts.add(neutralButtonText);
-            buttonActions.add(onNeutralClick);
-            buttonDismissFlags.add(dismissDialogOnNeutralClick);
-            isOkButtonFlags.add(false);
-            isCancelButtonFlags.add(false);
-            isNeutralButtonFlags.add(true);
+            LinearLayout neutralContainer = new LinearLayout(context);
+            neutralContainer.setOrientation(LinearLayout.HORIZONTAL);
+            neutralContainer.setGravity(Gravity.END); // Align Neutral to right when on separate row
+            Button neutralButton = addButton(
+                    neutralContainer,
+                    context,
+                    neutralButtonText,
+                    onNeutralClick,
+                    false,
+                    false,
+                    true,
+                    dismissDialogOnNeutralClick,
+                    dialog
+            );
+            neutralContainer.addView(neutralButton);
+            buttons.add(neutralButton);
+            neutralButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+            buttonWidths.add(neutralButton.getMeasuredWidth());
+            buttonContainer.addView(neutralContainer);
         }
 
         if (onCancelClick != null) {
-            buttonTexts.add(context.getString(android.R.string.cancel));
-            buttonActions.add(onCancelClick);
-            buttonDismissFlags.add(true);
-            isOkButtonFlags.add(false);
-            isCancelButtonFlags.add(true);
-            isNeutralButtonFlags.add(false);
+            LinearLayout cancelContainer = new LinearLayout(context);
+            cancelContainer.setOrientation(LinearLayout.HORIZONTAL);
+            cancelContainer.setGravity(Gravity.END);
+            Button cancelButton = addButton(
+                    cancelContainer,
+                    context,
+                    context.getString(android.R.string.cancel),
+                    onCancelClick,
+                    false,
+                    true,
+                    false,
+                    true,
+                    dialog
+            );
+            cancelContainer.addView(cancelButton);
+            buttons.add(cancelButton);
+            cancelButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+            buttonWidths.add(cancelButton.getMeasuredWidth());
+            buttonContainer.addView(cancelContainer);
         }
 
         if (onOkClick != null) {
-            buttonTexts.add(okButtonText != null ? okButtonText : context.getString(android.R.string.ok));
-            buttonActions.add(onOkClick);
-            buttonDismissFlags.add(true);
-            isOkButtonFlags.add(true);
-            isCancelButtonFlags.add(false);
-            isNeutralButtonFlags.add(false);
-        }
-
-        // Calculate total button width and check if they fit horizontally.
-        float totalWidth = 0;
-        final int dip4 = dipToPixels(4);
-        // Account for dialog padding.
-        final int availableWidth = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.9) - dip28 * 2;
-
-        for (String text : buttonTexts) {
-            Button tempButton = new Button(context);
-            tempButton.setText(text);
-            tempButton.setTextSize(14);
-            tempButton.setPadding(dip8, 0, dip8, 0);
-            tempButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-            totalWidth += tempButton.getMeasuredWidth() + dip4 * 2; // Include margins.
-            buttons.add(tempButton);
-        }
-
-        // If buttons fit horizontally, use horizontal layout with equal weights.
-        if (totalWidth <= availableWidth && !buttons.isEmpty()) {
-            buttonContainer.setOrientation(LinearLayout.HORIZONTAL);
-            buttonContainer.setGravity(Gravity.CENTER);
-        }
-
-        // Add buttons to the container.
-        for (int i = 0; i < buttons.size(); i++) {
-            addButton(
-                    buttonContainer,
+            LinearLayout okContainer = new LinearLayout(context);
+            okContainer.setOrientation(LinearLayout.HORIZONTAL);
+            okContainer.setGravity(Gravity.END);
+            Button okButton = addButton(
+                    okContainer,
                     context,
-                    buttonTexts.get(i),
-                    buttonActions.get(i),
-                    isOkButtonFlags.get(i),
-                    isCancelButtonFlags.get(i),
-                    isNeutralButtonFlags.get(i),
-                    buttonDismissFlags.get(i),
-                    dialog,
-                    buttonContainer.getOrientation() == LinearLayout.HORIZONTAL,
-                    buttons.size()
+                    okButtonText != null ? okButtonText : context.getString(android.R.string.ok),
+                    onOkClick,
+                    true,
+                    false,
+                    false,
+                    true,
+                    dialog
             );
+            okContainer.addView(okButton);
+            buttons.add(okButton);
+            okButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+            buttonWidths.add(okButton.getMeasuredWidth());
+            buttonContainer.addView(okContainer);
+        }
+
+        // Check if buttons fit in one row.
+        int totalWidth = 0;
+        for (Integer width : buttonWidths) {
+            totalWidth += width + dipToPixels(8); // Include margins.
+        }
+        int screenWidth = context.getResources().getDisplayMetrics().widthPixels;
+
+        if (totalWidth <= screenWidth * 0.8 && buttons.size() > 1) {
+            // Clear vertical container and use a single row.
+            buttonContainer.removeAllViews();
+            LinearLayout rowContainer = new LinearLayout(context);
+            rowContainer.setOrientation(LinearLayout.HORIZONTAL);
+            rowContainer.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            ));
+
+            // Add Neutral button (left-aligned).
+            if (neutralButtonText != null && onNeutralClick != null) {
+                LinearLayout neutralContainer = new LinearLayout(context);
+                neutralContainer.setOrientation(LinearLayout.HORIZONTAL);
+                neutralContainer.setGravity(Gravity.START); // Neutral to left in single row
+                Button neutralButton = buttons.get(0);
+                ViewGroup parent = (ViewGroup) neutralButton.getParent();
+                if (parent != null) {
+                    parent.removeView(neutralButton);
+                }
+                neutralContainer.addView(neutralButton);
+                rowContainer.addView(neutralContainer);
+            }
+
+            // Add spacer.
+            LinearLayout spacer = new LinearLayout(context);
+            spacer.setLayoutParams(new LinearLayout.LayoutParams(0, 0, 1));
+            rowContainer.addView(spacer);
+
+            // Add OK and Cancel buttons (right-aligned).
+            LinearLayout okCancelContainer = new LinearLayout(context);
+            okCancelContainer.setOrientation(LinearLayout.HORIZONTAL);
+            okCancelContainer.setGravity(Gravity.END);
+            for (int i = (neutralButtonText != null && onNeutralClick != null) ? 1 : 0; i < buttons.size(); i++) {
+                Button button = buttons.get(i);
+                ViewGroup parent = (ViewGroup) button.getParent();
+                if (parent != null) {
+                    parent.removeView(button);
+                }
+                okCancelContainer.addView(button);
+            }
+            rowContainer.addView(okCancelContainer);
+            buttonContainer.addView(rowContainer);
         }
 
         mainLayout.addView(buttonContainer);
@@ -912,7 +960,7 @@ public class Utils {
         // Set dialog window attributes.
         Window window = dialog.getWindow();
         if (window != null) {
-            setDialogWindowParameters(getContext(), window);
+            setDialogWindowParameters(context, window);
         }
 
         return new Pair<>(dialog, mainLayout);
@@ -936,23 +984,22 @@ public class Utils {
 
     /**
      * Adds a styled button to a dialog's button container with customizable text, click behavior, and appearance.
-     * The button's background and text colors adapt to the app's dark mode setting. Width and margins are dynamically
-     * adjusted based on the button's text content and layout orientation. In horizontal layout, buttons stretch
-     * proportionally to fill the container width.
+     * The button's background and text colors adapt to the app's dark mode setting. Buttons have dynamic width
+     * based on text content. In a single-row layout, the Neutral button is left-aligned, while OK and
+     * Cancel are right-aligned. When wrapped to separate rows, all buttons are right-aligned.
      *
      * @param buttonContainer Container where the button will be added.
      * @param context         Context to create the button and access resources.
      * @param buttonText      Button text to display.
-     * @param onClick         Block executed when the button is clicked, or null if no action is required.
+     * @param onClick         Action to perform when the button is clicked, or null if no action is required.
      * @param isOkButton      If this is the OK button, which uses distinct background and text colors.
      * @param isCancelButton  If this is the Cancel button, which uses distinct background and text colors.
-     * @param isNeutralButton If this is a Neutral button, affecting margin settings.
+     * @param isNeutralButton If this is a Neutral button, affecting alignment in single-row layout.
      * @param dismissDialog   If the dialog should be dismissed when the button is clicked.
      * @param dialog          The Dialog to dismiss when the button is clicked.
-     * @param isHorizontalLayout If the button container is using a horizontal layout.
-     * @param totalButtons    Total number of buttons in the container.
+     * @return The created Button.
      */
-    private static void addButton(
+    private static Button addButton(
             LinearLayout buttonContainer,
             Context context,
             String buttonText,
@@ -961,9 +1008,7 @@ public class Utils {
             boolean isCancelButton,
             boolean isNeutralButton,
             boolean dismissDialog,
-            Dialog dialog,
-            boolean isHorizontalLayout,
-            int totalButtons) {
+            Dialog dialog) {
 
         Button button = new Button(context, null, 0);
         button.setText(buttonText);
@@ -983,42 +1028,15 @@ public class Utils {
         button.setTextColor(isDarkModeEnabled()
                 ? (isOkButton ? Color.BLACK : Color.WHITE)
                 : (isOkButton ? Color.WHITE : Color.BLACK));
-        button.setPadding(dipToPixels(8), 0, dipToPixels(8), 0);
 
-        LinearLayout.LayoutParams params;
-        final int dip4 = dipToPixels(4);
-        if (isHorizontalLayout) {
-            params = new LinearLayout.LayoutParams(
-                    0, // Width set to 0 for equal weight distribution.
-                    dipToPixels(36)
-            );
-            params.weight = 1; // Equal weight to stretch proportionally.
+        // Set internal padding.
+        button.setPadding(dipToPixels(16), 0, dipToPixels(16), 0);
 
-            // Adjust margins based on button position.
-            if (totalButtons == 1) {
-                params.setMargins(0, 0, 0, 0); // Single button: no margins.
-            } else if (totalButtons == 2) {
-                if (isNeutralButton || isCancelButton) {
-                    params.setMargins(0, 0, dip4, 0); // Left button in pair: margin right 4.
-                } else if (isOkButton) {
-                    params.setMargins(dip4, 0, 0, 0); // Right button in pair: margin left 4.
-                }
-            } else if (totalButtons == 3) {
-                if (isNeutralButton) {
-                    params.setMargins(0, 0, dip4, 0); // Neutral (left): margin right 4.
-                } else if (isCancelButton) {
-                    params.setMargins(dip4, 0, dip4, 0); // Cancel (middle): margin left and right 4.
-                } else if (isOkButton) {
-                    params.setMargins(dip4, 0, 0, 0); // OK (right): margin left 4.
-                }
-            }
-        } else {
-            params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    dipToPixels(36)
-            );
-            params.setMargins(0, dip4, 0, dip4); // Vertical layout: margins between buttons.
-        }
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                dipToPixels(36)
+        );
+        params.setMargins(dipToPixels(4), dipToPixels(4), dipToPixels(4), dipToPixels(4));
 
         button.setLayoutParams(params);
 
@@ -1031,7 +1049,7 @@ public class Utils {
             }
         });
 
-        buttonContainer.addView(button);
+        return button;
     }
 
     /**

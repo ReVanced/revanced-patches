@@ -100,7 +100,6 @@ public class ThemeHelper {
         }
     }
 
-
     public static int getToolbarBackgroundColor() {
         final String colorName = isDarkTheme()
                 ? "yt_black3"
