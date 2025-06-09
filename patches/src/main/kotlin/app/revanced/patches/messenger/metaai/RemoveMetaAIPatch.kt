@@ -2,11 +2,11 @@ package app.revanced.patches.messenger.metaai
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.messenger.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messenger/metaai/RemoveMetaAIPatch;"
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 
 @Suppress("unused")
 val removeMetaAIPatch = bytecodePatch(
@@ -25,8 +25,23 @@ val removeMetaAIPatch = bytecodePatch(
             addInstructions(
                 returnIndex,
                 """
-                    invoke-static { p1, p2, v$returnRegister }, $EXTENSION_CLASS_DESCRIPTOR->overrideBooleanFlag(JZ)Z
+                    invoke-static { p1, p2, v$returnRegister }, $EXTENSION_METHOD_DESCRIPTOR
                     move-result v$returnRegister
+                """
+            )
+        }
+
+        // Extract the 8 common starting digits of Meta AI flag IDs from a flag found in code.
+        val relevantDigits = with(relevantIDContainingMethodFingerprint) {
+            method.getInstruction<WideLiteralInstruction>(patternMatch!!.startIndex).wideLiteral
+        }.toString().substring(0, 8)
+
+        // Replace placeholder in the extension method.
+        extensionMethodFingerprint.method.apply {
+            replaceInstruction(
+                extensionMethodFingerprint.stringMatches!!.first().index,
+                """
+                    const-string v1, "$relevantDigits"
                 """
             )
         }
