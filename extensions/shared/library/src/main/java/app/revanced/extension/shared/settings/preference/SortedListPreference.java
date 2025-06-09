@@ -120,7 +120,9 @@ public class SortedListPreference extends ListPreference {
     /**
      * Sorts the current list entries.
      *
-     * @param firstEntriesToPreserve The number of entries to preserve in their original position.
+     * @param firstEntriesToPreserve The number of entries to preserve in their original position,
+     *                               or a negative value not sort any entries and leave them as
+     *                               they current are.
      */
     public void sortEntryAndValues(int firstEntriesToPreserve) {
         CharSequence[] entries = getEntries();
@@ -133,6 +135,10 @@ public class SortedListPreference extends ListPreference {
         if (entrySize != entryValues.length) {
             // Xml array declaration has a missing/extra entry.
             throw new IllegalStateException();
+        }
+
+        if (firstEntriesToPreserve < 0) {
+            return; // Nothing to do.
         }
 
         List<Pair<CharSequence, CharSequence>> firstEntries = new ArrayList<>(firstEntriesToPreserve);
@@ -176,6 +182,10 @@ public class SortedListPreference extends ListPreference {
         super.setEntryValues(sortedEntryValues);
     }
 
+    /**
+     * @return The number of first entries to leave exactly where they are, and do not sort them.
+     *         A negative value indicates do not sort any entries.
+     */
     protected int getFirstEntriesToPreserve() {
         return 1;
     }
