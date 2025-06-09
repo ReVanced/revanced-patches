@@ -76,8 +76,11 @@ public class Utils {
     private static String versionName;
     private static String applicationLabel;
 
-    private static int darkColor = Color.BLACK; // Default dark color.
-    private static int lightColor = Color.WHITE; // Default light color.
+    private static int darkColor = Color.BLACK;
+    private static int lightColor = Color.WHITE;
+
+    @Nullable
+    private static volatile Boolean isDarkModeEnabled;
 
     private Utils() {
     } // utility class
@@ -578,10 +581,27 @@ public class Utils {
         });
     }
 
+    /**
+     * @return The current dark mode as set by any patch.
+     * Or if none is set, then the system dark mode status is returned.
+     */
     public static boolean isDarkModeEnabled() {
+        Boolean isDarkMode = isDarkModeEnabled;
+        if (isDarkMode != null) {
+            return isDarkMode;
+        }
+
         Configuration config = Resources.getSystem().getConfiguration();
         final int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
         return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
+    }
+
+    /**
+     * Overrides shared dark mode status, and ignores what the system dark mode status.
+     */
+    public static void setIsDarkModeEnabled(boolean isDarkMode) {
+        isDarkModeEnabled = isDarkMode;
+        Logger.printDebug(() -> "Dark mode status: " + isDarkMode);
     }
 
     public static boolean isLandscapeOrientation() {

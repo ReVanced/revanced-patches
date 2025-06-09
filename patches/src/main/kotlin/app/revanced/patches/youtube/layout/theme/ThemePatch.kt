@@ -2,13 +2,17 @@ package app.revanced.patches.youtube.layout.theme
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
@@ -26,10 +30,15 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.forEachChildElement
 import app.revanced.util.insertLiteralOverride
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
+
+internal var appearanceStringId = -1L
+    private set
 
 val themePatch = bytecodePatch(
     name = "Theme",
@@ -89,6 +98,8 @@ val themePatch = bytecodePatch(
             )
 
             execute {
+                appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
+
                 val preferences = mutableSetOf<BasePreference>(
                     SwitchPreference("revanced_seekbar_custom_color"),
                     TextPreference("revanced_seekbar_custom_color_primary",
@@ -248,6 +259,29 @@ val themePatch = bytecodePatch(
             "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setThemeColors()V"
         )
 
+        // Update shared dark mode status based on YT theme.
+        // This is needed because YT allows forcing light/dark mode
+        // which then differs from the system dark mode status.
+        setThemeFingerprint.method.let { setThemeMethod ->
+            setThemeMethod.implementation!!.instructions.mapIndexedNotNull { i, instruction ->
+                if (instruction.opcode == Opcode.RETURN_OBJECT) i else null
+            }.asReversed().forEach { returnIndex ->
+                // The following strategy is to replace the return instruction with the setTheme instruction,
+                // then add a return instruction after the setTheme instruction.
+                // This is done because the return instruction is a target of another instruction.
+
+                setThemeMethod.apply {
+                    // This register is returned by the setTheme method.
+                    val register = getInstruction<OneRegisterInstruction>(returnIndex).registerA
+                    replaceInstruction(
+                        returnIndex,
+                        "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
+                    )
+                    addInstruction(returnIndex + 1, "return-object v$register")
+                }
+            }
+        }
+
         useGradientLoadingScreenFingerprint.method.insertLiteralOverride(
             GRADIENT_LOADING_SCREEN_AB_CONSTANT,
             "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
@@ -262,8 +296,8 @@ val themePatch = bytecodePatch(
         }
 
         arrayOf(
-            themeHelperLightColorFingerprint to lightThemeBackgroundColor,
-            themeHelperDarkColorFingerprint to darkThemeBackgroundColor,
+            themeLightColorFingerprint to lightThemeBackgroundColor,
+            themeDarkColorFingerprint to darkThemeBackgroundColor,
         ).forEach { (fingerprint, color) ->
             fingerprint.method.apply {
                 addInstructions(

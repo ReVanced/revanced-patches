@@ -24,7 +24,7 @@ internal val lithoThemeFingerprint = fingerprint {
     }
 }
 
-internal val themeHelperDarkColorFingerprint = fingerprint {
+internal val themeDarkColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()
@@ -34,7 +34,7 @@ internal val themeHelperDarkColorFingerprint = fingerprint {
     }
 }
 
-internal val themeHelperLightColorFingerprint = fingerprint {
+internal val themeLightColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()
@@ -42,6 +42,14 @@ internal val themeHelperLightColorFingerprint = fingerprint {
         method.name == "lightThemeResourceName" &&
                 method.definingClass == "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
     }
+}
+
+internal val setThemeFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("L")
+    parameters()
+    opcodes(Opcode.RETURN_OBJECT)
+    literal { appearanceStringId }
 }
 
 internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
