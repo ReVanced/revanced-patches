@@ -4,8 +4,8 @@ import static app.revanced.extension.shared.Utils.dipToPixels;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.preference.ListPreference;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -41,13 +41,64 @@ import app.revanced.extension.shared.Utils;
 public class SortedListPreference extends ListPreference {
 
     /**
-     * Pseudo private class used to store data by different ListPreference implementations.
+     * Custom ArrayAdapter to handle checkmark visibility.
      */
-    public static class ViewHolder {
-        public ImageView checkIcon;
-        public View placeholder;
-        public TextView itemText;
+    public static class ListPreferenceArrayAdapter extends ArrayAdapter<CharSequence> {
+        private static class SubViewDataContainer {
+            ImageView checkIcon;
+            View placeholder;
+            TextView itemText;
+        }
+
+        private final CharSequence[] entryValues;
+        private String selectedValue;
+        private final int layoutResourceId;
+
+        public ListPreferenceArrayAdapter(Context context, int resource, CharSequence[] entries,
+                                          CharSequence[] entryValues, String selectedValue) {
+            super(context, resource, entries);
+            this.layoutResourceId = resource;
+            this.entryValues = entryValues;
+            this.selectedValue = selectedValue;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+            View view = convertView;
+            SubViewDataContainer holder;
+
+            if (view == null) {
+                LayoutInflater inflater = LayoutInflater.from(getContext());
+                view = inflater.inflate(layoutResourceId, parent, false);
+                holder = new SubViewDataContainer();
+                holder.checkIcon = view.findViewById(Utils.getResourceIdentifier("revanced_check_icon", "id"));
+                holder.placeholder = view.findViewById(Utils.getResourceIdentifier("revanced_check_icon_placeholder", "id"));
+                holder.itemText = view.findViewById(Utils.getResourceIdentifier("revanced_item_text", "id"));
+                view.setTag(holder);
+            } else {
+                holder = (SubViewDataContainer) view.getTag();
+            }
+
+            // Set text.
+            holder.itemText.setText(getItem(position));
+            holder.itemText.setTextColor(Utils.getAppForegroundColor());
+
+            // Show or hide checkmark and placeholder.
+            String currentValue = entryValues[position].toString();
+            boolean isSelected = currentValue.equals(selectedValue);
+            holder.checkIcon.setVisibility(isSelected ? View.VISIBLE : View.GONE);
+            holder.checkIcon.setColorFilter(Utils.getAppForegroundColor());
+            holder.placeholder.setVisibility(isSelected ? View.GONE : View.VISIBLE);
+
+            return view;
+        }
+
+        public void setSelectedValue(String value) {
+            this.selectedValue = value;
+        }
     }
+
 
     /**
      * Sets the current selected value in the ListView.
@@ -161,7 +212,7 @@ public class SortedListPreference extends ListPreference {
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         // Create custom adapter for the ListView.
-        CustomArrayAdapter adapter = new CustomArrayAdapter(
+        ListPreferenceArrayAdapter adapter = new ListPreferenceArrayAdapter(
                 getContext(),
                 Utils.getResourceIdentifier("revanced_custom_list_item_checked", "layout"),
                 getEntries(),
@@ -211,58 +262,5 @@ public class SortedListPreference extends ListPreference {
 
         // Show the dialog.
         dialog.show();
-    }
-
-    /**
-     * Custom ArrayAdapter to handle checkmark visibility.
-     */
-    private static class CustomArrayAdapter extends ArrayAdapter<CharSequence> {
-        private final CharSequence[] entryValues;
-        private String selectedValue;
-        private final int layoutResourceId;
-
-        public CustomArrayAdapter(Context context, int resource, CharSequence[] entries,
-                                  CharSequence[] entryValues, String selectedValue) {
-            super(context, resource, entries);
-            this.layoutResourceId = resource;
-            this.entryValues = entryValues;
-            this.selectedValue = selectedValue;
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-            View view = convertView;
-            ViewHolder holder;
-
-            if (view == null) {
-                LayoutInflater inflater = LayoutInflater.from(getContext());
-                view = inflater.inflate(layoutResourceId, parent, false);
-                holder = new ViewHolder();
-                holder.checkIcon = view.findViewById(Utils.getResourceIdentifier("revanced_check_icon", "id"));
-                holder.placeholder = view.findViewById(Utils.getResourceIdentifier("revanced_check_icon_placeholder", "id"));
-                holder.itemText = view.findViewById(Utils.getResourceIdentifier("revanced_item_text", "id"));
-                view.setTag(holder);
-            } else {
-                holder = (ViewHolder) view.getTag();
-            }
-
-            // Set text.
-            holder.itemText.setText(getItem(position));
-            holder.itemText.setTextColor(Utils.getAppForegroundColor());
-
-            // Show or hide checkmark and placeholder.
-            String currentValue = entryValues[position].toString();
-            boolean isSelected = currentValue.equals(selectedValue);
-            holder.checkIcon.setVisibility(isSelected ? View.VISIBLE : View.GONE);
-            holder.checkIcon.setColorFilter(Utils.getAppForegroundColor());
-            holder.placeholder.setVisibility(isSelected ? View.GONE : View.VISIBLE);
-
-            return view;
-        }
-
-        public void setSelectedValue(String value) {
-            this.selectedValue = value;
-        }
     }
 }

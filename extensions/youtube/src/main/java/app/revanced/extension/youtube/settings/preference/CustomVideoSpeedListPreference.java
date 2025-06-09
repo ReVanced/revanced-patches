@@ -2,8 +2,8 @@ package app.revanced.extension.youtube.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.sf;
 import static app.revanced.extension.shared.Utils.dipToPixels;
+import static app.revanced.extension.shared.settings.preference.SortedListPreference.ListPreferenceArrayAdapter;
 import static app.revanced.extension.shared.settings.preference.SortedListPreference.setCheckedListView;
-import static app.revanced.extension.shared.settings.preference.SortedListPreference.ViewHolder;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,20 +11,11 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.util.AttributeSet;
 import android.util.Pair;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.preference.SortedListPreference;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -88,7 +79,7 @@ public final class CustomVideoSpeedListPreference extends ListPreference {
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         // Create custom adapter for the ListView.
-        CustomArrayAdapter adapter = new CustomArrayAdapter(
+        ListPreferenceArrayAdapter adapter = new ListPreferenceArrayAdapter(
                 getContext(),
                 Utils.getResourceIdentifier("revanced_custom_list_item_checked", "layout"),
                 getEntries(),
@@ -156,58 +147,5 @@ public final class CustomVideoSpeedListPreference extends ListPreference {
 
         // Show the dialog.
         dialog.show();
-    }
-
-    /**
-     * Custom ArrayAdapter to handle checkmark visibility.
-     */
-    private static class CustomArrayAdapter extends ArrayAdapter<CharSequence> {
-        private final CharSequence[] entryValues;
-        private final int layoutResourceId;
-        private String selectedValue;
-
-        public CustomArrayAdapter(Context context, int resource, CharSequence[] entries,
-                                  CharSequence[] entryValues, String selectedValue) {
-            super(context, resource, entries);
-            this.layoutResourceId = resource;
-            this.entryValues = entryValues;
-            this.selectedValue = selectedValue;
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            View view = convertView;
-            ViewHolder holder;
-
-            if (view == null) {
-                LayoutInflater inflater = LayoutInflater.from(getContext());
-                view = inflater.inflate(layoutResourceId, parent, false);
-                holder = new ViewHolder();
-                holder.checkIcon = view.findViewById(Utils.getResourceIdentifier("revanced_check_icon", "id"));
-                holder.placeholder = view.findViewById(Utils.getResourceIdentifier("revanced_check_icon_placeholder", "id"));
-                holder.itemText = view.findViewById(Utils.getResourceIdentifier("revanced_item_text", "id"));
-                view.setTag(holder);
-            } else {
-                holder = (ViewHolder) view.getTag();
-            }
-
-            // Set text.
-            holder.itemText.setText(getItem(position));
-            holder.itemText.setTextColor(Utils.getAppForegroundColor());
-
-            // Show or hide checkmark and placeholder.
-            String currentValue = entryValues[position].toString();
-            final boolean isSelected = currentValue.equals(selectedValue);
-            holder.checkIcon.setVisibility(isSelected ? View.VISIBLE : View.GONE);
-            holder.checkIcon.setColorFilter(Utils.getAppForegroundColor());
-            holder.placeholder.setVisibility(isSelected ? View.GONE : View.VISIBLE);
-
-            return view;
-        }
-
-        public void setSelectedValue(String value) {
-            this.selectedValue = value;
-        }
     }
 }
