@@ -9,7 +9,6 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.net.Uri;
@@ -18,9 +17,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.preference.Preference;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.Window;
-import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
@@ -210,7 +207,8 @@ class WebViewDialog extends Dialog {
         LinearLayout mainLayout = new LinearLayout(getContext());
         mainLayout.setOrientation(LinearLayout.VERTICAL);
 
-        mainLayout.setPadding(dipToPixels(10), dipToPixels(10), dipToPixels(10), dipToPixels(10));
+        final int padding = dipToPixels(10);
+        mainLayout.setPadding(padding, padding, padding, padding);
         // Set rounded rectangle background.
         ShapeDrawable mainBackground = new ShapeDrawable(new RoundRectShape(
                 Utils.createCornerRadii(28), null, null));
@@ -231,18 +229,7 @@ class WebViewDialog extends Dialog {
         // Set dialog window attributes
         Window window = getWindow();
         if (window != null) {
-            WindowManager.LayoutParams params = window.getAttributes();
-            params.gravity = Gravity.CENTER;
-            int portraitWidth = (int) (getContext().getResources().getDisplayMetrics().widthPixels * 0.9);
-            if (getContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                portraitWidth = (int) Math.min(
-                        portraitWidth,
-                        getContext().getResources().getDisplayMetrics().heightPixels * 0.9);
-            }
-            params.width = portraitWidth;
-            params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-            window.setAttributes(params);
-            window.setBackgroundDrawable(null); // Remove default dialog background
+            Utils.setDialogWindowParameters(getContext(), window);
         }
     }
 

@@ -58,7 +58,7 @@ public class SponsorBlockSettings {
                 }
             }
 
-            for (int i = 0; i < categorySelectionsArray.length(); i++) {
+            for (int i = 0, length = categorySelectionsArray.length(); i < length; i++) {
                 JSONObject categorySelectionObject = categorySelectionsArray.getJSONObject(i);
 
                 String categoryKey = categorySelectionObject.getString("name");

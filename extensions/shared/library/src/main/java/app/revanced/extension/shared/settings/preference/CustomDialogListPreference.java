@@ -59,9 +59,12 @@ public class CustomDialogListPreference extends ListPreference {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 view = inflater.inflate(layoutResourceId, parent, false);
                 holder = new SubViewDataContainer();
-                holder.checkIcon = view.findViewById(Utils.getResourceIdentifier("revanced_check_icon", "id"));
-                holder.placeholder = view.findViewById(Utils.getResourceIdentifier("revanced_check_icon_placeholder", "id"));
-                holder.itemText = view.findViewById(Utils.getResourceIdentifier("revanced_item_text", "id"));
+                holder.checkIcon = view.findViewById(Utils.getResourceIdentifier(
+                        "revanced_check_icon", "id"));
+                holder.placeholder = view.findViewById(Utils.getResourceIdentifier(
+                        "revanced_check_icon_placeholder", "id"));
+                holder.itemText = view.findViewById(Utils.getResourceIdentifier(
+                        "revanced_item_text", "id"));
                 view.setTag(holder);
             } else {
                 holder = (SubViewDataContainer) view.getTag();
@@ -154,8 +157,8 @@ public class CustomDialogListPreference extends ListPreference {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        final int marginHorizontal = dipToPixels(8);
-        listViewParams.setMargins(0, marginHorizontal, 0, marginHorizontal);
+        final int verticalMargin = dipToPixels(8);
+        listViewParams.setMargins(0, verticalMargin, 0, verticalMargin);
         listViewParams.height = (int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.6);
         mainLayout.addView(listView, mainLayout.getChildCount() - 1, listViewParams);
 

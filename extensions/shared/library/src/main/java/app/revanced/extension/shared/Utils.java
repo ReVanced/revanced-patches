@@ -26,6 +26,7 @@ import android.preference.PreferenceScreen;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -500,7 +501,7 @@ public class Utils {
                 super.onStart();
 
                 if (onStartAction != null) {
-                    onStartAction.onStart((Dialog) getDialog());
+                    onStartAction.onStart(getDialog());
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "onStart failure: " + dialog.getClass().getSimpleName(), ex);
@@ -874,21 +875,26 @@ public class Utils {
         // Set dialog window attributes.
         Window window = dialog.getWindow();
         if (window != null) {
-            WindowManager.LayoutParams params = window.getAttributes();
-            params.gravity = Gravity.CENTER;
-            int portraitWidth = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.9);
-            if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                portraitWidth = (int) Math.min(
-                        portraitWidth,
-                        context.getResources().getDisplayMetrics().heightPixels * 0.9);
-            }
-            params.width = portraitWidth;
-            params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-            window.setAttributes(params);
-            window.setBackgroundDrawable(null); // Remove default dialog background.
+            setDialogWindowParameters(getContext(), window);
         }
 
         return new Pair<>(dialog, mainLayout);
+    }
+
+    public static void setDialogWindowParameters(Context context, Window window) {
+        WindowManager.LayoutParams params = window.getAttributes();
+
+        Resources resources = context.getResources();
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        int portraitWidth = (int) (displayMetrics.widthPixels * 0.9);
+        if (resources.getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            portraitWidth = (int) Math.min(portraitWidth, displayMetrics.heightPixels * 0.9);
+        }
+        params.width = portraitWidth;
+        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        params.gravity = Gravity.CENTER;
+        window.setAttributes(params);
+        window.setBackgroundDrawable(null); // Remove default dialog background.
     }
 
     /**
