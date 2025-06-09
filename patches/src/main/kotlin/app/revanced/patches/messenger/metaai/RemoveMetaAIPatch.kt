@@ -37,9 +37,9 @@ val removeMetaAIPatch = bytecodePatch(
         }.toString().substring(0, 8)
 
         // Replace placeholder in the extension method.
-        extensionMethodFingerprint.method.apply {
-            replaceInstruction(
-                extensionMethodFingerprint.stringMatches!!.first().index,
+        with(extensionMethodFingerprint) {
+            method.replaceInstruction(
+                stringMatches!!.first().index,
                 """
                     const-string v1, "$relevantDigits"
                 """
