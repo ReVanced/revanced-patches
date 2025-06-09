@@ -107,28 +107,45 @@ public final class CustomVideoSpeedListPreference extends ListPreference {
         // Create the custom dialog without OK button.
         Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                 getContext(),
-                getTitle() != null ? getTitle().toString() : "",
-                null,
-                null,
+                getTitle() != null ? getTitle().toString() : "", // Title.
+                null, // No message.
+                null, // No EditText.
                 null, // No OK button text.
                 null, // No OK button action.
                 () -> {}, // Cancel button action (just dismiss).
-                null,
-                null,
-                true
+                null, // No Neutral button text.
+                null, // No Neutral button action.
+                true // Dismiss dialog when onNeutralClick.
         );
 
         Dialog dialog = dialogPair.first;
         LinearLayout mainLayout = dialogPair.second;
 
-        // Add ListView to the main layout.
+        // Measure content height before adding ListView to layout.
+        // Otherwise, the ListView will push the buttons off the screen.
+        int totalHeight = 0;
+        int widthSpec = View.MeasureSpec.makeMeasureSpec(
+                getContext().getResources().getDisplayMetrics().widthPixels,
+                View.MeasureSpec.AT_MOST
+        );
+        int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+
+        for (int i = 0; i < adapter.getCount(); i++) {
+            View listItem = adapter.getView(i, null, listView);
+            listItem.measure(widthSpec, heightSpec);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        // Cap the height at maxHeight.
+        int maxHeight = (int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.6);
+        int finalHeight = Math.min(totalHeight, maxHeight);
+
+        // Add ListView to the main layout with calculated height.
         LinearLayout.LayoutParams listViewParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
+                finalHeight // Use calculated height directly.
         );
         listViewParams.setMargins(0, dipToPixels(8), 0, dipToPixels(8));
-        int maxHeight = (int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.6);
-        listViewParams.height = maxHeight;
         mainLayout.addView(listView, mainLayout.getChildCount() - 1, listViewParams);
 
         // Handle item click to select value and dismiss dialog.
