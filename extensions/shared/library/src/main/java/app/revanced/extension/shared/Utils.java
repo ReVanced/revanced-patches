@@ -1043,14 +1043,14 @@ public class Utils {
 
     public static int getCancelorNeutralbuttonsBackground() {
         return isDarkModeEnabled()
-                ? adjustColorBrightness(getDarkColor(), 1.10f)
+                ? adjustColorBrightness(getAppBackground(), 1.10f)
                 : adjustColorBrightness(getLightColor(), 0.95f);
     }
 
     public static int getEditTextBackground() {
         return isDarkModeEnabled()
-                ? adjustColorBrightness(getDarkColor(), 1.20f)
-                : adjustColorBrightness(getLightColor(), 0.90f);
+                ? adjustColorBrightness(getAppBackground(), 1.05f)
+                : adjustColorBrightness(getLightColor(), 0.97f);
     }
 
     public static String getColorHexString(int color) {
