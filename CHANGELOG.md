@@ -1,3 +1,10 @@
+# [5.27.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.8...v5.27.0-dev.9) (2025-06-09)
+
+
+### Features
+
+* **Messenger:** Add `Hide Facebook button` patch ([#5057](https://github.com/ReVanced/revanced-patches/issues/5057)) ([9175b23](https://github.com/ReVanced/revanced-patches/commit/9175b23e8360d13c8c1c9c8602ca0b5931d13627))
+
 # [5.27.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.7...v5.27.0-dev.8) (2025-06-09)
 
 
