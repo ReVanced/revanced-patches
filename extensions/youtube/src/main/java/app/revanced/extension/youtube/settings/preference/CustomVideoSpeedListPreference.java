@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
@@ -173,7 +174,7 @@ public final class CustomVideoSpeedListPreference extends ListPreference {
 
         @NonNull
         @Override
-        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             View view = convertView;
             ViewHolder holder;
 
