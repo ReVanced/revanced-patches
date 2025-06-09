@@ -39,6 +39,13 @@ fun settingsPatch (
         copyResources(
             "settings",
             ResourceGroup("xml", "revanced_prefs.xml", "revanced_prefs_icons.xml"),
+            ResourceGroup("drawable",
+                // CustomListPreference resources
+                "revanced_settings_circle_background.xml",
+                "revanced_settings_cursor.xml",
+                "revanced_settings_custom_checkmark.xml",
+                "revanced_settings_icon.xml",
+            )
         )
 
         addResources("shared", "misc.settings.settingsResourcePatch")
