@@ -677,6 +677,9 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_hide_autoplay_button_title">Ukryj przycisk automatycznego odtwarzania</string>
   <string name="revanced_hide_autoplay_button_summary_on">Przycisk automatycznego odtwarzania jest ukryty</string>
   <string name="revanced_hide_autoplay_button_summary_off">Przycisk automatycznego odtwarzania jest widoczny</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Ukryj tło przycisków sterowania odtwarzacza</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Tło przycisków sterowania odtwarzacza jest ukryte</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Tło przycisków sterowania odtwarzacza jest wyświetlane</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Karty ekranu końcowego</string>
@@ -761,6 +764,9 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_hide_shorts_green_screen_button_title">Ukryj przycisk \"Zielony ekran\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Przycisk od greenscreena jest ukryty</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Przycisk od greenscreena jest widoczny</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Ukryj przycisk Nowe posty</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Przycisk Nowe posty jest widoczny</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Przycisk Nowe posty jest ukryty</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Przycisk hashtagu</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Przycisk hashtagu jest ukryty</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Przycisk hashtagu jest widoczny</string>

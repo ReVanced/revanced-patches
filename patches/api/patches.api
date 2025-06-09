@@ -6,6 +6,10 @@ public final class app/revanced/patches/all/misc/adb/HideAdbPatchKt {
 	public static final fun getHideAdbStatusPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/all/misc/appicon/HideAppIconPatchKt {
+	public static final fun getHideAppIconPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public final class app/revanced/patches/all/misc/build/BaseSpoofBuildInfoPatchKt {
 	public static final fun baseSpoofBuildInfoPatch (Lkotlin/jvm/functions/Function0;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -286,6 +290,10 @@ public final class app/revanced/patches/messenger/inputfield/DisableSwitchingEmo
 
 public final class app/revanced/patches/messenger/inputfield/DisableTypingIndicatorPatchKt {
 	public static final fun getDisableTypingIndicatorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/messenger/layout/HideFacebookButtonPatchKt {
+	public static final fun getHideFacebookButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/messenger/metaai/RemoveMetaAIPatchKt {

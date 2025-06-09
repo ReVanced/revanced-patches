@@ -681,6 +681,9 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_autoplay_button_title">Sakrij dugme „Autoplej”</string>
   <string name="revanced_hide_autoplay_button_summary_on">Dugme „Autoplej” je skriveno</string>
   <string name="revanced_hide_autoplay_button_summary_off">Dugme „Autoplej” je prikazano</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Sakrij pozadinu dugmadi za kontrolu plejera</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Pozadina dugmadi za kontrolu plejera je skrivena</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Pozadina dugmadi za kontrolu plejera je prikazana</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Sakrij kartice završnog ekrana</string>
@@ -765,6 +768,9 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_shorts_green_screen_button_title">Sakrij dugme „Zeleni ekran”</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Dugme „Zeleni ekran” je skriveno</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Dugme „Zeleni ekran” je prikazano</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Sakrij dugme „Nove objave”</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Dugme „Nove objave” je prikazano</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Dugme „Nove objave” je skriveno</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Sakrij dugme heš-oznake</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Dugme heš-oznake je skriveno</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Dugme heš-oznake je prikazano</string>

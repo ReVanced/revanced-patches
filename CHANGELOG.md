@@ -1,3 +1,10 @@
+# [5.27.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.7...v5.27.0-dev.8) (2025-06-09)
+
+
+### Features
+
+* Add `Hide app icon` patch ([#4977](https://github.com/ReVanced/revanced-patches/issues/4977)) ([92311b8](https://github.com/ReVanced/revanced-patches/commit/92311b8e5675f3d4b80ed690d34b699fb847e3cd))
+
 # [5.27.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.6...v5.27.0-dev.7) (2025-06-08)
 
 

@@ -681,6 +681,9 @@ Per mostrar el menú de la pista d'àudio, canvieu \"Suplanta els fluxos de víd
   <string name="revanced_hide_autoplay_button_title">Amaga el botó Reproducció automàtica</string>
   <string name="revanced_hide_autoplay_button_summary_on">El botó de reproducció automàtica està ocult</string>
   <string name="revanced_hide_autoplay_button_summary_off">El botón de reproducción automática se muestra</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Amaga el fons dels botons de control del reproductor</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">S\'amaga el fons dels botons de control del reproductor</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Es mostra el fons dels botons de control del reproductor</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ocultar tarjetas de pantalla final</string>
@@ -765,6 +768,9 @@ Per mostrar el menú de la pista d'àudio, canvieu \"Suplanta els fluxos de víd
   <string name="revanced_hide_shorts_green_screen_button_title">Amaga el botó Pantalla verda</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">El botó de pantalla verda està ocult</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">El botó de pantalla verda està visible</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Amaga el botó de publicacions noves</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Es mostra el botó de publicacions noves</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">S\'amaga el botó de publicacions noves</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Amagar botó de hashtag</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">El botó de hashtag està ocult</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">El botó de hashtag està visible</string>

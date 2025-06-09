@@ -681,6 +681,9 @@ Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ vä
   <string name="revanced_hide_autoplay_button_title">Peida Automaatse esitamise nupp</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automaatse esituse nupp on peidetud</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automaatse esituse nupp on nähtav</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Peida pleieri juhtnuppude taust</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Pleieri juhtnuppude taust on peidetud</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Pleieri juhtnuppude taust on näidatud</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Peida lõpukujunduse kaardid</string>
@@ -765,6 +768,9 @@ Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ vä
   <string name="revanced_hide_shorts_green_screen_button_title">Peida Roheline ekraan nupp</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Rohelise ekraani nupp on peidetud</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Rohelise ekraani nupp on nähtav</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Peida uute postituste nupp</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Uute postituste nupp on nähtav</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Uute postituste nupp on peidetud</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Peida räsimärgi nupp</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Räsimärgi nupp on peidetud</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Räsimärgi nupp on nähtav</string>

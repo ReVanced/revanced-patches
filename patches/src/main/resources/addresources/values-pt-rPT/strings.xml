@@ -681,6 +681,9 @@ Para mostrar o menu da faixa de áudio, altere \"Spoof video streams\" para iOS 
   <string name="revanced_hide_autoplay_button_title">Ocultar botão de reprodução automática</string>
   <string name="revanced_hide_autoplay_button_summary_on">O botão de reprodução automática está escondido</string>
   <string name="revanced_hide_autoplay_button_summary_off">Botão de reprodução automática é visível</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Ocultar o fundo dos botões de controlo do reprodutor</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">O fundo dos botões de controlo do reprodutor está oculto</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">O fundo dos botões de controlo do reprodutor é mostrado</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Esconder cartões de ecrã final</string>
@@ -765,6 +768,9 @@ Para mostrar o menu da faixa de áudio, altere \"Spoof video streams\" para iOS 
   <string name="revanced_hide_shorts_green_screen_button_title">Botão de ecrã verde está oculto</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">O botão de ecrã verde está oculto</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Botão de ecrã verde é mostrado</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Ocultar botão Novas postagens</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">O botão Novas postagens é exibido</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">O botão Novas postagens está oculto</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Ocultar botão de hashtag</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">O botão Hashtag está oculto</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Botão Hashtag é mostrado</string>
