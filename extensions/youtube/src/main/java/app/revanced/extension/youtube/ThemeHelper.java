@@ -25,7 +25,7 @@ public class ThemeHelper {
 
     /**
      * Injection point.
-     * Updates the theme and sets the shared Utils colors.
+     * Updates the theme and sets theme's colors.
      */
     @SuppressWarnings("unused")
     public static void setTheme(Enum<?> value) {

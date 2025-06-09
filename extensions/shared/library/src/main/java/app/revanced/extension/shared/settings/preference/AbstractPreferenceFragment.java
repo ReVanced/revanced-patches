@@ -124,13 +124,14 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
         showingUserDialogMessage = true;
 
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(context,
-                confirmDialogTitle,
-                Objects.requireNonNull(setting.userDialogMessage).toString(),
-                null,
-                null,
+        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                context,
+                confirmDialogTitle, // Title.
+                Objects.requireNonNull(setting.userDialogMessage).toString(), // No message.
+                null, // No EditText.
+                null, // OK button text.
                 () -> {
-                    // User confirmed, save to the Setting.
+                    // OK button action. User confirmed, save to the Setting.
                     updatePreference(pref, setting, true, false);
 
                     // Update availability of other preferences that may be changed.
@@ -140,13 +141,18 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                         showRestartDialog(context);
                     }
                 },
-                () -> updatePreference(pref, setting, true, true), // Restore whatever the setting was before the change.
-                null, // No neutral button for this dialog
-                null,
-                true // Dismiss dialog when onNeutralClick.
+                () -> {
+                    // Cancel button action. Restore whatever the setting was before the change.
+                    updatePreference(pref, setting, true, true);
+                },
+                null, // No Neutral button.
+                null, // No Neutral button action.
+                true  // Dismiss dialog when onNeutralClick.
         );
 
         dialogPair.first.setOnDismissListener(d -> showingUserDialogMessage = false);
+
+        // Show the dialog.
         dialogPair.first.show();
     }
 
@@ -297,17 +303,18 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         }
 
         Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(context,
-                restartDialogTitle,
-                restartDialogMessage,
-                null,
-                restartDialogButtonText,
-                () -> Utils.restartApp(context),
-                () -> {}, // Cancel action just dismisses the dialog
-                null, // No neutral button for this dialog
-                null,
-                true // Dismiss dialog when onNeutralClick.
+                restartDialogTitle,              // Title.
+                restartDialogMessage,            // Message.
+                null,                            // No EditText.
+                restartDialogButtonText,         // OK button text.
+                () -> Utils.restartApp(context), // OK button action.
+                () -> {},                        // Cancel button action (dismiss only).
+                null,                            // No Neutral button text.
+                null,                            // No Neutral button action.
+                true                             // Dismiss dialog when onNeutralClick.
         );
 
+        // Show the dialog.
         dialogPair.first.show();
     }
 

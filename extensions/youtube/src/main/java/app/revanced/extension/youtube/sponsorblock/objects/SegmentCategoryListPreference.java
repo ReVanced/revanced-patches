@@ -268,10 +268,11 @@ public class SegmentCategoryListPreference extends ListPreference {
             Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                     context,
                     category.title.toString(), // Title.
-                    null, // Message (replaced by contentLayout).
-                    null, // EditText (not used here).
+                    null, // No message (replaced by contentLayout).
+                    null, // No EditText.
                     null, // OK button text.
-                    () -> { // OK button action.
+                    () -> {
+                        // OK button action.
                         if (selectedDialogEntryIndex >= 0 && getEntryValues() != null) {
                             String value = getEntryValues()[selectedDialogEntryIndex].toString();
                             if (callChangeListener(value)) {
@@ -290,11 +291,14 @@ public class SegmentCategoryListPreference extends ListPreference {
                             updateUI();
                         }
                     },
-                    () -> {}, // Cancel button action.
+                    () -> {}, // Cancel button action (dismiss only).
                     str("revanced_settings_reset_color"), // Neutral button text.
-                    () -> { // Neutral button action (Reset).
+                    () -> {
+                        // Neutral button action (Reset).
                         try {
+                            // Setting view color causes callback to update the UI.
                             dialogColorPickerView.setColor(category.getColorNoOpacityDefault());
+
                             categoryOpacity = category.getOpacityDefault();
                             updateOpacityText();
                         } catch (Exception ex) {
@@ -319,19 +323,15 @@ public class SegmentCategoryListPreference extends ListPreference {
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
-        try {
-            // Dialog is already handled in the OK button action.
-        } catch (Exception ex) {
-            Logger.printException(() -> "onDialogClosed failure", ex);
-        } finally {
-            dialogColorDotView = null;
-            dialogColorEditText = null;
-            dialogOpacityEditText = null;
-            dialogColorPickerView = null;
-            if (dialog != null) {
-                dialog.dismiss();
-                dialog = null;
-            }
+        // Nullify dialog references.
+        dialogColorDotView = null;
+        dialogColorEditText = null;
+        dialogOpacityEditText = null;
+        dialogColorPickerView = null;
+
+        if (dialog != null) {
+            dialog.dismiss();
+            dialog = null;
         }
     }
 

@@ -291,21 +291,23 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 if (newValue && !Settings.SB_SEEN_GUIDELINES.get()) {
                     Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                             preference1.getContext(),
-                            str("revanced_sb_guidelines_popup_title"), // Title.
+                            str("revanced_sb_guidelines_popup_title"),   // Title.
                             str("revanced_sb_guidelines_popup_content"), // Message.
-                            null, // No EditText.
-                            str("revanced_sb_guidelines_popup_open"), // OK button text.
-                            () -> openGuidelines(), // OK button action.
-                            null, // Cancel button action.
+                            null,                                        // No EditText.
+                            str("revanced_sb_guidelines_popup_open"),    // OK button text.
+                            () -> openGuidelines(),                      // OK button action.
+                            null,                                        // Cancel button action.
                             str("revanced_sb_guidelines_popup_already_read"), // Neutral button text.
-                            () -> {}, // No action for Neutral button (Dismiss dialog).
-                            true // Dismiss dialog when onNeutralClick.
+                            () -> {},                                    // Neutral button action (dismiss only).
+                            true                                         // Dismiss dialog when onNeutralClick.
                     );
 
+                    // Set dialog as non-cancelable.
                     dialogPair.first.setCancelable(false);
 
                     dialogPair.first.setOnDismissListener(dialog -> Settings.SB_SEEN_GUIDELINES.save(true));
 
+                    // Show the dialog.
                     dialogPair.first.show();
                 }
                 Settings.SB_CREATE_NEW_SEGMENT.save(newValue);
@@ -406,32 +408,34 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         // Create custom dialog.
                         Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                                 context,
-                                getTitle() != null ? getTitle().toString() : "", // Dialog title.
-                                null, // Message is replaced by EditText.
+                                getTitle() != null ? getTitle().toString() : "", // Title.
+                                null,     // Message is replaced by EditText.
                                 editText, // Pass the EditText.
-                                null, // OK button text.
+                                null,     // OK button text.
                                 () -> {
-                                    // Persist the EditText value when OK is clicked.
+                                    // OK button action. Persist the EditText value when OK is clicked.
                                     String newValue = editText.getText().toString();
                                     if (callChangeListener(newValue)) {
                                         setText(newValue);
                                     }
-                                }, // On OK click.
-                                () -> {}, // On Cancel click (just dismiss).
+                                },
+                                () -> {}, // Cancel button action (dismiss only).
                                 str("revanced_sb_settings_copy"), // Neutral button text (Copy).
                                 () -> {
+                                    // Neutral button action (Copy).
                                     try {
                                         Utils.setClipboard(getEditText().getText());
                                     } catch (Exception ex) {
                                         Logger.printException(() -> "Copy settings failure", ex);
                                     }
-                                }, // Neutral button action (Copy).
+                                },
                                 true // Dismiss dialog when onNeutralClick.
                         );
 
-                        // Set cancelable to true (default EditTextPreference behavior)
+                        // Set dialog as cancelable.
                         dialogPair.first.setCancelable(true);
 
+                        // Show the dialog.
                         dialogPair.first.show();
                     } catch (Exception ex) {
                         Logger.printException(() -> "showDialog failure", ex);
@@ -461,18 +465,18 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
                 editText.setText(Settings.SB_API_URL.get());
 
-                // Create a custom dialog
+                // Create a custom dialog.
                 Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                         context,
                         str("revanced_sb_general_api_url"), // Title.
-                        null, // No message, EditText replaces it.
-                        editText, // Pass the EditText.
-                        null, // OK button text.
-                        () -> {}, // Placeholder for OK button action (set after dialogPair creation).
-                        () -> {}, // Cancel button action (dismiss dialog).
+                        null,               // No message, EditText replaces it.
+                        editText,           // Pass the EditText.
+                        null,               // OK button text.
+                        () -> {},           // Placeholder for OK button action (set after dialogPair creation).
+                        () -> {},           // Cancel button action (dismiss dialog).
                         str("revanced_settings_reset"), // Neutral (Reset) button text.
-                        () -> {}, // Placeholder for Neutral button action (set after dialogPair creation).
-                        true // Dismiss dialog when onNeutralClick.
+                        () -> {},           // Placeholder for Neutral button action (set after dialogPair creation).
+                        true                // Dismiss dialog when onNeutralClick.
                 );
 
                 // Define the URL change listener after dialogPair is initialized.
@@ -491,11 +495,11 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     }
                 };
 
-                // Update button actions using setOnShowListener to access dialogPair.
+                // Update button actions.
                 dialogPair.first.setOnShowListener(dialog -> {
                     // Find buttons in the dialog's layout.
                     LinearLayout buttonContainer = (LinearLayout) dialogPair.second.getChildAt(dialogPair.second.getChildCount() - 1);
-                    // OK button is the last button (based on createCustomDialog logic).
+                    // OK button is the last button.
                     Button okButton = (Button) buttonContainer.getChildAt(buttonContainer.getChildCount() - 1);
                     // Neutral button is the first if it exists.
                     Button neutralButton = buttonContainer.getChildCount() > 1 ? (Button) buttonContainer.getChildAt(0) : null;
@@ -531,25 +535,26 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                                 context,
                                 str("revanced_sb_settings_ie"), // Title.
-                                null, // No message, EditText replaces it.
+                                null,     // No message, EditText replaces it.
                                 editText, // Pass the EditText.
                                 str("revanced_settings_import"), // OK button text.
                                 () -> {
-                                    // Trigger OnPreferenceChangeListener.
+                                    // OK button action. Trigger OnPreferenceChangeListener.
                                     String newValue = editText.getText().toString();
                                     if (getOnPreferenceChangeListener() != null) {
                                         getOnPreferenceChangeListener().onPreferenceChange(this, newValue);
                                     }
-                                }, // OK button action.
-                                () -> {}, // Cancel button action (dismiss dialog).
-                                str("revanced_sb_settings_copy"), // Neutral (Copy) button text.
+                                },
+                                () -> {}, // Cancel button action (dismiss only).
+                                str("revanced_sb_settings_copy"), // Neutral button text (Copy).
                                 () -> {
+                                    // Neutral button action (Copy).
                                     try {
                                         Utils.setClipboard(editText.getText());
                                     } catch (Exception ex) {
                                         Logger.printException(() -> "Copy settings failure", ex);
                                     }
-                                }, // Copy button action.
+                                },
                                 true // Dismiss dialog when onNeutralClick.
                         );
 
@@ -570,11 +575,11 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             editText.setTextSize(TypedValue.COMPLEX_UNIT_PT, 8);
 
             // Set preference listeners.
-            importExport.setOnPreferenceClickListener(preference -> {
+            importExport.setOnPreferenceClickListener(preference1 -> {
                 importExport.getEditText().setText(SponsorBlockSettings.exportDesktopSettings());
                 return true;
             });
-            importExport.setOnPreferenceChangeListener((preference, newValue) -> {
+            importExport.setOnPreferenceChangeListener((preference1, newValue) -> {
                 SponsorBlockSettings.importDesktopSettings((String) newValue);
                 updateUI();
                 return true;

@@ -374,14 +374,14 @@ public class SearchViewController {
                         null,                                 // OK button text.
                         () -> removeSearchQuery(query),       // OK button action.
                         () -> {},                             // Cancel button action (dismiss only).
-                        null,                                 // Cancel button text (used as Neutral button).
+                        null,                                 // No Neutral button text.
                         () -> {},                             // Neutral button action (dismiss only).
                         true                                  // Dismiss dialog when onNeutralClick.
                 );
 
                 Dialog dialog = dialogPair.first;
                 dialog.setCancelable(true); // Allow dismissal via back button.
-                dialog.show();
+                dialog.show(); // Show the dialog.
                 return true;
             });
 

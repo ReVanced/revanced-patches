@@ -81,25 +81,26 @@ public class ResettableEditTextPreference extends EditTextPreference {
             String neutralButtonText = (setting != null) ? str("revanced_settings_reset") : null;
             Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                     context,
-                    getTitle() != null ? getTitle().toString() : "", // Dialog title.
-                    null, // Message is replaced by EditText.
+                    getTitle() != null ? getTitle().toString() : "", // Title.
+                    null,     // Message is replaced by EditText.
                     editText, // Pass the EditText.
-                    null, // OK button text.
+                    null,     // OK button text.
                     () -> {
-                        // Persist the EditText value when OK is clicked.
+                        // OK button action. Persist the EditText value when OK is clicked.
                         String newValue = editText.getText().toString();
                         if (callChangeListener(newValue)) {
                             setText(newValue);
                         }
-                    }, // On OK click.
-                    () -> {}, // On Cancel click (just dismiss).
+                    },
+                    () -> {}, // Cancel button action (dismiss only).
                     neutralButtonText, // Neutral button text (Reset).
                     () -> {
+                        // Neutral button action.
                         if (setting != null) {
                             try {
                                 String defaultStringValue = Objects.requireNonNull(setting).defaultValue.toString();
                                 editText.setText(defaultStringValue);
-                                editText.setSelection(defaultStringValue.length());
+                                editText.setSelection(defaultStringValue.length()); // Move cursor to end of text.
                             } catch (Exception ex) {
                                 Logger.printException(() -> "reset failure", ex);
                             }
@@ -108,6 +109,7 @@ public class ResettableEditTextPreference extends EditTextPreference {
                     false // Do not dismiss dialog when onNeutralClick.
             );
 
+            // Show the dialog.
             dialogPair.first.show();
         } catch (Exception ex) {
             Logger.printException(() -> "showDialog failure", ex);

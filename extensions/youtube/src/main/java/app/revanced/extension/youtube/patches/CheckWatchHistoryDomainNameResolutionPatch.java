@@ -72,12 +72,12 @@ public class CheckWatchHistoryDomainNameResolutionPatch {
                                 context,
                                 str("revanced_check_watch_history_domain_name_dialog_title"), // Title.
                                 Html.fromHtml(str("revanced_check_watch_history_domain_name_dialog_message")), // Message (HTML).
-                                null, // EditText (not used).
+                                null, // No EditText.
                                 null, // OK button text.
                                 () -> {}, // OK button action (just dismiss).
                                 () -> {}, // Cancel button action (just dismiss).
                                 str("revanced_check_watch_history_domain_name_dialog_ignore"), // Neutral button text.
-                                () -> Settings.CHECK_WATCH_HISTORY_DOMAIN_NAME.save(false), // Neutral button action (Ignore).
+                                () -> Settings.CHECK_WATCH_HISTORY_DOMAIN_NAME.save(false),    // Neutral button action (Ignore).
                                 true // Dismiss dialog on Neutral button click.
                         );
 

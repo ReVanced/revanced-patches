@@ -73,7 +73,7 @@ public class Utils {
     private static String versionName;
     private static String applicationLabel;
 
-    // Static fields to store theme colors.
+    // Store theme colors.
     private static int darkColor = Color.BLACK; // Default dark color.
     private static int lightColor = Color.WHITE; // Default light color.
 
@@ -718,8 +718,7 @@ public class Utils {
 
     /**
      * Creates a custom dialog with a styled layout, including a title, message, buttons, and an optional EditText.
-     * The dialog's appearance adapts to the system's dark mode setting, with rounded corners
-     * and customizable button actions.
+     * The dialog's appearance adapts to the app's dark mode setting, with rounded corners and customizable button actions.
      *
      * @param context           The Context used to create the dialog.
      * @param title             The title text of the dialog.
@@ -741,7 +740,6 @@ public class Utils {
     ) {
         Logger.printDebug(() -> "Creating custom dialog with title: " + title);
 
-        // Use a theme to remove default dialog styling.
         Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
 
@@ -757,7 +755,7 @@ public class Utils {
         final int dip36 = dipToPixels(36); // Height for buttons.
 
         mainLayout.setPadding(dip28, dip16, dip28, dip28);
-        // Set rounded rectangle background with black color.
+        // Set rounded rectangle background.
         ShapeDrawable mainBackground = new ShapeDrawable(new RoundRectShape(
                 createCornerRadii(28), null, null));
         mainBackground.getPaint().setColor(getAppBackground()); // Dialog background.
@@ -897,7 +895,7 @@ public class Utils {
 
     /**
      * Adds a styled button to a dialog's button container with customizable text, click behavior, and appearance.
-     * The button's background and text colors adapt to the system's dark mode setting. Margins are dynamically
+     * The button's background and text colors adapt to the app's dark mode setting. Margins are dynamically
      * adjusted based on the button's role (OK, Cancel, or Neutral) and the presence of other buttons.
      *
      * @param buttonContainer The LinearLayout container where the button will be added.
@@ -995,8 +993,6 @@ public class Utils {
 
     /**
      * Sets the dark theme color to be used by the app.
-     *
-     * @param color The color to set for dark theme in ARGB format.
      */
     public static void setDarkColor(int color) {
         Logger.printDebug(() -> "Setting dark color: " + getColorHexString(color));
@@ -1005,8 +1001,6 @@ public class Utils {
 
     /**
      * Sets the light theme color to be used by the app.
-     *
-     * @param color The color to set for light theme in ARGB format.
      */
     public static void setLightColor(int color) {
         Logger.printDebug(() -> "Setting light color: " + getColorHexString(color));
@@ -1015,8 +1009,6 @@ public class Utils {
 
     /**
      * Returns the themed dark color.
-     *
-     * @return The dark color in ARGB format.
      */
     public static int getDarkColor() {
         return darkColor;
@@ -1024,8 +1016,6 @@ public class Utils {
 
     /**
      * Returns the themed light color.
-     *
-     * @return The light color in ARGB format.
      */
     public static int getLightColor() {
         return lightColor;
@@ -1269,19 +1259,19 @@ public class Utils {
         int blue = Color.blue(color);
 
         if (factor > 1.0f) {
-            // Lighten: Interpolate toward white (255)
-            final float t = 1.0f - (1.0f / factor); // Interpolation parameter
+            // Lighten: Interpolate toward white (255).
+            final float t = 1.0f - (1.0f / factor); // Interpolation parameter.
             red = Math.round(red + (255 - red) * t);
             green = Math.round(green + (255 - green) * t);
             blue = Math.round(blue + (255 - blue) * t);
         } else {
-            // Darken or no change: Scale toward black
+            // Darken or no change: Scale toward black.
             red = (int) (red * factor);
             green = (int) (green * factor);
             blue = (int) (blue * factor);
         }
 
-        // Ensure values are within [0, 255]
+        // Ensure values are within [0, 255].
         red = clamp(red, 0, 255);
         green = clamp(green, 0, 255);
         blue = clamp(blue, 0, 255);

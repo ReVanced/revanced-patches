@@ -348,11 +348,12 @@ public class ColorPickerPreference extends EditTextPreference {
         final int originalColor = currentColor & 0x00FFFFFF;
         Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                 context,
-                getTitle() != null ? getTitle().toString() : str("revanced_settings_color_picker_title"),
-                null,
-                null,
-                null,
+                getTitle() != null ? getTitle().toString() : str("revanced_settings_color_picker_title"), // Title.
+                null, // No message.
+                null, // No EditText.
+                null, // OK button text.
                 () -> {
+                    // OK button action.
                     try {
                         String colorString = editText.getText().toString();
                         if (colorString.length() != COLOR_STRING_LENGTH) {
@@ -362,20 +363,26 @@ public class ColorPickerPreference extends EditTextPreference {
                         }
                         setText(colorString);
                     } catch (Exception ex) {
+                        // Should never happen due to a bad color string,
+                        // since the text is validated and fixed while the user types.
                         Logger.printException(() -> "OK button failure", ex);
                     }
                 },
                 () -> {
+                    // Cancel button action.
                     try {
+                        // Restore the original color.
                         setText(getColorString(originalColor));
                     } catch (Exception ex) {
                         Logger.printException(() -> "Cancel button failure", ex);
                     }
                 },
-                str("revanced_settings_reset_color"),
+                str("revanced_settings_reset_color"), // Neutral button text.
                 () -> {
+                    // Neutral button action.
                     try {
                         final int defaultColor = Color.parseColor(colorSetting.defaultValue) & 0x00FFFFFF;
+                        // Setting view color causes listener callback into this class.
                         dialogColorPickerView.setColor(defaultColor);
                     } catch (Exception ex) {
                         Logger.printException(() -> "Reset button failure", ex);

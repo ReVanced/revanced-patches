@@ -84,17 +84,21 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
             // Create a custom dialog with the EditText.
             Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                     context,
-                    str("revanced_pref_import_export_title"), // Title for the dialog.
-                    null, // No message (EditText replaces it).
+                    str("revanced_pref_import_export_title"), // Title.
+                    null,     // No message (EditText replaces it).
                     editText, // Pass the EditText.
                     str("revanced_settings_import"), // OK button text.
-                    () -> importSettings(context, editText.getText().toString()), // On OK click.
-                    () -> {}, // On Cancel click (just dismiss the dialog).
+                    () -> importSettings(context, editText.getText().toString()), // OK button action.
+                    () -> {}, // Cancel button action (dismiss only).
                     str("revanced_settings_import_copy"), // Neutral button (Copy) text.
-                    () -> Utils.setClipboard(editText.getText()), // Neutral button (Copy) click action.
+                    () -> {
+                        // Neutral button (Copy) action. Show the user the settings in JSON format.
+                        Utils.setClipboard(editText.getText());
+                    },
                     true // Dismiss dialog when onNeutralClick.
             );
 
+            // Show the dialog.
             dialogPair.first.show();
         } catch (Exception ex) {
             Logger.printException(() -> "showDialog failure", ex);

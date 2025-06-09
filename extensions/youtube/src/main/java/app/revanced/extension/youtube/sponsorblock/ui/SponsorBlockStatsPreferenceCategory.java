@@ -196,6 +196,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
         updateStatsSelfSaved.run();
 
         preference.setOnPreferenceClickListener(preference1 -> {
+            // Create the custom dialog.
             Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                     preference.getContext(),
                     str("revanced_sb_stats_self_saved_reset_title"), // Title.
@@ -203,17 +204,18 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                     null, // No EditText.
                     null, // OK button text.
                     () -> {
+                        // OK button action.
                         Settings.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.resetToDefault();
                         Settings.SB_LOCAL_TIME_SAVED_MILLISECONDS.resetToDefault();
                         updateStatsSelfSaved.run();
-                    }, // OK button action.
-                    () -> {}, // Cancel button action (dismiss dialog).
+                    },
+                    () -> {}, // Cancel button action (dismiss only).
                     null, // No neutral button.
                     null, // No neutral button action.
                     true  // Dismiss dialog when onNeutralClick.
             );
 
-            // Show the dialog
+            // Show the dialog.
             dialogPair.first.show();
             return true;
         });

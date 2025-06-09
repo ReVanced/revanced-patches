@@ -23,6 +23,7 @@ import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeed
 import app.revanced.extension.youtube.settings.Settings;
 
 /**
+ * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator.
  * Custom video speeds used by {@link CustomPlaybackSpeedPatch}.
  */
 @SuppressWarnings({"unused", "deprecation"})

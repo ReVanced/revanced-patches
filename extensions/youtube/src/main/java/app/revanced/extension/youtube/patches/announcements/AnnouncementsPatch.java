@@ -124,32 +124,22 @@ public final class AnnouncementsPatch {
                 final Level finalLevel = level;
 
                 Utils.runOnMainThread(() -> {
-                    // Create the custom dialog.
+                    // Create the custom dialog and show the announcement.
                     Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                             context,
                             finalTitle,                           // Title.
                             finalMessage,                         // Message.
                             null,                                 // No EditText.
                             null,                                 // OK button text.
-                            () -> {                               // OK button action.
-                                Settings.ANNOUNCEMENT_LAST_ID.save(finalId);
-                            },
+                            () -> Settings.ANNOUNCEMENT_LAST_ID.save(finalId), // OK button action.
                             () -> {},                             // Cancel button action (dismiss only).
-                            str("revanced_announcements_dialog_dismiss"), // Negative button text (as Neutral).
+                            str("revanced_announcements_dialog_dismiss"), // Neutral button text.
                             () -> {},                             // Neutral button action (dismiss only).
                             true                                  // Dismiss dialog when onNeutralClick.
                     );
 
                     Dialog dialog = dialogPair.first;
                     LinearLayout mainLayout = dialogPair.second;
-
-                    // Make the message TextView clickable for links
-                    for (int i = 0; i < mainLayout.getChildCount(); i++) {
-                        View child = mainLayout.getChildAt(i);
-                        if (child instanceof TextView && finalMessage.equals(((TextView) child).getText())) {
-                            ((TextView) child).setMovementMethod(LinkMovementMethod.getInstance());
-                        }
-                    }
 
                     // Set the icon for the title TextView
                     for (int i = 0; i < mainLayout.getChildCount(); i++) {
@@ -160,10 +150,10 @@ public final class AnnouncementsPatch {
                         }
                     }
 
-                    // Set dialog as non-cancelable
+                    // Set dialog as non-cancelable.
                     dialog.setCancelable(false);
 
-                    // Show the dialog
+                    // Show the dialog.
                     Utils.showDialog(context, dialog);
                 });
             } catch (Exception e) {

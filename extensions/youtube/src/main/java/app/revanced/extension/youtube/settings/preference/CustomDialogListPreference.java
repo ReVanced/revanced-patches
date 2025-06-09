@@ -20,7 +20,7 @@ import android.widget.TextView;
 import app.revanced.extension.shared.Utils;
 
 /**
- * A custom ListPreference that uses a styled custom dialog with a checkmark indicator.
+ * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator.
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class CustomDialogListPreference extends ListPreference {
@@ -74,15 +74,15 @@ public class CustomDialogListPreference extends ListPreference {
         // Create the custom dialog without OK button.
         Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                 getContext(),
-                getTitle() != null ? getTitle().toString() : "",
-                null,
-                null,
+                getTitle() != null ? getTitle().toString() : "", // Title.
+                null, // No message.
+                null, // No EditText.
                 null, // No OK button text.
                 null, // No OK button action.
                 () -> {}, // Cancel button action (just dismiss).
-                null,
-                null,
-                true
+                null, // No Neutral button text.
+                null, // No Neutral button action.
+                true // Dismiss dialog when onNeutralClick.
         );
 
         Dialog dialog = dialogPair.first;
@@ -114,7 +114,7 @@ public class CustomDialogListPreference extends ListPreference {
     }
 
     /**
-     * Custom ArrayAdapter to handle checkmark visibility.
+     * Custom ArrayAdapter to handle custom checkmark visibility.
      */
     private static class CustomArrayAdapter extends ArrayAdapter<CharSequence> {
         private final CharSequence[] entryValues;

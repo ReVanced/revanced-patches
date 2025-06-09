@@ -94,10 +94,10 @@ abstract class Check {
             // Create the custom dialog.
             Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                     activity,
-                    str("revanced_check_environment_failed_title"),
-                    message,
-                    null, // No EditText needed.
-                    str("revanced_check_environment_dialog_open_official_source_button"),
+                    str("revanced_check_environment_failed_title"), // Title.
+                    message, // Message.
+                    null,    // No EditText.
+                    str("revanced_check_environment_dialog_open_official_source_button"), // OK button text.
                     () -> {
                         // Action for the OK (website) button.
                         final var intent = new Intent(Intent.ACTION_VIEW, GOOD_SOURCE);
@@ -110,9 +110,10 @@ abstract class Check {
                         System.exit(0);
                     },
                     null, // No cancel button.
-                    str("revanced_check_environment_dialog_ignore_button"),
+                    str("revanced_check_environment_dialog_ignore_button"), // Neutral button text.
                     () -> {
-                        // Action for the Neutral (ignore) button.
+                        // Neutral button action.
+                        // Cleanup data if the user incorrectly imported a huge negative number.
                         final int current = Math.max(0, BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.get());
                         BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.save(current + 1);
                     },

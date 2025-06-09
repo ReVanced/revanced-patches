@@ -183,21 +183,24 @@ public class SponsorBlockSettings {
         // If user has a SponsorBlock user id then show a warning.
         if (dialogContext != null && SponsorBlockSettings.userHasSBPrivateId()
                 && !Settings.SB_HIDE_EXPORT_WARNING.get()) {
+            // Create the custom dialog.
             Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                     dialogContext,
                     null, // No title.
-                    str("revanced_sb_settings_revanced_export_user_id_warning"), // Message,
+                    str("revanced_sb_settings_revanced_export_user_id_warning"), // Message.
                     null, // No EditText.
-                    null, // OK button text,
-                    () -> {}, // Empty Runnable for OK button.
-                    null, // No cancel button action (setCancelable(false).
+                    null, // OK button text.
+                    () -> {}, // OK button action (dismiss only).
+                    null, // No cancel button action.
                     str("revanced_sb_settings_revanced_export_user_id_warning_dismiss"), // Neutral button text.
                     () -> Settings.SB_HIDE_EXPORT_WARNING.save(true), // Neutral button action.
                     true // Dismiss dialog when onNeutralClick.
             );
 
+            // Set dialog as non-cancelable.
             dialogPair.first.setCancelable(false);
 
+            // Show the dialog.
             dialogPair.first.show();
         }
     }

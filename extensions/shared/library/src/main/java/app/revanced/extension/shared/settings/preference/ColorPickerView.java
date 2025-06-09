@@ -149,11 +149,11 @@ public class ColorPickerView extends View {
         int width = resolveSize(minWidth, widthMeasureSpec);
         int height = resolveSize(minHeight, heightMeasureSpec);
 
-        // Ensure minimum dimensions for usability
+        // Ensure minimum dimensions for usability.
         width = Math.max(width, minWidth);
         height = Math.max(height, minHeight);
 
-        // Adjust height to maintain desired aspect ratio if possible
+        // Adjust height to maintain desired aspect ratio if possible.
         final int desiredHeight = (int) (width * DESIRED_ASPECT_RATIO) + (int) (HUE_BAR_HEIGHT + MARGIN_BETWEEN_AREAS);
         if (MeasureSpec.getMode(heightMeasureSpec) != MeasureSpec.EXACTLY) {
             height = desiredHeight;
