@@ -2,16 +2,13 @@ package app.revanced.patches.youtube.layout.theme
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
@@ -27,19 +24,12 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
-import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.forEachChildElement
 import app.revanced.util.insertLiteralOverride
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
-
-internal var appearanceStringId = -1L
-    private set
 
 val themePatch = bytecodePatch(
     name = "Theme",
@@ -99,8 +89,6 @@ val themePatch = bytecodePatch(
             )
 
             execute {
-                appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
-
                 val preferences = mutableSetOf<BasePreference>(
                     SwitchPreference("revanced_seekbar_custom_color"),
                     TextPreference("revanced_seekbar_custom_color_primary",
@@ -260,18 +248,7 @@ val themePatch = bytecodePatch(
             "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setThemeColors()V"
         )
 
-        // Update shared dark mode status based on YT theme.
-        // This is needed because YT allows forcing light/dark mode
-        // which then differs from the system dark mode status.
-        setThemeFingerprint.method.apply {
-            findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
-                addInstructionsAtControlFlowLabel(
-                    index,
-                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
-                )
-            }
-        }
+
 
         useGradientLoadingScreenFingerprint.method.insertLiteralOverride(
             GRADIENT_LOADING_SCREEN_AB_CONSTANT,

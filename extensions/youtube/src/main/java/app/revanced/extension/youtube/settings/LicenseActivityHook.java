@@ -26,6 +26,8 @@ import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFrag
 @SuppressWarnings("unused")
 public class LicenseActivityHook {
 
+    private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
+
     private static ViewGroup.LayoutParams toolbarLayoutParams;
 
     public static void setToolbarLayoutParams(Toolbar toolbar) {
@@ -148,5 +150,20 @@ public class LicenseActivityHook {
                 : "yt_white1";
 
         return Utils.getColorFromString(colorName);
+    }
+
+    /**
+     * Injection point.
+     *
+     * Updates dark/light mode since YT settings can force light/dark mode
+     * which can differ from the global device settings.
+     */
+    @SuppressWarnings("unused")
+    public static void updateLightDarkModeStatus(Enum<?> value) {
+        final int themeOrdinal = value.ordinal();
+        if (currentThemeValueOrdinal != themeOrdinal) {
+            currentThemeValueOrdinal = themeOrdinal;
+            Utils.setIsDarkModeEnabled(themeOrdinal == 1);
+        }
     }
 }

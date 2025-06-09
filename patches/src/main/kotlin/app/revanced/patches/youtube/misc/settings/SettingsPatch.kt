@@ -1,13 +1,16 @@
 package app.revanced.patches.youtube.misc.settings
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.InputType
@@ -26,19 +29,26 @@ import app.revanced.patches.youtube.misc.fix.playbackspeed.fixPlaybackSpeedWhile
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.ResourceGroup
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.inputStreamFromBundledResource
 import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/settings/LicenseActivityHook;"
+
+internal var appearanceStringId = -1L
+    private set
 
 private val preferences = mutableSetOf<BasePreference>()
 
@@ -75,6 +85,8 @@ private val settingsResourcePatch = resourcePatch {
     )
 
     execute {
+        appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
+
         arrayOf(
             ResourceGroup("drawable",
                 "revanced_settings_screen_00_about.xml",
@@ -250,6 +262,19 @@ val settingsPatch = bytecodePatch(
             }
 
             methods.add(attachBaseContext)
+        }
+
+        // Update shared dark mode status based on YT theme.
+        // This is needed because YT allows forcing light/dark mode
+        // which then differs from the system dark mode status.
+        setThemeFingerprint.method.apply {
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+                addInstructionsAtControlFlowLabel(
+                    index,
+                    "invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
+                )
+            }
         }
 
         // Add setting to force cairo settings fragment on/off.

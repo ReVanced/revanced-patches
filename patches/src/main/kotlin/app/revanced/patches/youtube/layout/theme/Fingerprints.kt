@@ -44,14 +44,6 @@ internal val themeLightColorFingerprint = fingerprint {
     }
 }
 
-internal val setThemeFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters()
-    opcodes(Opcode.RETURN_OBJECT)
-    literal { appearanceStringId }
-}
-
 internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
 
 internal val useGradientLoadingScreenFingerprint = fingerprint {

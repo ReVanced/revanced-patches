@@ -76,23 +76,6 @@ public class ThemePatch {
         Utils.setThemeDarkColor(getThemeColor(darkThemeResourceName(), Color.BLACK));
     }
 
-    private static int themeValue = -1; // Must initially be non valid value.
-
-    /**
-     * Injection point.
-     *
-     * Updates dark/light mode since YT settings can force light/dark mode
-     * which can differ from the global device settings.
-     */
-    @SuppressWarnings("unused")
-    public static void updateLightDarkModeStatus(Enum<?> value) {
-        final int newOrdinalValue = value.ordinal();
-        if (themeValue != newOrdinalValue) {
-            themeValue = newOrdinalValue;
-            Utils.setIsDarkModeEnabled(newOrdinalValue == 1);
-        }
-    }
-
     /**
      * Injection point.
      */

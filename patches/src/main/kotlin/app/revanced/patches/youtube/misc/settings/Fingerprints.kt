@@ -13,9 +13,13 @@ internal val licenseActivityOnCreateFingerprint = fingerprint {
     }
 }
 
-/**
- * Added in YouTube v19.04.38.
- */
+internal val setThemeFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("L")
+    parameters()
+    literal { appearanceStringId }
+}
+
 internal const val CAIRO_CONFIG_LITERAL_VALUE = 45532100L
 
 internal val cairoFragmentConfigFingerprint = fingerprint {
