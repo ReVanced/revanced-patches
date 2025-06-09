@@ -869,9 +869,11 @@ public class Utils {
                     false,
                     true,
                     dismissDialogOnNeutralClick,
-                    false,
                     dialog
             );
+            LinearLayout.LayoutParams neutralParams = (LinearLayout.LayoutParams) neutralButton.getLayoutParams();
+            neutralParams.setMargins(0, dipToPixels(4), 0, dipToPixels(4));
+            neutralButton.setLayoutParams(neutralParams);
             neutralContainer.addView(neutralButton);
             buttons.add(neutralButton);
             neutralButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
@@ -892,9 +894,11 @@ public class Utils {
                     true,
                     false,
                     true,
-                    false,
                     dialog
             );
+            LinearLayout.LayoutParams cancelParams = (LinearLayout.LayoutParams) cancelButton.getLayoutParams();
+            cancelParams.setMargins(0, dipToPixels(4), 0, dipToPixels(4));
+            cancelButton.setLayoutParams(cancelParams);
             cancelContainer.addView(cancelButton);
             buttons.add(cancelButton);
             cancelButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
@@ -915,9 +919,11 @@ public class Utils {
                     false,
                     false,
                     true,
-                    false,
                     dialog
             );
+            LinearLayout.LayoutParams okParams = (LinearLayout.LayoutParams) okButton.getLayoutParams();
+            okParams.setMargins(0, dipToPixels(4), 0, dipToPixels(4));
+            okButton.setLayoutParams(okParams);
             okContainer.addView(okButton);
             buttons.add(okButton);
             okButton.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
@@ -953,9 +959,9 @@ public class Utils {
                     parent.removeView(neutralButton);
                 }
                 // Update margins for Neutral button in single row.
-                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) neutralButton.getLayoutParams();
-                params.setMargins(0, dipToPixels(4), dipToPixels(4), dipToPixels(4));
-                neutralButton.setLayoutParams(params);
+                LinearLayout.LayoutParams neutralParams = (LinearLayout.LayoutParams) neutralButton.getLayoutParams();
+                neutralParams.setMargins(0, dipToPixels(4), dipToPixels(4), dipToPixels(4));
+                neutralButton.setLayoutParams(neutralParams);
                 neutralContainer.addView(neutralButton);
                 rowContainer.addView(neutralContainer);
             }
@@ -965,7 +971,7 @@ public class Utils {
             spacer.setLayoutParams(new LinearLayout.LayoutParams(0, 0, 1));
             rowContainer.addView(spacer);
 
-            // Add OK and Cancel buttons (right-aligned).
+            // Add OK and Cancel buttons.
             LinearLayout okCancelContainer = new LinearLayout(context);
             okCancelContainer.setOrientation(LinearLayout.HORIZONTAL);
             okCancelContainer.setGravity(Gravity.END);
@@ -976,22 +982,28 @@ public class Utils {
                     parent.removeView(button);
                 }
                 // Update margins for OK button in single row.
+                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) button.getLayoutParams();
                 if (i == buttons.size() - 1 && onOkClick != null) {
-                    LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) button.getLayoutParams();
+                    // OK button: left 4, right 0.
                     params.setMargins(dipToPixels(4), dipToPixels(4), 0, dipToPixels(4));
-                    button.setLayoutParams(params);
+                } else if (neutralButtonText == null && onNeutralClick == null && buttons.size() == 2) {
+                    // Cancel button in Cancel+OK case: left 0, right 4.
+                    params.setMargins(0, dipToPixels(4), dipToPixels(4), dipToPixels(4));
+                } else {
+                    // Cancel button in other cases.
+                    params.setMargins(dipToPixels(4), dipToPixels(4), dipToPixels(4), dipToPixels(4));
                 }
+                button.setLayoutParams(params);
                 okCancelContainer.addView(button);
             }
             rowContainer.addView(okCancelContainer);
             buttonContainer.addView(rowContainer);
-        } else {
-            // Update margins for each button in separate rows.
-            for (Button button : buttons) {
-                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) button.getLayoutParams();
-                params.setMargins(0, dipToPixels(4), 0, dipToPixels(4));
-                button.setLayoutParams(params);
-            }
+        } else if (buttons.size() == 1) {
+            // Single button case: margins 0 left and right.
+            Button singleButton = buttons.get(0);
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) singleButton.getLayoutParams();
+            params.setMargins(0, dipToPixels(4), 0, dipToPixels(4));
+            singleButton.setLayoutParams(params);
         }
 
         mainLayout.addView(buttonContainer);
@@ -1036,7 +1048,6 @@ public class Utils {
      * @param isCancelButton  If this is the Cancel button, which uses distinct background and text colors.
      * @param isNeutralButton If this is a Neutral button, affecting alignment in single-row layout.
      * @param dismissDialog   If the dialog should be dismissed when the button is clicked.
-     * @param isSingleRow     If the button is part of a single-row layout.
      * @param dialog          The Dialog to dismiss when the button is clicked.
      * @return The created Button.
      */
@@ -1049,7 +1060,6 @@ public class Utils {
             boolean isCancelButton,
             boolean isNeutralButton,
             boolean dismissDialog,
-            boolean isSingleRow,
             Dialog dialog) {
 
         Button button = new Button(context, null, 0);
@@ -1078,19 +1088,8 @@ public class Utils {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 dipToPixels(36)
         );
-        // Set margins based on layout and button type
-        if (isSingleRow) {
-            if (isNeutralButton) {
-                params.setMargins(0, dipToPixels(4), dipToPixels(4), dipToPixels(4));
-            } else if (isOkButton) {
-                params.setMargins(dipToPixels(4), dipToPixels(4), 0, dipToPixels(4));
-            } else {
-                params.setMargins(dipToPixels(4), dipToPixels(4), dipToPixels(4), dipToPixels(4));
-            }
-        } else {
-            params.setMargins(0, dipToPixels(4), 0, dipToPixels(4));
-        }
-
+        // Default margins, will be overridden.
+        params.setMargins(dipToPixels(4), dipToPixels(4), dipToPixels(4), dipToPixels(4));
         button.setLayoutParams(params);
 
         button.setOnClickListener(v -> {
