@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.theme
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -28,6 +27,8 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
+import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.forEachChildElement
 import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.Opcode
@@ -262,23 +263,13 @@ val themePatch = bytecodePatch(
         // Update shared dark mode status based on YT theme.
         // This is needed because YT allows forcing light/dark mode
         // which then differs from the system dark mode status.
-        setThemeFingerprint.method.let { setThemeMethod ->
-            setThemeMethod.implementation!!.instructions.mapIndexedNotNull { i, instruction ->
-                if (instruction.opcode == Opcode.RETURN_OBJECT) i else null
-            }.asReversed().forEach { returnIndex ->
-                // The following strategy is to replace the return instruction with the setTheme instruction,
-                // then add a return instruction after the setTheme instruction.
-                // This is done because the return instruction is a target of another instruction.
-
-                setThemeMethod.apply {
-                    // This register is returned by the setTheme method.
-                    val register = getInstruction<OneRegisterInstruction>(returnIndex).registerA
-                    replaceInstruction(
-                        returnIndex,
-                        "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
-                    )
-                    addInstruction(returnIndex + 1, "return-object v$register")
-                }
+        setThemeFingerprint.method.apply {
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+                addInstructionsAtControlFlowLabel(
+                    index,
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
+                )
             }
         }
 
