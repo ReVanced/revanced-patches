@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.text.Html;
 import android.util.Pair;
@@ -126,7 +127,8 @@ abstract class Check {
 
             // Add icon to the dialog.
             ImageView iconView = new ImageView(activity);
-            iconView.setImageResource(android.R.drawable.ic_dialog_alert);
+            iconView.setImageResource(Utils.getResourceIdentifier("revanced_ic_dialog_alert", "drawable"));
+            iconView.setColorFilter(Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
             iconView.setPadding(0, dipToPixels(8), 0, dipToPixels(8));
             LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,

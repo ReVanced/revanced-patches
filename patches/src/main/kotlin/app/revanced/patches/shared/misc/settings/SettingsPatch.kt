@@ -41,6 +41,7 @@ fun settingsPatch (
             ResourceGroup("xml", "revanced_prefs.xml", "revanced_prefs_icons.xml"),
             ResourceGroup("drawable",
                 // CustomListPreference resources
+                "revanced_ic_dialog_alert.xml",
                 "revanced_settings_circle_background.xml",
                 "revanced_settings_cursor.xml",
                 "revanced_settings_custom_checkmark.xml",
