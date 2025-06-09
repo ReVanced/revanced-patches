@@ -124,7 +124,7 @@ public class LicenseActivityHook {
         TextView toolbarTextView = Utils.getChildView(toolbar, false,
                 view -> view instanceof TextView);
         if (toolbarTextView != null) {
-            toolbarTextView.setTextColor(ThemeHelper.getForegroundColor());
+            toolbarTextView.setTextColor(Utils.getAppForegroundColor());
         }
         setToolbarLayoutParams(toolbar);
 

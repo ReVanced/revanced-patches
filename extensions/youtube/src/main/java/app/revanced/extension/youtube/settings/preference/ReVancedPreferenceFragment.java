@@ -71,7 +71,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
-        final int backButtonResource = getResourceIdentifier(ThemeHelper.isDarkTheme()
+        final int backButtonResource = getResourceIdentifier(Utils.isDarkModeEnabled()
                         ? "yt_outline_arrow_left_white_24"
                         : "yt_outline_arrow_left_black_24",
                 "drawable");
@@ -202,7 +202,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             noResultsPreference.setLayoutResource(getResourceIdentifier(
                     "revanced_preference_with_icon_no_search_result", "layout"));
             noResultsPreference.setIcon(getResourceIdentifier(
-                    ThemeHelper.isDarkTheme() ? "yt_outline_search_white_24" : "yt_outline_search_black_24",
+                    Utils.isDarkModeEnabled() ? "yt_outline_search_white_24" : "yt_outline_search_black_24",
                     "drawable"));
             preferenceScreen.addPreference(noResultsPreference);
         }
@@ -250,7 +250,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                             TextView toolbarTextView = Utils.getChildView(toolbar,
                                     true, TextView.class::isInstance);
                             if (toolbarTextView != null) {
-                                toolbarTextView.setTextColor(ThemeHelper.getForegroundColor());
+                                toolbarTextView.setTextColor(Utils.getAppForegroundColor());
                             }
 
                             LicenseActivityHook.setToolbarLayoutParams(toolbar);
@@ -304,8 +304,8 @@ class AbstractPreferenceSearchData<T extends Preference> {
             return text;
         }
 
-        final int baseColor = ThemeHelper.getBackgroundColor();
-        final int adjustedColor = ThemeHelper.isDarkTheme()
+        final int baseColor = Utils.getAppBackgroundColor();
+        final int adjustedColor = Utils.isDarkModeEnabled()
                 ? Utils.adjustColorBrightness(baseColor, 1.20f)  // Lighten for dark theme.
                 : Utils.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
         BackgroundColorSpan highlightSpan = new BackgroundColorSpan(adjustedColor);

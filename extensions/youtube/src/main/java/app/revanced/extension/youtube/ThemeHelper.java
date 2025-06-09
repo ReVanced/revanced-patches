@@ -5,14 +5,17 @@ import android.graphics.Color;
 import android.os.Build;
 import android.view.Window;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
 public class ThemeHelper {
+    @ColorInt
     @Nullable
     private static Integer darkThemeColor, lightThemeColor;
+
     private static int themeValue;
 
     /**
@@ -25,25 +28,13 @@ public class ThemeHelper {
         if (themeValue != newOrdinalValue) {
             themeValue = newOrdinalValue;
             Logger.printDebug(() -> "Theme value: " + newOrdinalValue);
-            // Update colors when theme changes.
-            updateThemeColors();
+
+            Utils.setThemeDarkColor(getDarkThemeColor());
+            Utils.setThemeLightColor(getLightThemeColor());
         }
     }
 
-    /**
-     * Updates theme colors.
-     */
-    private static void updateThemeColors() {
-        // Run on main thread to ensure thread safety for UI-related operations.
-        Utils.runOnMainThreadNowOrLater(() -> {
-            int darkColor = getDarkThemeColor();
-            int lightColor = getLightThemeColor();
-            Utils.setThemeDarkColor(darkColor);
-            Utils.setThemeLightColor(lightColor);
-        });
-    }
-
-    public static boolean isDarkTheme() {
+    private static boolean isDarkTheme() {
         return themeValue == 1;
     }
 
@@ -58,11 +49,46 @@ public class ThemeHelper {
      * Injection point.
      */
     @SuppressWarnings("SameReturnValue")
+    private static String lightThemeResourceName() {
+        // Value is changed by Theme patch, if included.
+        return "@color/yt_white1";
+    }
+
+    /**
+     * Injection point.
+     */
+    @SuppressWarnings("SameReturnValue")
     private static String darkThemeResourceName() {
         // Value is changed by Theme patch, if included.
         return "@color/yt_black3";
     }
 
+    /**
+     * @return The dark theme color as specified by the Theme patch (if included),
+     *         or the dark mode background color unpatched YT uses.
+     */
+    @ColorInt
+    private static int getDarkThemeColor() {
+        if (darkThemeColor == null) {
+            darkThemeColor = getThemeColor(darkThemeResourceName(), Color.BLACK);
+        }
+        return darkThemeColor;
+    }
+
+    /**
+     * @return The light theme color as specified by the Theme patch (if included),
+     *         or the non dark mode background color unpatched YT uses.
+     */
+    @ColorInt
+    private static int getLightThemeColor() {
+        if (lightThemeColor == null) {
+            lightThemeColor = getThemeColor(lightThemeResourceName(), Color.WHITE);
+        }
+        return lightThemeColor;
+    }
+
+
+    @ColorInt
     private static int getThemeColor(String resourceName, int defaultColor) {
         try {
             return Utils.getColorFromString(resourceName);
@@ -74,52 +100,6 @@ public class ThemeHelper {
         }
     }
 
-    /**
-     * @return The dark theme color as specified by the Theme patch (if included),
-     *         or the dark mode background color unpatched YT uses.
-     */
-    public static int getDarkThemeColor() {
-        if (darkThemeColor == null) {
-            darkThemeColor = getThemeColor(darkThemeResourceName(), Color.BLACK);
-        }
-        return darkThemeColor;
-    }
-
-    /**
-     * Injection point.
-     */
-    @SuppressWarnings("SameReturnValue")
-    private static String lightThemeResourceName() {
-        // Value is changed by Theme patch, if included.
-        return "@color/yt_white1";
-    }
-
-    /**
-     * @return The light theme color as specified by the Theme patch (if included),
-     *         or the non dark mode background color unpatched YT uses.
-     */
-    public static int getLightThemeColor() {
-        if (lightThemeColor == null) {
-            lightThemeColor = getThemeColor(lightThemeResourceName(), Color.WHITE);
-        }
-        return lightThemeColor;
-    }
-
-    public static int getBackgroundColor() {
-        return isDarkTheme() ? getDarkThemeColor() : getLightThemeColor();
-    }
-
-    public static int getForegroundColor() {
-        return isDarkTheme() ? getLightThemeColor() : getDarkThemeColor();
-    }
-
-    public static int getDialogBackgroundColor() {
-        final String colorName = isDarkTheme()
-                ? "yt_black1"
-                : "yt_white1";
-
-        return Utils.getColorFromString(colorName);
-    }
 
     public static int getToolbarBackgroundColor() {
         final String colorName = isDarkTheme()
@@ -131,7 +111,7 @@ public class ThemeHelper {
 
     /**
      * Sets the system navigation bar color for the activity.
-     * Applies the background color obtained from {@link #getBackgroundColor()} to the navigation bar.
+     * Applies the background color obtained from {@link Utils#getAppBackgroundColor()} to the navigation bar.
      * For Android 10 (API 29) and above, enforces navigation bar contrast to ensure visibility.
      */
     public static void setNavigationBarColor(@Nullable Window window) {
@@ -140,7 +120,7 @@ public class ThemeHelper {
             return;
         }
 
-        window.setNavigationBarColor(getBackgroundColor());
+        window.setNavigationBarColor(Utils.getAppBackgroundColor());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             window.setNavigationBarContrastEnforced(true);
         }

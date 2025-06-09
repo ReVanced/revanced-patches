@@ -72,7 +72,7 @@ public class ReVancedAboutPreference extends Preference {
 
         final boolean isDarkMode = Utils.isDarkModeEnabled();
         String backgroundColorHex = Utils.getColorHexString(Utils.getDialogBackgroundColor());
-        String foregroundColorHex = Utils.getColorHexString(Utils.getAppForeground());
+        String foregroundColorHex = Utils.getColorHexString(Utils.getAppForegroundColor());
         // Apply light/dark mode colors.
         builder.append(String.format(
                 "<style> body { background-color: %s; color: %s; } a { color: %s; } </style>",

@@ -765,7 +765,7 @@ public class Utils {
             titleView.setText(title);
             titleView.setTypeface(Typeface.DEFAULT_BOLD);
             titleView.setTextSize(18);
-            titleView.setTextColor(getAppForeground());
+            titleView.setTextColor(getAppForegroundColor());
             titleView.setPadding(0, 0, 0, dip8);
             titleView.setGravity(Gravity.CENTER);
             // Set layout parameters to match parent width and wrap content height.
@@ -782,7 +782,7 @@ public class Utils {
             TextView messageView = new TextView(context);
             messageView.setText(message); // Supports Spanned (HTML).
             messageView.setTextSize(16);
-            messageView.setTextColor(getAppForeground());
+            messageView.setTextColor(getAppForegroundColor());
             messageView.setPadding(0, dip8, 0, dip16);
             // Enable HTML link clicking if the message contains links.
             if (message instanceof Spanned) {
@@ -799,7 +799,7 @@ public class Utils {
                 parent.removeView(editText);
             }
             // Style the EditText to match the dialog theme.
-            editText.setTextColor(getAppForeground());
+            editText.setTextColor(getAppForegroundColor());
             editText.setBackgroundColor(isDarkModeEnabled() ? Color.BLACK : Color.WHITE);
             editText.setPadding(dip8, dip8, dip8, dip8);
             ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
@@ -1036,8 +1036,19 @@ public class Utils {
         return getThemeLightColor();
     }
 
+    /**
+     * @return The current app background color.
+     */
     @ColorInt
-    public static int getAppForeground() {
+    public static int getAppBackgroundColor() {
+        return isDarkModeEnabled() ? getThemeDarkColor() : getThemeLightColor();
+    }
+
+    /**
+     * @return The current app foreground color.
+     */
+    @ColorInt
+    public static int getAppForegroundColor() {
         return isDarkModeEnabled()
                 ? getThemeLightColor()
                 : getThemeDarkColor();

@@ -32,7 +32,6 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.StringSetting;
-import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
 /**
@@ -59,8 +58,8 @@ public class SearchViewController {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
         background.setCornerRadius(28 * context.getResources().getDisplayMetrics().density); // 28dp corner radius.
-        int baseColor = ThemeHelper.getBackgroundColor();
-        int adjustedColor = ThemeHelper.isDarkTheme()
+        int baseColor = Utils.getAppBackgroundColor();
+        int adjustedColor = Utils.isDarkModeEnabled()
                 ? Utils.adjustColorBrightness(baseColor, 1.11f)  // Lighten for dark theme.
                 : Utils.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
         background.setColor(adjustedColor);
@@ -172,7 +171,7 @@ public class SearchViewController {
         final int actionSearchId = getResourceIdentifier("action_search", "id");
         toolbar.inflateMenu(getResourceIdentifier("revanced_search_menu", "menu"));
         MenuItem searchItem = toolbar.getMenu().findItem(actionSearchId);
-        searchItem.setIcon(getResourceIdentifier(ThemeHelper.isDarkTheme()
+        searchItem.setIcon(getResourceIdentifier(Utils.isDarkModeEnabled()
                                 ? "yt_outline_search_white_24"
                                 : "yt_outline_search_black_24",
                         "drawable")).setTooltipText(null);
@@ -318,7 +317,7 @@ public class SearchViewController {
         isSearchActive = false;
         toolbar.getMenu().findItem(getResourceIdentifier(
                         "action_search", "id"))
-                .setIcon(getResourceIdentifier(ThemeHelper.isDarkTheme()
+                .setIcon(getResourceIdentifier(Utils.isDarkModeEnabled()
                                 ? "yt_outline_search_white_24"
                                 : "yt_outline_search_black_24",
                         "drawable")

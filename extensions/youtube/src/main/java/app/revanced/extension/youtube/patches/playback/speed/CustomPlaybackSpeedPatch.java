@@ -19,13 +19,13 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.icu.text.NumberFormat;
 import android.support.v7.widget.RecyclerView;
-import android.view.animation.Animation;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
@@ -39,7 +39,6 @@ import java.util.function.Function;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilterPatch;
 import app.revanced.extension.youtube.settings.Settings;
@@ -261,7 +260,7 @@ public class CustomPlaybackSpeedPatch {
         RoundRectShape roundRectShape = new RoundRectShape(
                 Utils.createCornerRadii(12), null, null);
         ShapeDrawable background = new ShapeDrawable(roundRectShape);
-        background.getPaint().setColor(ThemeHelper.getDialogBackgroundColor());
+        background.getPaint().setColor(Utils.getDialogBackgroundColor());
         mainLayout.setBackground(background);
 
         // Add handle bar at the top.
@@ -285,7 +284,7 @@ public class CustomPlaybackSpeedPatch {
         float currentSpeed = VideoInformation.getPlaybackSpeed();
         // Initially show with only 0 minimum digits, so 1.0 shows as 1x
         currentSpeedText.setText(formatSpeedStringX(currentSpeed, 0));
-        currentSpeedText.setTextColor(ThemeHelper.getForegroundColor());
+        currentSpeedText.setTextColor(Utils.getAppForegroundColor());
         currentSpeedText.setTextSize(16);
         currentSpeedText.setTypeface(Typeface.DEFAULT_BOLD);
         currentSpeedText.setGravity(Gravity.CENTER);
@@ -320,9 +319,9 @@ public class CustomPlaybackSpeedPatch {
         speedSlider.setMax(speedToProgressValue(customPlaybackSpeedsMax));
         speedSlider.setProgress(speedToProgressValue(currentSpeed));
         speedSlider.getProgressDrawable().setColorFilter(
-                ThemeHelper.getForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme progress bar.
+                Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme progress bar.
         speedSlider.getThumb().setColorFilter(
-                ThemeHelper.getForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme slider thumb.
+                Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme slider thumb.
         LinearLayout.LayoutParams sliderParams = new LinearLayout.LayoutParams(
                 0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
         sliderParams.setMargins(dip5, 0, dip5, 0); // 5dp to -/+ buttons.
@@ -419,7 +418,7 @@ public class CustomPlaybackSpeedPatch {
             // Create speed button.
             Button speedButton = new Button(context, null, 0);
             speedButton.setText(speedFormatter.format(speed)); // Do not use 'x' speed format.
-            speedButton.setTextColor(ThemeHelper.getForegroundColor());
+            speedButton.setTextColor(Utils.getAppForegroundColor());
             speedButton.setTextSize(12);
             speedButton.setAllCaps(false);
             speedButton.setGravity(Gravity.CENTER);
@@ -443,7 +442,7 @@ public class CustomPlaybackSpeedPatch {
                 TextView normalLabel = new TextView(context);
                 // Use same 'Normal' string as stock YouTube.
                 normalLabel.setText(str("normal_playback_rate_label"));
-                normalLabel.setTextColor(ThemeHelper.getForegroundColor());
+                normalLabel.setTextColor(Utils.getAppForegroundColor());
                 normalLabel.setTextSize(10);
                 normalLabel.setGravity(Gravity.CENTER);
 
@@ -562,10 +561,10 @@ public class CustomPlaybackSpeedPatch {
      *         for light themes to ensure visual contrast.
      */
     public static int getAdjustedBackgroundColor(boolean isHandleBar) {
-        final int baseColor = ThemeHelper.getDialogBackgroundColor();
+        final int baseColor = Utils.getDialogBackgroundColor();
         float darkThemeFactor = isHandleBar ? 1.25f : 1.115f; // 1.25f for handleBar, 1.115f for others in dark theme.
         float lightThemeFactor = isHandleBar ? 0.9f : 0.95f; // 0.9f for handleBar, 0.95f for others in light theme.
-        return ThemeHelper.isDarkTheme()
+        return Utils.isDarkModeEnabled()
                 ? Utils.adjustColorBrightness(baseColor, darkThemeFactor)  // Lighten for dark theme.
                 : Utils.adjustColorBrightness(baseColor, lightThemeFactor); // Darken for light theme.
     }
@@ -581,7 +580,7 @@ class OutlineSymbolDrawable extends Drawable {
     OutlineSymbolDrawable(boolean isPlus) {
         this.isPlus = isPlus;
         paint = new Paint(Paint.ANTI_ALIAS_FLAG); // Enable anti-aliasing for smooth rendering.
-        paint.setColor(ThemeHelper.getForegroundColor());
+        paint.setColor(Utils.getAppForegroundColor());
         paint.setStyle(Paint.Style.STROKE); // Use stroke style for outline.
         paint.setStrokeWidth(dipToPixels(1)); // 1dp stroke width.
     }
