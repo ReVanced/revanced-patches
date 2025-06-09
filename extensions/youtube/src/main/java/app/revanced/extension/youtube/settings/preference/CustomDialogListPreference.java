@@ -148,11 +148,13 @@ public class CustomDialogListPreference extends ListPreference {
 
             // Set text.
             holder.itemText.setText(getItem(position));
+            holder.itemText.setTextColor(Utils.getAppForeground());
 
             // Show or hide checkmark and placeholder.
             String currentValue = entryValues[position].toString();
             boolean isSelected = currentValue.equals(selectedValue);
             holder.checkIcon.setVisibility(isSelected ? View.VISIBLE : View.GONE);
+            holder.checkIcon.setColorFilter(Utils.getAppForeground());
             holder.placeholder.setVisibility(isSelected ? View.GONE : View.VISIBLE);
 
             return view;
