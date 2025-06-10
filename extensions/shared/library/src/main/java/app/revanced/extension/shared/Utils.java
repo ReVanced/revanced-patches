@@ -911,7 +911,7 @@ public class Utils {
         }
 
         if (buttons.size() == 1) {
-            // Single button: stretch to full width.
+            // Single button: stretch to full width, no left/right margins.
             Button singleButton = buttons.get(0);
             LinearLayout singleContainer = new LinearLayout(context);
             singleContainer.setOrientation(LinearLayout.HORIZONTAL);
@@ -941,7 +941,7 @@ public class Utils {
                         LinearLayout.LayoutParams.WRAP_CONTENT
                 ));
 
-                // Add all buttons with proportional weights.
+                // Add all buttons with proportional weights and specific margins.
                 for (int i = 0; i < buttons.size(); i++) {
                     Button button = buttons.get(i);
                     ViewGroup parent = (ViewGroup) button.getParent();
@@ -953,7 +953,23 @@ public class Utils {
                             dipToPixels(36),
                             buttonWidths.get(i) // Use measured width as weight.
                     );
-                    params.setMargins(dip4, dip4, dip4, dip4);
+                    // Set margins based on button type and combination.
+                    if (buttons.size() == 2) {
+                        // Neutral + OK or Cancel + OK.
+                        if (i == 0) { // Neutral or Cancel.
+                            params.setMargins(0, dip4, dip4, dip4); // Left 0, Right 4
+                        } else { // OK
+                            params.setMargins(dip4, dip4, 0, dip4); // Left 4, Right 0
+                        }
+                    } else if (buttons.size() == 3) {
+                        if (i == 0) { // Neutral.
+                            params.setMargins(0, dip4, dip4, dip4); // Left 0, Right 4
+                        } else if (i == 1) { // Cancel
+                            params.setMargins(dip4, dip4, dip4, dip4); // Left 4, Right 4
+                        } else { // OK
+                            params.setMargins(dip4, dip4, 0, dip4); // Left 4, Right 0
+                        }
+                    }
                     button.setLayoutParams(params);
                     rowContainer.addView(button);
                 }
