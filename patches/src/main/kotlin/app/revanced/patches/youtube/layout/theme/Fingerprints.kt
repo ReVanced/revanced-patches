@@ -24,34 +24,6 @@ internal val lithoThemeFingerprint = fingerprint {
     }
 }
 
-internal val themeDarkColorFingerprint = fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
-    custom { method, _ ->
-        method.name == "darkThemeResourceName" &&
-                method.definingClass == "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
-    }
-}
-
-internal val themeLightColorFingerprint = fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
-    custom { method, _ ->
-        method.name == "lightThemeResourceName" &&
-                method.definingClass == "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
-    }
-}
-
-internal val youTubeMainActivityOnCreateFingerprint = fingerprint {
-    returns("V")
-    parameters("Landroid/os/Bundle;")
-    custom { method, classDef ->
-        method.name == "onCreate" && classDef.endsWith("/MainActivity;")
-    }
-}
-
 internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
 
 internal val useGradientLoadingScreenFingerprint = fingerprint {

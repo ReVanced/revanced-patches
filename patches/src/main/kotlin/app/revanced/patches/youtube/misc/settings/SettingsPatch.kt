@@ -11,6 +11,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.shared.misc.settings.overrideThemeColors
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.InputType
@@ -86,6 +87,9 @@ private val settingsResourcePatch = resourcePatch {
 
     execute {
         appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
+
+        // Use same colors as stock YouTube.
+        overrideThemeColors("@color/yt_white1", "@color/yt_black3")
 
         arrayOf(
             ResourceGroup("drawable",

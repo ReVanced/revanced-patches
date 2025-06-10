@@ -1,6 +1,7 @@
 package app.revanced.patches.shared.misc.settings
 
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResource
 import app.revanced.patches.all.misc.resources.addResources
@@ -13,6 +14,7 @@ import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.getNode
 import app.revanced.util.insertFirst
+import app.revanced.util.returnEarly
 import org.w3c.dom.Node
 
 // TODO: Delete this on next major version bump.
@@ -21,6 +23,30 @@ fun settingsPatch (
     rootPreference: Pair<IntentPreference, String>,
     preferences: Set<BasePreference>,
 ) = settingsPatch(listOf(rootPreference), preferences)
+
+private var themeForegroundColor : String? = null
+private var themeBackgroundColor : String? = null
+
+/**
+ * Sets the default theme colors used in various ReVanced specific settings menus.
+ * By default these colors are white and black, but instead can be set to the
+ * same color the target app uses for it's own settings.
+ */
+fun overrideThemeColors(foregroundColor: String, backgroundColor: String) {
+    themeForegroundColor = foregroundColor
+    themeBackgroundColor = backgroundColor
+}
+
+private val settingsColorPatch = bytecodePatch {
+    finalize {
+        if (themeForegroundColor != null) {
+            themeLightColorFingerprint.method.returnEarly(themeForegroundColor!!)
+        }
+        if (themeBackgroundColor != null) {
+            themeDarkColorFingerprint.method.returnEarly(themeBackgroundColor!!)
+        }
+    }
+}
 
 /**
  * A resource patch that adds settings to a settings fragment.
@@ -33,7 +59,7 @@ fun settingsPatch (
     rootPreferences: List<Pair<BasePreference, String>>? = null,
     preferences: Set<BasePreference>,
 ) = resourcePatch {
-    dependsOn(addResourcesPatch)
+    dependsOn(addResourcesPatch, settingsColorPatch)
 
     execute {
         copyResources(
