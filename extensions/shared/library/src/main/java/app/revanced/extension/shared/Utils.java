@@ -866,7 +866,6 @@ public class Utils {
         // Create buttons in order: Neutral, Cancel, OK.
         if (neutralButtonText != null && onNeutralClick != null) {
             Button neutralButton = addButton(
-                    buttonContainer,
                     context,
                     neutralButtonText,
                     onNeutralClick,
@@ -881,7 +880,6 @@ public class Utils {
 
         if (onCancelClick != null) {
             Button cancelButton = addButton(
-                    buttonContainer,
                     context,
                     context.getString(android.R.string.cancel),
                     onCancelClick,
@@ -896,7 +894,6 @@ public class Utils {
 
         if (onOkClick != null) {
             Button okButton = addButton(
-                    buttonContainer,
                     context,
                     okButtonText != null ? okButtonText : context.getString(android.R.string.ok),
                     onOkClick,
@@ -1051,7 +1048,6 @@ public class Utils {
      * when on separate rows or proportionally based on content when in a single row (Neutral, Cancel, OK order).
      * When wrapped to separate rows, buttons are ordered OK, Cancel, Neutral.
      *
-     * @param buttonContainer Container where the button will be added.
      * @param context         Context to create the button and access resources.
      * @param buttonText      Button text to display.
      * @param onClick         Action to perform when the button is clicked, or null if no action is required.
@@ -1060,15 +1056,8 @@ public class Utils {
      * @param dialog          The Dialog to dismiss when the button is clicked.
      * @return The created Button.
      */
-    private static Button addButton(
-            LinearLayout buttonContainer,
-            Context context,
-            String buttonText,
-            Runnable onClick,
-            boolean isOkButton,
-            boolean dismissDialog,
-            Dialog dialog) {
-
+    private static Button addButton(Context context, String buttonText, Runnable onClick,
+                                    boolean isOkButton, boolean dismissDialog, Dialog dialog) {
         Button button = new Button(context, null, 0);
         button.setText(buttonText);
         button.setTextSize(14);
