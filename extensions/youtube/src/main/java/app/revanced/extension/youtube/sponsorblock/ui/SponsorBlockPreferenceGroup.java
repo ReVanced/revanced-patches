@@ -5,7 +5,6 @@ import static app.revanced.extension.shared.StringRef.str;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,7 +20,6 @@ import android.util.Pair;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -467,54 +465,28 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
                         context,
                         str("revanced_sb_general_api_url"), // Title.
-                        null,               // No message, EditText replaces it.
-                        editText,           // Pass the EditText.
-                        null,               // OK button text.
-                        () -> {},           // Placeholder for OK button action (set after dialogPair creation).
-                        () -> {},           // Cancel button action (dismiss dialog).
+                        null,     // No message, EditText replaces it.
+                        editText, // Pass the EditText.
+                        null,     // OK button text.
+                        () -> {
+                            // OK button action.
+                            String serverAddress = editText.getText().toString();
+                            if (!SponsorBlockSettings.isValidSBServerAddress(serverAddress)) {
+                                Utils.showToastLong(str("revanced_sb_api_url_invalid"));
+                            } else if (!serverAddress.equals(Settings.SB_API_URL.get())) {
+                                Settings.SB_API_URL.save(serverAddress);
+                                Utils.showToastLong(str("revanced_sb_api_url_changed"));
+                            }
+                        },
+                        () -> {}, // Cancel button action (dismiss dialog).
                         str("revanced_settings_reset"), // Neutral (Reset) button text.
-                        () -> {},           // Placeholder for Neutral button action (set after dialogPair creation).
-                        true                // Dismiss dialog when onNeutralClick.
+                        () -> {
+                            // Neutral button action.
+                            Settings.SB_API_URL.resetToDefault();
+                            Utils.showToastLong(str("revanced_sb_api_url_reset"));
+                        },
+                        true // Dismiss dialog when onNeutralClick.
                 );
-
-                // Define the URL change listener after dialogPair is initialized.
-                DialogInterface.OnClickListener urlChangeListener = (dialog, buttonPressed) -> {
-                    if (buttonPressed == DialogInterface.BUTTON_NEUTRAL) {
-                        Settings.SB_API_URL.resetToDefault();
-                        Utils.showToastLong(str("revanced_sb_api_url_reset"));
-                    } else if (buttonPressed == DialogInterface.BUTTON_POSITIVE) {
-                        String serverAddress = editText.getText().toString();
-                        if (!SponsorBlockSettings.isValidSBServerAddress(serverAddress)) {
-                            Utils.showToastLong(str("revanced_sb_api_url_invalid"));
-                        } else if (!serverAddress.equals(Settings.SB_API_URL.get())) {
-                            Settings.SB_API_URL.save(serverAddress);
-                            Utils.showToastLong(str("revanced_sb_api_url_changed"));
-                        }
-                    }
-                };
-
-                // Update button actions.
-                dialogPair.first.setOnShowListener(dialog -> {
-                    // Find buttons in the dialog's layout.
-                    LinearLayout buttonContainer = (LinearLayout) dialogPair.second.getChildAt(dialogPair.second.getChildCount() - 1);
-                    // OK button is the last button.
-                    Button okButton = (Button) buttonContainer.getChildAt(buttonContainer.getChildCount() - 1);
-                    // Neutral button is the first if it exists.
-                    Button neutralButton = buttonContainer.getChildCount() > 1 ? (Button) buttonContainer.getChildAt(0) : null;
-
-                    if (okButton != null) {
-                        okButton.setOnClickListener(v -> {
-                            urlChangeListener.onClick(dialogPair.first, DialogInterface.BUTTON_POSITIVE);
-                            dialogPair.first.dismiss();
-                        });
-                    }
-                    if (neutralButton != null) {
-                        neutralButton.setOnClickListener(v -> {
-                            urlChangeListener.onClick(dialogPair.first, DialogInterface.BUTTON_NEUTRAL);
-                            dialogPair.first.dismiss();
-                        });
-                    }
-                });
 
                 // Show the dialog.
                 dialogPair.first.show();
