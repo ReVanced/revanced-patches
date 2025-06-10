@@ -40,10 +40,10 @@ fun overrideThemeColors(foregroundColor: String, backgroundColor: String) {
 private val settingsColorPatch = bytecodePatch {
     finalize {
         if (themeForegroundColor != null) {
-            themeLightColorFingerprint.method.returnEarly(themeForegroundColor!!)
+            themeLightColorResourceNameFingerprint.method.returnEarly(themeForegroundColor!!)
         }
         if (themeBackgroundColor != null) {
-            themeDarkColorFingerprint.method.returnEarly(themeBackgroundColor!!)
+            themeDarkColorResourceNameFingerprint.method.returnEarly(themeBackgroundColor!!)
         }
     }
 }

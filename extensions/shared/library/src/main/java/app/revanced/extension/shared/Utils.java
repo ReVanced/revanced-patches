@@ -296,6 +296,7 @@ public class Utils {
         return AnimationUtils.loadAnimation(getContext(), getResourceIdentifier(resourceIdentifierName, "anim"));
     }
 
+    @ColorInt
     public static int getResourceColor(String resourceIdentifierName) throws Resources.NotFoundException {
         //noinspection deprecation
         return getContext().getResources().getColor(getResourceIdentifier(resourceIdentifierName, "color"));
@@ -405,8 +406,8 @@ public class Utils {
             context = appContext.createConfigurationContext(config);
         }
 
-        setThemeLightColor(getThemeColor(lightThemeResourceName(), Color.WHITE));
-        setThemeDarkColor(getThemeColor(darkThemeResourceName(), Color.BLACK));
+        setThemeLightColor(getThemeColor(getThemeLightColorResourceName(), Color.WHITE));
+        setThemeDarkColor(getThemeColor(getThemeDarkColorResourceName(), Color.BLACK));
     }
 
     public static void setClipboard(CharSequence text) {
@@ -1153,7 +1154,7 @@ public class Utils {
      * Injection point.
      */
     @SuppressWarnings("SameReturnValue")
-    private static String lightThemeResourceName() {
+    private static String getThemeLightColorResourceName() {
         // Value is changed by Settings patch.
         return "#FFFFFFFF";
     }
@@ -1162,7 +1163,7 @@ public class Utils {
      * Injection point.
      */
     @SuppressWarnings("SameReturnValue")
-    private static String darkThemeResourceName() {
+    private static String getThemeDarkColorResourceName() {
         // Value is changed by Settings patch.
         return "#FF000000";
     }
@@ -1170,7 +1171,7 @@ public class Utils {
     @ColorInt
     private static int getThemeColor(String resourceName, int defaultColor) {
         try {
-            return Utils.getColorFromString(resourceName);
+            return getColorFromString(resourceName);
         } catch (Exception ex) {
             // This code can never be reached since a bad custom color will
             // fail during resource compilation. So no localized strings are needed here.
