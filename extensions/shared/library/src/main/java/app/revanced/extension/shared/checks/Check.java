@@ -161,17 +161,17 @@ abstract class Check {
                     // Check if buttons are in a single-row layout (buttonContainer has one child: rowContainer).
                     if (buttonContainer.getChildCount() == 1 && buttonContainer.getChildAt(0) instanceof LinearLayout) {
                         LinearLayout rowContainer = (LinearLayout) buttonContainer.getChildAt(0);
-                        // Neutral button is in the first child (neutralContainer).
-                        LinearLayout neutralContainer = (LinearLayout) rowContainer.getChildAt(0);
-                        ignoreButton = (Button) neutralContainer.getChildAt(0);
-                        // OK button is in the last child (okCancelContainer).
-                        LinearLayout okCancelContainer = (LinearLayout) rowContainer.getChildAt(rowContainer.getChildCount() - 1);
-                        openWebsiteButton = (Button) okCancelContainer.getChildAt(0);
+                        // Neutral button is the first child (index 0).
+                        ignoreButton = (Button) rowContainer.getChildAt(0);
+                        // OK button is the last child.
+                        openWebsiteButton = (Button) rowContainer.getChildAt(rowContainer.getChildCount() - 1);
                     } else {
-                        // Multi-row layout: buttons are in separate containers.
-                        LinearLayout okContainer = (LinearLayout) buttonContainer.getChildAt(buttonContainer.getChildCount() - 1);
+                        // Multi-row layout: buttons are in separate containers, ordered OK, Cancel, Neutral.
+                        LinearLayout okContainer =
+                                (LinearLayout) buttonContainer.getChildAt(0); // OK is first.
                         openWebsiteButton = (Button) okContainer.getChildAt(0);
-                        LinearLayout neutralContainer = (LinearLayout) buttonContainer.getChildAt(0);
+                        LinearLayout neutralContainer =
+                                (LinearLayout)buttonContainer.getChildAt(buttonContainer.getChildCount() - 1); // Neutral is last.
                         ignoreButton = (Button) neutralContainer.getChildAt(0);
                     }
 
