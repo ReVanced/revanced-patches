@@ -110,7 +110,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             View colorPickerContainer = LayoutInflater.from(context)
                     .inflate(getResourceIdentifier("revanced_color_picker", "layout"), null);
             dialogColorPickerView = colorPickerContainer.findViewById(
-                    getResourceIdentifier("color_picker_view", "id"));
+                    getResourceIdentifier("revanced_color_picker_view", "id"));
             dialogColorPickerView.setColor(categoryColor);
             contentLayout.addView(colorPickerContainer);
 

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="54dp"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        android:minHeight="54dp">
+
     <ImageView
             android:id="@android:id/icon"
             android:layout_width="wrap_content"
@@ -12,6 +13,7 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="18dp"
             android:contentDescription="@null" />
+
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"
@@ -19,21 +21,24 @@
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:paddingVertical="8dp">
+
         <TextView
                 android:id="@android:id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/medium_font_size"
-                android:textColor="?ytTextPrimary"
+                android:textColor="?android:attr/textColorPrimary"
                 android:textAlignment="viewStart" />
+
         <TextView
                 android:id="@android:id/summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/small_font_size"
-                android:textColor="?ytTextSecondary"
+                android:textColor="?android:attr/textColorSecondary"
                 android:textAlignment="viewStart"
                 android:maxLines="2"
                 android:ellipsize="end" />
+
     </LinearLayout>
 </LinearLayout>
