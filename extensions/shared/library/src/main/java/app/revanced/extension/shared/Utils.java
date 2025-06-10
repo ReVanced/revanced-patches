@@ -76,7 +76,9 @@ public class Utils {
     private static String versionName;
     private static String applicationLabel;
 
+    @ColorInt
     private static int darkColor = Color.BLACK;
+    @ColorInt
     private static int lightColor = Color.WHITE;
 
     @Nullable
@@ -402,6 +404,9 @@ public class Utils {
             config.setLocale(language.getLocale());
             context = appContext.createConfigurationContext(config);
         }
+
+        setThemeLightColor(getThemeColor(lightThemeResourceName(), Color.WHITE));
+        setThemeDarkColor(getThemeColor(darkThemeResourceName(), Color.BLACK));
     }
 
     public static void setClipboard(CharSequence text) {
@@ -504,7 +509,7 @@ public class Utils {
                 super.onStart();
 
                 if (onStartAction != null) {
-                    onStartAction.onStart(getDialog());
+                    onStartAction.onStart(dialog);
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "onStart failure: " + dialog.getClass().getSimpleName(), ex);
@@ -1120,6 +1125,14 @@ public class Utils {
     }
 
     /**
+     * Sets the theme light color used by the app.
+     */
+    public static void setThemeLightColor(@ColorInt int color) {
+        Logger.printDebug(() -> "Setting theme light color: " + getColorHexString(color));
+        lightColor = color;
+    }
+
+    /**
      * Sets the theme dark used by the app.
      */
     public static void setThemeDarkColor(@ColorInt int color) {
@@ -1128,11 +1141,12 @@ public class Utils {
     }
 
     /**
-     * Sets the theme light color used by the app.
+     * Returns the themed light color, or {@link Color#WHITE} if no theme was set using
+     * {@link #setThemeLightColor(int).
      */
-    public static void setThemeLightColor(@ColorInt int color) {
-        Logger.printDebug(() -> "Setting theme light color: " + getColorHexString(color));
-        lightColor = color;
+    @ColorInt
+    public static int getThemeLightColor() {
+        return lightColor;
     }
 
     /**
@@ -1145,13 +1159,35 @@ public class Utils {
     }
 
     /**
-     * Returns the themed light color, or {@link Color#WHITE} if no theme was set using
-     * {@link #setThemeLightColor(int).
+     * Injection point.
      */
-    @ColorInt
-    public static int getThemeLightColor() {
-        return lightColor;
+    @SuppressWarnings("SameReturnValue")
+    private static String lightThemeResourceName() {
+        // Value is changed by Settings patch.
+        return "#FFFFFFFF";
     }
+
+    /**
+     * Injection point.
+     */
+    @SuppressWarnings("SameReturnValue")
+    private static String darkThemeResourceName() {
+        // Value is changed by Settings patch.
+        return "#FF000000";
+    }
+
+    @ColorInt
+    private static int getThemeColor(String resourceName, int defaultColor) {
+        try {
+            return Utils.getColorFromString(resourceName);
+        } catch (Exception ex) {
+            // This code can never be reached since a bad custom color will
+            // fail during resource compilation. So no localized strings are needed here.
+            Logger.printException(() -> "Invalid custom theme color: " + resourceName, ex);
+            return defaultColor;
+        }
+    }
+
 
     @ColorInt
     public static int getDialogBackgroundColor() {
