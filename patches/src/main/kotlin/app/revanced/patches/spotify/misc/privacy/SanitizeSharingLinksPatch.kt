@@ -58,7 +58,7 @@ val sanitizeSharingLinksPatch = bytecodePatch(
         } else {
             shareSheetFingerprint = formatAndroidShareSheetUrlFingerprint
             val methodAccessFlags = formatAndroidShareSheetUrlFingerprint.originalMethod.accessFlags
-            shareUrlParameter = if (methodAccessFlags.and(AccessFlags.STATIC.value) != 0) {
+            shareUrlParameter = if (AccessFlags.STATIC.isSet(methodAccessFlags)) {
                 // In newer implementations the method is static, so p0 is not `this`.
                 "p1"
             } else {
