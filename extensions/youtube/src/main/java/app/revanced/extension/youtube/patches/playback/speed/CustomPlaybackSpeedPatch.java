@@ -241,6 +241,9 @@ public class CustomPlaybackSpeedPatch {
         // Store the dialog reference.
         currentDialog = new WeakReference<>(dialog);
 
+        // Enable dismissing the dialog when tapping outside.
+        dialog.setCanceledOnTouchOutside(true);
+
         // Create main vertical LinearLayout for dialog content.
         LinearLayout mainLayout = new LinearLayout(context);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
@@ -489,22 +492,16 @@ public class CustomPlaybackSpeedPatch {
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
             window.setAttributes(params);
             window.setBackgroundDrawable(null); // Remove default dialog background.
-            // Allow touch events to pass through for drag handling.
-            window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
         }
-
-        // Add drag-to-dismiss functionality by handling touch events on mainLayout.
-        // Variables to track touch position and translation.
-        final float[] touchY = {0}; // Store initial Y position of touch.
-        final float[] translationY = {0}; // Track current translation.
-        // Threshold for dismissing the dialog.
-        final float dismissThreshold = dipToPixels(100); // Distance to drag to dismiss.
-        // Animation duration for smooth sliding.
-        final int animationDuration = Utils.getResourceInteger("fade_duration_fast");
 
         // Set touch listener on mainLayout to enable drag-to-dismiss.
         mainLayout.setOnTouchListener(new View.OnTouchListener() {
+            float[] touchY = {0}; // Store initial Y position of touch.
+            float[] translationY = {0}; // Track current translation.
+            // Threshold for dismissing the dialog.
+            float dismissThreshold = dipToPixels(100); // Distance to drag to dismiss.
+            // Animation duration for smooth sliding.
+            int animationDuration = Utils.getResourceInteger("fade_duration_fast");
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
