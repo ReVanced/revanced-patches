@@ -494,14 +494,19 @@ public class CustomPlaybackSpeedPatch {
             window.setBackgroundDrawable(null); // Remove default dialog background.
         }
 
+        // Apply slide-in animation when showing the dialog.
+        final int fadeDurationFast = Utils.getResourceInteger("fade_duration_fast");
+        Animation slideInABottomAnimation = Utils.getResourceAnimation("slide_in_bottom");
+        slideInABottomAnimation.setDuration(fadeDurationFast);
+        mainLayout.startAnimation(slideInABottomAnimation);
+
         // Set touch listener on mainLayout to enable drag-to-dismiss.
         mainLayout.setOnTouchListener(new View.OnTouchListener() {
-            float[] touchY = {0}; // Store initial Y position of touch.
-            float[] translationY = {0}; // Track current translation.
+            float[] touchY; // Store initial Y position of touch.
+            float[] translationY; // Track current translation.
             // Threshold for dismissing the dialog.
             float dismissThreshold = dipToPixels(100); // Distance to drag to dismiss.
-            // Animation duration for smooth sliding.
-            int animationDuration = Utils.getResourceInteger("fade_duration_fast");
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
@@ -527,7 +532,7 @@ public class CustomPlaybackSpeedPatch {
                                     - mainLayout.getTop();
                             TranslateAnimation slideOut = new TranslateAnimation(
                                     0, 0, mainLayout.getTranslationY(), remainingDistance);
-                            slideOut.setDuration(animationDuration);
+                            slideOut.setDuration(fadeDurationFast);
                             slideOut.setAnimationListener(new Animation.AnimationListener() {
                                 @Override
                                 public void onAnimationStart(Animation animation) {}
@@ -545,7 +550,7 @@ public class CustomPlaybackSpeedPatch {
                             // Animate back to original position if not dragged far enough.
                             TranslateAnimation slideBack = new TranslateAnimation(
                                     0, 0, mainLayout.getTranslationY(), 0);
-                            slideBack.setDuration(animationDuration);
+                            slideBack.setDuration(fadeDurationFast);
                             mainLayout.startAnimation(slideBack);
                             mainLayout.setTranslationY(0);
                         }
@@ -581,12 +586,6 @@ public class CustomPlaybackSpeedPatch {
             PlayerType.getOnChange().removeObserver(playerTypeObserver);
             Logger.printDebug(() -> "PlayerType observer removed on dialog dismiss");
         });
-
-        // Apply slide-in animation when showing the dialog.
-        final int fadeDurationFast = Utils.getResourceInteger("fade_duration_fast");
-        Animation slideInABottomAnimation = Utils.getResourceAnimation("slide_in_bottom");
-        slideInABottomAnimation.setDuration(fadeDurationFast);
-        mainLayout.startAnimation(slideInABottomAnimation);
 
         dialog.show(); // Display the dialog.
     }
