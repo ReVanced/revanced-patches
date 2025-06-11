@@ -55,7 +55,7 @@ import app.revanced.extension.shared.settings.preference.ReVancedAboutPreference
 public class Utils {
 
     @SuppressLint("StaticFieldLeak")
-    private static volatile Context context;
+    static volatile Context context;
 
     private static String versionName;
     private static String applicationLabel;
@@ -363,15 +363,15 @@ public class Utils {
 
     public static Context getContext() {
         if (context == null) {
-            Logger.initializationException(() -> "Context is not set by extension hook, returning null",  null);
+            Logger.printException(() -> "Context is not set by extension hook, returning null",  null);
         }
         return context;
     }
 
     public static void setContext(Context appContext) {
         // Intentionally use logger before context is set,
-        // to expose any bugs in the 'no context available' logger method.
-        Logger.initializationInfo(() -> "Set context: " + appContext);
+        // to expose any bugs in the 'no context available' logger code.
+        Logger.printInfo(() -> "Set context: " + appContext);
         // Must initially set context to check the app language.
         context = appContext;
 
@@ -554,7 +554,7 @@ public class Utils {
             Context currentContext = context;
 
             if (currentContext == null) {
-                Logger.initializationException(() -> "Cannot show toast (context is null): " + messageToToast, null);
+                Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast, null);
             } else {
                 Logger.printDebug(() -> "Showing toast: " + messageToToast);
                 Toast.makeText(currentContext, messageToToast, toastDuration).show();
