@@ -501,26 +501,31 @@ public class CustomPlaybackSpeedPatch {
         mainLayout.startAnimation(slideInABottomAnimation);
 
         // Set touch listener on mainLayout to enable drag-to-dismiss.
+        //noinspection ClickableViewAccessibility
         mainLayout.setOnTouchListener(new View.OnTouchListener() {
-            float[] touchY; // Store initial Y position of touch.
-            float[] translationY; // Track current translation.
-            // Threshold for dismissing the dialog.
-            float dismissThreshold = dipToPixels(100); // Distance to drag to dismiss.
+            /** Threshold for dismissing the dialog. */
+
+            final float dismissThreshold = dipToPixels(100); // Distance to drag to dismiss.
+
+            /** Store initial Y position of touch. */
+            float touchY;
+            /** Track current translation. */
+            float translationY;
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         // Capture initial Y position of touch.
-                        touchY[0] = event.getRawY();
-                        translationY[0] = mainLayout.getTranslationY();
+                        touchY = event.getRawY();
+                        translationY = mainLayout.getTranslationY();
                         return true;
                     case MotionEvent.ACTION_MOVE:
                         // Calculate drag distance and apply translation downwards only.
-                        float deltaY = event.getRawY() - touchY[0];
+                        final float deltaY = event.getRawY() - touchY;
                         // Only allow downward drag (positive deltaY).
                         if (deltaY >= 0) {
-                            mainLayout.setTranslationY(translationY[0] + deltaY);
+                            mainLayout.setTranslationY(translationY + deltaY);
                         }
                         return true;
                     case MotionEvent.ACTION_UP:
@@ -528,7 +533,8 @@ public class CustomPlaybackSpeedPatch {
                         // Check if dialog should be dismissed based on drag distance.
                         if (mainLayout.getTranslationY() > dismissThreshold) {
                             // Animate dialog off-screen and dismiss.
-                            float remainingDistance = context.getResources().getDisplayMetrics().heightPixels
+                            //noinspection ExtractMethodRecommender
+                            final float remainingDistance = context.getResources().getDisplayMetrics().heightPixels
                                     - mainLayout.getTop();
                             TranslateAnimation slideOut = new TranslateAnimation(
                                     0, 0, mainLayout.getTranslationY(), remainingDistance);
