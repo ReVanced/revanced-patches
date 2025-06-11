@@ -681,6 +681,9 @@ For at vise lydspormenuen skal du ændre \"Spoof videostream\" til iOS TV"</stri
   <string name="revanced_hide_autoplay_button_title">Skjul knappen Automatisk afspilning</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automatisk spil-knap er skjult</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automatisk afspilningsknap vises</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Skjul baggrunden for afspillerens kontrolknapper</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Baggrunden for afspillerens kontrolknapper er skjult</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Baggrunden for afspillerens kontrolknapper vises</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skjul slutskærmkort</string>
@@ -765,6 +768,9 @@ For at vise lydspormenuen skal du ændre \"Spoof videostream\" til iOS TV"</stri
   <string name="revanced_hide_shorts_green_screen_button_title">Skjul knappen Grøn skærm</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Grøn skærmknap er skjult</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Grøn skærmknap vises</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Skjul knappen Nye indlæg</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Knappen Nye indlæg vises</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Knappen Nye indlæg er skjult</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Skjul hashtag knap</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag knap er skjult</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag knappen er vist</string>

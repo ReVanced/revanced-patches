@@ -681,6 +681,9 @@ Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fl
   <string name="revanced_hide_autoplay_button_title">Ascunde butonul Redare automată</string>
   <string name="revanced_hide_autoplay_button_summary_on">Butonul Autoplay este ascuns</string>
   <string name="revanced_hide_autoplay_button_summary_off">Butonul Auto-redare este afișat</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Ascunde fundalul butoanelor de control al playerului</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Fundalul butoanelor de control al playerului este ascuns</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Fundalul butoanelor de control al playerului este afișat</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ascunde cardurile ecranului final</string>
@@ -765,6 +768,9 @@ Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fl
   <string name="revanced_hide_shorts_green_screen_button_title">Ascunde butonul Ecran verde</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Butonul de ecran verde este ascuns</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Butonul de ecran verde este afișat</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Ascunde butonul Postări noi</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Butonul Postări noi este afișat</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Butonul Postări noi este ascuns</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Ascunde butonul hashtag</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Butonul Hashtag este ascuns</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Butonul Hashtag este afișat</string>

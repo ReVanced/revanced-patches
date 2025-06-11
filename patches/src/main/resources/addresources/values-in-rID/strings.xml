@@ -311,9 +311,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Sembunyikan tombol \'Buat Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tombol Buat Short disembunyikan</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tombol Buat Short ditampilkan</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Sembunyikan tombol stempel waktu</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tombol stempel waktu disembunyikan</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Tombol stempel waktu ditampilkan</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Sembunyikan tombol penanda waktu</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tombol penanda waktu disembunyikan</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Tombol penanda waktu ditampilkan</string>
   <string name="revanced_hide_comments_preview_comment_title">Sembunyikan pratinjau komentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Pratinjau komentar disembunyikan</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Pratinjau komentar ditampilkan</string>
@@ -424,12 +424,12 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   </patch>
   <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">URL disalin ke papan klip</string>
-  <string name="revanced_share_copy_url_timestamp_success">URL dengan timestamp telah disalin</string>
+  <string name="revanced_share_copy_url_timestamp_success">URL dengan penanda waktu telah disalin</string>
   <string name="revanced_copy_video_url_title">Tampilkan tombol salin URL video</string>
-  <string name="revanced_copy_video_url_summary_on">Tombol ditampilkan. Ketuk untuk menyalin URL video. Ketuk dan tahan untuk menyalin dengan stempel waktu</string>
+  <string name="revanced_copy_video_url_summary_on">Tombol ditampilkan. Ketuk untuk menyalin URL video. Ketuk dan tahan untuk menyalin dengan penanda waktu</string>
   <string name="revanced_copy_video_url_summary_off">Tombol tidak ditampilkan</string>
-  <string name="revanced_copy_video_url_timestamp_title">Tampilkan tombol salin timestamp URL</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Tombol ditampilkan. Ketuk untuk menyalin URL video dengan stempel waktu. Ketuk dan tahan untuk menyalin tanpa stempel waktu</string>
+  <string name="revanced_copy_video_url_timestamp_title">Tampilkan tombol salin penanda waktu URL</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Tombol ditampilkan. Ketuk untuk menyalin URL video dengan stempel waktu. Ketuk dan tahan untuk menyalin tanpa penanda waktu</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Tombol tidak ditampilkan</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -681,6 +681,9 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_hide_autoplay_button_title">Sembunyikan tombol Putar Otomatis</string>
   <string name="revanced_hide_autoplay_button_summary_on">Tombol putar otomatis disembunyikan</string>
   <string name="revanced_hide_autoplay_button_summary_off">Tombol putar otomatis ditampilkan</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Sembunyikan latar belakang tombol kontrol pemutar</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Latar belakang tombol kontrol pemutar disembunyikan</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Latar belakang tombol kontrol pemutar ditampilkan</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Sembunyikan kartu layar akhir</string>
@@ -765,6 +768,9 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Sembunyikan tombol Layar Hijau</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tombol layar hijau disembunyikan</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Tombol layar hijau ditampilkan</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Sembunyikan tombol postingan Baru</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Tombol postingan baru ditampilkan</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Tombol postingan baru disembunyikan</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Sembunyikan tombol tagar</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Tombol tagar disembunyikan</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Tombol tagar ditampilkan</string>
@@ -830,9 +836,9 @@ Pengaturan → Pemutaran → Putar otomatis video berikutnya"</string>
   <string name="revanced_hide_related_video_overlay_summary_off">Hamparan video terkait ditampilkan</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
-  <string name="revanced_hide_timestamp_title">Sembunyikan timestamp video</string>
-  <string name="revanced_hide_timestamp_summary_on">Timestamp disembunyikan</string>
-  <string name="revanced_hide_timestamp_summary_off">Timestamp ditampilkan</string>
+  <string name="revanced_hide_timestamp_title">Sembunyikan penanda waktu video</string>
+  <string name="revanced_hide_timestamp_summary_on">Penanda waktu disembunyikan</string>
+  <string name="revanced_hide_timestamp_summary_off">Penanda waktu ditampilkan</string>
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
   <string name="revanced_hide_player_popup_panels_title">Sembunyikan panel popup pemutar</string>
@@ -1255,8 +1261,8 @@ Geser untuk memperluas atau menutup"</string>
   <string name="revanced_gradient_loading_screen_title">Aktifkan layar pemuatan gradien</string>
   <string name="revanced_gradient_loading_screen_summary_on">Layar pemuatan akan memiliki latar belakang gradien</string>
   <string name="revanced_gradient_loading_screen_summary_off">Layar pemuatan akan memiliki latar belakang yang solid</string>
-  <string name="splash_screen_animation_style_title">Gaya layar splash</string>
-  <string name="splash_screen_animation_style_entry_1">Warna</string>
+  <string name="splash_screen_animation_style_title">Gaya layar pembuka</string>
+  <string name="splash_screen_animation_style_entry_1">Berwarna</string>
   <string name="splash_screen_animation_style_entry_2">Hitam dan putih</string>
   <string name="revanced_seekbar_custom_color_title">Aktifkan warna seekbar khusus</string>
   <string name="revanced_seekbar_custom_color_summary_on">Warna seekbar khusus ditampilkan</string>

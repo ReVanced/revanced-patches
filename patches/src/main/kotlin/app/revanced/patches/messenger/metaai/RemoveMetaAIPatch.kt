@@ -25,7 +25,7 @@ val removeMetaAIPatch = bytecodePatch(
             addInstructions(
                 returnIndex,
                 """
-                    invoke-static { p1, p2, v$returnRegister }, $EXTENSION_CLASS_DESCRIPTOR->overrideConfigBool(JZ)Z
+                    invoke-static { p1, p2, v$returnRegister }, $EXTENSION_CLASS_DESCRIPTOR->overrideBooleanFlag(JZ)Z
                     move-result v$returnRegister
                 """
             )

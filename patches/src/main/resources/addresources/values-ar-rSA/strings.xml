@@ -681,6 +681,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">إخفاء زر التشغيل التلقائي</string>
   <string name="revanced_hide_autoplay_button_summary_on">تم إخفاء زر التشغيل التلقائي</string>
   <string name="revanced_hide_autoplay_button_summary_off">يتم عرض زر التشغيل التلقائي</string>
+  <string name="revanced_hide_player_control_buttons_background_title">إخفاء خلفية أزرار التحكم في المشغل</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">تم إخفاء خلفية أزرار التحكم في المشغل</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">تم إظهار خلفية أزرار التحكم في المشغل</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">إخفاء بطاقات شاشة النهاية</string>
@@ -765,6 +768,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">إخفاء زر الشاشة الخضراء</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">تم إخفاء زر الشاشة الخضراء</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">يتم عرض زر الشاشة الخضراء</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">إخفاء زر \"مشاركات جديدة\"</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">يتم عرض زر \"مشاركات جديدة\"</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">تم إخفاء زر \"مشاركات جديدة\"</string>
   <string name="revanced_hide_shorts_hashtag_button_title">إخفاء زر الهاشتاج</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">تم إخفاء زر الهاشتاج</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">يتم عرض زر الهاشتاج</string>

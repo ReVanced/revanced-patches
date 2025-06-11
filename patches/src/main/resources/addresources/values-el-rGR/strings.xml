@@ -313,9 +313,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Κουμπί «Δημιουργία Short»</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Απόκρυψη κουμπιού χρονοσήμανσης</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Το κουμπί χρονοσήμανσης είναι κρυφό</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Εμφανίζεται το κουμπί χρονοσήμανσης</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Κουμπί χρονοσήμανσης</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_comments_preview_comment_title">Προεπισκόπηση σχολίου</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Εμφανίζεται</string>
@@ -683,6 +683,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">Κουμπί αυτόματης αναπαραγωγής</string>
   <string name="revanced_hide_autoplay_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_autoplay_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Φόντο κουμπιών ελέγχου οθόνης αναπαραγωγής</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Εμφανίζεται</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Κάρτες τελικής οθόνης</string>
@@ -752,9 +755,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Ετικέτα τοποθεσίας</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_shorts_preview_comment_title">Απόκρυψη προεπισκόπησης σχολίου</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_on">Το σχόλιο προεπισκόπησης είναι κρυφό</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">Εμφανίζεται η προεπισκόπηση του σχολίου</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Προεπισκόπηση σχολίου</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Κουμπί «Αποθήκευση μουσικής»</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Εμφανίζεται</string>
@@ -767,6 +770,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Κουμπί «Green screen»</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Κουμπί «Νέες αναρτήσεις»</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Κουμπί hashtag</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Εμφανίζεται</string>
@@ -1258,8 +1264,8 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_summary_on">Η οθόνη φόρτωσης θα έχει σταδιακές αποχρώσεις φόντο</string>
   <string name="revanced_gradient_loading_screen_summary_off">Η οθόνη φόρτωσης θα έχει στατική απόχρωση φόντο</string>
   <string name="splash_screen_animation_style_title">Στυλ οθόνης εκκίνησης</string>
-  <string name="splash_screen_animation_style_entry_1">Χρώμα</string>
-  <string name="splash_screen_animation_style_entry_2">Μαύρο και άσπρο</string>
+  <string name="splash_screen_animation_style_entry_1">Χρωματιστή</string>
+  <string name="splash_screen_animation_style_entry_2">Ασπρόμαυρη</string>
   <string name="revanced_seekbar_custom_color_title">Προσαρμοσμένο χρώμα γραμμής προόδου</string>
   <string name="revanced_seekbar_custom_color_summary_on">Η γραμμή προόδου εμφανίζεται με προσαρμοσμένο χρώμα</string>
   <string name="revanced_seekbar_custom_color_summary_off">Η γραμμή προόδου εμφανίζεται με το αρχικό χρώμα</string>

@@ -1,3 +1,53 @@
+# [5.28.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.1...v5.28.0-dev.2) (2025-06-11)
+
+
+### Bug Fixes
+
+* **Google Photos:** Resolve startup crash if MicroG GmsCore does not already have granted permissions ([a93d74d](https://github.com/ReVanced/revanced-patches/commit/a93d74d26e7ef87a3745df2b9fe82722d65a0e59))
+
+# [5.28.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.27.0...v5.28.0-dev.1) (2025-06-11)
+
+
+### Features
+
+* **Spotify:** Add `Change lyrics provider` patch ([#4937](https://github.com/ReVanced/revanced-patches/issues/4937)) ([8736b6a](https://github.com/ReVanced/revanced-patches/commit/8736b6a80b48cb1f4562c9f9919804006ddb18bd))
+
+# [5.27.0](https://github.com/ReVanced/revanced-patches/compare/v5.26.0...v5.27.0) (2025-06-09)
+
+
+### Bug Fixes
+
+* **Bandcamp - Remove play limits:** Support latest app version ([#5124](https://github.com/ReVanced/revanced-patches/issues/5124)) ([863e92b](https://github.com/ReVanced/revanced-patches/commit/863e92b20ad6682f10524e475ed18f879048ecae))
+* **Spotify:** `Hide Create button` patch failing in edge cases ([#5131](https://github.com/ReVanced/revanced-patches/issues/5131)) ([0923600](https://github.com/ReVanced/revanced-patches/commit/0923600739a126329fc62100b500216860d7005e))
+* **Spotify:** Prevent hiding all navigation bar buttons ([#5122](https://github.com/ReVanced/revanced-patches/issues/5122)) ([8afbef0](https://github.com/ReVanced/revanced-patches/commit/8afbef01343c1e3e6e7e4a4cec6319aebfa4b11c))
+* **YouTube - Hide layout components:** Remove broken option 'Hide comments emoji picker' ([#5121](https://github.com/ReVanced/revanced-patches/issues/5121)) ([9a6a639](https://github.com/ReVanced/revanced-patches/commit/9a6a639c4905b00d6dffb0923c839c8e3ae54d0c))
+* **YouTube - Hide Shorts components:** Disable A/B player flags that prevents hiding buttons ([bef0dac](https://github.com/ReVanced/revanced-patches/commit/bef0dacac54caf1ca9511d7bc19b19140ccb4eaf))
+* **YouTube - Video quality:** Remove non-functional Shorts 144p default quality ([3113cd6](https://github.com/ReVanced/revanced-patches/commit/3113cd6d092952c8657454452f34c0ae85358ec9))
+
+
+### Features
+
+* Add `Hide app icon` patch ([#4977](https://github.com/ReVanced/revanced-patches/issues/4977)) ([92311b8](https://github.com/ReVanced/revanced-patches/commit/92311b8e5675f3d4b80ed690d34b699fb847e3cd))
+* **Google Photos:** Add `Enable DCIM folders backup control` patch ([#5138](https://github.com/ReVanced/revanced-patches/issues/5138)) ([328d232](https://github.com/ReVanced/revanced-patches/commit/328d232fe77406fa93a14768fc66e7b998506fba))
+* **Messenger:** Add `Hide Facebook button` patch ([#5057](https://github.com/ReVanced/revanced-patches/issues/5057)) ([9175b23](https://github.com/ReVanced/revanced-patches/commit/9175b23e8360d13c8c1c9c8602ca0b5931d13627))
+* **YouTube - Hide player overlay buttons:** Add in app setting for "Hide player control buttons background" ([#5147](https://github.com/ReVanced/revanced-patches/issues/5147)) ([dd8afa2](https://github.com/ReVanced/revanced-patches/commit/dd8afa2b07b50be24d764c0f6ddc9e1bbdb91bf1))
+* **YouTube - Hide Shorts components:** Add hide 'New posts' button ([ac6b916](https://github.com/ReVanced/revanced-patches/commit/ac6b916c0c212167c4645e2110500dc811b3e54a))
+* **YouTube - Theme:** Add option for black and white splash screen animation ([#5119](https://github.com/ReVanced/revanced-patches/issues/5119)) ([42db0c2](https://github.com/ReVanced/revanced-patches/commit/42db0c2e36fefccdbeaa072edcec48b1e05b6270))
+
+# [5.27.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.8...v5.27.0-dev.9) (2025-06-09)
+
+
+### Features
+
+* **Messenger:** Add `Hide Facebook button` patch ([#5057](https://github.com/ReVanced/revanced-patches/issues/5057)) ([9175b23](https://github.com/ReVanced/revanced-patches/commit/9175b23e8360d13c8c1c9c8602ca0b5931d13627))
+
+# [5.27.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.7...v5.27.0-dev.8) (2025-06-09)
+
+
+### Features
+
+* Add `Hide app icon` patch ([#4977](https://github.com/ReVanced/revanced-patches/issues/4977)) ([92311b8](https://github.com/ReVanced/revanced-patches/commit/92311b8e5675f3d4b80ed690d34b699fb847e3cd))
+
 # [5.27.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.27.0-dev.6...v5.27.0-dev.7) (2025-06-08)
 
 

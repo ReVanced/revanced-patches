@@ -681,6 +681,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_autoplay_button_title">Թաքցնել Ավտոմատ կրկնում կոճակը</string>
   <string name="revanced_hide_autoplay_button_summary_on">Ավտոմատ վերարտադրման կոճակը թաքցված է</string>
   <string name="revanced_hide_autoplay_button_summary_off">Ավտոմատ վերարտադրման կոճակը երևում է</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Թաքցնել նվագարկչի կառավարման կոճակների ֆոնը</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Նվագարկչի կառավարման կոճակների ֆոնը թաքնված է</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Նվագարկչի կառավարման կոճակների ֆոնը ցուցադրվում է</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Էկրանի վերջում քարտերը թաքցնել</string>
@@ -765,6 +768,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_green_screen_button_title">Թաքցնել Կանաչ էկրան կոճակը</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Green Screen\" կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Green Screen\" կոճակը երևում է</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Թաքցնել «Նոր գրառումներ» կոճակը</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">«Նոր գրառումներ» կոճակը երևում է</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">«Նոր գրառումներ» կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Թաքցնել \"Hashtag\" կոճակը</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">\"Hashtag\" կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">\"Hashtag\" կոճակը երևում է</string>
