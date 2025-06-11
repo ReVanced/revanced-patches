@@ -94,10 +94,10 @@ val hideCreateButtonPatch = bytecodePatch(
                     """
                         invoke-static { v$oldNavigationBarItemTitleResIdRegister }, $isOldCreateButtonDescriptor
                         move-result v0
-                        
+
                         # If this navigation bar item is not the Create button, jump to the normal method logic.
                         if-eqz v0, :normal-method-logic
-                        
+
                         # Return null early because this method return value is a BottomNavigationItemView.
                         const/4 v0, 0
                         return-object v0
