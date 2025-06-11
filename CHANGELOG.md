@@ -1,3 +1,10 @@
+# [5.28.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.2...v5.28.0-dev.3) (2025-06-11)
+
+
+### Bug Fixes
+
+* **Spotify:** Fix `Hide Create button` and `Sanitize sharing links` for older but supported app targets ([#5159](https://github.com/ReVanced/revanced-patches/issues/5159)) ([e7dd061](https://github.com/ReVanced/revanced-patches/commit/e7dd061c513af90861c0ab0d7adc6ee43be57ce2))
+
 # [5.28.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.1...v5.28.0-dev.2) (2025-06-11)
 
 
