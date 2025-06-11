@@ -30,7 +30,7 @@ jobs:
           java-version: "17"
 
       - name: Cache Gradle
-        uses: burrunan/gradle-cache-action@v2
+        uses: burrunan/gradle-cache-action@v3
 
       - name: Build
         env:
