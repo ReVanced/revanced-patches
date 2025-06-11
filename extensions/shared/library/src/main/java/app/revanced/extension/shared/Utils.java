@@ -207,8 +207,8 @@ public class Utils {
     public static boolean hideViewByRemovingFromParentUnderCondition(boolean setting, View view) {
         if (setting) {
             ViewParent parent = view.getParent();
-            if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(view);
+            if (parent instanceof ViewGroup parentGroup) {
+                parentGroup.removeView(view);
                 return true;
             }
         }
@@ -221,14 +221,14 @@ public class Utils {
      * All tasks run at max thread priority.
      */
     private static final ThreadPoolExecutor backgroundThreadPool = new ThreadPoolExecutor(
-            3, // 3 threads always ready to go
+            3, // 3 threads always ready to go.
             Integer.MAX_VALUE,
-            10, // For any threads over the minimum, keep them alive 10 seconds after they go idle
+            10, // For any threads over the minimum, keep them alive 10 seconds after they go idle.
             TimeUnit.SECONDS,
             new SynchronousQueue<>(),
             r -> { // ThreadFactory
                 Thread t = new Thread(r);
-                t.setPriority(Thread.MAX_PRIORITY); // run at max priority
+                t.setPriority(Thread.MAX_PRIORITY); // Run at max priority.
                 return t;
             });
 
@@ -251,11 +251,11 @@ public class Utils {
 
         long meaninglessValue = 0;
         while (System.currentTimeMillis() - timeCalculationStarted < amountOfTimeToWaste) {
-            // could do a thread sleep, but that will trigger an exception if the thread is interrupted
+            // Could do a thread sleep, but that will trigger an exception if the thread is interrupted.
             meaninglessValue += Long.numberOfLeadingZeros((long) Math.exp(Math.random()));
         }
-        // return the value, otherwise the compiler or VM might optimize and remove the meaningless time wasting work,
-        // leaving an empty loop that hammers on the System.currentTimeMillis native call
+        // Return the value, otherwise the compiler or VM might optimize and remove the meaningless time wasting work,
+        // leaving an empty loop that hammers on the System.currentTimeMillis native call.
         return meaninglessValue;
     }
 
@@ -274,7 +274,7 @@ public class Utils {
     }
 
     /**
-     * @return zero, if the resource is not found
+     * @return zero, if the resource is not found.
      */
     @SuppressLint("DiscouragedApi")
     public static int getResourceIdentifier(Context context, String resourceIdentifierName, String type) {
@@ -282,7 +282,7 @@ public class Utils {
     }
 
     /**
-     * @return zero, if the resource is not found
+     * @return zero, if the resource is not found.
      */
     public static int getResourceIdentifier(String resourceIdentifierName, String type) {
         return getResourceIdentifier(getContext(), resourceIdentifierName, type);
@@ -316,12 +316,11 @@ public class Utils {
 
     /**
      * Includes sub children.
-     *
-     * @noinspection unchecked
      */
     public static <R extends View> R getChildViewByResourceName(View view, String str) {
         var child = view.findViewById(Utils.getResourceIdentifier(str, "id"));
         if (child != null) {
+            //noinspection unchecked
             return (R) child;
         }
 
@@ -534,13 +533,13 @@ public class Utils {
      * Utility method to allow showing a Dialog on top of other dialogs.
      * Calling this will always display the dialog on top of all other dialogs
      * previously called using this method.
-     * <br>
+     * <p>
      * Be aware the on start action can be called multiple times for some situations,
      * such as the user switching apps without dismissing the dialog then switching back to this app.
-     * <br>
+     * <p>
      * This method is only useful during app startup and multiple patches may show their own dialog,
      * and the most important dialog can be called last (using a delay) so it's always on top.
-     * <br>
+     * <p>
      * For all other situations it's better to not use this method and
      * call {@link Dialog#show()} on the dialog.
      */
@@ -560,14 +559,14 @@ public class Utils {
     }
 
     /**
-     * Safe to call from any thread
+     * Safe to call from any thread.
      */
     public static void showToastShort(String messageToToast) {
         showToast(messageToToast, Toast.LENGTH_SHORT);
     }
 
     /**
-     * Safe to call from any thread
+     * Safe to call from any thread.
      */
     public static void showToastLong(String messageToToast) {
         showToast(messageToToast, Toast.LENGTH_LONG);
@@ -589,7 +588,7 @@ public class Utils {
 
     /**
      * @return The current dark mode as set by any patch.
-     * Or if none is set, then the system dark mode status is returned.
+     *         Or if none is set, then the system dark mode status is returned.
      */
     public static boolean isDarkModeEnabled() {
         Boolean isDarkMode = isDarkModeEnabled;
@@ -603,7 +602,7 @@ public class Utils {
     }
 
     /**
-     * Overrides shared dark mode status, and ignores what the system dark mode status.
+     * Overrides dark mode status as returned by {@link #isDarkModeEnabled()}.
      */
     public static void setIsDarkModeEnabled(boolean isDarkMode) {
         isDarkModeEnabled = isDarkMode;
@@ -639,7 +638,7 @@ public class Utils {
     }
 
     /**
-     * If called from the main thread, the code is run immediately.<p>
+     * If called from the main thread, the code is run immediately.
      * If called off the main thread, this is the same as {@link #runOnMainThread(Runnable)}.
      */
     public static void runOnMainThreadNowOrLater(Runnable runnable) {
@@ -683,8 +682,8 @@ public class Utils {
 
     /**
      * Calling extension code must ensure the un-patched app has the permission
-     * <code>android.permission.ACCESS_NETWORK_STATE</code>, otherwise the app will crash
-     * if this method is used.
+     * <code>android.permission.ACCESS_NETWORK_STATE</code>,
+     * otherwise the app will crash if this method is used.
      */
     public static boolean isNetworkConnected() {
         NetworkType networkType = getNetworkType();
@@ -694,10 +693,10 @@ public class Utils {
 
     /**
      * Calling extension code must ensure the un-patched app has the permission
-     * <code>android.permission.ACCESS_NETWORK_STATE</code>, otherwise the app will crash
-     * if this method is used.
+     * <code>android.permission.ACCESS_NETWORK_STATE</code>,
+     * otherwise the app will crash if this method is used.
      */
-    @SuppressLint({"MissingPermission", "deprecation"})
+    @SuppressWarnings({"MissingPermission", "deprecation"})
     public static NetworkType getNetworkType() {
         Context networkContext = getContext();
         if (networkContext == null) {
@@ -743,9 +742,10 @@ public class Utils {
     }
 
     /**
-     * Creates a custom dialog with a styled layout, including a title, message, buttons, and an optional EditText.
-     * The dialog's appearance adapts to the app's dark mode setting, with rounded corners and customizable button actions.
-     * Buttons adjust dynamically to their text content and are arranged in a single row if they fit within 80% of the screen width,
+     * Creates a custom dialog with a styled layout, including a title, message, buttons, and an
+     * optional EditText. The dialog's appearance adapts to the app's dark mode setting, with
+     * rounded corners and customizable button actions. Buttons adjust dynamically to their text
+     * content and are arranged in a single row if they fit within 80% of the screen width,
      * with the Neutral button aligned to the left and OK/Cancel buttons centered on the right.
      * If buttons do not fit, each is placed on a separate row, all aligned to the right.
      *
@@ -1381,8 +1381,8 @@ public class Utils {
     /**
      * Converts dip value to actual device pixels.
      *
-     * @param dip The density-independent pixels value
-     * @return The device pixel value
+     * @param dip The density-independent pixels value.
+     * @return The device pixel value.
      */
     public static int dipToPixels(float dip) {
         return (int) TypedValue.applyDimension(
@@ -1419,9 +1419,9 @@ public class Utils {
             blue = Math.round(blue + (255 - blue) * t);
         } else {
             // Darken or no change: Scale toward black.
-            red = (int) (red * factor);
-            green = (int) (green * factor);
-            blue = (int) (blue * factor);
+            red *= factor;
+            green *= factor;
+            blue *= factor;
         }
 
         // Ensure values are within [0, 255].

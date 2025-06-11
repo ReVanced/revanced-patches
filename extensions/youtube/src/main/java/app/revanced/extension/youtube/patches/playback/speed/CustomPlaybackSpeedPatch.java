@@ -504,9 +504,7 @@ public class CustomPlaybackSpeedPatch {
         //noinspection ClickableViewAccessibility
         mainLayout.setOnTouchListener(new View.OnTouchListener() {
             /** Threshold for dismissing the dialog. */
-
             final float dismissThreshold = dipToPixels(100); // Distance to drag to dismiss.
-
             /** Store initial Y position of touch. */
             float touchY;
             /** Track current translation. */
