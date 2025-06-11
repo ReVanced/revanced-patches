@@ -910,11 +910,20 @@ public class Utils {
         int screenWidth = context.getResources().getDisplayMetrics().widthPixels;
         int totalWidth = 0;
         for (Integer width : buttonWidths) {
-            totalWidth += width + dip8; // Include margins
+            totalWidth += width;
+        }
+        if (buttonWidths.size() > 1) {
+            totalWidth += (buttonWidths.size() - 1) * dip8; // Add margins for gaps.
         }
 
+        buttonContainer.removeAllViews();
+        buttonContainer.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        ));
+
         if (buttons.size() == 1) {
-            // Single button: stretch to full width, no left/right margins.
+            // Single button: stretch to full width.
             Button singleButton = buttons.get(0);
             LinearLayout singleContainer = new LinearLayout(context);
             singleContainer.setOrientation(LinearLayout.HORIZONTAL);
@@ -927,10 +936,9 @@ public class Utils {
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     dipToPixels(36)
             );
-            params.setMargins(0, dip4, 0, dip4);
+            params.setMargins(0, 0, 0, 0);
             singleButton.setLayoutParams(params);
             singleContainer.addView(singleButton);
-            buttonContainer.removeAllViews();
             buttonContainer.addView(singleContainer);
         } else if (buttons.size() > 1) {
             // Check if buttons fit in one row.
@@ -960,27 +968,25 @@ public class Utils {
                     if (buttons.size() == 2) {
                         // Neutral + OK or Cancel + OK.
                         if (i == 0) { // Neutral or Cancel.
-                            params.setMargins(0, dip4, dip4, dip4); // Left 0, Right 4
+                            params.setMargins(0, 0, dip4, 0);
                         } else { // OK
-                            params.setMargins(dip4, dip4, 0, dip4); // Left 4, Right 0
+                            params.setMargins(dip4, 0, 0, 0);
                         }
                     } else if (buttons.size() == 3) {
                         if (i == 0) { // Neutral.
-                            params.setMargins(0, dip4, dip4, dip4); // Left 0, Right 4
+                            params.setMargins(0, 0, dip4, 0);
                         } else if (i == 1) { // Cancel
-                            params.setMargins(dip4, dip4, dip4, dip4); // Left 4, Right 4
+                            params.setMargins(dip4, 0, dip4, 0);
                         } else { // OK
-                            params.setMargins(dip4, dip4, 0, dip4); // Left 4, Right 0
+                            params.setMargins(dip4, 0, 0, 0);
                         }
                     }
                     button.setLayoutParams(params);
                     rowContainer.addView(button);
                 }
-                buttonContainer.removeAllViews();
                 buttonContainer.addView(rowContainer);
             } else {
                 // Multiple rows: OK, Cancel, Neutral.
-                buttonContainer.removeAllViews();
                 List<Button> reorderedButtons = new ArrayList<>();
                 // Reorder: OK, Cancel, Neutral.
                 if (onOkClick != null) {
@@ -993,23 +999,40 @@ public class Utils {
                     reorderedButtons.add(buttons.get(0));
                 }
 
-                // Add each button in its own row.
-                for (Button button : reorderedButtons) {
+                // Add each button in its own row with spacers.
+                for (int i = 0; i < reorderedButtons.size(); i++) {
+                    Button button = reorderedButtons.get(i);
                     LinearLayout singleContainer = new LinearLayout(context);
                     singleContainer.setOrientation(LinearLayout.HORIZONTAL);
                     singleContainer.setGravity(Gravity.CENTER);
+                    singleContainer.setLayoutParams(new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            dipToPixels(36)
+                    ));
                     ViewGroup parent = (ViewGroup) button.getParent();
                     if (parent != null) {
                         parent.removeView(button);
                     }
-                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.MATCH_PARENT,
                             dipToPixels(36)
                     );
-                    params.setMargins(0, dip4, 0, dip4);
-                    button.setLayoutParams(params);
+                    buttonParams.setMargins(0, 0, 0, 0);
+                    button.setLayoutParams(buttonParams);
                     singleContainer.addView(button);
                     buttonContainer.addView(singleContainer);
+
+                    // Add a spacer between the buttons (except the last one).
+                    // Adding a margin between buttons is not suitable, as it conflicts with the single row layout.
+                    if (i < reorderedButtons.size() - 1) {
+                        View spacer = new View(context);
+                        LinearLayout.LayoutParams spacerParams = new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                dipToPixels(8)
+                        );
+                        spacer.setLayoutParams(spacerParams);
+                        buttonContainer.addView(spacer);
+                    }
                 }
             }
         }
