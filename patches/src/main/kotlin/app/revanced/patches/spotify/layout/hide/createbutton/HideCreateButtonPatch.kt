@@ -72,7 +72,7 @@ val hideCreateButtonPatch = bytecodePatch(
 
         if (oldNavigationBarAddItemMethod != null) {
             // In case an older version of the app is being patched, hook the old method which adds navigation bar items.
-            // Return null early if the navigation bar item title resource id is the old Create button title resource id.
+            // Return early if the navigation bar item title resource id is the old Create button title resource id.
             oldNavigationBarAddItemFingerprint.methodOrNull?.apply {
                 val getNavigationBarItemTitleStringIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<MethodReference>()
@@ -89,6 +89,16 @@ val hideCreateButtonPatch = bytecodePatch(
                 val isOldCreateButtonDescriptor =
                     "$EXTENSION_CLASS_DESCRIPTOR->isOldCreateButton(I)Z"
 
+                val returnEarlyInstruction = if (returnType == "V") {
+                    // In older implementations the method return value is void.
+                    "return-void"
+                } else {
+                    // In newer implementations
+                    // return null because the method return value is a BottomNavigationItemView.
+                    "const/4 v0, 0\n" +
+                    "return-object v0"
+                }
+
                 addInstructionsWithLabels(
                     0,
                     """
@@ -98,9 +108,7 @@ val hideCreateButtonPatch = bytecodePatch(
                         # If this navigation bar item is not the Create button, jump to the normal method logic.
                         if-eqz v0, :normal-method-logic
                         
-                        # Return null early because this method return value is a BottomNavigationItemView.
-                        const/4 v0, 0
-                        return-object v0
+                        $returnEarlyInstruction
                     """,
                     ExternalLabel("normal-method-logic", firstInstruction)
                 )
