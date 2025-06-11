@@ -171,10 +171,6 @@ public class SearchViewController {
         final int actionSearchId = getResourceIdentifier("action_search", "id");
         toolbar.inflateMenu(getResourceIdentifier("revanced_search_menu", "menu"));
         MenuItem searchItem = toolbar.getMenu().findItem(actionSearchId);
-        searchItem.setIcon(getResourceIdentifier(Utils.isDarkModeEnabled()
-                                ? "yt_outline_search_white_24"
-                                : "yt_outline_search_black_24",
-                        "drawable")).setTooltipText(null);
 
         // Set menu item click listener.
         toolbar.setOnMenuItemClickListener(item -> {
@@ -316,12 +312,7 @@ public class SearchViewController {
     private void closeSearch() {
         isSearchActive = false;
         toolbar.getMenu().findItem(getResourceIdentifier(
-                        "action_search", "id"))
-                .setIcon(getResourceIdentifier(Utils.isDarkModeEnabled()
-                                ? "yt_outline_search_white_24"
-                                : "yt_outline_search_black_24",
-                        "drawable")
-                ).setVisible(true);
+                "action_search", "id")).setVisible(true);
         toolbar.setTitle(originalTitle);
         searchContainer.setVisibility(View.GONE);
         searchView.setQuery("", false);

@@ -26,7 +26,7 @@
                 android:id="@android:id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/medium_font_size"
+                android:textAppearance="?android:attr/textAppearanceListItem"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textAlignment="viewStart" />
 
@@ -34,7 +34,7 @@
                 android:id="@android:id/summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/small_font_size"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textAlignment="viewStart"
                 android:maxLines="2"

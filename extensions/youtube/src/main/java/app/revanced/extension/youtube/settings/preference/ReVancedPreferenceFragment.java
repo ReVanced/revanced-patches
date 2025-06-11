@@ -71,11 +71,10 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
-        final int backButtonResource = getResourceIdentifier(Utils.isDarkModeEnabled()
-                        ? "yt_outline_arrow_left_white_24"
-                        : "yt_outline_arrow_left_black_24",
-                "drawable");
-        return Utils.getContext().getResources().getDrawable(backButtonResource);
+        final int backButtonResource = getResourceIdentifier("revanced_settings_toolbar_arrow_left", "drawable");
+        Drawable drawable = Utils.getContext().getResources().getDrawable(backButtonResource);
+        drawable.setTint(Utils.getAppForegroundColor());
+        return drawable;
     }
 
     /**
@@ -218,9 +217,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             // Set icon for the placeholder preference.
             noResultsPreference.setLayoutResource(getResourceIdentifier(
                     "revanced_preference_with_icon_no_search_result", "layout"));
-            noResultsPreference.setIcon(getResourceIdentifier(
-                    Utils.isDarkModeEnabled() ? "yt_outline_search_white_24" : "yt_outline_search_black_24",
-                    "drawable"));
+            noResultsPreference.setIcon(getResourceIdentifier("revanced_settings_search_icon", "drawable"));
             preferenceScreen.addPreference(noResultsPreference);
         }
     }
