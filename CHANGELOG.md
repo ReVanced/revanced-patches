@@ -1,3 +1,10 @@
+# [5.28.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.1...v5.28.0-dev.2) (2025-06-11)
+
+
+### Bug Fixes
+
+* **Google Photos:** Resolve startup crash if MicroG GmsCore does not already have granted permissions ([a93d74d](https://github.com/ReVanced/revanced-patches/commit/a93d74d26e7ef87a3745df2b9fe82722d65a0e59))
+
 # [5.28.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.27.0...v5.28.0-dev.1) (2025-06-11)
 
 
