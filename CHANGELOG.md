@@ -1,3 +1,10 @@
+# [5.28.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.27.0...v5.28.0-dev.1) (2025-06-11)
+
+
+### Features
+
+* **Spotify:** Add `Change lyrics provider` patch ([#4937](https://github.com/ReVanced/revanced-patches/issues/4937)) ([8736b6a](https://github.com/ReVanced/revanced-patches/commit/8736b6a80b48cb1f4562c9f9919804006ddb18bd))
+
 # [5.27.0](https://github.com/ReVanced/revanced-patches/compare/v5.26.0...v5.27.0) (2025-06-09)
 
 
