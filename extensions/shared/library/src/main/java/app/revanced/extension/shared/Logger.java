@@ -19,7 +19,8 @@ import app.revanced.extension.shared.settings.preference.LogBufferManager;
  * ReVanced specific logger.  Logging is done to standard device log (accessible thru ADB),
  * and additionally accessible thru {@link LogBufferManager}.
  *
- * All methods are thread safe.
+ * All methods are thread safe, and are safe to call even
+ * if {@link Utils#getContext()} is not available.
  */
 public class Logger {
 
@@ -138,6 +139,14 @@ public class Logger {
         }
     }
 
+    private static boolean includeStackTrace() {
+        return Utils.context != null && DEBUG_STACKTRACE.get();
+    }
+
+    private static boolean shouldShowErrorToast() {
+        return Utils.context != null && DEBUG_TOAST_ON_ERROR.get();
+    }
+
     /**
      * Logs debug messages under the outer class name of the code calling this method.
      * <p>
@@ -158,7 +167,7 @@ public class Logger {
      */
     public static void printDebug(LogMessage message, @Nullable Exception ex) {
         if (DEBUG.get()) {
-            logInternal(LogLevel.DEBUG, message, ex, DEBUG_STACKTRACE.get(), false);
+            logInternal(LogLevel.DEBUG, message, ex, includeStackTrace(), false);
         }
     }
 
@@ -173,7 +182,7 @@ public class Logger {
      * Logs information messages using the outer class name of the code calling this method.
      */
     public static void printInfo(LogMessage message, @Nullable Exception ex) {
-        logInternal(LogLevel.INFO, message, ex, DEBUG_STACKTRACE.get(), false);
+        logInternal(LogLevel.INFO, message, ex, includeStackTrace(), false);
     }
 
     /**
@@ -194,22 +203,6 @@ public class Logger {
      * @param ex               exception (optional)
      */
     public static void printException(LogMessage message, @Nullable Throwable ex) {
-        logInternal(LogLevel.ERROR, message, ex, DEBUG_STACKTRACE.get(), DEBUG_TOAST_ON_ERROR.get());
-    }
-
-    /**
-     * Logging to use if {@link BaseSettings#DEBUG} or {@link Utils#getContext()} may not be initialized.
-     * Normally this method should not be used.
-     */
-    public static void initializationInfo(LogMessage message) {
-        logInternal(LogLevel.INFO, message, null, false, false);
-    }
-
-    /**
-     * Logging to use if {@link BaseSettings#DEBUG} or {@link Utils#getContext()} may not be initialized.
-     * Normally this method should not be used.
-     */
-    public static void initializationException(LogMessage message, @Nullable Exception ex) {
-        logInternal(LogLevel.ERROR, message, ex, false, false);
+        logInternal(LogLevel.ERROR, message, ex, includeStackTrace(), shouldShowErrorToast());
     }
 }
