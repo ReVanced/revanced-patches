@@ -20,12 +20,14 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.icu.text.NumberFormat;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
@@ -487,7 +489,75 @@ public class CustomPlaybackSpeedPatch {
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
             window.setAttributes(params);
             window.setBackgroundDrawable(null); // Remove default dialog background.
+            // Allow touch events to pass through for drag handling.
+            window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
         }
+
+        // Add drag-to-dismiss functionality by handling touch events on mainLayout.
+        // Variables to track touch position and translation.
+        final float[] touchY = {0}; // Store initial Y position of touch.
+        final float[] translationY = {0}; // Track current translation.
+        // Threshold for dismissing the dialog.
+        final float dismissThreshold = dipToPixels(100); // Distance to drag to dismiss.
+        // Animation duration for smooth sliding.
+        final int animationDuration = Utils.getResourceInteger("fade_duration_fast");
+
+        // Set touch listener on mainLayout to enable drag-to-dismiss.
+        mainLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // Capture initial Y position of touch.
+                        touchY[0] = event.getRawY();
+                        translationY[0] = mainLayout.getTranslationY();
+                        return true;
+                    case MotionEvent.ACTION_MOVE:
+                        // Calculate drag distance and apply translation downwards only.
+                        float deltaY = event.getRawY() - touchY[0];
+                        // Only allow downward drag (positive deltaY).
+                        if (deltaY >= 0) {
+                            mainLayout.setTranslationY(translationY[0] + deltaY);
+                        }
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_CANCEL:
+                        // Check if dialog should be dismissed based on drag distance.
+                        if (mainLayout.getTranslationY() > dismissThreshold) {
+                            // Animate dialog off-screen and dismiss.
+                            float remainingDistance = context.getResources().getDisplayMetrics().heightPixels
+                                    - mainLayout.getTop();
+                            TranslateAnimation slideOut = new TranslateAnimation(
+                                    0, 0, mainLayout.getTranslationY(), remainingDistance);
+                            slideOut.setDuration(animationDuration);
+                            slideOut.setAnimationListener(new Animation.AnimationListener() {
+                                @Override
+                                public void onAnimationStart(Animation animation) {}
+
+                                @Override
+                                public void onAnimationEnd(Animation animation) {
+                                    dialog.dismiss();
+                                }
+
+                                @Override
+                                public void onAnimationRepeat(Animation animation) {}
+                            });
+                            mainLayout.startAnimation(slideOut);
+                        } else {
+                            // Animate back to original position if not dragged far enough.
+                            TranslateAnimation slideBack = new TranslateAnimation(
+                                    0, 0, mainLayout.getTranslationY(), 0);
+                            slideBack.setDuration(animationDuration);
+                            mainLayout.startAnimation(slideBack);
+                            mainLayout.setTranslationY(0);
+                        }
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
 
         // Create observer for PlayerType changes.
         Function1<PlayerType, Unit> playerTypeObserver = new Function1<>() {
