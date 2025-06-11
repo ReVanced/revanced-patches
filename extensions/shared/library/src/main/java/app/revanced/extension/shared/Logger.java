@@ -139,12 +139,18 @@ public class Logger {
         }
     }
 
-    private static boolean includeStackTrace() {
-        return Utils.context != null && DEBUG_STACKTRACE.get();
+    private static boolean shouldLogDebug() {
+        // If the app is still starting up and the context is not yet set,
+        // then allow debug logging regardless what the debug setting actually is.
+        return Utils.context == null || DEBUG.get();
     }
 
     private static boolean shouldShowErrorToast() {
         return Utils.context != null && DEBUG_TOAST_ON_ERROR.get();
+    }
+
+    private static boolean includeStackTrace() {
+        return Utils.context != null && DEBUG_STACKTRACE.get();
     }
 
     /**
@@ -166,7 +172,7 @@ public class Logger {
      * building strings is paid only if {@link BaseSettings#DEBUG} is enabled.
      */
     public static void printDebug(LogMessage message, @Nullable Exception ex) {
-        if (DEBUG.get()) {
+        if (shouldLogDebug()) {
             logInternal(LogLevel.DEBUG, message, ex, includeStackTrace(), false);
         }
     }
