@@ -922,6 +922,10 @@ public final class app/revanced/patches/spotify/misc/fix/login/FixFacebookLoginP
 	public static final fun getFixFacebookLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/spotify/misc/lyrics/ChangeLyricsProviderPatchKt {
+	public static final fun getChangeLyricsProviderPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/spotify/misc/privacy/SanitizeSharingLinksPatchKt {
 	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
