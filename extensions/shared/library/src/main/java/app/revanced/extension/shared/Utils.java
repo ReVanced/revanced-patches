@@ -781,9 +781,9 @@ public class Utils {
         final int dip4 = dipToPixels(4);
         final int dip8 = dipToPixels(8);
         final int dip16 = dipToPixels(16);
-        final int dip28 = dipToPixels(28); // Padding for mainLayout.
+        final int dip24 = dipToPixels(24);
 
-        mainLayout.setPadding(dip28, dip16, dip28, dip28);
+        mainLayout.setPadding(dip24, dip16, dip24, dip24);
         // Set rounded rectangle background.
         ShapeDrawable mainBackground = new ShapeDrawable(new RoundRectShape(
                 createCornerRadii(28), null, null));
@@ -797,13 +797,12 @@ public class Utils {
             titleView.setTypeface(Typeface.DEFAULT_BOLD);
             titleView.setTextSize(18);
             titleView.setTextColor(getAppForegroundColor());
-            titleView.setPadding(0, 0, 0, dip8);
             titleView.setGravity(Gravity.CENTER);
-            // Set layout parameters to match parent width and wrap content height.
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
             );
+            layoutParams.setMargins(0, 0, 0, dip8);
             titleView.setLayoutParams(layoutParams);
             mainLayout.addView(titleView);
         }
@@ -814,11 +813,16 @@ public class Utils {
             messageView.setText(message); // Supports Spanned (HTML).
             messageView.setTextSize(16);
             messageView.setTextColor(getAppForegroundColor());
-            messageView.setPadding(0, dip8, 0, dip16);
             // Enable HTML link clicking if the message contains links.
             if (message instanceof Spanned) {
                 messageView.setMovementMethod(LinkMovementMethod.getInstance());
             }
+            LinearLayout.LayoutParams messageParams = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+            );
+            messageParams.setMargins(0, dip8, 0, dip16);
+            messageView.setLayoutParams(messageParams);
             mainLayout.addView(messageView);
         }
 
@@ -842,7 +846,7 @@ public class Utils {
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            editTextParams.setMargins(0, dip8, 0, dip8);
+            editTextParams.setMargins(0, dip8, 0, dip16);
             // Prevent buttons from moving off the screen by fixing the height of the EditText.
             final int maxHeight = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.6);
             editText.setMaxHeight(maxHeight);
@@ -851,7 +855,8 @@ public class Utils {
 
         // Button container.
         LinearLayout buttonContainer = new LinearLayout(context);
-        buttonContainer.setOrientation(LinearLayout.VERTICAL); // Default to vertical to allow wrapping.
+        buttonContainer.setOrientation(LinearLayout.VERTICAL);
+        buttonContainer.removeAllViews();
         LinearLayout.LayoutParams buttonContainerParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -915,12 +920,6 @@ public class Utils {
         if (buttonWidths.size() > 1) {
             totalWidth += (buttonWidths.size() - 1) * dip8; // Add margins for gaps.
         }
-
-        buttonContainer.removeAllViews();
-        buttonContainer.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        ));
 
         if (buttons.size() == 1) {
             // Single button: stretch to full width.
