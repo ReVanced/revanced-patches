@@ -7,3 +7,8 @@ internal val getPackageInfoFingerprint = fingerprint {
         "Failed to get the application signatures"
     )
 }
+
+
+internal val getAuthenticateResultFingerprint = fingerprint {
+    strings("Unable to parse data as com.spotify.authentication.login5esperanto.EsAuthenticateResult.AuthenticateResult")
+}
