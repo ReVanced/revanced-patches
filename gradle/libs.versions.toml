@@ -11,6 +11,7 @@ appcompat = "1.7.0"
 okhttp = "5.0.0-alpha.14"
 retrofit = "2.11.0"
 guava = "33.4.0-jre"
+apksig = "8.10.1"
 
 [libraries]
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
@@ -18,7 +19,7 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
-
+apksig = { group = "com.android.tools.build", name = "apksig", version.ref = "apksig" }
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "agp" }
