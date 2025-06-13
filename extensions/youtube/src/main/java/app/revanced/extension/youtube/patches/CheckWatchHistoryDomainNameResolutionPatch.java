@@ -3,7 +3,10 @@ package app.revanced.extension.youtube.patches;
 import static app.revanced.extension.shared.StringRef.str;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.text.Html;
+import android.util.Pair;
+import android.widget.LinearLayout;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -63,18 +66,28 @@ public class CheckWatchHistoryDomainNameResolutionPatch {
                 }
 
                 Utils.runOnMainThread(() -> {
-                    var alert = new android.app.AlertDialog.Builder(context)
-                            .setTitle(str("revanced_check_watch_history_domain_name_dialog_title"))
-                            .setMessage(Html.fromHtml(str("revanced_check_watch_history_domain_name_dialog_message")))
-                            .setIconAttribute(android.R.attr.alertDialogIcon)
-                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                                dialog.dismiss();
-                            }).setNegativeButton(str("revanced_check_watch_history_domain_name_dialog_ignore"), (dialog, which) -> {
-                                Settings.CHECK_WATCH_HISTORY_DOMAIN_NAME.save(false);
-                                dialog.dismiss();
-                            }).create();
+                    try {
+                        // Create the custom dialog.
+                        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                                context,
+                                str("revanced_check_watch_history_domain_name_dialog_title"), // Title.
+                                Html.fromHtml(str("revanced_check_watch_history_domain_name_dialog_message")), // Message (HTML).
+                                null, // No EditText.
+                                null, // OK button text.
+                                () -> {}, // OK button action (just dismiss).
+                                () -> {}, // Cancel button action (just dismiss).
+                                str("revanced_check_watch_history_domain_name_dialog_ignore"), // Neutral button text.
+                                () -> Settings.CHECK_WATCH_HISTORY_DOMAIN_NAME.save(false),    // Neutral button action (Ignore).
+                                true // Dismiss dialog on Neutral button click.
+                        );
 
-                    Utils.showDialog(context, alert, false, null);
+                        // Show the dialog.
+                        Dialog dialog = dialogPair.first;
+
+                        Utils.showDialog(context, dialog, false, null);
+                    } catch (Exception ex) {
+                        Logger.printException(() -> "checkDnsResolver dialog creation failure", ex);
+                    }
                 });
             } catch (Exception ex) {
                 Logger.printException(() -> "checkDnsResolver failure", ex);

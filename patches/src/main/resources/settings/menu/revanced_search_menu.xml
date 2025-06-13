@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
             android:id="@+id/action_search"
-            android:icon="@drawable/yt_outline_search_black_24"
+            android:icon="@drawable/revanced_settings_search_icon"
             android:title=""
             android:showAsAction="always"/>
 </menu>

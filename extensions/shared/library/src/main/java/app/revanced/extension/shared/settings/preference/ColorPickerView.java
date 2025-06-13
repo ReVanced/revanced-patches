@@ -29,8 +29,8 @@ import app.revanced.extension.shared.Utils;
  * <p>
  * This view displays two main components for color selection:
  * <ul>
- *     <li><b>Hue Bar:</b> A vertical bar on the right that allows the user to select the hue component of the color.
- *     <li><b>Saturation-Value Selector:</b> A rectangular area that allows the user to select the saturation and value (brightness)
+ *     <li><b>Hue Bar:</b> A horizontal bar at the bottom that allows the user to select the hue component of the color.
+ *     <li><b>Saturation-Value Selector:</b> A rectangular area above the hue bar that allows the user to select the saturation and value (brightness)
  *     components of the color based on the selected hue.
  * </ul>
  *
@@ -63,12 +63,12 @@ public class ColorPickerView extends View {
 
     private static final float MARGIN_BETWEEN_AREAS = dipToPixels(24);
     private static final float VIEW_PADDING = dipToPixels(16);
-    private static final float HUE_BAR_WIDTH = dipToPixels(12);
+    private static final float HUE_BAR_HEIGHT = dipToPixels(12);
     private static final float HUE_CORNER_RADIUS = dipToPixels(6);
     private static final float SELECTOR_RADIUS = dipToPixels(12);
     private static final float SELECTOR_STROKE_WIDTH = 8;
     /**
-     * Hue fill radius.  Use slightly smaller radius for the selector handle fill,
+     * Hue fill radius. Use slightly smaller radius for the selector handle fill,
      * otherwise the anti-aliasing causes the fill color to bleed past the selector outline.
      */
     private static final float SELECTOR_FILL_RADIUS = SELECTOR_RADIUS - SELECTOR_STROKE_WIDTH / 2;
@@ -144,17 +144,17 @@ public class ColorPickerView extends View {
         final float DESIRED_ASPECT_RATIO = 0.8f; // height = width * 0.8
 
         final int minWidth = Utils.dipToPixels(250);
-        final int minHeight = (int) (minWidth * DESIRED_ASPECT_RATIO);
+        final int minHeight = (int) (minWidth * DESIRED_ASPECT_RATIO) + (int) (HUE_BAR_HEIGHT + MARGIN_BETWEEN_AREAS);
 
         int width = resolveSize(minWidth, widthMeasureSpec);
         int height = resolveSize(minHeight, heightMeasureSpec);
 
-        // Ensure minimum dimensions for usability
+        // Ensure minimum dimensions for usability.
         width = Math.max(width, minWidth);
         height = Math.max(height, minHeight);
 
-        // Adjust height to maintain desired aspect ratio if possible
-        final int desiredHeight = (int) (width * DESIRED_ASPECT_RATIO);
+        // Adjust height to maintain desired aspect ratio if possible.
+        final int desiredHeight = (int) (width * DESIRED_ASPECT_RATIO) + (int) (HUE_BAR_HEIGHT + MARGIN_BETWEEN_AREAS);
         if (MeasureSpec.getMode(heightMeasureSpec) != MeasureSpec.EXACTLY) {
             height = desiredHeight;
         }
@@ -171,22 +171,22 @@ public class ColorPickerView extends View {
     protected void onSizeChanged(int width, int height, int oldWidth, int oldHeight) {
         super.onSizeChanged(width, height, oldWidth, oldHeight);
 
-        // Calculate bounds with hue bar on the right
+        // Calculate bounds with hue bar at the bottom.
         final float effectiveWidth = width - (2 * VIEW_PADDING);
-        final float selectorWidth = effectiveWidth - HUE_BAR_WIDTH - MARGIN_BETWEEN_AREAS;
+        final float effectiveHeight = height - (2 * VIEW_PADDING) - HUE_BAR_HEIGHT - MARGIN_BETWEEN_AREAS;
 
-        // Adjust rectangles to account for padding and density-independent dimensions
+        // Adjust rectangles to account for padding and density-independent dimensions.
         saturationValueRect.set(
                 VIEW_PADDING,
                 VIEW_PADDING,
-                VIEW_PADDING + selectorWidth,
-                height - VIEW_PADDING
+                VIEW_PADDING + effectiveWidth,
+                VIEW_PADDING + effectiveHeight
         );
 
         hueRect.set(
-                width - VIEW_PADDING - HUE_BAR_WIDTH,
                 VIEW_PADDING,
-                width - VIEW_PADDING,
+                height - VIEW_PADDING - HUE_BAR_HEIGHT,
+                VIEW_PADDING + effectiveWidth,
                 height - VIEW_PADDING
         );
 
@@ -201,7 +201,7 @@ public class ColorPickerView extends View {
     private void updateHueShader() {
         LinearGradient hueShader = new LinearGradient(
                 hueRect.left, hueRect.top,
-                hueRect.left, hueRect.bottom,
+                hueRect.right, hueRect.top,
                 HUE_COLORS,
                 null,
                 Shader.TileMode.CLAMP
@@ -263,8 +263,8 @@ public class ColorPickerView extends View {
         // Draw the hue bar.
         canvas.drawRoundRect(hueRect, HUE_CORNER_RADIUS, HUE_CORNER_RADIUS, huePaint);
 
-        final float hueSelectorX = hueRect.centerX();
-        final float hueSelectorY = hueRect.top + (hue / 360f) * hueRect.height();
+        final float hueSelectorX = hueRect.left + (hue / 360f) * hueRect.width();
+        final float hueSelectorY = hueRect.centerY();
 
         final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
         final float satSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
@@ -316,17 +316,17 @@ public class ColorPickerView extends View {
 
             // Define touch expansion for the hue bar.
             RectF expandedHueRect = new RectF(
-                    hueRect.left - TOUCH_EXPANSION,
-                    hueRect.top,
-                    hueRect.right + TOUCH_EXPANSION,
-                    hueRect.bottom
+                    hueRect.left,
+                    hueRect.top - TOUCH_EXPANSION,
+                    hueRect.right,
+                    hueRect.bottom + TOUCH_EXPANSION
             );
 
             switch (action) {
                 case MotionEvent.ACTION_DOWN:
                     // Calculate current handle positions.
-                    final float hueSelectorX = hueRect.centerX();
-                    final float hueSelectorY = hueRect.top + (hue / 360f) * hueRect.height();
+                    final float hueSelectorX = hueRect.left + (hue / 360f) * hueRect.width();
+                    final float hueSelectorY = hueRect.centerY();
 
                     final float satSelectorX = saturationValueRect.left + saturation * saturationValueRect.width();
                     final float valSelectorY = saturationValueRect.top + (1 - value) * saturationValueRect.height();
@@ -348,14 +348,14 @@ public class ColorPickerView extends View {
                     // Check if the touch started on a handle or within the expanded hue bar area.
                     if (hueHitRect.contains(x, y)) {
                         isDraggingHue = true;
-                        updateHueFromTouch(y);
+                        updateHueFromTouch(x);
                     } else if (satValHitRect.contains(x, y)) {
                         isDraggingSaturation = true;
                         updateSaturationValueFromTouch(x, y);
                     } else if (expandedHueRect.contains(x, y)) {
                         // Handle touch within the expanded hue bar area.
                         isDraggingHue = true;
-                        updateHueFromTouch(y);
+                        updateHueFromTouch(x);
                     } else if (saturationValueRect.contains(x, y)) {
                         isDraggingSaturation = true;
                         updateSaturationValueFromTouch(x, y);
@@ -365,7 +365,7 @@ public class ColorPickerView extends View {
                 case MotionEvent.ACTION_MOVE:
                     // Continue updating values even if touch moves outside the view.
                     if (isDraggingHue) {
-                        updateHueFromTouch(y);
+                        updateHueFromTouch(x);
                     } else if (isDraggingSaturation) {
                         updateSaturationValueFromTouch(x, y);
                     }
@@ -387,12 +387,12 @@ public class ColorPickerView extends View {
     /**
      * Updates the hue value based on touch position, clamping to valid range.
      *
-     * @param y The y-coordinate of the touch position.
+     * @param x The x-coordinate of the touch position.
      */
-    private void updateHueFromTouch(float y) {
-        // Clamp y to the hue rectangle bounds.
-        final float clampedY = Utils.clamp(y, hueRect.top, hueRect.bottom);
-        final float updatedHue = ((clampedY - hueRect.top) / hueRect.height()) * 360f;
+    private void updateHueFromTouch(float x) {
+        // Clamp x to the hue rectangle bounds.
+        final float clampedX = Utils.clamp(x, hueRect.left, hueRect.right);
+        final float updatedHue = ((clampedX - hueRect.left) / hueRect.width()) * 360f;
         if (hue == updatedHue) {
             return;
         }

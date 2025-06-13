@@ -24,26 +24,6 @@ internal val lithoThemeFingerprint = fingerprint {
     }
 }
 
-internal val themeHelperDarkColorFingerprint = fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
-    custom { method, _ ->
-        method.name == "darkThemeResourceName" &&
-            method.definingClass == "Lapp/revanced/extension/youtube/ThemeHelper;"
-    }
-}
-
-internal val themeHelperLightColorFingerprint = fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
-    custom { method, _ ->
-        method.name == "lightThemeResourceName" &&
-            method.definingClass == "Lapp/revanced/extension/youtube/ThemeHelper;"
-    }
-}
-
 internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
 
 internal val useGradientLoadingScreenFingerprint = fingerprint {

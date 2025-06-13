@@ -202,37 +202,41 @@ public final class UnlockPremiumPatch {
             return false;
         }
 
-        String stringifiedContextMenuItem = contextMenuItem.toString();
+        try {
+            String stringifiedContextMenuItem = contextMenuItem.toString();
 
-        for (List<ComponentFilter> componentFilters : CONTEXT_MENU_ITEMS_COMPONENT_FILTERS) {
-            boolean allMatch = true;
-            StringBuilder matchedFilterRepresentations = new StringBuilder();
+            for (List<ComponentFilter> componentFilters : CONTEXT_MENU_ITEMS_COMPONENT_FILTERS) {
+                boolean allMatch = true;
+                StringBuilder matchedFilterRepresentations = new StringBuilder();
 
-            for (int i = 0, filterSize = componentFilters.size(); i < filterSize; i++) {
-                ComponentFilter componentFilter = componentFilters.get(i);
+                for (int i = 0, filterSize = componentFilters.size(); i < filterSize; i++) {
+                    ComponentFilter componentFilter = componentFilters.get(i);
 
-                if (componentFilter.filterUnavailable()) {
-                    Logger.printInfo(() -> "isFilteredContextMenuItem: Filter " +
-                            componentFilter.getFilterRepresentation() + " not available, skipping");
-                    continue;
+                    if (componentFilter.filterUnavailable()) {
+                        Logger.printInfo(() -> "isFilteredContextMenuItem: Filter " +
+                                componentFilter.getFilterRepresentation() + " not available, skipping");
+                        continue;
+                    }
+
+                    if (!stringifiedContextMenuItem.contains(componentFilter.getFilterValue())) {
+                        allMatch = false;
+                        break;
+                    }
+
+                    matchedFilterRepresentations.append(componentFilter.getFilterRepresentation());
+                    if (i < filterSize - 1) {
+                        matchedFilterRepresentations.append(", ");
+                    }
                 }
 
-                if (!stringifiedContextMenuItem.contains(componentFilter.getFilterValue())) {
-                    allMatch = false;
-                    break;
-                }
-
-                matchedFilterRepresentations.append(componentFilter.getFilterRepresentation());
-                if (i < filterSize - 1) {
-                    matchedFilterRepresentations.append(", ");
+                if (allMatch) {
+                    Logger.printInfo(() -> "Filtering context menu item " + stringifiedContextMenuItem +
+                            " because the following filters matched: " + matchedFilterRepresentations);
+                    return true;
                 }
             }
-
-            if (allMatch) {
-                Logger.printInfo(() -> "Filtering context menu item " + stringifiedContextMenuItem +
-                        " because the following filters matched: " + matchedFilterRepresentations);
-                return true;
-            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "isFilteredContextMenuItem failure", ex);
         }
 
         return false;

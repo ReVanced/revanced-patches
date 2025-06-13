@@ -18,6 +18,7 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -40,7 +41,6 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
-import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.LicenseActivityHook;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
@@ -71,11 +71,27 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
-        final int backButtonResource = getResourceIdentifier(ThemeHelper.isDarkTheme()
-                        ? "yt_outline_arrow_left_white_24"
-                        : "yt_outline_arrow_left_black_24",
-                "drawable");
-        return Utils.getContext().getResources().getDrawable(backButtonResource);
+        final int backButtonResource = getResourceIdentifier("revanced_settings_toolbar_arrow_left", "drawable");
+        Drawable drawable = Utils.getContext().getResources().getDrawable(backButtonResource);
+        drawable.setTint(Utils.getAppForegroundColor());
+        return drawable;
+    }
+
+    /**
+     * Sets the system navigation bar color for the activity.
+     * Applies the background color obtained from {@link Utils#getAppBackgroundColor()} to the navigation bar.
+     * For Android 10 (API 29) and above, enforces navigation bar contrast to ensure visibility.
+     */
+    public static void setNavigationBarColor(@Nullable Window window) {
+        if (window == null) {
+            Logger.printDebug(() -> "Cannot set navigation bar color, window is null");
+            return;
+        }
+
+        window.setNavigationBarColor(Utils.getAppBackgroundColor());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.setNavigationBarContrastEnforced(true);
+        }
     }
 
     /**
@@ -201,9 +217,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             // Set icon for the placeholder preference.
             noResultsPreference.setLayoutResource(getResourceIdentifier(
                     "revanced_preference_with_icon_no_search_result", "layout"));
-            noResultsPreference.setIcon(getResourceIdentifier(
-                    ThemeHelper.isDarkTheme() ? "yt_outline_search_white_24" : "yt_outline_search_black_24",
-                    "drawable"));
+            noResultsPreference.setIcon(getResourceIdentifier("revanced_settings_search_icon", "drawable"));
             preferenceScreen.addPreference(noResultsPreference);
         }
     }
@@ -226,7 +240,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                                     .getParent();
 
                             // Fix the system navigation bar color for submenus.
-                            ThemeHelper.setNavigationBarColor(preferenceScreenDialog.getWindow());
+                            setNavigationBarColor(preferenceScreenDialog.getWindow());
 
                             // Fix edge-to-edge screen with Android 15 and YT 19.45+
                             // https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets
@@ -250,7 +264,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                             TextView toolbarTextView = Utils.getChildView(toolbar,
                                     true, TextView.class::isInstance);
                             if (toolbarTextView != null) {
-                                toolbarTextView.setTextColor(ThemeHelper.getForegroundColor());
+                                toolbarTextView.setTextColor(Utils.getAppForegroundColor());
                             }
 
                             LicenseActivityHook.setToolbarLayoutParams(toolbar);
@@ -304,10 +318,10 @@ class AbstractPreferenceSearchData<T extends Preference> {
             return text;
         }
 
-        final int baseColor = ThemeHelper.getBackgroundColor();
-        final int adjustedColor = ThemeHelper.isDarkTheme()
-                ? ThemeHelper.adjustColorBrightness(baseColor, 1.20f)  // Lighten for dark theme.
-                : ThemeHelper.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
+        final int baseColor = Utils.getAppBackgroundColor();
+        final int adjustedColor = Utils.isDarkModeEnabled()
+                ? Utils.adjustColorBrightness(baseColor, 1.20f)  // Lighten for dark theme.
+                : Utils.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
         BackgroundColorSpan highlightSpan = new BackgroundColorSpan(adjustedColor);
 
         SpannableStringBuilder spannable = new SpannableStringBuilder(text);

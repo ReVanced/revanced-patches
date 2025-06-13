@@ -25,7 +25,7 @@ val embeddedAdsPatch = bytecodePatch(
         addResources("twitch", "ad.embedded.embeddedAdsPatch")
 
         PreferenceScreen.ADS.SURESTREAM.addPreferences(
-            ListPreference("revanced_block_embedded_ads", summaryKey = null),
+            ListPreference("revanced_block_embedded_ads"),
         )
 
         // Inject OkHttp3 application interceptor

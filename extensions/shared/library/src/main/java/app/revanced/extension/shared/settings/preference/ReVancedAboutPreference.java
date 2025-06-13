@@ -1,6 +1,7 @@
 package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.shared.requests.Route.Method.GET;
 
 import android.annotation.SuppressLint;
@@ -8,7 +9,8 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +20,7 @@ import android.util.AttributeSet;
 import android.view.Window;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,28 +51,6 @@ public class ReVancedAboutPreference extends Preference {
         return text.replace("-", "&#8209;"); // #8209 = non breaking hyphen.
     }
 
-    private static String getColorHexString(int color) {
-        return String.format("#%06X", (0x00FFFFFF & color));
-    }
-
-    protected boolean isDarkModeEnabled() {
-        return Utils.isDarkModeEnabled();
-    }
-
-    /**
-     * Subclasses can override this and provide a themed color.
-     */
-    protected int getLightColor() {
-        return Color.WHITE;
-    }
-
-    /**
-     * Subclasses can override this and provide a themed color.
-     */
-    protected int getDarkColor() {
-        return Color.BLACK;
-    }
-
     /**
      * Apps that do not support bundling resources must override this.
      *
@@ -86,9 +67,8 @@ public class ReVancedAboutPreference extends Preference {
         builder.append("<html>");
         builder.append("<body style=\"text-align: center; padding: 10px;\">");
 
-        final boolean isDarkMode = isDarkModeEnabled();
-        String backgroundColorHex = getColorHexString(isDarkMode ? getDarkColor() : getLightColor());
-        String foregroundColorHex = getColorHexString(isDarkMode ? getLightColor() : getDarkColor());
+        String foregroundColorHex = Utils.getColorHexString(Utils.getAppForegroundColor());
+        String backgroundColorHex = Utils.getColorHexString(Utils.getDialogBackgroundColor());
         // Apply light/dark mode colors.
         builder.append(String.format(
                 "<style> body { background-color: %s; color: %s; } a { color: %s; } </style>",
@@ -220,14 +200,36 @@ class WebViewDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
 
+        // Create main layout.
+        LinearLayout mainLayout = new LinearLayout(getContext());
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
+
+        final int padding = dipToPixels(10);
+        mainLayout.setPadding(padding, padding, padding, padding);
+        // Set rounded rectangle background.
+        ShapeDrawable mainBackground = new ShapeDrawable(new RoundRectShape(
+                Utils.createCornerRadii(28), null, null));
+        mainBackground.getPaint().setColor(Utils.getDialogBackgroundColor());
+        mainLayout.setBackground(mainBackground);
+
+        // Create WebView.
         WebView webView = new WebView(getContext());
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new OpenLinksExternallyWebClient());
         webView.loadDataWithBaseURL(null, htmlContent, "text/html", "utf-8", null);
 
-        setContentView(webView);
+        // Add WebView to layout.
+        mainLayout.addView(webView);
+
+        setContentView(mainLayout);
+
+        // Set dialog window attributes
+        Window window = getWindow();
+        if (window != null) {
+            Utils.setDialogWindowParameters(getContext(), window);
+        }
     }
 
     private class OpenLinksExternallyWebClient extends WebViewClient {
@@ -315,7 +317,7 @@ class AboutLinksRoutes {
             // Do not show an exception toast if the server is down
             final int responseCode = connection.getResponseCode();
             if (responseCode != 200) {
-                Logger.printDebug(() -> "Failed to get social links.  Response code: " + responseCode);
+                Logger.printDebug(() -> "Failed to get social links. Response code: " + responseCode);
                 return NO_CONNECTION_STATIC_LINKS;
             }
 

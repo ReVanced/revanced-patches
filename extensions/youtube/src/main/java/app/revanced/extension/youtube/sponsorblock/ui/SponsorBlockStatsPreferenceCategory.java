@@ -3,7 +3,7 @@ package app.revanced.extension.youtube.sponsorblock.ui;
 import static android.text.Html.fromHtml;
 import static app.revanced.extension.shared.StringRef.str;
 
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,6 +11,8 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.util.AttributeSet;
+import android.util.Pair;
+import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
@@ -194,14 +196,26 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
         updateStatsSelfSaved.run();
 
         preference.setOnPreferenceClickListener(preference1 -> {
-            new AlertDialog.Builder(preference1.getContext())
-                    .setTitle(str("revanced_sb_stats_self_saved_reset_title"))
-                    .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                    preference.getContext(),
+                    str("revanced_sb_stats_self_saved_reset_title"), // Title.
+                    null, // No message.
+                    null, // No EditText.
+                    null, // OK button text.
+                    () -> {
+                        // OK button action.
                         Settings.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.resetToDefault();
                         Settings.SB_LOCAL_TIME_SAVED_MILLISECONDS.resetToDefault();
                         updateStatsSelfSaved.run();
-                    })
-                    .setNegativeButton(android.R.string.no, null).show();
+                    },
+                    () -> {}, // Cancel button action (dismiss only).
+                    null, // No neutral button.
+                    null, // No neutral button action.
+                    true  // Dismiss dialog when onNeutralClick.
+            );
+
+            // Show the dialog.
+            dialogPair.first.show();
             return true;
         });
 

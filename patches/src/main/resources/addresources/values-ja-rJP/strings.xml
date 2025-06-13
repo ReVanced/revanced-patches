@@ -1208,7 +1208,7 @@ Automotive レイアウト
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">ミニプレーヤー</string>
-  <string name="revanced_miniplayer_screen_summary">動画視聴中に [戻る] ボタンをタップ、または下にスワイプしたときに表示される小さなプレーヤーの設定</string>
+  <string name="revanced_miniplayer_screen_summary">視聴中に [戻る] ボタンをタップまたは画面を下にスワイプしたときにアプリ内に表示される小さなプレーヤーの設定</string>
   <string name="revanced_miniplayer_type_title">ミニプレーヤーのタイプ</string>
   <string name="revanced_miniplayer_type_entry_0">無効</string>
   <string name="revanced_miniplayer_type_entry_1">デフォルト</string>
@@ -1255,7 +1255,7 @@ Automotive レイアウト
   <string name="revanced_miniplayer_width_dip_summary">画面に表示される際の大きさ (ピクセル)</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">ピクセルサイズの範囲は %1$s-%2$s です</string>
   <string name="revanced_miniplayer_opacity_title">オーバーレイの透明度</string>
-  <string name="revanced_miniplayer_opacity_summary">透明度の範囲は 0-100 で、0が透明です</string>
+  <string name="revanced_miniplayer_opacity_summary">透明度の範囲は 0-100 で、0 が透明です</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">ミニプレーヤー: 透明度の範囲は 0-100 です</string>
   </patch>
   <patch id="layout.theme.themePatch">

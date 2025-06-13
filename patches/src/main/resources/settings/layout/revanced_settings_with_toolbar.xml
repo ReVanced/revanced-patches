@@ -13,17 +13,17 @@
         <FrameLayout
                 android:id="@+id/revanced_toolbar_parent"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/yt_white1"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="@android:color/white"
                 android:elevation="0dp">
 
             <!-- Toolbar -->
             <android.support.v7.widget.Toolbar
                     android:id="@+id/revanced_toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="?attr/ytBrandBackgroundSolid"
-                    app:navigationIcon="@drawable/yt_outline_arrow_left_black_24"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:background="@android:color/white"
+                    app:navigationIcon="@drawable/revanced_settings_toolbar_arrow_left"
                     app:title="@string/revanced_settings_title" />
 
             <!-- Container for SearchView -->

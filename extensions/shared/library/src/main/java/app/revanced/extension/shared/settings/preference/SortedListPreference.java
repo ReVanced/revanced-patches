@@ -1,7 +1,6 @@
 package app.revanced.extension.shared.settings.preference;
 
 import android.content.Context;
-import android.preference.ListPreference;
 import android.util.AttributeSet;
 import android.util.Pair;
 
@@ -24,12 +23,14 @@ import app.revanced.extension.shared.Utils;
  * it needs to subclass this preference and override {@link #getFirstEntriesToPreserve}.
  */
 @SuppressWarnings({"unused", "deprecation"})
-public class SortedListPreference extends ListPreference {
+public class SortedListPreference extends CustomDialogListPreference {
 
     /**
      * Sorts the current list entries.
      *
-     * @param firstEntriesToPreserve The number of entries to preserve in their original position.
+     * @param firstEntriesToPreserve The number of entries to preserve in their original position,
+     *                               or a negative value to not sort and leave entries
+     *                               as they current are.
      */
     public void sortEntryAndValues(int firstEntriesToPreserve) {
         CharSequence[] entries = getEntries();
@@ -42,6 +43,10 @@ public class SortedListPreference extends ListPreference {
         if (entrySize != entryValues.length) {
             // Xml array declaration has a missing/extra entry.
             throw new IllegalStateException();
+        }
+
+        if (firstEntriesToPreserve < 0) {
+            return; // Nothing to do.
         }
 
         List<Pair<CharSequence, CharSequence>> firstEntries = new ArrayList<>(firstEntriesToPreserve);
@@ -85,10 +90,6 @@ public class SortedListPreference extends ListPreference {
         super.setEntryValues(sortedEntryValues);
     }
 
-    protected int getFirstEntriesToPreserve() {
-        return 1;
-    }
-
     public SortedListPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
@@ -111,5 +112,13 @@ public class SortedListPreference extends ListPreference {
         super(context);
 
         sortEntryAndValues(getFirstEntriesToPreserve());
+    }
+
+    /**
+     * @return The number of first entries to leave exactly where they are, and do not sort them.
+     *         A negative value indicates do not sort any entries.
+     */
+    protected int getFirstEntriesToPreserve() {
+        return 1;
     }
 }

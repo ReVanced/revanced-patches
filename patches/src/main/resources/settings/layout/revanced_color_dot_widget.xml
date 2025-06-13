@@ -6,6 +6,7 @@
         android:layout_gravity="center"
         android:clipChildren="false"
         android:clipToPadding="false">
+
     <View
             android:id="@+id/revanced_color_dot_widget"
             android:layout_width="20dp"
@@ -15,4 +16,5 @@
             android:elevation="2dp"
             android:translationZ="2dp"
             android:outlineProvider="background" />
+
 </FrameLayout>

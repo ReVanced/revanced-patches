@@ -3,12 +3,20 @@ package app.revanced.extension.shared.settings.preference;
 import static app.revanced.extension.shared.StringRef.str;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.*;
-
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceGroup;
+import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
+import android.preference.EditTextPreference;
+import android.preference.ListPreference;
+import android.util.Pair;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -44,7 +52,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * Set by subclasses if Strings cannot be added as a resource.
      */
     @Nullable
-    protected static String restartDialogButtonText, restartDialogTitle, confirmDialogTitle;
+    protected static String restartDialogButtonText, restartDialogTitle, confirmDialogTitle, restartDialogMessage;
 
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
@@ -76,7 +84,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
             updatingPreference = true;
             // Apply 'Setting <- Preference', unless during importing when it needs to be 'Setting -> Preference'.
-            // Updating here can can cause a recursive call back into this same method.
+            // Updating here can cause a recursive call back into this same method.
             updatePreference(pref, setting, true, settingImportInProgress);
             // Update any other preference availability that may now be different.
             updateUIAvailability();
@@ -116,11 +124,14 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
         showingUserDialogMessage = true;
 
-        new AlertDialog.Builder(context)
-                .setTitle(confirmDialogTitle)
-                .setMessage(Objects.requireNonNull(setting.userDialogMessage).toString())
-                .setPositiveButton(android.R.string.ok, (dialog, id) -> {
-                    // User confirmed, save to the Setting.
+        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                context,
+                confirmDialogTitle, // Title.
+                Objects.requireNonNull(setting.userDialogMessage).toString(), // No message.
+                null, // No EditText.
+                null, // OK button text.
+                () -> {
+                    // OK button action. User confirmed, save to the Setting.
                     updatePreference(pref, setting, true, false);
 
                     // Update availability of other preferences that may be changed.
@@ -129,23 +140,27 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     if (setting.rebootApp) {
                         showRestartDialog(context);
                     }
-                })
-                .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
-                    // Restore whatever the setting was before the change.
+                },
+                () -> {
+                    // Cancel button action. Restore whatever the setting was before the change.
                     updatePreference(pref, setting, true, true);
-                })
-                .setOnDismissListener(dialog -> {
-                    showingUserDialogMessage = false;
-                })
-                .setCancelable(false)
-                .show();
+                },
+                null, // No Neutral button.
+                null, // No Neutral button action.
+                true  // Dismiss dialog when onNeutralClick.
+        );
+
+        dialogPair.first.setOnDismissListener(d -> showingUserDialogMessage = false);
+
+        // Show the dialog.
+        dialogPair.first.show();
     }
 
     /**
      * Updates all Preferences values and their availability using the current values in {@link Setting}.
      */
     protected void updateUIToSettingValues() {
-        updatePreferenceScreen(getPreferenceScreen(), true,true);
+        updatePreferenceScreen(getPreferenceScreen(), true, true);
     }
 
     /**
@@ -280,17 +295,27 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         if (restartDialogTitle == null) {
             restartDialogTitle = str("revanced_settings_restart_title");
         }
+        if (restartDialogMessage == null) {
+            restartDialogMessage = str("revanced_settings_restart_dialog_message");
+        }
         if (restartDialogButtonText == null) {
             restartDialogButtonText = str("revanced_settings_restart");
         }
 
-        new AlertDialog.Builder(context)
-                .setMessage(restartDialogTitle)
-                .setPositiveButton(restartDialogButtonText, (dialog, id)
-                        -> Utils.restartApp(context))
-                .setNegativeButton(android.R.string.cancel, null)
-                .setCancelable(false)
-                .show();
+        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(context,
+                restartDialogTitle,              // Title.
+                restartDialogMessage,            // Message.
+                null,                            // No EditText.
+                restartDialogButtonText,         // OK button text.
+                () -> Utils.restartApp(context), // OK button action.
+                () -> {},                        // Cancel button action (dismiss only).
+                null,                            // No Neutral button text.
+                null,                            // No Neutral button action.
+                true                             // Dismiss dialog when onNeutralClick.
+        );
+
+        // Show the dialog.
+        dialogPair.first.show();
     }
 
     @SuppressLint("ResourceType")

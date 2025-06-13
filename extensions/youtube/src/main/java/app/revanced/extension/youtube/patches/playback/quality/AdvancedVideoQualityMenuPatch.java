@@ -13,8 +13,6 @@ import app.revanced.extension.youtube.settings.Settings;
 
 /**
  * This patch contains the logic to always open the advanced video quality menu.
- * Two methods are required, because the quality menu is a RecyclerView in the new YouTube version
- * and a ListView in the old one.
  */
 @SuppressWarnings("unused")
 public final class AdvancedVideoQualityMenuPatch {
@@ -76,7 +74,7 @@ public final class AdvancedVideoQualityMenuPatch {
     /**
      * Injection point.
      *
-     * Used if spoofing to an old app version, and also used for the Shorts video quality flyout.
+     * Shorts video quality flyout.
      */
     public static void showAdvancedVideoQualityMenu(ListView listView) {
         if (!Settings.ADVANCED_VIDEO_QUALITY_MENU.get()) return;
@@ -90,14 +88,12 @@ public final class AdvancedVideoQualityMenuPatch {
                     final var indexOfAdvancedQualityMenuItem = 4;
                     if (listView.indexOfChild(child) != indexOfAdvancedQualityMenuItem) return;
 
-                    Logger.printDebug(() -> "Found advanced menu item in old type of quality menu");
-
                     listView.setSoundEffectsEnabled(false);
                     final var qualityItemMenuPosition = 4;
                     listView.performItemClick(null, qualityItemMenuPosition, 0);
 
                 } catch (Exception ex) {
-                    Logger.printException(() -> "showOldVideoQualityMenu failure", ex);
+                    Logger.printException(() -> "showAdvancedVideoQualityMenu failure", ex);
                 }
             }
 

@@ -6,7 +6,6 @@ import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -75,7 +74,7 @@ public class ThemePatch {
      * @return The new or original color value
      */
     public static int getValue(int originalValue) {
-        if (ThemeHelper.isDarkTheme()) {
+        if (Utils.isDarkModeEnabled()) {
             if (anyEquals(originalValue, DARK_VALUES)) return BLACK_COLOR;
         } else {
             if (anyEquals(originalValue, WHITE_VALUES)) return WHITE_COLOR;

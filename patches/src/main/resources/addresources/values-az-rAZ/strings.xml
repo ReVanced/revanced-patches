@@ -681,6 +681,9 @@ Audio trek seçimin göstərmək üçün \"Video axınları saxtalaşdır\"ı iO
   <string name="revanced_hide_autoplay_button_title">Avtomatik oynatma düyməsini gizlət</string>
   <string name="revanced_hide_autoplay_button_summary_on">Avtomatik oynatma düyməsi gizlidir</string>
   <string name="revanced_hide_autoplay_button_summary_off">Avtomatik oynatma düyməsi göstərilir</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Oynadıcı idarəetmə düymələri fonunu gizlət</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Oynadıcı idarəetmə düymələri fonu gizlidir</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Oynadıcı idarəetmə düymələri fonu görünür</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Son ekran kartlarını gizlət</string>
@@ -765,6 +768,9 @@ Audio trek seçimin göstərmək üçün \"Video axınları saxtalaşdır\"ı iO
   <string name="revanced_hide_shorts_green_screen_button_title">Yaşıl ekran düyməsini gizlət</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Yaşıl ekran\" düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Yaşıl ekran\" düyməsi göstərilir</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Yeni elanları gizlət düyməsi</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Yeni elanlar düyməsi göstərilir</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Yeni elanlar düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Mövzu etiketi düyməsini gizlət</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Mövzu etiketi düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Mövzu etiketi düyməsi göstərilir</string>

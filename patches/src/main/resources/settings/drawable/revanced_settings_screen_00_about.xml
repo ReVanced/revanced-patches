@@ -22,6 +22,6 @@ Copyright 2022 Google
         android:viewportWidth="24"
         android:viewportHeight="24">
     <path
-            android:fillColor="?ytTextPrimary"
+            android:fillColor="?android:attr/textColorPrimary"
             android:pathData="M13,17h-2v-6h2V17zM13,7h-2v2h2V7zM12,3c-4.96,0 -9,4.04 -9,9s4.04,9 9,9c4.96,0 9,-4.04 9,-9S16.96,3 12,3M12,2c5.52,0 10,4.48 10,10s-4.48,10 -10,10C6.48,22 2,17.52 2,12S6.48,2 12,2L12,2z" />
 </vector>

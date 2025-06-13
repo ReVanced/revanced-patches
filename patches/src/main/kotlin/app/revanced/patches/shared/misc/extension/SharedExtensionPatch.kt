@@ -3,11 +3,11 @@ package app.revanced.patches.shared.misc.extension
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.FingerprintBuilder
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.Method
 import java.net.URLDecoder
 import java.util.jar.JarFile
@@ -80,14 +80,7 @@ fun sharedExtensionPatch(
             }
 
             val manifestValue = getPatchesManifestEntry("Version")
-
-            addInstructions(
-                0,
-                """
-                    const-string v0, "$manifestValue"
-                    return-object v0
-                """,
-            )
+            returnEarly(manifestValue)
         }
     }
 }

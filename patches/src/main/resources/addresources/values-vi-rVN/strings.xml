@@ -665,7 +665,7 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Trình đơn xem trong thực tế ảo được hiển thị</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Ẩn phần chân trình đơn chất lượng video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Phần chân trình đơn chất lượng video đã bị ẩn</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Phần chân trình đơn chất lượng video đã bị ẩn được hiển thị</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Phần chân trình đơn chất lượng video được hiển thị</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút Trước &amp; Tiếp theo</string>

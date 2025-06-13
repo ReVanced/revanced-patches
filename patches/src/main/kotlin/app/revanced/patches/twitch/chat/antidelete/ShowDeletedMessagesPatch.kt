@@ -34,10 +34,7 @@ val showDeletedMessagesPatch = bytecodePatch(
         addResources("twitch", "chat.antidelete.showDeletedMessagesPatch")
 
         PreferenceScreen.CHAT.GENERAL.addPreferences(
-            ListPreference(
-                key = "revanced_show_deleted_messages",
-                summaryKey = null,
-            ),
+            ListPreference("revanced_show_deleted_messages")
         )
 
         // Spoiler mode: Force set hasModAccess member to true in constructor

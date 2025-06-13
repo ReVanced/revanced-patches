@@ -30,11 +30,15 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.RYDVoteData;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.extension.youtube.settings.Settings;
@@ -177,7 +181,7 @@ public class ReturnYouTubeDislike {
      * Ideally, this would be the actual color YT uses at runtime.
      */
     private static int getSeparatorColor() {
-        return ThemeHelper.isDarkTheme()
+        return Utils.isDarkModeEnabled()
                 ? 0x33FFFFFF
                 : 0xFFD9D9D9;
     }

@@ -3,17 +3,18 @@ package app.revanced.extension.youtube.settings.preference;
 import static app.revanced.extension.shared.StringRef.sf;
 
 import android.content.Context;
-import android.preference.ListPreference;
 import android.util.AttributeSet;
 
+import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 /**
+ * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator.
  * Custom video speeds used by {@link CustomPlaybackSpeedPatch}.
  */
 @SuppressWarnings({"unused", "deprecation"})
-public final class CustomVideoSpeedListPreference extends ListPreference {
+public final class CustomVideoSpeedListPreference extends CustomDialogListPreference {
 
     /**
      * Initialize a settings preference list with the available playback speeds.
@@ -59,4 +60,5 @@ public final class CustomVideoSpeedListPreference extends ListPreference {
     public CustomVideoSpeedListPreference(Context context) {
         super(context);
     }
+
 }
