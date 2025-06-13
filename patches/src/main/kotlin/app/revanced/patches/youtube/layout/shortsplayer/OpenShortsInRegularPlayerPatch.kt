@@ -59,10 +59,7 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         addResources("youtube", "layout.shortsplayer.shortsPlayerTypePatch")
 
         PreferenceScreen.SHORTS.addPreferences(
-            ListPreference(
-                key = "revanced_shorts_player_type",
-                summaryKey = null
-            )
+            ListPreference("revanced_shorts_player_type")
         )
 
         // Activity is used as the context to launch an Intent.

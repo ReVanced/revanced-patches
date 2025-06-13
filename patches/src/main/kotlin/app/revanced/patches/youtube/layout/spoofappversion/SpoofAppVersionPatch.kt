@@ -60,14 +60,10 @@ val spoofAppVersionPatch = bytecodePatch(
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_app_version"),
                     if (is_19_43_or_greater) {
-                        ListPreference(
-                            key = "revanced_spoof_app_version_target",
-                            summaryKey = null
-                        )
+                        ListPreference("revanced_spoof_app_version_target")
                     } else {
                         ListPreference(
                             key = "revanced_spoof_app_version_target",
-                            summaryKey = null,
                             entriesKey = "revanced_spoof_app_version_target_legacy_entries",
                             entryValuesKey = "revanced_spoof_app_version_target_legacy_entry_values"
                         )
