@@ -911,7 +911,6 @@ public final class app/revanced/patches/spotify/misc/extension/ExtensionPatchKt 
 }
 
 public final class app/revanced/patches/spotify/misc/fix/SpoofClientPatchKt {
-	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 

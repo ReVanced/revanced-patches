@@ -8,7 +8,6 @@ internal val getPackageInfoFingerprint = fingerprint {
     )
 }
 
-
-internal val getAuthenticateResultFingerprint = fingerprint {
-    strings("Unable to parse data as com.spotify.authentication.login5esperanto.EsAuthenticateResult.AuthenticateResult")
+internal val startLiborbitFingerprint = fingerprint {
+    strings("/liborbit-jni-spotify.so")
 }
