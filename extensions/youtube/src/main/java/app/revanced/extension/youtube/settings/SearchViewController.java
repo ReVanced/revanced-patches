@@ -19,6 +19,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
@@ -58,11 +59,7 @@ public class SearchViewController {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
         background.setCornerRadius(28 * context.getResources().getDisplayMetrics().density); // 28dp corner radius.
-        int baseColor = Utils.getAppBackgroundColor();
-        int adjustedColor = Utils.isDarkModeEnabled()
-                ? Utils.adjustColorBrightness(baseColor, 1.11f)  // Lighten for dark theme.
-                : Utils.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
-        background.setColor(adjustedColor);
+        background.setColor(getSearchViewBackground());
         return background;
     }
 
@@ -72,15 +69,23 @@ public class SearchViewController {
     private static GradientDrawable createSuggestionBackgroundDrawable(Context context) {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
-        background.setCornerRadius(8 * context.getResources().getDisplayMetrics().density); // 8dp corner radius.
+        background.setColor(getSearchViewBackground());
         return background;
+    }
+
+    @ColorInt
+    public static int getSearchViewBackground() {
+        return Utils.isDarkModeEnabled()
+                ? Utils.adjustColorBrightness(Utils.getDialogBackgroundColor(), 1.11f)
+                : Utils.adjustColorBrightness(Utils.getThemeLightColor(), 0.95f);
     }
 
     /**
      * Adds search view components to the activity.
      */
     public static void addSearchViewComponents(Activity activity, Toolbar toolbar, ReVancedPreferenceFragment fragment) {
-        new SearchViewController(activity, toolbar, fragment);
+        SearchViewController controller = new SearchViewController(activity, toolbar, fragment);
+        fragment.setSearchViewController(controller);
     }
 
     private SearchViewController(Activity activity, Toolbar toolbar, ReVancedPreferenceFragment fragment) {
@@ -320,6 +325,13 @@ public class SearchViewController {
         // Hide keyboard.
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+    }
+
+    /**
+     * Clears the search query without closing the search view.
+     */
+    public void clearSearchQuery() {
+        searchView.setQuery("", false);
     }
 
     /**

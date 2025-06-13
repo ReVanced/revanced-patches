@@ -94,6 +94,7 @@ private val settingsResourcePatch = resourcePatch {
         arrayOf(
             ResourceGroup("drawable",
                 "revanced_settings_icon.xml",
+                "revanced_settings_no_search_result_icon.xml",
                 "revanced_settings_screen_00_about.xml",
                 "revanced_settings_screen_01_ads.xml",
                 "revanced_settings_screen_02_alt_thumbnails.xml",
@@ -109,7 +110,6 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_settings_screen_12_video.xml",
             ),
             ResourceGroup("layout",
-                "revanced_preference_with_icon_no_search_result.xml",
                 "revanced_search_suggestion_item.xml",
                 "revanced_settings_with_toolbar.xml"
             ),

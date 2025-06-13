@@ -42,6 +42,7 @@ import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
 import app.revanced.extension.youtube.settings.LicenseActivityHook;
+import app.revanced.extension.youtube.settings.SearchViewController;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
 /**
@@ -68,6 +69,16 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      * but their sub preferences are included.
      */
     private final List<AbstractPreferenceSearchData<?>> allPreferences = new ArrayList<>();
+
+    /**
+     * Reference to SearchViewController for managing search actions.
+     */
+    @Nullable
+    private SearchViewController searchViewController;
+
+    public void setSearchViewController(SearchViewController controller) {
+        this.searchViewController = controller;
+    }
 
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
@@ -210,15 +221,17 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
         // Show 'No results found' if search results are empty.
         if (categoryMap.isEmpty()) {
-            Preference noResultsPreference = new Preference(preferenceScreen.getContext());
-            noResultsPreference.setTitle(str("revanced_settings_search_no_results_title", query));
-            noResultsPreference.setSummary(str("revanced_settings_search_no_results_summary"));
-            noResultsPreference.setSelectable(false);
-            // Set icon for the placeholder preference.
-            noResultsPreference.setLayoutResource(getResourceIdentifier(
-                    "revanced_preference_with_icon_no_search_result", "layout"));
-            noResultsPreference.setIcon(getResourceIdentifier("revanced_settings_search_icon", "drawable"));
-            preferenceScreen.addPreference(noResultsPreference);
+            NoSearchResultsPreference noSearchResultsPreference = new NoSearchResultsPreference(
+                    preferenceScreen.getContext(),
+                    query,
+                    () -> {
+                        if (searchViewController != null) {
+                            searchViewController.clearSearchQuery(); // Clear the search query.
+                        }
+                        filterPreferences("");
+                    }
+            );
+            preferenceScreen.addPreference(noSearchResultsPreference);
         }
     }
 

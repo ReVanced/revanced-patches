@@ -47,7 +47,8 @@ Second \"item\" text"</string>
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
             <string name="revanced_settings_search_hint">Search settings</string>
             <string name="revanced_settings_search_no_results_title">No results found for \'%s\'</string>
-            <string name="revanced_settings_search_no_results_summary">Try another keyword</string>
+            <string name="revanced_settings_search_no_results_summary">Try another keyword or check your spelling</string>
+            <string name="revanced_settings_search_try_again">Try Again</string>
             <string name="revanced_settings_search_remove_message">Remove from search history?</string>
             <string name="revanced_show_menu_icons_title">Show ReVanced setting icons</string>
             <string name="revanced_show_menu_icons_summary_on">Setting icons are shown</string>
