@@ -46,9 +46,6 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/settings/LicenseActivityHook;"
 
-internal var appearanceStringId = -1L
-    private set
-
 private val preferences = mutableSetOf<BasePreference>()
 
 fun addSettingPreference(screen: BasePreference) {
@@ -84,8 +81,6 @@ private val settingsResourcePatch = resourcePatch {
     )
 
     execute {
-        appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
-
         // Use same colors as stock YouTube.
         overrideThemeColors("@color/yt_white1", "@color/yt_black3")
 

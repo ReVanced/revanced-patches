@@ -136,27 +136,21 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide player control buttons background.
 
-        inflateControlsGroupLayoutStubFingerprint.method.apply {
-            val controlsButtonGroupLayoutStubResIdConstIndex =
-                indexOfFirstLiteralInstructionOrThrow(controlsButtonGroupLayoutStub)
-            val inflateControlsGroupLayoutStubIndex =
-                indexOfFirstInstruction(controlsButtonGroupLayoutStubResIdConstIndex) {
-                    getReference<MethodReference>()?.name == "inflate"
-                }
+        inflateControlsGroupLayoutStubFingerprint.let {
+            it.method.apply {
+                val insertIndex = it.instructionMatches.last().index + 1
+                val freeRegister = findFreeRegister(insertIndex)
 
-            val freeRegister = findFreeRegister(inflateControlsGroupLayoutStubIndex)
-            val hidePlayerControlButtonsBackgroundDescriptor =
-                "$EXTENSION_CLASS_DESCRIPTOR->hidePlayerControlButtonsBackground(Landroid/view/View;)V"
-
-            addInstructions(
-                inflateControlsGroupLayoutStubIndex + 1,
-                """
-                   # Move the inflated layout to a temporary register.
-                   # The result of the inflate method is by default not moved to a register after the method is called.
-                   move-result-object v$freeRegister
-                   invoke-static { v$freeRegister }, $hidePlayerControlButtonsBackgroundDescriptor
-                """
-            )
+                addInstructions(
+                    insertIndex,
+                    """
+                        # Move the inflated layout to a temporary register.
+                        # The result of the inflate method is by default not moved to a register after the method is called.
+                        move-result-object v$freeRegister
+                        invoke-static { v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->hidePlayerControlButtonsBackground(Landroid/view/View;)V
+                    """
+                )
+            }
         }
 
         // endregion
