@@ -39,7 +39,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_color_invalid">Недійсний колір</string>
   <string name="revanced_settings_restart_title">Оновити та перезавантажити?</string>
   <string name="revanced_settings_restart">Перезавантажити</string>
-  <string name="revanced_settings_import">Імпортувати</string>
+  <string name="revanced_settings_import">Імпорт</string>
   <string name="revanced_settings_import_copy">Копіювати</string>
   <string name="revanced_settings_import_reset">Налаштування ReVanced скинуто до стандартних</string>
   <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
