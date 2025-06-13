@@ -42,15 +42,6 @@ internal val initializeButtonsFingerprint = fingerprint {
     literal { imageOnlyTabResourceId }
 }
 
-internal val mainActivityOnBackPressedFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
-    custom { method, classDef ->
-        method.name == "onBackPressed" && classDef.endsWith("MainActivity;")
-    }
-}
-
 /**
  * Extension method, used for callback into to other patches.
  * Specifically, [navigationButtonsPatch].

@@ -10,22 +10,27 @@
         android:paddingBottom="12dp"
         android:gravity="center_vertical">
 
-    <!-- History icon -->
     <ImageView
-            android:id="@+id/history_icon"
+            android:id="@+id/revanced_check_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="16dp"
-            android:contentDescription="History icon"
-            android:src="@drawable/revanced_settings_arrow_time" />
+            android:src="@drawable/revanced_settings_custom_checkmark"
+            android:visibility="gone"
+            android:contentDescription="@null" />
 
-    <!-- Suggestion text -->
+    <View
+            android:id="@+id/revanced_check_icon_placeholder"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="invisible" />
+
     <TextView
-            android:id="@+id/suggestion_text"
-            android:layout_width="0dp"
+            android:id="@+id/revanced_item_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
+            android:textAppearance="?android:attr/textAppearanceListItem"
             android:textColor="?android:attr/textColorPrimary" />
 
 </LinearLayout>

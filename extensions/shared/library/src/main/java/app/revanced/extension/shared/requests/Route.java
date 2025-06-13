@@ -52,7 +52,7 @@ public class Route {
 
     private int countMatches(CharSequence seq, char c) {
         int count = 0;
-        for (int i = 0; i < seq.length(); i++) {
+        for (int i = 0, length = seq.length(); i < length; i++) {
             if (seq.charAt(i) == c)
                 count++;
         }

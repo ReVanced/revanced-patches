@@ -14,7 +14,6 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
@@ -26,6 +25,8 @@ import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFrag
  */
 @SuppressWarnings("unused")
 public class LicenseActivityHook {
+
+    private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
 
     private static ViewGroup.LayoutParams toolbarLayoutParams;
 
@@ -78,8 +79,8 @@ public class LicenseActivityHook {
      */
     public static void initialize(Activity licenseActivity) {
         try {
-            ThemeHelper.setActivityTheme(licenseActivity);
-            ThemeHelper.setNavigationBarColor(licenseActivity.getWindow());
+            setActivityTheme(licenseActivity);
+            ReVancedPreferenceFragment.setNavigationBarColor(licenseActivity.getWindow());
             licenseActivity.setContentView(getResourceIdentifier(
                     "revanced_settings_with_toolbar", "layout"));
 
@@ -114,7 +115,7 @@ public class LicenseActivityHook {
         toolBarParent.removeView(dummyToolbar);
 
         Toolbar toolbar = new Toolbar(toolBarParent.getContext());
-        toolbar.setBackgroundColor(ThemeHelper.getToolbarBackgroundColor());
+        toolbar.setBackgroundColor(getToolbarBackgroundColor());
         toolbar.setNavigationIcon(ReVancedPreferenceFragment.getBackButtonDrawable());
         toolbar.setTitle(getResourceIdentifier("revanced_settings_title", "string"));
 
@@ -124,7 +125,7 @@ public class LicenseActivityHook {
         TextView toolbarTextView = Utils.getChildView(toolbar, false,
                 view -> view instanceof TextView);
         if (toolbarTextView != null) {
-            toolbarTextView.setTextColor(ThemeHelper.getForegroundColor());
+            toolbarTextView.setTextColor(Utils.getAppForegroundColor());
         }
         setToolbarLayoutParams(toolbar);
 
@@ -134,5 +135,35 @@ public class LicenseActivityHook {
         }
 
         toolBarParent.addView(toolbar, 0);
+    }
+
+    public static void setActivityTheme(Activity activity) {
+        final var theme = Utils.isDarkModeEnabled()
+                ? "Theme.YouTube.Settings.Dark"
+                : "Theme.YouTube.Settings";
+        activity.setTheme(getResourceIdentifier(theme, "style"));
+    }
+
+    public static int getToolbarBackgroundColor() {
+        final String colorName = Utils.isDarkModeEnabled()
+                ? "yt_black3"
+                : "yt_white1";
+
+        return Utils.getColorFromString(colorName);
+    }
+
+    /**
+     * Injection point.
+     *
+     * Updates dark/light mode since YT settings can force light/dark mode
+     * which can differ from the global device settings.
+     */
+    @SuppressWarnings("unused")
+    public static void updateLightDarkModeStatus(Enum<?> value) {
+        final int themeOrdinal = value.ordinal();
+        if (currentThemeValueOrdinal != themeOrdinal) {
+            currentThemeValueOrdinal = themeOrdinal;
+            Utils.setIsDarkModeEnabled(themeOrdinal == 1);
+        }
     }
 }

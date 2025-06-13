@@ -1,9 +1,9 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.api
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") { clientIdOption ->
@@ -14,13 +14,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") 
     execute {
         // region Patch client id.
 
-        getClientIdFingerprint.method.addInstructions(
-            0,
-            """
-                 const-string v0, "$clientId"
-                 return-object v0
-            """,
-        )
+        getClientIdFingerprint.method.returnEarly(clientId!!)
 
         // endregion
 
