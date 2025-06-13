@@ -1,24 +1,30 @@
 package app.revanced.extension.spotify.misc.fix;
 
 import android.annotation.SuppressLint;
-import android.os.Handler;
-import android.os.Looper;
+import android.graphics.Bitmap;
 import android.util.Log;
 import android.webkit.*;
+import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Utils;
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * @noinspection unused
+ */
 public class SpoofClientPatch {
     public static String transferSession(String accessToken, String clientToken) throws Exception {
-        String ottToken = new JSONObject(getOttTokenResponse(accessToken, clientToken)).getString("token");
-        return new JSONObject(getWebBearerTokenResponse(ottToken)).getString("access_token");
+        String ottTokenResponse = getOttTokenResponse(accessToken, clientToken);
+        String ottToken = new JSONObject(ottTokenResponse).getString("token");
+
+        String webBearerTokenResponse = getWebBearerTokenResponse(ottToken);
+        return new JSONObject(webBearerTokenResponse).getString("access_token");
     }
 
     private static String getOttTokenResponse(String accessToken, String clientToken) throws Exception {
@@ -51,68 +57,56 @@ public class SpoofClientPatch {
         settings.setUserAgentString("Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
                 "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0");
 
-        CookieManager cookieManager = CookieManager.getInstance();
-        cookieManager.setAcceptCookie(true);
-
         webView.setWebViewClient(new WebViewClient() {
             private boolean ottVerified;
-            private boolean tokenApiIntercepted;
+            private boolean patchedFetch;
 
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-                String url = request.getUrl().toString();
-
-                if (!ottVerified && url.contains("/api/login/ott/verify")) {
+                // Obtain necessary cookies for the session transfer.
+                if (!ottVerified && request.getUrl().toString().contains("/api/login/ott/verify")) {
                     ottVerified = true;
-                    Log.d("revanced", "Intercepted /api/login/ott/verify");
-                    new Handler(Looper.getMainLooper()).post(() -> webView.loadUrl("https://open.spotify.com"));
-                } else if (!tokenApiIntercepted && url.contains("/api/token")) {
-                    tokenApiIntercepted = true;
-                    Log.d("revanced", "Intercepted /api/token");
-
-                    new Thread(() -> {
-                        try {
-                            URL tokenUrl = new URL(url);
-                            HttpURLConnection connection = (HttpURLConnection) tokenUrl.openConnection();
-                            connection.setRequestMethod("GET");
-
-                            Map<String, String> requestHeaders = request.getRequestHeaders();
-                            for (Map.Entry<String, String> entry : requestHeaders.entrySet()) {
-                                Log.d("revanced", "Request Header: " + entry.getKey() + ": " + entry.getValue());
-                                connection.setRequestProperty(entry.getKey(), entry.getValue());
-                            }
-                            connection.setRequestProperty("User-Agent", webView.getSettings().getUserAgentString());
-                            connection.setRequestProperty("Cookie", cookieManager.getCookie("https://open.spotify.com"));
-
-                            connection.connect();
-
-                            String response = readConnectionResponse(connection);
-                            Log.d("revanced", "Token Response: " + response);
-
-                            webBearerTokenResponse.set(response);
-                            webView.stopLoading();
-                        } catch (Exception e) {
-                            Log.e("revanced", "Failed to fetch /api/token", e);
-                        }
-
-                        latch.countDown();
-                    }).start();
-
-                    return null;
+                    webView.loadUrl("https://open.spotify.com");
                 }
 
                 return super.shouldInterceptRequest(view, request);
             }
 
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                // Hook into fetch requests to capture the Authorization header.
+                if (!patchedFetch && url.contains("open.spotify.com")) {
+                    String jsHook = "(function() {" +
+                            "   const originalFetch = window.fetch;" +
+                            "   window.fetch = (input, init) => {" +
+                            "       const request = typeof input === 'string' ? new Request(input, init) : input;" +
+                            "       const header = request.headers?.get?.('Authorization') || (init?.headers?.Authorization);" +
+                            "       if (header) androidBridge.receiveToken(header);" +
+                            "       return originalFetch(input, init);" +
+                            "   };" +
+                            "})();";
+
+                    view.evaluateJavascript(jsHook, null);
+                    patchedFetch = true;
+                }
+            }
         });
+
+        webView.addJavascriptInterface(new Object() {
+            @JavascriptInterface
+            public void receiveToken(String token) {
+                Log.d("revanced", "Token received via JS: " + token);
+                webBearerTokenResponse.set(token);
+                latch.countDown();
+            }
+        }, "androidBridge");
 
         String startUrl = "https://accounts.spotify.com/en/login/ott/v2#token=" + ottToken;
         webView.loadUrl(startUrl);
 
         try {
             latch.await();
-        } catch (InterruptedException e) {
-            return null;
+        } catch (InterruptedException ignored) {
         }
 
         return webBearerTokenResponse.get();
