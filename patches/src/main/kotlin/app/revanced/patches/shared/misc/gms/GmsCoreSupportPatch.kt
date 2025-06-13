@@ -78,7 +78,7 @@ fun gmsCoreSupportPatch(
     execute {
         fun transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
             val mutableClass by lazy {
-                proxy(it).mutableClass
+                mutableClassBy(it)
             }
 
             it.methods.forEach classLoop@{ method ->
@@ -88,12 +88,12 @@ fun gmsCoreSupportPatch(
                     mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, method) }
                 }
 
-                implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
+                implementation.instructions.forEachIndexed { index, instruction ->
                     val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
-                        ?: return@insnLoop
+                        ?: return@forEachIndexed
 
                     // Apply transformation.
-                    val transformedString = transform(string) ?: return@insnLoop
+                    val transformedString = transform(string) ?: return@forEachIndexed
 
                     mutableMethod.replaceInstruction(
                         index,
@@ -211,9 +211,7 @@ fun gmsCoreSupportPatch(
         }
 
         // Change the vendor of GmsCore in the extension.
-        gmsCoreSupportFingerprint.classDef.methods
-            .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
-            .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
+        gmsCoreSupportFingerprint.method.replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
 
         executeBlock()
     }
@@ -497,40 +495,11 @@ private object Constants {
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
  * @param spoofedPackageSignature The signature of the package to spoof to.
  * @param gmsCoreVendorGroupIdOption The option to get the vendor group ID of GmsCore.
- * @param executeBlock The additional execution block of the patch.
- * @param block The additional block to build the patch.
- */
-fun gmsCoreSupportResourcePatch( // This is here only for binary compatibility.
-    fromPackageName: String,
-    toPackageName: String,
-    spoofedPackageSignature: String,
-    gmsCoreVendorGroupIdOption: Option<String>,
-    executeBlock: ResourcePatchContext.() -> Unit = {},
-    block: ResourcePatchBuilder.() -> Unit = {},
-) = gmsCoreSupportResourcePatch(
-    fromPackageName,
-    toPackageName,
-    spoofedPackageSignature,
-    gmsCoreVendorGroupIdOption,
-    true,
-    executeBlock,
-    block
-)
-
-/**
- * Abstract resource patch that allows Google apps to run without root and under a different package name
- * by using GmsCore instead of Google Play Services.
- *
- * @param fromPackageName The package name of the original app.
- * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
- * @param spoofedPackageSignature The signature of the package to spoof to.
- * @param gmsCoreVendorGroupIdOption The option to get the vendor group ID of GmsCore.
  * @param addStringResources If the GmsCore shared strings should be added to the patched app.
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
-// TODO: On the next major release make this public and delete the public overloaded constructor.
-internal fun gmsCoreSupportResourcePatch(
+fun gmsCoreSupportResourcePatch(
     fromPackageName: String,
     toPackageName: String,
     spoofedPackageSignature: String,

@@ -1,13 +1,13 @@
 package app.revanced.patches.youtube.video.playerresponse
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
-import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 /**
  * For targets 20.15 and later.
  */
-internal val playerParameterBuilderFingerprint = fingerprint {
+internal val playerParameterBuilderFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(
@@ -25,15 +25,17 @@ internal val playerParameterBuilderFingerprint = fingerprint {
         "L",
         "Z", // Appears to indicate if the video id is being opened or is currently playing.
         "Z",
-        "Z"
+        "Z",
     )
-    strings("psps")
+    instructions(
+        string("psps")
+    )
 }
 
 /**
  * For targets 20.10 to 20.14.
  */
-internal val playerParameterBuilder2010Fingerprint = fingerprint {
+internal val playerParameterBuilder2010Fingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(
@@ -54,13 +56,15 @@ internal val playerParameterBuilder2010Fingerprint = fingerprint {
         "Z",
         "Z"
     )
-    strings("psps")
+    instructions(
+        string("psps")
+    )
 }
 
 /**
  * For targets 20.02 to 20.09.
  */
-internal val playerParameterBuilder2002Fingerprint = fingerprint {
+internal val playerParameterBuilder2002Fingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(
@@ -80,13 +84,15 @@ internal val playerParameterBuilder2002Fingerprint = fingerprint {
         "Z",
         "Z",
     )
-    strings("psps")
+    instructions(
+        string("psps"),
+    )
 }
 
 /**
  * For targets 19.25 to 19.50.
  */
-internal val playerParameterBuilder1925Fingerprint = fingerprint {
+internal val playerParameterBuilder1925Fingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(
@@ -105,13 +111,15 @@ internal val playerParameterBuilder1925Fingerprint = fingerprint {
         "Z",
         "Z",
     )
-    strings("psps")
+    instructions(
+        string("psps")
+    )
 }
 
 /**
- * For targets 19.24 and earlier.
+ * For targets 19.01 to 19.24.
  */
-internal val playerParameterBuilderLegacyFingerprint = fingerprint {
+internal val playerParameterBuilderLegacyFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(

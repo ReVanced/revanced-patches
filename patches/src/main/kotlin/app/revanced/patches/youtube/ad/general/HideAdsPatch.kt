@@ -7,9 +7,8 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.fix.verticalscroll.verticalScrollPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.ad.getpremium.hideGetPremiumPatch
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fixBackToExitGesturePatch
@@ -58,8 +57,8 @@ private val hideAdsResourcePatch = resourcePatch {
 
         addLithoFilter("Lapp/revanced/extension/youtube/patches/components/AdsFilter;")
 
-        adAttributionId = resourceMappings["id", "ad_attribution"]
-        fullScreenEngagementAdContainer = resourceMappings["id", "fullscreen_engagement_ad_container"]
+        adAttributionId = getResourceId("id", "ad_attribution")
+        fullScreenEngagementAdContainer = getResourceId("id", "fullscreen_engagement_ad_container")
     }
 }
 
@@ -127,8 +126,7 @@ val hideAdsPatch = bytecodePatch(
 
                             // Hide the view
                             val viewRegister = (this as Instruction35c).registerC
-                            proxy(classDef)
-                                .mutableClass
+                            mutableClassBy(classDef)
                                 .findMutableMethodOf(method)
                                 .injectHideViewCall(
                                     insertIndex,

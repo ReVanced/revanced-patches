@@ -1,18 +1,22 @@
 package app.revanced.patches.youtube.video.information
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-internal val createVideoPlayerSeekbarFingerprint = fingerprint {
+internal val createVideoPlayerSeekbarFingerprint by fingerprint {
     returns("V")
-    strings("timed_markers_width")
+    instructions(
+        string("timed_markers_width"),
+    )
 }
 
-internal val onPlaybackSpeedItemClickFingerprint = fingerprint {
+internal val onPlaybackSpeedItemClickFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "L", "I", "J")
@@ -25,23 +29,27 @@ internal val onPlaybackSpeedItemClickFingerprint = fingerprint {
     }
 }
 
-internal val playerControllerSetTimeReferenceFingerprint = fingerprint {
+internal val playerControllerSetTimeReferenceFingerprint by fingerprint {
     opcodes(Opcode.INVOKE_DIRECT_RANGE, Opcode.IGET_OBJECT)
     strings("Media progress reported outside media playback: ")
 }
 
-internal val playerInitFingerprint = fingerprint {
-    strings("playVideo called on player response with no videoStreamingData.")
+internal val playerInitFingerprint by fingerprint {
+    instructions(
+        string("playVideo called on player response with no videoStreamingData."),
+    )
 }
 
 /**
  * Matched using class found in [playerInitFingerprint].
  */
-internal val seekFingerprint = fingerprint {
-    strings("Attempting to seek during an ad")
+internal val seekFingerprint by fingerprint {
+    instructions(
+        string("Attempting to seek during an ad"),
+    )
 }
 
-internal val videoLengthFingerprint = fingerprint {
+internal val videoLengthFingerprint by fingerprint {
     opcodes(
         Opcode.MOVE_RESULT_WIDE,
         Opcode.CMP_LONG,
@@ -61,7 +69,7 @@ internal val videoLengthFingerprint = fingerprint {
 /**
  * Matches using class found in [mdxPlayerDirectorSetVideoStageFingerprint].
  */
-internal val mdxSeekFingerprint = fingerprint {
+internal val mdxSeekFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters("J", "L")
@@ -78,19 +86,20 @@ internal val mdxSeekFingerprint = fingerprint {
     }
 }
 
-internal val mdxPlayerDirectorSetVideoStageFingerprint = fingerprint {
-    strings("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state ")
+internal val mdxPlayerDirectorSetVideoStageFingerprint by fingerprint {
+    instructions(
+        string("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state "),
+    )
 }
 
 /**
  * Matches using class found in [mdxPlayerDirectorSetVideoStageFingerprint].
  */
-internal val mdxSeekRelativeFingerprint = fingerprint {
+internal val mdxSeekRelativeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     // Return type is boolean up to 19.39, and void with 19.39+.
     parameters("J", "L")
     opcodes(
-
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
     )
@@ -99,7 +108,7 @@ internal val mdxSeekRelativeFingerprint = fingerprint {
 /**
  * Matches using class found in [playerInitFingerprint].
  */
-internal val seekRelativeFingerprint = fingerprint {
+internal val seekRelativeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     // Return type is boolean up to 19.39, and void with 19.39+.
     parameters("J", "L")
@@ -112,19 +121,16 @@ internal val seekRelativeFingerprint = fingerprint {
 /**
  * Resolves with the class found in [newVideoQualityChangedFingerprint].
  */
-internal val playbackSpeedMenuSpeedChangedFingerprint = fingerprint {
+internal val playbackSpeedMenuSpeedChangedFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")
-    opcodes(
-        Opcode.IGET,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.SGET_OBJECT,
-        Opcode.RETURN_OBJECT,
+    instructions(
+        fieldAccess(opcode = Opcode.IGET, type = "F")
     )
 }
 
-internal val playbackSpeedClassFingerprint = fingerprint {
+internal val playbackSpeedClassFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     parameters("L")

@@ -8,9 +8,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableHdrPatch;"
@@ -47,14 +44,9 @@ val disableHdrPatch = bytecodePatch(
 
         hdrCapabilityFingerprint.let {
             it.originalMethod.apply {
-                val stringIndex = it.stringMatches!!.first().index
-                val navigateIndex = indexOfFirstInstructionOrThrow(stringIndex) {
-                    val reference = getReference<MethodReference>()
-                    reference?.parameterTypes == listOf("I", "Landroid/view/Display;") &&
-                            reference.returnType == "Z"
-                }
+                val navigateIndex = it.instructionMatches.last().index
 
-                // Modify the HDR lookup method (Method is in the same class as the fingerprint).
+                // Modify the HDR lookup method (Method is in the same class as the fingerprint class).
                 navigate(this).to(navigateIndex).stop().addInstructionsWithLabels(
                     0,
                     """

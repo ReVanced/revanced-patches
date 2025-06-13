@@ -8,9 +8,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -26,15 +25,10 @@ import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.forEachLiteralValueInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstruction
 import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-internal var bottomBarContainer = -1L
-    private set
-internal var reelPlayerRightPivotV2Size = -1L
-    private set
+import com.google.common.primitives.Shorts
 
 internal val hideShortsAppShortcutOption = booleanOption(
     key = "hideShortsAppShortcut",
@@ -139,16 +133,6 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                 shortsItem.parentNode.removeChild(shortsItem)
             }
         }
-
-        bottomBarContainer = resourceMappings[
-            "id",
-            "bottom_bar_container",
-        ]
-
-        reelPlayerRightPivotV2Size = resourceMappings[
-            "dimen",
-            "reel_player_right_pivot_v2_size",
-        ]
     }
 }
 
@@ -187,7 +171,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
         forEachLiteralValueInstruction(
-            reelPlayerRightPivotV2Size,
+            getResourceId("dimen", "reel_player_right_pivot_v2_size")
         ) { literalInstructionIndex ->
             val targetIndex = indexOfFirstInstructionOrThrow(literalInstructionIndex) {
                 getReference<MethodReference>()?.name == "getDimensionPixelSize"
@@ -213,7 +197,7 @@ val hideShortsComponentsPatch = bytecodePatch(
             setPivotBarVisibilityParentFingerprint.originalClassDef,
         ).let { result ->
             result.method.apply {
-                val insertIndex = result.patternMatch!!.endIndex
+                val insertIndex = result.instructionMatches.last().index
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
                 addInstruction(
                     insertIndex,
@@ -236,25 +220,23 @@ val hideShortsComponentsPatch = bytecodePatch(
         )
 
         // Hide the bottom bar container of the Shorts player.
-        shortsBottomBarContainerFingerprint.method.apply {
-            val resourceIndex = indexOfFirstLiteralInstruction(bottomBarContainer)
+        shortsBottomBarContainerFingerprint.let {
+            it.method.apply {
+                val targetIndex = it.instructionMatches.last().index
+                val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
-                getReference<MethodReference>()?.name == "getHeight"
-            } + 1
-
-            val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-            addInstructions(
-                targetIndex + 1,
-                """
-                    invoke-static { v$heightRegister }, $FILTER_CLASS_DESCRIPTOR->getNavigationBarHeight(I)I
-                    move-result v$heightRegister
-                """
-            )
+                addInstructions(
+                    targetIndex + 1,
+                    """
+                        invoke-static { v$heightRegister }, $FILTER_CLASS_DESCRIPTOR->getNavigationBarHeight(I)I
+                        move-result v$heightRegister
+                    """
+                )
+            }
         }
 
         // endregion
+
 
         // region Disable experimental Shorts flags.
 
