@@ -1,3 +1,10 @@
+# [5.28.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.3...v5.28.0-dev.4) (2025-06-13)
+
+
+### Features
+
+* Use modern style settings dialogs ([#5109](https://github.com/ReVanced/revanced-patches/issues/5109)) ([312b6dc](https://github.com/ReVanced/revanced-patches/commit/312b6dc04e01c2758cd304ca8606306027aa2f01))
+
 # [5.28.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.2...v5.28.0-dev.3) (2025-06-11)
 
 
