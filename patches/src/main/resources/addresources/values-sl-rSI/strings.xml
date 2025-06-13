@@ -681,6 +681,9 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_autoplay_button_title">Skrij gumb \'Samodejno predvajanje\'</string>
   <string name="revanced_hide_autoplay_button_summary_on">Gumb za samodejno predvajanje je skrit</string>
   <string name="revanced_hide_autoplay_button_summary_off">Gumb za samodejno predvajanje je prikazan</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Skrij ozadje gumbov za upravljanje predvajalnika</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Ozadje gumbov za upravljanje predvajalnika je skrito</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Ozadje gumbov za upravljanje predvajalnika je prikazano</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skrij kartice na končnem zaslonu</string>
@@ -765,6 +768,9 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Skrij gumb \'Zelena scena\'</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Gumb za zeleno ozadje je skrit</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Gumb za zeleno ozadje je prikazan</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Skrij gumb za nove objave</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Gumb za nove objave je prikazan</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Gumb za nove objave je skrit</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Skrij gumb za ključnik</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Gumb za ključnik je skrit</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Gumb za ključnik je prikazan</string>

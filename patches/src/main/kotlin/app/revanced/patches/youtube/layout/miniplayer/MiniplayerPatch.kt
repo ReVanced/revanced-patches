@@ -114,23 +114,18 @@ val miniplayerPatch = bytecodePatch(
 
         preferences +=
             if (is_20_03_or_greater) {
-                ListPreference(
-                    "revanced_miniplayer_type",
-                    summaryKey = null,
-                )
+                ListPreference("revanced_miniplayer_type")
             } else if (is_19_43_or_greater) {
                 ListPreference(
-                    "revanced_miniplayer_type",
-                    summaryKey = null,
+                    key = "revanced_miniplayer_type",
                     entriesKey = "revanced_miniplayer_type_legacy_19_43_entries",
-                    entryValuesKey = "revanced_miniplayer_type_legacy_19_43_entry_values",
+                    entryValuesKey = "revanced_miniplayer_type_legacy_19_43_entry_values"
                 )
             } else {
                 ListPreference(
-                    "revanced_miniplayer_type",
-                    summaryKey = null,
+                    key = "revanced_miniplayer_type",
                     entriesKey = "revanced_miniplayer_type_legacy_19_16_entries",
-                    entryValuesKey = "revanced_miniplayer_type_legacy_19_16_entry_values",
+                    entryValuesKey = "revanced_miniplayer_type_legacy_19_16_entry_values"
                 )
             }
 

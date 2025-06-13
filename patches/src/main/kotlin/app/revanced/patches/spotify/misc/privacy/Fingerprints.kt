@@ -3,6 +3,7 @@ package app.revanced.patches.spotify.misc.privacy
 import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val shareCopyUrlFingerprint by fingerprint {
     returns("Ljava/lang/Object;")
@@ -23,9 +24,15 @@ internal val shareCopyUrlLegacyFingerprint by fingerprint {
 }
 
 internal val formatAndroidShareSheetUrlFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters("L", "Ljava/lang/String;")
+    opcodes(
+        Opcode.GOTO,
+        Opcode.IF_EQZ,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.RETURN_OBJECT
+    )
     literal {
         '\n'.code.toLong()
     }

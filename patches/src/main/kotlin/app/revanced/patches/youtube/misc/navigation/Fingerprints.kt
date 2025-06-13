@@ -50,15 +50,6 @@ internal val initializeButtonsFingerprint by fingerprint {
     )
 }
 
-internal val mainActivityOnBackPressedFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
-    custom { method, classDef ->
-        classDef.endsWith("MainActivity;") && method.name == "onBackPressed"
-    }
-}
-
 /**
  * Extension method, used for callback into to other patches.
  * Specifically, [navigationButtonsPatch].

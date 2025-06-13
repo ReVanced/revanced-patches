@@ -1,14 +1,14 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.api
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.patches.reddit.customclients.sync.detection.piracy.disablePiracyDetectionPatch
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import java.util.*
+import java.util.Base64
 
 val spoofClientPatch = spoofClientPatch(
     redirectUri = "http://redditsync/auth",
@@ -28,13 +28,8 @@ val spoofClientPatch = spoofClientPatch(
 
         getBearerTokenFingerprint.match(getAuthorizationStringFingerprint.originalClassDef).method.apply {
             val auth = Base64.getEncoder().encodeToString("$clientId:".toByteArray(Charsets.UTF_8))
-            addInstructions(
-                0,
-                """
-                     const-string v0, "Basic $auth"
-                     return-object v0
-                """,
-            )
+            returnEarly("Basic $auth")
+
             val occurrenceIndex =
                 getAuthorizationStringFingerprint.stringMatches.first().index
 
@@ -63,23 +58,19 @@ val spoofClientPatch = spoofClientPatch(
         val randomName = (0..100000).random()
         val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
 
-        getUserAgentFingerprint.method.replaceInstruction(
-            0,
-            """
-                const-string v0, "$userAgent"
-                return-object v0
-            """,
-        )
+        getUserAgentFingerprint.method.returnEarly(userAgent)
 
         // endregion
 
         // region Patch Imgur API URL.
 
-        val apiUrlIndex = imgurImageAPIFingerprint.stringMatches.first().index
-        imgurImageAPIFingerprint.method.replaceInstruction(
-            apiUrlIndex,
-            "const-string v1, \"https://api.imgur.com/3/image\"",
-        )
+        imgurImageAPIFingerprint.let {
+            val apiUrlIndex = it.stringMatches.first().index
+            it.method.replaceInstruction(
+                apiUrlIndex,
+                "const-string v1, \"https://api.imgur.com/3/image\"",
+            )
+        }
 
         // endregion
     }

@@ -1,18 +1,52 @@
 package app.revanced.patches.shared.misc.settings
 
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResource
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
+import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.getNode
 import app.revanced.util.insertFirst
+import app.revanced.util.returnEarly
 import org.w3c.dom.Node
+
+// TODO: Delete this on next major version bump.
+@Deprecated("Use non deprecated settings patch function")
+fun settingsPatch (
+    rootPreference: Pair<IntentPreference, String>,
+    preferences: Set<BasePreference>,
+) = settingsPatch(listOf(rootPreference), preferences)
+
+private var themeForegroundColor : String? = null
+private var themeBackgroundColor : String? = null
+
+/**
+ * Sets the default theme colors used in various ReVanced specific settings menus.
+ * By default these colors are white and black, but instead can be set to the
+ * same color the target app uses for it's own settings.
+ */
+fun overrideThemeColors(foregroundColor: String, backgroundColor: String) {
+    themeForegroundColor = foregroundColor
+    themeBackgroundColor = backgroundColor
+}
+
+private val settingsColorPatch = bytecodePatch {
+    finalize {
+        if (themeForegroundColor != null) {
+            themeLightColorResourceNameFingerprint.method.returnEarly(themeForegroundColor!!)
+        }
+        if (themeBackgroundColor != null) {
+            themeDarkColorResourceNameFingerprint.method.returnEarly(themeBackgroundColor!!)
+        }
+    }
+}
 
 /**
  * A resource patch that adds settings to a settings fragment.
@@ -25,12 +59,28 @@ fun settingsPatch (
     rootPreferences: List<Pair<BasePreference, String>>? = null,
     preferences: Set<BasePreference>,
 ) = resourcePatch {
-    dependsOn(addResourcesPatch)
+    dependsOn(addResourcesPatch, settingsColorPatch)
 
     execute {
         copyResources(
             "settings",
             ResourceGroup("xml", "revanced_prefs.xml", "revanced_prefs_icons.xml"),
+            ResourceGroup("drawable",
+                // CustomListPreference resources.
+                "revanced_ic_dialog_alert.xml",
+                "revanced_settings_arrow_time.xml",
+                "revanced_settings_circle_background.xml",
+                "revanced_settings_cursor.xml",
+                "revanced_settings_custom_checkmark.xml",
+                "revanced_settings_search_icon.xml",
+                "revanced_settings_toolbar_arrow_left.xml",
+            ),
+            ResourceGroup("layout",
+                "revanced_custom_list_item_checked.xml",
+                // Color picker.
+                "revanced_color_dot_widget.xml",
+                "revanced_color_picker.xml",
+            )
         )
 
         addResources("shared", "misc.settings.settingsResourcePatch")

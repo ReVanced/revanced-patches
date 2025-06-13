@@ -55,11 +55,28 @@ internal val layoutConstructorFingerprint by fingerprint {
     )
 }
 
+internal val mainActivityConstructorFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters()
+    custom { _, classDef ->
+        classDef.endsWith("/MainActivity;")
+    }
+}
+
+internal val mainActivityOnBackPressedFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters()
+    custom { method, classDef ->
+        method.name == "onBackPressed" && classDef.endsWith("/MainActivity;")
+    }
+}
+
 internal val mainActivityOnCreateFingerprint by fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
     custom { method, classDef ->
-        method.name == "onCreate" && classDef.endsWith("MainActivity;")
+        method.name == "onCreate" && classDef.endsWith("/MainActivity;")
     }
 }
 

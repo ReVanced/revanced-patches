@@ -684,6 +684,9 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_autoplay_button_title">自動再生ボタンを非表示</string>
   <string name="revanced_hide_autoplay_button_summary_on">自動再生ボタンはオーバーレイに表示されません</string>
   <string name="revanced_hide_autoplay_button_summary_off">自動再生ボタンはオーバーレイに表示されます</string>
+  <string name="revanced_hide_player_control_buttons_background_title">プレーヤーのコントロール ボタンの背景を非表示</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">プレーヤーのコントロール ボタンの背景は表示されません</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">プレーヤーのコントロール ボタンの背景は表示されます</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">動画の終了画面を非表示</string>
@@ -768,6 +771,9 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_shorts_green_screen_button_title">グリーンスクリーン ボタンを非表示</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">グリーンスクリーン ボタンは表示されません</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">グリーンスクリーン ボタンは表示されます</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">「新しい投稿」ボタンを非表示</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">「新しい投稿」ボタンは表示されます</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">「新しい投稿」ボタンは表示されません</string>
   <string name="revanced_hide_shorts_hashtag_button_title">ハッシュタグ ボタンを非表示</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">ハッシュタグ ボタンは表示されません</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">ハッシュタグ ボタンは表示されます</string>
@@ -1125,14 +1131,14 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_change_form_factor_entry_2">スマートフォン</string>
   <string name="revanced_change_form_factor_entry_3">タブレット</string>
   <string name="revanced_change_form_factor_entry_4">Automotive</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"変更点は以下のとおりです:
+  <string name="revanced_change_form_factor_user_dialog_message">"以下の変更を伴います:
 
 タブレット レイアウト
 • コミュニティ投稿が表示されない
 
 Automotive レイアウト
 • ショート動画を通常のプレーヤーで開く
-• フィードがトピックとチャンネルで分類される"</string>
+• フィードがトピックやチャンネルごとに分類された形で表示される"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装する</string>
@@ -1202,7 +1208,7 @@ Automotive レイアウト
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">ミニプレーヤー</string>
-  <string name="revanced_miniplayer_screen_summary">動画視聴中に [戻る] ボタンをタップ、または下にスワイプしたときに表示される小さなプレーヤーの設定</string>
+  <string name="revanced_miniplayer_screen_summary">視聴中に [戻る] ボタンをタップまたは画面を下にスワイプしたときにアプリ内に表示される小さなプレーヤーの設定</string>
   <string name="revanced_miniplayer_type_title">ミニプレーヤーのタイプ</string>
   <string name="revanced_miniplayer_type_entry_0">無効</string>
   <string name="revanced_miniplayer_type_entry_1">デフォルト</string>
@@ -1249,14 +1255,14 @@ Automotive レイアウト
   <string name="revanced_miniplayer_width_dip_summary">画面に表示される際の大きさ (ピクセル)</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">ピクセルサイズの範囲は %1$s-%2$s です</string>
   <string name="revanced_miniplayer_opacity_title">オーバーレイの透明度</string>
-  <string name="revanced_miniplayer_opacity_summary">透明度の範囲は 0-100 で、0が透明です</string>
+  <string name="revanced_miniplayer_opacity_summary">透明度の範囲は 0-100 で、0 が透明です</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">ミニプレーヤー: 透明度の範囲は 0-100 です</string>
   </patch>
   <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">グラデーションの読み込み画面を使用する</string>
   <string name="revanced_gradient_loading_screen_summary_on">画面読み込み時にグラデーションの背景が表示されます</string>
   <string name="revanced_gradient_loading_screen_summary_off">画面読み込み時に通常の背景が表示されます</string>
-  <string name="splash_screen_animation_style_title">スプラッシュ スクリーンのスタイル</string>
+  <string name="splash_screen_animation_style_title">スプラッシュ画面のスタイル</string>
   <string name="splash_screen_animation_style_entry_1">カラー</string>
   <string name="splash_screen_animation_style_entry_2">白黒</string>
   <string name="revanced_seekbar_custom_color_title">編集したシークバーの色を使用する</string>

@@ -679,6 +679,9 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_autoplay_button_title">Paslėpti mygtuką „Automatinis atkūrimas\"</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automatinio paleidimo mygtukas yra paslėptas</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automatinio paleidimo mygtukas yra rodomas</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Slėpti grotuvo valdymo mygtukų foną</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Grotuvo valdymo mygtukų fonas paslėptas</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Grotuvo valdymo mygtukų fonas rodomas</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Slėpti ekrano pabaigos korteles</string>
@@ -763,6 +766,9 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_shorts_green_screen_button_title">Paslėpti mygtuką „Žalias ekranas\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Žaliojo ekrano\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Žaliojo ekrano\" mygtukas rodomas</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Slėpti mygtuką „Nauji įrašai“</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Rodomas mygtukas „Nauji įrašai“</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Paslėptas mygtukas „Nauji įrašai“</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Slėpti grotažymės mygtuką</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Grotažymės mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Grotažymės mygtukas rodomas</string>

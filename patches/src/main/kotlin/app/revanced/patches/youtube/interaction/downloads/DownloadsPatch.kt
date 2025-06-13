@@ -11,7 +11,11 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.misc.playercontrols.*
+import app.revanced.patches.youtube.misc.playercontrols.addBottomControl
+import app.revanced.patches.youtube.misc.playercontrols.initializeBottomControl
+import app.revanced.patches.youtube.misc.playercontrols.injectVisibilityCheckCall
+import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
+import app.revanced.patches.youtube.misc.playercontrols.playerControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
@@ -85,7 +89,7 @@ val downloadsPatch = bytecodePatch(
         // Main activity is used to launch downloader intent.
         mainActivityOnCreateFingerprint.method.addInstruction(
             1,
-            "invoke-static/range { p0 .. p0 }, ${EXTENSION_CLASS_DESCRIPTOR}->setMainActivity(Landroid/app/Activity;)V",
+            "invoke-static/range { p0 .. p0 }, ${EXTENSION_CLASS_DESCRIPTOR}->setMainActivity(Landroid/app/Activity;)V"
         )
 
         offlineVideoEndpointFingerprint.method.apply {

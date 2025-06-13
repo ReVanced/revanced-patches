@@ -681,6 +681,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">Сакриј дугме „Аутоплеј”</string>
   <string name="revanced_hide_autoplay_button_summary_on">Дугме „Аутоплеј” је скривено</string>
   <string name="revanced_hide_autoplay_button_summary_off">Дугме „Аутоплеј” је приказано</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Сакриј позадину дугмади за контролу плејера</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Позадина дугмади за контролу плејера је скривена</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Позадина дугмади за контролу плејера је приказана</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Сакриј картице завршног екрана</string>
@@ -765,6 +768,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Сакриј дугме „Зелени екран”</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Дугме „Зелени екран” је скривено</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Дугме „Зелени екран” је приказано</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Сакриј дугме „Нове објаве”</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Дугме „Нове објаве” је приказано</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Дугме „Нове објаве” је скривено</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Сакриј дугме хеш-ознаке</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Дугме хеш-ознаке је скривено</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Дугме хеш-ознаке је приказано</string>

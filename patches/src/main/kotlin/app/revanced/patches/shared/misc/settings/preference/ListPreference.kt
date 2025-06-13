@@ -12,7 +12,7 @@ import org.w3c.dom.Document
  * @param summaryKey The preference summary key.
  * @param icon The preference icon resource name.
  * @param layout Layout declaration.
- * @param tag The preference tag.
+ * @param tag The preference class type.
  * @param entriesKey The entries array key.
  * @param entryValuesKey The entry values array key.
  */
@@ -20,10 +20,12 @@ import org.w3c.dom.Document
 class ListPreference(
     key: String? = null,
     titleKey: String = "${key}_title",
-    summaryKey: String? = "${key}_summary",
+    /** Summary key is ignored and will be removed soon */
+    //@Deprecated
+    summaryKey: String? = null,
     icon: String? = null,
     layout: String? = null,
-    tag: String = "ListPreference",
+    tag: String = "app.revanced.extension.shared.settings.preference.CustomDialogListPreference",
     val entriesKey: String? = "${key}_entries",
     val entryValuesKey: String? = "${key}_entry_values"
 ) : BasePreference(key, titleKey, summaryKey, icon, layout, tag) {

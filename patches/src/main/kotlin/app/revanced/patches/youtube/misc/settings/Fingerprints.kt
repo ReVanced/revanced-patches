@@ -25,9 +25,6 @@ internal val setThemeFingerprint by fingerprint {
     )
 }
 
-/**
- * Added in YouTube v19.04.38.
- */
 internal val cairoFragmentConfigFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")

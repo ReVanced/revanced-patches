@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
 import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
+import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstResourceIdOrThrow
@@ -28,7 +29,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 val hidePlayerOverlayButtonsPatch = bytecodePatch(
     name = "Hide player overlay buttons",
-    description = "Adds options to hide the player Cast, Autoplay, Captions, and Previous & Next buttons.",
+    description = "Adds options to hide the player Cast, Autoplay, Captions, Previous & Next buttons, and the player " +
+        "control buttons background.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -57,6 +59,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_cast_button"),
             SwitchPreference("revanced_hide_captions_button"),
             SwitchPreference("revanced_hide_autoplay_button"),
+            SwitchPreference("revanced_hide_player_control_buttons_background"),
         )
 
         // region Hide player next/previous button.
@@ -126,6 +129,33 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
                     if-nez v$constRegister, :hidden
                 """,
                 ExternalLabel("hidden", getInstruction(gotoIndex)),
+            )
+        }
+
+        // endregion
+
+        // region Hide player control buttons background.
+
+        inflateControlsGroupLayoutStubFingerprint.method.apply {
+            val controlsButtonGroupLayoutStubResIdConstIndex =
+                indexOfFirstLiteralInstructionOrThrow(controlsButtonGroupLayoutStub)
+            val inflateControlsGroupLayoutStubIndex =
+                indexOfFirstInstruction(controlsButtonGroupLayoutStubResIdConstIndex) {
+                    getReference<MethodReference>()?.name == "inflate"
+                }
+
+            val freeRegister = findFreeRegister(inflateControlsGroupLayoutStubIndex)
+            val hidePlayerControlButtonsBackgroundDescriptor =
+                "$EXTENSION_CLASS_DESCRIPTOR->hidePlayerControlButtonsBackground(Landroid/view/View;)V"
+
+            addInstructions(
+                inflateControlsGroupLayoutStubIndex + 1,
+                """
+                   # Move the inflated layout to a temporary register.
+                   # The result of the inflate method is by default not moved to a register after the method is called.
+                   move-result-object v$freeRegister
+                   invoke-static { v$freeRegister }, $hidePlayerControlButtonsBackgroundDescriptor
+                """
             )
         }
 
