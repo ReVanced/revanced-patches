@@ -5,7 +5,7 @@ import static app.revanced.extension.shared.requests.Route.Method.GET;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,6 +15,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.PowerManager;
 import android.provider.Settings;
+import android.util.Pair;
+import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -26,6 +28,7 @@ import java.util.Locale;
 
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
+import app.revanced.extension.shared.Utils;
 
 @SuppressWarnings("unused")
 public class GmsCoreSupport {
@@ -78,13 +81,27 @@ public class GmsCoreSupport {
         // Use a delay to allow the activity to finish initializing.
         // Otherwise, if device is in dark mode the dialog is shown with wrong color scheme.
         Utils.runOnMainThreadDelayed(() -> {
+            // Create the custom dialog.
+            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                    context,
+                    str("gms_core_dialog_title"), // Title.
+                    str(dialogMessageRef),        // Message.
+                    null,                         // No EditText.
+                    str(positiveButtonTextRef),   // OK button text.
+                    () -> onPositiveClickListener.onClick(null, 0), // Convert DialogInterface.OnClickListener to Runnable.
+                    null,                         // No Cancel button action.
+                    null,                         // No Neutral button text.
+                    null,                         // No Neutral button action.
+                    true                          // Dismiss dialog when onNeutralClick.
+            );
+
+            Dialog dialog = dialogPair.first;
+
             // Do not set cancelable to false, to allow using back button to skip the action,
             // just in case the battery change can never be satisfied.
-            var dialog = new AlertDialog.Builder(context)
-                    .setTitle(str("gms_core_dialog_title"))
-                    .setMessage(str(dialogMessageRef))
-                    .setPositiveButton(str(positiveButtonTextRef), onPositiveClickListener)
-                    .create();
+            dialog.setCancelable(true);
+
+            // Show the dialog
             Utils.showDialog(context, dialog);
         }, 100);
     }
