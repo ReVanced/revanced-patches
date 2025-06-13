@@ -127,7 +127,7 @@ val shortsAutoplayPatch = bytecodePatch(
                             getReference<MethodReference>()?.definingClass == EXTENSION_CLASS_DESCRIPTOR
                 } + 1
                 val enumRegister = getInstruction<OneRegisterInstruction>(extensionReturnResultIndex).registerA
-                val getReelSequenceControllerIndex = indexOfFirstInstructionOrThrow(extensionReturnResultIndex) {
+                val getReelSequenceControllerIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<FieldReference>()
                     opcode == Opcode.IGET_OBJECT &&
                             reference?.definingClass == definingClass &&
