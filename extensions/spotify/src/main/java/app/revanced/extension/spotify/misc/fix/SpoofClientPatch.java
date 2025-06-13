@@ -17,10 +17,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class SpoofClientPatch {
     public static String transferSession(String accessToken, String clientToken) throws Exception {
-        var ottToken = new JSONObject(getOttTokenResponse(accessToken, clientToken)).getString("token");
-
-        var webBearerTokenResponse = new JSONObject(getWebBearerTokenResponse(ottToken));
-        return webBearerTokenResponse.getString("access_token");
+        String ottToken = new JSONObject(getOttTokenResponse(accessToken, clientToken)).getString("token");
+        return new JSONObject(getWebBearerTokenResponse(ottToken)).getString("access_token");
     }
 
     private static String getOttTokenResponse(String accessToken, String clientToken) throws Exception {
@@ -44,10 +42,10 @@ public class SpoofClientPatch {
     private static String getWebBearerTokenResponse(String ottToken) {
         AtomicReference<String> webBearerTokenResponse = new AtomicReference<>();
 
-        var latch = new CountDownLatch(1);
+        CountDownLatch latch = new CountDownLatch(1);
 
         WebView webView = new WebView(Utils.getContext());
-        var settings = webView.getSettings();
+        WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
         settings.setUserAgentString("Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
@@ -88,7 +86,7 @@ public class SpoofClientPatch {
 
                             connection.connect();
 
-                            var response = readConnectionResponse(connection);
+                            String response = readConnectionResponse(connection);
                             Log.d("revanced", "Token Response: " + response);
 
                             webBearerTokenResponse.set(response);
