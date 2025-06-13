@@ -7,7 +7,6 @@ import app.revanced.patches.all.misc.resources.addResource
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.util.ResourceGroup
@@ -16,13 +15,6 @@ import app.revanced.util.getNode
 import app.revanced.util.insertFirst
 import app.revanced.util.returnEarly
 import org.w3c.dom.Node
-
-// TODO: Delete this on next major version bump.
-@Deprecated("Use non deprecated settings patch function")
-fun settingsPatch (
-    rootPreference: Pair<IntentPreference, String>,
-    preferences: Set<BasePreference>,
-) = settingsPatch(listOf(rootPreference), preferences)
 
 private var themeForegroundColor : String? = null
 private var themeBackgroundColor : String? = null
