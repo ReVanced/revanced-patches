@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">সেটিংস</string>
-  <string name="revanced_settings_confirm_user_dialog_title">আপনি কি এগিয়ে যেতে ইচ্ছুক?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">আপনি কি এগিয়ে যেতে চান?</string>
   <string name="revanced_settings_reset">আবার সেট করুন</string>
   <string name="revanced_settings_reset_color">রঙ রিসেট করুন</string>
   <string name="revanced_settings_color_invalid">অবৈধ রঙ</string>
-  <string name="revanced_settings_restart_title">রিফ্রেশ করুন এবং আবার চালু করুন</string>
+  <string name="revanced_settings_restart_title">পুনরায় আরম্ভ করা আবশ্যক</string>
+  <string name="revanced_settings_restart_dialog_message">এই পরিবর্তন কার্যকর করার জন্য অ্যাপটি পুনরায় চালু করুন।</string>
   <string name="revanced_settings_restart">আবার চালু করুন</string>
   <string name="revanced_settings_import">আমদানি করুন</string>
   <string name="revanced_settings_import_copy">অনুলিপি করুন</string>

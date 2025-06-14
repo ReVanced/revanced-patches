@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Beállítások</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Szeretné folytatni?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Biztosan folytatni szeretné?</string>
   <string name="revanced_settings_reset">Visszaállítás</string>
   <string name="revanced_settings_reset_color">Szín alaphelyzetbe állítása</string>
   <string name="revanced_settings_color_invalid">Érvénytelen szín</string>
-  <string name="revanced_settings_restart_title">Frissítés és újraindítás</string>
+  <string name="revanced_settings_restart_title">Újraindítás szükséges</string>
+  <string name="revanced_settings_restart_dialog_message">Indítsa újra az alkalmazást, hogy a változás érvénybe lépjen.</string>
   <string name="revanced_settings_restart">Újraindítás</string>
   <string name="revanced_settings_import">Importálás</string>
   <string name="revanced_settings_import_copy">Másolás</string>

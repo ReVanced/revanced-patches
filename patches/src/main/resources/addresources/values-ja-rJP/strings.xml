@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">設定</string>
-  <string name="revanced_settings_confirm_user_dialog_title">続行しますか？</string>
+  <string name="revanced_settings_confirm_user_dialog_title">本当に続行しますか？</string>
   <string name="revanced_settings_reset">リセット</string>
   <string name="revanced_settings_reset_color">色をリセット</string>
   <string name="revanced_settings_color_invalid">色の値が無効です</string>
-  <string name="revanced_settings_restart_title">更新して再起動</string>
+  <string name="revanced_settings_restart_title">再起動が必要です</string>
+  <string name="revanced_settings_restart_dialog_message">変更を反映させるためにアプリを再起動します。</string>
   <string name="revanced_settings_restart">再起動</string>
   <string name="revanced_settings_import">インポート</string>
   <string name="revanced_settings_import_copy">コピー</string>
@@ -52,7 +53,7 @@ Second \"item\" text"</string>
   <string name="revanced_show_menu_icons_summary_on">ReVanced 設定にアイコンが表示されます</string>
   <string name="revanced_show_menu_icons_summary_off">ReVanced 設定にアイコンは表示されません</string>
   <string name="revanced_language_title">ReVanced の言語</string>
-  <string name="revanced_language_user_dialog_message">"一部の言語の翻訳が不足しているか、不完全である可能性があります。
+  <string name="revanced_language_user_dialog_message">"翻訳が存在しない、または不完全な言語が存在する可能性があります。
 
 新しい言語を翻訳するには、 translate.revanced.app にアクセスしてください"</string>
   <string name="revanced_language_DEFAULT">アプリの言語</string>

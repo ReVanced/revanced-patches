@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Налаштування</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Бажаєте продовжити?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Ви впевнені, що хочете продовжити?</string>
   <string name="revanced_settings_reset">Скинути</string>
   <string name="revanced_settings_reset_color">Скинути колір</string>
   <string name="revanced_settings_color_invalid">Недійсний колір</string>
-  <string name="revanced_settings_restart_title">Оновити та перезавантажити?</string>
+  <string name="revanced_settings_restart_title">Потрібен перезапуск</string>
+  <string name="revanced_settings_restart_dialog_message">Перезапустіть застосунок, щоб зміни набули чинності.</string>
   <string name="revanced_settings_restart">Перезавантажити</string>
   <string name="revanced_settings_import">Імпорт</string>
   <string name="revanced_settings_import_copy">Копіювати</string>

@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Mga Setting</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Gusto mo bang magpatuloy?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Sigurado ka bang gusto mong magpatuloy?</string>
   <string name="revanced_settings_reset">I-reset</string>
   <string name="revanced_settings_reset_color">I-reset ang kulay</string>
   <string name="revanced_settings_color_invalid">Hindi wasto ang kulay</string>
-  <string name="revanced_settings_restart_title">I-refresh at i-restart</string>
+  <string name="revanced_settings_restart_title">Kinakailangan ang pag-restart</string>
+  <string name="revanced_settings_restart_dialog_message">I-restart ang app para magkabisa ang pagbabagong ito.</string>
   <string name="revanced_settings_restart">I-restart</string>
   <string name="revanced_settings_import">Angkat</string>
   <string name="revanced_settings_import_copy">Kopya</string>
