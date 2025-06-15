@@ -13,15 +13,7 @@ internal val startLiborbitFingerprint = fingerprint {
     strings("/liborbit-jni-spotify.so")
 }
 
-internal val clientTokenSuccessClassFingerprint = fingerprint {
-    strings("ClientTokenSuccess(clientToken=")
-}
-
-internal val clientTokenSuccessConstructorFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-}
-
-internal val startupPageLayoutInflateFIngerprint = fingerprint {
+internal val startupPageLayoutInflateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("Landroid/view/LayoutInflater;", "Landroid/view/ViewGroup;", "Landroid/os/Bundle;")

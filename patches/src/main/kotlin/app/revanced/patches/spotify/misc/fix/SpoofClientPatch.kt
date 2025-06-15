@@ -23,6 +23,7 @@ internal fun makeUrlPatch(targetFilePath: String): Sequence<Replacement> {
         Replacement(
             "68 74 74 70 73 3A 2F 2F 6C 6F 67 69 6E 35 2E 73 70 6F 74 69 66 79 2E 63 6F 6D 2F 76 33 2F 6C 6F 67 69 6E",
             // "68 74 74 70 3A 2F 2F 31 39 32 2E 31 36 38 2E 30 2E 32 32 35 3A 34 38 35 34 2F 76 33 2F 6C 6F 67 69 6E 00",
+            // http://127.0.0.1:4345/v3/login
             "68 74 74 70 3A 2F 2F 31 32 37 2E 30 2E 30 2E 31 3A 34 33 34 35 2F 76 33 2F 6C 6F 67 69 6E 00 00 00 00 00",
             targetFilePath,
         ),
@@ -30,6 +31,7 @@ internal fun makeUrlPatch(targetFilePath: String): Sequence<Replacement> {
         Replacement(
             "68 74 74 70 73 3A 2F 2F 6C 6F 67 69 6E 35 2E 73 70 6F 74 69 66 79 2E 63 6F 6D 2F 76 34 2F 6C 6F 67 69 6E",
             // "68 74 74 70 3A 2F 2F 31 39 32 2E 31 36 38 2E 30 2E 32 32 35 3A 34 38 35 34 2F 76 34 2F 6C 6F 67 69 6E 00",
+            // http://127.0.0.1:4345/v4/login
             "68 74 74 70 3A 2F 2F 31 32 37 2E 30 2E 30 2E 31 3A 34 33 34 35 2F 76 34 2F 6C 6F 67 69 6E 00 00 00 00 00",
             targetFilePath,
         )
@@ -104,13 +106,7 @@ val spoofClientPatch = bytecodePatch(
             "invoke-static {}, $LOGIN_HOOK_WEB_SERVER_CLASS_DESCRIPTOR->startWebServer()V"
         )
 
-        val clientTokenSuccessClassDef = clientTokenSuccessClassFingerprint.originalClassDef
-        clientTokenSuccessConstructorFingerprint.match(clientTokenSuccessClassDef).method.addInstruction(
-            0,
-            "invoke-static { p1 }, $LOGIN_HOOK_WEB_SERVER_CLASS_DESCRIPTOR->setClientToken(Ljava/lang/String;)V"
-        )
-
-        /* startupPageLayoutInflateFIngerprint.method.apply {
+        /* startupPageLayoutInflateFingerprint.method.apply {
             val returnIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN);
             val inflatedViewRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
 
@@ -121,7 +117,7 @@ val spoofClientPatch = bytecodePatch(
             )
         } */
 
-        startupPageLayoutInflateFIngerprint.method.addInstructions(
+        startupPageLayoutInflateFingerprint.method.addInstructions(
             0,
             "move-object/from16 v3, p1\n" +
             "invoke-static { v3 }, "+

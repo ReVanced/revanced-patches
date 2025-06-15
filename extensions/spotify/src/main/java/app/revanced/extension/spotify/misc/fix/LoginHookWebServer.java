@@ -8,22 +8,43 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.webkit.*;
+import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.spotify.login5.v4.proto.LoginOk;
+import app.revanced.extension.spotify.login5.v4.proto.LoginRequest;
 import app.revanced.extension.spotify.login5.v4.proto.LoginResponse;
 import com.google.protobuf.ByteString;
 import fi.iki.elonen.NanoHTTPD;
 
-import java.io.*;
-import java.net.HttpURLConnection;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 @SuppressWarnings("unused")
 public class LoginHookWebServer {
-    static volatile String clientToken;
-    static volatile String cookies;
+
+    static final int SERVER_PORT = 4345;
+    static final int BEARER_TOKEN_LATCH_TIMEOUT = 5;
+    static final String WEBVIEW_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
+            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edge/136.0.0.0";
+    static final String OPEN_SPOTIFY_HOST = "open.spotify.com";
+    static final String OPEN_SPOTIFY_URL = "https://" + OPEN_SPOTIFY_HOST;
+
+    private static final class TokenAndUsername {
+
+        public final String token;
+        public final String username;
+
+        private TokenAndUsername(String token, String username) {
+            this.token = token;
+            this.username = username;
+        }
+    }
 
     private final static class WebServer extends NanoHTTPD {
 
@@ -31,283 +52,274 @@ public class LoginHookWebServer {
             super(port);
         }
 
+        @NonNull
         @Override
         public Response serve(IHTTPSession session) {
             try {
-                Logger.printInfo(() -> "Got request " + session.getUri());
+                Logger.printInfo(() -> "Got request to " + session.getUri());
 
-                String webBearerToken = getWebBearerTokenFromCookies(cookies);
-                Logger.printInfo(() -> "Web bearer token " + webBearerToken);
+                int requestContentLength = Integer.parseInt(session.getHeaders().get("content-length"));
+                byte[] requestBody = getRequestBody(session.getInputStream(), requestContentLength);
 
-                ByteString storedCredentials = ByteString.fromHex("416742685966456C6F625130523277326A7731734C30634E4A665F6C786D6D6F705A6A504233666142444E46556B717A52346D6A674452514C486C347133437A675441594A2D6F4F79496B48556F4C4167356266433449577366507A5937356A2D6E746E51596A73427866634A66652D4B6F7A5F674D5974446D67716C636542456E5F4365366972715945396F78416C3168464E39696838335A5F766D64333976652D5257367A31484C4F49387367527371506B616F6D4A6B7479416F6C6837");
+                LoginRequest loginRequest = LoginRequest.parseFrom(requestBody);
 
+                String storedCredentialUsername = null;
+                if (loginRequest.hasStoredCredential()) {
+                    storedCredentialUsername = loginRequest.getStoredCredential().getUsername();
+                }
+
+                TokenAndUsername tokenAndUsername = getWebBearerTokenFromCookies(storedCredentialUsername);
+                // Our latch timed out, let native handle the error and request again.
+                if (tokenAndUsername == null) {
+                    return makeResponse(Response.Status.INTERNAL_ERROR, null);
+                }
+
+                // storedCredentials cannot be empty.
+                ByteString storedCredentials = ByteString.fromHex("00");
                 byte[] loginResponse = LoginResponse.newBuilder()
                         .setOk(LoginOk.newBuilder()
-                                .setUsername("31bhxjkeeq3lxm6t6k4rsg5jpt6q")
-                                .setAccessToken(webBearerToken)
+                                .setUsername(tokenAndUsername.username)
+                                .setAccessToken(tokenAndUsername.token)
                                 .setStoredCredential(storedCredentials)
                                 .setAccessTokenExpiresIn(3600)
                                 .build())
                         .build().toByteArray();
 
-                Logger.printInfo(() -> "Sending web bearer response back to native");
-                ByteArrayInputStream responseStream = new ByteArrayInputStream(loginResponse);
-                return newFixedLengthResponse(Response.Status.OK, "application/x-protobuf", responseStream, loginResponse.length);
-
-                /* int contentLength = Integer.parseInt(session.getHeaders().get("content-length"));
-                byte[] requestBody = getRequestBody(session.getInputStream(), contentLength);
-
-                /* Response responseWithCookies = getResponseWithCookies(requestBody);
-                if (responseWithCookies != null) {
-                    return responseWithCookies;
-                }
-
-                URL url = new URL("https://login5.spotify.com" + session.getUri());
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("POST");
-                connection.setRequestProperty("Client-Token", clientToken);
-                connection.setRequestProperty("Content-Type", "application/x-protobuf");
-                connection.setRequestProperty("Content-Length", String.valueOf(contentLength));
-                connection.setRequestProperty("User-Agent", "Spotify/9.0.50.416 Android/33 (SM-S928B)");
-
-                connection.setDoOutput(true);
-                connection.getOutputStream().write(requestBody);
-
-                int statusCode = connection.getResponseCode();
-                Logger.printInfo(() -> "Status " + statusCode);
-
-                @SuppressLint({"NewApi", "LocalSuppress"}) byte[] response = connection.getInputStream().readAllBytes();
-                LoginResponse loginResponse = LoginResponse.parseFrom(response);
-
-                if (!loginResponse.hasOk()) {
-                    ByteArrayInputStream responseStream = new ByteArrayInputStream(response);
-                    return newFixedLengthResponse(Response.Status.OK, "application/x-protobuf", responseStream, response.length);
-                }
-
-                LoginOk.Builder loginOk = loginResponse.getOk().toBuilder();
-                String accessToken = loginResponse.getOk().getAccessToken();
-                Logger.printInfo(() ->  "Android access token " + accessToken);
-
-                String webBearerToken = transferSession(accessToken, clientToken);
-                Logger.printInfo(() ->  "Web access token " + accessToken);
-
-                loginOk.setAccessToken(webBearerToken);
-                byte[] newLoginResponse = loginResponse.toBuilder()
-                        .setOk(loginOk)
-                        .build().toByteArray();
-
-                ByteArrayInputStream newResponseStream = new ByteArrayInputStream(newLoginResponse);
-                return newFixedLengthResponse(Response.Status.OK, "application/x-protobuf", newResponseStream, newLoginResponse.length); */
-            } catch (Exception e) {
-                Logger.printException(() -> "error", e);
+                Logger.printInfo(() -> "Sending LoginResponse with web bearer token back to native");
+                return makeResponse(Response.Status.OK, loginResponse);
+            } catch (Exception ex) {
+                Logger.printException(() -> "serve failure", ex);
             }
 
-            return newFixedLengthResponse("ok");
+            return makeResponse(Response.Status.INTERNAL_ERROR, null);
         }
 
-        private static void setCookies(SharedPreferences sharedPreferences, String username, String cookies) {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("revanced_cookies_" + username, cookies);
-            editor.apply();
-        }
-
-        private static String getCookies(SharedPreferences sharedPreferences, String username) {
-            return sharedPreferences.getString("revanced_cookies_" + username, null);
-        }
-
-        private static byte[] getRequestBody(InputStream inputStream, int contentLength) throws IOException {
+        @NonNull
+        private static byte[] getRequestBody(@NonNull InputStream inputStream, int contentLength) throws IOException {
             byte[] requestBody = new byte[contentLength];
             int bytesRead = inputStream.read(requestBody, 0, contentLength);
 
             return requestBody;
         }
 
-        /* private static Response getResponseWithCookies(byte[] requestBody) throws InvalidProtocolBufferException {
-            LoginRequest loginRequest = LoginRequest.parseFrom(requestBody);
-            if (loginRequest.hasStoredCredential()) {
-                String username = loginRequest.getStoredCredential().getUsername();
-                ByteString storedCredential = loginRequest.getStoredCredential().getData();
-                int expiresIn = 3600;
-
-                SharedPreferences sharedPreferences =
-                        Utils.getContext().getSharedPreferences("revanced", Context.MODE_PRIVATE);
-                String cookies = getCookies(sharedPreferences, "");
-                if (cookies != null) {
-                    String webBearerToken = getWebBearerTokenResponse(, cookies);
-
-                    byte[] loginResponse = LoginResponse.newBuilder()
-                            .setOk(LoginOk.newBuilder()
-                                    .setUsername(username)
-                                    .setAccessToken(webBearerToken)
-                                    .setStoredCredential(storedCredential)
-                                    .setAccessTokenExpiresIn(expiresIn)
-                                    .build())
-                            .build().toByteArray();
-
-                    ByteArrayInputStream loginResponseStream = new ByteArrayInputStream(loginResponse);
-                    return newFixedLengthResponse(Response.Status.OK, "application/x-protobuf", loginResponseStream, loginResponse.length);
-                }
+        private static Response makeResponse(Response.IStatus status, byte[] responseBody) {
+            if (responseBody != null) {
+                ByteArrayInputStream responseStream = new ByteArrayInputStream(responseBody);
+                return newFixedLengthResponse(status, "application/x-protobuf", responseStream, responseBody.length);
             }
-
-            return null;
-        } */
-
-        @SuppressLint("SetJavaScriptEnabled")
-        private static String getWebBearerTokenFromCookies(String cookies) {
-            AtomicReference<String> webBearerTokenResponse = new AtomicReference<>();
-
-            CountDownLatch latch = new CountDownLatch(1);
-
-            Utils.runOnMainThread(() -> {
-                WebView webView = new WebView(Utils.getContext());
-                WebSettings settings = webView.getSettings();
-                settings.setJavaScriptEnabled(true);
-                settings.setDomStorageEnabled(true);
-                settings.setUserAgentString("Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
-                        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0");
-
-                webView.setWebViewClient(new WebViewClient() {
-                    private boolean patchedFetch;
-
-                    @Override
-                    public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                        Logger.printInfo(() -> "Url getWebBearerTokenFromCookies " + url);
-
-                        // Hook into fetch requests to capture the Authorization header.
-                        if (!patchedFetch && url.contains("open.spotify.com")) {
-                            String jsHook = "(function() {" +
-                                    "   const originalFetch = window.fetch;" +
-                                    "   window.fetch = (input, init) => {" +
-                                    "       const request = typeof input === 'string' ? new Request(input, init) : input;" +
-                                    "       const header = request.headers?.get?.('Authorization') || (init?.headers?.Authorization);" +
-                                    "       if (header) androidBridge.receiveToken(header, \"\");" +
-                                    "       return originalFetch(input, init);" +
-                                    "   };" +
-                                    "})();";
-
-                            view.evaluateJavascript(jsHook, null);
-                            patchedFetch = true;
-                        }
-                    }
-                });
-
-                webView.addJavascriptInterface(new Object() {
-                    @JavascriptInterface
-                    public void receiveToken(String token, String username) {
-                        Logger.printInfo(() -> "Token received via JS: " + token + ", username: " + username);
-
-                        Utils.runOnMainThread(webView::stopLoading);
-                        webBearerTokenResponse.set(token);
-                        latch.countDown();
-
-                        /* CookieManager cookieManager = CookieManager.getInstance();
-                        String cookies = cookieManager.getCookie("https://open.spotify.com");
-                        SharedPreferences sharedPreferences =
-                                Utils.getContext().getSharedPreferences("revanced", Context.MODE_PRIVATE);
-                        setCookies(sharedPreferences, username, cookies); */
-                    }
-                }, "androidBridge");
-
-                CookieManager cookieManager = CookieManager.getInstance();
-                Logger.printInfo(() -> "Setting cookies to " + cookies);
-                String aacookies = cookieManager.getCookie("https://open.spotify.com");
-                Logger.printInfo(() -> "Spotify cookies " + aacookies);
-                webView.loadUrl("https://open.spotify.com/collection/tracks");
-            });
-
-            try {
-                latch.await();
-            } catch (InterruptedException ignored) {
-            }
-
-            return webBearerTokenResponse.get().replace("Bearer ", "");
-        }
-
-        private static String readConnectionResponse(HttpURLConnection connection) throws IOException {
-            InputStream is = connection.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-            StringBuilder response = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                response.append(line);
-            }
-            reader.close();
-
-            return response.toString();
+            return newFixedLengthResponse(status, "application/x-protobuf", null);
         }
     }
 
+    private static void setCookies(String username, String cookies) {
+        SharedPreferences sharedPreferences =
+                Utils.getContext().getSharedPreferences("revanced", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("revanced_cookies_" + username, cookies);
+        editor.apply();
+    }
+
+    private static String getCookies(String username) {
+        SharedPreferences sharedPreferences =
+                Utils.getContext().getSharedPreferences("revanced", Context.MODE_PRIVATE);
+
+        return sharedPreferences.getString("revanced_cookies_" + username, null);
+    }
+
     @SuppressLint("SetJavaScriptEnabled")
-    private static void getCookiesFromWebView(Context context) {
-        new Thread(() -> {
-            AtomicReference<String> cookiesAtomicReference = new AtomicReference<>();
+    private static TokenAndUsername getWebBearerTokenFromCookies(String storedAccountUsername) {
+        AtomicReference<String> webBearerToken = new AtomicReference<>();
+        AtomicReference<String> accountUsername = new AtomicReference<>();
 
-            try {
-                CountDownLatch latch = new CountDownLatch(1);
+        AtomicReference<WebView> webViewRef = new AtomicReference<>();
+        AtomicBoolean webViewKilled = new AtomicBoolean(false);
+
+        CountDownLatch countDownLatch = new CountDownLatch(1);
+
+        Utils.runOnMainThread(() -> {
+            WebView webView = getWebView(Utils.getContext());
+            webViewRef.set(webView);
+
+            webView.setWebViewClient(new WebViewClient() {
+                private boolean injectedCode;
+
+                @Override
+                public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                    Logger.printInfo(() -> "Page started " + url);
+                    if (!injectedCode && url.contains("open.spotify.com")) {
+                        String jsInjection = "Object.defineProperty(Object.prototype, \"_username\", {" +
+                                "configurable: true," +
+                                "set(username) {" +
+                                "    if (username && this._builder != null && this._builder.accessToken) {" +
+                                "        androidBridge.receiveTokenAndUsername(this._builder.accessToken, username);" +
+                                "    }" +
+                                "    Object.defineProperty(this, \"_username\", {" +
+                                "        configurable: true," +
+                                "        enumerable: true," +
+                                "        writable: true," +
+                                "        value: username" +
+                                "    })" +
+                                "}" +
+                                "});";
+
+                        view.evaluateJavascript(jsInjection, null);
+                        injectedCode = true;
+                    }
+                }
+            });
+
+            webView.addJavascriptInterface(new Object() {
+                @JavascriptInterface
+                public void receiveTokenAndUsername(String token, String username) {
+                    Logger.printInfo(() -> "Token received via JS: " + token + ", username: " + username);
+
+                    Utils.runOnMainThread(() -> {
+                        if (webViewKilled.get()) {
+                            return;
+                        }
+
+                        webViewKilled.set(true);
+                        WebView webView = webViewRef.get();
+                        webView.stopLoading();
+                        webView.destroy();
+                    });
+
+                    webBearerToken.set(token);
+                    accountUsername.set(username);
+                    countDownLatch.countDown();
+
+                    String spotifyCookies = getSpotifyCookies();
+                    setCookies(username, spotifyCookies);
+                }
+            }, "androidBridge");
+
+            // If storedAccountUsername is null then this is the initial login for an account.
+            // In this case, use the cookies already saved in the cookie manager.
+            if (storedAccountUsername != null) {
+                String storedCookies = getCookies(storedAccountUsername);
+
+                CookieManager cookieManager = CookieManager.getInstance();
+                cookieManager.setCookie(OPEN_SPOTIFY_URL, storedCookies);
+            }
+
+            CookieManager cookieManager = CookieManager.getInstance();
+            String cookies = cookieManager.getCookie("https://open.spotify.com");
+            Logger.printInfo(() -> "Current spotify cookies " + cookies);
+
+            webView.loadUrl("https://open.spotify.com/preferences");
+        });
+
+        try {
+            boolean success = countDownLatch.await(BEARER_TOKEN_LATCH_TIMEOUT, TimeUnit.SECONDS);
+            if (!success) {
                 Utils.runOnMainThread(() -> {
-                    AlertDialog dialog = new AlertDialog.Builder(context).create();
-                    Logger.printInfo(() -> "dialog created");
+                    if (webViewKilled.get()) {
+                        return;
+                    }
 
-                    Logger.printInfo(() -> "HELLOOOOOOO");
-                    try {
-                        WebView webView = new WebView(context);
-                        webView.setInitialScale(1);
-                        WebSettings settings = webView.getSettings();
-                        settings.setLoadWithOverviewMode(true);
-                        settings.setUseWideViewPort(true);
-                        settings.setJavaScriptEnabled(true);
-                        settings.setDomStorageEnabled(true);
-                        settings.setUserAgentString("Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
-                                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0");
+                    webViewKilled.set(true);
+                    WebView webView = webViewRef.get();
+                    webView.stopLoading();
+                    webView.destroy();
+                });
 
+                return null;
+            }
+        } catch (InterruptedException ignored) {
+            return null;
+        }
 
-                        Logger.printInfo(() -> "setting webview client");
-                        webView.setWebViewClient(new WebViewClient() {
-                            @Override
-                            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                                Logger.printInfo(() -> "Url getCookiesFromWebView " + url);
+        return new TokenAndUsername(webBearerToken.get(), accountUsername.get());
+    }
 
-                                if (url.contains("open.spotify.com")) {
-                                    CookieManager cookieManager = CookieManager.getInstance();
-                                    cookiesAtomicReference.set(cookieManager.getCookie("open.spotify.com"));
-                                    dialog.dismiss();
-                                    latch.countDown();
-                                }
-                            }
-                        });
+    @SuppressLint("SetJavaScriptEnabled")
+    @NonNull
+    private static WebView getWebView(Context context) {
+        WebView webView = new WebView(context);
+        WebSettings settings = webView.getSettings();
+        settings.setDomStorageEnabled(true);
+        settings.setJavaScriptEnabled(true);
+        settings.setUserAgentString(WEBVIEW_USER_AGENT);
 
-                        Logger.printInfo(() -> "loading url");
-                        CookieManager.getInstance().setCookie("https://open.spotify.com", "");
-                        webView.loadUrl("https://accounts.spotify.com/en/login?continue=https%3A%2F%2Fopen.spotify.com");
-                        Logger.printInfo(() -> "setting view");
-                        dialog.setView(webView);
-                        Logger.printInfo(() -> "Showing dialog");
-                        Utils.showDialog((Activity) context, dialog, false, null);
-                    } catch (Throwable e) {
-                        Logger.printInfo(() -> "djjjjjjj" + e);
+        return webView;
+    }
+
+    private static String getSpotifyCookies() {
+        CookieManager cookieManager = CookieManager.getInstance();
+        return cookieManager.getCookie(OPEN_SPOTIFY_URL);
+    }
+
+    private static void clearSpotifyCookies() {
+        CookieManager cookieManager = CookieManager.getInstance();
+        String spotifyCookies = getSpotifyCookies();
+
+        if (spotifyCookies == null) {
+            return;
+        }
+
+        String[] cookieParts = spotifyCookies.split(";");
+        for (String cookie : cookieParts) {
+            String cookieName = cookie.substring(0, cookie.indexOf("=")).trim();
+
+            String expiredCookie = cookieName + "=;domain=" + OPEN_SPOTIFY_HOST + ";path=/;Max-Age=0";
+            cookieManager.setCookie(OPEN_SPOTIFY_HOST, expiredCookie);
+        }
+
+        cookieManager.flush();
+    }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    private static void loginWithWebClient(Context context) {
+        new Thread(() -> {
+            CountDownLatch countDownLatch = new CountDownLatch(1);
+
+            Utils.runOnMainThread(() -> {
+                AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+
+                WebView webView = getWebView(context);
+                webView.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public void onPageFinished(WebView view, String url) {
+                        super.onPageFinished(view, url);
+                        Logger.printInfo(() -> "Page finished loading: " + url);
+                    }
+
+                    @Override
+                    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                        if (request.getUrl().getHost().equals("open.spotify.com")) {
+                            Logger.printInfo(() -> "Got authentication cookies");
+                            Utils.runOnMainThread(webView::stopLoading);
+                            alertDialog.dismiss();
+                            countDownLatch.countDown();
+                        }
+
+                        return super.shouldInterceptRequest(view, request);
                     }
                 });
 
-                try {
-                    Logger.printInfo(() -> "waiting for latch");
-                    latch.await();
-                } catch (InterruptedException ignored) {
-                    Logger.printException(() -> "latch error", ignored);
-                }
-            } catch (Exception ex) {
-                Logger.printException(() -> "dsfsd", ex);
-            }
+                clearSpotifyCookies();
 
-            Logger.printInfo(() -> "waiting for cookies");
-            String cookiesStr = cookiesAtomicReference.get();
-            Logger.printInfo(() -> "Cookies " + cookiesStr);
-            cookies = cookiesStr;
+                Logger.printInfo(() -> "Loading url https://accounts.spotify.com/en/login?continue=https%3A%2F%2Fopen.spotify.com%2Fpreferences");
+                webView.loadUrl("https://accounts.spotify.com/en/login?continue=https%3A%2F%2Fopen.spotify.com%2Fpreferences");
+                alertDialog.setView(webView);
+                Utils.showDialog((Activity) context, alertDialog, false, null);
+            });
+
+            try {
+                Logger.printInfo(() -> "Waiting for login to be successfull");
+                countDownLatch.await();
+            } catch (InterruptedException ignored) {}
         }).start();
     }
 
     public static void openLoginWebView(LayoutInflater layoutInflater) {
-        Context context = layoutInflater.getContext();
-        getCookiesFromWebView(context);
+        try {
+            Context context = layoutInflater.getContext();
+            loginWithWebClient(context);
+        } catch (Exception ex) {
+            Logger.printException(() -> "openLoginWebView failure", ex);
+        }
     }
 
     /* public static void setLoginWebView(View inflatedView) {
@@ -316,16 +328,11 @@ public class LoginHookWebServer {
 
     public static void startWebServer() {
         try {
-            WebServer webServer = new WebServer(4345);
+            WebServer webServer = new WebServer(SERVER_PORT);
             webServer.start();
-            Logger.printInfo(() -> "NanoHTTPD server running on http://127.0.0.1:" + 4345);
+            Logger.printInfo(() -> "NanoHTTPD server running on http://127.0.0.1:" + SERVER_PORT);
         } catch (Exception ex) {
-            Logger.printException(() -> "startWebServer",  ex);
+            Logger.printException(() -> "startWebServer failure", ex);
         }
-    }
-
-    public static void setClientToken(String newClientToken) {
-        clientToken = newClientToken;
-        Logger.printInfo(() -> "Client token set to " + newClientToken);
     }
 }
