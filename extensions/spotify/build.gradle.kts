@@ -1,5 +1,12 @@
+import com.google.protobuf.gradle.id
+
 plugins {
-    id("org.jetbrains.kotlin.android")
+    id("com.google.protobuf") version "0.9.4"
+}
+
+repositories {
+    google()
+    mavenCentral()
 }
 
 dependencies {
@@ -7,11 +14,10 @@ dependencies {
     compileOnly(project(":extensions:spotify:stub"))
     compileOnly(libs.annotation)
 
-    val ktorVersion = "3.1.3"
-    implementation("io.ktor:ktor-server-core:$ktorVersion")
-    implementation("io.ktor:ktor-server-netty:$ktorVersion")
-    implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
-    implementation("io.ktor:ktor-serialization-kotlinx-protobuf:$ktorVersion")
+    implementation("org.nanohttpd:nanohttpd:2.3.1")
+    implementation("com.google.protobuf:protobuf-javalite:3.25.3")
+    implementation("io.grpc:grpc-stub:1.56.0")
+    implementation("io.grpc:grpc-protobuf-lite:1.56.0")
 }
 
 android {
@@ -23,15 +29,26 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
+}
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.25.3"
     }
-
-    packaging {
-        resources {
-            excludes += "META-INF/INDEX.LIST"
-            excludes += "META-INF/io.netty.versions.properties"
+    plugins {
+        id("grpc") {
+            artifact = "io.grpc:protoc-gen-grpc-java:1.56.0"
+        }
+    }
+    generateProtoTasks {
+        all().forEach { task ->
+            task.builtins {
+                create("java") {
+                    option("lite")
+                }
+            }
+            task.plugins {
+                id("grpc") { }
+            }
         }
     }
 }

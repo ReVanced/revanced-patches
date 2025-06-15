@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package spotify.login5.v4;
+
+option java_multiple_files = true;
+option optimize_for = CODE_SIZE;
+option java_package = "app.revanced.extension.spotify.login5.v4.proto";
+
+message StoredCredential {
+    string username = 1;
+    bytes data = 2;
+}
+
+message LoginRequest {
+    oneof login_method {
+        StoredCredential stored_credential = 100;
+    }
+}
+
+message LoginOk {
+    string username = 1;
+    string access_token = 2;
+    bytes stored_credential = 3;
+    int32 access_token_expires_in = 4;
+}
+
+message LoginResponse {
+    optional string unknown_field_8 = 8;
+    optional string unknown_field_9 = 9;
+
+    oneof response {
+        LoginOk ok = 1;
+    }
+}
