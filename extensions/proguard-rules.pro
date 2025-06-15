@@ -7,3 +7,4 @@
 -keep class com.google.** {
   *;
 }
+-dontwarn javax.lang.model.element.Modifier
