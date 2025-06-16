@@ -2,11 +2,13 @@ package app.revanced.extension.spotify.misc.fix;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
+import android.view.Window;
 import android.webkit.*;
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
@@ -275,7 +277,7 @@ public class LoginHookWebServer {
             CountDownLatch countDownLatch = new CountDownLatch(1);
 
             Utils.runOnMainThread(() -> {
-                AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+                Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
 
                 WebView webView = getWebView(context);
                 webView.setWebViewClient(new WebViewClient() {
@@ -290,10 +292,9 @@ public class LoginHookWebServer {
                         if (request.getUrl().getHost().equals("open.spotify.com")) {
                             Logger.printInfo(() -> "Got authentication cookies");
                             Utils.runOnMainThread(webView::stopLoading);
-                            alertDialog.dismiss();
+                            dialog.dismiss();
                             countDownLatch.countDown();
                         }
-
                         return super.shouldInterceptRequest(view, request);
                     }
                 });
@@ -302,12 +303,14 @@ public class LoginHookWebServer {
 
                 Logger.printInfo(() -> "Loading url https://accounts.spotify.com/en/login?continue=https%3A%2F%2Fopen.spotify.com%2Fpreferences");
                 webView.loadUrl("https://accounts.spotify.com/en/login?continue=https%3A%2F%2Fopen.spotify.com%2Fpreferences");
-                alertDialog.setView(webView);
-                Utils.showDialog((Activity) context, alertDialog, false, null);
+
+                dialog.setContentView(webView);
+                dialog.setCancelable(false);
+                dialog.show();
             });
 
             try {
-                Logger.printInfo(() -> "Waiting for login to be successfull");
+                Logger.printInfo(() -> "Waiting for login to be successful");
                 countDownLatch.await();
             } catch (InterruptedException ignored) {}
         }).start();
