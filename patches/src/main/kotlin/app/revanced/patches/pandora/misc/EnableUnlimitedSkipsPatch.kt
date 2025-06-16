@@ -1,7 +1,7 @@
 package app.revanced.patches.pandora.misc
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val enableUnlimitedSkipsPatch = bytecodePatch(
@@ -10,10 +10,6 @@ val enableUnlimitedSkipsPatch = bytecodePatch(
     compatibleWith("com.pandora.android")
 
     execute {
-        skipLimitBehaviorFingerprint.method.addInstructions(0,
-            """
-                const-string v0, "unlimited"
-                return-object v0
-            """.trimIndent())
+        skipLimitBehaviorFingerprint.method.returnEarly("unlimited")
     }
 }

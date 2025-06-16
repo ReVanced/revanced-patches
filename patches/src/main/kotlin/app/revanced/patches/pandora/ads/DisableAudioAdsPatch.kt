@@ -10,7 +10,7 @@ val disableAudioAdsPatch = bytecodePatch(
     compatibleWith("com.pandora.android")
 
     execute {
-        isAdSupportedFingerprint.method.returnEarly(false)
+        getIsAdSupportedFingerprint.method.returnEarly(false)
         requestAudioAdFingerprint.method.returnEarly()
     }
 }
