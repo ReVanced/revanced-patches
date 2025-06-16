@@ -681,6 +681,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">隐藏「自动播放」按钮</string>
   <string name="revanced_hide_autoplay_button_summary_on">自动播放按钮已隐藏</string>
   <string name="revanced_hide_autoplay_button_summary_off">自动播放按钮已显示</string>
+  <string name="revanced_hide_player_control_buttons_background_title">隐藏播放器控件按钮背景</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">播放器控件按钮背景已隐藏</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">播放器控件按钮背景已显示</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">隐藏片尾卡</string>
@@ -765,6 +768,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">隐藏「绿幕」按钮</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">绿屏按钮已隐藏</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">绿屏按钮已显示</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">隐藏“新帖”按钮</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">显示“新帖”按钮</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">隐藏“新帖”按钮</string>
   <string name="revanced_hide_shorts_hashtag_button_title">隐藏话题标签按钮</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">话题标签按钮已隐藏</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">话题标签按钮已显示</string>

@@ -681,6 +681,9 @@ Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS T
   <string name="revanced_hide_autoplay_button_title">Verberg knop voor automatisch afspelen</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automatische afspeelknop is verborgen</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automatische afspeelknop wordt weergegeven</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Achtergrond van afspeelknoppen verbergen</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Achtergrond van afspeelknoppen is verborgen</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Achtergrond van afspeelknoppen wordt weergegeven</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Verberg eindschermkaarten</string>
@@ -765,6 +768,9 @@ Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS T
   <string name="revanced_hide_shorts_green_screen_button_title">Verberg de knop \"Groen scherm\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">De knop \"Groen scherm\" is verborgen</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">De knop \"Groen scherm\" is zichtbaar</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Knop Nieuwe berichten verbergen</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Knop Nieuwe berichten wordt weergegeven</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Knop Nieuwe berichten is verborgen</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Verberg de knop \"Hashtag\"</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">De knop \"Hashtag\" is verborgen</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">De knop \"Hashtag\" is zichtbaar</string>

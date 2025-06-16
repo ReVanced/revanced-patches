@@ -681,6 +681,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">הסתר לחצן הפעלה אוטומטית</string>
   <string name="revanced_hide_autoplay_button_summary_on">לחצן הפעלה אוטומטית מוסתר</string>
   <string name="revanced_hide_autoplay_button_summary_off">לחצן הפעלה אוטומטית מוצג</string>
+  <string name="revanced_hide_player_control_buttons_background_title">הסתר רקע של לחצני שליטה בנגן</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">רקע לחצני השליטה בנגן מוסתר</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">רקע לחצני השליטה בנגן מוצג</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">הסתר כרטיסי מסך סיום</string>
@@ -765,6 +768,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">הסתר לחצן מסך ירוק</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">לחצן מסך ירוק מוסתר</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">לחצן מסך ירוק מוצג</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">הסתר לחצן \"פוסטים חדשים\"</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">לחצן \"פוסטים חדשים\" מוצג</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">לחצן \"פוסטים חדשים\" מוסתר</string>
   <string name="revanced_hide_shorts_hashtag_button_title">הסתר לחצן hashtag</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">לחצן hashtag מוסתר</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">לחצן hashtag מוצג</string>

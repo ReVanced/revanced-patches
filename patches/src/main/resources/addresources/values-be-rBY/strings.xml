@@ -681,6 +681,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">Схаваць кнопку «Аўтапрайграванне»</string>
   <string name="revanced_hide_autoplay_button_summary_on">Кнопка аўтазапуску схавана</string>
   <string name="revanced_hide_autoplay_button_summary_off">Паказана кнопка аўтазапуску</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Схаваць фон кнопак кіравання прайгравальнікам</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Фон кнопак кіравання прайгравальнікам схаваны</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Фон кнопак кіравання прайгравальнікам паказаны</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Схаваць карткі канцавога экрана</string>
@@ -765,6 +768,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Схаваць кнопку «Зялёны экран»</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопка с зелёным экраном Shorts скрыта</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка с зелёным экраном Shorts отображается</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Схаваць кнопку «Новыя паведамленні»</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Кнопка «Новыя паведамленні» паказана</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Кнопка «Новыя паведамленні» схавана</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Скрыть хештег-кнопку Shorts</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Хештег-кнопка Shorts скрыта</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Хештег-кнопка Shorts отображается</string>

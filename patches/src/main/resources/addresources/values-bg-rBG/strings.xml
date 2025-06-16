@@ -681,6 +681,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">Скриване на бутона Autoplay</string>
   <string name="revanced_hide_autoplay_button_summary_on">Бутона за авт. изпълнение е скрит</string>
   <string name="revanced_hide_autoplay_button_summary_off">Бутона за авт. изпълнение се показва</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Скриване на фона на бутоните за управление на плейъра</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Фонът на бутоните за управление на плейъра е скрит</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Фонът на бутоните за управление на плейъра е показан</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Скриване на препоръките в края</string>
@@ -765,6 +768,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Скриване на бутона Green screen</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Бутон \"Зелен екран\" е скрит</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Бутон \"Зелен екран\" се показва</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Скриване на бутона \"Нови публикации\"</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Бутонът \"Нови публикации\" се показва</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Бутонът \"Нови публикации\" е скрит</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Скриване на бутона за хаштаг</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Бутона за хаштаг е скрит</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Бутона за хаштаг се показва</string>

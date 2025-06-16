@@ -681,6 +681,9 @@ Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS 
   <string name="revanced_hide_autoplay_button_title">Nascondi il pulsante Riproduzione Automatica</string>
   <string name="revanced_hide_autoplay_button_summary_on">Il pulsante Riproduzione Automatica è nascosto</string>
   <string name="revanced_hide_autoplay_button_summary_off">Il pulsante Riproduzione Automatica è visibile</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Nascondi sfondo dei pulsanti di controllo del player</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Lo sfondo dei pulsanti di controllo del player è nascosto</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Lo sfondo dei pulsanti di controllo del player è mostrato</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Nascondi le schede della schermata finale</string>
@@ -765,6 +768,9 @@ Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS 
   <string name="revanced_hide_shorts_green_screen_button_title">Nascondi il pulsante Green Screen</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Il pulsante Schermo verde è nascosto</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Il pulsante Schermo verde è visibile</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Nascondi il pulsante Nuovi post</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Il pulsante Nuovi post è visibile</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Il pulsante Nuovi post è nascosto</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Nascondi il pulsante Hashtag</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Il pulsante Hashtag è nascosto</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Il pulsante Hashtag è visibile</string>

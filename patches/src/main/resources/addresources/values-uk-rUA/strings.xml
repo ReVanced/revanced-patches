@@ -39,7 +39,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_color_invalid">Недійсний колір</string>
   <string name="revanced_settings_restart_title">Оновити та перезавантажити?</string>
   <string name="revanced_settings_restart">Перезавантажити</string>
-  <string name="revanced_settings_import">Імпортувати</string>
+  <string name="revanced_settings_import">Імпорт</string>
   <string name="revanced_settings_import_copy">Копіювати</string>
   <string name="revanced_settings_import_reset">Налаштування ReVanced скинуто до стандартних</string>
   <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
@@ -682,6 +682,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">Приховати кнопку \"Автовідтворення\"</string>
   <string name="revanced_hide_autoplay_button_summary_on">Кнопку \"Автовідтворення\" у відеоплеєрі приховано</string>
   <string name="revanced_hide_autoplay_button_summary_off">Кнопка \"Автовідтворення\" у відеоплеєрі показується</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Приховати фон кнопок керування плеєром</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Фон кнопок керування плеєром приховано</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Фон кнопок керування плеєром показується</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Приховати картки на кінцевому екрані</string>
@@ -766,6 +769,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Приховати \"Зелений екран\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопку \"Зелений екран\" приховано</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка \"Зелений екран\" показується</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Приховати \"Нові дописи\"</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Кнопка \"Нові дописи\" показується</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Кнопку \"Нові дописи\" приховано</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Приховати кнопку хештегу</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Кнопку хештегу приховано</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Кнопка хештегу показується</string>
@@ -1257,8 +1263,8 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екран завантаження макета матиме градієнтне тло</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екран завантаження макета матиме суцільне тло</string>
   <string name="splash_screen_animation_style_title">Стиль заставки</string>
-  <string name="splash_screen_animation_style_entry_1">Колір</string>
-  <string name="splash_screen_animation_style_entry_2">Чорно-білий</string>
+  <string name="splash_screen_animation_style_entry_1">Кольорова</string>
+  <string name="splash_screen_animation_style_entry_2">Чорно-біла</string>
   <string name="revanced_seekbar_custom_color_title">Увімкнути користувацький колір</string>
   <string name="revanced_seekbar_custom_color_summary_on">Показується користувацький колір смуги прогресу</string>
   <string name="revanced_seekbar_custom_color_summary_off">Показується оригінальний колір смуги прогресу</string>
