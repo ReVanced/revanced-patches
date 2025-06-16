@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Կարգավորումներ</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Դուք ցանկանում եք շարունակել?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Վստա՞հ եք, որ ցանկանում եք շարունակել:</string>
   <string name="revanced_settings_reset">Վերականգնել</string>
   <string name="revanced_settings_reset_color">Գույնը վերականգնել</string>
   <string name="revanced_settings_color_invalid">Անվավեր գույն</string>
-  <string name="revanced_settings_restart_title">Թարմացնել և վերագործարկել</string>
+  <string name="revanced_settings_restart_title">Պահանջվում է վերագործարկում</string>
+  <string name="revanced_settings_restart_dialog_message">Փոփոխությունն ուժի մեջ մտնելու համար անհրաժեշտ է վերագործարկել հավելվածը:</string>
   <string name="revanced_settings_restart">Վերսկսել</string>
   <string name="revanced_settings_import">Ներմուծել</string>
   <string name="revanced_settings_import_copy">Պատճեն</string>

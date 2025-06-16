@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Cilësimet</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Dëshironi të vazhdoni?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">A jeni i sigurt që dëshironi të vazhdoni?</string>
   <string name="revanced_settings_reset">Rivendos</string>
   <string name="revanced_settings_reset_color">Rikthe ngjyrën</string>
   <string name="revanced_settings_color_invalid">Ngjyrë e pavlefshme</string>
-  <string name="revanced_settings_restart_title">Rifresko dhe rifillo</string>
+  <string name="revanced_settings_restart_title">Kërkohet Ristartim</string>
+  <string name="revanced_settings_restart_dialog_message">Rindizeni aplikacionin që ky ndryshim të hyjë në fuqi.</string>
   <string name="revanced_settings_restart">Rifillo</string>
   <string name="revanced_settings_import">Importo</string>
   <string name="revanced_settings_import_copy">Kopjo</string>

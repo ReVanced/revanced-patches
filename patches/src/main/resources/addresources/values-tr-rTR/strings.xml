@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ayarlar</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istiyor musunuz?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istediğinizden emin misiniz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_reset_color">Rengi sıfırla</string>
   <string name="revanced_settings_color_invalid">Geçersiz renk</string>
-  <string name="revanced_settings_restart_title">Yenile ve yeniden başlat</string>
+  <string name="revanced_settings_restart_title">Yeniden başlatma gerekli</string>
+  <string name="revanced_settings_restart_dialog_message">Bu değişikliğin etkili olması için uygulamayı yeniden başlatın.</string>
   <string name="revanced_settings_restart">Yeniden başlat</string>
   <string name="revanced_settings_import">İçe aktar</string>
   <string name="revanced_settings_import_copy">Kopyala</string>

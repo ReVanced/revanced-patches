@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Asetukset</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Haluatko jatkaa?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Haluatko varmasti jatkaa?</string>
   <string name="revanced_settings_reset">Nollaa</string>
   <string name="revanced_settings_reset_color">Nollaa väri</string>
   <string name="revanced_settings_color_invalid">Virheellinen väri</string>
-  <string name="revanced_settings_restart_title">Päivitä ja käynnistä uudelleen</string>
+  <string name="revanced_settings_restart_title">Uudelleenkäynnistys vaaditaan</string>
+  <string name="revanced_settings_restart_dialog_message">Käynnistä sovellus uudelleen, jotta muutos tulee voimaan.</string>
   <string name="revanced_settings_restart">Käynnistä uudelleen</string>
   <string name="revanced_settings_import">Tuo</string>
   <string name="revanced_settings_import_copy">Kopioi</string>
@@ -681,6 +682,9 @@ Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <string name="revanced_hide_autoplay_button_title">Piilota Automaattinen toisto -painike</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automaattinen toisto -painike on piilotettu</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automaattinen toisto -painike näytetään</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Piilota soittimen ohjauspainikkeiden tausta</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Soittimen ohjauspainikkeiden tausta on piilotettu</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Soittimen ohjauspainikkeiden tausta näytetään</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Piilota loppunäytön kortit</string>
@@ -765,6 +769,9 @@ Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Piilota Vihertausta-painike</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Vihertausta-painike on piilotettu</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Vihertausta-painike näytetään</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Piilota Uudet postaukset -painike</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Uudet postaukset -painike näytetään</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Uudet postaukset -painike on piilotettu</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Piilota Hashtag-painike</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag-painike on piilotettu</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag-painike näytetään</string>

@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Подешавања</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Желите ли да наставите?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Желите ли заиста да наставите?</string>
   <string name="revanced_settings_reset">Ресетуј</string>
   <string name="revanced_settings_reset_color">Ресетуј боју</string>
   <string name="revanced_settings_color_invalid">Неважећа боја</string>
-  <string name="revanced_settings_restart_title">Освежите и рестартујте</string>
+  <string name="revanced_settings_restart_title">Потребно је рестартовање</string>
+  <string name="revanced_settings_restart_dialog_message">Рестартујте апликацију да би ова промена ступила на снагу.</string>
   <string name="revanced_settings_restart">Рестартуј</string>
   <string name="revanced_settings_import">Увоз</string>
   <string name="revanced_settings_import_copy">Копирај</string>

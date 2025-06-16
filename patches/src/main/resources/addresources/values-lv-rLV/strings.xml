@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Iestatījumi</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Vai vēlaties turpināt?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Vai tiešām vēlaties turpināt?</string>
   <string name="revanced_settings_reset">Atiestatīt</string>
   <string name="revanced_settings_reset_color">Atiestatīt krāsu</string>
   <string name="revanced_settings_color_invalid">Nederīga krāsa</string>
-  <string name="revanced_settings_restart_title">Atjaunināt un restartēt</string>
+  <string name="revanced_settings_restart_title">Nepieciešama restartēšana</string>
+  <string name="revanced_settings_restart_dialog_message">Lai šīs izmaiņas stātos spēkā, restartējiet lietotni.</string>
   <string name="revanced_settings_restart">Restartēt</string>
   <string name="revanced_settings_import">Importēt</string>
   <string name="revanced_settings_import_copy">Kopēt</string>
