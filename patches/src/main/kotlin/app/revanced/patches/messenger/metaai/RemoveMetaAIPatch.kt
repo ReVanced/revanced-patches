@@ -25,16 +25,16 @@ val removeMetaAIPatch = bytecodePatch(
             addInstructions(
                 returnIndex,
                 """
-                    invoke-static { p1, p2, v$returnRegister }, $EXTENSION_METHOD_DESCRIPTOR
+                    invoke-static { p1, p2, v$returnRegister }, $EXTENSION_CLASS_DESCRIPTOR->$EXTENSION_METHOD_NAME(JZ)Z
                     move-result v$returnRegister
                 """
             )
         }
 
-        // Extract the 8 common starting digits of Meta AI flag IDs from a flag found in code.
-        val relevantDigits = with(relevantIDContainingMethodFingerprint) {
+        // Extract the common starting digits of Meta AI flag IDs from a flag found in code.
+        val relevantDigits = with(metaAIKillSwitchCheckFingerprint) {
             method.getInstruction<WideLiteralInstruction>(patternMatch!!.startIndex).wideLiteral
-        }.toString().substring(0, 8)
+        }.toString().substring(0, 7)
 
         // Replace placeholder in the extension method.
         with(extensionMethodFingerprint) {

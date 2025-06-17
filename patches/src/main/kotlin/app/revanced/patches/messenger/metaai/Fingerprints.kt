@@ -1,10 +1,10 @@
 package app.revanced.patches.messenger.metaai
 
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
 
-internal const val EXTENSION_METHOD_DESCRIPTOR = "Lapp/revanced/extension/messenger/metaai/RemoveMetaAIPatch;->overrideBooleanFlag(JZ)Z"
+internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messenger/metaai/RemoveMetaAIPatch;"
+internal const val EXTENSION_METHOD_NAME = "overrideBooleanFlag"
 
 internal val getMobileConfigBoolFingerprint = fingerprint {
     parameters("J")
@@ -15,20 +15,14 @@ internal val getMobileConfigBoolFingerprint = fingerprint {
     }
 }
 
-internal val relevantIDContainingMethodFingerprint = fingerprint {
-    returns("Z")
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    parameters("L", "L", "I")
+internal val metaAIKillSwitchCheckFingerprint = fingerprint {
     strings("SearchAiagentImplementationsKillSwitch")
     opcodes(Opcode.CONST_WIDE)
 }
 
 internal val extensionMethodFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    parameters("J", "Z")
-    returns("Z")
     strings("REPLACED_BY_PATCH")
-    custom { method, _ ->
-        method.toString() == EXTENSION_METHOD_DESCRIPTOR
+    custom { method, classDef ->
+        method.name == EXTENSION_METHOD_NAME && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
 }
