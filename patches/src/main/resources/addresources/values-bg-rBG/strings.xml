@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Настройки</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Искате ли да продължите?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Сигурни ли сте, че искате да продължите?</string>
   <string name="revanced_settings_reset">Възстанови</string>
   <string name="revanced_settings_reset_color">Нулиране на цвета</string>
   <string name="revanced_settings_color_invalid">Невалиден цвят</string>
-  <string name="revanced_settings_restart_title">Рестартирай и опресни</string>
+  <string name="revanced_settings_restart_title">Необходимо е рестартиране</string>
+  <string name="revanced_settings_restart_dialog_message">Рестартирайте приложението, за да влязат в сила тези промени.</string>
   <string name="revanced_settings_restart">Рестартиране</string>
   <string name="revanced_settings_import">Импортиране</string>
   <string name="revanced_settings_import_copy">Копирай</string>

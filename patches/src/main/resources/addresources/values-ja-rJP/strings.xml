@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">設定</string>
-  <string name="revanced_settings_confirm_user_dialog_title">続行しますか？</string>
+  <string name="revanced_settings_confirm_user_dialog_title">本当に続行しますか？</string>
   <string name="revanced_settings_reset">リセット</string>
   <string name="revanced_settings_reset_color">色をリセット</string>
   <string name="revanced_settings_color_invalid">色の値が無効です</string>
-  <string name="revanced_settings_restart_title">更新して再起動</string>
+  <string name="revanced_settings_restart_title">再起動が必要です</string>
+  <string name="revanced_settings_restart_dialog_message">変更を反映させるためにアプリを再起動します。</string>
   <string name="revanced_settings_restart">再起動</string>
   <string name="revanced_settings_import">インポート</string>
   <string name="revanced_settings_import_copy">コピー</string>
@@ -52,9 +53,9 @@ Second \"item\" text"</string>
   <string name="revanced_show_menu_icons_summary_on">ReVanced 設定にアイコンが表示されます</string>
   <string name="revanced_show_menu_icons_summary_off">ReVanced 設定にアイコンは表示されません</string>
   <string name="revanced_language_title">ReVanced の言語</string>
-  <string name="revanced_language_user_dialog_message">"一部の言語の翻訳が不足しているか、不完全である可能性があります。
+  <string name="revanced_language_user_dialog_message">"翻訳が存在しないか不完全な言語が、存在する可能性があります。
 
-新しい言語を翻訳するには、 translate.revanced.app にアクセスしてください"</string>
+新しい言語を翻訳するまたは既存の言語に翻訳を追加するには、 translate.revanced.app にアクセスしてください"</string>
   <string name="revanced_language_DEFAULT">アプリの言語</string>
   <string name="revanced_pref_import_export_title">インポート / エクスポート</string>
   <string name="revanced_pref_import_export_summary">ReVanced の設定をテキストでインポート / エクスポートします</string>
@@ -389,7 +390,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_paid_promotion_label_summary_off">「プロモーションを含みます」ボタンはプレーヤー画面に表示されます</string>
   <string name="revanced_hide_self_sponsor_ads_title">自己スポンサー カードを非表示</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">自己スポンサー カードは表示されません</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">自己スポンサーカードは表示されます</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">自己スポンサー カードは表示されます</string>
   <string name="revanced_hide_products_banner_title">「商品を表示」ボタンを非表示</string>
   <string name="revanced_hide_products_banner_summary_on">「商品を表示」ボタンや商品ボタンはプレーヤー画面に表示されません</string>
   <string name="revanced_hide_products_banner_summary_off">「商品を表示」ボタンや商品ボタンはプレーヤー画面に表示されます</string>
@@ -948,7 +949,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_enable_compact_skip_button">コンパクトなスキップボタンを使用する</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">ボタンに「スキップ」とだけ表示されます</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">ボタンにカテゴリー名が表示されます</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button">スキップボタンを自動的に非表示にする</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button">スキップボタンを自動的に非表示</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">スキップボタンは、表示された数秒後に自動的に非表示になります</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">スキップボタンは、セグメントの開始から終了まで表示されます</string>
   <string name="revanced_sb_general_skiptoast">スキップ時にトーストを表示する</string>
@@ -975,7 +976,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock が利用できない場合は、トースト ポップアップが表示されます</string>
   <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock が利用できない場合でも、トースト ポップアップは表示されません</string>
   <string name="revanced_sb_general_skipcount">スキップデータを送信する</string>
-  <string name="revanced_sb_general_skipcount_sum_on">SponsorBlock リーダーボード にスキップによって節約した時間を送信します。セグメントをスキップする度にデータを送信します</string>
+  <string name="revanced_sb_general_skipcount_sum_on">SponsorBlock リーダーボード にスキップによって節約した時間を送信します。セグメントをスキップする度にデータが送信されます</string>
   <string name="revanced_sb_general_skipcount_sum_off">スキップデータは送信されません</string>
   <string name="revanced_sb_general_min_duration">セグメントのしきい値</string>
   <string name="revanced_sb_general_min_duration_sum">設定値 (単位: 秒) より短いセグメントはスキップされず、プレーヤーにも表示されません</string>
@@ -999,23 +1000,23 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">今後表示しない</string>
   <string name="revanced_sb_diff_segments">セグメントのスキップ</string>
   <string name="revanced_sb_segments_sponsor">スポンサー</string>
-  <string name="revanced_sb_segments_sponsor_sum">有料の宣伝 、紹介、直接広告。自己宣伝や好みのクリエーター、ウェブサイト、製品、慈善活動などの無報酬の宣伝は含まれません</string>
+  <string name="revanced_sb_segments_sponsor_sum">有料の宣伝 、有料の紹介、直接的な広告。自己宣伝や好意をもって行う慈善活動、クリエーター、ウェブサイト、製品などの無償の紹介は含まれません</string>
   <string name="revanced_sb_segments_selfpromo">無報酬の宣伝 / 自己宣伝</string>
-  <string name="revanced_sb_segments_selfpromo_sum">無報酬または自己宣伝である、という点以外は「スポンサー」と同様です。商品、寄付、コラボ相手に関する宣伝を含みます</string>
-  <string name="revanced_sb_segments_interaction">視聴者への催促 (チャンネル登録)</string>
-  <string name="revanced_sb_segments_interaction_sum">動画中に差し込まれる視聴者への高評価、チャンネル登録、フォローなどの短時間の催促。時間的に長い、または何か具体的なものに関する催促は「視聴者への催促」ではなく「自己宣伝」に分類すべきです</string>
+  <string name="revanced_sb_segments_selfpromo_sum">無報酬または自己宣伝である、という点以外は「スポンサー」と同様です。商品、寄付、コラボ相手に関する宣伝などを含みます</string>
+  <string name="revanced_sb_segments_interaction">視聴者へのお願い (チャンネル登録など)</string>
+  <string name="revanced_sb_segments_interaction_sum">動画内に挿入される視聴者への高評価、チャンネル登録、フォローなどの時間的に短い「お願い」。時間的に長い「お願い」またはイベントなどの個別具体的なものに関する「お願い」は、「視聴者へのお願い」ではなく「自己宣伝」に分類すべきです</string>
   <string name="revanced_sb_segments_highlight">ハイライト</string>
-  <string name="revanced_sb_segments_highlight_sum">動画の中で最も興味を引く場面</string>
-  <string name="revanced_sb_segments_intro">幕間 / オープニング (イントロ)</string>
-  <string name="revanced_sb_segments_intro_sum">実際のコンテンツを含まない間隔。一時停止、固定フレーム、繰り返しアニメーションを使用できます。情報を含むトランジションは含まれません。</string>
+  <string name="revanced_sb_segments_highlight_sum">動画の中で最も重要な場面</string>
+  <string name="revanced_sb_segments_intro">幕間 / オープニング（イントロ）</string>
+  <string name="revanced_sb_segments_intro_sum">実際のコンテンツを含まない区間。一時停止や静止画、繰り返しアニメーションなどが考えられます。情報を含むトランジッション (場面転換) は、このカテゴリーに含まれません</string>
   <string name="revanced_sb_segments_outro">終了画面 / クレジット（アウトロ）</string>
-  <string name="revanced_sb_segments_outro_sum">クレジットまたはYouTubeのエンドカードが表示される場合、情報を持つ結論にはなりません</string>
+  <string name="revanced_sb_segments_outro_sum">クレジット、または YouTube の終了画面が表示される場面。情報を含む結論、まとめ部分は、このカテゴリーに含まれません</string>
   <string name="revanced_sb_segments_preview">予告編 / 総集編 / フック</string>
-  <string name="revanced_sb_segments_preview_sum">ビデオやシリーズの他のビデオで何が起こったのかを示すクリップのコレクション 全ての情報が他の場所で繰り返されます</string>
+  <string name="revanced_sb_segments_preview_sum">その動画またはシリーズ内の他の動画で過去に起きたこと、または今後起こることを示すクリップのコレクション。このクリップ群に含まれるすべての情報は、同じ動画の他の部分や他の動画で繰り返されます</string>
   <string name="revanced_sb_segments_filler">尺稼ぎの余談 / 冗談</string>
-  <string name="revanced_sb_segments_filler_sum">動画の本筋を理解するのに必要のない、尺稼ぎやユーモアのみを目的として追加された脱線的な場面。コンテキストや背景情報を提供するセグメントは含まれません</string>
+  <string name="revanced_sb_segments_filler_sum">動画の本筋を理解するために必要のない、尺稼ぎやユーモアのみを目的として追加された脱線的な場面。コンテキストや背景情報を提供する場面は、このカテゴリーに含まれません</string>
   <string name="revanced_sb_segments_nomusic">音楽: 楽曲以外の区間</string>
-  <string name="revanced_sb_segments_nomusic_sum">ミュージック ビデオ専用。ミュージック ビデオの中で楽曲が流れていない区間。他のカテゴリーのセグメントと重なる場合があります</string>
+  <string name="revanced_sb_segments_nomusic_sum">ミュージック ビデオ専用。ミュージック ビデオの中で楽曲が流れていない区間。このカテゴリーのセグメントは、他のカテゴリーのセグメントと重なる場合があります</string>
   <string name="revanced_sb_skip_button_compact">スキップ</string>
   <string name="revanced_sb_skip_button_compact_highlight">ハイライト</string>
   <string name="revanced_sb_skip_button_sponsor">「 スポンサー」をスキップ</string>

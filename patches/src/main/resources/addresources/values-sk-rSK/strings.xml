@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nastavenia</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Chcete pokračovať?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Naozaj chcete pokračovať?</string>
   <string name="revanced_settings_reset">Resetovať</string>
   <string name="revanced_settings_reset_color">Obnovi	 farbu</string>
   <string name="revanced_settings_color_invalid">Neplatn	 farba</string>
-  <string name="revanced_settings_restart_title">Obnovte a reštartujte</string>
+  <string name="revanced_settings_restart_title">Vyžaduje sa reštart</string>
+  <string name="revanced_settings_restart_dialog_message">Aby sa zmena prejavila, reštartujte aplikáciu.</string>
   <string name="revanced_settings_restart">Reštart</string>
   <string name="revanced_settings_import">Importovať</string>
   <string name="revanced_settings_import_copy">Kopírovať</string>

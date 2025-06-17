@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Configurações</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Desejas continuar?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Tem certeza de que deseja prosseguir?</string>
   <string name="revanced_settings_reset">Repor</string>
   <string name="revanced_settings_reset_color">Redefinir cor</string>
   <string name="revanced_settings_color_invalid">Cor inválida</string>
-  <string name="revanced_settings_restart_title">Atualizar e reiniciar</string>
+  <string name="revanced_settings_restart_title">Reinicialização necessária</string>
+  <string name="revanced_settings_restart_dialog_message">Reinicie o aplicativo para que esta alteração entre em vigor.</string>
   <string name="revanced_settings_restart">Reiniciar</string>
   <string name="revanced_settings_import">Importar</string>
   <string name="revanced_settings_import_copy">Copiar</string>

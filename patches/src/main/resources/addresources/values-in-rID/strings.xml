@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Pengaturan</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Apakah Anda ingin melanjutkan?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Apakah Anda yakin ingin melanjutkan?</string>
   <string name="revanced_settings_reset">Setel ulang</string>
   <string name="revanced_settings_reset_color">Setel ulang warna</string>
   <string name="revanced_settings_color_invalid">Warna tidak sah</string>
-  <string name="revanced_settings_restart_title">Segarkan dan mulai ulang</string>
+  <string name="revanced_settings_restart_title">Memerlukan mulai ulang</string>
+  <string name="revanced_settings_restart_dialog_message">Mulai ulang aplikasi agar perubahan ini dapat diterapkan.</string>
   <string name="revanced_settings_restart">Mulai ulang</string>
   <string name="revanced_settings_import">Impor</string>
   <string name="revanced_settings_import_copy">Salin</string>

@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ustawienia</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Czy chcesz kontynuować?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Czy na pewno chcesz kontynuować?</string>
   <string name="revanced_settings_reset">Zresetuj</string>
   <string name="revanced_settings_reset_color">Zresetuj kolor</string>
   <string name="revanced_settings_color_invalid">Nieprawidłowy kolor</string>
-  <string name="revanced_settings_restart_title">Odśwież i uruchom ponownie</string>
+  <string name="revanced_settings_restart_title">Wymagane ponowne uruchomienie</string>
+  <string name="revanced_settings_restart_dialog_message">Aby zmiany zostały wprowadzone, uruchom ponownie aplikację.</string>
   <string name="revanced_settings_restart">Uruchom ponownie</string>
   <string name="revanced_settings_import">Zaimportuj</string>
   <string name="revanced_settings_import_copy">Skopiuj</string>
