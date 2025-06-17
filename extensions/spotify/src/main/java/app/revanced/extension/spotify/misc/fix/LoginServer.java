@@ -31,7 +31,7 @@ import static fi.iki.elonen.NanoHTTPD.Response.Status.INTERNAL_ERROR;
 class LoginServer extends NanoHTTPD {
     private static final String OPEN_SPOTIFY_COM_HOST = "open.spotify.com";
     private static final String OPEN_SPOTIFY_COM_URL = "https://" + OPEN_SPOTIFY_COM_HOST;
-    private static final String OPEN_SPOTIFY_PREFERENCES_URL = OPEN_SPOTIFY_COM_URL + "/preferences";
+    private static final String OPEN_SPOTIFY_COM_PREFERENCES_URL = OPEN_SPOTIFY_COM_URL + "/preferences";
     private static final String SPOTIFY_LOGIN_URL =
             "https://accounts.spotify.com/en/login?continue=https%3A%2F%2Fopen.spotify.com%2Fpreferences";
 
@@ -100,37 +100,45 @@ class LoginServer extends NanoHTTPD {
 
     @Nullable
     private static LoginResponse getLoginResponse(@NonNull LoginRequest loginRequest) {
-        boolean loggedIn = loginRequest.hasStoredCredential();
-        if (loggedIn) {
+        if (loginRequest.hasStoredCredential()) {
             Session existingSession = Session.fromStoredCredential(loginRequest.getStoredCredential());
-            if (existingSession != null && existingSession.isValid()) {
+
+            if (existingSession == null) {
+                // storedCredential session data is invalid, which means we no longer have valid cookies for the
+                // authenticated user. Return an invalid credentials login error.
+                return invalidCredentialsLoginError;
+            }
+
+            if (existingSession.isValid()) {
                 Logger.printInfo(() -> "Using valid credential for session");
                 return existingSession.toLoginResponse();
             }
 
             Logger.printInfo(() -> "Stored credential is too old, getting new session");
-        } else {
-            Logger.printInfo(() -> "Initial login request");
-        }
+            setSpotifyCookies(existingSession.cookies);
 
-        Session session = getSession();
-        if (loggedIn) {
-            // User is logged in but the session was not retrieved due to an unknown error.
-            // Return null and answer the request with an internal error.
-            if (session == null) {
+            Session newSession = getSession();
+            if (newSession == null) {
+                // User is logged in but the session was not retrieved due to an unknown error.
+                // Return null and answer the request with an internal error.
                 return null;
             }
 
-            // User is logged in but the session retrieved does contain the account username, which means
-            // cookies are invalid or have expired. Return an invalid credentials login error.
-            if (session.username == null) {
+            if (newSession.username == null) {
+                // User is logged in but the session retrieved does contain the account username, which means
+                // cookies are invalid or have expired. Return an invalid credentials login error.
                 return invalidCredentialsLoginError;
             }
+
+            return newSession.toLoginResponse();
         }
+
+        Logger.printInfo(() -> "Initial login request");
+        Session session = getSession();
 
         // User is not logged in and the session was not retrieved due to an unknown error.
         // Return a try again login error.
-        if (session == null){
+        if (session == null) {
             return tryAgainLoginError;
         }
 
@@ -240,7 +248,7 @@ class LoginServer extends NanoHTTPD {
             Utils.runOnMainThread(() -> {
                 WebView webView = webViewReference.get();
                 webView.stopLoading(); // Stop any loading from previous attempts.
-                webView.loadUrl(OPEN_SPOTIFY_PREFERENCES_URL);
+                webView.loadUrl(OPEN_SPOTIFY_COM_PREFERENCES_URL);
             });
 
             try {
@@ -268,11 +276,11 @@ class LoginServer extends NanoHTTPD {
         String username = usernameReference.get();
         String accessToken = accessTokenReference.get();
         long expirationTimestampMs = expirationTimestampMsReference.get();
-        String spotifyCookies = getSpotifyCookies();
+        String cookies = getSpotifyCookies();
 
-        Session session = new Session(username, accessToken, expirationTimestampMs, spotifyCookies);
+        Session session = new Session(username, accessToken, expirationTimestampMs, cookies);
         Logger.printInfo(() -> "Session with username " + session.username + ", access token " + session.accessToken +
-                ", expiration timestamp " + expirationTimestampMs + " and cookies " + spotifyCookies);
+                ", expiration timestamp " + expirationTimestampMs + " and cookies " + cookies);
 
         return session;
     }
@@ -280,6 +288,14 @@ class LoginServer extends NanoHTTPD {
     private static String getSpotifyCookies() {
         CookieManager cookieManager = CookieManager.getInstance();
         return cookieManager.getCookie(OPEN_SPOTIFY_COM_URL);
+    }
+
+    private static void setSpotifyCookies(String cookies) {
+        clearSpotifyCookies();
+
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setCookie(OPEN_SPOTIFY_COM_URL, cookies);
+        cookieManager.flush();
     }
 
     private static void clearSpotifyCookies() {
