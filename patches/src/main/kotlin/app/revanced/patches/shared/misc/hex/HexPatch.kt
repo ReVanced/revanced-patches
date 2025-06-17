@@ -1,6 +1,7 @@
 package app.revanced.patches.shared.misc.hex
 
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.RawResourcePatch
 import app.revanced.patcher.patch.rawResourcePatch
 import kotlin.math.max
 
@@ -35,8 +36,8 @@ fun hexPatch(allTargetFilesRequired: Boolean, replacementsSupplier: () -> Set<Re
     }
 }
 
-fun hexPatch(replacementsSupplier: () -> Set<Replacement>) {
-    hexPatch(true, replacementsSupplier);
+fun hexPatch(replacementsSupplier: () -> Set<Replacement>): RawResourcePatch {
+    return hexPatch(true, replacementsSupplier);
 }
 
 /**
