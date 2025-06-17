@@ -1,3 +1,10 @@
+# [5.28.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.5...v5.28.0-dev.6) (2025-06-17)
+
+
+### Bug Fixes
+
+* **Threads - Hide ads:** Constrain patch to the last working app target ([#5189](https://github.com/ReVanced/revanced-patches/issues/5189)) ([3558c44](https://github.com/ReVanced/revanced-patches/commit/3558c44a05c13f19fefdbbf14b364181a79f17c0))
+
 # [5.28.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.4...v5.28.0-dev.5) (2025-06-17)
 
 
