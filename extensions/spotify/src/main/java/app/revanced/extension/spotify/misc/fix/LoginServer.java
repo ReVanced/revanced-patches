@@ -331,8 +331,8 @@ public class LoginServer extends NanoHTTPD {
         String defaultUserAgent = WebSettings.getDefaultUserAgent(context);
         String windowsUserAgent = defaultUserAgent.replaceFirst(
                 "Mozilla/5\\.0 \\([^)]+?\\)",
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" */
-        );
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        ); */
 
         String windowsUserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
                 "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edge/137.0.0.0";
