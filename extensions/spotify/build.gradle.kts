@@ -2,11 +2,6 @@ plugins {
     alias(libs.plugins.protobuf)
 }
 
-repositories {
-    google()
-    mavenCentral()
-}
-
 dependencies {
     compileOnly(project(":extensions:shared:library"))
     compileOnly(project(":extensions:spotify:stub"))
