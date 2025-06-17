@@ -33,9 +33,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">設定</string>
-  <string name="revanced_settings_confirm_user_dialog_title">確定要繼續嗎？</string>
   <string name="revanced_settings_reset">重設</string>
-  <string name="revanced_settings_restart_title">套用並重新啟動</string>
   <string name="revanced_settings_restart">重新啟動</string>
   <string name="revanced_settings_import">匯入</string>
   <string name="revanced_settings_import_copy">複製</string>

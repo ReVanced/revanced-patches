@@ -37,7 +37,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_reset">초기화</string>
   <string name="revanced_settings_reset_color">색상 초기화</string>
   <string name="revanced_settings_color_invalid">잘못된 색상입니다</string>
-  <string name="revanced_settings_restart_title">새로고침 및 다시 시작</string>
+  <string name="revanced_settings_restart_title">다시 시작하세요</string>
+  <string name="revanced_settings_restart_dialog_message">이 변경 사항을 적용하려면 앱을 다시 시작하세요.</string>
   <string name="revanced_settings_restart">다시 시작</string>
   <string name="revanced_settings_import">가져오기</string>
   <string name="revanced_settings_import_copy">복사하기</string>

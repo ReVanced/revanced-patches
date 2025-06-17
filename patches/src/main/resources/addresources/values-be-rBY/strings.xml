@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Налады</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Вы хочаце працягнуць?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Вы ўпэўнены, што хочаце працягнуць?</string>
   <string name="revanced_settings_reset">Скінуць</string>
   <string name="revanced_settings_reset_color">Скінуць колер</string>
   <string name="revanced_settings_color_invalid">Несапраўдны колер</string>
-  <string name="revanced_settings_restart_title">Абнавіце і перазагрузіце</string>
+  <string name="revanced_settings_restart_title">Неабходны перазапуск</string>
+  <string name="revanced_settings_restart_dialog_message">Перазапусціце праграму, каб змены ўступілі ў сілу.</string>
   <string name="revanced_settings_restart">Перазапуск</string>
   <string name="revanced_settings_import">Імпарт</string>
   <string name="revanced_settings_import_copy">Копія</string>

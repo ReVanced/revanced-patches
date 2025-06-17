@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Setări</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Doriți să continuați?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Sigur doriți să continuați?</string>
   <string name="revanced_settings_reset">Resetare</string>
   <string name="revanced_settings_reset_color">Resetează culoarea</string>
   <string name="revanced_settings_color_invalid">Culoare nevalidă</string>
-  <string name="revanced_settings_restart_title">Reîmprospătare și repornire</string>
+  <string name="revanced_settings_restart_title">Repornire necesară</string>
+  <string name="revanced_settings_restart_dialog_message">Reporniți aplicația pentru ca această modificare să aibă efect.</string>
   <string name="revanced_settings_restart">Repornire</string>
   <string name="revanced_settings_import">Importare</string>
   <string name="revanced_settings_import_copy">Copiere</string>
