@@ -199,6 +199,7 @@ public class LoginServer extends NanoHTTPD {
                             "   configurable: true," +
                             "   set(username) {" +
                             "       if (this._builder != null) {" +
+                            "           delete Object.prototype._username;" +
                             "           " + JAVASCRIPT_INTERFACE_NAME + ".getUsername(username);" +
                             "       }" +
                             "       Object.defineProperty(this, \"_username\", {" +
