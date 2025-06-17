@@ -1,3 +1,10 @@
+# [5.28.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.4...v5.28.0-dev.5) (2025-06-17)
+
+
+### Bug Fixes
+
+* **Pandora - Disable ads:** Support latest app target ([#5185](https://github.com/ReVanced/revanced-patches/issues/5185)) ([ca83047](https://github.com/ReVanced/revanced-patches/commit/ca83047f5c4acbb267d5b98db80ad111999086e0))
+
 # [5.28.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.3...v5.28.0-dev.4) (2025-06-13)
 
 
