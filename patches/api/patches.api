@@ -958,6 +958,10 @@ public final class app/revanced/patches/swissid/integritycheck/RemoveGooglePlayI
 	public static final fun getRemoveGooglePlayIntegrityCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/threads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/ticktick/misc/themeunlock/UnlockThemePatchKt {
 	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
