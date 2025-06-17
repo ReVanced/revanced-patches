@@ -46,7 +46,7 @@ public class LoginServer extends NanoHTTPD {
             .build();
 
     private final static LoginResponse tryAgainLoginError = LoginResponse.newBuilder()
-            .setError(LoginError.INVALID_CREDENTIALS)
+            .setError(LoginError.TRY_AGAIN_LATER)
             .build();
 
     public LoginServer(int port) {
@@ -149,7 +149,7 @@ public class LoginServer extends NanoHTTPD {
     @Nullable
     private static Session getSession() {
         // In case the web view authentication with the cookies did not succeed, either because the cookies have expired,
-        // or they are not properly, the username reference will be set to null as no account is authenticated.
+        // or they are invalid, the username reference will be set to null as no account is authenticated.
         // For this reason, we need to also create a boolean to see whether we have set the username reference or not.
         AtomicReference<Boolean> usernameReferenceSet = new AtomicReference<>(false);
         AtomicReference<String> usernameReference = new AtomicReference<>(null);
