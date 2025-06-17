@@ -215,6 +215,7 @@ public class LoginServer extends NanoHTTPD {
             webView.addJavascriptInterface(new Object() {
                 @JavascriptInterface
                 public void getTokenData(String accessToken, long expirationTime) {
+                    Logger.printInfo(() -> "Got access token " + accessToken + " and expiration time " + expirationTime);
                     accessTokenReference.set(accessToken);
                     expirationTimeReference.set(expirationTime);
 
@@ -225,6 +226,7 @@ public class LoginServer extends NanoHTTPD {
 
                 @JavascriptInterface
                 public void getUsername(String username) {
+                    Logger.printInfo(() -> "Got username " + username);
                     usernameReference.set(username);
                     usernameReferenceSet.set(true);
 
