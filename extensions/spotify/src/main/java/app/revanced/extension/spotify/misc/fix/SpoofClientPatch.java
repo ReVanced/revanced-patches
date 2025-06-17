@@ -2,9 +2,7 @@ package app.revanced.extension.spotify.misc.fix;
 
 import app.revanced.extension.shared.Logger;
 
-/**
- * @noinspection unused
- */
+@SuppressWarnings("unused")
 public class SpoofClientPatch {
     private static LoginServer loginServer;
 

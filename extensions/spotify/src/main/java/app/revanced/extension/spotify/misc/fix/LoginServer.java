@@ -27,8 +27,9 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import static fi.iki.elonen.NanoHTTPD.Response.Status.INTERNAL_ERROR;
 
+// FIXME: Make this class non public once the open login web view code is refactored
 @SuppressWarnings("unused")
-class LoginServer extends NanoHTTPD {
+public class LoginServer extends NanoHTTPD {
     private static final String OPEN_SPOTIFY_COM_HOST = "open.spotify.com";
     private static final String OPEN_SPOTIFY_COM_URL = "https://" + OPEN_SPOTIFY_COM_HOST;
     private static final String OPEN_SPOTIFY_COM_PREFERENCES_URL = OPEN_SPOTIFY_COM_URL + "/preferences";
@@ -114,7 +115,7 @@ class LoginServer extends NanoHTTPD {
                 return existingSession.toLoginResponse();
             }
 
-            Logger.printInfo(() -> "Stored credential is too old, getting new session");
+            Logger.printInfo(() -> "Stored credential access token is too old, getting new session");
             setSpotifyCookies(existingSession.cookies);
 
             Session newSession = getSession();
@@ -181,7 +182,7 @@ class LoginServer extends NanoHTTPD {
                             "   set(initialToken) {" +
                             "       const accessToken = initialToken?.accessToken;" +
                             "       const expirationTimestampMs = initialToken?.accessTokenExpirationTimestampMs;" +
-                            "       if (initialToken && accessToken && expirationTimestampMs) {" +
+                            "       if (accessToken && expirationTimestampMs) {" +
                             "           delete Object.prototype.initialToken;" +
                             "           " + JAVASCRIPT_INTERFACE_NAME + ".getTokenData(accessToken, expirationTimestampMs);" +
                             "       }" +
@@ -190,7 +191,7 @@ class LoginServer extends NanoHTTPD {
                             "           enumerable: true," +
                             "           writable: true," +
                             "           value: initialToken" +
-                            "       })" +
+                            "       });" +
                             "   }" +
                             "});";
 
@@ -198,7 +199,6 @@ class LoginServer extends NanoHTTPD {
                             "   configurable: true," +
                             "   set(username) {" +
                             "       if (this._builder != null) {" +
-                            "           delete Object.prototype._username;" +
                             "           " + JAVASCRIPT_INTERFACE_NAME + ".getUsername(username);" +
                             "       }" +
                             "       Object.defineProperty(this, \"_username\", {" +
@@ -206,7 +206,7 @@ class LoginServer extends NanoHTTPD {
                             "           enumerable: true," +
                             "           writable: true," +
                             "           value: username" +
-                            "       })" +
+                            "       });" +
                             "   }" +
                             "});";
 
@@ -218,6 +218,7 @@ class LoginServer extends NanoHTTPD {
             webView.addJavascriptInterface(new Object() {
                 @JavascriptInterface
                 public void getTokenData(String accessToken, long expirationTimestampMs) {
+                    Logger.printInfo(() -> "Got access token " + accessToken + " and expiration " + expirationTimestampMs);
                     accessTokenReference.set(accessToken);
                     expirationTimestampMsReference.set(expirationTimestampMs);
 
@@ -228,6 +229,7 @@ class LoginServer extends NanoHTTPD {
 
                 @JavascriptInterface
                 public void getUsername(String username) {
+                    Logger.printInfo(() -> "Got username " + username);
                     usernameReference.set(username);
                     usernameReferenceSet.set(true);
 
@@ -257,7 +259,7 @@ class LoginServer extends NanoHTTPD {
                 Logger.printException(() -> "Interrupted while waiting for session", e);
             }
 
-            if (!isSessionSet) {
+            if (!isSessionSet && attempts <= 3) {
                 Logger.printInfo(() -> "Session not set, retrying...");
                 countDownLatch.set(new CountDownLatch(1));
             }
@@ -310,8 +312,8 @@ class LoginServer extends NanoHTTPD {
         for (String cookie : cookieParts) {
             String cookieName = cookie.substring(0, cookie.indexOf("=")).trim();
 
-            String expiredCookie = cookieName + "=;domain=" + OPEN_SPOTIFY_COM_HOST + ";path=/;Max-Age=0";
-            cookieManager.setCookie(OPEN_SPOTIFY_COM_HOST, expiredCookie);
+            String expiredCookie = cookieName + "=;domain=" + OPEN_SPOTIFY_COM_URL + ";path=/;Max-Age=0";
+            cookieManager.setCookie(OPEN_SPOTIFY_COM_URL, expiredCookie);
         }
 
         cookieManager.flush();
@@ -342,7 +344,7 @@ class LoginServer extends NanoHTTPD {
                     @Override
                     public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                         if (request.getUrl().getHost().equals("open.spotify.com")) {
-                            Logger.printInfo(() -> "Got authentication cookies");
+                            Logger.printInfo(() -> "Got authentication cookies " + getSpotifyCookies());
                             Utils.runOnMainThreadNowOrLater(webView::stopLoading);
                             dialog.dismiss();
                             countDownLatch.countDown();

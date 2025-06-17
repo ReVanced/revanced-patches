@@ -15,22 +15,19 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal const val LOGIN_HOOK_WEB_SERVER_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/fix/LoginHookWebServer;"
+internal const val EXTENSION_CLASS_DESCRIPTOR =  "Lapp/revanced/extension/spotify/misc/fix/SpoofClientPatch;"
+internal const val LOGIN_SERVER_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/fix/LoginServer;"
 
 internal fun makeUrlPatch(targetFilePath: String): Sequence<Replacement> {
     return setOf(
-        // v3
         Replacement(
             "68 74 74 70 73 3A 2F 2F 6C 6F 67 69 6E 35 2E 73 70 6F 74 69 66 79 2E 63 6F 6D 2F 76 33 2F 6C 6F 67 69 6E",
-            // "68 74 74 70 3A 2F 2F 31 39 32 2E 31 36 38 2E 30 2E 32 32 35 3A 34 38 35 34 2F 76 33 2F 6C 6F 67 69 6E 00",
             // http://127.0.0.1:4345/v3/login
             "68 74 74 70 3A 2F 2F 31 32 37 2E 30 2E 30 2E 31 3A 34 33 34 35 2F 76 33 2F 6C 6F 67 69 6E 00 00 00 00 00",
             targetFilePath,
         ),
-        // v4
         Replacement(
             "68 74 74 70 73 3A 2F 2F 6C 6F 67 69 6E 35 2E 73 70 6F 74 69 66 79 2E 63 6F 6D 2F 76 34 2F 6C 6F 67 69 6E",
-            // "68 74 74 70 3A 2F 2F 31 39 32 2E 31 36 38 2E 30 2E 32 32 35 3A 34 38 35 34 2F 76 34 2F 6C 6F 67 69 6E 00",
             // http://127.0.0.1:4345/v4/login
             "68 74 74 70 3A 2F 2F 31 32 37 2E 30 2E 30 2E 31 3A 34 33 34 35 2F 76 34 2F 6C 6F 67 69 6E 00 00 00 00 00",
             targetFilePath,
@@ -101,27 +98,26 @@ val spoofClientPatch = bytecodePatch(
             // endregion
         }
 
-        startLiborbitFingerprint.method.addInstruction(
+        startLiborbitFingerprint.method.addInstructions(
             0,
-            "invoke-static {}, $LOGIN_HOOK_WEB_SERVER_CLASS_DESCRIPTOR->startWebServer()V"
+            """
+                # Port 4345
+                const/16 v0, 0x10F9
+                invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->startLoginServer(I)V
+            """
         )
 
-        /* startupPageLayoutInflateFingerprint.method.apply {
-            val returnIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN);
-            val inflatedViewRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
+        startupPageLayoutInflateFingerprint.method.apply {
+            val openLoginWebViewDescriptor =
+                "$LOGIN_SERVER_CLASS_DESCRIPTOR->openLoginWebView(Landroid/view/LayoutInflater;)V"
 
-            addInstruction(
-                returnIndex,
-                "invoke-static { v$inflatedViewRegister }, " +
-                        "$LOGIN_HOOK_WEB_SERVER_CLASS_DESCRIPTOR->setLoginWebView(Landroid/view/View;)V"
+            addInstructions(
+                0,
+                """
+                    move-object/from16 v3, p1
+                    invoke-static { v3 }, $openLoginWebViewDescriptor
+                """
             )
-        } */
-
-        startupPageLayoutInflateFingerprint.method.addInstructions(
-            0,
-            "move-object/from16 v3, p1\n" +
-            "invoke-static { v3 }, "+
-                    "$LOGIN_HOOK_WEB_SERVER_CLASS_DESCRIPTOR->openLoginWebView(Landroid/view/LayoutInflater;)V"
-        )
+        }
     }
 }
