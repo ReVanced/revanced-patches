@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.webkit.*;
 import androidx.annotation.NonNull;
@@ -23,7 +22,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
@@ -36,7 +35,8 @@ public class LoginServer extends NanoHTTPD {
     private static final String OPEN_SPOTIFY_COM_HOST = "open.spotify.com";
     private static final String OPEN_SPOTIFY_COM_URL = "https://" + OPEN_SPOTIFY_COM_HOST;
     private static final String OPEN_SPOTIFY_COM_PREFERENCES_URL = OPEN_SPOTIFY_COM_URL + "/preferences";
-    private static final String ACCOUNTS_SPOTIFY_COM_LOGIN_URL = "https://accounts.spotify.com/en/login?continue=" + OPEN_SPOTIFY_COM_PREFERENCES_URL;
+    private static final String ACCOUNTS_SPOTIFY_COM_LOGIN_URL = "https://accounts.spotify.com/login?continue=" +
+            "https%3A%2F%2Fopen.spotify.com%2Fpreferences";
 
     private static final String CONTENT_LENGTH_HEADER = "content-length";
     private static final String JAVASCRIPT_INTERFACE_NAME = "androidInterface";
@@ -118,16 +118,19 @@ public class LoginServer extends NanoHTTPD {
                 Logger.printInfo(() -> "Returning valid access token");
                 return session.toLoginResponse();
             }
-            
-            Logger.printInfo(() -> "Access token from stored credential has expired, renewing with session cookies from stored credential");
+
+            Logger.printInfo(() -> "Access token from stored credential has expired, + " +
+                    "renewing with session cookies from stored credential");
             setCookies(session.cookies);
 
             session = newSession();
-            if (session == null)
+            if (session == null) {
                 return LoginResponse.newBuilder().setError(LoginError.TRY_AGAIN_LATER).build();
+            }
 
             if (session.username == null) {
-                Logger.printInfo(() -> "No username received, meaning the session cookies from stored credential were invalid");
+                Logger.printInfo(() -> "No username received, meaning the session cookies " +
+                                "from stored credential were invalid");
                 // User is logged in but the session retrieved does contain the account username, which means
                 // cookies are invalid or have expired. Return an invalid credentials login error.
                 return LoginResponse.newBuilder()
@@ -137,7 +140,6 @@ public class LoginServer extends NanoHTTPD {
 
             return session.toLoginResponse();
         }
-
     }
 
     @Nullable
@@ -149,7 +151,7 @@ public class LoginServer extends NanoHTTPD {
         AtomicReference<String> usernameReference = new AtomicReference<>(null);
 
         AtomicReference<String> accessTokenReference = new AtomicReference<>(null);
-        AtomicReference<Long> expirationTimestampMsReference = new AtomicReference<>(null);
+        AtomicReference<Long> expirationTimeReference = new AtomicReference<>(null);
 
         AtomicReference<CountDownLatch> countDownLatch = new AtomicReference<>(new CountDownLatch(1));
         AtomicReference<WebView> webViewReference = new AtomicReference<>(null);
@@ -175,10 +177,10 @@ public class LoginServer extends NanoHTTPD {
                             "   configurable: true," +
                             "   set(initialToken) {" +
                             "       const accessToken = initialToken?.accessToken;" +
-                            "       const expirationTimestampMs = initialToken?.accessTokenExpirationTimestampMs;" +
-                            "       if (accessToken && expirationTimestampMs) {" +
+                            "       const expirationTime = initialToken?.accessTokenExpirationTimestampMs;" +
+                            "       if (accessToken && expirationTime) {" +
                             "           delete Object.prototype.initialToken;" +
-                            "           " + JAVASCRIPT_INTERFACE_NAME + ".getTokenData(accessToken, expirationTimestampMs);" +
+                            "           " + JAVASCRIPT_INTERFACE_NAME + ".getTokenData(accessToken, expirationTime);" +
                             "       }" +
                             "       Object.defineProperty(this, \"initialToken\", {" +
                             "           configurable: true," +
@@ -212,10 +214,9 @@ public class LoginServer extends NanoHTTPD {
 
             webView.addJavascriptInterface(new Object() {
                 @JavascriptInterface
-                public void getTokenData(String accessToken, long expirationTimestampMs) {
-                    Logger.printInfo(() -> "Got access token " + accessToken + " and expiration " + expirationTimestampMs);
+                public void getTokenData(String accessToken, long expirationTime) {
                     accessTokenReference.set(accessToken);
-                    expirationTimestampMsReference.set(expirationTimestampMs);
+                    expirationTimeReference.set(expirationTime);
 
                     if (usernameReferenceSet.get()) {
                         countDownLatch.get().countDown();
@@ -224,11 +225,10 @@ public class LoginServer extends NanoHTTPD {
 
                 @JavascriptInterface
                 public void getUsername(String username) {
-                    Logger.printInfo(() -> "Got username " + username);
                     usernameReference.set(username);
                     usernameReferenceSet.set(true);
 
-                    if (accessTokenReference.get() != null && expirationTimestampMsReference.get() != null) {
+                    if (accessTokenReference.get() != null && expirationTimeReference.get() != null) {
                         countDownLatch.get().countDown();
                     }
                 }
@@ -254,16 +254,16 @@ public class LoginServer extends NanoHTTPD {
                 Logger.printException(() -> "Interrupted while waiting for session", e);
             }
 
-            if (!isSessionSet && attempts <= 3) {
+            if (!isSessionSet && attempts < 3) {
                 Logger.printInfo(() -> "Session not set, retrying...");
                 countDownLatch.set(new CountDownLatch(1));
+            } else {
+                Utils.runOnMainThread(() -> {
+                    WebView webView = webViewReference.get();
+                    webView.stopLoading();
+                    webView.destroy();
+                });
             }
-
-            Utils.runOnMainThread(() -> {
-                WebView webView = webViewReference.get();
-                webView.stopLoading();
-                webView.destroy();
-            });
         } while (!isSessionSet && attempts++ < 3);
 
         if (!isSessionSet) {
@@ -272,12 +272,12 @@ public class LoginServer extends NanoHTTPD {
 
         String username = usernameReference.get();
         String accessToken = accessTokenReference.get();
-        long expirationTimestampMs = expirationTimestampMsReference.get();
+        long expirationTime = expirationTimeReference.get();
         String cookies = getCookies();
 
-        Session session = new Session(username, accessToken, expirationTimestampMs, cookies);
+        Session session = new Session(username, accessToken, expirationTime, cookies);
         Logger.printInfo(() -> "Session with username " + session.username + ", access token " + session.accessToken +
-                ", expiration timestamp " + expirationTimestampMs + " and cookies " + cookies);
+                ", expiration time " + expirationTime + " and cookies " + cookies);
 
         return session;
     }
@@ -289,23 +289,28 @@ public class LoginServer extends NanoHTTPD {
 
     private static void setCookies(String cookies) {
         CookieManager cookieManager = CookieManager.getInstance();
-        cookieManager.setCookie(OPEN_SPOTIFY_COM_URL, cookies);
+
+        String[] cookiesList = cookies.split(";");
+        for (String cookie : cookiesList) {
+            cookieManager.setCookie(OPEN_SPOTIFY_COM_URL, cookie);
+        }
+
         cookieManager.flush();
     }
 
     private static void clearCookies() {
         CookieManager cookieManager = CookieManager.getInstance();
-        String spotifyCookies = getCookies();
+        String cookies = getCookies();
 
-        if (spotifyCookies == null) {
+        if (cookies == null) {
             return;
         }
 
-        String[] cookieParts = spotifyCookies.split(";");
-        for (String cookie : cookieParts) {
+        String[] cookiesList = cookies.split(";");
+        for (String cookie : cookiesList) {
             String cookieName = cookie.substring(0, cookie.indexOf("=")).trim();
 
-            String expiredCookie = cookieName + "=;domain=" + OPEN_SPOTIFY_COM_URL + ";path=/;Max-Age=0";
+            String expiredCookie = cookieName + "=; domain=" + OPEN_SPOTIFY_COM_URL + "; path=/; Max-Age=0";
             cookieManager.setCookie(OPEN_SPOTIFY_COM_URL, expiredCookie);
         }
 
@@ -323,7 +328,6 @@ public class LoginServer extends NanoHTTPD {
         return webView;
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
     private static void loginWithWebClient(Context context) {
         new Thread(() -> {
             CountDownLatch countDownLatch = new CountDownLatch(1);
@@ -338,7 +342,10 @@ public class LoginServer extends NanoHTTPD {
                     public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                         if (request.getUrl().getHost().equals("open.spotify.com")) {
                             Logger.printInfo(() -> "Got authentication cookies " + getCookies());
-                            Utils.runOnMainThreadNowOrLater(webView::stopLoading);
+                            Utils.runOnMainThreadNowOrLater(() -> {
+                                webView.stopLoading();
+                                webView.destroy();
+                            });
                             dialog.dismiss();
                             countDownLatch.countDown();
                         }
@@ -347,7 +354,7 @@ public class LoginServer extends NanoHTTPD {
                 });
 
                 clearCookies();
-
+                Logger.printInfo(() -> "Starting authentication web view with cookies " + getCookies());
                 Logger.printInfo(() -> "Loading url " + ACCOUNTS_SPOTIFY_COM_LOGIN_URL);
                 webView.loadUrl(ACCOUNTS_SPOTIFY_COM_LOGIN_URL);
 
@@ -380,7 +387,7 @@ public class LoginServer extends NanoHTTPD {
         @Nullable
         public final String username;
         /**
-         * Access token for this section.
+         * Access token for this session.
          */
         public final String accessToken;
         /**
@@ -388,15 +395,15 @@ public class LoginServer extends NanoHTTPD {
          */
         public final Long expirationTime;
         /**
-         * Authentication cookies for this section.
+         * Authentication cookies for this session.
          */
         public final String cookies;
 
         /**
          * @param username       Username of the account. Null if this session does not have an authenticated user.
-         * @param accessToken    Access token for this section.
+         * @param accessToken    Access token for this session.
          * @param expirationTime Access token expiration time in milliseconds.
-         * @param cookies        Authentication cookies for this section.
+         * @param cookies        Authentication cookies for this session.
          */
         private Session(@Nullable String username, String accessToken, long expirationTime, String cookies) {
             this.username = username;
@@ -414,6 +421,13 @@ public class LoginServer extends NanoHTTPD {
         }
 
         /**
+         * @return The number of seconds until the access token expires.
+         */
+        public int accessTokenExpiresInSeconds() {
+            return (int) accessTokenExpiresInMillis() / 1000;
+        }
+
+        /**
          * @return True if the access token has expired, false otherwise.
          */
         public boolean accessTokenExpired() {
@@ -421,34 +435,47 @@ public class LoginServer extends NanoHTTPD {
         }
 
         /**
-         * @return A Base64 encoded session.
+         * @return A JSON string encoded session.
          */
-        @NonNull
-        public String toStoredCredentialString() {
+        @Nullable
+        public String toStoredCredentialJSONString() {
             String storedCredentialJson;
             try {
                 storedCredentialJson = new JSONObject()
                         .put("cookies", cookies)
                         .put("accessToken", accessToken)
-                        .put("expirationTimestampMs", expirationTime).toString();
-            } catch (JSONException e) {
-                Logger.printException(() -> "Failed to convert session to stored credential", e);
-                return "00"; // Empty stored credential.
+                        .put("expirationTime", expirationTime).toString();
+            } catch (JSONException ex) {
+                Logger.printException(() -> "Failed to convert session to stored credential", ex);
+                return null;
             }
 
-            return Base64.encodeToString(storedCredentialJson.getBytes(StandardCharsets.UTF_8), Base64.NO_WRAP);
+            return storedCredentialJson;
+        }
+
+        /**
+         * @return A ByteString encoded session or an empty stored credential if this session could not be converted
+         * to a JSON string.
+         */
+        public ByteString toStoredCredentialByteString() {
+            String storedCredentialJSONString = toStoredCredentialJSONString();
+            if (storedCredentialJSONString == null) {
+                return ByteString.fromHex("00"); // Empty stored credential.
+            }
+            return ByteString.copyFrom(storedCredentialJSONString, StandardCharsets.UTF_8);
         }
 
         public LoginResponse toLoginResponse() {
-            if (username == null)
+            if (username == null) {
                 throw new UnsupportedOperationException("Cannot convert an unauthenticated session into a LoginResponse");
+            }
 
             return LoginResponse.newBuilder()
                     .setOk(LoginOk.newBuilder()
                             .setUsername(username)
                             .setAccessToken(accessToken)
-                            .setStoredCredential(ByteString.copyFrom(toStoredCredentialString(), StandardCharsets.UTF_8))
-                            .setAccessTokenExpiresIn((int) accessTokenExpiresInMillis() / 1000)
+                            .setStoredCredential(toStoredCredentialByteString())
+                            .setAccessTokenExpiresIn(accessTokenExpiresInSeconds())
                             .build())
                     .build();
         }
@@ -456,18 +483,17 @@ public class LoginServer extends NanoHTTPD {
         @Nullable
         public static Session fromStoredCredential(@NonNull StoredCredential storedCredential) {
             try {
-                String data = storedCredential.getData().toString(StandardCharsets.UTF_8);
-                String jsonString = new String(Base64.decode(data, Base64.NO_WRAP), StandardCharsets.UTF_8);
+                String jsonString = storedCredential.getData().toString(StandardCharsets.UTF_8);
                 JSONObject storedCredentialJson = new JSONObject(jsonString);
 
-                String username = storedCredentialJson.getString("username");
+                String username = storedCredential.getUsername();
                 String cookies = storedCredentialJson.getString("cookies");
                 String accessToken = storedCredentialJson.getString("accessToken");
                 long expirationTime = storedCredentialJson.getLong("expirationTime");
 
                 return new Session(username, accessToken, expirationTime, cookies);
-            } catch (JSONException e) {
-                Logger.printException(() -> "Failed to convert stored credential to session", e);
+            } catch (JSONException ex) {
+                Logger.printException(() -> "Failed to convert stored credential to session", ex);
                 return null;
             }
         }
@@ -492,14 +518,6 @@ public class LoginServer extends NanoHTTPD {
                 len = (int) Math.min(len, remaining);
                 int result = super.read(b, off, len);
                 if (result != -1) remaining -= result;
-                return result;
-            }
-
-            @Override
-            public long skip(long n) throws IOException {
-                long bytesToSkip = Math.min(n, remaining);
-                long result = super.skip(bytesToSkip);
-                remaining -= result;
                 return result;
             }
         };
