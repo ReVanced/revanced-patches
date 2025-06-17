@@ -9,11 +9,15 @@ public class RemoveMetaAIPatch {
     private static final Set<Long> loggedIDs = Collections.synchronizedSet(new HashSet<>());
 
     public static boolean overrideBooleanFlag(long id, boolean value) {
-        if (Long.toString(id).startsWith("REPLACED_BY_PATCH")) {
-            if (loggedIDs.add(id))
-                Logger.printInfo(() -> "Overriding " + id + " from " + value + " to false");
+        try {
+            if (Long.toString(id).startsWith("REPLACED_BY_PATCH")) {
+                if (loggedIDs.add(id))
+                    Logger.printInfo(() -> "Overriding " + id + " from " + value + " to false");
 
-            return false;
+                return false;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "overrideBooleanFlag failure", ex);
         }
 
         return value;
