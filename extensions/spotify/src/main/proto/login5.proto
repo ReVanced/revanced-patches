@@ -25,10 +25,20 @@ message LoginOk {
 }
 
 message LoginResponse {
-    optional string unknown_field_8 = 8;
-    optional string unknown_field_9 = 9;
-
     oneof response {
         LoginOk ok = 1;
+        LoginError error = 2;
     }
+}
+
+enum LoginError {
+    UNKNOWN_ERROR = 0;
+    INVALID_CREDENTIALS = 1;
+    BAD_REQUEST = 2;
+    UNSUPPORTED_LOGIN_PROTOCOL = 3;
+    TIMEOUT = 4;
+    UNKNOWN_IDENTIFIER = 5;
+    TOO_MANY_ATTEMPTS = 6;
+    INVALID_PHONENUMBER = 7;
+    TRY_AGAIN_LATER = 8;
 }

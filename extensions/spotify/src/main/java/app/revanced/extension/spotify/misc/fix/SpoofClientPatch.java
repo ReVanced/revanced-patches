@@ -21,6 +21,5 @@ public class SpoofClientPatch {
         } catch (Exception ex) {
             Logger.printException(() -> "startLoginServer failure", ex);
         }
-    
     }
 }
