@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nustatymai</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Ar norite tęsti?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Ar tikrai norite tęsti?</string>
   <string name="revanced_settings_reset">Atstatyti</string>
   <string name="revanced_settings_reset_color">Atkurti spalvą</string>
   <string name="revanced_settings_color_invalid">Neteisinga spalva</string>
-  <string name="revanced_settings_restart_title">Atnaujinti ir paleisti iš naujo</string>
+  <string name="revanced_settings_restart_title">Reikalingas paleidimas iš naujo</string>
+  <string name="revanced_settings_restart_dialog_message">Norint, kad šis pakeitimas įsigaliotų, paleiskite programą iš naujo.</string>
   <string name="revanced_settings_restart">Paleisti iš naujo</string>
   <string name="revanced_settings_import">Importuoti</string>
   <string name="revanced_settings_import_copy">Kopijuoti</string>

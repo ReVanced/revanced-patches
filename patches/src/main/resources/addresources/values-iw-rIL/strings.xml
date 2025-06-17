@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">הגדרות</string>
-  <string name="revanced_settings_confirm_user_dialog_title">האם ברצונך להמשיך?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">האם בטוח שברצונך להמשיך?</string>
   <string name="revanced_settings_reset">איפוס</string>
   <string name="revanced_settings_reset_color">אפס צבע</string>
   <string name="revanced_settings_color_invalid">צבע לא חוקי</string>
-  <string name="revanced_settings_restart_title">רענן והפעל מחדש</string>
+  <string name="revanced_settings_restart_title">יש להפעיל מחדש</string>
+  <string name="revanced_settings_restart_dialog_message">יש להפעיל מחדש את האפליקציה כדי שהשינוי ישפיע.</string>
   <string name="revanced_settings_restart">הפעלה מחדש</string>
   <string name="revanced_settings_import">ייבוא</string>
   <string name="revanced_settings_import_copy">העתק</string>

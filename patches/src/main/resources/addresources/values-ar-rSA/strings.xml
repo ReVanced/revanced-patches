@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">الإعدادات</string>
-  <string name="revanced_settings_confirm_user_dialog_title">هل ترغب في المتابعة؟</string>
+  <string name="revanced_settings_confirm_user_dialog_title">هل أنت متأكد أنك تريد المتابعة؟</string>
   <string name="revanced_settings_reset">إعادة التعيين</string>
   <string name="revanced_settings_reset_color">Reset color</string>
   <string name="revanced_settings_color_invalid">لون غير صالح</string>
-  <string name="revanced_settings_restart_title">تحديث وإعادة التشغيل</string>
+  <string name="revanced_settings_restart_title">إعادة التشغيل مطلوبة</string>
+  <string name="revanced_settings_restart_dialog_message">أعد تشغيل التطبيق لكي يسري هذا التغيير.</string>
   <string name="revanced_settings_restart">إعادة التشغيل</string>
   <string name="revanced_settings_import">استيراد</string>
   <string name="revanced_settings_import_copy">نسخ</string>

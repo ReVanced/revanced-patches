@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Thiết lập</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Bạn có muốn tiếp tục không?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Bạn có chắc chắn muốn tiếp tục không?</string>
   <string name="revanced_settings_reset">Đặt lại</string>
   <string name="revanced_settings_reset_color">Đặt lại màu</string>
   <string name="revanced_settings_color_invalid">Màu không hợp lệ</string>
-  <string name="revanced_settings_restart_title">Làm mới và khởi động lại</string>
+  <string name="revanced_settings_restart_title">Yêu cầu khởi động lại</string>
+  <string name="revanced_settings_restart_dialog_message">Khởi động lại ứng dụng để thay đổi này có hiệu lực.</string>
   <string name="revanced_settings_restart">Khởi động lại</string>
   <string name="revanced_settings_import">Nhập</string>
   <string name="revanced_settings_import_copy">Sao chép</string>
@@ -48,7 +49,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_no_results_title">Không tìm thấy kết quả nào cho \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Thử một từ khóa khác</string>
   <string name="revanced_settings_search_remove_message">Xóa khỏi lịch sử tìm kiếm?</string>
-  <string name="revanced_show_menu_icons_title">Hiển thị biểu tượng cài đặt ReVanced</string>
+  <string name="revanced_show_menu_icons_title">Hiện biểu tượng cài đặt ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Các biểu tượng cài đặt được hiển thị</string>
   <string name="revanced_show_menu_icons_summary_off">Các biểu tượng cài đặt không được hiển thị</string>
   <string name="revanced_language_title">Ngôn ngữ ReVanced</string>
@@ -125,7 +126,7 @@ Tuy nhiên, việc bật tính năng này cũng sẽ ghi lại một số dữ l
   <string name="revanced_debug_stacktrace_title">Ghi nhật ký truy vết ngăn xếp</string>
   <string name="revanced_debug_stacktrace_summary_on">Nhật ký gỡ lỗi bao gồm truy vết ngăn xếp</string>
   <string name="revanced_debug_stacktrace_summary_off">Nhật ký gỡ lỗi không bao gồm truy vết ngăn xếp</string>
-  <string name="revanced_debug_toast_on_error_title">Hiển thị thông báo nổi về lỗi ReVanced</string>
+  <string name="revanced_debug_toast_on_error_title">Hiện thông báo nổi về lỗi ReVanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">Thông báo nổi được hiển thị nếu xảy ra lỗi</string>
   <string name="revanced_debug_toast_on_error_summary_off">Thông báo nổi không được hiển thị nếu xảy ra lỗi</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Tắt thông báo lỗi sẽ ẩn tất cả thông báo lỗi của ReVanced.
@@ -429,7 +430,7 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_copy_video_url_summary_on">Nút được hiển thị. Chạm để sao chép URL video. Chạm và giữ để sao chép với dấu thời gian</string>
   <string name="revanced_copy_video_url_summary_off">Nút không được hiển thị</string>
   <string name="revanced_copy_video_url_timestamp_title">Hiện nút sao chép URL với dấu thời gian</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Nút được hiện. Chạm để sao chép video URL với dấu thời gian. Chạm và giữ để sao chép video không kèm theo dấu thời gian</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Nút được hiển thị. Chạm để sao chép video URL với dấu thời gian. Chạm và giữ để sao chép video không kèm theo dấu thời gian</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Nút không được hiển thị</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -453,7 +454,7 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_external_downloader_not_installed_warning">%s chưa được cài đặt. Hãy cài đặt nó.</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
-  <string name="revanced_disable_precise_seeking_gesture_title">Vô hiệu cử chỉ dò tìm chính xác</string>
+  <string name="revanced_disable_precise_seeking_gesture_title">Tắt cử chỉ tua chính xác</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Cử chỉ đã tắt</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Cử chỉ đã bật</string>
   </patch>
@@ -603,10 +604,10 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_disable_translucent_status_bar_user_dialog_message">Trên một số thiết bị, việc bật tính năng này có thể thay đổi thanh điều hướng hệ thống thành trong suốt.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Vô hiệu hóa thanh điều hướng trong suốt ở chế độ sáng</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Thanh điều hướng ở chế độ sáng không trong suốt</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Thanh điều hướng ở chế độ sáng là đục hoặc trong mờ</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">Vô hiệu hoá thanh điều hướng trong chế độ tối</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Thanh điều hướng ở chế độ sáng có thể mờ hoặc trong suốt</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Vô hiệu hoá thanh điều hướng trong suốt ở chế độ tối</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Thanh điều hướng ở chế độ tối không trong suốt</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Thanh điều hướng ở chế độ tối là đục hoặc trong mờ</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Thanh điều hướng ở chế độ tối có thể mờ hoặc trong suốt</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Trình đơn nổi</string>
@@ -663,9 +664,9 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ẩn Xem trong thực tế ảo</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Trình đơn xem trong thực tế ảo đã bị ẩn</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Trình đơn xem trong thực tế ảo được hiển thị</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_title">Ẩn phần chân trình đơn chất lượng video</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Phần chân trình đơn chất lượng video đã bị ẩn</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Phần chân trình đơn chất lượng video được hiển thị</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Ẩn chân trình đơn chất lượng video</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Chân trình đơn chất lượng video đã bị ẩn</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Chân trình đơn chất lượng video được hiển thị</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút Trước &amp; Tiếp theo</string>
@@ -686,9 +687,9 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_player_control_buttons_background_summary_off">Nền của các nút điều khiển trình phát đã hiển thị</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
-  <string name="revanced_hide_endscreen_cards_title">Ẩn thẻ kết thúc màn hình</string>
-  <string name="revanced_hide_endscreen_cards_summary_on">Thẻ kết thúc màn hình đã bị ẩn</string>
-  <string name="revanced_hide_endscreen_cards_summary_off">Thẻ kết thúc màn hình được hiển thị</string>
+  <string name="revanced_hide_endscreen_cards_title">Ẩn thẻ màn hình kết thúc</string>
+  <string name="revanced_hide_endscreen_cards_summary_on">Thẻ màn hình kết thúc đã bị ẩn</string>
+  <string name="revanced_hide_endscreen_cards_summary_off">Thẻ màn hình kết thúc được hiển thị</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Tắt Chế độ môi trường khi toàn màn hình</string>
@@ -719,7 +720,7 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ẩn Shorts trong thẻ trang chủ</string>
   <string name="revanced_hide_shorts_home_summary_on">Ẩn trong thẻ trang chủ và video liên quan</string>
-  <string name="revanced_hide_shorts_home_summary_off">Hiển thi trong thẻ trang chủ và video liên quan</string>
+  <string name="revanced_hide_shorts_home_summary_off">Hiển thị trong thẻ trang chủ và video liên quan</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ẩn Shorts trong thẻ kênh đăng ký</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Bị ẩn trong thẻ kênh đăng ký</string>
@@ -755,7 +756,7 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_shorts_location_label_summary_off">Nhãn vị trí được hiển thị</string>
   <string name="revanced_hide_shorts_preview_comment_title">Ẩn xem trước bình luận</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Xem trước bình luận đã bị ẩn</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">Xem trước bình luận được hiện</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Xem trước bình luận được hiển thị</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ẩn nút Lưu âm thanh</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Nút lưu nhạc đã bị ẩn</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Nút lưu nhạc được hiển thị</string>
@@ -812,9 +813,9 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_shorts_sound_metadata_label_title">Ẩn nhãn siêu dữ liệu âm thanh</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Nhãn siêu dữ liệu đã bị ẩn</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Nhãn siêu dữ liệu được hiển thị</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Ẩn nhãn liên kết toàn video</string>
-  <string name="revanced_hide_shorts_full_video_link_label_summary_on">Nhãn liên kết video đã bị ẩn</string>
-  <string name="revanced_hide_shorts_full_video_link_label_summary_off">Nhãn liên kết video được hiển thị</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Ẩn nhãn liên kết tới video đầy đủ</string>
+  <string name="revanced_hide_shorts_full_video_link_label_summary_on">Nhãn liên kết tới video đầy đủ đã bị ẩn</string>
+  <string name="revanced_hide_shorts_full_video_link_label_summary_off">Nhãn liên kết tới video đầy đủ được hiển thị</string>
   <string name="revanced_hide_shorts_sound_button_title">Ẩn nút âm thanh</string>
   <string name="revanced_hide_shorts_sound_button_summary_on">Nút âm thanh đã bị ẩn</string>
   <string name="revanced_hide_shorts_sound_button_summary_off">Nút âm thanh được hiển thị</string>
@@ -933,7 +934,7 @@ Tính năng này hoạt động tốt nhất với chất lượng video 720p tr
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Bật SponsorBlock</string>
-  <string name="revanced_sb_enable_sb_sum">SponsorBlock là một hệ thống cộng đồng để bỏ qua các phần quảng cáo trong video YouTube</string>
+  <string name="revanced_sb_enable_sb_sum">SponsorBlock là một hệ thống dựa trên đóng góp bởi cộng đồng để bỏ qua các phần gây khó chịu trong video YouTube</string>
   <string name="revanced_sb_appearance_category">Giao diện</string>
   <string name="revanced_sb_enable_voting">Hiện nút bình chọn</string>
   <string name="revanced_sb_enable_voting_sum_on">Nút bình chọn phân đoạn được hiển thị</string>
@@ -998,7 +999,7 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Không hiện lại</string>
   <string name="revanced_sb_diff_segments">Thay đổi hành vi phân đoạn</string>
   <string name="revanced_sb_segments_sponsor">Nhà tài trợ</string>
-  <string name="revanced_sb_segments_sponsor_sum">Quảng cáo, giới thiệu được trả tiền và quảng cáo trực tiếp. Không phải tự quảng cáo hoặc lời cảm ơn miễn phí đến các tác nhân/nhà sáng tạo/trang web/sản phẩm mà họ yêu thích</string>
+  <string name="revanced_sb_segments_sponsor_sum">Quảng cáo, giới thiệu được trả tiền và quảng cáo trực tiếp. Không phải tự quảng cáo hoặc lời giới thiệu miễn phí đến các chiến dịch/nhà sáng tạo/trang web/sản phẩm mà họ yêu thích</string>
   <string name="revanced_sb_segments_selfpromo">Quảng cáo không được trả phí/Tự quảng cáo</string>
   <string name="revanced_sb_segments_selfpromo_sum">Tương tự như Quảng cáo nhưng không có lợi nhuận hoặc tự quảng bá. Bao gồm các phần về hàng hóa, quyên góp hoặc thông tin về những người họ đã hợp tác</string>
   <string name="revanced_sb_segments_interaction">Nhắc nhở tương tác (Đăng ký)</string>
@@ -1049,7 +1050,7 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
   <string name="revanced_sb_skip_automatically">Tự động bỏ qua</string>
   <string name="revanced_sb_skip_automatically_once">Tự động bỏ qua một lần</string>
   <string name="revanced_sb_skip_showbutton">Hiện nút Bỏ qua</string>
-  <string name="revanced_sb_skip_seekbaronly">Hiện trên thanh tiến trình</string>
+  <string name="revanced_sb_skip_seekbaronly">Hiển thị trên thanh tiến trình</string>
   <string name="revanced_sb_skip_ignore">Tắt</string>
   <string name="revanced_sb_submit_failed_invalid">Không thể gửi phân đoạn: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock bị sập tạm thời</string>
@@ -1265,13 +1266,13 @@ Vuốt để mở rộng hoặc đóng"</string>
   <string name="splash_screen_animation_style_entry_1">Màu</string>
   <string name="splash_screen_animation_style_entry_2">Đen và trắng</string>
   <string name="revanced_seekbar_custom_color_title">Bật màu tùy chỉnh thanh tiến trình</string>
-  <string name="revanced_seekbar_custom_color_summary_on">Màu tùy chỉnh thanh tiến trình được hiển thị</string>
-  <string name="revanced_seekbar_custom_color_summary_off">Màu gốc thanh tiến trình được hiển thị</string>
-  <string name="revanced_seekbar_custom_color_primary_title">Tùy chỉnh màu thanh tìm kiếm</string>
-  <string name="revanced_seekbar_custom_color_primary_summary">Màu của thanh tìm kiếm</string>
-  <string name="revanced_seekbar_custom_color_accent_title">Tùy chỉnh màu sắc nổi bật của thanh tìm kiếm</string>
-  <string name="revanced_seekbar_custom_color_accent_summary">Màu sắc nổi bật của thanh tìm kiếm</string>
-  <string name="revanced_seekbar_custom_color_invalid">Giá trị màu thanh tiến trình không hợp lệ</string>
+  <string name="revanced_seekbar_custom_color_summary_on">Màu tùy chỉnh của thanh tiến trình được hiển thị</string>
+  <string name="revanced_seekbar_custom_color_summary_off">Màu gốc của thanh tiến trình được hiển thị</string>
+  <string name="revanced_seekbar_custom_color_primary_title">Tùy chỉnh màu thanh tiến trình</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">Màu của thanh tiến trình</string>
+  <string name="revanced_seekbar_custom_color_accent_title">Tùy chỉnh màu sắc nổi bật của thanh tiến trình</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">Màu sắc nổi bật của thanh tiến trình</string>
+  <string name="revanced_seekbar_custom_color_invalid">Giá trị màu của thanh tiến trình không hợp lệ</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Vượt qua hạn chế khu vực cho hình ảnh</string>
@@ -1397,7 +1398,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_video_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho video hiện tại</string>
   <string name="revanced_video_quality_default_wifi_title">Chất lượng mặc định trên mạng Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Chất lượng mặc định trên mạng di động</string>
-  <string name="revanced_remember_shorts_quality_last_selected_title">Ghi nhớ các thay đổi chất lượng Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Nhớ các thay đổi chất lượng Shorts</string>
   <string name="revanced_remember_shorts_quality_last_selected_summary_on">Thay đổi chất lượng áp dụng cho tất cả nội dung Shorts</string>
   <string name="revanced_remember_shorts_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho Short hiện tại</string>
   <string name="revanced_shorts_quality_default_wifi_title">Chất lượng Shorts mặc định trên mạng Wi-Fi</string>
@@ -1434,8 +1435,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="video.hdr.disableHdrPatch">
   <string name="revanced_disable_hdr_video_title">Vô hiệu hóa video HDR</string>
-  <string name="revanced_disable_hdr_video_summary_on">Video HDR đã bị tắt</string>
-  <string name="revanced_disable_hdr_video_summary_off">Video HDR đã được bật</string>
+  <string name="revanced_disable_hdr_video_summary_on">Video HDR đã tắt</string>
+  <string name="revanced_disable_hdr_video_summary_off">Video HDR đã bật</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Hiện trình đơn chất lượng video nâng cao</string>
@@ -1473,7 +1474,7 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
 • Tùy chọn âm thanh gốc không khả dụng"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có bộ giải mã video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video dành cho trẻ em có thể không phát được khi đăng xuất hoặc ở chế độ ẩn danh</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Thống kê chi tiết</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiện trong Thống kê chi tiết</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Loại máy khách được hiển thị trong Thống kê chi tiết</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Máy khách đã bị ẩn trong Thống kê chi tiết</string>
   <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ âm thanh mặc định của VR</string>
@@ -1487,7 +1488,7 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
   <string name="revanced_embedded_ads_service_unavailable">%s không khả dụng, quảng cáo có thể hiện. Hãy thử thay đổi dịch vụ chặn quảng cáo trong cài đặt.</string>
-  <string name="revanced_embedded_ads_service_failed">%s đã trả về lỗi, quảng cáo có thể hiện. Hãy thử thay đổi dịch vụ chặn quảng cáo trong cài đặt.</string>
+  <string name="revanced_embedded_ads_service_failed">%s đã trả về lỗi, quảng cáo có thể hiển thị. Hãy thử thay đổi dịch vụ chặn quảng cáo trong cài đặt.</string>
   <string name="revanced_block_embedded_ads_title">Chặn quảng cáo video nhúng</string>
   <string name="revanced_block_embedded_ads_entry_1">Đã tắt</string>
   <string name="revanced_block_embedded_ads_entry_2">Ủy thác Luminous</string>

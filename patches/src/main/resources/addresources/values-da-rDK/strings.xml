@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Indstillinger</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Ønsker du at fortsætte?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Er du sikker på, at du vil fortsætte?</string>
   <string name="revanced_settings_reset">Nulstil</string>
   <string name="revanced_settings_reset_color">Nulstil farve</string>
   <string name="revanced_settings_color_invalid">Ugyldig farve</string>
-  <string name="revanced_settings_restart_title">Opdater og genstart</string>
+  <string name="revanced_settings_restart_title">Genstart kræves</string>
+  <string name="revanced_settings_restart_dialog_message">Genstart appen for at denne ændring træder i kraft.</string>
   <string name="revanced_settings_restart">Genstart</string>
   <string name="revanced_settings_import">Importer</string>
   <string name="revanced_settings_import_copy">Kopier</string>

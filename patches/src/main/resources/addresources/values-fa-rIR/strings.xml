@@ -33,9 +33,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">تنظیمات</string>
-  <string name="revanced_settings_confirm_user_dialog_title">آیا مایل به ادامه هستید؟</string>
   <string name="revanced_settings_reset">بازنشانی</string>
-  <string name="revanced_settings_restart_title">تازه‌سازی و راه‌اندازی مجدد</string>
   <string name="revanced_settings_restart">راه‌اندازی مجدد</string>
   <string name="revanced_settings_import">واردکردن</string>
   <string name="revanced_settings_import_copy">رونوشت‌</string>
