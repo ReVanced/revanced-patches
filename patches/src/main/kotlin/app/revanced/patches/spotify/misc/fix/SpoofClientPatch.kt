@@ -35,7 +35,7 @@ internal fun makeUrlPatch(targetFilePath: String): Sequence<Replacement> {
     ).asSequence()
 }
 
-internal val spoofClientPatchHexPatch = hexPatch {
+internal val spoofClientPatchHexPatch = hexPatch(false) {
     val replacements = makeUrlPatch("lib/arm64-v8a/liborbit-jni-spotify.so") +
             makeUrlPatch("lib/armeabi-v7a/liborbit-jni-spotify.so") +
             makeUrlPatch("lib/x86/liborbit-jni-spotify.so") +

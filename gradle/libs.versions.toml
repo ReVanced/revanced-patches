@@ -12,8 +12,8 @@ okhttp = "5.0.0-alpha.14"
 retrofit = "2.11.0"
 guava = "33.4.0-jre"
 protobuf-javalite = "4.31.1"
-protoc = "3.25.3"
-protobuf = "0.9.4"
+protoc = "4.31.1"
+protobuf = "0.9.5"
 nanohttpd = "2.3.1"
 
 [libraries]
