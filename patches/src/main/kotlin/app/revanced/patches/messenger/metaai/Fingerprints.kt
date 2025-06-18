@@ -3,9 +3,6 @@ package app.revanced.patches.messenger.metaai
 import com.android.tools.smali.dexlib2.Opcode
 import app.revanced.patcher.fingerprint
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messenger/metaai/RemoveMetaAIPatch;"
-internal const val EXTENSION_METHOD_NAME = "overrideBooleanFlag"
-
 internal val getMobileConfigBoolFingerprint = fingerprint {
     parameters("J")
     returns("Z")
