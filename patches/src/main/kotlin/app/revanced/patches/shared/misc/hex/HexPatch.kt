@@ -10,17 +10,14 @@ import kotlin.math.max
 // This late evaluation was being leveraged in app.revanced.patches.all.misc.hex.HexPatch.
 // Without the function, the replacements would be evaluated at the time of patch creation.
 // This isn't possible because the delegated property is not accessible at that time.
-fun hexPatch(allTargetFilesRequired: Boolean, replacementsSupplier: () -> Set<Replacement>) = rawResourcePatch {
+fun hexPatch(ignoreMissingFiles: Boolean, replacementsSupplier: () -> Set<Replacement>) = rawResourcePatch {
     execute {
         replacementsSupplier().groupBy { it.targetFilePath }.forEach { (targetFilePath, replacements) ->
             val targetFile = try {
                 get(targetFilePath, true)
-            } catch (e: Exception) {
-                if (allTargetFilesRequired) {
-                    throw PatchException("Could not find target file: $targetFilePath")
-                } else {
-                    return@forEach
-                }
+            } catch (_: Exception) {
+                if (ignoreMissingFiles) return@forEach
+                throw PatchException("Could not find target file: $targetFilePath")
             }
 
             // TODO: Use a file channel to read and write the file instead of reading the whole file into memory,
@@ -124,7 +121,7 @@ class Replacement(
         } catch (e: NumberFormatException) {
             throw PatchException(
                 "Could not parse pattern: $this.  A pattern is a sequence of case insensitive strings " +
-                    "representing hexadecimal bytes separated by spaces",
+                        "representing hexadecimal bytes separated by spaces",
                 e,
             )
         }
