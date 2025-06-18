@@ -31,7 +31,7 @@ class WebApp {
     public static void login(Context context) {
         pendingLoginSession = null;
 
-        Utils.runOnMainThread(() -> {
+        Utils.runOnMainThreadNowOrLater(() -> {
             Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
             AtomicReference<WebView> webViewRef = new AtomicReference<>(null);
 
@@ -63,50 +63,55 @@ class WebApp {
     }
 
 
-    @SuppressWarnings("unused")
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Nullable
     public static Session refreshSession(String cookies) {
         setCookies(cookies);
 
         AtomicReference<Session> sessionRef = new AtomicReference<>(null);
+        AtomicReference<WebView> webViewRef = new AtomicReference<>(null);
         Semaphore getSessionSemaphore = new Semaphore(0);
+        Semaphore startTimeoutSemaphore = new Semaphore(0);
 
-        Utils.runOnMainThread(() -> {
-            WebView webView = newWebView(null, session -> {
-                Logger.printInfo(() -> "Received session: " + session);
-                sessionRef.set(session);
-                getSessionSemaphore.release();
-            });
+        int attempts = 1;
+        do {
+            int attemptNumber = attempts;
+            Logger.printInfo(() -> "Attempt " + attemptNumber + ": Getting session for "
+                    + GET_SESSION_TIMEOUT_SECONDS + " seconds...");
 
-            int attempts = 1;
-            do {
-                int attemptNumber = attempts;
-                Logger.printInfo(() -> "Attempt " + attemptNumber + ": Getting session for "
-                        + GET_SESSION_TIMEOUT_SECONDS + " seconds...");
+            Utils.runOnMainThreadNowOrLater(() -> {
+                WebView webView = webViewRef.get();
+                if (webView == null) {
+                    webView = newWebView(null, session -> {
+                        Logger.printInfo(() -> "Received session: " + session);
+                        sessionRef.set(session);
+                        getSessionSemaphore.release();
+                    });
+                    webViewRef.set(webView);
+                }
 
                 webView.stopLoading(); // Stop any previous loading.
                 webView.loadUrl(OPEN_SPOTIFY_COM_PREFERENCES_URL);
+                startTimeoutSemaphore.release();
+            });
 
-                try {
-                    boolean isAcquired = getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-                    if (isAcquired) break;
+            startTimeoutSemaphore.tryAcquire();
 
-                } catch (InterruptedException ex) {
-                    Logger.printException(() -> "Interrupted while waiting for session", ex);
-                    break;
-                }
-            } while (attempts++ <= 3);
+            try {
+                boolean isAcquired = getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+                if (isAcquired) break;
 
+            } catch (InterruptedException ex) {
+                Logger.printException(() -> "Interrupted while waiting for session", ex);
+                break;
+            }
+        } while (++attempts <= 3);
+
+        Utils.runOnMainThreadNowOrLater(() -> {
+            WebView webView = webViewRef.get();
             webView.stopLoading();
             webView.destroy();
         });
-
-        try {
-            // At most 3 attempts * timeout duration.
-            boolean isAcquired = getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS * 3L, TimeUnit.SECONDS);
-        } catch (InterruptedException ex) {
-            Logger.printException(() -> "Interrupted while waiting for session from UI thread", ex);
-        }
 
         return sessionRef.get();
     }
@@ -143,7 +148,7 @@ class WebApp {
 
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                if (!url.contains(OPEN_SPOTIFY_COM)) {
+                if (!url.contains(OPEN_SPOTIFY_COM_URL)) {
                     return;
                 }
 
@@ -190,7 +195,7 @@ class WebApp {
         int index = userAgent.indexOf("Linux");
         if (index != -1) {
             StringBuilder userAgentBuilder = new StringBuilder(userAgent);
-            int start = userAgent.indexOf('(', index);
+            int start = userAgent.indexOf('(', index - 1);
             int end = userAgent.indexOf(')', start);
 
             if (start != -1 && end != -1) {

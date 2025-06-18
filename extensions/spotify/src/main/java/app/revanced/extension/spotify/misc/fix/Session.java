@@ -36,7 +36,7 @@ class Session {
      * @param cookies     Authentication cookies for this session.
      */
     public Session(@Nullable String username, String accessToken, String cookies) {
-        this(username, accessToken, System.currentTimeMillis() + 60 * 1000, cookies);
+        this(username, accessToken, System.currentTimeMillis() + 60 * 60 * 1000, cookies);
     }
 
     private Session(@Nullable String username, String accessToken, long expirationTime, String cookies) {
