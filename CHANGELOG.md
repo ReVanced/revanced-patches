@@ -1,3 +1,10 @@
+# [5.28.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.6...v5.28.0-dev.7) (2025-06-18)
+
+
+### Bug Fixes
+
+* **YouTube:** Remove old app targets that are no longer supported by YouTube ([#5192](https://github.com/ReVanced/revanced-patches/issues/5192)) ([c9e54e1](https://github.com/ReVanced/revanced-patches/commit/c9e54e1d36243945ac1ec3108fe38edf0e15d772))
+
 # [5.28.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.5...v5.28.0-dev.6) (2025-06-17)
 
 
