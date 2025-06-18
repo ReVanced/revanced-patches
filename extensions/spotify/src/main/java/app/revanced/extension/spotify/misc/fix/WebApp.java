@@ -6,11 +6,13 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.webkit.*;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 class WebApp {
     private static final String OPEN_SPOTIFY_COM = "open.spotify.com";
@@ -23,20 +25,31 @@ class WebApp {
 
     private static final String JAVASCRIPT_INTERFACE_NAME = "androidInterface";
 
-    static Session currentSession;
+    @Nullable
+    public static Session pendingLoginSession;
 
-    static void login(Context context) {
-        Utils.runOnMainThreadNowOrLater(() -> {
+    public static void login(Context context) {
+        pendingLoginSession = null;
+
+        Utils.runOnMainThread(() -> {
             Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+            AtomicReference<WebView> webViewRef = new AtomicReference<>(null);
 
             WebView webView = newWebView((String cookies) -> {
                 Logger.printInfo(() -> "Received cookies from login: " + cookies);
                 dialog.dismiss();
             }, (session) -> {
                 Logger.printInfo(() -> "Received session from login: " + session);
-                currentSession = session;
-                session.save();
+                pendingLoginSession = session;
+
+                WebView loginWebView = webViewRef.get();
+                if (loginWebView != null) {
+                    loginWebView.stopLoading();
+                    loginWebView.destroy();
+                }
             });
+
+            webViewRef.set(webView);
 
             // Ensure that cookies are cleared before loading the login page.
             CookieManager.getInstance().removeAllCookies((anyRemoved) ->
@@ -49,16 +62,19 @@ class WebApp {
         });
     }
 
-    static void refreshSession(String cookies) {
+
+    @SuppressWarnings("unused")
+    @Nullable
+    public static Session refreshSession(String cookies) {
         setCookies(cookies);
 
+        AtomicReference<Session> sessionRef = new AtomicReference<>(null);
         Semaphore getSessionSemaphore = new Semaphore(0);
 
-        Utils.runOnMainThreadNowOrLater(() -> {
+        Utils.runOnMainThread(() -> {
             WebView webView = newWebView(null, session -> {
                 Logger.printInfo(() -> "Received session: " + session);
-                session.save();
-                currentSession = session;
+                sessionRef.set(session);
                 getSessionSemaphore.release();
             });
 
@@ -75,11 +91,10 @@ class WebApp {
                     boolean isAcquired = getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
                     if (isAcquired) break;
 
-                } catch (InterruptedException e) {
-                    Logger.printException(() -> "Interrupted while waiting for session", e);
+                } catch (InterruptedException ex) {
+                    Logger.printException(() -> "Interrupted while waiting for session", ex);
                     break;
                 }
-
             } while (attempts++ <= 3);
 
             webView.stopLoading();
@@ -88,24 +103,25 @@ class WebApp {
 
         try {
             // At most 3 attempts * timeout duration.
-            //noinspection ResultOfMethodCallIgnored
-            getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS * 3L, TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            Logger.printException(() -> "Interrupted while waiting for session from UI thread", e);
+            boolean isAcquired = getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS * 3L, TimeUnit.SECONDS);
+        } catch (InterruptedException ex) {
+            Logger.printException(() -> "Interrupted while waiting for session from UI thread", ex);
         }
+
+        return sessionRef.get();
     }
 
-    interface HasLoggedInCallback {
+    private interface HasLoggedInCallback {
         void onLoggedIn(String cookies);
     }
 
-    interface HasReceivedSessionCallback {
+    private interface HasReceivedSessionCallback {
         void onReceivedSession(Session session);
     }
 
     @NonNull
     @SuppressLint("SetJavaScriptEnabled")
-    static WebView newWebView(
+    private static WebView newWebView(
             HasLoggedInCallback hasLoggedInCallback,
             HasReceivedSessionCallback hasReceivedSessionCallback
     ) {
@@ -127,7 +143,7 @@ class WebApp {
 
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                if (!url.contains(OPEN_SPOTIFY_COM_PREFERENCES_URL) && !url.contains(OPEN_SPOTIFY_COM)) {
+                if (!url.contains(OPEN_SPOTIFY_COM)) {
                     return;
                 }
 
@@ -154,7 +170,7 @@ class WebApp {
         });
 
         webView.addJavascriptInterface(new Object() {
-            /** @noinspection unused*/
+            @SuppressWarnings("unused")
             @JavascriptInterface
             public void getSession(String username, String accessToken) {
                 if (hasReceivedSessionCallback != null) {
@@ -167,10 +183,11 @@ class WebApp {
         return webView;
     }
 
-    static String getWebUserAgent() {
+    @NonNull
+    private static String getWebUserAgent() {
         String userAgent = WebSettings.getDefaultUserAgent(Utils.getContext());
 
-        int index = userAgent.indexOf("linux");
+        int index = userAgent.indexOf("Linux");
         if (index != -1) {
             StringBuilder userAgentBuilder = new StringBuilder(userAgent);
             int start = userAgent.indexOf('(', index);
@@ -190,12 +207,12 @@ class WebApp {
         return fallbackUserAgent;
     }
 
-    static String getCurrentCookies() {
+    private static String getCurrentCookies() {
         CookieManager cookieManager = CookieManager.getInstance();
         return cookieManager.getCookie(OPEN_SPOTIFY_COM_URL);
     }
 
-    static void setCookies(String cookies) {
+    private static void setCookies(@NonNull String cookies) {
         CookieManager cookieManager = CookieManager.getInstance();
 
         String[] cookiesList = cookies.split(";");

@@ -16,11 +16,10 @@ import java.util.Objects;
 
 import static fi.iki.elonen.NanoHTTPD.Response.Status.INTERNAL_ERROR;
 
-@SuppressWarnings("unused")
 class LoginRequestListener extends NanoHTTPD {
     private static final String CONTENT_LENGTH_HEADER = "content-length";
 
-    LoginRequestListener(int port) {
+    public LoginRequestListener(int port) {
         super(port);
     }
 
@@ -53,7 +52,7 @@ class LoginRequestListener extends NanoHTTPD {
         boolean isInitialLogin = !loginRequest.hasStoredCredential();
         if (isInitialLogin) {
             Logger.printInfo(() -> "Initial login request");
-            session = WebApp.currentSession; // Session obtained from WebApp.login.
+            session = WebApp.pendingLoginSession; // Session obtained from WebApp.login.
         } else {
             Logger.printInfo(() -> "Session restore request");
             session = Session.read(loginRequest.getStoredCredential().getUsername());
@@ -63,7 +62,7 @@ class LoginRequestListener extends NanoHTTPD {
     }
 
 
-    static LoginResponse toLoginResponse(Session session, boolean isInitialLogin) {
+    private static LoginResponse toLoginResponse(Session session, boolean isInitialLogin) {
         LoginResponse.Builder builder = LoginResponse.newBuilder();
 
         if (session == null) {
@@ -79,16 +78,17 @@ class LoginRequestListener extends NanoHTTPD {
             builder.setError(LoginError.INVALID_CREDENTIALS);
         } else if (session.accessTokenExpired()) {
             Logger.printInfo(() -> "Access token has expired, renewing session");
-            WebApp.refreshSession(session.cookies);
-            return toLoginResponse(WebApp.currentSession, isInitialLogin);
+            Session refreshedSession = WebApp.refreshSession(session.cookies);
+            return toLoginResponse(refreshedSession, isInitialLogin);
         } else {
             Logger.printInfo(() -> "Returning session for username: " + session.username);
+            session.save();
             builder.setOk(LoginOk.newBuilder()
                     .setUsername(session.username)
                     .setAccessToken(session.accessToken)
-                    .setStoredCredential(ByteString.copyFrom(new byte[0]))
+                    .setStoredCredential(ByteString.fromHex("00")) // storedCredential cannot be empty.
                     .setAccessTokenExpiresIn(session.accessTokenExpiresInSeconds())
-                    .build()).build();
+                    .build());
         }
 
         return builder.build();
@@ -126,8 +126,9 @@ class LoginRequestListener extends NanoHTTPD {
         return limitedInputStream(request.getInputStream(), requestContentLength);
     }
 
-    @NonNull
+
     @SuppressWarnings("SameParameterValue")
+    @NonNull
     private static Response newResponse(Response.Status status) {
         return newResponse(status, null);
     }

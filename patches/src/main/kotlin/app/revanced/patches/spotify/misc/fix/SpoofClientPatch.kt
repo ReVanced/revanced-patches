@@ -17,7 +17,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/fix/SpoofClientPatch;"
-internal const val LOGIN_SERVER_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/fix/LoginServer;"
 
 @Suppress("unused")
 val spoofClientPatch = bytecodePatch(
@@ -47,7 +46,7 @@ val spoofClientPatch = bytecodePatch(
                 "x86_64"
             ).map {
                 listOf(
-                    // Replace https://spotify.com/v3/login with http://127.0.0.1:4345/v3/login.
+                    // Replace https://login5.spotify.com/v3/login with http://127.0.0.1:4345/v3/login.
                     Replacement(
                         "68 74 74 70 73 3A 2F 2F " +
                                 "6C 6F 67 69 6E 35 2E 73 " +
@@ -61,7 +60,7 @@ val spoofClientPatch = bytecodePatch(
                                 "00 00 00",
                         "lib/$it/liborbit-jni-spotify.so",
                     ),
-                    // Replace https://spotify.com/v4/login with http://127.0.0.1:4345/v4/login.
+                    // Replace https://login5.spotify.com/v4/login with http://127.0.0.1:4345/v4/login.
                     Replacement(
                         "68 74 74 70 73 3A 2F 2F " +
                                 "6C 6F 67 69 6E 35 2E 73 " +
@@ -127,7 +126,6 @@ val spoofClientPatch = bytecodePatch(
         startLiborbitFingerprint.method.addInstructions(
             0,
             """
-                # Port 4345
                 const/16 v0, $port
                 invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->listen(I)V
             """

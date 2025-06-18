@@ -6,9 +6,9 @@ import app.revanced.extension.shared.Logger;
 @SuppressWarnings("unused")
 public class SpoofClientPatch {
     private static LoginRequestListener listener;
-    
+
     /**
-     * Injection point.
+     * Injection point. Start login server.
      */
     public static void listen(int port) {
         if (listener != null) {
@@ -26,9 +26,13 @@ public class SpoofClientPatch {
     }
 
     /**
-     * Injection point.
+     * Injection point. Launch login web view.
      */
     public static void login(LayoutInflater inflater) {
-        WebApp.login(inflater.getContext());
+        try {
+            WebApp.login(inflater.getContext());
+        } catch (Exception ex) {
+            Logger.printException(() -> "login failure", ex);
+        }
     }
 }

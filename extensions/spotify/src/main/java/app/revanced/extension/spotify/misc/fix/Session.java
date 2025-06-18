@@ -1,6 +1,5 @@
 package app.revanced.extension.spotify.misc.fix;
 
-
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,27 +16,27 @@ class Session {
      * Username of the account. Null if this session does not have an authenticated user.
      */
     @Nullable
-    final String username;
+    public final String username;
     /**
      * Access token for this session.
      */
-    final String accessToken;
+    public final String accessToken;
     /**
      * Session expiration timestamp in milliseconds.
      */
-    final Long expirationTime;
+    public final Long expirationTime;
     /**
      * Authentication cookies for this session.
      */
-    final String cookies;
+    public final String cookies;
 
     /**
      * @param username    Username of the account. Empty if this session does not have an authenticated user.
      * @param accessToken Access token for this session.
      * @param cookies     Authentication cookies for this session.
      */
-    Session(@Nullable String username, String accessToken, String cookies) {
-        this(username, accessToken, System.currentTimeMillis(), cookies);
+    public Session(@Nullable String username, String accessToken, String cookies) {
+        this(username, accessToken, System.currentTimeMillis() + 60 * 1000, cookies);
     }
 
     private Session(@Nullable String username, String accessToken, long expirationTime, String cookies) {
@@ -50,7 +49,7 @@ class Session {
     /**
      * @return The number of milliseconds until the access token expires.
      */
-    long accessTokenExpiresInMillis() {
+    public long accessTokenExpiresInMillis() {
         long currentTime = System.currentTimeMillis();
         return expirationTime - currentTime;
     }
@@ -58,18 +57,18 @@ class Session {
     /**
      * @return The number of seconds until the access token expires.
      */
-    int accessTokenExpiresInSeconds() {
+    public int accessTokenExpiresInSeconds() {
         return (int) accessTokenExpiresInMillis() / 1000;
     }
 
     /**
      * @return True if the access token has expired, false otherwise.
      */
-    boolean accessTokenExpired() {
+    public boolean accessTokenExpired() {
         return accessTokenExpiresInMillis() <= 0;
     }
 
-    void save() {
+    public void save() {
         SharedPreferences.Editor editor = Utils.getContext().getSharedPreferences("revanced", MODE_PRIVATE).edit();
 
         String json;
@@ -87,7 +86,8 @@ class Session {
         editor.apply();
     }
 
-    static Session read(String username) {
+    @Nullable
+    public static Session read(String username) {
         SharedPreferences sharedPreferences = Utils.getContext().getSharedPreferences("revanced", MODE_PRIVATE);
         String savedJson = sharedPreferences.getString("session_" + username, null);
         if (savedJson == null) {
@@ -112,11 +112,11 @@ class Session {
     @NotNull
     @Override
     public String toString() {
-        return "Session{" +
-                "username='" + username + '\'' +
-                ", accessToken='" + accessToken + '\'' +
+        return "Session(" +
+                "username=" + username +
+                ", accessToken=" + accessToken +
                 ", expirationTime=" + expirationTime +
-                ", cookies='" + cookies + '\'' +
-                '}';
+                ", cookies=" + cookies +
+                ')';
     }
 }
