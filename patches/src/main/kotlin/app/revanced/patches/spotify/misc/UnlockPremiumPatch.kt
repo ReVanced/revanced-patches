@@ -185,10 +185,9 @@ val unlockPremiumPatch = bytecodePatch(
             fieldName: String,
             methodName: String
         ) {
-            // Make the field public
+            // Make field accessible so we can check the home/browse section type in the extension.
             sectionFingerprint.classDef.publicizeField(fieldName)
 
-            // Inject the static remove call
             structureFingerprint.method.apply {
                 val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
                 val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
