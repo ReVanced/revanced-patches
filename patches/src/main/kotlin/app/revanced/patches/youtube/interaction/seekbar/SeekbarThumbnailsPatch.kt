@@ -18,8 +18,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/SeekbarThumbnailsPatch;"
 
 val seekbarThumbnailsPatch = bytecodePatch(
-    description = "Adds an option to use high quality fullscreen seekbar thumbnails. " +
-            "Patching 19.16.39 adds an option to restore old seekbar thumbnails.",
+    description = "Adds an option to use high quality fullscreen seekbar thumbnails."
 ) {
     dependsOn(
         sharedExtensionPatch,
