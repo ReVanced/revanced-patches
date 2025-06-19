@@ -5,8 +5,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.removeFlags
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
@@ -17,10 +19,11 @@ val hideAdsPatch = bytecodePatch(
     compatibleWith("com.crunchyroll.crunchyroid")
 
     execute {
+        // Get obfuscated "enableAds" field from toString method.
         val enableAdsField = videoUrlReadyToStringFingerprint.let {
             val strIndex = videoUrlReadyToStringFingerprint.stringMatches!!.last().index
-            // The iget-xxx should always be after const-string and invoke-virtual (StringBuilder.append()).
-            it.method.getInstruction<ReferenceInstruction>(strIndex + 2).getReference<FieldReference>()!!
+            val fieldIndex = it.method.indexOfFirstInstruction(strIndex, Opcode.IGET_BOOLEAN)
+            it.method.getInstruction<ReferenceInstruction>(fieldIndex).getReference<FieldReference>()!!
         }
 
         // Remove final access flag on field.
@@ -32,12 +35,12 @@ val hideAdsPatch = bytecodePatch(
         val constructor = videoUrlReadyToStringFingerprint.classDef.methods.first {
             AccessFlags.CONSTRUCTOR.isSet(it.accessFlags) && it.parameters.isNotEmpty()
         }
-        // The "this" reference was previously moved from p0 to v0 in the constructor.
         constructor.addInstructions(
             constructor.instructions.count() - 1,
             """
-            const/4 v1, 0x0
-            iput-boolean v1, v0, ${enableAdsField.definingClass}->${enableAdsField.name}:Z
+                move-object/from16 v0, p0
+                const/4 v1, 0x0
+                iput-boolean v1, v0, ${enableAdsField.definingClass}->${enableAdsField.name}:Z
             """.trimIndent())
     }
 }
