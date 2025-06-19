@@ -40,7 +40,7 @@ val hideAdsPatch = bytecodePatch(
             """
                 move-object/from16 v0, p0
                 const/4 v1, 0x0
-                iput-boolean v1, v0, ${enableAdsField.definingClass}->${enableAdsField.name}:Z
-            """.trimIndent())
+                iput-boolean v1, v0, $enableAdsField
+            """)
     }
 }
