@@ -917,8 +917,6 @@ Ograniczenie: Oceny negatywne mogą nie pojawiać się w trybie incognito"</stri
   <string name="revanced_seekbar_thumbnails_high_quality_title">Miniaturki wysokiej jakości</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Podgląd filmu w wysokiej jakości</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Podgląd filmu w średniej jakości</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Pełnoekranowy podgląd filmu w wysokiej jakości</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Pełnoekranowy podgląd filmu w średniej jakości</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Przywróci to również miniatury w transmisjach na żywo, które nie mają miniatury paska postępu.
 
 Miniatury paska postępu będą używać takiej samej jakości jak aktualny film.
@@ -1005,7 +1003,7 @@ Twój identyfikator użytkownika jest jak hasło i nigdy nie powinno być udost�
   <string name="revanced_sb_segments_highlight_sum">Część filmu, której szuka większość osób</string>
   <string name="revanced_sb_segments_intro">Przerywnik/Animowane intro</string>
   <string name="revanced_sb_segments_intro_sum">Fragment bez aktualnej zawartości. Może to być pauza, statyczna klatka lub powtarzająca się animacja. Nie dotyczy przejść zawierających informacje</string>
-  <string name="revanced_sb_segments_outro">Ekran końcowy/Napisy</string>
+  <string name="revanced_sb_segments_outro">Ekran końcowy / Napisy</string>
   <string name="revanced_sb_segments_outro_sum">Napisy końcowe lub gdy pojawia się ekran końcowy. Nie dotyczy zakończeń zawierających informacje</string>
   <string name="revanced_sb_segments_preview">Zapowiedź/Podsumowanie/Haczyk</string>
   <string name="revanced_sb_segments_preview_sum">Zbiór klipów pokazujących to, co pojawi się lub co pojawiło się w tym filmie, oraz innych fiilmach z tej serii, w którym wszystkie informacje są gdzieś powielane</string>
@@ -1237,11 +1235,6 @@ Odtwarzacz można przeciągnąć poza ekran w lewo lub w prawo"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Ukryj przyciski nakładki</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Przyciski nakładki są ukryte</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Przyciski nakładki są widoczne</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ukryj przyciski rozwijania i zamykania</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Przyciski są ukryte
-
-Przesuń, aby rozwinąć lub zamknąć"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Przyciski rozwijania i zamykania są widoczne</string>
   <string name="revanced_miniplayer_hide_subtext_title">Podteksty</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podteksty są ukryte</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Podteksty są widoczne</string>

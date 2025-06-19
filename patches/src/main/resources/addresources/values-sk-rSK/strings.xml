@@ -914,8 +914,6 @@ Obmedzenie: Hodnotenia Nepáči sa mi to sa nemusia zobraziť v anonymnom režim
   <string name="revanced_seekbar_thumbnails_high_quality_title">Povoliť miniatúry vo vysokej kvalite</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniatúry seekbaru sú vo vysokej kvalite</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniatúry seekbaru sú v strednej kvalite</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Miniatúry seekbaru na celej obrazovke sú vo vysokej kvalite</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Miniatúry seekbaru na celej obrazovke sú v strednej kvalite</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Tým sa tiež obnovia miniatúry živých prenosov, ktoré nemajú miniatúry panela vyhľadávania.
 
 Miniatúry panela vyhľadávania budú používať rovnakú kvalitu ako aktuálne video.
@@ -999,7 +997,7 @@ Táto funkcia najlepšie funguje s kvalitou videa 720p alebo nižšou a pri pou�
   <string name="revanced_sb_segments_highlight_sum">Časť videa, ktorú väčšina ľudí hľadá</string>
   <string name="revanced_sb_segments_intro">Prerušenie/Úvodná animácia</string>
   <string name="revanced_sb_segments_intro_sum">Interval bez skutočného obsahu. Môže to byť pauza, statická snímka alebo opakujúca sa animácia. Nezahŕňa prechody obsahujúce informácie</string>
-  <string name="revanced_sb_segments_outro">Záverečné karty/Kredity</string>
+  <string name="revanced_sb_segments_outro">Záverečné karty / Kredity</string>
   <string name="revanced_sb_segments_outro_sum">Kredity alebo keď sa zobrazia koncové karty YouTube. Nie na závery s informáciami</string>
   <string name="revanced_sb_segments_preview">Náhľad/Rekapitulácia/Háčik</string>
   <string name="revanced_sb_segments_preview_sum">Zbierka klipov, ktoré ukazujú, čo sa chystá alebo čo sa stalo vo videu alebo v iných videách série, kde sa všetky informácie opakujú inde</string>
@@ -1229,11 +1227,6 @@ Miniprehrávač sa dá potiahnuť mimo obrazovky doľava alebo doprava"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Skryť tlačidlá prekrytia</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tlačidlá prekrytia sú skryté</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Zobrazujú sa tlačidlá prekrytia</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skryť tlačidlá na rozbalenie a zatvorenie</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Tlačidlá sú skryté
-
-Potiahnutím rozbalíte alebo zatvoríte"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Zobrazujú sa tlačidlá na rozbalenie a zatvorenie</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skryť podtexty</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podtexty sú skryté</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Zobrazia sa podtexty</string>

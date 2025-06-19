@@ -88,7 +88,7 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative Miniaturbilder</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_general_title">Allgemein</string>
-  <string name="revanced_settings_screen_05_player_title">Player</string>
+  <string name="revanced_settings_screen_05_player_title">Spieler</string>
   <string name="revanced_settings_screen_07_seekbar_title">Fortschrittsbalken</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Wischsteuerung</string>
   <string name="revanced_settings_screen_11_misc_title">Verschiedenes</string>
@@ -106,7 +106,7 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts-Hintergrundwiedergabe ist aktiviert</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Debugging</string>
+  <string name="revanced_debug_screen_title">Fehlerbehebung</string>
   <string name="revanced_debug_screen_summary">Aktiviert oder deaktiviert Debugging-Optionen</string>
   <string name="revanced_debug_title">Debug-Protokollierung</string>
   <string name="revanced_debug_summary_on">Debug-Protokolle sind aktiviert</string>
@@ -914,8 +914,6 @@ Einschränkung: Dislikes werden möglicherweise nicht im Inkognito-Modus angezei
   <string name="revanced_seekbar_thumbnails_high_quality_title">Aktiviere hochwertige Vorschaubilder</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Thumbnails der Suchleiste sind hohe Qualität</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Thumbnails in der Suchleiste sind mittlere Qualität</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Thumbnails in der Suchleiste sind qualitativ hochwertig</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Thumbnails in der Suchleiste sind mittlere Qualität</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Dadurch werden auch Miniaturansichten in Livestreams wiederhergestellt, die keine Miniaturansichten mit Suchleiste haben.
 
 Miniaturansichten mit Suchleiste verwenden die gleiche Qualität wie das aktuelle Video.
@@ -1002,7 +1000,7 @@ Ihre Benutzer-ID ist wie ein Passwort und sollte niemals weitergegeben werden.
   <string name="revanced_sb_segments_highlight_sum">Der Teil des Videos, nach dem die meisten Menschen suchen</string>
   <string name="revanced_sb_segments_intro">Unterbrechung/Introanimation</string>
   <string name="revanced_sb_segments_intro_sum">Ein Intervall ohne aktuellen Inhalt. Kann eine Pause, ein statischer Rahmen oder eine Wiederholung der Animation sein. Enthält keine Übergänge mit Informationen</string>
-  <string name="revanced_sb_segments_outro">Endkarten/Credits</string>
+  <string name="revanced_sb_segments_outro">Endkarten / Credits</string>
   <string name="revanced_sb_segments_outro_sum">Credits oder wenn die YouTube-Endkarten erscheinen. Nicht für Schlussfolgerungen mit Informationen</string>
   <string name="revanced_sb_segments_preview">Vorschau/Recap/Hook</string>
   <string name="revanced_sb_segments_preview_sum">Sammlung von Clips, die zeigen, was im Video oder in anderen Videos einer Serie vor sich geht, wo alle Informationen andernorts wiederholt werden</string>
@@ -1234,11 +1232,6 @@ Der Mini-Player kann mit einer Wischgeste vom Bildschirm nach links oder rechts 
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlay-Buttons ausblenden</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay-Buttons sind ausgeblendet</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay-Buttons werden angezeigt</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Schaltflächen zum Erweitern und Schließen ausblenden</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Schaltflächen sind ausgeblendet
-
-Zum Erweitern oder Schließen wischen"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Schaltflächen zum Erweitern und Schließen werden angezeigt</string>
   <string name="revanced_miniplayer_hide_subtext_title">Untertexte ausblenden</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexte sind ausgeblendet</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Untertexte werden angezeigt</string>

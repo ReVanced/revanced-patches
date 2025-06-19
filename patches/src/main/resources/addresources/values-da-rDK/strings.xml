@@ -24,7 +24,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">Kontrol mislykkedes</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Åbn officiel hjemmeside</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorer</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Denne app ser ikke ud til at være blevet patcht af dig.&lt;/h5&gt;&lt;br&gt;Denne app fungerer muligvis ikke korrekt, og den &lt;b style=\"color: red;\">kan være skadelig eller endda farlig at bruge.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Disse kontroller indikerer, at denne app er for-patched eller erhvervet fra en anden person:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Det anbefales kraftigt at &lt;b style=\"color: blue;\">afinstallere denne app og patche den selv&lt;/b&gt; for at sikre, at du bruger en valideret og sikker app.&lt;p&gt;&lt;br&gt;Hvis det ignoreres, vises denne advarsel kun to gange.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Denne app ser ikke ud til at være blevet patcht af dig.&lt;/h5&gt;&lt;br&gt;Denne app fungerer muligvis ikke korrekt, og den &lt;b style=\"color: red;\"&gt;kan være skadelig eller endda farlig at bruge.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Disse kontroller indikerer, at denne app er for-patched eller erhvervet fra en anden person:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Det anbefales kraftigt at &lt;b style=\"color: blue;\"&gt;afinstallere denne app og patche den selv&lt;/b&gt; for at sikre, at du bruger en valideret og sikker app.&lt;p&gt;&lt;br&gt;Hvis det ignoreres, vises denne advarsel kun to gange.</string>
   <string name="revanced_check_environment_not_same_patching_device">Rettet på en anden enhed</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Ikke installeret af ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Patched mere end 10 minutter siden</string>
@@ -1009,7 +1009,7 @@ Dit bruger-id er som en adgangskode, og det må aldrig deles.
   <string name="revanced_sb_segments_highlight_sum">Den del af videoen, som de fleste mennesker er på udkig efter</string>
   <string name="revanced_sb_segments_intro">Pause/Intro-animation</string>
   <string name="revanced_sb_segments_intro_sum">Et interval uden reelt indhold. Kunne være en pause, statisk ramme eller gentagelse af animation. Omfatter ikke overgange indeholdende information</string>
-  <string name="revanced_sb_segments_outro">Slutkort/Kredit</string>
+  <string name="revanced_sb_segments_outro">Slutskærme / Credits</string>
   <string name="revanced_sb_segments_outro_sum">Medvirkende eller når YouTube-endcards vises. Ikke for konklusioner med information</string>
   <string name="revanced_sb_segments_preview">Forhåndsvisning/Genoptag/Krog</string>
   <string name="revanced_sb_segments_preview_sum">Indsamling af klip, der viser, hvad der kommer op, eller hvad der skete i videoen eller i andre videoer af en serie, hvor alle oplysninger gentages andetsteds</string>
@@ -1241,11 +1241,6 @@ Miniafspiller kan trækkes ud over skærmen til venstre eller højre"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Skjul overlay-knapper</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay-knapper er skjult</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay-knapper vises</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skjul udvid- og luk-knapper</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Knapper er skjult
-
-Stryg for at udvide eller lukke"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Udvid- og luk-knapper vises</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skjul undertekster</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Undertekster er skjult</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Undertekster er vist</string>

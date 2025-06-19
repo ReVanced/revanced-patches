@@ -921,8 +921,6 @@ Korlátozás: A nem tetszések inkognitómódban nem jelenhetnek meg"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Jó minőségű miniatűrök engedélyezése</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">A keresősáv bélyegképei kiváló minőségűek</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">A keresősáv bélyegképei közepes minőségűek</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">A teljes képernyős keresősáv bélyegképei kiváló minőségűek</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">A teljes képernyős keresősáv bélyegképei közepes minőségűek</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Ez visszaállítja a miniatűr képeket az élő közvetítéseknél, amelyeknek nincsenek keresősáv miniatűr képei.
 
 A keresősáv miniatűr képei ugyanazt a minőséget fogják használni, mint az aktuális videó.
@@ -1009,7 +1007,7 @@ A felhasználói azonosítója olyan, mint egy jelszó, és soha nem szabad mego
   <string name="revanced_sb_segments_highlight_sum">A videónak azon része, amit a legtöbben keresnek</string>
   <string name="revanced_sb_segments_intro">Megszakítás/Intro animáció</string>
   <string name="revanced_sb_segments_intro_sum">Egy részlet tartalom nélkül. Lehet szünet, álló képkocka, vagy ismétlődő animáció. Nem használandó információt tartalmazó átmeneteknél</string>
-  <string name="revanced_sb_segments_outro">Záróképernyő/Köszönetek</string>
+  <string name="revanced_sb_segments_outro">Záróképernyő / Köszönetek</string>
   <string name="revanced_sb_segments_outro_sum">Stáblista, vagy amikor megjelennek a YouTube zárókártyák. Nem tartozik bele az információt tartalmazó összegzés</string>
   <string name="revanced_sb_segments_preview">Előzetes/Ismétlés</string>
   <string name="revanced_sb_segments_preview_sum">Olyan klipek gyűjteménye, amik azt mutatják, hogy mi következik majd ebben, vagy a sorozat más videóiban és minden információ megismétlődik később a videóban</string>
@@ -1238,11 +1236,6 @@ A miniatűr képernyőt a képernyő bal vagy jobb szélére húzhatja"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Fedőgomb elrejtése</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">A fedőgombok rejtve vannak</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">A fedőgombok láthatók</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">A kibontás és bezárás gombok elrejtése</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"A gombok el vannak rejtve
-
-Húzza el a képernyőt a kibontáshoz vagy bezáráshoz"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">A Kibontás és Bezárás gombok láthatók</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alszövegek elrejtése</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Az alfeliratok el vannak rejtve</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Az alfeliratok meg vannak jelenítve</string>

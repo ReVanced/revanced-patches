@@ -863,8 +863,6 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">啟用高畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">已將跳轉列設為高畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">已將跳轉列設為中畫質縮圖</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">已將全螢幕跳轉列設為高畫質縮圖</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">已將全螢幕跳轉列設為中畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"這也會還原直播影片上沒有跳轉列縮圖的縮圖。
 
 跳轉列縮圖將使用與目前影片相同的畫質。

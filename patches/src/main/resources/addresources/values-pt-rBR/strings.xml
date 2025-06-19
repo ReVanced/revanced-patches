@@ -919,8 +919,6 @@ Limitação: \"Não gostei\" podem não aparecer no modo anônimo"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Ativar miniaturas de alta qualidade</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">As miniaturas na barra de busca são de qualidade alta</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">As miniaturas na barra de busca são de qualidade média</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">As miniaturas da barra de busca em tela cheia são de alta qualidade</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">As miniaturas da barra de busca em tela cheia são de qualidade média</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Isso também restaurará as miniaturas em transmissões ao vivo que não possuem miniaturas de barra de busca. 
 
 A barra de busca usará a mesma qualidade do vídeo atual. 
@@ -1006,7 +1004,7 @@ Seu ID de usuário é como uma senha e nunca deve ser compartilhado. "</string>
   <string name="revanced_sb_segments_highlight_sum">A parte do vídeo que a maioria das pessoas está procurando</string>
   <string name="revanced_sb_segments_intro">Introdução/Intervalo Animado</string>
   <string name="revanced_sb_segments_intro_sum">Um intervalo sem conteúdo real. Pode ser uma pausa, moldura estática ou uma animação repetida. Não inclui transições que contenham informações</string>
-  <string name="revanced_sb_segments_outro">Cartões finais/Créditos</string>
+  <string name="revanced_sb_segments_outro">Cartões / Créditos</string>
   <string name="revanced_sb_segments_outro_sum">Créditos ou quando os cartões finais do YouTube aparecem. Não é para conclusões com informações</string>
   <string name="revanced_sb_segments_preview">Prévia/Recapitulação/Gancho Narrativo</string>
   <string name="revanced_sb_segments_preview_sum">Coleção de clipes que mostram o que está chegando ou o que aconteceu no vídeo ou em outras séries, onde todas as informações se repetem em outro lugar</string>
@@ -1238,11 +1236,6 @@ O miniplayer pode ser arrastado para fora da tela para a esquerda ou direita"</s
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Ocultar botões de sobreposição</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Botões de sobreposição estão ocultos</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Botões de sobreposição são mostrados</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ocultar botões de expandir e fechar</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Botões estão ocultos
-
-Passe o dedo para expandir ou fechar"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Botões de expandir e fechar são mostrados</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtextos estão ocultos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subtextos são exibidos</string>
