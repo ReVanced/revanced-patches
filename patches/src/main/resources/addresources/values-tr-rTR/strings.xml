@@ -1009,7 +1009,7 @@ Kullanıcı kimliğiniz bir şifre gibidir ve asla paylaşılmamalıdır.
   <string name="revanced_sb_segments_highlight_sum">Videonun çoğu kişinin aradığı bölümü</string>
   <string name="revanced_sb_segments_intro">Ara/Giriş Animasyonu</string>
   <string name="revanced_sb_segments_intro_sum">Gerçek içerik barındırmayan aralıklar. Duraklama, sabit kare veya tekrar eden bir animasyon olabilir. Bilgi içeren geçişleri içermez</string>
-  <string name="revanced_sb_segments_outro">Bitiş Ekranı/Jenerik</string>
+  <string name="revanced_sb_segments_outro">Bitiş Ekranı / Jenerik</string>
   <string name="revanced_sb_segments_outro_sum">Jenerik veya YouTube bitiş kartlarının göründüğü zaman. Bilgi içeren çıkarımlar için değil</string>
   <string name="revanced_sb_segments_preview">Ön İzleme/Özet/İma</string>
   <string name="revanced_sb_segments_preview_sum">Videoda veya bir dizinin diğer videolarında neler olduğunu ve nelerin geleceğini gösteren, tüm bilgilerin başka bir yerde tekrarlandığı klip koleksiyonu</string>

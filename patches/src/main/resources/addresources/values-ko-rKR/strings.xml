@@ -1245,10 +1245,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">\'펼치기\' &amp; \'닫기\' 버튼 숨기기</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"'펼치기' &amp; '닫기' 버튼이 숨겨집니다
 
-• YouTube v19.24.xx까지 모던 스타일 1, 3에서 '펼치기 &amp; 닫기 버튼 숨기기' 기능이 작동됩니다
-• YouTube v19.34.xx부터 모던 스타일 3에서만 '닫기 버튼 숨기기' 기능이 작동됩니다
 • 미니 플레이어를 스와이프하여 펼치거나 닫을 수 있습니다"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 표시됩니다\n\n• YouTube v19.24.xx까지 모던 스타일 1, 3에서 \'펼치기 &amp; 닫기 버튼 숨기기\' 기능이 작동됩니다\n• YouTube v19.34.xx부터 모던 스타일 3에서만 \'닫기 버튼 숨기기\' 기능이 작동됩니다</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 표시됩니다</string>
   <string name="revanced_miniplayer_hide_subtext_title">서브텍스트 숨기기</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">서브텍스트가 숨겨집니다\n\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">서브텍스트가 표시됩니다\n\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>

@@ -921,8 +921,6 @@ Ograničenje: Nesviđanja se možda neće pojaviti u režimu bez arhiviranja"</
   <string name="revanced_seekbar_thumbnails_high_quality_title">Omogući visokokvalitetne sličice</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Sličice trake za premotavanje su visokog kvaliteta</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Sličice trake za premotavanje su srednjeg kvaliteta</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Sličice trake za premotavanje u režimu celog ekrana su visokog kvaliteta</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Sličice trake za premotavanje u režimu celog ekrana su srednjeg kvaliteta</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Ovo će takođe vratiti sličice na strimovima uživo koji nemaju sličice trake za premotavanje.
 
 Sličice trake za premotavanje će koristiti isti kvalitet kao trenutni video.
@@ -1008,7 +1006,7 @@ Vaš korisnički ID je kao lozinka i nikada ga ne treba deliti."</string>
   <string name="revanced_sb_segments_highlight_sum">Deo videa koji većina ljudi traži</string>
   <string name="revanced_sb_segments_intro">Pauza/Uvodna animacija</string>
   <string name="revanced_sb_segments_intro_sum">Interval bez stvarnog sadržaja. Može biti pauza, statični kadar ili ponavljajuća animacija. Ne uključuje prelaze koji sadrže informacije</string>
-  <string name="revanced_sb_segments_outro">Završne kartice/Zasluge</string>
+  <string name="revanced_sb_segments_outro">Završne kartice / Zasluge</string>
   <string name="revanced_sb_segments_outro_sum">Zasluge ili kada se pojave YouTube završne kartice. Nije za zaključke sa informacijama</string>
   <string name="revanced_sb_segments_preview">Pregled/Rekapitulacija/Najava</string>
   <string name="revanced_sb_segments_preview_sum">Kolekcija klipova koji pokazuju šta sledi ili šta se desilo u videu ili u drugim videima serijе, gde se sve informacije ponavljaju na drugom mestu</string>
@@ -1129,7 +1127,6 @@ Spreman za podnošenje?"</string>
   <string name="revanced_change_form_factor_title">Faktor forme izgleda</string>
   <string name="revanced_change_form_factor_entry_1">Podrazumevani</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
-  <string name="revanced_change_form_factor_entry_3">Tablet</string>
   <string name="revanced_change_form_factor_entry_4">Automobilski</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Promene uključuju:
 
@@ -1213,7 +1210,6 @@ Ograničenje: Korišćenje dugmeta „Nazad” na traci sa alatkama možda neće
   <string name="revanced_miniplayer_type_entry_0">Onemogućen</string>
   <string name="revanced_miniplayer_type_entry_1">Podrazumevan</string>
   <string name="revanced_miniplayer_type_entry_2">Minimalan</string>
-  <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderan 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderan 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderan 3</string>
@@ -1240,11 +1236,6 @@ Mini-plejer se može prevući sa ekrana ulevo ili udesno"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Sakrij dugmad preklopa</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Dugmad preklopa su skrivena</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Dugmad preklopa su prikazana</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Sakrij dugmad za proširivanje i zatvaranje</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Dugmad su skrivena
-
-Prevucite da biste proširili ili zatvorili"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Dugmad za proširivanje i zatvaranje su prikazana</string>
   <string name="revanced_miniplayer_hide_subtext_title">Sakrij podtekstove</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podtekstovi su skriveni</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Podtekstovi su prikazani</string>

@@ -1009,7 +1009,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_highlight_sum">Часть видео, которая интересна большинству людей</string>
   <string name="revanced_sb_segments_intro">Пауза/Заставка </string>
   <string name="revanced_sb_segments_intro_sum">Интервал без фактического содержания. Может быть паузой, статическим кадром или повторяющейся анимацией. Не включает переходы, содержащие информацию</string>
-  <string name="revanced_sb_segments_outro">Конечные заставки/титры</string>
+  <string name="revanced_sb_segments_outro">Конечные заставки / Титры</string>
   <string name="revanced_sb_segments_outro_sum">Титры или время появления конечных заставок YouTube. Не для выводов с информацией</string>
   <string name="revanced_sb_segments_preview">Предпросмотр/пересказ/завязка</string>
   <string name="revanced_sb_segments_preview_sum">Фрагменты, повторяющие текущее видео или предыдущие серии</string>

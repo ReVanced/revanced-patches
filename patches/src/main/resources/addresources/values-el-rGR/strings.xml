@@ -38,7 +38,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_reset_color">Επαναφορά χρώματος</string>
   <string name="revanced_settings_color_invalid">Μη έγκυρο χρώμα</string>
   <string name="revanced_settings_restart_title">Απαιτείται επανεκκίνηση</string>
-  <string name="revanced_settings_restart_dialog_message">Επανεκκινήστε την εφαρμογή για να τεθεί σε ισχύ αυτή η αλλαγή.</string>
+  <string name="revanced_settings_restart_dialog_message">Επανεκκινήστε την εφαρμογή για να εφαρμοστεί αυτή η αλλαγή.</string>
   <string name="revanced_settings_restart">Επανεκκίνηση</string>
   <string name="revanced_settings_import">Εισαγωγή</string>
   <string name="revanced_settings_import_copy">Αντιγραφή</string>
@@ -923,8 +923,6 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Μικρογραφίες υψηλής ποιότητας</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Οι μικρογραφίες της γραμμής προόδου είναι υψηλής ποιότητας</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Οι μικρογραφίες της γραμμής προόδου είναι μέτριας ποιότητας</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Οι μικρογραφίες πλήρους οθόνης της γραμμής προόδου είναι υψηλής ποιότητας</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Οι μικρογραφίες πλήρους οθόνης της γραμμής προόδου είναι μέτριας ποιότητας</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Αυτό θα επαναφέρει επίσης τις μικρογραφίες σε ζωντανές μεταδόσεις που δεν έχουν μικρογραφίες γραμμής προόδου.
 
 Οι μικρογραφίες γραμμής αναζήτησης θα χρησιμοποιούν την ίδια ποιότητα με το τρέχον βίντεο.
@@ -1010,7 +1008,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_highlight_sum">Το μέρος του βίντεο που ψάχνουν οι περισσότεροι άνθρωποι</string>
   <string name="revanced_sb_segments_intro">Διάλειμμα/Εισαγωγή</string>
   <string name="revanced_sb_segments_intro_sum">Χρονικό διάστημα χωρίς πραγματικό περιεχόμενο. Θα μπορούσε να είναι μια παύση, ένα στατικό καρέ ή μια επαναλαμβανόμενη κίνηση. Δεν περιλαμβάνει μεταβάσεις που περιέχουν πληροφορίες</string>
-  <string name="revanced_sb_segments_outro">Τελική Οθόνη/Συντελεστές</string>
+  <string name="revanced_sb_segments_outro">Τελική Οθόνη / Συντελεστές</string>
   <string name="revanced_sb_segments_outro_sum">Όταν εμφανίζονται οι συντελεστές ή τα προτεινόμενα βίντεο των καναλιών. Όχι για επίλογους που περιέχουν πληροφορίες</string>
   <string name="revanced_sb_segments_preview">Προεπισκόπηση/Περίληψη</string>
   <string name="revanced_sb_segments_preview_sum">Συλλογή από κλιπ που δείχνουν τι έρχεται ή τι συνέβη στο βίντεο ή σε άλλα βίντεο μιας σειράς, όπου όλες οι πληροφορίες επαναλαμβάνονται αλλού</string>
@@ -1169,14 +1167,13 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_history">Ιστορικό</string>
   <string name="revanced_change_start_page_entry_library">Βιβλιοθήκη</string>
   <string name="revanced_change_start_page_entry_liked_videos">Βίντεο που σας αρέσουν</string>
-  <string name="revanced_change_start_page_entry_live">Live</string>
+  <string name="revanced_change_start_page_entry_live">Ζωντανά</string>
   <string name="revanced_change_start_page_entry_movies">Ταινίες</string>
   <string name="revanced_change_start_page_entry_music">Μουσική</string>
   <string name="revanced_change_start_page_entry_news">Ειδήσεις</string>
   <string name="revanced_change_start_page_entry_notifications">Ειδοποιήσεις</string>
   <string name="revanced_change_start_page_entry_playlists">Λίστες αναπαραγωγής</string>
   <string name="revanced_change_start_page_entry_search">Αναζήτηση</string>
-  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Αθλητικά</string>
   <string name="revanced_change_start_page_entry_subscriptions">Εγγραφές</string>
   <string name="revanced_change_start_page_entry_trending">Τάσεις</string>
@@ -1242,11 +1239,6 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Κουμπιά επικάλυψης οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Κρυμμένα</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Εμφανίζονται</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Κουμπιά επέκτασης και κλεισίματος</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Κρυμμένα
-
-Σύρετε για να αναπτύξετε ή να κλείσετε"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Εμφανίζονται</string>
   <string name="revanced_miniplayer_hide_subtext_title">Κείμενα οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Κρυμμένα</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Εμφανίζονται</string>

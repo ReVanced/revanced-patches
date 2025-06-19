@@ -91,12 +91,9 @@ Apăsați butonul continuare și permiteți modificările de optimizare."</strin
   <string name="revanced_settings_screen_01_ads_title">Reclame</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniaturi alternative</string>
   <string name="revanced_settings_screen_03_feed_title">Flux</string>
-  <string name="revanced_settings_screen_04_general_title">General</string>
-  <string name="revanced_settings_screen_05_player_title">Player</string>
   <string name="revanced_settings_screen_07_seekbar_title">Bară de progres</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controale glisare</string>
   <string name="revanced_settings_screen_11_misc_title">Diverse</string>
-  <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Restaurare meniuri setări vechi</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Meniurile de setări vechi sunt afișate</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Meniurile de setări vechi nu sunt afișate</string>
@@ -921,8 +918,6 @@ Limitare: Este posibil ca aprecierile negative să nu apară în modul incognito
   <string name="revanced_seekbar_thumbnails_high_quality_title">Permite miniaturi de înaltă calitate</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniaturile din bara de afișare sunt de înaltă calitate</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniaturile din bara de afișare sunt de calitate medie</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Miniaturile din bara de căutare a ecranului complet sunt de înaltă calitate</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Miniaturile din bara ecran ecran deschis sunt de calitate medie</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Acest lucru va restaura, de asemenea, miniaturile de la transmisiunile live care nu au miniaturi pentru bara de căutare.
 
 Miniaturile barei de căutare vor folosi aceeași calitate ca și videoclipul curent.
@@ -1008,7 +1003,7 @@ ID-ul tău de utilizator este ca o parolă și nu ar trebui niciodată partajat.
   <string name="revanced_sb_segments_highlight_sum">Partea din video pe care majoritatea oamenilor o caută</string>
   <string name="revanced_sb_segments_intro">Intermizare/Animație Intro</string>
   <string name="revanced_sb_segments_intro_sum">Un interval fără conținut real. Poate fi o pauză, un cadru static sau o repetare a animației. Nu include tranziții care conțin informații</string>
-  <string name="revanced_sb_segments_outro">Carduri finale/Credite</string>
+  <string name="revanced_sb_segments_outro">Carduri finale / Credite</string>
   <string name="revanced_sb_segments_outro_sum">Credite sau atunci când apar cardurile Youtube . Nu sunt concluzii cu informaţii</string>
   <string name="revanced_sb_segments_preview">Previzualizare/Recuperează/Cârlig</string>
   <string name="revanced_sb_segments_preview_sum">Colecția de clipuri care arată ce se apropie sau ce s-a întâmplat în videoclip sau în alte videoclipuri dintr-o serie, unde toate informațiile sunt repetate în altă parte</string>
@@ -1240,11 +1235,6 @@ Miniplayerul poate fi tras pe ecran spre stânga sau spre dreapta"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Ascunde butoanele suprapuse</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Butoanele suprapuse sunt ascunse</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Butoanele suprapuse sunt afișate</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ascunde extinderea și închiderea butoanelor</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Butoanele sunt ascunse
-
-Trageți pentru a extinde sau a închide"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Butoanele de extindere și închidere sunt afișate</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ascunde subtexte</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexte sunt ascunse</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subtexte sunt afișate</string>
@@ -1404,7 +1394,7 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_shorts_quality_default_wifi_title">Calitatea implicită a Shorts în rețeaua Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Calitatea implicită a Shorts în rețeaua mobilă</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
-  <string name="revanced_remember_video_quality_wifi">wifi</string>
+  <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Calitate %1$s modificată implicit: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Calitatea Shorts %1$s a fost modificată la: %2$s</string>
   </patch>

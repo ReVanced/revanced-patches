@@ -1008,7 +1008,7 @@ Jūsu lietotāja ID ir kā parole, un to nekad nedrīkst dalīties."</string>
   <string name="revanced_sb_segments_highlight_sum">Video daļa, ko lielākā daļa cilvēku meklē</string>
   <string name="revanced_sb_segments_intro">Pārtraukums/Ievada animācija</string>
   <string name="revanced_sb_segments_intro_sum">Intervāls bez faktiska satura. Var būt pauze, statisks kadrs vai atkārtota animācija. Neietver pārejas, kas satur informāciju</string>
-  <string name="revanced_sb_segments_outro">Noslēguma ekrāni/Titri</string>
+  <string name="revanced_sb_segments_outro">Noslēguma kartītes / Titri</string>
   <string name="revanced_sb_segments_outro_sum">Titri vai tad, kad parādās YouTube noslēguma ekrāni. Neietver secinājumus ar informāciju</string>
   <string name="revanced_sb_segments_preview">Priekšskatījums/Atgriezeniskā saite/Āķis</string>
   <string name="revanced_sb_segments_preview_sum">Klipu kolekcija, kas parāda, kas notiks tālāk vai kas notika video vai citās sērijas video, kur visa informācija ir atkārtota citur</string>
@@ -1240,11 +1240,6 @@ Miniatskaņotāju var pārvilkt no ekrāna uz kreiso vai labo pusi"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Paslēpt pārklājuma pogas</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Pārklājuma pogas ir paslēptas</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Pārklājuma pogas ir redzamas</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Paslēpt izvēršanas un aizvēršanas pogas</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Pogas ir paslēptas
-
-Velciet, lai izvērstu vai aizvērtu"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Izvēršanas un aizvēršanas pogas ir redzamas</string>
   <string name="revanced_miniplayer_hide_subtext_title">Slēpt apakštekstu</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Apakšteksts ir paslēpts</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Apakšteksts ir redzams</string>

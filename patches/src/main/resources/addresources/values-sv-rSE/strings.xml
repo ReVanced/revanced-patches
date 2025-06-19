@@ -921,8 +921,6 @@ Begränsning: Ogillanden kanske inte visas i inkognitoläge"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Aktivera högkvalitativa miniatyrer</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar miniatyrer är av hög kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar miniatyrer är av medelhög kvalitet</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullskärm sökfält miniatyrer är av hög kvalitet</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullskärm sökfält miniatyrer är medelhög kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Detta återställer även miniatyrer på livestreams som inte har miniatyrer i sökfältet.
 
 Miniatyrer i sökfältet kommer att använda samma kvalitet som den aktuella videon.
@@ -1008,7 +1006,7 @@ Ditt användar-ID är som ett lösenord och det bör aldrig delas."</string>
   <string name="revanced_sb_segments_highlight_sum">Den del av videon som de flesta letar efter</string>
   <string name="revanced_sb_segments_intro">Paus/introduktionsanimation</string>
   <string name="revanced_sb_segments_intro_sum">Ett intervall utan faktiskt innehåll. Kan vara en paus, statisk ram eller upprepande animation. Inkluderar inte övergångar som innehåller information</string>
-  <string name="revanced_sb_segments_outro">Slutkort/krediter</string>
+  <string name="revanced_sb_segments_outro">Sluttexter/Eftertexter</string>
   <string name="revanced_sb_segments_outro_sum">Krediter eller när YouTube slutkort visas. Inte för slutsatser med information</string>
   <string name="revanced_sb_segments_preview">Förhandsgranska/återskapa/krok</string>
   <string name="revanced_sb_segments_preview_sum">Samling av klipp som visar vad som kommer upp eller vad som hände i videon eller i andra videor i en serie, där all information upprepas någon annanstans</string>
@@ -1240,11 +1238,6 @@ Minispelare kan dras av skärmen till vänster eller höger"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Dölj överlagringsknappar</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Överlagringsknappar är dolda</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Överlagringsknappar visas</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Dölj expanderings- och stängningsknappar</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Knapparna är dolda
-
-Svep för att expandera eller stänga"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Expanderings- och stängningsknappar visas</string>
   <string name="revanced_miniplayer_hide_subtext_title">Dölj undertexter</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Undertexter är dolda</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Undertexter visas</string>

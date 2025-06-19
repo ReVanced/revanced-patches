@@ -96,7 +96,6 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
   <string name="revanced_settings_screen_07_seekbar_title">İrəliləyiş cizgisi</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Sürüşdürmə nəzarətçiləri</string>
   <string name="revanced_settings_screen_11_misc_title">Çoxvariantlı</string>
-  <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Köhnə tənzimləmələr bölmələrin bərpa et</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Köhnə tənzimləmələr bölmələri göstərilir</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Köhnə tənzimləmələr bölmələri göstərilmir</string>
@@ -920,8 +919,6 @@ Məhdudiyyət: Bəyənməmələr gizli rejimdə görünməyə bilər"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Yüksək keyfiyyətli miniatürləri aktivləşdir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">İrəliləyiş cizgisi miniatürləri yüksək keyfiyyətlidir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">İrəliləyiş cizgisi miniatürləri orta keyfiyyətlidir</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tam ekran irəliləyiş cizgisi miniatürü yüksək keyfiyyətlidir</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tam ekran irəliləyiş cizgisi miniatürləri orta keyfiyyətlidir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Bu, həmçinin irəliləyiş cizgisi miniatürləri olmayan canlı yayımlarda miniatürləri bərpa edəcək.
 
 İrəliləyiş cizgisi miniatürləri cari video kimi eyni keyfiyyəti işlədəcək.
@@ -998,7 +995,6 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz.
 "</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Təkrar göstərmə</string>
   <string name="revanced_sb_diff_segments">Bölüm davranışını dəyişdir</string>
-  <string name="revanced_sb_segments_sponsor">Sponsor</string>
   <string name="revanced_sb_segments_sponsor_sum">Ödənişli tanıtım, ödənişli yönləndirmələr və birbaşa reklamlar. Öz reklamı və ya bəyəndikləri səbəblərə/yaradıcılara/veb saytlara/məhsullara ödənişsiz çağırışlar etmək üçün deyil</string>
   <string name="revanced_sb_segments_selfpromo">Ödənişsiz/Öz reklamı</string>
   <string name="revanced_sb_segments_selfpromo_sum">Ödənişsiz və ya öz reklamı istisna olmaqla, Sponsor-a bənzər. Mallar, ianələr və ya onların kiminlə əməkdaşlıq etdiyi məzmunda məlumatlar haqqında bölmələr daxildir</string>
@@ -1008,7 +1004,6 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz.
   <string name="revanced_sb_segments_highlight_sum">Əksər insanların axtardığı video bölümü</string>
   <string name="revanced_sb_segments_intro">Fasilə/Giriş Animasiyası</string>
   <string name="revanced_sb_segments_intro_sum">Həqiqi məzmunu olmayan aralıq. Fasilə, statik kadr və ya təkrarlanan animasiya ola bilər. Məlumat ehtiva edən keçidlər daxil deyil</string>
-  <string name="revanced_sb_segments_outro">Son kartlar/Zaminlər</string>
   <string name="revanced_sb_segments_outro_sum">Zaminlər və ya YouTube bitiş kartları görünəndə. Məlumat daxil olan nəticələr üçün deyil</string>
   <string name="revanced_sb_segments_preview">Önizləmə/Anons/Qısa</string>
   <string name="revanced_sb_segments_preview_sum">Videoda və ya seriyanın digər videolarında nə gözlənildiyini və ya baş verdiyini göstərən, bütün məlumatların başqa yerdə təkrarlandığı bölüm toplusu</string>
@@ -1240,11 +1235,6 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Örtük düymələrini gizlət</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Örtük düymələri gizlidir</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Örtük düymələri görünür</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Genişləndir və bağla düymələrini gizlət</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Düymələr gizlidir
-
-Genişləndirmək və ya bağlamaq üçün sürüşdür"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Genişləndir və bağla düymələri göstərilir</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alt mətnləri gizlət</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alt mətnlər gizlədilir</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alt mətnlər göstərilir</string>
@@ -1491,7 +1481,6 @@ AVC maksimum 1080p görüntü imkanına malikdir, Opus audio kodlama olmur və v
   <string name="revanced_embedded_ads_service_failed">%s xəta qaytardı, reklamlar görünə bilər. Tənzimləmədə reklam əngəlləmə xidmətin dəyişməyə çalışın.</string>
   <string name="revanced_block_embedded_ads_title">Yerləşdirilən video reklamlarını əngəllə</string>
   <string name="revanced_block_embedded_ads_entry_1">Qeyri-aktiv edildi</string>
-  <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proksi</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
