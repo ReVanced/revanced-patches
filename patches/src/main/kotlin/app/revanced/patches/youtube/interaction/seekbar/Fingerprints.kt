@@ -73,11 +73,11 @@ internal val disableFastForwardNoticeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
-    opcodes(
-        Opcode.CHECK_CAST,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
+    instructions(
+        opcode(Opcode.CHECK_CAST),
+        // opcode(Opcode.IGET_OBJECT), // 20.25+
+        methodCall(opcode = Opcode.INVOKE_VIRTUAL, returnType = "Z", maxAfter = 1),
+        opcode(Opcode.MOVE_RESULT, maxAfter = 0),
     )
     custom { method, _ ->
         // Code is found in different methods with different strings.
