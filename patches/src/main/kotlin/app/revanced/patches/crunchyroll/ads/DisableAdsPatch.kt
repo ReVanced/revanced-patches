@@ -28,11 +28,11 @@ val disableAdsPatch = bytecodePatch(
             .first { it.name == enableAdsField.name }
             .removeFlag(AccessFlags.FINAL)
 
-        // Override field non-default constructor (has parameters).
+        // Override enableAds field in non-default constructor.
         val constructor = videoUrlReadyToStringFingerprint.classDef.methods.first {
             AccessFlags.CONSTRUCTOR.isSet(it.accessFlags) && it.parameters.isNotEmpty()
         }
-        // "this" reference is previously moved from p0 to v0.
+        // The "this" reference was previously moved from p0 to v0 in the constructor.
         constructor.addInstructions(
             constructor.instructions.count() - 1,
             """
