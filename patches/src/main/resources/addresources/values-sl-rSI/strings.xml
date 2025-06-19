@@ -921,8 +921,6 @@ Omejitev: Število »Ni mi všeč« se morda ne bo prikazalo v načinu brez bele
   <string name="revanced_seekbar_thumbnails_high_quality_title">Omogoči sličice visoke kakovosti</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Sličice za iskanje so visoke kakovosti</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Sličice za iskanje so srednje kakovosti</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Sličice za iskanje v celozaslonskem načinu so visoke kakovosti</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Sličice za iskanje v celozaslonskem načinu so srednje kakovosti</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"To bo obnovilo tudi sličice v živo prenosu, ki nimajo sličic s časovnico.
 
 Sličice s časovnico bodo uporabljale isto kakovost kot trenutni videoposnetek.
@@ -1008,7 +1006,7 @@ Uporabniški ID je, kot je geslo, zato ga nikoli ne delite."</string>
   <string name="revanced_sb_segments_highlight_sum">Del videoposnetka, ki ga večina ljudi išče</string>
   <string name="revanced_sb_segments_intro">Premor/Uvodna animacija</string>
   <string name="revanced_sb_segments_intro_sum">Interval brez dejanske vsebine. Lahko je pavza, statični okvir ali ponavljajoča se animacija. Ne vključuje prehodov, ki vsebujejo informacije</string>
-  <string name="revanced_sb_segments_outro">Zaključni zasloni/Zasluge</string>
+  <string name="revanced_sb_segments_outro">Zaključne kartice / Dobropisi</string>
   <string name="revanced_sb_segments_outro_sum">Zasluge ali prikaz zaključnih kartic YouTuba. Ni namenjeno zaključkom z informacijami</string>
   <string name="revanced_sb_segments_preview">Predogled/Povzetek/Uvod</string>
   <string name="revanced_sb_segments_preview_sum">Zbirka odsekov, ki prikazujejo, kaj prihaja ali kaj se je zgodilo v videoposnetku ali v drugih videoposnetkih serije, kjer so vse informacije ponovljene drugje</string>
@@ -1241,10 +1239,6 @@ Minipredvajalnik lahko povlečete z zaslona na levo ali desno"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Prekrivni gumbi so skriti</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Prekrivni gumbi so prikazani</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skrij gumbe za razširitev in zapiranje</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Gumbi so skriti
-
-Podrsnite za razširitev ali zapiranje"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Gumbi za razširitev in zapiranje so prikazani</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skrij podnaslove</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podnaslovi so skriti</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Podnaslovi so prikazani</string>

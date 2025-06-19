@@ -1008,7 +1008,7 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
   <string name="revanced_sb_segments_highlight_sum">Phần của video mà hầu hết mọi người đang tìm kiếm</string>
   <string name="revanced_sb_segments_intro">Gián đoạn/Giới thiệu</string>
   <string name="revanced_sb_segments_intro_sum">Một khoảng thời gian mà không có nội dung thực tế. Có thể là tạm dừng, khung hình tĩnh hoặc hoạt ảnh lặp lại. Không bao gồm các phần chuyển tiếp chứa thông tin</string>
-  <string name="revanced_sb_segments_outro">Màn hình kết thúc/Danh đề</string>
+  <string name="revanced_sb_segments_outro">Màn hình kết thúc / Danh đề</string>
   <string name="revanced_sb_segments_outro_sum">Danh đề hoặc màn hình kết thúc của Youtube xuất hiện. Không dành cho phần kết chứa thông tin</string>
   <string name="revanced_sb_segments_preview">Đoạn xem trước/Tóm tắt/Gây chú ý</string>
   <string name="revanced_sb_segments_preview_sum">Tập hợp các đoạn cắt thể hiện nhũng gì tiếp theo hoặc sẽ xảy ra trong video hoặc loạt video, nơi mà tất cả thông tin được lặp lại ở nơi khác</string>

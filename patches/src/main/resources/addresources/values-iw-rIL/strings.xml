@@ -1009,7 +1009,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_highlight_sum">החלק בסרטון שרוב האנשים מחפשים</string>
   <string name="revanced_sb_segments_intro">הנפשת הפסקה/הקדמה</string>
   <string name="revanced_sb_segments_intro_sum">מרווח זמן ללא תוכן ממשי. יכול להיות הפסקה, מסגרת סטטית, או הנפשה חוזרת. אינו כולל מעברים המכילים מידע</string>
-  <string name="revanced_sb_segments_outro">כרטיסי סיום/קרדיטים</string>
+  <string name="revanced_sb_segments_outro">כרטיסי סיום / קרדיטים</string>
   <string name="revanced_sb_segments_outro_sum">קרדיטים או כאשר כרטיסי הסיום של YouTube מופיעים. לא בשביל מסקנות עם מידע</string>
   <string name="revanced_sb_segments_preview">קדימון/סיכום/מלכודת</string>
   <string name="revanced_sb_segments_preview_sum">אוסף של קליפים שמראים מה עומד לקרות בקרוב או מה קרה בסרטון או בסרטונים אחרים של סדרה, כאשר כל המידע חוזר על עצמו במקום אחר</string>
@@ -1241,11 +1241,6 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">הסתר לחצני שכבת-על</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">לחצני שכבת-על מוסתרים</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">לחצני שכבת-על מוצגים</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">הסתר לחצני סגירה והרחבה</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"הלחצנים מוסתרים
-
-החלק כדי להרחיב או לסגור"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">לחצני הרחבה וסגירה מוצגים</string>
   <string name="revanced_miniplayer_hide_subtext_title">הסתר תת-טקסטים</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">תת-טקסטים מוסתרים</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">תת-טקסטים מוצגים</string>

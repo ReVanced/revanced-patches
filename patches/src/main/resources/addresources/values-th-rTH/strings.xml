@@ -919,7 +919,6 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">เปิดใช้งานรูปขนาดย่อคุณภาพสูง</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">รูปขนาดย่อแถบ Seek มีคุณภาพสูง</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">รูปขนาดย่อแถบ Seek มีคุณภาพปานกลาง</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">รูปขนาดย่อแถบ Seek แบบเต็มหน้าจอมีคุณภาพสูง</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">รูปขนาดย่อแถบ Seek แบบเต็มหน้าจอมีคุณภาพปานกลาง</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"สิ่งนี้จะคืนค่าภาพขนาดย่อบนการถ่ายทอดสดที่ไม่มีภาพขนาดย่อของแถบเลื่อนด้วย
 
@@ -1007,7 +1006,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_sb_segments_highlight_sum">ส่วนของวิดีโอที่คนส่วนใหญ่กำลังมองหา</string>
   <string name="revanced_sb_segments_intro">แอนิเมชั่นช่วงพัก/ช่วงต้น</string>
   <string name="revanced_sb_segments_intro_sum">ช่วงเวลาที่ไม่มีเนื้อหาจริง อาจเป็นการหยุดชั่วคราว เฟรมนิ่ง หรือภาพเคลื่อนไหวซ้ำๆ ไม่รวมการเปลี่ยนแปลงที่มีข้อมูล</string>
-  <string name="revanced_sb_segments_outro">ฉากจบ/เครดิต</string>
+  <string name="revanced_sb_segments_outro">ฉากจบ / เครดิต</string>
   <string name="revanced_sb_segments_outro_sum">เครดิตหรือเมื่อบัตรสิ้นสุด YouTube ปรากฏขึ้น ไม่ใช่สำหรับข้อสรุปที่มีข้อมูล</string>
   <string name="revanced_sb_segments_preview">ตัวอย่าง/สรุป/เบ็ดเตล็ด</string>
   <string name="revanced_sb_segments_preview_sum">คอลเล็กชันของคลิปที่แสดงว่าจะมีอะไรเกิดขึ้นหรือเกิดอะไรขึ้นในวิดีโอหรือในวิดีโออื่นๆ ของซีรีส์ ซึ่งข้อมูลทั้งหมดจะถูกทำซ้ำในที่อื่นๆ</string>
@@ -1239,11 +1238,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_miniplayer_hide_overlay_buttons_title">ซ่อนปุ่มโอเวอร์เลย์</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">ปุ่มโอเวอร์เลย์ถูกซ่อน</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">ปุ่มโอเวอร์เลย์ถูกแสดง</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">ซ่อนปุ่มขยายและปิด</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"ปุ่มถูกซ่อน
 
 ปัดเพื่อขยายหรือปิด"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">ปุ่มขยายและปิดถูกแสดง</string>
   <string name="revanced_miniplayer_hide_subtext_title">ซ่อนข้อความย่อย</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">ข้อความย่อยถูกซ่อน</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">ข้อความย่อยแสดงอยู่</string>

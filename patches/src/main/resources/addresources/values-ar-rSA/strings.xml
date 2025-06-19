@@ -35,7 +35,6 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">الإعدادات</string>
   <string name="revanced_settings_confirm_user_dialog_title">هل أنت متأكد أنك تريد المتابعة؟</string>
   <string name="revanced_settings_reset">إعادة التعيين</string>
-  <string name="revanced_settings_reset_color">Reset color</string>
   <string name="revanced_settings_color_invalid">لون غير صالح</string>
   <string name="revanced_settings_restart_title">إعادة التشغيل مطلوبة</string>
   <string name="revanced_settings_restart_dialog_message">أعد تشغيل التطبيق لكي يسري هذا التغيير.</string>
@@ -921,8 +920,6 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">تمكين المصغرات عالية الجودة</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">مصغرات شريط التقدم عالية الجودة</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">مصغرات شريط التقدم متوسطة الجودة</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">مصغرات شريط التقدم بملء الشاشة عالية الجودة</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">مصغرات شريط التقدم بملء الشاشة متوسطة الجودة</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"سيؤدي هذا أيضا إلى استعادة المصغرات على البث المباشر الذي لا يحتوي على مصغرات شريط التقدم.
 
 مصغرات شريط التقدم سوف تستخدم نفس جودة الفيديو الحالي.
@@ -1009,7 +1006,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_highlight_sum">الجزء من الفيديو الذي يبحث عنه معظم الناس</string>
   <string name="revanced_sb_segments_intro">المقدمة/فاصل</string>
   <string name="revanced_sb_segments_intro_sum">فاصل زمني بدون محتوى فعلي. قد يكون توقفًا مؤقتًا، أو إطارًا ثابتًا، أو رسومًا متحركة متكررة. لا يتضمن انتقالات تحتوي على معلومات</string>
-  <string name="revanced_sb_segments_outro">الخاتمة/تترات النهاية</string>
+  <string name="revanced_sb_segments_outro">الخاتمة / تترات النهاية</string>
   <string name="revanced_sb_segments_outro_sum">تتر النهاية أو عندما تظهر بطاقات نهاية YouTube، نهايات غير منطوقة. ليس للاستنتاجات مع المعلومات</string>
   <string name="revanced_sb_segments_preview">معاينة/موجز/ربط</string>
   <string name="revanced_sb_segments_preview_sum">مجموعة من المقاطع التي توضح ما هو قادم أو ما حدث في الفيديو أو في مقاطع فيديو أخرى من السلسلة، حيث تتكرر جميع المعلومات في مكان آخر</string>
@@ -1131,7 +1128,6 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_entry_1">الافتراضي</string>
   <string name="revanced_change_form_factor_entry_2">الجوّال</string>
   <string name="revanced_change_form_factor_entry_3">الجهاز اللوحي</string>
-  <string name="revanced_change_form_factor_entry_4">Automotive</string>
   <string name="revanced_change_form_factor_user_dialog_message">"التغييرات تشمل:
 
 تصميم الجهاز اللوحي
@@ -1241,11 +1237,6 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">إخفاء أزرار الواجهة</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">تم إخفاء أزرار الواجهة</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">يتم عرض أزرار الواجهة</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">إخفاء زري التوسيع والإغلاق</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"تم إخفاء الأزرار
-
-اسحب للتوسيع أو الإغلاق"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">يتم عرض زري التوسيع والإغلاق</string>
   <string name="revanced_miniplayer_hide_subtext_title">إخفاء النصوص الفرعية</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">تم إخفاء النصوص الفرعية</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">يتم عرض النصوص الفرعية</string>
@@ -1303,8 +1294,6 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">عرض ملاحظة إذا كان API غير متاح</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">يتم عرض ملاحظة إذا كان DeArrow غير متوفر</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">لا يتم عرض ملاحظة إذا كان DeArrow غير متوفر</string>
-  <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
-  <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint</string>
   <string name="revanced_alt_thumbnail_stills_about_title">لقطات الفيديو الثابتة</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">يتم التقاط اللقطات الثابتة من بداية/وسط/نهاية كل فيديو. هذه الصور مدمجة في YouTube ولا يتم استخدام أي واجهة برمجة تطبيقات خارجية</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">استخدم اللقطات الثابتة السريعة</string>

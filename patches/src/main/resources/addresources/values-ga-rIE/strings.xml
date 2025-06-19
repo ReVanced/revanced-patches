@@ -921,8 +921,6 @@ Srianadh: Bíodh easaontais gan teacht ar taispeáint sa mhodh incognito"</strin
   <string name="revanced_seekbar_thumbnails_high_quality_title">Cumasaigh mionsamhlacha ardchaighdeáin</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Tá mionsamhlacha Seekbar ardchaighdeáin</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Tá mionsamhlacha barra cuardaigh de chaighdeán meánach</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tá mionsamhlacha an bharra cuardaigh lánscáileáin ar ardchaighdeán</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tá mionsamhlacha an bharra cuardaigh lánscáileáin de chaighdeán meánach</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Cuirfidh sé seo na miontaispeántais ar ais ar shruth beo nach bhfuil miontaispeántais cuardaigh acu.
 
 Úsáidfidh miontaispeántais cuardaigh an caighdeán céanna leis an bhfíseán reatha.
@@ -1009,7 +1007,7 @@ Is cosúil le pasfhocal é do ID úsáideora agus níor cheart é a roinnt riamh
   <string name="revanced_sb_segments_highlight_sum">An chuid den fhíseán atá ag cuardach mórchuid na ndaoine</string>
   <string name="revanced_sb_segments_intro">Beochan Idirmheán/Intro</string>
   <string name="revanced_sb_segments_intro_sum">Eatraimh gan ábhar iarbhír. D\'fhéadfadh sé a bheith ina sos, fráma statach, nó beochan athrá. Ní chuimsíonn sé aistrithe ina bhfuil faisnéis</string>
-  <string name="revanced_sb_segments_outro">Cártaí Deiridh/Creidiúintí</string>
+  <string name="revanced_sb_segments_outro">Cártaí Deiridh / Creidiúintí</string>
   <string name="revanced_sb_segments_outro_sum">Creidmheasanna nó nuair a thaispeántar na cártaí YouTube. Ní le haghaidh conclúidí le faisnéis</string>
   <string name="revanced_sb_segments_preview">Réamhamhar/Athbhreithniú/Crúca</string>
   <string name="revanced_sb_segments_preview_sum">Bailiúchán gearrthóga a thaispeánann cad atá ag teacht suas nó cad a tharla san fhíseán nó i bhfíseáin eile de shraith, áit a ndéantar gach faisnéis arís eile in áit eile</string>
@@ -1241,11 +1239,6 @@ Is féidir an mhion-imreoir a tharraingt as an scáileán ar chlé nó ar dheis"
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Folaigh cnaipí forleathana</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tá cnaipí forleathana i bhfolach</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Taispeántar cnaipí forleathana</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Folaigh cnaipí leathnaithe agus dún</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Tá cnaipí i bhfolach
-
-Svaidhpeáil chun leathnú nó dúnadh"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Taispeántar cnaipí leathnaithe agus dún</string>
   <string name="revanced_miniplayer_hide_subtext_title">Folaigh fothéacsanna</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Tá fothéacsanna i bhfolach</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Taispeántar fothéacsanna</string>

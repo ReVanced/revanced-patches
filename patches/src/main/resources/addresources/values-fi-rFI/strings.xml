@@ -96,7 +96,6 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_settings_screen_07_seekbar_title">Etenemispalkki</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Pyyhkäisyohjaus</string>
   <string name="revanced_settings_screen_11_misc_title">Sekalaiset</string>
-  <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Palauta vanhat asetusvalikot</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Vanhat asetusvalikot näytetään</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Vanhoja asetusvalikoita ei näytetä</string>
@@ -921,8 +920,6 @@ Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Ota korkealaatuiset pikkukuvat käyttöön</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Etenemispalkin pikkukuvat ovat korkealaatuisia</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Etenemispalkin pikkukuvat ovat keskilaatuisia</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Koko näytön etenemispalkin pikkukuvat ovat korkealaatuisia</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Koko näytön etenemispalkin pikkukuvat ovat keskilaatuisia</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Tämä palauttaa myös pienoiskuvat livestriimeissä, joilla ei ole etenemispalkin pikkukuvia.
 
 Etenemispalkin pikkukuvat käyttävät samaa laatua kuin nykyinen video.
@@ -1009,7 +1006,6 @@ UserID on kuin salasana, eikä sitä pidä jakaa kenellekään.
   <string name="revanced_sb_segments_highlight_sum">Se osa videota, jota useimmat ihmiset etsivät</string>
   <string name="revanced_sb_segments_intro">Tauko/Introanimaatio</string>
   <string name="revanced_sb_segments_intro_sum">Aikaväli ilman varsinaista sisältöä. Voi olla tauko, staattinen kehys tai toistuva animaatio. Ei sisällä siirtymiä, jotka sisältävät tietoa</string>
-  <string name="revanced_sb_segments_outro">Loppukortit/-tekstit</string>
   <string name="revanced_sb_segments_outro_sum">Lopputekstit tai kun YouTuben loppukortit tulevat näkyviin. Ei lopetuksille, joissa on tietoa</string>
   <string name="revanced_sb_segments_preview">Esikatselu/Kertaus/Koukku</string>
   <string name="revanced_sb_segments_preview_sum">Kokoelma leikkeitä, jotka osoittavat, mitä on tulossa tai mitä tapahtui videossa tai muissa sarjan videoissa,  joiden kaikki informaatio toistuu muualla</string>
@@ -1175,7 +1171,6 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   <string name="revanced_change_start_page_entry_notifications">Ilmoitukset</string>
   <string name="revanced_change_start_page_entry_playlists">Soittolistat</string>
   <string name="revanced_change_start_page_entry_search">Haku</string>
-  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Urheilu</string>
   <string name="revanced_change_start_page_entry_subscriptions">Tilaukset</string>
   <string name="revanced_change_start_page_entry_trending">Nousussa</string>
@@ -1241,11 +1236,6 @@ Minisoitin voidaan vetää pois näytöltä vasemmalle tai oikealle"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Piilota peittokuvan painikkeet</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Peittokuvan painikkeet on piilotettu</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Peittokuvan painikkeet näytetään</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Piilota laajenna- ja sulje-painikkeet</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Painikkeet piilotetaan
-
-Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Laajenna- ja sulje-painikkeet näytetään</string>
   <string name="revanced_miniplayer_hide_subtext_title">Piilota alatekstit</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alatekstit on piilotettu</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alatekstit näytetään</string>
@@ -1405,7 +1395,6 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_shorts_quality_default_wifi_title">Shorts-oletuslaatu Wi-Fi-verkossa</string>
   <string name="revanced_shorts_quality_default_mobile_title">Shorts-oletuslaatu mobiiliverkossa</string>
   <string name="revanced_remember_video_quality_mobile">mobiili</string>
-  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">%1$s-oletuslaatu muutettiin: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Shortsien %1$s-laatu muutettiin: %2$s</string>
   </patch>
@@ -1524,7 +1513,6 @@ AVC:n maksimiresoluutio on 1080p, Opus-äänikoodekki ei ole käytettävissä, j
   <string name="revanced_about_summary">Tietoja ReVancedista</string>
   <string name="revanced_ads_screen_title">Mainokset</string>
   <string name="revanced_ads_screen_summary">Mainosestoasetukset</string>
-  <string name="revanced_chat_screen_title">Chat</string>
   <string name="revanced_chat_screen_summary">Chat-asetukset</string>
   <string name="revanced_misc_screen_title">Sekalaiset</string>
   <string name="revanced_misc_screen_summary">Sekalaiset asetukset</string>

@@ -922,7 +922,6 @@ Omezení: Počty „Nelíbí se mi“ se nemusí zobrazit v anonymním režimu"<
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniatury posuvníku jsou vysoké kvality</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniatury posuvníku jsou střední kvality</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Miniatury posuvníku na celou obrazovku jsou vysoké kvality</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Miniatury posuvníku na celou obrazovku jsou střední kvality</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Obnoví se také miniatury živých přenosů, které nemají miniatury s posuvníkem.
 
 Miniatury s posuvníkem budou používat stejnou kvalitu jako aktuální video.
@@ -1008,7 +1007,7 @@ Vaše ID uživatele je jako heslo a nikdy by nemělo být sdíleno."</string>
   <string name="revanced_sb_segments_highlight_sum">Část videa, po které většina lidí hledá</string>
   <string name="revanced_sb_segments_intro">Přestávka/Animace úvodu</string>
   <string name="revanced_sb_segments_intro_sum">Interval bez skutečného obsahu. Může to být pauza, statický snímek nebo opakující se animace. Neobsahuje přechody s informacemi</string>
-  <string name="revanced_sb_segments_outro">Závěrečné karty/Titulky</string>
+  <string name="revanced_sb_segments_outro">Outro / Závěrečné titulky</string>
   <string name="revanced_sb_segments_outro_sum">Titulky nebo když se objeví závěrečné karty YouTube. Ne pro závěry s informacemi</string>
   <string name="revanced_sb_segments_preview">Náhled/Shrnutí/Háček</string>
   <string name="revanced_sb_segments_preview_sum">Sbírka klipů, které ukazují, co se chystá nebo co se stalo ve videu nebo v jiných videích série, kde jsou všechny informace opakované jinde</string>
@@ -1240,11 +1239,6 @@ Omezení: Použití tlačítka zpět na panelu nástrojů nemusí fungovat"</str
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Skrýt tlačítka překrytí</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tlačítka překrytí jsou skrytá</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Tlačítka překrytí jsou zobrazena</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skrýt tlačítka rozbalení a zavření</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Tlačítka jsou skrytá
-
-Rozbalte nebo zavřete přejetím prstem"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Tlačítka rozbalení a zavření jsou zobrazena</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skrýt podtexty</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podtexty jsou skryty</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Podtexty jsou zobrazeny</string>

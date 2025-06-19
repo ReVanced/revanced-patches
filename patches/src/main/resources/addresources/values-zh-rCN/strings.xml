@@ -921,7 +921,6 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">启用高质量缩略图</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">进度条缩略图质量为高质量</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">进度条缩略图质量为中等质量</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">全屏进度条缩略图质量为高质量</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">全屏进度条缩略图质量为中等质量</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"这也会恢复没有进度条缩略图的直播的缩略图
 
@@ -1009,7 +1008,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_highlight_sum">大多数人都在寻找的视频部分</string>
   <string name="revanced_sb_segments_intro">过场/开场动画</string>
   <string name="revanced_sb_segments_intro_sum">没有实际内容的间隔。可以是暂停、静态帧或重复动画。不包括包含信息的过渡</string>
-  <string name="revanced_sb_segments_outro">结束画面/贡献表</string>
+  <string name="revanced_sb_segments_outro">片尾/演职员名单</string>
   <string name="revanced_sb_segments_outro_sum">片尾字幕或 YouTube 结尾卡出现时。不适用于包含信息的结论</string>
   <string name="revanced_sb_segments_preview">预告/回顾/引子</string>
   <string name="revanced_sb_segments_preview_sum">一系列剪辑，展示视频或系列中其他视频即将发生的事情或已发生的事情，所有信息在其他地方都有重复</string>
@@ -1245,11 +1244,6 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">隐藏悬浮窗按钮</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">悬浮窗按钮已隐藏</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">悬浮窗按钮已显示</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">隐藏展开和关闭按钮</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"按钮已隐藏
-
-滑动即可展开或关闭"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">展开和关闭按钮已显示</string>
   <string name="revanced_miniplayer_hide_subtext_title">隐藏副标题</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">副标题已隐藏</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">副标题已显示</string>

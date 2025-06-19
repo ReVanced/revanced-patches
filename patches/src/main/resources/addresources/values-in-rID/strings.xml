@@ -921,8 +921,6 @@ Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Aktifkan thumbnail berkualitas tinggi</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Thumbnail seekbar berkualitas tinggi</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Thumbnail seekbar berkualitas sedang</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Layar penuh thumbnail seekbar berkualitas tinggi</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Layar penuh thumbnail seekbar berkualitas sedang</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Ini juga akan memulihkan thumbnail pada livestream yang tidak memiliki gambar mini seekbar.
 
 Thumbnail seekbar akan menggunakan kualitas yang sama dengan video saat ini.
@@ -1008,7 +1006,7 @@ Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan."</string>
   <string name="revanced_sb_segments_highlight_sum">Bagian video yang paling dilihat oleh orang</string>
   <string name="revanced_sb_segments_intro">Jeda/Animasi Intro</string>
   <string name="revanced_sb_segments_intro_sum">Interval tanpa konten yang sebenarnya. Bisa berupa jeda, bingkai statis, atau animasi berulang. Tidak termasuk transisi yang berisi informasi</string>
-  <string name="revanced_sb_segments_outro">Kartu Akhir/Kredit</string>
+  <string name="revanced_sb_segments_outro">Kartu Akhir / Kredit</string>
   <string name="revanced_sb_segments_outro_sum">Kredit atau ketika layar akhir YouTube muncul. Bukan kesimpulan dengan informasi</string>
   <string name="revanced_sb_segments_preview">Pratinjau/Rekap/Pengait</string>
   <string name="revanced_sb_segments_preview_sum">Kumpulan klip yang menunjukkan apa yang akan datang atau apa yang terjadi di video atau di video lain dari sebuah seri, di mana semua informasi diulang di tempat lain</string>
@@ -1240,11 +1238,6 @@ Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Sembunyikan tombol hamparan</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tombol hamparan disembunyikan</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Tombol hamparan ditampilkan</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Sembunyikan tombol perluas dan tutup</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Tombol disembunyikan
-
-Geser untuk memperluas atau menutup"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Tombol perluas dan tutup ditampilkan</string>
   <string name="revanced_miniplayer_hide_subtext_title">Sembunyikan subteks</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subteks disembunyikan</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subteks ditampilkan</string>
