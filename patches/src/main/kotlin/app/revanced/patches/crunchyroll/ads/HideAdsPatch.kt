@@ -5,14 +5,14 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference
-import app.revanced.util.removeFlag
+import app.revanced.util.removeFlags
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
-val disableAdsPatch = bytecodePatch(
-    name = "Disable Ads"
+val hideAdsPatch = bytecodePatch(
+    name = "Hide Ads"
 ) {
     compatibleWith("com.crunchyroll.crunchyroid")
 
@@ -26,7 +26,7 @@ val disableAdsPatch = bytecodePatch(
         // Remove final access flag on field.
         videoUrlReadyToStringFingerprint.classDef.fields
             .first { it.name == enableAdsField.name }
-            .removeFlag(AccessFlags.FINAL)
+            .removeFlags(AccessFlags.FINAL)
 
         // Override enableAds field in non-default constructor.
         val constructor = videoUrlReadyToStringFingerprint.classDef.methods.first {

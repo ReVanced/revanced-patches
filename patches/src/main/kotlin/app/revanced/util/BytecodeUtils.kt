@@ -1025,7 +1025,7 @@ private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean
 /**
  * Remove the given AccessFlags from the field.
  */
-internal fun MutableField.removeFlag(vararg flags: AccessFlags) {
+internal fun MutableField.removeFlags(vararg flags: AccessFlags) {
     val bitField = flags.map { it.value }.reduce { acc, flag -> acc and flag }
     this.accessFlags = this.accessFlags and bitField.inv()
 }
