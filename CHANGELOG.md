@@ -1,3 +1,10 @@
+# [5.28.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.7...v5.28.0-dev.8) (2025-06-19)
+
+
+### Bug Fixes
+
+* **Messenger - Remove Meta AI:** Improve patch logic ([#5153](https://github.com/ReVanced/revanced-patches/issues/5153)) ([4ad4887](https://github.com/ReVanced/revanced-patches/commit/4ad488744d87543c31e453dc7b6d8182b3a7f440))
+
 # [5.28.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.6...v5.28.0-dev.7) (2025-06-18)
 
 
