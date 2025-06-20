@@ -1006,7 +1006,7 @@ Ditt användar-ID är som ett lösenord och det bör aldrig delas."</string>
   <string name="revanced_sb_segments_highlight_sum">Den del av videon som de flesta letar efter</string>
   <string name="revanced_sb_segments_intro">Paus/introduktionsanimation</string>
   <string name="revanced_sb_segments_intro_sum">Ett intervall utan faktiskt innehåll. Kan vara en paus, statisk ram eller upprepande animation. Inkluderar inte övergångar som innehåller information</string>
-  <string name="revanced_sb_segments_outro">Sluttexter/Eftertexter</string>
+  <string name="revanced_sb_segments_outro">Slutkort/krediter</string>
   <string name="revanced_sb_segments_outro_sum">Krediter eller när YouTube slutkort visas. Inte för slutsatser med information</string>
   <string name="revanced_sb_segments_preview">Förhandsgranska/återskapa/krok</string>
   <string name="revanced_sb_segments_preview_sum">Samling av klipp som visar vad som kommer upp eller vad som hände i videon eller i andra videor i en serie, där all information upprepas någon annanstans</string>
