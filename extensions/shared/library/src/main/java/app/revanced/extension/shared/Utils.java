@@ -42,6 +42,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -773,16 +774,15 @@ public class Utils {
         Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
 
-        // Create main layout.
-        LinearLayout mainLayout = new LinearLayout(context);
-        mainLayout.setOrientation(LinearLayout.VERTICAL);
-
         // Preset size constants.
         final int dip4 = dipToPixels(4);
         final int dip8 = dipToPixels(8);
         final int dip16 = dipToPixels(16);
         final int dip24 = dipToPixels(24);
 
+        // Create main layout.
+        LinearLayout mainLayout = new LinearLayout(context);
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
         mainLayout.setPadding(dip24, dip16, dip24, dip24);
         // Set rounded rectangle background.
         ShapeDrawable mainBackground = new ShapeDrawable(new RoundRectShape(
@@ -807,6 +807,18 @@ public class Utils {
             mainLayout.addView(titleView);
         }
 
+        // Create content container (message/EditText) inside a ScrollView.
+        ScrollView contentScrollView = new ScrollView(context);
+        LinearLayout contentContainer = new LinearLayout(context);
+        contentContainer.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams contentParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                0,
+                1.0f // Weight to take available space.
+        );
+        contentScrollView.setLayoutParams(contentParams);
+        contentScrollView.addView(contentContainer);
+
         // Message (if not replaced by EditText).
         if (editText == null && message != null) {
             TextView messageView = new TextView(context);
@@ -821,9 +833,9 @@ public class Utils {
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
             );
-            messageParams.setMargins(0, dip8, 0, dip16);
+            messageParams.setMargins(dip8, dip8, dip8, dip16);
             messageView.setLayoutParams(messageParams);
-            mainLayout.addView(messageView);
+            contentContainer.addView(messageView);
         }
 
         // EditText (if provided).
@@ -847,10 +859,7 @@ public class Utils {
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
             editTextParams.setMargins(0, dip8, 0, dip16);
-            // Prevent buttons from moving off the screen by fixing the height of the EditText.
-            final int maxHeight = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.6);
-            editText.setMaxHeight(maxHeight);
-            mainLayout.addView(editText, 1, editTextParams);
+            contentContainer.addView(editText, editTextParams);
         }
 
         // Button container.
@@ -1036,6 +1045,8 @@ public class Utils {
             }
         }
 
+        // Add content and buttons to main layout.
+        mainLayout.addView(contentScrollView);
         mainLayout.addView(buttonContainer);
         dialog.setContentView(mainLayout);
 
