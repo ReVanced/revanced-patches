@@ -4,7 +4,6 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 import app.revanced.extension.spotify.shared.ComponentFilters.*;
-import com.spotify.home.evopage.homeapi.proto.Section;
 
 import java.util.Iterator;
 import java.util.List;
@@ -99,9 +98,11 @@ public final class UnlockPremiumPatch {
      * response which delivers home sections.
      */
     private static final List<Integer> REMOVED_HOME_SECTIONS = List.of(
-            Section.VIDEO_BRAND_AD_FIELD_NUMBER,
-            Section.IMAGE_BRAND_AD_FIELD_NUMBER
+            com.spotify.home.evopage.homeapi.proto.Section.VIDEO_BRAND_AD_FIELD_NUMBER,
+            com.spotify.home.evopage.homeapi.proto.Section.IMAGE_BRAND_AD_FIELD_NUMBER
     );
+
+    private static final Integer REMOVED_BROWSE_SECTIONS = com.spotify.browsita.v1.resolved.Section.BRAND_ADS_FIELD_NUMBER;
 
     /**
      * A list of lists which contain component filters that match whether a context menu item should be filtered out.
@@ -174,24 +175,56 @@ public final class UnlockPremiumPatch {
         }
     }
 
-    /**
-     * Injection point. Remove ads sections from home.
-     * Depends on patching abstract protobuf list ensureIsMutable method.
-     */
-    public static void removeHomeSections(List<Section> sections) {
+
+    interface FeatureTypeIdProvider<T> {
+        int getFeatureTypeId(T section);
+    }
+
+    private static <T> void removeSections(
+            List<T> sections,
+            FeatureTypeIdProvider<T> featureTypeExtractor,
+            List<Integer> idsToRemove
+    ) {
         try {
-            Iterator<Section> iterator = sections.iterator();
+            Iterator<T> iterator = sections.iterator();
 
             while (iterator.hasNext()) {
-                Section section = iterator.next();
-                if (REMOVED_HOME_SECTIONS.contains(section.featureTypeCase_)) {
-                    Logger.printInfo(() -> "Removing home section with feature type id " + section.featureTypeCase_);
+                T section = iterator.next();
+                int featureTypeId = featureTypeExtractor.getFeatureTypeId(section);
+                if (idsToRemove.contains(featureTypeId)) {
+                    Logger.printInfo(() -> "Removing section with feature type id " + featureTypeId);
                     iterator.remove();
                 }
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "removeHomeSections failure", ex);
+            Logger.printException(() -> "removeSections failure", ex);
         }
+    }
+
+    /**
+     * Injection point. Remove ads sections from home.
+     * Depends on patching abstract protobuf list ensureIsMutable method.
+     */
+    public static void removeHomeSections(List<com.spotify.home.evopage.homeapi.proto.Section> sections) {
+        Logger.printInfo(() -> "Removing ads section from home");
+        removeSections(
+                sections,
+                section -> section.featureTypeCase_,
+                REMOVED_HOME_SECTIONS
+        );
+    }
+
+    /**
+     * Injection point. Remove ads sections from browse.
+     * Depends on patching abstract protobuf list ensureIsMutable method.
+     */
+    public static void removeBrowseSections(List<com.spotify.browsita.v1.resolved.Section> sections) {
+        Logger.printInfo(() -> "Removing ads section from browse");
+        removeSections(
+                sections,
+                section -> section.sectionTypeCase_,
+                List.of(REMOVED_BROWSE_SECTIONS)
+        );
     }
 
     /**
