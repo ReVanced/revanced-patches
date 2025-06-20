@@ -44,8 +44,6 @@ val shortsAutoplayPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
             "19.34.42",
             "19.43.41",
             "19.47.53",
@@ -70,8 +68,7 @@ val shortsAutoplayPatch = bytecodePatch(
         // Main activity is used to check if app is in pip mode.
         mainActivityOnCreateFingerprint.method.addInstruction(
             1,
-            "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                "setMainActivity(Landroid/app/Activity;)V",
+            "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->setMainActivity(Landroid/app/Activity;)V",
         )
 
         val reelEnumClass = reelEnumConstructorFingerprint.originalClassDef.type

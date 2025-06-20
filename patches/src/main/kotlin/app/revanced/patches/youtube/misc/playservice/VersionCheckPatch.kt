@@ -5,29 +5,37 @@ package app.revanced.patches.youtube.misc.playservice
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.findElementByAttributeValueOrThrow
 
-@Deprecated("19.16.39 is the lowest supported version")
+@Deprecated("19.34.42 is the lowest supported version")
 var is_19_03_or_greater = false
     private set
-@Deprecated("19.16.39 is the lowest supported version")
+@Deprecated("19.34.42 is the lowest supported version")
 var is_19_04_or_greater = false
     private set
-@Deprecated("19.16.39 is the lowest supported version")
+@Deprecated("19.34.42 is the lowest supported version")
 var is_19_16_or_greater = false
     private set
+@Deprecated("19.34.42 is the lowest supported version")
 var is_19_17_or_greater = false
     private set
+@Deprecated("19.34.42 is the lowest supported version")
 var is_19_18_or_greater = false
     private set
+@Deprecated("19.34.42 is the lowest supported version")
 var is_19_23_or_greater = false
     private set
+@Deprecated("19.34.42 is the lowest supported version")
 var is_19_25_or_greater = false
     private set
+@Deprecated("19.34.42 is the lowest supported version")
 var is_19_26_or_greater = false
     private set
+@Deprecated("19.34.42 is the lowest supported version")
 var is_19_29_or_greater = false
     private set
+@Deprecated("19.34.42 is the lowest supported version")
 var is_19_32_or_greater = false
     private set
+@Deprecated("19.34.42 is the lowest supported version")
 var is_19_33_or_greater = false
     private set
 var is_19_34_or_greater = false

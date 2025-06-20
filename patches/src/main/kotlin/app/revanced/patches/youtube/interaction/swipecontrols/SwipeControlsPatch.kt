@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_43_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityFingerprint
+import app.revanced.patches.youtube.shared.mainActivityConstructorFingerprint
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -43,10 +43,7 @@ private val swipeControlsResourcePatch = resourcePatch {
             SwitchPreference("revanced_swipe_haptic_feedback"),
             SwitchPreference("revanced_swipe_save_and_restore_brightness"),
             SwitchPreference("revanced_swipe_lowest_value_enable_auto_brightness"),
-            ListPreference(
-                "revanced_swipe_overlay_style",
-                summaryKey = null,
-            ),
+            ListPreference("revanced_swipe_overlay_style"),
             TextPreference("revanced_swipe_overlay_background_opacity", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_progress_brightness_color",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerPreference",
@@ -91,8 +88,6 @@ val swipeControlsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
             "19.34.42",
             "19.43.41",
             "19.47.53",
@@ -103,7 +98,7 @@ val swipeControlsPatch = bytecodePatch(
 
     execute {
         val wrapperClass = swipeControlsHostActivityFingerprint.classDef
-        val targetClass = mainActivityFingerprint.classDef
+        val targetClass = mainActivityConstructorFingerprint.classDef
 
         // Inject the wrapper class from the extension into the class hierarchy of MainActivity.
         wrapperClass.setSuperClass(targetClass.superclass)

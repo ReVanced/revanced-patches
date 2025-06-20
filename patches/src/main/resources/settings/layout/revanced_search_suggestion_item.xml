@@ -17,7 +17,7 @@
             android:layout_height="24dp"
             android:layout_marginEnd="16dp"
             android:contentDescription="History icon"
-            android:src="@drawable/yt_outline_arrow_time_vd_theme_24" />
+            android:src="@drawable/revanced_settings_arrow_time" />
 
     <!-- Suggestion text -->
     <TextView

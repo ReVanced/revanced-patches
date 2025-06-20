@@ -21,8 +21,23 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">ಪರಿಶೀಲನೆ ವಿಫಲವಾಗಿದೆ</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">ಅಧಿಕೃತ ಜಾಲತಾಣ ತೆರೆಯಿರಿ</string>
+  <string name="revanced_check_environment_dialog_ignore_button">ನಿರ್ಲಕ್ಷಿಸು</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನೀವು ಪ್ಯಾಚ್ ಮಾಡಿದಂತೆ ಕಾಣುತ್ತಿಲ್ಲ.&lt;/h5&gt;&lt;br&gt;ಈ ಅಪ್ಲಿಕೇಶನ್ ಸರಿಯಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸದೇ ಇರಬಹುದು, &lt;b&gt; ಹಾಗು ಉಪಯೋಗಿಸಲು ಹಾನಿಕಾರಕ ಅಥವಾ ಅಪಾಯಕಾರಿಯಾಗಿರಬಹುದು&lt;/b&gt;.&lt;br&gt;&lt;br&gt;ಈ ಅಪ್ಲಿಕೇಶನ್ ಮೊದಲೇ ಪ್ಯಾಚ್ ಆಗಿದೆ ಅಥವಾ ಬೇರೆಯವರಿಂದ ಪಡೆದದ್ದು ಎಂದು ಈ ಪರಿಶೀಲನೆಗಳು ಸೂಚಿಸುತ್ತವೆ:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;ನೀವು ದೃಢೀಕೃತ ಮತ್ತು ಸುರಕ್ಷಿತ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಬಳಸುತ್ತಿರುವಿರಿ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು &lt;b&gt;ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಅನ್‌ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ ಮತ್ತು ನೀವೇ ಪ್ಯಾಚ್ ಮಾಡಿ&lt;/b&gt; ಎಂದು ಬಲವಾಗಿ ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ.&lt;p&gt;&lt;br&gt;ನಿರ್ಲಕ್ಷಿಸಿದರೆ, ಈ ಎಚ್ಚರಿಕೆಯನ್ನು ಎರಡು ಬಾರಿ ಮಾತ್ರ ತೋರಿಸಲಾಗುತ್ತದೆ.</string>
+  <string name="revanced_check_environment_not_same_patching_device">ಬೇರೆ ಸಾಧನದಲ್ಲಿ ಪ್ಯಾಚ್ ಮಾಡಲಾಗಿದೆ</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager ನಿಂದ ಸ್ಥಾಪಿಸಿದ್ದಲ್ಲ</string>
+  <string name="revanced_check_environment_not_near_patch_time">10 ನಿಮಿಷಗಳಿಗಿಂತ ಮುಂಚೆ ಪ್ಯಾಚ್ ಮಾಡಲಾಗಿದೆ</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">%s ದಿನಗಳ ಹಿಂದೆ ಪ್ಯಾಚ್ ಮಾಡಲಾಗಿದೆ</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK ನಿರ್ಮಾಣ ದಿನಾಂಕವು ಭ್ರಷ್ಟಗೊಂಡಿದೆ</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">ಸಂಯೋಜನೆಗಳು</string>
+  <string name="revanced_settings_confirm_user_dialog_title">ನೀವು ಮುಂದುವರಿಯಲು ಖಚಿತವಾಗಿ ಬಯಸುತ್ತೀರಾ?</string>
+  <string name="revanced_settings_reset">ಮರುಹೊಂದಿಸಿ</string>
+  <string name="revanced_settings_reset_color">ಬಣ್ಣ ಮರುಹೊಂದಿಸಿ</string>
+  <string name="revanced_settings_color_invalid">ಅಮಾನ್ಯ ಬಣ್ಣ</string>
+  <string name="revanced_settings_restart_title">ಮರುಪ್ರಾರಂಭದ ಅಗತ್ಯವಿದೆ</string>
   <!-- Settings about dialog. -->
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->

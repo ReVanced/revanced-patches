@@ -33,8 +33,6 @@ val changeFormFactorPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
             "19.34.42",
             "19.43.41",
             "19.47.53",
@@ -47,10 +45,7 @@ val changeFormFactorPatch = bytecodePatch(
         addResources("youtube", "layout.formfactor.changeFormFactorPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            ListPreference(
-                "revanced_change_form_factor",
-                summaryKey = null,
-            )
+            ListPreference("revanced_change_form_factor")
         )
 
         hookNavigationButtonCreated(EXTENSION_CLASS_DESCRIPTOR)

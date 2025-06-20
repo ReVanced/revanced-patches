@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Настройки</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Вы хотите продолжить?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Вы уверены, что хотите продолжить?</string>
   <string name="revanced_settings_reset">Сбросить</string>
   <string name="revanced_settings_reset_color">Сбросить цвет</string>
   <string name="revanced_settings_color_invalid">Неверный цвет</string>
-  <string name="revanced_settings_restart_title">Обновить и перезапустить</string>
+  <string name="revanced_settings_restart_title">Требуется перезапуск</string>
+  <string name="revanced_settings_restart_dialog_message">Перезапустите приложение, чтобы изменения вступили в силу.</string>
   <string name="revanced_settings_restart">Перезапустить</string>
   <string name="revanced_settings_import">Импортировать</string>
   <string name="revanced_settings_import_copy">Копировать</string>
@@ -1008,7 +1009,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_highlight_sum">Часть видео, которая интересна большинству людей</string>
   <string name="revanced_sb_segments_intro">Пауза/Заставка </string>
   <string name="revanced_sb_segments_intro_sum">Интервал без фактического содержания. Может быть паузой, статическим кадром или повторяющейся анимацией. Не включает переходы, содержащие информацию</string>
-  <string name="revanced_sb_segments_outro">Конечные заставки/титры</string>
+  <string name="revanced_sb_segments_outro">Конечные заставки / Титры</string>
   <string name="revanced_sb_segments_outro_sum">Титры или время появления конечных заставок YouTube. Не для выводов с информацией</string>
   <string name="revanced_sb_segments_preview">Предпросмотр/пересказ/завязка</string>
   <string name="revanced_sb_segments_preview_sum">Фрагменты, повторяющие текущее видео или предыдущие серии</string>

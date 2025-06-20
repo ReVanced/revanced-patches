@@ -84,7 +84,7 @@ fun checkEnvironmentPatch(
 
         fun invokeCheck() = mainActivityOnCreateFingerprint.method.addInstruction(
             0,
-            "invoke-static/range { p0 .. p0 },$EXTENSION_CLASS_DESCRIPTOR->check(Landroid/app/Activity;)V",
+            "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->check(Landroid/app/Activity;)V",
         )
 
         setPatchInfo()

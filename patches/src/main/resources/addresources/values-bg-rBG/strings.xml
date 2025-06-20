@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Настройки</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Искате ли да продължите?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Сигурни ли сте, че искате да продължите?</string>
   <string name="revanced_settings_reset">Възстанови</string>
   <string name="revanced_settings_reset_color">Нулиране на цвета</string>
   <string name="revanced_settings_color_invalid">Невалиден цвят</string>
-  <string name="revanced_settings_restart_title">Рестартирай и опресни</string>
+  <string name="revanced_settings_restart_title">Необходимо е рестартиране</string>
+  <string name="revanced_settings_restart_dialog_message">Рестартирайте приложението, за да влязат в сила тези промени.</string>
   <string name="revanced_settings_restart">Рестартиране</string>
   <string name="revanced_settings_import">Импортиране</string>
   <string name="revanced_settings_import_copy">Копирай</string>
@@ -920,8 +921,6 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Активиране на висококачествени миниатюри</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Миниатюри с високо качество в лентата на възпроизвеждане</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Миниатюри с средно качество в лентата на възпроизвеждане</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Миниатюри с високо качество в лентата на прогреса на цял екран</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Миниатюри със средно качество в лентата на прогреса на цял екран</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Това също ще възстанови миниатюрите на предавания на живо, които нямат миниатюри на плъзгача.
 
 Миниатюрите на плъзгача ще използват същото качество като текущото видео.
@@ -1008,7 +1007,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_highlight_sum">Частта от видеото която повечето хора търсят</string>
   <string name="revanced_sb_segments_intro">Пауза / Начална анимация</string>
   <string name="revanced_sb_segments_intro_sum">Интервал без реално съдържание. Може да бъде пауза, статичен кадър, повтаряща се анимация. Това не трябва да се използва за преходи, съдържащи информация</string>
-  <string name="revanced_sb_segments_outro">Карти в края/Пояснения</string>
+  <string name="revanced_sb_segments_outro">Край на клипа / Надписи</string>
   <string name="revanced_sb_segments_outro_sum">Информация или когато се показват крайните карти на YouTube. Не за заключения с информация</string>
   <string name="revanced_sb_segments_preview">Кратък преглед/Обобщение</string>
   <string name="revanced_sb_segments_preview_sum">Колекция от клипове, които показват какво предстои в този видеоклип или в други видеоклипове от поредицата, където цялата информация се повтаря по-късно във видеоклипа</string>
@@ -1240,11 +1239,6 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Скриване на бутоните за наслагване</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Бутоните за наслагване са скрити</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Бутоните за наслагване са показани</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Скриване на бутоните за разгъване и затваряне</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Бутоните са скрити
-
-Плъзнете, за да разгънете или затворите"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Бутоните за разгъване и затваряне са показани</string>
   <string name="revanced_miniplayer_hide_subtext_title">Екранни текстове, етикети</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Скрити</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Показват се</string>

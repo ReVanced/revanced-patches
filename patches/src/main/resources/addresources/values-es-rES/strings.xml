@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ajustes</string>
-  <string name="revanced_settings_confirm_user_dialog_title">¿Desea continuar?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">¿Está seguro de que quiere continuar?</string>
   <string name="revanced_settings_reset">Restablecer</string>
   <string name="revanced_settings_reset_color">Restablecer color</string>
   <string name="revanced_settings_color_invalid">Color no válido</string>
-  <string name="revanced_settings_restart_title">Actualizar y reiniciar</string>
+  <string name="revanced_settings_restart_title">Reinicio necesario</string>
+  <string name="revanced_settings_restart_dialog_message">Reinicie la aplicación para que este cambio surta efecto.</string>
   <string name="revanced_settings_restart">Reiniciar</string>
   <string name="revanced_settings_import">Importar</string>
   <string name="revanced_settings_import_copy">Copiar</string>
@@ -917,8 +918,6 @@ Limitación: Es posible que los Dislikes no aparezcan en el modo de incógnito"<
   <string name="revanced_seekbar_thumbnails_high_quality_title">Habilitar miniaturas de alta calidad</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Las miniuñas Seekbar son de alta calidad</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Las miniuñas Seekbar son de calidad media</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Las miniaturas de la barra de búsqueda a pantalla completa son de alta calidad</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Las miniaturas de la barra de búsqueda a pantalla completa son de calidad media</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Esto también restaurará las miniaturas en las transmisiones en vivo que no tengan miniaturas de la barra de búsqueda.
 
 Las miniaturas de la barra de búsqueda utilizarán la misma calidad que el vídeo actual.
@@ -1004,7 +1003,7 @@ Tu ID de usuario es como una contraseña y nunca debe compartirse."</string>
   <string name="revanced_sb_segments_highlight_sum">La parte del vídeo que la mayoría de la gente está buscando</string>
   <string name="revanced_sb_segments_intro">Intermisión/Animación de introducción</string>
   <string name="revanced_sb_segments_intro_sum">Un intervalo sin contenido real. Podría ser una pausa, marco estático o animación de repetición. No incluye transiciones que contengan información</string>
-  <string name="revanced_sb_segments_outro">Pantallas finales/Créditos</string>
+  <string name="revanced_sb_segments_outro">Tarjetas finales / Créditos</string>
   <string name="revanced_sb_segments_outro_sum">Créditos o cuando aparecen las tarjetas finales de YouTube. No para conclusiones con información</string>
   <string name="revanced_sb_segments_preview">Vista previa/Recapitular/Juego</string>
   <string name="revanced_sb_segments_preview_sum">Colección de clips que muestran lo que viene o lo que pasó en el vídeo o en otros videos de una serie, donde toda la información se repite en otro lugar</string>
@@ -1151,7 +1150,7 @@ Si se desactiva posteriormente, se recomienda borrar los datos de la aplicación
   <string name="revanced_change_start_page_entry_courses">Cursos / Aprendizaje</string>
   <string name="revanced_change_start_page_entry_explore">Explorar</string>
   <string name="revanced_change_start_page_entry_fashion">Moda y Belleza</string>
-  <string name="revanced_change_start_page_entry_gaming">Gaming</string>
+  <string name="revanced_change_start_page_entry_gaming">Juegos</string>
   <string name="revanced_change_start_page_entry_history">Historial</string>
   <string name="revanced_change_start_page_entry_library">Biblioteca</string>
   <string name="revanced_change_start_page_entry_liked_videos">Vídeos que me gustan</string>
@@ -1228,11 +1227,6 @@ El minireproductor se puede arrastrar fuera de la pantalla hacia la izquierda o 
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Ocultar botones de superposición</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Los botones de superposición están ocultos</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Se muestran los botones de superposición</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ocultar botones de expandir y cerrar</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Los botones están ocultos
-
-Desliza el dedo para expandir o cerrar"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Se muestran los botones de expandir y cerrar</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Los subtextos están ocultos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Los subtextos se muestran</string>

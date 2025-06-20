@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Impostazioni</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Sei sicuro di voler continuare?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Sei sicuro di voler procedere?</string>
   <string name="revanced_settings_reset">Reimposta</string>
   <string name="revanced_settings_reset_color">Reimposta colore</string>
   <string name="revanced_settings_color_invalid">Colore non valido</string>
-  <string name="revanced_settings_restart_title">Aggiorna e riavvia</string>
+  <string name="revanced_settings_restart_title">Riavvio necessario</string>
+  <string name="revanced_settings_restart_dialog_message">Riavvia l\'app affinché questa modifica abbia effetto.</string>
   <string name="revanced_settings_restart">Riavvia</string>
   <string name="revanced_settings_import">Importa</string>
   <string name="revanced_settings_import_copy">Copia</string>
@@ -920,8 +921,6 @@ Limitazione: i \"Non mi piace\" potrebbero non apparire in modalità incognito"<
   <string name="revanced_seekbar_thumbnails_high_quality_title">Abilita miniature di alta qualità</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Le miniature della barra di avanzamento sono di alta qualità</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Le miniature della barra di avanzamento sono di media qualità</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Le miniature della barra di avanzamento a schermo intero sono di alta qualità</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Le miniature della barra di avanzamento a schermo intero sono di media qualità</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Questo ripristinerà anche le miniature sulle dirette che non hanno miniature della barra di avanzamento.
 
 Le miniature della barra di avanzamento utilizzeranno la stessa qualità del video corrente.
@@ -1007,7 +1006,7 @@ Il tuo ID utente è come una password e non dovrebbe mai essere condiviso."</str
   <string name="revanced_sb_segments_highlight_sum">La parte del video che la maggior parte delle persone sta cercando</string>
   <string name="revanced_sb_segments_intro">Interruzione/Animazione Introduzione</string>
   <string name="revanced_sb_segments_intro_sum">Un intervallo senza contenuto effettivo. Potrebbe essere una pausa, un quadro statico o un\'animazione ripetitiva. Non include transizioni contenenti informazioni</string>
-  <string name="revanced_sb_segments_outro">Conclusioni/titoli di coda</string>
+  <string name="revanced_sb_segments_outro">Conclusioni / Titoli di coda</string>
   <string name="revanced_sb_segments_outro_sum">Riconoscimenti o quando appaiono le carte finali di YouTube. Non per conclusioni con informazioni</string>
   <string name="revanced_sb_segments_preview">Anteprima/Recap/Hook</string>
   <string name="revanced_sb_segments_preview_sum">Raccolta di clip che mostrano ciò che è in arrivo o ciò che è successo nel video o in altri video di una serie, dove tutte le informazioni sono ripetute altrove</string>
@@ -1173,7 +1172,6 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="revanced_change_start_page_entry_notifications">Notifiche</string>
   <string name="revanced_change_start_page_entry_playlists">Playlist</string>
   <string name="revanced_change_start_page_entry_search">Cerca</string>
-  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Iscrizioni</string>
   <string name="revanced_change_start_page_entry_trending">Tendenze</string>
@@ -1239,11 +1237,6 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Nascondi i pulsanti di overlay</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">I pulsanti di overlay sono nascosti</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">I pulsanti di overlay sono visualizzati</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Nascondi i pulsanti di espansione e chiusura</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"I pulsanti sono nascosti
-
-Scorri per espandere o chiudere"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">I pulsanti Espandi e chiudi sono visibili</string>
   <string name="revanced_miniplayer_hide_subtext_title">Nascondi sottotitoli</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">I sottotitoli sono nascosti</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">I sottotitoli sono visibili</string>

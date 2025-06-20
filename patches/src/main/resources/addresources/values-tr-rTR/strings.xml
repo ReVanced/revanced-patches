@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ayarlar</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istiyor musunuz?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istediğinizden emin misiniz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_reset_color">Rengi sıfırla</string>
   <string name="revanced_settings_color_invalid">Geçersiz renk</string>
-  <string name="revanced_settings_restart_title">Yenile ve yeniden başlat</string>
+  <string name="revanced_settings_restart_title">Yeniden başlatma gerekli</string>
+  <string name="revanced_settings_restart_dialog_message">Bu değişikliğin etkili olması için uygulamayı yeniden başlatın.</string>
   <string name="revanced_settings_restart">Yeniden başlat</string>
   <string name="revanced_settings_import">İçe aktar</string>
   <string name="revanced_settings_import_copy">Kopyala</string>
@@ -1008,7 +1009,7 @@ Kullanıcı kimliğiniz bir şifre gibidir ve asla paylaşılmamalıdır.
   <string name="revanced_sb_segments_highlight_sum">Videonun çoğu kişinin aradığı bölümü</string>
   <string name="revanced_sb_segments_intro">Ara/Giriş Animasyonu</string>
   <string name="revanced_sb_segments_intro_sum">Gerçek içerik barındırmayan aralıklar. Duraklama, sabit kare veya tekrar eden bir animasyon olabilir. Bilgi içeren geçişleri içermez</string>
-  <string name="revanced_sb_segments_outro">Bitiş Ekranı/Jenerik</string>
+  <string name="revanced_sb_segments_outro">Bitiş Ekranı / Jenerik</string>
   <string name="revanced_sb_segments_outro_sum">Jenerik veya YouTube bitiş kartlarının göründüğü zaman. Bilgi içeren çıkarımlar için değil</string>
   <string name="revanced_sb_segments_preview">Ön İzleme/Özet/İma</string>
   <string name="revanced_sb_segments_preview_sum">Videoda veya bir dizinin diğer videolarında neler olduğunu ve nelerin geleceğini gösteren, tüm bilgilerin başka bir yerde tekrarlandığı klip koleksiyonu</string>

@@ -32,8 +32,6 @@ val changeStartPagePatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
             "19.34.42",
             "19.43.41",
             "19.47.53",
@@ -53,7 +51,6 @@ val changeStartPagePatch = bytecodePatch(
                 preferences = setOf(
                     ListPreference(
                         key = "revanced_change_start_page",
-                        summaryKey = null,
                         tag = "app.revanced.extension.shared.settings.preference.SortedListPreference"
                     ),
                     SwitchPreference("revanced_change_start_page_always")

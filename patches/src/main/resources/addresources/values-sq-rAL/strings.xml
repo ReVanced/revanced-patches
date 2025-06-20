@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Cilësimet</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Dëshironi të vazhdoni?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">A jeni i sigurt që dëshironi të vazhdoni?</string>
   <string name="revanced_settings_reset">Rivendos</string>
   <string name="revanced_settings_reset_color">Rikthe ngjyrën</string>
   <string name="revanced_settings_color_invalid">Ngjyrë e pavlefshme</string>
-  <string name="revanced_settings_restart_title">Rifresko dhe rifillo</string>
+  <string name="revanced_settings_restart_title">Kërkohet Ristartim</string>
+  <string name="revanced_settings_restart_dialog_message">Rindizeni aplikacionin që ky ndryshim të hyjë në fuqi.</string>
   <string name="revanced_settings_restart">Rifillo</string>
   <string name="revanced_settings_import">Importo</string>
   <string name="revanced_settings_import_copy">Kopjo</string>
@@ -920,8 +921,6 @@ Kufizimi: Mospëlqimet mund të mos shfaqen në modalitetin incognito"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Aktivizo miniatiurat me cilësi të lartë</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniatiurat e shiritit të kërkimi janë me cilësi të lartë</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniatiurat e shiritit të kërkimi janë me cilësi të mesme</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Miniatiurat e shiritit të kërkimit në ekran të plotë janë me cilësi të lartë</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Miniatiurat e shiritit të kërkimit në ekran të plotë janë me cilësi të mesme</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Kjo gjithashtu do të rikthejë miniaturat në transmetimet live që nuk kanë miniatura seekbar.
 
 Miniaturat seekbar do të përdorin të njëjtën cilësi me videon aktuale.
@@ -1007,7 +1006,7 @@ User id juaj është si një fjalëkalim dhe nuk duhet të ndahet kurrë."</stri
   <string name="revanced_sb_segments_highlight_sum">Pjesa e videos që shumica e njerëzve po kërkojnë</string>
   <string name="revanced_sb_segments_intro">Animacione e ndërprerjes/hyrjes</string>
   <string name="revanced_sb_segments_intro_sum">Një interval pa përmbajtje aktuale. Mund të jetë një pauzë, kornizë statike ose animacion që përsëritet. Nuk përfshin tranzicionet që përmbajnë informacion</string>
-  <string name="revanced_sb_segments_outro">Ekranet e fundit/Kreditet</string>
+  <string name="revanced_sb_segments_outro">Kartëmonedha të fundit / Kredite</string>
   <string name="revanced_sb_segments_outro_sum">Kreditet ose kur shfaqen ekranet e fundit të YouTube. Jo për përfundime me informacion</string>
   <string name="revanced_sb_segments_preview">Parashikimi/Përmbledhja/Haki</string>
   <string name="revanced_sb_segments_preview_sum">Koleksion i klipeve që tregojnë çfarë po vjen ose çfarë ndodhi në video ose në video të tjera të një serie, ku i gjithë informacioni përsëritet diku tjetër</string>
@@ -1197,7 +1196,7 @@ Kufizimi: Përdorimi i butonit të kthimit në shiritin e veglave mund të mos f
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Lojtari i zakonshëm në ekran të plotë</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
-  <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
+  <string name="revanced_shorts_autoplay_title">Shorts Autoplay</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts do të luajnë automatikisht</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts do të përsëriten</string>
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts luaj në sfond</string>
@@ -1238,11 +1237,6 @@ Miniplayer mund të tërhiqet jashtë ekranit në të majtë ose në të djatht�
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Fshih butonat e mbivendosjes</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Butonat e mbivendosjes janë të fshehur</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Butonat e mbivendosjes janë të dukshëm</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Fshih butonat e zgjerimit dhe mbylljes</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Butonat janë të fshehur
-
-Rrëshqit për të zgjeruar ose mbyllur"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Butonat e zgjerimit dhe mbylljes janë të dukshëm</string>
   <string name="revanced_miniplayer_hide_subtext_title">Fsheh nëntekstet</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Nëntekstet janë të fshehura</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Nëntekstet janë të dukshme</string>
@@ -1521,7 +1515,7 @@ AVC ka një rezolucion maksimal prej 1080p, kodeku audio Opus nuk është i disp
   <string name="revanced_about_summary">Rreth ReVanced</string>
   <string name="revanced_ads_screen_title">Reklamat</string>
   <string name="revanced_ads_screen_summary">Cilësimet e bllokimit të reklamave</string>
-  <string name="revanced_chat_screen_title">Chat</string>
+  <string name="revanced_chat_screen_title">Bisedë</string>
   <string name="revanced_chat_screen_summary">Cilësimet e chat-it</string>
   <string name="revanced_misc_screen_title">Të ndryshme</string>
   <string name="revanced_misc_screen_summary">Cilësime të ndryshme</string>

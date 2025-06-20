@@ -64,8 +64,6 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
             "19.34.42",
             "19.43.41",
             "19.47.53",
@@ -79,14 +77,10 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
 
         PreferenceScreen.SHORTS.addPreferences(
             if (is_19_46_or_greater) {
-                ListPreference(
-                    key = "revanced_shorts_player_type",
-                    summaryKey = null,
-                )
+                ListPreference("revanced_shorts_player_type")
             } else {
                 ListPreference(
                     key = "revanced_shorts_player_type",
-                    summaryKey = null,
                     entriesKey = "revanced_shorts_player_type_legacy_entries",
                     entryValuesKey = "revanced_shorts_player_type_legacy_entry_values"
                 )

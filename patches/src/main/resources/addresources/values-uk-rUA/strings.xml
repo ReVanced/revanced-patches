@@ -33,13 +33,14 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Налаштування</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Бажаєте продовжити?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Ви впевнені, що хочете продовжити?</string>
   <string name="revanced_settings_reset">Скинути</string>
   <string name="revanced_settings_reset_color">Скинути колір</string>
   <string name="revanced_settings_color_invalid">Недійсний колір</string>
-  <string name="revanced_settings_restart_title">Оновити та перезавантажити?</string>
+  <string name="revanced_settings_restart_title">Потрібен перезапуск</string>
+  <string name="revanced_settings_restart_dialog_message">Перезапустіть застосунок, щоб зміни набули чинності.</string>
   <string name="revanced_settings_restart">Перезавантажити</string>
-  <string name="revanced_settings_import">Імпортувати</string>
+  <string name="revanced_settings_import">Імпорт</string>
   <string name="revanced_settings_import_copy">Копіювати</string>
   <string name="revanced_settings_import_reset">Налаштування ReVanced скинуто до стандартних</string>
   <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
@@ -755,8 +756,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Мітку місцезнаходження приховано</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Мітка місцезнаходження показується</string>
   <string name="revanced_hide_shorts_preview_comment_title">Приховати прев\'ю коментар</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_on">Прев\'ю коментар в секції коментарів приховано</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">Прев\'ю коментар в секції коментарів показується</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Прев\'ю коментар в плеєрі приховано</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Прев\'ю коментар в плеєрі показується</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Приховати \"Зберегти музику\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопку \"Зберегти музику\" приховано</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Зберегти музику\" показується</string>
@@ -921,8 +922,6 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Увімкнути мініатюри високої якості</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Мініатюри панелі прогресу під час перемотування мають високу якість</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Мініатюри панелі прогресу під час перемотування мають середню якість</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Повноекранні мініатюри під час перемотування мають високу якість</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Повноекранні мініатюри під час перемотування мають середню якість</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Це також відновить мініатюри в прямих трансляціях, які не мають мініатюр при перемотуванні.
 
 Мініатюри при перемотуванні матимуть ту саму якість, що й поточне відео.
@@ -1008,7 +1007,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_highlight_sum">Частина відео, яку шукає більшість людей</string>
   <string name="revanced_sb_segments_intro">Пауза/Заставка</string>
   <string name="revanced_sb_segments_intro_sum">Інтервал без фактичного контенту. Може бути паузою, статичним кадром або повторюваною анімацією. Не включає переходи, що містять інформацію</string>
-  <string name="revanced_sb_segments_outro">Кінцеві картки/Титри</string>
+  <string name="revanced_sb_segments_outro">Кінцеві картки / Титри</string>
   <string name="revanced_sb_segments_outro_sum">Титри або коли з\'являються кінцеві картки YouTube. Не для підсумків з інформацією</string>
   <string name="revanced_sb_segments_preview">Прев\'ю/Підсумок/Зачіпка</string>
   <string name="revanced_sb_segments_preview_sum">Колекція кліпів, які показують, що відбувається або що сталося у відео чи в інших відео серій, де вся інформація повторюється в іншому місці</string>
@@ -1240,11 +1239,6 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Приховати кнопки накладання</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопки накладання приховано</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопки накладання показуються</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Кнопки розгортання та закриття</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Кнопки розгортання та закриття приховано
-
-Проведіть по мініплеєру, щоб розгорнути чи закрити"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Кнопки розгортання та закриття показуються</string>
   <string name="revanced_miniplayer_hide_subtext_title">Приховати підтексти</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Підтексти в мініплеєрі приховано</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Підтексти в мініплеєрі показуються</string>
