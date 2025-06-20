@@ -1007,7 +1007,7 @@ Seu ID de usuário é como uma senha e nunca deve ser compartilhado.
   <string name="revanced_sb_segments_highlight_sum">A parte do vídeo que a maioria das pessoas está à procura</string>
   <string name="revanced_sb_segments_intro">Animação de Intermissão/Introdução</string>
   <string name="revanced_sb_segments_intro_sum">Um intervalo sem conteúdo real. Pode ser uma pausa, moldura estática ou uma animação repetida. Não inclui transições que contenham informações</string>
-  <string name="revanced_sb_segments_outro">Cartões finais / Créditos</string>
+  <string name="revanced_sb_segments_outro">Cartões / Créditos</string>
   <string name="revanced_sb_segments_outro_sum">Créditos ou quando os cartões de extremidade do YouTube aparecem. Não para conclusões com informações</string>
   <string name="revanced_sb_segments_preview">Pré-visualização/Recap/Hook</string>
   <string name="revanced_sb_segments_preview_sum">Coleção de clips que mostram o que está para vir ou o que aconteceu no vídeo ou noutros vídeos de uma série, em que todas as informações são repetidas noutro local</string>
