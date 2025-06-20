@@ -99,6 +99,10 @@ public class SegmentPlaybackController {
     @Nullable
     private static String timeWithoutSegments;
 
+    @Nullable
+    private static SponsorSegment lastAutoSkippedSegment;
+    private static long lastAutoSkippedSegmentStartTime;
+
     private static int sponsorBarAbsoluteLeft;
     private static int sponsorAbsoluteBarRight;
     private static int sponsorBarThickness;
@@ -171,6 +175,8 @@ public class SegmentPlaybackController {
         toastSegmentSkipped = null;
         toastNumberOfSegmentsSkipped = 0;
         hiddenSkipSegmentsForCurrentVideoTime.clear();
+        lastAutoSkippedSegment = null;
+        lastAutoSkippedSegmentStartTime = 0;
     }
 
     /**
@@ -545,6 +551,9 @@ public class SegmentPlaybackController {
 
             final boolean videoIsPaused = VideoState.getCurrent() == VideoState.PAUSED;
             if (!userManuallySkipped) {
+                lastAutoSkippedSegment = segmentToSkip;
+                lastAutoSkippedSegmentStartTime = segmentToSkip.start;
+                SponsorBlockViewController.showUndoSkipButton(); // Show undo button after auto skip
                 // check for any smaller embedded segments, and count those as autoskipped
                 final boolean showSkipToast = Settings.SB_TOAST_ON_SKIP.get();
                 for (final SponsorSegment otherSegment : Objects.requireNonNull(segments)) {
@@ -562,6 +571,11 @@ public class SegmentPlaybackController {
                         }
                     }
                 }
+            } else {
+                // If it was a manual skip, clear the auto-skipped info and hide undo button
+                lastAutoSkippedSegment = null;
+                lastAutoSkippedSegmentStartTime = 0;
+                SponsorBlockViewController.hideUndoSkipButton();
             }
 
             if (segmentToSkip.category == SegmentCategory.UNSUBMITTED) {
@@ -621,6 +635,29 @@ public class SegmentPlaybackController {
             skipSegment(segment, true);
         } catch (Exception ex) {
             Logger.printException(() -> "onSkipSegmentClicked failure", ex);
+        }
+    }
+
+    public static void undoLastAutoSkip() {
+        try {
+            if (lastAutoSkippedSegment == null) {
+                Logger.printDebug(() -> "No segment to undo skip.");
+                return;
+            }
+
+            Logger.printDebug(() -> "Undoing last auto-skipped segment: " + lastAutoSkippedSegment);
+            final boolean seekSuccessful = VideoInformation.seekTo(lastAutoSkippedSegmentStartTime);
+
+            if (seekSuccessful) {
+                // Clear the stored segment after successful undo
+                lastAutoSkippedSegment = null;
+                lastAutoSkippedSegmentStartTime = 0;
+                SponsorBlockViewController.hideUndoSkipButton(); // Will implement this next
+            } else {
+                Logger.printDebug(() -> "Could not undo skip (seek unsuccessful): " + lastAutoSkippedSegment);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "undoLastAutoSkip failure", ex);
         }
     }
 
