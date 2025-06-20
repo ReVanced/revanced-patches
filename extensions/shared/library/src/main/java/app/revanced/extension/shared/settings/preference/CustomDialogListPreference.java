@@ -176,8 +176,6 @@ public class CustomDialogListPreference extends ListPreference {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 finalHeight // Use calculated height directly.
         );
-        final int marginHorizontal = dipToPixels(8);
-        listViewParams.setMargins(0, marginHorizontal, 0, marginHorizontal);
         mainLayout.addView(listView, mainLayout.getChildCount() - 1, listViewParams);
 
         // Handle item click to select value and dismiss dialog.

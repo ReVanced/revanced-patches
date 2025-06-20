@@ -802,7 +802,7 @@ public class Utils {
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
             );
-            layoutParams.setMargins(0, 0, 0, dip8);
+            layoutParams.setMargins(0, 0, 0, dip16);
             titleView.setLayoutParams(layoutParams);
             mainLayout.addView(titleView);
         }
@@ -833,7 +833,6 @@ public class Utils {
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
             );
-            messageParams.setMargins(dip8, dip8, dip8, dip16);
             messageView.setLayoutParams(messageParams);
             contentContainer.addView(messageView);
         }
@@ -858,7 +857,6 @@ public class Utils {
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            editTextParams.setMargins(0, dip8, 0, dip16);
             contentContainer.addView(editText, editTextParams);
         }
 
@@ -870,7 +868,7 @@ public class Utils {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        buttonContainerParams.setMargins(0, dip8, 0, 0);
+        buttonContainerParams.setMargins(0, dip16, 0, 0);
         buttonContainer.setLayoutParams(buttonContainerParams);
 
         // Lists to track buttons.
