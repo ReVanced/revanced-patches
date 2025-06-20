@@ -17,6 +17,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.preference.Preference;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.Window;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -217,6 +218,7 @@ class WebViewDialog extends Dialog {
         // Create WebView.
         WebView webView = new WebView(getContext());
         webView.setVerticalScrollBarEnabled(false); // Disable the vertical scrollbar.
+        webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new OpenLinksExternallyWebClient());
         webView.loadDataWithBaseURL(null, htmlContent, "text/html", "utf-8", null);
