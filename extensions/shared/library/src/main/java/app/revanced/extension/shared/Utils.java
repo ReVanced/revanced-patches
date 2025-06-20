@@ -1213,7 +1213,7 @@ public class Utils {
             return darkColor == Color.BLACK
                     // Lighten the background a little if using AMOLED dark theme
                     // as the dialogs are almost invisible.
-                    ? 0xFF0D0D0D
+                    ? 0xFF080808 // 3%
                     : darkColor;
         }
         return getThemeLightColor();
