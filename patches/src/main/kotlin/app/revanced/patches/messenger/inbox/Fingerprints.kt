@@ -5,7 +5,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.value.StringEncodedValue
 
-internal val createInboxSubTabsFingerprint = fingerprint {
+internal val createInboxSubTabsFingerprint by fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     opcodes(
@@ -22,7 +22,7 @@ internal val createInboxSubTabsFingerprint = fingerprint {
     }
 }
 
-internal val loadInboxAdsFingerprint = fingerprint {
+internal val loadInboxAdsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("V")
     strings(

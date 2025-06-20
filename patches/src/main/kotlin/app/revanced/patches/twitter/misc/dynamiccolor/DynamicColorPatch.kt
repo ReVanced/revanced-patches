@@ -39,8 +39,7 @@ val dynamicColorPatch = resourcePatch(
         }
 
         document("res/values-v31/colors.xml").use { document ->
-
-            mapOf(
+            arrayOf(
                 "ps__twitter_blue" to "@color/twitter_blue",
                 "ps__twitter_blue_pressed" to "@color/twitter_blue_fill_pressed",
                 "twitter_blue" to "@android:color/system_accent1_400",
@@ -60,7 +59,7 @@ val dynamicColorPatch = resourcePatch(
         }
 
         document("res/values-night-v31/colors.xml").use { document ->
-            mapOf(
+            arrayOf(
                 "twitter_blue" to "@android:color/system_accent1_200",
                 "twitter_blue_fill_pressed" to "@android:color/system_accent1_300",
                 "twitter_blue_opacity_30" to "@android:color/system_accent1_50",

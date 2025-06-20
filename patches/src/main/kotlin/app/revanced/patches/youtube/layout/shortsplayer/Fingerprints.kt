@@ -1,25 +1,32 @@
 package app.revanced.patches.youtube.layout.shortsplayer
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
  * Purpose of this method is not clear, and it's only used to identify
  * the obfuscated name of the videoId() method in PlaybackStartDescriptor.
  */
-internal val playbackStartFeatureFlagFingerprint = fingerprint {
+internal val playbackStartFeatureFlagFingerprint by fingerprint {
     returns("Z")
     parameters(
         "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
     )
-    literal {
-        45380134L
-    }
+    instructions(
+        methodCall(
+            definingClass = "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
+            returnType = "Ljava/lang/String;"
+        ),
+        literal(45380134L)
+    )
 }
 
 // Pre 19.25
-internal val shortsPlaybackIntentLegacyFingerprint = fingerprint {
+internal val shortsPlaybackIntentLegacyFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters(
@@ -30,15 +37,16 @@ internal val shortsPlaybackIntentLegacyFingerprint = fingerprint {
         "Z",
         "Ljava/util/Map;"
     )
-    strings(
+    instructions(
+        methodCall(returnType = "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;"),
         // None of these strings are unique.
-        "com.google.android.apps.youtube.app.endpoint.flags",
-        "ReelWatchFragmentArgs",
-        "reels_fragment_descriptor"
+        string("com.google.android.apps.youtube.app.endpoint.flags"),
+        string("ReelWatchFragmentArgs"),
+        string("reels_fragment_descriptor")
     )
 }
 
-internal val shortsPlaybackIntentFingerprint = fingerprint {
+internal val shortsPlaybackIntentFingerprint by fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")
     parameters(
@@ -47,18 +55,18 @@ internal val shortsPlaybackIntentFingerprint = fingerprint {
         "J",
         "Ljava/lang/String;"
     )
-    strings(
+    instructions(
         // None of these strings are unique.
-        "com.google.android.apps.youtube.app.endpoint.flags",
-        "ReelWatchFragmentArgs",
-        "reels_fragment_descriptor"
+        string("com.google.android.apps.youtube.app.endpoint.flags"),
+        string("ReelWatchFragmentArgs"),
+        string("reels_fragment_descriptor")
     )
 }
 
-internal val exitVideoPlayerFingerprint = fingerprint {
+internal val exitVideoPlayerFingerprint by fingerprint {
     returns("V")
     parameters()
-    literal {
-        mdx_drawer_layout_id
-    }
+    instructions(
+        resourceLiteral("id", "mdx_drawer_layout")
+    )
 }

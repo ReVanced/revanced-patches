@@ -24,7 +24,7 @@ val filterTimelineObjectsPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        val filterInsertIndex = timelineFilterExtensionFingerprint.patternMatch!!.startIndex
+        val filterInsertIndex = timelineFilterExtensionFingerprint.instructionMatches.first().index
 
         timelineFilterExtensionFingerprint.method.apply {
             val addInstruction = getInstruction<BuilderInstruction35c>(filterInsertIndex + 1)
@@ -47,7 +47,7 @@ val filterTimelineObjectsPatch = bytecodePatch(
             }
         }
 
-        mapOf(
+        arrayOf(
             timelineConstructorFingerprint to 1,
             postsResponseConstructorFingerprint to 2,
         ).forEach { (fingerprint, timelineObjectsRegister) ->
