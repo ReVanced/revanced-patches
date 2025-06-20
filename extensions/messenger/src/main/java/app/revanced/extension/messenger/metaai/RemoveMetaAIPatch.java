@@ -1,15 +1,23 @@
 package app.revanced.extension.messenger.metaai;
 
+import java.util.*;
+
+import app.revanced.extension.shared.Logger;
+
 @SuppressWarnings("unused")
 public class RemoveMetaAIPatch {
+    private static final Set<Long> loggedIDs = Collections.synchronizedSet(new HashSet<>());
+
     public static boolean overrideBooleanFlag(long id, boolean value) {
-        // This catches all flag IDs related to Meta AI.
-        // The IDs change slightly with every update,
-        // so to work around this, IDs from different versions were compared
-        // to find what they have in common, which turned out to be those first bits.
-        // TODO: Find the specific flags that we care about and patch the code they control instead.
-        if ((id & 0x7FFFFFC000000000L) == 0x810A8000000000L) {
-            return false;
+        try {
+            if (Long.toString(id).startsWith("REPLACED_BY_PATCH")) {
+                if (loggedIDs.add(id))
+                    Logger.printInfo(() -> "Overriding " + id + " from " + value + " to false");
+
+                return false;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "overrideBooleanFlag failure", ex);
         }
 
         return value;

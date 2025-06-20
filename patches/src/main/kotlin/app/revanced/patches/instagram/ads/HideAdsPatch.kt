@@ -1,9 +1,16 @@
 package app.revanced.patches.instagram.ads
 
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.meta.ads.adInjectorFingerprint
+import app.revanced.util.returnEarly
 
-@Deprecated("Patch was moved to different package: app.revanced.patches.meta.ads.hideAdsPatch")
 @Suppress("unused")
-val hideAdsPatch = bytecodePatch {
-    dependsOn(app.revanced.patches.meta.ads.hideAdsPatch)
+val hideAdsPatch = bytecodePatch(
+    name = "Hide ads",
+) {
+    compatibleWith("com.instagram.android")
+
+    execute {
+        adInjectorFingerprint.method.returnEarly(false)
+    }
 }

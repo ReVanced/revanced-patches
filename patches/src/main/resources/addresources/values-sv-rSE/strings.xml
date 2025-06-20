@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Inställningar</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Vill du fortsätta?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Är du säker på att du vill fortsätta?</string>
   <string name="revanced_settings_reset">Återställ</string>
   <string name="revanced_settings_reset_color">Återställ färg</string>
   <string name="revanced_settings_color_invalid">Ogiltig färg</string>
-  <string name="revanced_settings_restart_title">Uppdatera och starta om</string>
+  <string name="revanced_settings_restart_title">Omstart krävs</string>
+  <string name="revanced_settings_restart_dialog_message">Starta om appen för att denna ändring ska träda i kraft.</string>
   <string name="revanced_settings_restart">Starta om</string>
   <string name="revanced_settings_import">Importera</string>
   <string name="revanced_settings_import_copy">Kopiera</string>
@@ -920,8 +921,6 @@ Begränsning: Ogillanden kanske inte visas i inkognitoläge"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Aktivera högkvalitativa miniatyrer</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar miniatyrer är av hög kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar miniatyrer är av medelhög kvalitet</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullskärm sökfält miniatyrer är av hög kvalitet</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullskärm sökfält miniatyrer är medelhög kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Detta återställer även miniatyrer på livestreams som inte har miniatyrer i sökfältet.
 
 Miniatyrer i sökfältet kommer att använda samma kvalitet som den aktuella videon.
@@ -1239,11 +1238,6 @@ Minispelare kan dras av skärmen till vänster eller höger"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Dölj överlagringsknappar</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Överlagringsknappar är dolda</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Överlagringsknappar visas</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Dölj expanderings- och stängningsknappar</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Knapparna är dolda
-
-Svep för att expandera eller stänga"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Expanderings- och stängningsknappar visas</string>
   <string name="revanced_miniplayer_hide_subtext_title">Dölj undertexter</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Undertexter är dolda</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Undertexter visas</string>

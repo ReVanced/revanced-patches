@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Paramètres</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Voulez-vous continuer ?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Voulez-vous vraiment continuer ?</string>
   <string name="revanced_settings_reset">Réinitialiser</string>
   <string name="revanced_settings_reset_color">Réinitialiser la couleur</string>
   <string name="revanced_settings_color_invalid">Couleur invalide</string>
-  <string name="revanced_settings_restart_title">Actualiser et redémarrer</string>
+  <string name="revanced_settings_restart_title">Redémarrage requis</string>
+  <string name="revanced_settings_restart_dialog_message">Redémarrez l\'application pour que cette modification prenne effet.</string>
   <string name="revanced_settings_restart">Redémarrer</string>
   <string name="revanced_settings_import">Importer</string>
   <string name="revanced_settings_import_copy">Copier</string>
@@ -1171,9 +1172,7 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <string name="revanced_change_start_page_entry_music">Musique</string>
   <string name="revanced_change_start_page_entry_news">Actualités</string>
   <string name="revanced_change_start_page_entry_notifications">Notifications</string>
-  <string name="revanced_change_start_page_entry_playlists">Playlists</string>
   <string name="revanced_change_start_page_entry_search">Recherche</string>
-  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
   <string name="revanced_change_start_page_entry_trending">Tendances</string>
@@ -1239,11 +1238,6 @@ Le lecteur réduit peut être déplacé hors de l'écran, à gauche comme à dro
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Masquer les boutons en superposition</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Les boutons en superposition sont masqués</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Les boutons en superposition sont affichés</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Masquer les boutons Agrandir et Fermer</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Les boutons sont masqués
-
-Balayez pour agrandir ou fermer"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Les boutons Agrandir et Fermer sont affichés</string>
   <string name="revanced_miniplayer_hide_subtext_title">Masquer les sous-textes</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Les sous-textes sont masqués</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Les sous-textes sont affichés</string>
@@ -1402,7 +1396,6 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_remember_shorts_quality_last_selected_summary_off">Les changements de qualité s\'appliquent uniquement au Short actuel</string>
   <string name="revanced_shorts_quality_default_wifi_title">Qualité par défaut des Shorts sur les réseaux Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Qualité par défaut des Shorts sur le réseau mobile</string>
-  <string name="revanced_remember_video_quality_mobile">mobile</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Nouvelle qualité %1$s par défaut : %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Nouvelle qualité %1$s des Shorts par défaut : %2$s</string>
@@ -1522,7 +1515,6 @@ AVC a une résolution maximale de 1080p et ne prend pas en charge le codec audio
   <string name="revanced_about_summary">À propos de ReVanced</string>
   <string name="revanced_ads_screen_title">Annonces</string>
   <string name="revanced_ads_screen_summary">Paramètres de blocage des annonces</string>
-  <string name="revanced_chat_screen_title">Chat</string>
   <string name="revanced_chat_screen_summary">Paramètres du chat</string>
   <string name="revanced_misc_screen_title">Divers</string>
   <string name="revanced_misc_screen_summary">Paramètres divers</string>

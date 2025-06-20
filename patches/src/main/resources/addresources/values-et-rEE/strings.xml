@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Seaded</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Kas soovite jätkata?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Kas sa oled kindel, et soovid jätkata?</string>
   <string name="revanced_settings_reset">Lähtesta</string>
   <string name="revanced_settings_reset_color">Lähtesta värv</string>
   <string name="revanced_settings_color_invalid">Vigane värv</string>
-  <string name="revanced_settings_restart_title">Värskenda ja taaskäivita</string>
+  <string name="revanced_settings_restart_title">Vajalik taaskäivitamine</string>
+  <string name="revanced_settings_restart_dialog_message">Selle muudatuse jõustumiseks on vaja rakendus taaskäivitada.</string>
   <string name="revanced_settings_restart">Taaskäivita</string>
   <string name="revanced_settings_import">Impordi</string>
   <string name="revanced_settings_import_copy">Kopeeri</string>
@@ -485,7 +486,6 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Luba automaatse heleduse žest</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Pühkige alla heleduse žesti madalaima väärtuseni, et lubada automaatne heleduse</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Pühkimine alla madalaima väärtuseni ei luba automaatset heleduse</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
   <string name="revanced_swipe_overlay_timeout_title">Pühkimise katte aegumisaeg</string>
   <string name="revanced_swipe_overlay_timeout_summary">Katte näitamise millisekundite arv</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Pühkiva katte tausta läbipaistvus</string>
@@ -920,8 +920,6 @@ Piirang: Ei meeldimised ei pruugi inkognito režiimis kuvada"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Luba kvaliteetsed pisipildid</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Pisipildid on kvaliteetsed</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Pisipildid on keskmiselt kvaliteetsed</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Täisekraani pisipildid on kvaliteetsed</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Täisekraani pisipildid on keskmiselt kvaliteetsed</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"See taastab ka eelvaated otseülekannetel, millel pole otsinguriba eelvaateid.
 
 Otsinguriba eelvaated kasutavad sama kvaliteeti kui praegune video.
@@ -1008,7 +1006,7 @@ Teie kasutajatunnis on nagu parool ja seda ei tohiks kunagi jagada.
   <string name="revanced_sb_segments_highlight_sum">Video osa, mida enamik inimesi otsib</string>
   <string name="revanced_sb_segments_intro">Vaheaeg/Intro animatsioon</string>
   <string name="revanced_sb_segments_intro_sum">Ajavahemik, millel pole tegelikku sisu. Võib olla paus, staatiline kaader või korduv animatsioon. Ei sisalda üleminekuid, mis sisaldavad teavet</string>
-  <string name="revanced_sb_segments_outro">Lõppkaardid/Tiitrid</string>
+  <string name="revanced_sb_segments_outro">Lõpukaardid / Tiitrid</string>
   <string name="revanced_sb_segments_outro_sum">Tiitrid või YouTube\'i lõppkaardid. Ei ole mõeldud järelduste jaoks, mis sisaldavad teavet</string>
   <string name="revanced_sb_segments_preview">Eelvaade/Kokkuvõte/Konks</string>
   <string name="revanced_sb_segments_preview_sum">Klipi kogum, mis näitab, mis tulemas on või mis juhtus videos või teistes sarja videotes, kus kogu teave on korduv</string>
@@ -1174,7 +1172,6 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <string name="revanced_change_start_page_entry_notifications">Teatised</string>
   <string name="revanced_change_start_page_entry_playlists">Esitusloendid</string>
   <string name="revanced_change_start_page_entry_search">Otsi</string>
-  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Tellimused</string>
   <string name="revanced_change_start_page_entry_trending">Trendikas</string>
@@ -1240,11 +1237,6 @@ Minimaalset mängijat saab lohistada ekraanilt vasakule või paremale"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Peida ülekatteliidese nupud</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Ülekatteliidese nupud on peidetud</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Ülekatteliidese nupud on nähtaval</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Peida laiendus- ja sulgemisnupud</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Nupud on peidetud
-
-Laiendamiseks või sulgemiseks libista"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Laiendus- ja sulgemisnupud on nähtaval</string>
   <string name="revanced_miniplayer_hide_subtext_title">Peida alatähed</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alatähed on peidetud</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alatähed on nähtavad</string>
@@ -1404,7 +1396,6 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_shorts_quality_default_wifi_title">Vaikimisi [Shorts] kvaliteet WiFi võrgus</string>
   <string name="revanced_shorts_quality_default_mobile_title">Vaikimisi [Shorts] kvaliteet mobiilivõrgus</string>
   <string name="revanced_remember_video_quality_mobile">mobiil</string>
-  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Vaikimisi %1$s kvaliteet muudeti: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Muudetud Shorts %1$s kvaliteet: %2$s</string>
   </patch>

@@ -37,20 +37,24 @@ public final class HideCreateButtonPatch {
             return null;
         }
 
-        String stringifiedNavigationBarItem = navigationBarItem.toString();
+        try {
+            String stringifiedNavigationBarItem = navigationBarItem.toString();
 
-        for (ComponentFilter componentFilter : CREATE_BUTTON_COMPONENT_FILTERS) {
-            if (componentFilter.filterUnavailable()) {
-                Logger.printInfo(() -> "returnNullIfIsCreateButton: Filter " +
-                        componentFilter.getFilterRepresentation() + " not available, skipping");
-                continue;
-            }
+            for (ComponentFilter componentFilter : CREATE_BUTTON_COMPONENT_FILTERS) {
+                if (componentFilter.filterUnavailable()) {
+                    Logger.printInfo(() -> "returnNullIfIsCreateButton: Filter " +
+                            componentFilter.getFilterRepresentation() + " not available, skipping");
+                    continue;
+                }
 
-            if (stringifiedNavigationBarItem.contains(componentFilter.getFilterValue())) {
-                Logger.printInfo(() -> "Hiding Create button because the navigation bar item " + navigationBarItem +
-                        " matched the filter " + componentFilter.getFilterRepresentation());
-                return null;
+                if (stringifiedNavigationBarItem.contains(componentFilter.getFilterValue())) {
+                    Logger.printInfo(() -> "Hiding Create button because the navigation bar item " +
+                            navigationBarItem + " matched the filter " + componentFilter.getFilterRepresentation());
+                    return null;
+                }
             }
+        } catch (Exception ex) {
+            Logger.printException(() -> "returnNullIfIsCreateButton failure", ex);
         }
 
         return navigationBarItem;

@@ -33,8 +33,6 @@ val alternativeThumbnailsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
             "19.34.42",
             "19.43.41",
             "19.47.53",
@@ -50,34 +48,29 @@ val alternativeThumbnailsPatch = bytecodePatch(
         val values = "revanced_alt_thumbnail_options_entry_values"
         PreferenceScreen.ALTERNATIVE_THUMBNAILS.addPreferences(
             ListPreference(
-                "revanced_alt_thumbnail_home",
-                summaryKey = null,
+                key = "revanced_alt_thumbnail_home",
                 entriesKey = entries,
-                entryValuesKey = values,
+                entryValuesKey = values
             ),
             ListPreference(
-                "revanced_alt_thumbnail_subscription",
-                summaryKey = null,
+                key = "revanced_alt_thumbnail_subscription",
                 entriesKey = entries,
-                entryValuesKey = values,
+                entryValuesKey = values
             ),
             ListPreference(
-                "revanced_alt_thumbnail_library",
-                summaryKey = null,
+                key = "revanced_alt_thumbnail_library",
                 entriesKey = entries,
-                entryValuesKey = values,
+                entryValuesKey = values
             ),
             ListPreference(
-                "revanced_alt_thumbnail_player",
-                summaryKey = null,
+                key = "revanced_alt_thumbnail_player",
                 entriesKey = entries,
-                entryValuesKey = values,
+                entryValuesKey = values
             ),
             ListPreference(
-                "revanced_alt_thumbnail_search",
-                summaryKey = null,
+                key = "revanced_alt_thumbnail_search",
                 entriesKey = entries,
-                entryValuesKey = values,
+                entryValuesKey = values
             ),
             NonInteractivePreference(
                 "revanced_alt_thumbnail_dearrow_about",
@@ -89,7 +82,7 @@ val alternativeThumbnailsPatch = bytecodePatch(
             TextPreference("revanced_alt_thumbnail_dearrow_api_url"),
             NonInteractivePreference("revanced_alt_thumbnail_stills_about"),
             SwitchPreference("revanced_alt_thumbnail_stills_fast"),
-            ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null),
+            ListPreference("revanced_alt_thumbnail_stills_time"),
         )
 
         addImageUrlHook(EXTENSION_CLASS_DESCRIPTOR)

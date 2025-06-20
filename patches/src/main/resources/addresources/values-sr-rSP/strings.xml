@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Подешавања</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Желите ли да наставите?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Желите ли заиста да наставите?</string>
   <string name="revanced_settings_reset">Ресетуј</string>
   <string name="revanced_settings_reset_color">Ресетуј боју</string>
   <string name="revanced_settings_color_invalid">Неважећа боја</string>
-  <string name="revanced_settings_restart_title">Освежите и рестартујте</string>
+  <string name="revanced_settings_restart_title">Потребно је рестартовање</string>
+  <string name="revanced_settings_restart_dialog_message">Рестартујте апликацију да би ова промена ступила на снагу.</string>
   <string name="revanced_settings_restart">Рестартуј</string>
   <string name="revanced_settings_import">Увоз</string>
   <string name="revanced_settings_import_copy">Копирај</string>
@@ -920,8 +921,6 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Омогући висококвалитетне сличице</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Сличице траке за премотавање су високог квалитета</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Сличице траке за премотавање су средњег квалитета</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Сличице траке за премотавање у режиму целог екрана су високог квалитета</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Сличице траке за премотавање у режиму целог екрана су средњег квалитета</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Ово ће такође вратити сличице на стримовима уживо који немају сличице траке за премотавање.
 
 Сличице траке за премотавање ће користити исти квалитет као тренутни видео.
@@ -1007,7 +1006,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_highlight_sum">Део видеа који већина људи тражи</string>
   <string name="revanced_sb_segments_intro">Пауза/Уводна анимација</string>
   <string name="revanced_sb_segments_intro_sum">Интервал без стварног садржаја. Може бити пауза, статични кадар или понављајућа анимација. Не укључује прелазе који садрже информације</string>
-  <string name="revanced_sb_segments_outro">Завршне картице/Заслуге</string>
+  <string name="revanced_sb_segments_outro">Завршне картице / Заслуге</string>
   <string name="revanced_sb_segments_outro_sum">Заслуге или када се појаве YouTube завршне картице. Није за закључке са информацијама</string>
   <string name="revanced_sb_segments_preview">Преглед/Рекапитулација/Најава</string>
   <string name="revanced_sb_segments_preview_sum">Колекција клипова који показују шта следи или шта се десило у видеу или у другим видеима серије, где се све информације понављају на другом месту</string>
@@ -1239,11 +1238,9 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Сакриј дугмад преклопа</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Дугмад преклопа су скривена</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Дугмад преклопа су приказана</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Сакриј дугмад за проширивање и затварање</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Дугмад су скривена
 
 Превуците да бисте проширили или затворили"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Дугмад за проширивање и затварање су приказана</string>
   <string name="revanced_miniplayer_hide_subtext_title">Сакриј подтекстове</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Подтекстови су скривени</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Подтекстови су приказани</string>

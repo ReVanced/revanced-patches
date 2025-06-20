@@ -11,10 +11,14 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.misc.playercontrols.*
+import app.revanced.patches.youtube.misc.playercontrols.addBottomControl
+import app.revanced.patches.youtube.misc.playercontrols.initializeBottomControl
+import app.revanced.patches.youtube.misc.playercontrols.injectVisibilityCheckCall
+import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
+import app.revanced.patches.youtube.misc.playercontrols.playerControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityFingerprint
+import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
@@ -68,8 +72,6 @@ val downloadsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
             "19.34.42",
             "19.43.41",
             "19.47.53",
@@ -83,12 +85,10 @@ val downloadsPatch = bytecodePatch(
         injectVisibilityCheckCall(BUTTON_DESCRIPTOR)
 
         // Main activity is used to launch downloader intent.
-        mainActivityFingerprint.method.apply {
-            addInstruction(
-                implementation!!.instructions.lastIndex,
-                "invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->activityCreated(Landroid/app/Activity;)V",
-            )
-        }
+        mainActivityOnCreateFingerprint.method.addInstruction(
+            1,
+            "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->activityCreated(Landroid/app/Activity;)V"
+        )
 
         offlineVideoEndpointFingerprint.method.apply {
             addInstructionsWithLabels(

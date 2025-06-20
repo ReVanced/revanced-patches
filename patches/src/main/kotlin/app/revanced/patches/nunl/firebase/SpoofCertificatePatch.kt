@@ -1,7 +1,7 @@
 package app.revanced.patches.nunl.firebase
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val spoofCertificatePatch = bytecodePatch(
@@ -12,13 +12,7 @@ val spoofCertificatePatch = bytecodePatch(
 
     execute {
         getFingerprintHashForPackageFingerprints.forEach { fingerprint ->
-            fingerprint.method.addInstructions(
-                0,
-                """
-                    const-string v0, "eae41fc018df2731a9b6ae1ac327da44a288667b"
-                    return-object v0
-                """,
-            )
+            fingerprint.method.returnEarly("eae41fc018df2731a9b6ae1ac327da44a288667b")
         }
     }
 }

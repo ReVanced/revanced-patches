@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nustatymai</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Ar norite tęsti?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Ar tikrai norite tęsti?</string>
   <string name="revanced_settings_reset">Atstatyti</string>
   <string name="revanced_settings_reset_color">Atkurti spalvą</string>
   <string name="revanced_settings_color_invalid">Neteisinga spalva</string>
-  <string name="revanced_settings_restart_title">Atnaujinti ir paleisti iš naujo</string>
+  <string name="revanced_settings_restart_title">Reikalingas paleidimas iš naujo</string>
+  <string name="revanced_settings_restart_dialog_message">Norint, kad šis pakeitimas įsigaliotų, paleiskite programą iš naujo.</string>
   <string name="revanced_settings_restart">Paleisti iš naujo</string>
   <string name="revanced_settings_import">Importuoti</string>
   <string name="revanced_settings_import_copy">Kopijuoti</string>
@@ -918,8 +919,6 @@ Apribojimas: nepritarimai gali būti nerodomi inkognito režimu"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Įjungti aukštos kokybės miniatiūras</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Paieškos juostos miniatiūros yra aukštos kokybės</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Paieškos juostos miniatiūros yra vidutinės kokybės</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Viso ekrano paieškos juostos miniatiūros yra aukštos kokybės</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Viso ekrano paieškos juostos miniatiūros yra vidutinės kokybės</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Tai taip pat atkurs miniatiūras tiesioginėse transliacijose, kuriose nėra miniatiūrų paieškos juostoje.
 
 Paieškos juostos miniatiūros bus naudojamos tos pačios kokybės kaip dabartinis vaizdo įrašas.
@@ -1007,7 +1006,7 @@ Jūsų vartotojo ID yra kaip slaptažodis ir jo niekada nereikėtų dalintis.
   <string name="revanced_sb_segments_highlight_sum">Vaizdo įrašo dalis, kurią dauguma žmonių ieško</string>
   <string name="revanced_sb_segments_intro">Pertraukos / Įvado animacija</string>
   <string name="revanced_sb_segments_intro_sum">Intervalas be tikrojo turinio. Gali būti pauzė, statinis kadras arba kartojama animacija. Neįtraukiami perėjimai su informacija</string>
-  <string name="revanced_sb_segments_outro">Pabaigos kortelės / Titrai</string>
+  <string name="revanced_sb_segments_outro">Pabaigos intarpai / Titrai</string>
   <string name="revanced_sb_segments_outro_sum">Titrai arba kai rodomos „YouTube“ pabaigos kortelės. Netinka išvadoms su informacija</string>
   <string name="revanced_sb_segments_preview">Peržiūra / Apžvalga / Kabliukas</string>
   <string name="revanced_sb_segments_preview_sum">Ištraukų rinkinys, rodantis, kas bus toliau arba kas įvyko vaizdo įraše ar kituose serijos vaizdo įrašuose, kur visa informacija kartojama kitur</string>
@@ -1239,11 +1238,6 @@ Ribojimas: įrankių juostoje esantis atgal mygtukas gali neveikti."</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Slėpti perdangos mygtukus</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Perdangos mygtukai paslėpti</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Perdangos mygtukai rodomi</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Slėpti išplėtimo ir uždarymo mygtukus</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Mygtukai paslėpti
-
-Braukite, kad išplėstumėte arba uždarytumėte"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Išplėtimo ir uždarymo mygtukai yra rodomi</string>
   <string name="revanced_miniplayer_hide_subtext_title">Slėpti antraštes</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Antraštės yra paslėptos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Antraštės yra rodomos</string>
@@ -1403,7 +1397,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_shorts_quality_default_wifi_title">Numatytoji „Shorts“ kokybė naudojant „Wi-Fi“ tinklą</string>
   <string name="revanced_shorts_quality_default_mobile_title">Numatytoji „Shorts“ kokybė mobiliųjų tinklų atveju</string>
   <string name="revanced_remember_video_quality_mobile">mobilusis</string>
-  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Pakeista numatytoji %1$s kokybė į: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Pakeista \"Shorts\" %1$s kokybė į: %2$s</string>
   </patch>

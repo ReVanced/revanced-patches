@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Instellingen</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Wilt u doorgaan?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Weet je zeker dat je door wilt gaan?</string>
   <string name="revanced_settings_reset">Terugzetten</string>
   <string name="revanced_settings_reset_color">Kleur opnieuw instellen</string>
   <string name="revanced_settings_color_invalid">Ongeldige kleur</string>
-  <string name="revanced_settings_restart_title">Vernieuwen en opnieuw starten</string>
+  <string name="revanced_settings_restart_title">Opnieuw opstarten vereist</string>
+  <string name="revanced_settings_restart_dialog_message">Start de app opnieuw op om deze wijziging door te voeren.</string>
   <string name="revanced_settings_restart">Opnieuw starten</string>
   <string name="revanced_settings_import">Importeren</string>
   <string name="revanced_settings_import_copy">Kopiëren</string>
@@ -920,8 +921,6 @@ Beperking: Vind ik niet leuk verschijnen mogelijk niet in de incognitomodus"</st
   <string name="revanced_seekbar_thumbnails_high_quality_title">Schakel miniatuurweergaven van hoge kwaliteit in</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniatuurweergaven van de zoekbalk zijn van hoge kwaliteit</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniatuurweergaven van de zoekbalk zijn van gemiddelde kwaliteit</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Miniatuurweergaven van de zoekbalk in volledig scherm zijn van hoge kwaliteit</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Miniatuurweergaven van de zoekbalk in volledig scherm zijn van gemiddelde kwaliteit</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Dit zal ook miniatuurweergaven herstellen op livestreams die geen miniatuurweergaven van de zoekbalk hebben.
 
 Miniatuurweergaven van de zoekbalk gebruiken dezelfde kwaliteit als de huidige video.
@@ -1008,7 +1007,7 @@ Uw gebruikers-ID is als een wachtwoord en mag nooit worden gedeeld.
   <string name="revanced_sb_segments_highlight_sum">Het deel van de video waar de meeste mensen naar op zoek zijn</string>
   <string name="revanced_sb_segments_intro">Pauze/Intro-animatie</string>
   <string name="revanced_sb_segments_intro_sum">Een interval zonder daadwerkelijke inhoud. Kan een pauze, statisch frame of een herhalende animatie zijn. Bevat geen overgangen met informatie</string>
-  <string name="revanced_sb_segments_outro">Eindkaarten/Credits</string>
+  <string name="revanced_sb_segments_outro">Eindkaarten / Credits</string>
   <string name="revanced_sb_segments_outro_sum">Credits of wanneer de YouTube-eindkaarten verschijnen. Niet voor conclusies met informatie</string>
   <string name="revanced_sb_segments_preview">Voorbeeld/Terugblik/Haak</string>
   <string name="revanced_sb_segments_preview_sum">Collectie van clips die laten zien wat er gaat komen of wat er in de video of in andere video\'s van een serie is gebeurd, waar alle informatie elders wordt herhaald</string>
@@ -1238,11 +1237,6 @@ De miniplayer kan naar links of rechts van het scherm worden gesleept"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlayknoppen verbergen</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlayknoppen zijn verborgen</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlayknoppen worden weergegeven</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Knoppen voor uitvouwen en sluiten verbergen</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Knoppen zijn verborgen
-
-Swipe om uit te vouwen of te sluiten"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Knoppen voor uitvouwen en sluiten worden weergegeven</string>
   <string name="revanced_miniplayer_hide_subtext_title">Verberg subteksten</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subteksten zijn verborgen</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subteksten zijn zichtbaar</string>
