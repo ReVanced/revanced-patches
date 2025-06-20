@@ -810,6 +810,15 @@ public class Utils {
         // Create content container (message/EditText) inside a ScrollView.
         ScrollView contentScrollView = new ScrollView(context);
         contentScrollView.setVerticalScrollBarEnabled(false); // Disable the vertical scrollbar.
+        contentScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+        if (editText != null) {
+            ShapeDrawable scrollViewBackground = new ShapeDrawable(new RoundRectShape(
+                    createCornerRadii(10), null, null));
+            scrollViewBackground.getPaint().setColor(getEditTextBackground());
+            contentScrollView.setPadding(dip8, dip8, dip8, dip8);
+            contentScrollView.setBackground(scrollViewBackground);
+            contentScrollView.setClipToOutline(true);
+        }
         LinearLayout contentContainer = new LinearLayout(context);
         contentContainer.setOrientation(LinearLayout.VERTICAL);
         LinearLayout.LayoutParams contentParams = new LinearLayout.LayoutParams(
@@ -847,13 +856,8 @@ public class Utils {
             }
             // Style the EditText to match the dialog theme.
             editText.setTextColor(getAppForegroundColor());
-            editText.setBackgroundColor(isDarkModeEnabled() ? Color.BLACK : Color.WHITE);
-            editText.setPadding(dip8, dip8, dip8, dip8);
-            ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
-                    createCornerRadii(10), null, null));
-            editTextBackground.getPaint().setColor(getEditTextBackground()); // Background color for EditText.
-            editText.setBackground(editTextBackground);
-
+            editText.setBackgroundColor(Color.TRANSPARENT);
+            editText.setPadding(0, 0, 0, 0);
             LinearLayout.LayoutParams editTextParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
