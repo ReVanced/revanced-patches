@@ -1006,7 +1006,7 @@ Teie kasutajatunnis on nagu parool ja seda ei tohiks kunagi jagada.
   <string name="revanced_sb_segments_highlight_sum">Video osa, mida enamik inimesi otsib</string>
   <string name="revanced_sb_segments_intro">Vaheaeg/Intro animatsioon</string>
   <string name="revanced_sb_segments_intro_sum">Ajavahemik, millel pole tegelikku sisu. Võib olla paus, staatiline kaader või korduv animatsioon. Ei sisalda üleminekuid, mis sisaldavad teavet</string>
-  <string name="revanced_sb_segments_outro">Lõpukaardid / tiitrid</string>
+  <string name="revanced_sb_segments_outro">Lõpukaardid / Tiitrid</string>
   <string name="revanced_sb_segments_outro_sum">Tiitrid või YouTube\'i lõppkaardid. Ei ole mõeldud järelduste jaoks, mis sisaldavad teavet</string>
   <string name="revanced_sb_segments_preview">Eelvaade/Kokkuvõte/Konks</string>
   <string name="revanced_sb_segments_preview_sum">Klipi kogum, mis näitab, mis tulemas on või mis juhtus videos või teistes sarja videotes, kus kogu teave on korduv</string>

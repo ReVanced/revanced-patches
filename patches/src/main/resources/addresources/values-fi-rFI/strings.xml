@@ -1006,6 +1006,7 @@ UserID on kuin salasana, eikä sitä pidä jakaa kenellekään.
   <string name="revanced_sb_segments_highlight_sum">Se osa videota, jota useimmat ihmiset etsivät</string>
   <string name="revanced_sb_segments_intro">Tauko/Introanimaatio</string>
   <string name="revanced_sb_segments_intro_sum">Aikaväli ilman varsinaista sisältöä. Voi olla tauko, staattinen kehys tai toistuva animaatio. Ei sisällä siirtymiä, jotka sisältävät tietoa</string>
+  <string name="revanced_sb_segments_outro">Loppukortit / Tekijätiedot</string>
   <string name="revanced_sb_segments_outro_sum">Lopputekstit tai kun YouTuben loppukortit tulevat näkyviin. Ei lopetuksille, joissa on tietoa</string>
   <string name="revanced_sb_segments_preview">Esikatselu/Kertaus/Koukku</string>
   <string name="revanced_sb_segments_preview_sum">Kokoelma leikkeitä, jotka osoittavat, mitä on tulossa tai mitä tapahtui videossa tai muissa sarjan videoissa,  joiden kaikki informaatio toistuu muualla</string>

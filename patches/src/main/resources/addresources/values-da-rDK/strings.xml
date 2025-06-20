@@ -1009,7 +1009,7 @@ Dit bruger-id er som en adgangskode, og det må aldrig deles.
   <string name="revanced_sb_segments_highlight_sum">Den del af videoen, som de fleste mennesker er på udkig efter</string>
   <string name="revanced_sb_segments_intro">Pause/Intro-animation</string>
   <string name="revanced_sb_segments_intro_sum">Et interval uden reelt indhold. Kunne være en pause, statisk ramme eller gentagelse af animation. Omfatter ikke overgange indeholdende information</string>
-  <string name="revanced_sb_segments_outro">Slutskærme / Credits</string>
+  <string name="revanced_sb_segments_outro">Slutkort / Kredit</string>
   <string name="revanced_sb_segments_outro_sum">Medvirkende eller når YouTube-endcards vises. Ikke for konklusioner med information</string>
   <string name="revanced_sb_segments_preview">Forhåndsvisning/Genoptag/Krog</string>
   <string name="revanced_sb_segments_preview_sum">Indsamling af klip, der viser, hvad der kommer op, eller hvad der skete i videoen eller i andre videoer af en serie, hvor alle oplysninger gentages andetsteds</string>

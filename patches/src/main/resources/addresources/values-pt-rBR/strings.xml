@@ -53,7 +53,9 @@ Second \"item\" text"</string>
   <string name="revanced_show_menu_icons_summary_on">Ícones de configuração são mostrados</string>
   <string name="revanced_show_menu_icons_summary_off">Os ícones de configuração não são mostrados</string>
   <string name="revanced_language_title">Idioma do ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"As traduções para alguns idiomas podem estar ausentes ou incompletas.\n\nPara traduzir novos idiomas, acesse translate.revanced.app"</string>
+  <string name="revanced_language_user_dialog_message">"Traduções para alguns idiomas podem estar faltando ou incompletas.
+
+Para traduzir novos idiomas, visite translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Idioma do aplicativo</string>
   <string name="revanced_pref_import_export_title">Importar / Exportar</string>
   <string name="revanced_pref_import_export_summary">Importar / Exportar Configurações do ReVanced</string>
