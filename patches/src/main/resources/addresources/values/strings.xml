@@ -38,7 +38,7 @@ Second \"item\" text"</string>
             <string name="revanced_settings_reset_color">Reset color</string>
             <string name="revanced_settings_color_invalid">Invalid color</string>
             <string name="revanced_settings_restart_title">Restart required</string>
-            <string name="revanced_settings_restart_dialog_message">Restart the app for this change to take affect.</string>
+            <string name="revanced_settings_restart_dialog_message">Restart the app for this change to take effect.</string>
             <string name="revanced_settings_restart">Restart</string>
             <string name="revanced_settings_import">Import</string>
             <string name="revanced_settings_import_copy">Copy</string>
@@ -1077,7 +1077,7 @@ Your user id is like a password and it should never be shared.
             <string name="revanced_sb_segments_highlight_sum">The part of the video that most people are looking for</string>
             <string name="revanced_sb_segments_intro">Intermission / Intro Animation</string>
             <string name="revanced_sb_segments_intro_sum">An interval without actual content. Could be a pause, static frame, or repeating animation. Does not include transitions containing information</string>
-            <string name="revanced_sb_segments_outro">Endcards/Credits</string>
+            <string name="revanced_sb_segments_outro">Endcards / Credits</string>
             <string name="revanced_sb_segments_outro_sum">Credits or when the YouTube endcards appear. Not for conclusions with information</string>
             <string name="revanced_sb_segments_preview">Preview / Recap / Hook</string>
             <string name="revanced_sb_segments_preview_sum">Collection of clips that show what is coming up or what happened in the video or in other videos of a series, where all information is repeated elsewhere</string>

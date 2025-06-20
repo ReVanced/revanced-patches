@@ -1022,8 +1022,8 @@ private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean
     }
 
     if (returnLate) {
-        findInstructionIndicesReversed {
-            opcode == RETURN || opcode == RETURN_OBJECT
+        findInstructionIndicesReversedOrThrow {
+            opcode == RETURN || opcode == RETURN_WIDE || opcode == RETURN_OBJECT
         }.forEach { index ->
             addInstructionsAtControlFlowLabel(index, instructions)
         }

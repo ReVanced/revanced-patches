@@ -236,6 +236,10 @@ public final class app/revanced/patches/inshorts/ad/InshortsAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/instagram/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/instagram/misc/signature/SignatureCheckPatchKt {
 	public static final fun getSignatureCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -906,6 +910,10 @@ public final class app/revanced/patches/strava/upselling/DisableSubscriptionSugg
 
 public final class app/revanced/patches/swissid/integritycheck/RemoveGooglePlayIntegrityCheckPatchKt {
 	public static final fun getRemoveGooglePlayIntegrityCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/threads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/ticktick/misc/themeunlock/UnlockThemePatchKt {

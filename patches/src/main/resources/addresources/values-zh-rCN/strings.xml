@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">设置</string>
-  <string name="revanced_settings_confirm_user_dialog_title">您想要继续吗？</string>
+  <string name="revanced_settings_confirm_user_dialog_title">确定要继续吗？</string>
   <string name="revanced_settings_reset">重置</string>
   <string name="revanced_settings_reset_color">重置颜色</string>
   <string name="revanced_settings_color_invalid">无效的颜色</string>
-  <string name="revanced_settings_restart_title">刷新并重启</string>
+  <string name="revanced_settings_restart_title">需要重启</string>
+  <string name="revanced_settings_restart_dialog_message">重启应用以使更改生效。</string>
   <string name="revanced_settings_restart">重启</string>
   <string name="revanced_settings_import">导入</string>
   <string name="revanced_settings_import_copy">复制</string>
@@ -920,7 +921,6 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">启用高质量缩略图</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">进度条缩略图质量为高质量</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">进度条缩略图质量为中等质量</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">全屏进度条缩略图质量为高质量</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">全屏进度条缩略图质量为中等质量</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"这也会恢复没有进度条缩略图的直播的缩略图
 
@@ -1244,11 +1244,6 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">隐藏悬浮窗按钮</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">悬浮窗按钮已隐藏</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">悬浮窗按钮已显示</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">隐藏展开和关闭按钮</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"按钮已隐藏
-
-滑动即可展开或关闭"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">展开和关闭按钮已显示</string>
   <string name="revanced_miniplayer_hide_subtext_title">隐藏副标题</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">副标题已隐藏</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">副标题已显示</string>
