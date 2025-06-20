@@ -216,6 +216,7 @@ class WebViewDialog extends Dialog {
 
         // Create WebView.
         WebView webView = new WebView(getContext());
+        webView.setVerticalScrollBarEnabled(false); // Disable the vertical scrollbar.
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new OpenLinksExternallyWebClient());
         webView.loadDataWithBaseURL(null, htmlContent, "text/html", "utf-8", null);

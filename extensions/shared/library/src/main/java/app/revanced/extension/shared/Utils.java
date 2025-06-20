@@ -809,6 +809,7 @@ public class Utils {
 
         // Create content container (message/EditText) inside a ScrollView.
         ScrollView contentScrollView = new ScrollView(context);
+        contentScrollView.setVerticalScrollBarEnabled(false); // Disable the vertical scrollbar.
         LinearLayout contentContainer = new LinearLayout(context);
         contentContainer.setOrientation(LinearLayout.VERTICAL);
         LinearLayout.LayoutParams contentParams = new LinearLayout.LayoutParams(
