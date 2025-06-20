@@ -1,6 +1,7 @@
 package app.revanced.patches.shared.misc.hex
 
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.RawResourcePatch
 import app.revanced.patcher.patch.rawResourcePatch
 import kotlin.math.max
 
@@ -9,12 +10,13 @@ import kotlin.math.max
 // This late evaluation was being leveraged in app.revanced.patches.all.misc.hex.HexPatch.
 // Without the function, the replacements would be evaluated at the time of patch creation.
 // This isn't possible because the delegated property is not accessible at that time.
-fun hexPatch(replacementsSupplier: () -> Set<Replacement>) = rawResourcePatch {
+fun hexPatch(ignoreMissingFiles: Boolean, replacementsSupplier: () -> Set<Replacement>) = rawResourcePatch {
     execute {
         replacementsSupplier().groupBy { it.targetFilePath }.forEach { (targetFilePath, replacements) ->
             val targetFile = try {
                 get(targetFilePath, true)
-            } catch (e: Exception) {
+            } catch (_: Exception) {
+                if (ignoreMissingFiles) return@forEach
                 throw PatchException("Could not find target file: $targetFilePath")
             }
 
@@ -29,6 +31,10 @@ fun hexPatch(replacementsSupplier: () -> Set<Replacement>) = rawResourcePatch {
             targetFile.writeBytes(targetFileBytes)
         }
     }
+}
+
+fun hexPatch(replacementsSupplier: () -> Set<Replacement>): RawResourcePatch {
+    return hexPatch(true, replacementsSupplier);
 }
 
 /**
@@ -115,7 +121,7 @@ class Replacement(
         } catch (e: NumberFormatException) {
             throw PatchException(
                 "Could not parse pattern: $this.  A pattern is a sequence of case insensitive strings " +
-                    "representing hexadecimal bytes separated by spaces",
+                        "representing hexadecimal bytes separated by spaces",
                 e,
             )
         }
