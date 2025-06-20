@@ -11,7 +11,6 @@ import androidx.annotation.ColorInt;
 import app.revanced.extension.shared.settings.StringSetting;
 
 public class Utils {
-
     private static final long[] DEFAULT_MIN_MAX_VALUES = {0L, Long.MAX_VALUE};
 
     // Edit: This could be handled using a custom Setting<Long[]> class

@@ -23,8 +23,8 @@ val downloadsPatch = bytecodePatch(
     )
 
     compatibleWith(
-        "com.ss.android.ugc.trill"("36.5.4"),
-        "com.zhiliaoapp.musically"("36.5.4"),
+        "com.ss.android.ugc.trill"("39.8.1"),
+        "com.zhiliaoapp.musically"("39.8.1"),
     )
 
     execute {
