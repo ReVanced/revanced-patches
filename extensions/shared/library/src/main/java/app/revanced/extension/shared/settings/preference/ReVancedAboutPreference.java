@@ -231,7 +231,7 @@ class WebViewDialog extends Dialog {
         // Set dialog window attributes
         Window window = getWindow();
         if (window != null) {
-            Utils.setDialogWindowParameters(getContext(), window);
+            Utils.setDialogWindowParameters(window);
         }
     }
 

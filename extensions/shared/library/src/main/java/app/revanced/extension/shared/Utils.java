@@ -1062,19 +1062,19 @@ public class Utils {
         // Set dialog window attributes.
         Window window = dialog.getWindow();
         if (window != null) {
-            setDialogWindowParameters(context, window);
+            setDialogWindowParameters(window);
         }
 
         return new Pair<>(dialog, mainLayout);
     }
 
-    public static void setDialogWindowParameters(Context context, Window window) {
+    public static void setDialogWindowParameters(Window window) {
         WindowManager.LayoutParams params = window.getAttributes();
 
-        Resources resources = context.getResources();
-        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
         int portraitWidth = (int) (displayMetrics.widthPixels * 0.9);
-        if (resources.getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+        if (Resources.getSystem().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             portraitWidth = (int) Math.min(portraitWidth, displayMetrics.heightPixels * 0.9);
         }
         params.width = portraitWidth;
