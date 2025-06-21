@@ -11,11 +11,7 @@ import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.*;
 
 import androidx.annotation.NonNull;
 
@@ -107,14 +103,16 @@ public class CustomDialogListPreference extends ListPreference {
 
     @Override
     protected void showDialog(Bundle state) {
+        Context context = getContext();
+
         // Create ListView.
-        ListView listView = new ListView(getContext());
+        ListView listView = new ListView(context);
         listView.setId(android.R.id.list);
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         // Create custom adapter for the ListView.
         ListPreferenceArrayAdapter adapter = new ListPreferenceArrayAdapter(
-                getContext(),
+                context,
                 Utils.getResourceIdentifier("revanced_custom_list_item_checked", "layout"),
                 getEntries(),
                 getEntryValues(),
@@ -137,7 +135,7 @@ public class CustomDialogListPreference extends ListPreference {
 
         // Create the custom dialog without OK button.
         Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
-                getContext(),
+                context,
                 getTitle() != null ? getTitle().toString() : "",
                 null,
                 null,
@@ -149,32 +147,12 @@ public class CustomDialogListPreference extends ListPreference {
                 true
         );
 
-        Dialog dialog = dialogPair.first;
+        // Add the ListView to the main layout.
         LinearLayout mainLayout = dialogPair.second;
-
-        // Measure content height before adding ListView to layout.
-        // Otherwise, the ListView will push the buttons off the screen.
-        int totalHeight = 0;
-        int widthSpec = View.MeasureSpec.makeMeasureSpec(
-                getContext().getResources().getDisplayMetrics().widthPixels,
-                View.MeasureSpec.AT_MOST
-        );
-        int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-
-        for (int i = 0; i < adapter.getCount(); i++) {
-            View listItem = adapter.getView(i, null, listView);
-            listItem.measure(widthSpec, heightSpec);
-            totalHeight += listItem.getMeasuredHeight();
-        }
-
-        // Cap the height at maxHeight.
-        int maxHeight = (int) (getContext().getResources().getDisplayMetrics().heightPixels * 0.6);
-        int finalHeight = Math.min(totalHeight, maxHeight);
-
-        // Add ListView to the main layout with calculated height.
         LinearLayout.LayoutParams listViewParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
-                finalHeight // Use calculated height directly.
+                0,
+                1.0f
         );
         mainLayout.addView(listView, mainLayout.getChildCount() - 1, listViewParams);
 
@@ -186,10 +164,10 @@ public class CustomDialogListPreference extends ListPreference {
                 adapter.setSelectedValue(selectedValue);
                 adapter.notifyDataSetChanged();
             }
-            dialog.dismiss();
+            dialogPair.first.dismiss();
         });
 
         // Show the dialog.
-        dialog.show();
+        dialogPair.first.show();
     }
 }

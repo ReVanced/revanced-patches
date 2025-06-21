@@ -807,62 +807,66 @@ public class Utils {
             mainLayout.addView(titleView);
         }
 
-        // Create content container (message/EditText) inside a ScrollView.
-        ScrollView contentScrollView = new ScrollView(context);
-        contentScrollView.setVerticalScrollBarEnabled(false); // Disable the vertical scrollbar.
-        contentScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        if (editText != null) {
-            ShapeDrawable scrollViewBackground = new ShapeDrawable(new RoundRectShape(
-                    createCornerRadii(10), null, null));
-            scrollViewBackground.getPaint().setColor(getEditTextBackground());
-            contentScrollView.setPadding(dip8, dip8, dip8, dip8);
-            contentScrollView.setBackground(scrollViewBackground);
-            contentScrollView.setClipToOutline(true);
-        }
-        LinearLayout contentContainer = new LinearLayout(context);
-        contentContainer.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams contentParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                0,
-                1.0f // Weight to take available space.
-        );
-        contentScrollView.setLayoutParams(contentParams);
-        contentScrollView.addView(contentContainer);
-
-        // Message (if not replaced by EditText).
-        if (editText == null && message != null) {
-            TextView messageView = new TextView(context);
-            messageView.setText(message); // Supports Spanned (HTML).
-            messageView.setTextSize(16);
-            messageView.setTextColor(getAppForegroundColor());
-            // Enable HTML link clicking if the message contains links.
-            if (message instanceof Spanned) {
-                messageView.setMovementMethod(LinkMovementMethod.getInstance());
+        // Create content container (message/EditText) inside a ScrollView only if message or editText is provided.
+        ScrollView contentScrollView = null;
+        LinearLayout contentContainer = null;
+        if (message != null || editText != null) {
+            contentScrollView = new ScrollView(context);
+            contentScrollView.setVerticalScrollBarEnabled(false); // Disable the vertical scrollbar.
+            contentScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+            if (editText != null) {
+                ShapeDrawable scrollViewBackground = new ShapeDrawable(new RoundRectShape(
+                        createCornerRadii(10), null, null));
+                scrollViewBackground.getPaint().setColor(getEditTextBackground());
+                contentScrollView.setPadding(dip8, dip8, dip8, dip8);
+                contentScrollView.setBackground(scrollViewBackground);
+                contentScrollView.setClipToOutline(true);
             }
-            LinearLayout.LayoutParams messageParams = new LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams contentParams = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
+                    0,
+                    1.0f // Weight to take available space.
             );
-            messageView.setLayoutParams(messageParams);
-            contentContainer.addView(messageView);
-        }
+            contentScrollView.setLayoutParams(contentParams);
+            contentContainer = new LinearLayout(context);
+            contentContainer.setOrientation(LinearLayout.VERTICAL);
+            contentScrollView.addView(contentContainer);
 
-        // EditText (if provided).
-        if (editText != null) {
-            // Remove EditText from its current parent, if any.
-            ViewGroup parent = (ViewGroup) editText.getParent();
-            if (parent != null) {
-                parent.removeView(editText);
+            // Message (if not replaced by EditText).
+            if (editText == null && message != null) {
+                TextView messageView = new TextView(context);
+                messageView.setText(message); // Supports Spanned (HTML).
+                messageView.setTextSize(16);
+                messageView.setTextColor(getAppForegroundColor());
+                // Enable HTML link clicking if the message contains links.
+                if (message instanceof Spanned) {
+                    messageView.setMovementMethod(LinkMovementMethod.getInstance());
+                }
+                LinearLayout.LayoutParams messageParams = new LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                );
+                messageView.setLayoutParams(messageParams);
+                contentContainer.addView(messageView);
             }
-            // Style the EditText to match the dialog theme.
-            editText.setTextColor(getAppForegroundColor());
-            editText.setBackgroundColor(Color.TRANSPARENT);
-            editText.setPadding(0, 0, 0, 0);
-            LinearLayout.LayoutParams editTextParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-            );
-            contentContainer.addView(editText, editTextParams);
+
+            // EditText (if provided).
+            if (editText != null) {
+                // Remove EditText from its current parent, if any.
+                ViewGroup parent = (ViewGroup) editText.getParent();
+                if (parent != null) {
+                    parent.removeView(editText);
+                }
+                // Style the EditText to match the dialog theme.
+                editText.setTextColor(getAppForegroundColor());
+                editText.setBackgroundColor(Color.TRANSPARENT);
+                editText.setPadding(0, 0, 0, 0);
+                LinearLayout.LayoutParams editTextParams = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                );
+                contentContainer.addView(editText, editTextParams);
+            }
         }
 
         // Button container.
@@ -1048,8 +1052,10 @@ public class Utils {
             }
         }
 
-        // Add content and buttons to main layout.
-        mainLayout.addView(contentScrollView);
+        // Add ScrollView to main layout only if content exist.
+        if (contentScrollView != null) {
+            mainLayout.addView(contentScrollView);
+        }
         mainLayout.addView(buttonContainer);
         dialog.setContentView(mainLayout);
 

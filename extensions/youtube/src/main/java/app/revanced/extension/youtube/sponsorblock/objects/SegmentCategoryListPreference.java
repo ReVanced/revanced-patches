@@ -18,12 +18,7 @@ import android.text.TextWatcher;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.GridLayout;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
+import android.widget.*;
 
 import androidx.annotation.ColorInt;
 
@@ -248,20 +243,17 @@ public class SegmentCategoryListPreference extends ListPreference {
 
             contentLayout.addView(gridLayout);
 
-            // Set up color picker listener.
-            // Do last to prevent listener callbacks while setting up view.
-            dialogColorPickerView.setOnColorChangedListener(color -> {
-                if (categoryColor == color) {
-                    return;
-                }
-                categoryColor = color;
-                String hexColor = getColorString(color);
-                Logger.printDebug(() -> "onColorChanged: " + hexColor);
-
-                updateCategoryColorDot();
-                dialogColorEditText.setText(hexColor);
-                dialogColorEditText.setSelection(hexColor.length());
-            });
+            // Create ScrollView to wrap the content layout.
+            ScrollView contentScrollView = new ScrollView(context);
+            contentScrollView.setVerticalScrollBarEnabled(false); // Disable vertical scrollbar.
+            contentScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER); // Disable overscroll effect.
+            LinearLayout.LayoutParams scrollViewParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    0,
+                    1.0f
+            );
+            contentScrollView.setLayoutParams(scrollViewParams);
+            contentScrollView.addView(contentLayout);
 
             // Create the custom dialog.
             Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
@@ -307,13 +299,27 @@ public class SegmentCategoryListPreference extends ListPreference {
                     false // Do not dismiss dialog on Neutral button click.
             );
 
-            dialog = dialogPair.first;
+            // Add the ScrollView to the dialog's main layout.
             LinearLayout dialogMainLayout = dialogPair.second;
+            dialogMainLayout.addView(contentScrollView, dialogMainLayout.getChildCount() - 1);
 
-            // Add the custom content to the dialog's main layout.
-            dialogMainLayout.addView(contentLayout, 1); // Add after title, before buttons.
+            // Set up color picker listener.
+            // Do last to prevent listener callbacks while setting up view.
+            dialogColorPickerView.setOnColorChangedListener(color -> {
+                if (categoryColor == color) {
+                    return;
+                }
+                categoryColor = color;
+                String hexColor = getColorString(color);
+                Logger.printDebug(() -> "onColorChanged: " + hexColor);
+
+                updateCategoryColorDot();
+                dialogColorEditText.setText(hexColor);
+                dialogColorEditText.setSelection(hexColor.length());
+            });
 
             // Show the dialog.
+            dialog = dialogPair.first;
             dialog.show();
         } catch (Exception ex) {
             Logger.printException(() -> "showDialog failure", ex);
