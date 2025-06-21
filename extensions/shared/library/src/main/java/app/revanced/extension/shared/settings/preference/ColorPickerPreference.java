@@ -24,10 +24,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.*;
 
 import androidx.annotation.ColorInt;
 
@@ -298,7 +295,6 @@ public class ColorPickerPreference extends EditTextPreference {
         // Horizontal layout for preview and EditText.
         LinearLayout inputLayout = new LinearLayout(context);
         inputLayout.setOrientation(LinearLayout.HORIZONTAL);
-        inputLayout.setPadding(0, 0, 0, dipToPixels(10));
 
         dialogColorPreview = new TextView(context);
         LinearLayout.LayoutParams previewParams = new LinearLayout.LayoutParams(
@@ -338,11 +334,23 @@ public class ColorPickerPreference extends EditTextPreference {
         paddingView.setLayoutParams(params);
         inputLayout.addView(paddingView);
 
-        // Create main container for color picker and input layout.
-        LinearLayout container = new LinearLayout(context);
-        container.setOrientation(LinearLayout.VERTICAL);
-        container.addView(colorPicker);
-        container.addView(inputLayout);
+        // Create content container for color picker and input layout.
+        LinearLayout contentContainer = new LinearLayout(context);
+        contentContainer.setOrientation(LinearLayout.VERTICAL);
+        contentContainer.addView(colorPicker);
+        contentContainer.addView(inputLayout);
+
+        // Create ScrollView to wrap the content container.
+        ScrollView contentScrollView = new ScrollView(context);
+        contentScrollView.setVerticalScrollBarEnabled(false); // Disable vertical scrollbar.
+        contentScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER); // Disable overscroll effect.
+        LinearLayout.LayoutParams scrollViewParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                0,
+                1.0f
+        );
+        contentScrollView.setLayoutParams(scrollViewParams);
+        contentScrollView.addView(contentContainer);
 
         // Create custom dialog.
         final int originalColor = currentColor & 0x00FFFFFF;
@@ -391,9 +399,9 @@ public class ColorPickerPreference extends EditTextPreference {
                 false // Do not dismiss dialog when onNeutralClick.
         );
 
-        // Add the custom container to the dialog's main layout.
+        // Add the ScrollView to the dialog's main layout.
         LinearLayout dialogMainLayout = dialogPair.second;
-        dialogMainLayout.addView(container, 1);
+        dialogMainLayout.addView(contentScrollView, dialogMainLayout.getChildCount() - 1);
 
         // Set up color picker listener with debouncing.
         // Add listener last to prevent callbacks from set calls above.
