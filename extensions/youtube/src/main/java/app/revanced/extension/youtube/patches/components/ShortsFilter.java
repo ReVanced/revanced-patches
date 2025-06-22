@@ -182,6 +182,8 @@ public final class ShortsFilter extends Filter {
 
         suggestedAction = new StringFilterGroup(
                 null,
+                "floating_action_button.eml",
+                REEL_METAPANEL_PATH,
                 "suggested_action.eml"
         );
 
@@ -242,9 +244,10 @@ public final class ShortsFilter extends Filter {
                         "yt_outline_bookmark_",
                         // 'Save sound' button. It seems this has been removed and only 'Save music' is used.
                         // Still hide this in case it's still present.
-                        "yt_outline_list_add_",
-                        // 'Use this sound' button. It seems this has been removed and only 'Save music' is used.
-                        // Still hide this in case it's still present.
+                        "yt_outline_list_add_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_USE_SOUND_BUTTON,
                         "yt_outline_camera_"
                 ),
                 new ByteArrayFilterGroup(
