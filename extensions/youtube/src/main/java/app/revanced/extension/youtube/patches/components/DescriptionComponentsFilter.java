@@ -13,8 +13,6 @@ final class DescriptionComponentsFilter extends Filter {
     private final ByteArrayFilterGroupList macroMarkersCarouselGroupList = new ByteArrayFilterGroupList();
 
     private final StringFilterGroup macroMarkersCarousel;
-    private final StringFilterGroup attributesSection;
-    private final ByteArrayFilterGroup cellVideoAttribute;
 
     public DescriptionComponentsFilter() {
         exceptions.addPatterns(
@@ -35,16 +33,11 @@ final class DescriptionComponentsFilter extends Filter {
                 "youchat_entrypoint.eml"
         );
 
-        attributesSection = new StringFilterGroup(
+        final StringFilterGroup attributesSection = new StringFilterGroup(
                 Settings.HIDE_ATTRIBUTES_SECTION,
-                // "gaming_section", "music_section"
-                "horizontal_shelf.eml"
+                "gaming_section",
+                "music_section",
                 "video_attributes_section"
-        );
-
-        cellVideoAttribute = new ByteArrayFilterGroup(
-                null,
-                "cell_video_attribute"
         );
 
         final StringFilterGroup infoCardsSection = new StringFilterGroup(
@@ -102,10 +95,6 @@ final class DescriptionComponentsFilter extends Filter {
 
         if (matchedGroup == macroMarkersCarousel) {
             return contentIndex == 0 && macroMarkersCarouselGroupList.check(protobufBufferArray).isFiltered();
-        }
-
-        if (matchedGroup == attributesSection) {
-            return cellVideoAttribute.check(protobufBufferArray).isFiltered();
         }
 
         return true;
