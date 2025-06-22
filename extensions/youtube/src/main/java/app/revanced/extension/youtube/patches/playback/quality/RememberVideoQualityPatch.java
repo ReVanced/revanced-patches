@@ -64,10 +64,11 @@ public class RememberVideoQualityPatch {
             else videoQualityWifi.save(defaultQuality);
             networkTypeMessage = str("revanced_remember_video_quality_wifi");
         }
-        Utils.showToastShort(str(
-                useShortsPreference ? "revanced_remember_video_quality_toast_shorts" : "revanced_remember_video_quality_toast",
-                networkTypeMessage, (defaultQuality + "p")
-        ));
+        if (Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED_TOAST.get())
+            Utils.showToastShort(str(
+                    useShortsPreference ? "revanced_remember_video_quality_toast_shorts" : "revanced_remember_video_quality_toast",
+                    networkTypeMessage, (defaultQuality + "p")
+            ));
     }
 
     /**
