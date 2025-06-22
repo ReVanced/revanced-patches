@@ -13,15 +13,12 @@ val hexPatch = rawResourcePatch(
     description = "Replaces a hexadecimal patterns of bytes of files in an APK.",
     use = false,
 ) {
-    // TODO: Instead of stringArrayOption, use a custom option type to work around
-    //  https://github.com/ReVanced/revanced-library/issues/48.
-    //  Replace the custom option type with a stringArrayOption once the issue is resolved.
     val replacements by stringsOption(
         key = "replacements",
         title = "Replacements",
         description = """
             Hexadecimal patterns to search for and replace with another in a target file.
-            
+
             A pattern is a sequence of case insensitive strings, each representing hexadecimal bytes, separated by spaces.
             An example pattern is 'aa 01 02 FF'.
 

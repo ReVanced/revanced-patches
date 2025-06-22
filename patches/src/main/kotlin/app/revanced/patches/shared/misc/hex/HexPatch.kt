@@ -1,7 +1,6 @@
 package app.revanced.patches.shared.misc.hex
 
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.RawResourcePatch
 import app.revanced.patcher.patch.rawResourcePatch
 import kotlin.math.max
 
@@ -10,14 +9,14 @@ import kotlin.math.max
 // This late evaluation was being leveraged in app.revanced.patches.all.misc.hex.HexPatch.
 // Without the function, the replacements would be evaluated at the time of patch creation.
 // This isn't possible because the delegated property is not accessible at that time.
-fun hexPatch(ignoreMissingFiles: Boolean, replacementsSupplier: () -> Set<Replacement>) = rawResourcePatch {
+fun hexPatch(ignoreMissingTargetFiles: Boolean = false, replacementsSupplier: () -> Set<Replacement>) = rawResourcePatch {
     execute {
         replacementsSupplier().groupBy { it.targetFilePath }.forEach { (targetFilePath, replacements) ->
             val targetFile = try {
                 get(targetFilePath, true)
             } catch (_: Exception) {
-                if (ignoreMissingFiles) return@forEach
-                throw PatchException("Could not find target file: $targetFilePath")
+                if (ignoreMissingTargetFiles) return@forEach
+                throw PatchException("Could not find required target file: $targetFilePath")
             }
 
             // TODO: Use a file channel to read and write the file instead of reading the whole file into memory,
@@ -33,33 +32,44 @@ fun hexPatch(ignoreMissingFiles: Boolean, replacementsSupplier: () -> Set<Replac
     }
 }
 
-fun hexPatch(replacementsSupplier: () -> Set<Replacement>): RawResourcePatch {
-    return hexPatch(true, replacementsSupplier);
-}
-
 /**
- * Represents a pattern to search for and its replacement pattern.
+ * Represents a pattern to search for and its replacement pattern in a file.
  *
- * @property pattern The pattern to search for.
- * @property replacementPattern The pattern to replace the [pattern] with.
+ * @property bytes The bytes to search for.
+ * @property replacementBytes The bytes to replace the [bytes] with.
  * @property targetFilePath The path to the file to make the changes in relative to the APK root.
  */
 class Replacement(
-    private val pattern: String,
-    replacementPattern: String,
+    private val bytes: ByteArray,
+    private val replacementBytes: ByteArray,
     internal val targetFilePath: String,
 ) {
-    private val patternBytes = pattern.toByteArrayPattern()
-    private val replacementPattern = replacementPattern.toByteArrayPattern()
+    /**
+     * Represents a pattern to search for and its replacement pattern.
+     *
+     * @param pattern The pattern to search for.
+     * @param replacementPattern The pattern to replace the [pattern] with.
+     * @param targetFilePath The path to the file to make the changes in relative to the APK root.
+     */
+    constructor(
+        pattern: String,
+        replacementPattern: String,
+        targetFilePath: String,
+    ) : this(
+        pattern.toByteArrayPattern(),
+        replacementPattern.toByteArrayPattern(), targetFilePath
+    )
 
     init {
-        if (this.patternBytes.size != this.replacementPattern.size) {
-            throw PatchException("Pattern and replacement pattern must have the same length: $pattern")
+        if (this.bytes.size != this.replacementBytes.size) {
+            throw PatchException(
+                "Pattern and replacement pattern must have the same length: ${bytes.toStringPattern()}"
+            )
         }
     }
 
     /**
-     * Replaces the [patternBytes] with the [replacementPattern] in the [targetFileBytes].
+     * Replaces the [bytes] with the [replacementBytes] in the [targetFileBytes].
      *
      * @param targetFileBytes The bytes of the file to make the changes in.
      */
@@ -67,24 +77,24 @@ class Replacement(
         val startIndex = indexOfPatternIn(targetFileBytes)
 
         if (startIndex == -1) {
-            throw PatchException("Pattern not found in target file: $pattern")
+            throw PatchException("Pattern not found in target file: ${bytes.toStringPattern()}")
         }
 
-        replacementPattern.copyInto(targetFileBytes, startIndex)
+        replacementBytes.copyInto(targetFileBytes, startIndex)
     }
 
     // TODO: Allow searching in a file channel instead of a byte array to reduce memory usage.
     /**
-     * Returns the index of the first occurrence of [patternBytes] in the haystack
+     * Returns the index of the first occurrence of [bytes] in the haystack
      * using the Boyer-Moore algorithm.
      *
      * @param haystack The array to search in.
      *
-     * @return The index of the first occurrence of the [patternBytes] in the haystack or -1
-     * if the [patternBytes] is not found.
+     * @return The index of the first occurrence of the [bytes] in the haystack or -1
+     * if the [bytes] is not found.
      */
     private fun indexOfPatternIn(haystack: ByteArray): Int {
-        val needle = patternBytes
+        val needle = bytes
 
         val haystackLength = haystack.size - 1
         val needleLength = needle.size - 1
@@ -111,6 +121,29 @@ class Replacement(
 
     companion object {
         /**
+         * Creates a [Replacement] instance from a string representation of a pattern and its replacement.
+         */
+        fun replacementOf(
+            fromString: String,
+            toString: String,
+            forFile: String
+        ): Replacement {
+            val firstBytes = fromString.toByteArray()
+            val secondBytes = toString.toByteArray()
+
+            val secondBytesString = secondBytes + ByteArray(firstBytes.size - secondBytes.size)
+
+
+            return Replacement(
+                firstBytes.toStringPattern(),
+                secondBytesString.toStringPattern(),
+                forFile
+            )
+        }
+
+        private fun ByteArray.toStringPattern() = joinToString(" ") { "%02x".format(it) }
+    
+        /**
          * Convert a string representing a pattern of hexadecimal bytes to a byte array.
          *
          * @return The byte array representing the pattern.
@@ -120,7 +153,7 @@ class Replacement(
             split(" ").map { it.toInt(16).toByte() }.toByteArray()
         } catch (e: NumberFormatException) {
             throw PatchException(
-                "Could not parse pattern: $this.  A pattern is a sequence of case insensitive strings " +
+                "Could not parse pattern: $this. A pattern is a sequence of case insensitive strings " +
                         "representing hexadecimal bytes separated by spaces",
                 e,
             )

@@ -25,31 +25,32 @@ class WebApp {
 
     private static final String JAVASCRIPT_INTERFACE_NAME = "androidInterface";
 
+    /**
+     * A session obtained from the login web view.
+     * It is pending, because the user has yet to login into the native Spotify app, then it is returned to the app.
+     */
     @Nullable
-    public static Session pendingLoginSession;
+    static Session pendingLoginSession;
 
-    public static void login(Context context) {
+    static void login(Context context) {
         pendingLoginSession = null;
 
         Utils.runOnMainThreadNowOrLater(() -> {
             Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
-            AtomicReference<WebView> webViewRef = new AtomicReference<>(null);
 
             WebView webView = newWebView((String cookies) -> {
                 Logger.printInfo(() -> "Received cookies from login: " + cookies);
                 dialog.dismiss();
-            }, (session) -> {
+            }, (webView1, session) -> {
                 Logger.printInfo(() -> "Received session from login: " + session);
                 pendingLoginSession = session;
 
-                WebView loginWebView = webViewRef.get();
-                if (loginWebView != null) {
-                    loginWebView.stopLoading();
-                    loginWebView.destroy();
-                }
+                Utils.runOnMainThreadNowOrLater(() -> {
+                    webView1.stopLoading();
+                    webView1.destroy();
+                });
             });
 
-            webViewRef.set(webView);
 
             // Ensure that cookies are cleared before loading the login page.
             CookieManager.getInstance().removeAllCookies((anyRemoved) ->
@@ -65,7 +66,7 @@ class WebApp {
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Nullable
-    public static Session refreshSession(String cookies) {
+    static Session refreshSession(String cookies) {
         setCookies(cookies);
 
         AtomicReference<Session> sessionRef = new AtomicReference<>(null);
@@ -82,7 +83,7 @@ class WebApp {
             Utils.runOnMainThreadNowOrLater(() -> {
                 WebView webView = webViewRef.get();
                 if (webView == null) {
-                    webView = newWebView(null, session -> {
+                    webView = newWebView(null, (webView1, session) -> {
                         Logger.printInfo(() -> "Received session: " + session);
                         sessionRef.set(session);
                         getSessionSemaphore.release();
@@ -121,7 +122,7 @@ class WebApp {
     }
 
     private interface HasReceivedSessionCallback {
-        void onReceivedSession(Session session);
+        void onReceivedSession(WebView webView, Session session);
     }
 
     @NonNull
@@ -180,7 +181,7 @@ class WebApp {
             public void getSession(String username, String accessToken) {
                 if (hasReceivedSessionCallback != null) {
                     Session session = new Session(username, accessToken, getCurrentCookies());
-                    hasReceivedSessionCallback.onReceivedSession(session);
+                    hasReceivedSessionCallback.onReceivedSession(webView, session);
                 }
             }
         }, JAVASCRIPT_INTERFACE_NAME);

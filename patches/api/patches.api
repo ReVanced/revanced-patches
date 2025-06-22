@@ -657,17 +657,19 @@ public final class app/revanced/patches/shared/misc/gms/GmsCoreSupportPatchKt {
 }
 
 public final class app/revanced/patches/shared/misc/hex/HexPatchKt {
-	public static final fun hexPatch (Lkotlin/jvm/functions/Function0;)Lapp/revanced/patcher/patch/RawResourcePatch;
 	public static final fun hexPatch (ZLkotlin/jvm/functions/Function0;)Lapp/revanced/patcher/patch/RawResourcePatch;
+	public static synthetic fun hexPatch$default (ZLkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lapp/revanced/patcher/patch/RawResourcePatch;
 }
 
 public final class app/revanced/patches/shared/misc/hex/Replacement {
 	public static final field Companion Lapp/revanced/patches/shared/misc/hex/Replacement$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public fun <init> ([B[BLjava/lang/String;)V
 	public final fun replacePattern ([B)V
 }
 
 public final class app/revanced/patches/shared/misc/hex/Replacement$Companion {
+	public final fun replacementOf (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patches/shared/misc/hex/Replacement;
 }
 
 public final class app/revanced/patches/shared/misc/mapping/ResourceElement {

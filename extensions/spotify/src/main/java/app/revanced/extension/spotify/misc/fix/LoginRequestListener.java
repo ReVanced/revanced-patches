@@ -19,7 +19,7 @@ import static fi.iki.elonen.NanoHTTPD.Response.Status.INTERNAL_ERROR;
 class LoginRequestListener extends NanoHTTPD {
     private static final String CONTENT_LENGTH_HEADER = "content-length";
 
-    public LoginRequestListener(int port) {
+    LoginRequestListener(int port) {
         super(port);
     }
 
