@@ -1,3 +1,10 @@
+## [5.28.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.28.0...v5.28.1-dev.1) (2025-06-22)
+
+
+### Bug Fixes
+
+* Add scrollable content to modern style settings dialogs ([#5211](https://github.com/ReVanced/revanced-patches/issues/5211)) ([e6876d5](https://github.com/ReVanced/revanced-patches/commit/e6876d510d28f6a3a41ec1722a033b3e30a22c65))
+
 # [5.28.0](https://github.com/ReVanced/revanced-patches/compare/v5.27.0...v5.28.0) (2025-06-20)
 
 
