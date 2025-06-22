@@ -42,6 +42,8 @@ public final class ShortsFilter extends Filter {
 
     private final StringFilterGroup shortsCompactFeedVideoPath;
     private final ByteArrayFilterGroup shortsCompactFeedVideoBuffer;
+    private final StringFilterGroup reelMetapanel;
+    private final ByteArrayFilterGroup useSoundButton;
 
     private final StringFilterGroup subscribeButton;
     private final StringFilterGroup joinButton;
@@ -180,17 +182,26 @@ public final class ShortsFilter extends Filter {
                 "button.eml"
         );
 
-        suggestedAction = new StringFilterGroup(
+        reelMetapanel = new StringFilterGroup(
                 null,
                 "floating_action_button.eml",
-                REEL_METAPANEL_PATH,
+                REEL_METAPANEL_PATH
+        );
+
+        useSoundButton = new ByteArrayFilterGroup(
+                Settings.HIDE_SHORTS_USE_SOUND_BUTTON,
+                "yt_outline_camera_"
+        );
+
+        suggestedAction = new StringFilterGroup(
+                null,
                 "suggested_action.eml"
         );
 
         addPathCallbacks(
                 shortsCompactFeedVideoPath, joinButton, subscribeButton, paidPromotionButton,
                 shortsActionBar, suggestedAction, pausedOverlayButtons, channelBar,
-                fullVideoLinkLabel, videoTitle, reelSoundMetadata, soundButton, infoPanel,
+                fullVideoLinkLabel, videoTitle, reelMetapanel, reelSoundMetadata, soundButton, infoPanel,
                 stickers, likeFountain, likeButton, dislikeButton
         );
 
@@ -247,10 +258,6 @@ public final class ShortsFilter extends Filter {
                         "yt_outline_list_add_"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_SHORTS_USE_SOUND_BUTTON,
-                        "yt_outline_camera_"
-                ),
-                new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SEARCH_SUGGESTIONS,
                         "yt_outline_search_"
                 ),
@@ -298,6 +305,10 @@ public final class ShortsFilter extends Filter {
             if (matchedGroup == subscribeButton || matchedGroup == joinButton || matchedGroup == paidPromotionButton) {
                 // Selectively filter to avoid false positive filtering of other subscribe/join buttons.
                 return path.startsWith(REEL_CHANNEL_BAR_PATH) || path.startsWith(REEL_METAPANEL_PATH);
+            }
+
+            if (matchedGroup == reelMetapanel) {
+                return useSoundButton.check(protobufBufferArray).isFiltered();
             }
 
             if (matchedGroup == shortsCompactFeedVideoPath) {
