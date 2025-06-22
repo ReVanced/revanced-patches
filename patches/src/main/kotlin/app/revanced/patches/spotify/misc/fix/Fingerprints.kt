@@ -19,3 +19,11 @@ internal val startupPageLayoutInflateFingerprint = fingerprint {
     parameters("Landroid/view/LayoutInflater;", "Landroid/view/ViewGroup;", "Landroid/os/Bundle;")
     strings("blueprintContainer", "gradient", "valuePropositionTextView")
 }
+
+internal val loginSetListenerFingerprint = fingerprint {
+    strings("EMAIL_OR_USERNAME", "listener")
+}
+
+internal val loginOnClickFingerprint = fingerprint {
+    strings("login", "listener", "none")
+}

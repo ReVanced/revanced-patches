@@ -11,6 +11,7 @@ import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -141,6 +142,35 @@ val spoofClientPatch = bytecodePatch(
                     move-object/from16 v3, p1
                     invoke-static { v3 }, $openLoginWebViewDescriptor
                 """
+            )
+        }
+
+        loginSetListenerFingerprint.method.apply {
+            val returnIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.RETURN_VOID
+            }
+
+            addInstructions(
+                returnIndex,
+                """
+                    iget-object p1, p0, Lp/grw;->E1:Landroid/widget/Button;
+
+                    invoke-virtual {p1}, Landroid/view/View;->performClick()Z
+                    """
+            )
+        }
+
+        loginOnClickFingerprint.method.apply {
+            val returnIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.RETURN_VOID
+            }
+
+            addInstructions(
+                returnIndex - 1,
+                """
+                    const-string v2, "bogus"
+                    const-string p1, "bogus"
+                    """
             )
         }
     }
