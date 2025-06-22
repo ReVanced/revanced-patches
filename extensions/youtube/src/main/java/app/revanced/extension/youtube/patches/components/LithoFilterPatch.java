@@ -74,6 +74,24 @@ public final class LithoFilterPatch {
         }
     }
 
+    /**
+     * Litho layout fixed thread pool size override.
+     * <p>
+     * Litho uses a layout fixed thread pool between 1 and 3 threads:
+     * <pre>
+     * 1 thread - > Device has less than 6 cores
+     * 2 threads -> Device has over 6 cores and less than 6GB of memory
+     * 3 threads -> Device has over 6 cores and more than 6GB of memory
+     * </pre>
+     * Using more than 1 thread causes layout issues, such as the You tab watch/playlist shelf
+     * that is sometimes incorrectly hidden (ReVanced is not hiding it).
+     * <p>
+     * This change may also fix poor app performance that occurs when the
+     * video player comment text entry box is opened, and the app starts consuming a
+     * lot of battery life until the app is force closed or completely restarted.
+     */
+    private static final int LITHO_LAYOUT_THREAD_POOL_SIZE = 1;
+
     private static final Filter[] filters = new Filter[] {
             new DummyFilter() // Replaced by patch.
     };
@@ -212,6 +230,30 @@ public final class LithoFilterPatch {
         }
 
         return false;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int getExecutorCorePoolSize(int originalCorePoolSize) {
+        if (originalCorePoolSize != LITHO_LAYOUT_THREAD_POOL_SIZE) {
+            Logger.printDebug(() -> "Overriding core thread pool size from: " + originalCorePoolSize
+                    + " to: " + LITHO_LAYOUT_THREAD_POOL_SIZE);
+        }
+
+        return LITHO_LAYOUT_THREAD_POOL_SIZE;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int getExecutorMaxThreads(int originalMaxThreads) {
+        if (originalMaxThreads != LITHO_LAYOUT_THREAD_POOL_SIZE) {
+            Logger.printDebug(() -> "Overriding max thread pool size from: " + originalMaxThreads
+                    + " to: " + LITHO_LAYOUT_THREAD_POOL_SIZE);
+        }
+
+        return LITHO_LAYOUT_THREAD_POOL_SIZE;
     }
 }
 
