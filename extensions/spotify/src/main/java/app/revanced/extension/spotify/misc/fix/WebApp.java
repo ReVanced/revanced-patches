@@ -32,8 +32,6 @@ class WebApp {
     static Session currentSession;
 
     static void login(Context context) {
-        currentSession = null;
-
         Utils.runOnMainThreadNowOrLater(() -> {
             Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
 
@@ -88,7 +86,6 @@ class WebApp {
                 try {
                     boolean isAcquired = getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
                     if (isAcquired) {
-                        Logger.printInfo(() -> "Session obtained successfully on attempt " + attemptNumber);
                         webView.stopLoading();
                         webView.destroy();
                         break;
