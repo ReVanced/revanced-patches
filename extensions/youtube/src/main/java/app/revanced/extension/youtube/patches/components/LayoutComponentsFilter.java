@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.patches.components;
 
+import static app.revanced.extension.youtube.patches.VersionCheckPatch.IS_20_21_OR_GREATER;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
 import android.graphics.drawable.Drawable;
@@ -399,11 +400,23 @@ public final class LayoutComponentsFilter extends Filter {
                 : height;
     }
 
+    private static final boolean HIDE_FILTER_BAR_FEED_IN_RELATED_VIDEOS_ENABLED
+            = Settings.HIDE_FILTER_BAR_FEED_IN_RELATED_VIDEOS.get();
+
     /**
      * Injection point.
      */
     public static void hideInRelatedVideos(View chipView) {
-        Utils.hideViewBy0dpUnderCondition(Settings.HIDE_FILTER_BAR_FEED_IN_RELATED_VIDEOS, chipView);
+        // Cannot use 0dp hide with later targets, otherwise the suggested videos
+        // can be shown in full screen mode.
+        // This behavior may also be present in earlier app targets.
+        if (IS_20_21_OR_GREATER) {
+            // FIXME: The filter bar is still briefly shown when dragging the suggested videos
+            //        below the video player.
+            Utils.hideViewUnderCondition(HIDE_FILTER_BAR_FEED_IN_RELATED_VIDEOS_ENABLED, chipView);
+        } else {
+            Utils.hideViewBy0dpUnderCondition(HIDE_FILTER_BAR_FEED_IN_RELATED_VIDEOS_ENABLED, chipView);
+        }
     }
 
     private static final boolean HIDE_DOODLES_ENABLED = Settings.HIDE_DOODLES.get();
@@ -430,7 +443,7 @@ public final class LayoutComponentsFilter extends Filter {
                 && NavigationBar.isSearchBarActive()
                 // Search bar can be active but behind the player.
                 && !PlayerType.getCurrent().isMaximizedOrFullscreen()) {
-            Utils.hideViewByLayoutParams(view);
+            Utils.hideViewBy0dp(view);
         }
     }
 

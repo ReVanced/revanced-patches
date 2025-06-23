@@ -219,7 +219,7 @@ val lithoFilterPatch = bytecodePatch(
             // FIXME: Procool buffer has changed in 20.22, and UPB native code is now always enabled.
             if (is_20_22_or_greater) {
                 Logger.getLogger(this::class.java.name).severe(
-                    "Litho filtering does not yet support 20.22+  Many UI components will not be hidden.")
+                    "\n!!!\n!!! Litho filtering does not yet support 20.22+  Many UI components will not be hidden.\n!!!")
             }
 
             // 20.22 the flag is still enabled in one location, but what it does is not clear.
