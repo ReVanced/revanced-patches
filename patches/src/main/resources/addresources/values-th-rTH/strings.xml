@@ -1392,6 +1392,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_remember_video_quality_last_selected_title">จำการเปลี่ยนแปลงคุณภาพวิดีโอ</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">การเปลี่ยนแปลงคุณภาพใช้กับวิดีโอทั้งหมด</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">การเปลี่ยนแปลงคุณภาพใช้กับวิดีโอปัจจุบันเท่านั้น</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">แสดงโทสต์เมื่อคุณภาพวิดีโอเปลี่ยนแปลง</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">มีการแสดงโทสต์เมื่อคุณภาพวิดีโอเริ่มต้นถูกเปลี่ยน</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">ไม่มีการแสดงโทสต์เมื่อคุณภาพวิดีโอเริ่มต้นถูกเปลี่ยน</string>
   <string name="revanced_video_quality_default_wifi_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่าย Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่ายมือถือ</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">จดจำการเปลี่ยนแปลงคุณภาพของ Shorts</string>
@@ -1418,7 +1421,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_custom_playback_speeds_invalid">ความเร็วที่กําหนดเองต้องน้อยกว่า %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">ความเร็วในการเล่นที่กําหนดเองไม่ถูกต้อง</string>
   <string name="revanced_custom_playback_speeds_auto">อัตโนมัติ</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">ความเร็วในการเล่นรีเซ็ตเป็น: %s</string>
   <string name="revanced_speed_tap_and_hold_title">**Custom tap and hold speed**</string>
   <string name="revanced_speed_tap_and_hold_summary">ความเร็วในการเล่นระหว่าง 0-8</string>
   </patch>
@@ -1426,6 +1428,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_remember_playback_speed_last_selected_title">จำการเปลี่ยนแปลงความเร็วในการเล่น</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">การเปลี่ยนแปลงความเร็วในการเล่นใช้กับวิดีโอทั้งหมด</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">การเปลี่ยนแปลงความเร็วในการเล่นใช้กับวิดีโอปัจจุบันเท่านั้น</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">แสดงโทสต์เมื่อความเร็วในการเล่นเปลี่ยนแปลง</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">มีการแสดงโทสต์เมื่อความเร็วในการเล่นเริ่มต้นถูกเปลี่ยน</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">โทสต์ไม่แสดงเมื่อความเร็วในการเล่นเริ่มต้นถูกเปลี่ยน</string>
   <string name="revanced_playback_speed_default_title">ความเร็วในการเล่นเริ่มต้น</string>
   <string name="revanced_remember_playback_speed_toast">เปลี่ยนความเร็วเริ่มต้นเป็น: %s</string>
   </patch>

@@ -1368,6 +1368,9 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_remember_video_quality_last_selected_title">Tandaan ang mga pagbabago sa kalidad ng video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Nalalapat ang mga pagbabago sa kalidad sa lahat ng video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Nalalapat lang ang mga pagbabago sa kalidad sa kasalukuyang video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Ipakita ang toast kapag nagbago ang kalidad ng video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">May ipinapakitang toast kapag binago ang default na kalidad ng video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Walang ipinapakitang toast kapag binago ang default na kalidad ng video</string>
   <string name="revanced_video_quality_default_wifi_title">Default na kalidad ng video sa Wi-Fi network</string>
   <string name="revanced_video_quality_default_mobile_title">Default na kalidad ng video sa mobile network</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Tandaan ang mga pagbabago sa kalidad ng Shorts</string>
@@ -1394,7 +1397,6 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_custom_playback_speeds_invalid">Ang mga custom na bilis ay dapat na mas mababa sa %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Hindi wastong custom na bilis ng paglalaro</string>
   <string name="revanced_custom_playback_speeds_auto">Awtomatik</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Na-reset ang bilis ng pag-playback sa: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Custom speed para sa pag-tap at pag-hold</string>
   <string name="revanced_speed_tap_and_hold_summary">Tugtugin ang bilis ng playback sa pagitan ng 0-8</string>
   </patch>
@@ -1402,6 +1404,9 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_remember_playback_speed_last_selected_title">Tandaan ang mga pagbabago sa bilis ng pag-playback</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Nalalapat ang mga pagbabago sa bilis ng pag-playback sa lahat ng video</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Nalalapat lamang ang mga pagbabago sa bilis ng pag-playback sa kasalukuyang video</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Ipakita ang toast kapag nagbago ang bilis ng pag-playback</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">May ipinapakitang toast kapag binago ang default na bilis ng pag-playback</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Hindi ipinapakita ang paalala kapag binago ang default na bilis ng pag-playback.</string>
   <string name="revanced_playback_speed_default_title">Default na bilis ng pag-playback</string>
   <string name="revanced_remember_playback_speed_toast">Binago ang default na bilis sa: %s</string>
   </patch>

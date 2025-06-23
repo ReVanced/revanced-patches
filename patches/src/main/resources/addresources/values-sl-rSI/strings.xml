@@ -1390,6 +1390,9 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Zapomni si spremembe kakovosti videoposnetka</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Spremembe kakovosti se uporabijo za vse videoposnetke</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Spremembe kakovosti se uporabijo le za trenutni videoposnetek</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Prikaži obvestilo ob spremembi kakovosti videa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Obvestilo je prikazano, ko se spremeni privzeta kakovost videa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Obvestilo ni prikazano, ko se spremeni privzeta kakovost videa</string>
   <string name="revanced_video_quality_default_wifi_title">Privzeta kakovost videoposnetka v omrežju Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Privzeta kakovost videoposnetka v mobilnem omrežju</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapomni si spremembe kakovosti za Shorts</string>
@@ -1416,7 +1419,6 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Hitrosti predvajanja po meri morajo biti manjše od %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Neveljavne hitrosti predvajanja po meri</string>
   <string name="revanced_custom_playback_speeds_auto">Samodejno</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Hitrost predvajanja je bila ponastavljena na: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Hitrost pritiska in pridržanja po meri</string>
   <string name="revanced_speed_tap_and_hold_summary">Hitrost predvajanja med 0 in 8</string>
   </patch>
@@ -1424,6 +1426,9 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Zapomni si spremembe hitrosti predvajanja</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Spremembe hitrosti predvajanja se uporabijo za vse videoposnetke</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Spremembe hitrosti predvajanja se uporabijo le za trenutni videoposnetek</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Prikaži obvestilo ob spremembi hitrosti predvajanja</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Obvestilo je prikazano, ko se spremeni privzeta hitrost predvajanja</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Sporočilo ni prikazano, ko je privzeta hitrost predvajanja spremenjena</string>
   <string name="revanced_playback_speed_default_title">Privzeta hitrost predvajanja</string>
   <string name="revanced_remember_playback_speed_toast">Spremenjena privzeta hitrost na: %s</string>
   </patch>

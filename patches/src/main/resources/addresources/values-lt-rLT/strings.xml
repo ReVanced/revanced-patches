@@ -1389,6 +1389,9 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_remember_video_quality_last_selected_title">Atsiminti vaizdo įrašų kokybės pakeitimus</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kokybės pakeitimai taikomi visiems vaizdo įrašams</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kokybės pakeitimai taikomi tik dabartiniam vaizdo įrašui</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Rodyti pranešimą keičiant vaizdo kokybę</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Pranešimas rodomas, kai pakeičiama numatytoji vaizdo kokybė</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Pranešimas nerodomas, kai pakeičiama numatytoji vaizdo kokybė</string>
   <string name="revanced_video_quality_default_wifi_title">Numatytoji vaizdo įrašų kokybė „Wi-Fi“ tinkle</string>
   <string name="revanced_video_quality_default_mobile_title">Numatytoji vaizdo įrašų kokybė mobiliojo ryšio tinkle</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Atsiminti „Shorts“ kokybės pakeitimus</string>
@@ -1414,7 +1417,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_custom_playback_speeds_invalid">Pasirinktinis greitis turi būti mažesnis nei %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Netinkamas pasirinktinis atkūrimo greitis</string>
   <string name="revanced_custom_playback_speeds_auto">Automatinis</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Atkūrimo greitis nustatytas iš naujo: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Pritaikytas bakstelėjimo ir laikymo greitis</string>
   <string name="revanced_speed_tap_and_hold_summary">Atkūrimo greitis: nuo 0 iki 8</string>
   </patch>
@@ -1422,6 +1424,9 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_remember_playback_speed_last_selected_title">Atsiminti atkūrimo greičio pakeitimus</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Atkūrimo greičio pakeitimai taikomi visiems vaizdo įrašams</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Atkūrimo greičio pakeitimai taikomi tik dabartiniam vaizdo įrašui</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Rodyti pranešimą keičiant atkūrimo spartą</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Pranešimas rodomas, kai pakeičiama numatytoji atkūrimo sparta</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Pranešimas nerodomas, kai pakeičiamas numatytasis atkūrimo greitis.</string>
   <string name="revanced_playback_speed_default_title">Numatytasis atkūrimo greitis</string>
   <string name="revanced_remember_playback_speed_toast">Pakeistas numatytasis greitis į: %s</string>
   </patch>

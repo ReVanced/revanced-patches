@@ -21,7 +21,6 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">Les comprovacions han fallat</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <!-- Settings about dialog. -->
@@ -30,14 +29,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore no està instal·lat. Instal·la\'l.</string>
   </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Desactivar la reproducció en segon pla de Shorts</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   </patch>
@@ -55,46 +52,32 @@ Second \"item\" text"</string>
   <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
-  <string name="revanced_hide_keyword_content_about_whole_words_summary">Envoltar una paraula clau o frase amb cometes dobles impedirà que es trobin coincidències parcials en els títols dels vídeos i els noms dels canals&lt;br&gt;&lt;br&gt;Per exemple,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; amagarà el vídeo: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;però no amagarà: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Amaga els anuncis generals</string>
-  <string name="revanced_hide_shopping_links_title">Amaga els enllaços de compra a la descripció del vídeo</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Amaga l\'opció \"Visita la botiga\" a les pàgines dels canals</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
-  <string name="revanced_hide_get_premium_title">Amaga els anuncis de YouTube Premium</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
-  <string name="revanced_hide_video_ads_title">Amaga els anuncis de vídeo</string>
   </patch>
   <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
-  <string name="revanced_share_copy_url_success">S\'ha copiat l\'URL al porta-retalls</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
-  <string name="revanced_remove_viewer_discretion_dialog_title">Elimina el diàleg de discreció de l\'espectador</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
-  <string name="revanced_external_downloader_screen_title">Descarregues externes</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
-  <string name="revanced_disable_precise_seeking_gesture_title">Desactivar el gest de cerca precisa</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
-  <string name="revanced_swipe_brightness_title">Habilita el control de brillo por gesto</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automàtic</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_disable_auto_captions_title">Desactiva els subtítols automàtics</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
-  <string name="revanced_hide_buttons_screen_title">Botons d\'acció</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
@@ -107,7 +90,6 @@ Second \"item\" text"</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
-  <string name="revanced_navigation_buttons_screen_title">Botons de navegació</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
   <!-- The Create button has no display name. Translate normally. -->
@@ -115,7 +97,6 @@ Second \"item\" text"</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
-  <string name="revanced_hide_player_flyout_title">Menú desplegable</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -134,22 +115,16 @@ Second \"item\" text"</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
-  <string name="revanced_hide_endscreen_cards_title">Ocultar tarjetas de pantalla final</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">Desactiva el mode Ambient a pantalla completa</string>
   </patch>
   <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
-  <string name="revanced_hide_info_cards_title">Amaga les targetes d\'informació</string>
   </patch>
   <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
-  <string name="revanced_disable_rolling_number_animations_title">Desactiva les animacions de nombre de desplaçament</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Amagueu la barra de cerca del reproductor de vídeo</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
-  <string name="revanced_shorts_player_screen_title">Reproductor de Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
@@ -162,19 +137,14 @@ Second \"item\" text"</string>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
-  <string name="revanced_hide_timestamp_title">Amagar segell de temps del vídeo</string>
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
-  <string name="revanced_hide_player_popup_panels_title">Amagar panells emergents del reproductor</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
-  <string name="revanced_exit_fullscreen_title">Surt del mode de pantalla completa al final del vídeo</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
-  <string name="revanced_open_videos_fullscreen_portrait_title">Obrir vídeos en pantalla completa en format vertical</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
-  <string name="revanced_player_overlay_opacity_title">Opacitat de la superposició del reproductor</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
@@ -184,10 +154,8 @@ Second \"item\" text"</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   </patch>
   <patch id="layout.searchbar.wideSearchbarPatch">
-  <string name="revanced_wide_searchbar_title">Activar barra de cerca ampla</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  <string name="revanced_seekbar_thumbnails_high_quality_title">Activa miniatures d\'alta qualitat</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
@@ -196,10 +164,8 @@ Second \"item\" text"</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
-  <string name="revanced_change_form_factor_title">Factor de forma del disseny</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
-  <string name="revanced_spoof_app_version_title">Falsa la versió de l\'aplicació</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   </patch>

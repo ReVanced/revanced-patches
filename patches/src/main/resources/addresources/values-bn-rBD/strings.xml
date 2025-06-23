@@ -1386,6 +1386,9 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_remember_video_quality_last_selected_title">ভিডিও গুণমান পরিবর্তন মনে রাখুন</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">গুণমান পরিবর্তন সব ভিডিওতে প্রয়োগ করা হয়েছে</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">গুণমান পরিবর্তন বর্তমান ভিডিওতে প্রয়োগ করা হয়েছে</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">ভিডিও গুণমান পরিবর্তনে টোস্ট দেখান</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">ডিফল্ট ভিডিও গুণমান পরিবর্তন হলে একটি টোস্ট দেখানো হয়</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">ডিফল্ট ভিডিও গুণমান পরিবর্তন হলে একটি টোস্ট দেখানো হয় না</string>
   <string name="revanced_video_quality_default_wifi_title">ওয়াই-ফাই নেটওয়ার্কে ডিফল্ট ভিডিও গুণমান</string>
   <string name="revanced_video_quality_default_mobile_title">মোবাইল নেটওয়ার্কে ডিফল্ট ভিডিও গুণমান</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Shorts গুণমান পরিবর্তনের কথা মনে রাখুন</string>
@@ -1412,7 +1415,6 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_custom_playback_speeds_invalid">কাস্টম গতি %s এর চেয়ে কম হতে হবে</string>
   <string name="revanced_custom_playback_speeds_parse_exception">অবৈধ কাস্টম প্লেব্যাক গতি</string>
   <string name="revanced_custom_playback_speeds_auto">স্বতস্ফূর্তভাবে</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">প্লেব্যাক গতি রিসেট করা হয়েছে: %s</string>
   <string name="revanced_speed_tap_and_hold_title">কাস্টম ট্যাপ এন্ড হোল্ড স্পিড</string>
   <string name="revanced_speed_tap_and_hold_summary">০-৮ এর মধ্যে প্লেব্যাক স্পিড</string>
   </patch>
@@ -1420,6 +1422,9 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_remember_playback_speed_last_selected_title">প্লেব্যাকের স্পিড পরিবর্তন মনে রাখুন</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">প্লেব্যাকের স্পিড পরিবর্তন সকল ভিডিওতে প্রয়োগ হবে</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">প্লেব্যাকের স্পিড পরিবর্তন এই ভিডিওতে প্রয়োগ হবে</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">প্লেব্যাক গতি পরিবর্তনে টোস্ট দেখান</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">ডিফল্ট প্লেব্যাক গতি পরিবর্তন হলে একটি টোস্ট দেখানো হয়</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">যখন ডিফল্ট প্লেব্যাক গতি পরিবর্তন করা হয় তখন কোনো টোস্ট দেখানো হয় না।</string>
   <string name="revanced_playback_speed_default_title">প্লেব্যাকের মূল স্পিড</string>
   <string name="revanced_remember_playback_speed_toast">মূল স্পিড পরিবর্তন হচ্ছে: %s</string>
   </patch>
