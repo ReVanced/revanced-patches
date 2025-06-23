@@ -1,3 +1,10 @@
+# [5.29.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.4...v5.29.0-dev.5) (2025-06-23)
+
+
+### Bug Fixes
+
+* **Google Photos:** Resolve startup crash for Android 5.0 devices ([0294533](https://github.com/ReVanced/revanced-patches/commit/0294533c4d9a321aea086eedb4e46385ae9a026e))
+
 # [5.29.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.3...v5.29.0-dev.4) (2025-06-23)
 
 
