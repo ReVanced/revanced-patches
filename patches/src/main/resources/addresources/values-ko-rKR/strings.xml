@@ -402,7 +402,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_store_shelf_summary_off">판매자 쇼핑 선반이 표시됩니다\n• 판매자(크리에이터명) 선반</string>
   <string name="revanced_hide_shopping_links_title">동영상 설명에서 쇼핑 링크 숨기기</string>
   <string name="revanced_hide_shopping_links_summary_on">동영상 설명에서 쇼핑 링크가 숨겨집니다</string>
-  <string name="revanced_hide_shopping_links_summary_off">동영상 설명에서 쇼핑 링크가 포시됩니다</string>
+  <string name="revanced_hide_shopping_links_summary_off">동영상 설명에서 쇼핑 링크가 표시됩니다</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">채널 프로필에서 스토어 방문 버튼 숨기기</string>
   <string name="revanced_hide_visit_store_button_summary_on">스토어 방문 버튼이 숨겨집니다</string>
@@ -1398,6 +1398,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_remember_video_quality_last_selected_title">동영상 화질 저장 활성화하기</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값을 변경할 때마다 기본 동영상 화질으로 저장합니다</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값을 변경할 때마다 기본 동영상 화질으로 저장하지 않습니다</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">동영상 화질 변경 시 토스트 표시</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">기본 동영상 화질이 변경될 때 토스트가 표시됩니다</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">기본 동영상 화질이 변경될 때 토스트가 표시되지 않습니다</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 이용 시 기본 동영상 화질</string>
   <string name="revanced_video_quality_default_mobile_title">모바일 네트워크 이용 시 기본 동영상 화질</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Shorts 화질 저장 활성화하기</string>
@@ -1424,7 +1427,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_custom_playback_speeds_invalid">재생 속도 값은 %s배속보다 작아야 합니다</string>
   <string name="revanced_custom_playback_speeds_parse_exception">잘못된 사용자 정의 재생 속도 값입니다</string>
   <string name="revanced_custom_playback_speeds_auto">자동</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">동영상 재생 속도를 %s 으로 초기화하였습니다</string>
   <string name="revanced_speed_tap_and_hold_title">사용자 정의 길게 눌러서 동영상 재생 속도</string>
   <string name="revanced_speed_tap_and_hold_summary">화면을 길게 누르는 동안에 변경되는 동영상 재생 속도를 0-8 사이에서 지정할 수 있습니다</string>
   </patch>
@@ -1432,6 +1434,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">동영상 재생 속도 저장 활성화하기</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장합니다</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장하지 않습니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">재생 속도 변경 시 토스트 표시</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">기본 재생 속도가 변경될 때 토스트가 표시됩니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">기본 재생 속도가 변경될 때 토스트가 표시되지 않습니다.</string>
   <string name="revanced_playback_speed_default_title">기본 동영상 재생 속도</string>
   <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경하였습니다</string>
   </patch>

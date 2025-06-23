@@ -1172,6 +1172,7 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="revanced_change_start_page_entry_notifications">Notifiche</string>
   <string name="revanced_change_start_page_entry_playlists">Playlist</string>
   <string name="revanced_change_start_page_entry_search">Cerca</string>
+  <string name="revanced_change_start_page_entry_shopping">Acquisti</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Iscrizioni</string>
   <string name="revanced_change_start_page_entry_trending">Tendenze</string>
@@ -1388,6 +1389,9 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Ricorda le modifiche della qualità del video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Le modifiche della qualità si applicano a tutti i video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Le modifiche della qualità si applicano solo al video corrente</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Mostra messaggio a comparsa al cambiamento della qualità video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Viene mostrato un messaggio a comparsa quando la qualità video predefinita viene modificata</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Un messaggio a comparsa non viene mostrato quando la qualità video predefinita viene modificata</string>
   <string name="revanced_video_quality_default_wifi_title">Qualità video predefinita sulla rete Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualità video predefinita sulla rete mobile</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Ricorda le modifiche alla qualità di Shorts</string>
@@ -1414,7 +1418,6 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_custom_playback_speeds_invalid">Le velocità personalizzate devono essere inferiori a %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Velocità di riproduzione personalizzata non valida</string>
   <string name="revanced_custom_playback_speeds_auto">Automatico</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Velocità di riproduzione reimpostata su: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Velocità personalizzata di tocca e tieni premuto</string>
   <string name="revanced_speed_tap_and_hold_summary">Velocità di riproduzione tra 0-8</string>
   </patch>
@@ -1422,6 +1425,9 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Ricorda le modifiche della velocità di riproduzione</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Le modifiche alla velocità di riproduzione si applicano a tutti i video</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Le modifiche della velocità di riproduzione si applicano solo al video corrente</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Mostra messaggio a comparsa al cambiamento della velocità di riproduzione</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Viene mostrato un messaggio a comparsa quando la velocità di riproduzione predefinita viene modificata</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Un messaggio a comparsa non viene mostrato quando la velocità di riproduzione predefinita viene modificata</string>
   <string name="revanced_playback_speed_default_title">Velocità di riproduzione predefinita</string>
   <string name="revanced_remember_playback_speed_toast">Cambiato la velocità predefinita a: %s</string>
   </patch>

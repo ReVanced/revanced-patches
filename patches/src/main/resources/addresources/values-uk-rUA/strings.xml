@@ -1390,6 +1390,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Показувати спливаюче повідомлення про зміни якості відео</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Спливаюче повідомлення показується, коли змінюється якість відео за замовчуванням</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Спливаюче повідомлення не показується, коли змінюється якість відео за замовчуванням</string>
   <string name="revanced_video_quality_default_wifi_title">Стандартна якість відео у Wi-Fi мережі</string>
   <string name="revanced_video_quality_default_mobile_title">Стандартна якість відео в мобільній мережі</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Запам\'ятовувати зміни якості Shorts</string>
@@ -1416,7 +1419,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Користувацькі швидкості повинні бути менші ніж %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Неправильні користувацькі швидкості відтворення</string>
   <string name="revanced_custom_playback_speeds_auto">Авто</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Швидкість відтворення скинуто до: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Користувацька швидкість при натисканні та утриманні</string>
   <string name="revanced_speed_tap_and_hold_summary">Швидкість відтворення від 0 до 8</string>
   </patch>
@@ -1424,6 +1426,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Запам\'ятовувати зміни швидкості</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Зміни швидкості відтворення застосовуються до всіх відео</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Зміни швидкості відтворення застосовуються лише до поточного відео</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Показувати спливаюче повідомлення про зміни швидкості відтворення</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Спливаюче повідомлення показується, коли змінюється швидкість відтворення за замовчуванням</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Тост не відображається, коли змінюється швидкість відтворення за замовчуванням.</string>
   <string name="revanced_playback_speed_default_title">Стандартна швидкість відтворення</string>
   <string name="revanced_remember_playback_speed_toast">Швидкість змінена на %s</string>
   </patch>

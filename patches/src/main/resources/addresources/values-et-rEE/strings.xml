@@ -1388,6 +1388,9 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Määle video kvaliteedi muudatused meelde</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvaliteedi muudatused kehtivad kõigile videotele</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kvaliteedi muudatused kehtivad ainult praegusele videole</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Näita teavitust videokvaliteedi muutumisel</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Teavitus kuvatakse, kui vaikevideokvaliteeti muudetakse</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Teavitust ei kuvata, kui vaikevideokvaliteeti muudetakse</string>
   <string name="revanced_video_quality_default_wifi_title">Vaikimisi video kvaliteet Wi-Fi võrgus</string>
   <string name="revanced_video_quality_default_mobile_title">Vaikimisi video kvaliteet mobiilsidevõrgus</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Jäta meelde Shorts\'i kvaliteedimuudatused</string>
@@ -1413,7 +1416,6 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_custom_playback_speeds_invalid">Kohandatud kiirused peavad olema alla %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Kehtetud kohandatud video taasesituse kiirused</string>
   <string name="revanced_custom_playback_speeds_auto">Automaatne</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Taasesituse kiirus on lähtestatud: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Kohandatud puuduta ja hoia kiiruse tase</string>
   <string name="revanced_speed_tap_and_hold_summary">Taasesituse kiirus vahemikus 0-8</string>
   </patch>
@@ -1421,6 +1423,9 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Määle taasesituse kiiruse muudatused meelde</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Taasesituse kiiruse muudatused kehtivad kõigile videotele</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Taasesituse kiiruse muudatused kehtivad ainult praegusele videole</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Näita teavitust taasesituskiiruse muutumisel</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Teavitus kuvatakse, kui vaike-esituskiirust muudetakse</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Teavitust ei kuvata, kui vaike taasesituskiirust muudetakse.</string>
   <string name="revanced_playback_speed_default_title">Vaikimisi taasesituse kiirus</string>
   <string name="revanced_remember_playback_speed_toast">Vaikimisi kiirus muudeti: %s</string>
   </patch>

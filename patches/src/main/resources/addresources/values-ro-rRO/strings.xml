@@ -91,9 +91,12 @@ Apăsați butonul continuare și permiteți modificările de optimizare."</strin
   <string name="revanced_settings_screen_01_ads_title">Reclame</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniaturi alternative</string>
   <string name="revanced_settings_screen_03_feed_title">Flux</string>
+  <string name="revanced_settings_screen_04_general_title">General</string>
+  <string name="revanced_settings_screen_05_player_title">Player</string>
   <string name="revanced_settings_screen_07_seekbar_title">Bară de progres</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controale glisare</string>
   <string name="revanced_settings_screen_11_misc_title">Diverse</string>
+  <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Restaurare meniuri setări vechi</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Meniurile de setări vechi sunt afișate</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Meniurile de setări vechi nu sunt afișate</string>
@@ -1386,6 +1389,9 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Memorează modificările calității video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Modificările de calitate se aplică tuturor videoclipurilor</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Modificările de calitate se aplică numai video-ului curent</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Afișați notificare rapidă la modificările calității video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">O notificare rapidă este afișată când calitatea video implicită este modificată</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">O notificare rapidă nu este afișată când calitatea video implicită este modificată</string>
   <string name="revanced_video_quality_default_wifi_title">Calitate video implicită în rețeaua Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Calitatea video implicită în rețeaua mobilă</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Reține modificările calității pentru Shorts</string>
@@ -1412,7 +1418,6 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_custom_playback_speeds_invalid">Vitezele personalizate trebuie să fie mai mici de %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Viteze de redare personalizate nevalide</string>
   <string name="revanced_custom_playback_speeds_auto">Automat</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Viteza de redare a fost resetată la: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Viteză personalizată de apăsare și menținere</string>
   <string name="revanced_speed_tap_and_hold_summary">Viteză de redare între 0-8</string>
   </patch>
@@ -1420,6 +1425,9 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Memorează schimbările vitezei de redare</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Schimbarea vitezei de redare se aplică tuturor videoclipurilor</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Modificările vitezei de redare se aplică numai videoclipului curent</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Afișați notificare rapidă la modificările vitezei de redare</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">O notificare rapidă este afișată când viteza de redare implicită este modificată</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Un mesaj de tip toast nu se afișează când viteza de redare implicită este modificată</string>
   <string name="revanced_playback_speed_default_title">Viteza de redare implicită</string>
   <string name="revanced_remember_playback_speed_toast">Viteza implicită a fost modificată la: %s</string>
   </patch>

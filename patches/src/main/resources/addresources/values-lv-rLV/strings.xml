@@ -1391,6 +1391,9 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_remember_video_quality_last_selected_title">Atcerēties video kvalitātes izmaiņas</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitātes izmaiņas attiecas uz visiem videoklipiem</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitātes izmaiņas attiecas tikai uz pašreizējo videoklipu</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Rādīt paziņojumu par video kvalitātes izmaiņām</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Tiek parādīts paziņojums, kad tiek mainīta noklusējuma video kvalitāte</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Paziņojums netiek parādīts, kad tiek mainīta noklusējuma video kvalitāte</string>
   <string name="revanced_video_quality_default_wifi_title">Noklusējuma video kvalitāte Wi-Fi tīklā</string>
   <string name="revanced_video_quality_default_mobile_title">Noklusējuma video kvalitāte mobilajā tīklā</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Atcerēties Shorts kvalitātes izmaiņas</string>
@@ -1417,7 +1420,6 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_custom_playback_speeds_invalid">Pielāgoti ātrumi ir jābūt mazākiem par %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nederīgi pielāgoti video atskaņošanas ātrumi</string>
   <string name="revanced_custom_playback_speeds_auto">Automātiski</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Atskaņošanas ātrums atiestatīts uz: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Pielāgots pieskaršanās un turēšanas ātrums</string>
   <string name="revanced_speed_tap_and_hold_summary">Atskaņošanas ātrums no 0 līdz 8</string>
   </patch>
@@ -1425,6 +1427,9 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_remember_playback_speed_last_selected_title">Atcerēties atskaņošanas ātruma izmaiņas</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Atskaņošanas ātruma izmaiņas attiecas uz visiem videoklipiem</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Atskaņošanas ātruma izmaiņas attiecas tikai uz pašreizējo videoklipu</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Rādīt paziņojumu par atskaņošanas ātruma izmaiņām</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Tiek parādīts paziņojums, kad tiek mainīts noklusējuma atskaņošanas ātrums</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Paziņojums netiek rādīts, kad noklusējuma atskaņošanas ātrums tiek mainīts</string>
   <string name="revanced_playback_speed_default_title">Noklusējuma atskaņošanas ātrums</string>
   <string name="revanced_remember_playback_speed_toast">Izmainīts noklusējuma ātrums uz: %s</string>
   </patch>

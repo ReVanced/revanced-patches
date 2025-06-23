@@ -1390,6 +1390,9 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Pamatovat si změny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Změny kvality se vztahují na všechna videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Změny kvality se vztahují pouze na aktuální video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Zobrazit hlášku při změnách kvality videa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Zobrazí se hláška, když je změněna výchozí kvalita videa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Nezobrazí se hláška, když je změněna výchozí kvalita videa</string>
   <string name="revanced_video_quality_default_wifi_title">Výchozí kvalita videa v síti Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Výchozí kvalita videa v mobilní síti</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapamatovat si změny kvality u položky Shorts</string>
@@ -1416,7 +1419,6 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Vlastní rychlosti musí být menší než %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Neplatné vlastní rychlosti přehrávání</string>
   <string name="revanced_custom_playback_speeds_auto">Automaticky</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Rychlost přehrávání obnovena na: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Vlastní rychlost stisknutí a podržení</string>
   <string name="revanced_speed_tap_and_hold_summary">Rychlost přehrávání 0 až 8</string>
   </patch>
@@ -1424,6 +1426,9 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Pamatovat si změny rychlosti přehrávání</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Změny rychlosti přehrávání se vztahují na všechna videa</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Změny rychlosti přehrávání se vztahují pouze na aktuální video</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Zobrazit hlášku při změnách rychlosti přehrávání</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Zobrazí se hláška, když je změněna výchozí rychlost přehrávání</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Oznámení se nezobrazí, když je změněna výchozí rychlost přehrávání</string>
   <string name="revanced_playback_speed_default_title">Výchozí rychlost přehrávání</string>
   <string name="revanced_remember_playback_speed_toast">Výchozí rychlost změněna na: %s</string>
   </patch>

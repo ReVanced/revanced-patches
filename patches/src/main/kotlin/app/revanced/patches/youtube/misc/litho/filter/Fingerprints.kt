@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.misc.litho.filter
 
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.string
@@ -65,6 +66,15 @@ internal val emptyComponentFingerprint by fingerprint {
     )
     custom { _, classDef ->
         classDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1
+    }
+}
+
+internal val lithoThreadExecutorFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters("I", "I", "I")
+    custom { method, classDef ->
+        classDef.superclass == "Ljava/util/concurrent/ThreadPoolExecutor;" &&
+            method.containsLiteralInstruction(1L) // 1L = default thread timeout.
     }
 }
 

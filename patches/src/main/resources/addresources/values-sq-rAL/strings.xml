@@ -1388,6 +1388,9 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Mbani mend ndryshimet e cilësisë së videos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Ndryshimet e cilësisë zbatohen për të gjitha videot</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Ndryshimet e cilësisë zbatohen vetëm për videon aktuale</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Shfaq njoftim për ndryshimet e cilësisë së videos</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Shfaqet një njoftim kur ndryshohet cilësia e paracaktuar e videos</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Nuk shfaqet një njoftim kur ndryshohet cilësia e paracaktuar e videos</string>
   <string name="revanced_video_quality_default_wifi_title">Cilësia e videos parazgjedhëse në rrjetin Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Cilësia e videos parazgjedhëse në rrjetin celular</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Mbani mend ndryshimet e cilësisë së Shorts</string>
@@ -1414,7 +1417,6 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_custom_playback_speeds_invalid">Shpejtësitë e personalizuara duhet të jenë më të vogla se %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Shpejtësi të pavlefshme të personalizuar të riprodhimit</string>
   <string name="revanced_custom_playback_speeds_auto">Automatik</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Shpejtësia e riprodhimit u rivendos në: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Shpejtësia sipas dëshirës së përdoruesit gjatë përdorimit</string>
   <string name="revanced_speed_tap_and_hold_summary">Shpejtësi e riprodhimit midis 0 dhe 8</string>
   </patch>
@@ -1422,6 +1424,9 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Mbani mend ndryshimet e shpejtësisë së përsëritjes</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Ndryshimet e shpejtësisë së përsëritjes zbatohen për të gjitha videot</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Ndryshimet e shpejtësisë së përsëritjes zbatohen vetëm për videon aktuale</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Shfaq njoftim për ndryshimet e shpejtësisë së luajtjes</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Shfaqet një njoftim kur ndryshohet shpejtësia e paracaktuar e luajtjes</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Një njoftim nuk shfaqet kur ndryshohet shpejtësia e paracaktuar e riprodhimit.</string>
   <string name="revanced_playback_speed_default_title">Shpejtësia e përsëritjes parazgjedhëse</string>
   <string name="revanced_remember_playback_speed_toast">Ndryshuar shpejtësia parazgjedhëse në: %s</string>
   </patch>

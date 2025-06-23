@@ -1,3 +1,36 @@
+# [5.29.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.1...v5.29.0-dev.2) (2025-06-23)
+
+
+### Features
+
+* **Crunchyroll:** Add `Hide ads` patch ([#5201](https://github.com/ReVanced/revanced-patches/issues/5201)) ([46b4398](https://github.com/ReVanced/revanced-patches/commit/46b4398fd6ca223391ed8f497a8347c2313421b7))
+
+# [5.29.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.28.1-dev.2...v5.29.0-dev.1) (2025-06-23)
+
+
+### Bug Fixes
+
+* **YouTube:** Always use single threaded layout to resolve layout bugs in unpatched YouTube ([#5226](https://github.com/ReVanced/revanced-patches/issues/5226)) ([1f539b1](https://github.com/ReVanced/revanced-patches/commit/1f539b1396526b2c767d77a804bd0308ee4a42ec))
+
+
+### Features
+
+* **YouTube:** Add an option to disable toasts when changing default playback speed or quality ([#5230](https://github.com/ReVanced/revanced-patches/issues/5230)) ([c68cde3](https://github.com/ReVanced/revanced-patches/commit/c68cde3a896450874cc571be5c4723387db96032))
+
+## [5.28.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.28.1-dev.1...v5.28.1-dev.2) (2025-06-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Hide new type of product ad in video description ([#5225](https://github.com/ReVanced/revanced-patches/issues/5225)) ([1e2efad](https://github.com/ReVanced/revanced-patches/commit/1e2efad7b2714c395ed6b0a77cbbf8a2265df520))
+
+## [5.28.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.28.0...v5.28.1-dev.1) (2025-06-22)
+
+
+### Bug Fixes
+
+* Add scrollable content to modern style settings dialogs ([#5211](https://github.com/ReVanced/revanced-patches/issues/5211)) ([e6876d5](https://github.com/ReVanced/revanced-patches/commit/e6876d510d28f6a3a41ec1722a033b3e30a22c65))
+
 # [5.28.0](https://github.com/ReVanced/revanced-patches/compare/v5.27.0...v5.28.0) (2025-06-20)
 
 

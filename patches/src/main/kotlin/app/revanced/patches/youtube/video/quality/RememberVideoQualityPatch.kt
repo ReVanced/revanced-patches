@@ -57,7 +57,8 @@ val rememberVideoQualityPatch = bytecodePatch {
                 entriesKey = "revanced_shorts_quality_default_entries",
                 entryValuesKey = "revanced_shorts_quality_default_entry_values"
             ),
-            SwitchPreference("revanced_remember_shorts_quality_last_selected")
+            SwitchPreference("revanced_remember_shorts_quality_last_selected"),
+            SwitchPreference("revanced_remember_video_quality_last_selected_toast")
         ))
 
         /*
