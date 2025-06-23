@@ -1,3 +1,10 @@
+# [5.29.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.1...v5.29.0-dev.2) (2025-06-23)
+
+
+### Features
+
+* **Crunchyroll:** Add `Hide ads` patch ([#5201](https://github.com/ReVanced/revanced-patches/issues/5201)) ([46b4398](https://github.com/ReVanced/revanced-patches/commit/46b4398fd6ca223391ed8f497a8347c2313421b7))
+
 # [5.29.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.28.1-dev.2...v5.29.0-dev.1) (2025-06-23)
 
 
