@@ -19,7 +19,6 @@ import android.util.Pair;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -28,7 +27,6 @@ import java.util.Locale;
 
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
-import app.revanced.extension.shared.Utils;
 
 @SuppressWarnings("unused")
 public class GmsCoreSupport {
@@ -109,7 +107,6 @@ public class GmsCoreSupport {
     /**
      * Injection point.
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public static void checkGmsCore(Activity context) {
         try {
             // Verify the user has not included GmsCore for a root installation.
@@ -226,6 +223,11 @@ public class GmsCoreSupport {
      * @return If GmsCore is not whitelisted from battery optimizations.
      */
     private static boolean batteryOptimizationsEnabled(Context context) {
+        //noinspection ObsoleteSdkInt
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            // Android 5.0 does not have battery optimization settings.
+            return false;
+        }
         var powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         return !powerManager.isIgnoringBatteryOptimizations(GMS_CORE_PACKAGE_NAME);
     }
