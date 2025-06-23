@@ -90,8 +90,6 @@ public final class LithoFilterPatch {
      */
     private static final int LITHO_LAYOUT_THREAD_POOL_SIZE = 1;
 
-    private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
-
     /**
      * Placeholder for actual filters.
      */
@@ -103,6 +101,8 @@ public final class LithoFilterPatch {
 
     private static final StringTrieSearch pathSearchTree = new StringTrieSearch();
     private static final StringTrieSearch identifierSearchTree = new StringTrieSearch();
+
+    private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
     /**
      * Because litho filtering is multi-threaded and the buffer is passed in from a different injection point,
