@@ -617,9 +617,9 @@ public class CustomPlaybackSpeedPatch {
      * @return The rounded speed, constrained to the specified bounds.
      */
     private static float roundSpeedToNearestIncrement(float speed) {
-        // Round to nearest 0.05 speed.
-        final float roundedSpeed = Math.round(speed / 0.05f) * 0.05f;
-        return Utils.clamp(roundedSpeed, 0.05f, PLAYBACK_SPEED_MAXIMUM);
+        // Round to nearest 0.05 speed.  Must use double precision otherwise rounding error can occur.
+        final double roundedSpeed = Math.round(speed / 0.05) * 0.05;
+        return Utils.clamp((float) roundedSpeed, 0.05f, PLAYBACK_SPEED_MAXIMUM);
     }
 
     /**

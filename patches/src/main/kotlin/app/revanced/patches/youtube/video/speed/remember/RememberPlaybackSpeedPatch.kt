@@ -39,7 +39,8 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
                     entryValuesKey = null,
                     tag = "app.revanced.extension.youtube.settings.preference.CustomVideoSpeedListPreference"
                 ),
-                SwitchPreference("revanced_remember_playback_speed_last_selected")
+                SwitchPreference("revanced_remember_playback_speed_last_selected"),
+                SwitchPreference("revanced_remember_playback_speed_last_selected_toast")
             )
         )
 
