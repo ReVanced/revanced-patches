@@ -18,6 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/fix/SpoofClientPatch;"
+internal const val EXTENSION_CLASS_HELPER = "Lapp/revanced/extension/spotify/misc/fix/Helper;"
 
 @Suppress("unused")
 val spoofClientPatch = bytecodePatch(
@@ -176,15 +177,26 @@ val spoofClientPatch = bytecodePatch(
 
         firstLoginScreenFingerprint.method.apply {
             val onEventIndex = indexOfFirstInstructionOrThrow {
-                getReference<MethodReference>()?.name == "onEvent"
+                opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "getView"
             }
 
             addInstructions(
-                onEventIndex + 1,
+                onEventIndex + 2,
                 """
-                    invoke-virtual {v5}, Lp/clg;->getView()Landroid/view/View;
-                    move-result-object v5
-                    invoke-virtual {v5}, Landroid/view/View;->performClick()Z
+                    invoke-static {v4}, $EXTENSION_CLASS_HELPER->setButton(Landroid/view/View;)V
+                    """
+            )
+
+            val returnIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.RETURN_VOID
+            }
+
+            addInstructions(
+                returnIndex,
+                """
+                    invoke-static {}, $EXTENSION_CLASS_HELPER->getButton()Landroid/view/View;
+                    move-result-object v0
+                    invoke-virtual {v0}, Landroid/view/View;->performClick()Z
                     """
             )
         }
