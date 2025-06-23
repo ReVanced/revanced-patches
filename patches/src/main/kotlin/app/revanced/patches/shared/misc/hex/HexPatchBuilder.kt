@@ -17,12 +17,23 @@ class HexPatchBuilder internal constructor(
 ) : Set<Replacement> by replacements {
     infix fun String.asPatternTo(replacementPattern: String) = byteArrayOf(this) to byteArrayOf(replacementPattern)
 
-    infix fun Pair<ByteArray, ByteArray>.inFile(filePath: String) {
-        replacements += Replacement(first, second, filePath)
-    }
-
-    infix fun Pair<String, String>.inFile(filePath: String) {
-        first to second inFile filePath
+    infix fun <T> Pair<T, T>.inFile(filePath: String) {
+        if (first is String && second is String) {
+            val first = first as String
+            val second = second as String
+            
+            replacements += Replacement(
+                first.toByteArray(), second.toByteArray(),
+                filePath
+            )
+        } else if (first is ByteArray && second is ByteArray) {
+            val first = first as ByteArray
+            val second = second as ByteArray
+            
+            replacements += Replacement(first, second, filePath)
+        } else {
+            throw PatchException("Unsupported types for pattern and replacement: $first, $second")
+        }
     }
 }
 
