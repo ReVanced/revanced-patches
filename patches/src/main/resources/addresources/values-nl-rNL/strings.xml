@@ -1388,6 +1388,9 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Onthoud wijzigingen in videokwaliteit</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kwaliteitswijzigingen worden op alle video\'s toegepast</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kwaliteitswijzigingen worden alleen op de huidige video toegepast</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Toon melding bij wijzigingen in videokwaliteit</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Er wordt een melding getoond wanneer de standaard videokwaliteit wordt gewijzigd</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Er wordt geen melding getoond wanneer de standaard videokwaliteit wordt gewijzigd</string>
   <string name="revanced_video_quality_default_wifi_title">Standaard videokwaliteit op Wi-Fi-netwerk</string>
   <string name="revanced_video_quality_default_mobile_title">Standaard videokwaliteit op mobiel netwerk</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Onthoud kwaliteitswijzigingen voor Shorts</string>
@@ -1414,7 +1417,6 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_custom_playback_speeds_invalid">Aangepaste snelheden moeten lager zijn dan %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ongeldige aangepaste afspeelsnelheden</string>
   <string name="revanced_custom_playback_speeds_auto">Automatisch</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Afspeelsnelheid hersteld naar: %s</string>
   <string name="revanced_speed_tap_and_hold_title">De snelheid van aangepast tikken en vasthouden</string>
   <string name="revanced_speed_tap_and_hold_summary">Afspeelsnelheid tussen 0-8</string>
   </patch>
@@ -1422,6 +1424,9 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Onthoud wijzigingen in afspeelsnelheid</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Wijzigingen in afspeelsnelheid worden op alle video\'s toegepast</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Wijzigingen in afspeelsnelheid worden alleen op de huidige video toegepast</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Toon melding bij wijzigingen in afspeelsnelheid</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Er wordt een melding getoond wanneer de standaard afspeelsnelheid wordt gewijzigd</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Een toast wordt niet weergegeven wanneer de standaard afspeelsnelheid wordt gewijzigd</string>
   <string name="revanced_playback_speed_default_title">Standaard afspeelsnelheid</string>
   <string name="revanced_remember_playback_speed_toast">Standaard snelheid gewijzigd naar: %s</string>
   </patch>

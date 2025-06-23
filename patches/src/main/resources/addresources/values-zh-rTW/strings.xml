@@ -111,6 +111,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">記錄檔協定緩衝區</string>
   <string name="revanced_debug_protobuffer_summary_on">除錯記錄檔會包含協定緩衝資訊</string>
   <string name="revanced_debug_protobuffer_summary_off">除錯記錄檔不會包含協定緩衝資訊</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"啟用此設定將會記錄額外的佈局資料，包括部分使用者介面元件的畫面文字。
+
+這有助於在建立自訂過濾器時識別元件。
+
+不過，啟用此功能也會記錄部分使用者資料，例如您的 IP 位址。"</string>
   <string name="revanced_debug_stacktrace_title">記錄檔堆疊追蹤</string>
   <string name="revanced_debug_stacktrace_summary_on">除錯記錄檔會包含堆疊追蹤</string>
   <string name="revanced_debug_stacktrace_summary_off">除錯記錄檔不會包含堆疊追蹤</string>
@@ -1351,7 +1356,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">自訂速度必須小於 %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">自訂播放速度格式不正確</string>
   <string name="revanced_custom_playback_speeds_auto">自動</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">已將播放速度重設為：%s</string>
   <string name="revanced_speed_tap_and_hold_title">自訂輕觸和按住的速度</string>
   <string name="revanced_speed_tap_and_hold_summary">播放速度介於 0 到 8 之間</string>
   </patch>

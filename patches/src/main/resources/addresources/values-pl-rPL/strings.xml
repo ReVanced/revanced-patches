@@ -1386,6 +1386,9 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Zapamiętaj zmiany jakości filmu</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Zmiany jakości dotyczą wszystkich filmów</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Zmiany jakości dotyczą tylko bieżącego filmu</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Pokaż komunikat przy zmianach jakości wideo</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Komunikat jest wyświetlany, gdy domyślna jakość wideo zostanie zmieniona</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Komunikat nie jest wyświetlany, gdy domyślna jakość wideo zostanie zmieniona</string>
   <string name="revanced_video_quality_default_wifi_title">Domyślna jakość filmu w sieci Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Domyślna jakość filmu w sieci komórkowej</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapamiętaj zmiany jakości w Shorts</string>
@@ -1412,7 +1415,6 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_custom_playback_speeds_invalid">Prędkości niestandardowe muszą być mniejsze niż %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nieprawidłowe prędkości odtwarzania niestandardowego</string>
   <string name="revanced_custom_playback_speeds_auto">Automatyczne</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Prędkość odtwarzania zresetowana do: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Szybkość dostosowywania dotknięciem i przytrzymaniem</string>
   <string name="revanced_speed_tap_and_hold_summary">Prędkość odtwarzania w granicach 0-8</string>
   </patch>
@@ -1420,6 +1422,9 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Zapamiętuj zmiany prędkości odtwarzania</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Zmiany prędkości odtwarzania dotyczą wszystkich filmów</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Zmiany prędkości odtwarzania dotyczą tylko bieżącego filmu</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Pokaż komunikat przy zmianach szybkości odtwarzania</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Komunikat jest wyświetlany, gdy domyślna szybkość odtwarzania zostanie zmieniona</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Komunikat nie jest wyświetlany, gdy domyślna szybkość odtwarzania zostanie zmieniona</string>
   <string name="revanced_playback_speed_default_title">Domyślna prędkość odtwarzania</string>
   <string name="revanced_remember_playback_speed_toast">Zmieniono domyślną prędkość na: %s</string>
   </patch>

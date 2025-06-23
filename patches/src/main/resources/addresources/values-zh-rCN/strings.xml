@@ -1395,6 +1395,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">记住视频质量更改</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">质量更改适用于所有视频</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">质量更改仅适用于当前视频</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">视频画质改变时显示提示</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">当默认视频画质改变时会显示一个提示</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">当默认视频画质改变时不会显示提示</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 网络上的默认视频质量</string>
   <string name="revanced_video_quality_default_mobile_title">移动网络上的默认视频质量</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">记住 Shorts 画质更改</string>
@@ -1421,7 +1424,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">自定义速度必须小于 %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">自定义播放速度无效</string>
   <string name="revanced_custom_playback_speeds_auto">自动</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">已将播放速度重置为：%s</string>
   <string name="revanced_speed_tap_and_hold_title">自定义长按速度</string>
   <string name="revanced_speed_tap_and_hold_summary">0-8之间的播放速度</string>
   </patch>
@@ -1429,6 +1431,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">记住播放速度更改</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">播放速度更改适用于所有视频</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">播放速度更改仅适用于当前视频</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">播放速度改变时显示提示</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">当默认播放速度改变时会显示一个提示</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">当默认播放速度更改时，不显示提示。</string>
   <string name="revanced_playback_speed_default_title">默认播放速度</string>
   <string name="revanced_remember_playback_speed_toast">已更改默认速度为：%s</string>
   </patch>

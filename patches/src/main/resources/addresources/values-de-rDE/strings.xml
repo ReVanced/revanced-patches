@@ -1383,6 +1383,9 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_remember_video_quality_last_selected_title">Änderungen der Videoqualität merken</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Qualitätsänderungen gelten für alle Videos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Qualitätsänderungen gelten nur für das aktuelle Video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Toast bei Änderungen der Videoqualität anzeigen</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Ein Toast wird angezeigt, wenn die Standard-Videoqualität geändert wird</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Ein Toast wird nicht angezeigt, wenn die Standard-Videoqualität geändert wird</string>
   <string name="revanced_video_quality_default_wifi_title">Standard-Videoqualität im Wi-Fi-Netzwerk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard-Videoqualität im Mobilfunknetz</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Änderungen der Shorts-Qualität speichern</string>
@@ -1409,7 +1412,6 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_custom_playback_speeds_invalid">Benutzerdefinierte Geschwindigkeiten müssen kleiner als %s sein</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ungültige benutzerdefinierte Wiedergabegeschwindigkeiten</string>
   <string name="revanced_custom_playback_speeds_auto">Autom</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Wiedergabegeschwindigkeit zurückgesetzt auf: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Benutzerdefinierte Geschwindigkeit bei Tippen und Halten</string>
   <string name="revanced_speed_tap_and_hold_summary">Abspielgeschwindigkeit zwischen 0-8x</string>
   </patch>
@@ -1417,6 +1419,9 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_remember_playback_speed_last_selected_title">Änderungen der Wiedergabegeschwindigkeit merken</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Änderungen der Wiedergabegeschwindigkeit gelten für alle Videos</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Änderungen der Wiedergabegeschwindigkeit gelten nur für das aktuelle Video</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Toast bei Änderungen der Wiedergabegeschwindigkeit anzeigen</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Ein Toast wird angezeigt, wenn die Standard-Wiedergabegeschwindigkeit geändert wird</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Ein Toast wird nicht angezeigt, wenn die Standardwiedergabegeschwindigkeit geändert wird.</string>
   <string name="revanced_playback_speed_default_title">Standard Wiedergabegeschwindigkeit</string>
   <string name="revanced_remember_playback_speed_toast">Standardgeschwindigkeit geändert zu: %s</string>
   </patch>

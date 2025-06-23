@@ -1392,6 +1392,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запамти промене квалитета видеа</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Промене квалитета се примењују на све видее</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Промене квалитета се примењују само на тренутни видео</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Прикажи обавештење при промени квалитета видеа</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Обавештење се приказује када се промени подразумевани квалитет видеа</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Обавештење се не приказује када се промени подразумевани квалитет видеа</string>
   <string name="revanced_video_quality_default_wifi_title">Подразумевани квалитет видеа на Wi-Fi мрежи</string>
   <string name="revanced_video_quality_default_mobile_title">Подразумевани квалитет видеа на мобилној мрежи</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Запамти промене квалитета Shorts видеа</string>
@@ -1418,7 +1421,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Прилагођене брзине морају бити мање од %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Неважеће прилагођене брзине репродукције</string>
   <string name="revanced_custom_playback_speeds_auto">Аутоматски</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Брзина репродукције враћена на: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Прилагођена брзина додиривања и задржавања</string>
   <string name="revanced_speed_tap_and_hold_summary">Брзина репродукције између 0 и 8</string>
   </patch>
@@ -1426,6 +1428,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Запамти промене брзине репродукције</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Промене брзине репродукције се примењују на све видее</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Промене брзине репродукције се примењују само на тренутни видео</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Прикажи обавештење при промени брзине репродукције</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Обавештење се приказује када се промени подразумевана брзина репродукције</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Тост порука се не приказује када се промени подразумевана брзина репродукције.</string>
   <string name="revanced_playback_speed_default_title">Подразумевана брзина репродукције</string>
   <string name="revanced_remember_playback_speed_toast">Брзина репродукције промењена на: %s</string>
   </patch>

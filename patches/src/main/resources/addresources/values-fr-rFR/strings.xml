@@ -1389,6 +1389,9 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_remember_video_quality_last_selected_title">Mémoriser les changements de qualité vidéo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Les changements de qualité s\'appliquent à toutes les vidéos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Les changements de qualité s\'appliquent uniquement à la vidéo actuelle</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Afficher le toast lors des changements de qualité vidéo</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Un toast est affiché lorsque la qualité vidéo par défaut est modifiée</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Un toast n\'est pas affiché lorsque la qualité vidéo par défaut est modifiée</string>
   <string name="revanced_video_quality_default_wifi_title">Qualité vidéo par défaut sur les réseaux Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualité vidéo par défaut sur le réseau mobile</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Mémoriser les changements de qualité des Shorts</string>
@@ -1414,7 +1417,6 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_custom_playback_speeds_invalid">Il doit y avoir moins de %s vitesses personnalisées</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Vitesses de lecture personnalisées invalides</string>
   <string name="revanced_custom_playback_speeds_auto">Automatique</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Vitesse de lecture réinitialisée à : %s</string>
   <string name="revanced_speed_tap_and_hold_title">Vitesse personnalisée d\'accélération sur appui long</string>
   <string name="revanced_speed_tap_and_hold_summary">Vitesse de lecture comprise entre 0 et 8</string>
   </patch>
@@ -1422,6 +1424,9 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_remember_playback_speed_last_selected_title">Mémoriser les changements de vitesse de lecture</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Les changements de vitesse de lecture s\'appliquent à toutes les vidéos</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Les changements de vitesse de lecture s\'appliquent uniquement à la vidéo actuelle</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Afficher le toast lors des changements de vitesse de lecture</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Un toast est affiché lorsque la vitesse de lecture par défaut est modifiée</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Un toast n\'est pas affiché lorsque la vitesse de lecture par défaut est modifiée.</string>
   <string name="revanced_playback_speed_default_title">Vitesse de lecture par défaut</string>
   <string name="revanced_remember_playback_speed_toast">Nouvelle vitesse par défaut : %s</string>
   </patch>

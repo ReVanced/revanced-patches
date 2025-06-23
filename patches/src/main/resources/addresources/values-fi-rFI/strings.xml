@@ -96,6 +96,7 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_settings_screen_07_seekbar_title">Etenemispalkki</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Pyyhkäisyohjaus</string>
   <string name="revanced_settings_screen_11_misc_title">Sekalaiset</string>
+  <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Palauta vanhat asetusvalikot</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Vanhat asetusvalikot näytetään</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Vanhoja asetusvalikoita ei näytetä</string>
@@ -1172,6 +1173,7 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   <string name="revanced_change_start_page_entry_notifications">Ilmoitukset</string>
   <string name="revanced_change_start_page_entry_playlists">Soittolistat</string>
   <string name="revanced_change_start_page_entry_search">Haku</string>
+  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Urheilu</string>
   <string name="revanced_change_start_page_entry_subscriptions">Tilaukset</string>
   <string name="revanced_change_start_page_entry_trending">Nousussa</string>
@@ -1396,6 +1398,7 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_shorts_quality_default_wifi_title">Shorts-oletuslaatu Wi-Fi-verkossa</string>
   <string name="revanced_shorts_quality_default_mobile_title">Shorts-oletuslaatu mobiiliverkossa</string>
   <string name="revanced_remember_video_quality_mobile">mobiili</string>
+  <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">%1$s-oletuslaatu muutettiin: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Shortsien %1$s-laatu muutettiin: %2$s</string>
   </patch>
@@ -1413,7 +1416,6 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_custom_playback_speeds_invalid">Mukautettujen nopeuksien tulee olla alle %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Virheelliset mukautetut toistonopeudet</string>
   <string name="revanced_custom_playback_speeds_auto">Automaattinen</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Toistonopeus palautettu: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Mukautettu napauta ja pidä pohjassa -nopeus</string>
   <string name="revanced_speed_tap_and_hold_summary">Toistonopeus 0–8 välillä</string>
   </patch>
@@ -1514,6 +1516,7 @@ AVC:n maksimiresoluutio on 1080p, Opus-äänikoodekki ei ole käytettävissä, j
   <string name="revanced_about_summary">Tietoja ReVancedista</string>
   <string name="revanced_ads_screen_title">Mainokset</string>
   <string name="revanced_ads_screen_summary">Mainosestoasetukset</string>
+  <string name="revanced_chat_screen_title">Chat</string>
   <string name="revanced_chat_screen_summary">Chat-asetukset</string>
   <string name="revanced_misc_screen_title">Sekalaiset</string>
   <string name="revanced_misc_screen_summary">Sekalaiset asetukset</string>

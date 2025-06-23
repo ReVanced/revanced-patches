@@ -1389,6 +1389,9 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Ingat perubahan kualitas video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Perubahan kualitas diatur ke semua video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Perubahan kualitas hanya diatur di video saat ini</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Tampilkan pesan kilas saat kualitas video berubah</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Pesan kilas ditampilkan saat kualitas video default diubah</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Pesan kilas tidak ditampilkan saat kualitas video default diubah</string>
   <string name="revanced_video_quality_default_wifi_title">Kualitas video bawaan di jaringan Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Kualitas video bawaan di jaringan selular</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Ingat perubahan kualitas Shorts</string>
@@ -1415,7 +1418,6 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_custom_playback_speeds_invalid">Kecepatan khusus harus kurang dari %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Kecepatan pemutaran khusus tidak valid</string>
   <string name="revanced_custom_playback_speeds_auto">Otomatis</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Kecepatan pemutaran diatur ulang ke: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Kecepatan ketuk dan tahan khusus</string>
   <string name="revanced_speed_tap_and_hold_summary">Kecepatan pemutaran antara 0-8</string>
   </patch>
@@ -1423,6 +1425,9 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Ingat perubahan kecepatan pemutaran</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Perubahan kecepatan pemutaran berlaku untuk semua video</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Perubahan kecepatan pemutaran berlaku untuk video saat ini</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Tampilkan pesan kilas saat kecepatan pemutaran berubah</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Pesan kilas ditampilkan saat kecepatan pemutaran default diubah</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Pesan singkat tidak ditampilkan ketika kecepatan pemutaran default diubah.</string>
   <string name="revanced_playback_speed_default_title">Kecepatan pemutaran bawaan</string>
   <string name="revanced_remember_playback_speed_toast">Mengubah kecepatan bawaan menjadi: %s</string>
   </patch>

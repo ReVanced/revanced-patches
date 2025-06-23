@@ -1391,6 +1391,9 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_remember_video_quality_last_selected_title">Հիշել  տեսանյութի  որակի  փոփոխությունները</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Որակի  փոփոխությունները  կիրառվում են  բոլոր  տեսանյութերի  համար</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Որակի  փոփոխությունները  կիրառվում են  միայն  ներկայիս  տեսանյութի  համար</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Ցուցադրել ծանուցում տեսանյութի որակի փոփոխության ժամանակ</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Ծանուցում է ցուցադրվում, երբ փոխվում է լռելյայն տեսանյութի որակը</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Ծանուցում չի ցուցադրվում, երբ փոխվում է լռելյայն տեսանյութի որակը</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi  ցանցի  դեֆոլտ  տեսանյութի  որակը</string>
   <string name="revanced_video_quality_default_mobile_title">Մೊբայլ  ցանցի  դեֆոլտ  տեսանյութի  որակը</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Հիշել Shorts-ի որակի փոփոխությունները</string>
@@ -1417,7 +1420,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_custom_playback_speeds_invalid">Պատրաստված արագությունները պետք է լինեն ավելի քիչ քան %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Չի աշխատում պատրաստված վերարտադրման արագությունները։</string>
   <string name="revanced_custom_playback_speeds_auto">Ավտո</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Նվագարկման արագությունը վերականգնվել է. %s</string>
   <string name="revanced_speed_tap_and_hold_title">Զգայական վերահսկում՝ անվանափոխման համար</string>
   <string name="revanced_speed_tap_and_hold_summary">Վերարտադրման արագությունը 0-8 միջակայքում</string>
   </patch>
@@ -1425,6 +1427,9 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_remember_playback_speed_last_selected_title">Հիշել  տեսանյութի  վերարտադրման  արագության  փոփոխությունները</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Վերարտադրման  արագության  փոփոխությունները  կիրառվում են  բոլոր  տեսանյութերի  համար</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Վերարտադրման  արագության  փոփոխությունները  կիրառվում են  միայն  ներկայիս  տեսանյութի  համար</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Ցուցադրել ծանուցում նվագարկման արագության փոփոխությունների ժամանակ</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Ծանուցում է ցուցադրվում, երբ փոխվում է լռելյայն նվագարկման արագությունը</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Ծանուցումը չի ցուցադրվում, երբ փոխվում է լռելյայն նվագարկման արագությունը</string>
   <string name="revanced_playback_speed_default_title">Տեսանյութի  վերարտադրման  դեֆոլտ  արագությունը</string>
   <string name="revanced_remember_playback_speed_toast">Փոփոխվել է  դեֆոլտ  արագությունը: %s</string>
   </patch>

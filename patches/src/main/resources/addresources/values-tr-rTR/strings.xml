@@ -1397,6 +1397,9 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Video kalitesi değişikliklerini hatırla</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kalite değişiklikleri tüm videolara uygulanır</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kalite değişiklikleri sadece oynatılan videoya uygulanır</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Video kalitesi değişikliklerinde bildirim göster</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Varsayılan video kalitesi değiştirildiğinde bir bildirim gösterilir</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Varsayılan video kalitesi değiştirildiğinde bir bildirim gösterilmez</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi ağındaki varsayılan video kalitesi</string>
   <string name="revanced_video_quality_default_mobile_title">Mobil ağdaki varsayılan video kalitesi</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Shorts kalitesi değişikliklerini hatırla</string>
@@ -1423,7 +1426,6 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_custom_playback_speeds_invalid">Özel hızlar %s\'den az olmalıdır</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Geçersiz özel oynatma hızları</string>
   <string name="revanced_custom_playback_speeds_auto">Oto</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Oynatma hızı şu değere sıfırlandı: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Dokunup basılı tutma özel hızı</string>
   <string name="revanced_speed_tap_and_hold_summary">0-8 arası oynatma hızı</string>
   </patch>
@@ -1431,6 +1433,9 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Oynatma hızı değişikliklerini hatırla</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Oynatma hızı değişiklikleri tüm videolara uygulanır</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Oynatma hızı değişiklikleri yalnızca geçerli videoya uygulanır</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Oynatma hızı değişikliklerinde bildirim göster</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Varsayılan oynatma hızı değiştirildiğinde bir bildirim gösterilir</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Varsayılan oynatma hızı değiştirildiğinde bir bildirim gösterilmez.</string>
   <string name="revanced_playback_speed_default_title">Varsayılan oynatma hızı</string>
   <string name="revanced_remember_playback_speed_toast">Varsayılan hız %s olarak ayarlandı</string>
   </patch>

@@ -1387,6 +1387,9 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_remember_video_quality_last_selected_title">Felbontás változtatások mentése</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Felbontás változtatások alkalmazása az összes videóra</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Felbontás változtatások alkalmazása a jelenlegi videóra</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Értesítés megjelenítése videóminőség-változások esetén</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Értesítés jelenik meg az alapértelmezett videóminőség megváltoztatásakor</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Nem jelenik meg értesítés az alapértelmezett videóminőség megváltoztatásakor</string>
   <string name="revanced_video_quality_default_wifi_title">Alapértelmezett videó minőség Wi-Fi hálózaton</string>
   <string name="revanced_video_quality_default_mobile_title">Alapértelmezett videó minőség mobilhálózaton</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">A Shorts minőség módosításainak megjegyzése</string>
@@ -1413,7 +1416,6 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_custom_playback_speeds_invalid">Az egyéni sebességeknek kevesebbnek kell lenniük, mint %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Érvénytelen egyéni lejátszási sebességek</string>
   <string name="revanced_custom_playback_speeds_auto">Automatikus</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Lejátszási sebesség visszaállítva: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Egyéni koppintás és tartás sebesség</string>
   <string name="revanced_speed_tap_and_hold_summary">Lejátszási sebesség 0-8 között</string>
   </patch>
@@ -1421,6 +1423,9 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_remember_playback_speed_last_selected_title">Lejátszási sebesség módosításainak megjegyzése</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">A lejátszási sebesség módosítása minden videóra érvényes</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">A lejátszási sebesség módosítása csak a jelenlegi videóra érvényes</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Értesítés megjelenítése lejátszási sebesség változások esetén</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Értesítés jelenik meg az alapértelmezett lejátszási sebesség megváltoztatásakor</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">A felugró üzenet nem jelenik meg, amikor az alapértelmezett lejátszási sebesség megváltozik</string>
   <string name="revanced_playback_speed_default_title">Alapértelmezett lejátszási sebesség</string>
   <string name="revanced_remember_playback_speed_toast">Alapértelmezett sebesség módosítva: %s</string>
   </patch>
