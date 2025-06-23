@@ -1,3 +1,10 @@
+# [5.29.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.2...v5.29.0-dev.3) (2025-06-23)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix refactoring app startup exception ([1b00c90](https://github.com/ReVanced/revanced-patches/commit/1b00c907f4b90f4659afb4a54ba61ac2835b460d))
+
 # [5.29.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.1...v5.29.0-dev.2) (2025-06-23)
 
 
