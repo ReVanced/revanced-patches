@@ -150,14 +150,14 @@ val spoofClientPatch = bytecodePatch(
                 opcode == Opcode.RETURN_VOID
             }
 
-            addInstructions(
+            /*addInstructions(
                 returnIndex,
                 """
                     iget-object p1, p0, Lp/grw;->E1:Landroid/widget/Button;
 
                     invoke-virtual {p1}, Landroid/view/View;->performClick()Z
                     """
-            )
+            )*/
         }
 
         loginOnClickFingerprint.method.apply {
@@ -165,13 +165,29 @@ val spoofClientPatch = bytecodePatch(
                 opcode == Opcode.RETURN_VOID
             }
 
-            addInstructions(
+            /*addInstructions(
                 returnIndex - 1,
                 """
                     const-string v2, "bogus"
                     const-string p1, "bogus"
                     """
+            )*/
+        }
+
+        firstLoginScreenFingerprint.method.apply {
+            val onEventIndex = indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.name == "onEvent"
+            }
+
+            addInstructions(
+                onEventIndex + 1,
+                """
+                    invoke-virtual {v5}, Lp/clg;->getView()Landroid/view/View;
+                    move-result-object v5
+                    invoke-virtual {v5}, Landroid/view/View;->performClick()Z
+                    """
             )
         }
+
     }
 }

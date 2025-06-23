@@ -27,3 +27,7 @@ internal val loginSetListenerFingerprint = fingerprint {
 internal val loginOnClickFingerprint = fingerprint {
     strings("login", "listener", "none")
 }
+
+internal val firstLoginScreenFingerprint = fingerprint {
+    strings("authenticationButtonFactory", "intent_login")
+}
