@@ -8,6 +8,9 @@ import kotlin.collections.component2
 import kotlin.collections.groupBy
 import kotlin.math.max
 
+fun hexPatch(ignoreMissingTargetFiles: Boolean = false, block: HexPatchBuilder.() -> Unit) =
+    hexPatch(ignoreMissingTargetFiles, fun(): Set<Replacement> = HexPatchBuilder().apply(block))
+
 @Suppress("JavaDefaultMethodsNotOverriddenByDelegation")
 class HexPatchBuilder internal constructor(
     private val replacements: MutableSet<Replacement> = mutableSetOf(),
@@ -22,10 +25,6 @@ class HexPatchBuilder internal constructor(
         first to second inFile filePath
     }
 }
-
-fun hexPatch(ignoreMissingTargetFiles: Boolean = false, block: HexPatchBuilder.() -> Unit) =
-    hexPatch(ignoreMissingTargetFiles, fun(): Set<Replacement> = HexPatchBuilder().apply(block))
-
 
 // The replacements being passed using a function is intended.
 // Previously the replacements were a property of the patch. Getter were being delegated to that property.
