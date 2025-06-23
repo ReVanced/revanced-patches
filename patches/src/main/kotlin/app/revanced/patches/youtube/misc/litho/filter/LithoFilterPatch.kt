@@ -210,7 +210,7 @@ val lithoFilterPatch = bytecodePatch(
         // endregion
 
 
-        // region Change Litho thread executor to 1 thread to fix memory leaks and layout issue in unpatched YouTube.
+        // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube.
 
         lithoThreadExecutorFingerprint.method.addInstructions(
             0,
