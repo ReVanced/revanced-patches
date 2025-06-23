@@ -1,3 +1,15 @@
+# [5.29.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.28.1-dev.2...v5.29.0-dev.1) (2025-06-23)
+
+
+### Bug Fixes
+
+* **YouTube:** Always use single threaded layout to resolve layout bugs in unpatched YouTube ([#5226](https://github.com/ReVanced/revanced-patches/issues/5226)) ([1f539b1](https://github.com/ReVanced/revanced-patches/commit/1f539b1396526b2c767d77a804bd0308ee4a42ec))
+
+
+### Features
+
+* **YouTube:** Add an option to disable toasts when changing default playback speed or quality ([#5230](https://github.com/ReVanced/revanced-patches/issues/5230)) ([c68cde3](https://github.com/ReVanced/revanced-patches/commit/c68cde3a896450874cc571be5c4723387db96032))
+
 ## [5.28.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.28.1-dev.1...v5.28.1-dev.2) (2025-06-23)
 
 
