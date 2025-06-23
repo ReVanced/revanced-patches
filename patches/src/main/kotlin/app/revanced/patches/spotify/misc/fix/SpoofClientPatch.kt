@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
-import app.revanced.patches.shared.misc.hex.Replacement.Companion.replacementOf
+import app.revanced.patches.shared.misc.hex.HexPatchBuilder
 import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.findInstructionIndicesReversedOrThrow
@@ -38,27 +38,20 @@ val spoofClientPatch = bytecodePatch(
 
     dependsOn(
         sharedExtensionPatch,
-        hexPatch {
+        hexPatch(block = fun HexPatchBuilder.() {
             listOf(
                 "arm64-v8a",
                 "armeabi-v7a",
                 "x86",
                 "x86_64"
-            ).map {
-                listOf(
-                    replacementOf(
-                        "https://login5.spotify.com/v3/login",
-                        "http://127.0.0.1:$port/v3/login",
-                        "lib/$it/liborbit-jni-spotify.so"
-                    ),
-                    replacementOf(
-                        "https://login5.spotify.com/v4/login",
-                        "http://127.0.0.1:$port/v4/login",
-                        "lib/$it/liborbit-jni-spotify.so"
-                    ),
-                )
-            }.flatten().toSet()
-        }
+            ).forEach { architecture ->
+                "https://login5.spotify.com/v3/login" to "http://127.0.0.1:$port/v3/login" inFile
+                        "lib/$architecture/liborbit-jni-spotify.so"
+
+                "https://login5.spotify.com/v4/login" to "http://127.0.0.1:$port/v4/login" inFile
+                        "lib/$architecture/liborbit-jni-spotify.so"
+            }
+        })
     )
 
     compatibleWith("com.spotify.music")

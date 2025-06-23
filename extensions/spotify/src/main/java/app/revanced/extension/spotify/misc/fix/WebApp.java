@@ -12,7 +12,6 @@ import app.revanced.extension.shared.Utils;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
 
 class WebApp {
     private static final String OPEN_SPOTIFY_COM = "open.spotify.com";
@@ -26,14 +25,13 @@ class WebApp {
     private static final String JAVASCRIPT_INTERFACE_NAME = "androidInterface";
 
     /**
-     * A session obtained from the login web view.
-     * It is pending, because the user has yet to login into the native Spotify app, then it is returned to the app.
+     * A session obtained from the webview after logging in or refreshing the session.
      */
     @Nullable
-    static Session pendingLoginSession;
+    static Session currentSession;
 
     static void login(Context context) {
-        pendingLoginSession = null;
+        currentSession = null;
 
         Utils.runOnMainThreadNowOrLater(() -> {
             Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
@@ -43,14 +41,13 @@ class WebApp {
                 dialog.dismiss();
             }, (webView1, session) -> {
                 Logger.printInfo(() -> "Received session from login: " + session);
-                pendingLoginSession = session;
+                currentSession = session;
 
                 Utils.runOnMainThreadNowOrLater(() -> {
                     webView1.stopLoading();
                     webView1.destroy();
                 });
             });
-
 
             // Ensure that cookies are cleared before loading the login page.
             CookieManager.getInstance().removeAllCookies((anyRemoved) ->
@@ -64,57 +61,51 @@ class WebApp {
     }
 
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    @Nullable
-    static Session refreshSession(String cookies) {
+    static void refreshSession(String cookies) {
         setCookies(cookies);
 
-        AtomicReference<Session> sessionRef = new AtomicReference<>(null);
-        AtomicReference<WebView> webViewRef = new AtomicReference<>(null);
-        Semaphore getSessionSemaphore = new Semaphore(0);
-        Semaphore startTimeoutSemaphore = new Semaphore(0);
+        Semaphore getSessionSemaphore = new Semaphore(1);
 
-        int attempts = 1;
-        do {
-            int attemptNumber = attempts;
-            Logger.printInfo(() -> "Attempt " + attemptNumber + ": Getting session for "
-                    + GET_SESSION_TIMEOUT_SECONDS + " seconds...");
+        Utils.runOnMainThreadNowOrLater(() -> {
+            WebView webView = newWebView(null, (webView1, session) -> {
+                Logger.printInfo(() -> "Received session: " + session);
+                currentSession = session;
+                getSessionSemaphore.release();
+            });
 
-            Utils.runOnMainThreadNowOrLater(() -> {
-                WebView webView = webViewRef.get();
-                if (webView == null) {
-                    webView = newWebView(null, (webView1, session) -> {
-                        Logger.printInfo(() -> "Received session: " + session);
-                        sessionRef.set(session);
-                        getSessionSemaphore.release();
-                    });
-                    webViewRef.set(webView);
-                }
+            int attempts = 1;
+            do {
+                int attemptNumber = attempts;
+                Logger.printInfo(() -> "Attempt " + attemptNumber + ": Getting session for "
+                        + GET_SESSION_TIMEOUT_SECONDS + " seconds...");
+
+                getSessionSemaphore.release();
 
                 webView.stopLoading(); // Stop any previous loading.
                 webView.loadUrl(OPEN_SPOTIFY_COM_PREFERENCES_URL);
-                startTimeoutSemaphore.release();
-            });
 
-            startTimeoutSemaphore.tryAcquire();
+                try {
+                    boolean isAcquired = getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+                    if (isAcquired) return;
 
-            try {
-                boolean isAcquired = getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-                if (isAcquired) break;
+                } catch (InterruptedException e) {
+                    Logger.printException(() -> "Interrupted while waiting for session", e);
+                    break;
+                }
 
-            } catch (InterruptedException ex) {
-                Logger.printException(() -> "Interrupted while waiting for session", ex);
-                break;
-            }
-        } while (++attempts <= 3);
+            } while (attempts++ <= 3);
 
-        Utils.runOnMainThreadNowOrLater(() -> {
-            WebView webView = webViewRef.get();
             webView.stopLoading();
             webView.destroy();
         });
 
-        return sessionRef.get();
+        try {
+            // At most 3 attempts * timeout duration.
+            //noinspection ResultOfMethodCallIgnored
+            getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS * 3L, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            Logger.printException(() -> "Interrupted while waiting for session from UI thread", e);
+        }
     }
 
     private interface HasLoggedInCallback {
