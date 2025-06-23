@@ -1,3 +1,10 @@
+## [5.28.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.28.1-dev.1...v5.28.1-dev.2) (2025-06-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Hide new type of product ad in video description ([#5225](https://github.com/ReVanced/revanced-patches/issues/5225)) ([1e2efad](https://github.com/ReVanced/revanced-patches/commit/1e2efad7b2714c395ed6b0a77cbbf8a2265df520))
+
 ## [5.28.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.28.0...v5.28.1-dev.1) (2025-06-22)
 
 
