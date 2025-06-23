@@ -1,3 +1,10 @@
+# [5.29.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.3...v5.29.0-dev.4) (2025-06-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Fix "Hide Use this sound button" ([#5233](https://github.com/ReVanced/revanced-patches/issues/5233)) ([5d6ec9e](https://github.com/ReVanced/revanced-patches/commit/5d6ec9e94a6221a0f32762d5bede893e9e7457fc))
+
 # [5.29.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.2...v5.29.0-dev.3) (2025-06-23)
 
 
