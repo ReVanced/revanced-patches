@@ -1392,6 +1392,9 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Husk ændringer i videokvalitet</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitetsændringer gælder for alle videoer</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitetsændringer gælder kun for den aktuelle video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Vis notifikation ved ændring af videokvalitet</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">En notifikation vises, når standardvideokvaliteten ændres</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Der vises ikke en notifikation, når standardvideokvaliteten ændres</string>
   <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-netværk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilnetværk</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Husk kvalitetsændringer for Shorts</string>
@@ -1418,7 +1421,6 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_custom_playback_speeds_invalid">Brugerdefinerede hastigheder skal være mindre end %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ugyldige brugerdefinerede afspilningshastigheder</string>
   <string name="revanced_custom_playback_speeds_auto">Automatisk</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Afspilningshastighed nulstillet til: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Brugerdefineret hastighed, når du holder den nede</string>
   <string name="revanced_speed_tap_and_hold_summary">Afspilningshastighed mellem 0-8</string>
   </patch>
@@ -1426,6 +1428,9 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Husk ændringer i afspilningshastighed</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Ændring af afspilningshastighed gælder for alle videoer</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Ændringerne i afspilningshastighed gælder kun for den aktuelle video</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Vis notifikation ved ændring af afspilningshastighed</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">En notifikation vises, når standardafspilningshastigheden ændres</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Meddelelse vises ikke, når standardafspilningshastigheden ændres</string>
   <string name="revanced_playback_speed_default_title">Standard afspilningshastighed</string>
   <string name="revanced_remember_playback_speed_toast">Ændrede standardhastighed til: %s</string>
   </patch>

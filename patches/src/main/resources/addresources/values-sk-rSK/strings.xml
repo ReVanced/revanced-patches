@@ -1378,6 +1378,9 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Pamätajte na zmeny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Zmeny kvality sa vzťahujú na všetky videá</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Zmeny kvality sa vzťahujú iba na aktuálne video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Zobraziť hlášku pri zmene kvality videa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Hláška sa zobrazí, keď sa zmení predvolená kvalita videa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Hláška sa nezobrazí, keď sa zmení predvolená kvalita videa</string>
   <string name="revanced_video_quality_default_wifi_title">Predvolená kvalita videa v sieti Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Predvolená kvalita videa v mobilnej sieti</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapamätať si zmeny kvality pre Shorts</string>
@@ -1404,7 +1407,6 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Vlastné rýchlosti musia byť menšie ako %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Neplatné vlastné rýchlosti prehrávania</string>
   <string name="revanced_custom_playback_speeds_auto">Automaticky</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Rýchlosť prehrávania obnovená na: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Vlastná rýchlosť ťuknutia a podržania</string>
   <string name="revanced_speed_tap_and_hold_summary">Rýchlosť prehrávania medzi 0-8</string>
   </patch>
@@ -1412,6 +1414,9 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Pamätajte na zmeny rýchlosti prehrávania</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Zmeny rýchlosti prehrávania sa vzťahujú na všetky videá</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Zmeny rýchlosti prehrávania sa vzťahujú len na aktuálne video</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Zobraziť hlášku pri zmene rýchlosti prehrávania</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Hláška sa zobrazí, keď sa zmení predvolená rýchlosť prehrávania</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Hláška sa nezobrazuje, keď sa zmení predvolená rýchlosť prehrávania</string>
   <string name="revanced_playback_speed_default_title">Predvolená rýchlosť prehrávania</string>
   <string name="revanced_remember_playback_speed_toast">Predvolená rýchlosť bola zmenená na: %s</string>
   </patch>

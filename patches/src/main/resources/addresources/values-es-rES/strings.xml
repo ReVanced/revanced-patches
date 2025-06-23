@@ -1378,6 +1378,9 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Recordar cambios de calidad de vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Los cambios de calidad se aplican a todos los vídeos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Los cambios de calidad sólo se aplican al vídeo actual</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Mostrar notificación al cambiar la calidad de video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Se muestra una notificación cuando se cambia la calidad de video predeterminada</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">No se muestra una notificación cuando se cambia la calidad de video predeterminada</string>
   <string name="revanced_video_quality_default_wifi_title">Calidad de vídeo predeterminada en la red Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Calidad de vídeo predeterminada en la red móvil</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Recordar cambios en la calidad de Shorts</string>
@@ -1404,7 +1407,6 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_custom_playback_speeds_invalid">Las velocidades personalizadas deben ser menores que %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Velocidades de reproducción personalizadas no válidas</string>
   <string name="revanced_custom_playback_speeds_auto">Automático</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Velocidad de reproducción restablecida a: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Velocidad personalizada al tocar y mantener</string>
   <string name="revanced_speed_tap_and_hold_summary">Velocidad de reproducción entre 0-8</string>
   </patch>
@@ -1412,6 +1414,9 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Recordar cambios de velocidad de reproducción</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Los cambios de velocidad de reproducción se aplican a todos los vídeos</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Los cambios de velocidad de reproducción sólo se aplican al vídeo actual</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Mostrar notificación al cambiar la velocidad de reproducción</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Se muestra una notificación cuando se cambia la velocidad de reproducción predeterminada</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Un mensaje no se muestra cuando se cambia la velocidad de reproducción predeterminada</string>
   <string name="revanced_playback_speed_default_title">Velocidad de reproducción por defecto</string>
   <string name="revanced_remember_playback_speed_toast">Cambió la velocidad predeterminada a: %s</string>
   </patch>

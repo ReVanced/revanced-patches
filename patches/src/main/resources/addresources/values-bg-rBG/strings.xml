@@ -1390,6 +1390,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запомни промените в качеството на видеото</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Промените в качеството се отнасят за всички видеоклипове</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Промените в качеството се отнасят само за текущия видеоклип</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Показване на известие при промени в качеството на видеото</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Показва се известие, когато се промени качеството на видеото по подразбиране</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Не се показва известие, когато се промени качеството на видеото по подразбиране</string>
   <string name="revanced_video_quality_default_wifi_title">Предпочитано качество при Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Предпочитано качество при мобилни данни</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Запомняне на промените в качеството на Shorts</string>
@@ -1416,7 +1419,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Персонализираните скорости трябва да са по-малки от %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Невалидни персонализирани скорости на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_auto">Авто</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Скоростта на възпроизвеждане е нулирана на: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Персонализирана скорост при докосване и задържане</string>
   <string name="revanced_speed_tap_and_hold_summary">Скорост на възпроизвеждане между 0-8</string>
   </patch>
@@ -1424,6 +1426,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Запомни промените в скоростта на възпроизвеждане</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Промените в скоростта на възпроизвеждане се отнасят за всички видеоклипове</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Промените в скоростта на възпроизвеждане се отнасят само за текущия видеоклип</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Показване на известие при промени в скоростта на възпроизвеждане</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Показва се известие, когато се промени скоростта на възпроизвеждане по подразбиране</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Известие не се показва, когато скоростта на възпроизвеждане по подразбиране се промени</string>
   <string name="revanced_playback_speed_default_title">Скорост на възпроизвеждане по подразбиране</string>
   <string name="revanced_remember_playback_speed_toast">Скоростта по подразбиране е променена на: %s</string>
   </patch>

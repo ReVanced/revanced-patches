@@ -1415,7 +1415,6 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_custom_playback_speeds_invalid">Fərdi sürətlər %s dəyərindən az olmalıdır</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Fərdi oynatma sürətləri etibarsızdır</string>
   <string name="revanced_custom_playback_speeds_auto">Avtomatik</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Oynatma sürəti sıfırlandı: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Xüsusi toxunma və saxlanılma sürəti</string>
   <string name="revanced_speed_tap_and_hold_summary">0-8 arası oynatma sürəti</string>
   </patch>

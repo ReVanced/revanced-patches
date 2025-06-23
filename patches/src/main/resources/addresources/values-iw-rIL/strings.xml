@@ -1392,6 +1392,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">זכור שינויי איכות סרטון</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">שינויי איכות חלים על כל הסרטונים</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">שינויי איכות חלים רק על הסרטון הנוכחי</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">הצג הודעה קופצת בעת שינויים באיכות הווידאו</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">מוצגת הודעה קופצת כאשר איכות הווידאו המוגדרת כברירת מחדל משתנה</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">הודעה קופצת אינה מוצגת כאשר איכות הווידאו המוגדרת כברירת מחדל משתנה</string>
   <string name="revanced_video_quality_default_wifi_title">איכות סרטון ברירת מחדל ברשת אלחוטית</string>
   <string name="revanced_video_quality_default_mobile_title">איכות סרטון ברירת מחדל ברשת סלולרית</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">זכור שינויי איכות Shorts</string>
@@ -1418,7 +1421,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">מהירויות מותאמות אישית חייבות להיות קטנות מ-%s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">מהירויות הפעלה מותאמות אישית לא חוקיות</string>
   <string name="revanced_custom_playback_speeds_auto">אוטומטי</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">מהירות ההפעלה אופסה ל: %s</string>
   <string name="revanced_speed_tap_and_hold_title">מהירות הקשה והחזקה מותאמת אישית</string>
   <string name="revanced_speed_tap_and_hold_summary">מהירות הפעלה בין 0 ל-8</string>
   </patch>
@@ -1426,6 +1428,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">זכור שינויי מהירות הפעלה</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">שינויי מהירות הפעלה חלים על כל הסרטונים</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">שינויי מהירות הפעלה חלים רק על הסרטון הנוכחי</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">הצג הודעה קופצת בעת שינויים במהירות ההפעלה</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">מוצגת הודעה קופצת כאשר מהירות ההפעלה המוגדרת כברירת מחדל משתנה</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">הודעה קופצת אינה מוצגת כאשר מהירות ההפעלה המוגדרת כברירת מחדל משתנה</string>
   <string name="revanced_playback_speed_default_title">מהירות הפעלה ברירת מחדל</string>
   <string name="revanced_remember_playback_speed_toast">מהירות ברירת המחדל שונתה ל: %s</string>
   </patch>

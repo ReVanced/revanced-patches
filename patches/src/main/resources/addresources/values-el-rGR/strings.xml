@@ -1389,6 +1389,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας βίντεο</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Οι αλλαγές ποιότητας ισχύουν για όλα τα βίντεο</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Οι αλλαγές ποιότητας ισχύουν μόνο για το τρέχον βίντεο</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Εμφάνιση τοστ κατά τις αλλαγές ποιότητας βίντεο</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Εμφανίζεται ένα τοστ όταν αλλάζει η προεπιλεγμένη ποιότητα βίντεο</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Δεν εμφανίζεται ένα τοστ όταν αλλάζει η προεπιλεγμένη ποιότητα βίντεο</string>
   <string name="revanced_video_quality_default_wifi_title">Προεπιλεγμένη ποιότητα βίντεο σε δίκτυο Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Προεπιλεγμένη ποιότητα βίντεο με δεδομένα κινητής τηλεφωνίας</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας στα Shorts</string>
@@ -1415,7 +1418,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Οι ταχύτητες πρέπει να είναι μικρότερες από %sx</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Μη έγκυρες προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
   <string name="revanced_custom_playback_speeds_auto">Αυτόματη</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Η ταχύτητα αναπαραγωγής επαναφέρθηκε σε: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Προσαρμοσμένη ταχύτητα παρατεταμένου πατήματος</string>
   <string name="revanced_speed_tap_and_hold_summary">Ταχύτητα αναπαραγωγής μεταξύ 0-8</string>
   </patch>
@@ -1423,6 +1425,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Απομνημόνευση αλλαγών ταχύτητας αναπαραγωγής</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Οι αλλαγές ταχύτητας αναπαραγωγής ισχύουν για όλα τα βίντεο</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Οι αλλαγές ταχύτητας αναπαραγωγής ισχύουν μόνο για το τρέχον βίντεο</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Εμφάνιση τοστ κατά τις αλλαγές ταχύτητας αναπαραγωγής</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Εμφανίζεται ένα τοστ όταν αλλάζει η προεπιλεγμένη ταχύτητα αναπαραγωγής</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Ένα μήνυμα ειδοποίησης δεν εμφανίζεται όταν αλλάζει η προεπιλεγμένη ταχύτητα αναπαραγωγής.</string>
   <string name="revanced_playback_speed_default_title">Προεπιλεγμένη ταχύτητα αναπαραγωγής</string>
   <string name="revanced_remember_playback_speed_toast">Η προεπιλεγμένη ταχύτητα άλλαξε σε: %s</string>
   </patch>
