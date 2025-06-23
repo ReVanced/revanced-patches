@@ -1494,7 +1494,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s</string>
             <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_auto">Auto</string>
-            <string name="revanced_custom_playback_speeds_reset_toast">Playback speed reset to: %s</string>
             <string name="revanced_speed_tap_and_hold_title">Custom tap and hold speed</string>
             <string name="revanced_speed_tap_and_hold_summary">Playback speed between 0-8</string>
         </patch>
@@ -1503,8 +1502,8 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_remember_playback_speed_last_selected_summary_on">Playback speed changes apply to all videos</string>
             <string name="revanced_remember_playback_speed_last_selected_summary_off">Playback speed changes only apply to the current video</string>
             <string name="revanced_remember_playback_speed_last_selected_toast_title">Show toast on playback speed changes</string>
-            <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">A toast is shown when the playback speed is changed</string>
-            <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">A toast is not shown when the playback speed is changed</string>
+            <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">A toast is shown when the default playback speed is changed</string>
+            <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">A toast is not shown when the default playback speed is changed</string>
             <string name="revanced_playback_speed_default_title">Default playback speed</string>
             <string name="revanced_remember_playback_speed_toast">Changed default speed to: %s</string>
         </patch>
