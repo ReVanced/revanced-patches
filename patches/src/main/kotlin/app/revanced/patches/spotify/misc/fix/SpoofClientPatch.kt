@@ -38,7 +38,7 @@ val spoofClientPatch = bytecodePatch(
 
     dependsOn(
         sharedExtensionPatch,
-        hexPatch(block = fun HexPatchBuilder.() {
+        hexPatch(ignoreMissingTargetFiles = true, block = fun HexPatchBuilder.() {
             listOf(
                 "arm64-v8a",
                 "armeabi-v7a",
