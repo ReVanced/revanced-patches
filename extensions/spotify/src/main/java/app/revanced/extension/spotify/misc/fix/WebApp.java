@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.spotify.UserAgent;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -21,8 +22,8 @@ class WebApp {
             "https%3A%2F%2Fopen.spotify.com%2Fpreferences";
 
     private static final int GET_SESSION_TIMEOUT_SECONDS = 5;
-
     private static final String JAVASCRIPT_INTERFACE_NAME = "androidInterface";
+    private static final String USER_AGENT = getWebUserAgent();
 
     /**
      * A session obtained from the webview after logging in or refreshing the session.
@@ -86,17 +87,18 @@ class WebApp {
 
                 try {
                     boolean isAcquired = getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-                    if (isAcquired) return;
-
+                    if (isAcquired) {
+                        Logger.printInfo(() -> "Session obtained successfully on attempt " + attemptNumber);
+                        webView.stopLoading();
+                        webView.destroy();
+                        break;
+                    }
                 } catch (InterruptedException e) {
                     Logger.printException(() -> "Interrupted while waiting for session", e);
                     break;
                 }
 
             } while (attempts++ <= 3);
-
-            webView.stopLoading();
-            webView.destroy();
         });
 
         try {
@@ -126,7 +128,8 @@ class WebApp {
         WebSettings settings = webView.getSettings();
         settings.setDomStorageEnabled(true);
         settings.setJavaScriptEnabled(true);
-        settings.setUserAgentString(getWebUserAgent());
+
+        settings.setUserAgentString(USER_AGENT);
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -182,20 +185,12 @@ class WebApp {
 
     @NonNull
     private static String getWebUserAgent() {
-        String userAgent = WebSettings.getDefaultUserAgent(Utils.getContext());
+        String userAgentString = WebSettings.getDefaultUserAgent(Utils.getContext());
 
-        int index = userAgent.indexOf("Linux");
-        if (index != -1) {
-            StringBuilder userAgentBuilder = new StringBuilder(userAgent);
-            int start = userAgent.indexOf('(', index - 1);
-            int end = userAgent.indexOf(')', start);
-
-            if (start != -1 && end != -1) {
-                userAgentBuilder.replace(start + 1, end, "Windows NT 10.0; Win64; x64");
-                String spoofedUserAgent = userAgentBuilder.toString();
-                Logger.printInfo(() -> "Web user agent: " + spoofedUserAgent);
-                return spoofedUserAgent;
-            }
+        try {
+            return new UserAgent(userAgentString).removeProduct("Mobile").toString();
+        } catch (IllegalArgumentException e) {
+            Logger.printException(() -> "Failed to parse user agent: " + userAgentString, e);
         }
 
         String fallbackUserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +

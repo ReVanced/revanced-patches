@@ -7,7 +7,7 @@ dependencies {
     compileOnly(project(":extensions:spotify:stub"))
     compileOnly(libs.annotation)
 
-    implementation(project(":extensions:spotify:useragent-parser"))
+    implementation(project(":extensions:spotify:utils"))
     implementation(libs.nanohttpd)
     implementation(libs.protobuf.javalite)
 }

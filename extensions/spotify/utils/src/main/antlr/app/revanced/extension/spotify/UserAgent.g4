@@ -3,11 +3,11 @@ grammar UserAgent;
 @header { package app.revanced.extension.spotify; }
 
 userAgent
-    : product+ EOF
+    : product (WS product)* EOF
     ;
 
 product
-    : name ('/' version)? COMMENT?
+    : name ('/' version)? (WS COMMENT)?
     ;
 
 name
@@ -27,5 +27,5 @@ STRING
     ;
 
 WS
-    : [ \r\n]+ -> skip
+    : [ \r\n]+ 
     ;
