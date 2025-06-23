@@ -825,9 +825,12 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_shorts_save_sound_button_title">Hide Save music button</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music button is hidden</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music button is shown</string>
-            <string name="revanced_hide_shorts_use_template_button_title">Hide Use template button</string>
-            <string name="revanced_hide_shorts_use_template_button_summary_on">Use template button is hidden</string>
-            <string name="revanced_hide_shorts_use_template_button_summary_off">Use template button is shown</string>
+            <string name="revanced_hide_shorts_use_sound_button_title">Hide Use this sound button</string>
+            <string name="revanced_hide_shorts_use_sound_button_summary_on">Use this sound button is hidden</string>
+            <string name="revanced_hide_shorts_use_sound_button_summary_off">Use this sound button is shown</string>
+            <string name="revanced_hide_shorts_use_template_button_title">Hide Use this template button</string>
+            <string name="revanced_hide_shorts_use_template_button_summary_on">Use this template button is hidden</string>
+            <string name="revanced_hide_shorts_use_template_button_summary_off">Use this template button is shown</string>
             <string name="revanced_hide_shorts_upcoming_button_title">Hide Upcoming button</string>
             <string name="revanced_hide_shorts_upcoming_button_summary_on">Upcoming button is hidden</string>
             <string name="revanced_hide_shorts_upcoming_button_summary_off">Upcoming button is shown</string>
