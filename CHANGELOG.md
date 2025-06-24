@@ -1,3 +1,24 @@
+# [5.29.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.5...v5.29.0-dev.6) (2025-06-24)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add `Hide Stop ads` ([#5245](https://github.com/ReVanced/revanced-patches/issues/5245)) ([274dcc6](https://github.com/ReVanced/revanced-patches/commit/274dcc676e009be63eb6970de33abacd34dc6560))
+
+# [5.29.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.4...v5.29.0-dev.5) (2025-06-23)
+
+
+### Bug Fixes
+
+* **Google Photos:** Resolve startup crash for Android 5.0 devices ([0294533](https://github.com/ReVanced/revanced-patches/commit/0294533c4d9a321aea086eedb4e46385ae9a026e))
+
+# [5.29.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.3...v5.29.0-dev.4) (2025-06-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Fix "Hide Use this sound button" ([#5233](https://github.com/ReVanced/revanced-patches/issues/5233)) ([5d6ec9e](https://github.com/ReVanced/revanced-patches/commit/5d6ec9e94a6221a0f32762d5bede893e9e7457fc))
+
 # [5.29.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.2...v5.29.0-dev.3) (2025-06-23)
 
 

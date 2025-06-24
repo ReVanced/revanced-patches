@@ -46,7 +46,7 @@ final class ButtonsFilter extends Filter {
                         "|download_button.eml"
                 ),
                 new StringFilterGroup(
-                        Settings.HIDE_PLAYLIST_BUTTON,
+                        Settings.HIDE_SAVE_BUTTON,
                         "|save_to_playlist_button"
                 ),
                 new StringFilterGroup(
@@ -75,6 +75,10 @@ final class ButtonsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_ASK_BUTTON,
                         "yt_fill_spark"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_STOP_ADS_BUTTON,
+                        "yt_outline_slash_circle_left"
                 ),
                 // Check for clip button both here and using a path filter,
                 // as there's a chance the path is a generic action button and won't contain 'clip_button'

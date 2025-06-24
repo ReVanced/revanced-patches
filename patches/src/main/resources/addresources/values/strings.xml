@@ -595,6 +595,10 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_share_button_title">Hide Share</string>
             <string name="revanced_hide_share_button_summary_on">Share button is hidden</string>
             <string name="revanced_hide_share_button_summary_off">Share button is shown</string>
+            <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_stop_ads_button_title">Hide Stop ads</string>
+            <string name="revanced_hide_stop_ads_button_summary_on">Stop ads button is hidden</string>
+            <string name="revanced_hide_stop_ads_button_summary_off">Stop ads button is shown</string>
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
             <string name="revanced_hide_report_button_title">Hide Report</string>
@@ -622,9 +626,9 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_clip_button_summary_on">Clip button is hidden</string>
             <string name="revanced_hide_clip_button_summary_off">Clip button is shown</string>
             <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_playlist_button_title">Hide Save to playlist</string>
-            <string name="revanced_hide_playlist_button_summary_on">Save to playlist button is hidden</string>
-            <string name="revanced_hide_playlist_button_summary_off">Save to playlist button is shown</string>
+            <string name="revanced_hide_save_button_title">Hide Save</string>
+            <string name="revanced_hide_save_button_summary_on">Save button is hidden</string>
+            <string name="revanced_hide_save_button_summary_off">Save button is shown</string>
         </patch>
         <patch id="layout.buttons.navigation.navigationButtonsPatch">
             <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
