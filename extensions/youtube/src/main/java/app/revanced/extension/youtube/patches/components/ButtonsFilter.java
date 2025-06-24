@@ -76,6 +76,10 @@ final class ButtonsFilter extends Filter {
                         Settings.HIDE_ASK_BUTTON,
                         "yt_fill_spark"
                 ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_STOP_ADS_BUTTON,
+                        "yt_outline_slash_circle_left"
+                ),
                 // Check for clip button both here and using a path filter,
                 // as there's a chance the path is a generic action button and won't contain 'clip_button'
                 new ByteArrayFilterGroup(
