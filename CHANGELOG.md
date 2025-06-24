@@ -1,3 +1,10 @@
+# [5.29.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.5...v5.29.0-dev.6) (2025-06-24)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add `Hide Stop ads` ([#5245](https://github.com/ReVanced/revanced-patches/issues/5245)) ([274dcc6](https://github.com/ReVanced/revanced-patches/commit/274dcc676e009be63eb6970de33abacd34dc6560))
+
 # [5.29.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.4...v5.29.0-dev.5) (2025-06-23)
 
 
