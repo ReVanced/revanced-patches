@@ -134,28 +134,6 @@ val spoofClientPatch = bytecodePatch(
                     invoke-static {v$buttonRegister}, $EXTENSION_CLASS_DESCRIPTOR->setLoginButton(Landroid/view/View;)V
                     """
             )
-
-            /*
-            val returnIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.RETURN_VOID
-            }
-
-            replaceInstruction(
-                returnIndex,
-                """
-                    invoke-static {}, $EXTENSION_CLASS_HELPER->getButton()Landroid/view/View;
-                    """
-            )
-
-            addInstructions(
-                returnIndex + 1,
-                """
-                    move-result-object v0
-                    invoke-virtual {v0}, Landroid/view/View;->performClick()Z
-                    return-void
-                """
-            )
-             */
         }
 
         secondLoginScreenRenderFingerprint.method.apply {

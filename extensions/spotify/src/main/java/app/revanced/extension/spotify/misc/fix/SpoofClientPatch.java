@@ -42,7 +42,7 @@ public class SpoofClientPatch {
         }
     }
 
-    public static void setLoginButton(View b) {
-        WebApp.loginButtonView = b;
+    public static void setLoginButton(View loginButton) {
+        WebApp.setLoginButtonView(loginButton);
     }
 }

@@ -36,7 +36,7 @@ class WebApp {
     private static final String JAVASCRIPT_INTERFACE_NAME = "androidInterface";
     private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36";
 
-    public static View loginButtonView = null;
+    private static View loginButton = null;
 
     /**
      * A session obtained from the webview after logging in or refreshing the session.
@@ -56,9 +56,9 @@ class WebApp {
                 currentSession = session;
 
                 Utils.runOnMainThreadNowOrLater(() -> {
+                    loginButton.performClick();
                     webView1.stopLoading();
                     webView1.destroy();
-                    loginButtonView.performClick();
                 });
             });
 
@@ -213,5 +213,9 @@ class WebApp {
         for (String cookie : cookiesList) {
             cookieManager.setCookie(OPEN_SPOTIFY_COM_URL, cookie);
         }
+    }
+
+    public static void setLoginButtonView(View loginButtonParam) {
+        loginButton = loginButtonParam;
     }
 }
