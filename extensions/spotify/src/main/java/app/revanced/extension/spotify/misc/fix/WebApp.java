@@ -73,7 +73,6 @@ class WebApp {
         setCookies(cookies);
 
         CountDownLatch getSessionLatch = new CountDownLatch(1);
-        AtomicReference<WebView> webViewReference = new AtomicReference<>(null);
 
         int attempts = 1;
         do {
@@ -81,31 +80,20 @@ class WebApp {
             Logger.printInfo(() -> "Attempt " + attemptNumber + ": Getting session for "
                     + GET_SESSION_TIMEOUT_SECONDS + " seconds...");
 
-            // Webview objects must always be used on main thread.
-            Utils.runOnMainThread(() -> {
-                WebView webView = newWebView(null, (webView1, session) -> {
-                    Logger.printInfo(() -> "Received session: " + session);
-                    currentSession = session;
-                    getSessionLatch.countDown();
-                });
-                webViewReference.set(webView);
-                webView.loadUrl(OPEN_SPOTIFY_COM_PREFERENCES_URL);
-            });
+            Utils.runOnMainThread(() -> newWebView(null, (webView1, session) -> {
+                Logger.printInfo(() -> "Received session: " + session);
+                currentSession = session;
+
+                webView1.stopLoading();
+                webView1.destroy();
+
+                getSessionLatch.countDown();
+
+            }).loadUrl(OPEN_SPOTIFY_COM_PREFERENCES_URL));
 
             try {
                 boolean isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-                // Cleanup attempt.
-                Utils.runOnMainThread(() -> {
-                    WebView webView = webViewReference.get();
-                    if (webView != null) {
-                        webView.stopLoading();
-                        webView.destroy();
-                    }
-                });
-
-                if (isAcquired) {
-                    return;
-                }
+                if (isAcquired) return;
             } catch (InterruptedException ex) {
                 Logger.printException(() -> "Interrupted while waiting for session", ex);
                 Thread.currentThread().interrupt(); // Restore interrupt status flag.
