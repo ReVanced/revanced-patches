@@ -1,3 +1,11 @@
+# [5.29.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.6...v5.29.0-dev.7) (2025-06-24)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Fix "Hide video description attributes" ([#5250](https://github.com/ReVanced/revanced-patches/issues/5250)) ([2f22d45](https://github.com/ReVanced/revanced-patches/commit/2f22d45eb80745ac64fbea44c8055ebe7925a586))
+* **YouTube - Hide Shorts components:** Fix "Hide Use this template button" ([#5249](https://github.com/ReVanced/revanced-patches/issues/5249)) ([b399ecb](https://github.com/ReVanced/revanced-patches/commit/b399ecbb6a222d82dd5e4b3417c9f7eff4324adb))
+
 # [5.29.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.5...v5.29.0-dev.6) (2025-06-24)
 
 
