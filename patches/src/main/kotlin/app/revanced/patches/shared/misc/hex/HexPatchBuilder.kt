@@ -21,7 +21,7 @@ class HexPatchBuilder internal constructor(
         if (first is String && second is String) {
             val first = first as String
             val second = second as String
-            
+
             replacements += Replacement(
                 first.toByteArray(), second.toByteArray(),
                 filePath
@@ -29,7 +29,7 @@ class HexPatchBuilder internal constructor(
         } else if (first is ByteArray && second is ByteArray) {
             val first = first as ByteArray
             val second = second as ByteArray
-            
+
             replacements += Replacement(first, second, filePath)
         } else {
             throw PatchException("Unsupported types for pattern and replacement: $first, $second")
@@ -47,12 +47,8 @@ fun hexPatch(ignoreMissingTargetFiles: Boolean = false, replacementsSupplier: ()
     rawResourcePatch {
         execute {
             replacementsSupplier().groupBy { it.targetFilePath }.forEach { (targetFilePath, replacements) ->
-                val targetFile = try {
-                    get(targetFilePath, true)
-                } catch (_: Exception) {
-                    if (ignoreMissingTargetFiles) return@forEach
-                    throw PatchException("Could not find required target file: $targetFilePath")
-                }
+                val targetFile = get(targetFilePath, true)
+                if (ignoreMissingTargetFiles && !targetFile.exists()) return@forEach
 
                 // TODO: Use a file channel to read and write the file instead of reading the whole file into memory,
                 //  in order to reduce memory usage.
