@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patches.shared.misc.hex.Replacement
@@ -180,6 +181,39 @@ val spoofClientPatch = bytecodePatch(
                 opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "getView"
             }
 
+            addInstruction(
+                onEventIndex + 2,
+                """
+                    invoke-static {v10}, $EXTENSION_CLASS_HELPER->setButton(Landroid/view/View;)V
+                    """
+            )
+
+            val returnIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.RETURN_VOID
+            }
+
+            replaceInstruction(
+                returnIndex,
+                """
+                    invoke-static {}, $EXTENSION_CLASS_HELPER->getButton()Landroid/view/View;
+                    """
+            )
+
+            addInstructions(
+                returnIndex + 1,
+                """
+                    move-result-object v0
+                    invoke-virtual {v0}, Landroid/view/View;->performClick()Z
+                    return-void
+                """
+            )
+        }
+
+        secondLoginScreenFingerprint.method.apply {
+            val onEventIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "getView"
+            }
+
             addInstructions(
                 onEventIndex + 2,
                 """
@@ -191,14 +225,14 @@ val spoofClientPatch = bytecodePatch(
                 opcode == Opcode.RETURN_VOID
             }
 
-            addInstructions(
+            /*addInstructions(
                 returnIndex,
                 """
                     invoke-static {}, $EXTENSION_CLASS_HELPER->getButton()Landroid/view/View;
                     move-result-object v0
                     invoke-virtual {v0}, Landroid/view/View;->performClick()Z
                     """
-            )
+            )*/
         }
 
     }

@@ -29,5 +29,9 @@ internal val loginOnClickFingerprint = fingerprint {
 }
 
 internal val firstLoginScreenFingerprint = fingerprint {
+    strings("authenticationButtonFactory", "MORE_OPTIONS")
+}
+
+internal val secondLoginScreenFingerprint = fingerprint {
     strings("authenticationButtonFactory", "intent_login")
 }

@@ -11,9 +11,7 @@ public class Helper {
     private static View button = null;
 
     public static void setButton(View b) {
-        if (button == null) {
             button = b;
-        }
     }
 
     @Nullable
