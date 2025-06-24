@@ -533,6 +533,10 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_hide_share_button_title">Skrij Deli</string>
   <string name="revanced_hide_share_button_summary_on">Gumb Deli je skrit</string>
   <string name="revanced_hide_share_button_summary_off">Gumb Deli je prikazan</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Skrij Ustavi oglase</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Gumb za zaustavitev oglasov je skrit</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Gumb za zaustavitev oglasov je prikazan</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Skrij Prijavi</string>
@@ -560,9 +564,9 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_hide_clip_button_summary_on">Gumb Izrezek je skrit</string>
   <string name="revanced_hide_clip_button_summary_off">Gumb Izrezek je prikazan</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Skrij Shrani v seznam predvajanja</string>
-  <string name="revanced_hide_playlist_button_summary_on">Gumb Shrani v seznam predvajanja je skrit</string>
-  <string name="revanced_hide_playlist_button_summary_off">Gumb Shrani v seznam predvajanja je prikazan</string>
+  <string name="revanced_hide_save_button_title">Skrij Shrani</string>
+  <string name="revanced_hide_save_button_summary_on">Gumb Shrani je skrit</string>
+  <string name="revanced_hide_save_button_summary_off">Gumb Shrani je prikazan</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigacijski gumbi</string>
@@ -760,9 +764,12 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Skrij gumb \'Shrani glasbo\'</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Gumb za shranjevanje glasbe je skrit</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Gumb za shranjevanje glasbe je prikazan</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Skrij gumb \'Uporabi predlogo\'</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Gumb za uporabo predloge je skrit</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Gumb za uporabo predloge je prikazan</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Skrij gumb Uporabi ta zvok</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Gumb Uporabi ta zvok je skrit</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Gumb Uporabi ta zvok je prikazan</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Skrij gumb Uporabi to predlogo</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Gumb Uporabi to predlogo je skrit</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Gumb Uporabi to predlogo je prikazan</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Skrij gumb \'Prihajajoči\'</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Gumb \"Prihajajoči\" je skrit</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Gumb \"Prihajajoči\" je prikazan</string>

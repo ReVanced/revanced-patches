@@ -533,6 +533,10 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_share_button_title">Fsheh \"Pjesëto\"</string>
   <string name="revanced_hide_share_button_summary_on">Butoni \"Pjesëto\" është i fshehur</string>
   <string name="revanced_hide_share_button_summary_off">Butoni \"Pjesëto\" është i dukshëm</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Fshih \"Ndalo reklamat\"</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Butoni Ndalo reklamat është i fshehur</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Butoni Ndalo reklamat është i shfaqur</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Fsheh \"Raporton\"</string>
@@ -560,9 +564,9 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_clip_button_summary_on">Butoni \"Klip\" është i fshehur</string>
   <string name="revanced_hide_clip_button_summary_off">Butoni \"Klip\" është i dukshëm</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Fsheh \"Ruaj në listën e riprodhimit\"</string>
-  <string name="revanced_hide_playlist_button_summary_on">Butoni \"Ruaj në listën e riprodhimit\" është i fshehur</string>
-  <string name="revanced_hide_playlist_button_summary_off">Butoni \"Ruaj në listën e riprodhimit\" është i dukshëm</string>
+  <string name="revanced_hide_save_button_title">Fshih Ruaj</string>
+  <string name="revanced_hide_save_button_summary_on">Butoni Ruaj është i fshehur</string>
+  <string name="revanced_hide_save_button_summary_off">Butoni Ruaj është i shfaqur</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Butonat e navigimit</string>
@@ -760,9 +764,12 @@ Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet vide
   <string name="revanced_hide_shorts_save_sound_button_title">Fsheh butonin Ruaj muzikën</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Butoni \"Ruaj muzikën\" është i fshehur</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Butoni \"Ruaj muzikën\" shfaqet</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Fsheh butonin Përdor shabllon</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Butoni \"Përdor shabllonin\" është i fshehur</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Butoni \"Përdor shabllonin\" shfaqet</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Fshih butonin Përdor këtë tingull</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Butoni Përdor këtë tingull është fshehur</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Butoni Përdor këtë tingull është shfaqur</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Fshih butonin Përdor këtë shabllon</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Butoni Përdor këtë shabllon është fshehur</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Butoni Përdor këtë shabllon është shfaqur</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Fshih butonin Në vazhdim</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Butoni \"Të ardhshme\" është i fshehur</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Butoni \"Të ardhshme\" është i dukshëm</string>

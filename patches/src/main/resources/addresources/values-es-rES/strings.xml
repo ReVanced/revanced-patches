@@ -530,6 +530,10 @@ Ajusta el volumen deslizando verticalmente en el lado derecho de la pantalla"</s
   <string name="revanced_hide_share_button_title">Ocultar Compartir</string>
   <string name="revanced_hide_share_button_summary_on">El botón Compartir está oculto</string>
   <string name="revanced_hide_share_button_summary_off">Se muestra el botón Compartir</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Ocultar Detener anuncios</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">El botón de detener anuncios está oculto</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">El botón de detener anuncios está mostrado</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Ocultar informe</string>
@@ -557,9 +561,9 @@ Ajusta el volumen deslizando verticalmente en el lado derecho de la pantalla"</s
   <string name="revanced_hide_clip_button_summary_on">El botón del recortar está oculto</string>
   <string name="revanced_hide_clip_button_summary_off">Se muestra el botón de recortar</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Ocultar Guardar en lista</string>
-  <string name="revanced_hide_playlist_button_summary_on">El botón Guardar a la lista de reproducción está oculto</string>
-  <string name="revanced_hide_playlist_button_summary_off">Mostrar el botón Guardar a la lista</string>
+  <string name="revanced_hide_save_button_title">Ocultar Guardar</string>
+  <string name="revanced_hide_save_button_summary_on">El botón de Guardar está oculto</string>
+  <string name="revanced_hide_save_button_summary_off">El botón de Guardar está mostrado</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Botones de navegación</string>
@@ -757,9 +761,12 @@ Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de 
   <string name="revanced_hide_shorts_save_sound_button_title">Ocultar el botón Guardar música</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">El botón Guardar música está oculto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Mostrar el botón de guardar música</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Ocultar el botón Usar plantilla</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Botón de plantilla de uso está oculto</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Se muestra el botón de usar plantilla</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Ocultar el botón Usar este sonido</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">El botón Usar este sonido está oculto</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">El botón Usar este sonido está visible</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Ocultar botón Usar esta plantilla</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">El botón Usar esta plantilla está oculto</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">El botón Usar esta plantilla se muestra</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Ocultar el botón Próximos</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">El botón próximo está oculto</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Se muestra el botón próximo</string>

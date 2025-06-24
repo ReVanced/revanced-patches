@@ -531,6 +531,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">ซ่อนแบ่งปัน</string>
   <string name="revanced_hide_share_button_summary_on">ปุ่มแบ่งปันถูกซ่อน</string>
   <string name="revanced_hide_share_button_summary_off">ปุ่มแบ่งปันถูกแสดง</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">ซ่อนหยุดโฆษณา</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">ปุ่มหยุดโฆษณาถูกซ่อน</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">ปุ่มหยุดโฆษณาถูกแสดง</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">ซ่อนรายงาน</string>
@@ -558,9 +562,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">ปุ่มคลิปถูกซ่อน</string>
   <string name="revanced_hide_clip_button_summary_off">ปุ่มคลิปถูกแสดง</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">ซ่อนบันทึกไปยังเพลย์ลิสต์</string>
-  <string name="revanced_hide_playlist_button_summary_on">ปุ่มบันทึกไปยังเพลย์ลิสต์ถูกซ่อน</string>
-  <string name="revanced_hide_playlist_button_summary_off">ปุ่มบันทึกไปยังเพลย์ลิสต์ถูกแสดง</string>
+  <string name="revanced_hide_save_button_title">ซ่อนบันทึก</string>
+  <string name="revanced_hide_save_button_summary_on">ปุ่มบันทึกถูกซ่อน</string>
+  <string name="revanced_hide_save_button_summary_off">ปุ่มบันทึกถูกแสดง</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">ปุ่มนำทาง</string>
@@ -758,9 +762,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">ซ่อนปุ่มบันทึกเพลง</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">ปุ่มบันทึกเพลงถูกซ่อน</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">ปุ่มบันทึกเพลงแสดงอยู่</string>
-  <string name="revanced_hide_shorts_use_template_button_title">ซ่อนปุ่มใช้เทมเพลต</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">ปุ่มใช้เทมเพลตถูกซ่อน</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">ปุ่มใช้เทมเพลตแสดงอยู่</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">ซ่อนปุ่มใช้เสียงนี้</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">ปุ่มใช้เสียงนี้ถูกซ่อน</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">ปุ่มใช้เสียงนี้แสดงอยู่</string>
+  <string name="revanced_hide_shorts_use_template_button_title">ซ่อนปุ่ม \"ใช้เทมเพลตนี้\"</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">ปุ่มใช้เทมเพลตนี้ถูกซ่อน</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">ปุ่ม \"ใช้เทมเพลตนี้\" กำลังแสดง</string>
   <string name="revanced_hide_shorts_upcoming_button_title">ซ่อนปุ่มที่กำลังจะมาถึง</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">ปุ่ม «Upcoming» ซ่อนอยู่</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">ปุ่ม «Upcoming» แสดงอยู่</string>

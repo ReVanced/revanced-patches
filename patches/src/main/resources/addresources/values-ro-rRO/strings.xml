@@ -533,6 +533,10 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_hide_share_button_title">Ascunde Partajarea</string>
   <string name="revanced_hide_share_button_summary_on">Butonul de distribuire este ascuns</string>
   <string name="revanced_hide_share_button_summary_off">Butonul Distribuie este afișat</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Ascunde \'Oprește anunțurile\'</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Butonul de oprire a reclamelor este ascuns</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Butonul de oprire a reclamelor este afișat</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Ascunde raportul</string>
@@ -560,9 +564,9 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_hide_clip_button_summary_on">Butonul clip este ascuns</string>
   <string name="revanced_hide_clip_button_summary_off">Butonul clipului este afișat</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Ascunde Salvare în lista de redare</string>
-  <string name="revanced_hide_playlist_button_summary_on">Butonul Salvare în lista de redare este ascuns</string>
-  <string name="revanced_hide_playlist_button_summary_off">Butonul Salvare în lista de redare este afișat</string>
+  <string name="revanced_hide_save_button_title">Ascunde Salvare</string>
+  <string name="revanced_hide_save_button_summary_on">Butonul Salvare este ascuns</string>
+  <string name="revanced_hide_save_button_summary_off">Butonul Salvare este afișat</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Butoane de navigare</string>
@@ -760,9 +764,12 @@ Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fl
   <string name="revanced_hide_shorts_save_sound_button_title">Ascunde butonul Salvează melodia</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Butonul de salvare a muzicii este ascuns</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Butonul de salvare a muzicii este afișat</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Ascunde butonul Utilizare șablon</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Butonul şablon este ascuns</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Butonul șablon este afișat</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Ascunde butonul Folosește acest sunet</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Butonul Folosește acest sunet este ascuns</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Butonul Folosește acest sunet este afișat</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Ascunde butonul Folosește acest șablon</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Butonul Folosește acest șablon este ascuns</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Butonul Folosește acest șablon este afișat</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Ascunde butonul Următor</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Butonul următor este ascuns</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Următorul buton este afișat</string>
