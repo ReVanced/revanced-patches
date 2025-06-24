@@ -3,7 +3,7 @@ grammar UserAgent;
 @header { package app.revanced.extension.spotify; }
 
 userAgent
-    : product (WS product)* EOF
+    : product (WS product)*
     ;
 
 product

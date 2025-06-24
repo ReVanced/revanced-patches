@@ -192,9 +192,12 @@ class WebApp {
     @NonNull
     private static String getWebUserAgent() {
         String userAgentString = WebSettings.getDefaultUserAgent(Utils.getContext());
+        Logger.printInfo(() -> "Default user agent: " + userAgentString);
 
         try {
-            return new UserAgent(userAgentString).removeProduct("Mobile").toString();
+            String webUserAgentString = new UserAgent(userAgentString).removeProduct("Mobile").toString();
+            Logger.printInfo(() -> "Web user agent: " + webUserAgentString);
+            return webUserAgentString;
         } catch (IllegalArgumentException e) {
             Logger.printException(() -> "Failed to parse user agent: " + userAgentString, e);
         }

@@ -18,7 +18,7 @@ public class UserAgent {
             result.append(product.getText()).append(" ");
         }
 
-        ctx = parse(result.toString());
+        ctx = parse(result.toString().trim());
 
         return this;
     }
