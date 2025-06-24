@@ -46,7 +46,7 @@ final class ButtonsFilter extends Filter {
                         "|download_button.eml"
                 ),
                 new StringFilterGroup(
-                        Settings.HIDE_PLAYLIST_BUTTON,
+                        Settings.HIDE_SAVE_BUTTON,
                         "|save_to_playlist_button"
                 ),
                 new StringFilterGroup(
