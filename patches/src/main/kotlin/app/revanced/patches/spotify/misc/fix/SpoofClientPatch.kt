@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patches.shared.misc.hex.HexPatchBuilder
@@ -15,11 +14,11 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/fix/SpoofClientPatch;"
-internal const val EXTENSION_CLASS_HELPER = "Lapp/revanced/extension/spotify/misc/fix/Helper;"
 
 @Suppress("unused")
 val spoofClientPatch = bytecodePatch(
@@ -122,47 +121,21 @@ val spoofClientPatch = bytecodePatch(
             )
         }
 
-        loginSetListenerFingerprint.method.apply {
-            val returnIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.RETURN_VOID
-            }
-
-            addInstructions(
-                returnIndex,
-                """
-                    iget-object p1, p0, Lp/grw;->E1:Landroid/widget/Button;
-
-                    invoke-virtual {p1}, Landroid/view/View;->performClick()Z
-                    """
-            )
-        }
-
-        loginOnClickFingerprint.method.apply {
-            val returnIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.RETURN_VOID
-            }
-
-            addInstructions(
-                returnIndex - 1,
-                """
-                    const-string v2, "bogus"
-                    const-string p1, "bogus"
-                    """
-            )
-        }
-
-        firstLoginScreenFingerprint.method.apply {
+        firstLoginScreenRenderFingerprint.method.apply {
             val onEventIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "getView"
             }
 
+            val buttonRegister = getInstruction<OneRegisterInstruction>(onEventIndex + 1).registerA
+
             addInstruction(
                 onEventIndex + 2,
                 """
-                    invoke-static {v10}, $EXTENSION_CLASS_HELPER->setButton(Landroid/view/View;)V
+                    invoke-static {v$buttonRegister}, $EXTENSION_CLASS_DESCRIPTOR->setLoginButton(Landroid/view/View;)V
                     """
             )
 
+            /*
             val returnIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.RETURN_VOID
             }
@@ -182,32 +155,57 @@ val spoofClientPatch = bytecodePatch(
                     return-void
                 """
             )
+             */
         }
 
-        secondLoginScreenFingerprint.method.apply {
-            val onEventIndex = indexOfFirstInstructionOrThrow {
+        secondLoginScreenRenderFingerprint.method.apply {
+            val getViewIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "getView"
             }
 
+            val buttonRegister = getInstruction<OneRegisterInstruction>(getViewIndex + 1).registerA
+
             addInstructions(
-                onEventIndex + 2,
+                getViewIndex + 2,
                 """
-                    invoke-static {v4}, $EXTENSION_CLASS_HELPER->setButton(Landroid/view/View;)V
+                    invoke-virtual {v$buttonRegister}, Landroid/view/View;->performClick()Z
+                    return-void
                     """
             )
+        }
 
-            val returnIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.RETURN_VOID
+        thirdLoginScreenRenderFingerprint.method.apply {
+            val invokeSetListenerIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        getReference<MethodReference>()?.definingClass == "Landroid/view/View;" &&
+                        getReference<MethodReference>()?.name == "setOnClickListener"
             }
 
-            /*addInstructions(
-                returnIndex,
+            val buttonRegister = getInstruction<FiveRegisterInstruction>(invokeSetListenerIndex).registerC
+
+            addInstruction(
+                invokeSetListenerIndex + 1,
                 """
-                    invoke-static {}, $EXTENSION_CLASS_HELPER->getButton()Landroid/view/View;
-                    move-result-object v0
-                    invoke-virtual {v0}, Landroid/view/View;->performClick()Z
+                    invoke-virtual {v$buttonRegister}, Landroid/view/View;->performClick()Z
                     """
-            )*/
+            )
+        }
+
+        thirdLoginOnClickFingerprint.method.apply {
+            // Return void is NOT at the end of the method
+            val loginActionIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.RETURN_VOID
+            } - 1
+
+            val loginActionInstruction = getInstruction<FiveRegisterInstruction>(loginActionIndex)
+
+            addInstructions(
+                loginActionIndex,
+                """
+                    const-string v${loginActionInstruction.registerD}, "bogus"
+                    const-string v${loginActionInstruction.registerE}, "bogus"
+                    """
+            )
         }
 
     }
