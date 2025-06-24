@@ -30,7 +30,7 @@ class WebApp {
     private static final String ACCOUNTS_SPOTIFY_COM_LOGIN_URL = "https://accounts.spotify.com/login?continue=" +
             "https%3A%2F%2Fopen.spotify.com%2Fpreferences";
 
-    private static final int GET_SESSION_TIMEOUT_SECONDS = 5;
+    private static final int GET_SESSION_TIMEOUT_SECONDS = 10;
     private static final String JAVASCRIPT_INTERFACE_NAME = "androidInterface";
     private static final String USER_AGENT = getWebUserAgent();
 
