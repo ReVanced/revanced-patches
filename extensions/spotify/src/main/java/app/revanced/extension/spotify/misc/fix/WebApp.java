@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -71,32 +72,45 @@ class WebApp {
     static void refreshSession(String cookies) {
         setCookies(cookies);
 
-        CountDownLatch getSessionLatch = new CountDownLatch(1);
-
         int attempts = 1;
         do {
             int attemptNumber = attempts;
             Logger.printInfo(() -> "Attempt " + attemptNumber + ": Getting session for "
                     + GET_SESSION_TIMEOUT_SECONDS + " seconds...");
 
-            Utils.runOnMainThread(() -> newWebView(null, (webView1, session) -> {
-                Logger.printInfo(() -> "Received session: " + session);
-                currentSession = session;
+            CountDownLatch getSessionLatch = new CountDownLatch(1);
+            AtomicReference<WebView> webViewReference = new AtomicReference<>(null);
 
-                webView1.stopLoading();
-                webView1.destroy();
-
-                getSessionLatch.countDown();
-
-            }).loadUrl(OPEN_SPOTIFY_COM_PREFERENCES_URL));
+            // WebView objects must always be used on the main thread.
+            Utils.runOnMainThread(() -> {
+                WebView webView = newWebView(null, (webView1, session) -> {
+                    Logger.printInfo(() -> "Received session: " + session);
+                    currentSession = session;
+                    getSessionLatch.countDown();
+                });
+                webViewReference.set(webView); // Must set before loading Url.
+                webView.loadUrl(OPEN_SPOTIFY_COM_PREFERENCES_URL);
+            });
 
             try {
-                boolean isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-                if (isAcquired) return;
+                final boolean isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+                if (isAcquired) {
+                    return;
+                }
             } catch (InterruptedException ex) {
                 Logger.printException(() -> "Interrupted while waiting for session", ex);
-                Thread.currentThread().interrupt(); // Restore interrupt status flag.
+                // Restore interrupt status set by unknown outside code.
+                Thread.currentThread().interrupt();
                 return;
+            } finally {
+                // Cleanup attempt.
+                Utils.runOnMainThread(() -> {
+                    WebView webView = webViewReference.get();
+                    if (webView != null) {
+                        webView.stopLoading();
+                        webView.destroy();
+                    }
+                });
             }
         } while (attempts++ <= 3);
 
