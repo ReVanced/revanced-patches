@@ -195,7 +195,8 @@ public final class ShortsFilter extends Filter {
 
         suggestedAction = new StringFilterGroup(
                 null,
-                "suggested_action.eml"
+                "suggested_action.eml",
+                REEL_METAPANEL_PATH
         );
 
         addPathCallbacks(
