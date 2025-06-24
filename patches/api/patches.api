@@ -656,20 +656,39 @@ public final class app/revanced/patches/shared/misc/gms/GmsCoreSupportPatchKt {
 	public static synthetic fun gmsCoreSupportResourcePatch$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/shared/misc/hex/HexPatchKt {
+public final class app/revanced/patches/shared/misc/hex/HexPatchBuilder : java/util/Set, kotlin/jvm/internal/markers/KMappedMarker {
+	public fun <init> ()V
+	public fun add (Lapp/revanced/patches/shared/misc/hex/Replacement;)Z
+	public synthetic fun add (Ljava/lang/Object;)Z
+	public fun addAll (Ljava/util/Collection;)Z
+	public final fun asPatternTo (Ljava/lang/String;Ljava/lang/String;)Lkotlin/Pair;
+	public fun clear ()V
+	public fun contains (Lapp/revanced/patches/shared/misc/hex/Replacement;)Z
+	public final fun contains (Ljava/lang/Object;)Z
+	public fun containsAll (Ljava/util/Collection;)Z
+	public fun getSize ()I
+	public final fun inFile (Lkotlin/Pair;Ljava/lang/String;)V
+	public fun isEmpty ()Z
+	public fun iterator ()Ljava/util/Iterator;
+	public fun remove (Ljava/lang/Object;)Z
+	public fun removeAll (Ljava/util/Collection;)Z
+	public fun retainAll (Ljava/util/Collection;)Z
+	public final fun size ()I
+	public fun toArray ()[Ljava/lang/Object;
+	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
+}
+
+public final class app/revanced/patches/shared/misc/hex/HexPatchBuilderKt {
 	public static final fun hexPatch (ZLkotlin/jvm/functions/Function0;)Lapp/revanced/patcher/patch/RawResourcePatch;
+	public static final fun hexPatch (ZLkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/RawResourcePatch;
 	public static synthetic fun hexPatch$default (ZLkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lapp/revanced/patcher/patch/RawResourcePatch;
+	public static synthetic fun hexPatch$default (ZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/RawResourcePatch;
 }
 
 public final class app/revanced/patches/shared/misc/hex/Replacement {
-	public static final field Companion Lapp/revanced/patches/shared/misc/hex/Replacement$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public fun <init> ([B[BLjava/lang/String;)V
-	public final fun replacePattern ([B)V
-}
-
-public final class app/revanced/patches/shared/misc/hex/Replacement$Companion {
-	public final fun replacementOf (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patches/shared/misc/hex/Replacement;
+	public final fun getReplacementBytesPadded ()[B
 }
 
 public final class app/revanced/patches/shared/misc/mapping/ResourceElement {
