@@ -16,26 +16,26 @@ class Session {
      * Username of the account. Null if this session does not have an authenticated user.
      */
     @Nullable
-    public final String username;
+    final String username;
     /**
      * Access token for this session.
      */
-    public final String accessToken;
+    final String accessToken;
     /**
      * Session expiration timestamp in milliseconds.
      */
-    public final Long expirationTime;
+    final Long expirationTime;
     /**
      * Authentication cookies for this session.
      */
-    public final String cookies;
+    final String cookies;
 
     /**
      * @param username    Username of the account. Empty if this session does not have an authenticated user.
      * @param accessToken Access token for this session.
      * @param cookies     Authentication cookies for this session.
      */
-    public Session(@Nullable String username, String accessToken, String cookies) {
+    Session(@Nullable String username, String accessToken, String cookies) {
         this(username, accessToken, System.currentTimeMillis() + 60 * 60 * 1000, cookies);
     }
 
@@ -49,7 +49,7 @@ class Session {
     /**
      * @return The number of milliseconds until the access token expires.
      */
-    public long accessTokenExpiresInMillis() {
+    long accessTokenExpiresInMillis() {
         long currentTime = System.currentTimeMillis();
         return expirationTime - currentTime;
     }
@@ -57,18 +57,18 @@ class Session {
     /**
      * @return The number of seconds until the access token expires.
      */
-    public int accessTokenExpiresInSeconds() {
+    int accessTokenExpiresInSeconds() {
         return (int) accessTokenExpiresInMillis() / 1000;
     }
 
     /**
      * @return True if the access token has expired, false otherwise.
      */
-    public boolean accessTokenExpired() {
+    boolean accessTokenExpired() {
         return accessTokenExpiresInMillis() <= 0;
     }
 
-    public void save() {
+    void save() {
         SharedPreferences.Editor editor = Utils.getContext().getSharedPreferences("revanced", MODE_PRIVATE).edit();
 
         String json;
@@ -87,7 +87,7 @@ class Session {
     }
 
     @Nullable
-    public static Session read(String username) {
+    static Session read(String username) {
         SharedPreferences sharedPreferences = Utils.getContext().getSharedPreferences("revanced", MODE_PRIVATE);
         String savedJson = sharedPreferences.getString("session_" + username, null);
         if (savedJson == null) {

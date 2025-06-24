@@ -9,10 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.spotify.UserAgent;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
 
 class WebApp {
     private static final String OPEN_SPOTIFY_COM = "open.spotify.com";
@@ -22,34 +22,31 @@ class WebApp {
             "https%3A%2F%2Fopen.spotify.com%2Fpreferences";
 
     private static final int GET_SESSION_TIMEOUT_SECONDS = 5;
-
     private static final String JAVASCRIPT_INTERFACE_NAME = "androidInterface";
+    private static final String USER_AGENT = getWebUserAgent();
 
+    /**
+     * A session obtained from the webview after logging in or refreshing the session.
+     */
     @Nullable
-    public static Session pendingLoginSession;
+    static Session currentSession;
 
-    public static void login(Context context) {
-        pendingLoginSession = null;
-
+    static void login(Context context) {
         Utils.runOnMainThreadNowOrLater(() -> {
             Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
-            AtomicReference<WebView> webViewRef = new AtomicReference<>(null);
 
             WebView webView = newWebView((String cookies) -> {
                 Logger.printInfo(() -> "Received cookies from login: " + cookies);
                 dialog.dismiss();
-            }, (session) -> {
+            }, (webView1, session) -> {
                 Logger.printInfo(() -> "Received session from login: " + session);
-                pendingLoginSession = session;
+                currentSession = session;
 
-                WebView loginWebView = webViewRef.get();
-                if (loginWebView != null) {
-                    loginWebView.stopLoading();
-                    loginWebView.destroy();
-                }
+                Utils.runOnMainThreadNowOrLater(() -> {
+                    webView1.stopLoading();
+                    webView1.destroy();
+                });
             });
-
-            webViewRef.set(webView);
 
             // Ensure that cookies are cleared before loading the login page.
             CookieManager.getInstance().removeAllCookies((anyRemoved) ->
@@ -63,57 +60,51 @@ class WebApp {
     }
 
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    @Nullable
-    public static Session refreshSession(String cookies) {
+    static void refreshSession(String cookies) {
         setCookies(cookies);
 
-        AtomicReference<Session> sessionRef = new AtomicReference<>(null);
-        AtomicReference<WebView> webViewRef = new AtomicReference<>(null);
-        Semaphore getSessionSemaphore = new Semaphore(0);
-        Semaphore startTimeoutSemaphore = new Semaphore(0);
+        Semaphore getSessionSemaphore = new Semaphore(1);
 
-        int attempts = 1;
-        do {
-            int attemptNumber = attempts;
-            Logger.printInfo(() -> "Attempt " + attemptNumber + ": Getting session for "
-                    + GET_SESSION_TIMEOUT_SECONDS + " seconds...");
+        Utils.runOnMainThreadNowOrLater(() -> {
+            WebView webView = newWebView(null, (webView1, session) -> {
+                Logger.printInfo(() -> "Received session: " + session);
+                currentSession = session;
+                getSessionSemaphore.release();
+            });
 
-            Utils.runOnMainThreadNowOrLater(() -> {
-                WebView webView = webViewRef.get();
-                if (webView == null) {
-                    webView = newWebView(null, session -> {
-                        Logger.printInfo(() -> "Received session: " + session);
-                        sessionRef.set(session);
-                        getSessionSemaphore.release();
-                    });
-                    webViewRef.set(webView);
-                }
+            int attempts = 1;
+            do {
+                int attemptNumber = attempts;
+                Logger.printInfo(() -> "Attempt " + attemptNumber + ": Getting session for "
+                        + GET_SESSION_TIMEOUT_SECONDS + " seconds...");
+
+                getSessionSemaphore.release();
 
                 webView.stopLoading(); // Stop any previous loading.
                 webView.loadUrl(OPEN_SPOTIFY_COM_PREFERENCES_URL);
-                startTimeoutSemaphore.release();
-            });
 
-            startTimeoutSemaphore.tryAcquire();
+                try {
+                    boolean isAcquired = getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+                    if (isAcquired) {
+                        webView.stopLoading();
+                        webView.destroy();
+                        break;
+                    }
+                } catch (InterruptedException e) {
+                    Logger.printException(() -> "Interrupted while waiting for session", e);
+                    break;
+                }
 
-            try {
-                boolean isAcquired = getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-                if (isAcquired) break;
-
-            } catch (InterruptedException ex) {
-                Logger.printException(() -> "Interrupted while waiting for session", ex);
-                break;
-            }
-        } while (++attempts <= 3);
-
-        Utils.runOnMainThreadNowOrLater(() -> {
-            WebView webView = webViewRef.get();
-            webView.stopLoading();
-            webView.destroy();
+            } while (attempts++ <= 3);
         });
 
-        return sessionRef.get();
+        try {
+            // At most 3 attempts * timeout duration.
+            //noinspection ResultOfMethodCallIgnored
+            getSessionSemaphore.tryAcquire(GET_SESSION_TIMEOUT_SECONDS * 3L, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            Logger.printException(() -> "Interrupted while waiting for session from UI thread", e);
+        }
     }
 
     private interface HasLoggedInCallback {
@@ -121,7 +112,7 @@ class WebApp {
     }
 
     private interface HasReceivedSessionCallback {
-        void onReceivedSession(Session session);
+        void onReceivedSession(WebView webView, Session session);
     }
 
     @NonNull
@@ -134,7 +125,8 @@ class WebApp {
         WebSettings settings = webView.getSettings();
         settings.setDomStorageEnabled(true);
         settings.setJavaScriptEnabled(true);
-        settings.setUserAgentString(getWebUserAgent());
+
+        settings.setUserAgentString(USER_AGENT);
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -180,7 +172,7 @@ class WebApp {
             public void getSession(String username, String accessToken) {
                 if (hasReceivedSessionCallback != null) {
                     Session session = new Session(username, accessToken, getCurrentCookies());
-                    hasReceivedSessionCallback.onReceivedSession(session);
+                    hasReceivedSessionCallback.onReceivedSession(webView, session);
                 }
             }
         }, JAVASCRIPT_INTERFACE_NAME);
@@ -190,20 +182,12 @@ class WebApp {
 
     @NonNull
     private static String getWebUserAgent() {
-        String userAgent = WebSettings.getDefaultUserAgent(Utils.getContext());
+        String userAgentString = WebSettings.getDefaultUserAgent(Utils.getContext());
 
-        int index = userAgent.indexOf("Linux");
-        if (index != -1) {
-            StringBuilder userAgentBuilder = new StringBuilder(userAgent);
-            int start = userAgent.indexOf('(', index - 1);
-            int end = userAgent.indexOf(')', start);
-
-            if (start != -1 && end != -1) {
-                userAgentBuilder.replace(start + 1, end, "Windows NT 10.0; Win64; x64");
-                String spoofedUserAgent = userAgentBuilder.toString();
-                Logger.printInfo(() -> "Web user agent: " + spoofedUserAgent);
-                return spoofedUserAgent;
-            }
+        try {
+            return new UserAgent(userAgentString).removeProduct("Mobile").toString();
+        } catch (IllegalArgumentException e) {
+            Logger.printException(() -> "Failed to parse user agent: " + userAgentString, e);
         }
 
         String fallbackUserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +

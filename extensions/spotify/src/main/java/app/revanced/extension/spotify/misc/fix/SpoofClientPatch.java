@@ -8,7 +8,9 @@ public class SpoofClientPatch {
     private static LoginRequestListener listener;
 
     /**
-     * Injection point. Start login server.
+     * Injection point.
+     * <br>
+     * Start login server.
      */
     public static void listen(int port) {
         if (listener != null) {
@@ -26,7 +28,9 @@ public class SpoofClientPatch {
     }
 
     /**
-     * Injection point. Launch login web view.
+     * Injection point.
+     * <br>
+     * Launch login web view.
      */
     public static void login(LayoutInflater inflater) {
         try {

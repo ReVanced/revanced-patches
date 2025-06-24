@@ -7,7 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
-import app.revanced.patches.shared.misc.hex.Replacement
+import app.revanced.patches.shared.misc.hex.HexPatchBuilder
 import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.findInstructionIndicesReversedOrThrow
@@ -41,45 +41,20 @@ val spoofClientPatch = bytecodePatch(
 
     dependsOn(
         sharedExtensionPatch,
-        hexPatch(false) {
+        hexPatch(ignoreMissingTargetFiles = true, block = fun HexPatchBuilder.() {
             listOf(
                 "arm64-v8a",
                 "armeabi-v7a",
                 "x86",
                 "x86_64"
-            ).map {
-                listOf(
-                    // Replace https://login5.spotify.com/v3/login with http://127.0.0.1:4345/v3/login.
-                    Replacement(
-                        "68 74 74 70 73 3A 2F 2F " +
-                                "6C 6F 67 69 6E 35 2E 73 " +
-                                "70 6F 74 69 66 79 2E 63 " +
-                                "6F 6D 2F 76 33 2F 6C 6F " +
-                                "67 69 6E",
-                        "68 74 74 70 3A 2F 2F 31 " +
-                                "32 37 2E 30 2E 30 2E 31 " +
-                                "3A 34 33 34 35 2F 76 33 " +
-                                "2F 6C 6F 67 69 6E 00 00 " +
-                                "00 00 00",
-                        "lib/$it/liborbit-jni-spotify.so",
-                    ),
-                    // Replace https://login5.spotify.com/v4/login with http://127.0.0.1:4345/v4/login.
-                    Replacement(
-                        "68 74 74 70 73 3A 2F 2F " +
-                                "6C 6F 67 69 6E 35 2E 73 " +
-                                "70 6F 74 69 66 79 2E 63 " +
-                                "6F 6D 2F 76 34 2F 6C 6F " +
-                                "67 69 6E",
-                        "68 74 74 70 3A 2F 2F 31 " +
-                                "32 37 2E 30 2E 30 2E 31 " +
-                                "3A 34 33 34 35 2F 76 34 " +
-                                "2F 6C 6F 67 69 6E 00 00 " +
-                                "00 00 00",
-                        "lib/$it/liborbit-jni-spotify.so",
-                    )
-                )
-            }.flatten().toSet()
-        }
+            ).forEach { architecture ->
+                "https://login5.spotify.com/v3/login" to "http://127.0.0.1:$port/v3/login" inFile
+                        "lib/$architecture/liborbit-jni-spotify.so"
+
+                "https://login5.spotify.com/v4/login" to "http://127.0.0.1:$port/v4/login" inFile
+                        "lib/$architecture/liborbit-jni-spotify.so"
+            }
+        })
     )
 
     compatibleWith("com.spotify.music")

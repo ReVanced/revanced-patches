@@ -17,28 +17,36 @@ import java.util.Objects;
 import static fi.iki.elonen.NanoHTTPD.Response.Status.INTERNAL_ERROR;
 
 class LoginRequestListener extends NanoHTTPD {
-    private static final String CONTENT_LENGTH_HEADER = "content-length";
-
-    public LoginRequestListener(int port) {
+    LoginRequestListener(int port) {
         super(port);
     }
 
     @NonNull
     @Override
     public Response serve(IHTTPSession request) {
+        Logger.printInfo(() -> "Request URI: " + request.getUri());
+
+        InputStream requestBodyInputStream = getRequestBodyInputStream(request);
+
+        LoginRequest loginRequest;
         try {
-            Logger.printInfo(() -> "Request URI: " + request.getUri());
+            loginRequest = LoginRequest.parseFrom(requestBodyInputStream);
+        } catch (IOException e) {
+            Logger.printException(() -> "Failed to parse LoginRequest", e);
+            return newResponse(INTERNAL_ERROR);
+        }
 
-            InputStream requestBodyInputStream = getRequestBodyInputStream(request);
-            MessageLite loginResponse = getLoginResponse(LoginRequest.parseFrom(requestBodyInputStream));
+        MessageLite loginResponse;
 
-            if (loginResponse == null) {
-                return newResponse(INTERNAL_ERROR);
-            } else {
-                return newResponse(Response.Status.OK, loginResponse);
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "serve failure", ex);
+        // A request may be made concurrently by Spotify,
+        // however a webview can only handle one request at a time due to singleton cookie manager.
+        // Therefore, synchronize to ensure that only one webview handles the request at a time.
+        synchronized (this) {
+            loginResponse = getLoginResponse(loginRequest);
+        }
+
+        if (loginResponse != null) {
+            return newResponse(Response.Status.OK, loginResponse);
         }
 
         return newResponse(INTERNAL_ERROR);
@@ -52,7 +60,7 @@ class LoginRequestListener extends NanoHTTPD {
         boolean isInitialLogin = !loginRequest.hasStoredCredential();
         if (isInitialLogin) {
             Logger.printInfo(() -> "Initial login request");
-            session = WebApp.pendingLoginSession; // Session obtained from WebApp.login.
+            session = WebApp.currentSession; // Session obtained from WebApp.login.
         } else {
             Logger.printInfo(() -> "Session restore request");
             session = Session.read(loginRequest.getStoredCredential().getUsername());
@@ -78,15 +86,15 @@ class LoginRequestListener extends NanoHTTPD {
             builder.setError(LoginError.INVALID_CREDENTIALS);
         } else if (session.accessTokenExpired()) {
             Logger.printInfo(() -> "Access token has expired, renewing session");
-            Session refreshedSession = WebApp.refreshSession(session.cookies);
-            return toLoginResponse(refreshedSession, isInitialLogin);
+            WebApp.refreshSession(session.cookies);
+            return toLoginResponse(WebApp.currentSession, isInitialLogin);
         } else {
             Logger.printInfo(() -> "Returning session for username: " + session.username);
             session.save();
             builder.setOk(LoginOk.newBuilder()
                     .setUsername(session.username)
                     .setAccessToken(session.accessToken)
-                    .setStoredCredential(ByteString.fromHex("00")) // storedCredential cannot be empty.
+                    .setStoredCredential(ByteString.fromHex("00")) // Placeholder, as it cannot be null or empty.
                     .setAccessTokenExpiresIn(session.accessTokenExpiresInSeconds())
                     .build());
         }
@@ -118,11 +126,10 @@ class LoginRequestListener extends NanoHTTPD {
         };
     }
 
-
     @NonNull
     private static InputStream getRequestBodyInputStream(@NonNull IHTTPSession request) {
         long requestContentLength =
-                Long.parseLong(Objects.requireNonNull(request.getHeaders().get(CONTENT_LENGTH_HEADER)));
+                Long.parseLong(Objects.requireNonNull(request.getHeaders().get("content-length")));
         return limitedInputStream(request.getInputStream(), requestContentLength);
     }
 
