@@ -533,6 +533,10 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <string name="revanced_hide_share_button_title">Megosztás elrejtése</string>
   <string name="revanced_hide_share_button_summary_on">A megosztás gomb el van rejtve</string>
   <string name="revanced_hide_share_button_summary_off">A megosztás gomb látható</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Hirdetések leállítása elrejtése</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">A hirdetésleállítás gomb rejtett</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">A hirdetésleállítás gomb látható</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Bejelentés elrejtése</string>
@@ -560,9 +564,9 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <string name="revanced_hide_clip_button_summary_on">A klip gomb el van rejtve</string>
   <string name="revanced_hide_clip_button_summary_off">A klip gomb látható</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Mentés elrejtése</string>
-  <string name="revanced_hide_playlist_button_summary_on">A mentés gomb el van rejtve</string>
-  <string name="revanced_hide_playlist_button_summary_off">A mentés gomb látható</string>
+  <string name="revanced_hide_save_button_title">Mentés elrejtése</string>
+  <string name="revanced_hide_save_button_summary_on">A mentés gomb rejtett</string>
+  <string name="revanced_hide_save_button_summary_off">A mentés gomb látható</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigációs gombok</string>
@@ -760,9 +764,12 @@ Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítá
   <string name="revanced_hide_shorts_save_sound_button_title">Zene mentése gomb elrejtése</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">A zene mentés gomb el van rejtve</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">A zene mentés gomb látható</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">A \"Hang használata\" gomb elrejtése</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">A \"Hang használata\" gomb el van rejtve</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">A \"Hang használata\" gomb látható</string>
   <string name="revanced_hide_shorts_use_template_button_title">Sablon használata gomb elrejtése</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">A Sablon használata gomb el van rejtve</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">A sablon használata gomb látható</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">A \"Sablon használata\" gomb el van rejtve</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">A „Sablon használata” gomb látható</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Következő videó gomb elrejtése</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">A közelgő gomb el van rejtve</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Megjelenik a Közelgő gomb</string>

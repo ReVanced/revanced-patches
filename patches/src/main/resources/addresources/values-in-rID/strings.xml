@@ -533,6 +533,10 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_hide_share_button_title">Sembunyikan Bagikan</string>
   <string name="revanced_hide_share_button_summary_on">Tombol bagikan disembunyikan</string>
   <string name="revanced_hide_share_button_summary_off">Tombol bagikan ditampilkan</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Sembunyikan Hentikan iklan</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Tombol berhenti iklan disembunyikan</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Tombol berhenti iklan ditampilkan</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Sembunyikan Laporkan</string>
@@ -560,9 +564,9 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_hide_clip_button_summary_on">Tombol klip disembunyikan</string>
   <string name="revanced_hide_clip_button_summary_off">Tombol klip ditampilkan</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Sembunyikan Simpan ke daftar putar</string>
-  <string name="revanced_hide_playlist_button_summary_on">Tombol Simpan ke daftar putar disembunyikan</string>
-  <string name="revanced_hide_playlist_button_summary_off">Tombol simpan ke daftar putar ditampilkan</string>
+  <string name="revanced_hide_save_button_title">Sembunyikan Simpan</string>
+  <string name="revanced_hide_save_button_summary_on">Tombol Simpan disembunyikan</string>
+  <string name="revanced_hide_save_button_summary_off">Tombol Simpan ditampilkan</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Tombol navigasi</string>
@@ -760,9 +764,12 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Sembunyikan Simpan musik</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tombol simpan musik disembunyikan</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tombol simpan musik ditampilkan</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Sembunyikan tombol Gunakan template</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Tombol gunakan templat disembunyikan</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Tombol gunakan templat ditampilkan</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Sembunyikan tombol gunakan suara ini</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Tombol gunakan suara ini disembunyikan</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Tombol gunakan suara ini ditampilkan</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Sembunyikan tombol Gunakan template ini</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Tombol gunakan templat ini disembunyikan</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Tombol Gunakan template ini ditampilkan</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Sembunyikan tombol Mendatang</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tombol yang akan datang disembunyikan</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Tombol yang akan datang ditampilkan</string>
@@ -1389,9 +1396,9 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Ingat perubahan kualitas video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Perubahan kualitas diatur ke semua video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Perubahan kualitas hanya diatur di video saat ini</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_title">Tampilkan pesan kilas saat kualitas video berubah</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Pesan kilas ditampilkan saat kualitas video default diubah</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Pesan kilas tidak ditampilkan saat kualitas video default diubah</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Tampilkan pesan timbul saat kualitas video berubah</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Pesan timbul ditampilkan saat kualitas video bawaan diubah</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Pesan timbul tidak ditampilkan saat kualitas video bawaan diubah</string>
   <string name="revanced_video_quality_default_wifi_title">Kualitas video bawaan di jaringan Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Kualitas video bawaan di jaringan selular</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Ingat perubahan kualitas Shorts</string>
@@ -1425,9 +1432,9 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Ingat perubahan kecepatan pemutaran</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Perubahan kecepatan pemutaran berlaku untuk semua video</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Perubahan kecepatan pemutaran berlaku untuk video saat ini</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_title">Tampilkan pesan kilas saat kecepatan pemutaran berubah</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Pesan kilas ditampilkan saat kecepatan pemutaran default diubah</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Pesan singkat tidak ditampilkan ketika kecepatan pemutaran default diubah.</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Tampilkan pesan timbul saat kecepatan pemutaran berubah</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Pesan timbul ditampilkan saat kecepatan pemutaran bawaan diubah</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Pesan timbul tidak ditampilkan ketika kecepatan pemutaran bawaan diubah</string>
   <string name="revanced_playback_speed_default_title">Kecepatan pemutaran bawaan</string>
   <string name="revanced_remember_playback_speed_toast">Mengubah kecepatan bawaan menjadi: %s</string>
   </patch>

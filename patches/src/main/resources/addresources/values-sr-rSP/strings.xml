@@ -127,7 +127,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_stacktrace_summary_on">Евиденције отклањања грешака садрже праћење стека</string>
   <string name="revanced_debug_stacktrace_summary_off">Евиденције отклањања грешака не садрже праћење стека</string>
   <string name="revanced_debug_toast_on_error_title">Прикажи искачуће обавештење при грешци с ReVanced-ом</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Искаче обавештење је приказано, ако дође до грешке</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Искачуће обавештење је приказано, ако дође до грешке</string>
   <string name="revanced_debug_toast_on_error_summary_off">Искачуће обавештење није приказано, ако дође до грешке</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Искључивање искачућих обавештења о грешкама сакрива сва обавештења о грешкама у ReVanced-у.
 
@@ -533,6 +533,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">Сакриј дугме „Дели”</string>
   <string name="revanced_hide_share_button_summary_on">Дугме „Дели” је скривено</string>
   <string name="revanced_hide_share_button_summary_off">Дугме „Дели” је приказано</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Сакриј Заустави огласе</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Дугме „Заустави огласе“ је скривено</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Дугме „Заустави огласе“ је приказано</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Сакриј дугме „Пријави”</string>
@@ -560,9 +564,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">Дугме „Клип” је скривено</string>
   <string name="revanced_hide_clip_button_summary_off">Дугме „Клип” је приказано</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Сакриј дугме „Сачувај на плејлисту”</string>
-  <string name="revanced_hide_playlist_button_summary_on">Дугме „Сачувај на плејлисту” је скривено</string>
-  <string name="revanced_hide_playlist_button_summary_off">Дугме „Сачувај на плејлисту” је приказано</string>
+  <string name="revanced_hide_save_button_title">Сакриј Чувај</string>
+  <string name="revanced_hide_save_button_summary_on">Дугме „Чувај“ је скривено</string>
+  <string name="revanced_hide_save_button_summary_off">Дугме „Чувај“ је приказано</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Дугмад навигације</string>
@@ -760,9 +764,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Сакриј дугме „Сачувај музику”</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Дугме „Сачувај звук” је скривено</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Дугме „Сачувај звук” је приказано</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Сакриј дугме „Користи шаблон”</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Дугме „Користи шаблон” је скривено</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Дугме „Користи шаблон” је приказано</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Сакриј дугме „Користи овај звук”</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Дугме „Користи овај звук” је скривено</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Дугме „Користи овај звук” је приказано</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Сакриј дугме „Користи овај шаблон”</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Дугме „Користи овај шаблон” је скривено</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Дугме „Користи овај шаблон” је приказано</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Сакриј дугме „Предстојеће”</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Дугме „Предстојеће” је скривено</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Дугме „Предстојеће” је приказано</string>
@@ -1392,9 +1399,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запамти промене квалитета видеа</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Промене квалитета се примењују на све видее</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Промене квалитета се примењују само на тренутни видео</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_title">Прикажи обавештење при промени квалитета видеа</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Обавештење се приказује када се промени подразумевани квалитет видеа</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Обавештење се не приказује када се промени подразумевани квалитет видеа</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Прикажи искачуће обавештење при промени квалитета видеа</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Искачуће обавештење је приказано, када се промени подразумевани квалитет видеа</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Искачуће обавештење није приказано, када се промени подразумевани квалитет видеа</string>
   <string name="revanced_video_quality_default_wifi_title">Подразумевани квалитет видеа на Wi-Fi мрежи</string>
   <string name="revanced_video_quality_default_mobile_title">Подразумевани квалитет видеа на мобилној мрежи</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Запамти промене квалитета Shorts видеа</string>
@@ -1428,9 +1435,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Запамти промене брзине репродукције</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Промене брзине репродукције се примењују на све видее</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Промене брзине репродукције се примењују само на тренутни видео</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_title">Прикажи обавештење при промени брзине репродукције</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Обавештење се приказује када се промени подразумевана брзина репродукције</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Тост порука се не приказује када се промени подразумевана брзина репродукције.</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Прикажи искачуће обавештење при промени брзине репродукције</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Искачуће обавештење је приказано, када се промени подразумевана брзина репродукције</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Искачуће обавештење није приказано, када се промени подразумевана брзина репродукције</string>
   <string name="revanced_playback_speed_default_title">Подразумевана брзина репродукције</string>
   <string name="revanced_remember_playback_speed_toast">Брзина репродукције промењена на: %s</string>
   </patch>

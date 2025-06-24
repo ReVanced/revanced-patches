@@ -533,6 +533,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">הסתר שיתוף</string>
   <string name="revanced_hide_share_button_summary_on">לחצן שיתוף מוסתר</string>
   <string name="revanced_hide_share_button_summary_off">לחצן שיתוף מוצג</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">הסתר עצור מודעות</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">כפתור עצירת הפרסומות מוסתר</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">כפתור עצירת הפרסומות מוצג</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">הסתר דיווח</string>
@@ -560,9 +564,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">לחצן קליפ מוסתר</string>
   <string name="revanced_hide_clip_button_summary_off">לחצן קליפ מוצג</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">הסתר שמירה בפלייליסט</string>
-  <string name="revanced_hide_playlist_button_summary_on">לחצן שמירה בפלייליסט מוסתר</string>
-  <string name="revanced_hide_playlist_button_summary_off">לחצן שמירה בפלייליסט מוצג</string>
+  <string name="revanced_hide_save_button_title">הסתר שמירה</string>
+  <string name="revanced_hide_save_button_summary_on">כפתור השמירה מוסתר</string>
+  <string name="revanced_hide_save_button_summary_off">כפתור השמירה מוצג</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">לחצני ניווט</string>
@@ -760,9 +764,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">הסתר לחצן שמור מוזיקה</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">לחצן שמור מוזיקה מוסתר</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">לחצן שמור מוזיקה מוצג</string>
-  <string name="revanced_hide_shorts_use_template_button_title">הסתר לחצן שימוש בתבנית</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">לחצן שימוש בתבנית מוסתר</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">לחצן שימוש בתבנית מוצב</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">הסתר את כפתור \"השתמש בצליל זה\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">כפתור \"השתמש בצליל זה\" מוסתר</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">כפתור \"השתמש בצליל זה\" מוצג</string>
+  <string name="revanced_hide_shorts_use_template_button_title">הסתר כפתור השתמש בתבנית זו</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">כפתור \"השתמש בתבנית זו\" מוסתר</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">כפתור השתמש בתבנית זו מוצג</string>
   <string name="revanced_hide_shorts_upcoming_button_title">הסתר לחצן \'בקרוב\'</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">לחצן \'בקרוב\' מוסתר</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">לחצן \'בקרוב\' מוצג</string>
