@@ -154,7 +154,9 @@ public class GmsCoreSupport {
             }
 
             // Check if GmsCore is currently running in the background.
-            try (var client = context.getContentResolver().acquireContentProviderClient(GMS_CORE_PROVIDER)) {
+            var client = context.getContentResolver().acquireContentProviderClient(GMS_CORE_PROVIDER);
+            //noinspection TryFinallyCanBeTryWithResources
+            try {
                 if (client == null) {
                     Logger.printInfo(() -> "GmsCore is not running in the background");
                     checkIfDontKillMyAppSupportsManufacturer();
@@ -164,6 +166,8 @@ public class GmsCoreSupport {
                             "gms_core_dialog_open_website_text",
                             (dialog, id) -> openDontKillMyApp());
                 }
+            } finally {
+                if (client != null) client.close();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "checkGmsCore failure", ex);
