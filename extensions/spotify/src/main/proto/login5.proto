@@ -2,8 +2,7 @@ syntax = "proto3";
 
 package spotify.login5.v4;
 
-option java_multiple_files = true;
-option optimize_for = CODE_SIZE;
+option optimize_for = LITE_RUNTIME;
 option java_package = "app.revanced.extension.spotify.login5.v4.proto";
 
 message StoredCredential {

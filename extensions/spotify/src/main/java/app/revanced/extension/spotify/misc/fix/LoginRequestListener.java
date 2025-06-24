@@ -3,7 +3,7 @@ package app.revanced.extension.spotify.misc.fix;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.spotify.login5.v4.proto.*;
+import app.revanced.extension.spotify.login5.v4.proto.Login5.*;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.MessageLite;
 import fi.iki.elonen.NanoHTTPD;

@@ -17,7 +17,6 @@ import androidx.annotation.Nullable;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
