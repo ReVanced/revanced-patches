@@ -23,6 +23,8 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.spotify.UserAgent;
 
+import android.view.View;
+
 class WebApp {
     private static final String OPEN_SPOTIFY_COM = "open.spotify.com";
     private static final String OPEN_SPOTIFY_COM_URL = "https://" + OPEN_SPOTIFY_COM;
@@ -32,7 +34,9 @@ class WebApp {
 
     private static final int GET_SESSION_TIMEOUT_SECONDS = 5;
     private static final String JAVASCRIPT_INTERFACE_NAME = "androidInterface";
-    private static final String USER_AGENT = getWebUserAgent();
+    private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36";
+
+    public static View loginButtonView = null;
 
     /**
      * A session obtained from the webview after logging in or refreshing the session.
@@ -54,6 +58,7 @@ class WebApp {
                 Utils.runOnMainThreadNowOrLater(() -> {
                     webView1.stopLoading();
                     webView1.destroy();
+                    loginButtonView.performClick();
                 });
             });
 

@@ -165,6 +165,7 @@ val spoofClientPatch = bytecodePatch(
 
             val buttonRegister = getInstruction<OneRegisterInstruction>(getViewIndex + 1).registerA
 
+            // Early returning the render for loop since the first item of the loop is the login button
             addInstructions(
                 getViewIndex + 2,
                 """
