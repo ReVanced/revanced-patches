@@ -196,7 +196,9 @@ class WebApp {
         Logger.printInfo(() -> "Default user agent: " + userAgentString);
 
         try {
-            String webUserAgentString = new UserAgent(userAgentString).removeProduct("Mobile").toString();
+            String webUserAgentString = new UserAgent(userAgentString)
+                    .replaceComment("Android", "Windows NT 10.0; Win64; x64");
+            
             Logger.printInfo(() -> "Web user agent: " + webUserAgentString);
             return webUserAgentString;
         } catch (IllegalArgumentException e) {
