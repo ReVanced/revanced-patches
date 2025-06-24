@@ -526,6 +526,10 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_hide_share_button_title">Skryť zdieľanie</string>
   <string name="revanced_hide_share_button_summary_on">Tlačidlo Zdieľať je skryté</string>
   <string name="revanced_hide_share_button_summary_off">Zobrazí sa tlačidlo Zdieľať</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Skryť Zastaviť reklamy</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Tlačidlo Zastaviť reklamy je skryté</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Tlačidlo Zastaviť reklamy je zobrazené</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Skryť prehľad</string>
@@ -553,9 +557,9 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_hide_clip_button_summary_on">Tlačidlo klipu je skryté</string>
   <string name="revanced_hide_clip_button_summary_off">Zobrazí sa tlačidlo klipu</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Skryť Uložiť do zoznamu skladieb</string>
-  <string name="revanced_hide_playlist_button_summary_on">Tlačidlo Uložiť do zoznamu skladieb je skryté</string>
-  <string name="revanced_hide_playlist_button_summary_off">Zobrazí sa tlačidlo Uložiť do zoznamu skladieb</string>
+  <string name="revanced_hide_save_button_title">Skryť Uložiť</string>
+  <string name="revanced_hide_save_button_summary_on">Tlačidlo Uložiť je skryté</string>
+  <string name="revanced_hide_save_button_summary_off">Tlačidlo Uložiť je zobrazené</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigačné tlačidlá</string>
@@ -753,9 +757,12 @@ Ak chcete zobraziť ponuku zvukovej stopy, zmeňte možnosť „Oklamať videost
   <string name="revanced_hide_shorts_save_sound_button_title">Skryť tlačidlo Uložiť hudbu</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tlačidlo na uloženie hudby je skryté</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tlačidlo na uloženie hudby sa zobrazuje</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Skryť tlačidlo Použiť šablónu</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Tlačidlo na použitie šablóny je skryté</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Tlačidlo na použitie šablóny sa zobrazuje</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Skryť tlačidlo Použiť tento zvuk</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Tlačidlo Použiť tento zvuk je skryté</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Tlačidlo Použiť tento zvuk je zobrazené</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Skryť tlačidlo Použiť túto šablónu</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Tlačidlo Použiť túto šablónu je skryté</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Tlačidlo Použiť túto šablónu je zobrazené</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Skryť tlačidlo Pripravované</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tlačidlo pre časté videá bude skryté</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Tlačidlo pre časté videá bude zobrazené</string>

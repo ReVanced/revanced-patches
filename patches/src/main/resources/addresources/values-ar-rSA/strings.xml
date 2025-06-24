@@ -533,6 +533,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">إخفاء المشاركة</string>
   <string name="revanced_hide_share_button_summary_on">تم إخفاء زر مشاركة</string>
   <string name="revanced_hide_share_button_summary_off">يتم عرض زر مشاركة</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">إخفاء إيقاف الإعلانات</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">زر إيقاف الإعلانات مخفي</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">زر إيقاف الإعلانات معروض</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">إخفاء الإبلاغ</string>
@@ -560,9 +564,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">تم إخفاء زر إنشاء مقطع</string>
   <string name="revanced_hide_clip_button_summary_off">يتم عرض زر إنشاء مقطع</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">إخفاء الحفظ في قائمة التشغيل</string>
-  <string name="revanced_hide_playlist_button_summary_on">تم إخفاء زر الحفظ في قائمة التشغيل</string>
-  <string name="revanced_hide_playlist_button_summary_off">يتم عرض زر الحفظ في قائمة التشغيل</string>
+  <string name="revanced_hide_save_button_title">إخفاء حفظ</string>
+  <string name="revanced_hide_save_button_summary_on">زر الحفظ مخفي</string>
+  <string name="revanced_hide_save_button_summary_off">زر الحفظ معروض</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">أزرار التنقل</string>
@@ -760,9 +764,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">إخفاء زر حفظ الموسيقى</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">تم إخفاء زر حفظ الموسيقى</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">يتم عرض زر حفظ الموسيقى</string>
-  <string name="revanced_hide_shorts_use_template_button_title">إخفاء زر استخدام القالب</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">تم إخفاء زر استخدام القالب</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">يتم عرض زر استخدام القالب</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">إخفاء زر استخدام هذا الصوت</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">زر استخدام هذا الصوت مخفي</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">زر استخدام هذا الصوت معروض</string>
+  <string name="revanced_hide_shorts_use_template_button_title">إخفاء زر استخدام هذا القالب</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">زر استخدام هذا القالب مخفي</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">زر استخدام هذا القالب ظاهر</string>
   <string name="revanced_hide_shorts_upcoming_button_title">إخفاء زر القادم</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">تم إخفاء زر القادم</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">يتم عرض زر القادم</string>

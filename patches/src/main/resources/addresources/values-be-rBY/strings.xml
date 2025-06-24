@@ -533,6 +533,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">Схаваць Share</string>
   <string name="revanced_hide_share_button_summary_on">Кнопка \"Падзяліцца\" схавана</string>
   <string name="revanced_hide_share_button_summary_off">Паказана кнопка \"Падзяліцца\"</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Схаваць Спыніць рэкламу</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Кнопка \"Спыніць рэкламу\" схавана</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Кнопка \"Спыніць рэкламу\" паказана</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Схаваць справаздачу</string>
@@ -560,9 +564,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">Кнопка кліпа схавана</string>
   <string name="revanced_hide_clip_button_summary_off">Паказана кнопка кліпа</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Схаваць Захаваць у плэйліст</string>
-  <string name="revanced_hide_playlist_button_summary_on">Кнопка \"Захаваць у спіс прайгравання\" схавана</string>
-  <string name="revanced_hide_playlist_button_summary_off">Паказана кнопка \"Захаваць у спіс прайгравання\"</string>
+  <string name="revanced_hide_save_button_title">Схаваць \"Захаваць\"</string>
+  <string name="revanced_hide_save_button_summary_on">Кнопка \"Захаваць\" схавана</string>
+  <string name="revanced_hide_save_button_summary_off">Кнопка \"Захаваць\" паказана</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Кнопкі навігацыі</string>
@@ -760,9 +764,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Схаваць кнопку «Захаваць музыку»</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка захавання музыкі схавана</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка захавання музыкі паказана</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Схаваць кнопку «Выкарыстаць шаблон»</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопка выкарыстання шаблону схавана</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка выкарыстання шаблону паказана</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Схаваць кнопку \"Выкарыстаць гэты гук\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Кнопка \"Выкарыстаць гэты гук\" схавана</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Кнопка \"Выкарыстаць гэты гук\" паказана</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Схаваць кнопку \"Выкарыстаць гэты шаблон\"</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопка \"Выкарыстаць гэты шаблон\" схавана</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка \"Выкарыстаць гэты шаблон\" паказана</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Схаваць кнопку «Наступныя»</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопка Будущие ролики скрыта</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопка Будущие ролики отображается</string>

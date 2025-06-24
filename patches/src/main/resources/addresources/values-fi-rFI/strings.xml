@@ -23,7 +23,7 @@ Second \"item\" text"</string>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Tarkastuksia epäonnistui</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Avaa virallinen sivusto</string>
-  <string name="revanced_check_environment_dialog_ignore_button">Jätä huomiotta</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Ohita</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Tämä sovellus ei näytä olevan sinun paikkaamasi.&lt;/h5&gt;&lt;br&gt;Tämä sovellus ei ehkä toimi oikein, &lt;b&gt;voi olla haitallinen tai jopa vaarallinen käyttää&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Nämä tarkastukset viittaavat siihen, että tämä sovellus on valmiiksi paikattu tai saatu joltakulta muulta:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;On erittäin suositeltavaa, että &lt;b&gt;poistat tämän sovelluksen ja paikkaat sen itse&lt;/b&gt; varmistaaksesi, että käytät tarkistettua ja turvallista sovellusta.&lt;p&gt;&lt;br&gt;Jos tämä varoitus jätetään huomiotta, se näytetään vain kahdesti.</string>
   <string name="revanced_check_environment_not_same_patching_device">Paikattu toisella laitteella</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Ei ReVanced Managerin asentama</string>
@@ -45,9 +45,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Revanced-asetukset nollattiin</string>
   <string name="revanced_settings_import_success">%d asetusta tuotiin</string>
   <string name="revanced_settings_import_failure_parse">Tuonti epäonnistui: %s</string>
-  <string name="revanced_settings_search_hint">Hakuasetukset</string>
+  <string name="revanced_settings_search_hint">Hae asetuksista</string>
   <string name="revanced_settings_search_no_results_title">Tuloksia ei löytynyt haulle \"%s\"</string>
-  <string name="revanced_settings_search_no_results_summary">Kokeile toista avainsanaa</string>
+  <string name="revanced_settings_search_no_results_summary">Kokeile toista hakusanaa</string>
   <string name="revanced_settings_search_remove_message">Poistetaanko hakuhistoriasta?</string>
   <string name="revanced_show_menu_icons_title">Näytä ReVanced-asetuskuvakkeet</string>
   <string name="revanced_show_menu_icons_summary_on">Asetuskuvakkeet näytetään</string>
@@ -171,7 +171,7 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Piilota \"\'Sinulle\" -hylly</string>
   <string name="revanced_hide_for_you_shelf_summary_on">Hylly on piilotettu kanavasivuilla</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Hylly näytetään kanavasivuilla</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Kanavasivun hylly näytetään</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Piilota \"Ilmoita minulle\" -painike</string>
@@ -533,6 +533,7 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_share_button_title">Piilota Jaa</string>
   <string name="revanced_hide_share_button_summary_on">Jaa-painike on piilotettu</string>
   <string name="revanced_hide_share_button_summary_off">Jaa-painike näytetään</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Piilota Tee ilmoitus</string>
@@ -560,9 +561,6 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_clip_button_summary_on">Klippi-painike on piilotettu</string>
   <string name="revanced_hide_clip_button_summary_off">Klippi-painike näytetään</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Piilota Tallenna soittolistalle</string>
-  <string name="revanced_hide_playlist_button_summary_on">Tallenna soittolistalle -painike on piilotettu</string>
-  <string name="revanced_hide_playlist_button_summary_off">Tallenna soittolistalle -painike näytetään</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigointipainikkeet</string>
@@ -760,9 +758,12 @@ Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Piilota Tallenna musiikki -painike</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tallenna musiikki -painike on piilotettu</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tallenna musiikki -painike näytetään</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Piilota Käytä mallia -painike</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Käytä mallia -painike on piilotettu</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Käytä mallia -painike näytetään</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Piilota Käytä tätä ääntä -painike</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Käytä tätä ääntä -painike on piilotettu</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Käytä tätä ääntä -painike näytetään</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Piilota Käytä tätä mallia -painike</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Käytä tätä mallia -painike on piilotettu</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Käytä tätä mallia -painike näytetään</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Piilota Tulossa-painike</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tulossa-painike on piilotettu</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Tulossa-painike näytetään</string>
@@ -1390,6 +1391,9 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Muista videolaadun muutokset</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Laatumuutokset koskevat kaikkia videoita</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Laatumuutokset koskevat vain nykyistä videota</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Näytä ponnahdusilmoitus videon laatua muutettaessa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Ponnahdusilmoitus näytetään videon oletuslaatua muutettaessa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Ponnahdusilmoitusta ei näytetä videon oletuslaatua muutettaessa</string>
   <string name="revanced_video_quality_default_wifi_title">Videon oletuslaatu Wi-Fi-verkossa</string>
   <string name="revanced_video_quality_default_mobile_title">Videon oletuslaatu mobiiliverkossa</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Muista Shortsien laadun muutokset</string>
@@ -1423,6 +1427,9 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Muista toistonopeuden muutokset</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Toistonopeuden muutokset koskevat kaikkia videoita</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Toistonopeuden muutokset koskevat vain nykyistä videota</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Näytä ponnahdusilmoitus toistonopeutta muutettaessa</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Ponnahdusilmoitus näytetään oletustoistonopeutta muutettaessa</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Ponnahdusilmoitus ei näytetä oletustoistonopeutta muutettaessa</string>
   <string name="revanced_playback_speed_default_title">Toiston oletusnopeus</string>
   <string name="revanced_remember_playback_speed_toast">Toiston oletusnopeus muutettiin: %s</string>
   </patch>

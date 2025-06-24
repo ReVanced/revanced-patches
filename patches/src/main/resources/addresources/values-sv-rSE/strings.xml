@@ -533,6 +533,10 @@ Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_hide_share_button_title">Dölj dela</string>
   <string name="revanced_hide_share_button_summary_on">Knappen dela är dold</string>
   <string name="revanced_hide_share_button_summary_off">Knappen dela är synlig</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Dölj Stoppa annonser</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Knappen för att stoppa annonser är dold</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Knappen för att stoppa annonser visas</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Dölj rapport</string>
@@ -560,9 +564,9 @@ Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_hide_clip_button_summary_on">Klipp knappen är dold</string>
   <string name="revanced_hide_clip_button_summary_off">Klippknappen är synlig</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Dölj Spara i spellista</string>
-  <string name="revanced_hide_playlist_button_summary_on">Spara till spellistan knappen är dold</string>
-  <string name="revanced_hide_playlist_button_summary_off">Knappen spara till spellista är synlig</string>
+  <string name="revanced_hide_save_button_title">Dölj Spara</string>
+  <string name="revanced_hide_save_button_summary_on">Spara-knappen är dold</string>
+  <string name="revanced_hide_save_button_summary_off">Spara-knappen visas</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigeringsknappar</string>
@@ -760,9 +764,12 @@ För att visa ljudspårsmenyn, ändra \"Spoof video streams\" till iOS TV"</stri
   <string name="revanced_hide_shorts_save_sound_button_title">Dölj knapp \'Spara musik\'</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Spara musikknappen är dold</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Spara musikknappen visas</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Dölj knapp \'Använd mall\'</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Använd mallknappen är dold</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Använd mallknappen visas</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Dölj Använd detta ljud-knapp</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Använd detta ljud-knappen är dold</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Använd detta ljud-knappen visas</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Dölj knappen Använd den här mallen</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Använd denna mall-knappen är dold</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Knappen Använd den här mallen visas</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Dölj knapp \'Kommande\'</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Kommande knapp är dold</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Kommande knapp visas</string>
