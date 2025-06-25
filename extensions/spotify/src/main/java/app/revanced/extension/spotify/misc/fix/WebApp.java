@@ -83,6 +83,11 @@ class WebApp {
                     void onLoggedIn(String cookies) {
                         Logger.printInfo(() -> "Received cookies from login: " + cookies);
                         dialog.dismiss();
+
+                        if (nativeLoginHandler != null) {
+                            Logger.printInfo(() -> "Perform native login in Spotify");
+                            nativeLoginHandler.login();
+                        }
                     }
 
                     @Override
