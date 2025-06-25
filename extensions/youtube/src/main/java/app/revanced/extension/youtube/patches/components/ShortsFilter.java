@@ -275,7 +275,7 @@ public final class ShortsFilter extends Filter {
                         "yt_outline_bell_"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_SHORTS_EFFECTS_BUTTON,
+                        Settings.HIDE_SHORTS_EFFECT_BUTTON,
                         // https://www.gstatic.com/youtube/effects/xeno/arcade/effects/icons/
                         "/arcade/effects/icons/"
                 ),
