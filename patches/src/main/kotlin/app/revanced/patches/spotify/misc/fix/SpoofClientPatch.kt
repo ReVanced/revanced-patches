@@ -143,7 +143,7 @@ val spoofClientPatch = bytecodePatch(
 
             val buttonRegister = getInstruction<OneRegisterInstruction>(getViewIndex + 1).registerA
 
-            // Early returning the render for loop since the first item of the loop is the login button.
+            // Early return the render for loop since the first item of the loop is the login button.
             addInstructions(
                 getViewIndex + 2,
                 """
@@ -169,8 +169,7 @@ val spoofClientPatch = bytecodePatch(
             )
         }
 
-        thirdLoginOnClickFingerprint.method.apply {
-            // Return void is NOT at the end of the method.
+        thirdLoginScreenLoginOnClickFingerprint.method.apply {
             val loginActionIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID) - 1
 
             val loginActionInstruction = getInstruction<FiveRegisterInstruction>(loginActionIndex)

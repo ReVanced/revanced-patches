@@ -33,7 +33,7 @@ class WebApp {
     @Nullable
     static volatile Session currentSession;
 
-    private static NativeLoginHandler handler = null;
+    private static NativeLoginHandler nativeLoginHandler;
 
     static void login(Context context) {
         Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
@@ -191,9 +191,7 @@ class WebApp {
 
         public void stopLoadingAndDestroyOnMainThreadNowOrLater() {
             runOnMainThreadNowOrLater(() -> {
-                if (handler != null) {
-                    handler.handle();
-                }
+                if (nativeLoginHandler != null) nativeLoginHandler.login();
                 stopLoading();
                 destroy();
             });
@@ -243,10 +241,10 @@ class WebApp {
     }
 
     public interface NativeLoginHandler {
-        void handle();
+        void login();
     }
 
-    public static void setPerformNativeLoginHandler(NativeLoginHandler handlerParam) {
-        handler = handlerParam;
+    public static void setPerformNativeLoginHandler(NativeLoginHandler handler) {
+        nativeLoginHandler = handler;
     }
 }

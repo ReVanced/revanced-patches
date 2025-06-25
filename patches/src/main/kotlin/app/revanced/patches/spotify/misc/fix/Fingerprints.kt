@@ -32,6 +32,6 @@ internal val thirdLoginScreenRenderFingerprint = fingerprint {
     strings("EMAIL_OR_USERNAME", "listener")
 }
 
-internal val thirdLoginOnClickFingerprint = fingerprint {
+internal val thirdLoginScreenLoginOnClickFingerprint = fingerprint {
     strings("login", "listener", "none")
 }
