@@ -1,7 +1,5 @@
 package app.revanced.extension.spotify;
 
-import jdk.internal.vm.Continuation;
-import jdk.javadoc.internal.doclets.toolkit.util.DocFinder;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
