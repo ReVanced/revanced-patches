@@ -4,26 +4,17 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.webkit.CookieManager;
-import android.webkit.JavascriptInterface;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.webkit.*;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.spotify.UserAgent;
-
-import android.view.View;
 
 class WebApp {
     private static final String OPEN_SPOTIFY_COM = "open.spotify.com";
@@ -32,11 +23,9 @@ class WebApp {
     private static final String ACCOUNTS_SPOTIFY_COM_LOGIN_URL = "https://accounts.spotify.com/login?continue=" +
             "https%3A%2F%2Fopen.spotify.com%2Fpreferences";
 
-    private static final int GET_SESSION_TIMEOUT_SECONDS = 5;
+    private static final int GET_SESSION_TIMEOUT_SECONDS = 10;
     private static final String JAVASCRIPT_INTERFACE_NAME = "androidInterface";
-    private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36";
-
-    private static View loginButton = null;
+    private static final String USER_AGENT = getWebUserAgent();
 
     /**
      * A session obtained from the webview after logging in or refreshing the session.
@@ -45,91 +34,86 @@ class WebApp {
     static volatile Session currentSession;
 
     static void login(Context context) {
-        Utils.runOnMainThreadNowOrLater(() -> {
-            Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+        Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
 
-            WebView webView = newWebView((String cookies) -> {
-                Logger.printInfo(() -> "Received cookies from login: " + cookies);
-                dialog.dismiss();
-            }, (webView1, session) -> {
-                Logger.printInfo(() -> "Received session from login: " + session);
-                currentSession = session;
+        MainThreadWebView webView = newWebView(
+                // Can't use Utils.getContext() here, because autofill won't work.
+                // See https://stackoverflow.com/a/79182053/11213244.
+                context,
+                (String cookies) -> {
+                    Logger.printInfo(() -> "Received cookies from login: " + cookies);
+                    dialog.dismiss();
+                }, (webView1, session) -> {
+                    Logger.printInfo(() -> "Received session from login: " + session);
+                    currentSession = session;
+                    webView1.stopLoadingAndDestroyOnMainThreadNowOrLater();
+                }
+        );
 
-                Utils.runOnMainThreadNowOrLater(() -> {
-                    loginButton.performClick();
-                    webView1.stopLoading();
-                    webView1.destroy();
-                });
-            });
+        // Ensure that cookies are cleared before loading the login page.
+        CookieManager.getInstance().removeAllCookies((anyRemoved) ->
+                webView.loadUrlOnMainThread(ACCOUNTS_SPOTIFY_COM_LOGIN_URL)
+        );
 
-            // Ensure that cookies are cleared before loading the login page.
-            CookieManager.getInstance().removeAllCookies((anyRemoved) ->
-                    webView.loadUrl(ACCOUNTS_SPOTIFY_COM_LOGIN_URL)
-            );
-
-            dialog.setCancelable(false);
-            dialog.setContentView(webView);
-            dialog.show();
-        });
+        dialog.setCancelable(false);
+        dialog.setContentView(webView);
+        dialog.show();
     }
-
 
     static void refreshSession(String cookies) {
         setCookies(cookies);
 
         CountDownLatch getSessionLatch = new CountDownLatch(1);
 
+        MainThreadWebView webView = newWebView(
+                Utils.getContext(),
+                null, (webView1, session) -> {
+                    Logger.printInfo(() -> "Received session: " + session);
+                    currentSession = session;
+                    getSessionLatch.countDown();
+                }
+        );
+
+        boolean isAcquired = false;
+
         int attempts = 1;
         do {
-            int attemptNumber = attempts;
-            Logger.printInfo(() -> "Attempt " + attemptNumber + ": Getting session for "
+            int finalAttempts = attempts;
+            Logger.printInfo(() -> "Attempt " + finalAttempts + ": Getting session for "
                     + GET_SESSION_TIMEOUT_SECONDS + " seconds...");
 
-            Utils.runOnMainThread(() -> newWebView(null, (webView1, session) -> {
-                Logger.printInfo(() -> "Received session: " + session);
-                currentSession = session;
-
-                webView1.stopLoading();
-                webView1.destroy();
-
-                getSessionLatch.countDown();
-
-            }).loadUrl(OPEN_SPOTIFY_COM_PREFERENCES_URL));
+            webView.loadUrlOnMainThread(OPEN_SPOTIFY_COM_PREFERENCES_URL);
 
             try {
-                boolean isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-                if (isAcquired) return;
+                isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+                if (isAcquired) break;
             } catch (InterruptedException ex) {
                 Logger.printException(() -> "Interrupted while waiting for session", ex);
-                Thread.currentThread().interrupt(); // Restore interrupt status flag.
-                return;
+                // Restore interrupt status set by unknown outside code.
+                Thread.currentThread().interrupt();
+                break;
             }
         } while (attempts++ <= 3);
 
-        Logger.printException(() -> "Failed to get session after multiple attempts");
-    }
+        if (!isAcquired) {
+            Logger.printException(() -> "Failed to get session");
+        }
 
-    private interface HasLoggedInCallback {
-        void onLoggedIn(String cookies);
-    }
-
-    private interface HasReceivedSessionCallback {
-        void onReceivedSession(WebView webView, Session session);
+        webView.stopLoadingAndDestroyOnMainThreadNowOrLater();
     }
 
     @NonNull
     @SuppressLint("SetJavaScriptEnabled")
-    private static WebView newWebView(
+    private static MainThreadWebView newWebView(
+            Context context,
             HasLoggedInCallback hasLoggedInCallback,
             HasReceivedSessionCallback hasReceivedSessionCallback
     ) {
-        WebView webView = new WebView(Utils.getContext());
+        MainThreadWebView webView = new MainThreadWebView(context);
         WebSettings settings = webView.getSettings();
         settings.setDomStorageEnabled(true);
         settings.setJavaScriptEnabled(true);
-
         settings.setUserAgentString(USER_AGENT);
-
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
@@ -153,6 +137,7 @@ class WebApp {
                         "       accessToken = this._builder?.accessToken;" +
                         "       if (accessToken) {" +
                         "           " + JAVASCRIPT_INTERFACE_NAME + ".getSession(username, accessToken);" +
+                        "           delete Object.prototype._username;" +
                         "       }" +
                         "       " +
                         "       Object.defineProperty(this, \"_username\", {" +
@@ -161,6 +146,7 @@ class WebApp {
                         "           writable: true," +
                         "           value: username" +
                         "       })" +
+                        "       " +
                         "   }" +
                         "});";
 
@@ -174,6 +160,7 @@ class WebApp {
             public void getSession(String username, String accessToken) {
                 if (hasReceivedSessionCallback != null) {
                     Session session = new Session(username, accessToken, getCurrentCookies());
+
                     hasReceivedSessionCallback.onReceivedSession(webView, session);
                 }
             }
@@ -182,14 +169,49 @@ class WebApp {
         return webView;
     }
 
+
+    private interface HasLoggedInCallback {
+        void onLoggedIn(String cookies);
+    }
+
+    private interface HasReceivedSessionCallback {
+        void onReceivedSession(MainThreadWebView webView, Session session);
+    }
+
+    private static class MainThreadWebView extends WebView {
+        public MainThreadWebView(Context context) {
+            super(context);
+        }
+
+        public void loadUrlOnMainThread(String url) {
+            runOnMainThreadNowOrLater(() -> super.loadUrl(url));
+        }
+
+        public void stopLoadingAndDestroyOnMainThreadNowOrLater() {
+            runOnMainThreadNowOrLater(() -> {
+                stopLoading();
+                destroy();
+            });
+        }
+
+
+        private void runOnMainThreadNowOrLater(Runnable runnable) {
+            Utils.runOnMainThreadNowOrLater(runnable);
+        }
+    }
+
     @NonNull
     private static String getWebUserAgent() {
         String userAgentString = WebSettings.getDefaultUserAgent(Utils.getContext());
-        Logger.printInfo(() -> "Default user agent: " + userAgentString);
+        Logger.printInfo(() -> "Default WebView user agent: " + userAgentString);
 
         try {
-            String webUserAgentString = new UserAgent(userAgentString).removeProduct("Mobile").toString();
-            Logger.printInfo(() -> "Web user agent: " + webUserAgentString);
+            String webUserAgentString = new UserAgent(userAgentString)
+                    .withCommentReplaced("Android", "Windows NT 10.0; Win64; x64")
+                    .withoutProduct("Mobile")
+                    .toString();
+
+            Logger.printInfo(() -> "WebView user agent after modifications: " + webUserAgentString);
             return webUserAgentString;
         } catch (IllegalArgumentException e) {
             Logger.printException(() -> "Failed to parse user agent: " + userAgentString, e);
@@ -213,9 +235,5 @@ class WebApp {
         for (String cookie : cookiesList) {
             cookieManager.setCookie(OPEN_SPOTIFY_COM_URL, cookie);
         }
-    }
-
-    public static void setLoginButtonView(View loginButtonParam) {
-        loginButton = loginButtonParam;
     }
 }

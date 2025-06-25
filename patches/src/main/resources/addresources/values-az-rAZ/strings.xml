@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Tənzimləmələr</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Davam etmək istəyirsiniz?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Davam etmək istədiyinizə əminsiniz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_reset_color">Rəngi sıfırla</string>
   <string name="revanced_settings_color_invalid">Yanlış rəng</string>
-  <string name="revanced_settings_restart_title">Yenilə və yenidən başlat</string>
+  <string name="revanced_settings_restart_title">Yenidən başlatma tələb olunur</string>
+  <string name="revanced_settings_restart_dialog_message">Bu dəyişikliyin təsir etməsi üçün tətbiqi yenidən başladın.</string>
   <string name="revanced_settings_restart">Yenidən başlat</string>
   <string name="revanced_settings_import">İdxal et</string>
   <string name="revanced_settings_import_copy">Köçür</string>
@@ -532,6 +533,10 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_hide_share_button_title">\"Paylaş\"ı gizlət</string>
   <string name="revanced_hide_share_button_summary_on">Paylaş düyməsi gizlidir</string>
   <string name="revanced_hide_share_button_summary_off">Paylaş düyməsi göstərilir</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Reklamları Dayandırın-ı gizlət</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Reklamları dayandır düyməsi gizlidir</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Reklamları dayandır düyməsi görünür</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">\"Xəbər verin\"i gizlət</string>
@@ -559,9 +564,9 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_hide_clip_button_summary_on">Kəsmə düyməsi gizlidir</string>
   <string name="revanced_hide_clip_button_summary_off">Kəsmə düyməsi göstərilir</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">\"Pleylistdə saxla\"nı gizlət</string>
-  <string name="revanced_hide_playlist_button_summary_on">Pleylistdə saxla düyməsi gizlidir</string>
-  <string name="revanced_hide_playlist_button_summary_off">Pleylistdə saxla düyməsi göstərilir</string>
+  <string name="revanced_hide_save_button_title">Saxlayın-ı Gizlət</string>
+  <string name="revanced_hide_save_button_summary_on">Saxlayın düyməsi gizlidir</string>
+  <string name="revanced_hide_save_button_summary_off">Saxlayın düyməsi görünür</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Fəaliyyət düymələri</string>
@@ -759,9 +764,12 @@ Audio trek seçimin göstərmək üçün \"Video axınları saxtalaşdır\"ı iO
   <string name="revanced_hide_shorts_save_sound_button_title">Musiqini saxla düyməsini gizlət</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">\"Musiqini saxla\" düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">\"Musiqini saxla\" düyməsi göstərilir</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Şablonu işlət düyməsini gizlət</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">\"Şablonu istifadə et\" düyməsi gizlidir</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">\"Şablonu istifadə et\" düyməsi göstərilir</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Bu səsi işlət düyməsini gizlət</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Bu səsi işlət düyməsi gizlidir</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Bu səsi işlət düyməsi görünür</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Bu şablonu işlət düyməsini gizlət</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Bu şablonu işlət düyməsi gizlidir</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Bu şablonu işlət düyməsi görünür</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Yaxınlaşan düyməsini gizlət</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">\"Yaxınlaşan\" düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">\"Yaxınlaşan\" düyməsi göstərilir</string>
@@ -919,8 +927,6 @@ Məhdudiyyət: Bəyənməmələr gizli rejimdə görünməyə bilər"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Yüksək keyfiyyətli miniatürləri aktivləşdir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">İrəliləyiş cizgisi miniatürləri yüksək keyfiyyətlidir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">İrəliləyiş cizgisi miniatürləri orta keyfiyyətlidir</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tam ekran irəliləyiş cizgisi miniatürü yüksək keyfiyyətlidir</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tam ekran irəliləyiş cizgisi miniatürləri orta keyfiyyətlidir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Bu, həmçinin irəliləyiş cizgisi miniatürləri olmayan canlı yayımlarda miniatürləri bərpa edəcək.
 
 İrəliləyiş cizgisi miniatürləri cari video kimi eyni keyfiyyəti işlədəcək.
@@ -1007,7 +1013,7 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz.
   <string name="revanced_sb_segments_highlight_sum">Əksər insanların axtardığı video bölümü</string>
   <string name="revanced_sb_segments_intro">Fasilə/Giriş Animasiyası</string>
   <string name="revanced_sb_segments_intro_sum">Həqiqi məzmunu olmayan aralıq. Fasilə, statik kadr və ya təkrarlanan animasiya ola bilər. Məlumat ehtiva edən keçidlər daxil deyil</string>
-  <string name="revanced_sb_segments_outro">Son kartlar/Zaminlər</string>
+  <string name="revanced_sb_segments_outro">Son kartlar / Zaminlər</string>
   <string name="revanced_sb_segments_outro_sum">Zaminlər və ya YouTube bitiş kartları görünəndə. Məlumat daxil olan nəticələr üçün deyil</string>
   <string name="revanced_sb_segments_preview">Önizləmə/Anons/Qısa</string>
   <string name="revanced_sb_segments_preview_sum">Videoda və ya seriyanın digər videolarında nə gözlənildiyini və ya baş verdiyini göstərən, bütün məlumatların başqa yerdə təkrarlandığı bölüm toplusu</string>
@@ -1239,11 +1245,6 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Örtük düymələrini gizlət</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Örtük düymələri gizlidir</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Örtük düymələri görünür</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Genişləndir və bağla düymələrini gizlət</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Düymələr gizlidir
-
-Genişləndirmək və ya bağlamaq üçün sürüşdür"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Genişləndir və bağla düymələri göstərilir</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alt mətnləri gizlət</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alt mətnlər gizlədilir</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alt mətnlər göstərilir</string>
@@ -1395,6 +1396,9 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_remember_video_quality_last_selected_title">Video keyfiyyəti dəyişikliklərini xatırla</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Keyfiyyət dəyişiklikləri bütün videolara tətbiq edilir</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Keyfiyyət dəyişiklikləri yalnız cari videoya tətbiq edilir</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Video keyfiyyət dəyişikliklərində ani bildiriş göstər</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">İlkin video keyfiyyəti dəyişdirildikdə bildiriş göstərilir</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">İlkin video keyfiyyəti dəyişdirildikdə bildiriş göstərilmir</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi şəbəkəsində ilkin video keyfiyyəti</string>
   <string name="revanced_video_quality_default_mobile_title">Mobil şəbəkədə ilkin video keyfiyyəti</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Shorts keyfiyyət dəyişikliklərini xatırla</string>
@@ -1421,7 +1425,6 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_custom_playback_speeds_invalid">Fərdi sürətlər %s dəyərindən az olmalıdır</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Fərdi oynatma sürətləri etibarsızdır</string>
   <string name="revanced_custom_playback_speeds_auto">Avtomatik</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Oynatma sürəti sıfırlandı: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Xüsusi toxunma və saxlanılma sürəti</string>
   <string name="revanced_speed_tap_and_hold_summary">0-8 arası oynatma sürəti</string>
   </patch>
@@ -1429,6 +1432,9 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_remember_playback_speed_last_selected_title">Oynatma sürəti dəyişikliklərin xatırla</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Oynatma sürəti dəyişiklikləri bütün videolara aiddir</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Oynatma sürəti dəyişiklikləri yalnız cari videoya aiddir</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Oynatma sürəti dəyişikliklərində ani bildiriş göstər</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">İlkin oynatma sürəti dəyişdirildikdə bildiriş göstərilir</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">İlkin oynatma sürəti dəyişdirildikdə bildiriş göstərilmir</string>
   <string name="revanced_playback_speed_default_title">İlkin oynatma sürəti</string>
   <string name="revanced_remember_playback_speed_toast">İlkin sürət %s kimi dəyişdirildi</string>
   </patch>
@@ -1490,7 +1496,6 @@ AVC maksimum 1080p görüntü imkanına malikdir, Opus audio kodlama olmur və v
   <string name="revanced_embedded_ads_service_failed">%s xəta qaytardı, reklamlar görünə bilər. Tənzimləmədə reklam əngəlləmə xidmətin dəyişməyə çalışın.</string>
   <string name="revanced_block_embedded_ads_title">Yerləşdirilən video reklamlarını əngəllə</string>
   <string name="revanced_block_embedded_ads_entry_1">Qeyri-aktiv edildi</string>
-  <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proksi</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">

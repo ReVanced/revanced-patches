@@ -129,8 +129,7 @@ abstract class Check {
             ImageView iconView = new ImageView(activity);
             iconView.setImageResource(Utils.getResourceIdentifier("revanced_ic_dialog_alert", "drawable"));
             iconView.setColorFilter(Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
-            final int dip8 = dipToPixels(8);
-            iconView.setPadding(0, dip8, 0, dip8);
+            iconView.setPadding(0, 0, 0, 0);
             LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT

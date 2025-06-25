@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Instellingen</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Wilt u doorgaan?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Weet je zeker dat je door wilt gaan?</string>
   <string name="revanced_settings_reset">Terugzetten</string>
   <string name="revanced_settings_reset_color">Kleur opnieuw instellen</string>
   <string name="revanced_settings_color_invalid">Ongeldige kleur</string>
-  <string name="revanced_settings_restart_title">Vernieuwen en opnieuw starten</string>
+  <string name="revanced_settings_restart_title">Opnieuw opstarten vereist</string>
+  <string name="revanced_settings_restart_dialog_message">Start de app opnieuw op om deze wijziging door te voeren.</string>
   <string name="revanced_settings_restart">Opnieuw starten</string>
   <string name="revanced_settings_import">Importeren</string>
   <string name="revanced_settings_import_copy">Kopiëren</string>
@@ -532,6 +533,10 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_hide_share_button_title">Verberg delen</string>
   <string name="revanced_hide_share_button_summary_on">Deel knop is verborgen</string>
   <string name="revanced_hide_share_button_summary_off">Deel knop wordt weergegeven</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Advertenties stoppen verbergen</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Knop \"Advertenties stoppen\" is verborgen</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Knop \"Advertenties stoppen\" is zichtbaar</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Melden verbergen</string>
@@ -559,9 +564,9 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_hide_clip_button_summary_on">Fragment knop is verborgen</string>
   <string name="revanced_hide_clip_button_summary_off">Fragment knop wordt weergegeven</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Opslaan in afspeellijst verbergen</string>
-  <string name="revanced_hide_playlist_button_summary_on">Opslaan in afspeellijst-knop is verborgen</string>
-  <string name="revanced_hide_playlist_button_summary_off">Opslaan in afspeellijst-knop wordt weergegeven</string>
+  <string name="revanced_hide_save_button_title">Opslaan verbergen</string>
+  <string name="revanced_hide_save_button_summary_on">Knop \"Opslaan\" is verborgen</string>
+  <string name="revanced_hide_save_button_summary_off">Knop \"Opslaan\" is zichtbaar</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigatieknoppen</string>
@@ -759,9 +764,12 @@ Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS T
   <string name="revanced_hide_shorts_save_sound_button_title">Verberg de knop \"Muziek opslaan\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Muziek opslaan-knop is verborgen</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Muziek opslaan-knop wordt weergegeven</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Verberg de knop \"Sjabloon gebruiken\"</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Sjabloon gebruiken-knop is verborgen</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Sjabloon gebruiken-knop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Knop Geluid gebruiken verbergen</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Knop Geluid gebruiken is verborgen</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Knop Geluid gebruiken is weergegeven</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Verberg de knop Dit sjabloon gebruiken</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Knop Sjabloon gebruiken is verborgen</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">De knop Dit sjabloon gebruiken wordt weergegeven</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Verberg de knop \"Aanstaande\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">De \"Volgende\" knop is verborgen</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">De \"Volgende\" knop is zichtbaar</string>
@@ -920,8 +928,6 @@ Beperking: Vind ik niet leuk verschijnen mogelijk niet in de incognitomodus"</st
   <string name="revanced_seekbar_thumbnails_high_quality_title">Schakel miniatuurweergaven van hoge kwaliteit in</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniatuurweergaven van de zoekbalk zijn van hoge kwaliteit</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniatuurweergaven van de zoekbalk zijn van gemiddelde kwaliteit</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Miniatuurweergaven van de zoekbalk in volledig scherm zijn van hoge kwaliteit</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Miniatuurweergaven van de zoekbalk in volledig scherm zijn van gemiddelde kwaliteit</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Dit zal ook miniatuurweergaven herstellen op livestreams die geen miniatuurweergaven van de zoekbalk hebben.
 
 Miniatuurweergaven van de zoekbalk gebruiken dezelfde kwaliteit als de huidige video.
@@ -1008,7 +1014,7 @@ Uw gebruikers-ID is als een wachtwoord en mag nooit worden gedeeld.
   <string name="revanced_sb_segments_highlight_sum">Het deel van de video waar de meeste mensen naar op zoek zijn</string>
   <string name="revanced_sb_segments_intro">Pauze/Intro-animatie</string>
   <string name="revanced_sb_segments_intro_sum">Een interval zonder daadwerkelijke inhoud. Kan een pauze, statisch frame of een herhalende animatie zijn. Bevat geen overgangen met informatie</string>
-  <string name="revanced_sb_segments_outro">Eindkaarten/Credits</string>
+  <string name="revanced_sb_segments_outro">Eindkaarten / Credits</string>
   <string name="revanced_sb_segments_outro_sum">Credits of wanneer de YouTube-eindkaarten verschijnen. Niet voor conclusies met informatie</string>
   <string name="revanced_sb_segments_preview">Voorbeeld/Terugblik/Haak</string>
   <string name="revanced_sb_segments_preview_sum">Collectie van clips die laten zien wat er gaat komen of wat er in de video of in andere video\'s van een serie is gebeurd, waar alle informatie elders wordt herhaald</string>
@@ -1238,11 +1244,6 @@ De miniplayer kan naar links of rechts van het scherm worden gesleept"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlayknoppen verbergen</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlayknoppen zijn verborgen</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlayknoppen worden weergegeven</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Knoppen voor uitvouwen en sluiten verbergen</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Knoppen zijn verborgen
-
-Swipe om uit te vouwen of te sluiten"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Knoppen voor uitvouwen en sluiten worden weergegeven</string>
   <string name="revanced_miniplayer_hide_subtext_title">Verberg subteksten</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subteksten zijn verborgen</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subteksten zijn zichtbaar</string>
@@ -1394,6 +1395,9 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Onthoud wijzigingen in videokwaliteit</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kwaliteitswijzigingen worden op alle video\'s toegepast</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kwaliteitswijzigingen worden alleen op de huidige video toegepast</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Toon melding bij wijzigingen in videokwaliteit</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Er wordt een melding getoond wanneer de standaard videokwaliteit wordt gewijzigd</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Er wordt geen melding getoond wanneer de standaard videokwaliteit wordt gewijzigd</string>
   <string name="revanced_video_quality_default_wifi_title">Standaard videokwaliteit op Wi-Fi-netwerk</string>
   <string name="revanced_video_quality_default_mobile_title">Standaard videokwaliteit op mobiel netwerk</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Onthoud kwaliteitswijzigingen voor Shorts</string>
@@ -1420,7 +1424,6 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_custom_playback_speeds_invalid">Aangepaste snelheden moeten lager zijn dan %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ongeldige aangepaste afspeelsnelheden</string>
   <string name="revanced_custom_playback_speeds_auto">Automatisch</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Afspeelsnelheid hersteld naar: %s</string>
   <string name="revanced_speed_tap_and_hold_title">De snelheid van aangepast tikken en vasthouden</string>
   <string name="revanced_speed_tap_and_hold_summary">Afspeelsnelheid tussen 0-8</string>
   </patch>
@@ -1428,6 +1431,9 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Onthoud wijzigingen in afspeelsnelheid</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Wijzigingen in afspeelsnelheid worden op alle video\'s toegepast</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Wijzigingen in afspeelsnelheid worden alleen op de huidige video toegepast</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Toon melding bij wijzigingen in afspeelsnelheid</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Er wordt een melding getoond wanneer de standaard afspeelsnelheid wordt gewijzigd</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Een toast wordt niet weergegeven wanneer de standaard afspeelsnelheid wordt gewijzigd</string>
   <string name="revanced_playback_speed_default_title">Standaard afspeelsnelheid</string>
   <string name="revanced_remember_playback_speed_toast">Standaard snelheid gewijzigd naar: %s</string>
   </patch>

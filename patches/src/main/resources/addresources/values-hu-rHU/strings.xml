@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Beállítások</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Szeretné folytatni?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Biztosan folytatni szeretné?</string>
   <string name="revanced_settings_reset">Visszaállítás</string>
   <string name="revanced_settings_reset_color">Szín alaphelyzetbe állítása</string>
   <string name="revanced_settings_color_invalid">Érvénytelen szín</string>
-  <string name="revanced_settings_restart_title">Frissítés és újraindítás</string>
+  <string name="revanced_settings_restart_title">Újraindítás szükséges</string>
+  <string name="revanced_settings_restart_dialog_message">Indítsa újra az alkalmazást, hogy a változás érvénybe lépjen.</string>
   <string name="revanced_settings_restart">Újraindítás</string>
   <string name="revanced_settings_import">Importálás</string>
   <string name="revanced_settings_import_copy">Másolás</string>
@@ -532,6 +533,10 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <string name="revanced_hide_share_button_title">Megosztás elrejtése</string>
   <string name="revanced_hide_share_button_summary_on">A megosztás gomb el van rejtve</string>
   <string name="revanced_hide_share_button_summary_off">A megosztás gomb látható</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Hirdetések leállítása elrejtése</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">A hirdetésleállítás gomb rejtett</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">A hirdetésleállítás gomb látható</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Bejelentés elrejtése</string>
@@ -559,9 +564,9 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <string name="revanced_hide_clip_button_summary_on">A klip gomb el van rejtve</string>
   <string name="revanced_hide_clip_button_summary_off">A klip gomb látható</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Mentés elrejtése</string>
-  <string name="revanced_hide_playlist_button_summary_on">A mentés gomb el van rejtve</string>
-  <string name="revanced_hide_playlist_button_summary_off">A mentés gomb látható</string>
+  <string name="revanced_hide_save_button_title">Mentés elrejtése</string>
+  <string name="revanced_hide_save_button_summary_on">A mentés gomb rejtett</string>
+  <string name="revanced_hide_save_button_summary_off">A mentés gomb látható</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigációs gombok</string>
@@ -759,9 +764,12 @@ Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítá
   <string name="revanced_hide_shorts_save_sound_button_title">Zene mentése gomb elrejtése</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">A zene mentés gomb el van rejtve</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">A zene mentés gomb látható</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">A \"Hang használata\" gomb elrejtése</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">A \"Hang használata\" gomb el van rejtve</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">A \"Hang használata\" gomb látható</string>
   <string name="revanced_hide_shorts_use_template_button_title">Sablon használata gomb elrejtése</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">A Sablon használata gomb el van rejtve</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">A sablon használata gomb látható</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">A \"Sablon használata\" gomb el van rejtve</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">A „Sablon használata” gomb látható</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Következő videó gomb elrejtése</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">A közelgő gomb el van rejtve</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Megjelenik a Közelgő gomb</string>
@@ -920,8 +928,6 @@ Korlátozás: A nem tetszések inkognitómódban nem jelenhetnek meg"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Jó minőségű miniatűrök engedélyezése</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">A keresősáv bélyegképei kiváló minőségűek</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">A keresősáv bélyegképei közepes minőségűek</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">A teljes képernyős keresősáv bélyegképei kiváló minőségűek</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">A teljes képernyős keresősáv bélyegképei közepes minőségűek</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Ez visszaállítja a miniatűr képeket az élő közvetítéseknél, amelyeknek nincsenek keresősáv miniatűr képei.
 
 A keresősáv miniatűr képei ugyanazt a minőséget fogják használni, mint az aktuális videó.
@@ -1008,7 +1014,7 @@ A felhasználói azonosítója olyan, mint egy jelszó, és soha nem szabad mego
   <string name="revanced_sb_segments_highlight_sum">A videónak azon része, amit a legtöbben keresnek</string>
   <string name="revanced_sb_segments_intro">Megszakítás/Intro animáció</string>
   <string name="revanced_sb_segments_intro_sum">Egy részlet tartalom nélkül. Lehet szünet, álló képkocka, vagy ismétlődő animáció. Nem használandó információt tartalmazó átmeneteknél</string>
-  <string name="revanced_sb_segments_outro">Záróképernyő/Köszönetek</string>
+  <string name="revanced_sb_segments_outro">Záróképernyő / Köszönetek</string>
   <string name="revanced_sb_segments_outro_sum">Stáblista, vagy amikor megjelennek a YouTube zárókártyák. Nem tartozik bele az információt tartalmazó összegzés</string>
   <string name="revanced_sb_segments_preview">Előzetes/Ismétlés</string>
   <string name="revanced_sb_segments_preview_sum">Olyan klipek gyűjteménye, amik azt mutatják, hogy mi következik majd ebben, vagy a sorozat más videóiban és minden információ megismétlődik később a videóban</string>
@@ -1237,11 +1243,6 @@ A miniatűr képernyőt a képernyő bal vagy jobb szélére húzhatja"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Fedőgomb elrejtése</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">A fedőgombok rejtve vannak</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">A fedőgombok láthatók</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">A kibontás és bezárás gombok elrejtése</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"A gombok el vannak rejtve
-
-Húzza el a képernyőt a kibontáshoz vagy bezáráshoz"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">A Kibontás és Bezárás gombok láthatók</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alszövegek elrejtése</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Az alfeliratok el vannak rejtve</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Az alfeliratok meg vannak jelenítve</string>
@@ -1393,6 +1394,9 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_remember_video_quality_last_selected_title">Felbontás változtatások mentése</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Felbontás változtatások alkalmazása az összes videóra</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Felbontás változtatások alkalmazása a jelenlegi videóra</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Értesítés megjelenítése videóminőség-változások esetén</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Értesítés jelenik meg az alapértelmezett videóminőség megváltoztatásakor</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Nem jelenik meg értesítés az alapértelmezett videóminőség megváltoztatásakor</string>
   <string name="revanced_video_quality_default_wifi_title">Alapértelmezett videó minőség Wi-Fi hálózaton</string>
   <string name="revanced_video_quality_default_mobile_title">Alapértelmezett videó minőség mobilhálózaton</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">A Shorts minőség módosításainak megjegyzése</string>
@@ -1419,7 +1423,6 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_custom_playback_speeds_invalid">Az egyéni sebességeknek kevesebbnek kell lenniük, mint %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Érvénytelen egyéni lejátszási sebességek</string>
   <string name="revanced_custom_playback_speeds_auto">Automatikus</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Lejátszási sebesség visszaállítva: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Egyéni koppintás és tartás sebesség</string>
   <string name="revanced_speed_tap_and_hold_summary">Lejátszási sebesség 0-8 között</string>
   </patch>
@@ -1427,6 +1430,9 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_remember_playback_speed_last_selected_title">Lejátszási sebesség módosításainak megjegyzése</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">A lejátszási sebesség módosítása minden videóra érvényes</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">A lejátszási sebesség módosítása csak a jelenlegi videóra érvényes</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Értesítés megjelenítése lejátszási sebesség változások esetén</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Értesítés jelenik meg az alapértelmezett lejátszási sebesség megváltoztatásakor</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">A felugró üzenet nem jelenik meg, amikor az alapértelmezett lejátszási sebesség megváltozik</string>
   <string name="revanced_playback_speed_default_title">Alapértelmezett lejátszási sebesség</string>
   <string name="revanced_remember_playback_speed_toast">Alapértelmezett sebesség módosítva: %s</string>
   </patch>

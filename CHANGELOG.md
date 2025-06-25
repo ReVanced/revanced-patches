@@ -1,3 +1,132 @@
+# [5.29.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.8...v5.29.0-dev.9) (2025-06-25)
+
+
+### Features
+
+* Add `Spoof app signature` patch ([#5158](https://github.com/ReVanced/revanced-patches/issues/5158)) ([78b25aa](https://github.com/ReVanced/revanced-patches/commit/78b25aa4e87ec3f9df1d57831b48a39029969416))
+
+# [5.29.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.7...v5.29.0-dev.8) (2025-06-25)
+
+
+### Features
+
+* **YouTube:** Support version `20.13.41` ([#5253](https://github.com/ReVanced/revanced-patches/issues/5253)) ([d284c3d](https://github.com/ReVanced/revanced-patches/commit/d284c3dd3277430b6885e7c27ee02d062dcefc85))
+
+# [5.29.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.6...v5.29.0-dev.7) (2025-06-24)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Fix "Hide video description attributes" ([#5250](https://github.com/ReVanced/revanced-patches/issues/5250)) ([2f22d45](https://github.com/ReVanced/revanced-patches/commit/2f22d45eb80745ac64fbea44c8055ebe7925a586))
+* **YouTube - Hide Shorts components:** Fix "Hide Use this template button" ([#5249](https://github.com/ReVanced/revanced-patches/issues/5249)) ([b399ecb](https://github.com/ReVanced/revanced-patches/commit/b399ecbb6a222d82dd5e4b3417c9f7eff4324adb))
+
+# [5.29.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.5...v5.29.0-dev.6) (2025-06-24)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add `Hide Stop ads` ([#5245](https://github.com/ReVanced/revanced-patches/issues/5245)) ([274dcc6](https://github.com/ReVanced/revanced-patches/commit/274dcc676e009be63eb6970de33abacd34dc6560))
+
+# [5.29.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.4...v5.29.0-dev.5) (2025-06-23)
+
+
+### Bug Fixes
+
+* **Google Photos:** Resolve startup crash for Android 5.0 devices ([0294533](https://github.com/ReVanced/revanced-patches/commit/0294533c4d9a321aea086eedb4e46385ae9a026e))
+
+# [5.29.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.3...v5.29.0-dev.4) (2025-06-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Fix "Hide Use this sound button" ([#5233](https://github.com/ReVanced/revanced-patches/issues/5233)) ([5d6ec9e](https://github.com/ReVanced/revanced-patches/commit/5d6ec9e94a6221a0f32762d5bede893e9e7457fc))
+
+# [5.29.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.2...v5.29.0-dev.3) (2025-06-23)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix refactoring app startup exception ([1b00c90](https://github.com/ReVanced/revanced-patches/commit/1b00c907f4b90f4659afb4a54ba61ac2835b460d))
+
+# [5.29.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.1...v5.29.0-dev.2) (2025-06-23)
+
+
+### Features
+
+* **Crunchyroll:** Add `Hide ads` patch ([#5201](https://github.com/ReVanced/revanced-patches/issues/5201)) ([46b4398](https://github.com/ReVanced/revanced-patches/commit/46b4398fd6ca223391ed8f497a8347c2313421b7))
+
+# [5.29.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.28.1-dev.2...v5.29.0-dev.1) (2025-06-23)
+
+
+### Bug Fixes
+
+* **YouTube:** Always use single threaded layout to resolve layout bugs in unpatched YouTube ([#5226](https://github.com/ReVanced/revanced-patches/issues/5226)) ([1f539b1](https://github.com/ReVanced/revanced-patches/commit/1f539b1396526b2c767d77a804bd0308ee4a42ec))
+
+
+### Features
+
+* **YouTube:** Add an option to disable toasts when changing default playback speed or quality ([#5230](https://github.com/ReVanced/revanced-patches/issues/5230)) ([c68cde3](https://github.com/ReVanced/revanced-patches/commit/c68cde3a896450874cc571be5c4723387db96032))
+
+## [5.28.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.28.1-dev.1...v5.28.1-dev.2) (2025-06-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Hide new type of product ad in video description ([#5225](https://github.com/ReVanced/revanced-patches/issues/5225)) ([1e2efad](https://github.com/ReVanced/revanced-patches/commit/1e2efad7b2714c395ed6b0a77cbbf8a2265df520))
+
+## [5.28.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.28.0...v5.28.1-dev.1) (2025-06-22)
+
+
+### Bug Fixes
+
+* Add scrollable content to modern style settings dialogs ([#5211](https://github.com/ReVanced/revanced-patches/issues/5211)) ([e6876d5](https://github.com/ReVanced/revanced-patches/commit/e6876d510d28f6a3a41ec1722a033b3e30a22c65))
+
+# [5.28.0](https://github.com/ReVanced/revanced-patches/compare/v5.27.0...v5.28.0) (2025-06-20)
+
+
+### Bug Fixes
+
+* **Google Photos:** Resolve startup crash if MicroG GmsCore does not already have granted permissions ([a93d74d](https://github.com/ReVanced/revanced-patches/commit/a93d74d26e7ef87a3745df2b9fe82722d65a0e59))
+* **Messenger - Remove Meta AI:** Improve patch logic ([#5153](https://github.com/ReVanced/revanced-patches/issues/5153)) ([4ad4887](https://github.com/ReVanced/revanced-patches/commit/4ad488744d87543c31e453dc7b6d8182b3a7f440))
+* **Pandora - Disable ads:** Support latest app target ([#5185](https://github.com/ReVanced/revanced-patches/issues/5185)) ([ca83047](https://github.com/ReVanced/revanced-patches/commit/ca83047f5c4acbb267d5b98db80ad111999086e0))
+* **Spotify:** Fix `Hide Create button` and `Sanitize sharing links` for older but supported app targets ([#5159](https://github.com/ReVanced/revanced-patches/issues/5159)) ([e7dd061](https://github.com/ReVanced/revanced-patches/commit/e7dd061c513af90861c0ab0d7adc6ee43be57ce2))
+* **Threads - Hide ads:** Constrain patch to the last working app target ([#5189](https://github.com/ReVanced/revanced-patches/issues/5189)) ([3558c44](https://github.com/ReVanced/revanced-patches/commit/3558c44a05c13f19fefdbbf14b364181a79f17c0))
+* **YouTube:** Remove old app targets that are no longer supported by YouTube ([#5192](https://github.com/ReVanced/revanced-patches/issues/5192)) ([c9e54e1](https://github.com/ReVanced/revanced-patches/commit/c9e54e1d36243945ac1ec3108fe38edf0e15d772))
+
+
+### Features
+
+* **Spotify:** Add `Change lyrics provider` patch ([#4937](https://github.com/ReVanced/revanced-patches/issues/4937)) ([8736b6a](https://github.com/ReVanced/revanced-patches/commit/8736b6a80b48cb1f4562c9f9919804006ddb18bd))
+* Use modern style settings dialogs ([#5109](https://github.com/ReVanced/revanced-patches/issues/5109)) ([312b6dc](https://github.com/ReVanced/revanced-patches/commit/312b6dc04e01c2758cd304ca8606306027aa2f01))
+
+# [5.28.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.7...v5.28.0-dev.8) (2025-06-19)
+
+
+### Bug Fixes
+
+* **Messenger - Remove Meta AI:** Improve patch logic ([#5153](https://github.com/ReVanced/revanced-patches/issues/5153)) ([4ad4887](https://github.com/ReVanced/revanced-patches/commit/4ad488744d87543c31e453dc7b6d8182b3a7f440))
+
+# [5.28.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.6...v5.28.0-dev.7) (2025-06-18)
+
+
+### Bug Fixes
+
+* **YouTube:** Remove old app targets that are no longer supported by YouTube ([#5192](https://github.com/ReVanced/revanced-patches/issues/5192)) ([c9e54e1](https://github.com/ReVanced/revanced-patches/commit/c9e54e1d36243945ac1ec3108fe38edf0e15d772))
+
+# [5.28.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.5...v5.28.0-dev.6) (2025-06-17)
+
+
+### Bug Fixes
+
+* **Threads - Hide ads:** Constrain patch to the last working app target ([#5189](https://github.com/ReVanced/revanced-patches/issues/5189)) ([3558c44](https://github.com/ReVanced/revanced-patches/commit/3558c44a05c13f19fefdbbf14b364181a79f17c0))
+
+# [5.28.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.4...v5.28.0-dev.5) (2025-06-17)
+
+
+### Bug Fixes
+
+* **Pandora - Disable ads:** Support latest app target ([#5185](https://github.com/ReVanced/revanced-patches/issues/5185)) ([ca83047](https://github.com/ReVanced/revanced-patches/commit/ca83047f5c4acbb267d5b98db80ad111999086e0))
+
 # [5.28.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.28.0-dev.3...v5.28.0-dev.4) (2025-06-13)
 
 

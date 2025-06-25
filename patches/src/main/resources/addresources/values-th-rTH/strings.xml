@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">การตั้งค่า</string>
-  <string name="revanced_settings_confirm_user_dialog_title">คุณต้องการดำเนินการต่อหรือไม่?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ</string>
   <string name="revanced_settings_reset">รีเซ็ต</string>
   <string name="revanced_settings_reset_color">รีเซ็ตสี</string>
   <string name="revanced_settings_color_invalid">สีไม่ถูกต้อง</string>
-  <string name="revanced_settings_restart_title">รีเฟรชและเริ่มต้นใหม่</string>
+  <string name="revanced_settings_restart_title">ต้องรีสตาร์ท</string>
+  <string name="revanced_settings_restart_dialog_message">รีสตาร์ทแอปเพื่อให้การเปลี่ยนแปลงนี้มีผล</string>
   <string name="revanced_settings_restart">เริ่มต้นใหม่</string>
   <string name="revanced_settings_import">นำเข้า</string>
   <string name="revanced_settings_import_copy">คัดลอก</string>
@@ -530,6 +531,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">ซ่อนแบ่งปัน</string>
   <string name="revanced_hide_share_button_summary_on">ปุ่มแบ่งปันถูกซ่อน</string>
   <string name="revanced_hide_share_button_summary_off">ปุ่มแบ่งปันถูกแสดง</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">ซ่อนหยุดโฆษณา</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">ปุ่มหยุดโฆษณาถูกซ่อน</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">ปุ่มหยุดโฆษณาถูกแสดง</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">ซ่อนรายงาน</string>
@@ -557,9 +562,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">ปุ่มคลิปถูกซ่อน</string>
   <string name="revanced_hide_clip_button_summary_off">ปุ่มคลิปถูกแสดง</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">ซ่อนบันทึกไปยังเพลย์ลิสต์</string>
-  <string name="revanced_hide_playlist_button_summary_on">ปุ่มบันทึกไปยังเพลย์ลิสต์ถูกซ่อน</string>
-  <string name="revanced_hide_playlist_button_summary_off">ปุ่มบันทึกไปยังเพลย์ลิสต์ถูกแสดง</string>
+  <string name="revanced_hide_save_button_title">ซ่อนบันทึก</string>
+  <string name="revanced_hide_save_button_summary_on">ปุ่มบันทึกถูกซ่อน</string>
+  <string name="revanced_hide_save_button_summary_off">ปุ่มบันทึกถูกแสดง</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">ปุ่มนำทาง</string>
@@ -757,9 +762,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">ซ่อนปุ่มบันทึกเพลง</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">ปุ่มบันทึกเพลงถูกซ่อน</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">ปุ่มบันทึกเพลงแสดงอยู่</string>
-  <string name="revanced_hide_shorts_use_template_button_title">ซ่อนปุ่มใช้เทมเพลต</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">ปุ่มใช้เทมเพลตถูกซ่อน</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">ปุ่มใช้เทมเพลตแสดงอยู่</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">ซ่อนปุ่มใช้เสียงนี้</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">ปุ่มใช้เสียงนี้ถูกซ่อน</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">ปุ่มใช้เสียงนี้แสดงอยู่</string>
+  <string name="revanced_hide_shorts_use_template_button_title">ซ่อนปุ่ม \"ใช้เทมเพลตนี้\"</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">ปุ่มใช้เทมเพลตนี้ถูกซ่อน</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">ปุ่ม \"ใช้เทมเพลตนี้\" กำลังแสดง</string>
   <string name="revanced_hide_shorts_upcoming_button_title">ซ่อนปุ่มที่กำลังจะมาถึง</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">ปุ่ม «Upcoming» ซ่อนอยู่</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">ปุ่ม «Upcoming» แสดงอยู่</string>
@@ -918,7 +926,6 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">เปิดใช้งานรูปขนาดย่อคุณภาพสูง</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">รูปขนาดย่อแถบ Seek มีคุณภาพสูง</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">รูปขนาดย่อแถบ Seek มีคุณภาพปานกลาง</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">รูปขนาดย่อแถบ Seek แบบเต็มหน้าจอมีคุณภาพสูง</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">รูปขนาดย่อแถบ Seek แบบเต็มหน้าจอมีคุณภาพปานกลาง</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"สิ่งนี้จะคืนค่าภาพขนาดย่อบนการถ่ายทอดสดที่ไม่มีภาพขนาดย่อของแถบเลื่อนด้วย
 
@@ -1006,7 +1013,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_sb_segments_highlight_sum">ส่วนของวิดีโอที่คนส่วนใหญ่กำลังมองหา</string>
   <string name="revanced_sb_segments_intro">แอนิเมชั่นช่วงพัก/ช่วงต้น</string>
   <string name="revanced_sb_segments_intro_sum">ช่วงเวลาที่ไม่มีเนื้อหาจริง อาจเป็นการหยุดชั่วคราว เฟรมนิ่ง หรือภาพเคลื่อนไหวซ้ำๆ ไม่รวมการเปลี่ยนแปลงที่มีข้อมูล</string>
-  <string name="revanced_sb_segments_outro">ฉากจบ/เครดิต</string>
+  <string name="revanced_sb_segments_outro">ฉากจบ / เครดิต</string>
   <string name="revanced_sb_segments_outro_sum">เครดิตหรือเมื่อบัตรสิ้นสุด YouTube ปรากฏขึ้น ไม่ใช่สำหรับข้อสรุปที่มีข้อมูล</string>
   <string name="revanced_sb_segments_preview">ตัวอย่าง/สรุป/เบ็ดเตล็ด</string>
   <string name="revanced_sb_segments_preview_sum">คอลเล็กชันของคลิปที่แสดงว่าจะมีอะไรเกิดขึ้นหรือเกิดอะไรขึ้นในวิดีโอหรือในวิดีโออื่นๆ ของซีรีส์ ซึ่งข้อมูลทั้งหมดจะถูกทำซ้ำในที่อื่นๆ</string>
@@ -1238,11 +1245,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_miniplayer_hide_overlay_buttons_title">ซ่อนปุ่มโอเวอร์เลย์</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">ปุ่มโอเวอร์เลย์ถูกซ่อน</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">ปุ่มโอเวอร์เลย์ถูกแสดง</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">ซ่อนปุ่มขยายและปิด</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"ปุ่มถูกซ่อน
 
 ปัดเพื่อขยายหรือปิด"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">ปุ่มขยายและปิดถูกแสดง</string>
   <string name="revanced_miniplayer_hide_subtext_title">ซ่อนข้อความย่อย</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">ข้อความย่อยถูกซ่อน</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">ข้อความย่อยแสดงอยู่</string>
@@ -1394,6 +1399,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_remember_video_quality_last_selected_title">จำการเปลี่ยนแปลงคุณภาพวิดีโอ</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">การเปลี่ยนแปลงคุณภาพใช้กับวิดีโอทั้งหมด</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">การเปลี่ยนแปลงคุณภาพใช้กับวิดีโอปัจจุบันเท่านั้น</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">แสดงโทสต์เมื่อคุณภาพวิดีโอเปลี่ยนแปลง</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">มีการแสดงโทสต์เมื่อคุณภาพวิดีโอเริ่มต้นถูกเปลี่ยน</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">ไม่มีการแสดงโทสต์เมื่อคุณภาพวิดีโอเริ่มต้นถูกเปลี่ยน</string>
   <string name="revanced_video_quality_default_wifi_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่าย Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่ายมือถือ</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">จดจำการเปลี่ยนแปลงคุณภาพของ Shorts</string>
@@ -1420,7 +1428,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_custom_playback_speeds_invalid">ความเร็วที่กําหนดเองต้องน้อยกว่า %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">ความเร็วในการเล่นที่กําหนดเองไม่ถูกต้อง</string>
   <string name="revanced_custom_playback_speeds_auto">อัตโนมัติ</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">ความเร็วในการเล่นรีเซ็ตเป็น: %s</string>
   <string name="revanced_speed_tap_and_hold_title">**Custom tap and hold speed**</string>
   <string name="revanced_speed_tap_and_hold_summary">ความเร็วในการเล่นระหว่าง 0-8</string>
   </patch>
@@ -1428,6 +1435,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_remember_playback_speed_last_selected_title">จำการเปลี่ยนแปลงความเร็วในการเล่น</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">การเปลี่ยนแปลงความเร็วในการเล่นใช้กับวิดีโอทั้งหมด</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">การเปลี่ยนแปลงความเร็วในการเล่นใช้กับวิดีโอปัจจุบันเท่านั้น</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">แสดงโทสต์เมื่อความเร็วในการเล่นเปลี่ยนแปลง</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">มีการแสดงโทสต์เมื่อความเร็วในการเล่นเริ่มต้นถูกเปลี่ยน</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">โทสต์ไม่แสดงเมื่อความเร็วในการเล่นเริ่มต้นถูกเปลี่ยน</string>
   <string name="revanced_playback_speed_default_title">ความเร็วในการเล่นเริ่มต้น</string>
   <string name="revanced_remember_playback_speed_toast">เปลี่ยนความเร็วเริ่มต้นเป็น: %s</string>
   </patch>

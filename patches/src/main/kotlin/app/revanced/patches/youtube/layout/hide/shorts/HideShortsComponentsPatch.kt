@@ -94,6 +94,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                     // Suggested actions.
                     SwitchPreference("revanced_hide_shorts_preview_comment"),
                     SwitchPreference("revanced_hide_shorts_save_sound_button"),
+                    SwitchPreference("revanced_hide_shorts_use_sound_button"),
                     SwitchPreference("revanced_hide_shorts_use_template_button"),
                     SwitchPreference("revanced_hide_shorts_upcoming_button"),
                     SwitchPreference("revanced_hide_shorts_green_screen_button"),
@@ -170,13 +171,12 @@ val hideShortsComponentsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
             "19.34.42",
             "19.43.41",
             "19.47.53",
             "20.07.39",
             "20.12.46",
+            "20.13.41",
         )
     )
 

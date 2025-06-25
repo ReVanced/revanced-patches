@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Impostazioni</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Sei sicuro di voler continuare?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Sei sicuro di voler procedere?</string>
   <string name="revanced_settings_reset">Reimposta</string>
   <string name="revanced_settings_reset_color">Reimposta colore</string>
   <string name="revanced_settings_color_invalid">Colore non valido</string>
-  <string name="revanced_settings_restart_title">Aggiorna e riavvia</string>
+  <string name="revanced_settings_restart_title">Riavvio necessario</string>
+  <string name="revanced_settings_restart_dialog_message">Riavvia l\'app affinché questa modifica abbia effetto.</string>
   <string name="revanced_settings_restart">Riavvia</string>
   <string name="revanced_settings_import">Importa</string>
   <string name="revanced_settings_import_copy">Copia</string>
@@ -532,6 +533,10 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_hide_share_button_title">Nascondi Condividi</string>
   <string name="revanced_hide_share_button_summary_on">Il pulsante Condividi è nascosto</string>
   <string name="revanced_hide_share_button_summary_off">Il pulsante Condividi è visibile</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Nascondi Interrompi annunci</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Il pulsante per interrompere gli annunci è nascosto</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Il pulsante per interrompere gli annunci è mostrato</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Nascondi Segnala</string>
@@ -559,9 +564,9 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_hide_clip_button_summary_on">Il pulsante Clip è nascosto</string>
   <string name="revanced_hide_clip_button_summary_off">Il pulsante Clip è visibile</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Nascondi Salva nella playlist</string>
-  <string name="revanced_hide_playlist_button_summary_on">Il pulsante Salva in una Playlist è nascosto</string>
-  <string name="revanced_hide_playlist_button_summary_off">Il pulsante Salva nella playlist è visibile</string>
+  <string name="revanced_hide_save_button_title">Nascondi Salva</string>
+  <string name="revanced_hide_save_button_summary_on">Il pulsante Salva è nascosto</string>
+  <string name="revanced_hide_save_button_summary_off">Il pulsante Salva è mostrato</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Pulsanti di navigazione</string>
@@ -759,9 +764,12 @@ Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS 
   <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante Salva Musica</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Il pulsante Salva traccia è nascosto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Il pulsante Salva traccia è visibile</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Nascondi il pulsante Usa modello</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Il pulsante Utilizza modello è nascosto</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Il pulsante Utilizza modello è visibile</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Nascondi il pulsante \"Usa questo suono\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Il pulsante \"Usa questo suono\" è nascosto</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Il pulsante \"Usa questo suono\" è mostrato</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Nascondi il pulsante \"Usa questo modello\"</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Il pulsante \"Usa questo modello\" è nascosto</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Il pulsante \"Usa questo modello\" è mostrato</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Nascondi il pulsante Prossimamente</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Il pulsante Imminente è nascosto</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Il pulsante Imminente è visibile</string>
@@ -920,8 +928,6 @@ Limitazione: i \"Non mi piace\" potrebbero non apparire in modalità incognito"<
   <string name="revanced_seekbar_thumbnails_high_quality_title">Abilita miniature di alta qualità</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Le miniature della barra di avanzamento sono di alta qualità</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Le miniature della barra di avanzamento sono di media qualità</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Le miniature della barra di avanzamento a schermo intero sono di alta qualità</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Le miniature della barra di avanzamento a schermo intero sono di media qualità</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Questo ripristinerà anche le miniature sulle dirette che non hanno miniature della barra di avanzamento.
 
 Le miniature della barra di avanzamento utilizzeranno la stessa qualità del video corrente.
@@ -1007,7 +1013,7 @@ Il tuo ID utente è come una password e non dovrebbe mai essere condiviso."</str
   <string name="revanced_sb_segments_highlight_sum">La parte del video che la maggior parte delle persone sta cercando</string>
   <string name="revanced_sb_segments_intro">Interruzione/Animazione Introduzione</string>
   <string name="revanced_sb_segments_intro_sum">Un intervallo senza contenuto effettivo. Potrebbe essere una pausa, un quadro statico o un\'animazione ripetitiva. Non include transizioni contenenti informazioni</string>
-  <string name="revanced_sb_segments_outro">Conclusioni/titoli di coda</string>
+  <string name="revanced_sb_segments_outro">Conclusioni / Titoli di coda</string>
   <string name="revanced_sb_segments_outro_sum">Riconoscimenti o quando appaiono le carte finali di YouTube. Non per conclusioni con informazioni</string>
   <string name="revanced_sb_segments_preview">Anteprima/Recap/Hook</string>
   <string name="revanced_sb_segments_preview_sum">Raccolta di clip che mostrano ciò che è in arrivo o ciò che è successo nel video o in altri video di una serie, dove tutte le informazioni sono ripetute altrove</string>
@@ -1173,7 +1179,7 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="revanced_change_start_page_entry_notifications">Notifiche</string>
   <string name="revanced_change_start_page_entry_playlists">Playlist</string>
   <string name="revanced_change_start_page_entry_search">Cerca</string>
-  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
+  <string name="revanced_change_start_page_entry_shopping">Acquisti</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Iscrizioni</string>
   <string name="revanced_change_start_page_entry_trending">Tendenze</string>
@@ -1239,11 +1245,6 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Nascondi i pulsanti di overlay</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">I pulsanti di overlay sono nascosti</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">I pulsanti di overlay sono visualizzati</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Nascondi i pulsanti di espansione e chiusura</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"I pulsanti sono nascosti
-
-Scorri per espandere o chiudere"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">I pulsanti Espandi e chiudi sono visibili</string>
   <string name="revanced_miniplayer_hide_subtext_title">Nascondi sottotitoli</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">I sottotitoli sono nascosti</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">I sottotitoli sono visibili</string>
@@ -1395,6 +1396,9 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Ricorda le modifiche della qualità del video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Le modifiche della qualità si applicano a tutti i video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Le modifiche della qualità si applicano solo al video corrente</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Mostra messaggio a comparsa al cambiamento della qualità video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Viene mostrato un messaggio a comparsa quando la qualità video predefinita viene modificata</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Un messaggio a comparsa non viene mostrato quando la qualità video predefinita viene modificata</string>
   <string name="revanced_video_quality_default_wifi_title">Qualità video predefinita sulla rete Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualità video predefinita sulla rete mobile</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Ricorda le modifiche alla qualità di Shorts</string>
@@ -1421,7 +1425,6 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_custom_playback_speeds_invalid">Le velocità personalizzate devono essere inferiori a %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Velocità di riproduzione personalizzata non valida</string>
   <string name="revanced_custom_playback_speeds_auto">Automatico</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Velocità di riproduzione reimpostata su: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Velocità personalizzata di tocca e tieni premuto</string>
   <string name="revanced_speed_tap_and_hold_summary">Velocità di riproduzione tra 0-8</string>
   </patch>
@@ -1429,6 +1432,9 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Ricorda le modifiche della velocità di riproduzione</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Le modifiche alla velocità di riproduzione si applicano a tutti i video</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Le modifiche della velocità di riproduzione si applicano solo al video corrente</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Mostra messaggio a comparsa al cambiamento della velocità di riproduzione</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Viene mostrato un messaggio a comparsa quando la velocità di riproduzione predefinita viene modificata</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Un messaggio a comparsa non viene mostrato quando la velocità di riproduzione predefinita viene modificata</string>
   <string name="revanced_playback_speed_default_title">Velocità di riproduzione predefinita</string>
   <string name="revanced_remember_playback_speed_toast">Cambiato la velocità predefinita a: %s</string>
   </patch>

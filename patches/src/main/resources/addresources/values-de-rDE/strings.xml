@@ -21,23 +21,24 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">Überprüfung fehlgeschlagen</string>
+  <string name="revanced_check_environment_failed_title">Prüfungen fehlgeschlagen</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Offizielle Website öffnen</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorieren</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Diese App wurde offenbar nicht von Ihnen gepatcht.&lt;/h5&gt;&lt;br&gt;Diese App funktioniert möglicherweise nicht richtig, &lt;b&gt;könnte schädlich oder sogar gefährlich in der Verwendung sein&lt;/b&gt;.&lt; br&gt;&lt;br&gt;Diese Prüfungen deuten darauf hin, dass diese App vorab gepatcht wurde oder von jemandem bezogen wurde sonst:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Es wird dringend empfohlen, &lt;b&gt;diese App zu deinstallieren und selbst zu patchen&lt;/b&gt; um sicherzustellen, dass Sie eine validierte und sichere App verwenden.&lt;p&gt;&lt;br&gt;Wenn Sie diese Warnung ignorieren, wird sie nur zweimal angezeigt.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Diese App wurde offenbar nicht von Ihnen gepatcht.&lt;/h5&gt;&lt;br&gt;Diese App funktioniert möglicherweise nicht richtig, &lt;b&gt;könnte schädlich oder sogar gefährlich in der Verwendung sein&lt;/b&gt;.&lt; br&gt;&lt;br&gt;Diese Prüfungen deuten darauf hin, dass diese App vorab gepatcht wurde oder von jemandem bezogen wurde:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Es wird dringend empfohlen, &lt;b&gt;diese App zu deinstallieren und selbst zu patchen&lt;/b&gt; um sicherzustellen, dass Sie eine validierte und sichere App verwenden.&lt;p&gt;&lt;br&gt;Wenn Sie diese Warnung ignorieren, wird sie nur zweimal angezeigt.</string>
   <string name="revanced_check_environment_not_same_patching_device">Auf einem anderen Gerät gepatcht</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Nicht durch ReVanced Manager installiert</string>
   <string name="revanced_check_environment_not_near_patch_time">Vor mehr als 10 Minuten gepatcht</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Vor %s Tagen gepatcht</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK-Build-Datum ist fehlerhaft</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK Erstellungsdatum ist beschädigt</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Einstellungen</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Möchtest du fortfahren?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Bist du sicher, dass du fortfahren möchtest?</string>
   <string name="revanced_settings_reset">Zurücksetzen</string>
   <string name="revanced_settings_reset_color">Farbe zurücksetzen</string>
   <string name="revanced_settings_color_invalid">Ungültige Farbe</string>
-  <string name="revanced_settings_restart_title">Aktualisieren und neu starten</string>
+  <string name="revanced_settings_restart_title">Neustart erforderlich</string>
+  <string name="revanced_settings_restart_dialog_message">Starte die App neu, damit diese Änderung wirksam wird.</string>
   <string name="revanced_settings_restart">Neustart</string>
   <string name="revanced_settings_import">Importieren</string>
   <string name="revanced_settings_import_copy">Kopieren</string>
@@ -46,7 +47,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_failure_parse">Import fehlgeschlagen: %s</string>
   <string name="revanced_settings_search_hint">Sucheinstellungen</string>
   <string name="revanced_settings_search_no_results_title">Keine Ergebnisse für „%s“ gefunden</string>
-  <string name="revanced_settings_search_no_results_summary">Versuchen Sie ein anderes Schlüsselwort</string>
+  <string name="revanced_settings_search_no_results_summary">Versuche ein anderes Schlüsselwort</string>
   <string name="revanced_settings_search_remove_message">Aus Suchverlauf entfernen?</string>
   <string name="revanced_show_menu_icons_title">ReVanced-Einstellungssymbole anzeigen</string>
   <string name="revanced_show_menu_icons_summary_on">Einstellungssymbole werden angezeigt</string>
@@ -87,7 +88,7 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative Miniaturbilder</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_general_title">Allgemein</string>
-  <string name="revanced_settings_screen_05_player_title">Player</string>
+  <string name="revanced_settings_screen_05_player_title">Spieler</string>
   <string name="revanced_settings_screen_07_seekbar_title">Fortschrittsbalken</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Wischsteuerung</string>
   <string name="revanced_settings_screen_11_misc_title">Verschiedenes</string>
@@ -105,7 +106,7 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts-Hintergrundwiedergabe ist aktiviert</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Debugging</string>
+  <string name="revanced_debug_screen_title">Fehlerbehebung</string>
   <string name="revanced_debug_screen_summary">Aktiviert oder deaktiviert Debugging-Optionen</string>
   <string name="revanced_debug_title">Debug-Protokollierung</string>
   <string name="revanced_debug_summary_on">Debug-Protokolle sind aktiviert</string>
@@ -525,6 +526,10 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_hide_share_button_title">Teilen ausblenden</string>
   <string name="revanced_hide_share_button_summary_on">Teilen-Schaltfläche ist ausgeblendet</string>
   <string name="revanced_hide_share_button_summary_off">Teilen-Schaltfläche wird angezeigt</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Werbung stoppen ausblenden</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Schaltfläche \"Werbung stoppen\" ist ausgeblendet</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Schaltfläche \"Werbung stoppen\" ist sichtbar</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Bericht ausblenden</string>
@@ -552,9 +557,9 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_hide_clip_button_summary_on">Clip-Button ist ausgeblendet</string>
   <string name="revanced_hide_clip_button_summary_off">Clip-Taste wird angezeigt</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Speichern in Wiedergabeliste ausblenden</string>
-  <string name="revanced_hide_playlist_button_summary_on">In Wiedergabeliste speichern Button ist ausgeblendet</string>
-  <string name="revanced_hide_playlist_button_summary_off">In Wiedergabeliste speichern wird angezeigt</string>
+  <string name="revanced_hide_save_button_title">Speichern ausblenden</string>
+  <string name="revanced_hide_save_button_summary_on">Schaltfläche \"Speichern\" ist ausgeblendet</string>
+  <string name="revanced_hide_save_button_summary_off">Schaltfläche \"Speichern\" ist sichtbar</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigationstasten</string>
@@ -752,9 +757,12 @@ Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS T
   <string name="revanced_hide_shorts_save_sound_button_title">\'Musik speichern\'-Button ausblenden</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Musikspeicher Button ist ausgeblendet</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Musikspeicher Button wird angezeigt</string>
-  <string name="revanced_hide_shorts_use_template_button_title">\'Vorlage verwenden\'-Button ausblenden</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Template-Schaltfläche verwenden ist ausgeblendet</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Template-Schaltfläche verwenden wird angezeigt</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Schaltfläche \"Diesen Sound verwenden\" ausblenden</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Schaltfläche \"Diesen Sound verwenden\" ist ausgeblendet</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Schaltfläche \"Diesen Sound verwenden\" ist angezeigt</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Schaltfläche „Diese Vorlage verwenden“ ausblenden</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Schaltfläche \"Diese Vorlage verwenden\" ist ausgeblendet</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Schaltfläche „Diese Vorlage verwenden“ wird angezeigt</string>
   <string name="revanced_hide_shorts_upcoming_button_title">\'Demnächst\'-Button ausblenden</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Kommender Button ist ausgeblendet</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Kommende Schaltfläche wird angezeigt</string>
@@ -913,8 +921,6 @@ Einschränkung: Dislikes werden möglicherweise nicht im Inkognito-Modus angezei
   <string name="revanced_seekbar_thumbnails_high_quality_title">Aktiviere hochwertige Vorschaubilder</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Thumbnails der Suchleiste sind hohe Qualität</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Thumbnails in der Suchleiste sind mittlere Qualität</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Thumbnails in der Suchleiste sind qualitativ hochwertig</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Thumbnails in der Suchleiste sind mittlere Qualität</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Dadurch werden auch Miniaturansichten in Livestreams wiederhergestellt, die keine Miniaturansichten mit Suchleiste haben.
 
 Miniaturansichten mit Suchleiste verwenden die gleiche Qualität wie das aktuelle Video.
@@ -1001,7 +1007,7 @@ Ihre Benutzer-ID ist wie ein Passwort und sollte niemals weitergegeben werden.
   <string name="revanced_sb_segments_highlight_sum">Der Teil des Videos, nach dem die meisten Menschen suchen</string>
   <string name="revanced_sb_segments_intro">Unterbrechung/Introanimation</string>
   <string name="revanced_sb_segments_intro_sum">Ein Intervall ohne aktuellen Inhalt. Kann eine Pause, ein statischer Rahmen oder eine Wiederholung der Animation sein. Enthält keine Übergänge mit Informationen</string>
-  <string name="revanced_sb_segments_outro">Endkarten/Credits</string>
+  <string name="revanced_sb_segments_outro">Endkarten / Credits</string>
   <string name="revanced_sb_segments_outro_sum">Credits oder wenn die YouTube-Endkarten erscheinen. Nicht für Schlussfolgerungen mit Informationen</string>
   <string name="revanced_sb_segments_preview">Vorschau/Recap/Hook</string>
   <string name="revanced_sb_segments_preview_sum">Sammlung von Clips, die zeigen, was im Video oder in anderen Videos einer Serie vor sich geht, wo alle Informationen andernorts wiederholt werden</string>
@@ -1233,11 +1239,6 @@ Der Mini-Player kann mit einer Wischgeste vom Bildschirm nach links oder rechts 
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlay-Buttons ausblenden</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay-Buttons sind ausgeblendet</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay-Buttons werden angezeigt</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Schaltflächen zum Erweitern und Schließen ausblenden</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Schaltflächen sind ausgeblendet
-
-Zum Erweitern oder Schließen wischen"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Schaltflächen zum Erweitern und Schließen werden angezeigt</string>
   <string name="revanced_miniplayer_hide_subtext_title">Untertexte ausblenden</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexte sind ausgeblendet</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Untertexte werden angezeigt</string>
@@ -1389,6 +1390,9 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_remember_video_quality_last_selected_title">Änderungen der Videoqualität merken</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Qualitätsänderungen gelten für alle Videos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Qualitätsänderungen gelten nur für das aktuelle Video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Toast bei Änderungen der Videoqualität anzeigen</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Ein Toast wird angezeigt, wenn die Standard-Videoqualität geändert wird</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Ein Toast wird nicht angezeigt, wenn die Standard-Videoqualität geändert wird</string>
   <string name="revanced_video_quality_default_wifi_title">Standard-Videoqualität im Wi-Fi-Netzwerk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard-Videoqualität im Mobilfunknetz</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Änderungen der Shorts-Qualität speichern</string>
@@ -1415,7 +1419,6 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_custom_playback_speeds_invalid">Benutzerdefinierte Geschwindigkeiten müssen kleiner als %s sein</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ungültige benutzerdefinierte Wiedergabegeschwindigkeiten</string>
   <string name="revanced_custom_playback_speeds_auto">Autom</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Wiedergabegeschwindigkeit zurückgesetzt auf: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Benutzerdefinierte Geschwindigkeit bei Tippen und Halten</string>
   <string name="revanced_speed_tap_and_hold_summary">Abspielgeschwindigkeit zwischen 0-8x</string>
   </patch>
@@ -1423,6 +1426,9 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_remember_playback_speed_last_selected_title">Änderungen der Wiedergabegeschwindigkeit merken</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Änderungen der Wiedergabegeschwindigkeit gelten für alle Videos</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Änderungen der Wiedergabegeschwindigkeit gelten nur für das aktuelle Video</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Toast bei Änderungen der Wiedergabegeschwindigkeit anzeigen</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Ein Toast wird angezeigt, wenn die Standard-Wiedergabegeschwindigkeit geändert wird</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Ein Toast wird nicht angezeigt, wenn die Standardwiedergabegeschwindigkeit geändert wird.</string>
   <string name="revanced_playback_speed_default_title">Standard Wiedergabegeschwindigkeit</string>
   <string name="revanced_remember_playback_speed_toast">Standardgeschwindigkeit geändert zu: %s</string>
   </patch>

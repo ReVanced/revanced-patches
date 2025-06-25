@@ -10,6 +10,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
+import app.revanced.patcher.util.proxy.mutableTypes.MutableField
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -1011,14 +1012,22 @@ private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean
     }
 
     if (returnLate) {
-        findInstructionIndicesReversed {
-            opcode == RETURN || opcode == RETURN_OBJECT
+        findInstructionIndicesReversedOrThrow {
+            opcode == RETURN || opcode == RETURN_WIDE || opcode == RETURN_OBJECT
         }.forEach { index ->
             addInstructionsAtControlFlowLabel(index, instructions)
         }
     } else {
         addInstructions(0, instructions)
     }
+}
+
+/**
+ * Remove the given AccessFlags from the field.
+ */
+internal fun MutableField.removeFlags(vararg flags: AccessFlags) {
+    val bitField = flags.map { it.value }.reduce { acc, flag -> acc and flag }
+    this.accessFlags = this.accessFlags and bitField.inv()
 }
 
 internal fun BytecodePatchContext.addStaticFieldToExtension(

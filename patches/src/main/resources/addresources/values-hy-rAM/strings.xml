@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Կարգավորումներ</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Դուք ցանկանում եք շարունակել?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Վստա՞հ եք, որ ցանկանում եք շարունակել:</string>
   <string name="revanced_settings_reset">Վերականգնել</string>
   <string name="revanced_settings_reset_color">Գույնը վերականգնել</string>
   <string name="revanced_settings_color_invalid">Անվավեր գույն</string>
-  <string name="revanced_settings_restart_title">Թարմացնել և վերագործարկել</string>
+  <string name="revanced_settings_restart_title">Պահանջվում է վերագործարկում</string>
+  <string name="revanced_settings_restart_dialog_message">Փոփոխությունն ուժի մեջ մտնելու համար անհրաժեշտ է վերագործարկել հավելվածը:</string>
   <string name="revanced_settings_restart">Վերսկսել</string>
   <string name="revanced_settings_import">Ներմուծել</string>
   <string name="revanced_settings_import_copy">Պատճեն</string>
@@ -532,6 +533,10 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_share_button_title">Թաքցնել Share</string>
   <string name="revanced_hide_share_button_summary_on">Share կոճակը թաքցված է</string>
   <string name="revanced_hide_share_button_summary_off">Share կոճակը ցուցադրվում է</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Թաքցնել \"Դադարեցնել գովազդները\"</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Գովազդները դադարեցնելու կոճակը թաքցված է</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Գովազդները դադարեցնելու կոճակը ցուցադրված է</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Թաքցնել Report</string>
@@ -559,9 +564,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_clip_button_summary_on">Clip կոճակը թաքցված է</string>
   <string name="revanced_hide_clip_button_summary_off">Clip կոճակը ցուցադրվում է</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Թաքցնել Save to playlist</string>
-  <string name="revanced_hide_playlist_button_summary_on">Save to playlist կոճակը թաքցված է</string>
-  <string name="revanced_hide_playlist_button_summary_off">Save to playlist կոճակը ցուցադրվում է</string>
+  <string name="revanced_hide_save_button_title">Թաքցնել պահելը</string>
+  <string name="revanced_hide_save_button_summary_on">Պահելու կոճակը թաքցված է</string>
+  <string name="revanced_hide_save_button_summary_off">Պահելու կոճակը ցուցադրված է</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Նավիգացիայի կոճակներ</string>
@@ -759,9 +764,12 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_save_sound_button_title">Թաքցնել երաժշտությունը պահպանել կոճակը</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">«Save music» կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">«Save music» կոճակը ցուցադրվում է</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Թաքցնել Շաբլոնը օգտագործել կոճակը</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">«Use template» կոճակը թաքցված է</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">«Use template» կոճակը ցուցադրվում է</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Թաքցնել «Օգտագործել այս ձայնը» կոճակը</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">«Օգտագործել այս ձայնը» կոճակը թաքցված է</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">«Օգտագործել այս ձայնը» կոճակը ցուցադրված է</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Թաքցնել Օգտագործել այս ձևանմուշի կոճակը</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">«Օգտագործել այս ձևանմուշը» կոճակը թաքցված է</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Օգտագործել այս ձևանմուշի կոճակը ցուցադրված է</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Թաքցնել Առաջիկա կոճակը</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">\"Upcoming\" կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">\"Upcoming\" կոճակը երևում է</string>
@@ -920,7 +928,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_seekbar_thumbnails_high_quality_title">Ակտիվացնել բարձր որակի մանրապատկերները</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar-ի մանրապատկերները բարձր որակի են</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar-ի մանրապատկերները միջին որակի են</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullscreen Seekbar-ի մանրապատկերները բարձր որակի են</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullscreen Seekbar-ի մանրապատկերները միջին որակի են</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Այս կարգավորումը կվերականգնի նաև livestream-ների մեջ մինչև այսօր գոյություն չունեցող thumbnails-ները։
 
@@ -1008,7 +1015,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_segments_highlight_sum">Տեսանյութի այն հատվածը, որը շատերն են փնտրում</string>
   <string name="revanced_sb_segments_intro">Ընդմիջում/Ներածության անիմացիա</string>
   <string name="revanced_sb_segments_intro_sum">Ժամանակահատված, որը չունի իրական content: Կարող է լինել դադար, կայուն կադր կամ կրկնվող անիմացիա: Չի ներառում transitions, որոնք պարունակում են տեղեկություն</string>
-  <string name="revanced_sb_segments_outro">Վերջնաէջեր/Անուններ</string>
+  <string name="revanced_sb_segments_outro">Վերջնական տիտրեր / Տիտրեր</string>
   <string name="revanced_sb_segments_outro_sum">Կրեդիտները կամ երբ YouTube-ի վերջնական քարտերը հայտնվում են։ Չի կիրառվում տեղեկատվություն ներառող եզրափակումների համար</string>
   <string name="revanced_sb_segments_preview">Նախադիտում/Համառոտ վերանայում/Կեռ</string>
   <string name="revanced_sb_segments_preview_sum">Կտորների հավաքածու, որոնք ցույց են տալիս, թե ինչ է գալու կամ ինչ է պատահել տեսանյութում կամ սերիայի այլ տեսանյութերում, որտեղ բոլոր տեղեկությունները կրկնվում են այլուր</string>
@@ -1174,13 +1181,13 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_change_start_page_entry_notifications">Ծանուցումներ</string>
   <string name="revanced_change_start_page_entry_playlists">Երգացանկեր</string>
   <string name="revanced_change_start_page_entry_search">Որոնում</string>
-  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
+  <string name="revanced_change_start_page_entry_shopping">Գնումներ</string>
   <string name="revanced_change_start_page_entry_sports">Սպորտ</string>
   <string name="revanced_change_start_page_entry_subscriptions">Գրանցագրություններ</string>
   <string name="revanced_change_start_page_entry_trending">Trend-ի մեջ</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Վիրտուալ իրականություն</string>
   <string name="revanced_change_start_page_entry_watch_later">Դիտել հետո</string>
-  <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
+  <string name="revanced_change_start_page_entry_your_clips">Ձեր հոլովակները</string>
   <string name="revanced_change_start_page_always_title">Միշտ փոխել մեկնարկային էջը</string>
   <string name="revanced_change_start_page_always_summary_on">"Մեկնարկային էջը միշտ փոխված է
 
@@ -1240,11 +1247,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Թաքցնել վերադիր կոճակները</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Վերադիր կոճակները թաքցված են</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Վերադիր կոճակները ցուցադրվում են</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Թաքցնել ընդարձակման և փակման կոճակները</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Կոճակները թաքցված են
-
-Սահեցրեք՝ ընդարձակելու կամ փակելու համար"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Ընդարձակման և փակման կոճակները ցուցադրվում են</string>
   <string name="revanced_miniplayer_hide_subtext_title">Թաքցնել ենթատեքստերը</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Ենթատեքստերը թաքցված են</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Ենթատեքստերը ցուցադրվում են</string>
@@ -1396,6 +1398,9 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_remember_video_quality_last_selected_title">Հիշել  տեսանյութի  որակի  փոփոխությունները</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Որակի  փոփոխությունները  կիրառվում են  բոլոր  տեսանյութերի  համար</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Որակի  փոփոխությունները  կիրառվում են  միայն  ներկայիս  տեսանյութի  համար</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Ցուցադրել ծանուցում տեսանյութի որակի փոփոխության ժամանակ</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Ծանուցում է ցուցադրվում, երբ փոխվում է լռելյայն տեսանյութի որակը</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Ծանուցում չի ցուցադրվում, երբ փոխվում է լռելյայն տեսանյութի որակը</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi  ցանցի  դեֆոլտ  տեսանյութի  որակը</string>
   <string name="revanced_video_quality_default_mobile_title">Մೊբայլ  ցանցի  դեֆոլտ  տեսանյութի  որակը</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Հիշել Shorts-ի որակի փոփոխությունները</string>
@@ -1422,7 +1427,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_custom_playback_speeds_invalid">Պատրաստված արագությունները պետք է լինեն ավելի քիչ քան %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Չի աշխատում պատրաստված վերարտադրման արագությունները։</string>
   <string name="revanced_custom_playback_speeds_auto">Ավտո</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Նվագարկման արագությունը վերականգնվել է. %s</string>
   <string name="revanced_speed_tap_and_hold_title">Զգայական վերահսկում՝ անվանափոխման համար</string>
   <string name="revanced_speed_tap_and_hold_summary">Վերարտադրման արագությունը 0-8 միջակայքում</string>
   </patch>
@@ -1430,6 +1434,9 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_remember_playback_speed_last_selected_title">Հիշել  տեսանյութի  վերարտադրման  արագության  փոփոխությունները</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Վերարտադրման  արագության  փոփոխությունները  կիրառվում են  բոլոր  տեսանյութերի  համար</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Վերարտադրման  արագության  փոփոխությունները  կիրառվում են  միայն  ներկայիս  տեսանյութի  համար</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Ցուցադրել ծանուցում նվագարկման արագության փոփոխությունների ժամանակ</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Ծանուցում է ցուցադրվում, երբ փոխվում է լռելյայն նվագարկման արագությունը</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Ծանուցումը չի ցուցադրվում, երբ փոխվում է լռելյայն նվագարկման արագությունը</string>
   <string name="revanced_playback_speed_default_title">Տեսանյութի  վերարտադրման  դեֆոլտ  արագությունը</string>
   <string name="revanced_remember_playback_speed_toast">Փոփոխվել է  դեֆոլտ  արագությունը: %s</string>
   </patch>

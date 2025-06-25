@@ -11,3 +11,15 @@ internal val getMobileConfigBoolFingerprint = fingerprint {
         classDef.interfaces.contains("Lcom/facebook/mobileconfig/factory/MobileConfigUnsafeContext;")
     }
 }
+
+internal val metaAIKillSwitchCheckFingerprint = fingerprint {
+    strings("SearchAiagentImplementationsKillSwitch")
+    opcodes(Opcode.CONST_WIDE)
+}
+
+internal val extensionMethodFingerprint = fingerprint {
+    strings("REPLACED_BY_PATCH")
+    custom { method, classDef ->
+        method.name == EXTENSION_METHOD_NAME && classDef.type == EXTENSION_CLASS_DESCRIPTOR
+    }
+}
