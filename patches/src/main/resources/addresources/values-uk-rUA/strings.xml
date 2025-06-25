@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Налаштування</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Бажаєте продовжити?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Ви впевнені, що хочете продовжити?</string>
   <string name="revanced_settings_reset">Скинути</string>
   <string name="revanced_settings_reset_color">Скинути колір</string>
   <string name="revanced_settings_color_invalid">Недійсний колір</string>
-  <string name="revanced_settings_restart_title">Оновити та перезавантажити?</string>
+  <string name="revanced_settings_restart_title">Потрібен перезапуск</string>
+  <string name="revanced_settings_restart_dialog_message">Перезапустіть застосунок, щоб зміни набули чинності.</string>
   <string name="revanced_settings_restart">Перезавантажити</string>
   <string name="revanced_settings_import">Імпорт</string>
   <string name="revanced_settings_import_copy">Копіювати</string>
@@ -533,6 +534,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">Приховати \"Поділитися\"</string>
   <string name="revanced_hide_share_button_summary_on">Кнопку \"Поділитися\" приховано</string>
   <string name="revanced_hide_share_button_summary_off">Кнопка \"Поділитися\" показується</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Приховати \"Зупинити показ оголошень\"</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Кнопку \"Зупинити показ оголошень\" приховано</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Кнопка \"Зупинити показ оголошень\" показується</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Приховати \"Поскаржитися\"</string>
@@ -560,9 +565,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">Кнопку \"Створити кліп\" приховано</string>
   <string name="revanced_hide_clip_button_summary_off">Кнопка \"Створити кліп\" показується</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Приховати \"Зберегти\"</string>
-  <string name="revanced_hide_playlist_button_summary_on">Кнопку \"Зберегти\" приховано</string>
-  <string name="revanced_hide_playlist_button_summary_off">Кнопка \"Зберегти\" показується</string>
+  <string name="revanced_hide_save_button_title">Приховати \"Зберегти\"</string>
+  <string name="revanced_hide_save_button_summary_on">Кнопку \"Зберегти\" приховано</string>
+  <string name="revanced_hide_save_button_summary_off">Кнопка \"Зберегти\" показується</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Кнопки панелі навігації</string>
@@ -755,14 +760,17 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Мітку місцезнаходження приховано</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Мітка місцезнаходження показується</string>
   <string name="revanced_hide_shorts_preview_comment_title">Приховати прев\'ю коментар</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_on">Прев\'ю коментар в секції коментарів приховано</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">Прев\'ю коментар в секції коментарів показується</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Прев\'ю коментар в плеєрі приховано</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Прев\'ю коментар в плеєрі показується</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Приховати \"Зберегти музику\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопку \"Зберегти музику\" приховано</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Зберегти музику\" показується</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Приховати \"Використати шаблон\"</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопку \"Використати шаблон\" приховано</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка \"Використати шаблон\" показується</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Приховати кнопку \"Використати цей звук\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Кнопку \"Використати цей звук\" приховано</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Кнопка \"Використати цей звук\" показується</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Приховати кнопку \"Використати цей шаблон\"</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопку \"Використати цей шаблон\" приховано</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка \"Використати цей шаблон\" показується</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Приховати \"Запланована прем\'єра\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопки \"Запланована прем\'єра\" та \"Незабаром прямий ефір\" приховано</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопки \"Запланована прем\'єра\" та \"Незабаром прямий ефір\" показуються</string>
@@ -921,8 +929,6 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Увімкнути мініатюри високої якості</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Мініатюри панелі прогресу під час перемотування мають високу якість</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Мініатюри панелі прогресу під час перемотування мають середню якість</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Повноекранні мініатюри під час перемотування мають високу якість</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Повноекранні мініатюри під час перемотування мають середню якість</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Це також відновить мініатюри в прямих трансляціях, які не мають мініатюр при перемотуванні.
 
 Мініатюри при перемотуванні матимуть ту саму якість, що й поточне відео.
@@ -936,7 +942,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_sb">Увімкнути SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock - це краудсорсингова система для пропускання дратівливих частин відео на YouTube</string>
   <string name="revanced_sb_appearance_category">Налаштувати зовнішній вигляд</string>
-  <string name="revanced_sb_enable_voting">Кнопка голосування</string>
+  <string name="revanced_sb_enable_voting">Показувати кнопку голосування</string>
   <string name="revanced_sb_enable_voting_sum_on">Кнопка голосування за сегмент показується в відеоплеєрі</string>
   <string name="revanced_sb_enable_voting_sum_off">Кнопка голосування за сегмент не показується в відеоплеєрі</string>
   <string name="revanced_sb_square_layout">Використовувати квадратний макет</string>
@@ -949,14 +955,14 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Приховувати кнопку пропуску</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка пропуску автоматично приховується після декількох секунд</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка пропуску показується для всього сегменту</string>
-  <string name="revanced_sb_general_skiptoast">Показувати тост, коли пропущено</string>
+  <string name="revanced_sb_general_skiptoast">Показувати тост при пропуску</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Тост показується, коли сегмент автоматично пропускається. Натисніть тут, щоб побачити приклад</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Тост не показується. Натисніть тут, щоб побачити приклад</string>
   <string name="revanced_sb_general_time_without">Тривалість відео без сегментів</string>
   <string name="revanced_sb_general_time_without_sum_on">Показується тривалість відео мінус всі сегменти, вказано в дужках поруч з повною тривалістю відео</string>
   <string name="revanced_sb_general_time_without_sum_off">Показується тривалість повного відео</string>
   <string name="revanced_sb_create_segment_category">Створення нових сегментів</string>
-  <string name="revanced_sb_enable_create_segment">Кнопка створення нового сегмента</string>
+  <string name="revanced_sb_enable_create_segment">Показувати кнопку створення нового сегмента</string>
   <string name="revanced_sb_enable_create_segment_sum_on">Кнопка створення нового сегменту показується в відеоплеєрі</string>
   <string name="revanced_sb_enable_create_segment_sum_off">Кнопка створення нового сегменту не показується в відеоплеєрі</string>
   <string name="revanced_sb_general_adjusting">Відрегулювати крок нового сегмента</string>
@@ -1008,7 +1014,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_highlight_sum">Частина відео, яку шукає більшість людей</string>
   <string name="revanced_sb_segments_intro">Пауза/Заставка</string>
   <string name="revanced_sb_segments_intro_sum">Інтервал без фактичного контенту. Може бути паузою, статичним кадром або повторюваною анімацією. Не включає переходи, що містять інформацію</string>
-  <string name="revanced_sb_segments_outro">Кінцеві картки/Титри</string>
+  <string name="revanced_sb_segments_outro">Кінцеві картки / Титри</string>
   <string name="revanced_sb_segments_outro_sum">Титри або коли з\'являються кінцеві картки YouTube. Не для підсумків з інформацією</string>
   <string name="revanced_sb_segments_preview">Прев\'ю/Підсумок/Зачіпка</string>
   <string name="revanced_sb_segments_preview_sum">Колекція кліпів, які показують, що відбувається або що сталося у відео чи в інших відео серій, де вся інформація повторюється в іншому місці</string>
@@ -1240,11 +1246,6 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Приховати кнопки накладання</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопки накладання приховано</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопки накладання показуються</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Кнопки розгортання та закриття</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Кнопки розгортання та закриття приховано
-
-Проведіть по мініплеєру, щоб розгорнути чи закрити"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Кнопки розгортання та закриття показуються</string>
   <string name="revanced_miniplayer_hide_subtext_title">Приховати підтексти</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Підтексти в мініплеєрі приховано</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Підтексти в мініплеєрі показуються</string>
@@ -1396,6 +1397,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Показувати тост при зміні якості відео</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Тост показується, коли змінюється стандартна якість відео</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Тост не показується, коли змінюється стандартна якість відео</string>
   <string name="revanced_video_quality_default_wifi_title">Стандартна якість відео у Wi-Fi мережі</string>
   <string name="revanced_video_quality_default_mobile_title">Стандартна якість відео в мобільній мережі</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Запам\'ятовувати зміни якості Shorts</string>
@@ -1422,7 +1426,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Користувацькі швидкості повинні бути менші ніж %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Неправильні користувацькі швидкості відтворення</string>
   <string name="revanced_custom_playback_speeds_auto">Авто</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Швидкість відтворення скинуто до: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Користувацька швидкість при натисканні та утриманні</string>
   <string name="revanced_speed_tap_and_hold_summary">Швидкість відтворення від 0 до 8</string>
   </patch>
@@ -1430,6 +1433,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Запам\'ятовувати зміни швидкості</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Зміни швидкості відтворення застосовуються до всіх відео</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Зміни швидкості відтворення застосовуються лише до поточного відео</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Показувати тост при зміні швидкості відтворення</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Тост показується, коли змінюється стандартна швидкість відтворення</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Тост не показується, коли змінюється стандартна швидкість відтворення</string>
   <string name="revanced_playback_speed_default_title">Стандартна швидкість відтворення</string>
   <string name="revanced_remember_playback_speed_toast">Швидкість змінена на %s</string>
   </patch>

@@ -143,7 +143,7 @@ public final class UnlockPremiumPatch {
                     originalValue = ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_;
                 }
 
-                if (overrideValue == originalValue) {
+                if (overrideValue.equals(originalValue)) {
                     continue;
                 }
 

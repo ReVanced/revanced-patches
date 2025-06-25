@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Configurações</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Desejas continuar?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Tem certeza de que deseja prosseguir?</string>
   <string name="revanced_settings_reset">Repor</string>
   <string name="revanced_settings_reset_color">Redefinir cor</string>
   <string name="revanced_settings_color_invalid">Cor inválida</string>
-  <string name="revanced_settings_restart_title">Atualizar e reiniciar</string>
+  <string name="revanced_settings_restart_title">Reinicialização necessária</string>
+  <string name="revanced_settings_restart_dialog_message">Reinicie o aplicativo para que esta alteração entre em vigor.</string>
   <string name="revanced_settings_restart">Reiniciar</string>
   <string name="revanced_settings_import">Importar</string>
   <string name="revanced_settings_import_copy">Copiar</string>
@@ -532,6 +533,10 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_hide_share_button_title">Esconder compartilhamento</string>
   <string name="revanced_hide_share_button_summary_on">Botão Compartilhar está escondido</string>
   <string name="revanced_hide_share_button_summary_off">Botão Compartilhar é visível</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Ocultar Parar anúncios</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">O botão Parar anúncios está oculto</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">O botão Parar anúncios está exibido</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Esconder relatório</string>
@@ -559,9 +564,9 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_hide_clip_button_summary_on">O botão do clipe está escondido</string>
   <string name="revanced_hide_clip_button_summary_off">Botão de corte é visível</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Esconder Salvar lista de reprodução</string>
-  <string name="revanced_hide_playlist_button_summary_on">Salvar no botão de playlist está escondido</string>
-  <string name="revanced_hide_playlist_button_summary_off">Botão de salvar lista de reprodução é visível</string>
+  <string name="revanced_hide_save_button_title">Ocultar Salvar</string>
+  <string name="revanced_hide_save_button_summary_on">O botão Salvar está oculto</string>
+  <string name="revanced_hide_save_button_summary_off">O botão Salvar está exibido</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Botões de navegação</string>
@@ -759,9 +764,12 @@ Para mostrar o menu da faixa de áudio, altere \"Spoof video streams\" para iOS 
   <string name="revanced_hide_shorts_save_sound_button_title">Ocultar botão de salvar música</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">O botão salvar música está oculto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">O botão salvar música é mostrado</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Ocultar botão de usar modelo</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Usar o botão modelo está oculto</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Usar botão do modelo é mostrado</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Ocultar botão Usar este som</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">O botão Usar este som está oculto</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">O botão Usar este som está visível</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Ocultar o botão \"Usar este modelo\"</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">O botão Usar este modelo está oculto</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">O botão \"Usar este modelo\" é exibido</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Ocultar botão de próximos</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">O botão \"vir\" está oculto</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">O próximo botão será exibido</string>
@@ -920,8 +928,6 @@ Limitação: As não gostos podem não aparecer no modo anônimo"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Habilitar miniaturas de alta qualidade</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">As miniaturas na barra de busca são de alta qualidade</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">As miniaturas na barra de busca são de qualidade média</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">As miniaturas da barra de busca completa de ecrã são de alta qualidade</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">As miniaturas da barra de busca completa são de qualidade média</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Điều này cũng sẽ khôi phục hình thu nhỏ trên các luồng trực tiếp không có các hình thu nhỏ thanh tìm kiếm.
 
 Hình thu nhỏ thanh tìm kiếm sẽ sử dụng chất lượng tương tự như video hiện tại.
@@ -1008,7 +1014,7 @@ Seu ID de usuário é como uma senha e nunca deve ser compartilhado.
   <string name="revanced_sb_segments_highlight_sum">A parte do vídeo que a maioria das pessoas está à procura</string>
   <string name="revanced_sb_segments_intro">Animação de Intermissão/Introdução</string>
   <string name="revanced_sb_segments_intro_sum">Um intervalo sem conteúdo real. Pode ser uma pausa, moldura estática ou uma animação repetida. Não inclui transições que contenham informações</string>
-  <string name="revanced_sb_segments_outro">Cartões/Créditos</string>
+  <string name="revanced_sb_segments_outro">Cartões / Créditos</string>
   <string name="revanced_sb_segments_outro_sum">Créditos ou quando os cartões de extremidade do YouTube aparecem. Não para conclusões com informações</string>
   <string name="revanced_sb_segments_preview">Pré-visualização/Recap/Hook</string>
   <string name="revanced_sb_segments_preview_sum">Coleção de clips que mostram o que está para vir ou o que aconteceu no vídeo ou noutros vídeos de uma série, em que todas as informações são repetidas noutro local</string>
@@ -1213,7 +1219,6 @@ Limitação: Usar o botão voltar na barra de ferramentas pode não funcionar"</
   <string name="revanced_miniplayer_type_entry_0">Desativado</string>
   <string name="revanced_miniplayer_type_entry_1">Padrão</string>
   <string name="revanced_miniplayer_type_entry_2">Mínimo</string>
-  <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
@@ -1240,11 +1245,6 @@ Miniplayer có thể được kéo ra khỏi màn hình sang trái hoặc phải
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Ocultar botões de sobreposição</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Os botões de sobreposição estão ocultos</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Os botões de sobreposição são mostrados</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ocultar botões de expansão e fechar</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Os botões estão ocultos
-
-Deslize para expandir ou fechar"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Os botões de expansão e fechar são mostrados</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtextos estão ocultos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subtextos são exibidos</string>
@@ -1396,6 +1396,9 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_video_quality_last_selected_title">Lembrar mudanças na qualidade do vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Alterações de qualidade se aplicam a todos os vídeos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">As alterações de qualidade só se aplicam ao vídeo atual</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Mostrar aviso ao alterar a qualidade do vídeo</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Um aviso é mostrado quando a qualidade de vídeo padrão é alterada</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Um aviso não é mostrado quando a qualidade de vídeo padrão é alterada</string>
   <string name="revanced_video_quality_default_wifi_title">Qualidade de vídeo predefinida na rede Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualidade de vídeo predefinida na rede móvel</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Lembrar alterações na qualidade dos Shorts</string>
@@ -1422,7 +1425,6 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_custom_playback_speeds_invalid">Tốc độ tùy chỉnh phải nhỏ hơn %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát lại tùy chỉnh không hợp lệ</string>
   <string name="revanced_custom_playback_speeds_auto">Automático</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Velocidade de reprodução redefinida para: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Velocidade personalizada ao tocar e segurar</string>
   <string name="revanced_speed_tap_and_hold_summary">Velocidade de reprodução de 0 a 8</string>
   </patch>
@@ -1430,6 +1432,9 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_playback_speed_last_selected_title">Lembrar velocidade de reprodução</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">As mudanças de velocidade de reprodução aplicam-se a todos os vídeos</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">As mudanças de velocidade de reprodução só se aplicam ao vídeo atual</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Mostrar aviso ao alterar a velocidade de reprodução</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Um aviso é mostrado quando a velocidade de reprodução padrão é alterada</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Uma mensagem não é exibida quando a velocidade de reprodução padrão é alterada</string>
   <string name="revanced_playback_speed_default_title">Velocidade de reprodução predefinida</string>
   <string name="revanced_remember_playback_speed_toast">Velocidade predefinida alterada para: %s</string>
   </patch>
@@ -1523,7 +1528,6 @@ A AVC tem resolução máxima de 1080p, Opus audio codec não está disponível,
   <string name="revanced_about_summary">Sobre o ReVanced</string>
   <string name="revanced_ads_screen_title">Anúncios</string>
   <string name="revanced_ads_screen_summary">Configurações de bloqueio de anúncios</string>
-  <string name="revanced_chat_screen_title">Chat</string>
   <string name="revanced_chat_screen_summary">Configurações do chat</string>
   <string name="revanced_misc_screen_title">Diversos</string>
   <string name="revanced_misc_screen_summary">Configurações diversas</string>

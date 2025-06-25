@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.misc.litho.filter
 
 import app.revanced.patcher.fingerprint
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -49,6 +50,15 @@ internal val emptyComponentFingerprint = fingerprint {
     strings("EmptyComponent")
     custom { _, classDef ->
         classDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1
+    }
+}
+
+internal val lithoThreadExecutorFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters("I", "I", "I")
+    custom { method, classDef ->
+        classDef.superclass == "Ljava/util/concurrent/ThreadPoolExecutor;" &&
+            method.containsLiteralInstruction(1L) // 1L = default thread timeout.
     }
 }
 

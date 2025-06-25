@@ -33,9 +33,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">設定</string>
-  <string name="revanced_settings_confirm_user_dialog_title">確定要繼續嗎？</string>
+  <string name="revanced_settings_confirm_user_dialog_title">你確定要繼續嗎?</string>
   <string name="revanced_settings_reset">重設</string>
-  <string name="revanced_settings_restart_title">套用並重新啟動</string>
+  <string name="revanced_settings_reset_color">重設顏色</string>
+  <string name="revanced_settings_color_invalid">無效的顏色</string>
+  <string name="revanced_settings_restart_title">需要重新啟動</string>
   <string name="revanced_settings_restart">重新啟動</string>
   <string name="revanced_settings_import">匯入</string>
   <string name="revanced_settings_import_copy">複製</string>
@@ -43,6 +45,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_success">已匯入 %d 個設定</string>
   <string name="revanced_settings_import_failure_parse">無法匯入：%s</string>
   <string name="revanced_settings_search_hint">搜尋設定</string>
+  <string name="revanced_settings_search_no_results_title">沒有找到「%s」的結果</string>
   <string name="revanced_settings_search_remove_message">要從搜尋記錄中移除嗎？</string>
   <string name="revanced_show_menu_icons_title">顯示 ReVanced 設定圖示</string>
   <string name="revanced_show_menu_icons_summary_on">已顯示設定圖示</string>
@@ -113,6 +116,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_protobuffer_title">記錄檔協定緩衝區</string>
   <string name="revanced_debug_protobuffer_summary_on">除錯記錄檔會包含協定緩衝資訊</string>
   <string name="revanced_debug_protobuffer_summary_off">除錯記錄檔不會包含協定緩衝資訊</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"啟用此設定將會記錄額外的佈局資料，包括部分使用者介面元件的畫面文字。
+
+這有助於在建立自訂過濾器時識別元件。
+
+不過，啟用此功能也會記錄部分使用者資料，例如您的 IP 位址。"</string>
   <string name="revanced_debug_stacktrace_title">記錄檔堆疊追蹤</string>
   <string name="revanced_debug_stacktrace_summary_on">除錯記錄檔會包含堆疊追蹤</string>
   <string name="revanced_debug_stacktrace_summary_off">除錯記錄檔不會包含堆疊追蹤</string>
@@ -122,6 +130,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"關閉錯誤提示訊息會隱藏所有 ReVanced 的錯誤通知。
 
 你將不會收到任何非預期的事件通知。"</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">日誌已複製</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">隱藏專輯資訊卡</string>
@@ -489,6 +498,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">隱藏分享</string>
   <string name="revanced_hide_share_button_summary_on">已隱藏「分享」按鈕</string>
   <string name="revanced_hide_share_button_summary_off">已顯示「分享」按鈕</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">隱藏檢舉</string>
@@ -516,9 +526,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">已隱藏「剪輯片段」按鈕</string>
   <string name="revanced_hide_clip_button_summary_off">已顯示「剪輯片段」按鈕</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">隱藏儲存至播放清單</string>
-  <string name="revanced_hide_playlist_button_summary_on">已隱藏儲存至播放清單按鈕</string>
-  <string name="revanced_hide_playlist_button_summary_off">已顯示儲存至播放清單按鈕</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">導覽列按鈕</string>
@@ -710,9 +717,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">隱藏「儲存音樂」按鈕</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">已隱藏「儲存音樂」按鈕</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">已顯示「儲存音樂」按鈕</string>
-  <string name="revanced_hide_shorts_use_template_button_title">隱藏「使用範本」按鈕</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">已隱藏「使用範本」按鈕</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">已顯示「使用範本」按鈕</string>
   <string name="revanced_hide_shorts_upcoming_button_title">隱藏「即將直播/首播」按鈕</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">已隱藏「即將直播/首播」按鈕</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">已顯示「即將直播/首播」按鈕</string>
@@ -865,8 +869,6 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">啟用高畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">已將跳轉列設為高畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">已將跳轉列設為中畫質縮圖</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">已將全螢幕跳轉列設為高畫質縮圖</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">已將全螢幕跳轉列設為中畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"這也會還原直播影片上沒有跳轉列縮圖的縮圖。
 
 跳轉列縮圖將使用與目前影片相同的畫質。
@@ -1355,7 +1357,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">自訂速度必須小於 %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">自訂播放速度格式不正確</string>
   <string name="revanced_custom_playback_speeds_auto">自動</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">已將播放速度重設為：%s</string>
   <string name="revanced_speed_tap_and_hold_title">自訂輕觸和按住的速度</string>
   <string name="revanced_speed_tap_and_hold_summary">播放速度介於 0 到 8 之間</string>
   </patch>

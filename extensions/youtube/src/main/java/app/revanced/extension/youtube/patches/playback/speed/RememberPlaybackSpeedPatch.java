@@ -57,7 +57,8 @@ public final class RememberPlaybackSpeedPatch {
                     }
                     Settings.PLAYBACK_SPEED_DEFAULT.save(finalPlaybackSpeed);
 
-                    Utils.showToastShort(str("revanced_remember_playback_speed_toast", (finalPlaybackSpeed + "x")));
+                    if (Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_TOAST.get())
+                        Utils.showToastShort(str("revanced_remember_playback_speed_toast", (finalPlaybackSpeed + "x")));
                 }, TOAST_DELAY_MILLISECONDS);
             }
         } catch (Exception ex) {

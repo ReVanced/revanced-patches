@@ -42,7 +42,6 @@ public class PlaybackSpeedDialogButton {
                                     : Settings.PLAYBACK_SPEED_DEFAULT.get();
 
                             VideoInformation.overridePlaybackSpeed(speed);
-                            showToastShort(str("revanced_custom_playback_speeds_reset_toast", (speed + "x")));
                         } catch (Exception ex) {
                             Logger.printException(() -> "speed button reset failure", ex);
                         }

@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">הגדרות</string>
-  <string name="revanced_settings_confirm_user_dialog_title">האם ברצונך להמשיך?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">האם בטוח שברצונך להמשיך?</string>
   <string name="revanced_settings_reset">איפוס</string>
   <string name="revanced_settings_reset_color">אפס צבע</string>
   <string name="revanced_settings_color_invalid">צבע לא חוקי</string>
-  <string name="revanced_settings_restart_title">רענן והפעל מחדש</string>
+  <string name="revanced_settings_restart_title">יש להפעיל מחדש</string>
+  <string name="revanced_settings_restart_dialog_message">יש להפעיל מחדש את האפליקציה כדי שהשינוי ישפיע.</string>
   <string name="revanced_settings_restart">הפעלה מחדש</string>
   <string name="revanced_settings_import">ייבוא</string>
   <string name="revanced_settings_import_copy">העתק</string>
@@ -532,6 +533,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">הסתר שיתוף</string>
   <string name="revanced_hide_share_button_summary_on">לחצן שיתוף מוסתר</string>
   <string name="revanced_hide_share_button_summary_off">לחצן שיתוף מוצג</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">הסתר עצור מודעות</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">כפתור עצירת הפרסומות מוסתר</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">כפתור עצירת הפרסומות מוצג</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">הסתר דיווח</string>
@@ -559,9 +564,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">לחצן קליפ מוסתר</string>
   <string name="revanced_hide_clip_button_summary_off">לחצן קליפ מוצג</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">הסתר שמירה בפלייליסט</string>
-  <string name="revanced_hide_playlist_button_summary_on">לחצן שמירה בפלייליסט מוסתר</string>
-  <string name="revanced_hide_playlist_button_summary_off">לחצן שמירה בפלייליסט מוצג</string>
+  <string name="revanced_hide_save_button_title">הסתר שמירה</string>
+  <string name="revanced_hide_save_button_summary_on">כפתור השמירה מוסתר</string>
+  <string name="revanced_hide_save_button_summary_off">כפתור השמירה מוצג</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">לחצני ניווט</string>
@@ -759,9 +764,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">הסתר לחצן שמור מוזיקה</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">לחצן שמור מוזיקה מוסתר</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">לחצן שמור מוזיקה מוצג</string>
-  <string name="revanced_hide_shorts_use_template_button_title">הסתר לחצן שימוש בתבנית</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">לחצן שימוש בתבנית מוסתר</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">לחצן שימוש בתבנית מוצב</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">הסתר את כפתור \"השתמש בצליל זה\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">כפתור \"השתמש בצליל זה\" מוסתר</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">כפתור \"השתמש בצליל זה\" מוצג</string>
+  <string name="revanced_hide_shorts_use_template_button_title">הסתר כפתור השתמש בתבנית זו</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">כפתור \"השתמש בתבנית זו\" מוסתר</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">כפתור השתמש בתבנית זו מוצג</string>
   <string name="revanced_hide_shorts_upcoming_button_title">הסתר לחצן \'בקרוב\'</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">לחצן \'בקרוב\' מוסתר</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">לחצן \'בקרוב\' מוצג</string>
@@ -1008,7 +1016,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_highlight_sum">החלק בסרטון שרוב האנשים מחפשים</string>
   <string name="revanced_sb_segments_intro">הנפשת הפסקה/הקדמה</string>
   <string name="revanced_sb_segments_intro_sum">מרווח זמן ללא תוכן ממשי. יכול להיות הפסקה, מסגרת סטטית, או הנפשה חוזרת. אינו כולל מעברים המכילים מידע</string>
-  <string name="revanced_sb_segments_outro">כרטיסי סיום/קרדיטים</string>
+  <string name="revanced_sb_segments_outro">כרטיסי סיום / קרדיטים</string>
   <string name="revanced_sb_segments_outro_sum">קרדיטים או כאשר כרטיסי הסיום של YouTube מופיעים. לא בשביל מסקנות עם מידע</string>
   <string name="revanced_sb_segments_preview">קדימון/סיכום/מלכודת</string>
   <string name="revanced_sb_segments_preview_sum">אוסף של קליפים שמראים מה עומד לקרות בקרוב או מה קרה בסרטון או בסרטונים אחרים של סדרה, כאשר כל המידע חוזר על עצמו במקום אחר</string>
@@ -1240,11 +1248,6 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">הסתר לחצני שכבת-על</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">לחצני שכבת-על מוסתרים</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">לחצני שכבת-על מוצגים</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">הסתר לחצני סגירה והרחבה</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"הלחצנים מוסתרים
-
-החלק כדי להרחיב או לסגור"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">לחצני הרחבה וסגירה מוצגים</string>
   <string name="revanced_miniplayer_hide_subtext_title">הסתר תת-טקסטים</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">תת-טקסטים מוסתרים</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">תת-טקסטים מוצגים</string>
@@ -1396,6 +1399,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">זכור שינויי איכות סרטון</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">שינויי איכות חלים על כל הסרטונים</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">שינויי איכות חלים רק על הסרטון הנוכחי</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">הצג הודעה קופצת בעת שינויים באיכות הווידאו</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">מוצגת הודעה קופצת כאשר איכות הווידאו המוגדרת כברירת מחדל משתנה</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">הודעה קופצת אינה מוצגת כאשר איכות הווידאו המוגדרת כברירת מחדל משתנה</string>
   <string name="revanced_video_quality_default_wifi_title">איכות סרטון ברירת מחדל ברשת אלחוטית</string>
   <string name="revanced_video_quality_default_mobile_title">איכות סרטון ברירת מחדל ברשת סלולרית</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">זכור שינויי איכות Shorts</string>
@@ -1422,7 +1428,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">מהירויות מותאמות אישית חייבות להיות קטנות מ-%s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">מהירויות הפעלה מותאמות אישית לא חוקיות</string>
   <string name="revanced_custom_playback_speeds_auto">אוטומטי</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">מהירות ההפעלה אופסה ל: %s</string>
   <string name="revanced_speed_tap_and_hold_title">מהירות הקשה והחזקה מותאמת אישית</string>
   <string name="revanced_speed_tap_and_hold_summary">מהירות הפעלה בין 0 ל-8</string>
   </patch>
@@ -1430,6 +1435,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">זכור שינויי מהירות הפעלה</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">שינויי מהירות הפעלה חלים על כל הסרטונים</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">שינויי מהירות הפעלה חלים רק על הסרטון הנוכחי</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">הצג הודעה קופצת בעת שינויים במהירות ההפעלה</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">מוצגת הודעה קופצת כאשר מהירות ההפעלה המוגדרת כברירת מחדל משתנה</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">הודעה קופצת אינה מוצגת כאשר מהירות ההפעלה המוגדרת כברירת מחדל משתנה</string>
   <string name="revanced_playback_speed_default_title">מהירות הפעלה ברירת מחדל</string>
   <string name="revanced_remember_playback_speed_toast">מהירות ברירת המחדל שונתה ל: %s</string>
   </patch>

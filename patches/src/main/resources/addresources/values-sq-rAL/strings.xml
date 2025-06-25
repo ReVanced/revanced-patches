@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Cilësimet</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Dëshironi të vazhdoni?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">A jeni i sigurt që dëshironi të vazhdoni?</string>
   <string name="revanced_settings_reset">Rivendos</string>
   <string name="revanced_settings_reset_color">Rikthe ngjyrën</string>
   <string name="revanced_settings_color_invalid">Ngjyrë e pavlefshme</string>
-  <string name="revanced_settings_restart_title">Rifresko dhe rifillo</string>
+  <string name="revanced_settings_restart_title">Kërkohet Ristartim</string>
+  <string name="revanced_settings_restart_dialog_message">Rindizeni aplikacionin që ky ndryshim të hyjë në fuqi.</string>
   <string name="revanced_settings_restart">Rifillo</string>
   <string name="revanced_settings_import">Importo</string>
   <string name="revanced_settings_import_copy">Kopjo</string>
@@ -532,6 +533,10 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_share_button_title">Fsheh \"Pjesëto\"</string>
   <string name="revanced_hide_share_button_summary_on">Butoni \"Pjesëto\" është i fshehur</string>
   <string name="revanced_hide_share_button_summary_off">Butoni \"Pjesëto\" është i dukshëm</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Fshih \"Ndalo reklamat\"</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Butoni Ndalo reklamat është i fshehur</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Butoni Ndalo reklamat është i shfaqur</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Fsheh \"Raporton\"</string>
@@ -559,9 +564,9 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_clip_button_summary_on">Butoni \"Klip\" është i fshehur</string>
   <string name="revanced_hide_clip_button_summary_off">Butoni \"Klip\" është i dukshëm</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Fsheh \"Ruaj në listën e riprodhimit\"</string>
-  <string name="revanced_hide_playlist_button_summary_on">Butoni \"Ruaj në listën e riprodhimit\" është i fshehur</string>
-  <string name="revanced_hide_playlist_button_summary_off">Butoni \"Ruaj në listën e riprodhimit\" është i dukshëm</string>
+  <string name="revanced_hide_save_button_title">Fshih Ruaj</string>
+  <string name="revanced_hide_save_button_summary_on">Butoni Ruaj është i fshehur</string>
+  <string name="revanced_hide_save_button_summary_off">Butoni Ruaj është i shfaqur</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Butonat e navigimit</string>
@@ -759,9 +764,12 @@ Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet vide
   <string name="revanced_hide_shorts_save_sound_button_title">Fsheh butonin Ruaj muzikën</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Butoni \"Ruaj muzikën\" është i fshehur</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Butoni \"Ruaj muzikën\" shfaqet</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Fsheh butonin Përdor shabllon</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Butoni \"Përdor shabllonin\" është i fshehur</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Butoni \"Përdor shabllonin\" shfaqet</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Fshih butonin Përdor këtë tingull</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Butoni Përdor këtë tingull është fshehur</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Butoni Përdor këtë tingull është shfaqur</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Fshih butonin Përdor këtë shabllon</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Butoni Përdor këtë shabllon është fshehur</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Butoni Përdor këtë shabllon është shfaqur</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Fshih butonin Në vazhdim</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Butoni \"Të ardhshme\" është i fshehur</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Butoni \"Të ardhshme\" është i dukshëm</string>
@@ -920,8 +928,6 @@ Kufizimi: Mospëlqimet mund të mos shfaqen në modalitetin incognito"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_title">Aktivizo miniatiurat me cilësi të lartë</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniatiurat e shiritit të kërkimi janë me cilësi të lartë</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniatiurat e shiritit të kërkimi janë me cilësi të mesme</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Miniatiurat e shiritit të kërkimit në ekran të plotë janë me cilësi të lartë</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Miniatiurat e shiritit të kërkimit në ekran të plotë janë me cilësi të mesme</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Kjo gjithashtu do të rikthejë miniaturat në transmetimet live që nuk kanë miniatura seekbar.
 
 Miniaturat seekbar do të përdorin të njëjtën cilësi me videon aktuale.
@@ -1007,7 +1013,7 @@ User id juaj është si një fjalëkalim dhe nuk duhet të ndahet kurrë."</stri
   <string name="revanced_sb_segments_highlight_sum">Pjesa e videos që shumica e njerëzve po kërkojnë</string>
   <string name="revanced_sb_segments_intro">Animacione e ndërprerjes/hyrjes</string>
   <string name="revanced_sb_segments_intro_sum">Një interval pa përmbajtje aktuale. Mund të jetë një pauzë, kornizë statike ose animacion që përsëritet. Nuk përfshin tranzicionet që përmbajnë informacion</string>
-  <string name="revanced_sb_segments_outro">Ekranet e fundit/Kreditet</string>
+  <string name="revanced_sb_segments_outro">Kartëmonedha të fundit / Kredite</string>
   <string name="revanced_sb_segments_outro_sum">Kreditet ose kur shfaqen ekranet e fundit të YouTube. Jo për përfundime me informacion</string>
   <string name="revanced_sb_segments_preview">Parashikimi/Përmbledhja/Haki</string>
   <string name="revanced_sb_segments_preview_sum">Koleksion i klipeve që tregojnë çfarë po vjen ose çfarë ndodhi në video ose në video të tjera të një serie, ku i gjithë informacioni përsëritet diku tjetër</string>
@@ -1197,7 +1203,7 @@ Kufizimi: Përdorimi i butonit të kthimit në shiritin e veglave mund të mos f
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Lojtari i zakonshëm në ekran të plotë</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
-  <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
+  <string name="revanced_shorts_autoplay_title">Shorts Autoplay</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts do të luajnë automatikisht</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts do të përsëriten</string>
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts luaj në sfond</string>
@@ -1238,11 +1244,6 @@ Miniplayer mund të tërhiqet jashtë ekranit në të majtë ose në të djatht�
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Fshih butonat e mbivendosjes</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Butonat e mbivendosjes janë të fshehur</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Butonat e mbivendosjes janë të dukshëm</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Fshih butonat e zgjerimit dhe mbylljes</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Butonat janë të fshehur
-
-Rrëshqit për të zgjeruar ose mbyllur"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Butonat e zgjerimit dhe mbylljes janë të dukshëm</string>
   <string name="revanced_miniplayer_hide_subtext_title">Fsheh nëntekstet</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Nëntekstet janë të fshehura</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Nëntekstet janë të dukshme</string>
@@ -1394,6 +1395,9 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Mbani mend ndryshimet e cilësisë së videos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Ndryshimet e cilësisë zbatohen për të gjitha videot</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Ndryshimet e cilësisë zbatohen vetëm për videon aktuale</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Shfaq njoftim për ndryshimet e cilësisë së videos</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Shfaqet një njoftim kur ndryshohet cilësia e paracaktuar e videos</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Nuk shfaqet një njoftim kur ndryshohet cilësia e paracaktuar e videos</string>
   <string name="revanced_video_quality_default_wifi_title">Cilësia e videos parazgjedhëse në rrjetin Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Cilësia e videos parazgjedhëse në rrjetin celular</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Mbani mend ndryshimet e cilësisë së Shorts</string>
@@ -1420,7 +1424,6 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_custom_playback_speeds_invalid">Shpejtësitë e personalizuara duhet të jenë më të vogla se %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Shpejtësi të pavlefshme të personalizuar të riprodhimit</string>
   <string name="revanced_custom_playback_speeds_auto">Automatik</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Shpejtësia e riprodhimit u rivendos në: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Shpejtësia sipas dëshirës së përdoruesit gjatë përdorimit</string>
   <string name="revanced_speed_tap_and_hold_summary">Shpejtësi e riprodhimit midis 0 dhe 8</string>
   </patch>
@@ -1428,6 +1431,9 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Mbani mend ndryshimet e shpejtësisë së përsëritjes</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Ndryshimet e shpejtësisë së përsëritjes zbatohen për të gjitha videot</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Ndryshimet e shpejtësisë së përsëritjes zbatohen vetëm për videon aktuale</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Shfaq njoftim për ndryshimet e shpejtësisë së luajtjes</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Shfaqet një njoftim kur ndryshohet shpejtësia e paracaktuar e luajtjes</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Një njoftim nuk shfaqet kur ndryshohet shpejtësia e paracaktuar e riprodhimit.</string>
   <string name="revanced_playback_speed_default_title">Shpejtësia e përsëritjes parazgjedhëse</string>
   <string name="revanced_remember_playback_speed_toast">Ndryshuar shpejtësia parazgjedhëse në: %s</string>
   </patch>
@@ -1521,7 +1527,7 @@ AVC ka një rezolucion maksimal prej 1080p, kodeku audio Opus nuk është i disp
   <string name="revanced_about_summary">Rreth ReVanced</string>
   <string name="revanced_ads_screen_title">Reklamat</string>
   <string name="revanced_ads_screen_summary">Cilësimet e bllokimit të reklamave</string>
-  <string name="revanced_chat_screen_title">Chat</string>
+  <string name="revanced_chat_screen_title">Bisedë</string>
   <string name="revanced_chat_screen_summary">Cilësimet e chat-it</string>
   <string name="revanced_misc_screen_title">Të ndryshme</string>
   <string name="revanced_misc_screen_summary">Cilësime të ndryshme</string>

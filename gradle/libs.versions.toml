@@ -16,6 +16,7 @@ protoc = "4.31.1"
 protobuf = "0.9.5"
 antlr4 = "4.13.2"
 nanohttpd = "2.3.1"
+apksig = "8.10.1"
 
 [libraries]
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
@@ -27,7 +28,7 @@ protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.
 protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
-
+apksig = { group = "com.android.tools.build", name = "apksig", version.ref = "apksig" }
 
 [plugins]
 android-library = { id = "com.android.library" }
