@@ -2,10 +2,8 @@ package app.revanced.patches.shared.misc.hex
 
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.rawResourcePatch
-import kotlin.apply
 import kotlin.collections.component1
 import kotlin.collections.component2
-import kotlin.collections.groupBy
 import kotlin.math.max
 
 fun hexPatch(ignoreMissingTargetFiles: Boolean = false, block: HexPatchBuilder.() -> Unit) =
