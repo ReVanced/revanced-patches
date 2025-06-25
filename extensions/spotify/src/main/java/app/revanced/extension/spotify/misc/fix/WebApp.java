@@ -191,7 +191,10 @@ class WebApp {
 
         public void stopLoadingAndDestroyOnMainThreadNowOrLater() {
             runOnMainThreadNowOrLater(() -> {
-                if (nativeLoginHandler != null) nativeLoginHandler.login();
+                if (nativeLoginHandler != null) {
+                    Logger.printInfo(() -> "Perform native login in Spotify");
+                    nativeLoginHandler.login();
+                }
                 stopLoading();
                 destroy();
             });
@@ -244,7 +247,7 @@ class WebApp {
         void login();
     }
 
-    public static void setPerformNativeLoginHandler(NativeLoginHandler handler) {
+    public static void setNativeLoginHandler(NativeLoginHandler handler) {
         nativeLoginHandler = handler;
     }
 }

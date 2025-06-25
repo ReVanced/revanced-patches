@@ -130,9 +130,7 @@ val spoofClientPatch = bytecodePatch(
 
             addInstruction(
                 onEventIndex + 2,
-                """
-                    invoke-static { v$buttonRegister }, $EXTENSION_CLASS_DESCRIPTOR->setPerformNativeLoginHandler(Landroid/view/View;)V
-                """
+                "invoke-static { v$buttonRegister }, $EXTENSION_CLASS_DESCRIPTOR->setNativeLoginHandler(Landroid/view/View;)V"
             )
         }
 
@@ -163,13 +161,12 @@ val spoofClientPatch = bytecodePatch(
 
             addInstruction(
                 invokeSetListenerIndex + 1,
-                """
-                    invoke-virtual { v$buttonRegister }, Landroid/view/View;->performClick()Z
-                """
+                "invoke-virtual { v$buttonRegister }, Landroid/view/View;->performClick()Z"
             )
         }
 
         thirdLoginScreenLoginOnClickFingerprint.method.apply {
+            // Use placeholder credentials to pass the login screen.
             val loginActionIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID) - 1
 
             val loginActionInstruction = getInstruction<FiveRegisterInstruction>(loginActionIndex)
