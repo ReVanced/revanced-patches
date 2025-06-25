@@ -42,7 +42,7 @@ public class SpoofClientPatch {
         }
     }
 
-    public static void setLoginButton(View loginButton) {
+    public static void setPerformNativeLoginHandler(View loginButton) {
             WebApp.setPerformNativeLoginHandler(
                 () -> {
                     loginButton.setSoundEffectsEnabled(false);
