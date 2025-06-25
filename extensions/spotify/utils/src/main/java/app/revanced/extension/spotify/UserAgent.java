@@ -1,5 +1,7 @@
 package app.revanced.extension.spotify;
 
+import jdk.internal.vm.Continuation;
+import jdk.javadoc.internal.doclets.toolkit.util.DocFinder;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -21,7 +23,26 @@ public class UserAgent {
         rewriter = new TokenStreamRewriter(tokens);
     }
 
-    public String replaceComment(String containing, String replacement) {
+    public UserAgent withoutProduct(String name) {
+        walker.walk(new UserAgentBaseListener() {
+            @Override
+            public void exitProduct(UserAgentParser.ProductContext ctx) {
+                if (!ctx.name().getText().contains(name)) return;
+
+                int startIndex = ctx.getStart().getTokenIndex();
+                if (startIndex != 0) startIndex -= 1; // Also remove the preceding whitespace.
+
+                int stopIndex = ctx.getStop().getTokenIndex();
+
+                
+                rewriter.delete(startIndex, stopIndex);
+            }
+        }, tree);
+
+        return new UserAgent(rewriter.getText().trim());
+    }
+
+    public UserAgent withCommentReplaced(String containing, String replacement) {
         walker.walk(new UserAgentBaseListener() {
             @Override
             public void exitComment(UserAgentParser.CommentContext ctx) {
@@ -31,6 +52,11 @@ public class UserAgent {
             }
         }, tree);
 
+        return new UserAgent(rewriter.getText());
+    }
+
+    @Override
+    public String toString() {
         return rewriter.getText();
     }
 }
