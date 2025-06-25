@@ -1,3 +1,10 @@
+# [5.29.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.8...v5.29.0-dev.9) (2025-06-25)
+
+
+### Features
+
+* Add `Spoof app signature` patch ([#5158](https://github.com/ReVanced/revanced-patches/issues/5158)) ([78b25aa](https://github.com/ReVanced/revanced-patches/commit/78b25aa4e87ec3f9df1d57831b48a39029969416))
+
 # [5.29.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.7...v5.29.0-dev.8) (2025-06-25)
 
 
