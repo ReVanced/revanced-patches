@@ -69,6 +69,8 @@ class Session {
     }
 
     void save() {
+        Logger.printInfo(() -> "Saving session: " + this);
+
         SharedPreferences.Editor editor = Utils.getContext().getSharedPreferences("revanced", MODE_PRIVATE).edit();
 
         String json;
@@ -88,6 +90,8 @@ class Session {
 
     @Nullable
     static Session read(String username) {
+        Logger.printInfo(() -> "Reading session for username: " + username);
+
         SharedPreferences sharedPreferences = Utils.getContext().getSharedPreferences("revanced", MODE_PRIVATE);
         String savedJson = sharedPreferences.getString("session_" + username, null);
         if (savedJson == null) {

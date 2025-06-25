@@ -36,9 +36,12 @@ class WebApp {
     static volatile Session currentSession;
 
     static void login(Context context) {
+        Logger.printInfo(() -> "Starting login");
+
         Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+
+        // Ensure that the keyboard does not cover the webview content.
         Window window = dialog.getWindow();
-        
         //noinspection StatementWithEmptyBody
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.getDecorView().setOnApplyWindowInsetsListener((v, insets) -> {
@@ -50,172 +53,162 @@ class WebApp {
             // TODO: Implement for lower Android versions.
         }
 
-        MainThreadWebView webView = newWebView(
+        newWebView(
                 // Can't use Utils.getContext() here, because autofill won't work.
                 // See https://stackoverflow.com/a/79182053/11213244.
                 context,
-                (String cookies) -> {
-                    Logger.printInfo(() -> "Received cookies from login: " + cookies);
-                    dialog.dismiss();
-                }, (webView1, session) -> {
-                    Logger.printInfo(() -> "Received session from login: " + session);
-                    currentSession = session;
-                    webView1.stopLoadingAndDestroyOnMainThreadNowOrLater();
+                new WebViewCallback() {
+                    @Override
+                    void onInitialized(WebView webView) {
+                        // Ensure that cookies are cleared before loading the login page.
+                        CookieManager.getInstance().removeAllCookies((anyRemoved) -> {
+                            Logger.printInfo(() -> "Loading URL: " + ACCOUNTS_SPOTIFY_COM_LOGIN_URL);
+                            webView.loadUrl(ACCOUNTS_SPOTIFY_COM_LOGIN_URL);
+                        });
+
+                        dialog.setCancelable(false);
+                        dialog.setContentView(webView);
+                        dialog.show();
+                    }
+
+                    @Override
+                    void onLoggedIn(String cookies) {
+                        Logger.printInfo(() -> "Received cookies from login: " + cookies);
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    void onReceivedSession(WebView webView, Session session) {
+                        Logger.printInfo(() -> "Received session from login: " + session);
+                        currentSession = session;
+                        webView.stopLoading();
+                        webView.destroy();
+                    }
                 }
         );
-
-        // Ensure that cookies are cleared before loading the login page.
-        CookieManager.getInstance().removeAllCookies((anyRemoved) ->
-                webView.loadUrlOnMainThread(ACCOUNTS_SPOTIFY_COM_LOGIN_URL)
-        );
-
-        dialog.setCancelable(false);
-        dialog.setContentView(webView);
-        dialog.show();
     }
 
     static void refreshSession(String cookies) {
-        setCookies(cookies);
+        Logger.printInfo(() -> "Refreshing session with cookies: " + cookies);
 
         CountDownLatch getSessionLatch = new CountDownLatch(1);
 
-        MainThreadWebView webView = newWebView(
+        newWebView(
                 Utils.getContext(),
-                null, (webView1, session) -> {
-                    Logger.printInfo(() -> "Received session: " + session);
-                    currentSession = session;
-                    getSessionLatch.countDown();
+                new WebViewCallback() {
+                    @Override
+                    public void onInitialized(WebView webView) {
+                        Logger.printInfo(() -> "Loading URL: " + OPEN_SPOTIFY_COM_PREFERENCES_URL +
+                                " with cookies: " + cookies);
+                        setCookies(cookies);
+                        webView.loadUrl(OPEN_SPOTIFY_COM_PREFERENCES_URL);
+                    }
+
+                    @Override
+                    public void onReceivedSession(WebView webView, Session session) {
+                        Logger.printInfo(() -> "Received session: " + session);
+                        currentSession = session;
+                        getSessionLatch.countDown();
+                        webView.stopLoading();
+                        webView.destroy();
+                    }
                 }
         );
 
-        boolean isAcquired = false;
-
-        int attempts = 1;
-        do {
-            int finalAttempts = attempts;
-            Logger.printInfo(() -> "Attempt " + finalAttempts + ": Getting session for "
-                    + GET_SESSION_TIMEOUT_SECONDS + " seconds...");
-
-            webView.loadUrlOnMainThread(OPEN_SPOTIFY_COM_PREFERENCES_URL);
-
-            try {
-                isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-                if (isAcquired) break;
-            } catch (InterruptedException ex) {
-                Logger.printException(() -> "Interrupted while waiting for session", ex);
-                // Restore interrupt status set by unknown outside code.
-                Thread.currentThread().interrupt();
-                break;
+        try {
+            boolean isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+            if (!isAcquired) {
+                Logger.printException(() -> "Failed to retrieve session within " + GET_SESSION_TIMEOUT_SECONDS + " seconds");
+            } else {
+                Logger.printInfo(() -> "Session retrieved successfully");
             }
-        } while (attempts++ <= 3);
-
-        if (!isAcquired) {
-            Logger.printException(() -> "Failed to get session");
+        } catch (InterruptedException e) {
+            Logger.printException(() -> "Failed to wait for session retrieval", e);
+            Thread.currentThread().interrupt();
         }
-
-        webView.stopLoadingAndDestroyOnMainThreadNowOrLater();
     }
 
-    @NonNull
+    abstract static class WebViewCallback {
+        void onInitialized(WebView webView) {
+        }
+
+        void onLoggedIn(String cookies) {
+        }
+
+        void onReceivedSession(WebView webView, Session session) {
+        }
+    }
+
     @SuppressLint("SetJavaScriptEnabled")
-    private static MainThreadWebView newWebView(
+    private static void newWebView(
             Context context,
-            HasLoggedInCallback hasLoggedInCallback,
-            HasReceivedSessionCallback hasReceivedSessionCallback
+            WebViewCallback webViewCallback
     ) {
-        MainThreadWebView webView = new MainThreadWebView(context);
-        WebSettings settings = webView.getSettings();
-        settings.setDomStorageEnabled(true);
-        settings.setJavaScriptEnabled(true);
-        settings.setUserAgentString(USER_AGENT);
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-                if (hasLoggedInCallback != null && OPEN_SPOTIFY_COM.equals(request.getUrl().getHost())) {
-                    hasLoggedInCallback.onLoggedIn(getCurrentCookies());
+        Logger.printInfo(() -> "Creating new WebView");
+
+        Utils.runOnMainThreadNowOrLater(() -> {
+            WebView webView = new WebView(context);
+            WebSettings settings = webView.getSettings();
+            settings.setDomStorageEnabled(true);
+            settings.setJavaScriptEnabled(true);
+            settings.setUserAgentString(USER_AGENT);
+            webView.setWebViewClient(new WebViewClient() {
+                @Override
+                public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                    if (OPEN_SPOTIFY_COM.equals(request.getUrl().getHost())) {
+                        webViewCallback.onLoggedIn(getCurrentCookies());
+                    }
+
+                    return super.shouldInterceptRequest(view, request);
                 }
 
-                return super.shouldInterceptRequest(view, request);
-            }
+                @Override
+                public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                    if (!url.contains(OPEN_SPOTIFY_COM_URL)) {
+                        return;
+                    }
 
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                if (!url.contains(OPEN_SPOTIFY_COM_URL)) {
-                    return;
+                    Logger.printInfo(() -> "Evaluating scripts to get session from url " + url);
+                    String getSessionScript = "Object.defineProperty(Object.prototype, \"_username\", {" +
+                            "   configurable: true," +
+                            "   set(username) {" +
+                            "       accessToken = this._builder?.accessToken;" +
+                            "       if (accessToken) {" +
+                            "           " + JAVASCRIPT_INTERFACE_NAME + ".getSession(username, accessToken);" +
+                            "           delete Object.prototype._username;" +
+                            "       }" +
+                            "       " +
+                            "       Object.defineProperty(this, \"_username\", {" +
+                            "           configurable: true," +
+                            "           enumerable: true," +
+                            "           writable: true," +
+                            "           value: username" +
+                            "       })" +
+                            "       " +
+                            "   }" +
+                            "});";
+
+                    view.evaluateJavascript(getSessionScript, null);
                 }
-
-                Logger.printInfo(() -> "Evaluating scripts to get session from url " + url);
-                String getSessionScript = "Object.defineProperty(Object.prototype, \"_username\", {" +
-                        "   configurable: true," +
-                        "   set(username) {" +
-                        "       accessToken = this._builder?.accessToken;" +
-                        "       if (accessToken) {" +
-                        "           " + JAVASCRIPT_INTERFACE_NAME + ".getSession(username, accessToken);" +
-                        "           delete Object.prototype._username;" +
-                        "       }" +
-                        "       " +
-                        "       Object.defineProperty(this, \"_username\", {" +
-                        "           configurable: true," +
-                        "           enumerable: true," +
-                        "           writable: true," +
-                        "           value: username" +
-                        "       })" +
-                        "       " +
-                        "   }" +
-                        "});";
-
-                view.evaluateJavascript(getSessionScript, null);
-            }
-        });
-
-        webView.addJavascriptInterface(new Object() {
-            @SuppressWarnings("unused")
-            @JavascriptInterface
-            public void getSession(String username, String accessToken) {
-                if (hasReceivedSessionCallback != null) {
-                    Session session = new Session(username, accessToken, getCurrentCookies());
-
-                    hasReceivedSessionCallback.onReceivedSession(webView, session);
-                }
-            }
-        }, JAVASCRIPT_INTERFACE_NAME);
-
-        return webView;
-    }
-
-
-    private interface HasLoggedInCallback {
-        void onLoggedIn(String cookies);
-    }
-
-    private interface HasReceivedSessionCallback {
-        void onReceivedSession(MainThreadWebView webView, Session session);
-    }
-
-    private static class MainThreadWebView extends WebView {
-        public MainThreadWebView(Context context) {
-            super(context);
-        }
-
-        public void loadUrlOnMainThread(String url) {
-            runOnMainThreadNowOrLater(() -> super.loadUrl(url));
-        }
-
-        public void stopLoadingAndDestroyOnMainThreadNowOrLater() {
-            runOnMainThreadNowOrLater(() -> {
-                stopLoading();
-                destroy();
             });
-        }
 
+            webView.addJavascriptInterface(new Object() {
+                @SuppressWarnings("unused")
+                @JavascriptInterface
+                public void getSession(String username, String accessToken) {
+                    Session session = new Session(username, accessToken, getCurrentCookies());
+                    Utils.runOnMainThreadNowOrLater(() -> webViewCallback.onReceivedSession(webView, session));
+                }
+            }, JAVASCRIPT_INTERFACE_NAME);
 
-        private void runOnMainThreadNowOrLater(Runnable runnable) {
-            Utils.runOnMainThreadNowOrLater(runnable);
-        }
+            Logger.printInfo(() -> "WebView initialized");
+            webViewCallback.onInitialized(webView);
+        });
     }
 
-    @NonNull
     private static String getWebUserAgent() {
+        Logger.printInfo(() -> "Getting user agent for WebView");
+
         String userAgentString = WebSettings.getDefaultUserAgent(Utils.getContext());
         Logger.printInfo(() -> "Default WebView user agent: " + userAgentString);
 
