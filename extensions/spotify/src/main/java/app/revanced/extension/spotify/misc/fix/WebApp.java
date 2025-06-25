@@ -33,6 +33,8 @@ class WebApp {
     @Nullable
     static volatile Session currentSession;
 
+    private static NativeLoginHandler handler = null;
+
     static void login(Context context) {
         Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
 
@@ -189,6 +191,9 @@ class WebApp {
 
         public void stopLoadingAndDestroyOnMainThreadNowOrLater() {
             runOnMainThreadNowOrLater(() -> {
+                if (handler != null) {
+                    handler.handle();
+                }
                 stopLoading();
                 destroy();
             });
@@ -235,5 +240,13 @@ class WebApp {
         for (String cookie : cookiesList) {
             cookieManager.setCookie(OPEN_SPOTIFY_COM_URL, cookie);
         }
+    }
+
+    public interface NativeLoginHandler {
+        void handle();
+    }
+
+    public static void setPerformNativeLoginHandler(NativeLoginHandler handlerParam) {
+        handler = handlerParam;
     }
 }

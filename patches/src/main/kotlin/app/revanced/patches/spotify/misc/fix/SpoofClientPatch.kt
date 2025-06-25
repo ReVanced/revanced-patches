@@ -131,8 +131,8 @@ val spoofClientPatch = bytecodePatch(
             addInstruction(
                 onEventIndex + 2,
                 """
-                    invoke-static {v$buttonRegister}, $EXTENSION_CLASS_DESCRIPTOR->setLoginButton(Landroid/view/View;)V
-                    """
+                    invoke-static { v$buttonRegister }, $EXTENSION_CLASS_DESCRIPTOR->setPerformNativeLoginHandler(Landroid/view/View;)V
+                """
             )
         }
 
@@ -143,21 +143,20 @@ val spoofClientPatch = bytecodePatch(
 
             val buttonRegister = getInstruction<OneRegisterInstruction>(getViewIndex + 1).registerA
 
-            // Early returning the render for loop since the first item of the loop is the login button
+            // Early returning the render for loop since the first item of the loop is the login button.
             addInstructions(
                 getViewIndex + 2,
                 """
-                    invoke-virtual {v$buttonRegister}, Landroid/view/View;->performClick()Z
+                    invoke-virtual { v$buttonRegister }, Landroid/view/View;->performClick()Z
                     return-void
-                    """
+                """
             )
         }
 
         thirdLoginScreenRenderFingerprint.method.apply {
             val invokeSetListenerIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.definingClass == "Landroid/view/View;" &&
-                        getReference<MethodReference>()?.name == "setOnClickListener"
+                val reference = getReference<MethodReference>()
+                reference?.definingClass == "Landroid/view/View;" && reference.name == "setOnClickListener"
             }
 
             val buttonRegister = getInstruction<FiveRegisterInstruction>(invokeSetListenerIndex).registerC
@@ -165,25 +164,23 @@ val spoofClientPatch = bytecodePatch(
             addInstruction(
                 invokeSetListenerIndex + 1,
                 """
-                    invoke-virtual {v$buttonRegister}, Landroid/view/View;->performClick()Z
-                    """
+                    invoke-virtual { v$buttonRegister }, Landroid/view/View;->performClick()Z
+                """
             )
         }
 
         thirdLoginOnClickFingerprint.method.apply {
-            // Return void is NOT at the end of the method
-            val loginActionIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.RETURN_VOID
-            } - 1
+            // Return void is NOT at the end of the method.
+            val loginActionIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID) - 1
 
             val loginActionInstruction = getInstruction<FiveRegisterInstruction>(loginActionIndex)
 
             addInstructions(
                 loginActionIndex,
                 """
-                    const-string v${loginActionInstruction.registerD}, "bogus"
-                    const-string v${loginActionInstruction.registerE}, "bogus"
-                    """
+                    const-string v${loginActionInstruction.registerD}, "placeholder"
+                    const-string v${loginActionInstruction.registerE}, "placeholder"
+                """
             )
         }
 
