@@ -89,7 +89,7 @@ class LoginRequestListener extends NanoHTTPD {
             builder.setError(LoginError.INVALID_CREDENTIALS);
         } else if (session.accessTokenExpired()) {
             Logger.printInfo(() -> "Access token has expired, renewing session");
-            WebApp.refreshSession(session.cookies);
+            WebApp.renewSession(session.cookies);
             return toLoginResponse(WebApp.currentSession, isInitialLogin);
         } else {
             session.save();

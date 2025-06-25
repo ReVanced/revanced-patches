@@ -30,7 +30,7 @@ class WebApp {
     private static final String USER_AGENT = getWebUserAgent();
 
     /**
-     * A session obtained from the webview after logging in or refreshing the session.
+     * A session obtained from the webview after logging in or renewing the session.
      */
     @Nullable
     static volatile Session currentSession;
@@ -88,8 +88,8 @@ class WebApp {
         );
     }
 
-    static void refreshSession(String cookies) {
-        Logger.printInfo(() -> "Refreshing session with cookies: " + cookies);
+    static void renewSession(String cookies) {
+        Logger.printInfo(() -> "Renewing session with cookies: " + cookies);
 
         CountDownLatch getSessionLatch = new CountDownLatch(1);
 
@@ -144,8 +144,6 @@ class WebApp {
             Context context,
             WebViewCallback webViewCallback
     ) {
-        Logger.printInfo(() -> "Creating new WebView");
-
         Utils.runOnMainThreadNowOrLater(() -> {
             WebView webView = new WebView(context);
             WebSettings settings = webView.getSettings();
@@ -164,11 +162,13 @@ class WebApp {
 
                 @Override
                 public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                    Logger.printInfo(() -> "Page started loading: " + url);
+
                     if (!url.contains(OPEN_SPOTIFY_COM_URL)) {
                         return;
                     }
 
-                    Logger.printInfo(() -> "Evaluating scripts to get session from url " + url);
+                    Logger.printInfo(() -> "Evaluating script to get session on url: " + url);
                     String getSessionScript = "Object.defineProperty(Object.prototype, \"_username\", {" +
                             "   configurable: true," +
                             "   set(username) {" +
@@ -201,33 +201,26 @@ class WebApp {
                 }
             }, JAVASCRIPT_INTERFACE_NAME);
 
-            Logger.printInfo(() -> "WebView initialized");
+            Logger.printInfo(() -> "WebView initialized with user agent: " + USER_AGENT);
             webViewCallback.onInitialized(webView);
         });
     }
 
     private static String getWebUserAgent() {
-        Logger.printInfo(() -> "Getting user agent for WebView");
-
         String userAgentString = WebSettings.getDefaultUserAgent(Utils.getContext());
-        Logger.printInfo(() -> "Default WebView user agent: " + userAgentString);
-
         try {
-            String webUserAgentString = new UserAgent(userAgentString)
+            return new UserAgent(userAgentString)
                     .withCommentReplaced("Android", "Windows NT 10.0; Win64; x64")
                     .withoutProduct("Mobile")
                     .toString();
-
-            Logger.printInfo(() -> "WebView user agent after modifications: " + webUserAgentString);
-            return webUserAgentString;
         } catch (IllegalArgumentException e) {
-            Logger.printException(() -> "Failed to parse user agent: " + userAgentString, e);
+            userAgentString = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
+                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edge/137.0.0.0";
+            String fallback = userAgentString;
+            Logger.printException(() -> "Failed to get user agent, falling back to " + fallback, e);
         }
 
-        String fallbackUserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
-                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edge/137.0.0.0";
-        Logger.printException(() -> "Failed to get web user agent, falling back to " + fallbackUserAgent);
-        return fallbackUserAgent;
+        return userAgentString;
     }
 
     private static String getCurrentCookies() {
