@@ -1,3 +1,10 @@
+# [5.29.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.9...v5.29.0-dev.10) (2025-06-25)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add `Hide Effects button` ([#5255](https://github.com/ReVanced/revanced-patches/issues/5255)) ([240897a](https://github.com/ReVanced/revanced-patches/commit/240897a94008ce9a148c87bb41b978d553d5a6f5))
+
 # [5.29.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.8...v5.29.0-dev.9) (2025-06-25)
 
 
