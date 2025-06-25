@@ -36,14 +36,19 @@ class WebApp {
     static void login(Context context) {
         Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
 
-        MainThreadWebView webView = newWebView((String cookies) -> {
-            Logger.printInfo(() -> "Received cookies from login: " + cookies);
-            dialog.dismiss();
-        }, (webView1, session) -> {
-            Logger.printInfo(() -> "Received session from login: " + session);
-            currentSession = session;
-            webView1.stopLoadingAndDestroyOnMainThreadNowOrLater();
-        });
+        MainThreadWebView webView = newWebView(
+                // Can't use Utils.getContext() here, because autofill won't work.
+                // See https://stackoverflow.com/a/79182053/11213244.
+                context,
+                (String cookies) -> {
+                    Logger.printInfo(() -> "Received cookies from login: " + cookies);
+                    dialog.dismiss();
+                }, (webView1, session) -> {
+                    Logger.printInfo(() -> "Received session from login: " + session);
+                    currentSession = session;
+                    webView1.stopLoadingAndDestroyOnMainThreadNowOrLater();
+                }
+        );
 
         // Ensure that cookies are cleared before loading the login page.
         CookieManager.getInstance().removeAllCookies((anyRemoved) ->
@@ -60,11 +65,14 @@ class WebApp {
 
         CountDownLatch getSessionLatch = new CountDownLatch(1);
 
-        MainThreadWebView webView = newWebView(null, (webView1, session) -> {
-            Logger.printInfo(() -> "Received session: " + session);
-            currentSession = session;
-            getSessionLatch.countDown();
-        });
+        MainThreadWebView webView = newWebView(
+                Utils.getContext(),
+                null, (webView1, session) -> {
+                    Logger.printInfo(() -> "Received session: " + session);
+                    currentSession = session;
+                    getSessionLatch.countDown();
+                }
+        );
 
         boolean isAcquired = false;
 
@@ -97,10 +105,11 @@ class WebApp {
     @NonNull
     @SuppressLint("SetJavaScriptEnabled")
     private static MainThreadWebView newWebView(
+            Context context,
             HasLoggedInCallback hasLoggedInCallback,
             HasReceivedSessionCallback hasReceivedSessionCallback
     ) {
-        MainThreadWebView webView = new MainThreadWebView(Utils.getContext());
+        MainThreadWebView webView = new MainThreadWebView(context);
         WebSettings settings = webView.getSettings();
         settings.setDomStorageEnabled(true);
         settings.setJavaScriptEnabled(true);
@@ -128,6 +137,7 @@ class WebApp {
                         "       accessToken = this._builder?.accessToken;" +
                         "       if (accessToken) {" +
                         "           " + JAVASCRIPT_INTERFACE_NAME + ".getSession(username, accessToken);" +
+                        "           delete Object.prototype._username;" +
                         "       }" +
                         "       " +
                         "       Object.defineProperty(this, \"_username\", {" +
@@ -136,6 +146,7 @@ class WebApp {
                         "           writable: true," +
                         "           value: username" +
                         "       })" +
+                        "       " +
                         "   }" +
                         "});";
 
