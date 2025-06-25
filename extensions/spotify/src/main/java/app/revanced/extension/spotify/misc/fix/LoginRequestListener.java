@@ -24,7 +24,7 @@ class LoginRequestListener extends NanoHTTPD {
     @NonNull
     @Override
     public Response serve(IHTTPSession request) {
-        Logger.printInfo(() -> "Request URI: " + request.getUri());
+        Logger.printInfo(() -> "Serving request for URI: " + request.getUri());
 
         InputStream requestBodyInputStream = getRequestBodyInputStream(request);
 
@@ -59,10 +59,10 @@ class LoginRequestListener extends NanoHTTPD {
 
         boolean isInitialLogin = !loginRequest.hasStoredCredential();
         if (isInitialLogin) {
-            Logger.printInfo(() -> "Initial login request");
+            Logger.printInfo(() -> "Received initial login request");
             session = WebApp.currentSession; // Session obtained from WebApp.login.
         } else {
-            Logger.printInfo(() -> "Session restore request");
+            Logger.printInfo(() -> "Received session restore request");
             session = Session.read(loginRequest.getStoredCredential().getUsername());
         }
 
@@ -71,6 +71,9 @@ class LoginRequestListener extends NanoHTTPD {
 
 
     private static LoginResponse toLoginResponse(Session session, boolean isInitialLogin) {
+        Logger.printInfo(() -> "Converting session to LoginResponse, session: " + session +
+                ", isInitialLogin: " + isInitialLogin);
+
         LoginResponse.Builder builder = LoginResponse.newBuilder();
 
         if (session == null) {
@@ -86,11 +89,11 @@ class LoginRequestListener extends NanoHTTPD {
             builder.setError(LoginError.INVALID_CREDENTIALS);
         } else if (session.accessTokenExpired()) {
             Logger.printInfo(() -> "Access token has expired, renewing session");
-            WebApp.refreshSession(session.cookies);
+            WebApp.renewSession(session.cookies);
             return toLoginResponse(WebApp.currentSession, isInitialLogin);
         } else {
-            Logger.printInfo(() -> "Returning session for username: " + session.username);
             session.save();
+            Logger.printInfo(() -> "Returning session for username: " + session.username);
             builder.setOk(LoginOk.newBuilder()
                     .setUsername(session.username)
                     .setAccessToken(session.accessToken)
