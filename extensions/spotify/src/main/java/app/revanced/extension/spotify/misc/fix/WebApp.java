@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
+import android.view.*;
 import android.webkit.*;
 
 import androidx.annotation.NonNull;
@@ -35,6 +37,18 @@ class WebApp {
 
     static void login(Context context) {
         Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+        Window window = dialog.getWindow();
+        
+        //noinspection StatementWithEmptyBody
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.getDecorView().setOnApplyWindowInsetsListener((v, insets) -> {
+                v.setPadding(0, 0, 0, insets.getInsets(WindowInsets.Type.ime()).bottom);
+
+                return WindowInsets.CONSUMED;
+            });
+        } else {
+            // TODO: Implement for lower Android versions.
+        }
 
         MainThreadWebView webView = newWebView(
                 // Can't use Utils.getContext() here, because autofill won't work.
