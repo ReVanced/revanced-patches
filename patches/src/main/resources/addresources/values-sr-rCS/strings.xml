@@ -533,6 +533,10 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_hide_share_button_title">Sakrij dugme „Deli”</string>
   <string name="revanced_hide_share_button_summary_on">Dugme „Deli” je skriveno</string>
   <string name="revanced_hide_share_button_summary_off">Dugme „Deli” je prikazano</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Sakrij Zaustavi oglase</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Dugme za zaustavljanje oglasa je skriveno</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Dugme za zaustavljanje oglasa je prikazano</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Sakrij dugme „Prijavi”</string>
@@ -560,9 +564,9 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_hide_clip_button_summary_on">Dugme „Klip” je skriveno</string>
   <string name="revanced_hide_clip_button_summary_off">Dugme „Klip” je prikazano</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Sakrij dugme „Sačuvaj na plejlistu”</string>
-  <string name="revanced_hide_playlist_button_summary_on">Dugme „Sačuvaj na plejlistu” je skriveno</string>
-  <string name="revanced_hide_playlist_button_summary_off">Dugme „Sačuvaj na plejlistu” je prikazano</string>
+  <string name="revanced_hide_save_button_title">Sakrij Sačuvaj</string>
+  <string name="revanced_hide_save_button_summary_on">Dugme „Sačuvaj” je skriveno</string>
+  <string name="revanced_hide_save_button_summary_off">Dugme „Sačuvaj” je prikazano</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Dugmad navigacije</string>
@@ -760,9 +764,12 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_shorts_save_sound_button_title">Sakrij dugme „Sačuvaj muziku”</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Dugme „Sačuvaj zvuk” je skriveno</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Dugme „Sačuvaj zvuk” je prikazano</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Sakrij dugme „Koristi šablon”</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Dugme „Koristi šablon” je skriveno</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Dugme „Koristi šablon” je prikazano</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Sakrij dugme „Koristi ovaj zvuk”</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Dugme „Koristi ovaj zvuk” je skriveno</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Dugme „Koristi ovaj zvuk” je prikazano</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Sakrij dugme „Koristi ovaj šablon”</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Dugme „Koristi ovaj šablon” je skriveno</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Dugme „Koristi ovaj šablon” je prikazano</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Sakrij dugme „Predstojeće”</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Dugme „Predstojeće” je skriveno</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Dugme „Predstojeće” je prikazano</string>
@@ -1387,9 +1394,9 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Zapamti promene kvaliteta videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Promene kvaliteta se primenjuju na sve videe</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Promene kvaliteta se primenjuju samo na trenutni video</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_title">Prikaži obaveštenje pri promeni kvaliteta video zapisa</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Obaveštenje se prikazuje kada se promeni podrazumevani kvalitet video zapisa</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Obaveštenje se ne prikazuje kada se promeni podrazumevani kvalitet video zapisa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Prikaži iskačuće obaveštenje pri promeni kvaliteta videa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Iskačuće obaveštenje je prikazano, kada se promeni podrazumevani kvalitet videa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Iskačuće obaveštenje nije prikazano, kada se promeni podrazumevani kvalitet videa</string>
   <string name="revanced_video_quality_default_wifi_title">Podrazumevani kvalitet videa na Wi-Fi mreži</string>
   <string name="revanced_video_quality_default_mobile_title">Podrazumevani kvalitet videa na mobilnoj mreži</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapamti promene kvaliteta Shorts videa</string>
@@ -1423,9 +1430,9 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Zapamti promene brzine reprodukcije</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Promene brzine reprodukcije se primenjuju na sve videe</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Promene brzine reprodukcije se primenjuju samo na trenutni video</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_title">Prikaži obaveštenje pri promeni brzine reprodukcije</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Obaveštenje se prikazuje kada se promeni podrazumevana brzina reprodukcije</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Obaveštenje se ne prikazuje kada se promeni podrazumevana brzina reprodukcije.</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Prikaži iskačuće obaveštenje pri promeni brzine reprodukcije</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Iskačuće obaveštenje je prikazano, kada se promeni podrazumevana brzina reprodukcije</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Iskačuće obaveštenje nije prikazano, kada se promeni podrazumevana brzina reprodukcije</string>
   <string name="revanced_playback_speed_default_title">Podrazumevana brzina reprodukcije</string>
   <string name="revanced_remember_playback_speed_toast">Brzina reprodukcije promenjena na: %s</string>
   </patch>

@@ -533,6 +533,10 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_hide_share_button_title">Ẩn Chia sẻ</string>
   <string name="revanced_hide_share_button_summary_on">Nút chia sẻ đã bị ẩn</string>
   <string name="revanced_hide_share_button_summary_off">Nút chia sẻ được hiển thị</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Ẩn Ngừng quảng cáo</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Nút ngừng quảng cáo đã bị ẩn</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Nút ngừng quảng cáo được hiển thị</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Ẩn Báo cáo</string>
@@ -560,9 +564,9 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_hide_clip_button_summary_on">Nút tạo đoạn video đã bị ẩn</string>
   <string name="revanced_hide_clip_button_summary_off">Nút tạo đoạn video được hiển thị</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Ẩn Lưu vào danh sách phát</string>
-  <string name="revanced_hide_playlist_button_summary_on">Nút lưu vào danh sách phát đã bị ẩn</string>
-  <string name="revanced_hide_playlist_button_summary_off">Nút lưu vào danh sách phát được hiển thị</string>
+  <string name="revanced_hide_save_button_title">Ẩn Lưu</string>
+  <string name="revanced_hide_save_button_summary_on">Nút Lưu đã bị ẩn</string>
+  <string name="revanced_hide_save_button_summary_off">Nút Lưu được hiển thị</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Các nút điều hướng</string>
@@ -760,9 +764,12 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <string name="revanced_hide_shorts_save_sound_button_title">Ẩn nút Lưu âm thanh</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Nút lưu nhạc đã bị ẩn</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Nút lưu nhạc được hiển thị</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Ẩn nút Sử dụng mẫu</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Nút sử dụng mẫu đã bị ẩn</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Nút sử dụng mẫu được hiển thị</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Ẩn nút \"Sử dụng âm thanh này\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Nút \"Sử dụng âm thanh này\" đã bị ẩn</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Nút \"Sử dụng âm thanh này\" được hiển thị</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Ẩn nút \"Sử dụng mẫu này\"</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Nút \"Sử dụng mẫu này\" đã bị ẩn</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Nút \"Sử dụng mẫu này\" được hiển thị</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Ẩn nút Sắp diễn ra</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Nút sắp diễn ra đã bị ẩn</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Nút sắp diễn ra được hiển thị</string>
@@ -1395,9 +1402,9 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_video_quality_last_selected_title">Nhớ các thay đổi chất lượng video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Thay đổi chất lượng áp dụng cho tất cả video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho video hiện tại</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_title">Hiển thị thông báo khi chất lượng video thay đổi</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Thông báo sẽ hiển thị khi chất lượng video mặc định được thay đổi</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Thông báo sẽ không hiển thị khi chất lượng video mặc định được thay đổi</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Hiển thị thông báo nổi khi chất lượng video thay đổi</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Thông báo nổi sẽ hiển thị khi chất lượng video mặc định được thay đổi</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Thông báo nổi sẽ không hiển thị khi chất lượng video mặc định được thay đổi</string>
   <string name="revanced_video_quality_default_wifi_title">Chất lượng mặc định trên mạng Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Chất lượng mặc định trên mạng di động</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Nhớ các thay đổi chất lượng Shorts</string>
@@ -1431,9 +1438,9 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_playback_speed_last_selected_title">Nhớ các thay đổi tốc độ phát</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Thay đổi tốc độ phát áp dụng cho tất cả video</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Thay đổi tốc độ phát chỉ áp dụng cho video hiện tại</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_title">Hiển thị thông báo khi tốc độ phát lại thay đổi</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Thông báo sẽ hiển thị khi tốc độ phát lại mặc định được thay đổi</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Thông báo không hiển thị khi tốc độ phát lại mặc định được thay đổi</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Hiển thị thông báo nổi khi tốc độ phát thay đổi</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Thông báo nổi sẽ hiển thị khi tốc độ phát mặc định được thay đổi</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Thông báo nổi không hiển thị khi tốc độ phát mặc định được thay đổi</string>
   <string name="revanced_playback_speed_default_title">Tốc độ phát mặc định</string>
   <string name="revanced_remember_playback_speed_toast">Đã thay đổi tốc độ phát mặc định thành: %s</string>
   </patch>

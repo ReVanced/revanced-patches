@@ -533,6 +533,10 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_hide_share_button_title">Skrýt Sdílení</string>
   <string name="revanced_hide_share_button_summary_on">Tlačítko Sdílení je skryto</string>
   <string name="revanced_hide_share_button_summary_off">Tlačítko Sdílení je zobrazeno</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Skrýt Zastavit reklamy</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Tlačítko pro zastavení reklam je skryté</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Tlačítko pro zastavení reklam je zobrazeno</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Skrýt Nahlásit</string>
@@ -560,9 +564,9 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_hide_clip_button_summary_on">Tlačítko Klip je skryto</string>
   <string name="revanced_hide_clip_button_summary_off">Tlačítko Klip je zobrazeno</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Skrýt Uložit do playlistu</string>
-  <string name="revanced_hide_playlist_button_summary_on">Tlačítko Uložit do playlistu je skryto</string>
-  <string name="revanced_hide_playlist_button_summary_off">Tlačítko Uložit do seznamu skladeb je zobrazeno</string>
+  <string name="revanced_hide_save_button_title">Skrýt Uložit</string>
+  <string name="revanced_hide_save_button_summary_on">Tlačítko Uložit je skryté</string>
+  <string name="revanced_hide_save_button_summary_off">Tlačítko Uložit je zobrazeno</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigační tlačítka</string>
@@ -760,9 +764,12 @@ Chcete-li zobrazit nabídku zvukové stopy, změňte možnost „Zfalšovat stre
   <string name="revanced_hide_shorts_save_sound_button_title">Skrýt tlačítko Uložit hudbu</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tlačítko Uložit hudbu je skryté</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tlačítko Uložit hudbu je zobrazeno</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Skrýt tlačítko Použít šablonu</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Tlačítko Použít šablonu je skryté</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Tlačítko Použít šablonu je zobrazeno</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Skrýt tlačítko Použít tento zvuk</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Tlačítko Použít tento zvuk je skryté</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Tlačítko Použít tento zvuk je zobrazené</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Skrýt tlačítko Použít tuto šablonu</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Tlačítko Použít tuto šablonu je skryté</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Tlačítko Použít tuto šablonu je zobrazeno</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Skrýt tlačítko Nadcházející</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tlačítko \"Další\" je skryté</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Tlačítko \"Další\" je zobrazeno</string>

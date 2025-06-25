@@ -533,6 +533,10 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_hide_share_button_title">Ocultar Compartilhar</string>
   <string name="revanced_hide_share_button_summary_on">Botão compartilhar está oculto</string>
   <string name="revanced_hide_share_button_summary_off">O botão compartilhar é mostrado</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Ocultar \"Parar anúncios\"</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">O botão Parar anúncios está oculto</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">O botão Parar anúncios é exibido</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Ocultar Denúncia</string>
@@ -560,9 +564,9 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_hide_clip_button_summary_on">Botão clipe está oculto</string>
   <string name="revanced_hide_clip_button_summary_off">O botão clipe é mostrado</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Ocultar Salvar</string>
-  <string name="revanced_hide_playlist_button_summary_on">Botão salvar na playlist está oculto</string>
-  <string name="revanced_hide_playlist_button_summary_off">O botão salvar na playlist é mostrado</string>
+  <string name="revanced_hide_save_button_title">Ocultar Salvar</string>
+  <string name="revanced_hide_save_button_summary_on">O botão Salvar está oculto</string>
+  <string name="revanced_hide_save_button_summary_off">O botão Salvar é exibido</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Botões de navegação</string>
@@ -760,9 +764,12 @@ Para exibir o menu da faixa de áudio, altere \"Spoof video streams\" para iOS T
   <string name="revanced_hide_shorts_save_sound_button_title">Ocultar botão Salvar música</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">O botão Salvar música está oculto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">O botão Salvar música será exibido</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Ocultar botão Usar modelo</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">O botão Usar template está oculto</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">O botão Usar template será exibido</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Ocultar botão Usar este som</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Botão Usar este som está oculto</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Botão Usar este som está visível</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Ocultar botão Usar este modelo</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Botão Usar este modelo está oculto</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Botão Usar este modelo é mostrado</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Ocultar botão Próximos</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">O botão \"próximo\" está oculto</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">O botão \"próximo\" é mostrado</string>
