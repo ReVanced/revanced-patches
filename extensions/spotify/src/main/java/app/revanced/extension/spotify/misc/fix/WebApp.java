@@ -4,20 +4,13 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.webkit.CookieManager;
-import android.webkit.JavascriptInterface;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.webkit.*;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -41,103 +34,77 @@ class WebApp {
     static volatile Session currentSession;
 
     static void login(Context context) {
-        Utils.runOnMainThreadNowOrLater(() -> {
-            Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+        Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
 
-            WebView webView = newWebView((String cookies) -> {
-                Logger.printInfo(() -> "Received cookies from login: " + cookies);
-                dialog.dismiss();
-            }, (webView1, session) -> {
-                Logger.printInfo(() -> "Received session from login: " + session);
-                currentSession = session;
-
-                Utils.runOnMainThreadNowOrLater(() -> {
-                    webView1.stopLoading();
-                    webView1.destroy();
-                });
-            });
-
-            // Ensure that cookies are cleared before loading the login page.
-            CookieManager.getInstance().removeAllCookies((anyRemoved) ->
-                    webView.loadUrl(ACCOUNTS_SPOTIFY_COM_LOGIN_URL)
-            );
-
-            dialog.setCancelable(false);
-            dialog.setContentView(webView);
-            dialog.show();
+        MainThreadWebView webView = newWebView((String cookies) -> {
+            Logger.printInfo(() -> "Received cookies from login: " + cookies);
+            dialog.dismiss();
+        }, (webView1, session) -> {
+            Logger.printInfo(() -> "Received session from login: " + session);
+            currentSession = session;
+            webView1.stopLoadingAndDestroyOnMainThreadNowOrLater();
         });
-    }
 
+        // Ensure that cookies are cleared before loading the login page.
+        CookieManager.getInstance().removeAllCookies((anyRemoved) ->
+                webView.loadUrlOnMainThread(ACCOUNTS_SPOTIFY_COM_LOGIN_URL)
+        );
+
+        dialog.setCancelable(false);
+        dialog.setContentView(webView);
+        dialog.show();
+    }
 
     static void refreshSession(String cookies) {
         setCookies(cookies);
 
+        CountDownLatch getSessionLatch = new CountDownLatch(1);
+
+        MainThreadWebView webView = newWebView(null, (webView1, session) -> {
+            Logger.printInfo(() -> "Received session: " + session);
+            currentSession = session;
+            getSessionLatch.countDown();
+        });
+
+        boolean isAcquired = false;
+
         int attempts = 1;
         do {
-            int attemptNumber = attempts;
-            Logger.printInfo(() -> "Attempt " + attemptNumber + ": Getting session for "
+            int finalAttempts = attempts;
+            Logger.printInfo(() -> "Attempt " + finalAttempts + ": Getting session for "
                     + GET_SESSION_TIMEOUT_SECONDS + " seconds...");
 
-            CountDownLatch getSessionLatch = new CountDownLatch(1);
-            AtomicReference<WebView> webViewReference = new AtomicReference<>(null);
-
-            // WebView objects must always be used on the main thread.
-            Utils.runOnMainThread(() -> {
-                WebView webView = newWebView(null, (webView1, session) -> {
-                    Logger.printInfo(() -> "Received session: " + session);
-                    currentSession = session;
-                    getSessionLatch.countDown();
-                });
-                webViewReference.set(webView); // Must set before loading Url.
-                webView.loadUrl(OPEN_SPOTIFY_COM_PREFERENCES_URL);
-            });
+            webView.loadUrlOnMainThread(OPEN_SPOTIFY_COM_PREFERENCES_URL);
 
             try {
-                final boolean isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-                if (isAcquired) {
-                    return;
-                }
+                isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+                if (isAcquired) break;
             } catch (InterruptedException ex) {
                 Logger.printException(() -> "Interrupted while waiting for session", ex);
                 // Restore interrupt status set by unknown outside code.
                 Thread.currentThread().interrupt();
-                return;
-            } finally {
-                // Cleanup attempt.
-                Utils.runOnMainThread(() -> {
-                    WebView webView = webViewReference.get();
-                    if (webView != null) {
-                        webView.stopLoading();
-                        webView.destroy();
-                    }
-                });
+                break;
             }
         } while (attempts++ <= 3);
 
-        Logger.printException(() -> "Failed to get session after multiple attempts");
-    }
+        if (!isAcquired) {
+            Logger.printException(() -> "Failed to get session");
+        }
 
-    private interface HasLoggedInCallback {
-        void onLoggedIn(String cookies);
-    }
-
-    private interface HasReceivedSessionCallback {
-        void onReceivedSession(WebView webView, Session session);
+        webView.stopLoadingAndDestroyOnMainThreadNowOrLater();
     }
 
     @NonNull
     @SuppressLint("SetJavaScriptEnabled")
-    private static WebView newWebView(
+    private static MainThreadWebView newWebView(
             HasLoggedInCallback hasLoggedInCallback,
             HasReceivedSessionCallback hasReceivedSessionCallback
     ) {
-        WebView webView = new WebView(Utils.getContext());
+        MainThreadWebView webView = new MainThreadWebView(Utils.getContext());
         WebSettings settings = webView.getSettings();
         settings.setDomStorageEnabled(true);
         settings.setJavaScriptEnabled(true);
-
         settings.setUserAgentString(USER_AGENT);
-
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
@@ -182,12 +149,44 @@ class WebApp {
             public void getSession(String username, String accessToken) {
                 if (hasReceivedSessionCallback != null) {
                     Session session = new Session(username, accessToken, getCurrentCookies());
+
                     hasReceivedSessionCallback.onReceivedSession(webView, session);
                 }
             }
         }, JAVASCRIPT_INTERFACE_NAME);
 
         return webView;
+    }
+
+
+    private interface HasLoggedInCallback {
+        void onLoggedIn(String cookies);
+    }
+
+    private interface HasReceivedSessionCallback {
+        void onReceivedSession(MainThreadWebView webView, Session session);
+    }
+
+    private static class MainThreadWebView extends WebView {
+        public MainThreadWebView(Context context) {
+            super(context);
+        }
+
+        public void loadUrlOnMainThread(String url) {
+            runOnMainThreadNowOrLater(() -> super.loadUrl(url));
+        }
+
+        public void stopLoadingAndDestroyOnMainThreadNowOrLater() {
+            runOnMainThreadNowOrLater(() -> {
+                stopLoading();
+                destroy();
+            });
+        }
+
+
+        private void runOnMainThreadNowOrLater(Runnable runnable) {
+            Utils.runOnMainThreadNowOrLater(runnable);
+        }
     }
 
     @NonNull
