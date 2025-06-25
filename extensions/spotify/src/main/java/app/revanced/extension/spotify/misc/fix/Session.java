@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -113,7 +112,6 @@ class Session {
     }
 
     @NonNull
-    @NotNull
     @Override
     public String toString() {
         return "Session(" +

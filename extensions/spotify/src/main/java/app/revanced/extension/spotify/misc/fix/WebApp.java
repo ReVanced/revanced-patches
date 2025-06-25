@@ -30,6 +30,12 @@ class WebApp {
     private static final String USER_AGENT = getWebUserAgent();
 
     /**
+     * Current webview in use.  Any use of the object must be done on the main thread.
+     */
+    @SuppressLint("StaticFieldLeak")
+    private static volatile WebView currentWebView;
+
+    /**
      * A session obtained from the webview after logging in or renewing the session.
      */
     @Nullable
@@ -81,6 +87,7 @@ class WebApp {
                     void onReceivedSession(WebView webView, Session session) {
                         Logger.printInfo(() -> "Received session from login: " + session);
                         currentSession = session;
+                        currentWebView = null;
                         webView.stopLoading();
                         webView.destroy();
                     }
@@ -116,18 +123,24 @@ class WebApp {
         );
 
         try {
-            boolean isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-            if (!isAcquired) {
-                Logger.printException(() -> "Failed to retrieve session within " + GET_SESSION_TIMEOUT_SECONDS + " seconds");
-            } else {
+            final boolean isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+            if (isAcquired) {
                 Logger.printInfo(() -> "Session retrieved successfully");
+            } else {
+                Logger.printException(() -> "Failed to retrieve session within " + GET_SESSION_TIMEOUT_SECONDS + " seconds");
             }
         } catch (InterruptedException e) {
-            Logger.printException(() -> "Failed to wait for session retrieval", e);
+            Logger.printException(() -> "Interrupted while waiting to retrieve session", e);
             Thread.currentThread().interrupt();
         }
+
+        // Cleanup.
+        currentWebView = null;
     }
 
+    /**
+     * All methods are called on the main thread.
+     */
     abstract static class WebViewCallback {
         void onInitialized(WebView webView) {
         }
@@ -145,16 +158,28 @@ class WebApp {
             WebViewCallback webViewCallback
     ) {
         Utils.runOnMainThreadNowOrLater(() -> {
-            WebView webView = new WebView(context);
+            WebView webView = currentWebView;
+            if (webView != null) {
+                // Old webview is still hanging around.
+                // Could happen if the network request failed and thus no callback is made.
+                // But in practice this never happens.
+                Logger.printException(() -> "Cleaning up prior webview");
+                webView.stopLoading();
+                webView.destroy();
+            }
+
+            webView = new WebView(context);
             WebSettings settings = webView.getSettings();
             settings.setDomStorageEnabled(true);
             settings.setJavaScriptEnabled(true);
             settings.setUserAgentString(USER_AGENT);
+            // WebViewClient is always called off the main thread,
+            // but callback interface methods are called on the main thread.
             webView.setWebViewClient(new WebViewClient() {
                 @Override
                 public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                     if (OPEN_SPOTIFY_COM.equals(request.getUrl().getHost())) {
-                        webViewCallback.onLoggedIn(getCurrentCookies());
+                        Utils.runOnMainThread(() -> webViewCallback.onLoggedIn(getCurrentCookies()));
                     }
 
                     return super.shouldInterceptRequest(view, request);
@@ -192,16 +217,18 @@ class WebApp {
                 }
             });
 
+            final WebView callbackWebView = webView;
             webView.addJavascriptInterface(new Object() {
                 @SuppressWarnings("unused")
                 @JavascriptInterface
                 public void getSession(String username, String accessToken) {
                     Session session = new Session(username, accessToken, getCurrentCookies());
-                    Utils.runOnMainThreadNowOrLater(() -> webViewCallback.onReceivedSession(webView, session));
+                    Utils.runOnMainThread(() -> webViewCallback.onReceivedSession(callbackWebView, session));
                 }
             }, JAVASCRIPT_INTERFACE_NAME);
 
             Logger.printInfo(() -> "WebView initialized with user agent: " + USER_AGENT);
+            currentWebView = webView;
             webViewCallback.onInitialized(webView);
         });
     }
