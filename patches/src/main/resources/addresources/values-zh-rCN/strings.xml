@@ -533,6 +533,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">隐藏「分享」按钮</string>
   <string name="revanced_hide_share_button_summary_on">分享按钮已隐藏</string>
   <string name="revanced_hide_share_button_summary_off">分享按钮已显示</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">隐藏停止广告</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">停止广告按钮已隐藏</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">停止广告按钮已显示</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">隐藏「举报」</string>
@@ -560,9 +564,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">剪辑按钮已隐藏</string>
   <string name="revanced_hide_clip_button_summary_off">剪辑按钮已显示</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">隐藏「保存」到播放列表按钮</string>
-  <string name="revanced_hide_playlist_button_summary_on">保存到播放列表按钮已隐藏</string>
-  <string name="revanced_hide_playlist_button_summary_off">保存到播放列表按钮已显示</string>
+  <string name="revanced_hide_save_button_title">隐藏保存</string>
+  <string name="revanced_hide_save_button_summary_on">保存按钮已隐藏</string>
+  <string name="revanced_hide_save_button_summary_off">保存按钮已显示</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">导航栏按钮</string>
@@ -760,12 +764,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">隐藏「保存音乐」按钮</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">保存音乐按钮已隐藏</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">保存音乐按钮已显示</string>
-  <string name="revanced_hide_shorts_use_template_button_title">隐藏「使用模板」按钮</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">使用模板按钮已隐藏</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">使用模板按钮已显示</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">隐藏“使用此声音”按钮</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">“使用此声音”按钮已隐藏</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">“使用此声音”按钮已显示</string>
+  <string name="revanced_hide_shorts_use_template_button_title">隐藏“使用此模板”按钮</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">“使用此模板”按钮已隐藏</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">“使用此模板”按钮已显示</string>
   <string name="revanced_hide_shorts_upcoming_button_title">隐藏「即将发布」按钮</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">即将上映按钮已隐藏</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">即将上映按钮已显示</string>
+  <string name="revanced_hide_shorts_effect_button_title">隐藏特效按钮</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">特效按钮已隐藏</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">特效按钮已显示</string>
   <string name="revanced_hide_shorts_green_screen_button_title">隐藏「绿幕」按钮</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">绿屏按钮已隐藏</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">绿屏按钮已显示</string>
@@ -1395,6 +1405,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">记住视频质量更改</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">质量更改适用于所有视频</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">质量更改仅适用于当前视频</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">视频画质改变时显示提示</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">当默认视频画质改变时会显示一个提示</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">当默认视频画质改变时不会显示提示</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 网络上的默认视频质量</string>
   <string name="revanced_video_quality_default_mobile_title">移动网络上的默认视频质量</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">记住 Shorts 画质更改</string>
@@ -1421,7 +1434,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">自定义速度必须小于 %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">自定义播放速度无效</string>
   <string name="revanced_custom_playback_speeds_auto">自动</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">已将播放速度重置为：%s</string>
   <string name="revanced_speed_tap_and_hold_title">自定义长按速度</string>
   <string name="revanced_speed_tap_and_hold_summary">0-8之间的播放速度</string>
   </patch>
@@ -1429,6 +1441,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">记住播放速度更改</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">播放速度更改适用于所有视频</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">播放速度更改仅适用于当前视频</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">播放速度改变时显示提示</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">当默认播放速度改变时会显示一个提示</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">当默认播放速度更改时，不显示提示。</string>
   <string name="revanced_playback_speed_default_title">默认播放速度</string>
   <string name="revanced_remember_playback_speed_toast">已更改默认速度为：%s</string>
   </patch>

@@ -533,6 +533,10 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_hide_share_button_title">Itago ang Ibahagi</string>
   <string name="revanced_hide_share_button_summary_on">Nakatago ang share button</string>
   <string name="revanced_hide_share_button_summary_off">Ang pindutan ng pagbabahagi ay ipinapakita</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Itago ang Ihinto ang mga ad</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Nakatago ang button ng pagtigil sa mga ad</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Napakita ang button ng pagtigil sa mga ad</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Itago ang Ulat</string>
@@ -560,9 +564,9 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_hide_clip_button_summary_on">Nakatago ang clip button</string>
   <string name="revanced_hide_clip_button_summary_off">Ang pindutan ng clip ay ipinapakita</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Itago ang I-save sa playlist</string>
-  <string name="revanced_hide_playlist_button_summary_on">Nakatago ang button na I-save sa playlist</string>
-  <string name="revanced_hide_playlist_button_summary_off">I-save sa playlist button ay ipinapakita</string>
+  <string name="revanced_hide_save_button_title">Itago ang I-save</string>
+  <string name="revanced_hide_save_button_summary_on">Nakatago ang button ng I-save</string>
+  <string name="revanced_hide_save_button_summary_off">Napakita ang button ng I-save</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Mga pindutan ng nabigasyon</string>
@@ -757,12 +761,18 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <string name="revanced_hide_shorts_save_sound_button_title">Itago ang Save music button</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Ang buton ng pag-save ng musika ay nakatago</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Ang buton ng pag-save ng musika ay ipinapakita</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Itago ang Use template button</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Ang buton ng paggamit ng template ay nakatago</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Ang buton ng paggamit ng template ay ipinapakita</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Itago ang button na Gamitin ang tunog na ito</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Nakatago ang button na Gamitin ang tunog na ito</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Nakikita ang button na Gamitin ang tunog na ito</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Itago ang Gamitin ang button na ito ng template</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Nakatago ang button na Gamitin ang template na ito</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Ipinapakita ang button na Gamitin ang template na ito</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Itago ang Upcoming button</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Nakatago ang pindutan ng \"Upcoming\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Ipinapakita ang pindutan ng \"Upcoming\"</string>
+  <string name="revanced_hide_shorts_effect_button_title">Itago ang Button ng Epekto</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Nakatago ang button ng epekto</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Nakikita ang button ng epekto</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Itago ang Green screen button</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Nakatago ang pindutan ng \"Green screen\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Ipinapakita ang pindutan ng \"Green screen\"</string>
@@ -1368,6 +1378,9 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_remember_video_quality_last_selected_title">Tandaan ang mga pagbabago sa kalidad ng video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Nalalapat ang mga pagbabago sa kalidad sa lahat ng video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Nalalapat lang ang mga pagbabago sa kalidad sa kasalukuyang video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Ipakita ang toast kapag nagbago ang kalidad ng video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">May ipinapakitang toast kapag binago ang default na kalidad ng video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Walang ipinapakitang toast kapag binago ang default na kalidad ng video</string>
   <string name="revanced_video_quality_default_wifi_title">Default na kalidad ng video sa Wi-Fi network</string>
   <string name="revanced_video_quality_default_mobile_title">Default na kalidad ng video sa mobile network</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Tandaan ang mga pagbabago sa kalidad ng Shorts</string>
@@ -1394,7 +1407,6 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_custom_playback_speeds_invalid">Ang mga custom na bilis ay dapat na mas mababa sa %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Hindi wastong custom na bilis ng paglalaro</string>
   <string name="revanced_custom_playback_speeds_auto">Awtomatik</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Na-reset ang bilis ng pag-playback sa: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Custom speed para sa pag-tap at pag-hold</string>
   <string name="revanced_speed_tap_and_hold_summary">Tugtugin ang bilis ng playback sa pagitan ng 0-8</string>
   </patch>
@@ -1402,6 +1414,9 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_remember_playback_speed_last_selected_title">Tandaan ang mga pagbabago sa bilis ng pag-playback</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Nalalapat ang mga pagbabago sa bilis ng pag-playback sa lahat ng video</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Nalalapat lamang ang mga pagbabago sa bilis ng pag-playback sa kasalukuyang video</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Ipakita ang toast kapag nagbago ang bilis ng pag-playback</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">May ipinapakitang toast kapag binago ang default na bilis ng pag-playback</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Hindi ipinapakita ang paalala kapag binago ang default na bilis ng pag-playback.</string>
   <string name="revanced_playback_speed_default_title">Default na bilis ng pag-playback</string>
   <string name="revanced_remember_playback_speed_toast">Binago ang default na bilis sa: %s</string>
   </patch>

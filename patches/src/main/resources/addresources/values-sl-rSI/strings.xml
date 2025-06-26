@@ -533,6 +533,10 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_hide_share_button_title">Skrij Deli</string>
   <string name="revanced_hide_share_button_summary_on">Gumb Deli je skrit</string>
   <string name="revanced_hide_share_button_summary_off">Gumb Deli je prikazan</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Skrij Ustavi oglase</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Gumb za zaustavitev oglasov je skrit</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Gumb za zaustavitev oglasov je prikazan</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Skrij Prijavi</string>
@@ -560,9 +564,9 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_hide_clip_button_summary_on">Gumb Izrezek je skrit</string>
   <string name="revanced_hide_clip_button_summary_off">Gumb Izrezek je prikazan</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Skrij Shrani v seznam predvajanja</string>
-  <string name="revanced_hide_playlist_button_summary_on">Gumb Shrani v seznam predvajanja je skrit</string>
-  <string name="revanced_hide_playlist_button_summary_off">Gumb Shrani v seznam predvajanja je prikazan</string>
+  <string name="revanced_hide_save_button_title">Skrij Shrani</string>
+  <string name="revanced_hide_save_button_summary_on">Gumb Shrani je skrit</string>
+  <string name="revanced_hide_save_button_summary_off">Gumb Shrani je prikazan</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigacijski gumbi</string>
@@ -760,12 +764,18 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Skrij gumb \'Shrani glasbo\'</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Gumb za shranjevanje glasbe je skrit</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Gumb za shranjevanje glasbe je prikazan</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Skrij gumb \'Uporabi predlogo\'</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Gumb za uporabo predloge je skrit</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Gumb za uporabo predloge je prikazan</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Skrij gumb Uporabi ta zvok</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Gumb Uporabi ta zvok je skrit</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Gumb Uporabi ta zvok je prikazan</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Skrij gumb Uporabi to predlogo</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Gumb Uporabi to predlogo je skrit</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Gumb Uporabi to predlogo je prikazan</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Skrij gumb \'Prihajajoči\'</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Gumb \"Prihajajoči\" je skrit</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Gumb \"Prihajajoči\" je prikazan</string>
+  <string name="revanced_hide_shorts_effect_button_title">Skrij gumb učinka</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Gumb za učinek je skrit</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Gumb za učinek je prikazan</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Skrij gumb \'Zelena scena\'</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Gumb za zeleno ozadje je skrit</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Gumb za zeleno ozadje je prikazan</string>
@@ -1390,6 +1400,9 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Zapomni si spremembe kakovosti videoposnetka</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Spremembe kakovosti se uporabijo za vse videoposnetke</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Spremembe kakovosti se uporabijo le za trenutni videoposnetek</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Prikaži obvestilo ob spremembi kakovosti videa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Obvestilo je prikazano, ko se spremeni privzeta kakovost videa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Obvestilo ni prikazano, ko se spremeni privzeta kakovost videa</string>
   <string name="revanced_video_quality_default_wifi_title">Privzeta kakovost videoposnetka v omrežju Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Privzeta kakovost videoposnetka v mobilnem omrežju</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapomni si spremembe kakovosti za Shorts</string>
@@ -1416,7 +1429,6 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Hitrosti predvajanja po meri morajo biti manjše od %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Neveljavne hitrosti predvajanja po meri</string>
   <string name="revanced_custom_playback_speeds_auto">Samodejno</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Hitrost predvajanja je bila ponastavljena na: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Hitrost pritiska in pridržanja po meri</string>
   <string name="revanced_speed_tap_and_hold_summary">Hitrost predvajanja med 0 in 8</string>
   </patch>
@@ -1424,6 +1436,9 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Zapomni si spremembe hitrosti predvajanja</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Spremembe hitrosti predvajanja se uporabijo za vse videoposnetke</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Spremembe hitrosti predvajanja se uporabijo le za trenutni videoposnetek</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Prikaži obvestilo ob spremembi hitrosti predvajanja</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Obvestilo je prikazano, ko se spremeni privzeta hitrost predvajanja</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Sporočilo ni prikazano, ko je privzeta hitrost predvajanja spremenjena</string>
   <string name="revanced_playback_speed_default_title">Privzeta hitrost predvajanja</string>
   <string name="revanced_remember_playback_speed_toast">Spremenjena privzeta hitrost na: %s</string>
   </patch>

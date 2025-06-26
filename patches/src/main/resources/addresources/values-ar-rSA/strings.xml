@@ -35,6 +35,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">الإعدادات</string>
   <string name="revanced_settings_confirm_user_dialog_title">هل أنت متأكد أنك تريد المتابعة؟</string>
   <string name="revanced_settings_reset">إعادة التعيين</string>
+  <string name="revanced_settings_reset_color">إعادة تعيين اللون</string>
   <string name="revanced_settings_color_invalid">لون غير صالح</string>
   <string name="revanced_settings_restart_title">إعادة التشغيل مطلوبة</string>
   <string name="revanced_settings_restart_dialog_message">أعد تشغيل التطبيق لكي يسري هذا التغيير.</string>
@@ -532,6 +533,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">إخفاء المشاركة</string>
   <string name="revanced_hide_share_button_summary_on">تم إخفاء زر مشاركة</string>
   <string name="revanced_hide_share_button_summary_off">يتم عرض زر مشاركة</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">إخفاء إيقاف الإعلانات</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">زر إيقاف الإعلانات مخفي</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">زر إيقاف الإعلانات معروض</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">إخفاء الإبلاغ</string>
@@ -559,9 +564,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">تم إخفاء زر إنشاء مقطع</string>
   <string name="revanced_hide_clip_button_summary_off">يتم عرض زر إنشاء مقطع</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">إخفاء الحفظ في قائمة التشغيل</string>
-  <string name="revanced_hide_playlist_button_summary_on">تم إخفاء زر الحفظ في قائمة التشغيل</string>
-  <string name="revanced_hide_playlist_button_summary_off">يتم عرض زر الحفظ في قائمة التشغيل</string>
+  <string name="revanced_hide_save_button_title">إخفاء حفظ</string>
+  <string name="revanced_hide_save_button_summary_on">زر الحفظ مخفي</string>
+  <string name="revanced_hide_save_button_summary_off">زر الحفظ معروض</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">أزرار التنقل</string>
@@ -759,12 +764,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">إخفاء زر حفظ الموسيقى</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">تم إخفاء زر حفظ الموسيقى</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">يتم عرض زر حفظ الموسيقى</string>
-  <string name="revanced_hide_shorts_use_template_button_title">إخفاء زر استخدام القالب</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">تم إخفاء زر استخدام القالب</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">يتم عرض زر استخدام القالب</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">إخفاء زر استخدام هذا الصوت</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">زر استخدام هذا الصوت مخفي</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">زر استخدام هذا الصوت معروض</string>
+  <string name="revanced_hide_shorts_use_template_button_title">إخفاء زر استخدام هذا القالب</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">زر استخدام هذا القالب مخفي</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">زر استخدام هذا القالب ظاهر</string>
   <string name="revanced_hide_shorts_upcoming_button_title">إخفاء زر القادم</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">تم إخفاء زر القادم</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">يتم عرض زر القادم</string>
+  <string name="revanced_hide_shorts_effect_button_title">إخفاء زر التأثير</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">زر التأثير مخفي</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">زر التأثير معروض</string>
   <string name="revanced_hide_shorts_green_screen_button_title">إخفاء زر الشاشة الخضراء</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">تم إخفاء زر الشاشة الخضراء</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">يتم عرض زر الشاشة الخضراء</string>
@@ -1294,6 +1305,8 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">عرض ملاحظة إذا كان API غير متاح</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">يتم عرض ملاحظة إذا كان DeArrow غير متوفر</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">لا يتم عرض ملاحظة إذا كان DeArrow غير متوفر</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_title">نقطة نهاية واجهة برمجة تطبيقات DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_summary">عنوان URL لنقطة نهاية ذاكرة التخزين المؤقت للصور المصغرة لـ DeArrow</string>
   <string name="revanced_alt_thumbnail_stills_about_title">لقطات الفيديو الثابتة</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">يتم التقاط اللقطات الثابتة من بداية/وسط/نهاية كل فيديو. هذه الصور مدمجة في YouTube ولا يتم استخدام أي واجهة برمجة تطبيقات خارجية</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">استخدم اللقطات الثابتة السريعة</string>
@@ -1386,6 +1399,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">تذكر تغييرات جودة الفيديو</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">تنطبق تغييرات الجودة على جميع الفيديوهات</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">تنطبق تغييرات الجودة على الفيديو الحالي فقط</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">إظهار إشعار عند تغيير جودة الفيديو</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">يتم إظهار إشعار عند تغيير جودة الفيديو الافتراضية</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">لا يتم إظهار إشعار عند تغيير جودة الفيديو الافتراضية</string>
   <string name="revanced_video_quality_default_wifi_title">جودة الفيديو الافتراضية على شبكة Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">جودة الفيديو الافتراضية على شبكة الجوَّال</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">تذكر تغييرات جودة Shorts</string>
@@ -1412,7 +1428,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">يجب أن تكون سرعات التشغيل المخصصة أقل من %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">سرعة التشغيل المخصصة غير صالحة</string>
   <string name="revanced_custom_playback_speeds_auto">تلقائي</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">تمت إعادة ضبط سرعة التشغيل إلى: %s</string>
   <string name="revanced_speed_tap_and_hold_title">سرعة النقر مع الاستمرار المخصصة</string>
   <string name="revanced_speed_tap_and_hold_summary">سرعة التشغيل بين 0-8</string>
   </patch>
@@ -1420,6 +1435,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">تذكر التغيرات في سرعة التشغيل</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">تطبيق تغييرات سرعة التشغيل على جميع الفيديوهات</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">تطبيق تغييرات سرعة التشغيل فقط على الفيديو الحالي</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">إظهار إشعار عند تغيير سرعة التشغيل</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">يتم إظهار إشعار عند تغيير سرعة التشغيل الافتراضية</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">لا يتم عرض إشعار عند تغيير سرعة التشغيل الافتراضية.</string>
   <string name="revanced_playback_speed_default_title">سرعة التشغيل الافتراضية</string>
   <string name="revanced_remember_playback_speed_toast">تغيير السرعة الافتراضية إلى: %s</string>
   </patch>

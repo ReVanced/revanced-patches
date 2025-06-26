@@ -533,6 +533,10 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_hide_share_button_title">Slėpti Bendrinti</string>
   <string name="revanced_hide_share_button_summary_on">Bendrinimo mygtukas paslėptas</string>
   <string name="revanced_hide_share_button_summary_off">Bendrinimo mygtukas rodomas</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Slėpti \"Stabdyti reklamą\"</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Skelbimų stabdymo mygtukas paslėptas</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Skelbimų stabdymo mygtukas rodomas</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Slėpti Pranešti</string>
@@ -560,9 +564,9 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_hide_clip_button_summary_on">Iškarpos mygtukas paslėptas</string>
   <string name="revanced_hide_clip_button_summary_off">Iškarpos mygtukas rodomas</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Slėpti Išsaugoti į grojaraštį</string>
-  <string name="revanced_hide_playlist_button_summary_on">Išsaugoti į grojaraštį mygtukas paslėptas</string>
-  <string name="revanced_hide_playlist_button_summary_off">Išsaugoti į grojaraštį mygtukas rodomas</string>
+  <string name="revanced_hide_save_button_title">Slėpti Išsaugoti</string>
+  <string name="revanced_hide_save_button_summary_on">Išsaugojimo mygtukas paslėptas</string>
+  <string name="revanced_hide_save_button_summary_off">Išsaugojimo mygtukas rodomas</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigacijos mygtukai</string>
@@ -758,12 +762,18 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_shorts_save_sound_button_title">Paslėpti mygtuką „Įrašyti muziką\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">\"Išsaugoti muziką\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">\"Išsaugoti muziką\" mygtukas rodomas</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Paslėpti mygtuką „Naudoti šabloną\"</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">\"Naudoti šabloną\" mygtukas paslėptas</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">\"Naudoti šabloną\" mygtukas rodomas</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Slėpti mygtuką „Naudoti šį garsą“</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Mygtukas „Naudoti šį garsą“ paslėptas</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Mygtukas „Naudoti šį garsą“ rodomas</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Slėpti mygtuką „Naudoti šį šabloną“</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Mygtukas „Naudoti šį šabloną“ paslėptas</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Rodomas mygtukas „Naudoti šį šabloną“</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Paslėpti mygtuką „Ateina\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">\"Ateinančių\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">\"Ateinančių\" mygtukas rodomas</string>
+  <string name="revanced_hide_shorts_effect_button_title">Slėpti efekto mygtuką</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Efekto mygtukas paslėptas</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Efekto mygtukas rodomas</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Paslėpti mygtuką „Žalias ekranas\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Žaliojo ekrano\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Žaliojo ekrano\" mygtukas rodomas</string>
@@ -1389,6 +1399,9 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_remember_video_quality_last_selected_title">Atsiminti vaizdo įrašų kokybės pakeitimus</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kokybės pakeitimai taikomi visiems vaizdo įrašams</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kokybės pakeitimai taikomi tik dabartiniam vaizdo įrašui</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Rodyti pranešimą keičiant vaizdo kokybę</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Pranešimas rodomas, kai pakeičiama numatytoji vaizdo kokybė</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Pranešimas nerodomas, kai pakeičiama numatytoji vaizdo kokybė</string>
   <string name="revanced_video_quality_default_wifi_title">Numatytoji vaizdo įrašų kokybė „Wi-Fi“ tinkle</string>
   <string name="revanced_video_quality_default_mobile_title">Numatytoji vaizdo įrašų kokybė mobiliojo ryšio tinkle</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Atsiminti „Shorts“ kokybės pakeitimus</string>
@@ -1414,7 +1427,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_custom_playback_speeds_invalid">Pasirinktinis greitis turi būti mažesnis nei %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Netinkamas pasirinktinis atkūrimo greitis</string>
   <string name="revanced_custom_playback_speeds_auto">Automatinis</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Atkūrimo greitis nustatytas iš naujo: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Pritaikytas bakstelėjimo ir laikymo greitis</string>
   <string name="revanced_speed_tap_and_hold_summary">Atkūrimo greitis: nuo 0 iki 8</string>
   </patch>
@@ -1422,6 +1434,9 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_remember_playback_speed_last_selected_title">Atsiminti atkūrimo greičio pakeitimus</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Atkūrimo greičio pakeitimai taikomi visiems vaizdo įrašams</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Atkūrimo greičio pakeitimai taikomi tik dabartiniam vaizdo įrašui</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Rodyti pranešimą keičiant atkūrimo spartą</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Pranešimas rodomas, kai pakeičiama numatytoji atkūrimo sparta</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Pranešimas nerodomas, kai pakeičiamas numatytasis atkūrimo greitis.</string>
   <string name="revanced_playback_speed_default_title">Numatytasis atkūrimo greitis</string>
   <string name="revanced_remember_playback_speed_toast">Pakeistas numatytasis greitis į: %s</string>
   </patch>

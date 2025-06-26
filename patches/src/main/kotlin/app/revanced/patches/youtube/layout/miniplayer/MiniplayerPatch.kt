@@ -158,6 +158,7 @@ val miniplayerPatch = bytecodePatch(
             "19.47.53",
             "20.07.39",
             "20.12.46",
+            "20.13.41",
         )
     )
 
