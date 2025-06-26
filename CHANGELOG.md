@@ -1,3 +1,28 @@
+# [5.29.0](https://github.com/ReVanced/revanced-patches/compare/v5.28.0...v5.29.0) (2025-06-26)
+
+
+### Bug Fixes
+
+* Add scrollable content to modern style settings dialogs ([#5211](https://github.com/ReVanced/revanced-patches/issues/5211)) ([e6876d5](https://github.com/ReVanced/revanced-patches/commit/e6876d510d28f6a3a41ec1722a033b3e30a22c65))
+* **Google Photos:** Resolve startup crash for Android 5.0 devices ([0294533](https://github.com/ReVanced/revanced-patches/commit/0294533c4d9a321aea086eedb4e46385ae9a026e))
+* **YouTube - Hide ads:** Hide new type of product ad in video description ([#5225](https://github.com/ReVanced/revanced-patches/issues/5225)) ([1e2efad](https://github.com/ReVanced/revanced-patches/commit/1e2efad7b2714c395ed6b0a77cbbf8a2265df520))
+* **YouTube - Hide layout components:** Fix "Hide video description attributes" ([#5250](https://github.com/ReVanced/revanced-patches/issues/5250)) ([2f22d45](https://github.com/ReVanced/revanced-patches/commit/2f22d45eb80745ac64fbea44c8055ebe7925a586))
+* **YouTube - Hide Shorts components:** Fix "Hide Use this sound button" ([#5233](https://github.com/ReVanced/revanced-patches/issues/5233)) ([5d6ec9e](https://github.com/ReVanced/revanced-patches/commit/5d6ec9e94a6221a0f32762d5bede893e9e7457fc))
+* **YouTube - Hide Shorts components:** Fix "Hide Use this template button" ([#5249](https://github.com/ReVanced/revanced-patches/issues/5249)) ([b399ecb](https://github.com/ReVanced/revanced-patches/commit/b399ecbb6a222d82dd5e4b3417c9f7eff4324adb))
+* **YouTube:** Always use single threaded layout to resolve layout bugs in unpatched YouTube ([#5226](https://github.com/ReVanced/revanced-patches/issues/5226)) ([1f539b1](https://github.com/ReVanced/revanced-patches/commit/1f539b1396526b2c767d77a804bd0308ee4a42ec))
+* **YouTube:** Fix refactoring app startup exception ([1b00c90](https://github.com/ReVanced/revanced-patches/commit/1b00c907f4b90f4659afb4a54ba61ac2835b460d))
+
+
+### Features
+
+* Add `Spoof app signature` patch ([#5158](https://github.com/ReVanced/revanced-patches/issues/5158)) ([78b25aa](https://github.com/ReVanced/revanced-patches/commit/78b25aa4e87ec3f9df1d57831b48a39029969416))
+* **Cricbuzz:** Add `Hide ads` patch ([#4998](https://github.com/ReVanced/revanced-patches/issues/4998)) ([83ccfa8](https://github.com/ReVanced/revanced-patches/commit/83ccfa8e1b5d5a44c55ef659484acf3cc08d3346))
+* **Crunchyroll:** Add `Hide ads` patch ([#5201](https://github.com/ReVanced/revanced-patches/issues/5201)) ([46b4398](https://github.com/ReVanced/revanced-patches/commit/46b4398fd6ca223391ed8f497a8347c2313421b7))
+* **YouTube - Hide Shorts components:** Add `Hide Effects button` ([#5255](https://github.com/ReVanced/revanced-patches/issues/5255)) ([240897a](https://github.com/ReVanced/revanced-patches/commit/240897a94008ce9a148c87bb41b978d553d5a6f5))
+* **YouTube - Hide video action buttons:** Add `Hide Stop ads` ([#5245](https://github.com/ReVanced/revanced-patches/issues/5245)) ([274dcc6](https://github.com/ReVanced/revanced-patches/commit/274dcc676e009be63eb6970de33abacd34dc6560))
+* **YouTube:** Add an option to disable toasts when changing default playback speed or quality ([#5230](https://github.com/ReVanced/revanced-patches/issues/5230)) ([c68cde3](https://github.com/ReVanced/revanced-patches/commit/c68cde3a896450874cc571be5c4723387db96032))
+* **YouTube:** Support version `20.13.41` ([#5253](https://github.com/ReVanced/revanced-patches/issues/5253)) ([d284c3d](https://github.com/ReVanced/revanced-patches/commit/d284c3dd3277430b6885e7c27ee02d062dcefc85))
+
 # [5.29.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.10...v5.29.0-dev.11) (2025-06-26)
 
 
