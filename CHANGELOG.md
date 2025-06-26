@@ -1,3 +1,10 @@
+## [5.29.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.29.0...v5.29.1-dev.1) (2025-06-26)
+
+
+### Bug Fixes
+
+* **Spotify:** Add `Spoof client` patch to fix various issues by using a web platform access token ([#5173](https://github.com/ReVanced/revanced-patches/issues/5173)) ([b7b75bb](https://github.com/ReVanced/revanced-patches/commit/b7b75bb9d8d5fd505121e752b8a20e61ff28d1b2))
+
 # [5.29.0](https://github.com/ReVanced/revanced-patches/compare/v5.28.0...v5.29.0) (2025-06-26)
 
 
