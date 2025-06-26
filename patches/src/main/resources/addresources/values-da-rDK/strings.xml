@@ -533,6 +533,10 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_hide_share_button_title">Skjul Del</string>
   <string name="revanced_hide_share_button_summary_on">Deleknappen er skjult</string>
   <string name="revanced_hide_share_button_summary_off">Deleknappen vises</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Skjul Stop reklamer</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Knappen \"Stop annoncer\" er skjult</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Knappen \"Stop annoncer\" vises</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Skjul Rapport</string>
@@ -560,9 +564,9 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_hide_clip_button_summary_on">Klip knappen er skjult</string>
   <string name="revanced_hide_clip_button_summary_off">Klip knappen er vist</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Skjul Gem til afspilningsliste</string>
-  <string name="revanced_hide_playlist_button_summary_on">Gem i afspilningslisteknappen er skjult</string>
-  <string name="revanced_hide_playlist_button_summary_off">Gem i afspilningslisteknappen vises</string>
+  <string name="revanced_hide_save_button_title">Skjul Gem</string>
+  <string name="revanced_hide_save_button_summary_on">Knappen \"Gem\" er skjult</string>
+  <string name="revanced_hide_save_button_summary_off">Knappen \"Gem\" vises</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigationsknapper</string>
@@ -760,12 +764,18 @@ For at vise lydspormenuen skal du ændre \"Spoof videostream\" til iOS TV"</stri
   <string name="revanced_hide_shorts_save_sound_button_title">Skjul knappen Gem musik</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Gem musik knap er skjult</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Gem musik knap er vist</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Skjul knappen Brug skabelon</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Brug skabelon knappen er skjult</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Brug skabelon knappen er vist</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Skjul knappen \"Brug denne lyd\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Knappen \"Brug denne lyd\" er skjult</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Knappen \"Brug denne lyd\" vises</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Skjul knappen Brug denne skabelon</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Knappen \"Brug denne skabelon\" er skjult</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Knappen Brug denne skabelon vises</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Skjul knappen Kommende</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Kommende knap er skjult</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Kommende knap vises</string>
+  <string name="revanced_hide_shorts_effect_button_title">Skjul effektknap</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Effektknap er skjult</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Effektknap er vist</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Skjul knappen Grøn skærm</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Grøn skærmknap er skjult</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Grøn skærmknap vises</string>
@@ -1392,6 +1402,9 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Husk ændringer i videokvalitet</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitetsændringer gælder for alle videoer</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitetsændringer gælder kun for den aktuelle video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Vis notifikation ved ændring af videokvalitet</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">En notifikation vises, når standardvideokvaliteten ændres</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Der vises ikke en notifikation, når standardvideokvaliteten ændres</string>
   <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-netværk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilnetværk</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Husk kvalitetsændringer for Shorts</string>
@@ -1418,7 +1431,6 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_custom_playback_speeds_invalid">Brugerdefinerede hastigheder skal være mindre end %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ugyldige brugerdefinerede afspilningshastigheder</string>
   <string name="revanced_custom_playback_speeds_auto">Automatisk</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Afspilningshastighed nulstillet til: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Brugerdefineret hastighed, når du holder den nede</string>
   <string name="revanced_speed_tap_and_hold_summary">Afspilningshastighed mellem 0-8</string>
   </patch>
@@ -1426,6 +1438,9 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Husk ændringer i afspilningshastighed</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Ændring af afspilningshastighed gælder for alle videoer</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Ændringerne i afspilningshastighed gælder kun for den aktuelle video</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Vis notifikation ved ændring af afspilningshastighed</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">En notifikation vises, når standardafspilningshastigheden ændres</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Meddelelse vises ikke, når standardafspilningshastigheden ændres</string>
   <string name="revanced_playback_speed_default_title">Standard afspilningshastighed</string>
   <string name="revanced_remember_playback_speed_toast">Ændrede standardhastighed til: %s</string>
   </patch>

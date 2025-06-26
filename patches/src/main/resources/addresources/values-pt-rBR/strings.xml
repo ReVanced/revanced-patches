@@ -533,6 +533,10 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_hide_share_button_title">Ocultar Compartilhar</string>
   <string name="revanced_hide_share_button_summary_on">Botão compartilhar está oculto</string>
   <string name="revanced_hide_share_button_summary_off">O botão compartilhar é mostrado</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Ocultar \"Parar anúncios\"</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">O botão Parar anúncios está oculto</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">O botão Parar anúncios é exibido</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Ocultar Denúncia</string>
@@ -560,9 +564,9 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_hide_clip_button_summary_on">Botão clipe está oculto</string>
   <string name="revanced_hide_clip_button_summary_off">O botão clipe é mostrado</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Ocultar Salvar</string>
-  <string name="revanced_hide_playlist_button_summary_on">Botão salvar na playlist está oculto</string>
-  <string name="revanced_hide_playlist_button_summary_off">O botão salvar na playlist é mostrado</string>
+  <string name="revanced_hide_save_button_title">Ocultar Salvar</string>
+  <string name="revanced_hide_save_button_summary_on">O botão Salvar está oculto</string>
+  <string name="revanced_hide_save_button_summary_off">O botão Salvar é exibido</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Botões de navegação</string>
@@ -760,12 +764,18 @@ Para exibir o menu da faixa de áudio, altere \"Spoof video streams\" para iOS T
   <string name="revanced_hide_shorts_save_sound_button_title">Ocultar botão Salvar música</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">O botão Salvar música está oculto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">O botão Salvar música será exibido</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Ocultar botão Usar modelo</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">O botão Usar template está oculto</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">O botão Usar template será exibido</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Ocultar botão Usar este som</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Botão Usar este som está oculto</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Botão Usar este som está visível</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Ocultar botão Usar este modelo</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Botão Usar este modelo está oculto</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Botão Usar este modelo é mostrado</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Ocultar botão Próximos</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">O botão \"próximo\" está oculto</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">O botão \"próximo\" é mostrado</string>
+  <string name="revanced_hide_shorts_effect_button_title">Ocultar botão de Efeito</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">O botão de efeito está oculto</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">O botão de efeito é exibido</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Ocultar botão Tela verde</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">O botão de tela verde está oculto</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">O botão de tela verde será exibido</string>
@@ -1389,6 +1399,9 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Lembrar mudanças na qualidade do vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Mudança na qualidade se aplicam a todos os vídeos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Mudança na qualidade só se aplicam ao vídeo atual</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Mostrar aviso em mudanças na qualidade do vídeo</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Um aviso é mostrado quando a qualidade de vídeo padrão é alterada</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Um aviso não é mostrado quando a qualidade de vídeo padrão é alterada</string>
   <string name="revanced_video_quality_default_wifi_title">Qualidade padrão do vídeo no Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualidade padrão do vídeo nos dados móveis</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Lembrar alterações na qualidade dos Shorts</string>
@@ -1415,7 +1428,6 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_custom_playback_speeds_invalid">Velocidades personalizadas devem ser menores que %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Velocidades de reprodução personalizadas inválidas</string>
   <string name="revanced_custom_playback_speeds_auto">Automático</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Velocidade de reprodução redefinida para: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Velocidade personalizada de tocar e segurar</string>
   <string name="revanced_speed_tap_and_hold_summary">Velocidade de reprodução entre 0-8</string>
   </patch>
@@ -1423,6 +1435,9 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Lembrar mudança na velocidade de reprodução</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Mudanças de velocidade de reprodução se aplicam a todos os vídeos</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Mudanças na velocidade de reprodução só se aplicam ao vídeo atual</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Mostrar aviso em mudanças na velocidade de reprodução</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Um aviso é mostrado quando a velocidade de reprodução padrão é alterada</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Um Toast não é exibido quando a velocidade de reprodução padrão é alterada</string>
   <string name="revanced_playback_speed_default_title">Velocidade padrão de reprodução</string>
   <string name="revanced_remember_playback_speed_toast">Velocidade padrão alterada para: %s</string>
   </patch>

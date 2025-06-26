@@ -94,8 +94,10 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                     // Suggested actions.
                     SwitchPreference("revanced_hide_shorts_preview_comment"),
                     SwitchPreference("revanced_hide_shorts_save_sound_button"),
+                    SwitchPreference("revanced_hide_shorts_use_sound_button"),
                     SwitchPreference("revanced_hide_shorts_use_template_button"),
                     SwitchPreference("revanced_hide_shorts_upcoming_button"),
+                    SwitchPreference("revanced_hide_shorts_effect_button"),
                     SwitchPreference("revanced_hide_shorts_green_screen_button"),
                     SwitchPreference("revanced_hide_shorts_hashtag_button"),
                     SwitchPreference("revanced_hide_shorts_new_posts_button"),
@@ -175,6 +177,7 @@ val hideShortsComponentsPatch = bytecodePatch(
             "19.47.53",
             "20.07.39",
             "20.12.46",
+            "20.13.41",
         )
     )
 

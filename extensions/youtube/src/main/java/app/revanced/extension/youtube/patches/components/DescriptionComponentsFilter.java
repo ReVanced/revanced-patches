@@ -14,6 +14,9 @@ final class DescriptionComponentsFilter extends Filter {
 
     private final StringFilterGroup macroMarkersCarousel;
 
+    private final StringFilterGroup horizontalShelf;
+    private final ByteArrayFilterGroup cellVideoAttribute;
+
     public DescriptionComponentsFilter() {
         exceptions.addPatterns(
                 "compact_channel",
@@ -35,8 +38,7 @@ final class DescriptionComponentsFilter extends Filter {
 
         final StringFilterGroup attributesSection = new StringFilterGroup(
                 Settings.HIDE_ATTRIBUTES_SECTION,
-                "gaming_section",
-                "music_section",
+                // "gaming_section", "music_section"
                 "video_attributes_section"
         );
 
@@ -76,15 +78,26 @@ final class DescriptionComponentsFilter extends Filter {
                 )
         );
 
+        horizontalShelf = new StringFilterGroup(
+                Settings.HIDE_ATTRIBUTES_SECTION,
+                "horizontal_shelf.eml"
+        );
+
+        cellVideoAttribute = new ByteArrayFilterGroup(
+                null,
+                "cell_video_attribute"
+        );
+
         addPathCallbacks(
                 aiGeneratedVideoSummarySection,
                 askSection,
                 attributesSection,
                 infoCardsSection,
+                horizontalShelf,
                 howThisWasMadeSection,
+                macroMarkersCarousel,
                 podcastSection,
-                transcriptSection,
-                macroMarkersCarousel
+                transcriptSection
         );
     }
 
@@ -95,6 +108,10 @@ final class DescriptionComponentsFilter extends Filter {
 
         if (matchedGroup == macroMarkersCarousel) {
             return contentIndex == 0 && macroMarkersCarouselGroupList.check(protobufBufferArray).isFiltered();
+        }
+
+        if (matchedGroup == horizontalShelf) {
+            return cellVideoAttribute.check(protobufBufferArray).isFiltered();
         }
 
         return true;

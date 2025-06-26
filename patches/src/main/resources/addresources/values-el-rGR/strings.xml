@@ -535,6 +535,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">Κουμπί «Κοινοποίηση»</string>
   <string name="revanced_hide_share_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_share_button_summary_off">Εμφανίζεται</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Κουμπί «Διακοπή διαφημίσεων»</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Εμφανίζεται</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Μενού «Αναφορά»</string>
@@ -562,9 +566,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_clip_button_summary_off">Εμφανίζεται</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Κουμπί «Αποθήκευση»</string>
-  <string name="revanced_hide_playlist_button_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_playlist_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_save_button_title">Κουμπί «Αποθήκευση»</string>
+  <string name="revanced_hide_save_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_save_button_summary_off">Εμφανίζεται</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Κουμπιά γραμμής πλοήγησης</string>
@@ -762,12 +766,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Κουμπί «Αποθήκευση μουσικής»</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Κουμπί «Χρήση αυτού του ήχου»</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_shorts_use_template_button_title">Κουμπί «Χρήση προτύπου»</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Κουμπί επερχόμενης πρεμιέρας/ζωντανής ροής</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_shorts_effect_button_title">Κουμπί «Εφέ»</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Κουμπί «Green screen»</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Εμφανίζεται</string>
@@ -1389,6 +1399,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας βίντεο</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Οι αλλαγές ποιότητας ισχύουν για όλα τα βίντεο</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Οι αλλαγές ποιότητας ισχύουν μόνο για το τρέχον βίντεο</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Εμφάνιση μηνύματος κατά την αλλαγή ποιότητας βίντεο</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης όταν αλλάζει η προεπιλεγμένη ποιότητα βίντεο</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης όταν αλλάζει η προεπιλεγμένη ποιότητα βίντεο</string>
   <string name="revanced_video_quality_default_wifi_title">Προεπιλεγμένη ποιότητα βίντεο σε δίκτυο Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Προεπιλεγμένη ποιότητα βίντεο με δεδομένα κινητής τηλεφωνίας</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας στα Shorts</string>
@@ -1415,7 +1428,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Οι ταχύτητες πρέπει να είναι μικρότερες από %sx</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Μη έγκυρες προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
   <string name="revanced_custom_playback_speeds_auto">Αυτόματη</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Η ταχύτητα αναπαραγωγής επαναφέρθηκε σε: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Προσαρμοσμένη ταχύτητα παρατεταμένου πατήματος</string>
   <string name="revanced_speed_tap_and_hold_summary">Ταχύτητα αναπαραγωγής μεταξύ 0-8</string>
   </patch>
@@ -1423,6 +1435,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Απομνημόνευση αλλαγών ταχύτητας αναπαραγωγής</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Οι αλλαγές ταχύτητας αναπαραγωγής ισχύουν για όλα τα βίντεο</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Οι αλλαγές ταχύτητας αναπαραγωγής ισχύουν μόνο για το τρέχον βίντεο</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Εμφάνιση μηνύματος κατά την αλλαγή ταχύτητας αναπαραγωγής</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης όταν αλλάζει η προεπιλεγμένη ταχύτητα αναπαραγωγής</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης όταν αλλάζει η προεπιλεγμένη ταχύτητα αναπαραγωγής</string>
   <string name="revanced_playback_speed_default_title">Προεπιλεγμένη ταχύτητα αναπαραγωγής</string>
   <string name="revanced_remember_playback_speed_toast">Η προεπιλεγμένη ταχύτητα άλλαξε σε: %s</string>
   </patch>

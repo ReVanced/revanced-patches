@@ -526,6 +526,10 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_hide_share_button_title">Skryť zdieľanie</string>
   <string name="revanced_hide_share_button_summary_on">Tlačidlo Zdieľať je skryté</string>
   <string name="revanced_hide_share_button_summary_off">Zobrazí sa tlačidlo Zdieľať</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Skryť Zastaviť reklamy</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Tlačidlo Zastaviť reklamy je skryté</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Tlačidlo Zastaviť reklamy je zobrazené</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Skryť prehľad</string>
@@ -553,9 +557,9 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_hide_clip_button_summary_on">Tlačidlo klipu je skryté</string>
   <string name="revanced_hide_clip_button_summary_off">Zobrazí sa tlačidlo klipu</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Skryť Uložiť do zoznamu skladieb</string>
-  <string name="revanced_hide_playlist_button_summary_on">Tlačidlo Uložiť do zoznamu skladieb je skryté</string>
-  <string name="revanced_hide_playlist_button_summary_off">Zobrazí sa tlačidlo Uložiť do zoznamu skladieb</string>
+  <string name="revanced_hide_save_button_title">Skryť Uložiť</string>
+  <string name="revanced_hide_save_button_summary_on">Tlačidlo Uložiť je skryté</string>
+  <string name="revanced_hide_save_button_summary_off">Tlačidlo Uložiť je zobrazené</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigačné tlačidlá</string>
@@ -753,12 +757,18 @@ Ak chcete zobraziť ponuku zvukovej stopy, zmeňte možnosť „Oklamať videost
   <string name="revanced_hide_shorts_save_sound_button_title">Skryť tlačidlo Uložiť hudbu</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tlačidlo na uloženie hudby je skryté</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tlačidlo na uloženie hudby sa zobrazuje</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Skryť tlačidlo Použiť šablónu</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Tlačidlo na použitie šablóny je skryté</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Tlačidlo na použitie šablóny sa zobrazuje</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Skryť tlačidlo Použiť tento zvuk</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Tlačidlo Použiť tento zvuk je skryté</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Tlačidlo Použiť tento zvuk je zobrazené</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Skryť tlačidlo Použiť túto šablónu</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Tlačidlo Použiť túto šablónu je skryté</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Tlačidlo Použiť túto šablónu je zobrazené</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Skryť tlačidlo Pripravované</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tlačidlo pre časté videá bude skryté</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Tlačidlo pre časté videá bude zobrazené</string>
+  <string name="revanced_hide_shorts_effect_button_title">Skryť tlačidlo efektu</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Tlačidlo efektu je skryté</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Tlačidlo efektu je zobrazené</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Skryť tlačidlo Zelená obrazovka</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tlačidlo pre zelené pozadie bude skryté</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Tlačidlo pre zelené pozadie bude zobrazené</string>
@@ -1378,6 +1388,9 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Pamätajte na zmeny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Zmeny kvality sa vzťahujú na všetky videá</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Zmeny kvality sa vzťahujú iba na aktuálne video</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Zobraziť hlášku pri zmene kvality videa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Hláška sa zobrazí, keď sa zmení predvolená kvalita videa</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Hláška sa nezobrazí, keď sa zmení predvolená kvalita videa</string>
   <string name="revanced_video_quality_default_wifi_title">Predvolená kvalita videa v sieti Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Predvolená kvalita videa v mobilnej sieti</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapamätať si zmeny kvality pre Shorts</string>
@@ -1404,7 +1417,6 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Vlastné rýchlosti musia byť menšie ako %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Neplatné vlastné rýchlosti prehrávania</string>
   <string name="revanced_custom_playback_speeds_auto">Automaticky</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Rýchlosť prehrávania obnovená na: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Vlastná rýchlosť ťuknutia a podržania</string>
   <string name="revanced_speed_tap_and_hold_summary">Rýchlosť prehrávania medzi 0-8</string>
   </patch>
@@ -1412,6 +1424,9 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Pamätajte na zmeny rýchlosti prehrávania</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Zmeny rýchlosti prehrávania sa vzťahujú na všetky videá</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Zmeny rýchlosti prehrávania sa vzťahujú len na aktuálne video</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Zobraziť hlášku pri zmene rýchlosti prehrávania</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Hláška sa zobrazí, keď sa zmení predvolená rýchlosť prehrávania</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Hláška sa nezobrazuje, keď sa zmení predvolená rýchlosť prehrávania</string>
   <string name="revanced_playback_speed_default_title">Predvolená rýchlosť prehrávania</string>
   <string name="revanced_remember_playback_speed_toast">Predvolená rýchlosť bola zmenená na: %s</string>
   </patch>

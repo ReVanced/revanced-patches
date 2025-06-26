@@ -402,7 +402,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_store_shelf_summary_off">판매자 쇼핑 선반이 표시됩니다\n• 판매자(크리에이터명) 선반</string>
   <string name="revanced_hide_shopping_links_title">동영상 설명에서 쇼핑 링크 숨기기</string>
   <string name="revanced_hide_shopping_links_summary_on">동영상 설명에서 쇼핑 링크가 숨겨집니다</string>
-  <string name="revanced_hide_shopping_links_summary_off">동영상 설명에서 쇼핑 링크가 포시됩니다</string>
+  <string name="revanced_hide_shopping_links_summary_off">동영상 설명에서 쇼핑 링크가 표시됩니다</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">채널 프로필에서 스토어 방문 버튼 숨기기</string>
   <string name="revanced_hide_visit_store_button_summary_on">스토어 방문 버튼이 숨겨집니다</string>
@@ -532,6 +532,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_share_button_title">공유 버튼 숨기기</string>
   <string name="revanced_hide_share_button_summary_on">공유 버튼이 숨겨집니다</string>
   <string name="revanced_hide_share_button_summary_off">공유 버튼이 표시됩니다</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">광고 중단 버튼 숨기기</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">광고 중지 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">광고 중지 버튼이 표시됩니다</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">신고 버튼 숨기기</string>
@@ -559,9 +563,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_clip_button_summary_on">클립 버튼이 숨겨집니다</string>
   <string name="revanced_hide_clip_button_summary_off">클립 버튼이 표시됩니다</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">(재생목록에) 저장 버튼 숨기기</string>
-  <string name="revanced_hide_playlist_button_summary_on">(재생목록에) 저장 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_playlist_button_summary_off">(재생목록에) 저장 버튼이 표시됩니다</string>
+  <string name="revanced_hide_save_button_title">저장 버튼 숨기기</string>
+  <string name="revanced_hide_save_button_summary_on">저장 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_save_button_summary_off">저장 버튼이 표시됩니다</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">하단바 버튼</string>
@@ -760,12 +764,18 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_save_sound_button_title">(재생목록에) 음악 저장 버튼 숨기기</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">(재생목록에) 음악 저장 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">(재생목록에) 음악 저장 버튼이 표시됩니다</string>
-  <string name="revanced_hide_shorts_use_template_button_title">템플릿 사용 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">탬플릿 사용 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">탬플릿 사용 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">\'이 사운드 사용\' 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">\'이 사운드 사용\' 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">\'이 사운드 사용\' 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_use_template_button_title">\'이 템플릿 사용\' 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">\'이 템플릿 사용\' 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">\'이 템플릿 사용\' 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_upcoming_button_title">예정 버튼 숨기기</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">(Premiere 또는 실시간) 예정 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">(Premiere 또는 실시간) 예정 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_effect_button_title">효과 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">효과 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">효과 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_green_screen_button_title">그린 스크린 버튼 숨기기</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">그린 스크린 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">그린 스크린 버튼이 표시됩니다</string>
@@ -1396,13 +1406,16 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">자동</string>
   <string name="revanced_remember_video_quality_last_selected_title">동영상 화질 저장 활성화하기</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값을 변경할 때마다 기본 동영상 화질으로 저장합니다</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값을 변경할 때마다 기본 동영상 화질으로 저장하지 않습니다</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값이 변경될 때마다 기본 동영상 화질으로 저장합니다</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값이 변경될 때마다 기본 동영상 화질으로 저장하지 않습니다</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">동영상 화질 변경 메시지 표시하기</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">기본 동영상 화질 값이 변경되었을 때, 팝업 메시지를 표시합니다</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">기본 동영상 화질 값이 변경되었을 때, 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 이용 시 기본 동영상 화질</string>
   <string name="revanced_video_quality_default_mobile_title">모바일 네트워크 이용 시 기본 동영상 화질</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Shorts 화질 저장 활성화하기</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Shorts 화질 값을 변경할 때마다 기본 Shorts 화질으로 저장합니다</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Shorts 화질 값을 변경할 때마다 기본 Shorts 화질으로 저장하지 않습니다</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Shorts 화질 값이 변경될 때마다 기본 Shorts 화질으로 저장합니다</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Shorts 화질 값이 변경될 때마다 기본 Shorts 화질으로 저장하지 않습니다</string>
   <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi 이용 시 기본 Shorts 화질</string>
   <string name="revanced_shorts_quality_default_mobile_title">모바일 네트워크 이용 시 기본 Shorts 화질</string>
   <string name="revanced_remember_video_quality_mobile">모바일 네트워크</string>
@@ -1424,14 +1437,16 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_custom_playback_speeds_invalid">재생 속도 값은 %s배속보다 작아야 합니다</string>
   <string name="revanced_custom_playback_speeds_parse_exception">잘못된 사용자 정의 재생 속도 값입니다</string>
   <string name="revanced_custom_playback_speeds_auto">자동</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">동영상 재생 속도를 %s 으로 초기화하였습니다</string>
   <string name="revanced_speed_tap_and_hold_title">사용자 정의 길게 눌러서 동영상 재생 속도</string>
   <string name="revanced_speed_tap_and_hold_summary">화면을 길게 누르는 동안에 변경되는 동영상 재생 속도를 0-8 사이에서 지정할 수 있습니다</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">동영상 재생 속도 저장 활성화하기</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장합니다</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장하지 않습니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값이 변경될 때마다 기본 동영상 재생 속도로 저장합니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값이 변경될 때마다 기본 동영상 재생 속도로 저장하지 않습니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">동영상 재생 속도 변경 메시지 표시하기</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">기본 동영상 재생 속도 값이 변경되었을 때, 팝업 메시지를 표시합니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">기본 동영상 재생 속도 값이 변경되었을 때, 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_playback_speed_default_title">기본 동영상 재생 속도</string>
   <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경하였습니다</string>
   </patch>

@@ -121,12 +121,14 @@ public final class AdsFilter extends Filter {
 
         playerShoppingShelf = new StringFilterGroup(
                 Settings.HIDE_PLAYER_STORE_SHELF,
+                "expandable_list.eml",
                 "horizontal_shelf.eml"
         );
 
         playerShoppingShelfBuffer = new ByteArrayFilterGroup(
                 null,
-                "shopping_item_card_list.eml"
+                "shopping_link_item",
+                "shopping_item_card_list"
         );
 
         channelProfile = new StringFilterGroup(

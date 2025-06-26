@@ -533,6 +533,10 @@ Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
   <string name="revanced_hide_share_button_title">Paylaşmayı gizle</string>
   <string name="revanced_hide_share_button_summary_on">Paylaşma düğmesi gizli</string>
   <string name="revanced_hide_share_button_summary_off">Paylaşma düğmesi görünür</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Reklamları Durdur\'u Gizle</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Reklamları durdur düğmesi gizlendi</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Reklamları durdur düğmesi gösterildi</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Bildirmeyi gizle</string>
@@ -560,9 +564,9 @@ Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
   <string name="revanced_hide_clip_button_summary_on">Klip düğmesi gizli</string>
   <string name="revanced_hide_clip_button_summary_off">Klip düğmesi görünür</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Oynatma listesine Kaydetmeyi gizle</string>
-  <string name="revanced_hide_playlist_button_summary_on">Oynatma listesine Kaydetme düğmesi gizli</string>
-  <string name="revanced_hide_playlist_button_summary_off">Oynatma listesine Kaydetme düğmesi görünür</string>
+  <string name="revanced_hide_save_button_title">Kaydet\'i Gizle</string>
+  <string name="revanced_hide_save_button_summary_on">Kaydet düğmesi gizlendi</string>
+  <string name="revanced_hide_save_button_summary_off">Kaydet düğmesi gösterildi</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Gezinme düğmeleri</string>
@@ -760,12 +764,18 @@ Ses parçası menüsünü göstermek için \"Video akışlarını taklit et\" ay
   <string name="revanced_hide_shorts_save_sound_button_title">Müziği kaydet düğmesini gizle</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Müziği kaydet düğmesi gizli</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Müziği kaydet düğmesi görünür</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Şablonu kullan düğmesini gizle</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Şablonu kullan düğmesi gizli</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Şablonu kullan düğmesi görünür</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Bu sesi kullan düğmesini gizle</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Bu sesi kullan düğmesi gizli</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Bu sesi kullan düğmesi gösteriliyor</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Bu şablonu kullan düğmesini gizle</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Bu şablonu kullan düğmesi gizli</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Bu şablonu kullan düğmesi gösteriliyor</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Gelecek düğmesini gizle</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Gelecek düğmesi gizli</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Gelecek düğmesi görünür</string>
+  <string name="revanced_hide_shorts_effect_button_title">Efekt düğmesini gizle</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Efekt düğmesi gizli</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Efekt düğmesi gösteriliyor</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Yeşil ekran düğmesini gizle</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Yeşil ekran düğmesi gizli</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Yeşil ekran düğmesi görünür</string>
@@ -1397,6 +1407,9 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Video kalitesi değişikliklerini hatırla</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kalite değişiklikleri tüm videolara uygulanır</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kalite değişiklikleri sadece oynatılan videoya uygulanır</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Video kalitesi değişikliklerinde bildirim göster</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Varsayılan video kalitesi değiştirildiğinde bir bildirim gösterilir</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Varsayılan video kalitesi değiştirildiğinde bir bildirim gösterilmez</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi ağındaki varsayılan video kalitesi</string>
   <string name="revanced_video_quality_default_mobile_title">Mobil ağdaki varsayılan video kalitesi</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Shorts kalitesi değişikliklerini hatırla</string>
@@ -1423,7 +1436,6 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_custom_playback_speeds_invalid">Özel hızlar %s\'den az olmalıdır</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Geçersiz özel oynatma hızları</string>
   <string name="revanced_custom_playback_speeds_auto">Oto</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Oynatma hızı şu değere sıfırlandı: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Dokunup basılı tutma özel hızı</string>
   <string name="revanced_speed_tap_and_hold_summary">0-8 arası oynatma hızı</string>
   </patch>
@@ -1431,6 +1443,9 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Oynatma hızı değişikliklerini hatırla</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Oynatma hızı değişiklikleri tüm videolara uygulanır</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Oynatma hızı değişiklikleri yalnızca geçerli videoya uygulanır</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Oynatma hızı değişikliklerinde bildirim göster</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Varsayılan oynatma hızı değiştirildiğinde bir bildirim gösterilir</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Varsayılan oynatma hızı değiştirildiğinde bir bildirim gösterilmez.</string>
   <string name="revanced_playback_speed_default_title">Varsayılan oynatma hızı</string>
   <string name="revanced_remember_playback_speed_toast">Varsayılan hız %s olarak ayarlandı</string>
   </patch>

@@ -533,6 +533,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">Скриване на споделянето</string>
   <string name="revanced_hide_share_button_summary_on">Бутона за споделяне е скрит</string>
   <string name="revanced_hide_share_button_summary_off">Бутона за споделяне се показва</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Скриване на „Спиране на реклами“</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Бутонът за спиране на реклами е скрит</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Бутонът за спиране на реклами е показан</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Бутон за доклади</string>
@@ -560,9 +564,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">Бутона за клип е скрит</string>
   <string name="revanced_hide_clip_button_summary_off">Бутона за клип се показва</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Бутон за Запазване в плейлиста</string>
-  <string name="revanced_hide_playlist_button_summary_on">Бутонът за Запазване в плейлиста е скрит</string>
-  <string name="revanced_hide_playlist_button_summary_off">Бутонът за Запазване в плейлиста се показва</string>
+  <string name="revanced_hide_save_button_title">Скриване на Запазване</string>
+  <string name="revanced_hide_save_button_summary_on">Бутонът за запазване е скрит</string>
+  <string name="revanced_hide_save_button_summary_off">Бутонът за запазване е показан</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Бутони за навигация</string>
@@ -760,12 +764,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Скриване на бутона Save music</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Бутонът за запазване на музика е скрит</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Показан е бутонът за запазване на музика</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Скриване на бутона Use template</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Бутон за \"Използване на шаблон\" е скрит</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Бутон за \"Използване на шаблон\" се показва</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Скриване на бутона \"Използвайте този звук\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Бутонът \"Използвайте този звук\" е скрит</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Бутонът \"Използвайте този звук\" е показан</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Скриване на бутона „Използване на този шаблон“</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Бутонът \"Използвайте този шаблон\" е скрит</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Бутонът „Използване на този шаблон“ е видим</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Скриване на бутона Upcoming</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Бутон \"Предстоящи събития\" е скрит</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Бутон \"Предстоящи събития\" се показва</string>
+  <string name="revanced_hide_shorts_effect_button_title">Скрий бутона за ефект</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Бутонът за ефекти е скрит</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Бутонът за ефекти е видим</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Скриване на бутона Green screen</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Бутон \"Зелен екран\" е скрит</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Бутон \"Зелен екран\" се показва</string>
@@ -1390,6 +1400,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запомни промените в качеството на видеото</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Промените в качеството се отнасят за всички видеоклипове</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Промените в качеството се отнасят само за текущия видеоклип</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Показване на известие при промени в качеството на видеото</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Показва се известие, когато се промени качеството на видеото по подразбиране</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Не се показва известие, когато се промени качеството на видеото по подразбиране</string>
   <string name="revanced_video_quality_default_wifi_title">Предпочитано качество при Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Предпочитано качество при мобилни данни</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Запомняне на промените в качеството на Shorts</string>
@@ -1416,7 +1429,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Персонализираните скорости трябва да са по-малки от %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Невалидни персонализирани скорости на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_auto">Авто</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Скоростта на възпроизвеждане е нулирана на: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Персонализирана скорост при докосване и задържане</string>
   <string name="revanced_speed_tap_and_hold_summary">Скорост на възпроизвеждане между 0-8</string>
   </patch>
@@ -1424,6 +1436,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Запомни промените в скоростта на възпроизвеждане</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Промените в скоростта на възпроизвеждане се отнасят за всички видеоклипове</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Промените в скоростта на възпроизвеждане се отнасят само за текущия видеоклип</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Показване на известие при промени в скоростта на възпроизвеждане</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Показва се известие, когато се промени скоростта на възпроизвеждане по подразбиране</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Известие не се показва, когато скоростта на възпроизвеждане по подразбиране се промени</string>
   <string name="revanced_playback_speed_default_title">Скорост на възпроизвеждане по подразбиране</string>
   <string name="revanced_remember_playback_speed_toast">Скоростта по подразбиране е променена на: %s</string>
   </patch>

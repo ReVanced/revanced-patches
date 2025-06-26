@@ -529,6 +529,10 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
   <string name="revanced_hide_share_button_title">Przycisk od udostępniania</string>
   <string name="revanced_hide_share_button_summary_on">Przycisk udostępniania jest ukryty</string>
   <string name="revanced_hide_share_button_summary_off">Przycisk udostępniania jest widoczny</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Ukryj \"Zatrzymaj reklamy\"</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Przycisk zatrzymania reklam jest ukryty</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Przycisk zatrzymania reklam jest widoczny</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Przycisk od zgłaszania</string>
@@ -556,9 +560,9 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
   <string name="revanced_hide_clip_button_summary_on">Przycisk tworzenia klipów jest ukryty</string>
   <string name="revanced_hide_clip_button_summary_off">Przycisk tworzenia klipów jest widoczny</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Przycisk dodania do playlisty</string>
-  <string name="revanced_hide_playlist_button_summary_on">Przycisk dodania do playlisty jest ukryty</string>
-  <string name="revanced_hide_playlist_button_summary_off">Przycisk dodania do playlisty jest widoczny</string>
+  <string name="revanced_hide_save_button_title">Ukryj Zapisz</string>
+  <string name="revanced_hide_save_button_summary_on">Przycisk Zapisz jest ukryty</string>
+  <string name="revanced_hide_save_button_summary_off">Przycisk Zapisz jest widoczny</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Przyciski nawigacyjne</string>
@@ -756,12 +760,18 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_hide_shorts_save_sound_button_title">Ukryj przycisk \"Zapisz muzykę\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Przycisk od zapisywania muzyki jest ukryty</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Przycisk od zapisywania muzyki jest widoczny</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Ukryj przycisk \"Użyj szablonu\"</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Przycisk szablonu jest ukryty</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Przycisk szablonu jest widoczny</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Ukryj przycisk Użyj tego dźwięku</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Przycisk Użyj tego dźwięku jest ukryty</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Przycisk Użyj tego dźwięku jest widoczny</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Ukryj przycisk \"Użyj tego szablonu\"</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Przycisk Użyj tego szablonu jest ukryty</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Przycisk \"Użyj tego szablonu\" jest widoczny</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Ukryj przycisk \"Nadchodzące\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Przycisk nadchodzących jest ukryty</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Przycisk nadchodzących jest widoczny</string>
+  <string name="revanced_hide_shorts_effect_button_title">Ukryj przycisk efektu</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Przycisk efektu jest ukryty</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Przycisk efektu jest widoczny</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Ukryj przycisk \"Zielony ekran\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Przycisk od greenscreena jest ukryty</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Przycisk od greenscreena jest widoczny</string>
@@ -1386,6 +1396,9 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Zapamiętaj zmiany jakości filmu</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Zmiany jakości dotyczą wszystkich filmów</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Zmiany jakości dotyczą tylko bieżącego filmu</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Pokaż komunikat przy zmianach jakości wideo</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Komunikat jest wyświetlany, gdy domyślna jakość wideo zostanie zmieniona</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Komunikat nie jest wyświetlany, gdy domyślna jakość wideo zostanie zmieniona</string>
   <string name="revanced_video_quality_default_wifi_title">Domyślna jakość filmu w sieci Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Domyślna jakość filmu w sieci komórkowej</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapamiętaj zmiany jakości w Shorts</string>
@@ -1412,7 +1425,6 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_custom_playback_speeds_invalid">Prędkości niestandardowe muszą być mniejsze niż %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nieprawidłowe prędkości odtwarzania niestandardowego</string>
   <string name="revanced_custom_playback_speeds_auto">Automatyczne</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Prędkość odtwarzania zresetowana do: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Szybkość dostosowywania dotknięciem i przytrzymaniem</string>
   <string name="revanced_speed_tap_and_hold_summary">Prędkość odtwarzania w granicach 0-8</string>
   </patch>
@@ -1420,6 +1432,9 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Zapamiętuj zmiany prędkości odtwarzania</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Zmiany prędkości odtwarzania dotyczą wszystkich filmów</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Zmiany prędkości odtwarzania dotyczą tylko bieżącego filmu</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Pokaż komunikat przy zmianach szybkości odtwarzania</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Komunikat jest wyświetlany, gdy domyślna szybkość odtwarzania zostanie zmieniona</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Komunikat nie jest wyświetlany, gdy domyślna szybkość odtwarzania zostanie zmieniona</string>
   <string name="revanced_playback_speed_default_title">Domyślna prędkość odtwarzania</string>
   <string name="revanced_remember_playback_speed_toast">Zmieniono domyślną prędkość na: %s</string>
   </patch>

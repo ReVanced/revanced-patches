@@ -533,6 +533,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_title">Скрыть кнопку \"Поделиться\"</string>
   <string name="revanced_hide_share_button_summary_on">Кнопка \"Поделиться\" под плеером скрыта</string>
   <string name="revanced_hide_share_button_summary_off">Кнопка \"Поделиться\" под плеером показана</string>
+  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Скрыть \"Остановить рекламу\"</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Кнопка \"Отключить рекламу\" скрыта</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Кнопка \"Отключить рекламу\" показана</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Скрыть кнопку \"Пожаловаться\"</string>
@@ -560,9 +564,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_summary_on">Кнопка \"Создать клип\" под плеером скрыта</string>
   <string name="revanced_hide_clip_button_summary_off">Кнопка \"Создать клип\" под плеером показана</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Скрыть кнопку \"Сохранить в плейлист\"</string>
-  <string name="revanced_hide_playlist_button_summary_on">Кнопка \"Сохранить в плейлист\" под плеером скрыта</string>
-  <string name="revanced_hide_playlist_button_summary_off">Кнопка \"Сохранить в плейлист\" под плеером показана</string>
+  <string name="revanced_hide_save_button_title">Скрыть кнопку \"Сохранить\"</string>
+  <string name="revanced_hide_save_button_summary_on">Кнопка \"Сохранить\" скрыта</string>
+  <string name="revanced_hide_save_button_summary_off">Кнопка \"Сохранить\" показана</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Кнопки навигации</string>
@@ -760,12 +764,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Скрыть кнопку \"Сохранить музыку\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка \"Сохранить музыку\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Сохранить музыку\" в Shorts показана</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Скрыть кнопку \"Использовать этот звук\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Кнопка \"Использовать этот звук\" скрыта</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Кнопка \"Использовать этот звук\" показана</string>
   <string name="revanced_hide_shorts_use_template_button_title">Скрыть кнопку \"Использовать шаблон\"</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопка \"Использовать шаблон\" в Shorts скрыта</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка \"Использовать шаблон\" в Shorts показана</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопка \"Использовать этот шаблон\" скрыта</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка \"Использовать шаблон\" показана</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Скрыть кнопку \"Предстоящие события\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопка \"Предстоящие события\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопка \"Предстоящие события\" в Shorts показана</string>
+  <string name="revanced_hide_shorts_effect_button_title">Скрыть кнопку \"Эффект\"</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Кнопка \"Эффект\" скрыта</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Кнопка \"Эффект\" показана</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Скрыть кнопку \"Зеленый экран\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопка \"Зеленый экран\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка \"Зеленый экран\" в Shorts показана</string>
@@ -1397,6 +1407,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запоминать изменения качества видео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Изменения качества воспроизведения применяются ко всем видео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Изменения качества воспроизведения применяются только к текущему видео</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Показывать всплывающее сообщение при изменениях качества видео</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Всплывающее сообщение показывается, когда изменяется качество видео по умолчанию</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Всплывающее сообщение не показывается, когда изменяется качество видео по умолчанию</string>
   <string name="revanced_video_quality_default_wifi_title">Качество видео по умолчанию в Wi-Fi сети</string>
   <string name="revanced_video_quality_default_mobile_title">Качество видео по умолчанию в мобильной сети</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Запоминать изменения качества Shorts</string>
@@ -1423,7 +1436,6 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Кастомные скорости должны быть меньше, чем %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Недопустимые кастомные скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_auto">Автоматически</string>
-  <string name="revanced_custom_playback_speeds_reset_toast">Скорость воспроизведения сброшена до: %s</string>
   <string name="revanced_speed_tap_and_hold_title">Кастомная скорость при нажатии и удержании</string>
   <string name="revanced_speed_tap_and_hold_summary">Значение кастомной скорости воспроизведения при нажатии и удержании от 0 до 8</string>
   </patch>
@@ -1431,6 +1443,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Запоминать изменения скорости воспроизведения</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Изменения скорости воспроизведения применяются ко всем видео</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Изменения скорости воспроизведения применяются только к текущему видео</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Показывать всплывающее сообщение при изменениях скорости воспроизведения</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Всплывающее сообщение показывается, когда изменяется скорость воспроизведения по умолчанию</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Всплывающее сообщение не отображается, когда изменяется скорость воспроизведения по умолчанию</string>
   <string name="revanced_playback_speed_default_title">Скорость воспроизведения по умолчанию</string>
   <string name="revanced_remember_playback_speed_toast">Скорость изменена на: %s</string>
   </patch>
