@@ -773,6 +773,9 @@ Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet vide
   <string name="revanced_hide_shorts_upcoming_button_title">Fshih butonin Në vazhdim</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Butoni \"Të ardhshme\" është i fshehur</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Butoni \"Të ardhshme\" është i dukshëm</string>
+  <string name="revanced_hide_shorts_effect_button_title">Fshih butonin Efekt</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Butoni i efektit është fshehur</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Butoni i efektit është shfaqur</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Fsheh butonin Ekran jeshil</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Butoni \"Ekrani i gjelbër\" është i fshehur</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Butoni \"Ekrani i gjelbër\" është i dukshëm</string>

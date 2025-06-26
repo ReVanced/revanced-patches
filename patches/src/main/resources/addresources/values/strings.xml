@@ -838,6 +838,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_shorts_upcoming_button_title">Hide Upcoming button</string>
             <string name="revanced_hide_shorts_upcoming_button_summary_on">Upcoming button is hidden</string>
             <string name="revanced_hide_shorts_upcoming_button_summary_off">Upcoming button is shown</string>
+            <string name="revanced_hide_shorts_effect_button_title">Hide Effect button</string>
+            <string name="revanced_hide_shorts_effect_button_summary_on">Effect button is hidden</string>
+            <string name="revanced_hide_shorts_effect_button_summary_off">Effect button is shown</string>
             <string name="revanced_hide_shorts_green_screen_button_title">Hide Green screen button</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_on">Green screen button is hidden</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_off">Green screen button is shown</string>

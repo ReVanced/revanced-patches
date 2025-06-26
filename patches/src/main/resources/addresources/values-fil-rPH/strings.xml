@@ -770,6 +770,9 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <string name="revanced_hide_shorts_upcoming_button_title">Itago ang Upcoming button</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Nakatago ang pindutan ng \"Upcoming\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Ipinapakita ang pindutan ng \"Upcoming\"</string>
+  <string name="revanced_hide_shorts_effect_button_title">Itago ang Button ng Epekto</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Nakatago ang button ng epekto</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Nakikita ang button ng epekto</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Itago ang Green screen button</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Nakatago ang pindutan ng \"Green screen\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Ipinapakita ang pindutan ng \"Green screen\"</string>

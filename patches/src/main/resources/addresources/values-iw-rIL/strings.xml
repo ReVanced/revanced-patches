@@ -773,6 +773,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_upcoming_button_title">הסתר לחצן \'בקרוב\'</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">לחצן \'בקרוב\' מוסתר</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">לחצן \'בקרוב\' מוצג</string>
+  <string name="revanced_hide_shorts_effect_button_title">הסתר כפתור אפקט</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">כפתור האפקט מוסתר</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">כפתור האפקט מוצג</string>
   <string name="revanced_hide_shorts_green_screen_button_title">הסתר לחצן מסך ירוק</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">לחצן מסך ירוק מוסתר</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">לחצן מסך ירוק מוצג</string>

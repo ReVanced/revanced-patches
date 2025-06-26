@@ -774,6 +774,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Приховати \"Запланована прем\'єра\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопки \"Запланована прем\'єра\" та \"Незабаром прямий ефір\" приховано</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопки \"Запланована прем\'єра\" та \"Незабаром прямий ефір\" показуються</string>
+  <string name="revanced_hide_shorts_effect_button_title">Приховати \"Ефект\"</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Кнопку \"Ефект\" приховано</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Кнопка \"Ефект\" показується</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Приховати \"Зелений екран\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопку \"Зелений екран\" приховано</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка \"Зелений екран\" показується</string>

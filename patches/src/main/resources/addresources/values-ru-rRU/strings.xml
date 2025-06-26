@@ -773,6 +773,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Скрыть кнопку \"Предстоящие события\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопка \"Предстоящие события\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопка \"Предстоящие события\" в Shorts показана</string>
+  <string name="revanced_hide_shorts_effect_button_title">Скрыть кнопку \"Эффект\"</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Кнопка \"Эффект\" скрыта</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Кнопка \"Эффект\" показана</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Скрыть кнопку \"Зеленый экран\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопка \"Зеленый экран\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка \"Зеленый экран\" в Shorts показана</string>

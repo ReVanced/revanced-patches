@@ -773,6 +773,9 @@ För att visa ljudspårsmenyn, ändra \"Spoof video streams\" till iOS TV"</stri
   <string name="revanced_hide_shorts_upcoming_button_title">Dölj knapp \'Kommande\'</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Kommande knapp är dold</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Kommande knapp visas</string>
+  <string name="revanced_hide_shorts_effect_button_title">Dölj effektknapp</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Effektknappen är dold</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Effektknappen visas</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Dölj grön skärm-knapp</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Grön skärm-knappen är dold</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Grön skärmknapp visas</string>

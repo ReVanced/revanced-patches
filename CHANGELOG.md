@@ -1,3 +1,31 @@
+# [5.29.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.10...v5.29.0-dev.11) (2025-06-26)
+
+
+### Features
+
+* **Cricbuzz:** Add `Hide ads` patch ([#4998](https://github.com/ReVanced/revanced-patches/issues/4998)) ([83ccfa8](https://github.com/ReVanced/revanced-patches/commit/83ccfa8e1b5d5a44c55ef659484acf3cc08d3346))
+
+# [5.29.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.9...v5.29.0-dev.10) (2025-06-25)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add `Hide Effects button` ([#5255](https://github.com/ReVanced/revanced-patches/issues/5255)) ([240897a](https://github.com/ReVanced/revanced-patches/commit/240897a94008ce9a148c87bb41b978d553d5a6f5))
+
+# [5.29.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.8...v5.29.0-dev.9) (2025-06-25)
+
+
+### Features
+
+* Add `Spoof app signature` patch ([#5158](https://github.com/ReVanced/revanced-patches/issues/5158)) ([78b25aa](https://github.com/ReVanced/revanced-patches/commit/78b25aa4e87ec3f9df1d57831b48a39029969416))
+
+# [5.29.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.7...v5.29.0-dev.8) (2025-06-25)
+
+
+### Features
+
+* **YouTube:** Support version `20.13.41` ([#5253](https://github.com/ReVanced/revanced-patches/issues/5253)) ([d284c3d](https://github.com/ReVanced/revanced-patches/commit/d284c3dd3277430b6885e7c27ee02d062dcefc85))
+
 # [5.29.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.6...v5.29.0-dev.7) (2025-06-24)
 
 

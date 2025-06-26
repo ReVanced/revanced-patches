@@ -770,6 +770,9 @@ Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de 
   <string name="revanced_hide_shorts_upcoming_button_title">Ocultar el botón Próximos</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">El botón próximo está oculto</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Se muestra el botón próximo</string>
+  <string name="revanced_hide_shorts_effect_button_title">Ocultar botón de efecto</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">El botón de efecto está oculto</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">El botón de efecto está visible</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Ocultar el botón Pantalla verde</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">El botón verde de pantalla está oculto</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Se muestra el botón verde de pantalla</string>
