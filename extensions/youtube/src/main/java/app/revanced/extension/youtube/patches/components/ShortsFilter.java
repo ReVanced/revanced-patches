@@ -186,6 +186,7 @@ public final class ShortsFilter extends Filter {
 
         useSoundButtonBuffer = new ByteArrayFilterGroup(
                 null,
+                // Second filter needed for "Use this template" that can appear below the video title.
                 "yt_outline_camera_"
         );
 
