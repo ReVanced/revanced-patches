@@ -29,3 +29,11 @@ internal val getUserAgentFingerprint = fingerprint {
         Opcode.CONST,
     )
 }
+
+// Should usually match: g2/c.x()
+internal val imgurApiFingerprint = fingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+    returns("Landroid/net/Uri;")
+    parameters("Ljava/lang/String;", "Z")
+    strings("https", "api", "imgur", "3", "gallery", "album")
+}
