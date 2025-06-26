@@ -180,10 +180,10 @@ public final class ShortsFilter extends Filter {
 
         useSoundButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_USE_SOUND_BUTTON,
-                // First filter needed for "Use this template" that can appear when viewing Shorts
+                // First filter needed for "Use this sound" that can appear when viewing Shorts
                 // through the "Short remixing this video" section.
                 "floating_action_button.eml",
-                // Second filter needed for "Use this template" that can appear below the video title.
+                // Second filter needed for "Use this sound" that can appear below the video title.
                 REEL_METAPANEL_PATH
         );
 
@@ -194,6 +194,7 @@ public final class ShortsFilter extends Filter {
 
         useTemplateButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_USE_TEMPLATE_BUTTON,
+                // Second filter needed for "Use this template" that can appear below the video title.
                 REEL_METAPANEL_PATH
         );
 
@@ -282,6 +283,7 @@ public final class ShortsFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_USE_TEMPLATE_BUTTON,
+                        //  "Use this template" can appear in two different places.
                         "yt_outline_template_add_"
                 ),
                 new ByteArrayFilterGroup(
