@@ -773,6 +773,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Скриване на бутона Upcoming</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Бутон \"Предстоящи събития\" е скрит</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Бутон \"Предстоящи събития\" се показва</string>
+  <string name="revanced_hide_shorts_effect_button_title">Скрий бутона за ефект</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Бутонът за ефекти е скрит</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Бутонът за ефекти е видим</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Скриване на бутона Green screen</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Бутон \"Зелен екран\" е скрит</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Бутон \"Зелен екран\" се показва</string>

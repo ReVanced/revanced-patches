@@ -773,6 +773,9 @@ Para mostrar o menu da faixa de áudio, altere \"Spoof video streams\" para iOS 
   <string name="revanced_hide_shorts_upcoming_button_title">Ocultar botão de próximos</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">O botão \"vir\" está oculto</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">O próximo botão será exibido</string>
+  <string name="revanced_hide_shorts_effect_button_title">Ocultar botão de efeito</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">O botão Efeito está oculto</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">O botão Efeito está exibido</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Botão de ecrã verde está oculto</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">O botão de ecrã verde está oculto</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Botão de ecrã verde é mostrado</string>

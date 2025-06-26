@@ -773,6 +773,9 @@ For at vise lydspormenuen skal du ændre \"Spoof videostream\" til iOS TV"</stri
   <string name="revanced_hide_shorts_upcoming_button_title">Skjul knappen Kommende</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Kommende knap er skjult</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Kommende knap vises</string>
+  <string name="revanced_hide_shorts_effect_button_title">Skjul effektknap</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Effektknap er skjult</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Effektknap er vist</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Skjul knappen Grøn skærm</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Grøn skærmknap er skjult</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Grøn skærmknap vises</string>

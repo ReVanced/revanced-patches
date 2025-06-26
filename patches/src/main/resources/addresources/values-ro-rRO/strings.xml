@@ -773,6 +773,9 @@ Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fl
   <string name="revanced_hide_shorts_upcoming_button_title">Ascunde butonul Următor</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Butonul următor este ascuns</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Următorul buton este afișat</string>
+  <string name="revanced_hide_shorts_effect_button_title">Ascunde butonul Efect</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Butonul de efect este ascuns</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Butonul de efect este afișat</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Ascunde butonul Ecran verde</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Butonul de ecran verde este ascuns</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Butonul de ecran verde este afișat</string>

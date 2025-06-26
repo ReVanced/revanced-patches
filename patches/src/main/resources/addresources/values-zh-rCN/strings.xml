@@ -773,6 +773,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_upcoming_button_title">隐藏「即将发布」按钮</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">即将上映按钮已隐藏</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">即将上映按钮已显示</string>
+  <string name="revanced_hide_shorts_effect_button_title">隐藏特效按钮</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">特效按钮已隐藏</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">特效按钮已显示</string>
   <string name="revanced_hide_shorts_green_screen_button_title">隐藏「绿幕」按钮</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">绿屏按钮已隐藏</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">绿屏按钮已显示</string>

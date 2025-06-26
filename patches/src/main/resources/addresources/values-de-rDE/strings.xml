@@ -766,6 +766,9 @@ Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS T
   <string name="revanced_hide_shorts_upcoming_button_title">\'Demnächst\'-Button ausblenden</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Kommender Button ist ausgeblendet</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Kommende Schaltfläche wird angezeigt</string>
+  <string name="revanced_hide_shorts_effect_button_title">Effekt-Schaltfläche ausblenden</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Effekt-Taste ist ausgeblendet</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Effekt-Taste ist eingeblendet</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Green-Screen-Button ausblenden</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Grünbildschirm-Taste ist ausgeblendet</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Grünbildschirm-Taste wird angezeigt</string>

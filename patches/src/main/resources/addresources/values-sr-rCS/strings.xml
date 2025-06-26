@@ -534,9 +534,9 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_hide_share_button_summary_on">Dugme „Deli” je skriveno</string>
   <string name="revanced_hide_share_button_summary_off">Dugme „Deli” je prikazano</string>
   <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_stop_ads_button_title">Sakrij Zaustavi oglase</string>
-  <string name="revanced_hide_stop_ads_button_summary_on">Dugme za zaustavljanje oglasa je skriveno</string>
-  <string name="revanced_hide_stop_ads_button_summary_off">Dugme za zaustavljanje oglasa je prikazano</string>
+  <string name="revanced_hide_stop_ads_button_title">Sakrij dugme „Zaustavi oglase”</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Dugme „Zaustavi oglase” je skriveno</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Dugme „Zaustavi oglase” je prikazano</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Sakrij dugme „Prijavi”</string>
@@ -564,7 +564,7 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_hide_clip_button_summary_on">Dugme „Klip” je skriveno</string>
   <string name="revanced_hide_clip_button_summary_off">Dugme „Klip” je prikazano</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_save_button_title">Sakrij Sačuvaj</string>
+  <string name="revanced_hide_save_button_title">Sakrij dugme „Sačuvaj”</string>
   <string name="revanced_hide_save_button_summary_on">Dugme „Sačuvaj” je skriveno</string>
   <string name="revanced_hide_save_button_summary_off">Dugme „Sačuvaj” je prikazano</string>
   </patch>
@@ -773,6 +773,9 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_shorts_upcoming_button_title">Sakrij dugme „Predstojeće”</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Dugme „Predstojeće” je skriveno</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Dugme „Predstojeće” je prikazano</string>
+  <string name="revanced_hide_shorts_effect_button_title">Sakrij dugme „Efekat”</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Dugme „Efekat” je skriveno</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Dugme „Efekat” je prikazano</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Sakrij dugme „Zeleni ekran”</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Dugme „Zeleni ekran” je skriveno</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Dugme „Zeleni ekran” je prikazano</string>

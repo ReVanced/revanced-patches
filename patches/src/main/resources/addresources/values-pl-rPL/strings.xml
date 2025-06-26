@@ -769,6 +769,9 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_hide_shorts_upcoming_button_title">Ukryj przycisk \"Nadchodzące\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Przycisk nadchodzących jest ukryty</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Przycisk nadchodzących jest widoczny</string>
+  <string name="revanced_hide_shorts_effect_button_title">Ukryj przycisk efektu</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Przycisk efektu jest ukryty</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Przycisk efektu jest widoczny</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Ukryj przycisk \"Zielony ekran\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Przycisk od greenscreena jest ukryty</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Przycisk od greenscreena jest widoczny</string>
