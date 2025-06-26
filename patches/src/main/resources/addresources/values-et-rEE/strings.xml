@@ -772,6 +772,9 @@ Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ vä
   <string name="revanced_hide_shorts_upcoming_button_title">Peida Eelseisvad nupp</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Eelseisva nuppu on peidetud</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Eelseisva nuppu on nähtav</string>
+  <string name="revanced_hide_shorts_effect_button_title">Peida efekti nupp</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Efekti nupp on peidetud</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Efekti nupp on nähtav</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Peida Roheline ekraan nupp</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Rohelise ekraani nupp on peidetud</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Rohelise ekraani nupp on nähtav</string>

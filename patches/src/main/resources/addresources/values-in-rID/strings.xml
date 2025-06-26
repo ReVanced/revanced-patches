@@ -535,8 +535,8 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_hide_share_button_summary_off">Tombol bagikan ditampilkan</string>
   <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_stop_ads_button_title">Sembunyikan Hentikan iklan</string>
-  <string name="revanced_hide_stop_ads_button_summary_on">Tombol berhenti iklan disembunyikan</string>
-  <string name="revanced_hide_stop_ads_button_summary_off">Tombol berhenti iklan ditampilkan</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Tombol hentikan iklan disembunyikan</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Tombol hentikan iklan ditampilkan</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Sembunyikan Laporkan</string>
@@ -764,15 +764,18 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Sembunyikan Simpan musik</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tombol simpan musik disembunyikan</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tombol simpan musik ditampilkan</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Sembunyikan tombol gunakan suara ini</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Sembunyikan tombol Gunakan suara ini</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_on">Tombol gunakan suara ini disembunyikan</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_off">Tombol gunakan suara ini ditampilkan</string>
   <string name="revanced_hide_shorts_use_template_button_title">Sembunyikan tombol Gunakan template ini</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Tombol gunakan templat ini disembunyikan</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Tombol Gunakan template ini ditampilkan</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Tombol gunakan template ini disembunyikan</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Tombol gunakan template ini ditampilkan</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Sembunyikan tombol Mendatang</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tombol yang akan datang disembunyikan</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Tombol yang akan datang ditampilkan</string>
+  <string name="revanced_hide_shorts_effect_button_title">Sembunyikan tombol Efek</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Tombol Efek disembunyikan</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Tombol Efek ditampilkan</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Sembunyikan tombol Layar Hijau</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tombol layar hijau disembunyikan</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Tombol layar hijau ditampilkan</string>

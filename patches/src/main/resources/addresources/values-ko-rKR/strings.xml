@@ -773,6 +773,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_upcoming_button_title">예정 버튼 숨기기</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">(Premiere 또는 실시간) 예정 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">(Premiere 또는 실시간) 예정 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_effect_button_title">효과 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">효과 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">효과 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_green_screen_button_title">그린 스크린 버튼 숨기기</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">그린 스크린 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">그린 스크린 버튼이 표시됩니다</string>

@@ -773,6 +773,9 @@ Chun roghchlár na rian fuaime a thaispeáint, athraigh 'Srutháin físeáin bhr
   <string name="revanced_hide_shorts_upcoming_button_title">Folaigh cnaipe \'Le teacht\'</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tá cnaipe atá le teacht i bhfolach</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Taispeántar an cnaipe atá le teacht</string>
+  <string name="revanced_hide_shorts_effect_button_title">Folaigh cnaipe éifeachta</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Tá an cnaipe Éifeacht i bhfolach</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Tá an cnaipe Éifeacht taispeánta</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Folaigh cnaipe \'Scáileán glas\'</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tá cnaipe an scáileáin glas i bhfolach</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Taispeántar cnaipe an scáileáin glas</string>

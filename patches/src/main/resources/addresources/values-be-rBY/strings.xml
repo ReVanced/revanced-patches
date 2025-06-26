@@ -773,6 +773,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Схаваць кнопку «Наступныя»</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопка Будущие ролики скрыта</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопка Будущие ролики отображается</string>
+  <string name="revanced_hide_shorts_effect_button_title">Схаваць кнопку эфекту</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Кнопка эфекту схавана</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Кнопка эфекту паказана</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Схаваць кнопку «Зялёны экран»</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопка с зелёным экраном Shorts скрыта</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка с зелёным экраном Shorts отображается</string>

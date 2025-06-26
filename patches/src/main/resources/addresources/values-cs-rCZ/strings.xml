@@ -773,6 +773,9 @@ Chcete-li zobrazit nabídku zvukové stopy, změňte možnost „Zfalšovat stre
   <string name="revanced_hide_shorts_upcoming_button_title">Skrýt tlačítko Nadcházející</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tlačítko \"Další\" je skryté</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Tlačítko \"Další\" je zobrazeno</string>
+  <string name="revanced_hide_shorts_effect_button_title">Skrýt tlačítko efektu</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Tlačítko Efekt je skryté</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Tlačítko Efekt je zobrazeno</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Skrýt tlačítko Zelená obrazovka</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tlačítko zelené obrazovky je skryté</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Tlačítko zelené obrazovky je zobrazeno</string>
