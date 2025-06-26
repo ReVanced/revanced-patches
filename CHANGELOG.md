@@ -1,3 +1,10 @@
+# [5.29.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.10...v5.29.0-dev.11) (2025-06-26)
+
+
+### Features
+
+* **Cricbuzz:** Add `Hide ads` patch ([#4998](https://github.com/ReVanced/revanced-patches/issues/4998)) ([83ccfa8](https://github.com/ReVanced/revanced-patches/commit/83ccfa8e1b5d5a44c55ef659484acf3cc08d3346))
+
 # [5.29.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.29.0-dev.9...v5.29.0-dev.10) (2025-06-25)
 
 
