@@ -89,7 +89,7 @@ class Session {
 
     @Nullable
     static Session read(String username) {
-        Logger.printInfo(() -> "Reading session for username: " + username);
+        Logger.printInfo(() -> "Reading saved session for username: " + username);
 
         SharedPreferences sharedPreferences = Utils.getContext().getSharedPreferences("revanced", MODE_PRIVATE);
         String savedJson = sharedPreferences.getString("session_" + username, null);
