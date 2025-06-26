@@ -775,6 +775,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Κουμπί επερχόμενης πρεμιέρας/ζωντανής ροής</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_shorts_effect_button_title">Κουμπί «Εφέ»</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Κουμπί «Green screen»</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Εμφανίζεται</string>

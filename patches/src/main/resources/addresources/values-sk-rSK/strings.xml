@@ -766,6 +766,9 @@ Ak chcete zobraziť ponuku zvukovej stopy, zmeňte možnosť „Oklamať videost
   <string name="revanced_hide_shorts_upcoming_button_title">Skryť tlačidlo Pripravované</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tlačidlo pre časté videá bude skryté</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Tlačidlo pre časté videá bude zobrazené</string>
+  <string name="revanced_hide_shorts_effect_button_title">Skryť tlačidlo efektu</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Tlačidlo efektu je skryté</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Tlačidlo efektu je zobrazené</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Skryť tlačidlo Zelená obrazovka</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tlačidlo pre zelené pozadie bude skryté</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Tlačidlo pre zelené pozadie bude zobrazené</string>

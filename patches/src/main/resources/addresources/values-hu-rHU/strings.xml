@@ -773,6 +773,9 @@ Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítá
   <string name="revanced_hide_shorts_upcoming_button_title">Következő videó gomb elrejtése</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">A közelgő gomb el van rejtve</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Megjelenik a Közelgő gomb</string>
+  <string name="revanced_hide_shorts_effect_button_title">Effekt gomb elrejtése</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Az effekt gomb el van rejtve</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Az effekt gomb látható</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Zöld háttér gomb elrejtése</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">A zöld képernyő gomb el van rejtve</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">A zöld képernyő gomb látható</string>

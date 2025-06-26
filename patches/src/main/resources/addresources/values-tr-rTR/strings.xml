@@ -773,6 +773,9 @@ Ses parçası menüsünü göstermek için \"Video akışlarını taklit et\" ay
   <string name="revanced_hide_shorts_upcoming_button_title">Gelecek düğmesini gizle</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Gelecek düğmesi gizli</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Gelecek düğmesi görünür</string>
+  <string name="revanced_hide_shorts_effect_button_title">Efekt düğmesini gizle</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Efekt düğmesi gizli</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Efekt düğmesi gösteriliyor</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Yeşil ekran düğmesini gizle</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Yeşil ekran düğmesi gizli</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Yeşil ekran düğmesi görünür</string>

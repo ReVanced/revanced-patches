@@ -771,6 +771,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_upcoming_button_title">ซ่อนปุ่มที่กำลังจะมาถึง</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">ปุ่ม «Upcoming» ซ่อนอยู่</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">ปุ่ม «Upcoming» แสดงอยู่</string>
+  <string name="revanced_hide_shorts_effect_button_title">ซ่อนปุ่มเอฟเฟกต์</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">ปุ่มเอฟเฟกต์ถูกซ่อน</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">ปุ่มเอฟเฟกต์แสดงอยู่</string>
   <string name="revanced_hide_shorts_green_screen_button_title">ซ่อนปุ่มกรีนสกรีน</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">ปุ่ม Green Screen ถูกซ่อน</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">ปุ่ม Green Screen  แสดงขึ้น</string>

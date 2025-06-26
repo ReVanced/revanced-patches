@@ -773,6 +773,9 @@ Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS 
   <string name="revanced_hide_shorts_upcoming_button_title">Nascondi il pulsante Prossimamente</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Il pulsante Imminente è nascosto</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Il pulsante Imminente è visibile</string>
+  <string name="revanced_hide_shorts_effect_button_title">Nascondi pulsante effetto</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Il pulsante Effetto è nascosto</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Il pulsante Effetto è mostrato</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Nascondi il pulsante Green Screen</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Il pulsante Schermo verde è nascosto</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Il pulsante Schermo verde è visibile</string>
