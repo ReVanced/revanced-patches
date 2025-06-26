@@ -102,7 +102,13 @@ public final class UnlockPremiumPatch {
             com.spotify.home.evopage.homeapi.proto.Section.IMAGE_BRAND_AD_FIELD_NUMBER
     );
 
-    private static final Integer REMOVED_BROWSE_SECTIONS = com.spotify.browsita.v1.resolved.Section.BRAND_ADS_FIELD_NUMBER;
+    /**
+     * A list of browse sections feature types ids which should be removed. These ids match the ones from the protobuf
+     * response which delivers browse sections.
+     */
+    private static final List<Integer> REMOVED_BROWSE_SECTIONS = List.of(
+            com.spotify.browsita.v1.resolved.Section.BRAND_ADS_FIELD_NUMBER
+    );
 
     /**
      * A list of lists which contain component filters that match whether a context menu item should be filtered out.
@@ -176,7 +182,7 @@ public final class UnlockPremiumPatch {
     }
 
 
-    interface FeatureTypeIdProvider<T> {
+    private interface FeatureTypeIdProvider<T> {
         int getFeatureTypeId(T section);
     }
 
@@ -223,7 +229,7 @@ public final class UnlockPremiumPatch {
         removeSections(
                 sections,
                 section -> section.sectionTypeCase_,
-                List.of(REMOVED_BROWSE_SECTIONS)
+                REMOVED_BROWSE_SECTIONS
         );
     }
 
