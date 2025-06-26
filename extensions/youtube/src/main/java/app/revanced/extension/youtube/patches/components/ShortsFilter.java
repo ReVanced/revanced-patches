@@ -44,6 +44,8 @@ public final class ShortsFilter extends Filter {
     private final ByteArrayFilterGroup shortsCompactFeedVideoBuffer;
     private final StringFilterGroup useSoundButton;
     private final ByteArrayFilterGroup useSoundButtonBuffer;
+    private final StringFilterGroup useTemplateButton;
+    private final ByteArrayFilterGroup useTemplateButtonBuffer;
 
     private final StringFilterGroup subscribeButton;
     private final StringFilterGroup joinButton;
@@ -187,6 +189,16 @@ public final class ShortsFilter extends Filter {
                 "yt_outline_camera_"
         );
 
+        useTemplateButton = new StringFilterGroup(
+                Settings.HIDE_SHORTS_USE_TEMPLATE_BUTTON,
+                REEL_METAPANEL_PATH
+        );
+
+        useTemplateButtonBuffer = new ByteArrayFilterGroup(
+                null,
+                "yt_outline_template_add_"
+        );
+
         videoActionButton = new StringFilterGroup(
                 null,
                 // Can be simply 'button.eml', 'shorts_video_action_button.eml' or 'reel_action_button.eml'
@@ -195,8 +207,7 @@ public final class ShortsFilter extends Filter {
 
         suggestedAction = new StringFilterGroup(
                 null,
-                "suggested_action.eml",
-                REEL_METAPANEL_PATH
+                "suggested_action.eml"
         );
 
         addPathCallbacks(
@@ -268,6 +279,7 @@ public final class ShortsFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_USE_TEMPLATE_BUTTON,
+                        //  "Use this template" can appear in two different places.
                         "yt_outline_template_add_"
                 ),
                 new ByteArrayFilterGroup(
@@ -315,6 +327,10 @@ public final class ShortsFilter extends Filter {
 
             if (matchedGroup == useSoundButton) {
                 return useSoundButtonBuffer.check(protobufBufferArray).isFiltered();
+            }
+
+            if (matchedGroup == useTemplateButton) {
+                return useTemplateButtonBuffer.check(protobufBufferArray).isFiltered();
             }
 
             if (matchedGroup == shortsCompactFeedVideo) {
