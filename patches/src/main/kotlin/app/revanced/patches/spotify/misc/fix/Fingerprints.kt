@@ -19,3 +19,11 @@ internal val startupPageLayoutInflateFingerprint = fingerprint {
     parameters("Landroid/view/LayoutInflater;", "Landroid/view/ViewGroup;", "Landroid/os/Bundle;")
     strings("blueprintContainer", "gradient", "valuePropositionTextView")
 }
+
+internal val standardIntegrityTokenProviderBuilderFingerprint = fingerprint {
+    strings(
+        "standard_pi_init",
+        "outcome",
+        "success"
+    )
+}
