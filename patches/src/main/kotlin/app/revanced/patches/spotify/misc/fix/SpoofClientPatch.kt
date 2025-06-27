@@ -179,6 +179,5 @@ val spoofClientPatch = bytecodePatch(
                 """
             )
         }
-
     }
 }

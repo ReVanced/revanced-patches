@@ -123,6 +123,7 @@ class WebApp {
                         Logger.printInfo(() -> "Received session: " + session);
                         currentSession = session;
                         getSessionLatch.countDown();
+                        currentWebView = null;
                         webView.stopLoading();
                         webView.destroy();
                     }
@@ -131,9 +132,7 @@ class WebApp {
 
         try {
             final boolean isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-            if (isAcquired) {
-                Logger.printInfo(() -> "Session retrieved successfully");
-            } else {
+            if (!isAcquired) {
                 Logger.printException(() -> "Failed to retrieve session within " + GET_SESSION_TIMEOUT_SECONDS + " seconds");
             }
         } catch (InterruptedException e) {
@@ -196,7 +195,7 @@ class WebApp {
                 public void onPageStarted(WebView view, String url, Bitmap favicon) {
                     Logger.printInfo(() -> "Page started loading: " + url);
 
-                    if (!url.contains(OPEN_SPOTIFY_COM_URL)) {
+                    if (!url.startsWith(OPEN_SPOTIFY_COM_URL)) {
                         return;
                     }
 
@@ -234,9 +233,12 @@ class WebApp {
                 }
             }, JAVASCRIPT_INTERFACE_NAME);
 
-            Logger.printInfo(() -> "WebView initialized with user agent: " + USER_AGENT);
             currentWebView = webView;
-            webViewCallback.onInitialized(webView);
+
+            CookieManager.getInstance().removeAllCookies((anyRemoved) -> {
+                Logger.printInfo(() -> "WebView initialized with user agent: " + USER_AGENT);
+                webViewCallback.onInitialized(currentWebView);
+            });
         });
     }
 
