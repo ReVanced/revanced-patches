@@ -561,6 +561,9 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_clip_button_summary_on">Klippi-painike on piilotettu</string>
   <string name="revanced_hide_clip_button_summary_off">Klippi-painike näytetään</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_save_button_title">Piilota Tallenna</string>
+  <string name="revanced_hide_save_button_summary_on">Tallenna-painike on piilotettu</string>
+  <string name="revanced_hide_save_button_summary_off">Tallenna-painike näytetään</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigointipainikkeet</string>
@@ -767,6 +770,9 @@ Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Piilota Tulossa-painike</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tulossa-painike on piilotettu</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Tulossa-painike näytetään</string>
+  <string name="revanced_hide_shorts_effect_button_title">Piilota Tehoste-painike</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Tehoste-painike on piilotettu</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Tehoste-painike näytetään</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Piilota Vihertausta-painike</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Vihertausta-painike on piilotettu</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Vihertausta-painike näytetään</string>
@@ -1259,7 +1265,7 @@ Minisoitin voidaan vetää pois näytöltä vasemmalle tai oikealle"</string>
   <string name="revanced_gradient_loading_screen_summary_off">Latausruudulla on yksivärinen tausta</string>
   <string name="splash_screen_animation_style_title">Aloitussivun tyyli</string>
   <string name="splash_screen_animation_style_entry_1">Väri</string>
-  <string name="splash_screen_animation_style_entry_2">Musta ja valkoinen</string>
+  <string name="splash_screen_animation_style_entry_2">Mustavalkoinen</string>
   <string name="revanced_seekbar_custom_color_title">Ota mukautettu etenemispalkin väri käyttöön</string>
   <string name="revanced_seekbar_custom_color_summary_on">Mukautettu etenemispalkin väri näytetään</string>
   <string name="revanced_seekbar_custom_color_summary_off">Alkuperäinen etenemispalkin väri näytetään</string>
