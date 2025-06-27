@@ -11,7 +11,21 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+/**
+ * 20.26+
+ */
 internal val hideShowMoreButtonFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL, AccessFlags.SYNTHETIC)
+    returns("V")
+    parameters("L", "Ljava/lang/Object;")
+    instructions(
+        resourceLiteral("layout", "expand_button_down"),
+        methodCall(smali = "Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, 0)
+    )
+}
+
+internal val hideShowMoreLegacyButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         resourceLiteral("layout", "expand_button_down"),

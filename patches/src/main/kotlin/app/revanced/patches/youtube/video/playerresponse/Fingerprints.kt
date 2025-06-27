@@ -5,9 +5,38 @@ import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
- * For targets 20.15 and later.
+ * For targets 20.26 and later.
  */
 internal val playerParameterBuilderFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("L")
+    parameters(
+        "Ljava/lang/String;",  // VideoId.
+        "[B",
+        "Ljava/lang/String;",  // Player parameters proto buffer.
+        "Ljava/lang/String;",
+        "I",
+        "Z",
+        "I",
+        "L",
+        "Ljava/util/Set;",
+        "Ljava/lang/String;",
+        "Ljava/lang/String;",
+        "L",
+        "Z", // Appears to indicate if the video id is being opened or is currently playing.
+        "Z",
+        "Z",
+        "Lj\$/time/Duration;"
+    )
+    instructions(
+        string("psps")
+    )
+}
+
+/**
+ * For targets 20.15 to 20.25
+ */
+internal val playerParameterBuilder2015Fingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(

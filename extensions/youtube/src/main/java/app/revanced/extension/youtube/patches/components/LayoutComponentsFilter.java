@@ -443,6 +443,8 @@ public final class LayoutComponentsFilter extends Filter {
                 && NavigationBar.isSearchBarActive()
                 // Search bar can be active but behind the player.
                 && !PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+            // FIXME: "Show more" button is visible hidden,
+            //        but an empty space remains that can be clicked.
             Utils.hideViewBy0dp(view);
         }
     }

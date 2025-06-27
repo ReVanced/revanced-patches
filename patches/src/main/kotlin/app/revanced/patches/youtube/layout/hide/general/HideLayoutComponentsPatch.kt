@@ -23,6 +23,8 @@ import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_26_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findFreeRegister
@@ -99,6 +101,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         addResourcesPatch,
         hideLayoutComponentsResourcePatch,
         navigationBarHookPatch,
+        versionCheckPatch,
         resourceMappingPatch
     )
 
@@ -275,16 +278,18 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Show more button
 
-        hideShowMoreButtonFingerprint.method.apply {
-            val moveRegisterIndex = hideShowMoreButtonFingerprint.instructionMatches.last().index
-            val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
+        (if (is_20_26_or_greater) hideShowMoreButtonFingerprint else hideShowMoreLegacyButtonFingerprint).let {
+            it.method.apply {
+                val moveRegisterIndex = it.instructionMatches.last().index
+                val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
-            val insertIndex = moveRegisterIndex + 1
-            addInstruction(
-                insertIndex,
-                "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                    "->hideShowMoreButton(Landroid/view/View;)V",
-            )
+                val insertIndex = moveRegisterIndex + 1
+                addInstruction(
+                    insertIndex,
+                    "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
+                            "->hideShowMoreButton(Landroid/view/View;)V",
+                )
+            }
         }
 
         // endregion
