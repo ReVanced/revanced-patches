@@ -322,7 +322,7 @@ public final class LayoutComponentsFilter extends Filter {
         }
 
         if (matchedGroup == chipBar) {
-            return contentIndex == 0 && hideChipBar();
+            return contentIndex == 0 && NavigationButton.getSelectedNavigationButton() == NavigationButton.LIBRARY;
         }
 
         return true;
@@ -468,11 +468,5 @@ public final class LayoutComponentsFilter extends Filter {
         // Only filter if the library tab is not selected.
         // This check is important as the shelf layout is used for the library tab playlists.
         return NavigationButton.getSelectedNavigationButton() != NavigationButton.LIBRARY;
-    }
-
-    private static boolean hideChipBar() {
-        // Only filter if the library tab is selected,
-        // otherwise filter bar in the subscriptions tab will be hidden.
-        return NavigationButton.getSelectedNavigationButton() == NavigationButton.LIBRARY;
     }
 }
