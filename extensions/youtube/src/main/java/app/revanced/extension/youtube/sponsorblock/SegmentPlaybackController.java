@@ -595,9 +595,16 @@ public class SegmentPlaybackController {
                     Logger.printDebug(() -> "Ignoring old scheduled show toast");
                     return;
                 }
-                Utils.showToastShort(toastNumberOfSegmentsSkipped == 1
+                String message = toastNumberOfSegmentsSkipped == 1
                         ? toastSegmentSkipped.getSkippedToastText()
-                        : str("revanced_sb_skipped_multiple_segments"));
+                        : str("revanced_sb_skipped_multiple_segments");
+                message += "\n" + str("revanced_sb_tap_to_unskip");
+                Utils.showToastShortWithTapAction(message, () -> {
+                    // Unskip action: seek back to the start of the segment
+                    if (toastSegmentSkipped != null) {
+                        VideoInformation.seekTo(toastSegmentSkipped.start);
+                    }
+                });
             } catch (Exception ex) {
                 Logger.printException(() -> "showSkippedSegmentToast failure", ex);
             } finally {
