@@ -300,10 +300,6 @@ public final class app/revanced/patches/messenger/misc/extension/ExtensionPatchK
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/meta/ads/HideAdsPatchKt {
-	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/mifitness/misc/locale/ForceEnglishLocalePatchKt {
 	public static final fun getForceEnglishLocalePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -908,10 +904,6 @@ public final class app/revanced/patches/spotify/misc/extension/ExtensionPatchKt 
 
 public final class app/revanced/patches/spotify/misc/fix/SpoofClientPatchKt {
 	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/spotify/misc/fix/SpoofPackageInfoPatchKt {
-	public static final fun getSpoofPackageInfoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/misc/fix/login/FixFacebookLoginPatchKt {
