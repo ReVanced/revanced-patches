@@ -5,6 +5,8 @@ import static app.revanced.extension.shared.Utils.dipToPixels;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -39,6 +41,11 @@ import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
 import app.revanced.extension.youtube.sponsorblock.requests.SBRequester;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockViewController;
 
+/**
+ * Handles showing, scheduling, and skipping of all {@link SponsorSegment} for the current video.
+ *
+ * Class is not thread safe. All methods must be called on the main thread unless otherwise specified.
+ */
 public class SegmentPlaybackController {
     /**
      * Length of time to show a skip button for a highlight segment,
@@ -244,7 +251,7 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Must be called off main thread
+     * Must be called off main thread.
      */
     static void executeDownloadSegments(@NonNull String videoId) {
         Objects.requireNonNull(videoId);
@@ -297,6 +304,12 @@ public class SegmentPlaybackController {
             Logger.printDebug(() -> "setVideoTime: " + millis);
 
             updateHiddenSegments(millis);
+
+            // Clear skippedSegmentUndo if video time is outside the segment.
+            if (skippedSegmentUndo != null && !skippedSegmentUndo.containsTime(millis)) {
+                Logger.printDebug(() -> "Clearing skippedSegmentUndo as video time is outside segment: " + skippedSegmentUndo);
+                skippedSegmentUndo = null;
+            }
 
             final float playbackSpeed = VideoInformation.getPlaybackSpeed();
             // Amount of time to look ahead for the next segment,
@@ -367,8 +380,8 @@ public class SegmentPlaybackController {
 
                 // Do not schedule upcoming segment, if it is not fully contained inside the current segment.
                 if ((foundSegmentCurrentlyPlaying == null || foundSegmentCurrentlyPlaying.containsSegment(segment))
-                     // use the most inner upcoming segment
-                     && (foundUpcomingSegment == null || foundUpcomingSegment.containsSegment(segment))) {
+                        // Use the most inner upcoming segment.
+                        && (foundUpcomingSegment == null || foundUpcomingSegment.containsSegment(segment))) {
 
                     // Only schedule, if the segment start time is not near the end time of the current segment.
                     // This check is needed to prevent scheduled hide and show from clashing with each other.
@@ -474,7 +487,7 @@ public class SegmentPlaybackController {
                                     + " videoInformation time: " + videoTime);
                             return;
                         }
-                        if (segmentToSkip.shouldAutoSkip() && segmentToSkip != skippedSegmentUndo) {
+                        if (segmentToSkip.shouldAutoSkip()) {
                             Logger.printDebug(() -> "Running scheduled skip segment: " + segmentToSkip);
                             skipSegment(segmentToSkip, false);
                         } else {
@@ -485,11 +498,6 @@ public class SegmentPlaybackController {
                 }
             }
 
-            // Clear if video time is outside the segment.
-            if (skippedSegmentUndo != null && !skippedSegmentUndo.containsTime(millis)) {
-                Logger.printDebug(() -> "Clearing skippedSegmentUndo as video time is outside segment: " + skippedSegmentUndo);
-                skippedSegmentUndo = null;
-            }
         } catch (Exception e) {
             Logger.printException(() -> "setVideoTime failure", e);
         }
@@ -591,6 +599,17 @@ public class SegmentPlaybackController {
                         }
                     }
                 }
+                // Update skippedSegmentUndo only if it doesn't overlap with an existing skippedSegmentUndo.
+                if (skippedSegmentUndo == null ||
+                        segmentToSkip == skippedSegmentUndo ||
+                        !skippedSegmentUndo.containsSegment(segmentToSkip) &&
+                                !segmentToSkip.containsSegment(skippedSegmentUndo)) {
+                    skippedSegmentUndo = segmentToSkip;
+                    Logger.printDebug(() -> "Updated skippedSegmentUndo to: " + skippedSegmentUndo);
+                } else {
+                    Logger.printDebug(() -> "Retaining original skippedSegmentUndo: " + skippedSegmentUndo +
+                            " as it overlaps with new segment: " + segmentToSkip);
+                }
             }
 
             if (segmentToSkip.category == SegmentCategory.UNSUBMITTED) {
@@ -626,12 +645,9 @@ public class SegmentPlaybackController {
                 String message = toastNumberOfSegmentsSkipped == 1
                         ? toastSegmentSkipped.getSkippedToastText()
                         : str("revanced_sb_skipped_multiple_segments");
-                if (!Settings.SB_SHOW_UNDO_SKIP_TOAST.get())
-                    Utils.showToastShort(message);
-                else {
-                    SponsorSegment segmentForTap = toastSegmentSkipped;
-                    showToastShortWithTapAction(message, segmentForTap);
-                }
+
+                SponsorSegment segmentForTap = toastSegmentSkipped;
+                showToastShortWithTapAction(message, segmentForTap);
             } catch (Exception ex) {
                 Logger.printException(() -> "showSkippedSegmentToast failure", ex);
             } finally {
@@ -647,7 +663,6 @@ public class SegmentPlaybackController {
             Context currentContext = SponsorBlockViewController.getOverLaysViewGroupContext();
             if (currentContext == null) {
                 Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast, null);
-                Toast.makeText(Utils.getContext(), messageToToast, Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -657,18 +672,26 @@ public class SegmentPlaybackController {
 
                 LinearLayout mainLayout = new LinearLayout(currentContext);
                 mainLayout.setOrientation(LinearLayout.VERTICAL);
-                mainLayout.setPadding(dipToPixels(16), dipToPixels(8), dipToPixels(16), dipToPixels(8));
+                final int dip8 = dipToPixels(8);
+                final int dip16 = dipToPixels(16);
+                mainLayout.setPadding(dip16, dip8, dip16, dip8);
                 mainLayout.setGravity(Gravity.CENTER);
                 mainLayout.setMinimumHeight(dipToPixels(48));
 
                 ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
                         Utils.createCornerRadii(20), null, null));
-                background.getPaint().setColor(Utils.getDialogBackgroundColor());
+                int backgroundColor = Utils.getDialogBackgroundColor();
+                int initialAlpha = (int) (255 * 0.8);
+                background.getPaint().setColor(Color.argb(initialAlpha,
+                        Color.red(backgroundColor), Color.green(backgroundColor), Color.blue(backgroundColor)));
                 mainLayout.setBackground(background);
 
                 TextView textView = new TextView(currentContext);
                 textView.setText(messageToToast);
                 textView.setTextSize(14);
+                int textColor = Utils.getAppForegroundColor();
+                textView.setTextColor(Color.argb(initialAlpha,
+                        Color.red(textColor), Color.green(textColor), Color.blue(textColor)));
                 textView.setTextColor(Utils.getAppForegroundColor());
                 textView.setGravity(Gravity.CENTER);
                 LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
@@ -690,6 +713,8 @@ public class SegmentPlaybackController {
                                 + segmentForTap.start + ", video state: " + VideoState.getCurrent());
                         skippedSegmentUndo = segmentForTap;
                         boolean seekSuccessful = VideoInformation.seekTo(segmentForTap.start);
+                        setSegmentCurrentlyPlaying(segmentForTap);
+                        SponsorBlockViewController.showSkipSegmentButton(segmentForTap);
                         Logger.printDebug(() -> "Seek result: " + seekSuccessful);
                         if (!seekSuccessful) {
                             Logger.printDebug(() -> "Seek failed for segment start: " + segmentForTap.start);
@@ -706,20 +731,26 @@ public class SegmentPlaybackController {
                 Window window = dialog.getWindow();
                 if (window != null) {
                     WindowManager.LayoutParams params = window.getAttributes();
-                    DisplayMetrics metrics = currentContext.getResources().getDisplayMetrics();
-                    params.width = (int) (metrics.widthPixels * 0.6);
-                    params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-                    params.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
-                    params.y = dipToPixels(96);
+                    params.gravity = Gravity.BOTTOM;
+                    params.y = dipToPixels(72);
+                    DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
+                    int portraitWidth = (int) (displayMetrics.widthPixels * 0.6);
+
+                    if (Resources.getSystem().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                        portraitWidth = (int) Math.min(portraitWidth, displayMetrics.heightPixels * 0.6);
+                    }
+                    params.width = portraitWidth;
+                    params.dimAmount = 0.0f;
                     window.setAttributes(params);
                     window.setBackgroundDrawable(null);
+                    window.addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
+                    window.addFlags(WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
                 }
 
                 Logger.printDebug(() -> "Showing toast: " + messageToToast);
                 dialog.show();
 
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(dialog::dismiss, 4000); // 4 sec.
+                Utils.runOnMainThreadDelayed(() -> dialog.dismiss(), 4000); // 4 sec.
             } catch (Exception ex) {
                 Logger.printException(() -> "Failed to show custom toast, falling back to standard Toast", ex);
                 Toast.makeText(currentContext, messageToToast, Toast.LENGTH_SHORT).show();
@@ -727,6 +758,9 @@ public class SegmentPlaybackController {
         });
     }
 
+    /**
+     * @param segment can be either a highlight or a regular manual skip segment.
+     */
     public static void onSkipSegmentClicked(@NonNull SponsorSegment segment) {
         try {
             if (segment != highlightSegment && segment != segmentCurrentlyPlaying) {
@@ -843,6 +877,9 @@ public class SegmentPlaybackController {
         }
     }
 
+    /**
+     * Actual screen pixel width to use for the highlight segment time bar.
+     */
     private static final int highlightSegmentTimeBarScreenWidth = dipToPixels(HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH);
 
     /**

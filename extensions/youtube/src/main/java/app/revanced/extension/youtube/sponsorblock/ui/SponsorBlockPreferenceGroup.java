@@ -244,31 +244,12 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             showSkipToast.setTitle(str("revanced_sb_general_skiptoast"));
             showSkipToast.setSummaryOn(str("revanced_sb_general_skiptoast_sum_on"));
             showSkipToast.setSummaryOff(str("revanced_sb_general_skiptoast_sum_off"));
-            showSkipToast.setOnPreferenceClickListener(preference1 -> {
-                Utils.showToastShort(str("revanced_sb_skipped_sponsor"));
-                return false;
-            });
             showSkipToast.setOnPreferenceChangeListener((preference1, newValue) -> {
                 Settings.SB_TOAST_ON_SKIP.save((Boolean) newValue);
                 updateUI();
                 return true;
             });
             appearanceCategory.addPreference(showSkipToast);
-
-            showUndoSkipToast = new SwitchPreference(context);
-            showUndoSkipToast.setTitle(str("revanced_sb_general_undo_skiptoast"));
-            showUndoSkipToast.setSummaryOn(str("revanced_sb_general_undo_skiptoast_sum_on"));
-            showUndoSkipToast.setSummaryOff(str("revanced_sb_general_undo_skiptoast_sum_off"));
-            showUndoSkipToast.setOnPreferenceClickListener(preference1 -> {
-                showToastShortWithTapAction(str("revanced_sb_skipped_sponsor"), null);
-                return false;
-            });
-            showUndoSkipToast.setOnPreferenceChangeListener((preference1, newValue) -> {
-                Settings.SB_SHOW_UNDO_SKIP_TOAST.save((Boolean) newValue);
-                updateUI();
-                return true;
-            });
-            appearanceCategory.addPreference(showUndoSkipToast);
 
             showTimeWithoutSegments = new SwitchPreference(context);
             showTimeWithoutSegments.setTitle(str("revanced_sb_general_time_without"));

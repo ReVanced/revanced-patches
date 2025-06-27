@@ -1024,12 +1024,9 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatically hide Skip button</string>
             <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds</string>
             <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button is shown for the entire segment</string>
-            <string name="revanced_sb_general_skiptoast">Show a toast when skipping</string>
-            <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example</string>
-            <string name="revanced_sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example</string>
-            <string name="revanced_sb_general_undo_skiptoast">Show undo skip toast</string>
-            <string name="revanced_sb_general_undo_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap the toast notification to undo the skip. Tap here to see an example</string>
-            <string name="revanced_sb_general_undo_skiptoast_sum_off">Toast is not shown. Tap here to see an example</string>
+            <string name="revanced_sb_general_skiptoast">Show undo skip toast</string>
+            <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap the toast notification to undo the skip</string>
+            <string name="revanced_sb_general_skiptoast_sum_off">Toast is not shown</string>
             <string name="revanced_sb_general_time_without">Show video length without segments</string>
             <string name="revanced_sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length</string>
             <string name="revanced_sb_general_time_without_sum_off">Full video length shown</string>
