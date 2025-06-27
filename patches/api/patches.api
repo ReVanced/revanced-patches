@@ -164,6 +164,10 @@ public final class app/revanced/patches/cieid/restrictions/root/BypassRootChecks
 	public static final fun getBypassRootChecksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/cricbuzz/ads/DisableAdsPatchKt {
+	public static final fun getDisableAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/crunchyroll/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

@@ -773,6 +773,9 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_hide_shorts_upcoming_button_title">Paslēpt pogu \"Gaidāmie\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Nākamās pogas ir paslēptas</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Nākamās pogas ir redzamas</string>
+  <string name="revanced_hide_shorts_effect_button_title">Paslēpt efekta pogu</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Efekta poga ir paslēpta</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Efekta poga ir redzama</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Paslēpt pogu \"Zaļais ekrāns\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Zaļā ekrāna poga ir paslēpta</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Zaļā ekrāna poga ir redzama</string>

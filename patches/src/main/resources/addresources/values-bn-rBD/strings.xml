@@ -769,6 +769,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_upcoming_button_title">আসন্ন বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">আগামী বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">আগামী বোতাম দেখানো হচ্ছে</string>
+  <string name="revanced_hide_shorts_effect_button_title">ইফেক্ট বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">ইফেক্ট বাটন লুকানো আছে</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">ইফেক্ট বাটন দেখানো আছে</string>
   <string name="revanced_hide_shorts_green_screen_button_title">গ্রিন স্ক্রিন বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">সবুজ পর্দা বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">সবুজ পর্দা বোতাম দেখানো হচ্ছে</string>

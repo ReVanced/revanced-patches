@@ -59,7 +59,7 @@ class LoginRequestListener extends NanoHTTPD {
 
         boolean isInitialLogin = !loginRequest.hasStoredCredential();
         if (isInitialLogin) {
-            Logger.printInfo(() -> "Received initial login request");
+            Logger.printInfo(() -> "Received request for initial login");
             session = WebApp.currentSession; // Session obtained from WebApp.login.
         } else {
             Logger.printInfo(() -> "Received request to restore saved session");

@@ -24,12 +24,12 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">チェックに失敗しました</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">公式サイトを開く</string>
   <string name="revanced_check_environment_dialog_ignore_button">無視</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;このアプリはあなたによってパッチが適用されていないようです。&lt;/h5&gt;&lt;br&gt;このアプリは正しく機能しない可能性があり、&lt;b&gt;使用すると有害または危険になる可能性があります&lt;/b&gt;。&lt;br&gt;&lt;br&gt;これらのチェックは、このアプリが事前にパッチが適用されているか、または他の誰かから取得されたことを意味します:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;検証済みで安全なアプリを使用していることを確認するために、&lt;b&gt;このアプリをアンインストールして自分でパッチを適用する&lt;/b&gt;ことを強くお勧めします。&lt;p&gt;&lt;br&gt;無視した場合、この警告は 2 回のみ表示されます。</string>
-  <string name="revanced_check_environment_not_same_patching_device">別のデバイスでパッチが適用されています</string>
-  <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager によってインストールされていません</string>
-  <string name="revanced_check_environment_not_near_patch_time">10 分以上前にパッチが適用されています</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">%s 日前にパッチが適用されています</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK の作成日時データが破損しています</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;このアプリはあなたによってパッチが適用されていないようです。&lt;/h5&gt;&lt;br&gt;このアプリは正しく機能しない可能性があり、&lt;b&gt;使用すると有害または危険になる可能性があります&lt;/b&gt;。&lt;br&gt;&lt;br&gt;これらのチェックは、このアプリが事前にパッチが適用されているか、または他の誰かから取得されたことを意味します:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;検証済みで安全なアプリを使用していることを確認するために、&lt;b&gt;このアプリをアンインストールして自分でパッチを適用する&lt;/b&gt;ことを強くおすすめします。&lt;p&gt;&lt;br&gt;無視した場合、この警告は 2 回のみ表示されます。</string>
+  <string name="revanced_check_environment_not_same_patching_device">別のデバイス上でパッチが適用されている</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager によってインストールされていない</string>
+  <string name="revanced_check_environment_not_near_patch_time">10 分以上前にパッチが適用されている</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">%s 日前にパッチが適用されている</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK の作成日時データが破損している</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">設定</string>
@@ -91,11 +91,11 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_settings_screen_01_ads_title">広告</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">代替サムネイル</string>
   <string name="revanced_settings_screen_03_feed_title">フィード</string>
-  <string name="revanced_settings_screen_04_general_title">一般</string>
+  <string name="revanced_settings_screen_04_general_title">全般</string>
   <string name="revanced_settings_screen_05_player_title">プレーヤー</string>
   <string name="revanced_settings_screen_06_shorts_title">ショート</string>
   <string name="revanced_settings_screen_07_seekbar_title">シークバー</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">スワイプコントロール</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">スワイプ コントロール</string>
   <string name="revanced_settings_screen_11_misc_title">その他</string>
   <string name="revanced_settings_screen_12_video_title">動画</string>
   <string name="revanced_restore_old_settings_menus_title">古い設定メニューを復元</string>
@@ -188,8 +188,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_show_more_button_summary_on">「もっと見る」ボタンを非表示にします</string>
   <string name="revanced_hide_show_more_button_summary_off">「もっと見る」ボタンを非表示にします</string>
   <string name="revanced_hide_ticket_shelf_title">チケット欄を非表示</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">チケット欄は表示されません</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">チケット欄は表示されます</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">チケット欄を非表示にします</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">チケット欄を非表示にします</string>
   <string name="revanced_hide_timed_reactions_title">Timed Reaction を非表示</string>
   <string name="revanced_hide_timed_reactions_summary_on">Timed Reaction とチャット欄のハートマーク アイコンは表示されません</string>
   <string name="revanced_hide_timed_reactions_summary_off">Timed Reaction とチャット欄のハートマー ク アイコンは表示されます</string>
@@ -536,8 +536,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_share_button_summary_off">共有ボタンは表示されます</string>
   <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_stop_ads_button_title">「広告を停止」を非表示</string>
-  <string name="revanced_hide_stop_ads_button_summary_on">「広告を停止」ボタンは表示されません</string>
-  <string name="revanced_hide_stop_ads_button_summary_off">「広告を停止」ボタンは表示されます</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">「広告を停止」ボタンを非表示にします</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">「広告を停止」ボタンを非表示にします</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">報告ボタンを非表示</string>
@@ -766,14 +766,17 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_shorts_save_sound_button_summary_on">「音楽を保存」ボタンは表示されません</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">「音楽を保存」ボタンは表示されます</string>
   <string name="revanced_hide_shorts_use_sound_button_title">「このサウンドを使用する」ボタンを非表示</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_on">「このサウンドを使用する」ボタンは表示されません</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_off">「このサウンドを使用する」ボタンは表示されます</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">「このサウンドを使用する」ボタンを非表示にします</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">「このサウンドを使用する」ボタンを非表示にします</string>
   <string name="revanced_hide_shorts_use_template_button_title">「このテンプレートを使用する」ボタンを非表示</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">「このテンプレートを使用する」ボタンは表示されません</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">「このテンプレートを使用する」ボタンは表示されます</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">「このテンプレートを使用する」ボタンを非表示にします</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">「このテンプレートを使用する」ボタンを非表示にします</string>
   <string name="revanced_hide_shorts_upcoming_button_title">今後の動画ボタンを非表示</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">今後の動画ボタンは表示されません</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">今後の動画ボタンは表示されます</string>
+  <string name="revanced_hide_shorts_effect_button_title">効果ボタンを非表示</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">効果ボタンは表示されません</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">効果ボタンは表示されます</string>
   <string name="revanced_hide_shorts_green_screen_button_title">グリーンスクリーン ボタンを非表示</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">グリーンスクリーン ボタンは表示されません</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">グリーンスクリーン ボタンは表示されます</string>
@@ -1396,9 +1399,9 @@ Automotive レイアウト
   <string name="revanced_remember_video_quality_last_selected_title">画質の変更を保存する</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">画質の変更はすべての動画に適用されます</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">画質の変更は現在の動画にのみ適用されます</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_title">画質変更時にトーストを表示する</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">デフォルトの動画品質が変更されると、トースト ポップアップが表示されます</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">デフォルトの動画品質が変更されても、トースト ポップアップは表示されません</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">画質の変更時にトーストを表示</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">デフォルトの画質が変更された際に、トースト ポップアップを表示します</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">デフォルトの画質が変更された際に、トースト ポップアップを表示します</string>
   <string name="revanced_video_quality_default_wifi_title">デフォルトの画質（Wi-Fi）</string>
   <string name="revanced_video_quality_default_mobile_title">デフォルトの画質（携帯回線）</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">ショートの画質の変更を保存する</string>
@@ -1432,9 +1435,9 @@ Automotive レイアウト
   <string name="revanced_remember_playback_speed_last_selected_title">再生速度の変更を保存する</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">再生速度の変更はすべての動画に適用されます</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">再生速度の変更は現在の動画にのみ適用されます</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_title">再生速度変更時にトーストを表示</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">デフォルトの再生速度が変更されると、トースト ポップアップが表示されます</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">デフォルトの再生速度が変更されても、トースト ポップアップは表示されません</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">再生速度の変更時にトーストを表示</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">デフォルトの再生速度が変更された際に、トースト ポップアップを表示します</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">デフォルトの再生速度が変更された際に、トースト ポップアップを表示します</string>
   <string name="revanced_playback_speed_default_title">デフォルトの再生速度</string>
   <string name="revanced_remember_playback_speed_toast">デフォルトの再生速度: %s</string>
   </patch>
@@ -1532,13 +1535,13 @@ AVC は、最大解像度が 1080p であり、Opus オーディオ コーデッ
   <string name="revanced_chat_screen_summary">チャットの設定</string>
   <string name="revanced_misc_screen_title">その他</string>
   <string name="revanced_misc_screen_summary">その他の設定</string>
-  <string name="revanced_general_category_title">一般設定</string>
+  <string name="revanced_general_category_title">全般設定</string>
   <string name="revanced_other_category_title">その他の設定</string>
-  <string name="revanced_client_ads_category_title">クライアントサイド広告</string>
-  <string name="revanced_surestream_ads_category_title">サーバー側サレストリーム広告</string>
-  <string name="revanced_twitch_debug_title">デバッグログ</string>
-  <string name="revanced_twitch_debug_summary_on">デバッグログは有効です</string>
-  <string name="revanced_twitch_debug_summary_off">デバッグログは無効です</string>
+  <string name="revanced_client_ads_category_title">クライアント側広告</string>
+  <string name="revanced_surestream_ads_category_title">サーバー側 SureStream 広告</string>
+  <string name="revanced_twitch_debug_title">デバッグログを有効化</string>
+  <string name="revanced_twitch_debug_summary_on">デバッグログを有効にします</string>
+  <string name="revanced_twitch_debug_summary_off">デバッグログを有効にします</string>
   </patch>
   </app>
 </resources>

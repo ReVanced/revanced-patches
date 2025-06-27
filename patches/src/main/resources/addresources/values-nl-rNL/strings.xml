@@ -773,6 +773,9 @@ Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS T
   <string name="revanced_hide_shorts_upcoming_button_title">Verberg de knop \"Aanstaande\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">De \"Volgende\" knop is verborgen</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">De \"Volgende\" knop is zichtbaar</string>
+  <string name="revanced_hide_shorts_effect_button_title">Verberg effectknop</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Effectknop is verborgen</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Effectknop is weergegeven</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Verberg de knop \"Groen scherm\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">De knop \"Groen scherm\" is verborgen</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">De knop \"Groen scherm\" is zichtbaar</string>

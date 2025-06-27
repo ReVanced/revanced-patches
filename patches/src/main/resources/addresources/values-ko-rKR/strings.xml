@@ -62,7 +62,7 @@ Second \"item\" text"</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">ReVanced Patches &lt;i&gt;%s&lt;/i&gt;&lt;br&gt;버전을 사용 중입니다</string>
   <string name="revanced_settings_about_links_dev_header">알림</string>
-  <string name="revanced_settings_about_links_dev_body">Pre-Release 버전이므로&lt;br&gt;알려지지 않은 문제점이&lt;br&gt;발생할 수 있습니다</string>
+  <string name="revanced_settings_about_links_dev_body">Pre-release 버전이므로&lt;br&gt;알려지지 않은 문제점이&lt;br&gt;발생할 수 있습니다</string>
   <string name="revanced_settings_about_links_header">공식 링크</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -773,6 +773,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_upcoming_button_title">예정 버튼 숨기기</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">(Premiere 또는 실시간) 예정 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">(Premiere 또는 실시간) 예정 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_effect_button_title">효과 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">효과 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">효과 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_green_screen_button_title">그린 스크린 버튼 숨기기</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">그린 스크린 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">그린 스크린 버튼이 표시됩니다</string>
@@ -1406,8 +1409,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값이 변경될 때마다 기본 동영상 화질으로 저장합니다</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값이 변경될 때마다 기본 동영상 화질으로 저장하지 않습니다</string>
   <string name="revanced_remember_video_quality_last_selected_toast_title">동영상 화질 변경 메시지 표시하기</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">기본 동영상 화질 값이 변경되었을 때, 팝업 메시지를 표시합니다</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">기본 동영상 화질 값이 변경되었을 때, 팝업 메시지를 표시하지 않습니다</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">기본 동영상 화질 값이 변경될 때마다 팝업 메시지를 표시합니다</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">기본 동영상 화질 값이 변경될 때마다 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 이용 시 기본 동영상 화질</string>
   <string name="revanced_video_quality_default_mobile_title">모바일 네트워크 이용 시 기본 동영상 화질</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Shorts 화질 저장 활성화하기</string>
@@ -1442,8 +1445,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값이 변경될 때마다 기본 동영상 재생 속도로 저장합니다</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값이 변경될 때마다 기본 동영상 재생 속도로 저장하지 않습니다</string>
   <string name="revanced_remember_playback_speed_last_selected_toast_title">동영상 재생 속도 변경 메시지 표시하기</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">기본 동영상 재생 속도 값이 변경되었을 때, 팝업 메시지를 표시합니다</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">기본 동영상 재생 속도 값이 변경되었을 때, 팝업 메시지를 표시하지 않습니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">기본 동영상 재생 속도 값이 변경될 때마다 팝업 메시지를 표시합니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">기본 동영상 재생 속도 값이 변경될 때마다 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_playback_speed_default_title">기본 동영상 재생 속도</string>
   <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경하였습니다</string>
   </patch>

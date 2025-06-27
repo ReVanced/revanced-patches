@@ -344,10 +344,13 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_description_components_screen_summary">Hide or show video description components</string>
 
             <string name="revanced_hide_filter_bar_screen_title">Filter bar</string>
-            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feed, search results, and related videos</string>
-            <string name="revanced_hide_filter_bar_feed_in_feed_title">Hide in feed</string>
-            <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Hidden in feed</string>
-            <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Shown in feed</string>
+            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feeds, history, search results, and related videos</string>
+            <string name="revanced_hide_filter_bar_feed_in_feed_title">Hide in feeds</string>
+            <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Hidden in feeds</string>
+            <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Shown in feeds</string>
+            <string name="revanced_hide_filter_bar_feed_in_history_title">Hide in history</string>
+            <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Hidden in history</string>
+            <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Shown in history</string>
             <string name="revanced_hide_filter_bar_feed_in_search_title">Hide in search results</string>
             <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Hidden in search results</string>
             <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Shown in search results</string>
@@ -835,6 +838,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_shorts_upcoming_button_title">Hide Upcoming button</string>
             <string name="revanced_hide_shorts_upcoming_button_summary_on">Upcoming button is hidden</string>
             <string name="revanced_hide_shorts_upcoming_button_summary_off">Upcoming button is shown</string>
+            <string name="revanced_hide_shorts_effect_button_title">Hide Effect button</string>
+            <string name="revanced_hide_shorts_effect_button_summary_on">Effect button is hidden</string>
+            <string name="revanced_hide_shorts_effect_button_summary_off">Effect button is shown</string>
             <string name="revanced_hide_shorts_green_screen_button_title">Hide Green screen button</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_on">Green screen button is hidden</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_off">Green screen button is shown</string>

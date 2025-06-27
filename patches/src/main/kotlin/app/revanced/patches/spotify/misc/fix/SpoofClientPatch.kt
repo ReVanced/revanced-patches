@@ -13,6 +13,7 @@ import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -179,5 +180,7 @@ val spoofClientPatch = bytecodePatch(
                 """
             )
         }
+        // Early return to block sending bad verdicts to the API.
+        standardIntegrityTokenProviderBuilderFingerprint.method.returnEarly()
     }
 }

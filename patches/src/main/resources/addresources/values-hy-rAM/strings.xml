@@ -773,6 +773,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_upcoming_button_title">Թաքցնել Առաջիկա կոճակը</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">\"Upcoming\" կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">\"Upcoming\" կոճակը երևում է</string>
+  <string name="revanced_hide_shorts_effect_button_title">Թաքցնել Էֆեկտ կոճակը</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Էֆեկտի կոճակը թաքնված է</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Էֆեկտի կոճակը ցուցադրված է</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Թաքցնել Կանաչ էկրան կոճակը</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Green Screen\" կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Green Screen\" կոճակը երևում է</string>

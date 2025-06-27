@@ -35,3 +35,11 @@ internal val thirdLoginScreenRenderFingerprint = fingerprint {
 internal val thirdLoginScreenLoginOnClickFingerprint = fingerprint {
     strings("login", "listener", "none")
 }
+
+internal val standardIntegrityTokenProviderBuilderFingerprint = fingerprint {
+    strings(
+        "standard_pi_init",
+        "outcome",
+        "success"
+    )
+}
