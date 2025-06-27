@@ -1,3 +1,18 @@
+# [5.30.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.29.1-dev.1...v5.30.0-dev.1) (2025-06-27)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Fix "Hide shopping links" ([#5267](https://github.com/ReVanced/revanced-patches/issues/5267)) ([2fe4607](https://github.com/ReVanced/revanced-patches/commit/2fe46079d78ab98076d3a4cdf01c8bfdbdea45c0))
+* **YouTube - Hide layout components:** Fix "Hide AI-generated video summary" in video description ([#5269](https://github.com/ReVanced/revanced-patches/issues/5269)) ([5203da0](https://github.com/ReVanced/revanced-patches/commit/5203da0ae58e467657bc915ab0af5b9904c4f492))
+* **YouTube - Hide Shorts components:** Fix hiding of untoggled components ([#5266](https://github.com/ReVanced/revanced-patches/issues/5266)) ([008e192](https://github.com/ReVanced/revanced-patches/commit/008e192779a8658e894d5718baa732717bf96e40))
+
+
+### Features
+
+* **Spotify:** Remove ads section from browse ([#5193](https://github.com/ReVanced/revanced-patches/issues/5193)) ([ebd4dcc](https://github.com/ReVanced/revanced-patches/commit/ebd4dccf12a5fbd31d2d53c19a792c389a4641d7))
+* **YouTube - Hide layout components:** Add `Hide in history` option to filter bar ([#5271](https://github.com/ReVanced/revanced-patches/issues/5271)) ([ba242a3](https://github.com/ReVanced/revanced-patches/commit/ba242a36b040b82e84870e5e240734637125a472))
+
 ## [5.29.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.29.0...v5.29.1-dev.1) (2025-06-26)
 
 
