@@ -563,111 +563,27 @@ public class Utils {
      * Safe to call from any thread.
      */
     public static void showToastShort(String messageToToast) {
-        showToast(messageToToast, Toast.LENGTH_SHORT, null, false);
+        showToast(messageToToast, Toast.LENGTH_SHORT);
     }
 
     /**
      * Safe to call from any thread.
      */
     public static void showToastLong(String messageToToast) {
-        showToast(messageToToast, Toast.LENGTH_LONG, null, false);
+        showToast(messageToToast, Toast.LENGTH_LONG);
     }
 
-    /**
-     * Safe to call from any thread.
-     */
-    public static void showToastShortWithTapAction(String messageToToast, Runnable onTapAction) {
-        showToast(messageToToast, Toast.LENGTH_SHORT, onTapAction, true);
-    }
-
-    /**
-     * Safe to call from any thread.
-     */
-    private static void showToast(String messageToToast, int toastDuration, @Nullable Runnable onTapAction, boolean withTapEffect) {
+    private static void showToast(String messageToToast, int toastDuration) {
         Objects.requireNonNull(messageToToast);
         runOnMainThreadNowOrLater(() -> {
             Context currentContext = context;
 
             if (currentContext == null) {
                 Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast, null);
-                return;
+            } else {
+                Logger.printDebug(() -> "Showing toast: " + messageToToast);
+                Toast.makeText(currentContext, messageToToast, toastDuration).show();
             }
-
-            Logger.printDebug(() -> "Showing toast: " + messageToToast);
-
-            // Create custom dialog for toast.
-            Dialog dialog = new Dialog(currentContext, android.R.style.Theme_Translucent_NoTitleBar);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-            // Create main layout.
-            LinearLayout mainLayout = new LinearLayout(currentContext);
-            mainLayout.setOrientation(LinearLayout.VERTICAL);
-            mainLayout.setPadding(dipToPixels(16), dipToPixels(8), dipToPixels(16), dipToPixels(8));
-
-            // Set rounded rectangle background.
-            ShapeDrawable background = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
-            int backgroundColor = getDialogBackgroundColor();
-            int initialAlpha = (int) (255 * 0.8); // 80% opacity.
-            background.getPaint().setColor(Color.argb(initialAlpha,
-                    Color.red(backgroundColor), Color.green(backgroundColor), Color.blue(backgroundColor)));
-            mainLayout.setBackground(background);
-
-            // Create text view.
-            TextView textView = new TextView(currentContext);
-            textView.setText(messageToToast);
-            textView.setTextSize(14);
-            textView.setTextColor(getAppForegroundColor());
-            textView.setGravity(Gravity.CENTER);
-            LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-            );
-            textView.setLayoutParams(textParams);
-            mainLayout.addView(textView);
-
-            // Set click listener if tap action is provided.
-            if (onTapAction != null) {
-                mainLayout.setOnClickListener(v -> {
-                    onTapAction.run();
-                    dialog.dismiss();
-                });
-            }
-
-            dialog.setContentView(mainLayout);
-
-            // Set dialog window attributes.
-            Window window = dialog.getWindow();
-            if (window != null) {
-                WindowManager.LayoutParams params = window.getAttributes();
-                params.width = WindowManager.LayoutParams.WRAP_CONTENT;
-                params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-                params.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
-                params.y = dipToPixels(50); // Offset from bottom.
-                window.setAttributes(params);
-                window.setBackgroundDrawable(null);
-            }
-
-            dialog.show();
-
-            // Handle duration and opacity change.
-            int totalDuration = withTapEffect
-                    ? 4000 // 2x LENGTH_SHORT for withTapEffect
-                    : (toastDuration == Toast.LENGTH_SHORT ? 2000 : 3500);
-            Handler handler = new Handler(Looper.getMainLooper());
-
-            if (withTapEffect) {
-                // After first LENGTH_SHORT (2000ms), reduce opacity to 50%.
-                handler.postDelayed(() -> {
-                    if (dialog.isShowing()) {
-                        background.getPaint().setColor(Color.argb((int) (255 * 0.5),
-                                Color.red(backgroundColor), Color.green(backgroundColor), Color.blue(backgroundColor)));
-                        mainLayout.invalidate();
-                    }
-                }, 2000);
-            }
-
-            // Auto-dismiss after total duration.
-            handler.postDelayed(dialog::dismiss, totalDuration);
         });
     }
 
