@@ -183,6 +183,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 key = "revanced_hide_filter_bar_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_history"),
                     SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
                     SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos"),
                 ),

@@ -1,5 +1,6 @@
 package app.revanced.patches.spotify.misc
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -180,21 +181,40 @@ val unlockPremiumPatch = bytecodePatch(
         abstractProtobufListEnsureIsMutableFingerprint.match(abstractProtobufListClassDef)
             .method.returnEarly()
 
-        // Make featureTypeCase_ accessible so we can check the home section type in the extension.
-        homeSectionFingerprint.classDef.publicizeField("featureTypeCase_")
+        fun injectRemoveSectionCall(
+            sectionFingerprint: Fingerprint,
+            structureFingerprint: Fingerprint,
+            fieldName: String,
+            methodName: String
+        ) {
+            // Make field accessible so we can check the home/browse section type in the extension.
+            sectionFingerprint.classDef.publicizeField(fieldName)
 
-        // Remove ads sections from home.
-        homeStructureGetSectionsFingerprint.method.apply {
-            val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
-            val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
+            structureFingerprint.method.apply {
+                val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
+                val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
 
-            addInstruction(
-                getSectionsIndex + 1,
-                "invoke-static { v$sectionsRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->removeHomeSections(Ljava/util/List;)V"
-            )
+                addInstruction(
+                    getSectionsIndex + 1,
+                    "invoke-static { v$sectionsRegister }, " +
+                            "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Ljava/util/List;)V"
+                )
+            }
         }
 
+        injectRemoveSectionCall(
+            homeSectionFingerprint,
+            homeStructureGetSectionsFingerprint,
+            "featureTypeCase_",
+            "removeHomeSections"
+        )
+
+        injectRemoveSectionCall(
+            browseSectionFingerprint,
+            browseStructureGetSectionsFingerprint,
+            "sectionTypeCase_",
+            "removeBrowseSections"
+        )
 
         // Replace a fetch request that returns and maps Singles with their static onErrorReturn value.
         fun MutableMethod.replaceFetchRequestSingleWithError(requestClassName: String) {

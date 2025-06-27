@@ -93,17 +93,27 @@ internal val abstractProtobufListEnsureIsMutableFingerprint by fingerprint {
     }
 }
 
-internal val homeSectionFingerprint by fingerprint {
-    custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
-}
-
-internal val homeStructureGetSectionsFingerprint by fingerprint {
+private fun structureGetSectionsFingerprint(className: String) = fingerprint {
     custom { method, classDef ->
-        classDef.endsWith("homeapi/proto/HomeStructure;") && method.indexOfFirstInstruction {
+        classDef.endsWith(className) && method.indexOfFirstInstruction {
             opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.name == "sections_"
         } >= 0
     }
 }
+
+internal val homeSectionFingerprint by fingerprint {
+    custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
+}
+
+internal val homeStructureGetSectionsFingerprint by
+    structureGetSectionsFingerprint("homeapi/proto/HomeStructure;")
+
+internal val browseSectionFingerprint by fingerprint {
+    custom { _, classDef -> classDef.endsWith("browsita/v1/resolved/Section;") }
+}
+
+internal val browseStructureGetSectionsFingerprint by
+    structureGetSectionsFingerprint("browsita/v1/resolved/BrowseStructure;")
 
 internal fun reactivexFunctionApplyWithClassInitFingerprint(className: String) = fingerprint {
     returns("Ljava/lang/Object;")
