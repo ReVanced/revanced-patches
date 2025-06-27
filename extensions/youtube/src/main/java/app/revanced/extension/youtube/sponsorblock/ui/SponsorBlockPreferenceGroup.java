@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.sponsorblock.ui;
 
 import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController.showToastShortWithTapAction;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -59,6 +60,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
     private SwitchPreference compactSkipButton;
     private SwitchPreference squareLayout;
     private SwitchPreference showSkipToast;
+    private SwitchPreference showUndoSkipToast;
     private SwitchPreference trackSkips;
     private SwitchPreference showTimeWithoutSegments;
     private SwitchPreference toastOnConnectionError;
@@ -252,6 +254,21 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 return true;
             });
             appearanceCategory.addPreference(showSkipToast);
+
+            showUndoSkipToast = new SwitchPreference(context);
+            showUndoSkipToast.setTitle(str("revanced_sb_general_undo_skiptoast"));
+            showUndoSkipToast.setSummaryOn(str("revanced_sb_general_undo_skiptoast_sum_on"));
+            showUndoSkipToast.setSummaryOff(str("revanced_sb_general_undo_skiptoast_sum_off"));
+            showUndoSkipToast.setOnPreferenceClickListener(preference1 -> {
+                showToastShortWithTapAction(str("revanced_sb_skipped_sponsor"), null);
+                return false;
+            });
+            showUndoSkipToast.setOnPreferenceChangeListener((preference1, newValue) -> {
+                Settings.SB_SHOW_UNDO_SKIP_TOAST.save((Boolean) newValue);
+                updateUI();
+                return true;
+            });
+            appearanceCategory.addPreference(showUndoSkipToast);
 
             showTimeWithoutSegments = new SwitchPreference(context);
             showTimeWithoutSegments.setTitle(str("revanced_sb_general_time_without"));

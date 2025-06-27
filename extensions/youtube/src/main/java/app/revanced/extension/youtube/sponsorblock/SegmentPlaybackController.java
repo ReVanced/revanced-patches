@@ -626,10 +626,12 @@ public class SegmentPlaybackController {
                 String message = toastNumberOfSegmentsSkipped == 1
                         ? toastSegmentSkipped.getSkippedToastText()
                         : str("revanced_sb_skipped_multiple_segments");
-                message += "\n" + str("revanced_sb_tap_to_unskip");
-
-                SponsorSegment segmentForTap = toastSegmentSkipped;
-                showToastShortWithTapAction(message, segmentForTap);
+                if (!Settings.SB_SHOW_UNDO_SKIP_TOAST.get())
+                    Utils.showToastShort(message);
+                else {
+                    SponsorSegment segmentForTap = toastSegmentSkipped;
+                    showToastShortWithTapAction(message, segmentForTap);
+                }
             } catch (Exception ex) {
                 Logger.printException(() -> "showSkippedSegmentToast failure", ex);
             } finally {
@@ -639,7 +641,7 @@ public class SegmentPlaybackController {
         }, delayToToastMilliseconds);
     }
 
-    private static void showToastShortWithTapAction(String messageToToast, @Nullable SponsorSegment segmentForTap) {
+    public static void showToastShortWithTapAction(String messageToToast, @Nullable SponsorSegment segmentForTap) {
         Objects.requireNonNull(messageToToast);
         Utils.runOnMainThreadNowOrLater(() -> {
             Context currentContext = SponsorBlockViewController.getOverLaysViewGroupContext();
@@ -661,18 +663,13 @@ public class SegmentPlaybackController {
 
                 ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
                         Utils.createCornerRadii(20), null, null));
-                int backgroundColor = Utils.getDialogBackgroundColor();
-                int initialAlpha = (int) (255 * 0.8);
-                background.getPaint().setColor(Color.argb(initialAlpha,
-                        Color.red(backgroundColor), Color.green(backgroundColor), Color.blue(backgroundColor)));
+                background.getPaint().setColor(Utils.getDialogBackgroundColor());
                 mainLayout.setBackground(background);
 
                 TextView textView = new TextView(currentContext);
                 textView.setText(messageToToast);
                 textView.setTextSize(14);
-                int textColor = Utils.getAppForegroundColor();
-                textView.setTextColor(Color.argb(initialAlpha,
-                        Color.red(textColor), Color.green(textColor), Color.blue(textColor)));
+                textView.setTextColor(Utils.getAppForegroundColor());
                 textView.setGravity(Gravity.CENTER);
                 LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -713,31 +710,16 @@ public class SegmentPlaybackController {
                     params.width = (int) (metrics.widthPixels * 0.6);
                     params.height = WindowManager.LayoutParams.WRAP_CONTENT;
                     params.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
-                    params.y = dipToPixels(50);
-                    params.dimAmount = 0.0f;
+                    params.y = dipToPixels(96);
                     window.setAttributes(params);
                     window.setBackgroundDrawable(null);
-                    window.addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
-                    window.addFlags(WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
                 }
 
                 Logger.printDebug(() -> "Showing toast: " + messageToToast);
                 dialog.show();
 
-                int totalDuration = 5000;
                 Handler handler = new Handler(Looper.getMainLooper());
-
-                handler.postDelayed(() -> {
-                    if (dialog.isShowing()) {
-                        background.getPaint().setColor(Color.argb((int) (255 * 0.5),
-                                Color.red(backgroundColor), Color.green(backgroundColor), Color.blue(backgroundColor)));
-                        textView.setTextColor(Color.argb((int) (255 * 0.5),
-                                Color.red(textColor), Color.green(textColor), Color.blue(textColor)));
-                        mainLayout.invalidate();
-                    }
-                }, 2500);
-
-                handler.postDelayed(dialog::dismiss, totalDuration);
+                handler.postDelayed(dialog::dismiss, 4000); // 4 sec.
             } catch (Exception ex) {
                 Logger.printException(() -> "Failed to show custom toast, falling back to standard Toast", ex);
                 Toast.makeText(currentContext, messageToToast, Toast.LENGTH_SHORT).show();
