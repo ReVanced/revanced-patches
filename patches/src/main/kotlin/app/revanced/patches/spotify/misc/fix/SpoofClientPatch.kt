@@ -120,7 +120,7 @@ val spoofClientPatch = bytecodePatch(
             )
         }
 
-        // Early return the integrity builder to avoid making the integrity API call
+        // Early return to block sending bad verdicts to the API.
         standardIntegrityTokenProviderBuilderFingerprint.method.returnEarly()
     }
 }
