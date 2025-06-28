@@ -576,17 +576,19 @@ public class SegmentPlaybackController {
             }
 
             // Set or update undo skip range.
-            Range<Long> range = segmentToSkip.getRange();
-            if (undoAutoSkipRange == null) {
-                Logger.printDebug(() -> "Setting new undo range to: " + range);
-                undoAutoSkipRange = range;
-            } else {
-                Range<Long> extendedRange = undoAutoSkipRange.extend(range);
-                Logger.printDebug(() -> "Extending undo range from: " + undoAutoSkipRange +
-                        " to: " + extendedRange);
-                undoAutoSkipRange = extendedRange;
+            if (segmentToSkip.category != SegmentCategory.HIGHLIGHT) {
+                Range<Long> range = segmentToSkip.getRange();
+                if (undoAutoSkipRange == null) {
+                    Logger.printDebug(() -> "Setting new undo range to: " + range);
+                    undoAutoSkipRange = range;
+                } else {
+                    Range<Long> extendedRange = undoAutoSkipRange.extend(range);
+                    Logger.printDebug(() -> "Extending undo range from: " + undoAutoSkipRange +
+                            " to: " + extendedRange);
+                    undoAutoSkipRange = extendedRange;
+                }
+                undoAutoSkipRangeToast = undoAutoSkipRange;
             }
-            undoAutoSkipRangeToast = undoAutoSkipRange;
 
             // If the seek is successful, then the seek causes a recursive call back into this class.
             final boolean seekSuccessful = VideoInformation.seekTo(segmentToSkip.end);

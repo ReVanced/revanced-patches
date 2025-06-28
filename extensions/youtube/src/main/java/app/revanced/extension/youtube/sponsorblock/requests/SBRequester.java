@@ -146,8 +146,8 @@ public class SBRequester {
         if (false) {
             // Should autoskip to 12 seconds.
             // Undoing skip should seek to 2 seconds.
+            // Skip button should show at 2 seconds, and again at 8 seconds.
             // Self promo at 8 second time should not autoskip.
-            // Skip button should show when unskipping at 2 seconds, and again at 8 seconds.
             segments.clear();
             segments.add(new SponsorSegment(SegmentCategory.INTRO, "debug", 2000, 12000, false));
             segments.add(new SponsorSegment(SegmentCategory.SELF_PROMO, "debug", 8000, 12000, false));
