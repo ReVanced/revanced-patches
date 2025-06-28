@@ -408,7 +408,6 @@ public class SegmentPlaybackController {
             if (segmentCurrentlyPlaying != foundSegmentCurrentlyPlaying) {
                 setSegmentCurrentlyPlaying(foundSegmentCurrentlyPlaying);
             } else if (foundSegmentCurrentlyPlaying != null
-                    && Settings.SB_AUTO_HIDE_SKIP_BUTTON.get()
                     && skipSegmentButtonEndTime != 0
                     && skipSegmentButtonEndTime <= System.currentTimeMillis()) {
                 Logger.printDebug(() -> "Auto hiding skip button for segment: " + segmentCurrentlyPlaying);
@@ -717,11 +716,7 @@ public class SegmentPlaybackController {
 
         mainLayout.setOnClickListener(v -> {
             try {
-                Logger.printDebug(() -> "Undoing autoskip using range: " + rangeToUndo
-                        + " video state: " + VideoState.getCurrent());
-                // Reset timeout for button auto hide.
-                hiddenSkipSegmentsForCurrentVideoTime.removeIf(
-                        segment -> segment.intersectsRange(rangeToUndo));
+                Logger.printDebug(() -> "Undoing autoskip using range: " + rangeToUndo);
                 // Restore undo autoskip range since it's already cleared by now.
                 undoAutoSkipRange = rangeToUndo;
                 VideoInformation.seekTo(rangeToUndo.getLower());
