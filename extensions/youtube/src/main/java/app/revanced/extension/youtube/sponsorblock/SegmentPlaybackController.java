@@ -22,7 +22,6 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.reflect.Field;
@@ -50,7 +49,7 @@ public class SegmentPlaybackController {
      * Length of time to show a skip button for a highlight segment,
      * or a regular segment if {@link Settings#SB_AUTO_HIDE_SKIP_BUTTON} is enabled.
      *
-     * Effectively this value is rounded up to the next second.
+     * Effectively this value is rounded up to the next whole second.
      */
     private static final long DURATION_TO_SHOW_SKIP_BUTTON = 3800;
 
@@ -74,7 +73,7 @@ public class SegmentPlaybackController {
     /**
      * Because loading can take time, show the skip to highlight for a few seconds after the segments load.
      * This is the system time (in milliseconds) to no longer show the initial display skip to highlight.
-     * Value will be zero if no highlight segment exists, or if the system time to show the highlight has passed.
+     * Value is zero if no highlight segment exists, or if the system time to show the highlight has passed.
      */
     private static long highlightSegmentInitialShowEndTime;
 
@@ -85,7 +84,7 @@ public class SegmentPlaybackController {
     private static SponsorSegment segmentCurrentlyPlaying;
     /**
      * Currently playing manual skip segment that is scheduled to hide.
-     * This will always be NULL or equal to {@link #segmentCurrentlyPlaying}.
+     * This is always NULL or equal to {@link #segmentCurrentlyPlaying}.
      */
     @Nullable
     private static SponsorSegment scheduledHideSegment;
@@ -96,22 +95,6 @@ public class SegmentPlaybackController {
     private static SponsorSegment scheduledUpcomingSegment;
 
     /**
-     * Current segments that have been auto skipped.
-     * If field is non null then the range will always contain the current video time.
-     * Range is used to prevent auto-skipping after undo.
-     * Android Range object has inclusive end time, unlike {@link SponsorSegment}.
-     */
-    @Nullable
-    private static Range<Long> undoAutoSkipRange;
-
-    /**
-     * Range to undo if the toast is tapped.
-     * Will always be null or identical to {@link #undoAutoSkipRange}.
-     */
-    @Nullable
-    private static Range<Long> undoAutoSkipRangeToast;
-
-    /**
      * Used to prevent re-showing a previously hidden skip button when exiting an embedded segment.
      * Only used when {@link Settings#SB_AUTO_HIDE_SKIP_BUTTON} is enabled.
      *
@@ -119,6 +102,21 @@ public class SegmentPlaybackController {
      * contain the current video time.  Segment are removed when playback exits the segment.
      */
     private static final List<SponsorSegment> hiddenSkipSegmentsForCurrentVideoTime = new ArrayList<>();
+
+    /**
+     * Current segments that have been auto skipped.
+     * If field is non null then the range will always contain the current video time.
+     * Range is used to prevent auto-skipping after undo.
+     * Android Range object has inclusive end time, unlike {@link SponsorSegment}.
+     */
+    @Nullable
+    private static Range<Long> undoAutoSkipRange;
+    /**
+     * Range to undo if the toast is tapped.
+     * Is always null or identical to {@link #undoAutoSkipRange}.
+     */
+    @Nullable
+    private static Range<Long> undoAutoSkipRangeToast;
 
     /**
      * System time (in milliseconds) of when to hide the skip button of {@link #segmentCurrentlyPlaying}.
@@ -131,19 +129,21 @@ public class SegmentPlaybackController {
     private static int sponsorBarAbsoluteLeft;
     private static int sponsorAbsoluteBarRight;
     private static int sponsorBarThickness;
+
     @Nullable
     private static SponsorSegment lastSegmentSkipped;
     private static long lastSegmentSkippedTime;
-    private static int toastNumberOfSegmentsSkipped;
+
     @Nullable
     private static SponsorSegment toastSegmentSkipped;
+    private static int toastNumberOfSegmentsSkipped;
 
     @Nullable
     static SponsorSegment[] getSegments() {
         return segments;
     }
 
-    private static void setSegments(@NonNull SponsorSegment[] videoSegments) {
+    private static void setSegments(SponsorSegment[] videoSegments) {
         Arrays.sort(videoSegments);
         segments = videoSegments;
         calculateTimeWithoutSegments();
@@ -160,7 +160,7 @@ public class SegmentPlaybackController {
         highlightSegment = null;
     }
 
-    static void addUnsubmittedSegment(@NonNull SponsorSegment segment) {
+    static void addUnsubmittedSegment(SponsorSegment segment) {
         Objects.requireNonNull(segment);
         if (segments == null) {
             segments = new SponsorSegment[1];
@@ -206,6 +206,7 @@ public class SegmentPlaybackController {
         toastSegmentSkipped = null;
         toastNumberOfSegmentsSkipped = 0;
         undoAutoSkipRange = null;
+        undoAutoSkipRangeToast = null;
         hiddenSkipSegmentsForCurrentVideoTime.clear();
     }
 
@@ -265,7 +266,7 @@ public class SegmentPlaybackController {
     /**
      * Must be called off main thread.
      */
-    static void executeDownloadSegments(@NonNull String videoId) {
+    static void executeDownloadSegments(String videoId) {
         Objects.requireNonNull(videoId);
 
         SponsorSegment[] segments = SBRequester.getSegments(videoId);
@@ -533,6 +534,7 @@ public class SegmentPlaybackController {
 
         segmentCurrentlyPlaying = segment;
         skipSegmentButtonEndTime = 0;
+
         if (Settings.SB_AUTO_HIDE_SKIP_BUTTON.get()) {
             if (hiddenSkipSegmentsForCurrentVideoTime.contains(segment)) {
                 // Playback exited a nested segment and the outer segment skip button was previously hidden.
@@ -754,7 +756,7 @@ public class SegmentPlaybackController {
     /**
      * @param segment can be either a highlight or a regular manual skip segment.
      */
-    public static void onSkipSegmentClicked(@NonNull SponsorSegment segment) {
+    public static void onSkipSegmentClicked(SponsorSegment segment) {
         try {
             if (segment != highlightSegment && segment != segmentCurrentlyPlaying) {
                 Logger.printException(() -> "error: segment not available to skip"); // Should never happen.
@@ -772,7 +774,7 @@ public class SegmentPlaybackController {
      * Injection point
      */
     @SuppressWarnings("unused")
-    public static void setSponsorBarRect(final Object self) {
+    public static void setSponsorBarRect(Object self) {
         try {
             Field field = self.getClass().getDeclaredField("replaceMeWithsetSponsorBarRect");
             field.setAccessible(true);
