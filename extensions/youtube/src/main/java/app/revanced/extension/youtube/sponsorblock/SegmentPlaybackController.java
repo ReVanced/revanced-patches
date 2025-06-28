@@ -97,6 +97,7 @@ public class SegmentPlaybackController {
 
     /**
      * Segment that was unskipped by tapping the toast, used to prevent auto-skipping after undo.
+     * Android Range object has inclusive end time, unlike {@link SponsorSegment}.
      */
     @Nullable
     private static Range<Long> undoAutoSkipRange;
@@ -637,18 +638,13 @@ public class SegmentPlaybackController {
 
     private static void showSkippedSegmentToast(SponsorSegment segment) {
         Utils.verifyOnMainThread();
-        if (undoAutoSkipRangeToast == null) {
-            // Should never happen.
-            Logger.printException(() -> "undoAutoSkipRangeToast is null");
-            return;
-        }
         toastSegmentSkipped = segment;
-        toastNumberOfSegmentsSkipped++;
-        if (toastNumberOfSegmentsSkipped > 1) {
-            return; // toast already scheduled
+        if (toastNumberOfSegmentsSkipped++ > 0) {
+            return; // Toast is already scheduled.
         }
 
-        final long delayToToastMilliseconds = 250; // Maximum time between skips to be considered skipping multiple segments.
+        // Maximum time between skips to be considered skipping multiple segments.
+        final long delayToToastMilliseconds = 250;
         Utils.runOnMainThreadDelayed(() -> {
             try {
                 if (toastSegmentSkipped == null || undoAutoSkipRangeToast == null) {
