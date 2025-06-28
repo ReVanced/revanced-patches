@@ -1,7 +1,6 @@
 package app.revanced.extension.youtube.sponsorblock.ui;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController.showToastShortWithTapAction;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -60,7 +59,6 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
     private SwitchPreference compactSkipButton;
     private SwitchPreference squareLayout;
     private SwitchPreference showSkipToast;
-    private SwitchPreference showUndoSkipToast;
     private SwitchPreference trackSkips;
     private SwitchPreference showTimeWithoutSegments;
     private SwitchPreference toastOnConnectionError;

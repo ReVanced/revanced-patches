@@ -118,13 +118,16 @@ public class SegmentPlaybackController {
      * or if {@link Settings#SB_AUTO_HIDE_SKIP_BUTTON} is not enabled.
      */
     private static long skipSegmentButtonEndTime;
-
     @Nullable
     private static String timeWithoutSegments;
-
     private static int sponsorBarAbsoluteLeft;
     private static int sponsorAbsoluteBarRight;
     private static int sponsorBarThickness;
+    private static SponsorSegment lastSegmentSkipped;
+    private static long lastSegmentSkippedTime;
+    private static int toastNumberOfSegmentsSkipped;
+    @Nullable
+    private static SponsorSegment toastSegmentSkipped;
 
     @Nullable
     static SponsorSegment[] getSegments() {
@@ -340,6 +343,8 @@ public class SegmentPlaybackController {
                     // Skip auto-skip if the segment was recently undone.
                     if (segment == skippedSegmentUndo) {
                         Logger.printDebug(() -> "Skipping auto-skip for undone segment: " + segment);
+                        // Ensure the skip button remains visible for undone segments.
+                        foundSegmentCurrentlyPlaying = segment;
                         continue;
                     }
 
@@ -409,7 +414,9 @@ public class SegmentPlaybackController {
             if (segmentCurrentlyPlaying != foundSegmentCurrentlyPlaying) {
                 setSegmentCurrentlyPlaying(foundSegmentCurrentlyPlaying);
             } else if (foundSegmentCurrentlyPlaying != null
-                    && skipSegmentButtonEndTime != 0 && skipSegmentButtonEndTime <= System.currentTimeMillis()) {
+                    && skipSegmentButtonEndTime != 0
+                    && skipSegmentButtonEndTime <= System.currentTimeMillis()
+                    && foundSegmentCurrentlyPlaying != skippedSegmentUndo) {
                 Logger.printDebug(() -> "Auto hiding skip button for segment: " + segmentCurrentlyPlaying);
                 skipSegmentButtonEndTime = 0;
                 hiddenSkipSegmentsForCurrentVideoTime.add(foundSegmentCurrentlyPlaying);
@@ -418,7 +425,8 @@ public class SegmentPlaybackController {
 
             // Hide only if the segment end is near.
             final SponsorSegment segmentToHide =
-                    (foundSegmentCurrentlyPlaying != null && foundSegmentCurrentlyPlaying.endIsNear(millis, speedAdjustedTimeThreshold))
+                    (foundSegmentCurrentlyPlaying != null && foundSegmentCurrentlyPlaying.endIsNear(millis, speedAdjustedTimeThreshold)
+                            && foundSegmentCurrentlyPlaying != skippedSegmentUndo)
                             ? foundSegmentCurrentlyPlaying
                             : null;
 
@@ -497,7 +505,6 @@ public class SegmentPlaybackController {
                     }, delayUntilSkip);
                 }
             }
-
         } catch (Exception e) {
             Logger.printException(() -> "setVideoTime failure", e);
         }
@@ -539,9 +546,6 @@ public class SegmentPlaybackController {
         Logger.printDebug(() -> "Showing segment: " + segment);
         SponsorBlockViewController.showSkipSegmentButton(segment);
     }
-
-    private static SponsorSegment lastSegmentSkipped;
-    private static long lastSegmentSkippedTime;
 
     private static void skipSegment(@NonNull SponsorSegment segmentToSkip, boolean userManuallySkipped) {
         try {
@@ -623,10 +627,6 @@ public class SegmentPlaybackController {
         }
     }
 
-    private static int toastNumberOfSegmentsSkipped;
-    @Nullable
-    private static SponsorSegment toastSegmentSkipped;
-
     private static void showSkippedSegmentToast(@NonNull SponsorSegment segment) {
         Utils.verifyOnMainThread();
         toastNumberOfSegmentsSkipped++;
@@ -657,7 +657,7 @@ public class SegmentPlaybackController {
         }, delayToToastMilliseconds);
     }
 
-    public static void showToastShortWithTapAction(String messageToToast, @Nullable SponsorSegment segmentForTap) {
+    private static void showToastShortWithTapAction(String messageToToast, @Nullable SponsorSegment segmentForTap) {
         Objects.requireNonNull(messageToToast);
         Utils.runOnMainThreadNowOrLater(() -> {
             Context currentContext = SponsorBlockViewController.getOverLaysViewGroupContext();
@@ -692,7 +692,6 @@ public class SegmentPlaybackController {
                 int textColor = Utils.getAppForegroundColor();
                 textView.setTextColor(Color.argb(initialAlpha,
                         Color.red(textColor), Color.green(textColor), Color.blue(textColor)));
-                textView.setTextColor(Utils.getAppForegroundColor());
                 textView.setGravity(Gravity.CENTER);
                 LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -713,8 +712,10 @@ public class SegmentPlaybackController {
                                 + segmentForTap.start + ", video state: " + VideoState.getCurrent());
                         skippedSegmentUndo = segmentForTap;
                         boolean seekSuccessful = VideoInformation.seekTo(segmentForTap.start);
+                        hiddenSkipSegmentsForCurrentVideoTime.remove(segmentForTap);
+                        // Reset skipSegmentButtonEndTime to ensure the button stays visible.
+                        skipSegmentButtonEndTime = System.currentTimeMillis() + DURATION_TO_SHOW_SKIP_BUTTON;
                         setSegmentCurrentlyPlaying(segmentForTap);
-                        SponsorBlockViewController.showSkipSegmentButton(segmentForTap);
                         Logger.printDebug(() -> "Seek result: " + seekSuccessful);
                         if (!seekSuccessful) {
                             Logger.printDebug(() -> "Seek failed for segment start: " + segmentForTap.start);
