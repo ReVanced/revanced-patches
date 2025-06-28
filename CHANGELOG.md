@@ -1,3 +1,10 @@
+# [5.30.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.1...v5.30.0-dev.2) (2025-06-27)
+
+
+### Bug Fixes
+
+* **Spotify - Spoof client patch:** Block sending bad integrity verdicts to potentially fix account suspensions ([#5274](https://github.com/ReVanced/revanced-patches/issues/5274)) ([f7b574c](https://github.com/ReVanced/revanced-patches/commit/f7b574ca79c5a616cfe33a3fc75bd8cf68571f7d))
+
 # [5.30.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.29.1-dev.1...v5.30.0-dev.1) (2025-06-27)
 
 

@@ -3,6 +3,7 @@ package app.revanced.patches.spotify.misc.fix
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
+import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 internal val getPackageInfoFingerprint by fingerprint {
     instructions(
@@ -19,4 +20,12 @@ internal val startupPageLayoutInflateFingerprint by fingerprint {
     returns("Landroid/view/View;")
     parameters("Landroid/view/LayoutInflater;", "Landroid/view/ViewGroup;", "Landroid/os/Bundle;")
     strings("blueprintContainer", "gradient", "valuePropositionTextView")
+}
+
+internal val standardIntegrityTokenProviderBuilderFingerprint by fingerprint {
+    strings(
+        "standard_pi_init",
+        "outcome",
+        "success"
+    )
 }
