@@ -104,9 +104,15 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
     /**
      * @return The start/end time in range form.
      * Range times are adjusted since it uses inclusive and Segments use exclusive.
+     *
+     * {@link SegmentCategory#HIGHLIGHT} is unique and
+     * returns a range from the start of the video until the highlight.
      */
-    public Range<Long> getRange() {
-        return Range.create(start, end - 1);
+    public Range<Long> getUndoRange() {
+        final long undoStart = category == SegmentCategory.HIGHLIGHT
+                ? 0
+                : start;
+        return Range.create(undoStart,  end - 1);
     }
 
     /**
