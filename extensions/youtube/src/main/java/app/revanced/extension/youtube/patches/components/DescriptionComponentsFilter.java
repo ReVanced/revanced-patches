@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 
 import app.revanced.extension.youtube.StringTrieSearch;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 final class DescriptionComponentsFilter extends Filter {
@@ -17,6 +18,8 @@ final class DescriptionComponentsFilter extends Filter {
     private final StringFilterGroup horizontalShelf;
     private final ByteArrayFilterGroup cellVideoAttribute;
 
+    private final StringFilterGroup aiGeneratedVideoSummarySection;
+
     public DescriptionComponentsFilter() {
         exceptions.addPatterns(
                 "compact_channel",
@@ -26,7 +29,7 @@ final class DescriptionComponentsFilter extends Filter {
                 "metadata"
         );
 
-        final StringFilterGroup aiGeneratedVideoSummarySection = new StringFilterGroup(
+        aiGeneratedVideoSummarySection = new StringFilterGroup(
                 Settings.HIDE_AI_GENERATED_VIDEO_SUMMARY_SECTION,
                 "cell_expandable_metadata.eml"
         );
@@ -104,6 +107,12 @@ final class DescriptionComponentsFilter extends Filter {
     @Override
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+
+        if (matchedGroup == aiGeneratedVideoSummarySection) {
+            // Only hide if player is open, in case this component is used somewhere else.
+            return PlayerType.getCurrent().isMaximizedOrFullscreen();
+        }
+
         if (exceptions.matches(path)) return false;
 
         if (matchedGroup == macroMarkersCarousel) {

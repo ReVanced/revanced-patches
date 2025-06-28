@@ -39,6 +39,7 @@ public final class LayoutComponentsFilter extends Filter {
     private final ByteArrayFilterGroup joinMembershipButton;
     private final StringFilterGroup horizontalShelves;
     private final ByteArrayFilterGroup ticketShelf;
+    private final StringFilterGroup chipBar;
 
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
@@ -103,6 +104,11 @@ public final class LayoutComponentsFilter extends Filter {
         final var subscriptionsChipBar = new StringFilterGroup(
                 Settings.HIDE_FILTER_BAR_FEED_IN_FEED,
                 "subscriptions_chip_bar"
+        );
+
+        chipBar = new StringFilterGroup(
+                Settings.HIDE_FILTER_BAR_FEED_IN_HISTORY,
+                "chip_bar"
         );
 
         inFeedSurvey = new StringFilterGroup(
@@ -272,6 +278,7 @@ public final class LayoutComponentsFilter extends Filter {
                 emergencyBox,
                 subscribersCommunityGuidelines,
                 subscriptionsChipBar,
+                chipBar,
                 channelGuidelines,
                 audioTrackButton,
                 artistCard,
@@ -312,6 +319,10 @@ public final class LayoutComponentsFilter extends Filter {
 
         if (matchedGroup == horizontalShelves) {
             return contentIndex == 0 && (hideShelves() || ticketShelf.check(protobufBufferArray).isFiltered());
+        }
+
+        if (matchedGroup == chipBar) {
+            return contentIndex == 0 && NavigationButton.getSelectedNavigationButton() == NavigationButton.LIBRARY;
         }
 
         return true;
@@ -448,7 +459,7 @@ public final class LayoutComponentsFilter extends Filter {
         }
 
         // Do not hide if the navigation back button is visible,
-        // otherwise the content shelves in the explore/music/courses pages are hidde.
+        // otherwise the content shelves in the explore/music/courses pages are hidden.
         if (NavigationBar.isBackButtonVisible()) {
             return false;
         }

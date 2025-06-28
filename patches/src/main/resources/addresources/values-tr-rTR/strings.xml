@@ -21,7 +21,7 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">Kontroller başarısız</string>
+  <string name="revanced_check_environment_failed_title">Denetimler başarısız</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Resmî web sitesini aç</string>
   <string name="revanced_check_environment_dialog_ignore_button">Yok say</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Bu uygulama sizin tarafınızdan yamalanmış gibi görünmüyor.&lt;/h5&gt;&lt;br&gt;Bu uygulama düzgün çalışmayabilir, &lt;b&gt;kullanması zararlı veya tehlikeli bile olabilir&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Şu kontroller, bu uygulamanın hali hazırda yamalanmış olduğunu veya başka birinden edinildiğini gösteriyor:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Doğrulanmış ve güvenli bir uygulama kullandığınızdan emin olmak için, &lt;b&gt;bu uygulamayı kaldırmanız ve kendiniz yamalamanız&lt;/b&gt; şiddetle tavsiye edilir.&lt;p&gt;&lt;br&gt;Bu uyarı yok sayıldığında sadece iki kez gösterilecektir.</string>

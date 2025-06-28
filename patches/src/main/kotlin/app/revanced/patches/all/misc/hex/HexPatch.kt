@@ -3,7 +3,7 @@ package app.revanced.patches.all.misc.hex
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.rawResourcePatch
 import app.revanced.patcher.patch.stringsOption
-import app.revanced.patches.shared.misc.hex.Replacement
+import app.revanced.patches.shared.misc.hex.HexPatchBuilder
 import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.util.Utils.trimIndentMultiline
 
@@ -13,44 +13,42 @@ val hexPatch = rawResourcePatch(
     description = "Replaces a hexadecimal patterns of bytes of files in an APK.",
     use = false,
 ) {
-    // TODO: Instead of stringArrayOption, use a custom option type to work around
-    //  https://github.com/ReVanced/revanced-library/issues/48.
-    //  Replace the custom option type with a stringArrayOption once the issue is resolved.
     val replacements by stringsOption(
         key = "replacements",
         title = "Replacements",
         description = """
             Hexadecimal patterns to search for and replace with another in a target file.
-            
+
             A pattern is a sequence of case insensitive strings, each representing hexadecimal bytes, separated by spaces.
             An example pattern is 'aa 01 02 FF'.
 
             Every pattern must be followed by a pipe ('|'), the replacement pattern,
             another pipe ('|'), and the path to the file to make the changes in relative to the APK root. 
-            The replacement pattern must have the same length as the original pattern.
+            The replacement pattern must be shorter or equal in length to the pattern.
 
-            Full example of a valid input:
-            'aa 01 02 FF|00 00 00 00|path/to/file'
+            Full example of a valid replacement:
+            '01 02 aa FF|03 04|path/to/file'
         """.trimIndentMultiline(),
         required = true,
     )
 
     dependsOn(
-        hexPatch {
-            replacements!!.map { from ->
-                val (pattern, replacementPattern, targetFilePath) = try {
-                    from.split("|", limit = 3)
-                } catch (e: Exception) {
-                    throw PatchException(
-                        "Invalid input: $from.\n" +
-                            "Every pattern must be followed by a pipe ('|'), " +
-                            "the replacement pattern, another pipe ('|'), " +
-                            "and the path to the file to make the changes in relative to the APK root. ",
-                    )
+        hexPatch(
+            block = fun HexPatchBuilder.() {
+                replacements!!.forEach { replacement ->
+                    try {
+                        val (pattern, replacementPattern, targetFilePath) = replacement.split("|", limit = 3)
+                        pattern asPatternTo replacementPattern inFile targetFilePath
+                    } catch (e: Exception) {
+                        throw PatchException(
+                            "Invalid replacement: $replacement.\n" +
+                                    "Every pattern must be followed by a pipe ('|'), " +
+                                    "the replacement pattern, another pipe ('|'), " +
+                                    "and the path to the file to make the changes in relative to the APK root. ",
+                        )
+                    }
                 }
-
-                Replacement(pattern, replacementPattern, targetFilePath)
-            }.toSet()
-        },
+            },
+        )
     )
 }

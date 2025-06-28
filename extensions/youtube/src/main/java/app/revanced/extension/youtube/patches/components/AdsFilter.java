@@ -116,18 +116,17 @@ public final class AdsFilter extends Filter {
 
         shoppingLinks = new StringFilterGroup(
                 Settings.HIDE_SHOPPING_LINKS,
-                "expandable_list"
+                "expandable_list",
+                "shopping_description_shelf.eml"
         );
 
         playerShoppingShelf = new StringFilterGroup(
                 Settings.HIDE_PLAYER_STORE_SHELF,
-                "expandable_list.eml",
                 "horizontal_shelf.eml"
         );
 
         playerShoppingShelfBuffer = new ByteArrayFilterGroup(
                 null,
-                "shopping_link_item",
                 "shopping_item_card_list"
         );
 

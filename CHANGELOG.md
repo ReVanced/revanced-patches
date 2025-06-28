@@ -1,3 +1,39 @@
+# [5.30.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.2...v5.30.0-dev.3) (2025-06-28)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Fix "Hide AI Comments summary" in Comments ([#5284](https://github.com/ReVanced/revanced-patches/issues/5284)) ([d42370e](https://github.com/ReVanced/revanced-patches/commit/d42370ef71f4608abc64b6ef4a3fb0c5bd5e3eb6))
+
+# [5.30.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.1...v5.30.0-dev.2) (2025-06-27)
+
+
+### Bug Fixes
+
+* **Spotify - Spoof client patch:** Block sending bad integrity verdicts to potentially fix account suspensions ([#5274](https://github.com/ReVanced/revanced-patches/issues/5274)) ([f7b574c](https://github.com/ReVanced/revanced-patches/commit/f7b574ca79c5a616cfe33a3fc75bd8cf68571f7d))
+
+# [5.30.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.29.1-dev.1...v5.30.0-dev.1) (2025-06-27)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Fix "Hide shopping links" ([#5267](https://github.com/ReVanced/revanced-patches/issues/5267)) ([2fe4607](https://github.com/ReVanced/revanced-patches/commit/2fe46079d78ab98076d3a4cdf01c8bfdbdea45c0))
+* **YouTube - Hide layout components:** Fix "Hide AI-generated video summary" in video description ([#5269](https://github.com/ReVanced/revanced-patches/issues/5269)) ([5203da0](https://github.com/ReVanced/revanced-patches/commit/5203da0ae58e467657bc915ab0af5b9904c4f492))
+* **YouTube - Hide Shorts components:** Fix hiding of untoggled components ([#5266](https://github.com/ReVanced/revanced-patches/issues/5266)) ([008e192](https://github.com/ReVanced/revanced-patches/commit/008e192779a8658e894d5718baa732717bf96e40))
+
+
+### Features
+
+* **Spotify:** Remove ads section from browse ([#5193](https://github.com/ReVanced/revanced-patches/issues/5193)) ([ebd4dcc](https://github.com/ReVanced/revanced-patches/commit/ebd4dccf12a5fbd31d2d53c19a792c389a4641d7))
+* **YouTube - Hide layout components:** Add `Hide in history` option to filter bar ([#5271](https://github.com/ReVanced/revanced-patches/issues/5271)) ([ba242a3](https://github.com/ReVanced/revanced-patches/commit/ba242a36b040b82e84870e5e240734637125a472))
+
+## [5.29.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.29.0...v5.29.1-dev.1) (2025-06-26)
+
+
+### Bug Fixes
+
+* **Spotify:** Add `Spoof client` patch to fix various issues by using a web platform access token ([#5173](https://github.com/ReVanced/revanced-patches/issues/5173)) ([b7b75bb](https://github.com/ReVanced/revanced-patches/commit/b7b75bb9d8d5fd505121e752b8a20e61ff28d1b2))
+
 # [5.29.0](https://github.com/ReVanced/revanced-patches/compare/v5.28.0...v5.29.0) (2025-06-26)
 
 

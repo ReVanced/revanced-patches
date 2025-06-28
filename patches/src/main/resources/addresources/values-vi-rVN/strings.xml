@@ -100,7 +100,7 @@ Nhấn nút tiếp tục và cho phép thay đổi lựa chọn tối ưu hóa."
   <string name="revanced_restore_old_settings_menus_title">Khôi phục trình đơn cài đặt cũ</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Các trình đơn cài đặt cũ được hiển thị</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Các trình đơn cài đặt cũ không được hiển thị</string>
-  <string name="revanced_settings_search_history_title">Hiển thị lịch sử tìm kiếm trong cài đặt</string>
+  <string name="revanced_settings_search_history_title">Hiện lịch sử tìm kiếm trong cài đặt</string>
   <string name="revanced_settings_search_history_summary_on">Đã hiển thị lịch sử tìm kiếm trong cài đặt</string>
   <string name="revanced_settings_search_history_summary_off">Không hiển thị lịch sử tìm kiếm trong phần cài đặt</string>
   </patch>
@@ -414,9 +414,9 @@ Tính năng này chỉ khả dụng trên các thiết bị cũ"</string>
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ẩn QC toàn màn hình chỉ hoạt động trên thiết bị cũ</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
-  <string name="revanced_hide_get_premium_title">Ẩn quảng cáo khuyến mãi YouTube Premium</string>
-  <string name="revanced_hide_get_premium_summary_on">Quảng cáo Youtube Premium bên dưới trình phát video đã bị ẩn</string>
-  <string name="revanced_hide_get_premium_summary_off">Quảng cáo Youtube Premium bên dưới trình phát video được hiển thị</string>
+  <string name="revanced_hide_get_premium_title">Ẩn quảng cáo YouTube Premium</string>
+  <string name="revanced_hide_get_premium_summary_on">Quảng cáo khuyến mãi Youtube Premium bên dưới trình phát video đã bị ẩn</string>
+  <string name="revanced_hide_get_premium_summary_off">Quảng cáo khuyến mãi Youtube Premium bên dưới trình phát video được hiển thị</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_hide_video_ads_title">Ẩn quảng cáo trên video</string>
