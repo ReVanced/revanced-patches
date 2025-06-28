@@ -163,6 +163,7 @@ public final class LithoFilterPatch {
 
     /**
      * Injection point.  Called off the main thread.
+     * Targets 20.22+
      */
     public static void setProtoBuffer(byte[] buffer) {
         // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.

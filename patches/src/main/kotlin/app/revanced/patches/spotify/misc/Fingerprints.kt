@@ -34,15 +34,15 @@ internal val productStateProtoGetMapFingerprint get() = fingerprint {
     }
 }
 
-internal val buildQueryParametersFingerprint = fingerprint {
+internal val buildQueryParametersFingerprint by fingerprint {
     strings("trackRows", "device_type:tablet")
 }
 
-internal val contextMenuViewModelClassFingerprint = fingerprint {
+internal val contextMenuViewModelClassFingerprint by fingerprint {
     strings("ContextMenuViewModel(header=")
 }
 
-internal val contextMenuViewModelAddItemFingerprint = fingerprint {
+internal val contextMenuViewModelAddItemFingerprint by fingerprint {
     parameters("L")
     returns("V")
     custom { method, _ ->
@@ -52,11 +52,11 @@ internal val contextMenuViewModelAddItemFingerprint = fingerprint {
     }
 }
 
-internal val getViewModelFingerprint = fingerprint {
+internal val getViewModelFingerprint by fingerprint {
     custom { method, _ -> method.name == "getViewModel" }
 }
 
-internal val contextFromJsonFingerprint = fingerprint {
+internal val contextFromJsonFingerprint by fingerprint {
     opcodes(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
@@ -70,19 +70,19 @@ internal val contextFromJsonFingerprint = fingerprint {
     }
 }
 
-internal val readPlayerOptionOverridesFingerprint = fingerprint {
+internal val readPlayerOptionOverridesFingerprint by fingerprint {
     custom { method, classDef ->
         method.name == "readPlayerOptionOverrides" &&
                 classDef.endsWith("voiceassistants/playermodels/PreparePlayOptionsJsonAdapter;")
     }
 }
 
-internal val protobufListsFingerprint = fingerprint {
+internal val protobufListsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     custom { method, _ -> method.name == "emptyProtobufList" }
 }
 
-internal val abstractProtobufListEnsureIsMutableFingerprint = fingerprint {
+internal val abstractProtobufListEnsureIsMutableFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     returns("V")
@@ -101,18 +101,18 @@ private fun structureGetSectionsFingerprint(className: String) = fingerprint {
     }
 }
 
-internal val homeSectionFingerprint = fingerprint {
+internal val homeSectionFingerprint by fingerprint {
     custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
 }
 
-internal val homeStructureGetSectionsFingerprint =
+internal val homeStructureGetSectionsFingerprint by
     structureGetSectionsFingerprint("homeapi/proto/HomeStructure;")
 
-internal val browseSectionFingerprint = fingerprint {
+internal val browseSectionFingerprint by fingerprint {
     custom { _, classDef -> classDef.endsWith("browsita/v1/resolved/Section;") }
 }
 
-internal val browseStructureGetSectionsFingerprint =
+internal val browseStructureGetSectionsFingerprint by
     structureGetSectionsFingerprint("browsita/v1/resolved/BrowseStructure;")
 
 internal fun reactivexFunctionApplyWithClassInitFingerprint(className: String) = fingerprint {
@@ -126,9 +126,9 @@ internal fun reactivexFunctionApplyWithClassInitFingerprint(className: String) =
 }
 
 internal const val PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME = "FetchMessageRequest;"
-internal val pendragonJsonFetchMessageRequestFingerprint =
+internal val pendragonJsonFetchMessageRequestFingerprint by
     reactivexFunctionApplyWithClassInitFingerprint(PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME)
 
 internal const val PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME = "FetchMessageListRequest;"
-internal val pendragonProtoFetchMessageListRequestFingerprint =
+internal val pendragonProtoFetchMessageListRequestFingerprint by
     reactivexFunctionApplyWithClassInitFingerprint(PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME)

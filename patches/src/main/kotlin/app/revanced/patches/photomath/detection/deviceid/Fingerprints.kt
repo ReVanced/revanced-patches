@@ -3,7 +3,7 @@ package app.revanced.patches.photomath.detection.deviceid
 import com.android.tools.smali.dexlib2.Opcode
 import app.revanced.patcher.fingerprint
 
-internal val getDeviceIdFingerprint = fingerprint {
+internal val getDeviceIdFingerprint by fingerprint {
     returns("Ljava/lang/String;")
     parameters()
     opcodes(

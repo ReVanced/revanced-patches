@@ -20,7 +20,7 @@ private val iconResourceFileNames = arrayOf(
     "ic_launcher_round",
 ).map { "$it.png" }.toTypedArray()
 
-private val iconResourceFileNamesNew = mapOf(
+private val iconResourceFileNamesNew = arrayOf(
     "adaptiveproduct_youtube_foreground_color_108" to "adaptiveproduct_youtube_2024_q4_foreground_color_108",
     "adaptiveproduct_youtube_background_color_108" to "adaptiveproduct_youtube_2024_q4_background_color_108",
 )

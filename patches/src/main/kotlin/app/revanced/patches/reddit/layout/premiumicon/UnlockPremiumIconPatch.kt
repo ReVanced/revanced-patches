@@ -20,9 +20,3 @@ val unlockPremiumIconsPatch = bytecodePatch(
         )
     }
 }
-
-@Deprecated("Patch was renamed", ReplaceWith("unlockPremiumIconsPatch"))
-@Suppress("unused")
-val unlockPremiumIconPatch = bytecodePatch{
-    dependsOn(unlockPremiumIconsPatch)
-}

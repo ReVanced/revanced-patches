@@ -148,12 +148,12 @@ public class Utils {
     /**
      * Hide a view by setting its layout height and width to 1dp.
      *
-     * @param condition The setting to check for hiding the view.
+     * @param setting   The setting to check for hiding the view.
      * @param view      The view to hide.
      */
-    public static void hideViewBy0dpUnderCondition(BooleanSetting condition, View view) {
-        if (hideViewBy0dpUnderCondition(condition.get(), view)) {
-            Logger.printDebug(() -> "View hidden by setting: " + condition);
+    public static void hideViewBy0dpUnderCondition(BooleanSetting setting, View view) {
+        if (hideViewBy0dpUnderCondition(setting.get(), view)) {
+            Logger.printDebug(() -> "View hidden by setting: " + setting);
         }
     }
 
@@ -165,7 +165,7 @@ public class Utils {
      */
     public static boolean hideViewBy0dpUnderCondition(boolean condition, View view) {
         if (condition) {
-            hideViewByLayoutParams(view);
+            hideViewBy0dp(view);
             return true;
         }
 
@@ -173,14 +173,39 @@ public class Utils {
     }
 
     /**
+     * Hide a view by setting its layout params to 0x0
+     * @param view The view to hide.
+     */
+    public static void hideViewBy0dp(View view) {
+        if (view instanceof LinearLayout) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, 0);
+            view.setLayoutParams(layoutParams);
+        } else if (view instanceof FrameLayout) {
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(0, 0);
+            view.setLayoutParams(layoutParams2);
+        } else if (view instanceof RelativeLayout) {
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(0, 0);
+            view.setLayoutParams(layoutParams3);
+        } else if (view instanceof Toolbar) {
+            Toolbar.LayoutParams layoutParams4 = new Toolbar.LayoutParams(0, 0);
+            view.setLayoutParams(layoutParams4);
+        } else {
+            ViewGroup.LayoutParams params = view.getLayoutParams();
+            params.width = 0;
+            params.height = 0;
+            view.setLayoutParams(params);
+        }
+    }
+
+    /**
      * Hide a view by setting its visibility to GONE.
      *
-     * @param condition The setting to check for hiding the view.
+     * @param setting The setting to check for hiding the view.
      * @param view      The view to hide.
      */
-    public static void hideViewUnderCondition(BooleanSetting condition, View view) {
-        if (hideViewUnderCondition(condition.get(), view)) {
-            Logger.printDebug(() -> "View hidden by setting: " + condition);
+    public static void hideViewUnderCondition(BooleanSetting setting, View view) {
+        if (hideViewUnderCondition(setting.get(), view)) {
+            Logger.printDebug(() -> "View hidden by setting: " + setting);
         }
     }
 
@@ -199,14 +224,14 @@ public class Utils {
         return false;
     }
 
-    public static void hideViewByRemovingFromParentUnderCondition(BooleanSetting condition, View view) {
-        if (hideViewByRemovingFromParentUnderCondition(condition.get(), view)) {
-            Logger.printDebug(() -> "View hidden by setting: " + condition);
+    public static void hideViewByRemovingFromParentUnderCondition(BooleanSetting setting, View view) {
+        if (hideViewByRemovingFromParentUnderCondition(setting.get(), view)) {
+            Logger.printDebug(() -> "View hidden by setting: " + setting);
         }
     }
 
-    public static boolean hideViewByRemovingFromParentUnderCondition(boolean setting, View view) {
-        if (setting) {
+    public static boolean hideViewByRemovingFromParentUnderCondition(boolean condition, View view) {
+        if (condition) {
             ViewParent parent = view.getParent();
             if (parent instanceof ViewGroup parentGroup) {
                 parentGroup.removeView(view);
@@ -712,34 +737,6 @@ public class Utils {
         var type = networkInfo.getType();
         return (type == ConnectivityManager.TYPE_MOBILE)
                 || (type == ConnectivityManager.TYPE_BLUETOOTH) ? NetworkType.MOBILE : NetworkType.OTHER;
-    }
-
-    /**
-     * Hide a view by setting its layout params to 0x0
-     * @param view The view to hide.
-     */
-    public static void hideViewByLayoutParams(View view) {
-        if (view instanceof LinearLayout) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams);
-        } else if (view instanceof FrameLayout) {
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams2);
-        } else if (view instanceof RelativeLayout) {
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams3);
-        } else if (view instanceof Toolbar) {
-            Toolbar.LayoutParams layoutParams4 = new Toolbar.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams4);
-        } else if (view instanceof ViewGroup) {
-            ViewGroup.LayoutParams layoutParams5 = new ViewGroup.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams5);
-        } else {
-            ViewGroup.LayoutParams params = view.getLayoutParams();
-            params.width = 0;
-            params.height = 0;
-            view.setLayoutParams(params);
-        }
     }
 
     /**

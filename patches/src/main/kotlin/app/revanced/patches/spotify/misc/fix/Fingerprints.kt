@@ -1,26 +1,28 @@
 package app.revanced.patches.spotify.misc.fix
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
+import org.stringtemplate.v4.compiler.Bytecode.instructions
 
-internal val getPackageInfoFingerprint = fingerprint {
-    strings(
-        "Failed to get the application signatures"
+internal val getPackageInfoFingerprint by fingerprint {
+    instructions(
+        string("Failed to get the application signatures")
     )
 }
 
-internal val startLiborbitFingerprint = fingerprint {
+internal val startLiborbitFingerprint by fingerprint {
     strings("/liborbit-jni-spotify.so")
 }
 
-internal val startupPageLayoutInflateFingerprint = fingerprint {
+internal val startupPageLayoutInflateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("Landroid/view/LayoutInflater;", "Landroid/view/ViewGroup;", "Landroid/os/Bundle;")
     strings("blueprintContainer", "gradient", "valuePropositionTextView")
 }
 
-internal val standardIntegrityTokenProviderBuilderFingerprint = fingerprint {
+internal val standardIntegrityTokenProviderBuilderFingerprint by fingerprint {
     strings(
         "standard_pi_init",
         "outcome",

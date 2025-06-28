@@ -331,15 +331,6 @@
             </string-array>
         </patch>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-            <string-array name="revanced_shorts_player_type_legacy_entries">
-                <item>@string/revanced_shorts_player_type_shorts</item>
-                <item>@string/revanced_shorts_player_type_regular_player</item>
-            </string-array>
-            <string-array name="revanced_shorts_player_type_legacy_entry_values">
-                <!-- Extension enum names. -->
-                <item>SHORTS_PLAYER</item>
-                <item>REGULAR_PLAYER</item>
-            </string-array>
             <string-array name="revanced_shorts_player_type_entries">
                 <item>@string/revanced_shorts_player_type_shorts</item>
                 <item>@string/revanced_shorts_player_type_regular_player</item>
