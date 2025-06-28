@@ -10,9 +10,9 @@ public class SpoofClientPatch {
     /**
      * Injection point.
      * <br>
-     * Start login server.
+     * Launch login server.
      */
-    public static void listen(int port) {
+    public static void launchListen(int port) {
         if (listener != null) {
             Logger.printInfo(() -> "Listener already running on port " + port);
             return;
@@ -20,8 +20,6 @@ public class SpoofClientPatch {
 
         try {
             listener = new LoginRequestListener(port);
-            listener.start();
-            Logger.printInfo(() -> "Listener running on port " + port);
         } catch (Exception ex) {
             Logger.printException(() -> "listen failure", ex);
         }
@@ -32,9 +30,9 @@ public class SpoofClientPatch {
      * <br>
      * Launch login web view.
      */
-    public static void login(LayoutInflater inflater) {
+    public static void launchLogin(LayoutInflater inflater) {
         try {
-            WebApp.login(inflater.getContext());
+            WebApp.launchLogin(inflater.getContext());
         } catch (Exception ex) {
             Logger.printException(() -> "login failure", ex);
         }

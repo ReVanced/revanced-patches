@@ -103,13 +103,13 @@ val spoofClientPatch = bytecodePatch(
             0,
             """
                 const/16 v0, $port
-                invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->listen(I)V
+                invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->launchListen(I)V
             """
         )
 
         startupPageLayoutInflateFingerprint.method.apply {
             val openLoginWebViewDescriptor =
-                "$EXTENSION_CLASS_DESCRIPTOR->login(Landroid/view/LayoutInflater;)V"
+                "$EXTENSION_CLASS_DESCRIPTOR->launchLogin(Landroid/view/LayoutInflater;)V"
 
             addInstructions(
                 0,
