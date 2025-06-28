@@ -119,6 +119,11 @@ public class SegmentPlaybackController {
     private static Range<Long> undoAutoSkipRangeToast;
 
     /**
+     * Duration in milliseconds for how long the toast dialog is displayed.
+     */
+    private static final long TOAST_DURATION = 4000; // 4 seconds.
+
+    /**
      * System time (in milliseconds) of when to hide the skip button of {@link #segmentCurrentlyPlaying}.
      * Value is zero if playback is not inside a segment ({@link #segmentCurrentlyPlaying} is null),
      * or if {@link Settings#SB_AUTO_HIDE_SKIP_BUTTON} is not enabled.
@@ -748,9 +753,10 @@ public class SegmentPlaybackController {
         }
 
         Logger.printDebug(() -> "Showing toast: " + messageToToast);
+        dialog.setCanceledOnTouchOutside(false); // Do not dismiss dialog when tap outside of it.
         dialog.show();
 
-        Utils.runOnMainThreadDelayed(dialog::dismiss, 4000); // 4 sec.
+        Utils.runOnMainThreadDelayed(dialog::dismiss, TOAST_DURATION);
     }
 
     /**
