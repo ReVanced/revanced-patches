@@ -414,9 +414,9 @@ public class SegmentPlaybackController {
             if (segmentCurrentlyPlaying != foundSegmentCurrentlyPlaying) {
                 setSegmentCurrentlyPlaying(foundSegmentCurrentlyPlaying);
             } else if (foundSegmentCurrentlyPlaying != null
+                    && Settings.SB_AUTO_HIDE_SKIP_BUTTON.get()
                     && skipSegmentButtonEndTime != 0
-                    && skipSegmentButtonEndTime <= System.currentTimeMillis()
-                    && foundSegmentCurrentlyPlaying != skippedSegmentUndo) {
+                    && skipSegmentButtonEndTime <= System.currentTimeMillis()) {
                 Logger.printDebug(() -> "Auto hiding skip button for segment: " + segmentCurrentlyPlaying);
                 skipSegmentButtonEndTime = 0;
                 hiddenSkipSegmentsForCurrentVideoTime.add(foundSegmentCurrentlyPlaying);
@@ -425,8 +425,7 @@ public class SegmentPlaybackController {
 
             // Hide only if the segment end is near.
             final SponsorSegment segmentToHide =
-                    (foundSegmentCurrentlyPlaying != null && foundSegmentCurrentlyPlaying.endIsNear(millis, speedAdjustedTimeThreshold)
-                            && foundSegmentCurrentlyPlaying != skippedSegmentUndo)
+                    (foundSegmentCurrentlyPlaying != null && foundSegmentCurrentlyPlaying.endIsNear(millis, speedAdjustedTimeThreshold))
                             ? foundSegmentCurrentlyPlaying
                             : null;
 
