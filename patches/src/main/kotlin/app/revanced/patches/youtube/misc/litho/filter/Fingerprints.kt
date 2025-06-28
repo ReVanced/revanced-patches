@@ -7,26 +7,18 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val componentContextParserFingerprint = fingerprint {
-    strings(
-        "TreeNode result must be set.",
-        // String is a partial match and changed slightly in 20.03+
-        "it was removed due to duplicate converter bindings."
-    )
+    strings("Number of bits must be positive")
 }
 
-/**
- * Resolves to the class found in [componentContextParserFingerprint].
- * When patching 19.16 this fingerprint matches the same method as [componentContextParserFingerprint].
- */
-internal val componentContextSubParserFingerprint = fingerprint {
+internal val componentCreateFingerprint = fingerprint {
     strings(
-        "Number of bits must be positive"
+        "Element missing correct type extension",
+        "Element missing type"
     )
 }
 
 internal val lithoFilterFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     custom { _, classDef ->
         classDef.endsWith("/LithoFilterPatch;")
     }
@@ -58,7 +50,7 @@ internal val lithoThreadExecutorFingerprint = fingerprint {
     parameters("I", "I", "I")
     custom { method, classDef ->
         classDef.superclass == "Ljava/util/concurrent/ThreadPoolExecutor;" &&
-            method.containsLiteralInstruction(1L) // 1L = default thread timeout.
+                method.containsLiteralInstruction(1L) // 1L = default thread timeout.
     }
 }
 
