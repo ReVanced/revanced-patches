@@ -338,17 +338,14 @@ public class SegmentPlaybackController {
                     continue; // Past this segment.
                 }
 
+                // Skip auto-skip if the segment was recently undone.
+                final boolean segmentShouldAutoSkip = shouldAutoSkipAndUndoSkipNotActive(segment, millis);
+
                 if (segment.start <= millis) {
                     // We are in the segment!
-
-                    if (segment.shouldAutoSkip()) {
-                        // Skip auto-skip if the segment was recently undone.
-                        if (undoAutoSkipRange != null && undoAutoSkipRange.contains(millis)) {
-                            Logger.printDebug(() -> "Ignoring autoskip for segment as undo skip is active: " + segment);
-                        } else {
-                            skipSegment(segment, false);
-                            return; // Must return, as skipping causes a recursive call back into this method.
-                        }
+                    if (segmentShouldAutoSkip) {
+                        skipSegment(segment, false);
+                        return; // Must return, as skipping causes a recursive call back into this method.
                     }
 
                     // First found segment, or it's an embedded segment and fully inside the outer segment.
@@ -373,7 +370,7 @@ public class SegmentPlaybackController {
                 if (startTimerLookAheadThreshold < segment.start) {
                     break;
                 }
-                if (segment.shouldAutoSkip()) {
+                if (segmentShouldAutoSkip) {
                     foundUpcomingSegment = segment;
                     break; // Must stop here.
                 }
@@ -421,10 +418,10 @@ public class SegmentPlaybackController {
             }
 
             // Hide only if the segment end is near.
-            final SponsorSegment segmentToHide =
-                    (foundSegmentCurrentlyPlaying != null && foundSegmentCurrentlyPlaying.endIsNear(millis, speedAdjustedTimeThreshold))
-                            ? foundSegmentCurrentlyPlaying
-                            : null;
+            final SponsorSegment segmentToHide = (foundSegmentCurrentlyPlaying != null &&
+                    foundSegmentCurrentlyPlaying.endIsNear(millis, speedAdjustedTimeThreshold))
+                    ? foundSegmentCurrentlyPlaying
+                    : null;
 
             if (scheduledHideSegment != segmentToHide) {
                 if (segmentToHide == null) {
@@ -491,7 +488,7 @@ public class SegmentPlaybackController {
                                     + " videoInformation time: " + videoTime);
                             return;
                         }
-                        if (segmentToSkip.shouldAutoSkip()) {
+                        if (shouldAutoSkipAndUndoSkipNotActive(segmentToSkip, videoTime)) {
                             Logger.printDebug(() -> "Running scheduled skip segment: " + segmentToSkip);
                             skipSegment(segmentToSkip, false);
                         } else {
@@ -631,10 +628,19 @@ public class SegmentPlaybackController {
         }
     }
 
+    /**
+     * Checks if the segment should be auto-skipped _and_ if undo autoskip is not active.
+     */
+    private static boolean shouldAutoSkipAndUndoSkipNotActive(SponsorSegment segment, long currentVideoTime) {
+        return segment.shouldAutoSkip() && (undoAutoSkipRange == null
+                || !undoAutoSkipRange.contains(currentVideoTime));
+    }
+
     private static void showSkippedSegmentToast(SponsorSegment segment) {
         Utils.verifyOnMainThread();
-        if (undoAutoSkipRange == null) {
-            Logger.printException(() -> "undoAutoSkipRange is null");
+        if (undoAutoSkipRangeToast == null) {
+            // Should never happen.
+            Logger.printException(() -> "undoAutoSkipRangeToast is null");
             return;
         }
         toastSegmentSkipped = segment;

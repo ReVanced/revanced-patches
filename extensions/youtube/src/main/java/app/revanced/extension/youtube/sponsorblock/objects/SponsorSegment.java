@@ -98,17 +98,15 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
      * @return If the range has any overlap with this segment.
      */
     public boolean intersectsRange(Range<Long> range) {
-        // -1 to adjust for Android Range inclusive.
-        return range.getLower() < end && range.getUpper() - 1 >= start;
+        return range.getLower() < end && range.getUpper() >= start;
     }
 
     /**
      * @return The start/end time in range form.
-     * Beware as Android Range uses inclusive end time,
-     * and the range returned here is not adjusted.
+     * Range times are adjusted since it uses inclusive and Segments use exclusive.
      */
     public Range<Long> getRange() {
-        return Range.create(start, end);
+        return Range.create(start, end - 1);
     }
 
     /**
