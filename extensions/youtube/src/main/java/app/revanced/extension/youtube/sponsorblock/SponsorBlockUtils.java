@@ -223,13 +223,18 @@ public class SponsorBlockUtils {
                 Logger.printException(() -> "invalid parameters");
                 return;
             }
+
             clearUnsubmittedSegmentTimes();
             Utils.runOnBackgroundThread(() -> {
-                SBRequester.submitSegments(videoId, segmentCategory.keyValue, start, end, videoLength);
-                SegmentPlaybackController.executeDownloadSegments(videoId);
+                try {
+                    SBRequester.submitSegments(videoId, segmentCategory.keyValue, start, end, videoLength);
+                    SegmentPlaybackController.executeDownloadSegments(videoId);
+                } catch (Exception ex) {
+                    Logger.printException(() -> "submitNewSegment failure", ex);
+                }
             });
-        } catch (Exception e) {
-            Logger.printException(() -> "Unable to submit segment", e);
+        } catch (Exception ex) {
+            Logger.printException(() -> "submitNewSegment failure", ex);
         }
     }
 
@@ -366,7 +371,7 @@ public class SponsorBlockUtils {
     }
 
 
-    static void sendViewRequestAsync(@NonNull SponsorSegment segment) {
+    static void sendViewRequestAsync(SponsorSegment segment) {
         if (segment.recordedAsSkipped || segment.category == SegmentCategory.UNSUBMITTED) {
             return;
         }
@@ -409,7 +414,7 @@ public class SponsorBlockUtils {
         return statsNumberFormatter.format(viewCount);
     }
 
-    private static long parseSegmentTime(@NonNull String time) {
+    private static long parseSegmentTime(String time) {
         Matcher matcher = manualEditTimePattern.matcher(time);
         if (!matcher.matches()) {
             return -1;
@@ -419,9 +424,12 @@ public class SponsorBlockUtils {
         String secondsStr = matcher.group(4);
         String millisecondsStr = matcher.group(6); // Milliseconds is optional.
 
+
         try {
             final int hours = (hoursStr != null) ? Integer.parseInt(hoursStr) : 0;
+            //noinspection ConstantConditions
             final int minutes = Integer.parseInt(minutesStr);
+            //noinspection ConstantConditions
             final int seconds = Integer.parseInt(secondsStr);
             final int milliseconds;
             if (millisecondsStr != null) {
@@ -468,32 +476,29 @@ public class SponsorBlockUtils {
     }
 
     public static String getTimeSavedString(long totalSecondsSaved) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            Duration duration = Duration.ofSeconds(totalSecondsSaved);
-            final long hours = duration.toHours();
-            final long minutes = duration.toMinutes() % 60;
+        Duration duration = Duration.ofSeconds(totalSecondsSaved);
+        final long hours = duration.toHours();
+        final long minutes = duration.toMinutes() % 60;
 
-            // Format all numbers so non-western numbers use a consistent appearance.
-            String minutesFormatted = statsNumberFormatter.format(minutes);
-            if (hours > 0) {
-                String hoursFormatted = statsNumberFormatter.format(hours);
-                return str("revanced_sb_stats_saved_hour_format", hoursFormatted, minutesFormatted);
-            }
-
-            final long seconds = duration.getSeconds() % 60;
-            String secondsFormatted = statsNumberFormatter.format(seconds);
-            if (minutes > 0) {
-                return str("revanced_sb_stats_saved_minute_format", minutesFormatted, secondsFormatted);
-            }
-
-            return str("revanced_sb_stats_saved_second_format", secondsFormatted);
+        // Format all numbers so non-western numbers use a consistent appearance.
+        String minutesFormatted = statsNumberFormatter.format(minutes);
+        if (hours > 0) {
+            String hoursFormatted = statsNumberFormatter.format(hours);
+            return str("revanced_sb_stats_saved_hour_format", hoursFormatted, minutesFormatted);
         }
-        return "error"; // will never be reached.  YouTube requires Android O or greater
+
+        final long seconds = duration.getSeconds() % 60;
+        String secondsFormatted = statsNumberFormatter.format(seconds);
+        if (minutes > 0) {
+            return str("revanced_sb_stats_saved_minute_format", minutesFormatted, secondsFormatted);
+        }
+
+        return str("revanced_sb_stats_saved_second_format", secondsFormatted);
     }
 
     private static class EditByHandSaveDialogListener implements DialogInterface.OnClickListener {
-        boolean settingStart;
-        WeakReference<EditText> editTextRef = new WeakReference<>(null);
+        private boolean settingStart;
+        private WeakReference<EditText> editTextRef = new WeakReference<>(null);
 
         @Override
         public void onClick(DialogInterface dialog, int which) {
@@ -512,10 +517,11 @@ public class SponsorBlockUtils {
                     }
                 }
 
-                if (settingStart)
+                if (settingStart) {
                     newSponsorSegmentStartMillis = Math.max(time, 0);
-                else
+                } else {
                     newSponsorSegmentEndMillis = time;
+                }
 
                 if (which == DialogInterface.BUTTON_NEUTRAL)
                     editByHandDialogListener.onClick(dialog, settingStart ?

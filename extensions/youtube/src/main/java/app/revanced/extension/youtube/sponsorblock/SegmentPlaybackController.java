@@ -96,7 +96,9 @@ public class SegmentPlaybackController {
     private static SponsorSegment scheduledUpcomingSegment;
 
     /**
-     * Segment that was unskipped by tapping the toast, used to prevent auto-skipping after undo.
+     * Current segments that have been auto skipped.
+     * If field is non null then the range will always contain the current video time.
+     * Range is used to prevent auto-skipping after undo.
      * Android Range object has inclusive end time, unlike {@link SponsorSegment}.
      */
     @Nullable
@@ -129,6 +131,7 @@ public class SegmentPlaybackController {
     private static int sponsorBarAbsoluteLeft;
     private static int sponsorAbsoluteBarRight;
     private static int sponsorBarThickness;
+    @Nullable
     private static SponsorSegment lastSegmentSkipped;
     private static long lastSegmentSkippedTime;
     private static int toastNumberOfSegmentsSkipped;
@@ -188,7 +191,7 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Clears all downloaded data.
+     * Clear all data.
      */
     private static void clearData() {
         currentVideoId = null;
@@ -219,7 +222,7 @@ public class SegmentPlaybackController {
             SponsorBlockUtils.clearUnsubmittedSegmentTimes();
             Logger.printDebug(() -> "Initialized SponsorBlock");
         } catch (Exception ex) {
-            Logger.printException(() -> "Failed to initialize SponsorBlock", ex);
+            Logger.printException(() -> "initialize failure", ex);
         }
     }
 
@@ -236,7 +239,7 @@ public class SegmentPlaybackController {
                 return;
             }
             if (PlayerType.getCurrent().isNoneOrHidden()) {
-                Logger.printDebug(() -> "ignoring Short");
+                Logger.printDebug(() -> "Ignoring Short");
                 return;
             }
             if (!Utils.isNetworkConnected()) {
@@ -245,7 +248,7 @@ public class SegmentPlaybackController {
             }
 
             currentVideoId = videoId;
-            Logger.printDebug(() -> "setCurrentVideoId: " + videoId);
+            Logger.printDebug(() -> "New video ID: " + videoId);
 
             Utils.runOnBackgroundThread(() -> {
                 try {
@@ -264,38 +267,35 @@ public class SegmentPlaybackController {
      */
     static void executeDownloadSegments(@NonNull String videoId) {
         Objects.requireNonNull(videoId);
-        try {
-            SponsorSegment[] segments = SBRequester.getSegments(videoId);
 
-            Utils.runOnMainThread(() -> {
-                if (!videoId.equals(currentVideoId)) {
-                    // user changed videos before get segments network call could complete
-                    Logger.printDebug(() -> "Ignoring segments for prior video: " + videoId);
-                    return;
-                }
-                setSegments(segments);
+        SponsorSegment[] segments = SBRequester.getSegments(videoId);
 
-                final long videoTime = VideoInformation.getVideoTime();
-                if (highlightSegment != null) {
-                    // If the current video time is before the highlight.
-                    final long timeUntilHighlight = highlightSegment.start - videoTime;
-                    if (timeUntilHighlight > 0) {
-                        if (highlightSegment.shouldAutoSkip()) {
-                            skipSegment(highlightSegment, false);
-                            return;
-                        }
-                        highlightSegmentInitialShowEndTime = System.currentTimeMillis() + Math.min(
-                                (long) (timeUntilHighlight / VideoInformation.getPlaybackSpeed()),
-                                DURATION_TO_SHOW_SKIP_BUTTON);
+        Utils.runOnMainThread(() -> {
+            if (!videoId.equals(currentVideoId)) {
+                // user changed videos before get segments network call could complete
+                Logger.printDebug(() -> "Ignoring segments for prior video: " + videoId);
+                return;
+            }
+            setSegments(segments);
+
+            final long videoTime = VideoInformation.getVideoTime();
+            if (highlightSegment != null) {
+                // If the current video time is before the highlight.
+                final long timeUntilHighlight = highlightSegment.start - videoTime;
+                if (timeUntilHighlight > 0) {
+                    if (highlightSegment.shouldAutoSkip()) {
+                        skipSegment(highlightSegment, false);
+                        return;
                     }
+                    highlightSegmentInitialShowEndTime = System.currentTimeMillis() + Math.min(
+                            (long) (timeUntilHighlight / VideoInformation.getPlaybackSpeed()),
+                            DURATION_TO_SHOW_SKIP_BUTTON);
                 }
+            }
 
-                // check for any skips now, instead of waiting for the next update to setVideoTime()
-                setVideoTime(videoTime);
-            });
-        } catch (Exception ex) {
-            Logger.printException(() -> "executeDownloadSegments failure", ex);
-        }
+            // check for any skips now, instead of waiting for the next update to setVideoTime()
+            setVideoTime(videoTime);
+        });
     }
 
     /**
@@ -606,6 +606,7 @@ public class SegmentPlaybackController {
                     if (segmentToSkip.end < otherSegment.start) {
                         break; // No other segments can be contained.
                     }
+
                     if (otherSegment == segmentToSkip ||
                             (otherSegment.category != SegmentCategory.HIGHLIGHT && segmentToSkip.containsSegment(otherSegment))) {
                         otherSegment.didAutoSkipped = true;
