@@ -12,8 +12,6 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -58,9 +56,8 @@ public class SegmentPlaybackController {
     /*
      * Highlight segments have zero length as they are a point in time.
      * Draw them on screen using a fixed width bar.
-     * Value is independent of device dpi.
      */
-    private static final int HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH = 7;
+    private static final int HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH = dipToPixels(7);
 
     @Nullable
     private static String currentVideoId;
@@ -513,14 +510,13 @@ public class SegmentPlaybackController {
      * Removes all previously hidden segments that are not longer contained in the given video time.
      */
     private static void updateHiddenSegments(long currentVideoTime) {
-        Iterator<SponsorSegment> i = hiddenSkipSegmentsForCurrentVideoTime.iterator();
-        while (i.hasNext()) {
-            SponsorSegment hiddenSegment = i.next();
+        hiddenSkipSegmentsForCurrentVideoTime.removeIf((hiddenSegment) -> {
             if (!hiddenSegment.containsTime(currentVideoTime)) {
                 Logger.printDebug(() -> "Resetting hide skip button: " + hiddenSegment);
-                i.remove();
+                return true;
             }
-        }
+            return false;
+        });
     }
 
     private static void setSegmentCurrentlyPlaying(@Nullable SponsorSegment segment) {
@@ -531,6 +527,7 @@ public class SegmentPlaybackController {
             SponsorBlockViewController.hideSkipSegmentButton();
             return;
         }
+
         segmentCurrentlyPlaying = segment;
         skipSegmentButtonEndTime = 0;
         if (Settings.SB_AUTO_HIDE_SKIP_BUTTON.get()) {
@@ -626,7 +623,7 @@ public class SegmentPlaybackController {
         }
     }
 
-    private static void showSkippedSegmentToast(@NonNull SponsorSegment segment) {
+    private static void showSkippedSegmentToast(SponsorSegment segment) {
         Utils.verifyOnMainThread();
         toastNumberOfSegmentsSkipped++;
         if (toastNumberOfSegmentsSkipped > 1) {
@@ -637,15 +634,15 @@ public class SegmentPlaybackController {
         final long delayToToastMilliseconds = 250; // Maximum time between skips to be considered skipping multiple segments.
         Utils.runOnMainThreadDelayed(() -> {
             try {
-                if (toastSegmentSkipped == null) { // Video was changed just after skipping segment.
+                SponsorSegment segmentForTap = toastSegmentSkipped;
+                if (segmentForTap == null) { // Video was changed just after skipping segment.
                     Logger.printDebug(() -> "Ignoring old scheduled show toast");
                     return;
                 }
                 String message = toastNumberOfSegmentsSkipped == 1
-                        ? toastSegmentSkipped.getSkippedToastText()
+                        ? segmentForTap.getSkippedToastText()
                         : str("revanced_sb_skipped_multiple_segments");
 
-                SponsorSegment segmentForTap = toastSegmentSkipped;
                 showToastShortWithTapAction(message, segmentForTap);
             } catch (Exception ex) {
                 Logger.printException(() -> "showSkippedSegmentToast failure", ex);
@@ -656,106 +653,96 @@ public class SegmentPlaybackController {
         }, delayToToastMilliseconds);
     }
 
-    private static void showToastShortWithTapAction(String messageToToast, @Nullable SponsorSegment segmentForTap) {
+    private static void showToastShortWithTapAction(String messageToToast, SponsorSegment segmentForTap) {
         Objects.requireNonNull(messageToToast);
-        Utils.runOnMainThreadNowOrLater(() -> {
-            Context currentContext = SponsorBlockViewController.getOverLaysViewGroupContext();
-            if (currentContext == null) {
-                Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast, null);
-                return;
-            }
+        Utils.verifyOnMainThread();
 
+        Context currentContext = SponsorBlockViewController.getOverLaysViewGroupContext();
+        if (currentContext == null) {
+            Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast, null);
+            return;
+        }
+
+        Dialog dialog = new Dialog(currentContext);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        LinearLayout mainLayout = new LinearLayout(currentContext);
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
+        final int dip8 = dipToPixels(8);
+        final int dip16 = dipToPixels(16);
+        mainLayout.setPadding(dip16, dip8, dip16, dip8);
+        mainLayout.setGravity(Gravity.CENTER);
+        mainLayout.setMinimumHeight(dipToPixels(48));
+
+        ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
+                Utils.createCornerRadii(20), null, null));
+        int backgroundColor = Utils.getDialogBackgroundColor();
+        int initialAlpha = (int) (255 * 0.8);
+        background.getPaint().setColor(Color.argb(initialAlpha,
+                Color.red(backgroundColor), Color.green(backgroundColor), Color.blue(backgroundColor)));
+        mainLayout.setBackground(background);
+
+        TextView textView = new TextView(currentContext);
+        textView.setText(messageToToast);
+        textView.setTextSize(14);
+        int textColor = Utils.getAppForegroundColor();
+        textView.setTextColor(Color.argb(initialAlpha,
+                Color.red(textColor), Color.green(textColor), Color.blue(textColor)));
+        textView.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        textParams.gravity = Gravity.CENTER;
+        textView.setLayoutParams(textParams);
+        mainLayout.addView(textView);
+
+        mainLayout.setOnClickListener(v -> {
             try {
-                Dialog dialog = new Dialog(currentContext);
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-                LinearLayout mainLayout = new LinearLayout(currentContext);
-                mainLayout.setOrientation(LinearLayout.VERTICAL);
-                final int dip8 = dipToPixels(8);
-                final int dip16 = dipToPixels(16);
-                mainLayout.setPadding(dip16, dip8, dip16, dip8);
-                mainLayout.setGravity(Gravity.CENTER);
-                mainLayout.setMinimumHeight(dipToPixels(48));
-
-                ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
-                        Utils.createCornerRadii(20), null, null));
-                int backgroundColor = Utils.getDialogBackgroundColor();
-                int initialAlpha = (int) (255 * 0.8);
-                background.getPaint().setColor(Color.argb(initialAlpha,
-                        Color.red(backgroundColor), Color.green(backgroundColor), Color.blue(backgroundColor)));
-                mainLayout.setBackground(background);
-
-                TextView textView = new TextView(currentContext);
-                textView.setText(messageToToast);
-                textView.setTextSize(14);
-                int textColor = Utils.getAppForegroundColor();
-                textView.setTextColor(Color.argb(initialAlpha,
-                        Color.red(textColor), Color.green(textColor), Color.blue(textColor)));
-                textView.setGravity(Gravity.CENTER);
-                LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT
-                );
-                textParams.gravity = Gravity.CENTER;
-                textView.setLayoutParams(textParams);
-                mainLayout.addView(textView);
-
-                mainLayout.setOnClickListener(v -> {
-                    Logger.printDebug(() -> "Toast tapped");
-                    if (segmentForTap == null) {
-                        Logger.printDebug(() -> "Cannot seek: segmentForTap is null");
-                        return;
-                    }
-                    try {
-                        Logger.printDebug(() -> "Undoing last auto-skipped segment: " + segmentForTap + ", seeking to: "
-                                + segmentForTap.start + ", video state: " + VideoState.getCurrent());
-                        skippedSegmentUndo = segmentForTap;
-                        boolean seekSuccessful = VideoInformation.seekTo(segmentForTap.start);
-                        hiddenSkipSegmentsForCurrentVideoTime.remove(segmentForTap);
-                        // Reset skipSegmentButtonEndTime to ensure the button stays visible.
-                        skipSegmentButtonEndTime = System.currentTimeMillis() + DURATION_TO_SHOW_SKIP_BUTTON;
-                        setSegmentCurrentlyPlaying(segmentForTap);
-                        Logger.printDebug(() -> "Seek result: " + seekSuccessful);
-                        if (!seekSuccessful) {
-                            Logger.printDebug(() -> "Seek failed for segment start: " + segmentForTap.start);
-                        }
-                    } catch (Exception ex) {
-                        Logger.printException(() -> "Seek action failed for segment: " + segmentForTap, ex);
-                    }
-                    dialog.dismiss();
-                });
-                mainLayout.setClickable(true);
-
-                dialog.setContentView(mainLayout);
-
-                Window window = dialog.getWindow();
-                if (window != null) {
-                    WindowManager.LayoutParams params = window.getAttributes();
-                    params.gravity = Gravity.BOTTOM;
-                    params.y = dipToPixels(72);
-                    DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
-                    int portraitWidth = (int) (displayMetrics.widthPixels * 0.6);
-
-                    if (Resources.getSystem().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                        portraitWidth = (int) Math.min(portraitWidth, displayMetrics.heightPixels * 0.6);
-                    }
-                    params.width = portraitWidth;
-                    params.dimAmount = 0.0f;
-                    window.setAttributes(params);
-                    window.setBackgroundDrawable(null);
-                    window.addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
-                    window.addFlags(WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
+                Logger.printDebug(() -> "Undoing last auto-skipped segment: " + segmentForTap + ", seeking to: "
+                        + segmentForTap.start + ", video state: " + VideoState.getCurrent());
+                skippedSegmentUndo = segmentForTap;
+                boolean seekSuccessful = VideoInformation.seekTo(segmentForTap.start);
+                hiddenSkipSegmentsForCurrentVideoTime.remove(segmentForTap);
+                // Reset skipSegmentButtonEndTime to ensure the button stays visible.
+                skipSegmentButtonEndTime = System.currentTimeMillis() + DURATION_TO_SHOW_SKIP_BUTTON;
+                setSegmentCurrentlyPlaying(segmentForTap);
+                Logger.printDebug(() -> "Seek result: " + seekSuccessful);
+                if (!seekSuccessful) {
+                    Logger.printDebug(() -> "Seek failed for segment start: " + segmentForTap.start);
                 }
-
-                Logger.printDebug(() -> "Showing toast: " + messageToToast);
-                dialog.show();
-
-                Utils.runOnMainThreadDelayed(() -> dialog.dismiss(), 4000); // 4 sec.
             } catch (Exception ex) {
-                Logger.printException(() -> "Failed to show custom toast, falling back to standard Toast", ex);
-                Toast.makeText(currentContext, messageToToast, Toast.LENGTH_SHORT).show();
+                Logger.printException(() -> "Seek action failed for segment: " + segmentForTap, ex);
             }
+            dialog.dismiss();
         });
+        mainLayout.setClickable(true);
+
+        dialog.setContentView(mainLayout);
+
+        Window window = dialog.getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams params = window.getAttributes();
+            params.gravity = Gravity.BOTTOM;
+            params.y = dipToPixels(72);
+            DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
+            int portraitWidth = (int) (displayMetrics.widthPixels * 0.6);
+
+            if (Resources.getSystem().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                portraitWidth = (int) Math.min(portraitWidth, displayMetrics.heightPixels * 0.6);
+            }
+            params.width = portraitWidth;
+            params.dimAmount = 0.0f;
+            window.setAttributes(params);
+            window.setBackgroundDrawable(null);
+            window.addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
+            window.addFlags(WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
+        }
+
+        Logger.printDebug(() -> "Showing toast: " + messageToToast);
+        dialog.show();
+
+        Utils.runOnMainThreadDelayed(dialog::dismiss, 4000); // 4 sec.
     }
 
     /**
@@ -878,11 +865,6 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Actual screen pixel width to use for the highlight segment time bar.
-     */
-    private static final int highlightSegmentTimeBarScreenWidth = dipToPixels(HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH);
-
-    /**
      * Injection point.
      */
     @SuppressWarnings("unused")
@@ -902,7 +884,7 @@ public class SegmentPlaybackController {
                 final float left = leftPadding + segment.start * videoMillisecondsToPixels;
                 final float right;
                 if (segment.category == SegmentCategory.HIGHLIGHT) {
-                    right = left + highlightSegmentTimeBarScreenWidth;
+                    right = left + HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH;
                 } else {
                     right = leftPadding + segment.end * videoMillisecondsToPixels;
                 }
