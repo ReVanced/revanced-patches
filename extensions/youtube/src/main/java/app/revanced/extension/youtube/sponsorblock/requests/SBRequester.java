@@ -113,10 +113,10 @@ public class SBRequester {
             Logger.printException(() -> "getSegments failure", ex);
         }
 
-        // Crude debug tests to verify random features
+        // Crude debug tests to verify random features.
         // Could benefit from:
-        // 1) collection of YouTube videos with test segment times (verify client skip timing matches the video, verify seekbar draws correctly)
-        // 2) unit tests (verify everything else)
+        // 1) Collection of YouTube videos with test segment times (verify client skip timing matches the video, verify seekbar draws correctly).
+        // 2) Unit tests (verify everything else).
         //noinspection ConstantValue
         if (false) {
             segments.clear();
@@ -138,6 +138,19 @@ public class SBRequester {
             segments.add(new SponsorSegment(SegmentCategory.MUSIC_OFFTOPIC, "debug", 200000, 300000, false));
             segments.add(new SponsorSegment(SegmentCategory.SPONSOR, "debug", 200000, 250000, false));
             segments.add(new SponsorSegment(SegmentCategory.SELF_PROMO, "debug", 200000, 330000, false));
+        }
+
+        // Test undo skip functionality.
+        // To test enable 'Autoskip always' for intro and self promo.
+        //noinspection ConstantValue
+        if (false) {
+            // Should autoskip to 12 seconds.
+            // Undoing skip should seek to 2 seconds.
+            // Self promo at 8 second time should not autoskip.
+            // Skip button should show when unskipping at 2 seconds, and again at 8 seconds.
+            segments.clear();
+            segments.add(new SponsorSegment(SegmentCategory.INTRO, "debug", 2000, 12000, false));
+            segments.add(new SponsorSegment(SegmentCategory.SELF_PROMO, "debug", 8000, 12000, false));
         }
 
         return segments.toArray(new SponsorSegment[0]);

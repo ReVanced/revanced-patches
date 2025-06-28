@@ -14,13 +14,14 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Range;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -95,10 +96,17 @@ public class SegmentPlaybackController {
     private static SponsorSegment scheduledUpcomingSegment;
 
     /**
-     * Segment that was unskip by tapping the toast, used to prevent auto-skipping after undo.
+     * Segment that was unskipped by tapping the toast, used to prevent auto-skipping after undo.
      */
     @Nullable
-    private static SponsorSegment skippedSegmentUndo;
+    private static Range<Long> undoAutoSkipRange;
+
+    /**
+     * Range to undo if the toast is tapped.
+     * Will always be null or identical to {@link #undoAutoSkipRange}.
+     */
+    @Nullable
+    private static Range<Long> undoAutoSkipRangeToast;
 
     /**
      * Used to prevent re-showing a previously hidden skip button when exiting an embedded segment.
@@ -193,7 +201,7 @@ public class SegmentPlaybackController {
         skipSegmentButtonEndTime = 0;
         toastSegmentSkipped = null;
         toastNumberOfSegmentsSkipped = 0;
-        skippedSegmentUndo = null;
+        undoAutoSkipRange = null;
         hiddenSkipSegmentsForCurrentVideoTime.clear();
     }
 
@@ -305,12 +313,6 @@ public class SegmentPlaybackController {
 
             updateHiddenSegments(millis);
 
-            // Clear skippedSegmentUndo if video time is outside the segment.
-            if (skippedSegmentUndo != null && !skippedSegmentUndo.containsTime(millis)) {
-                Logger.printDebug(() -> "Clearing skippedSegmentUndo as video time is outside segment: " + skippedSegmentUndo);
-                skippedSegmentUndo = null;
-            }
-
             final float playbackSpeed = VideoInformation.getPlaybackSpeed();
             // Amount of time to look ahead for the next segment,
             // and the threshold to determine if a scheduled show/hide is at the correct video time when it's run.
@@ -337,18 +339,16 @@ public class SegmentPlaybackController {
                 }
 
                 if (segment.start <= millis) {
-                    // Skip auto-skip if the segment was recently undone.
-                    if (segment == skippedSegmentUndo) {
-                        Logger.printDebug(() -> "Skipping auto-skip for undone segment: " + segment);
-                        // Ensure the skip button remains visible for undone segments.
-                        foundSegmentCurrentlyPlaying = segment;
-                        continue;
-                    }
-
                     // We are in the segment!
+
                     if (segment.shouldAutoSkip()) {
-                        skipSegment(segment, false);
-                        return; // Must return, as skipping causes a recursive call back into this method.
+                        // Skip auto-skip if the segment was recently undone.
+                        if (undoAutoSkipRange != null && undoAutoSkipRange.contains(millis)) {
+                            Logger.printDebug(() -> "Ignoring autoskip for segment as undo skip is active: " + segment);
+                        } else {
+                            skipSegment(segment, false);
+                            return; // Must return, as skipping causes a recursive call back into this method.
+                        }
                     }
 
                     // First found segment, or it's an embedded segment and fully inside the outer segment.
@@ -501,6 +501,12 @@ public class SegmentPlaybackController {
                     }, delayUntilSkip);
                 }
             }
+
+            // Clear undo range if video time is outside the segment.  Must check last.
+            if (undoAutoSkipRange != null && !undoAutoSkipRange.contains(millis)) {
+                Logger.printDebug(() -> "Clearing undo range as current time is now outside range: " + undoAutoSkipRange);
+                undoAutoSkipRange = null;
+            }
         } catch (Exception e) {
             Logger.printException(() -> "setVideoTime failure", e);
         }
@@ -543,7 +549,7 @@ public class SegmentPlaybackController {
         SponsorBlockViewController.showSkipSegmentButton(segment);
     }
 
-    private static void skipSegment(@NonNull SponsorSegment segmentToSkip, boolean userManuallySkipped) {
+    private static void skipSegment(SponsorSegment segmentToSkip, boolean userManuallySkipped) {
         try {
             SponsorBlockViewController.hideSkipHighlightButton();
             SponsorBlockViewController.hideSkipSegmentButton();
@@ -572,6 +578,19 @@ public class SegmentPlaybackController {
                 highlightSegmentInitialShowEndTime = 0;
             }
 
+            // Set or update undo skip range.
+            Range<Long> range = segmentToSkip.getRange();
+            if (undoAutoSkipRange == null) {
+                Logger.printDebug(() -> "Setting new undo range to: " + range);
+                undoAutoSkipRange = range;
+            } else {
+                Range<Long> extendedRange = undoAutoSkipRange.extend(range);
+                Logger.printDebug(() -> "Extending undo range from: " + undoAutoSkipRange +
+                        " to: " + extendedRange);
+                undoAutoSkipRange = extendedRange;
+            }
+            undoAutoSkipRangeToast = undoAutoSkipRange;
+
             // If the seek is successful, then the seek causes a recursive call back into this class.
             final boolean seekSuccessful = VideoInformation.seekTo(segmentToSkip.end);
             if (!seekSuccessful) {
@@ -599,17 +618,6 @@ public class SegmentPlaybackController {
                         }
                     }
                 }
-                // Update skippedSegmentUndo only if it doesn't overlap with an existing skippedSegmentUndo.
-                if (skippedSegmentUndo == null ||
-                        segmentToSkip == skippedSegmentUndo ||
-                        !skippedSegmentUndo.containsSegment(segmentToSkip) &&
-                                !segmentToSkip.containsSegment(skippedSegmentUndo)) {
-                    skippedSegmentUndo = segmentToSkip;
-                    Logger.printDebug(() -> "Updated skippedSegmentUndo to: " + skippedSegmentUndo);
-                } else {
-                    Logger.printDebug(() -> "Retaining original skippedSegmentUndo: " + skippedSegmentUndo +
-                            " as it overlaps with new segment: " + segmentToSkip);
-                }
             }
 
             if (segmentToSkip.category == SegmentCategory.UNSUBMITTED) {
@@ -625,25 +633,29 @@ public class SegmentPlaybackController {
 
     private static void showSkippedSegmentToast(SponsorSegment segment) {
         Utils.verifyOnMainThread();
+        if (undoAutoSkipRange == null) {
+            Logger.printException(() -> "undoAutoSkipRange is null");
+            return;
+        }
+        toastSegmentSkipped = segment;
         toastNumberOfSegmentsSkipped++;
         if (toastNumberOfSegmentsSkipped > 1) {
             return; // toast already scheduled
         }
-        toastSegmentSkipped = segment;
 
         final long delayToToastMilliseconds = 250; // Maximum time between skips to be considered skipping multiple segments.
         Utils.runOnMainThreadDelayed(() -> {
             try {
-                SponsorSegment segmentForTap = toastSegmentSkipped;
-                if (segmentForTap == null) { // Video was changed just after skipping segment.
+                if (toastSegmentSkipped == null || undoAutoSkipRangeToast == null) {
+                    // Video was changed immediately after skipping segment.
                     Logger.printDebug(() -> "Ignoring old scheduled show toast");
                     return;
                 }
                 String message = toastNumberOfSegmentsSkipped == 1
-                        ? segmentForTap.getSkippedToastText()
+                        ? toastSegmentSkipped.getSkippedToastText()
                         : str("revanced_sb_skipped_multiple_segments");
 
-                showToastShortWithTapAction(message, segmentForTap);
+                showToastShortWithTapAction(message, undoAutoSkipRangeToast);
             } catch (Exception ex) {
                 Logger.printException(() -> "showSkippedSegmentToast failure", ex);
             } finally {
@@ -653,13 +665,13 @@ public class SegmentPlaybackController {
         }, delayToToastMilliseconds);
     }
 
-    private static void showToastShortWithTapAction(String messageToToast, SponsorSegment segmentForTap) {
+    private static void showToastShortWithTapAction(String messageToToast, Range<Long> rangeToUndo) {
         Objects.requireNonNull(messageToToast);
         Utils.verifyOnMainThread();
 
         Context currentContext = SponsorBlockViewController.getOverLaysViewGroupContext();
         if (currentContext == null) {
-            Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast, null);
+            Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast);
             return;
         }
 
@@ -699,20 +711,16 @@ public class SegmentPlaybackController {
 
         mainLayout.setOnClickListener(v -> {
             try {
-                Logger.printDebug(() -> "Undoing last auto-skipped segment: " + segmentForTap + ", seeking to: "
-                        + segmentForTap.start + ", video state: " + VideoState.getCurrent());
-                skippedSegmentUndo = segmentForTap;
-                boolean seekSuccessful = VideoInformation.seekTo(segmentForTap.start);
-                hiddenSkipSegmentsForCurrentVideoTime.remove(segmentForTap);
-                // Reset skipSegmentButtonEndTime to ensure the button stays visible.
-                skipSegmentButtonEndTime = System.currentTimeMillis() + DURATION_TO_SHOW_SKIP_BUTTON;
-                setSegmentCurrentlyPlaying(segmentForTap);
-                Logger.printDebug(() -> "Seek result: " + seekSuccessful);
-                if (!seekSuccessful) {
-                    Logger.printDebug(() -> "Seek failed for segment start: " + segmentForTap.start);
-                }
+                Logger.printDebug(() -> "Undoing autoskip using range: " + rangeToUndo
+                        + " video state: " + VideoState.getCurrent());
+                // Reset timeout for button auto hide.
+                hiddenSkipSegmentsForCurrentVideoTime.removeIf(
+                        segment -> segment.intersectsRange(rangeToUndo));
+                // Restore undo autoskip range since it's already cleared by now.
+                undoAutoSkipRange = rangeToUndo;
+                VideoInformation.seekTo(rangeToUndo.getLower());
             } catch (Exception ex) {
-                Logger.printException(() -> "Seek action failed for segment: " + segmentForTap, ex);
+                Logger.printException(() -> "showToastShortWithTapAction setOnClickListener failure", ex);
             }
             dialog.dismiss();
         });

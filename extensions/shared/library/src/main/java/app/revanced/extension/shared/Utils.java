@@ -579,7 +579,7 @@ public class Utils {
             Context currentContext = context;
 
             if (currentContext == null) {
-                Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast, null);
+                Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast);
             } else {
                 Logger.printDebug(() -> "Showing toast: " + messageToToast);
                 Toast.makeText(currentContext, messageToToast, toastDuration).show();
