@@ -1,3 +1,10 @@
+# [5.30.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.2...v5.30.0-dev.3) (2025-06-28)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Fix "Hide AI Comments summary" in Comments ([#5284](https://github.com/ReVanced/revanced-patches/issues/5284)) ([d42370e](https://github.com/ReVanced/revanced-patches/commit/d42370ef71f4608abc64b6ef4a3fb0c5bd5e3eb6))
+
 # [5.30.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.1...v5.30.0-dev.2) (2025-06-27)
 
 
