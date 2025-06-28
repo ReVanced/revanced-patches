@@ -1,6 +1,7 @@
 package app.revanced.extension.spotify.misc.fix;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
@@ -38,5 +39,12 @@ public class SpoofClientPatch {
         } catch (Exception ex) {
             Logger.printException(() -> "login failure", ex);
         }
+    }
+
+    public static void setNativeLoginHandler(View loginButton) {
+        WebApp.setNativeLoginHandler(() -> {
+            loginButton.setSoundEffectsEnabled(false);
+            loginButton.performClick();
+        });
     }
 }
