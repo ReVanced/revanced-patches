@@ -804,7 +804,6 @@ public class SegmentPlaybackController {
             }
         });
         mainLayout.setClickable(true);
-
         dialog.setContentView(mainLayout);
 
         Window window = dialog.getWindow();
@@ -830,7 +829,7 @@ public class SegmentPlaybackController {
         }
 
         Dialog priorDialog = toastDialogRef.get();
-        if (priorDialog != null) {
+        if (priorDialog != null && priorDialog.isShowing()) {
             Logger.printDebug(() -> "Removing previous skip toast that is still on screen: " + priorDialog);
             priorDialog.dismiss();
         }
