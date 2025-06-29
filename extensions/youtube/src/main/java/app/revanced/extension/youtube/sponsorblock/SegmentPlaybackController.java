@@ -2,6 +2,9 @@ package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
+import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.MANUAL_SKIP;
+import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
+import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -29,6 +32,8 @@ import java.util.*;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -45,6 +50,21 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockViewController
  * Class is not thread safe. All methods must be called on the main thread unless otherwise specified.
  */
 public class SegmentPlaybackController {
+
+    public static final class SkipButtonDurationAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            if (!Settings.SB_ENABLED.get()) return false;
+            if (Settings.SB_AUTO_HIDE_SKIP_BUTTON.get()) return true;
+
+            // Can set skip duration if using auto hide skip button
+            // or skip to highlight button is shown.
+            String skipBehavior = Settings.SB_CATEGORY_HIGHLIGHT.get();
+            return skipBehavior.equals(SKIP_AUTOMATICALLY.reVancedKeyValue)
+                    || skipBehavior.equals(SKIP_AUTOMATICALLY_ONCE.reVancedKeyValue)
+                    || skipBehavior.equals(MANUAL_SKIP.reVancedKeyValue);
+        }
+    }
 
     /**
      * Enum for configurable durations (1 to 10 seconds) for skip button and toast display.
@@ -193,7 +213,7 @@ public class SegmentPlaybackController {
         segments = videoSegments;
         calculateTimeWithoutSegments();
 
-        if (SegmentCategory.HIGHLIGHT.behaviour == CategoryBehaviour.SKIP_AUTOMATICALLY
+        if (SegmentCategory.HIGHLIGHT.behaviour == SKIP_AUTOMATICALLY
                 || SegmentCategory.HIGHLIGHT.behaviour == CategoryBehaviour.MANUAL_SKIP) {
             for (SponsorSegment segment : videoSegments) {
                 if (segment.category == SegmentCategory.HIGHLIGHT) {

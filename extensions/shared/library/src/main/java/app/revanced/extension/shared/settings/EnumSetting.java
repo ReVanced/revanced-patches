@@ -74,12 +74,13 @@ public class EnumSetting<T extends Enum<?>> extends Setting<T> {
     /**
      * @param enumName Enum name.  Casing does not matter.
      * @return Enum of this type with the same declared name.
+     * @throws IllegalArgumentException if the name is not a valid enum of this type.
      */
     public T getEnumFromString(String enumName) {
         //noinspection ConstantConditions
         for (Enum<?> value : defaultValue.getClass().getEnumConstants()) {
             if (value.name().equalsIgnoreCase(enumName)) {
-                // noinspection unchecked
+                //noinspection unchecked
                 return (T) value;
             }
         }
@@ -107,7 +108,9 @@ public class EnumSetting<T extends Enum<?>> extends Setting<T> {
      * Availability based on if this setting is currently set to any of the provided types.
      */
     @SafeVarargs
-    public final Setting.Availability availability(@NonNull T... types) {
+    public final Setting.Availability availability(T... types) {
+        Objects.requireNonNull(types);
+
         return () -> {
             T currentEnumType = get();
             for (T enumType : types) {

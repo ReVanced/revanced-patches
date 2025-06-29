@@ -73,8 +73,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
     private EditTextPreference importExport;
     private Preference apiUrl;
 
-    private final List<SegmentCategoryListPreference> segmentCategories = new ArrayList<>();
     private PreferenceCategory segmentCategory;
+    private final List<SegmentCategoryListPreference> segmentCategories = new ArrayList<>();
 
     public SponsorBlockPreferenceGroup(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
