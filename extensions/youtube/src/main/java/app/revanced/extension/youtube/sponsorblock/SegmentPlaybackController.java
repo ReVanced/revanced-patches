@@ -45,14 +45,6 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockViewController
  * Class is not thread safe. All methods must be called on the main thread unless otherwise specified.
  */
 public class SegmentPlaybackController {
-    /**
-     * Length of time to show a skip button for a highlight segment,
-     * or a regular segment if {@link Settings#SB_AUTO_HIDE_SKIP_BUTTON} is enabled.
-     *
-     * Effectively this value is rounded up to the next whole second.
-     */
-    private static final long DURATION_TO_SHOW_SKIP_BUTTON = 3800;
-
     /*
      * Highlight segments have zero length as they are a point in time.
      * Draw them on screen using a fixed width bar.
@@ -119,11 +111,6 @@ public class SegmentPlaybackController {
     private static Range<Long> undoAutoSkipRangeToast;
 
     /**
-     * Duration in milliseconds for how long the toast dialog is displayed.
-     */
-    private static final long TOAST_DURATION = 4000; // 4 seconds.
-
-    /**
      * System time (in milliseconds) of when to hide the skip button of {@link #segmentCurrentlyPlaying}.
      * Value is zero if playback is not inside a segment ({@link #segmentCurrentlyPlaying} is null),
      * or if {@link Settings#SB_AUTO_HIDE_SKIP_BUTTON} is not enabled.
@@ -142,6 +129,78 @@ public class SegmentPlaybackController {
     @Nullable
     private static SponsorSegment toastSegmentSkipped;
     private static int toastNumberOfSegmentsSkipped;
+
+    /**
+     * Enum for configurable durations (1 to 10 seconds) for skip button and toast display.
+     */
+    enum Duration {
+        ONE_SECOND(1000),
+        TWO_SECONDS(2000),
+        THREE_SECONDS(3000),
+        FOUR_SECONDS(4000),
+        FIVE_SECONDS(5000),
+        SIX_SECONDS(6000),
+        SEVEN_SECONDS(7000),
+        EIGHT_SECONDS(8000),
+        NINE_SECONDS(9000),
+        TEN_SECONDS(10000);
+
+        private final long milliseconds;
+
+        Duration(long milliseconds) {
+            this.milliseconds = milliseconds;
+        }
+
+        public long getMilliseconds() {
+            return milliseconds;
+        }
+
+        /**
+         * Get the skip button duration from settings.
+         */
+        public static long getSkipButtonDuration() {
+            int seconds = Settings.SB_SKIP_BUTTON_DURATION.get();
+            long milliseconds = seconds * 1000L;
+            // Validate the duration is within the allowed range.
+            for (Duration duration : values()) {
+                if (duration.milliseconds == milliseconds) {
+                    return milliseconds;
+                }
+            }
+            // Fallback if settings value is invalid.
+            return FOUR_SECONDS.milliseconds;
+        }
+
+        /**
+         * Get the toast duration from settings.
+         */
+        public static long getToastDuration() {
+            int seconds = Settings.SB_TOAST_DURATION.get();
+            long milliseconds = seconds * 1000L;
+            // Validate the duration is within the allowed range.
+            for (Duration duration : values()) {
+                if (duration.milliseconds == milliseconds) {
+                    return milliseconds;
+                }
+            }
+            // Fallback if settings value is invalid.
+            return FOUR_SECONDS.milliseconds;
+        }
+    }
+
+    /**
+     * Get the duration to show the skip button, in milliseconds.
+     */
+    private static long getSkipButtonDuration() {
+        return Duration.getSkipButtonDuration();
+    }
+
+    /**
+     * Get the duration to show the toast, in milliseconds.
+     */
+    private static long getToastDuration() {
+        return Duration.getToastDuration();
+    }
 
     @Nullable
     static SponsorSegment[] getSegments() {
@@ -295,7 +354,7 @@ public class SegmentPlaybackController {
                     }
                     highlightSegmentInitialShowEndTime = System.currentTimeMillis() + Math.min(
                             (long) (timeUntilHighlight / VideoInformation.getPlaybackSpeed()),
-                            DURATION_TO_SHOW_SKIP_BUTTON);
+                            getSkipButtonDuration());
                 }
             }
 
@@ -404,7 +463,7 @@ public class SegmentPlaybackController {
             }
 
             if (highlightSegment != null) {
-                if (millis < DURATION_TO_SHOW_SKIP_BUTTON || (highlightSegmentInitialShowEndTime != 0
+                if (millis < getSkipButtonDuration() || (highlightSegmentInitialShowEndTime != 0
                         && System.currentTimeMillis() < highlightSegmentInitialShowEndTime)) {
                     SponsorBlockViewController.showSkipHighlightButton(highlightSegment);
                 } else {
@@ -548,7 +607,7 @@ public class SegmentPlaybackController {
                 SponsorBlockViewController.hideSkipSegmentButton();
                 return;
             }
-            skipSegmentButtonEndTime = System.currentTimeMillis() + DURATION_TO_SHOW_SKIP_BUTTON;
+            skipSegmentButtonEndTime = System.currentTimeMillis() + getSkipButtonDuration();
         }
         Logger.printDebug(() -> "Showing segment: " + segment);
         SponsorBlockViewController.showSkipSegmentButton(segment);
@@ -762,7 +821,7 @@ public class SegmentPlaybackController {
         dialog.setCanceledOnTouchOutside(false); // Do not dismiss dialog when tap outside of it.
         dialog.show();
 
-        Utils.runOnMainThreadDelayed(dialog::dismiss, TOAST_DURATION);
+        Utils.runOnMainThreadDelayed(dialog::dismiss, getToastDuration());
     }
 
     /**

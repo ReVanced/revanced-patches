@@ -330,6 +330,34 @@
                 <item>YOUR_CLIPS</item>
             </string-array>
         </patch>
+        <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+            <!-- Display names for duration settings (1 to 10 seconds) -->
+            <string-array name="revanced_sb_duration_entries">
+                <item>@string/revanced_sb_duration_1s</item>
+                <item>@string/revanced_sb_duration_2s</item>
+                <item>@string/revanced_sb_duration_3s</item>
+                <item>@string/revanced_sb_duration_4s</item>
+                <item>@string/revanced_sb_duration_5s</item>
+                <item>@string/revanced_sb_duration_6s</item>
+                <item>@string/revanced_sb_duration_7s</item>
+                <item>@string/revanced_sb_duration_8s</item>
+                <item>@string/revanced_sb_duration_9s</item>
+                <item>@string/revanced_sb_duration_10s</item>
+            </string-array>
+            <!-- Values for duration settings (in seconds) -->
+            <string-array name="revanced_sb_duration_entry_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+                <item>4</item>
+                <item>5</item>
+                <item>6</item>
+                <item>7</item>
+                <item>8</item>
+                <item>9</item>
+                <item>10</item>
+            </string-array>
+        </patch>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch">
             <string-array name="revanced_shorts_player_type_legacy_entries">
                 <item>@string/revanced_shorts_player_type_shorts</item>

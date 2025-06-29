@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
@@ -62,6 +63,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
     private SwitchPreference trackSkips;
     private SwitchPreference showTimeWithoutSegments;
     private SwitchPreference toastOnConnectionError;
+    private ListPreference skipButtonDuration; // New preference
+    private ListPreference toastDuration; // New preference
 
     private ResettableEditTextPreference newSegmentStep;
     private ResettableEditTextPreference minSegmentDuration;
@@ -135,6 +138,12 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             showTimeWithoutSegments.setChecked(Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.get());
             showTimeWithoutSegments.setEnabled(enabled);
 
+            skipButtonDuration.setValue(String.valueOf(Settings.SB_SKIP_BUTTON_DURATION.get()));
+            skipButtonDuration.setEnabled(enabled);
+
+            toastDuration.setValue(String.valueOf(Settings.SB_TOAST_DURATION.get()));
+            toastDuration.setEnabled(enabled);
+
             newSegmentStep.setText((Settings.SB_CREATE_NEW_SEGMENT_STEP.get()).toString());
             newSegmentStep.setEnabled(enabled);
 
@@ -166,7 +175,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
         try {
             super.onAttachedToActivity();
 
-             if (preferencesInitialized) {
+            if (preferencesInitialized) {
                 if (settingsImported) {
                     settingsImported = false;
                     updateUI();
@@ -179,6 +188,14 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             Logger.printDebug(() -> "Creating settings preferences");
             Context context = getContext();
             SponsorBlockSettings.initialize();
+
+            String[] durationEntries = new String[10];
+            String[] durationEntryValues = new String[10];
+            for (int i = 0; i < 10; i++) {
+                int seconds = i + 1;
+                durationEntries[i] = str("revanced_sb_duration_" + seconds + "s");
+                durationEntryValues[i] = String.valueOf(seconds);
+            }
 
             sbEnabled = new SwitchPreference(context);
             sbEnabled.setTitle(str("revanced_sb_enable_sb"));
@@ -259,6 +276,34 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 return true;
             });
             appearanceCategory.addPreference(showTimeWithoutSegments);
+
+            skipButtonDuration = new ListPreference(context);
+            skipButtonDuration.setTitle(str("revanced_sb_skip_button_duration"));
+            skipButtonDuration.setSummary(str("revanced_sb_skip_button_duration_sum"));
+            skipButtonDuration.setEntries(durationEntries);
+            skipButtonDuration.setEntryValues(durationEntryValues);
+            skipButtonDuration.setDefaultValue("4");
+            skipButtonDuration.setOnPreferenceChangeListener((preference1, newValue) -> {
+                int duration = Integer.parseInt((String) newValue);
+                Settings.SB_SKIP_BUTTON_DURATION.save(duration);
+                updateUI();
+                return true;
+            });
+            appearanceCategory.addPreference(skipButtonDuration);
+
+            toastDuration = new ListPreference(context);
+            toastDuration.setTitle(str("revanced_sb_toast_duration"));
+            toastDuration.setSummary(str("revanced_sb_toast_duration_sum"));
+            toastDuration.setEntries(durationEntries);
+            toastDuration.setEntryValues(durationEntryValues);
+            toastDuration.setDefaultValue("4");
+            toastDuration.setOnPreferenceChangeListener((preference1, newValue) -> {
+                int duration = Integer.parseInt((String) newValue);
+                Settings.SB_TOAST_DURATION.save(duration);
+                updateUI();
+                return true;
+            });
+            appearanceCategory.addPreference(toastDuration);
 
             segmentCategory = new PreferenceCategory(context);
             segmentCategory.setTitle(str("revanced_sb_diff_segments"));

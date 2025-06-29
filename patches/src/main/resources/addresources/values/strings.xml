@@ -1201,6 +1201,20 @@ Ready to submit?"</string>
             <string name="revanced_sb_about_title">About</string>
             <string name="revanced_sb_about_api_title" translatable="false">sponsor.ajay.app</string>
             <string name="revanced_sb_about_api_summary">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
+            <string name="revanced_sb_skip_button_duration">Skip button duration</string>
+            <string name="revanced_sb_skip_button_duration_sum">Select how long the skip button is shown</string>
+            <string name="revanced_sb_toast_duration">Skip toast duration</string>
+            <string name="revanced_sb_toast_duration_sum">Select how long the skip toast notification is shown</string>
+            <string name="revanced_sb_duration_1s">1 second</string>
+            <string name="revanced_sb_duration_2s">2 seconds</string>
+            <string name="revanced_sb_duration_3s">3 seconds</string>
+            <string name="revanced_sb_duration_4s">4 seconds</string>
+            <string name="revanced_sb_duration_5s">5 seconds</string>
+            <string name="revanced_sb_duration_6s">6 seconds</string>
+            <string name="revanced_sb_duration_7s">7 seconds</string>
+            <string name="revanced_sb_duration_8s">8 seconds</string>
+            <string name="revanced_sb_duration_9s">9 seconds</string>
+            <string name="revanced_sb_duration_10s">10 seconds</string>
         </patch>
         <patch id="layout.formfactor.changeFormFactorPatch">
             <string name="revanced_change_form_factor_title">Layout form factor</string>
