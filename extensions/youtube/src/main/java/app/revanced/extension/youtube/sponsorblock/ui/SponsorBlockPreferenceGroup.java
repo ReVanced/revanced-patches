@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
@@ -29,6 +28,7 @@ import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.ResettableEditTextPreference;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
@@ -63,8 +63,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
     private SwitchPreference trackSkips;
     private SwitchPreference showTimeWithoutSegments;
     private SwitchPreference toastOnConnectionError;
-    private ListPreference skipButtonDuration; // New preference
-    private ListPreference toastDuration; // New preference
+    private CustomDialogListPreference skipButtonDuration;
+    private CustomDialogListPreference toastDuration;
 
     private ResettableEditTextPreference newSegmentStep;
     private ResettableEditTextPreference minSegmentDuration;
@@ -277,7 +277,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             });
             appearanceCategory.addPreference(showTimeWithoutSegments);
 
-            skipButtonDuration = new ListPreference(context);
+            skipButtonDuration = new CustomDialogListPreference(context);
             skipButtonDuration.setTitle(str("revanced_sb_skip_button_duration"));
             skipButtonDuration.setSummary(str("revanced_sb_skip_button_duration_sum"));
             skipButtonDuration.setEntries(durationEntries);
@@ -291,7 +291,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             });
             appearanceCategory.addPreference(skipButtonDuration);
 
-            toastDuration = new ListPreference(context);
+            toastDuration = new CustomDialogListPreference(context);
             toastDuration.setTitle(str("revanced_sb_toast_duration"));
             toastDuration.setSummary(str("revanced_sb_toast_duration_sum"));
             toastDuration.setEntries(durationEntries);
