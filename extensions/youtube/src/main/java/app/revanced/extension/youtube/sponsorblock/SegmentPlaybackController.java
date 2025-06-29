@@ -51,21 +51,6 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockViewController
  */
 public class SegmentPlaybackController {
 
-    public static final class SkipButtonDurationAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            if (!Settings.SB_ENABLED.get()) return false;
-            if (Settings.SB_AUTO_HIDE_SKIP_BUTTON.get()) return true;
-
-            // Can set skip duration if using auto hide skip button
-            // or skip to highlight button is shown.
-            String skipBehavior = Settings.SB_CATEGORY_HIGHLIGHT.get();
-            return skipBehavior.equals(SKIP_AUTOMATICALLY.reVancedKeyValue)
-                    || skipBehavior.equals(SKIP_AUTOMATICALLY_ONCE.reVancedKeyValue)
-                    || skipBehavior.equals(MANUAL_SKIP.reVancedKeyValue);
-        }
-    }
-
     /**
      * Enum for configurable durations (1 to 10 seconds) for skip button and toast display.
      */
