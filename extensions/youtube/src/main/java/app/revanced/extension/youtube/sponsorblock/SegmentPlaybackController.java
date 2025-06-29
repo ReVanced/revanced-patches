@@ -68,19 +68,6 @@ public class SegmentPlaybackController {
         TEN_SECONDS(10_000);
 
         /**
-         * Helper methods since some SponsorBlock settings uses custom code and not
-         * {@link app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment}
-         * to set list preference values.
-         */
-        public static String[] getListPreferenceEntries() {
-            return Utils.getResourceStringArray("revanced_sb_duration_entries");
-        }
-
-        public static String[] getListPreferenceEntryValues() {
-            return Utils.getResourceStringArray("revanced_sb_duration_entry_values");
-        }
-
-        /**
          * Duration, minus 200ms to account for exclusive end time checking in scheduled show/hides.
          */
         public final long adjustedDuration;

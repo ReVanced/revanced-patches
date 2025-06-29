@@ -215,28 +215,6 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             });
             appearanceCategory.addPreference(votingEnabled);
 
-            showTimeWithoutSegments = new SwitchPreference(context);
-            showTimeWithoutSegments.setTitle(str("revanced_sb_general_time_without"));
-            showTimeWithoutSegments.setSummaryOn(str("revanced_sb_general_time_without_sum_on"));
-            showTimeWithoutSegments.setSummaryOff(str("revanced_sb_general_time_without_sum_off"));
-            showTimeWithoutSegments.setOnPreferenceChangeListener((preference1, newValue) -> {
-                Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.save((Boolean) newValue);
-                updateUI();
-                return true;
-            });
-            appearanceCategory.addPreference(showTimeWithoutSegments);
-
-            squareLayout = new SwitchPreference(context);
-            squareLayout.setTitle(str("revanced_sb_square_layout"));
-            squareLayout.setSummaryOn(str("revanced_sb_square_layout_sum_on"));
-            squareLayout.setSummaryOff(str("revanced_sb_square_layout_sum_off"));
-            squareLayout.setOnPreferenceChangeListener((preference1, newValue) -> {
-                Settings.SB_SQUARE_LAYOUT.save((Boolean) newValue);
-                updateUI();
-                return true;
-            });
-            appearanceCategory.addPreference(squareLayout);
-
             compactSkipButton = new SwitchPreference(context);
             compactSkipButton.setTitle(str("revanced_sb_enable_compact_skip_button"));
             compactSkipButton.setSummaryOn(str("revanced_sb_enable_compact_skip_button_sum_on"));
@@ -259,8 +237,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             });
             appearanceCategory.addPreference(autoHideSkipSegmentButton);
 
-            String[] durationEntries = SponsorBlockDuration.getListPreferenceEntries();
-            String[] durationEntryValues = SponsorBlockDuration.getListPreferenceEntryValues();
+            String[] durationEntries = Utils.getResourceStringArray("revanced_sb_duration_entries");
+            String[] durationEntryValues = Utils.getResourceStringArray("revanced_sb_duration_entry_values");
 
             autoHideSkipSegmentButtonDuration = new CustomDialogListPreference(context);
             autoHideSkipSegmentButtonDuration.setTitle(str("revanced_sb_auto_hide_skip_button_duration"));
@@ -300,6 +278,28 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 return true;
             });
             appearanceCategory.addPreference(showSkipToastDuration);
+
+            showTimeWithoutSegments = new SwitchPreference(context);
+            showTimeWithoutSegments.setTitle(str("revanced_sb_general_time_without"));
+            showTimeWithoutSegments.setSummaryOn(str("revanced_sb_general_time_without_sum_on"));
+            showTimeWithoutSegments.setSummaryOff(str("revanced_sb_general_time_without_sum_off"));
+            showTimeWithoutSegments.setOnPreferenceChangeListener((preference1, newValue) -> {
+                Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.save((Boolean) newValue);
+                updateUI();
+                return true;
+            });
+            appearanceCategory.addPreference(showTimeWithoutSegments);
+
+            squareLayout = new SwitchPreference(context);
+            squareLayout.setTitle(str("revanced_sb_square_layout"));
+            squareLayout.setSummaryOn(str("revanced_sb_square_layout_sum_on"));
+            squareLayout.setSummaryOff(str("revanced_sb_square_layout_sum_off"));
+            squareLayout.setOnPreferenceChangeListener((preference1, newValue) -> {
+                Settings.SB_SQUARE_LAYOUT.save((Boolean) newValue);
+                updateUI();
+                return true;
+            });
+            appearanceCategory.addPreference(squareLayout);
 
             segmentCategory = new PreferenceCategory(context);
             segmentCategory.setTitle(str("revanced_sb_diff_segments"));
