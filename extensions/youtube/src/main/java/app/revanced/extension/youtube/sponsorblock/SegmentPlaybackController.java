@@ -345,7 +345,6 @@ public class SegmentPlaybackController {
                     continue; // Past this segment.
                 }
 
-                // Skip auto-skip if the segment was recently undone.
                 final boolean segmentShouldAutoSkip = shouldAutoSkipAndUndoSkipNotActive(segment, millis);
 
                 if (segment.start <= millis) {
@@ -375,8 +374,10 @@ public class SegmentPlaybackController {
 
                 // Segment is upcoming.
                 if (startTimerLookAheadThreshold < segment.start) {
+                    // Segment is not close enough to schedule, and no segments after this are of interest.
                     break;
                 }
+
                 if (segmentShouldAutoSkip) {
                     foundUpcomingSegment = segment;
                     break; // Must stop here.
@@ -423,7 +424,7 @@ public class SegmentPlaybackController {
                 SponsorBlockViewController.hideSkipSegmentButton();
             }
 
-            // Hide only if the segment end is near.
+            // Schedule a hide, but only if the segment end is near.
             final SponsorSegment segmentToHide = (foundSegmentCurrentlyPlaying != null &&
                     foundSegmentCurrentlyPlaying.endIsNear(millis, speedAdjustedTimeThreshold))
                     ? foundSegmentCurrentlyPlaying
@@ -572,7 +573,8 @@ public class SegmentPlaybackController {
                 }
             }
 
-            Logger.printDebug(() -> "Skipping segment: " + segmentToSkip);
+            VideoState videoState = VideoState.getCurrent();
+            Logger.printDebug(() -> "Skipping segment: " + segmentToSkip + " videoState: " + videoState);
             lastSegmentSkipped = segmentToSkip;
             lastSegmentSkippedTime = now;
             setSegmentCurrentlyPlaying(null);
@@ -603,11 +605,11 @@ public class SegmentPlaybackController {
                 return;
             }
 
-            final boolean videoIsPaused = VideoState.getCurrent() == VideoState.PAUSED;
+            final boolean videoIsPaused = (videoState == VideoState.PAUSED);
             if (!userManuallySkipped) {
-                // Check for any smaller embedded segments, and count those as autoskipped.
+                // Check for any smaller embedded segments, and count those as auto-skipped.
                 final boolean showSkipToast = Settings.SB_TOAST_ON_SKIP.get();
-                for (final SponsorSegment otherSegment : Objects.requireNonNull(segments)) {
+                for (SponsorSegment otherSegment : Objects.requireNonNull(segments)) {
                     if (segmentToSkip.end < otherSegment.start) {
                         break; // No other segments can be contained.
                     }
