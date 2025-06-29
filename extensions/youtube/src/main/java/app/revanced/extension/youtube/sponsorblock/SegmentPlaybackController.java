@@ -2,9 +2,7 @@ package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
-import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.MANUAL_SKIP;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
-import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -17,7 +15,10 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Range;
-import android.view.*;
+import android.view.Gravity;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,7 +26,11 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -769,6 +774,15 @@ public class SegmentPlaybackController {
         Animation fadeOut = Utils.getResourceAnimation("fade_out");
         fadeIn.setDuration(fadeDurationFast);
         fadeOut.setDuration(fadeDurationFast);
+        fadeOut.setAnimationListener(new Animation.AnimationListener() {
+            public void onAnimationStart(Animation animation) { }
+            public void onAnimationEnd(Animation animation) {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+            }
+            public void onAnimationRepeat(Animation animation) { }
+        });
 
         mainLayout.setOnClickListener(v -> {
             try {
@@ -776,17 +790,7 @@ public class SegmentPlaybackController {
                 // Restore undo autoskip range since it's already cleared by now.
                 undoAutoSkipRange = rangeToUndo;
                 VideoInformation.seekTo(rangeToUndo.getLower());
-                // Start fade-out animation on click.
-                fadeOut.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {}
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        dialog.dismiss();
-                    }
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {}
-                });
+
                 mainLayout.startAnimation(fadeOut);
             } catch (Exception ex) {
                 Logger.printException(() -> "showToastShortWithTapAction setOnClickListener failure", ex);
@@ -822,19 +826,11 @@ public class SegmentPlaybackController {
         mainLayout.startAnimation(fadeIn);
         dialog.show();
 
-        // Apply fade-out animation and dismissal.
+        // Fade out and dismiss the dialog if the user does not undo the skip.
         Utils.runOnMainThreadDelayed(() -> {
-            fadeOut.setAnimationListener(new Animation.AnimationListener() {
-                @Override
-                public void onAnimationStart(Animation animation) {}
-                @Override
-                public void onAnimationEnd(Animation animation) {
-                    dialog.dismiss();
-                }
-                @Override
-                public void onAnimationRepeat(Animation animation) {}
-            });
-            mainLayout.startAnimation(fadeOut);
+            if (dialog.isShowing()) {
+                mainLayout.startAnimation(fadeOut);
+            }
         }, getToastDuration());
     }
 
