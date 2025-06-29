@@ -11,17 +11,14 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Range;
-import android.view.Gravity;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.*;
+import android.view.animation.Animation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -32,8 +29,6 @@ import java.util.*;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.Setting;
-import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -748,18 +743,13 @@ public class SegmentPlaybackController {
 
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
                 Utils.createCornerRadii(20), null, null));
-        int backgroundColor = Utils.getDialogBackgroundColor();
-        int initialAlpha = (int) (255 * 0.8);
-        background.getPaint().setColor(Color.argb(initialAlpha,
-                Color.red(backgroundColor), Color.green(backgroundColor), Color.blue(backgroundColor)));
+        background.getPaint().setColor(Utils.getDialogBackgroundColor());
         mainLayout.setBackground(background);
 
         TextView textView = new TextView(currentContext);
         textView.setText(messageToToast);
         textView.setTextSize(14);
-        int textColor = Utils.getAppForegroundColor();
-        textView.setTextColor(Color.argb(initialAlpha,
-                Color.red(textColor), Color.green(textColor), Color.blue(textColor)));
+        textView.setTextColor(Utils.getAppForegroundColor());
         textView.setGravity(Gravity.CENTER);
         LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -768,6 +758,13 @@ public class SegmentPlaybackController {
         textParams.gravity = Gravity.CENTER;
         textView.setLayoutParams(textParams);
         mainLayout.addView(textView);
+        mainLayout.setAlpha(0.8f); // Opacity for the entire dialog.
+
+        final int fadeDurationFast = Utils.getResourceInteger("fade_duration_fast");
+        Animation fadeIn = Utils.getResourceAnimation("fade_in");
+        Animation fadeOut = Utils.getResourceAnimation("fade_out");
+        fadeIn.setDuration(fadeDurationFast);
+        fadeOut.setDuration(fadeDurationFast);
 
         mainLayout.setOnClickListener(v -> {
             try {
@@ -775,10 +772,22 @@ public class SegmentPlaybackController {
                 // Restore undo autoskip range since it's already cleared by now.
                 undoAutoSkipRange = rangeToUndo;
                 VideoInformation.seekTo(rangeToUndo.getLower());
+                // Start fade-out animation on click.
+                fadeOut.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {}
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        dialog.dismiss();
+                    }
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {}
+                });
+                mainLayout.startAnimation(fadeOut);
             } catch (Exception ex) {
                 Logger.printException(() -> "showToastShortWithTapAction setOnClickListener failure", ex);
+                dialog.dismiss();
             }
-            dialog.dismiss();
         });
         mainLayout.setClickable(true);
 
@@ -805,9 +814,23 @@ public class SegmentPlaybackController {
 
         Logger.printDebug(() -> "Showing toast: " + messageToToast);
         dialog.setCanceledOnTouchOutside(false); // Do not dismiss dialog when tap outside of it.
+        mainLayout.startAnimation(fadeIn);
         dialog.show();
 
-        Utils.runOnMainThreadDelayed(dialog::dismiss, getToastDuration());
+        // Apply fade-out animation and dismissal.
+        Utils.runOnMainThreadDelayed(() -> {
+            fadeOut.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {}
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    dialog.dismiss();
+                }
+                @Override
+                public void onAnimationRepeat(Animation animation) {}
+            });
+            mainLayout.startAnimation(fadeOut);
+        }, getToastDuration());
     }
 
     /**
