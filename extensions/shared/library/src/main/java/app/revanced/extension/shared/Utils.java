@@ -311,6 +311,10 @@ public class Utils {
         return getContext().getResources().getDimension(getResourceIdentifier(resourceIdentifierName, "dimen"));
     }
 
+    public static String[] getResourceStringArray(String resourceIdentifierName) throws Resources.NotFoundException {
+        return getContext().getResources().getStringArray(getResourceIdentifier(resourceIdentifierName, "array"));
+    }
+
     public interface MatchFilter<T> {
         boolean matches(T object);
     }
@@ -809,7 +813,7 @@ public class Utils {
 
         // Create content container (message/EditText) inside a ScrollView only if message or editText is provided.
         ScrollView contentScrollView = null;
-        LinearLayout contentContainer = null;
+        LinearLayout contentContainer;
         if (message != null || editText != null) {
             contentScrollView = new ScrollView(context);
             contentScrollView.setVerticalScrollBarEnabled(false); // Disable the vertical scrollbar.
@@ -833,7 +837,7 @@ public class Utils {
             contentScrollView.addView(contentContainer);
 
             // Message (if not replaced by EditText).
-            if (editText == null && message != null) {
+            if (editText == null) {
                 TextView messageView = new TextView(context);
                 messageView.setText(message); // Supports Spanned (HTML).
                 messageView.setTextSize(16);

@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.sponsorblock.ui;
 
 import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController.SponsorBlockDuration;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -63,8 +64,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
     private SwitchPreference trackSkips;
     private SwitchPreference showTimeWithoutSegments;
     private SwitchPreference toastOnConnectionError;
-    private CustomDialogListPreference skipButtonDuration;
-    private CustomDialogListPreference toastDuration;
+    private CustomDialogListPreference autoHideSkipSegmentButtonDuration;
+    private CustomDialogListPreference showSkipToastDuration;
 
     private ResettableEditTextPreference newSegmentStep;
     private ResettableEditTextPreference minSegmentDuration;
@@ -117,8 +118,11 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             votingEnabled.setChecked(Settings.SB_VOTING_BUTTON.get());
             votingEnabled.setEnabled(enabled);
 
-            autoHideSkipSegmentButton.setEnabled(enabled);
             autoHideSkipSegmentButton.setChecked(Settings.SB_AUTO_HIDE_SKIP_BUTTON.get());
+            autoHideSkipSegmentButton.setEnabled(enabled);
+
+            autoHideSkipSegmentButtonDuration.setValue(Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.get().toString());
+            autoHideSkipSegmentButtonDuration.setEnabled(Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.isAvailable());
 
             compactSkipButton.setChecked(Settings.SB_COMPACT_SKIP_BUTTON.get());
             compactSkipButton.setEnabled(enabled);
@@ -129,6 +133,9 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             showSkipToast.setChecked(Settings.SB_TOAST_ON_SKIP.get());
             showSkipToast.setEnabled(enabled);
 
+            showSkipToastDuration.setValue(Settings.SB_TOAST_ON_SKIP_DURATION.get().toString());
+            showSkipToastDuration.setEnabled(Settings.SB_TOAST_ON_SKIP_DURATION.isAvailable());
+
             toastOnConnectionError.setChecked(Settings.SB_TOAST_ON_CONNECTION_ERROR.get());
             toastOnConnectionError.setEnabled(enabled);
 
@@ -137,12 +144,6 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
 
             showTimeWithoutSegments.setChecked(Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.get());
             showTimeWithoutSegments.setEnabled(enabled);
-
-            skipButtonDuration.setValue(String.valueOf(Settings.SB_SKIP_BUTTON_DURATION.get()));
-            skipButtonDuration.setEnabled(enabled);
-
-            toastDuration.setValue(String.valueOf(Settings.SB_TOAST_DURATION.get()));
-            toastDuration.setEnabled(enabled);
 
             newSegmentStep.setText((Settings.SB_CREATE_NEW_SEGMENT_STEP.get()).toString());
             newSegmentStep.setEnabled(enabled);
@@ -189,14 +190,6 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             Context context = getContext();
             SponsorBlockSettings.initialize();
 
-            String[] durationEntries = new String[10];
-            String[] durationEntryValues = new String[10];
-            for (int i = 0; i < 10; i++) {
-                int seconds = i + 1;
-                durationEntries[i] = str("revanced_sb_duration_" + seconds + "s");
-                durationEntryValues[i] = String.valueOf(seconds);
-            }
-
             sbEnabled = new SwitchPreference(context);
             sbEnabled.setTitle(str("revanced_sb_enable_sb"));
             sbEnabled.setSummary(str("revanced_sb_enable_sb_sum"));
@@ -222,28 +215,6 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             });
             appearanceCategory.addPreference(votingEnabled);
 
-            autoHideSkipSegmentButton = new SwitchPreference(context);
-            autoHideSkipSegmentButton.setTitle(str("revanced_sb_enable_auto_hide_skip_segment_button"));
-            autoHideSkipSegmentButton.setSummaryOn(str("revanced_sb_enable_auto_hide_skip_segment_button_sum_on"));
-            autoHideSkipSegmentButton.setSummaryOff(str("revanced_sb_enable_auto_hide_skip_segment_button_sum_off"));
-            autoHideSkipSegmentButton.setOnPreferenceChangeListener((preference1, newValue) -> {
-                Settings.SB_AUTO_HIDE_SKIP_BUTTON.save((Boolean) newValue);
-                updateUI();
-                return true;
-            });
-            appearanceCategory.addPreference(autoHideSkipSegmentButton);
-
-            compactSkipButton = new SwitchPreference(context);
-            compactSkipButton.setTitle(str("revanced_sb_enable_compact_skip_button"));
-            compactSkipButton.setSummaryOn(str("revanced_sb_enable_compact_skip_button_sum_on"));
-            compactSkipButton.setSummaryOff(str("revanced_sb_enable_compact_skip_button_sum_off"));
-            compactSkipButton.setOnPreferenceChangeListener((preference1, newValue) -> {
-                Settings.SB_COMPACT_SKIP_BUTTON.save((Boolean) newValue);
-                updateUI();
-                return true;
-            });
-            appearanceCategory.addPreference(compactSkipButton);
-
             squareLayout = new SwitchPreference(context);
             squareLayout.setTitle(str("revanced_sb_square_layout"));
             squareLayout.setSummaryOn(str("revanced_sb_square_layout_sum_on"));
@@ -254,17 +225,6 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 return true;
             });
             appearanceCategory.addPreference(squareLayout);
-
-            showSkipToast = new SwitchPreference(context);
-            showSkipToast.setTitle(str("revanced_sb_general_skiptoast"));
-            showSkipToast.setSummaryOn(str("revanced_sb_general_skiptoast_sum_on"));
-            showSkipToast.setSummaryOff(str("revanced_sb_general_skiptoast_sum_off"));
-            showSkipToast.setOnPreferenceChangeListener((preference1, newValue) -> {
-                Settings.SB_TOAST_ON_SKIP.save((Boolean) newValue);
-                updateUI();
-                return true;
-            });
-            appearanceCategory.addPreference(showSkipToast);
 
             showTimeWithoutSegments = new SwitchPreference(context);
             showTimeWithoutSegments.setTitle(str("revanced_sb_general_time_without"));
@@ -277,33 +237,69 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             });
             appearanceCategory.addPreference(showTimeWithoutSegments);
 
-            skipButtonDuration = new CustomDialogListPreference(context);
-            skipButtonDuration.setTitle(str("revanced_sb_skip_button_duration"));
-            skipButtonDuration.setSummary(str("revanced_sb_skip_button_duration_sum"));
-            skipButtonDuration.setEntries(durationEntries);
-            skipButtonDuration.setEntryValues(durationEntryValues);
-            skipButtonDuration.setDefaultValue("4");
-            skipButtonDuration.setOnPreferenceChangeListener((preference1, newValue) -> {
-                int duration = Integer.parseInt((String) newValue);
-                Settings.SB_SKIP_BUTTON_DURATION.save(duration);
+            compactSkipButton = new SwitchPreference(context);
+            compactSkipButton.setTitle(str("revanced_sb_enable_compact_skip_button"));
+            compactSkipButton.setSummaryOn(str("revanced_sb_enable_compact_skip_button_sum_on"));
+            compactSkipButton.setSummaryOff(str("revanced_sb_enable_compact_skip_button_sum_off"));
+            compactSkipButton.setOnPreferenceChangeListener((preference1, newValue) -> {
+                Settings.SB_COMPACT_SKIP_BUTTON.save((Boolean) newValue);
                 updateUI();
                 return true;
             });
-            appearanceCategory.addPreference(skipButtonDuration);
+            appearanceCategory.addPreference(compactSkipButton);
 
-            toastDuration = new CustomDialogListPreference(context);
-            toastDuration.setTitle(str("revanced_sb_toast_duration"));
-            toastDuration.setSummary(str("revanced_sb_toast_duration_sum"));
-            toastDuration.setEntries(durationEntries);
-            toastDuration.setEntryValues(durationEntryValues);
-            toastDuration.setDefaultValue("4");
-            toastDuration.setOnPreferenceChangeListener((preference1, newValue) -> {
-                int duration = Integer.parseInt((String) newValue);
-                Settings.SB_TOAST_DURATION.save(duration);
+            autoHideSkipSegmentButton = new SwitchPreference(context);
+            autoHideSkipSegmentButton.setTitle(str("revanced_sb_enable_auto_hide_skip_segment_button"));
+            autoHideSkipSegmentButton.setSummaryOn(str("revanced_sb_enable_auto_hide_skip_segment_button_sum_on"));
+            autoHideSkipSegmentButton.setSummaryOff(str("revanced_sb_enable_auto_hide_skip_segment_button_sum_off"));
+            autoHideSkipSegmentButton.setOnPreferenceChangeListener((preference1, newValue) -> {
+                Settings.SB_AUTO_HIDE_SKIP_BUTTON.save((Boolean) newValue);
                 updateUI();
                 return true;
             });
-            appearanceCategory.addPreference(toastDuration);
+            appearanceCategory.addPreference(autoHideSkipSegmentButton);
+
+            String[] durationEntries = SponsorBlockDuration.getListPreferenceEntries();
+            String[] durationEntryValues = SponsorBlockDuration.getListPreferenceEntryValues();
+
+            autoHideSkipSegmentButtonDuration = new CustomDialogListPreference(context);
+            autoHideSkipSegmentButtonDuration.setTitle(str("revanced_sb_auto_hide_skip_button_duration"));
+            autoHideSkipSegmentButtonDuration.setSummary(str("revanced_sb_auto_hide_skip_button_duration_sum"));
+            autoHideSkipSegmentButtonDuration.setEntries(durationEntries);
+            autoHideSkipSegmentButtonDuration.setEntryValues(durationEntryValues);
+            autoHideSkipSegmentButtonDuration.setOnPreferenceChangeListener((preference1, newValue) -> {
+                Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.save(
+                        Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.getEnumFromString((String) newValue)
+                );
+                updateUI();
+                return true;
+            });
+            appearanceCategory.addPreference(autoHideSkipSegmentButtonDuration);
+
+            showSkipToast = new SwitchPreference(context);
+            showSkipToast.setTitle(str("revanced_sb_general_skiptoast"));
+            showSkipToast.setSummaryOn(str("revanced_sb_general_skiptoast_sum_on"));
+            showSkipToast.setSummaryOff(str("revanced_sb_general_skiptoast_sum_off"));
+            showSkipToast.setOnPreferenceChangeListener((preference1, newValue) -> {
+                Settings.SB_TOAST_ON_SKIP.save((Boolean) newValue);
+                updateUI();
+                return true;
+            });
+            appearanceCategory.addPreference(showSkipToast);
+
+            showSkipToastDuration = new CustomDialogListPreference(context);
+            showSkipToastDuration.setTitle(str("revanced_sb_toast_on_skip_duration"));
+            showSkipToastDuration.setSummary(str("revanced_sb_toast_on_skip_duration_sum"));
+            showSkipToastDuration.setEntries(durationEntries);
+            showSkipToastDuration.setEntryValues(durationEntryValues);
+            showSkipToastDuration.setOnPreferenceChangeListener((preference1, newValue) -> {
+                Settings.SB_TOAST_ON_SKIP_DURATION.save(
+                        Settings.SB_TOAST_ON_SKIP_DURATION.getEnumFromString((String) newValue)
+                );
+                updateUI();
+                return true;
+            });
+            appearanceCategory.addPreference(showSkipToastDuration);
 
             segmentCategory = new PreferenceCategory(context);
             segmentCategory.setTitle(str("revanced_sb_diff_segments"));

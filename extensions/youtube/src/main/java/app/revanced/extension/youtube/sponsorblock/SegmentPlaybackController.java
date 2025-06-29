@@ -45,6 +45,45 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockViewController
  * Class is not thread safe. All methods must be called on the main thread unless otherwise specified.
  */
 public class SegmentPlaybackController {
+
+    /**
+     * Enum for configurable durations (1 to 10 seconds) for skip button and toast display.
+     */
+    public enum SponsorBlockDuration {
+        ONE_SECOND(1_000),
+        TWO_SECONDS(2_000),
+        THREE_SECONDS(3_000),
+        FOUR_SECONDS(4_000),
+        FIVE_SECONDS(5_000),
+        SIX_SECONDS(6_000),
+        SEVEN_SECONDS(7_000),
+        EIGHT_SECONDS(8_000),
+        NINE_SECONDS(9_000),
+        TEN_SECONDS(10_000);
+
+        /**
+         * Helper methods since some SponsorBlock settings uses custom code and not
+         * {@link app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment}
+         * to set list preference values.
+         */
+        public static String[] getListPreferenceEntries() {
+            return Utils.getResourceStringArray("revanced_sb_duration_entries");
+        }
+
+        public static String[] getListPreferenceEntryValues() {
+            return Utils.getResourceStringArray("revanced_sb_duration_entry_values");
+        }
+
+        /**
+         * Duration, minus 200ms to account for exclusive end time checking in scheduled show/hides.
+         */
+        public final long adjustedDuration;
+
+        SponsorBlockDuration(long milliseconds) {
+            adjustedDuration = milliseconds - 200;
+        }
+    }
+
     /*
      * Highlight segments have zero length as they are a point in time.
      * Draw them on screen using a fixed width bar.
@@ -131,75 +170,17 @@ public class SegmentPlaybackController {
     private static int toastNumberOfSegmentsSkipped;
 
     /**
-     * Enum for configurable durations (1 to 10 seconds) for skip button and toast display.
-     */
-    enum Duration {
-        ONE_SECOND(1000),
-        TWO_SECONDS(2000),
-        THREE_SECONDS(3000),
-        FOUR_SECONDS(4000),
-        FIVE_SECONDS(5000),
-        SIX_SECONDS(6000),
-        SEVEN_SECONDS(7000),
-        EIGHT_SECONDS(8000),
-        NINE_SECONDS(9000),
-        TEN_SECONDS(10000);
-
-        private final long milliseconds;
-
-        Duration(long milliseconds) {
-            this.milliseconds = milliseconds;
-        }
-
-        public long getMilliseconds() {
-            return milliseconds;
-        }
-
-        /**
-         * Get the skip button duration from settings.
-         */
-        public static long getSkipButtonDuration() {
-            int seconds = Settings.SB_SKIP_BUTTON_DURATION.get();
-            long milliseconds = seconds * 1000L;
-            // Validate the duration is within the allowed range.
-            for (Duration duration : values()) {
-                if (duration.milliseconds == milliseconds) {
-                    return milliseconds;
-                }
-            }
-            // Fallback if settings value is invalid.
-            return FOUR_SECONDS.milliseconds;
-        }
-
-        /**
-         * Get the toast duration from settings.
-         */
-        public static long getToastDuration() {
-            int seconds = Settings.SB_TOAST_DURATION.get();
-            long milliseconds = seconds * 1000L;
-            // Validate the duration is within the allowed range.
-            for (Duration duration : values()) {
-                if (duration.milliseconds == milliseconds) {
-                    return milliseconds;
-                }
-            }
-            // Fallback if settings value is invalid.
-            return FOUR_SECONDS.milliseconds;
-        }
-    }
-
-    /**
-     * Get the duration to show the skip button, in milliseconds.
+     * @return The adjusted duration to show the skip button, in milliseconds.
      */
     private static long getSkipButtonDuration() {
-        return Duration.getSkipButtonDuration();
+        return Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.get().adjustedDuration;
     }
 
     /**
-     * Get the duration to show the toast, in milliseconds.
+     * @return The adjusted duration to show the skipped toast, in milliseconds.
      */
     private static long getToastDuration() {
-        return Duration.getToastDuration();
+        return Settings.SB_TOAST_ON_SKIP_DURATION.get().adjustedDuration;
     }
 
     @Nullable

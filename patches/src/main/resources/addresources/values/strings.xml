@@ -1024,9 +1024,23 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatically hide Skip button</string>
             <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds</string>
             <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button is shown for the entire segment</string>
+            <string name="revanced_sb_auto_hide_skip_button_duration">Skip button duration</string>
+            <string name="revanced_sb_auto_hide_skip_button_duration_sum">How long the skip button is shown</string>
             <string name="revanced_sb_general_skiptoast">Show undo skip toast</string>
             <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap the toast notification to undo the skip</string>
             <string name="revanced_sb_general_skiptoast_sum_off">Toast is not shown</string>
+            <string name="revanced_sb_toast_on_skip_duration">Skip toast duration</string>
+            <string name="revanced_sb_toast_on_skip_duration_sum">How long the skip toast notification is shown</string>
+            <string name="revanced_sb_duration_1s">1 second</string>
+            <string name="revanced_sb_duration_2s">2 seconds</string>
+            <string name="revanced_sb_duration_3s">3 seconds</string>
+            <string name="revanced_sb_duration_4s">4 seconds</string>
+            <string name="revanced_sb_duration_5s">5 seconds</string>
+            <string name="revanced_sb_duration_6s">6 seconds</string>
+            <string name="revanced_sb_duration_7s">7 seconds</string>
+            <string name="revanced_sb_duration_8s">8 seconds</string>
+            <string name="revanced_sb_duration_9s">9 seconds</string>
+            <string name="revanced_sb_duration_10s">10 seconds</string>
             <string name="revanced_sb_general_time_without">Show video length without segments</string>
             <string name="revanced_sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length</string>
             <string name="revanced_sb_general_time_without_sum_off">Full video length shown</string>
@@ -1201,20 +1215,6 @@ Ready to submit?"</string>
             <string name="revanced_sb_about_title">About</string>
             <string name="revanced_sb_about_api_title" translatable="false">sponsor.ajay.app</string>
             <string name="revanced_sb_about_api_summary">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
-            <string name="revanced_sb_skip_button_duration">Skip button duration</string>
-            <string name="revanced_sb_skip_button_duration_sum">Select how long the skip button is shown</string>
-            <string name="revanced_sb_toast_duration">Skip toast duration</string>
-            <string name="revanced_sb_toast_duration_sum">Select how long the skip toast notification is shown</string>
-            <string name="revanced_sb_duration_1s">1 second</string>
-            <string name="revanced_sb_duration_2s">2 seconds</string>
-            <string name="revanced_sb_duration_3s">3 seconds</string>
-            <string name="revanced_sb_duration_4s">4 seconds</string>
-            <string name="revanced_sb_duration_5s">5 seconds</string>
-            <string name="revanced_sb_duration_6s">6 seconds</string>
-            <string name="revanced_sb_duration_7s">7 seconds</string>
-            <string name="revanced_sb_duration_8s">8 seconds</string>
-            <string name="revanced_sb_duration_9s">9 seconds</string>
-            <string name="revanced_sb_duration_10s">10 seconds</string>
         </patch>
         <patch id="layout.formfactor.changeFormFactorPatch">
             <string name="revanced_change_form_factor_title">Layout form factor</string>

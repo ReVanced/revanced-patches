@@ -71,8 +71,11 @@ public class EnumSetting<T extends Enum<?>> extends Setting<T> {
         json.put(importExportKey, value.name().toLowerCase(Locale.ENGLISH));
     }
 
-    @NonNull
-    private T getEnumFromString(String enumName) {
+    /**
+     * @param enumName Enum name.  Casing does not matter.
+     * @return Enum of this type with the same declared name.
+     */
+    public T getEnumFromString(String enumName) {
         //noinspection ConstantConditions
         for (Enum<?> value : defaultValue.getClass().getEnumConstants()) {
             if (value.name().equalsIgnoreCase(enumName)) {
@@ -80,6 +83,7 @@ public class EnumSetting<T extends Enum<?>> extends Setting<T> {
                 return (T) value;
             }
         }
+
         throw new IllegalArgumentException("Unknown enum value: " + enumName);
     }
 
