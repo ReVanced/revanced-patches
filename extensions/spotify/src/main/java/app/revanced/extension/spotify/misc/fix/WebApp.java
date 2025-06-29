@@ -45,10 +45,11 @@ class WebApp {
     private static volatile WebView currentWebView;
 
     static void launchLogin(Context context) {
+        final Dialog dialog = newDialog(context);
+
         Utils.runOnBackgroundThread(() -> {
             Logger.printInfo(() -> "Launching login");
 
-            final Dialog dialog = newDialog(context);
 
             // A session must be obtained from a login. Repeat until a session is acquired.
             boolean isAcquired = false;
@@ -244,7 +245,7 @@ class WebApp {
         return userAgentString;
     }
 
-    @NotNull
+    @NonNull
     private static Dialog newDialog(Context context) {
         Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
         dialog.setCancelable(false);
