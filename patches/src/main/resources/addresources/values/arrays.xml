@@ -61,6 +61,7 @@
                 <item>@string/revanced_language_ZH</item>
             </string-array>
             <string-array name="revanced_language_entry_values">
+                <!-- Extension enum names. -->
                 <item>DEFAULT</item>
                 <item>AM</item>
                 <item>AR</item>
@@ -129,7 +130,6 @@
                 <item>iOS TV</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_client_type_entry_values">
-                <!-- Extension enum names. -->
                 <item>ANDROID_UNPLUGGED</item>
                 <item>ANDROID_VR_NO_AUTH</item>
                 <item>IOS_UNPLUGGED</item>
@@ -146,7 +146,6 @@
                 <item>@string/revanced_swipe_overlay_style_entry_7</item>
             </string-array>
             <string-array name="revanced_swipe_overlay_style_entry_values">
-                <!-- Extension enum names. -->
                 <item>HORIZONTAL</item>
                 <item>HORIZONTAL_MINIMAL_TOP</item>
                 <item>HORIZONTAL_MINIMAL_CENTER</item>
@@ -180,7 +179,6 @@
                 <item>@string/revanced_change_form_factor_entry_4</item>
             </string-array>
             <string-array name="revanced_change_form_factor_entry_values">
-                <!-- Extension enum names. -->
                 <item>DEFAULT</item>
                 <item>SMALL</item>
                 <item>LARGE</item>
@@ -210,7 +208,6 @@
                 <item>@string/revanced_exit_fullscreen_entry_4</item>
             </string-array>
             <string-array name="revanced_exit_fullscreen_entry_values">
-                <!-- Enum names from the extension. -->
                 <item>DISABLED</item>
                 <item>PORTRAIT</item>
                 <item>LANDSCAPE</item>
@@ -229,7 +226,6 @@
                 <item>@string/revanced_miniplayer_type_entry_7</item>
             </string-array>
             <string-array name="revanced_miniplayer_type_entry_values">
-                <!-- Extension enum names. -->
                 <item>DISABLED</item>
                 <item>DEFAULT</item>
                 <item>MINIMAL</item>
@@ -330,13 +326,38 @@
                 <item>YOUR_CLIPS</item>
             </string-array>
         </patch>
+        <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+            <string-array name="revanced_sb_duration_entries">
+                <item>@string/revanced_sb_duration_1s</item>
+                <item>@string/revanced_sb_duration_2s</item>
+                <item>@string/revanced_sb_duration_3s</item>
+                <item>@string/revanced_sb_duration_4s</item>
+                <item>@string/revanced_sb_duration_5s</item>
+                <item>@string/revanced_sb_duration_6s</item>
+                <item>@string/revanced_sb_duration_7s</item>
+                <item>@string/revanced_sb_duration_8s</item>
+                <item>@string/revanced_sb_duration_9s</item>
+                <item>@string/revanced_sb_duration_10s</item>
+            </string-array>
+            <string-array name="revanced_sb_duration_entry_values">
+                <item>ONE_SECOND</item>
+                <item>TWO_SECONDS</item>
+                <item>THREE_SECONDS</item>
+                <item>FOUR_SECONDS</item>
+                <item>FIVE_SECONDS</item>
+                <item>SIX_SECONDS</item>
+                <item>SEVEN_SECONDS</item>
+                <item>EIGHT_SECONDS</item>
+                <item>NINE_SECONDS</item>
+                <item>TEN_SECONDS</item>
+            </string-array>
+        </patch>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch">
             <string-array name="revanced_shorts_player_type_legacy_entries">
                 <item>@string/revanced_shorts_player_type_shorts</item>
                 <item>@string/revanced_shorts_player_type_regular_player</item>
             </string-array>
             <string-array name="revanced_shorts_player_type_legacy_entry_values">
-                <!-- Extension enum names. -->
                 <item>SHORTS_PLAYER</item>
                 <item>REGULAR_PLAYER</item>
             </string-array>
@@ -346,7 +367,6 @@
                 <item>@string/revanced_shorts_player_type_regular_player_fullscreen</item>
             </string-array>
             <string-array name="revanced_shorts_player_type_entry_values">
-                <!-- Enum names from extension -->
                 <item>SHORTS_PLAYER</item>
                 <item>REGULAR_PLAYER</item>
                 <item>REGULAR_PLAYER_FULLSCREEN</item>
@@ -360,7 +380,6 @@
                 <item>@string/revanced_alt_thumbnail_options_entry_4</item>
             </string-array>
             <string-array name="revanced_alt_thumbnail_options_entry_values">
-                <!-- Extension enum names. -->
                 <item>ORIGINAL</item>
                 <item>DEARROW</item>
                 <item>DEARROW_STILL_IMAGES</item>
