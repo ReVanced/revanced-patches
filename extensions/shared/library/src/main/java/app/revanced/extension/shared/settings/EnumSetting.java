@@ -76,7 +76,7 @@ public class EnumSetting<T extends Enum<?>> extends Setting<T> {
      * @return Enum of this type with the same declared name.
      * @throws IllegalArgumentException if the name is not a valid enum of this type.
      */
-    public T getEnumFromString(String enumName) {
+    protected T getEnumFromString(String enumName) {
         //noinspection ConstantConditions
         for (Enum<?> value : defaultValue.getClass().getEnumConstants()) {
             if (value.name().equalsIgnoreCase(enumName)) {

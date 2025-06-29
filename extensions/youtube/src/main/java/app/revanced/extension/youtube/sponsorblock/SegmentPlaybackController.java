@@ -144,7 +144,7 @@ public class SegmentPlaybackController {
     private static Range<Long> undoAutoSkipRange;
     /**
      * Range to undo if the toast is tapped.
-     * Is always null or identical to {@link #undoAutoSkipRange}.
+     * Is always null or identical to the last non null value of {@link #undoAutoSkipRange}.
      */
     @Nullable
     private static Range<Long> undoAutoSkipRangeToast;
