@@ -556,6 +556,15 @@ public class SegmentPlaybackController {
 
     private static void skipSegment(SponsorSegment segmentToSkip, boolean userManuallySkipped) {
         try {
+            // Do not show a toast if the user is scrubbing thru a paused video.
+            // Cannot do this video state check in setTime or earlier in this method, as the video state may not be up to date.
+            // So instead, only hide toasts because all other skip logic done while paused causes no harm.
+            VideoState videoState = VideoState.getCurrent();
+            if (!userManuallySkipped && videoState == VideoState.PAUSED) {
+                Logger.printDebug(() -> "Ignoring auto skip as video is paused");
+                return;
+            }
+
             SponsorBlockViewController.hideSkipHighlightButton();
             SponsorBlockViewController.hideSkipSegmentButton();
 
@@ -573,8 +582,7 @@ public class SegmentPlaybackController {
                 }
             }
 
-            VideoState videoState = VideoState.getCurrent();
-            Logger.printDebug(() -> "Skipping segment: " + segmentToSkip + " videoState: " + videoState);
+            Logger.printDebug(() -> "Skipping segment: " + segmentToSkip);
             lastSegmentSkipped = segmentToSkip;
             lastSegmentSkippedTime = now;
             setSegmentCurrentlyPlaying(null);
@@ -605,7 +613,6 @@ public class SegmentPlaybackController {
                 return;
             }
 
-            final boolean videoIsPaused = (videoState == VideoState.PAUSED);
             if (!userManuallySkipped) {
                 // Check for any smaller embedded segments, and count those as auto-skipped.
                 final boolean showSkipToast = Settings.SB_TOAST_ON_SKIP.get();
@@ -617,10 +624,7 @@ public class SegmentPlaybackController {
                     if (otherSegment == segmentToSkip ||
                             (otherSegment.category != SegmentCategory.HIGHLIGHT && segmentToSkip.containsSegment(otherSegment))) {
                         otherSegment.didAutoSkipped = true;
-                        // Do not show a toast if the user is scrubbing thru a paused video.
-                        // Cannot do this video state check in setTime or earlier in this method, as the video state may not be up to date.
-                        // So instead, only hide toasts because all other skip logic done while paused causes no harm.
-                        if (showSkipToast && !videoIsPaused) {
+                        if (showSkipToast) {
                             showSkippedSegmentToast(otherSegment);
                         }
                     }
@@ -630,9 +634,9 @@ public class SegmentPlaybackController {
             if (segmentToSkip.category == SegmentCategory.UNSUBMITTED) {
                 removeUnsubmittedSegments();
                 SponsorBlockUtils.setNewSponsorSegmentPreviewed();
-            } else if (!videoIsPaused) {
-                SponsorBlockUtils.sendViewRequestAsync(segmentToSkip);
             }
+
+            SponsorBlockUtils.sendViewRequestAsync(segmentToSkip);
         } catch (Exception ex) {
             Logger.printException(() -> "skipSegment failure", ex);
         }
