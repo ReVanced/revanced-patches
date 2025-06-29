@@ -730,8 +730,12 @@ public class SegmentPlaybackController {
             return;
         }
 
+        Logger.printDebug(() -> "Showing toast: " + messageToToast);
+
         Dialog dialog = new Dialog(currentContext);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // Do not dismiss dialog if tapped outside the dialog bounds.
+        dialog.setCanceledOnTouchOutside(false);
 
         LinearLayout mainLayout = new LinearLayout(currentContext);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
@@ -795,6 +799,9 @@ public class SegmentPlaybackController {
 
         Window window = dialog.getWindow();
         if (window != null) {
+            // Remove window animations and use custom fade animation.
+            window.setWindowAnimations(0);
+
             WindowManager.LayoutParams params = window.getAttributes();
             params.gravity = Gravity.BOTTOM;
             params.y = dipToPixels(72);
@@ -812,8 +819,6 @@ public class SegmentPlaybackController {
             window.addFlags(WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
         }
 
-        Logger.printDebug(() -> "Showing toast: " + messageToToast);
-        dialog.setCanceledOnTouchOutside(false); // Do not dismiss dialog when tap outside of it.
         mainLayout.startAnimation(fadeIn);
         dialog.show();
 
