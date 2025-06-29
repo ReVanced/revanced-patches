@@ -56,24 +56,24 @@ public class SegmentPlaybackController {
      * Enum for configurable durations (1 to 10 seconds) for skip button and toast display.
      */
     public enum SponsorBlockDuration {
-        ONE_SECOND(1_000),
-        TWO_SECONDS(2_000),
-        THREE_SECONDS(3_000),
-        FOUR_SECONDS(4_000),
-        FIVE_SECONDS(5_000),
-        SIX_SECONDS(6_000),
-        SEVEN_SECONDS(7_000),
-        EIGHT_SECONDS(8_000),
-        NINE_SECONDS(9_000),
-        TEN_SECONDS(10_000);
+        ONE_SECOND(1),
+        TWO_SECONDS(2),
+        THREE_SECONDS(3),
+        FOUR_SECONDS(4),
+        FIVE_SECONDS(5),
+        SIX_SECONDS(6),
+        SEVEN_SECONDS(7),
+        EIGHT_SECONDS(8),
+        NINE_SECONDS(9),
+        TEN_SECONDS(10);
 
         /**
-         * Duration, minus 200ms to account for exclusive end time checking in scheduled show/hides.
+         * Duration, minus 200ms to adjust for exclusive end time checking in scheduled show/hides.
          */
-        public final long adjustedDuration;
+        private final long adjustedDuration;
 
-        SponsorBlockDuration(long milliseconds) {
-            adjustedDuration = milliseconds - 200;
+        SponsorBlockDuration(int seconds) {
+            adjustedDuration = seconds * 1000L - 200;
         }
     }
 
@@ -218,6 +218,7 @@ public class SegmentPlaybackController {
         if (segments == null || segments.length == 0) {
             return;
         }
+
         List<SponsorSegment> replacement = new ArrayList<>();
         for (SponsorSegment segment : segments) {
             if (segment.category != SegmentCategory.UNSUBMITTED) {
