@@ -25,6 +25,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -173,6 +174,11 @@ public class SegmentPlaybackController {
     @Nullable
     private static SponsorSegment toastSegmentSkipped;
     private static int toastNumberOfSegmentsSkipped;
+
+    /**
+     * The last toast dialog showing on screen.
+     */
+    private static WeakReference<Dialog> toastDialogRef = new WeakReference<>(null);
 
     /**
      * @return The adjusted duration to show the skip button, in milliseconds.
@@ -822,6 +828,13 @@ public class SegmentPlaybackController {
             window.addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
             window.addFlags(WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
         }
+
+        Dialog priorDialog = toastDialogRef.get();
+        if (priorDialog != null) {
+            Logger.printDebug(() -> "Removing previous skip toast that is still on screen: " + priorDialog);
+            priorDialog.dismiss();
+        }
+        toastDialogRef = new WeakReference<>(dialog);
 
         mainLayout.startAnimation(fadeIn);
         dialog.show();

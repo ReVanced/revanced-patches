@@ -150,7 +150,14 @@ public class SBRequester {
             // Self promo at 8 second time should not autoskip.
             segments.clear();
             segments.add(new SponsorSegment(SegmentCategory.INTRO, "debug", 2000, 12000, false));
-            segments.add(new SponsorSegment(SegmentCategory.SELF_PROMO, "debug", 8000, 12000, false));
+            segments.add(new SponsorSegment(SegmentCategory.SELF_PROMO, "debug", 8000, 15000, false));
+
+            // Test multiple autoskip dialogs rapidly showing.
+            // Only one toast should be shown at anytime.
+            segments.add(new SponsorSegment(SegmentCategory.INTRO, "debug", 16000, 17000, false));
+            segments.add(new SponsorSegment(SegmentCategory.INTRO, "debug", 18000, 19000, false));
+            segments.add(new SponsorSegment(SegmentCategory.INTRO, "debug", 20000, 21000, false));
+            segments.add(new SponsorSegment(SegmentCategory.INTRO, "debug", 22000, 23000, false));
         }
 
         return segments.toArray(new SponsorSegment[0]);
