@@ -53,7 +53,7 @@ public class SBRequester {
     private SBRequester() {
     }
 
-    private static void handleConnectionError(@NonNull String toastMessage, @Nullable Exception ex) {
+    private static void handleConnectionError(String toastMessage, @Nullable Exception ex) {
         if (Settings.SB_TOAST_ON_CONNECTION_ERROR.get()) {
             Utils.showToastShort(toastMessage);
         }
@@ -63,7 +63,7 @@ public class SBRequester {
     }
 
     @NonNull
-    public static SponsorSegment[] getSegments(@NonNull String videoId) {
+    public static SponsorSegment[] getSegments(String videoId) {
         Utils.verifyOffMainThread();
         List<SponsorSegment> segments = new ArrayList<>();
         try {
@@ -156,7 +156,7 @@ public class SBRequester {
         return segments.toArray(new SponsorSegment[0]);
     }
 
-    public static void submitSegments(@NonNull String videoId, @NonNull String category,
+    public static void submitSegments(String videoId, String category,
                                       long startTime, long endTime, long videoLength) {
         Utils.verifyOffMainThread();
 
@@ -202,7 +202,7 @@ public class SBRequester {
         }
     }
 
-    public static void sendSegmentSkippedViewedRequest(@NonNull SponsorSegment segment) {
+    public static void sendSegmentSkippedViewedRequest(SponsorSegment segment) {
         Utils.verifyOffMainThread();
         try {
             HttpURLConnection connection = getConnectionFromRoute(SBRoutes.VIEWED_SEGMENT, segment.UUID);
@@ -221,13 +221,13 @@ public class SBRequester {
         }
     }
 
-    public static void voteForSegmentOnBackgroundThread(@NonNull SponsorSegment segment, @NonNull SegmentVote voteOption) {
+    public static void voteForSegmentOnBackgroundThread(SponsorSegment segment, SegmentVote voteOption) {
         voteOrRequestCategoryChange(segment, voteOption, null);
     }
-    public static void voteToChangeCategoryOnBackgroundThread(@NonNull SponsorSegment segment, @NonNull SegmentCategory categoryToVoteFor) {
+    public static void voteToChangeCategoryOnBackgroundThread(SponsorSegment segment, SegmentCategory categoryToVoteFor) {
         voteOrRequestCategoryChange(segment, SegmentVote.CATEGORY_CHANGE, categoryToVoteFor);
     }
-    private static void voteOrRequestCategoryChange(@NonNull SponsorSegment segment, @NonNull SegmentVote voteOption, SegmentCategory categoryToVoteFor) {
+    private static void voteOrRequestCategoryChange(SponsorSegment segment, SegmentVote voteOption, SegmentCategory categoryToVoteFor) {
         Utils.runOnBackgroundThread(() -> {
             try {
                 String segmentUuid = segment.UUID;
@@ -293,7 +293,7 @@ public class SBRequester {
      * @return NULL if the call was successful.  If unsuccessful, an error message is returned.
      */
     @Nullable
-    public static String setUsername(@NonNull String username) {
+    public static String setUsername(String username) {
         Utils.verifyOffMainThread();
         try {
             HttpURLConnection connection = getConnectionFromRoute(SBRoutes.CHANGE_USERNAME, SponsorBlockSettings.getSBPrivateUserID(), username);
@@ -333,14 +333,14 @@ public class SBRequester {
 
     // helpers
 
-    private static HttpURLConnection getConnectionFromRoute(@NonNull Route route, String... params) throws IOException {
+    private static HttpURLConnection getConnectionFromRoute(Route route, String... params) throws IOException {
         HttpURLConnection connection = Requester.getConnectionFromRoute(Settings.SB_API_URL.get(), route, params);
         connection.setConnectTimeout(TIMEOUT_TCP_DEFAULT_MILLISECONDS);
         connection.setReadTimeout(TIMEOUT_HTTP_DEFAULT_MILLISECONDS);
         return connection;
     }
 
-    private static JSONObject getJSONObject(@NonNull Route route, String... params) throws IOException, JSONException {
+    private static JSONObject getJSONObject(Route route, String... params) throws IOException, JSONException {
         return Requester.parseJSONObject(getConnectionFromRoute(route, params));
     }
 }
