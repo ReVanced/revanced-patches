@@ -285,10 +285,13 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_description_components_screen_title">Opis videa</string>
   <string name="revanced_hide_description_components_screen_summary">Sakrijte ili prikažite komponente opisa videa</string>
   <string name="revanced_hide_filter_bar_screen_title">Traka filtera</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Sakrijte ili prikažite traku filtera u fidu, rezultatima pretrage i srodnim videima</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Sakrij u fidu</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Skriveno u fidu</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Prikazano u fidu</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Sakrijte ili prikažite traku filtera u fidovima, istoriji, rezultatima pretrage i srodnim videima</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Sakrij u fidovima</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Skriveno u fidovima</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Prikazano u fidovima</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Sakrij u istoriji</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Skriveno u istoriji</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Prikazano u istoriji</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Sakrij u rezultatima pretrage</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skriveno u rezultatima pretrage</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Prikazano u rezultatima pretrage</string>

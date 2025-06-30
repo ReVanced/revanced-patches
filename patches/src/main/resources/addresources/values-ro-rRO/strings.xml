@@ -285,10 +285,13 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_description_components_screen_title">Descriere video</string>
   <string name="revanced_hide_description_components_screen_summary">Ascunde sau afișează componentele descrierii video</string>
   <string name="revanced_hide_filter_bar_screen_title">Bară de filtrare</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ascunde sau afișează bara de filtre în flux, rezultatele căutării și videoclipurile conexe</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Ascunde în feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Ascuns în feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Afișat în feed</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ascundeți sau afișați bara de filtre în fluxuri, istoric, rezultate ale căutării și videoclipuri conexe</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Ascunde în feeduri</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Ascuns în feeduri</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Afișat în feeduri</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Ascunde în istoric</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Ascuns în istoric</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Afișat în istoric</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Ascunde în rezultatele căutării</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ascuns în rezultatele căutării</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Afișat în rezultatele căutării</string>

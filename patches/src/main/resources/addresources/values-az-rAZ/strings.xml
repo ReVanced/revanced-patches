@@ -285,10 +285,6 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_description_components_screen_title">Video təsviri</string>
   <string name="revanced_hide_description_components_screen_summary">Video təsviri elementlərini gizlət və ya göstər</string>
   <string name="revanced_hide_filter_bar_screen_title">Filtr çubuğu</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Axında, axtarış nəticələrində və əlaqəli videolarda filtr cərgəsin gizlət və ya göstər</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Axında gizlət</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Axında gizlidir</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Axında göstərilir</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Axtarış nəticələrində gizlət</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Axtarış nəticələrində gizlədilib</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Axtarış nəticələrində göstərilir</string>

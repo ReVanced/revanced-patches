@@ -287,10 +287,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Περιγραφή βίντεο</string>
   <string name="revanced_hide_description_components_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων περιγραφής βίντεο</string>
   <string name="revanced_hide_filter_bar_screen_title">Γραμμή φίλτρων</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Απόκρυψη ή εμφάνιση της γραμμής φίλτρων στην ροή, στα αποτελέσματα αναζήτησης και στα σχετικά βίντεο</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Απόκρυψη στη ροή</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Απόκρυψη ή εμφάνιση της γραμμής φίλτρων στις ροές, στο ιστορικό, στα αποτελέσματα αναζήτησης και στα σχετικά βίντεο</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Απόκρυψη στις ροές</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Απόκρυψη στο ιστορικό</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Απόκρυψη στα αποτελέσματα αναζήτησης</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Εμφανίζεται</string>

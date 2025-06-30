@@ -285,10 +285,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">תיאור סרטון</string>
   <string name="revanced_hide_description_components_screen_summary">הסתר או הצג רכיבי תיאור סרטון</string>
   <string name="revanced_hide_filter_bar_screen_title">סרגל סינון</string>
-  <string name="revanced_hide_filter_bar_screen_summary">הסתר או הצג את סרגל הסינון בפיד, תוצאות חיפוש, וסרטונים קשורים</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">הסתר בפיד</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">מוסתר בפיד</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">מוצג בפיד</string>
+  <string name="revanced_hide_filter_bar_screen_summary">הסתר או הצג את סרגל הסינון בפידים, היסטוריה, תוצאות חיפוש, וסרטונים קשורים</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">הסתר בפידים</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">מוסתר בפידים</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">מוצג בפידים</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">הסתר בהיסטוריה</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">מוסתר בהיסטוריה</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">מוצג בהיסטוריה</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">הסתר בתוצאות חיפוש</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">מוסתר בתוצאות חיפוש</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">מוצג בתוצאות חיפוש</string>

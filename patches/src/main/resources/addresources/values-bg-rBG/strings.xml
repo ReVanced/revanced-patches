@@ -285,10 +285,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Описание на видеото</string>
   <string name="revanced_hide_description_components_screen_summary">Скриване или показване на компонентите за описание на видеоклиповете</string>
   <string name="revanced_hide_filter_bar_screen_title">Лента с филтри</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Скриване или показване на лентата за филтриране в емисията, резултатите от търсенето и свързаните видеоклипове</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Скриване на горната лента с категории в емисията</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Скрита</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Показва се</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Скриване или показване на лентата с филтри в емисиите, историята, резултатите от търсенето и свързаните видеоклипове</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Скриване в емисии</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Скрити в емисии</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Показани в емисии</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Скриване в историята</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Скрити в историята</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Показани в историята</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Скриване в резултатите от търсенето</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Скрито в резултатите от търсенето</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Показано в резултатите от търсенето</string>
