@@ -126,7 +126,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_debug_stacktrace_title">로그 스택 트레이스</string>
   <string name="revanced_debug_stacktrace_summary_on">디버그 로그에 로그 스택 트레이스를 포함합니다</string>
   <string name="revanced_debug_stacktrace_summary_off">디버그 로그에 로그 스택 트레이스를 포함하지 않습니다</string>
-  <string name="revanced_debug_toast_on_error_title">ReVanced 오류 팝업 메시지 표시하기</string>
+  <string name="revanced_debug_toast_on_error_title">ReVanced 오류 메시지 표시하기</string>
   <string name="revanced_debug_toast_on_error_summary_on">오류가 발생하면 팝업 메시지를 표시합니다</string>
   <string name="revanced_debug_toast_on_error_summary_off">오류가 발생하면 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"오류 메시지를 비활성화하면 모든 ReVanced 오류 알림이 숨겨집니다.
@@ -289,10 +289,13 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_description_components_screen_title">동영상 설명</string>
   <string name="revanced_hide_description_components_screen_summary">동영상 설명에서 구성요소를 숨기거나 표시할 수 있습니다</string>
   <string name="revanced_hide_filter_bar_screen_title">카테고리 바</string>
-  <string name="revanced_hide_filter_bar_screen_summary">피드, 검색 결과, 관련 동영상에서 카테고리 바를 숨기거나 표시할 수 있습니다</string>
+  <string name="revanced_hide_filter_bar_screen_summary">피드, 기록, 검색 결과 그리고 관련 동영상에서 카테고리 바를 숨기거나 표시할 수 있습니다</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">피드에서 카테고리 바 숨기기</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">피드에서 카테고리 바가 숨겨집니다</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">피드에서 카테고리 바가 표시됩니다</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">기록에서 카테고리 바 숨기기</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">기록에서 카테고리 바가 숨겨집니다</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">기록에서 카테고리 바가 표시됩니다</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">검색 결과에서 카테고리 바 숨기기</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">검색 결과에서 카테고리 바가 숨겨집니다</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">검색 결과에서 카테고리 바가 표시됩니다</string>
@@ -761,9 +764,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_preview_comment_title">댓글 미리보기 숨기기</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">댓글 미리보기가 숨겨집니다</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">댓글 미리보기가 표시됩니다</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">(재생목록에) 음악 저장 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">(재생목록에) 음악 저장 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">(재생목록에) 음악 저장 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">음악 저장 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">음악 저장 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">음악 저장 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_use_sound_button_title">\'이 사운드 사용\' 버튼 숨기기</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_on">\'이 사운드 사용\' 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_off">\'이 사운드 사용\' 버튼이 표시됩니다</string>
@@ -901,7 +904,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_estimated_like_title">추정되는 좋아요 수 표시하기</string>
   <string name="revanced_ryd_estimated_like_summary_on">좋아요 수가 숨겨진 동영상에서 추정되는 좋아요 수를 표시합니다</string>
   <string name="revanced_ryd_estimated_like_summary_off">좋아요 수가 숨겨진 동영상에서 추정되는 좋아요 수를 표시하지 않습니다</string>
-  <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때, 팝업 메시지 표시하기</string>
+  <string name="revanced_ryd_toast_on_connection_error_title">API 사용 불가 메시지 표시하기</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
@@ -960,12 +963,26 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">자동으로 건너뛰기 버튼 숨기기</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">건너뛰기 버튼이 몇 초 후에 사라집니다</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">건너뛰기 버튼이 해당 구간이 끝날 때까지 표시됩니다</string>
-  <string name="revanced_sb_general_skiptoast">건너뛸 때, 팝업 메시지 표시하기</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">자동으로 구간을 건너뛸 때, 팝업 메시지를 표시합니다. 여기를 누르면 예시를 볼 수 있습니다</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">자동으로 구간을 건너뛸 때, 팝업 메시지를 표시하지 않습니다. 여기를 누르면 예시를 볼 수 있습니다</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">건너뛰기 버튼 표시 시간</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">자동으로 숨겨지는 \'건너뛰기\' 및 \'하이라이트로 건너뛰기\' 버튼이 표시되는 시간을 설정할 수 있습니다</string>
+  <string name="revanced_sb_general_skiptoast">건너뛰기 취소 메시지 표시하기</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">구간을 자동으로 건너뛰는 경우에 팝업 메시지를 표시합니다\n\n팝업 메시지를 눌러서 건너뛰기를 취소할 수 있습니다</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">팝업 메시지를 표시하지 않습니다</string>
+  <string name="revanced_sb_toast_on_skip_duration">건너뛰기 팝업 메시지 표시 시간</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">건너뛰기 팝업 메시지가 표시되는 시간을 설정할 수 있습니다</string>
+  <string name="revanced_sb_duration_1s">1 초</string>
+  <string name="revanced_sb_duration_2s">2 초</string>
+  <string name="revanced_sb_duration_3s">3 초</string>
+  <string name="revanced_sb_duration_4s">4 초</string>
+  <string name="revanced_sb_duration_5s">5 초</string>
+  <string name="revanced_sb_duration_6s">6 초</string>
+  <string name="revanced_sb_duration_7s">7 초</string>
+  <string name="revanced_sb_duration_8s">8 초</string>
+  <string name="revanced_sb_duration_9s">9 초</string>
+  <string name="revanced_sb_duration_10s">10 초</string>
   <string name="revanced_sb_general_time_without">건너뛸 구간을 제외한 시간 표시하기</string>
-  <string name="revanced_sb_general_time_without_sum_on">건너뛸 구간을 제외한 전체 동영상 길이를 타임스탬프에 표시합니다</string>
-  <string name="revanced_sb_general_time_without_sum_off">건너뛸 구간을 포함한 전체 동영상 길이를 타임스탬프에 표시합니다</string>
+  <string name="revanced_sb_general_time_without_sum_on">건너뛸 구간을 제외한 동영상 길이를 재생바에 표시합니다</string>
+  <string name="revanced_sb_general_time_without_sum_off">건너뛸 구간을 포함한 동영상 길이를 재생바에 표시합니다</string>
   <string name="revanced_sb_create_segment_category">새로운 구간 추가하기</string>
   <string name="revanced_sb_enable_create_segment">구간 추가 버튼 표시하기</string>
   <string name="revanced_sb_enable_create_segment_sum_on">플레이어에서 구간 추가 버튼을 표시합니다</string>
@@ -980,7 +997,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_guidelines_popup_already_read">이미 읽음</string>
   <string name="revanced_sb_guidelines_popup_open">보기</string>
   <string name="revanced_sb_general">일반</string>
-  <string name="revanced_sb_toast_on_connection_error_title">API를 사용할 수 없을 때, 팝업 메시지 표시하기</string>
+  <string name="revanced_sb_toast_on_connection_error_title">API 사용 불가 메시지 표시하기</string>
   <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock을 사용할 수 없을 때, 팝업 메시지를 표시합니다</string>
   <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock을 사용할 수 없을 때, 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_sb_general_skipcount">건너뛴 횟수 기록 활성화하기</string>
@@ -1311,7 +1328,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며, 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일 또는 스틸 컷 썸네일이 표시됩니다
 
 DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API를 사용할 수 없을 때, 팝업 메시지 표시하기</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API 사용 불가 메시지 표시하기</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow를 사용할 수 없을 때, 팝업 메시지를 표시합니다</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow를 사용할 수 없을 때, 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API 엔드포인트</string>

@@ -285,16 +285,19 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_description_components_screen_title">Mô tả video</string>
   <string name="revanced_hide_description_components_screen_summary">Ẩn hoặc hiện các thành phần mô tả video</string>
   <string name="revanced_hide_filter_bar_screen_title">Thanh bộ lọc</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ẩn hoặc hiện thanh bộ lọc trong bảng tin, kết quả tìm kiếm và video liên quan</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ẩn hoặc hiện thanh bộ lọc trong bảng tin, lịch sử xem, kết quả tìm kiếm và video liên quan</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Ẩn trong bảng tin</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Đã ẩn trong bảng tin</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Đã hiện trong bảng tin</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Đã hiển thị trong bảng tin</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Ẩn trong lịch sử xem</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Đã ẩn trong lịch sử xem</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Đã hiển thị trong lịch sử xem</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Ẩn trong kết quả tìm kiếm</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Đã ẩn trong kết quả tìm kiếm</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Đã hiện trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Đã hiển thị trong kết quả tìm kiếm</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ẩn trong video liên quan</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Đã ẩn trong video liên quan</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Đã hiện trong video liên quan</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Đã hiển thị trong video liên quan</string>
   <string name="revanced_comments_screen_title">Bình luận</string>
   <string name="revanced_comments_screen_summary">Ẩn hoặc hiện các thành phần bình luận</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Ẩn Tóm tắt cuộc trò chuyện AI</string>
@@ -959,11 +962,25 @@ Tính năng này hoạt động tốt nhất với chất lượng video 720p tr
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Tự động ẩn nút Bỏ qua</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Nút bỏ qua ẩn sau vài giây</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Nút bỏ qua được hiển thị cho toàn bộ phân đoạn</string>
-  <string name="revanced_sb_general_skiptoast">Hiện thông báo nổi khi bỏ qua</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Thông báo nổi được hiển thị mỗi khi tự động bỏ qua một phân đoạn. Nhấn vào đây để xem ví dụ</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Thông báo nổi không được hiển thị. Nhấn vào đây để xem ví dụ</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">Thời lượng nút bỏ qua</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Thời gian hiển thị các nút tự động ẩn bỏ qua và bỏ qua đến điểm nổi bật</string>
+  <string name="revanced_sb_general_skiptoast">Hiện thông báo nổi hoàn tác bỏ qua</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Thông báo nổi được hiển thị mỗi khi tự động bỏ qua một phân đoạn. Chạm vào thông báo nổi để hoàn tác bỏ qua</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Toast không được hiển thị</string>
+  <string name="revanced_sb_toast_on_skip_duration">Thời lượng toast bỏ qua</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Thời gian hiển thị thông báo nổi bỏ qua</string>
+  <string name="revanced_sb_duration_1s">1 giây</string>
+  <string name="revanced_sb_duration_2s">2 giây</string>
+  <string name="revanced_sb_duration_3s">3 giây</string>
+  <string name="revanced_sb_duration_4s">4 giây</string>
+  <string name="revanced_sb_duration_5s">5 giây</string>
+  <string name="revanced_sb_duration_6s">6 giây</string>
+  <string name="revanced_sb_duration_7s">7 giây</string>
+  <string name="revanced_sb_duration_8s">8 giây</string>
+  <string name="revanced_sb_duration_9s">9 giây</string>
+  <string name="revanced_sb_duration_10s">10 giây</string>
   <string name="revanced_sb_general_time_without">Hiện thời lượng video không có phân đoạn</string>
-  <string name="revanced_sb_general_time_without_sum_on">Thời lượng video trừ đi tất cả phân đoạn, được hiển thị trong dấu ngoặc đơn bên cạnh thời lượng đầy đủ của video</string>
+  <string name="revanced_sb_general_time_without_sum_on">Thời lượng video trừ tất cả các phân đoạn được hiển thị trên thanh tua</string>
   <string name="revanced_sb_general_time_without_sum_off">Thời lượng đầy đủ của video được hiển thị</string>
   <string name="revanced_sb_create_segment_category">Tạo phân đoạn mới</string>
   <string name="revanced_sb_enable_create_segment">Hiện nút Tạo phân đoạn mới</string>
@@ -1136,17 +1153,17 @@ Bạn đã sẵn sàng gửi?"</string>
   <string name="revanced_sb_about_api_summary">Dữ liệu được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm và xem các bản tải cho các nền tảng khác</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
-  <string name="revanced_change_form_factor_title">Bố cục dạng yếu tố</string>
+  <string name="revanced_change_form_factor_title">Yếu tố hình thức bố cục</string>
   <string name="revanced_change_form_factor_entry_1">Mặc định</string>
   <string name="revanced_change_form_factor_entry_2">Điện thoại</string>
   <string name="revanced_change_form_factor_entry_3">Máy tính bảng</string>
-  <string name="revanced_change_form_factor_entry_4">Ô tô</string>
+  <string name="revanced_change_form_factor_entry_4">Màn hình ô tô</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Thay đổi bao gồm:
 
 Bố cục máy tính bảng
-• Bài đăng cộng đồng đã bị ẩn
+• Bài đăng cộng đồng bị ẩn
 
-Bố cục ô tô
+Bố cục màn hình ô tô
 • Shorts mở trong trình phát thông thường
 • Bảng tin được sắp xếp theo chủ đề và kênh"</string>
   </patch>
@@ -1161,7 +1178,7 @@ Bố cục ô tô
 Nếu tắt đi sau đó, bạn nên xóa dữ liệu ứng dụng để tránh phát sinh lỗi giao diện."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
-  <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo đích</string>
+  <string name="revanced_spoof_app_version_target_title">Mục tiêu phiên bản giả mạo</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Khôi phục biểu tượng điều hướng cũ</string>
   </patch>

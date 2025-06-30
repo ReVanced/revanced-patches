@@ -126,7 +126,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_stacktrace_title">Журнал трассировки стека</string>
   <string name="revanced_debug_stacktrace_summary_on">В журналы отладки включена трассировка стека</string>
   <string name="revanced_debug_stacktrace_summary_off">В журналы отладки не включена трассировка стека</string>
-  <string name="revanced_debug_toast_on_error_title">Показывать уведомление при ошибке Revanced</string>
+  <string name="revanced_debug_toast_on_error_title">Показать всплывающее уведомление при ошибке Revanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">Всплывающее уведомление при возникновении ошибки Revanced показано</string>
   <string name="revanced_debug_toast_on_error_summary_off">Всплывающее уведомление при возникновении ошибки Revanced скрыто</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Отключение всплывающих уведомлений об ошибках скроет все сообщения об ошибках ReVanced.
@@ -285,10 +285,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Описание видео</string>
   <string name="revanced_hide_description_components_screen_summary">Скрыть или показать компоненты описания видео</string>
   <string name="revanced_hide_filter_bar_screen_title">Панель фильтров</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Скрыть или показать панель фильтров в ленте, результатах поиска и похожих видео</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Скрыть или показать панель фильтров в лентах, истории, результатах поиска и похожих видео</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Скрыть панель фильтров в ленте</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Панель фильтров в ленте скрыта</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Панель фильтров в ленте показана</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Скрыть панель фильтров в истории просмотров</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Панель фильтров в истории просмотров скрыта</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Панель фильтров в истории просмотров показана</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Скрыть панель фильтров в поиске</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панель фильтров в поиске скрыта</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панель фильтров в поиске показана</string>
@@ -534,9 +537,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_share_button_summary_on">Кнопка \"Поделиться\" под плеером скрыта</string>
   <string name="revanced_hide_share_button_summary_off">Кнопка \"Поделиться\" под плеером показана</string>
   <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_stop_ads_button_title">Скрыть \"Остановить рекламу\"</string>
-  <string name="revanced_hide_stop_ads_button_summary_on">Кнопка \"Отключить рекламу\" скрыта</string>
-  <string name="revanced_hide_stop_ads_button_summary_off">Кнопка \"Отключить рекламу\" показана</string>
+  <string name="revanced_hide_stop_ads_button_title">Скрыть кнопку \"Не показывать рекламу\"</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Кнопка \"Не показывать рекламу\" скрыта</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Кнопка \"Не показывать рекламу\" показана</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Скрыть кнопку \"Пожаловаться\"</string>
@@ -959,11 +962,25 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Автоскрытие кнопки пропуска</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка пропуска автоматически скрывается через несколько секунд</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка пропуска показывается для всего сегмента</string>
-  <string name="revanced_sb_general_skiptoast">Уведомление при пропуске сегмента</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Всплывающее уведомление при автоматическом пропуске сегмента показано. Нажмите для просмотра примера</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Всплывающее уведомление при автоматическом пропуске сегмента скрыто. Нажмите для просмотра примера</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">Длительность кнопки пропуска</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Длительность отображения кнопок автоматического скрытия \"Пропустить\" и \"Перейти к выделенному\"</string>
+  <string name="revanced_sb_general_skiptoast">Показывать тост отмены пропуска</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Тост показывается, когда сегмент автоматически пропускается. Нажмите на уведомление-тост, чтобы отменить пропуск.</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Всплывающее сообщение не показывается</string>
+  <string name="revanced_sb_toast_on_skip_duration">Длительность всплывающего сообщения при пропуске</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Как долго показывается уведомление-тост о пропуске</string>
+  <string name="revanced_sb_duration_1s">1 секунда</string>
+  <string name="revanced_sb_duration_2s">2 секунды</string>
+  <string name="revanced_sb_duration_3s">3 секунды</string>
+  <string name="revanced_sb_duration_4s">4 секунды</string>
+  <string name="revanced_sb_duration_5s">5 секунд</string>
+  <string name="revanced_sb_duration_6s">6 секунд</string>
+  <string name="revanced_sb_duration_7s">7 секунд</string>
+  <string name="revanced_sb_duration_8s">8 секунд</string>
+  <string name="revanced_sb_duration_9s">9 секунд</string>
+  <string name="revanced_sb_duration_10s">10 секунд</string>
   <string name="revanced_sb_general_time_without">Длительность видео без сегментов</string>
-  <string name="revanced_sb_general_time_without_sum_on">Длительность видео за исключением всех сегментов показана в скобках рядом с полной длительностью видео</string>
+  <string name="revanced_sb_general_time_without_sum_on">Длина видео без учета всех сегментов отображается на полосе прокрутки</string>
   <string name="revanced_sb_general_time_without_sum_off">Полная длительность видео показана</string>
   <string name="revanced_sb_create_segment_category">Создание новых сегментов</string>
   <string name="revanced_sb_enable_create_segment">Кнопка создания сегмента</string>
@@ -1310,7 +1327,7 @@ Second \"item\" text"</string>
 При активации URL-адреса видео (и никакие другие данные) будут отправлены на сервер API. При отсутствии миниатюр DeArrow в видео показываются оригинальные или миниатюры захвата кадра
 
 Нажмите для дополнительной информации о DeArrow"</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Показать уведомление при недоступности API</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Показать всплывающее уведомление при недоступности API</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Всплывающее уведомление при недоступности DeArrow показано</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Всплывающее уведомление при недоступности DeArrow скрыто</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">Конечная точка DeArrow API</string>
@@ -1407,9 +1424,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запоминать изменения качества видео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Изменения качества воспроизведения применяются ко всем видео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Изменения качества воспроизведения применяются только к текущему видео</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_title">Показывать всплывающее сообщение при изменениях качества видео</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Всплывающее сообщение показывается, когда изменяется качество видео по умолчанию</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Всплывающее сообщение не показывается, когда изменяется качество видео по умолчанию</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Показать всплывающее уведомление при изменении качества видео</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Всплывающее уведомление при изменении качества видео по умолчанию показано</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Всплывающее уведомление при изменении качества видео по умолчанию скрыто</string>
   <string name="revanced_video_quality_default_wifi_title">Качество видео по умолчанию в Wi-Fi сети</string>
   <string name="revanced_video_quality_default_mobile_title">Качество видео по умолчанию в мобильной сети</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Запоминать изменения качества Shorts</string>
@@ -1443,9 +1460,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_title">Запоминать изменения скорости воспроизведения</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Изменения скорости воспроизведения применяются ко всем видео</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Изменения скорости воспроизведения применяются только к текущему видео</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_title">Показывать всплывающее сообщение при изменениях скорости воспроизведения</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Всплывающее сообщение показывается, когда изменяется скорость воспроизведения по умолчанию</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Всплывающее сообщение не отображается, когда изменяется скорость воспроизведения по умолчанию</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Показать всплывающее уведомление при изменении скорости воспроизведения</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Всплывающее уведомление при изменении скорости воспроизведения по умолчанию показано</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Всплывающее уведомление при изменении скорости воспроизведения по умолчанию скрыто</string>
   <string name="revanced_playback_speed_default_title">Скорость воспроизведения по умолчанию</string>
   <string name="revanced_remember_playback_speed_toast">Скорость изменена на: %s</string>
   </patch>
