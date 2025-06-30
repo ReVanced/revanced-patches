@@ -17,9 +17,8 @@ import java.util.concurrent.TimeUnit;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.spotify.UserAgent;
-import org.jetbrains.annotations.NotNull;
 
-import static app.revanced.extension.spotify.misc.fix.Session.FAILED_TO_GET_SESSION;
+import static app.revanced.extension.spotify.misc.fix.Session.FAILED_TO_RENEW_SESSION;
 
 class WebApp {
     private static final String OPEN_SPOTIFY_COM = "open.spotify.com";
@@ -119,7 +118,7 @@ class WebApp {
 
         if (!isAcquired) {
             Logger.printException(() -> "Failed to retrieve session within " + GET_SESSION_TIMEOUT_SECONDS + " seconds");
-            currentSession = FAILED_TO_GET_SESSION;
+            currentSession = FAILED_TO_RENEW_SESSION;
             destructWebView();
         }
     }
@@ -195,7 +194,10 @@ class WebApp {
                             "       })" +
                             "       " +
                             "   }" +
-                            "});";
+                            "});" +
+                            "if (new URLSearchParams(window.location.search).get('_authfailed') != null) {" +
+                            "   " + JAVASCRIPT_INTERFACE_NAME + ".getSession(null, null);" +
+                            "}";
 
                     view.evaluateJavascript(getSessionScript, null);
                 }

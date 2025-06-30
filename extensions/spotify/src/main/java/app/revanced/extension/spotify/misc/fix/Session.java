@@ -32,7 +32,7 @@ class Session {
     /**
      * Session that represents a failed attempt to renew the session.
      */
-    static final Session FAILED_TO_GET_SESSION = new Session("", "", "");
+    static final Session FAILED_TO_RENEW_SESSION = new Session("", "", "");
 
     /**
      * @param username    Username of the account. Empty if this session does not have an authenticated user.
