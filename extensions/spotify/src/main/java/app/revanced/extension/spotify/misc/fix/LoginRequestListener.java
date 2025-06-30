@@ -52,7 +52,12 @@ class LoginRequestListener extends NanoHTTPD {
         // however a webview can only handle one request at a time due to singleton cookie manager.
         // Therefore, synchronize to ensure that only one webview handles the request at a time.
         synchronized (this) {
-            loginResponse = getLoginResponse(loginRequest);
+            try {
+                loginResponse = getLoginResponse(loginRequest);
+            } catch (Exception e) {
+                Logger.printException(() -> "Failed to get login response", e);
+                return newResponse(INTERNAL_ERROR);
+            }
         }
 
         if (loginResponse != null) {
