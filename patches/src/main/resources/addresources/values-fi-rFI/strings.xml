@@ -285,10 +285,6 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_description_components_screen_title">Videon kuvaus</string>
   <string name="revanced_hide_description_components_screen_summary">Piilota tai näytä videon kuvauksen osia</string>
   <string name="revanced_hide_filter_bar_screen_title">Suodatinpalkki</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Piilota tai näytä suodatinpalkki syötteessä, haussa ja liittyvissä videoissa</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Piilota syötteessä</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Piilotettu syötteessä</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Näytetään syötteessä</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Piilota hakutuloksissa</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Piilotettu hakutuloksissa</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Näytetään hakutuloksissa</string>
@@ -954,11 +950,7 @@ Tämä ominaisuus toimii parhaiten, kun videon laatu on 720p tai alhaisempi ja k
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Piilota ohita-painike automaattisesti</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Ohita-painike piiloutuu muutaman sekunnin kuluttua</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Ohita-painike näytetään koko osion ajan</string>
-  <string name="revanced_sb_general_skiptoast">Näytä ilmoitus ohitettaessa</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Ponnahdusilmoitus näytetään, kun osio ohitetaan automaattisesti. Napauta tästä nähdäksesi esimerkin</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Ponnahdusilmoitusta ei näytetä. Napauta tästä nähdäksesi esimerkin</string>
   <string name="revanced_sb_general_time_without">Näytä videon pituus ilman osioita</string>
-  <string name="revanced_sb_general_time_without_sum_on">Videon pituus ilman osioita, näytetään suluissa koko videon pituuden vieressä</string>
   <string name="revanced_sb_general_time_without_sum_off">Videon koko pituus näytetään</string>
   <string name="revanced_sb_create_segment_category">Uusien osioiden luominen</string>
   <string name="revanced_sb_enable_create_segment">Näytä Luo uusi osio -painike</string>
