@@ -41,7 +41,7 @@ class WebApp {
     @Nullable
     static volatile Session currentSession;
 
-    private static NativeLoginHandler nativeLoginHandler;
+    static NativeLoginHandler nativeLoginHandler;
 
     static void login(Context context) {
         Logger.printInfo(() -> "Starting login");
@@ -84,10 +84,7 @@ class WebApp {
                         Logger.printInfo(() -> "Received cookies from login: " + cookies);
                         dialog.dismiss();
 
-                        if (nativeLoginHandler != null) {
-                            Logger.printInfo(() -> "Perform native login in Spotify");
-                            nativeLoginHandler.login();
-                        }
+                        nativeLoginHandler.login();
                     }
 
                     @Override
@@ -275,9 +272,5 @@ class WebApp {
 
     public interface NativeLoginHandler {
         void login();
-    }
-
-    public static void setNativeLoginHandler(NativeLoginHandler handler) {
-        nativeLoginHandler = handler;
     }
 }
