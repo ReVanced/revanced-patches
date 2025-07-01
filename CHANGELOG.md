@@ -1,3 +1,10 @@
+# [5.30.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.6...v5.30.0-dev.7) (2025-07-01)
+
+
+### Bug Fixes
+
+* **Spotify - Spoof client:** Handle remaining edge cases to obtain a session ([#5285](https://github.com/ReVanced/revanced-patches/issues/5285)) ([2bb2d59](https://github.com/ReVanced/revanced-patches/commit/2bb2d594936093774e232ad8b274c81e805c5bf6))
+
 # [5.30.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.5...v5.30.0-dev.6) (2025-07-01)
 
 
