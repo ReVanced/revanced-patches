@@ -315,15 +315,15 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Skrýt tlačítko \"Vytvořit Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačítko Vytvořit Short je skryté</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tlačítko Vytvořit Short je zobrazeno</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Skrýt tlačítko časové osy</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tlačítko časové osy je skryté</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Tlačítko časové osy je zobrazeno</string>
   <string name="revanced_hide_comments_preview_comment_title">Skrýt náhled komentáře</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Náhled komentáře je skryt</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Náhled komentáře je zobrazen</string>
   <string name="revanced_hide_comments_thanks_button_title">Skrýt tlačítko děk」、「</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tlačítko poděkování je skryto</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tlačítko poděkování je zobrazeno</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Skrýt tlačítko časové osy</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tlačítko časové osy je skryté</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Tlačítko časové osy je zobrazeno</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Skrýt YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles na liště vyhledávání jsou skryty</string>
@@ -377,32 +377,38 @@ Omezení:
   <string name="revanced_hide_keyword_toast_invalid_broad">Klíčové slovo skryje všechna videa: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Skrýt běžné reklamy</string>
-  <string name="revanced_hide_general_ads_summary_on">Běžné reklamy jsou skryty</string>
-  <string name="revanced_hide_general_ads_summary_off">Běžné reklamy jsou zobrazeny</string>
+  <string name="revanced_hide_creator_store_shelves_title">Skrýt regály obchodu tvůrce</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Regály obchodu pod přehrávačem a v popisu videa jsou skryty</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Police obchodu pod přehrávačem a v popisu videa jsou zobrazeny</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Skrýt koncový banner obchodu</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Banner obchodu je skrytý</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Banner obchodu je zobrazen</string>
   <string name="revanced_hide_fullscreen_ads_title">Skrýt celostránkové reklamy</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Celoobrazovkové reklamy jsou skryty
 
 Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Celostránkové reklamy jsou zobrazeny</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Blokování reklam na celou obrazovku je funkční pouze na starších zařízeních</string>
+  <string name="revanced_hide_general_ads_title">Skrýt běžné reklamy</string>
+  <string name="revanced_hide_general_ads_summary_on">Běžné reklamy jsou skryty</string>
+  <string name="revanced_hide_general_ads_summary_off">Běžné reklamy jsou zobrazeny</string>
+  <string name="revanced_hide_merchandise_banners_title">Skrýt reklamní bannery</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Merchandise bannery jsou skryty</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Merchandise bannery jsou zobrazeny</string>
   <string name="revanced_hide_paid_promotion_label_title">Skrýt štítek placené propagace</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Štítek placené propagace je skryt</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Štítek placené propagace je zobrazen</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Skrýt banner „Zobrazit produkty“</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Banner v překryvu videa je skryt</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Banner v překrytí videa je zobrazen</string>
   <string name="revanced_hide_self_sponsor_ads_title">Skrýt karty se sponzorovanými produkty</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Karty se sponzorovanými produkty jsou skryty</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Karty se sponzorovanými produkty jsou zobrazeny</string>
-  <string name="revanced_hide_products_banner_title">Skrýt banner „Zobrazit produkty“</string>
-  <string name="revanced_hide_products_banner_summary_on">Banner je skryt</string>
-  <string name="revanced_hide_products_banner_summary_off">Banner je zobrazen</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Skrýt koncový banner obchodu</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Banner obchodu je skrytý</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Banner obchodu je zobrazen</string>
-  <string name="revanced_hide_player_store_shelf_title">Skrýt nákupní polici přehrávače</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Nákupní police je skryta</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Nákupní police je zobrazena</string>
-  <string name="revanced_hide_shopping_links_title">Skrýt odkazy na nakupování v popisu videa</string>
-  <string name="revanced_hide_shopping_links_summary_on">Nákupní odkazy v popisu videa jsou skryty</string>
-  <string name="revanced_hide_shopping_links_summary_off">Nákupní odkazy v popisu videa jsou zobrazeny</string>
+  <string name="revanced_hide_tagged_products_title">Skrýt označené produkty</string>
+  <string name="revanced_hide_tagged_products_summary_on">Označené produkty v popisu videa jsou skryty</string>
+  <string name="revanced_hide_tagged_products_summary_off">Označení produktů v popisu videa jsou zobrazeny</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Skrýt tlačítko \'Navštívit obchod\' na stránkách kanálů</string>
   <string name="revanced_hide_visit_store_button_summary_on">Tlačítko na stránce kanálu je skryto</string>
@@ -410,11 +416,6 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_hide_web_search_results_title">Skryté webové výsledky vyhledávání</string>
   <string name="revanced_hide_web_search_results_summary_on">Webové výsledky vyhledávání jsou skryté</string>
   <string name="revanced_hide_web_search_results_summary_off">Webové výsledky vyhledávání jsou zobrazeny</string>
-  <string name="revanced_hide_merchandise_banners_title">Skrýt reklamní bannery</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Merchandise bannery jsou skryty</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Merchandise bannery jsou zobrazeny</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Blokování reklam na celou obrazovku je funkční pouze na starších zařízeních</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Skrýt nabídky YouTube Premium</string>
@@ -826,7 +827,7 @@ Chcete-li zobrazit nabídku zvukové stopy, změňte možnost „Zfalšovat stre
   <string name="revanced_hide_shorts_sound_metadata_label_title">Skrýt štítek zvukového metadata</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Štítek metadata je skrytý</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Štítek metadata je zobrazen</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Skrýt štítek odkazu na celé video</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Skrýt popisek odkazu na video</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Štítek odkazu na video je skrytý</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Štítek odkazu na video je zobrazen</string>
   <string name="revanced_hide_shorts_sound_button_title">Skrýt tlačítko zvuku</string>
@@ -964,7 +965,7 @@ Tato funkce funguje nejlépe s kvalitou videa 720p nebo nižší a při použit�
   <string name="revanced_sb_auto_hide_skip_button_duration">Doba trvání tlačítka přeskočení</string>
   <string name="revanced_sb_auto_hide_skip_button_duration_sum">Jak dlouho se zobrazují tlačítka pro automatické skrytí přeskočení a přeskočení na zvýraznění</string>
   <string name="revanced_sb_general_skiptoast">Zobrazit hlásku pro zrušení přeskočení</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Hláska se zobrazí, když je segment automaticky přeskočen. Klepněte na hlásku pro zrušení přeskočení.</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Hláska se zobrazí, když je segment automaticky přeskočen. Klepněte na hlásku pro zrušení přeskočení</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Toast se nezobrazuje</string>
   <string name="revanced_sb_toast_on_skip_duration">Doba trvání toastu přeskočení</string>
   <string name="revanced_sb_toast_on_skip_duration_sum">Jak dlouho se zobrazuje hláska pro přeskočení</string>

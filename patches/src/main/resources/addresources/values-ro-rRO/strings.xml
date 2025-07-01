@@ -315,15 +315,15 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Ascunde butonul \'Creare Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Butonul Creează un Short este ascuns</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Butonul Creează un Short este afișat</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Ascunde butonul de marcaj temporal</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Butonul de marcaj temporal este ascuns</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Butonul de marcaj temporal este afișat</string>
   <string name="revanced_hide_comments_preview_comment_title">Ascunde previzualizarea comentariului</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Previzualizarea comentariului este ascunsă</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Previzualizarea comentariului este afișată</string>
   <string name="revanced_hide_comments_thanks_button_title">Ascunde butonul „Mulțumesc”</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Butonul de multumire este ascuns</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Butonul de multumire este afisat</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ascunde butonul de marcaj temporal</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Butonul de marcaj temporal este ascuns</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Butonul de marcaj temporal este afișat</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Ascunde Doodle-urile YouTube</string>
   <string name="revanced_hide_doodles_summary_on">Doodles bară de căutare sunt ascunse</string>
@@ -377,32 +377,38 @@ Limitări
   <string name="revanced_hide_keyword_toast_invalid_broad">Cuvântul cheie va ascunde toate videoclipurile: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Ascunde reclamele generale</string>
-  <string name="revanced_hide_general_ads_summary_on">Anunțurile generale sunt ascunse</string>
-  <string name="revanced_hide_general_ads_summary_off">Anunțurile generale sunt afișate</string>
+  <string name="revanced_hide_creator_store_shelves_title">Ascunde rafturile magazinului creatorului</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Rafturile magazinului de sub player și din descrierea videoclipului sunt ascunse</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Rafturile magazinelor de sub player și din descrierea videoclipului sunt afișate</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Ascunde bannerul magazinului de la finalul ecranului</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Bannerul Magazin este ascuns</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Bannerul Magazin este afișat</string>
   <string name="revanced_hide_fullscreen_ads_title">Ascunde reclame pe tot ecranul</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Reclamele pe tot ecranul sunt ascunse
 
 Această funcție este disponibilă numai pentru dispozitivele mai vechi"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Reclame pe ecran complet sunt afișate</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ascunde reclamele pe tot ecranul funcționează doar cu dispozitive mai vechi</string>
+  <string name="revanced_hide_general_ads_title">Ascunde reclamele generale</string>
+  <string name="revanced_hide_general_ads_summary_on">Anunțurile generale sunt ascunse</string>
+  <string name="revanced_hide_general_ads_summary_off">Anunțurile generale sunt afișate</string>
+  <string name="revanced_hide_merchandise_banners_title">Ascunde bannere de produse</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Bannerele de marfă sunt ascunse</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Bannerele de marfă sunt afișate</string>
   <string name="revanced_hide_paid_promotion_label_title">Ascunde eticheta promoției cu plată</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Eticheta promoției plătite este ascunsă</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Eticheta promoției plătite este afișată</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Ascunde bannerul \"Vezi produse\"</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Bannerul din suprapunerea video este ascuns</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Bannerul în suprapunerea video este afișat</string>
   <string name="revanced_hide_self_sponsor_ads_title">Ascunde cardurile auto-sponsorizate</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Cardurile sponsorizate automat sunt ascunse</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Cardurile sponsorizate automat sunt afișate</string>
-  <string name="revanced_hide_products_banner_title">Ascunde bannerul \"Vezi produse\"</string>
-  <string name="revanced_hide_products_banner_summary_on">Banner-ul este ascuns</string>
-  <string name="revanced_hide_products_banner_summary_off">Banner-ul este afișat</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Ascunde bannerul magazinului de la finalul ecranului</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Bannerul Magazin este ascuns</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Bannerul Magazin este afișat</string>
-  <string name="revanced_hide_player_store_shelf_title">Ascunde raftul jucătorului</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Platforma de cumpărături este ascunsă</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Platforma de cumpărături este afișată</string>
-  <string name="revanced_hide_shopping_links_title">Ascunde link-urile de cumpărături în descrierea video</string>
-  <string name="revanced_hide_shopping_links_summary_on">Linkurile de cumpărături din descrierea videoclipului sunt ascunse</string>
-  <string name="revanced_hide_shopping_links_summary_off">Linkurile de cumpărături din descrierea videoclipului sunt afișate</string>
+  <string name="revanced_hide_tagged_products_title">Ascunde produsele etichetate</string>
+  <string name="revanced_hide_tagged_products_summary_on">Produsele etichetate din descrierea videoclipului sunt ascunse</string>
+  <string name="revanced_hide_tagged_products_summary_off">Produsele etichetate din descrierea videoclipului sunt afișate</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Ascunde butonul \"Vizitează magazinul\" pe paginile canalului</string>
   <string name="revanced_hide_visit_store_button_summary_on">Butonul din pagina canalului este ascuns</string>
@@ -410,11 +416,6 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_hide_web_search_results_title">Ascunde rezultatele căutării web</string>
   <string name="revanced_hide_web_search_results_summary_on">Rezultatele căutării pe web sunt ascunse</string>
   <string name="revanced_hide_web_search_results_summary_off">Rezultatele căutării web sunt afișate</string>
-  <string name="revanced_hide_merchandise_banners_title">Ascunde bannere de produse</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Bannerele de marfă sunt ascunse</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Bannerele de marfă sunt afișate</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ascunde reclamele pe tot ecranul funcționează doar cu dispozitive mai vechi</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Ascunde promoțiile YouTube Premium</string>
@@ -826,7 +827,7 @@ Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fl
   <string name="revanced_hide_shorts_sound_metadata_label_title">Ascunde eticheta metadata sunet</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Eticheta metadata este ascunsă</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Eticheta metadata este afișată</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Ascunde eticheta completă a link-ului video</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Ascunde eticheta linkului video</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Eticheta link-ului video este ascunsă</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Eticheta link-ului video este afișată</string>
   <string name="revanced_hide_shorts_sound_button_title">Ascunde butonul de sunet</string>
@@ -963,7 +964,7 @@ Această caracteristică funcționează cel mai bine cu o calitate video de 720p
   <string name="revanced_sb_auto_hide_skip_button_duration">Durata butonului de omitere</string>
   <string name="revanced_sb_auto_hide_skip_button_duration_sum">Cât timp sunt afișate butoanele de ascundere automată a săriturii și de săritură la evidențiere</string>
   <string name="revanced_sb_general_skiptoast">Afișează notificare toast de anulare a săriturii</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Notificarea toast este afișată când un segment este sărit automat. Atingeți notificarea toast pentru a anula săritura.</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Notificarea toast este afișată când un segment este sărit automat. Atingeți notificarea toast pentru a anula săritura</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Notificarea pop-up nu este afișată</string>
   <string name="revanced_sb_toast_on_skip_duration">Durata notificării pop-up de omitere</string>
   <string name="revanced_sb_toast_on_skip_duration_sum">Cât timp este afișată notificarea toast de săritură</string>

@@ -55,8 +55,9 @@ Second \"item\" text"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   </patch>

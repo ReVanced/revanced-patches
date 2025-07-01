@@ -315,15 +315,15 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Fsheh butonin \"Krijo një Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Butoni Krijo një Short është i fshehur</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Butoni Krijo një Short është i shfaqur</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Fshih butonin e kohëshënimit</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Butoni i kohëshënimit është i fshehur</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Butoni i kohëshënimit është shfaqur</string>
   <string name="revanced_hide_comments_preview_comment_title">Fsheh komentin e parashikimit</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komenti i parashikimit është i fshehur</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komenti i parashikimit është i dukshëm</string>
   <string name="revanced_hide_comments_thanks_button_title">Fsheh butonin Faleminderit</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Butoni i falënderimit është i fshehur</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Butoni i falënderimit është i dukshëm</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Fshih butonin e kohëshënimit</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Butoni i kohëshënimit është i fshehur</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Butoni i kohëshënimit është shfaqur</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Fsheh YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles në shiritin e kërkimit janë të fshehur</string>
@@ -377,32 +377,38 @@ Kufizime
   <string name="revanced_hide_keyword_toast_invalid_broad">Fjala kyçe do të fshehë të gjitha videot: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Fsheh reklamimet e përgjithshme</string>
-  <string name="revanced_hide_general_ads_summary_on">Reklamimet e përgjithshme janë të fshehur</string>
-  <string name="revanced_hide_general_ads_summary_off">Reklamimet e përgjithshme janë të dukshme</string>
+  <string name="revanced_hide_creator_store_shelves_title">Fshih raftet e dyqanit të krijuesit</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Raftet e dyqanit poshtë luajtësit dhe në përshkrimin e videos janë fshehur</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Raftet e dyqanit poshtë luajtësit dhe në përshkrimin e videos janë shfaqur</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Fsheh bannerin e dyqanit të ekranit përfundimtar</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Fletë banneri e dyqanit është fshehur</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Fletë banneri e dyqanit është shfaqur</string>
   <string name="revanced_hide_fullscreen_ads_title">Fsheh reklamimet me ekran të plotë</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Reklamat në ekran të plotë janë të fshehura
 
 Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Reklamimet me ekran të plotë janë të dukshme</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Fshehja e reklamave me ekran të plotë funksionon vetëm me pajisje më të vjetra</string>
+  <string name="revanced_hide_general_ads_title">Fsheh reklamimet e përgjithshme</string>
+  <string name="revanced_hide_general_ads_summary_on">Reklamimet e përgjithshme janë të fshehur</string>
+  <string name="revanced_hide_general_ads_summary_off">Reklamimet e përgjithshme janë të dukshme</string>
+  <string name="revanced_hide_merchandise_banners_title">Fsheh bannerat e mallrave</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Bannerat e mallrave janë të fshehur</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Bannerat e mallrave janë të dukshme</string>
   <string name="revanced_hide_paid_promotion_label_title">Fsheh etiketën e promovimit të paguar</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Etiketë e promovimit të paguar është e fshehur</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Etiketë e promovimit të paguar është e dukshme</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Fshih banerin \'Shiko produkte\'</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Baneri në mbivendosjen e videos është fshehur</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Baneri në mbivendosjen e videos është shfaqur</string>
   <string name="revanced_hide_self_sponsor_ads_title">Fsheh kartat e sponsorizuara vetë</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kartat e sponsorizuara vetë janë të fshehur</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kartat e sponsorizuara vetë janë të dukshme</string>
-  <string name="revanced_hide_products_banner_title">Fshih banerin \'Shiko produktet\'</string>
-  <string name="revanced_hide_products_banner_summary_on">Banneri është i fshehur</string>
-  <string name="revanced_hide_products_banner_summary_off">Banneri është i dukshëm</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Fsheh bannerin e dyqanit të ekranit përfundimtar</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Fletë banneri e dyqanit është fshehur</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Fletë banneri e dyqanit është shfaqur</string>
-  <string name="revanced_hide_player_store_shelf_title">Fsheh raftin e dyqanit të lojtarit</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Rafti i dyqanit është i fshehur</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Rafti i dyqanit është i dukshëm</string>
-  <string name="revanced_hide_shopping_links_title">Fsheh lidhjet e blerjeve në përshkrimin e videos</string>
-  <string name="revanced_hide_shopping_links_summary_on">Lidhjet e blerjeve në përshkrimin e videos janë të fshehura</string>
-  <string name="revanced_hide_shopping_links_summary_off">Lidhjet e blerjeve në përshkrimin e videos janë të shfaqura</string>
+  <string name="revanced_hide_tagged_products_title">Fshih produktet e etiketuara</string>
+  <string name="revanced_hide_tagged_products_summary_on">Produktet e etiketuara në përshkrimin e videos janë fshehur</string>
+  <string name="revanced_hide_tagged_products_summary_off">Produktet e etiketuara në përshkrimin e videos janë shfaqur</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Fsheh butonin \"Vizito dyqanin\" në faqet e kanaleve</string>
   <string name="revanced_hide_visit_store_button_summary_on">Butoni në faqen e kanalit është i fshehur</string>
@@ -410,11 +416,6 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_hide_web_search_results_title">Fsheh rezultatet e kërkimit në ueb</string>
   <string name="revanced_hide_web_search_results_summary_on">Rezultatet e kërkimit në ueb janë të fshehur</string>
   <string name="revanced_hide_web_search_results_summary_off">Rezultatet e kërkimit në ueb janë të dukshme</string>
-  <string name="revanced_hide_merchandise_banners_title">Fsheh bannerat e mallrave</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Bannerat e mallrave janë të fshehur</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Bannerat e mallrave janë të dukshme</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Fshehja e reklamave me ekran të plotë funksionon vetëm me pajisje më të vjetra</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Fsheh promovimet e YouTube Premium</string>
@@ -826,7 +827,7 @@ Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet vide
   <string name="revanced_hide_shorts_sound_metadata_label_title">Fsheh etiketën e metadatave të zërit</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Etiketë metadata është e fshehur</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Etiketë metadata është e dukshme</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Fsheh etiketën e lidhjes së videos së plotë</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Fshih etiketën e lidhjes së videos</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Etiketë lidhje video është e fshehur</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Etiketë lidhje video është e dukshme</string>
   <string name="revanced_hide_shorts_sound_button_title">Fsheh butonin \"Zëri\"</string>
