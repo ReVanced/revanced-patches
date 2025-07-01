@@ -182,7 +182,7 @@ val spoofClientPatch = bytecodePatch(
 
         // endregion
 
-        // region Disable verdicts
+        // region Disable verdicts.
 
         // Early return to block sending bad verdicts to the API.
         runIntegrityVerificationFingerprint.method.returnEarly()
