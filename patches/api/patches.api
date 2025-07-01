@@ -645,10 +645,10 @@ public final class app/revanced/patches/shared/misc/extension/ExtensionHook {
 }
 
 public final class app/revanced/patches/shared/misc/extension/SharedExtensionPatchKt {
-	public static final fun extensionHook (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lapp/revanced/patcher/Fingerprint;)Lapp/revanced/patches/shared/misc/extension/ExtensionHook;
-	public static final fun extensionHook (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patches/shared/misc/extension/ExtensionHook;
-	public static synthetic fun extensionHook$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lapp/revanced/patcher/Fingerprint;ILjava/lang/Object;)Lapp/revanced/patches/shared/misc/extension/ExtensionHook;
-	public static synthetic fun extensionHook$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patches/shared/misc/extension/ExtensionHook;
+	public static final fun extensionHook (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lapp/revanced/patcher/Fingerprint;)Lapp/revanced/patches/shared/misc/extension/ExtensionHook;
+	public static final fun extensionHook (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patches/shared/misc/extension/ExtensionHook;
+	public static synthetic fun extensionHook$default (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lapp/revanced/patcher/Fingerprint;ILjava/lang/Object;)Lapp/revanced/patches/shared/misc/extension/ExtensionHook;
+	public static synthetic fun extensionHook$default (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patches/shared/misc/extension/ExtensionHook;
 	public static final fun sharedExtensionPatch (Ljava/lang/String;[Lapp/revanced/patches/shared/misc/extension/ExtensionHook;)Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun sharedExtensionPatch ([Lapp/revanced/patches/shared/misc/extension/ExtensionHook;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
