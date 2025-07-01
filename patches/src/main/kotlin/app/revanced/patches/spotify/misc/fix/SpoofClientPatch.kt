@@ -9,11 +9,7 @@ import app.revanced.patcher.patch.intOption
 import app.revanced.patches.shared.misc.hex.HexPatchBuilder
 import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import app.revanced.util.returnEarly
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -121,13 +117,11 @@ val spoofClientPatch = bytecodePatch(
 
             addInstructions(
                 0,
-                """
-                    invoke-static/range { p1 .. p1 }, $openLoginWebViewDescriptor
-                """
+                "invoke-static/range { p1 .. p1 }, $openLoginWebViewDescriptor"
             )
         }
 
-        firstLoginScreenRenderFingerprint.method.apply {
+        startLoginScreenRenderFingerprint.method.apply {
             val onEventIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "getView"
             }
@@ -185,6 +179,11 @@ val spoofClientPatch = bytecodePatch(
                 """
             )
         }
+
+        // endregion
+
+        // region Disable verdicts
+
         // Early return to block sending bad verdicts to the API.
         runIntegrityVerificationFingerprint.method.returnEarly()
 

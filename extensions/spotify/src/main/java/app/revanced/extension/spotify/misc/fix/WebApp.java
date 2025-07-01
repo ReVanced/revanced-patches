@@ -37,19 +37,22 @@ class WebApp {
     static volatile Session currentSession = null;
 
     /**
-     * Current webview in use.  Any use of the object must be done on the main thread.
+     * Current webview in use. Any use of the object must be done on the main thread.
      */
     @SuppressLint("StaticFieldLeak")
     private static volatile WebView currentWebView;
 
-    static NativeLoginHandler nativeLoginHandler;
+    public interface NativeLoginHandler {
+        void login();
+    }
+
+    public static NativeLoginHandler nativeLoginHandler;
 
     static void launchLogin(Context context) {
         final Dialog dialog = newDialog(context);
 
         Utils.runOnBackgroundThread(() -> {
             Logger.printInfo(() -> "Launching login");
-
 
             // A session must be obtained from a login. Repeat until a session is acquired.
             boolean isAcquired = false;
@@ -79,6 +82,7 @@ class WebApp {
 
                         getSessionLatch.countDown();
                         dialog.dismiss();
+                        nativeLoginHandler.login();
                     }
                 });
 
@@ -92,8 +96,6 @@ class WebApp {
                     Thread.currentThread().interrupt();
                 }
             } while (!isAcquired);
-
-            nativeLoginHandler.login();
         });
     }
 
@@ -286,9 +288,5 @@ class WebApp {
         for (String cookie : cookiesList) {
             cookieManager.setCookie(OPEN_SPOTIFY_COM_URL, cookie);
         }
-    }
-
-    public interface NativeLoginHandler {
-        void login();
     }
 }

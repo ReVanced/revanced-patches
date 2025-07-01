@@ -40,10 +40,19 @@ public class SpoofClientPatch {
         }
     }
 
-    static void setNativeLoginHandler(View loginButton) {
+    /**
+     * Injection point.
+     * <br>
+     * Set handler to call the native login after the webview login.
+     */
+    public static void setNativeLoginHandler(View startLoginButton) {
         WebApp.nativeLoginHandler = (() -> {
-            loginButton.setSoundEffectsEnabled(false);
-            loginButton.performClick();
+            try {
+                startLoginButton.setSoundEffectsEnabled(false);
+                startLoginButton.performClick();
+            } catch (Exception ex) {
+                Logger.printException(() -> "nativeLoginHandler failure", ex);
+            }
         });
     }
 }
