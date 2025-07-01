@@ -120,7 +120,7 @@ internal val abstractProtobufListEnsureIsMutableFingerprint = fingerprint {
 
 internal fun structureGetSectionsFingerprint(className: String) = fingerprint {
     custom { method, classDef ->
-        classDef.endsWith(className) && method.indexOfFirstInstruction {
+        classDef.type.endsWith(className) && method.indexOfFirstInstruction {
             opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.name == "sections_"
         } >= 0
     }
