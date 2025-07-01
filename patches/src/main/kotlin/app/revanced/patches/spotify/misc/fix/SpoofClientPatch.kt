@@ -11,12 +11,11 @@ import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/fix/SpoofClientPatch;"
 
@@ -128,16 +127,7 @@ val spoofClientPatch = bytecodePatch(
         }
 
         // Early return to block sending bad verdicts to the API.
-        runIntegrityVerificationFingerprint.method.apply {
-            val checkCastMessageDigestIndex = indexOfFirstInstructionOrThrow {
-                getReference<TypeReference>()?.type == "Ljava/security/MessageDigest;"
-            }
-
-            addInstruction(
-                checkCastMessageDigestIndex + 1,
-                "return-void"
-            )
-        }
+        runIntegrityVerificationFingerprint.method.returnEarly()
 
         // endregion
     }
