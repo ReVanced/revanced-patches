@@ -30,6 +30,11 @@ class Session {
     final String cookies;
 
     /**
+     * Session that represents a failed attempt to renew the session.
+     */
+    static final Session FAILED_TO_RENEW_SESSION = new Session("", "", "");
+
+    /**
      * @param username    Username of the account. Empty if this session does not have an authenticated user.
      * @param accessToken Access token for this session.
      * @param cookies     Authentication cookies for this session.
@@ -84,6 +89,13 @@ class Session {
         }
 
         editor.putString("session_" + username, json);
+        editor.apply();
+    }
+
+    void delete() {
+        Logger.printInfo(() -> "Deleting saved session for username: " + username);
+        SharedPreferences.Editor editor = Utils.getContext().getSharedPreferences("revanced", MODE_PRIVATE).edit();
+        editor.remove("session_" + username);
         editor.apply();
     }
 

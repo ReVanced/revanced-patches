@@ -285,10 +285,13 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_description_components_screen_title">Keterangan video</string>
   <string name="revanced_hide_description_components_screen_summary">Sembunyikan atau tampilkan komponen keterangan video</string>
   <string name="revanced_hide_filter_bar_screen_title">Bilah saring</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Sembunyikan atau tampilkan bilah saring di bagian umpan, hasil pencarian, dan video terkait</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Sembunyikan di bagian umpan</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Disembunyikan di bagian umpan</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Tampilkan di bagian umpan</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Sembunyikan atau tampilkan bilah penyaring di umpan, riwayat, hasil pencarian, dan video terkait</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Sembunyikan di umpan</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Disembunyikan di umpan</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Ditampilkan di umpan</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Sembunyikan di histori</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Disembunyikan di riwayat</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Ditampilkan di riwayat</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Sembunyikan di hasil penelusuran</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Disembunyikan di hasil penelusuran</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ditampilkan di hasil penelusuran</string>
@@ -312,15 +315,15 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Sembunyikan tombol \'Buat Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tombol Buat Short disembunyikan</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tombol Buat Short ditampilkan</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Sembunyikan tombol penanda waktu</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tombol penanda waktu disembunyikan</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Tombol penanda waktu ditampilkan</string>
   <string name="revanced_hide_comments_preview_comment_title">Sembunyikan pratinjau komentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Pratinjau komentar disembunyikan</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Pratinjau komentar ditampilkan</string>
   <string name="revanced_hide_comments_thanks_button_title">Sembunyikan tombol Terima Kasih</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Sembunyikan tombol penanda waktu</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tombol penanda waktu disembunyikan</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Tombol penanda waktu ditampilkan</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Sembunyikan YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Bilah pencarian Doodle disembunyikan</string>
@@ -374,32 +377,38 @@ Keterbatasan
   <string name="revanced_hide_keyword_toast_invalid_broad">Kata kunci akan menyembunyikan semua video: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Sembunyikan iklan umum</string>
-  <string name="revanced_hide_general_ads_summary_on">Iklan umum disembunyikan</string>
-  <string name="revanced_hide_general_ads_summary_off">Iklan umum ditampilkan</string>
+  <string name="revanced_hide_creator_store_shelves_title">Sembunyikan rak toko kreator</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Rak toko di bawah pemutar dan di deskripsi video disembunyikan</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Rak toko di bawah pemutar dan di deskripsi video ditampilkan</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Sembunyikan spanduk toko di layar akhir</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Spanduk toko disembunyikan</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Spanduk toko ditampilkan</string>
   <string name="revanced_hide_fullscreen_ads_title">Sembunyikan iklan layar penuh</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Iklan layar penuh disembunyikan
 
 Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Iklan layar penuh ditampilkan</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Menyembunyikan iklan layar penuh hanya berfungsi pada perangkat lama</string>
+  <string name="revanced_hide_general_ads_title">Sembunyikan iklan umum</string>
+  <string name="revanced_hide_general_ads_summary_on">Iklan umum disembunyikan</string>
+  <string name="revanced_hide_general_ads_summary_off">Iklan umum ditampilkan</string>
+  <string name="revanced_hide_merchandise_banners_title">Sembunyikan spanduk merchandise</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Banner merchandise disembunyikan</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Spanduk merchandise ditampilkan</string>
   <string name="revanced_hide_paid_promotion_label_title">Sembunyikan label promosi berbayar</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Label promosi berbayar disembunyikan</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Label promosi berbayar ditampilkan</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Sembunyikan banner \'Lihat produk\'</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Spanduk di hamparan video disembunyikan</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Banner di overlay video ditampilkan</string>
   <string name="revanced_hide_self_sponsor_ads_title">Sembunyikan kartu bersponsor pribadi</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kartu bersponsor pribadi disembunyikan</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kartu bersponsor pribadi ditampilkan</string>
-  <string name="revanced_hide_products_banner_title">Sembunyikan spanduk \'Lihat produk\'</string>
-  <string name="revanced_hide_products_banner_summary_on">Spanduk disembunyikan</string>
-  <string name="revanced_hide_products_banner_summary_off">Spanduk ditampilkan</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Sembunyikan spanduk toko di layar akhir</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Spanduk toko disembunyikan</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Spanduk toko ditampilkan</string>
-  <string name="revanced_hide_player_store_shelf_title">Sembunyikan rak belanja pemutar</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Rak belanja disembunyikan</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Rak belanja ditampilkan</string>
-  <string name="revanced_hide_shopping_links_title">Sembunyikan tautan belanja</string>
-  <string name="revanced_hide_shopping_links_summary_on">Tautan belanja di deskripsi video disembunyikan</string>
-  <string name="revanced_hide_shopping_links_summary_off">Tautan belanja di deskripsi video ditampilkan</string>
+  <string name="revanced_hide_tagged_products_title">Sembunyikan produk yang ditandai</string>
+  <string name="revanced_hide_tagged_products_summary_on">Produk yang ditandai dalam deskripsi video disembunyikan</string>
+  <string name="revanced_hide_tagged_products_summary_off">Produk yang ditandai di deskripsi video ditampilkan</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Sembunyikan tombol \'Kunjungi toko\'</string>
   <string name="revanced_hide_visit_store_button_summary_on">Tombol di halaman saluran disembunyikan</string>
@@ -407,11 +416,6 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_web_search_results_title">Sembunyikan hasil pencarian web</string>
   <string name="revanced_hide_web_search_results_summary_on">Hasil pencarian web disembunyikan</string>
   <string name="revanced_hide_web_search_results_summary_off">Hasil pencarian web ditampilkan</string>
-  <string name="revanced_hide_merchandise_banners_title">Sembunyikan spanduk merchandise</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Banner merchandise disembunyikan</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Spanduk merchandise ditampilkan</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Menyembunyikan iklan layar penuh hanya berfungsi pada perangkat lama</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Sembunyikan promosi YouTube Premium</string>
@@ -823,7 +827,7 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Sembunyikan label metadata suara</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Label metadata disembunyikan</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Label metadata ditampilkan</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Sembunyikan label tautan video penuh</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Sembunyikan label tautan video</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Label tautan video disembunyikan</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Label tautan video ditampilkan</string>
   <string name="revanced_hide_shorts_sound_button_title">Sembunyikan tombol suara</string>
@@ -957,11 +961,25 @@ Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan s
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Sembunyikan tombol Lewati secara otomatis</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Tombol lewati disembunyikan setelah beberapa detik</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Tombol Lewati ditampilkan untuk seluruh segmen</string>
-  <string name="revanced_sb_general_skiptoast">Tampilkan sebuah pesan timbul ketika melewati</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Pesan timbul ditampilkan saat segmen dilewati secara otomatis. Tekan di sini untuk melihat contohnya</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Pesan timbul tidak ditampilkan. Tekan di sini untuk melihat contohnya</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">Durasi tombol Lewati</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Berapa lama tombol sembunyikan otomatis lewati dan lewati ke sorotan ditampilkan</string>
+  <string name="revanced_sb_general_skiptoast">Tampilkan pembatalan pesan timbul lewati</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Pesan timbul ditampilkan saat segmen dilewati secara otomatis. Ketuk notifikasi pesan timbul untuk membatalkan lewati</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Pesan timbul tidak ditampilkan</string>
+  <string name="revanced_sb_toast_on_skip_duration">Durasi pesan timbul lewati</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Berapa lama notifikasi pesan timbul lewati ditampilkan</string>
+  <string name="revanced_sb_duration_1s">1 detik</string>
+  <string name="revanced_sb_duration_2s">2 detik</string>
+  <string name="revanced_sb_duration_3s">3 detik</string>
+  <string name="revanced_sb_duration_4s">4 detik</string>
+  <string name="revanced_sb_duration_5s">5 detik</string>
+  <string name="revanced_sb_duration_6s">6 detik</string>
+  <string name="revanced_sb_duration_7s">7 detik</string>
+  <string name="revanced_sb_duration_8s">8 detik</string>
+  <string name="revanced_sb_duration_9s">9 detik</string>
+  <string name="revanced_sb_duration_10s">10 detik</string>
   <string name="revanced_sb_general_time_without">Tampilkan durasi video tanpa segmen</string>
-  <string name="revanced_sb_general_time_without_sum_on">Durasi video dikurangi semua segmen, ditampilkan dalam tanda kurung di samping durasi video penuh</string>
+  <string name="revanced_sb_general_time_without_sum_on">Durasi video tanpa semua segmen ditampilkan pada bilah pencarian</string>
   <string name="revanced_sb_general_time_without_sum_off">Durasi video penuh ditampilkan</string>
   <string name="revanced_sb_create_segment_category">Membuat segmen baru</string>
   <string name="revanced_sb_enable_create_segment">Tampilkan tombol Buat segmen baru</string>

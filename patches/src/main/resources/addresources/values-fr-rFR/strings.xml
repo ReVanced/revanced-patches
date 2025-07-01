@@ -285,10 +285,13 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_description_components_screen_title">Description de la vidéo</string>
   <string name="revanced_hide_description_components_screen_summary">Masquez ou affichez des éléments dans la description des vidéos</string>
   <string name="revanced_hide_filter_bar_screen_title">Barre des filtres</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Masquez ou affichez la barre des filtres dans le flux, les résultats de recherche et les vidéos similaires</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Masquer dans le flux</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Masquée dans le flux</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Affichée dans le flux</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Masquez ou affichez la barre des filtres dans les flux, l\'historique, les résultats de recherche et les vidéos associées</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Masquer dans les flux</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Masquée dans les flux</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Affichée dans les flux</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Masquer dans l\'historique</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Masquée dans l\'historique</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Affichée dans l\'historique</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Masquer dans les résultats de recherche</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Masquée dans les résultats de recherche</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Affichée dans les résultats de recherche</string>
@@ -312,15 +315,15 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Masquer le bouton Créer un Short</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Le bouton \"Créer un Short\" est masqué</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Le bouton \"Créer un Short\" est affiché</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Masquer le bouton d\'horodatage</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Le bouton d\'horodatage est masqué</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Le bouton d\'horodatage est affiché</string>
   <string name="revanced_hide_comments_preview_comment_title">Masquer le commentaire servant d\'aperçu</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Le commentaire servant d\'aperçu est masqué</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Le commentaire servant d\'aperçu est affiché</string>
   <string name="revanced_hide_comments_thanks_button_title">Masquer le bouton Merci</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Le bouton Merci est masqué</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Le bouton Merci est affiché</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Masquer le bouton d\'horodatage</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Le bouton d\'horodatage est masqué</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Le bouton d\'horodatage est affiché</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Masquer les Doodles YouTube</string>
   <string name="revanced_hide_doodles_summary_on">Les Doodles de la barre de recherche sont masqués</string>
@@ -374,32 +377,38 @@ Limitations
   <string name="revanced_hide_keyword_toast_invalid_broad">Ce mot-clé va masquer toutes les vidéos : %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Masquer les annonces générales</string>
-  <string name="revanced_hide_general_ads_summary_on">Les annonces générales sont masquées</string>
-  <string name="revanced_hide_general_ads_summary_off">Les annonces générales sont affichées</string>
+  <string name="revanced_hide_creator_store_shelves_title">Masquer les étagères de la boutique du créateur</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Les étagères de boutique sous le lecteur et dans la description de la vidéo sont masquées</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Les étagères de boutique sous le lecteur et dans la description de la vidéo sont affichées</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Masquer l\'écran de fin de bannière de boutique</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">La bannière de boutique est masquée</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">La bannière de boutique est affichée</string>
   <string name="revanced_hide_fullscreen_ads_title">Masquer les annonces plein écran</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Les annonces plein écran sont masquées
 
 Cette fonctionnalité est disponible uniquement pour les appareils anciens"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Les annonces plein écran sont affichées</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Masquer les annonces plein écran ne fonctionne que sur les appareils anciens</string>
+  <string name="revanced_hide_general_ads_title">Masquer les annonces générales</string>
+  <string name="revanced_hide_general_ads_summary_on">Les annonces générales sont masquées</string>
+  <string name="revanced_hide_general_ads_summary_off">Les annonces générales sont affichées</string>
+  <string name="revanced_hide_merchandise_banners_title">Masquer les bannières Produits dérivés</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Les bannières Produits dérivés sont masquées</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Les bannières Produits dérivés sont affichées</string>
   <string name="revanced_hide_paid_promotion_label_title">Masquer la bannière de promotion rémunérée</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">La bannière \"Inclut une promotion rémunérée\" est masquée</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">La bannière \"Inclut une promotion rémunérée\" est affichée</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Masquer la bannière \"Afficher les produits\"</string>
+  <string name="revanced_hide_view_products_banner_summary_on">La bannière dans l\'overlay de la vidéo est masquée</string>
+  <string name="revanced_hide_view_products_banner_summary_off">La bannière dans l\'overlay de la vidéo est affichée</string>
   <string name="revanced_hide_self_sponsor_ads_title">Masquer les cartes d\'autopromotion</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Les cartes d\'autopromotion sont masquées</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Les cartes d\'autopromotion sont affichées</string>
-  <string name="revanced_hide_products_banner_title">Masquer la bannière Afficher les produits</string>
-  <string name="revanced_hide_products_banner_summary_on">La bannière est masquée</string>
-  <string name="revanced_hide_products_banner_summary_off">La bannière est affichée</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Masquer l\'écran de fin de bannière de boutique</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">La bannière de boutique est masquée</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">La bannière de boutique est affichée</string>
-  <string name="revanced_hide_player_store_shelf_title">Masquer l\'étagère Shopping dans le lecteur</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">L\'étagère Shopping est masquée</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">L\'étagère Shopping est affichée</string>
-  <string name="revanced_hide_shopping_links_title">Masquer les liens de shopping</string>
-  <string name="revanced_hide_shopping_links_summary_on">Les liens de shopping dans la description des vidéos sont masqués</string>
-  <string name="revanced_hide_shopping_links_summary_off">Les liens de shopping dans la description des vidéos sont affichés</string>
+  <string name="revanced_hide_tagged_products_title">Masquer les produits tagués</string>
+  <string name="revanced_hide_tagged_products_summary_on">Les produits tagués dans la description de la vidéo sont masqués</string>
+  <string name="revanced_hide_tagged_products_summary_off">Les produits tagués dans la description de la vidéo sont affichés</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Masquer le bouton Visiter la boutique</string>
   <string name="revanced_hide_visit_store_button_summary_on">Le bouton est masqué sur la page de chaîne</string>
@@ -407,11 +416,6 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_hide_web_search_results_title">Masquer les résultats Web</string>
   <string name="revanced_hide_web_search_results_summary_on">Les résultats Web sont masqués</string>
   <string name="revanced_hide_web_search_results_summary_off">Les résultats Web sont affichés</string>
-  <string name="revanced_hide_merchandise_banners_title">Masquer les bannières Produits dérivés</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Les bannières Produits dérivés sont masquées</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Les bannières Produits dérivés sont affichées</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Masquer les annonces plein écran ne fonctionne que sur les appareils anciens</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Masquer les publicités pour YouTube Premium</string>
@@ -823,7 +827,7 @@ Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur
   <string name="revanced_hide_shorts_sound_metadata_label_title">Masquer le libellé des métadonnées audio</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Le libellé des métadonnées est masqué</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Le libellé des métadonnées est affiché</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Masquer le libellé de lien vers la vidéo complète</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Masquer le libellé du lien vidéo</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Le libellé de lien est masqué</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Le libellé de lien est affiché</string>
   <string name="revanced_hide_shorts_sound_button_title">Masquer le bouton du son</string>
@@ -959,12 +963,26 @@ Cette fonctionnalité fonctionne de manière optimale avec une qualité vidéo d
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Masquer automatiquement le bouton Passer</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Le bouton Passer est masqué après quelques secondes</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Le bouton Passer est affiché pendant toute la durée du segment</string>
-  <string name="revanced_sb_general_skiptoast">Afficher un message toast lorsqu\'un segment est passé</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Un message toast est affiché lorsqu\'un segment est passé automatiquement. Appuyez ici pour voir un exemple.</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Message toast non affiché. Appuyez ici pour voir un exemple.</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">Durée du bouton Passer</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Durée d\'affichage avant masquage automatique des boutons Passer et Passer au temps fort</string>
+  <string name="revanced_sb_general_skiptoast">Afficher le message toast d\'annulation de saut</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Un message toast est affiché lorsqu\'un segment est automatiquement passé. Appuyez dessus pour annuler le saut.</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Le message toast n\'est pas affiché</string>
+  <string name="revanced_sb_toast_on_skip_duration">Durée du message toast de saut</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Durée d\'affichage du message toast de saut</string>
+  <string name="revanced_sb_duration_1s">1 seconde</string>
+  <string name="revanced_sb_duration_2s">2 secondes</string>
+  <string name="revanced_sb_duration_3s">3 secondes</string>
+  <string name="revanced_sb_duration_4s">4 secondes</string>
+  <string name="revanced_sb_duration_5s">5 secondes</string>
+  <string name="revanced_sb_duration_6s">6 secondes</string>
+  <string name="revanced_sb_duration_7s">7 secondes</string>
+  <string name="revanced_sb_duration_8s">8 secondes</string>
+  <string name="revanced_sb_duration_9s">9 secondes</string>
+  <string name="revanced_sb_duration_10s">10 secondes</string>
   <string name="revanced_sb_general_time_without">Afficher la durée de la vidéo sans les segments</string>
-  <string name="revanced_sb_general_time_without_sum_on">Durée de la vidéo moins tous les segments, affichée entre parenthèses à côté de la durée totale de la vidéo</string>
-  <string name="revanced_sb_general_time_without_sum_off">Affichage de la durée totale de la vidéo</string>
+  <string name="revanced_sb_general_time_without_sum_on">La durée de la vidéo moins tous les segments est affichée sur la barre de progression</string>
+  <string name="revanced_sb_general_time_without_sum_off">La durée totale de la vidéo est affichée</string>
   <string name="revanced_sb_create_segment_category">Création de nouveaux segments</string>
   <string name="revanced_sb_enable_create_segment">Afficher le bouton Créer un segment</string>
   <string name="revanced_sb_enable_create_segment_sum_on">Le bouton de création de segment est affiché</string>

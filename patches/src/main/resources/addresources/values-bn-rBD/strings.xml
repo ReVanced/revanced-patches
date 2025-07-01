@@ -281,10 +281,13 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_description_components_screen_title">ভিডিওর বিবরণ</string>
   <string name="revanced_hide_description_components_screen_summary">ভিডিও বিবরণ এর উপাদান লুকান বা প্রদর্শন করুন</string>
   <string name="revanced_hide_filter_bar_screen_title">ফিল্টার বার</string>
-  <string name="revanced_hide_filter_bar_screen_summary">ফিড, অনুসন্ধানের ফলাফল এবং সম্পর্কিত ভিডিওগুলোতে ফিল্টার বার লুকান অথবা দেখান</string>
+  <string name="revanced_hide_filter_bar_screen_summary">ফিড, ইতিহাস, অনুসন্ধান ফলাফল এবং সম্পর্কিত ভিডিওগুলিতে ফিল্টার বার লুকান বা দেখান</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">ফিডে লুকান</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">ফিডে লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">ফিডে প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">ফিডে লুকানো</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">ফিডে দেখানো হয়েছে</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">ইতিহাসে লুকান</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">ইতিহাসে লুকানো</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">ইতিহাসে দেখানো হয়েছে</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">অনুসন্ধান ফলাফলে লুকান</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">অনুসন্ধান ফলাফলে লুকানো আছে</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">অনুসন্ধান ফলাফলে দেখানো হয়েছে</string>
@@ -308,15 +311,15 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_comments_create_a_short_button_title">\'Short তৈরি করুন\' বোতাম লুকান</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">একটি Shorts বোতাম তৈরি করুন লুকানো আছে</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">একটি Shorts বোতাম তৈরি করুন দেখানো হয়েছে</string>
-  <string name="revanced_hide_comments_timestamp_button_title">সময় চিহ্নিত করার বোতাম লুকান</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">সময় চিহ্নিত করার বোতাম লুকানো আছে</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">সময় চিহ্নিত করার বোতাম দেখানো হয়েছে</string>
   <string name="revanced_hide_comments_preview_comment_title">মন্তব্যের পূর্বরূপ লুকান</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">মন্তব্যের পূর্বরূপ লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">মন্তব্যের পূর্বরূপ প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_comments_thanks_button_title">ধন্যবাদ বাটন লুকান</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">ধন্যবাদ বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">ধন্যবাদ বোতাম প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_comments_timestamp_button_title">সময় চিহ্নিত করার বোতাম লুকান</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">সময় চিহ্নিত করার বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">সময় চিহ্নিত করার বোতাম দেখানো হয়েছে</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles छिपाएँ</string>
   <string name="revanced_hide_doodles_summary_on">सर्च बार Doodles छिपे हुए हैं</string>
@@ -370,32 +373,38 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_keyword_toast_invalid_broad">কিওয়ার্ড সমস্ত ভিডিও লুকিয়ে রাখবে: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">সাধারণ বিজ্ঞাপন লুকান</string>
-  <string name="revanced_hide_general_ads_summary_on">সাধারণ বিজ্ঞাপন লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_general_ads_summary_off">সাধারণ বিজ্ঞাপন প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_creator_store_shelves_title">স্রষ্টার স্টোর শেল্ফগুলি লুকান</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">প্লেয়ারের নিচে এবং ভিডিও বর্ণনায় থাকা স্টোর শেল্ফগুলি লুকানো হয়েছে</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">প্লেয়ারের নিচে এবং ভিডিও বর্ণনায় স্টোর শেল্ফগুলি দেখানো হয়েছে</string>
+  <string name="revanced_hide_end_screen_store_banner_title">শেষ পর্দার স্টোর ব্যানার লুকান</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">স্টোর ব্যানারটি লুকানো আছে</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">স্টোর ব্যানারটি প্রদর্শন করা হবে</string>
   <string name="revanced_hide_fullscreen_ads_title">পূর্ণ স্ক্রীন প্যানেল লুকান</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"পূর্ণ পর্দার বিজ্ঞাপন লুকানো হয়
 
 এই বৈশিষ্ট্যটি কেবল পুরনো ডিভাইসের জন্য উপলব্ধ"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">পূর্ণ স্ক্রীন বিজ্ঞাপন প্রদর্শিত হয়েছে</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">পূর্ণস্ক্রীন বিজ্ঞাপন লুকানো পুরোনো ডিভাইসে কাজ করে</string>
+  <string name="revanced_hide_general_ads_title">সাধারণ বিজ্ঞাপন লুকান</string>
+  <string name="revanced_hide_general_ads_summary_on">সাধারণ বিজ্ঞাপন লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_general_ads_summary_off">সাধারণ বিজ্ঞাপন প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_merchandise_banners_title">পণ্যদ্রব্য ব্যানার লুকান</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">পণ্যদ্রব্যের ব্যানার লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">পণ্যদ্রব্যের ব্যানার প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_paid_promotion_label_title">অর্থের বিনিময়ে প্রচার অন্তর্ভুক্ত রয়েছে ব্যানার লুকান</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">অর্থের বিনিময়ে প্রচার অন্তর্ভুক্ত রয়েছে ব্যানার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">অর্থের বিনিময়ে প্রচার অন্তর্ভুক্ত রয়েছে ব্যানার প্রদর্শিত হয়েছে</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">\'পণ্য দেখুন\' ব্যানার লুকান</string>
+  <string name="revanced_hide_view_products_banner_summary_on">ভিডিও ওভারলেতে থাকা ব্যানারটি লুকানো হয়েছে</string>
+  <string name="revanced_hide_view_products_banner_summary_off">ভিডিও ওভারলেতে ব্যানার দেখানো হয়েছে</string>
   <string name="revanced_hide_self_sponsor_ads_title">স্ব-স্পন্সর কার্ড লুকান</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">স্ব-স্পন্সর কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">স্ব-স্পন্সর কার্ড প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_products_banner_title">\'পণ্য দেখুন\' ব্যানার লুকান</string>
-  <string name="revanced_hide_products_banner_summary_on">ব্যানার লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_products_banner_summary_off">ব্যানার প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_end_screen_store_banner_title">শেষ পর্দার স্টোর ব্যানার লুকান</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">স্টোর ব্যানারটি লুকানো আছে</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">স্টোর ব্যানারটি প্রদর্শন করা হবে</string>
-  <string name="revanced_hide_player_store_shelf_title">প্লেয়ার শপিং শেলফ লুকান</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">শপিং শেলফ লুকানো আছে</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">শপিং শেলফ দেখানো হচ্ছে</string>
-  <string name="revanced_hide_shopping_links_title">ভিডিওর বিবরণে কেনাকাটার লিঙ্ক লুকান</string>
-  <string name="revanced_hide_shopping_links_summary_on">ভিডিও বিবরণে শপিং লিঙ্ক লুকানো আছে</string>
-  <string name="revanced_hide_shopping_links_summary_off">ভিডিও বিবরণে শপিং লিঙ্ক দেখানো হয়েছে</string>
+  <string name="revanced_hide_tagged_products_title">ট্যাগ করা পণ্যগুলি লুকান</string>
+  <string name="revanced_hide_tagged_products_summary_on">ভিডিও বর্ণনায় ট্যাগ করা পণ্যগুলি লুকানো হয়েছে</string>
+  <string name="revanced_hide_tagged_products_summary_off">ভিডিও বর্ণনায় ট্যাগ করা পণ্যগুলি দেখানো হয়েছে</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">চ্যানেল পাতায় \'স্টোরে যান\' বোতাম লুকান</string>
   <string name="revanced_hide_visit_store_button_summary_on">চ্যানেল পৃষ্ঠায় বোতাম লুকানো আছে</string>
@@ -403,11 +412,6 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_web_search_results_title">লোকেরা এইগুলিও সার্চ করছে লুকান</string>
   <string name="revanced_hide_web_search_results_summary_on">লোকেরা এইগুলিও সার্চ করছে লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_web_search_results_summary_off">লোকেরা এইগুলিও সার্চ করছে প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_merchandise_banners_title">পণ্যদ্রব্য ব্যানার লুকান</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">পণ্যদ্রব্যের ব্যানার লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">পণ্যদ্রব্যের ব্যানার প্রদর্শিত হয়েছে</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">পূর্ণস্ক্রীন বিজ্ঞাপন লুকানো পুরোনো ডিভাইসে কাজ করে</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">YouTube প্রিমিয়াম প্রচারণা লুকান</string>
@@ -819,7 +823,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_sound_metadata_label_title">সাউন্ড মেটাডাটা লেবেল লুকান</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">সাউন্ড মেটাডাটা লেবেল লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">সাউন্ড মেটাডাটা লেবেল প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">সম্পূর্ণ ভিডিও লিঙ্ক লেবেল লুকান</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">ভিডিও লিঙ্ক লেবেল লুকান</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">ভিডিও লিঙ্ক লেবেল লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">ভিডিও লিঙ্ক লেবেল প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_shorts_sound_button_title">সাউন্ড বোতাম লুকান</string>
@@ -953,11 +957,25 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Skip বোতামটি স্বয়ংক্রিয়ভাবে লুকান</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">কয়েক সেকেন্ড পরে স্কিপ বোতাম লুকিয়ে যায়</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">পুরো অংশের জন্য Skip বোতাম দেখানো হয়েছে</string>
-  <string name="revanced_sb_general_skiptoast">বাদ দেওয়ার সময় একটি toast দেখান</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">সেগমেন্ট স্বয়ংক্রিয়ভাবে এড়িয়ে যেতে একটি টোস্ট দেখানো হয়। উদাহরণ দেখতে এখানে ট্যাপ করুন</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">টোস্ট দেখানো হচ্ছে না। উদাহরণ দেখতে এখানে ট্যাপ করুন</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">স্কিপ বোতামের সময়কাল</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">অটো হাইড স্কিপ এবং হাইলাইট বোতাম কতক্ষণ দেখানো হয়</string>
+  <string name="revanced_sb_general_skiptoast">স্কিপ পূর্বাবস্থায় ফিরিয়ে আনার টোস্ট দেখান</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">যখন একটি সেগমেন্ট স্বয়ংক্রিয়ভাবে এড়িয়ে যাওয়া হয় তখন টোস্ট দেখানো হয়। স্কিপ পূর্বাবস্থায় ফিরিয়ে আনতে টোস্ট বিজ্ঞপ্তিতে ট্যাপ করুন</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">টোস্ট দেখানো হয়নি</string>
+  <string name="revanced_sb_toast_on_skip_duration">টোস্ট এড়িয়ে যাওয়ার সময়কাল</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">স্কিপ টোস্ট বিজ্ঞপ্তি কতক্ষণ দেখানো হয়</string>
+  <string name="revanced_sb_duration_1s">১ সেকেন্ড</string>
+  <string name="revanced_sb_duration_2s">২ সেকেন্ড</string>
+  <string name="revanced_sb_duration_3s">৩ সেকেন্ড</string>
+  <string name="revanced_sb_duration_4s">৪ সেকেন্ড</string>
+  <string name="revanced_sb_duration_5s">৫ সেকেন্ড</string>
+  <string name="revanced_sb_duration_6s">৬ সেকেন্ড</string>
+  <string name="revanced_sb_duration_7s">৭ সেকেন্ড</string>
+  <string name="revanced_sb_duration_8s">৮ সেকেন্ড</string>
+  <string name="revanced_sb_duration_9s">৯ সেকেন্ড</string>
+  <string name="revanced_sb_duration_10s">১০ সেকেন্ড</string>
   <string name="revanced_sb_general_time_without">সেগমেন্ট ছাড়া ভিডিওর দৈর্ঘ্য দেখান</string>
-  <string name="revanced_sb_general_time_without_sum_on">সমস্ত সেগমেন্ট ছাড়াই ভিডিওর দৈর্ঘ্য, পূর্ণ ভিডিওর দৈর্ঘ্যের পাশে বন্ধনীতে উল্লেখ করা হয়</string>
+  <string name="revanced_sb_general_time_without_sum_on">ভিডিওর দৈর্ঘ্য থেকে সব অংশ বাদ দিয়ে সিকারবারে দেখানো হবে</string>
   <string name="revanced_sb_general_time_without_sum_off">সম্পূর্ণ ভিডিও দৈর্ঘ্য প্রদর্শিত হয়েছে</string>
   <string name="revanced_sb_create_segment_category">নতুন সেগমন্ট তৈরি হচ্ছে</string>
   <string name="revanced_sb_enable_create_segment">নতুন বিভাগ তৈরি করুন বোতামটি দেখান</string>

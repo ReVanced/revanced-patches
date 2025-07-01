@@ -285,10 +285,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">视频说明</string>
   <string name="revanced_hide_description_components_screen_summary">隐藏或显示视频说明组件</string>
   <string name="revanced_hide_filter_bar_screen_title">筛选栏</string>
-  <string name="revanced_hide_filter_bar_screen_summary">隐藏或显示订阅源、搜索结果和相关视频中的过滤栏</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">在首页动态中隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">已在首页动态中隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">已在首页动态中显示</string>
+  <string name="revanced_hide_filter_bar_screen_summary">在动态、历史记录、搜索结果和相关视频中隐藏或显示筛选栏</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">在动态中隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">已在动态中隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">已在动态中显示</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">在历史记录中隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">已在历史记录中隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">已在历史记录中显示</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">在搜索结果中隐藏</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">在搜索结果中已隐藏</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">在搜索结果中显示</string>
@@ -312,15 +315,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">隐藏「创建 Short」按钮</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">“创建Shorts”按钮已隐藏</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">“创建Shorts”按钮已显示</string>
-  <string name="revanced_hide_comments_timestamp_button_title">隐藏时间戳按钮</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">时间戳按钮已隐藏</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">时间戳按钮已显示</string>
   <string name="revanced_hide_comments_preview_comment_title">隐藏评论预览</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">评论预览已隐藏</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">评论预览已显示</string>
   <string name="revanced_hide_comments_thanks_button_title">隐藏感谢按钮</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">感谢按钮已隐藏</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">感谢按钮已显示</string>
+  <string name="revanced_hide_comments_timestamp_button_title">隐藏时间戳按钮</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">时间戳按钮已隐藏</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">时间戳按钮已显示</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">隐藏 YouTube 涂鸦</string>
   <string name="revanced_hide_doodles_summary_on">搜索栏涂鸦已隐藏</string>
@@ -374,32 +377,38 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">关键词将隐藏所有影片：%s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">隐藏一般广告</string>
-  <string name="revanced_hide_general_ads_summary_on">一般广告已隐藏</string>
-  <string name="revanced_hide_general_ads_summary_off">一般广告已显示</string>
+  <string name="revanced_hide_creator_store_shelves_title">隐藏创作者商店货架</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">播放器下方和视频描述中的商店货架已隐藏</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">播放器下方和视频描述中会显示商店货架</string>
+  <string name="revanced_hide_end_screen_store_banner_title">商店横幅已隐藏</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">隐藏商店横幅</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">商店横幅已显示</string>
   <string name="revanced_hide_fullscreen_ads_title">隐藏全屏广告</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"全屏广告已隐藏
 
 此功能仅适用于旧设备"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">全屏广告已显示</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">隐藏全屏广告只适用于旧设备</string>
+  <string name="revanced_hide_general_ads_title">隐藏一般广告</string>
+  <string name="revanced_hide_general_ads_summary_on">一般广告已隐藏</string>
+  <string name="revanced_hide_general_ads_summary_off">一般广告已显示</string>
+  <string name="revanced_hide_merchandise_banners_title">隐藏商品广告横幅</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">已隐藏商品横幅</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">已显示商品横幅</string>
   <string name="revanced_hide_paid_promotion_label_title">隐藏付费推广标签</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">付费推广标签已隐藏</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">付费推广标签已显示</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">隐藏“查看商品”横幅</string>
+  <string name="revanced_hide_view_products_banner_summary_on">视频叠加层中的横幅已隐藏</string>
+  <string name="revanced_hide_view_products_banner_summary_off">视频叠加层中会显示横幅</string>
   <string name="revanced_hide_self_sponsor_ads_title">隐藏自我推广卡片</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">自我推广卡片已隐藏</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">自我推广卡片已显示</string>
-  <string name="revanced_hide_products_banner_title">隐藏“查看商品”横幅</string>
-  <string name="revanced_hide_products_banner_summary_on">横幅已隐藏</string>
-  <string name="revanced_hide_products_banner_summary_off">横幅已显示</string>
-  <string name="revanced_hide_end_screen_store_banner_title">商店横幅已隐藏</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">隐藏商店横幅</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">商店横幅已显示</string>
-  <string name="revanced_hide_player_store_shelf_title">隐藏播放器购物栏</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">购物展示栏已隐藏</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">购物展示栏已显示</string>
-  <string name="revanced_hide_shopping_links_title">在视频描述中隐藏购物链接</string>
-  <string name="revanced_hide_shopping_links_summary_on">已隐藏视频说明中的购物链接</string>
-  <string name="revanced_hide_shopping_links_summary_off">已显示视频说明中的购物链接</string>
+  <string name="revanced_hide_tagged_products_title">隐藏带标签的商品</string>
+  <string name="revanced_hide_tagged_products_summary_on">视频描述中的带标签商品已隐藏</string>
+  <string name="revanced_hide_tagged_products_summary_off">视频描述中会显示已标记商品</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">隐藏频道页面上的“访问商店”按钮</string>
   <string name="revanced_hide_visit_store_button_summary_on">频道页面中的按钮已隐藏</string>
@@ -407,11 +416,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_web_search_results_title">隐藏网页搜索结果</string>
   <string name="revanced_hide_web_search_results_summary_on">网页搜索结果已隐藏</string>
   <string name="revanced_hide_web_search_results_summary_off">网页搜索结果已显示</string>
-  <string name="revanced_hide_merchandise_banners_title">隐藏商品广告横幅</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">已隐藏商品横幅</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">已显示商品横幅</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">隐藏全屏广告只适用于旧设备</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">隐藏 YouTube Premium 促销推广</string>
@@ -823,7 +827,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">隐藏声音元数据标签</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">元数据标签已隐藏</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">元数据标签已显示</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">隐藏完整视频链接标签</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">隐藏视频链接标签</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">视频链接标签已隐藏</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">视频链接标签已显示</string>
   <string name="revanced_hide_shorts_sound_button_title">隐藏声音按钮</string>
@@ -958,11 +962,25 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">自动隐藏跳过按钮</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">跳过按钮在几秒后隐藏</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">整个片段都会显示“跳过”按钮</string>
-  <string name="revanced_sb_general_skiptoast">跳过时显示一个toast</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">自动跳过片段时显示\"提示\"。点击这里查看示例</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">不显示\"提示\"。点击这里查看示例</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">跳过按钮时长</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">自动隐藏跳过和跳转到精彩片段按钮的显示时长</string>
+  <string name="revanced_sb_general_skiptoast">显示撤销跳过浮层提示</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">当片段被自动跳过时会显示浮层提示。轻触浮层提示通知以撤销跳过</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">提示未显示</string>
+  <string name="revanced_sb_toast_on_skip_duration">跳过提示时长</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">跳过浮层提示通知的显示时长</string>
+  <string name="revanced_sb_duration_1s">1 秒</string>
+  <string name="revanced_sb_duration_2s">2 秒</string>
+  <string name="revanced_sb_duration_3s">3 秒</string>
+  <string name="revanced_sb_duration_4s">4 秒</string>
+  <string name="revanced_sb_duration_5s">5秒</string>
+  <string name="revanced_sb_duration_6s">6 秒</string>
+  <string name="revanced_sb_duration_7s">7 秒</string>
+  <string name="revanced_sb_duration_8s">8 秒</string>
+  <string name="revanced_sb_duration_9s">9 秒</string>
+  <string name="revanced_sb_duration_10s">10 秒</string>
   <string name="revanced_sb_general_time_without">显示没有片段的视频长度</string>
-  <string name="revanced_sb_general_time_without_sum_on">视频长度减去所有片段，显示在完整视频长度旁边的括号中</string>
+  <string name="revanced_sb_general_time_without_sum_on">进度条上显示视频总时长（已减去所有分段）</string>
   <string name="revanced_sb_general_time_without_sum_off">显示完整视频长度</string>
   <string name="revanced_sb_create_segment_category">创建新的片段</string>
   <string name="revanced_sb_enable_create_segment">显示“创建新片段”按钮</string>

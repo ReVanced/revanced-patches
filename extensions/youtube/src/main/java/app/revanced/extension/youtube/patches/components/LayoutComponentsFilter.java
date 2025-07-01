@@ -253,7 +253,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         ticketShelf = new ByteArrayFilterGroup(
                 Settings.HIDE_TICKET_SHELF,
-                "ticket"
+                "ticket.eml"
         );
 
         addPathCallbacks(
