@@ -117,11 +117,9 @@ val spoofClientPatch = bytecodePatch(
             val openLoginWebViewDescriptor =
                 "$EXTENSION_CLASS_DESCRIPTOR->launchLogin(Landroid/view/LayoutInflater;)V"
 
-            addInstructions(
+            addInstruction(
                 0,
-                """
-                    invoke-static/range { p1 .. p1 }, $openLoginWebViewDescriptor
-                """
+                "invoke-static/range { p1 .. p1 }, $openLoginWebViewDescriptor"
             )
         }
 
