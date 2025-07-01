@@ -130,10 +130,10 @@ val unlockPremiumPatch = bytecodePatch(
             val contextMenuItemInterfaceName = parameterTypes.first()
             val contextMenuItemInterfaceClassDef = classes.find {
                 it.type == contextMenuItemInterfaceName
-            } ?: throw PatchException("Could not find context menu item class.")
+            } ?: throw PatchException("Could not find context menu item interface.")
 
             // The class returned by ContextMenuItem->getViewModel, which represents the actual context menu item we
-            // need to call toString at.
+            // need to stringify.
             val viewModelClassType =
                 getViewModelFingerprint.match(contextMenuItemInterfaceClassDef).originalMethod.returnType
 
@@ -207,7 +207,6 @@ val unlockPremiumPatch = bytecodePatch(
                     "invoke-interface { v$contextMenuItemRegister }, $getViewModelDescriptor"
                 )
             }
-
 
             val filterContextMenuItemsDescriptor =
                 "$EXTENSION_CLASS_DESCRIPTOR->filterContextMenuItems(Ljava/util/List;)Ljava/util/List;"
