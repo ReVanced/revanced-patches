@@ -23,9 +23,9 @@ class LoginRequestListener extends NanoHTTPD {
 
         try {
             start();
-        } catch (IOException e) {
-            Logger.printException(() -> "Failed to start login request listener on port " + port, e);
-            throw new RuntimeException(e);
+        } catch (IOException ex) {
+            Logger.printException(() -> "Failed to start login request listener on port " + port, ex);
+            throw new RuntimeException(ex);
         }
     }
 
@@ -39,8 +39,8 @@ class LoginRequestListener extends NanoHTTPD {
         LoginRequest loginRequest;
         try {
             loginRequest = LoginRequest.parseFrom(requestBodyInputStream);
-        } catch (IOException e) {
-            Logger.printException(() -> "Failed to parse LoginRequest", e);
+        } catch (IOException ex) {
+            Logger.printException(() -> "Failed to parse LoginRequest", ex);
             return newResponse(INTERNAL_ERROR);
         }
 
@@ -52,8 +52,8 @@ class LoginRequestListener extends NanoHTTPD {
         synchronized (this) {
             try {
                 loginResponse = getLoginResponse(loginRequest);
-            } catch (Exception e) {
-                Logger.printException(() -> "Failed to get login response", e);
+            } catch (Exception ex) {
+                Logger.printException(() -> "Failed to get login response", ex);
                 return newResponse(INTERNAL_ERROR);
             }
         }

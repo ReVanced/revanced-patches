@@ -12,7 +12,7 @@ public class SpoofClientPatch {
      * <br>
      * Launch login server.
      */
-    public static void launchListen(int port) {
+    public static void launchListener(int port) {
         if (listener != null) {
             Logger.printInfo(() -> "Listener already running on port " + port);
             return;
@@ -22,7 +22,7 @@ public class SpoofClientPatch {
             Logger.printInfo(() -> "Launching listener on port " + port);
             listener = new LoginRequestListener(port);
         } catch (Exception ex) {
-            Logger.printException(() -> "listen failure", ex);
+            Logger.printException(() -> "launchListener failure", ex);
         }
     }
 
@@ -35,7 +35,7 @@ public class SpoofClientPatch {
         try {
             WebApp.launchLogin(inflater.getContext());
         } catch (Exception ex) {
-            Logger.printException(() -> "login failure", ex);
+            Logger.printException(() -> "launchLogin failure", ex);
         }
     }
 }

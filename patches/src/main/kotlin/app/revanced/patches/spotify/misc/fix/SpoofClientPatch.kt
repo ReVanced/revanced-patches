@@ -11,11 +11,12 @@ import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/fix/SpoofClientPatch;"
 
@@ -24,8 +25,8 @@ val spoofClientPatch = bytecodePatch(
     name = "Spoof client",
     description = "Spoofs the client to fix various functions of the app.",
 ) {
-    val port by intOption(
-        key = "port",
+    val requestListenerPort by intOption(
+        key = "requestListenerPort",
         default = 4345,
         title = " Login request listener port",
         description = "The port to use for the listener that intercepts and handles login requests. " +
@@ -46,10 +47,10 @@ val spoofClientPatch = bytecodePatch(
                 "x86",
                 "x86_64"
             ).forEach { architecture ->
-                "https://login5.spotify.com/v3/login" to "http://127.0.0.1:$port/v3/login" inFile
+                "https://login5.spotify.com/v3/login" to "http://127.0.0.1:$requestListenerPort/v3/login" inFile
                         "lib/$architecture/liborbit-jni-spotify.so"
 
-                "https://login5.spotify.com/v4/login" to "http://127.0.0.1:$port/v4/login" inFile
+                "https://login5.spotify.com/v4/login" to "http://127.0.0.1:$requestListenerPort/v4/login" inFile
                         "lib/$architecture/liborbit-jni-spotify.so"
             }
         })
@@ -105,11 +106,11 @@ val spoofClientPatch = bytecodePatch(
 
         // region Spoof client.
 
-        startLiborbitFingerprint.method.addInstructions(
+        loadOrbitLibraryFingerprint.method.addInstructions(
             0,
             """
-                const/16 v0, $port
-                invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->launchListen(I)V
+                const/16 v0, $requestListenerPort
+                invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->launchListener(I)V
             """
         )
 
@@ -120,14 +121,23 @@ val spoofClientPatch = bytecodePatch(
             addInstructions(
                 0,
                 """
-                    move-object/from16 v3, p1
-                    invoke-static { v3 }, $openLoginWebViewDescriptor
+                    move-object/from16 v0, p1
+                    invoke-static { v0 }, $openLoginWebViewDescriptor
                 """
             )
         }
 
         // Early return to block sending bad verdicts to the API.
-        standardIntegrityTokenProviderBuilderFingerprint.method.returnEarly()
+        runIntegrityVerificationFingerprint.method.apply {
+            val checkCastMessageDigestIndex = indexOfFirstInstructionOrThrow {
+                getReference<TypeReference>()?.type == "Ljava/security/MessageDigest;"
+            }
+
+            addInstruction(
+                checkCastMessageDigestIndex + 1,
+                "return-void"
+            )
+        }
 
         // endregion
     }

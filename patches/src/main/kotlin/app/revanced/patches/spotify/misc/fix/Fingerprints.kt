@@ -1,7 +1,11 @@
 package app.revanced.patches.spotify.misc.fix
 
 import app.revanced.patcher.fingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal val getPackageInfoFingerprint = fingerprint {
     strings(
@@ -9,7 +13,7 @@ internal val getPackageInfoFingerprint = fingerprint {
     )
 }
 
-internal val startLiborbitFingerprint = fingerprint {
+internal val loadOrbitLibraryFingerprint = fingerprint {
     strings("/liborbit-jni-spotify.so")
 }
 
@@ -20,10 +24,14 @@ internal val startupPageLayoutInflateFingerprint = fingerprint {
     strings("blueprintContainer", "gradient", "valuePropositionTextView")
 }
 
-internal val standardIntegrityTokenProviderBuilderFingerprint = fingerprint {
-    strings(
-        "standard_pi_init",
-        "outcome",
-        "success"
-    )
+internal val runIntegrityVerificationFingerprint = fingerprint {
+    returns("V")
+    custom { method, _ ->
+        method.indexOfFirstInstruction {
+            getReference<FieldReference>()
+            ?.type?.endsWith("StandardIntegrityManager${"$"}StandardIntegrityTokenProvider;") == true
+        } >= 0 && method.indexOfFirstInstruction {
+            getReference<TypeReference>()?.type == "Ljava/security/MessageDigest;"
+        } >= 0
+    }
 }

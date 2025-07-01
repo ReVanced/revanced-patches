@@ -5,18 +5,17 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Build;
-import android.view.*;
+import android.view.Window;
+import android.view.WindowInsets;
 import android.webkit.*;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.spotify.UserAgent;
+
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 import static app.revanced.extension.spotify.misc.fix.Session.FAILED_TO_RENEW_SESSION;
 
@@ -82,7 +81,7 @@ class WebApp {
                 });
 
                 try {
-                    // Wait indefinitely until the user logs in .
+                    // Wait indefinitely until the user logs in.
                     onLoggedInLatch.await();
                     // Wait until the session is received, or timeout.
                     isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
@@ -241,11 +240,11 @@ class WebApp {
                     .withCommentReplaced("Android", "Windows NT 10.0; Win64; x64")
                     .withoutProduct("Mobile")
                     .toString();
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException ex) {
             userAgentString = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
                     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edge/137.0.0.0";
             String fallback = userAgentString;
-            Logger.printException(() -> "Failed to get user agent, falling back to " + fallback, e);
+            Logger.printException(() -> "Failed to get user agent, falling back to " + fallback, ex);
         }
 
         return userAgentString;

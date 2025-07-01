@@ -71,7 +71,7 @@ class Session {
     boolean accessTokenExpired() {
         return accessTokenExpiresInMillis() <= 0;
     }
-    
+
     void save() {
         Logger.printInfo(() -> "Saving session: " + this);
 
