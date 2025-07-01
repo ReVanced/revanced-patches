@@ -1029,12 +1029,12 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds</string>
             <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button is shown for the entire segment</string>
             <string name="revanced_sb_auto_hide_skip_button_duration">Skip button duration</string>
-            <string name="revanced_sb_auto_hide_skip_button_duration_sum">How long the auto hide skip and skip to highlight buttons are shown</string>
+            <string name="revanced_sb_auto_hide_skip_button_duration_sum">How long to show the skip and skip to highlight buttons before automatically hiding</string>
             <string name="revanced_sb_general_skiptoast">Show undo skip toast</string>
             <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap the toast notification to undo the skip</string>
             <string name="revanced_sb_general_skiptoast_sum_off">Toast is not shown</string>
             <string name="revanced_sb_toast_on_skip_duration">Skip toast duration</string>
-            <string name="revanced_sb_toast_on_skip_duration_sum">How long the skip toast notification is shown</string>
+            <string name="revanced_sb_toast_on_skip_duration_sum">How long to show the undo skip toast</string>
             <string name="revanced_sb_duration_1s">1 second</string>
             <string name="revanced_sb_duration_2s">2 seconds</string>
             <string name="revanced_sb_duration_3s">3 seconds</string>
