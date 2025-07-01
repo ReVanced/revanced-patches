@@ -315,15 +315,15 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Dölj knappen \'Skapa en kort\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Knappen Skapa en Short är dold</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Knappen Skapa en Short visas</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Dölj tidsstämpelknappen</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tidsstämpelknappen är dold</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Tidsstämpelknappen är synlig</string>
   <string name="revanced_hide_comments_preview_comment_title">Dölj förhandsgranskningskommentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Förhandsgranskningskommentaren är dold</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Förhandsgranskningskommentaren visas</string>
   <string name="revanced_hide_comments_thanks_button_title">Dölj knappen \"Tack\"</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tack-knappen är dold</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tackknappen är synlig</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Dölj tidsstämpelknappen</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tidsstämpelknappen är dold</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Tidsstämpelknappen är synlig</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Dölj YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Sökfältet Doodles är dolda</string>
@@ -377,32 +377,38 @@ Begränsningar
   <string name="revanced_hide_keyword_toast_invalid_broad">Nyckelord döljer alla videor: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Dölj allmänna annonser</string>
-  <string name="revanced_hide_general_ads_summary_on">Allmänna annonser är dolda</string>
-  <string name="revanced_hide_general_ads_summary_off">Allmänna annonser är synliga</string>
+  <string name="revanced_hide_creator_store_shelves_title">Dölj skaparens butikshyllor</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Butikshyllor under spelaren och i videobeskrivningen är dolda</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Butikshyllor under spelaren och i videobeskrivningen visas</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Dölj butiksbannern på slutskärmen</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Butiksbannern är dold</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Butiksbannern visas</string>
   <string name="revanced_hide_fullscreen_ads_title">Dölj helskärmsannonser</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Helskärmsannonser är dolda
 
 Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Helskärmsannonser visas</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Helskärmsannonser kan döljas bara på äldre enheter</string>
+  <string name="revanced_hide_general_ads_title">Dölj allmänna annonser</string>
+  <string name="revanced_hide_general_ads_summary_on">Allmänna annonser är dolda</string>
+  <string name="revanced_hide_general_ads_summary_off">Allmänna annonser är synliga</string>
+  <string name="revanced_hide_merchandise_banners_title">Dölj banners för varor</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Banners för varor är dolda</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Banners för varor visas</string>
   <string name="revanced_hide_paid_promotion_label_title">Dölj etikett för betald marknadsföring</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Etiketten för betald marknadsföring är dold</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Etiketten för betald marknadsföring visas</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Dölj bannern \"Visa produkter\"</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Banner i videoöverlägg är dold</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Banner i videoöverlägg visas</string>
   <string name="revanced_hide_self_sponsor_ads_title">Dölj självsponsrade kort</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Självsponsrade kort är dolda</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Självsponsrade kort är synliga</string>
-  <string name="revanced_hide_products_banner_title">Dölj \"Visa produkter\"-banner</string>
-  <string name="revanced_hide_products_banner_summary_on">Banner är dold</string>
-  <string name="revanced_hide_products_banner_summary_off">Banner är synlig</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Dölj butiksbannern på slutskärmen</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Butiksbannern är dold</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Butiksbannern visas</string>
-  <string name="revanced_hide_player_store_shelf_title">Dölj butikshyllan i spelaren</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Butikshyllan är dold</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Butikshyllan visas</string>
-  <string name="revanced_hide_shopping_links_title">Dölj butikslänkar</string>
-  <string name="revanced_hide_shopping_links_summary_on">Butikslänkar i videobeskrivningen är dolda</string>
-  <string name="revanced_hide_shopping_links_summary_off">Butikslänkar i videobeskrivningen visas</string>
+  <string name="revanced_hide_tagged_products_title">Dölj taggade produkter</string>
+  <string name="revanced_hide_tagged_products_summary_on">Taggade produkter i videobeskrivningen är dolda</string>
+  <string name="revanced_hide_tagged_products_summary_off">Taggade produkter i videobeskrivningen visas</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Dölj knappen Besök butiken</string>
   <string name="revanced_hide_visit_store_button_summary_on">Knappen på kanalsidan är dold</string>
@@ -410,11 +416,6 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_hide_web_search_results_title">Dölj sökresultat på webben</string>
   <string name="revanced_hide_web_search_results_summary_on">Sökresultat på webben är dolda</string>
   <string name="revanced_hide_web_search_results_summary_off">Sökresultat på webben är synliga</string>
-  <string name="revanced_hide_merchandise_banners_title">Dölj banners för varor</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Banners för varor är dolda</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Banners för varor visas</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Helskärmsannonser kan döljas bara på äldre enheter</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Dölj YouTube Premium-kampanjer</string>
@@ -826,7 +827,7 @@ För att visa ljudspårsmenyn, ändra \"Spoof video streams\" till iOS TV"</stri
   <string name="revanced_hide_shorts_sound_metadata_label_title">Dölj ljudmetadata-etikett</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Metadata-etikett är dold</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Metadata etikett visas</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Dölj full videolänk-etikett</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Dölj etikett för videolänk</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Etiketten för videolänk är dold</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Etikett för videolänk visas</string>
   <string name="revanced_hide_shorts_sound_button_title">Dölj ljudknapp</string>

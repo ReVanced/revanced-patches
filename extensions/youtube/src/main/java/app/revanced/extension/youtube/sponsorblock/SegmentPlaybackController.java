@@ -40,6 +40,7 @@ import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
 import app.revanced.extension.youtube.sponsorblock.requests.SBRequester;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockViewController;
+import kotlin.Unit;
 
 /**
  * Handles showing, scheduling, and skipping of all {@link SponsorSegment} for the current video.
@@ -162,6 +163,30 @@ public class SegmentPlaybackController {
      * The last toast dialog showing on screen.
      */
     private static WeakReference<Dialog> toastDialogRef = new WeakReference<>(null);
+
+    static {
+        // Dismiss toast if app changes to PiP while undo skip is shown.
+        PlayerType.getOnChange().addObserver((PlayerType type) -> {
+            if (type == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE && dismissUndoToast()) {
+                Logger.printDebug(() -> "Dismissed undo toast as playback is PiP");
+            }
+
+            return Unit.INSTANCE;
+        });
+    }
+
+    /**
+     * @return If the toast was on screen and is now dismissed.
+     */
+    private static boolean dismissUndoToast() {
+        Dialog toastDialog = toastDialogRef.get();
+        if (toastDialog != null && toastDialog.isShowing()) {
+            toastDialog.dismiss();
+            return true;
+        }
+
+        return false;
+    }
 
     /**
      * @return The adjusted duration to show the skip button, in milliseconds.
@@ -696,6 +721,11 @@ public class SegmentPlaybackController {
                     return;
                 }
 
+                if (PlayerType.getCurrent() == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE) {
+                    Logger.printDebug(() -> "Not showing autoskip toast as playback is PiP");
+                    return;
+                }
+
                 if (toastSegmentSkipped == null || undoAutoSkipRangeToast == null) {
                     // Video was changed immediately after skipping segment.
                     Logger.printDebug(() -> "Ignoring old scheduled show toast");
@@ -705,9 +735,7 @@ public class SegmentPlaybackController {
                         ? toastSegmentSkipped.getSkippedToastText()
                         : str("revanced_sb_skipped_multiple_segments");
 
-                showToastShortWithTapAction(message, undoAutoSkipRangeToast);
-            } catch (Exception ex) {
-                Logger.printException(() -> "showSkippedSegmentToast failure", ex);
+                showAutoSkipToast(message, undoAutoSkipRangeToast);
             } finally {
                 toastNumberOfSegmentsSkipped = 0;
                 toastSegmentSkipped = null;
@@ -715,7 +743,7 @@ public class SegmentPlaybackController {
         }, delayToToastMilliseconds);
     }
 
-    private static void showToastShortWithTapAction(String messageToToast, Range<Long> rangeToUndo) {
+    private static void showAutoSkipToast(String messageToToast, Range<Long> rangeToUndo) {
         Objects.requireNonNull(messageToToast);
         Utils.verifyOnMainThread();
 
@@ -812,10 +840,8 @@ public class SegmentPlaybackController {
             window.addFlags(WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
         }
 
-        Dialog priorDialog = toastDialogRef.get();
-        if (priorDialog != null && priorDialog.isShowing()) {
-            Logger.printDebug(() -> "Removing previous skip toast that is still on screen: " + priorDialog);
-            priorDialog.dismiss();
+        if (dismissUndoToast()) {
+            Logger.printDebug(() -> "Dismissed previous skip toast that was still on screen");
         }
         toastDialogRef = new WeakReference<>(dialog);
 

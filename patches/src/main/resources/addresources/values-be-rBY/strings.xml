@@ -315,15 +315,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Схаваць кнопку \"Створиць Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопка «Стварыць Shorts» схаваная</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка «Стварыць Shorts» паказаная</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Схаваць кнопку часу</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Кнопка часу схаваная</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Кнопка часу паказаная</string>
   <string name="revanced_hide_comments_preview_comment_title">Схаваць каментарый для папярэдняга прагляду</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Каментарый перад праглядам схаваны</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Паказваецца папярэдні прагляд каментарыя</string>
   <string name="revanced_hide_comments_thanks_button_title">Схаваць кнопку \"Дзякуй\"\"</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Кнопка падзякі схавана</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Паказана кнопка падзякі</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Схаваць кнопку часу</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Кнопка часу схаваная</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Кнопка часу паказаная</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Схаваць YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles у панэлі пошуку схаваны</string>
@@ -377,32 +377,38 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Ключавое слова схавае ўсе відэа: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Схаваць агульную рэкламу</string>
-  <string name="revanced_hide_general_ads_summary_on">Агульныя аб\"явы схаваныя</string>
-  <string name="revanced_hide_general_ads_summary_off">Паказваюцца агульныя аб\"явы</string>
+  <string name="revanced_hide_creator_store_shelves_title">Схаваць паліцы крамы стваральніка</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Паліцы крамы пад плэерам і ў апісанні відэа схаваныя</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Паліцы крамы пад плэерам і ў апісанні відэа паказаны</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Схаваць банер крамы на канчатковым экране</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Банэр крамы схаваны</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Банэр крамы паказаны</string>
   <string name="revanced_hide_fullscreen_ads_title">Схаваць поўнаэкранную рэкламу</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Схаваны поўнаэкранныя рэкламныя ролікі
 
 Гэтая функцыя даступная толькі для старых прылад"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Адлюстроўваецца поўнаэкранная рэклама</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Схаваць поўнаэкранную рэкламу працуе толькі са старымі прыладамі</string>
+  <string name="revanced_hide_general_ads_title">Схаваць агульную рэкламу</string>
+  <string name="revanced_hide_general_ads_summary_on">Агульныя аб\"явы схаваныя</string>
+  <string name="revanced_hide_general_ads_summary_off">Паказваюцца агульныя аб\"явы</string>
+  <string name="revanced_hide_merchandise_banners_title">Схаваць банеры з таварамі</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Таварныя банеры схаваныя</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Паказваюцца таварныя банеры</string>
   <string name="revanced_hide_paid_promotion_label_title">Схаваць метку аплачанай акцыі</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Пазнака платнай акцыі схавана</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Адлюстроўваецца ярлык платнай акцыі</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Схаваць банэр \"Прагледзець тавары\"</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Банэр у накладцы відэа схаваны</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Банэр у накладцы відэа паказаны</string>
   <string name="revanced_hide_self_sponsor_ads_title">Схаваць самі спансаваныя карты</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Спонсарскія карткі схаваныя</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Паказваюцца ўласныя карты</string>
-  <string name="revanced_hide_products_banner_title">Схаваць банер «Паглядзець прадукты»</string>
-  <string name="revanced_hide_products_banner_summary_on">Банэр схаваны</string>
-  <string name="revanced_hide_products_banner_summary_off">Паказваецца банэр</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Схаваць банер крамы на канчатковым экране</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Банэр крамы схаваны</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Банэр крамы паказаны</string>
-  <string name="revanced_hide_player_store_shelf_title">Схаваць полку крамы прайгравальніка</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Паліца крамы схавана</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Паліца крамы паказана</string>
-  <string name="revanced_hide_shopping_links_title">Схаваць спасылкі на пакупкі ў апісанні відэа</string>
-  <string name="revanced_hide_shopping_links_summary_on">Спасылкі на пакупкі ў апісанні відэа схаваныя</string>
-  <string name="revanced_hide_shopping_links_summary_off">Спасылкі на пакупкі ў апісанні відэа паказаныя</string>
+  <string name="revanced_hide_tagged_products_title">Схаваць пазначаныя тавары</string>
+  <string name="revanced_hide_tagged_products_summary_on">Пазначаныя тавары ў апісанні відэа схаваныя</string>
+  <string name="revanced_hide_tagged_products_summary_off">Пазначаныя тавары ў апісанні відэа паказаны</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Схавайце кнопку \"Наведайце краму\" на старонках канала</string>
   <string name="revanced_hide_visit_store_button_summary_on">Кнопка на старонцы канала схаваная</string>
@@ -410,11 +416,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_web_search_results_title">Схаваць вынікі вэб-пошуку</string>
   <string name="revanced_hide_web_search_results_summary_on">Вынікі вэб-пошуку схаваныя</string>
   <string name="revanced_hide_web_search_results_summary_off">Паказваюцца вынікі вэб-пошуку</string>
-  <string name="revanced_hide_merchandise_banners_title">Схаваць банеры з таварамі</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Таварныя банеры схаваныя</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Паказваюцца таварныя банеры</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Схаваць поўнаэкранную рэкламу працуе толькі са старымі прыладамі</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Схаваць акцыі YouTube Premium</string>
@@ -826,7 +827,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Схаваць метку метаданых гуку</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Метка метаданых схавана</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Паказана метка метаданых</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Схаваць поўную метку спасылкі на відэа</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Схаваць надпіс са спасылкай на відэа</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Метка спасылкі на відэа схавана</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Адлюструецца метка спасылкі на відэа</string>
   <string name="revanced_hide_shorts_sound_button_title">Кнопка \"Схаваць гук\"</string>

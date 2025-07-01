@@ -156,7 +156,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_channel_watermark_summary_on">Водяной знак канала в плеере скрыт</string>
   <string name="revanced_hide_channel_watermark_summary_off">Водяной знак канала в плеере показан</string>
   <string name="revanced_hide_horizontal_shelves_title">Скрыть горизонтальные секции</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Горизонтальные секции скрыты, такие как:
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Данные горизонтальные секции скрыты:
 • Срочные новости
 • Продолжить просмотр
 • Исследовать больше каналов
@@ -315,15 +315,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Скрыть кнопку \"Создать Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопка \"Создать Short\" при ответе на комментарий скрыта</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка \"Создать Short\" при ответе на комментарий показана</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Скрыть кнопку метки времени</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Кнопка метки времени скрыта</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Кнопка метки времени показана</string>
   <string name="revanced_hide_comments_preview_comment_title">Скрыть предпросмотр комментария</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Предпросмотр комментария под плеером скрыт</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Предпросмотр комментария под плеером показан</string>
   <string name="revanced_hide_comments_thanks_button_title">Скрыть кнопку \"Спасибо\"</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Кнопка \"Спасибо\" в комментариях скрыта</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Кнопка \"Спасибо\" в комментариях показана</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Скрыть кнопку метки времени</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Кнопка метки времени скрыта</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Кнопка метки времени показана</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Скрыть YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles на панели поиска скрыты</string>
@@ -377,32 +377,38 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Ключевое слово скроет все видео: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Скрыть общую рекламу</string>
-  <string name="revanced_hide_general_ads_summary_on">Общая реклама скрыта</string>
-  <string name="revanced_hide_general_ads_summary_off">Общая реклама показана</string>
+  <string name="revanced_hide_creator_store_shelves_title">Скрыть секции магазина автора</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Секции магазина автора под плеером и в описании видео скрыты</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Секции магазина автора под плеером и в описании видео показаны</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Скрыть баннер магазина</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Баннер магазина в конце просмотра скрыт</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Баннер магазина в конце просмотра показан</string>
   <string name="revanced_hide_fullscreen_ads_title">Скрыть полноэкранную рекламу</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Полноэкранная реклама при запуске приложения скрыта
 
 Данная опция доступна только для старых устройств"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Полноэкранная реклама при запуске приложения показана</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Скрытие полноэкранной рекламы работает только для старых устройств</string>
+  <string name="revanced_hide_general_ads_title">Скрыть общую рекламу</string>
+  <string name="revanced_hide_general_ads_summary_on">Общая реклама скрыта</string>
+  <string name="revanced_hide_general_ads_summary_off">Общая реклама показана</string>
+  <string name="revanced_hide_merchandise_banners_title">Скрыть баннеры торговли</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Баннеры торговли в ленте скрыты</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Баннеры торговли в ленте показаны</string>
   <string name="revanced_hide_paid_promotion_label_title">Скрыть метку платной акции</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Метка платной акции в плеере скрыта</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Метка платной акции в плеере показана</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Скрыть баннер просмотра товаров</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Баннер просмотра товаров в плеере скрыт</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Баннер просмотра товаров в плеере показан</string>
   <string name="revanced_hide_self_sponsor_ads_title">Скрыть заставки саморекламы</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Заставки саморекламы под информацией о видео скрыты</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Заставки саморекламы под информацией о видео показаны</string>
-  <string name="revanced_hide_products_banner_title">Скрыть баннер просмотра товаров</string>
-  <string name="revanced_hide_products_banner_summary_on">Баннер просмотра товаров в плеере скрыт</string>
-  <string name="revanced_hide_products_banner_summary_off">Баннер просмотра товаров в плеере показан</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Скрыть баннер магазина</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Баннер магазина в конце просмотра скрыт</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Баннер магазина в конце просмотра показан</string>
-  <string name="revanced_hide_player_store_shelf_title">Скрыть секцию покупок </string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Секция покупок в плеере скрыта</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Секция покупок в плеере показана</string>
-  <string name="revanced_hide_shopping_links_title">Скрыть ссылки на товары</string>
-  <string name="revanced_hide_shopping_links_summary_on">Ссылки на товары в описании видео скрыты</string>
-  <string name="revanced_hide_shopping_links_summary_off">Ссылки на товары в описании видео показаны</string>
+  <string name="revanced_hide_tagged_products_title">Скрыть товары с тегом</string>
+  <string name="revanced_hide_tagged_products_summary_on">Товары с тегом в описании видео скрыты</string>
+  <string name="revanced_hide_tagged_products_summary_off">Товары с тегом в описании видео показаны</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Скрыть кнопку \"Посетить магазин\"</string>
   <string name="revanced_hide_visit_store_button_summary_on">Кнопка \"Посетить магазин\" на странице канала скрыта</string>
@@ -410,11 +416,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_web_search_results_title">Скрыть результаты веб-поиска</string>
   <string name="revanced_hide_web_search_results_summary_on">Результаты веб-поиска в ленте скрыты</string>
   <string name="revanced_hide_web_search_results_summary_off">Результаты веб-поиска в ленте показаны</string>
-  <string name="revanced_hide_merchandise_banners_title">Скрыть баннеры торговли</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Баннеры торговли в ленте скрыты</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Баннеры торговли в ленте показаны</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Скрытие полноэкранной рекламы работает только для старых устройств</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Скрыть рекламу YouTube Premium</string>
@@ -826,7 +827,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Скрыть метку звуковых метаданных</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Метка звуковых метаданных в Shorts скрыта</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Метка звуковых метаданных в Shorts показана</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Скрыть ссылку на полное видео</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Скрыть метку ссылки на видео</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Метка ссылки на полное видео в Shorts скрыта</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Метка ссылки на полное видео в Shorts показана</string>
   <string name="revanced_hide_shorts_sound_button_title">Скрыть кнопку \"Со звуком\"</string>
@@ -963,12 +964,12 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка пропуска автоматически скрывается через несколько секунд</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка пропуска показывается для всего сегмента</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Длительность кнопки пропуска</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Длительность отображения кнопок автоматического скрытия \"Пропустить\" и \"Перейти к выделенному\"</string>
-  <string name="revanced_sb_general_skiptoast">Показывать тост отмены пропуска</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Тост показывается, когда сегмент автоматически пропускается. Нажмите на уведомление-тост, чтобы отменить пропуск.</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Всплывающее сообщение не показывается</string>
-  <string name="revanced_sb_toast_on_skip_duration">Длительность всплывающего сообщения при пропуске</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Как долго показывается уведомление-тост о пропуске</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Длительность показа кнопок автоматического скрытия пропуска и перехода к основному моменту</string>
+  <string name="revanced_sb_general_skiptoast">Показывать уведомление отмены пропуска</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Всплывающее уведомление показано при автоматическом пропуске сегмента. Нажмите на всплывающее уведомление для отмены пропуска</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Всплывающее уведомление скрыто</string>
+  <string name="revanced_sb_toast_on_skip_duration">Длительность всплывающего уведомления при пропуске</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Длительность показа всплывающего уведомления при пропуске</string>
   <string name="revanced_sb_duration_1s">1 секунда</string>
   <string name="revanced_sb_duration_2s">2 секунды</string>
   <string name="revanced_sb_duration_3s">3 секунды</string>
@@ -980,7 +981,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_duration_9s">9 секунд</string>
   <string name="revanced_sb_duration_10s">10 секунд</string>
   <string name="revanced_sb_general_time_without">Длительность видео без сегментов</string>
-  <string name="revanced_sb_general_time_without_sum_on">Длина видео без учета всех сегментов отображается на полосе прокрутки</string>
+  <string name="revanced_sb_general_time_without_sum_on">Длина видео без учета всех сегментов показана на полосе прогресса</string>
   <string name="revanced_sb_general_time_without_sum_off">Полная длительность видео показана</string>
   <string name="revanced_sb_create_segment_category">Создание новых сегментов</string>
   <string name="revanced_sb_enable_create_segment">Кнопка создания сегмента</string>

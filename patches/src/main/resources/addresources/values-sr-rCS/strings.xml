@@ -315,15 +315,15 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Sakrij dugme „Napravi Short”</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Dugme „Napravi Short” je skriveno</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Dugme „Napravi Short” je prikazano</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Sakrij dugme vremenske oznake</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Dugme vremenske oznake je skriveno</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Dugme vremenske oznake je prikazano</string>
   <string name="revanced_hide_comments_preview_comment_title">Sakrij komentar za pregled</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentar za pregled je skriven</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komentar za pregled je prikazan</string>
   <string name="revanced_hide_comments_thanks_button_title">Sakrij dugme „Hvala”</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Dugme „Hvala” je skriveno</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Dugme „Hvala” je prikazano</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Sakrij dugme vremenske oznake</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Dugme vremenske oznake je skriveno</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Dugme vremenske oznake je prikazano</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Sakrij YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles na traci za pretragu je skriven</string>
@@ -377,32 +377,38 @@ Ograničenja
   <string name="revanced_hide_keyword_toast_invalid_broad">Ključna reč će sakriti sve videe: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Sakrij opšte oglase</string>
-  <string name="revanced_hide_general_ads_summary_on">Opšti oglasi su skriveni</string>
-  <string name="revanced_hide_general_ads_summary_off">Opšti oglasi su prikazani</string>
+  <string name="revanced_hide_creator_store_shelves_title">Sakrij police prodavnice kreatora</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Police prodavnice ispod plejera i u opisu videa su skrivene</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Prikazuju se police prodavnice ispod plejera i u opisu video snimka</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Sakrij baner prodavnice na završnom ekranu</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Baner prodavnice na završnom ekranu je skriven</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Baner prodavnice na završnom ekranu je prikazan</string>
   <string name="revanced_hide_fullscreen_ads_title">Sakrij oglase preko celog ekrana</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Oglasi preko celog ekrana su skriveni
 
 Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Oglasi preko celog ekrana su prikazani</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Sakrivanje oglasa preko celog ekrana radi samo sa starijim uređajima</string>
+  <string name="revanced_hide_general_ads_title">Sakrij opšte oglase</string>
+  <string name="revanced_hide_general_ads_summary_on">Opšti oglasi su skriveni</string>
+  <string name="revanced_hide_general_ads_summary_off">Opšti oglasi su prikazani</string>
+  <string name="revanced_hide_merchandise_banners_title">Sakrij banere za robu</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Baneri za robu su skriveni</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Baneri za robu su prikazani</string>
   <string name="revanced_hide_paid_promotion_label_title">Sakrij oznaku plaćene promocije</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Oznaka plaćeme promocije je skrivena</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Oznaka plaćene promocije je prikazana</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Sakrij baner „Pregledaj proizvode”</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Baner u video preklapanju je skriven</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Prikazan je baner u preklapanju video snimka</string>
   <string name="revanced_hide_self_sponsor_ads_title">Sakrij kartice samosponzorstva</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kartice samosponzorstva su skrivene</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kartice samosponzorstva su prikazane</string>
-  <string name="revanced_hide_products_banner_title">Sakrij baner „Pogledajte proizvode”</string>
-  <string name="revanced_hide_products_banner_summary_on">Baner za gledanje proizvoda je skriven</string>
-  <string name="revanced_hide_products_banner_summary_off">Baner za gledanje proizvoda je prikazan</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Sakrij baner prodavnice na završnom ekranu</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Baner prodavnice na završnom ekranu je skriven</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Baner prodavnice na završnom ekranu je prikazan</string>
-  <string name="revanced_hide_player_store_shelf_title">Sakrij policu „Kupovina” u plejeru</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Polica „Kupovina” u plejeru je skrivena</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Polica „Kupovina” u plejeru je prikazana</string>
-  <string name="revanced_hide_shopping_links_title">Sakrij linkove za kupovinu u opisu videa</string>
-  <string name="revanced_hide_shopping_links_summary_on">Linkovi za kupovinu u opisu videa su skriveni</string>
-  <string name="revanced_hide_shopping_links_summary_off">Linkovi za kupovinu u opisu videa su prikazani</string>
+  <string name="revanced_hide_tagged_products_title">Sakrij označene proizvode</string>
+  <string name="revanced_hide_tagged_products_summary_on">Označeni proizvodi u opisu videa su skriveni</string>
+  <string name="revanced_hide_tagged_products_summary_off">Označeini proizvodi u opisu video snimka su prikazani</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Sakrij dugme „Poseti prodavnicu” na stranicama kanala</string>
   <string name="revanced_hide_visit_store_button_summary_on">Dugme „Poseti prodavnicu” na stranici kanala je skriveno</string>
@@ -410,11 +416,6 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_hide_web_search_results_title">Sakrij rezultate veb-pretrage</string>
   <string name="revanced_hide_web_search_results_summary_on">Rezultati veb-pretrage su skriveni</string>
   <string name="revanced_hide_web_search_results_summary_off">Rezultati veb-pretrage su prikazani</string>
-  <string name="revanced_hide_merchandise_banners_title">Sakrij banere za robu</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Baneri za robu su skriveni</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Baneri za robu su prikazani</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Sakrivanje oglasa preko celog ekrana radi samo sa starijim uređajima</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Sakrij promocije za YouTube Premium</string>
@@ -826,7 +827,7 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_shorts_sound_metadata_label_title">Sakrij oznaku metapodataka zvuka</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Oznaka metapodataka zvuka je skrivena</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Oznaka metapodataka zvuka je prikazana</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Sakrij oznaku linka Shorts videa</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Sakrij oznaku veze video snimka</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Oznaka linka Shorts videa je skrivena</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Oznaka linka Shorts videa je prikazana</string>
   <string name="revanced_hide_shorts_sound_button_title">Sakrij dugme „Zvuk”</string>
@@ -961,12 +962,12 @@ Ova funkcija najbolje radi sa kvalitetom videa od 720p ili nižim i kada koristi
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Dugme za preskakanje će biti skriveno nakon nekoliko sekundi</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Dugme za preskakanje je prikazano za ceo segment</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Trajanje dugmeta za preskakanje</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Koliko dugo se prikazuju dugmad za automatsko sakrivanje preskakanja i preskakanje do isticanja</string>
-  <string name="revanced_sb_general_skiptoast">Prikaži obaveštenje o poništavanju preskakanja</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Obaveštenje se prikazuje kada se segment automatski preskoči. Dodirnite obaveštenje da biste poništili preskakanje</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Toast se ne prikazuje</string>
-  <string name="revanced_sb_toast_on_skip_duration">Trajanje toasta prilikom preskakanja</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Koliko dugo se prikazuje obaveštenje o preskakanju</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Koliko dugo se prikazuju dugmad za automatsko skrivanje preskakanja i preskakanje do isticanja</string>
+  <string name="revanced_sb_general_skiptoast">Prikaži iskačuće obaveštenje o poništavanju preskakanja</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Iskačuće obaveštenje se prikazuje, kada se segment automatski preskoči. Dodirnite iskačuće obaveštenje da biste poništili preskakanje</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Iskačuće obaveštenje se ne prikazuje</string>
+  <string name="revanced_sb_toast_on_skip_duration">Trajanje iskačućeg obaveštenja pri preskakanju</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Koliko dugo se prikazuje iskačuće obaveštenje o preskakanju</string>
   <string name="revanced_sb_duration_1s">1 sekunda</string>
   <string name="revanced_sb_duration_2s">2 sekunde</string>
   <string name="revanced_sb_duration_3s">3 sekunde</string>
@@ -978,7 +979,7 @@ Ova funkcija najbolje radi sa kvalitetom videa od 720p ili nižim i kada koristi
   <string name="revanced_sb_duration_9s">9 sekundi</string>
   <string name="revanced_sb_duration_10s">10 sekundi</string>
   <string name="revanced_sb_general_time_without">Prikaži dužinu videa bez segmenata</string>
-  <string name="revanced_sb_general_time_without_sum_on">Dužina video snimka minus svi segmenti prikazuje se na traci za pretragu</string>
+  <string name="revanced_sb_general_time_without_sum_on">Dužina videa bez svih segmenata prikazana je na traci za premotavanje</string>
   <string name="revanced_sb_general_time_without_sum_off">Puna dužina videa je prikazana</string>
   <string name="revanced_sb_create_segment_category">Pravljenje novih segmenata</string>
   <string name="revanced_sb_enable_create_segment">Prikaži dugme za pravljenje novog segmenta</string>
@@ -1154,6 +1155,7 @@ Spreman za podnošenje?"</string>
   <string name="revanced_change_form_factor_title">Faktor forme izgleda</string>
   <string name="revanced_change_form_factor_entry_1">Podrazumevani</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
   <string name="revanced_change_form_factor_entry_4">Automobilski</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Promene uključuju:
 
@@ -1237,6 +1239,7 @@ Ograničenje: Korišćenje dugmeta „Nazad” na traci sa alatkama možda neće
   <string name="revanced_miniplayer_type_entry_0">Onemogućen</string>
   <string name="revanced_miniplayer_type_entry_1">Podrazumevan</string>
   <string name="revanced_miniplayer_type_entry_2">Minimalan</string>
+  <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderan 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderan 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderan 3</string>

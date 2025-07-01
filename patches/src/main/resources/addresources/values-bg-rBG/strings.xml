@@ -315,15 +315,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Бутон за създаване на Shorts</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Бутонът \"Създаване на Short\" е скрит</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Бутонът \"Създаване на Short\" е показан</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Скриване на бутона за времеви печат</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Бутонът за времеви печат е скрит</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Бутонът за времеви печат е показан</string>
   <string name="revanced_hide_comments_preview_comment_title">Преглед на коментари</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Прегледа на коментари е скрит</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Прегледа на коментари се показва</string>
   <string name="revanced_hide_comments_thanks_button_title">Скрий бутона за харесване</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Бутона за благодарност е скрит</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Бутона за благодарност се показва</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Скриване на бутона за времеви печат</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Бутонът за времеви печат е скрит</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Бутонът за времеви печат е показан</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles в лентата за търсене са скрити</string>
@@ -377,32 +377,38 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Всички видеа с ключовата дума ще бъдат скрити: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Скриване на общите реклами</string>
-  <string name="revanced_hide_general_ads_summary_on">Общите реклами са скрити</string>
-  <string name="revanced_hide_general_ads_summary_off">Общите реклами се показват</string>
+  <string name="revanced_hide_creator_store_shelves_title">Скриване на рафтовете на магазина за създатели</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Рафтовете на магазина под плейъра и в описанието на видеоклипа са скрити</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Рафтовете на магазина под плейъра и в описанието на видеоклипа се показват</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Скрий банера за реклама в края на екрана</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Банерът на магазина е скрит</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Банерът на магазина се показва</string>
   <string name="revanced_hide_fullscreen_ads_title">Скриване на рекламите в режим на цял екран</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Всички реклами на цял екран са скрити
 
 Тази функция е налична само за по-стари устройства"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Рекламите в режим на цял екран са показани</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Скр. на реклами на цял екран, за по-стари устройства</string>
+  <string name="revanced_hide_general_ads_title">Скриване на общите реклами</string>
+  <string name="revanced_hide_general_ads_summary_on">Общите реклами са скрити</string>
+  <string name="revanced_hide_general_ads_summary_off">Общите реклами се показват</string>
+  <string name="revanced_hide_merchandise_banners_title">Скриване на банерите за стоки</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Рекламните банери за стоки са скрити</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Банерите за стоки се показват</string>
   <string name="revanced_hide_paid_promotion_label_title">Скриване на платените промоции</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Промоционалните етикети са скрити</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Промоционалните етикети се показват</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Скриване на банера „Преглед на продукти“</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Банерът в наслагването на видеоклипа е скрит</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Банерът във видео наслагването се показва</string>
   <string name="revanced_hide_self_sponsor_ads_title">Скриване на самоспонсорирани карти</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Самоспонсорираните карти са скрити</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Самоспонсорираните карти са показани</string>
-  <string name="revanced_hide_products_banner_title">Скриване на банера \"Преглед на продукти\"</string>
-  <string name="revanced_hide_products_banner_summary_on">Банерът е скрит</string>
-  <string name="revanced_hide_products_banner_summary_off">Банерът е показан</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Скрий банера за реклама в края на екрана</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Банерът на магазина е скрит</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Банерът на магазина се показва</string>
-  <string name="revanced_hide_player_store_shelf_title">Скриване на рафта за пазаруване</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Рафта за пазаруване е скрит</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Рафта за пазаруване се показва</string>
-  <string name="revanced_hide_shopping_links_title">Скриване на връзки за пазаруване</string>
-  <string name="revanced_hide_shopping_links_summary_on">Връзките за пазаруване в описанието на видеоклипа са скрити</string>
-  <string name="revanced_hide_shopping_links_summary_off">Връзките за пазаруване в описанието на видеоклипа са показани</string>
+  <string name="revanced_hide_tagged_products_title">Скриване на маркирани продукти</string>
+  <string name="revanced_hide_tagged_products_summary_on">Маркираните продукти в описанието на видеоклипа са скрити</string>
+  <string name="revanced_hide_tagged_products_summary_off">Маркираните продукти в описанието на видеоклипа се показват</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Скрийте бутона „Посетете магазина“ на страниците на каналите</string>
   <string name="revanced_hide_visit_store_button_summary_on">Бутонът в страницата на канала е скрит</string>
@@ -410,11 +416,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_web_search_results_title">Скриване на резултатите от уеб търсенето</string>
   <string name="revanced_hide_web_search_results_summary_on">Резултатите от уеб търсенето са скрити</string>
   <string name="revanced_hide_web_search_results_summary_off">Резултатите от уеб търсенето са показани.</string>
-  <string name="revanced_hide_merchandise_banners_title">Скриване на банерите за стоки</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Рекламните банери за стоки са скрити</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Банерите за стоки се показват</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Скр. на реклами на цял екран, за по-стари устройства</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Скриване на YouTube Premium промоциите</string>
@@ -826,7 +827,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Скриване на музикални метаданни</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Метаданни са скрити</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Метаданни се показват</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Скриване на етикет за връзка към видеоклипа</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Скриване на етикета на видеовръзката</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Етикетът за видео връзка е скрит</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Етикетът за видео връзка се показва</string>
   <string name="revanced_hide_shorts_sound_button_title">Скрийте бутона „Звук“</string>
@@ -963,7 +964,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Продължителност на бутона за пропускане</string>
   <string name="revanced_sb_auto_hide_skip_button_duration_sum">Колко дълго се показват бутоните за автоматично скриване на пропускане и за пропускане до акцент</string>
   <string name="revanced_sb_general_skiptoast">Показване на известие за отмяна на пропускането</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Показва се известие, когато сегмент е автоматично пропуснат. Докоснете известието, за да отмените пропускането.</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Показва се известие, когато сегмент е автоматично пропуснат. Докоснете известието, за да отмените пропускането</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Изскачащо съобщение не се показва</string>
   <string name="revanced_sb_toast_on_skip_duration">Продължителност на изскачащото съобщение за пропускане</string>
   <string name="revanced_sb_toast_on_skip_duration_sum">Колко дълго се показва известието за пропускане</string>

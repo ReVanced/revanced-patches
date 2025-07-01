@@ -311,15 +311,15 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Przycisk od tworzenia Shortsów</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Przycisk Utwórz Short jest ukryty</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Przycisk Utwórz Short jest widoczny</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Ukryj przycisk znacznika czasu</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Przycisk znacznika czasu jest ukryty</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Przycisk znacznika czasu jest widoczny</string>
   <string name="revanced_hide_comments_preview_comment_title">Ukryj podgląd komentarzy</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Podgląd komentarzy jest ukryty</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Podgląd komentarzy jest widoczny</string>
   <string name="revanced_hide_comments_thanks_button_title">Ukryj przycisk superpodziękowania</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Przycisk superpodziękowania jest ukryty</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Przycisk superpodziękowania jest widoczny</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ukryj przycisk znacznika czasu</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Przycisk znacznika czasu jest ukryty</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Przycisk znacznika czasu jest widoczny</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Ukryj YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodle w pasku wyszukiwania są ukryte</string>
@@ -373,32 +373,38 @@ Ograniczenia
   <string name="revanced_hide_keyword_toast_invalid_broad">Słowo ukryje wszystkie filmy: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Reklamy ogólne</string>
-  <string name="revanced_hide_general_ads_summary_on">Ogólne reklamy są ukryte</string>
-  <string name="revanced_hide_general_ads_summary_off">Ogólne reklamy są widoczne</string>
+  <string name="revanced_hide_creator_store_shelves_title">Ukryj półki sklepowe twórcy</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Półki sklepowe pod odtwarzaczem i w opisie filmu są ukryte</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Półki sklepu pod odtwarzaczem i w opisie filmu są widoczne</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Ukryj baner sklepu na ekranie końcowym</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Baner sklepu jest ukryty</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Baner sklepu jest wyświetlany</string>
   <string name="revanced_hide_fullscreen_ads_title">Reklamy pełnoekranowe</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Reklamy pełnoekranowe są ukryte
 
 Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Reklamy pełnoekranowe są widoczne</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ukrycie pełnoekranowych reklam działa tylko na starszych urządzeniach</string>
+  <string name="revanced_hide_general_ads_title">Reklamy ogólne</string>
+  <string name="revanced_hide_general_ads_summary_on">Ogólne reklamy są ukryte</string>
+  <string name="revanced_hide_general_ads_summary_off">Ogólne reklamy są widoczne</string>
+  <string name="revanced_hide_merchandise_banners_title">Banery towarowe</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Banery z towarami są ukryte</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Banery z towarami są widoczne</string>
   <string name="revanced_hide_paid_promotion_label_title">Etykiety płatnej promocji</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Etykiety płatnej promocji są ukryte</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Etykiety płatnej promocji są widoczne</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Ukryj baner \'Zobacz produkty\'</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Baner w nakładce wideo jest ukryty</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Baner w nakładce wideo jest widoczny</string>
   <string name="revanced_hide_self_sponsor_ads_title">Karty z autopromocją</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Karty z autopromocją są ukryte</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Karty z autopromocją są widoczne</string>
-  <string name="revanced_hide_products_banner_title">Ukryj baner „Zobacz produkty”</string>
-  <string name="revanced_hide_products_banner_summary_on">Banery są ukryte</string>
-  <string name="revanced_hide_products_banner_summary_off">Banery są widoczne</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Ukryj baner sklepu na ekranie końcowym</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Baner sklepu jest ukryty</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Baner sklepu jest wyświetlany</string>
-  <string name="revanced_hide_player_store_shelf_title">Półki sklepowe w odtwarzaczu</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Półki sklepowe są ukryte</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Półki sklepowe są widoczne</string>
-  <string name="revanced_hide_shopping_links_title">Linki do zakupów w opisie filmu</string>
-  <string name="revanced_hide_shopping_links_summary_on">Linki do zakupów w opisie filmu są ukryte</string>
-  <string name="revanced_hide_shopping_links_summary_off">Linki do zakupów w opisie filmu są widoczne</string>
+  <string name="revanced_hide_tagged_products_title">Ukryj oznaczone produkty</string>
+  <string name="revanced_hide_tagged_products_summary_on">Oznaczone produkty w opisie filmu są ukryte</string>
+  <string name="revanced_hide_tagged_products_summary_off">Oznaczone produkty w opisie filmu są widoczne</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Przycisk do sklepu na stronach kanału</string>
   <string name="revanced_hide_visit_store_button_summary_on">Przycisk na stronie kanału jest ukryty</string>
@@ -406,11 +412,6 @@ Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_hide_web_search_results_title">Wyniki wyszukiwania stron internetowych</string>
   <string name="revanced_hide_web_search_results_summary_on">Wyniki wyszukiwania stron są ukryte</string>
   <string name="revanced_hide_web_search_results_summary_off">Wyniki wyszukiwania stron są widoczne</string>
-  <string name="revanced_hide_merchandise_banners_title">Banery towarowe</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Banery z towarami są ukryte</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Banery z towarami są widoczne</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ukrycie pełnoekranowych reklam działa tylko na starszych urządzeniach</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Promocje YouTube Premium</string>
@@ -822,7 +823,7 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_hide_shorts_sound_metadata_label_title">Etykieta z metadanymi dźwięku</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Etykieta metadanych jest ukryta</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Etykieta metadanych jest widoczna</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Etykieta z linkami do całych filmów</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Ukryj etykietę linku do filmu</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Etykieta linku do filmu jest ukryta</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Etykieta linku do filmu jest widoczna</string>
   <string name="revanced_hide_shorts_sound_button_title">Przycisk dźwięku</string>
