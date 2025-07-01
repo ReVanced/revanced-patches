@@ -120,8 +120,7 @@ val spoofClientPatch = bytecodePatch(
             addInstructions(
                 0,
                 """
-                    move-object/from16 v0, p1
-                    invoke-static { v0 }, $openLoginWebViewDescriptor
+                    invoke-static/range { p1 .. p1 }, $openLoginWebViewDescriptor
                 """
             )
         }
