@@ -167,25 +167,25 @@ val unlockPremiumPatch = bytecodePatch(
         // Overwrite the context menu items list with a filtered version which does not include items which are
         // Premium ads.
         if (oldContextMenuViewModelAddItemFingerprint.matchOrNull(contextMenuViewModelClassDef) == null) {
-            val contextMenuItemInterfaceClassDef = browsePodcastsContextMenuItemClassFingerprint
-                .originalClassDef
-                .interfaces
-                .firstOrNull()
-                ?.let { interfaceName -> classes.find { it.type == interfaceName } }
-                ?: throw PatchException("Could not find context menu item interface.")
-
-            val contextMenuItemInterfaceName = contextMenuItemInterfaceClassDef.type
-
-            val contextMenuItemViewModelClassName = getViewModelFingerprint
-                .matchOrNull(contextMenuItemInterfaceClassDef)
-                ?.originalMethod
-                ?.returnType
-                ?: throw PatchException("Could not find context menu item view model class.")
-
             // Replace the placeholder context menu item interface name and the return value of getViewModel to the
             // minified names used at runtime. The instructions need to match the original names so we can call the
             // method in the extension.
             extensionFilterContextMenuItemsFingerprint.method.apply {
+                val contextMenuItemInterfaceClassDef = browsePodcastsContextMenuItemClassFingerprint
+                    .originalClassDef
+                    .interfaces
+                    .firstOrNull()
+                    ?.let { interfaceName -> classes.find { it.type == interfaceName } }
+                    ?: throw PatchException("Could not find context menu item interface.")
+
+                val contextMenuItemInterfaceName = contextMenuItemInterfaceClassDef.type
+
+                val contextMenuItemViewModelClassName = getViewModelFingerprint
+                    .matchOrNull(contextMenuItemInterfaceClassDef)
+                    ?.originalMethod
+                    ?.returnType
+                    ?: throw PatchException("Could not find context menu item view model class.")
+
                 val castContextMenuItemStubIndex = indexOfFirstInstructionOrThrow {
                     getReference<TypeReference>()?.type == CONTEXT_MENU_ITEM_PLACEHOLDER_CLASS_NAME
                 }
@@ -208,16 +208,18 @@ val unlockPremiumPatch = bytecodePatch(
                 )
             }
 
-            val filterContextMenuItemsDescriptor =
-                "$EXTENSION_CLASS_DESCRIPTOR->filterContextMenuItems(Ljava/util/List;)Ljava/util/List;"
+            contextMenuViewModelConstructorFingerprint.match(contextMenuViewModelClassDef).method.apply {
+                val filterContextMenuItemsDescriptor =
+                    "$EXTENSION_CLASS_DESCRIPTOR->filterContextMenuItems(Ljava/util/List;)Ljava/util/List;"
 
-            contextMenuViewModelConstructorFingerprint.match(contextMenuViewModelClassDef).method.addInstructions(
-                0,
-                """
-                    invoke-static { p3 }, $filterContextMenuItemsDescriptor
-                    move-result-object p3
-                """
-            )
+                addInstructions(
+                    0,
+                    """
+                        invoke-static { p3 }, $filterContextMenuItemsDescriptor
+                        move-result-object p3
+                    """
+                )
+            }
         }
 
 
