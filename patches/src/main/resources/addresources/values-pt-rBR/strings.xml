@@ -315,15 +315,15 @@ Você não será notificado sobre nenhum evento inesperado."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Ocultar botão \'Criar um Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">O botão Criar um Short está oculto</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">O botão Criar um Short é mostrado</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Ocultar o botão de carimbo de data/hora</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">O botão de carimbo de data/hora está oculto</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">O botão de carimbo de data/hora é mostrado</string>
   <string name="revanced_hide_comments_preview_comment_title">Ocultar prévia de comentário</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Prévia de comentário está oculta</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">A prévia de comentário é exibida</string>
   <string name="revanced_hide_comments_thanks_button_title">Ocultar o botão \"Obrigado\"</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Botão valeu está oculto</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">O botão valeu é mostrada</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ocultar o botão de carimbo de data/hora</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">O botão de carimbo de data/hora está oculto</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">O botão de carimbo de data/hora é mostrado</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Ocultar Doodles do YouTube</string>
   <string name="revanced_hide_doodles_summary_on">Doodles na barra de pesquisa estão ocultos</string>
@@ -377,32 +377,38 @@ Linitações
   <string name="revanced_hide_keyword_toast_invalid_broad">A palavra-chave irá ocultar todos os vídeos: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Ocultar anúncios gerais</string>
-  <string name="revanced_hide_general_ads_summary_on">Anúncios gerais estão ocultos</string>
-  <string name="revanced_hide_general_ads_summary_off">Os anúncios gerais são mostrados</string>
+  <string name="revanced_hide_creator_store_shelves_title">Ocultar prateleiras da loja do criador</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">As prateleiras da loja abaixo do player e na descrição do vídeo estão ocultas</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Prateleiras da loja abaixo do player e na descrição do vídeo são exibidas</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Ocultar banners da loja na tela final</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">O banner da loja está oculto</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">O banner da loja está sendo exibido</string>
   <string name="revanced_hide_fullscreen_ads_title">Ocultar anúncios em tela cheia</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Os anúncios em tela cheia estão ocultos 
 
 Este recurso está disponível apenas para dispositivos mais antigos"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Anúncios em tela cheia não estão ocultos</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ocultar anúncios em tela cheia só funciona com dispositivos antigos</string>
+  <string name="revanced_hide_general_ads_title">Ocultar anúncios gerais</string>
+  <string name="revanced_hide_general_ads_summary_on">Anúncios gerais estão ocultos</string>
+  <string name="revanced_hide_general_ads_summary_off">Os anúncios gerais são mostrados</string>
+  <string name="revanced_hide_merchandise_banners_title">Ocultar banners de mercadoria</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Os banners de mercadoria estão ocultos</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Os banners de mercadorias são mostrados</string>
   <string name="revanced_hide_paid_promotion_label_title">Ocultar o rótulo de promoção paga</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">O rótulo de promoção paga está oculto</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">O rótulo de promoção paga é mostrada</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Ocultar banner \"Ver produtos\"</string>
+  <string name="revanced_hide_view_products_banner_summary_on">O banner na sobreposição de vídeo está oculto</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Banner na sobreposição do vídeo é exibido</string>
   <string name="revanced_hide_self_sponsor_ads_title">Ocultar cartões auto-patrocinados</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Cartões autopatrocinados estão ocultos</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Cartões autopatrocinados não estão ocultos</string>
-  <string name="revanced_hide_products_banner_title">Ocultar banner \"Ver produtos\"</string>
-  <string name="revanced_hide_products_banner_summary_on">Banner está oculto</string>
-  <string name="revanced_hide_products_banner_summary_off">O banner é mostrado</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Ocultar banners da loja na tela final</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">O banner da loja está oculto</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">O banner da loja está sendo exibido</string>
-  <string name="revanced_hide_player_store_shelf_title">Ocultar painel de compras do reprodutor</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">O painel de compras está oculto</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">O painel de compras vai ser mostrado</string>
-  <string name="revanced_hide_shopping_links_title">Ocultar links de compras na descrição do vídeo</string>
-  <string name="revanced_hide_shopping_links_summary_on">Os links de compras na descrição do vídeo estão ocultos</string>
-  <string name="revanced_hide_shopping_links_summary_off">Os links de compras na descrição do vídeo são mostrados</string>
+  <string name="revanced_hide_tagged_products_title">Ocultar produtos marcados</string>
+  <string name="revanced_hide_tagged_products_summary_on">Os produtos marcados na descrição do vídeo estão ocultos</string>
+  <string name="revanced_hide_tagged_products_summary_off">Produtos marcados na descrição do vídeo são exibidos</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Ocultar o botão \'Visitar loja\' nas páginas dos canais</string>
   <string name="revanced_hide_visit_store_button_summary_on">O botão na página do canal está oculto</string>
@@ -410,11 +416,6 @@ Este recurso está disponível apenas para dispositivos mais antigos"</string>
   <string name="revanced_hide_web_search_results_title">Ocultar resultados de busca web</string>
   <string name="revanced_hide_web_search_results_summary_on">Resultados de busca web estão ocultos</string>
   <string name="revanced_hide_web_search_results_summary_off">Os resultados de busca web são mostrados</string>
-  <string name="revanced_hide_merchandise_banners_title">Ocultar banners de mercadoria</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Os banners de mercadoria estão ocultos</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Os banners de mercadorias são mostrados</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ocultar anúncios em tela cheia só funciona com dispositivos antigos</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Ocultar promoções do YouTube Premium</string>
@@ -826,7 +827,7 @@ Para exibir o menu da faixa de áudio, altere \"Spoof video streams\" para iOS T
   <string name="revanced_hide_shorts_sound_metadata_label_title">Ocultar rótulo de metadados de som</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Rótulo de metadados está oculto</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Rótulo de metadados não está oculto</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Ocultar rótulo completo do link do vídeo</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Ocultar rótulo do link do vídeo</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Rótulo do link do vídeo está oculto</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Rótulo do link do vídeo não está oculto</string>
   <string name="revanced_hide_shorts_sound_button_title">Ocultar botão som</string>

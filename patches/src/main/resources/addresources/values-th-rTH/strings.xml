@@ -315,15 +315,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">ซ่อนปุ่ม \'สร้าง Shorts\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">ปุ่มสร้าง Short ถูกซ่อน</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">ปุ่มสร้าง Short แสดงอยู่</string>
-  <string name="revanced_hide_comments_timestamp_button_title">ซ่อนปุ่มประทับเวลา</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">ปุ่มประทับเวลาถูกซ่อน</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">ปุ่มประทับเวลาแสดงอยู่</string>
   <string name="revanced_hide_comments_preview_comment_title">ซ่อนความคิดเห็นตัวอย่าง</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">ความคิดเห็นตัวอย่างถูกซ่อนไว้</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">ความคิดเห็นตัวอย่างแสดงอยู่</string>
   <string name="revanced_hide_comments_thanks_button_title">ซ่อนปุ่มขอบคุณ</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">ปุ่มขอบคุณถูกซ่อนไว้</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">ปุ่มขอบคุณจะแสดง</string>
+  <string name="revanced_hide_comments_timestamp_button_title">ซ่อนปุ่มประทับเวลา</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">ปุ่มประทับเวลาถูกซ่อน</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">ปุ่มประทับเวลาแสดงอยู่</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">ซ่อน Doodles ของ YouTube</string>
   <string name="revanced_hide_doodles_summary_on">Doodles แถบค้นหาถูกซ่อน</string>
@@ -377,32 +377,38 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">คำสำคัญจะซ่อนวิดีโอทั้งหมด: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">ซ่อนโฆษณาโดยทั่วไป</string>
-  <string name="revanced_hide_general_ads_summary_on">โฆษณาโดยทั่วไปถูกซ่อน</string>
-  <string name="revanced_hide_general_ads_summary_off">โฆษณาโดยทั่วไปจะแสดง</string>
+  <string name="revanced_hide_creator_store_shelves_title">ซ่อนชั้นวางสินค้าของครีเอเตอร์</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">ซ่อนชั้นวางสินค้าใต้เครื่องเล่นและในคำอธิบายวิดีโอ</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">ชั้นวางสินค้าใต้เครื่องเล่นและในคำอธิบายวิดีโอจะแสดงขึ้น</string>
+  <string name="revanced_hide_end_screen_store_banner_title">ซ่อนแบนเนอร์ร้านค้าท้ายจอ</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">แบนเนอร์ร้านค้าถูกซ่อนไว้</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">แบนเนอร์ร้านค้าปรากฏ</string>
   <string name="revanced_hide_fullscreen_ads_title">ซ่อนโฆษณาแบบเต็มหน้าจอ</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"โฆษณาแบบเต็มจอถูกซ่อน
 
 คุณสมบัตินี้มีเฉพาะสําหรับอุปกรณ์รุ่นเก่า"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">โฆษณาแบบเต็มหน้าจอจะแสดง</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">ซ่อนโฆษณาแบบเต็มหน้าจอใช้งานได้กับอุปกรณ์รุ่นเก่าเท่านั้น</string>
+  <string name="revanced_hide_general_ads_title">ซ่อนโฆษณาโดยทั่วไป</string>
+  <string name="revanced_hide_general_ads_summary_on">โฆษณาโดยทั่วไปถูกซ่อน</string>
+  <string name="revanced_hide_general_ads_summary_off">โฆษณาโดยทั่วไปจะแสดง</string>
+  <string name="revanced_hide_merchandise_banners_title">ซ่อนแบนเนอร์สินค้า</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">แบนเนอร์สินค้าถูกซ่อน</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">แบนเนอร์สินค้าจะแสดง</string>
   <string name="revanced_hide_paid_promotion_label_title">ซ่อนป้ายโฆษณาที่จ่ายเงิน</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">ป้ายโฆษณาที่จ่ายเงินถูกซ่อน</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">ป้ายโฆษณาที่จ่ายเงินจะแสดง</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">ซ่อนแบนเนอร์ \'ดูสินค้า\'</string>
+  <string name="revanced_hide_view_products_banner_summary_on">ซ่อนแบนเนอร์ในโอเวอร์เลย์วิดีโอ</string>
+  <string name="revanced_hide_view_products_banner_summary_off">แบนเนอร์ในการวางซ้อนวิดีโอจะแสดงขึ้น</string>
   <string name="revanced_hide_self_sponsor_ads_title">ซ่อนการ์ดที่สนับสนุนตัวเอง</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">การ์ดที่สนับสนุนตัวเองถูกซ่อน</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">การ์ดที่สนับสนุนตัวเองจะแสดง</string>
-  <string name="revanced_hide_products_banner_title">ซ่อนแบนเนอร์ \'ดูผลิตภัณฑ์\'</string>
-  <string name="revanced_hide_products_banner_summary_on">แบนเนอร์ถูกซ่อน</string>
-  <string name="revanced_hide_products_banner_summary_off">แบนเนอร์จะแสดง</string>
-  <string name="revanced_hide_end_screen_store_banner_title">ซ่อนแบนเนอร์ร้านค้าท้ายจอ</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">แบนเนอร์ร้านค้าถูกซ่อนไว้</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">แบนเนอร์ร้านค้าปรากฏ</string>
-  <string name="revanced_hide_player_store_shelf_title">ซ่อนชั้นวางสินค้าในเครื่องเล่น</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">ชั้นวางสินค้าถูกซ่อน</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">ชั้นวางสินค้าจะแสดง</string>
-  <string name="revanced_hide_shopping_links_title">ซ่อนลิงก์การช็อปปิ้งในคำอธิบายวิดีโอ</string>
-  <string name="revanced_hide_shopping_links_summary_on">ลิงก์ช้อปปิ้งในรายละเอียดวิดีโอถูกซ่อน</string>
-  <string name="revanced_hide_shopping_links_summary_off">ลิงก์ช้อปปิ้งในรายละเอียดวิดีโอแสดงอยู่</string>
+  <string name="revanced_hide_tagged_products_title">ซ่อนสินค้าที่แท็กไว้</string>
+  <string name="revanced_hide_tagged_products_summary_on">ซ่อนสินค้าที่แท็กไว้ในคำอธิบายวิดีโอ</string>
+  <string name="revanced_hide_tagged_products_summary_off">สินค้าที่ติดแท็กในคำอธิบายวิดีโอจะแสดงขึ้น</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">ซ่อนปุ่ม \'ไปที่ร้านค้า\' บนหน้าช่อง</string>
   <string name="revanced_hide_visit_store_button_summary_on">ปุ่มในหน้าแชนเนลถูกซ่อน</string>
@@ -410,11 +416,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_web_search_results_title">ซ่อนผลลัพธ์การค้นหาบนเว็บ</string>
   <string name="revanced_hide_web_search_results_summary_on">ผลลัพธ์การค้นหาบนเว็บถูกซ่อน</string>
   <string name="revanced_hide_web_search_results_summary_off">ผลลัพธ์การค้นหาบนเว็บจะแสดง</string>
-  <string name="revanced_hide_merchandise_banners_title">ซ่อนแบนเนอร์สินค้า</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">แบนเนอร์สินค้าถูกซ่อน</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">แบนเนอร์สินค้าจะแสดง</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">ซ่อนโฆษณาแบบเต็มหน้าจอใช้งานได้กับอุปกรณ์รุ่นเก่าเท่านั้น</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">ซ่อนการโปรโมต YouTube Premium</string>
@@ -824,7 +825,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">ซ่อนป้ายเมตามีเดียเสียง</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">ซ่อนป้ายเมตามีเดีย</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">แสดงป้ายชื่อเมทาดาต้า</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">ซ่อนป้ายชื่อลิงก์วิดีโอเต็ม</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">ซ่อนป้ายกำกับลิงก์วิดีโอ</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">ซ่อนป้ายชื่อลิงก์วิดีโอเต็ม</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">แสดงป้ายชื่อลิงก์วิดีโอเต็ม</string>
   <string name="revanced_hide_shorts_sound_button_title">ซ่อนปุ่มเสียง</string>

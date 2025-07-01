@@ -317,15 +317,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Κουμπί «Δημιουργία Short»</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Κουμπί χρονοσήμανσης</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_comments_preview_comment_title">Προεπισκόπηση σχολίου</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_comments_thanks_button_title">Κουμπί «Σας ευχαριστούμε»</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Κουμπί χρονοσήμανσης</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Εμφανίζεται</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Κρυμμένα</string>
@@ -379,32 +379,38 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Θα κρυφτούν όλα τα βίντεο με την λέξη-κλειδί: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Γενικές διαφημίσεις</string>
-  <string name="revanced_hide_general_ads_summary_on">Κρυμμένες</string>
-  <string name="revanced_hide_general_ads_summary_off">Εμφανίζονται</string>
+  <string name="revanced_hide_creator_store_shelves_title">Ενότητες καταστήματος δημιουργών</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Κρυμμένες\n\nΑφορά τις ενότητες καταστήματος κάτω από το πρόγραμμα αναπαραγωγής και στην περιγραφή βίντεο</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Εμφανίζονται\n\nΑφορά τις ενότητες καταστήματος κάτω από το πρόγραμμα αναπαραγωγής και στην περιγραφή βίντεο</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Ετικέτα καταστήματος στην τελική οθόνη</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_fullscreen_ads_title">Διαφημίσεις πλήρους οθόνης</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Κρυμμένες
 
 Αυτή η λειτουργία είναι διαθέσιμη μόνο για παλιότερες συσκευές"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Οι διαφημίσεις πλήρους οθόνης εμφανίζονται</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Η απόκρυψη διαφημίσεων πλήρους οθόνης λειτουργεί μόνο με παλαιότερες συσκευές</string>
+  <string name="revanced_hide_general_ads_title">Γενικές διαφημίσεις</string>
+  <string name="revanced_hide_general_ads_summary_on">Κρυμμένες</string>
+  <string name="revanced_hide_general_ads_summary_off">Εμφανίζονται</string>
+  <string name="revanced_hide_merchandise_banners_title">Εμβλήματα εμπορευμάτων</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Κρυμμένα</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_paid_promotion_label_title">Ετικέτες προώθησης επί πληρωμή</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Εμφανίζονται</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Ετικέτα «Προβολή προϊόντων»</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_self_sponsor_ads_title">Κάρτες αυτοπροώθησης</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_products_banner_title">Ετικέτα «Προβολή προϊόντων»</string>
-  <string name="revanced_hide_products_banner_summary_on">Κρυμμένες</string>
-  <string name="revanced_hide_products_banner_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Ετικέτα καταστήματος στην τελική οθόνη</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_player_store_shelf_title">Ενότητα αγορών οθόνης αναπαραγωγής</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_shopping_links_title">Σύνδεσμοι αγορών</string>
-  <string name="revanced_hide_shopping_links_summary_on">Κρυμμένοι</string>
-  <string name="revanced_hide_shopping_links_summary_off">Εμφανίζονται</string>
+  <string name="revanced_hide_tagged_products_title">Ετικέτες προϊόντων στην περιγραφή βίντεο</string>
+  <string name="revanced_hide_tagged_products_summary_on">Κρυμμένα</string>
+  <string name="revanced_hide_tagged_products_summary_off">Κρυμμένες</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Κουμπί «Επίσκεψη στο κατάστημα» στη σελίδα καναλιού</string>
   <string name="revanced_hide_visit_store_button_summary_on">Κρυμμένο</string>
@@ -412,11 +418,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_web_search_results_title">Αποτελέσματα αναζήτησης στο διαδίκτυο</string>
   <string name="revanced_hide_web_search_results_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_web_search_results_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_merchandise_banners_title">Εμβλήματα εμπορευμάτων</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Κρυμμένα</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Εμφανίζονται</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Η απόκρυψη διαφημίσεων πλήρους οθόνης λειτουργεί μόνο με παλαιότερες συσκευές</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Προωθήσεις για απόκτηση YouTube Premium</string>
@@ -828,7 +829,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Ετικέτες μεταδεδομένων ήχου</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Ετικέτες συνδέσμων πλήρους βίντεο</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Ετικέτα συνδέσμου βίντεο</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_shorts_sound_button_title">Κουμπί ήχου</string>
@@ -963,12 +964,12 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Το κουμπί παράλειψης κρύβεται μετά από μερικά δευτερόλεπτα</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Το κουμπί παράλειψης εμφανίζεται σε όλο το τμήμα</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Διάρκεια κουμπιού παράλειψης</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Διάρκεια εμφάνισης των κουμπιών αυτόματης απόκρυψης παράλειψης και μετάβασης σε επισήμανση</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Διάρκεια εμφάνισης των κουμπιών παράλειψης και μετάβασης στο αποκορύφωμα πριν την αυτόματη απόκρυψη</string>
   <string name="revanced_sb_general_skiptoast">Εμφάνιση μηνύματος αναίρεσης παράλειψης</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης όταν ένα τμήμα παραλείπεται αυτόματα. Πατήστε το μήνυμα για αναίρεση της παράλειψης</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Το μήνυμα δεν εμφανίζεται</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης όταν ένα τμήμα παραλείπεται αυτόματα</string>
   <string name="revanced_sb_toast_on_skip_duration">Διάρκεια μηνύματος παράλειψης</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Πόση ώρα εμφανίζεται το μήνυμα παράλειψης</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Διάρκεια εμφάνισης μηνύματος παράλειψης</string>
   <string name="revanced_sb_duration_1s">1 δευτερόλεπτο</string>
   <string name="revanced_sb_duration_2s">2 δευτερόλεπτα</string>
   <string name="revanced_sb_duration_3s">3 δευτερόλεπτα</string>
@@ -980,7 +981,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_duration_9s">9 δευτερόλεπτα</string>
   <string name="revanced_sb_duration_10s">10 δευτερόλεπτα</string>
   <string name="revanced_sb_general_time_without">Εμφάνιση μήκους βίντεο χωρίς τα τμήματα</string>
-  <string name="revanced_sb_general_time_without_sum_on">Το μήκος του βίντεο μείον όλα τα τμήματα εμφανίζεται στη γραμμή αναζήτησης</string>
+  <string name="revanced_sb_general_time_without_sum_on">Το μήκος του βίντεο χωρίς όλα τα τμήματα εμφανίζεται πάνω στη γραμμή προόδου</string>
   <string name="revanced_sb_general_time_without_sum_off">Εμφανίζεται το πλήρες μήκος του βίντεο</string>
   <string name="revanced_sb_create_segment_category">Δημιουργία νέων τμημάτων</string>
   <string name="revanced_sb_enable_create_segment">Εμφάνιση κουμπιού δημιουργίας νέου τμήματος</string>

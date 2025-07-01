@@ -315,15 +315,15 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Nascondi il pulsante \'Crea uno Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Il pulsante Crea uno Short è nascosto</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Il pulsante Crea uno Short è visibile</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Nascondi pulsante timestamp</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Il pulsante timestamp è nascosto</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Il pulsante timestamp è visibile</string>
   <string name="revanced_hide_comments_preview_comment_title">Nascondi il commento di anteprima</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Il commento di anteprima è nascosto</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Il commento di anteprima è visibile</string>
   <string name="revanced_hide_comments_thanks_button_title">Nascondi il pulsante Grazie</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Il pulsante Grazie è nascosto</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Il pulsante Grazie è visibile</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Nascondi pulsante timestamp</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Il pulsante timestamp è nascosto</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Il pulsante timestamp è visibile</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Nascondi Doodles di YouTube</string>
   <string name="revanced_hide_doodles_summary_on">I Doodle nella barra di ricerca sono nascosti</string>
@@ -377,32 +377,38 @@ Note:
   <string name="revanced_hide_keyword_toast_invalid_broad">La parola chiave nasconderà tutti i video: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Nascondi pubblicità generali</string>
-  <string name="revanced_hide_general_ads_summary_on">Le pubblicità generali sono nascoste</string>
-  <string name="revanced_hide_general_ads_summary_off">Le pubblicità generali sono visibili</string>
+  <string name="revanced_hide_creator_store_shelves_title">Nascondi gli scaffali del negozio del creatore</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Gli scaffali del negozio sotto il player e nella descrizione del video sono nascosti</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Le scaffalature del negozio sotto il lettore e nella descrizione del video sono mostrate</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Nascondi banner del negozio della schermata finale</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Il banner del negozio è nascosto</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Il banner del negozio è visibile</string>
   <string name="revanced_hide_fullscreen_ads_title">Nascondi le pubblicità a schermo intero</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Le pubblicità a schermo intero sono nascoste
 
 Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Le pubblicità a schermo intero sono visibili</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Nascondi gli annunci a schermo intero funziona solo con dispositivi più vecchi</string>
+  <string name="revanced_hide_general_ads_title">Nascondi pubblicità generali</string>
+  <string name="revanced_hide_general_ads_summary_on">Le pubblicità generali sono nascoste</string>
+  <string name="revanced_hide_general_ads_summary_off">Le pubblicità generali sono visibili</string>
+  <string name="revanced_hide_merchandise_banners_title">Nascondi i banner sul merchandising</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">I banner sul merchandising sono nascosti</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">I banner sul merchandising sono visibili</string>
   <string name="revanced_hide_paid_promotion_label_title">Nascondi l\'etichetta della promozione a pagamento</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">L\'etichetta della promozione a pagamento è nascosta</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">L\'etichetta della promozione a pagamento è visibile</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Nascondi il banner \'Visualizza prodotti\'</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Il banner nella sovrapposizione del video è nascosto</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Il banner nell\'overlay del video è mostrato</string>
   <string name="revanced_hide_self_sponsor_ads_title">Nascondi le schede autopromozionali</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Le schede autopromozionali sono nascoste</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Le schede autopromozionali sono visibili</string>
-  <string name="revanced_hide_products_banner_title">Nascondi il banner \"Visualizza prodotti\"</string>
-  <string name="revanced_hide_products_banner_summary_on">Il banner è nascosto</string>
-  <string name="revanced_hide_products_banner_summary_off">Il banner è visibile</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Nascondi banner del negozio della schermata finale</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Il banner del negozio è nascosto</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Il banner del negozio è visibile</string>
-  <string name="revanced_hide_player_store_shelf_title">Nascondi la sezione Negozio</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">La sezione negozio è nascosta</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">La sezione negozio è visibile</string>
-  <string name="revanced_hide_shopping_links_title">Nascondi link agli acquisti nella descrizione del video</string>
-  <string name="revanced_hide_shopping_links_summary_on">I link di shopping nella descrizione del video sono nascosti</string>
-  <string name="revanced_hide_shopping_links_summary_off">I link di shopping nella descrizione del video sono visibili</string>
+  <string name="revanced_hide_tagged_products_title">Nascondi prodotti taggati</string>
+  <string name="revanced_hide_tagged_products_summary_on">I prodotti taggati nella descrizione del video sono nascosti</string>
+  <string name="revanced_hide_tagged_products_summary_off">I prodotti taggati nella descrizione del video sono mostrati</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Nascondi il pulsante \'Visita negozio\' nelle pagine del canale</string>
   <string name="revanced_hide_visit_store_button_summary_on">Il pulsante nella pagina del canale è nascosto</string>
@@ -410,11 +416,6 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_hide_web_search_results_title">Nascondi i risultati della ricerca web</string>
   <string name="revanced_hide_web_search_results_summary_on">I risultati della ricerca web sono nascosti</string>
   <string name="revanced_hide_web_search_results_summary_off">I risultati della ricerca web sono visibili</string>
-  <string name="revanced_hide_merchandise_banners_title">Nascondi i banner sul merchandising</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">I banner sul merchandising sono nascosti</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">I banner sul merchandising sono visibili</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Nascondi gli annunci a schermo intero funziona solo con dispositivi più vecchi</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Nascondi la promozione di YouTube Premium</string>
@@ -826,7 +827,7 @@ Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS 
   <string name="revanced_hide_shorts_sound_metadata_label_title">Nascondi etichetta dei metadati sonori</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">L\'etichetta dei metadati è nascosta</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">L\'etichetta dei metadati è visibile</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Nascondi l\'etichetta del link del video</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Nascondi etichetta link video</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">L\'etichetta del link del video è nascosta</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">L\'etichetta del link del video è visibile</string>
   <string name="revanced_hide_shorts_sound_button_title">Nascondi il pulsante Suono</string>
@@ -963,7 +964,7 @@ Questa funzione funziona meglio con una qualità video di 720p o inferiore e qua
   <string name="revanced_sb_auto_hide_skip_button_duration">Durata pulsante Salta</string>
   <string name="revanced_sb_auto_hide_skip_button_duration_sum">Per quanto tempo vengono mostrati i pulsanti di nascondimento automatico e di salto all\'evidenziazione</string>
   <string name="revanced_sb_general_skiptoast">Mostra toast annulla salto</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Il toast viene mostrato quando un segmento viene automaticamente saltato. Tocca la notifica toast per annullare il salto.</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Il toast viene mostrato quando un segmento viene automaticamente saltato. Tocca la notifica toast per annullare il salto</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Il toast non viene mostrato</string>
   <string name="revanced_sb_toast_on_skip_duration">Durata toast Salta</string>
   <string name="revanced_sb_toast_on_skip_duration_sum">Per quanto tempo viene mostrata la notifica toast di salto</string>

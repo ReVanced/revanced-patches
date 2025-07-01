@@ -315,15 +315,15 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Paslēpt \"Izveidot īso\" pogu</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Poga Izveidot Short ir paslēpta</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Poga Izveidot Short ir redzama</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Paslēpt laika zīmoga pogu</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Laika zīmoga poga ir paslēpta</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Laika zīmoga poga ir redzama</string>
   <string name="revanced_hide_comments_preview_comment_title">Paslēpt priekšskatījuma komentāru</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Priekšskatījuma komentārs ir paslēpts</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Priekšskatījuma komentārs ir redzams</string>
   <string name="revanced_hide_comments_thanks_button_title">Paslēpt pateicības pogu</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Paldies poga ir paslēpta</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Paldies poga ir redzama</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Paslēpt laika zīmoga pogu</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Laika zīmoga poga ir paslēpta</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Laika zīmoga poga ir redzama</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Paslēpt YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Meklēšanas joslas Doodles ir paslēpti</string>
@@ -377,32 +377,38 @@ Ierobežojumi
   <string name="revanced_hide_keyword_toast_invalid_broad">Atslēgvārds paslēps visus video: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Paslēpt vispārējas reklāmas</string>
-  <string name="revanced_hide_general_ads_summary_on">Vispārējas reklāmas ir paslēptas</string>
-  <string name="revanced_hide_general_ads_summary_off">Vispārējas reklāmas ir redzamas</string>
+  <string name="revanced_hide_creator_store_shelves_title">Slēpt satura veidotāja veikala plauktus</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Veikala plaukti zem atskaņotāja un video aprakstā ir paslēpti</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Veikalu plaukti zem atskaņotāja un video aprakstā tiek rādīti</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Paslēpt veikala reklāmkarogu ekrāna beigās</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Noslēguma ekrāna veikala baneris ir paslēpts</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Noslēguma ekrāna veikala baneris ir parādīts</string>
   <string name="revanced_hide_fullscreen_ads_title">Paslēpt pilnekrāna reklāmas</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Pilnekrāna reklāmas ir paslēptas
 
 Šī funkcija ir pieejama tikai vecākiem ierīcēm"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Pilnekrāna reklāmas ir redzamas</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Paslēpt pilnekrāna reklāmas darbojas tikai ar vecākām ierīcēm</string>
+  <string name="revanced_hide_general_ads_title">Paslēpt vispārējas reklāmas</string>
+  <string name="revanced_hide_general_ads_summary_on">Vispārējas reklāmas ir paslēptas</string>
+  <string name="revanced_hide_general_ads_summary_off">Vispārējas reklāmas ir redzamas</string>
+  <string name="revanced_hide_merchandise_banners_title">Paslēpt preču reklāmas</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Preču reklāmas ir paslēptas</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Preču reklāmas ir redzamas</string>
   <string name="revanced_hide_paid_promotion_label_title">Paslēpt apmaksātas reklāmas etiķeti</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Apmaksātas reklāmas etiķete ir paslēpta</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Apmaksātas reklāmas etiķete ir redzama</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Paslēpt reklāmkarogu \"Skatīt produktus\"</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Baneris video pārklājumā ir paslēpts</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Reklāmkarogs video pārklājumā tiek rādīts</string>
   <string name="revanced_hide_self_sponsor_ads_title">Paslēpt pašreklāmas kartītes</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Pašreklāmas kartītes ir paslēptas</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Pašreklāmas kartītes ir redzamas</string>
-  <string name="revanced_hide_products_banner_title">Paslēpt reklāmjoslu \"Skatīt produktus\"</string>
-  <string name="revanced_hide_products_banner_summary_on">Reklāmas josla ir paslēpta</string>
-  <string name="revanced_hide_products_banner_summary_off">Reklāmas josla ir redzama</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Paslēpt veikala reklāmkarogu ekrāna beigās</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Noslēguma ekrāna veikala baneris ir paslēpts</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Noslēguma ekrāna veikala baneris ir parādīts</string>
-  <string name="revanced_hide_player_store_shelf_title">Paslēpt spēlētāja iepirkšanās plauktu</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Iepirkšanās plaukts ir paslēpts</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Iepirkšanās plaukts ir redzams</string>
-  <string name="revanced_hide_shopping_links_title">Paslēpt iepirkšanās saites video aprakstā</string>
-  <string name="revanced_hide_shopping_links_summary_on">Iepirkšanās saites video aprakstā ir paslēptas</string>
-  <string name="revanced_hide_shopping_links_summary_off">Iepirkšanās saites video aprakstā ir redzamas</string>
+  <string name="revanced_hide_tagged_products_title">Slēpt atzīmētos produktus</string>
+  <string name="revanced_hide_tagged_products_summary_on">Video aprakstā atzīmētie produkti ir paslēpti</string>
+  <string name="revanced_hide_tagged_products_summary_off">Video aprakstā tiek rādīti atzīmētie produkti</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Paslēpt \"Apmeklēt veikalu\" pogu kanāla lapās</string>
   <string name="revanced_hide_visit_store_button_summary_on">Poga kanāla lapā ir paslēpta</string>
@@ -410,11 +416,6 @@ Ierobežojumi
   <string name="revanced_hide_web_search_results_title">Paslēpt tīmekļa meklēšanas rezultātus</string>
   <string name="revanced_hide_web_search_results_summary_on">Tīmekļa meklēšanas rezultāti ir paslēpti</string>
   <string name="revanced_hide_web_search_results_summary_off">Tīmekļa meklēšanas rezultāti ir redzami</string>
-  <string name="revanced_hide_merchandise_banners_title">Paslēpt preču reklāmas</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Preču reklāmas ir paslēptas</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Preču reklāmas ir redzamas</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Paslēpt pilnekrāna reklāmas darbojas tikai ar vecākām ierīcēm</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Paslēpt YouTube Premium reklāmas</string>
@@ -826,7 +827,7 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_hide_shorts_sound_metadata_label_title">Paslēpt skaņas metadatu nosaukumu</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Metadatu nosaukums ir paslēpts</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Metadatu nosaukums ir redzams</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Paslēpt pilna video saites nosaukumu</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Paslēpt video saites etiķeti</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Video saites nosaukums ir paslēpts</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Video saites nosaukums ir redzams</string>
   <string name="revanced_hide_shorts_sound_button_title">Paslēpt skaņas pogu</string>
