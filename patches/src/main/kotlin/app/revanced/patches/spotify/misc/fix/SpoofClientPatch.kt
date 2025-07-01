@@ -105,16 +105,11 @@ val spoofClientPatch = bytecodePatch(
 
         // region Spoof client.
 
-        val contextField = startLiborbitFingerprint.classDef.fields.find {
-            it.type == "Landroid/content/Context;"
-        }
         startLiborbitFingerprint.method.addInstructions(
             0,
             """
-                move-object/from16 v0, p0
-                iget-object v0, v0, $contextField
-                const/16 v1, $port
-                invoke-static { v0, v1 }, $EXTENSION_CLASS_DESCRIPTOR->launchListen(Landroid/content/Context;I)V
+                const/16 v0, $port
+                invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->launchListen(I)V
             """
         )
 

@@ -80,7 +80,7 @@ class LoginRequestListener extends NanoHTTPD {
         LoginResponse.Builder builder = LoginResponse.newBuilder();
 
         if (session == null) {
-            Logger.printException(() -> "Session is null. An initial login may still be in progress");
+            Logger.printException(() -> "Session is null. An initial login may still be in progress, returning try again later error");
             builder.setError(LoginError.TRY_AGAIN_LATER);
         } else if (session.accessTokenExpired()) {
             Logger.printInfo(() -> "Access token expired, renewing session");
@@ -91,7 +91,7 @@ class LoginRequestListener extends NanoHTTPD {
             session.delete();
             builder.setError(LoginError.INVALID_CREDENTIALS);
         } else if (session == FAILED_TO_RENEW_SESSION) {
-            Logger.printException(() -> "Failed to renew session, likely caused by a timeout, trying again");
+            Logger.printException(() -> "Failed to renew session, likely caused by a timeout, returning try again later error");
             builder.setError(LoginError.TRY_AGAIN_LATER);
         } else {
             session.save();

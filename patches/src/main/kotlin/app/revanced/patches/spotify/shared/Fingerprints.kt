@@ -29,9 +29,10 @@ private var isLegacyAppTarget: Boolean? = null
  * supports Spotify integration on Kenwood/Pioneer car stereos.
  */
 context(BytecodePatchContext)
-internal val IS_SPOTIFY_LEGACY_APP_TARGET get(): Boolean {
-    if (isLegacyAppTarget == null) {
-        isLegacyAppTarget = mainActivityOnCreateFingerprint.originalClassDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY
+internal val IS_SPOTIFY_LEGACY_APP_TARGET
+    get(): Boolean {
+        if (isLegacyAppTarget == null) {
+            isLegacyAppTarget = mainActivityOnCreateFingerprint.originalClassDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY
+        }
+        return isLegacyAppTarget!!
     }
-    return isLegacyAppTarget!!
-}
