@@ -21,6 +21,9 @@ import app.revanced.extension.spotify.UserAgent;
 import static app.revanced.extension.spotify.misc.fix.Session.FAILED_TO_RENEW_SESSION;
 
 class WebApp {
+    @SuppressLint("StaticFieldLeak")
+    static Context context;
+
     private static final String OPEN_SPOTIFY_COM = "open.spotify.com";
     private static final String OPEN_SPOTIFY_COM_URL = "https://" + OPEN_SPOTIFY_COM;
     private static final String OPEN_SPOTIFY_COM_PREFERENCES_URL = OPEN_SPOTIFY_COM_URL + "/preferences";
@@ -99,7 +102,7 @@ class WebApp {
 
         CountDownLatch getSessionLatch = new CountDownLatch(1);
 
-        launchWebView(Utils.getContext(), OPEN_SPOTIFY_COM_PREFERENCES_URL, new WebViewCallback() {
+        launchWebView(context, OPEN_SPOTIFY_COM_PREFERENCES_URL, new WebViewCallback() {
             @Override
             public void onInitialized(WebView webView) {
                 setCookies(cookies);
@@ -235,7 +238,7 @@ class WebApp {
     }
 
     private static String getWebUserAgent() {
-        String userAgentString = WebSettings.getDefaultUserAgent(Utils.getContext());
+        String userAgentString = WebSettings.getDefaultUserAgent(context);
         try {
             return new UserAgent(userAgentString)
                     .withCommentReplaced("Android", "Windows NT 10.0; Win64; x64")

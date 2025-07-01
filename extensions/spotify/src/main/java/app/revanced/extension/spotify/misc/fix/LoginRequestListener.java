@@ -22,13 +22,11 @@ class LoginRequestListener extends NanoHTTPD {
         super(port);
 
         try {
-            Logger.printInfo(() -> "Launching listener on port " + port);
             start();
         } catch (IOException e) {
+            Logger.printException(() -> "Failed to start login request listener on port " + port, e);
             throw new RuntimeException(e);
         }
-
-
     }
 
     @NonNull
@@ -85,7 +83,7 @@ class LoginRequestListener extends NanoHTTPD {
             Logger.printException(() -> "Session is null. An initial login may still be in progress");
             builder.setError(LoginError.TRY_AGAIN_LATER);
         } else if (session.accessTokenExpired()) {
-            Logger.printException(() -> "Access token expired, renewing session");
+            Logger.printInfo(() -> "Access token expired, renewing session");
             WebApp.renewSessionBlocking(session.cookies);
             return toLoginResponse(WebApp.currentSession);
         } else if (session.username == null) {

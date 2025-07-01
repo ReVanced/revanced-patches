@@ -58,6 +58,8 @@ val spoofClientPatch = bytecodePatch(
     compatibleWith("com.spotify.music")
 
     execute {
+        // region Spoof package info.
+
         getPackageInfoFingerprint.method.apply {
             // region Spoof signature.
 
@@ -99,11 +101,20 @@ val spoofClientPatch = bytecodePatch(
             // endregion
         }
 
+        // endregion
+
+        // region Spoof client.
+
+        val contextField = startLiborbitFingerprint.classDef.fields.find {
+            it.type == "Landroid/content/Context;"
+        }
         startLiborbitFingerprint.method.addInstructions(
             0,
             """
-                const/16 v0, $port
-                invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->launchListen(I)V
+                move-object/from16 v0, p0
+                iget-object v0, v0, $contextField
+                const/16 v1, $port
+                invoke-static { v0, v1 }, $EXTENSION_CLASS_DESCRIPTOR->launchListen(Landroid/content/Context;I)V
             """
         )
 
@@ -122,5 +133,7 @@ val spoofClientPatch = bytecodePatch(
 
         // Early return to block sending bad verdicts to the API.
         standardIntegrityTokenProviderBuilderFingerprint.method.returnEarly()
+
+        // endregion
     }
 }

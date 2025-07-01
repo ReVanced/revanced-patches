@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -71,11 +70,11 @@ class Session {
     boolean accessTokenExpired() {
         return accessTokenExpiresInMillis() <= 0;
     }
-    
+
     void save() {
         Logger.printInfo(() -> "Saving session: " + this);
 
-        SharedPreferences.Editor editor = Utils.getContext().getSharedPreferences("revanced", MODE_PRIVATE).edit();
+        SharedPreferences.Editor editor = WebApp.context.getSharedPreferences("revanced", MODE_PRIVATE).edit();
 
         String json;
         try {
@@ -94,7 +93,7 @@ class Session {
 
     void delete() {
         Logger.printInfo(() -> "Deleting saved session for username: " + username);
-        SharedPreferences.Editor editor = Utils.getContext().getSharedPreferences("revanced", MODE_PRIVATE).edit();
+        SharedPreferences.Editor editor = WebApp.context.getSharedPreferences("revanced", MODE_PRIVATE).edit();
         editor.remove("session_" + username);
         editor.apply();
     }
@@ -103,7 +102,7 @@ class Session {
     static Session read(String username) {
         Logger.printInfo(() -> "Reading saved session for username: " + username);
 
-        SharedPreferences sharedPreferences = Utils.getContext().getSharedPreferences("revanced", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = WebApp.context.getSharedPreferences("revanced", MODE_PRIVATE);
         String savedJson = sharedPreferences.getString("session_" + username, null);
         if (savedJson == null) {
             Logger.printInfo(() -> "No session found in shared preferences");

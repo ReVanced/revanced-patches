@@ -1,10 +1,13 @@
 package app.revanced.extension.spotify.misc.fix;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
 public class SpoofClientPatch {
+    @SuppressLint("StaticFieldLeak")
     private static LoginRequestListener listener;
 
     /**
@@ -12,13 +15,17 @@ public class SpoofClientPatch {
      * <br>
      * Launch login server.
      */
-    public static void launchListen(int port) {
+    public static void launchListen(Context context, int port) {
+        Logger.printInfo(() -> "Setting context for WebApp");
+        WebApp.context = context;
+
         if (listener != null) {
             Logger.printInfo(() -> "Listener already running on port " + port);
             return;
         }
 
         try {
+            Logger.printInfo(() -> "Launching listener on port " + port);
             listener = new LoginRequestListener(port);
         } catch (Exception ex) {
             Logger.printException(() -> "listen failure", ex);
