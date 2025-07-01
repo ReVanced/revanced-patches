@@ -107,21 +107,24 @@ public final class AdsFilter extends Filter {
         );
 
         final var viewProducts = new StringFilterGroup(
-                Settings.HIDE_PRODUCTS_BANNER,
+                Settings.HIDE_VIEW_PRODUCTS_BANNER,
                 "product_item",
                 "products_in_video",
-                "shopping_overlay.eml", // Video player overlay shopping links.
-                "shopping_carousel.eml" // Channel profile shopping shelf.
+                "shopping_overlay.eml" // Video player overlay shopping links.
         );
 
         shoppingLinks = new StringFilterGroup(
-                Settings.HIDE_SHOPPING_LINKS,
-                "expandable_list",
+                Settings.HIDE_TAGGED_PRODUCTS,
+                "expandable_list"
+        );
+
+        final var storeProductsShelf = new StringFilterGroup(
+                Settings.HIDE_CREATOR_STORE_SHELVES,
                 "shopping_description_shelf.eml"
         );
 
         playerShoppingShelf = new StringFilterGroup(
-                Settings.HIDE_PLAYER_STORE_SHELF,
+                Settings.HIDE_CREATOR_STORE_SHELVES,
                 "horizontal_shelf.eml"
         );
 
@@ -148,7 +151,8 @@ public final class AdsFilter extends Filter {
 
         final var merchandise = new StringFilterGroup(
                 Settings.HIDE_MERCHANDISE_BANNERS,
-                "product_carousel"
+                "product_carousel",
+                "shopping_carousel.eml" // Channel profile shopping shelf.
         );
 
         final var selfSponsor = new StringFilterGroup(
@@ -157,16 +161,17 @@ public final class AdsFilter extends Filter {
         );
 
         addPathCallbacks(
+                channelProfile,
+                fullscreenAd,
                 generalAds,
                 merchandise,
-                viewProducts,
-                selfSponsor,
-                fullscreenAd,
-                channelProfile,
-                webLinkPanel,
-                shoppingLinks,
+                movieAds,
                 playerShoppingShelf,
-                movieAds
+                selfSponsor,
+                shoppingLinks,
+                storeProductsShelf,
+                viewProducts,
+                webLinkPanel
         );
     }
 

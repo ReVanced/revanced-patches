@@ -363,7 +363,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_comments_ai_chat_summary_title">Hide AI Chat summary</string>
             <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chat summary is hidden</string>
             <string name="revanced_hide_comments_ai_chat_summary_summary_off">Chat summary is shown</string>
-            <string name="revanced_hide_comments_ai_summary_title">Hide AI Comments summary</string>
+            <string name="revanced_hide_comments_ai_summary_title">Hide AI comments summary</string>
             <string name="revanced_hide_comments_ai_summary_summary_on">Comments summary is hidden</string>
             <string name="revanced_hide_comments_ai_summary_summary_off">Comments summary is shown</string>
             <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
@@ -375,15 +375,15 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
             <string name="revanced_hide_comments_create_a_short_button_summary_on">Create a Short button is hidden</string>
             <string name="revanced_hide_comments_create_a_short_button_summary_off">Create a Short button is shown</string>
-            <string name="revanced_hide_comments_timestamp_button_title">Hide timestamp button</string>
-            <string name="revanced_hide_comments_timestamp_button_summary_on">Timestamp button is hidden</string>
-            <string name="revanced_hide_comments_timestamp_button_summary_off">Timestamp button is shown</string>
             <string name="revanced_hide_comments_preview_comment_title">Hide preview comment</string>
             <string name="revanced_hide_comments_preview_comment_summary_on">Preview comment is hidden</string>
             <string name="revanced_hide_comments_preview_comment_summary_off">Preview comment is shown</string>
             <string name="revanced_hide_comments_thanks_button_title">Hide Thanks button</string>
             <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown</string>
+            <string name="revanced_hide_comments_timestamp_button_title">Hide timestamp button</string>
+            <string name="revanced_hide_comments_timestamp_button_summary_on">Timestamp button is hidden</string>
+            <string name="revanced_hide_comments_timestamp_button_summary_off">Timestamp button is shown</string>
 
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
@@ -439,32 +439,38 @@ Limitations
             <string name="revanced_hide_keyword_toast_invalid_broad">Keyword will hide all videos: %s</string>
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <string name="revanced_hide_general_ads_title">Hide general ads</string>
-            <string name="revanced_hide_general_ads_summary_on">General ads are hidden</string>
-            <string name="revanced_hide_general_ads_summary_off">General ads are shown</string>
+            <string name="revanced_hide_creator_store_shelves_title">Hide creator store shelves</string>
+            <string name="revanced_hide_creator_store_shelves_summary_on">Store shelves below the player and in video description are hidden</string>
+            <string name="revanced_hide_creator_store_shelves_summary_off">Store shelves below the player and in video description are shown</string>
+            <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
+            <string name="revanced_hide_end_screen_store_banner_summary_on">Store banner is hidden</string>
+            <string name="revanced_hide_end_screen_store_banner_summary_off">Store banner is shown</string>
             <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
             <string name="revanced_hide_fullscreen_ads_summary_on">"Fullscreen ads are hidden
 
 This feature is only available for older devices"</string>
             <string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown</string>
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Hide fullscreen ads only works with older devices</string>
+            <string name="revanced_hide_general_ads_title">Hide general ads</string>
+            <string name="revanced_hide_general_ads_summary_on">General ads are hidden</string>
+            <string name="revanced_hide_general_ads_summary_off">General ads are shown</string>
+            <string name="revanced_hide_merchandise_banners_title">Hide merchandise banners</string>
+            <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
+            <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
             <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
             <string name="revanced_hide_paid_promotion_label_summary_on">Paid promotion label is hidden</string>
             <string name="revanced_hide_paid_promotion_label_summary_off">Paid promotion label is shown</string>
+            <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_view_products_banner_title">Hide \'View products\' banner</string>
+            <string name="revanced_hide_view_products_banner_summary_on">Banner in video overlay is hidden</string>
+            <string name="revanced_hide_view_products_banner_summary_off">Banner in video overlay is shown</string>
             <string name="revanced_hide_self_sponsor_ads_title">Hide self sponsored cards</string>
             <string name="revanced_hide_self_sponsor_ads_summary_on">Self sponsored cards are hidden</string>
             <string name="revanced_hide_self_sponsor_ads_summary_off">Self sponsored cards are shown</string>
-            <string name="revanced_hide_products_banner_title">Hide \'View products\' banner</string>
-            <string name="revanced_hide_products_banner_summary_on">Banner is hidden</string>
-            <string name="revanced_hide_products_banner_summary_off">Banner is shown</string>
-            <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
-            <string name="revanced_hide_end_screen_store_banner_summary_on">Store banner is hidden</string>
-            <string name="revanced_hide_end_screen_store_banner_summary_off">Store banner is shown</string>
-            <string name="revanced_hide_player_store_shelf_title">Hide player shopping shelf</string>
-            <string name="revanced_hide_player_store_shelf_summary_on">Shopping shelf is hidden</string>
-            <string name="revanced_hide_player_store_shelf_summary_off">Shopping shelf is shown</string>
-            <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
-            <string name="revanced_hide_shopping_links_summary_on">Shopping links in video description are hidden</string>
-            <string name="revanced_hide_shopping_links_summary_off">Shopping links in video description are shown</string>
+            <string name="revanced_hide_tagged_products_title">Hide tagged products</string>
+            <string name="revanced_hide_tagged_products_summary_on">Tagged products in video description are hidden</string>
+            <string name="revanced_hide_tagged_products_summary_off">Tagged products in video description are shown</string>
             <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
             <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
             <string name="revanced_hide_visit_store_button_summary_on">Button in channel page is hidden</string>
@@ -472,11 +478,6 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_web_search_results_title">Hide web search results</string>
             <string name="revanced_hide_web_search_results_summary_on">Web search results are hidden</string>
             <string name="revanced_hide_web_search_results_summary_off">Web search results are shown</string>
-            <string name="revanced_hide_merchandise_banners_title">Hide merchandise banners</string>
-            <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
-            <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Hide fullscreen ads only works with older devices</string>
         </patch>
         <patch id="ad.getpremium.hideGetPremiumPatch">
             <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotions</string>
@@ -891,10 +892,10 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_shorts_sound_metadata_label_title">Hide sound metadata label</string>
             <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Metadata label is hidden</string>
             <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Metadata label is shown</string>
-            <string name="revanced_hide_shorts_full_video_link_label_title">Hide full video link label</string>
+            <string name="revanced_hide_shorts_full_video_link_label_title">Hide video link label</string>
             <string name="revanced_hide_shorts_full_video_link_label_summary_on">Video link label is hidden</string>
             <string name="revanced_hide_shorts_full_video_link_label_summary_off">Video link label is shown</string>
-            <string name="revanced_hide_shorts_sound_button_title">Hide sound button</string>
+            <string name="revanced_hide_shorts_sound_button_title">Hide Sound button</string>
             <string name="revanced_hide_shorts_sound_button_summary_on">Sound button is hidden</string>
             <string name="revanced_hide_shorts_sound_button_summary_off">Sound button is shown</string>
             <string name="revanced_hide_shorts_navigation_bar_title">Hide navigation bar</string>
