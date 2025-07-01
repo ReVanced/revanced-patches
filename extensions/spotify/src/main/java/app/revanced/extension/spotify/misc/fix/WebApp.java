@@ -86,7 +86,9 @@ class WebApp {
                     onLoggedInLatch.await();
                     // Wait until the session is received, or timeout.
                     isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-                } catch (InterruptedException ignored) {
+                } catch (InterruptedException ex) {
+                    Logger.printException(() -> "Login interrupted", ex);
+                    Thread.currentThread().interrupt();
                 }
             } while (!isAcquired);
         });
@@ -113,7 +115,9 @@ class WebApp {
         boolean isAcquired = false;
         try {
             isAcquired = getSessionLatch.await(GET_SESSION_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-        } catch (InterruptedException ignore) {
+        } catch (InterruptedException ex) {
+            Logger.printException(() -> "Session renewal interrupted", ex);
+            Thread.currentThread().interrupt();
         }
 
         if (!isAcquired) {
@@ -223,7 +227,7 @@ class WebApp {
     }
 
     private static void destructWebView() {
-        Utils.runOnMainThread(() -> {
+        Utils.runOnMainThreadNowOrLater(() -> {
             currentWebView.stopLoading();
             currentWebView.destroy();
             currentWebView = null;

@@ -60,11 +60,7 @@ class LoginRequestListener extends NanoHTTPD {
             }
         }
 
-        if (loginResponse != null) {
-            return newResponse(Response.Status.OK, loginResponse);
-        }
-
-        return newResponse(INTERNAL_ERROR);
+        return newResponse(Response.Status.OK, loginResponse);
     }
 
 
@@ -86,17 +82,18 @@ class LoginRequestListener extends NanoHTTPD {
         LoginResponse.Builder builder = LoginResponse.newBuilder();
 
         if (session == null) {
-            Logger.printInfo(() -> "Session is null. An initial login may still be in progress");
+            Logger.printException(() -> "Session is null. An initial login may still be in progress");
             builder.setError(LoginError.TRY_AGAIN_LATER);
         } else if (session.accessTokenExpired()) {
-            Logger.printInfo(() -> "Access token expired, retrying WebView.renewSessionBlocking");
+            Logger.printException(() -> "Access token expired, renewing session");
             WebApp.renewSessionBlocking(session.cookies);
             return toLoginResponse(WebApp.currentSession);
         } else if (session.username == null) {
-            Logger.printInfo(() -> "Session username is null, likely caused by invalid cookies, returning invalid credentials error");
+            Logger.printException(() -> "Session username is null, likely caused by invalid cookies, returning invalid credentials error");
+            session.delete();
             builder.setError(LoginError.INVALID_CREDENTIALS);
         } else if (session == FAILED_TO_RENEW_SESSION) {
-            Logger.printInfo(() -> "Failed to renew session, likely caused by a timeout, trying again");
+            Logger.printException(() -> "Failed to renew session, likely caused by a timeout, trying again");
             builder.setError(LoginError.TRY_AGAIN_LATER);
         } else {
             session.save();

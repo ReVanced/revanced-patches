@@ -71,7 +71,7 @@ class Session {
     boolean accessTokenExpired() {
         return accessTokenExpiresInMillis() <= 0;
     }
-
+    
     void save() {
         Logger.printInfo(() -> "Saving session: " + this);
 
@@ -89,6 +89,13 @@ class Session {
         }
 
         editor.putString("session_" + username, json);
+        editor.apply();
+    }
+
+    void delete() {
+        Logger.printInfo(() -> "Deleting saved session for username: " + username);
+        SharedPreferences.Editor editor = Utils.getContext().getSharedPreferences("revanced", MODE_PRIVATE).edit();
+        editor.remove("session_" + username);
         editor.apply();
     }
 
