@@ -23,8 +23,8 @@ class WebApp {
     private static final String OPEN_SPOTIFY_COM = "open.spotify.com";
     private static final String OPEN_SPOTIFY_COM_URL = "https://" + OPEN_SPOTIFY_COM;
     private static final String OPEN_SPOTIFY_COM_PREFERENCES_URL = OPEN_SPOTIFY_COM_URL + "/preferences";
-    private static final String ACCOUNTS_SPOTIFY_COM_LOGIN_URL = "https://accounts.spotify.com/login?continue=" +
-            "https%3A%2F%2Fopen.spotify.com%2Fpreferences";
+    private static final String ACCOUNTS_SPOTIFY_COM_LOGIN_URL = "https://accounts.spotify.com/login?allow_password=1"
+            + "&continue=https%3A%2F%2Fopen.spotify.com%2Fpreferences";
 
     private static final int GET_SESSION_TIMEOUT_SECONDS = 10;
     private static final String JAVASCRIPT_INTERFACE_NAME = "androidInterface";
