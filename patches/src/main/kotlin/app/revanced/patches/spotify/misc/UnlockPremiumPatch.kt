@@ -148,7 +148,7 @@ val unlockPremiumPatch = bytecodePatch(
                 """
                     # The first parameter is the context menu item being added.
                     # Invoke getViewModel to get the actual context menu item.
-                    invoke-interface { p1 }, $contextMenuItemInterfaceClassDef->getViewModel()$viewModelClassType
+                    invoke-interface { p1 }, $contextMenuItemInterfaceName->getViewModel()$viewModelClassType
                     move-result-object v0
 
                     # Check if this context menu item should be filtered out.
