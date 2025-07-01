@@ -1,3 +1,10 @@
+# [5.30.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.5...v5.30.0-dev.6) (2025-07-01)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Do not show undo skip if PiP is active ([#5314](https://github.com/ReVanced/revanced-patches/issues/5314)) ([18af8de](https://github.com/ReVanced/revanced-patches/commit/18af8dead2c6c7f0d99cd75b69948240e0bcd12c))
+
 # [5.30.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.4...v5.30.0-dev.5) (2025-06-30)
 
 
