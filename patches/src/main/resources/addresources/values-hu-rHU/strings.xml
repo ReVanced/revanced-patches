@@ -315,15 +315,15 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">A „Rövid létrehozása” gomb elrejtése</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">A Rövidfilm létrehozása gomb rejtett</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">A Rövidfilm létrehozása gomb látható</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Az időbélyegző gomb elrejtése</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Az időbélyegző gomb el van rejtve</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Az időbélyegző gomb megjelenik</string>
   <string name="revanced_hide_comments_preview_comment_title">Megjegyzés előnézet elrejtése</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">A megjegyzés előnézet el van rejtve</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">A megjegyzés előnézet megjelenik</string>
   <string name="revanced_hide_comments_thanks_button_title">Köszönet gomb elrejtése</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">A köszönet gomb el van rejtve</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">A köszönet gomb látható</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Az időbélyegző gomb elrejtése</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Az időbélyegző gomb el van rejtve</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Az időbélyegző gomb megjelenik</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles elrejtése</string>
   <string name="revanced_hide_doodles_summary_on">A Doodles Keresősáv el van rejtve</string>
@@ -377,32 +377,38 @@ Korlátozások
   <string name="revanced_hide_keyword_toast_invalid_broad">A kulcsszó elrejti az összes videót: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Általános hirdetések elrejtése</string>
-  <string name="revanced_hide_general_ads_summary_on">Az általános hirdetések el vannak rejtve</string>
-  <string name="revanced_hide_general_ads_summary_off">Az általános hirdetések megjelennek</string>
+  <string name="revanced_hide_creator_store_shelves_title">Alkotói bolti polcok elrejtése</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">A lejátszó alatti és a videó leírásában lévő bolti polcok elrejtve</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">A lejátszó alatt és a videó leírásában megjelennek az árupolcok</string>
+  <string name="revanced_hide_end_screen_store_banner_title">A befejező képernyőn lévő üzletbanner elrejtése</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Az áruház banner rejtett</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Az áruház banner megjelenik</string>
   <string name="revanced_hide_fullscreen_ads_title">Teljes képernyős hirdetések elrejtése</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"A teljes képernyős hirdetések el vannak rejtve
 
 Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">A teljes képernyős hirdetések láthatók</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">A teljes képernyős hirdetések elrejtése csak régebbi eszközökön működik</string>
+  <string name="revanced_hide_general_ads_title">Általános hirdetések elrejtése</string>
+  <string name="revanced_hide_general_ads_summary_on">Az általános hirdetések el vannak rejtve</string>
+  <string name="revanced_hide_general_ads_summary_off">Az általános hirdetések megjelennek</string>
+  <string name="revanced_hide_merchandise_banners_title">Áruszalaghirdetések elrejtése</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Az áruszalaghirdetések el vannak rejtve</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Az áruszalaghirdetések megjelennek</string>
   <string name="revanced_hide_paid_promotion_label_title">Fizetett promóció címke elrejtése</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">A fizetett promóciós címke el van rejtve</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">A fizetett promóciós címke meg van jelenítve</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">A „Termékek megtekintése” szalaghirdetés elrejtése</string>
+  <string name="revanced_hide_view_products_banner_summary_on">A videóátfedésben lévő szalaghirdetés elrejtve</string>
+  <string name="revanced_hide_view_products_banner_summary_off">A szalaghirdetés megjelenik a videó átfedésében</string>
   <string name="revanced_hide_self_sponsor_ads_title">Önpromóciós kártyák elrejtése</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Az önpromóciós kártyák rejtve vannak</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Az önpromóciós kártyák megjelennek</string>
-  <string name="revanced_hide_products_banner_title">\"View products\" szalagcím elrejtése</string>
-  <string name="revanced_hide_products_banner_summary_on">A szalagkép rejtett</string>
-  <string name="revanced_hide_products_banner_summary_off">A szalagkép megjelenik</string>
-  <string name="revanced_hide_end_screen_store_banner_title">A befejező képernyőn lévő üzletbanner elrejtése</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Az áruház banner rejtett</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Az áruház banner megjelenik</string>
-  <string name="revanced_hide_player_store_shelf_title">A lejátszó bevásárlópolcának elrejtése</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">A bevásárlópolc el van rejtve</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Megjelenik a bevásárlópolc</string>
-  <string name="revanced_hide_shopping_links_title">Vásárlási linkek elrejtése a videó leírásában</string>
-  <string name="revanced_hide_shopping_links_summary_on">A videóleírásban található vásárlási hivatkozások rejtettek</string>
-  <string name="revanced_hide_shopping_links_summary_off">A videóleírásban található vásárlási hivatkozások láthatók</string>
+  <string name="revanced_hide_tagged_products_title">Címkézett termékek elrejtése</string>
+  <string name="revanced_hide_tagged_products_summary_on">A videó leírásában lévő címkézett termékek elrejtve</string>
+  <string name="revanced_hide_tagged_products_summary_off">A videó leírásában címkézett termékek jelennek meg</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">\'Bolt meglátogatása\' gomb elrejtése a csatornák oldalán</string>
   <string name="revanced_hide_visit_store_button_summary_on">A gomb a csatornaoldalon rejtett</string>
@@ -410,11 +416,6 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_hide_web_search_results_title">Webes keresési találatok elrejtése</string>
   <string name="revanced_hide_web_search_results_summary_on">A webes keresési találatok rejtve vannak</string>
   <string name="revanced_hide_web_search_results_summary_off">A webes keresési találatok megjelennek</string>
-  <string name="revanced_hide_merchandise_banners_title">Áruszalaghirdetések elrejtése</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Az áruszalaghirdetések el vannak rejtve</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Az áruszalaghirdetések megjelennek</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">A teljes képernyős hirdetések elrejtése csak régebbi eszközökön működik</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">YouTube Premium promóciók elrejtése</string>
@@ -826,7 +827,7 @@ Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítá
   <string name="revanced_hide_shorts_sound_metadata_label_title">Hang metaadatcímke elrejtése</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">A hang metaadatcímke el van rejtve</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">A hang metaadatcímke megjelenik</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Teljes videólink címke elrejtése</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Videóhivatkozás címkéjének elrejtése</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">A teljes videólink címke el van rejtve</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">A teljes videólink címke megjelenik</string>
   <string name="revanced_hide_shorts_sound_button_title">Hang gomb elrejtése</string>
@@ -963,7 +964,7 @@ Ez a funkció a legjobban 720p vagy annál alacsonyabb videóminőség mellett �
   <string name="revanced_sb_auto_hide_skip_button_duration">Átugrás gomb időtartama</string>
   <string name="revanced_sb_auto_hide_skip_button_duration_sum">Meddig láthatók az automatikus elrejtésű átugrás és kiemelés gombok</string>
   <string name="revanced_sb_general_skiptoast">Ugrás visszavonása felugró értesítés megjelenítése</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Felugró értesítés jelenik meg, amikor egy szegmens automatikusan átugrásra kerül. Érintse meg a felugró értesítést az átugrás visszavonásához.</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Felugró értesítés jelenik meg, amikor egy szegmens automatikusan átugrásra kerül. Érintse meg a felugró értesítést az átugrás visszavonásához</string>
   <string name="revanced_sb_general_skiptoast_sum_off">A felugró üzenet nem jelenik meg</string>
   <string name="revanced_sb_toast_on_skip_duration">Átugrási felugró üzenet időtartama</string>
   <string name="revanced_sb_toast_on_skip_duration_sum">Meddig látható az átugrás felugró értesítés</string>

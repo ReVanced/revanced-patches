@@ -315,15 +315,15 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Ocultar o botão \'Criar um Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">O botão Criar um Short está oculto</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">O botão Criar um Short é mostrado</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Ocultar o botão de carimbo de data/hora</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">O botão de carimbo de data/hora está oculto</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">O botão de carimbo de data/hora está visível</string>
   <string name="revanced_hide_comments_preview_comment_title">Esconder comentário de pré-visualização</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Visualização do comentário está escondida</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Pré-visualização de comentário é exibida</string>
   <string name="revanced_hide_comments_thanks_button_title">Ocultar botão Obrigado</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">O botão de agradecimento está escondido</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">O botão Obrigado é visível</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ocultar o botão de carimbo de data/hora</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">O botão de carimbo de data/hora está oculto</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">O botão de carimbo de data/hora está visível</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Ocultar Doodles do YouTube</string>
   <string name="revanced_hide_doodles_summary_on">Doodles da barra de pesquisa estão escondidos</string>
@@ -377,32 +377,38 @@ Limitações
   <string name="revanced_hide_keyword_toast_invalid_broad">Palavra-chave irá ocultar todos os vídeos: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Esconder anúncios gerais</string>
-  <string name="revanced_hide_general_ads_summary_on">Anúncios gerais estão escondidos</string>
-  <string name="revanced_hide_general_ads_summary_off">Anúncios gerais são mostrados</string>
+  <string name="revanced_hide_creator_store_shelves_title">Ocultar prateleiras da loja do criador</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Prateleiras da loja abaixo do reprodutor e na descrição do vídeo estão ocultas</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">As prateleiras da loja abaixo do reprodutor e na descrição do vídeo são exibidas</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Ocultar banner da loja na tela final</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Banner de Loja está ocultado</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Banner de Loja está visível</string>
   <string name="revanced_hide_fullscreen_ads_title">Esconder anúncios em ecrã cheio</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Quảng cáo toàn màn hình bị ẩn
 
 Tính năng này chỉ khả dụng cho các thiết bị cũ"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Os anúncios são visíveis em ecrã cheia</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ocultar anúncios de ecrã cheio só em aparelhos antigos</string>
+  <string name="revanced_hide_general_ads_title">Esconder anúncios gerais</string>
+  <string name="revanced_hide_general_ads_summary_on">Anúncios gerais estão escondidos</string>
+  <string name="revanced_hide_general_ads_summary_off">Anúncios gerais são mostrados</string>
+  <string name="revanced_hide_merchandise_banners_title">Esconder banner de mercadoria</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Banners de mercadoria estão escondidos</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Banners de mercadoria são visíveis</string>
   <string name="revanced_hide_paid_promotion_label_title">Ocultar rótulo de promoção paga</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">O rótulo de promoção pago está oculto</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Rótulo de promoção pago é mostrado</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Ocultar banner \'Ver produtos\'</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Banner na sobreposição de vídeo está oculto</string>
+  <string name="revanced_hide_view_products_banner_summary_off">O banner na sobreposição do vídeo é exibido</string>
   <string name="revanced_hide_self_sponsor_ads_title">Esconder cartões autopatrocinados</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Cartões auto-patrocinados estão escondidos</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Cartões auto-patrocinados são visíveis</string>
-  <string name="revanced_hide_products_banner_title">Ocultar banner \"Ver produtos\"</string>
-  <string name="revanced_hide_products_banner_summary_on">Banner está escondido</string>
-  <string name="revanced_hide_products_banner_summary_off">Banner é visível</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Ocultar banner da loja na tela final</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Banner de Loja está ocultado</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Banner de Loja está visível</string>
-  <string name="revanced_hide_player_store_shelf_title">Ocultar prateleira de compras do jogador</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Prateleira de compras está escondida</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Prateleira de compras é mostrada</string>
-  <string name="revanced_hide_shopping_links_title">Esconder links de compras na descrição do vídeo</string>
-  <string name="revanced_hide_shopping_links_summary_on">Os links de compras na descrição do vídeo estão ocultos</string>
-  <string name="revanced_hide_shopping_links_summary_off">Os links de compras na descrição do vídeo são mostrados</string>
+  <string name="revanced_hide_tagged_products_title">Ocultar produtos marcados</string>
+  <string name="revanced_hide_tagged_products_summary_on">Produtos marcados na descrição do vídeo estão ocultos</string>
+  <string name="revanced_hide_tagged_products_summary_off">Os produtos marcados na descrição do vídeo são exibidos</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Ocultar o botão \'Visitar loja\' nas páginas do canal</string>
   <string name="revanced_hide_visit_store_button_summary_on">O botão na página do canal está oculto</string>
@@ -410,11 +416,6 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ"</string>
   <string name="revanced_hide_web_search_results_title">Esconder resultados da pesquisa web</string>
   <string name="revanced_hide_web_search_results_summary_on">Resultados de pesquisa web estão escondidos</string>
   <string name="revanced_hide_web_search_results_summary_off">Resultados de pesquisa web são visíveis</string>
-  <string name="revanced_hide_merchandise_banners_title">Esconder banner de mercadoria</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Banners de mercadoria estão escondidos</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Banners de mercadoria são visíveis</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ocultar anúncios de ecrã cheio só em aparelhos antigos</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Esconder promoções Premium do YouTube</string>
@@ -826,7 +827,7 @@ Para mostrar o menu da faixa de áudio, altere \"Spoof video streams\" para iOS 
   <string name="revanced_hide_shorts_sound_metadata_label_title">Esconder rótulo de metadados de som</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Etiqueta de metadados está escondida</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Etiqueta de metadados é visível</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Esconder o rótulo completo do link do vídeo</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Ocultar rótulo de link do vídeo</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Rótulo de link do vídeo está escondido</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Rótulo do link do vídeo é visível</string>
   <string name="revanced_hide_shorts_sound_button_title">Esconder botão de som</string>
@@ -1239,6 +1240,7 @@ Limitação: Usar o botão voltar na barra de ferramentas pode não funcionar"</
   <string name="revanced_miniplayer_type_entry_0">Desativado</string>
   <string name="revanced_miniplayer_type_entry_1">Padrão</string>
   <string name="revanced_miniplayer_type_entry_2">Mínimo</string>
+  <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
@@ -1548,6 +1550,7 @@ A AVC tem resolução máxima de 1080p, Opus audio codec não está disponível,
   <string name="revanced_about_summary">Sobre o ReVanced</string>
   <string name="revanced_ads_screen_title">Anúncios</string>
   <string name="revanced_ads_screen_summary">Configurações de bloqueio de anúncios</string>
+  <string name="revanced_chat_screen_title">Bate-papo</string>
   <string name="revanced_chat_screen_summary">Configurações do chat</string>
   <string name="revanced_misc_screen_title">Diversos</string>
   <string name="revanced_misc_screen_summary">Configurações diversas</string>

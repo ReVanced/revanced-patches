@@ -315,15 +315,15 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">\'Short oluştur\' düğmesini gizle</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Short oluştur düğmesi gizli</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Short oluştur düğmesi görünür</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Zaman damgası düğmesini gizle</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Zaman damgası düğmesi gizli</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Zaman damgası düğmesi görünür</string>
   <string name="revanced_hide_comments_preview_comment_title">Ön izlenen yorumu gizle</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Ön izlenen yorum gizli</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Ön izlenen yorum görünür</string>
   <string name="revanced_hide_comments_thanks_button_title">Teşekkürler düğmesini gizle</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Teşekkürler düğmesi gizli</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Teşekkürler düğmesi görünür</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Zaman damgası düğmesini gizle</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Zaman damgası düğmesi gizli</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Zaman damgası düğmesi görünür</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodle\'larını gizle</string>
   <string name="revanced_hide_doodles_summary_on">Arama çubuğu Doodle\'ları gizli</string>
@@ -377,32 +377,38 @@ Sınırlamalar
   <string name="revanced_hide_keyword_toast_invalid_broad">Kelime bütün videoları gizler: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Genel reklamları gizle</string>
-  <string name="revanced_hide_general_ads_summary_on">Genel reklamlar gizli</string>
-  <string name="revanced_hide_general_ads_summary_off">Genel reklamlar görünür</string>
+  <string name="revanced_hide_creator_store_shelves_title">İçerik oluşturucu mağaza raflarını gizle</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Oynatıcının altındaki ve video açıklamasındaki mağaza rafları gizlendi</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Oynatıcının altındaki ve video açıklamasındaki mağaza rafları gösteriliyor</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Bitiş ekranındaki mağaza afişini gizle</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Mağaza afişi gizli</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Mağaza afişi görünür</string>
   <string name="revanced_hide_fullscreen_ads_title">Tam ekran reklamları gizle</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Tam ekran reklamlar gizli
 
 Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamlar görünür</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Tam ekran reklamlar sadece eski cihazlarda gizlenebilir</string>
+  <string name="revanced_hide_general_ads_title">Genel reklamları gizle</string>
+  <string name="revanced_hide_general_ads_summary_on">Genel reklamlar gizli</string>
+  <string name="revanced_hide_general_ads_summary_off">Genel reklamlar görünür</string>
+  <string name="revanced_hide_merchandise_banners_title">Ürün afişlerini gizle</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Ürün afişleri gizli</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Ürün afişleri görünür</string>
   <string name="revanced_hide_paid_promotion_label_title">Ücretli tanıtım etiketini gizle</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Ücretli tanıtım etiketi gizli</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Ücretli tanıtım etiketi görünür</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">\"Ürünleri görüntüle\" afişini gizle</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Video yer paylaşımındaki banner gizlendi</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Video yer paylaşımındaki afiş gösteriliyor</string>
   <string name="revanced_hide_self_sponsor_ads_title">Kendine sponsor kartları gizle</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kendine sponsor kartlar gizli</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kendine sponsor kartlar görünür</string>
-  <string name="revanced_hide_products_banner_title">\'Ürünleri görüntüle\' başlığını gizle</string>
-  <string name="revanced_hide_products_banner_summary_on">Afiş gizli</string>
-  <string name="revanced_hide_products_banner_summary_off">Afiş görünür</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Bitiş ekranındaki mağaza afişini gizle</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Mağaza afişi gizli</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Mağaza afişi görünür</string>
-  <string name="revanced_hide_player_store_shelf_title">Oynatıcı alışveriş rafını gizle</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Alışveriş rafı gizli</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Alışveriş rafı görünür</string>
-  <string name="revanced_hide_shopping_links_title">Alışveriş bağlantılarını gizle</string>
-  <string name="revanced_hide_shopping_links_summary_on">Video açıklamasındaki alışveriş bağlantıları gizli</string>
-  <string name="revanced_hide_shopping_links_summary_off">Video açıklamasındaki alışveriş bağlantıları görünür</string>
+  <string name="revanced_hide_tagged_products_title">Etiketli ürünleri gizle</string>
+  <string name="revanced_hide_tagged_products_summary_on">Video açıklamasındaki etiketli ürünler gizlendi</string>
+  <string name="revanced_hide_tagged_products_summary_off">Video açıklamasındaki etiketli ürünler gösteriliyor</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Kanal sayfalarındaki \'Mağazayı ziyaret et\' düğmesini gizle</string>
   <string name="revanced_hide_visit_store_button_summary_on">Kanal sayfasındaki düğme gizli</string>
@@ -410,11 +416,6 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_hide_web_search_results_title">Web arama sonuçlarını gizle</string>
   <string name="revanced_hide_web_search_results_summary_on">Web arama sonuçları gizli</string>
   <string name="revanced_hide_web_search_results_summary_off">Web arama sonuçları görünür</string>
-  <string name="revanced_hide_merchandise_banners_title">Ürün afişlerini gizle</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Ürün afişleri gizli</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Ürün afişleri görünür</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Tam ekran reklamlar sadece eski cihazlarda gizlenebilir</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">YouTube Premium promosyonlarını gizle</string>
@@ -826,7 +827,7 @@ Ses parçası menüsünü göstermek için \"Video akışlarını taklit et\" ay
   <string name="revanced_hide_shorts_sound_metadata_label_title">Ses bilgisi etiketini gizle</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Bilgi etiketi gizli</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Bilgi etiketi görünür</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Tam video bağlantısı etiketini gizle</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Video bağlantı etiketini gizle</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Video bağlantısı etiketi gizli</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Video bağlantısı etiketi görünür</string>
   <string name="revanced_hide_shorts_sound_button_title">Ses düğmesini gizle</string>
@@ -965,7 +966,7 @@ Bu özellik, 720p veya daha düşük video kalitesi ve çok hızlı bir internet
   <string name="revanced_sb_auto_hide_skip_button_duration">Atla düğmesi süresi</string>
   <string name="revanced_sb_auto_hide_skip_button_duration_sum">Otomatik gizlenen atla ve vurgulaya atla düğmelerinin ne kadar süreyle gösterildiği</string>
   <string name="revanced_sb_general_skiptoast">Atlamayı geri al bildirimini göster</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Bildirim, bir segment otomatik olarak atlandığında gösterilir. Atlamayı geri almak için bildirimine dokunun.</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Bildirim, bir segment otomatik olarak atlandığında gösterilir. Atlamayı geri almak için bildirimine dokunun</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Toast gösterilmiyor</string>
   <string name="revanced_sb_toast_on_skip_duration">Atlama toast süresi</string>
   <string name="revanced_sb_toast_on_skip_duration_sum">Atlama bildiriminin ne kadar süreyle gösterildiği</string>
