@@ -121,7 +121,7 @@ val spoofClientPatch = bytecodePatch(
             )
         }
 
-        startLoginScreenRenderFingerprint.method.apply {
+        renderStartLoginScreenFingerprint.method.apply {
             val onEventIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "getView"
             }
@@ -134,7 +134,7 @@ val spoofClientPatch = bytecodePatch(
             )
         }
 
-        secondLoginScreenRenderFingerprint.method.apply {
+        renderSecondLoginScreenFingerprint.method.apply {
             val getViewIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "getView"
             }
@@ -151,7 +151,7 @@ val spoofClientPatch = bytecodePatch(
             )
         }
 
-        thirdLoginScreenRenderFingerprint.method.apply {
+        renderThirdLoginScreenFingerprint.method.apply {
             val invokeSetListenerIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == "Landroid/view/View;" && reference.name == "setOnClickListener"
