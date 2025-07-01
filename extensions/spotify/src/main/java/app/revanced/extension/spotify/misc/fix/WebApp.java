@@ -42,11 +42,11 @@ class WebApp {
     @SuppressLint("StaticFieldLeak")
     private static volatile WebView currentWebView;
 
-    public interface NativeLoginHandler {
+    interface NativeLoginHandler {
         void login();
     }
 
-    public static NativeLoginHandler nativeLoginHandler;
+    static NativeLoginHandler nativeLoginHandler;
 
     static void launchLogin(Context context) {
         final Dialog dialog = newDialog(context);
