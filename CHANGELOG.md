@@ -1,3 +1,10 @@
+# [5.30.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.7...v5.30.0-dev.8) (2025-07-02)
+
+
+### Bug Fixes
+
+* **Spotify - Spoof client:** Skip native login screens ([#5228](https://github.com/ReVanced/revanced-patches/issues/5228)) ([c5ebc63](https://github.com/ReVanced/revanced-patches/commit/c5ebc6336ed17cc9cc7f1348282a2aa3c173fb95))
+
 # [5.30.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.6...v5.30.0-dev.7) (2025-07-01)
 
 
