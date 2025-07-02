@@ -448,8 +448,8 @@ Limitations
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
             <string name="revanced_hide_creator_store_shelf_title">Hide creator store shelf</string>
-            <string name="revanced_hide_creator_store_shelf_summary_on">Store shelf below the player is hidden</string>
-            <string name="revanced_hide_creator_store_shelf_summary_off">Store shelf below the player is shown</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">Store shelf under video player is hidden</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">Store shelf under video player is shown</string>
             <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
             <string name="revanced_hide_end_screen_store_banner_summary_on">Store banner is hidden</string>
             <string name="revanced_hide_end_screen_store_banner_summary_off">Store banner is shown</string>
