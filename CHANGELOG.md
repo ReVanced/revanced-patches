@@ -1,3 +1,10 @@
+# [5.30.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.9...v5.30.0-dev.10) (2025-07-02)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Fix hiding context menu ads on newest versions by simplifying fingerprint ([#5318](https://github.com/ReVanced/revanced-patches/issues/5318)) ([dad0ff4](https://github.com/ReVanced/revanced-patches/commit/dad0ff4fba74c2b020fbde6c6d5eb66e10e6f1f7))
+
 # [5.30.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.8...v5.30.0-dev.9) (2025-07-02)
 
 
