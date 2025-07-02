@@ -218,6 +218,7 @@ You will not be notified of any unexpected events."</string>
 • Breaking news
 • Continue watching
 • Explore more channels
+• Most relevant
 • Shopping
 • Watch it again"</string>
             <string name="revanced_hide_horizontal_shelves_summary_off">Shelves are shown</string>
@@ -226,8 +227,8 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_join_membership_button_title">Hide Join button</string>
             <string name="revanced_hide_join_membership_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_join_membership_button_summary_off">Button is shown</string>
-            <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-            <string name="revanced_hide_for_you_shelf_title">Hide \'For you\' shelf</string>
+            <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_for_you_shelf_title">Hide \'For You\' shelf</string>
             <string name="revanced_hide_for_you_shelf_summary_on">Shelf in channel page is hidden</string>
             <string name="revanced_hide_for_you_shelf_summary_off">Shelf in channel page is shown</string>
             <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
@@ -465,16 +466,16 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
             <string name="revanced_hide_paid_promotion_label_summary_on">Paid promotion label is hidden</string>
             <string name="revanced_hide_paid_promotion_label_summary_off">Paid promotion label is shown</string>
-            <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_view_products_banner_title">Hide \'View products\' banner</string>
-            <string name="revanced_hide_view_products_banner_summary_on">Banner in video overlay is hidden</string>
-            <string name="revanced_hide_view_products_banner_summary_off">Banner in video overlay is shown</string>
             <string name="revanced_hide_self_sponsor_ads_title">Hide self sponsored cards</string>
             <string name="revanced_hide_self_sponsor_ads_summary_on">Self sponsored cards are hidden</string>
             <string name="revanced_hide_self_sponsor_ads_summary_off">Self sponsored cards are shown</string>
             <string name="revanced_hide_tagged_products_title">Hide tagged products</string>
             <string name="revanced_hide_tagged_products_summary_on">Tagged products in video description are hidden</string>
             <string name="revanced_hide_tagged_products_summary_off">Tagged products in video description are shown</string>
+            <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_view_products_banner_title">Hide \'View products\' banner</string>
+            <string name="revanced_hide_view_products_banner_summary_on">Banner in video overlay is hidden</string>
+            <string name="revanced_hide_view_products_banner_summary_off">Banner in video overlay is shown</string>
             <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
             <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
             <string name="revanced_hide_visit_store_button_summary_on">Button in channel page is hidden</string>
