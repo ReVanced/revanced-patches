@@ -26,7 +26,7 @@ final class CommentsFilter extends Filter {
                 "yt_fill_spark_"
         );
 
-        final var channelGuidelines = new StringFilterGroup(
+        var channelGuidelines = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_CHANNEL_GUIDELINES,
                 "channel_guidelines_entry_banner"
         );
@@ -43,7 +43,7 @@ final class CommentsFilter extends Filter {
                 "_comments"
         );
 
-        final var communityGuidelines = new StringFilterGroup(
+        var communityGuidelines = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_COMMUNITY_GUIDELINES,
                 "community_guidelines"
         );
