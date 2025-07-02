@@ -247,6 +247,10 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_ticket_shelf_title">Hide ticket shelf</string>
             <string name="revanced_hide_ticket_shelf_summary_on">Ticket shelf is hidden</string>
             <string name="revanced_hide_ticket_shelf_summary_off">Ticket shelf is shown</string>
+            <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_visit_community_button_title">Hide \'Visit Community\' button</string>
+            <string name="revanced_hide_visit_community_button_summary_on">Button in channel page is hidden</string>
+            <string name="revanced_hide_visit_community_button_summary_off">Button in channel page is shown</string>
             <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
             <string name="revanced_hide_timed_reactions_summary_on">Timed reactions are hidden</string>
             <string name="revanced_hide_timed_reactions_summary_off">Timed reactions are shown</string>

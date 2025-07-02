@@ -40,6 +40,8 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup horizontalShelves;
     private final ByteArrayFilterGroup ticketShelf;
     private final StringFilterGroup chipBar;
+    private final StringFilterGroup channelProfile;
+    private final ByteArrayFilterGroup visitCommunityButton;
 
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
@@ -243,6 +245,17 @@ public final class LayoutComponentsFilter extends Filter {
                 "endorsement_header_footer.eml"
         );
 
+        channelProfile = new StringFilterGroup(
+                Settings.HIDE_VISIT_COMMUNITY_BUTTON,
+                "channel_profile.eml",
+                "page_header.eml"
+        );
+
+        visitCommunityButton = new ByteArrayFilterGroup(
+                null,
+                "community_button"
+        );
+
         horizontalShelves = new StringFilterGroup(
                 Settings.HIDE_HORIZONTAL_SHELVES,
                 "horizontal_video_shelf.eml",
@@ -280,6 +293,7 @@ public final class LayoutComponentsFilter extends Filter {
                 subscriptionsChipBar,
                 chipBar,
                 channelGuidelines,
+                channelProfile,
                 audioTrackButton,
                 artistCard,
                 timedReactions,
@@ -323,6 +337,10 @@ public final class LayoutComponentsFilter extends Filter {
 
         if (matchedGroup == chipBar) {
             return contentIndex == 0 && NavigationButton.getSelectedNavigationButton() == NavigationButton.LIBRARY;
+        }
+
+        if (matchedGroup == channelProfile) {
+            return visitCommunityButton.check(protobufBufferArray).isFiltered();
         }
 
         return true;
