@@ -400,9 +400,9 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Label promosi berbayar disembunyikan</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Label promosi berbayar ditampilkan</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_view_products_banner_title">Sembunyikan banner \'Lihat produk\'</string>
+  <string name="revanced_hide_view_products_banner_title">Sembunyikan spanduk \'Lihat produk\'</string>
   <string name="revanced_hide_view_products_banner_summary_on">Spanduk di hamparan video disembunyikan</string>
-  <string name="revanced_hide_view_products_banner_summary_off">Banner di overlay video ditampilkan</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Spanduk di hamparan video ditampilkan</string>
   <string name="revanced_hide_self_sponsor_ads_title">Sembunyikan kartu bersponsor pribadi</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kartu bersponsor pribadi disembunyikan</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kartu bersponsor pribadi ditampilkan</string>
@@ -962,12 +962,12 @@ Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan s
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Tombol lewati disembunyikan setelah beberapa detik</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Tombol Lewati ditampilkan untuk seluruh segmen</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Durasi tombol Lewati</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Berapa lama tombol sembunyikan otomatis lewati dan lewati ke sorotan ditampilkan</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Berapa lama untuk menampilkan tombol lewati dan lewati ke sorotan sebelum bersembunyi secara otomatis</string>
   <string name="revanced_sb_general_skiptoast">Tampilkan pembatalan pesan timbul lewati</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Pesan timbul ditampilkan saat segmen dilewati secara otomatis. Ketuk notifikasi pesan timbul untuk membatalkan lewati</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Pesan timbul tidak ditampilkan</string>
   <string name="revanced_sb_toast_on_skip_duration">Durasi pesan timbul lewati</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Berapa lama notifikasi pesan timbul lewati ditampilkan</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Berapa lama waktu yang dibutuhkan untuk menampilkan pembatalan pesan timbul </string>
   <string name="revanced_sb_duration_1s">1 detik</string>
   <string name="revanced_sb_duration_2s">2 detik</string>
   <string name="revanced_sb_duration_3s">3 detik</string>

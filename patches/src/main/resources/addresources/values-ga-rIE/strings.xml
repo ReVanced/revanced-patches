@@ -962,12 +962,12 @@ Oibríonn an ghné seo is fearr le caighdeán físeáin 720p nó níos ísle agu
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Folaíonn cnaipe scipeáil tar éis cúpla soicindí</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Taispeántar cnaipe Scipeála don deighleog iomlán</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Fad an chnaipe scipeála</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Cé chomh fada a thaispeántar na cnaipí uathfholaigh scipeála agus scipeála go buaicphointe</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Cá fhad chun na cnaipí scipeála agus scipeála go dtí an aibhsigh a thaispeáint sula bhfolóidh siad go huathoibríoch</string>
   <string name="revanced_sb_general_skiptoast">Taispeáin teast cealaigh scipeála</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Taispeántar teast nuair a scipeáiltear deighleog go huathoibríoch. Tapáil an fógra teast chun an scipeáil a chealú</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Ní thaispeántar an tóstas</string>
   <string name="revanced_sb_toast_on_skip_duration">Fad an tóstais scipeála</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Cé chomh fada a thaispeántar an fógra teast scipeála</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Cá fhad chun an fógra dísciption a thaispeáint</string>
   <string name="revanced_sb_duration_1s">1 soicind</string>
   <string name="revanced_sb_duration_2s">2 soicind</string>
   <string name="revanced_sb_duration_3s">3 soicind</string>

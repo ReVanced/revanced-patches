@@ -962,12 +962,12 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка \"Прапусціць\" скрываецца праз некалькі секунд</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка «Прапусціць» паказана для ўсяго сегмента</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Працягласць кнопкі пропуску</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Як доўга адлюстроўваюцца кнопкі аўтаматычнага хавання прапуску і пераходу да вылучэння</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Як доўга паказваць кнопкі прапусціць і прапусціць да асноўнага моманту перад аўтаматычным схаваннем</string>
   <string name="revanced_sb_general_skiptoast">Паказаць усплываючае паведамленне для адмены прапуску</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Усплываючае паведамленне паказваецца, калі сегмент аўтаматычна прапускаецца. Націсніце на ўсплываючае паведамленне, каб адмяніць прапуск</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Усплывальнае апавяшчэнне не паказваецца</string>
   <string name="revanced_sb_toast_on_skip_duration">Працягласць усплывальнага апавяшчэння пра пропуск</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Як доўга адлюстроўваецца ўсплываючае паведамленне пра прапуск</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Як доўга паказваць паведамленне пра адмену пропуску</string>
   <string name="revanced_sb_duration_1s">1 секунда</string>
   <string name="revanced_sb_duration_2s">2 секунды</string>
   <string name="revanced_sb_duration_3s">3 секунды</string>

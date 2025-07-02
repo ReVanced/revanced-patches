@@ -955,12 +955,12 @@ Diese Funktion funktioniert am besten mit einer Videoqualität von 720p oder nie
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Überspringe Taste verbirgt sich nach ein paar Sekunden</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Die Schaltfläche \"Überspringen\" wird für das gesamte Segment angezeigt</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Dauer des Überspringen-Buttons</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Wie lange die automatisch ausgeblendeten Schaltflächen zum Überspringen und zum Springen zur Markierung angezeigt werden</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Wie lange die Schaltflächen zum Überspringen und zum Hervorheben angezeigt werden sollen, bevor sie automatisch ausgeblendet werden</string>
   <string name="revanced_sb_general_skiptoast">Toast zum Rückgängigmachen des Überspringens anzeigen</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Ein Toast wird angezeigt, wenn ein Segment automatisch übersprungen wird. Tippen Sie auf die Toast-Benachrichtigung, um das Überspringen rückgängig zu machen</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Toast-Nachricht wird nicht angezeigt</string>
   <string name="revanced_sb_toast_on_skip_duration">Dauer der Überspring-Toastmeldung</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Wie lange die Überspringen-Toast-Benachrichtigung angezeigt wird</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Wie lange der Hinweis zum Rückgängigmachen des Überspringens angezeigt werden soll</string>
   <string name="revanced_sb_duration_1s">1 Sekunde</string>
   <string name="revanced_sb_duration_2s">2 Sekunden</string>
   <string name="revanced_sb_duration_3s">3 Sekunden</string>

@@ -969,7 +969,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης όταν ένα τμήμα παραλείπεται αυτόματα. Πατήστε το μήνυμα για αναίρεση της παράλειψης</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης όταν ένα τμήμα παραλείπεται αυτόματα</string>
   <string name="revanced_sb_toast_on_skip_duration">Διάρκεια μηνύματος παράλειψης</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Διάρκεια εμφάνισης μηνύματος παράλειψης</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Διάρκεια εμφάνισης του μηνύματος αναίρεσης παράλειψης</string>
   <string name="revanced_sb_duration_1s">1 δευτερόλεπτο</string>
   <string name="revanced_sb_duration_2s">2 δευτερόλεπτα</string>
   <string name="revanced_sb_duration_3s">3 δευτερόλεπτα</string>

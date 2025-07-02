@@ -963,12 +963,12 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Բաց թողնել կոճակը թաքնվում է մի քանի վայրկյանից հետո</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip կոճակը ցուցադրվում է ամբողջ հատվածի համար</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Բաց թողնելու կոճակի տևողությունը</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Ինչքան ժամանակ են ցուցադրվում ավտոմատ թաքնվող բաց թողնելու և առանձնացված մասին անցնելու կոճակները։</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Որքան ժամանակ ցուցադրել բացթողում և բացթողում՝ ընդգծելու կոճակները մինչև ավտոմատ թաքնվելը</string>
   <string name="revanced_sb_general_skiptoast">Ցուցադրել բաց թողնելը չեղարկելու ծանուցումը։</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Ծանուցում է ցուցադրվում, երբ հատվածն ավտոմատ կերպով բաց է թողնվում։ Հպեք ծանուցմանը՝ բացթողումը չեղարկելու համար</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Ծանուցումը չի ցուցադրվում</string>
   <string name="revanced_sb_toast_on_skip_duration">Բաց թողնելու ծանուցման տևողությունը</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Ինչքան ժամանակ է ցուցադրվում բաց թողնելու ծանուցումը։</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Որքան ժամանակ ցուցադրել բացթողումը հետարկելու ծանուցումը</string>
   <string name="revanced_sb_duration_1s">1 վայրկյան</string>
   <string name="revanced_sb_duration_2s">2 վայրկյան</string>
   <string name="revanced_sb_duration_3s">3 վայրկյան</string>

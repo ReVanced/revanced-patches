@@ -964,12 +964,12 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка пропуска автоматически скрывается через несколько секунд</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка пропуска показывается для всего сегмента</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Длительность кнопки пропуска</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Длительность показа кнопок автоматического скрытия пропуска и перехода к основному моменту</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Длительность показа кнопок пропуска и перехода к основному моменту до автоматического скрытия</string>
   <string name="revanced_sb_general_skiptoast">Показывать уведомление отмены пропуска</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Всплывающее уведомление показано при автоматическом пропуске сегмента. Нажмите на всплывающее уведомление для отмены пропуска</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Всплывающее уведомление скрыто</string>
   <string name="revanced_sb_toast_on_skip_duration">Длительность всплывающего уведомления при пропуске</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Длительность показа всплывающего уведомления при пропуске</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Как долго показывать всплывающее сообщение об отмене пропуска</string>
   <string name="revanced_sb_duration_1s">1 секунда</string>
   <string name="revanced_sb_duration_2s">2 секунды</string>
   <string name="revanced_sb_duration_3s">3 секунды</string>

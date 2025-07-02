@@ -962,12 +962,12 @@ See funktsioon toimib kõige paremini 720p või madalama video kvaliteedi ja vä
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Vahelejätmisnupp peitub mõne sekundi pärast</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Vahelejätmise nupp on kuvatud kogu segmendi jaoks</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Vahelejätnud nupu kestus</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Kui kaua kuvatakse automaatselt peidetud nuppe \"jäta vahele\" ja \"jäta esiletõstmise juurde\"</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Kui kaua näidata vahelejätmise ja esiletõstmise nuppe enne automaatset peitmist</string>
   <string name="revanced_sb_general_skiptoast">Kuva tühista vahelejätmise teavitus (toast)</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Teavitus kuvatakse, kui segment jäetakse automaatselt vahele. Vahelejätmise tühistamiseks puudutage teavitust</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Hüpikut ei kuvata</string>
   <string name="revanced_sb_toast_on_skip_duration">Vahelejätnud hüpiku kestus</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Kui kaua kuvatakse vahelejätmise teavitust (toast)</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Kui kaua näidata vahelejätmise tagasivõtmise hüpikut</string>
   <string name="revanced_sb_duration_1s">1 sekund</string>
   <string name="revanced_sb_duration_2s">2 sekundit</string>
   <string name="revanced_sb_duration_3s">3 sekundit</string>

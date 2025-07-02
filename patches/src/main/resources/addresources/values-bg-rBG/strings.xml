@@ -962,12 +962,12 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Бутона за пропускане се скрива след няколко секунди</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Бутонът \"Пропускане\" е показан за целия сегмент</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Продължителност на бутона за пропускане</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Колко дълго се показват бутоните за автоматично скриване на пропускане и за пропускане до акцент</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Колко дълго да се показват бутоните за пропускане и преминаване към акцент, преди да се скрият автоматично</string>
   <string name="revanced_sb_general_skiptoast">Показване на известие за отмяна на пропускането</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Показва се известие, когато сегмент е автоматично пропуснат. Докоснете известието, за да отмените пропускането</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Изскачащо съобщение не се показва</string>
   <string name="revanced_sb_toast_on_skip_duration">Продължителност на изскачащото съобщение за пропускане</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Колко дълго се показва известието за пропускане</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Колко дълго да се показва известието за отмяна на пропускането</string>
   <string name="revanced_sb_duration_1s">1 секунда</string>
   <string name="revanced_sb_duration_2s">2 секунди</string>
   <string name="revanced_sb_duration_3s">3 секунди</string>
