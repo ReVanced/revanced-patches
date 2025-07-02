@@ -961,12 +961,10 @@ Bu funksiya 720p və ya daha aşağı video keyfiyyəti ilə və çox sürətli 
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Ötürmə düyməsi bir neçə saniyə sonra gizlənir</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Ötürmə düyməsi bütün bölüm ərzində göstərilir</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Ötür düyməsi müddəti</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Avtomatik gizlənən ötür və vurğulama düymələri nə qədər göstərilir</string>
   <string name="revanced_sb_general_skiptoast">Ötürməni geri al bildirişin göstər</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Ani bildiriş bölüm birbaşa ötürüldükdə görünür. Ötürməni geri qaytarmaq üçün bildirişə toxun</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Ani bildiriş görünmür</string>
   <string name="revanced_sb_toast_on_skip_duration">Ötür ani bildiriş müddəti</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Ötürmə ani bildirişi nə qədər göstərilir</string>
   <string name="revanced_sb_duration_1s">1 saniyə</string>
   <string name="revanced_sb_duration_2s">2 saniyə</string>
   <string name="revanced_sb_duration_3s">3 saniyə</string>

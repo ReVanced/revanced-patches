@@ -962,12 +962,12 @@ Ova funkcija najbolje radi sa kvalitetom videa od 720p ili nižim i kada koristi
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Dugme za preskakanje će biti skriveno nakon nekoliko sekundi</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Dugme za preskakanje je prikazano za ceo segment</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Trajanje dugmeta za preskakanje</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Koliko dugo se prikazuju dugmad za automatsko skrivanje preskakanja i preskakanje do isticanja</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Koliko dugo prikazivati dugmad za preskakanje i preskakanje do isticanja pre automatskog skrivanja</string>
   <string name="revanced_sb_general_skiptoast">Prikaži iskačuće obaveštenje o poništavanju preskakanja</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Iskačuće obaveštenje se prikazuje, kada se segment automatski preskoči. Dodirnite iskačuće obaveštenje da biste poništili preskakanje</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Iskačuće obaveštenje se ne prikazuje</string>
   <string name="revanced_sb_toast_on_skip_duration">Trajanje iskačućeg obaveštenja pri preskakanju</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Koliko dugo se prikazuje iskačuće obaveštenje o preskakanju</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Koliko dugo prikazivati poruku za opoziv preskakanja</string>
   <string name="revanced_sb_duration_1s">1 sekunda</string>
   <string name="revanced_sb_duration_2s">2 sekunde</string>
   <string name="revanced_sb_duration_3s">3 sekunde</string>

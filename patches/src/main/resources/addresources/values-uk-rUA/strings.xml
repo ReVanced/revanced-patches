@@ -963,12 +963,10 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка пропуску автоматично приховується після декількох секунд</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка пропуску показується для всього сегменту</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Тривалість кнопки пропуску</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Як довго показуються кнопки автоматичного пропуску та переходу до основного моменту</string>
   <string name="revanced_sb_general_skiptoast">Показувати тост скасування пропуску</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Тост показується, коли сегмент автоматично пропускається. Натисніть на нього, щоб скасувати пропуск</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Тост не показується</string>
   <string name="revanced_sb_toast_on_skip_duration">Тривалість тосту пропуску</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Як довго показується тост про пропуск</string>
   <string name="revanced_sb_duration_1s">1 секунда</string>
   <string name="revanced_sb_duration_2s">2 секунди</string>
   <string name="revanced_sb_duration_3s">3 секунди</string>

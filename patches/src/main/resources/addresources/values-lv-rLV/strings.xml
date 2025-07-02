@@ -964,12 +964,12 @@ Laika skalas miniatūras izmantos tādu pašu kvalitāti kā pašreizējais vide
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Izlaides poga paslēpjas pēc dažām sekundēm</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Poga Izlaist ir redzama visam segmentam</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Izlaišanas pogas ilgums</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Cik ilgi tiek rādītas automātiskās paslēpšanas izlaišanas un pārejas uz izcēlumu pogas</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Cik ilgi rādīt pogas \"Izlaist\" un \"Izlaist uz izcelt\", pirms tās automātiski paslēpjas</string>
   <string name="revanced_sb_general_skiptoast">Rādīt atsaukt izlaišanas paziņojumu</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Paziņojums tiek rādīts, kad segments tiek automātiski izlaists. Pieskarieties paziņojumam, lai atsauktu izlaišanu</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Paziņojums netiek rādīts</string>
   <string name="revanced_sb_toast_on_skip_duration">Izlaišanas paziņojuma ilgums</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Cik ilgi tiek rādīts izlaišanas paziņojums</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Cik ilgi rādīt paziņojumu par izlaišanas atcelšanu</string>
   <string name="revanced_sb_duration_1s">1 sekunde</string>
   <string name="revanced_sb_duration_2s">2 sekundes</string>
   <string name="revanced_sb_duration_3s">3 sekundes</string>

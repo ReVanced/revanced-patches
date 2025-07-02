@@ -962,12 +962,12 @@ Tính năng này hoạt động tốt nhất với chất lg video là 720p tr�
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Pular botão esconde após alguns segundos</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">O botão \"Ignorar\" é mostrado para todo o segmento</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Duração do botão de pular</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Por quanto tempo os botões de ocultar automaticamente pular e pular para destacar são exibidos</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Quanto tempo para mostrar os botões de pular e pular para destaque antes de ocultar automaticamente</string>
   <string name="revanced_sb_general_skiptoast">Mostrar notificação de desfazer pular</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Uma notificação é exibida quando um segmento é pulado automaticamente. Toque na notificação para desfazer o pulo</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Notificação não é exibida</string>
   <string name="revanced_sb_toast_on_skip_duration">Duração da notificação de pular</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Por quanto tempo a notificação de pular é exibida</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Quanto tempo para mostrar o aviso de desfazer pular</string>
   <string name="revanced_sb_duration_1s">1 segundo</string>
   <string name="revanced_sb_duration_2s">2 segundos</string>
   <string name="revanced_sb_duration_3s">3 segundos</string>

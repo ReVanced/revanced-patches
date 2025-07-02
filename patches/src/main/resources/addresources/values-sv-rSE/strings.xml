@@ -962,12 +962,12 @@ Den här funktionen fungerar bäst med en videokvalitet på 720p eller lägre oc
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Hoppa över-knappen döljs efter några sekunder</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Hoppa över-knappen visas för hela segmentet</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Varaktighet för Hoppa över-knappen</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Hur länge knapparna för automatisk döljning av överhoppning och hoppa till markering visas</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Hur länge knappen för att hoppa över och hoppa till höjdpunkt ska visas innan den döljs automatiskt</string>
   <string name="revanced_sb_general_skiptoast">Visa toastmeddelande för ångra överhoppning</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Meddelande visas när ett segment hoppas över automatiskt. Tryck på toastmeddelandet för att ångra överhoppningen</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Toastmeddelande visas inte</string>
   <string name="revanced_sb_toast_on_skip_duration">Varaktighet för överhoppningstoastmeddelande</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Hur länge toastmeddelandet för överhoppning visas</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Hur länge toast-meddelandet för ångra överhoppning ska visas</string>
   <string name="revanced_sb_duration_1s">1 sekund</string>
   <string name="revanced_sb_duration_2s">2 sekunder</string>
   <string name="revanced_sb_duration_3s">3 sekunder</string>
