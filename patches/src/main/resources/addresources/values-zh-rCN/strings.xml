@@ -963,10 +963,12 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">跳过按钮在几秒后隐藏</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">整个片段都会显示“跳过”按钮</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">跳过按钮时长</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">自动隐藏跳过和跳转到精彩片段按钮的显示时长</string>
   <string name="revanced_sb_general_skiptoast">显示撤销跳过浮层提示</string>
   <string name="revanced_sb_general_skiptoast_sum_on">当片段被自动跳过时会显示浮层提示。轻触浮层提示通知以撤销跳过</string>
   <string name="revanced_sb_general_skiptoast_sum_off">提示未显示</string>
   <string name="revanced_sb_toast_on_skip_duration">跳过提示时长</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">跳过浮层提示通知的显示时长</string>
   <string name="revanced_sb_duration_1s">1 秒</string>
   <string name="revanced_sb_duration_2s">2 秒</string>
   <string name="revanced_sb_duration_3s">3 秒</string>
