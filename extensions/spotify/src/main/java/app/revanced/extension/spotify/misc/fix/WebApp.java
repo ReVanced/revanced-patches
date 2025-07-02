@@ -82,7 +82,12 @@ class WebApp {
 
                         getSessionLatch.countDown();
                         dialog.dismiss();
-                        nativeLoginHandler.login();
+
+                        try {
+                            nativeLoginHandler.login();
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "nativeLoginHandler failure", ex);
+                        }
                     }
                 });
 

@@ -47,12 +47,8 @@ public class SpoofClientPatch {
      */
     public static void setNativeLoginHandler(View startLoginButton) {
         WebApp.nativeLoginHandler = (() -> {
-            try {
-                startLoginButton.setSoundEffectsEnabled(false);
-                startLoginButton.performClick();
-            } catch (Exception ex) {
-                Logger.printException(() -> "nativeLoginHandler failure", ex);
-            }
+            startLoginButton.setSoundEffectsEnabled(false);
+            startLoginButton.performClick();
         });
     }
 }
