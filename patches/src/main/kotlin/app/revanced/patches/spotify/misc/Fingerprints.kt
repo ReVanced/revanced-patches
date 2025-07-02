@@ -57,7 +57,6 @@ internal val oldContextMenuViewModelAddItemFingerprint = fingerprint {
 
 internal val contextMenuViewModelConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("L", "Z", "Ljava/util/List;")
 }
 
 /**
@@ -67,7 +66,7 @@ internal val browsePodcastsContextMenuItemClassFingerprint = fingerprint {
     strings("browse_podcast_item", "ui_navigate")
 }
 
-internal const val CONTEXT_MENU_ITEM_PLACEHOLDER_CLASS_NAME = "Lapp/revanced/ContextMenuItemPlaceholder;"
+internal const val CONTEXT_MENU_ITEM_CLASS_DESCRIPTOR_PLACEHOLDER = "Lapp/revanced/ContextMenuItemPlaceholder;"
 internal val extensionFilterContextMenuItemsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/util/List;")
@@ -134,7 +133,7 @@ internal val homeStructureGetSectionsFingerprint =
     structureGetSectionsFingerprint("homeapi/proto/HomeStructure;")
 
 internal val browseSectionFingerprint = fingerprint {
-    custom { _, classDef -> classDef.endsWith("browsita/v1/resolved/Section;") }
+    custom { _, classDef-> classDef.endsWith("browsita/v1/resolved/Section;") }
 }
 
 internal val browseStructureGetSectionsFingerprint =
