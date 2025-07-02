@@ -1,6 +1,7 @@
 package app.revanced.extension.spotify.misc.fix;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
@@ -37,5 +38,17 @@ public class SpoofClientPatch {
         } catch (Exception ex) {
             Logger.printException(() -> "launchLogin failure", ex);
         }
+    }
+
+    /**
+     * Injection point.
+     * <br>
+     * Set handler to call the native login after the webview login.
+     */
+    public static void setNativeLoginHandler(View startLoginButton) {
+        WebApp.nativeLoginHandler = (() -> {
+            startLoginButton.setSoundEffectsEnabled(false);
+            startLoginButton.performClick();
+        });
     }
 }

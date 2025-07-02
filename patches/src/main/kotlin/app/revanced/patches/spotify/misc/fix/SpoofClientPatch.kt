@@ -9,11 +9,9 @@ import app.revanced.patcher.patch.intOption
 import app.revanced.patches.shared.misc.hex.HexPatchBuilder
 import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import app.revanced.util.returnEarly
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -119,11 +117,71 @@ val spoofClientPatch = bytecodePatch(
 
             addInstructions(
                 0,
+                "invoke-static/range { p1 .. p1 }, $openLoginWebViewDescriptor"
+            )
+        }
+
+        renderStartLoginScreenFingerprint.method.apply {
+            val onEventIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "getView"
+            }
+
+            val buttonRegister = getInstruction<OneRegisterInstruction>(onEventIndex + 1).registerA
+
+            addInstruction(
+                onEventIndex + 2,
+                "invoke-static { v$buttonRegister }, $EXTENSION_CLASS_DESCRIPTOR->setNativeLoginHandler(Landroid/view/View;)V"
+            )
+        }
+
+        renderSecondLoginScreenFingerprint.method.apply {
+            val getViewIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "getView"
+            }
+
+            val buttonRegister = getInstruction<OneRegisterInstruction>(getViewIndex + 1).registerA
+
+            // Early return the render for loop since the first item of the loop is the login button.
+            addInstructions(
+                getViewIndex + 2,
                 """
-                    invoke-static/range { p1 .. p1 }, $openLoginWebViewDescriptor
+                    invoke-virtual { v$buttonRegister }, Landroid/view/View;->performClick()Z
+                    return-void
                 """
             )
         }
+
+        renderThirdLoginScreenFingerprint.method.apply {
+            val invokeSetListenerIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.definingClass == "Landroid/view/View;" && reference.name == "setOnClickListener"
+            }
+
+            val buttonRegister = getInstruction<FiveRegisterInstruction>(invokeSetListenerIndex).registerC
+
+            addInstruction(
+                invokeSetListenerIndex + 1,
+                "invoke-virtual { v$buttonRegister }, Landroid/view/View;->performClick()Z"
+            )
+        }
+
+        thirdLoginScreenLoginOnClickFingerprint.method.apply {
+            // Use placeholder credentials to pass the login screen.
+            val loginActionIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID) - 1
+            val loginActionInstruction = getInstruction<FiveRegisterInstruction>(loginActionIndex)
+
+            addInstructions(
+                loginActionIndex,
+                """
+                    const-string v${loginActionInstruction.registerD}, "placeholder"
+                    const-string v${loginActionInstruction.registerE}, "placeholder"
+                """
+            )
+        }
+
+        // endregion
+
+        // region Disable verdicts.
 
         // Early return to block sending bad verdicts to the API.
         runIntegrityVerificationFingerprint.method.returnEarly()

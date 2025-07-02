@@ -37,17 +37,22 @@ class WebApp {
     static volatile Session currentSession = null;
 
     /**
-     * Current webview in use.  Any use of the object must be done on the main thread.
+     * Current webview in use. Any use of the object must be done on the main thread.
      */
     @SuppressLint("StaticFieldLeak")
     private static volatile WebView currentWebView;
+
+    interface NativeLoginHandler {
+        void login();
+    }
+
+    static NativeLoginHandler nativeLoginHandler;
 
     static void launchLogin(Context context) {
         final Dialog dialog = newDialog(context);
 
         Utils.runOnBackgroundThread(() -> {
             Logger.printInfo(() -> "Launching login");
-
 
             // A session must be obtained from a login. Repeat until a session is acquired.
             boolean isAcquired = false;
@@ -77,6 +82,12 @@ class WebApp {
 
                         getSessionLatch.countDown();
                         dialog.dismiss();
+
+                        try {
+                            nativeLoginHandler.login();
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "nativeLoginHandler failure", ex);
+                        }
                     }
                 });
 
