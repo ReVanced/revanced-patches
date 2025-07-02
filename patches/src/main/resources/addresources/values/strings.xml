@@ -297,6 +297,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_channel_bar_title">Hide channel bar</string>
             <string name="revanced_hide_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_channel_bar_summary_off">Channel bar is shown</string>
+            <string name="revanced_hide_channel_links_preview_title">Hide channel links preview</string>
+            <string name="revanced_hide_channel_links_preview_summary_on">Links preview in channel page is hidden</string>
+            <string name="revanced_hide_channel_links_preview_summary_off">Links preview in channel page is shown</string>
             <string name="revanced_hide_playables_title">Hide Playables</string>
             <string name="revanced_hide_playables_summary_on">Playables are hidden</string>
             <string name="revanced_hide_playables_summary_off">Playables are shown</string>
@@ -309,9 +312,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_image_shelf_title">Hide image shelf in search results</string>
             <string name="revanced_hide_image_shelf_summary_on">Image shelf is hidden</string>
             <string name="revanced_hide_image_shelf_summary_off">Image shelf is shown</string>
-            <string name="revanced_hide_latest_posts_ads_title">Hide latest posts</string>
-            <string name="revanced_hide_latest_posts_ads_summary_on">Latest posts are hidden</string>
-            <string name="revanced_hide_latest_posts_ads_summary_off">Latest posts are shown</string>
+            <string name="revanced_hide_latest_posts_title">Hide latest posts</string>
+            <string name="revanced_hide_latest_posts_summary_on">Latest posts are hidden</string>
+            <string name="revanced_hide_latest_posts_summary_off">Latest posts are shown</string>
             <string name="revanced_hide_mix_playlists_title">Hide mix playlists</string>
             <string name="revanced_hide_mix_playlists_summary_on">Mix playlists are hidden</string>
             <string name="revanced_hide_mix_playlists_summary_off">Mix playlists are shown</string>

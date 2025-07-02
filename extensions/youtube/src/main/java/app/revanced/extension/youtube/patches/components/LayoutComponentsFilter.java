@@ -141,13 +141,18 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         final var latestPosts = new StringFilterGroup(
-                Settings.HIDE_HIDE_LATEST_POSTS,
+                Settings.HIDE_LATEST_POSTS,
                 "post_shelf"
         );
 
         final var channelGuidelines = new StringFilterGroup(
-                Settings.HIDE_HIDE_CHANNEL_GUIDELINES,
+                Settings.HIDE_CHANNEL_GUIDELINES,
                 "channel_guidelines_entry_banner"
+        );
+
+        final var channelLinksPreview = new StringFilterGroup(
+                Settings.HIDE_CHANNEL_LINKS_PREVIEW,
+                "attribution.eml"
         );
 
         final var emergencyBox = new StringFilterGroup(
@@ -202,7 +207,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "image_shelf"
         );
 
-
         final var timedReactions = new StringFilterGroup(
                 Settings.HIDE_TIMED_REACTIONS,
                 "emoji_control_panel",
@@ -228,7 +232,6 @@ public final class LayoutComponentsFilter extends Filter {
                 null,
                 "sponsorships"
         );
-
 
         final var channelWatermark = new StringFilterGroup(
                 Settings.HIDE_VIDEO_CHANNEL_WATERMARK,
@@ -293,6 +296,7 @@ public final class LayoutComponentsFilter extends Filter {
                 subscriptionsChipBar,
                 chipBar,
                 channelGuidelines,
+                channelLinksPreview,
                 channelProfile,
                 audioTrackButton,
                 artistCard,
