@@ -444,9 +444,9 @@ Limitations
             <string name="revanced_hide_keyword_toast_invalid_broad">Keyword will hide all videos: %s</string>
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <string name="revanced_hide_creator_store_shelves_title">Hide creator store shelves</string>
-            <string name="revanced_hide_creator_store_shelves_summary_on">Store shelves below the player and in video description are hidden</string>
-            <string name="revanced_hide_creator_store_shelves_summary_off">Store shelves below the player and in video description are shown</string>
+            <string name="revanced_hide_creator_store_shelf_title">Hide creator store shelf</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">Store shelf below the player is hidden</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">Store shelf below the player is shown</string>
             <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
             <string name="revanced_hide_end_screen_store_banner_summary_on">Store banner is hidden</string>
             <string name="revanced_hide_end_screen_store_banner_summary_off">Store banner is shown</string>
@@ -469,9 +469,9 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_self_sponsor_ads_title">Hide self sponsored cards</string>
             <string name="revanced_hide_self_sponsor_ads_summary_on">Self sponsored cards are hidden</string>
             <string name="revanced_hide_self_sponsor_ads_summary_off">Self sponsored cards are shown</string>
-            <string name="revanced_hide_tagged_products_title">Hide tagged products</string>
-            <string name="revanced_hide_tagged_products_summary_on">Tagged products in video description are hidden</string>
-            <string name="revanced_hide_tagged_products_summary_off">Tagged products in video description are shown</string>
+            <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
+            <string name="revanced_hide_shopping_links_summary_on">Links in the video description are hidden</string>
+            <string name="revanced_hide_shopping_links_summary_off">Links in the video description are shown</string>
             <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
             <string name="revanced_hide_view_products_banner_title">Hide \'View products\' banner</string>
             <string name="revanced_hide_view_products_banner_summary_on">Banner in video overlay is hidden</string>

@@ -37,8 +37,6 @@ public final class AdsFilter extends Filter {
     private final StringFilterGroup channelProfile;
     private final ByteArrayFilterGroup visitStoreButton;
 
-    private final StringFilterGroup shoppingLinks;
-
     public AdsFilter() {
         exceptions.addPatterns(
                 "home_video_with_context", // Don't filter anything in the home page video component.
@@ -113,18 +111,13 @@ public final class AdsFilter extends Filter {
                 "shopping_overlay.eml" // Video player overlay shopping links.
         );
 
-        shoppingLinks = new StringFilterGroup(
-                Settings.HIDE_TAGGED_PRODUCTS,
-                "expandable_list"
-        );
-
-        final var storeProductsShelf = new StringFilterGroup(
-                Settings.HIDE_CREATOR_STORE_SHELVES,
+        final var shoppingLinks = new StringFilterGroup(
+                Settings.HIDE_SHOPPING_LINKS,
                 "shopping_description_shelf.eml"
         );
 
         playerShoppingShelf = new StringFilterGroup(
-                Settings.HIDE_CREATOR_STORE_SHELVES,
+                Settings.HIDE_CREATOR_STORE_SHELF,
                 "horizontal_shelf.eml"
         );
 
@@ -169,7 +162,6 @@ public final class AdsFilter extends Filter {
                 playerShoppingShelf,
                 selfSponsor,
                 shoppingLinks,
-                storeProductsShelf,
                 viewProducts,
                 webLinkPanel
         );
@@ -180,11 +172,6 @@ public final class AdsFilter extends Filter {
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == playerShoppingShelf) {
             return contentIndex == 0 && playerShoppingShelfBuffer.check(protobufBufferArray).isFiltered();
-        }
-
-        // Check for the index because of likelihood of false positives.
-        if (contentIndex != 0 && matchedGroup == shoppingLinks) {
-            return false;
         }
 
         if (exceptions.matches(path)) {

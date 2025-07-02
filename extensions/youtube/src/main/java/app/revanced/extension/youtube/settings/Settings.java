@@ -74,7 +74,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("revanced_force_original_audio", FALSE, new ForceOriginalAudioAvailability());
 
     // Ads
-    public static final BooleanSetting HIDE_CREATOR_STORE_SHELVES = new BooleanSetting("revanced_hide_creator_store_shelves", TRUE);
+    public static final BooleanSetting HIDE_CREATOR_STORE_SHELF = new BooleanSetting("revanced_hide_creator_store_shelf", TRUE);
     public static final BooleanSetting HIDE_END_SCREEN_STORE_BANNER = new BooleanSetting("revanced_hide_end_screen_store_banner", TRUE, true);
     public static final BooleanSetting HIDE_FULLSCREEN_ADS = new BooleanSetting("revanced_hide_fullscreen_ads", TRUE);
     public static final BooleanSetting HIDE_GENERAL_ADS = new BooleanSetting("revanced_hide_general_ads", TRUE);
@@ -83,7 +83,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_MERCHANDISE_BANNERS = new BooleanSetting("revanced_hide_merchandise_banners", TRUE);
     public static final BooleanSetting HIDE_PAID_PROMOTION_LABEL = new BooleanSetting("revanced_hide_paid_promotion_label", TRUE);
     public static final BooleanSetting HIDE_SELF_SPONSOR = new BooleanSetting("revanced_hide_self_sponsor_ads", TRUE);
-    public static final BooleanSetting HIDE_TAGGED_PRODUCTS = new BooleanSetting("revanced_hide_tagged_products", TRUE);
+    public static final BooleanSetting HIDE_SHOPPING_LINKS = new BooleanSetting("revanced_hide_shopping_links", TRUE);
     public static final BooleanSetting HIDE_VIDEO_ADS = new BooleanSetting("revanced_hide_video_ads", TRUE, true);
     public static final BooleanSetting HIDE_VIEW_PRODUCTS_BANNER = new BooleanSetting("revanced_hide_view_products_banner", TRUE);
     public static final BooleanSetting HIDE_VISIT_STORE_BUTTON = new BooleanSetting("revanced_hide_visit_store_button", TRUE);
