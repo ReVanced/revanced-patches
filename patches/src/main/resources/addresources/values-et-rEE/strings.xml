@@ -285,10 +285,13 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_description_components_screen_title">Video kirjeldus</string>
   <string name="revanced_hide_description_components_screen_summary">Peida videokirjelduse komponendid või kuva need</string>
   <string name="revanced_hide_filter_bar_screen_title">Filtriseriba</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Peida või näita filtripaneeli voos, otsingutulemustes ja seotud videotes</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Peida söötes</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Peidetud söötes</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Näidatud söötes</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Peida või näita filtririba voogudes, ajaloos, otsingutulemustes ja seotud videotes</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Peida voogudes</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Peidetud voogudes</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Näidatud voogudes</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Peida ajaloos</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Peidetud ajaloos</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Näidatud ajaloos</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Peida otsingutulemustes</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Peidetud otsingutulemustes</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Kuvatakse otsingutulemustes</string>
@@ -312,15 +315,15 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Peida nupp \"Loo lühis\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Nupp Loo lühivideo on peidetud</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Nupp Loo lühivideo on kuvatud</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Peida ajatempli nupp</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Ajatempli nupp on peidetud</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Ajatempli nupp on nähtav</string>
   <string name="revanced_hide_comments_preview_comment_title">Peida eelvaate kommentaar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Eelvaate kommentaar on peidetud</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Eelvaate kommentaar on kuvatud</string>
   <string name="revanced_hide_comments_thanks_button_title">Peida tänunupp</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tänu nupp on peidetud</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tänu nupp on kuvatud</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Peida ajatempli nupp</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Ajatempli nupp on peidetud</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Ajatempli nupp on nähtav</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Peida YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Otsinguriba Doodled on peidetud</string>
@@ -374,32 +377,38 @@ Piirangud
   <string name="revanced_hide_keyword_toast_invalid_broad">Võti sõna: %s peidab kõik videod</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Peida üldine reklaamid</string>
-  <string name="revanced_hide_general_ads_summary_on">Üldine reklaamid on peidetud</string>
-  <string name="revanced_hide_general_ads_summary_off">Üldreklaamid kuvatakse</string>
+  <string name="revanced_hide_creator_store_shelves_title">Peida looja poeriiulid</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Mängija all ja videokirjelduses olevad poeriiulid on peidetud</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Poeriiulid mängija all ja videokirjelduses on näha</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Peida lõpuekraani poe bänner</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Poebanner on peidetud</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Poebanner on nähtav</string>
   <string name="revanced_hide_fullscreen_ads_title">Peida täisekraanireklaamid</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Täisekraani reklaamid on peidetud
 
 See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Täisekraanireklaamid kuvatakse</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Terveekraanireklaamide peitmine toimib ainult vanemate seadmetega</string>
+  <string name="revanced_hide_general_ads_title">Peida üldine reklaamid</string>
+  <string name="revanced_hide_general_ads_summary_on">Üldine reklaamid on peidetud</string>
+  <string name="revanced_hide_general_ads_summary_off">Üldreklaamid kuvatakse</string>
+  <string name="revanced_hide_merchandise_banners_title">Peida reklaamipõhjad</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Reklaamipõhjad on peidetud</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Reklaamipõhjad on nähtavad</string>
   <string name="revanced_hide_paid_promotion_label_title">Peida makstud edendamise silt</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Makstud edendamise silt on peidus</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Makstud edendamise silt on näidatud</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Peida bänner \"Vaata tooteid\"</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Video ülekatte bänner on peidetud</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Bänner videokatte all on näha</string>
   <string name="revanced_hide_self_sponsor_ads_title">Peida ise-sponsoritud kaardid</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Ise-sponsoritud kaardid on peidus</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Ise-sponsoritud kaardid on näidatud</string>
-  <string name="revanced_hide_products_banner_title">Peida bänner „Vaata tooteid“</string>
-  <string name="revanced_hide_products_banner_summary_on">Bänner on peidetud</string>
-  <string name="revanced_hide_products_banner_summary_off">Bänner on nähtav</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Peida lõpuekraani poe bänner</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Poebanner on peidetud</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Poebanner on nähtav</string>
-  <string name="revanced_hide_player_store_shelf_title">Peida poes ostukorvi riiul</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Ostukorvi riiul on peidetud</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Ostukorvi riiul on nähtav</string>
-  <string name="revanced_hide_shopping_links_title">Peida ostulinkid video kirjelduses</string>
-  <string name="revanced_hide_shopping_links_summary_on">Ostulinkid video kirjelduses on peidetud</string>
-  <string name="revanced_hide_shopping_links_summary_off">Ostulinkid video kirjelduses on kuvatud</string>
+  <string name="revanced_hide_tagged_products_title">Peida märgistatud tooted</string>
+  <string name="revanced_hide_tagged_products_summary_on">Videokirjelduses olevad märgistatud tooted on peidetud</string>
+  <string name="revanced_hide_tagged_products_summary_off">Märgistatud tooted videokirjelduses on näha</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Peida kanali lehelt nuppu \"Külasta poodi\"</string>
   <string name="revanced_hide_visit_store_button_summary_on">Nupp kanali lehel on peidetud</string>
@@ -407,11 +416,6 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_hide_web_search_results_title">Peida veebiotsingu tulemused</string>
   <string name="revanced_hide_web_search_results_summary_on">Veebiotsingu tulemused on peidetud</string>
   <string name="revanced_hide_web_search_results_summary_off">Veebiotsingu tulemused on nähtavad</string>
-  <string name="revanced_hide_merchandise_banners_title">Peida reklaamipõhjad</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Reklaamipõhjad on peidetud</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Reklaamipõhjad on nähtavad</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Terveekraanireklaamide peitmine toimib ainult vanemate seadmetega</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Peida YouTube Premiumi reklaamid</string>
@@ -486,6 +490,7 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Luba automaatse heleduse žest</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Pühkige alla heleduse žesti madalaima väärtuseni, et lubada automaatne heleduse</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Pühkimine alla madalaima väärtuseni ei luba automaatset heleduse</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automaatne</string>
   <string name="revanced_swipe_overlay_timeout_title">Pühkimise katte aegumisaeg</string>
   <string name="revanced_swipe_overlay_timeout_summary">Katte näitamise millisekundite arv</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Pühkiva katte tausta läbipaistvus</string>
@@ -822,7 +827,7 @@ Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ vä
   <string name="revanced_hide_shorts_sound_metadata_label_title">Peida heli metaandmete silt</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Metaandmete silt on peidetud</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Metaandmete silt on nähtav</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Peida täispika video lingi silt</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Peida videolingi silt</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Video lingi silt on peidetud</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Video lingi silt on nähtav</string>
   <string name="revanced_hide_shorts_sound_button_title">Peida heli nupp</string>
@@ -956,11 +961,25 @@ See funktsioon toimib kõige paremini 720p või madalama video kvaliteedi ja vä
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Peida vahelejätmisnupp automaatselt</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Vahelejätmisnupp peitub mõne sekundi pärast</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Vahelejätmise nupp on kuvatud kogu segmendi jaoks</string>
-  <string name="revanced_sb_general_skiptoast">Näita toast teadet vahelejätmisel</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Teatis näidatakse, kui segment vahele jäetakse automaatselt. Puuduta siia, et näha näidet</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Teatist ei näidata. Puuduta siia, et näha näidet</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">Vahelejätnud nupu kestus</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Kui kaua näidata vahelejätmise ja esiletõstmise nuppe enne automaatset peitmist</string>
+  <string name="revanced_sb_general_skiptoast">Kuva tühista vahelejätmise teavitus (toast)</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Teavitus kuvatakse, kui segment jäetakse automaatselt vahele. Vahelejätmise tühistamiseks puudutage teavitust</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Hüpikut ei kuvata</string>
+  <string name="revanced_sb_toast_on_skip_duration">Vahelejätnud hüpiku kestus</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Kui kaua näidata vahelejätmise tagasivõtmise hüpikut</string>
+  <string name="revanced_sb_duration_1s">1 sekund</string>
+  <string name="revanced_sb_duration_2s">2 sekundit</string>
+  <string name="revanced_sb_duration_3s">3 sekundit</string>
+  <string name="revanced_sb_duration_4s">4 sekundit</string>
+  <string name="revanced_sb_duration_5s">5 sekundit</string>
+  <string name="revanced_sb_duration_6s">6 sekundit</string>
+  <string name="revanced_sb_duration_7s">7 sekundit</string>
+  <string name="revanced_sb_duration_8s">8 sekundit</string>
+  <string name="revanced_sb_duration_9s">9 sekundit</string>
+  <string name="revanced_sb_duration_10s">10 sekundit</string>
   <string name="revanced_sb_general_time_without">Näita video pikkust ilma segmentideta</string>
-  <string name="revanced_sb_general_time_without_sum_on">Video pikkus miinus kõik segmendid, kuvatakse sulgudes täispika video pikkuse kõrval</string>
+  <string name="revanced_sb_general_time_without_sum_on">Video pikkus miinus kõik segmendid kuvatakse edenemisribal</string>
   <string name="revanced_sb_general_time_without_sum_off">Näidatakse täispikk video pikkust</string>
   <string name="revanced_sb_create_segment_category">Uute segmentide loomine</string>
   <string name="revanced_sb_enable_create_segment">Näita Uue segmendi loomise nuppu</string>
@@ -1182,6 +1201,7 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <string name="revanced_change_start_page_entry_notifications">Teatised</string>
   <string name="revanced_change_start_page_entry_playlists">Esitusloendid</string>
   <string name="revanced_change_start_page_entry_search">Otsi</string>
+  <string name="revanced_change_start_page_entry_shopping">Ostlemine</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Tellimused</string>
   <string name="revanced_change_start_page_entry_trending">Trendikas</string>
@@ -1409,6 +1429,7 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_shorts_quality_default_wifi_title">Vaikimisi [Shorts] kvaliteet WiFi võrgus</string>
   <string name="revanced_shorts_quality_default_mobile_title">Vaikimisi [Shorts] kvaliteet mobiilivõrgus</string>
   <string name="revanced_remember_video_quality_mobile">mobiil</string>
+  <string name="revanced_remember_video_quality_wifi">WiFi</string>
   <string name="revanced_remember_video_quality_toast">Vaikimisi %1$s kvaliteet muudeti: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Muudetud Shorts %1$s kvaliteet: %2$s</string>
   </patch>

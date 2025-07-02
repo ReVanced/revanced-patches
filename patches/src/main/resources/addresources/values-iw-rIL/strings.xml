@@ -285,10 +285,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">תיאור סרטון</string>
   <string name="revanced_hide_description_components_screen_summary">הסתר או הצג רכיבי תיאור סרטון</string>
   <string name="revanced_hide_filter_bar_screen_title">סרגל סינון</string>
-  <string name="revanced_hide_filter_bar_screen_summary">הסתר או הצג את סרגל הסינון בפיד, תוצאות חיפוש, וסרטונים קשורים</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">הסתר בפיד</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">מוסתר בפיד</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">מוצג בפיד</string>
+  <string name="revanced_hide_filter_bar_screen_summary">הסתר או הצג את סרגל הסינון בפידים, היסטוריה, תוצאות חיפוש, וסרטונים קשורים</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">הסתר בפידים</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">מוסתר בפידים</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">מוצג בפידים</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">הסתר בהיסטוריה</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">מוסתר בהיסטוריה</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">מוצג בהיסטוריה</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">הסתר בתוצאות חיפוש</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">מוסתר בתוצאות חיפוש</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">מוצג בתוצאות חיפוש</string>
@@ -312,15 +315,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">הסתר לחצן \'יצירת Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">לחצן יצירת Short מוסתר</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">לחצן יצירת Short מוצג</string>
-  <string name="revanced_hide_comments_timestamp_button_title">הסתר לחצן חותם זמן</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">לחצן חותם זמן מוסתר</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">לחצן חותם זמן מוצג</string>
   <string name="revanced_hide_comments_preview_comment_title">הסתר תצוגה מקדימה של תגובה</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">תצוגה מקדימה של תגובה מוסתרת</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">תצוגה מקדימה של תגובה מוצגת</string>
   <string name="revanced_hide_comments_thanks_button_title">הסתר לחצן תודה</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">לחצן תודה מוסתר</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">לחצן תודה מוצג</string>
+  <string name="revanced_hide_comments_timestamp_button_title">הסתר לחצן חותם זמן</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">לחצן חותם זמן מוסתר</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">לחצן חותם זמן מוצג</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">הסתר YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">שרבוטים (Doodles) של סרגל חיפוש מוסתרים</string>
@@ -374,32 +377,38 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">מילת מפתח תסתיר את כל הסרטונים: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">הסתר מודעות כלליות</string>
-  <string name="revanced_hide_general_ads_summary_on">מודעות כלליות מוסתרות</string>
-  <string name="revanced_hide_general_ads_summary_off">מודעות כלליות מוצגות</string>
+  <string name="revanced_hide_creator_store_shelves_title">הסתר מדפי חנות של יוצר</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">מדפי החנות מתחת לנגן ובתיאור הסרטון מוסתרים</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">מדפי חנות מתחת לנגן ובתאור הסרטון מוצגים</string>
+  <string name="revanced_hide_end_screen_store_banner_title">הסתר כרזת חנות של מסך סיום</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">כרזת חנות מוסתרת</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">כרזת חנות מוצגת</string>
   <string name="revanced_hide_fullscreen_ads_title">הסתר מודעות מסך מלא</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"מודעות במסך מלא מוסתרות
 
 תכונה זו זמינה רק עבור מכשירים ישנים יותר"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">מודעות מסך מלא מוצגות</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">הסתר מודעות מסך מלא עובד רק עם מכשירים ישנים יותר</string>
+  <string name="revanced_hide_general_ads_title">הסתר מודעות כלליות</string>
+  <string name="revanced_hide_general_ads_summary_on">מודעות כלליות מוסתרות</string>
+  <string name="revanced_hide_general_ads_summary_off">מודעות כלליות מוצגות</string>
+  <string name="revanced_hide_merchandise_banners_title">הסתר כרזות מרצ\'נדייז</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">כרזות מרצ\'נדייז מוסתרות</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">כרזות מרצ\'נדייז מוצגות</string>
   <string name="revanced_hide_paid_promotion_label_title">הסתר תווית קידום מכירות בתשלום</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">תווית קידום מכירות בתשלום מוסתרת</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">תווית קידום מכירות בתשלום מוצגת</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">הסתר באנר \'צפה במוצרים\'</string>
+  <string name="revanced_hide_view_products_banner_summary_on">הבאנר בשכבת העל של הסרטון מוסתר</string>
+  <string name="revanced_hide_view_products_banner_summary_off">הבאנר בשכבת העל של הסרטון מוצג</string>
   <string name="revanced_hide_self_sponsor_ads_title">הסתר כרטיסים בחסות עצמית</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">כרטיסים בחסות עצמית מוסתרים</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">כרטיסים בחסות עצמית מוצגים</string>
-  <string name="revanced_hide_products_banner_title">הסתר כרזת \'ראה מוצרים\'</string>
-  <string name="revanced_hide_products_banner_summary_on">כרזה מוסתרת</string>
-  <string name="revanced_hide_products_banner_summary_off">כרזה מוצגת</string>
-  <string name="revanced_hide_end_screen_store_banner_title">הסתר כרזת חנות של מסך סיום</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">כרזת חנות מוסתרת</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">כרזת חנות מוצגת</string>
-  <string name="revanced_hide_player_store_shelf_title">הסתר מדף שופינג של נגן</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">מדף שופינג מוסתר</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">מדף שופינג מוצג</string>
-  <string name="revanced_hide_shopping_links_title">הסתר קישורי שופינג</string>
-  <string name="revanced_hide_shopping_links_summary_on">קישורי שופינג בתיאור סרטון מוסתרים</string>
-  <string name="revanced_hide_shopping_links_summary_off">קישורי שופינג בתיאור סרטון מוצגים</string>
+  <string name="revanced_hide_tagged_products_title">הסתר מוצרים מתויגים</string>
+  <string name="revanced_hide_tagged_products_summary_on">מוצרים מתויגים בתיאור הסרטון מוסתרים</string>
+  <string name="revanced_hide_tagged_products_summary_off">מוצרים מתויגים בתאור הסרטון מוצגים</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">הסתר לחצן \'בקר בחנות\'</string>
   <string name="revanced_hide_visit_store_button_summary_on">לחצן בדף הערוץ מוסתר</string>
@@ -407,11 +416,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_web_search_results_title">הסתר תוצאות חיפוש באינטרנט</string>
   <string name="revanced_hide_web_search_results_summary_on">תוצאות חיפוש באינטרנט מוסתרות</string>
   <string name="revanced_hide_web_search_results_summary_off">תוצאות חיפוש באינטרנט מוצגות</string>
-  <string name="revanced_hide_merchandise_banners_title">הסתר כרזות מרצ\'נדייז</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">כרזות מרצ\'נדייז מוסתרות</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">כרזות מרצ\'נדייז מוצגות</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">הסתר מודעות מסך מלא עובד רק עם מכשירים ישנים יותר</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">הסתר קידומי YouTube Premium</string>
@@ -823,7 +827,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">הסתר תווית מטא-נתונים של סאונד</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">תווית מטא-נתונים מוסתרת</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">תווית מטא-נתונים מוצגת</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">הסתר תווית קישור סרטון מלא</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">הסתר תווית קישור לסרטון</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">תווית קישור סרטון מוסתרת</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">תווית קישור סרטון מוצגת</string>
   <string name="revanced_hide_shorts_sound_button_title">הסתר לחצן סאונד</string>
@@ -960,11 +964,25 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">הסתר לחצן דילוג באופן אוטומטי</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">לחצן דילוג נעלם לאחר כמה שניות</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">לחצן דילוג מוצג עבור כל המקטע</string>
-  <string name="revanced_sb_general_skiptoast">הצג הודעה קופצת בעת דילוג</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">הודעה קופצת מוצגת כאשר מקטע מדולג באופן אוטומטי. הקש כאן כדי לראות דוגמא</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">הודעה קופצת אינה מוצגת. הקש כאן כדי לראות דוגמה</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">משך לחצן הדילוג</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">כמה זמן להציג את כפתורי הדילוג ודילוג לסימון לפני הסתרה אוטומטית</string>
+  <string name="revanced_sb_general_skiptoast">הצג הודעה קופצת לביטול דילוג</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">הודעה קופצת מוצגת כאשר קטע מדולג אוטומטית. הקש על ההודעה הקופצת כדי לבטל את הדילוג</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">הטוסט לא מוצג</string>
+  <string name="revanced_sb_toast_on_skip_duration">משך טוסט הדילוג</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">כמה זמן להציג את הודעת \"טוסט\" ביטול הדילוג</string>
+  <string name="revanced_sb_duration_1s">שנייה אחת</string>
+  <string name="revanced_sb_duration_2s">שתי שניות</string>
+  <string name="revanced_sb_duration_3s">3 שניות</string>
+  <string name="revanced_sb_duration_4s">4 שניות</string>
+  <string name="revanced_sb_duration_5s">5 שניות</string>
+  <string name="revanced_sb_duration_6s">6 שניות</string>
+  <string name="revanced_sb_duration_7s">7 שניות</string>
+  <string name="revanced_sb_duration_8s">8 שניות</string>
+  <string name="revanced_sb_duration_9s">9 שניות</string>
+  <string name="revanced_sb_duration_10s">10 שניות</string>
   <string name="revanced_sb_general_time_without">הצג אורך סרטון ללא מקטעים</string>
-  <string name="revanced_sb_general_time_without_sum_on">אורך סרטון פחות כל המקטעים, מוצג בסוגריים ליד אורך הסרטון המלא</string>
+  <string name="revanced_sb_general_time_without_sum_on">אורך הסרטון פחות כל המקטעים מוצג על פס הניווט</string>
   <string name="revanced_sb_general_time_without_sum_off">אורך סרטון מלא מוצג</string>
   <string name="revanced_sb_create_segment_category">יוצר מקטעים חדשים</string>
   <string name="revanced_sb_enable_create_segment">הצג לחצן יצירת מקטע חדש</string>

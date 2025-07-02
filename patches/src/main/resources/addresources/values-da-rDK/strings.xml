@@ -285,10 +285,13 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_description_components_screen_title">Video beskrivelse</string>
   <string name="revanced_hide_description_components_screen_summary">Skjul eller vis komponenter til videobeskrivelse</string>
   <string name="revanced_hide_filter_bar_screen_title">Filtrer bjælke</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Skjul eller vis filterlinjen i feedet, søgeresultaterne og relaterede videoer</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Skjul i feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Skjult i feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Vist i feed</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Skjul eller vis filterlinjen i feeds, historik, søgeresultater og relaterede videoer</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Skjul i feeds</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Skjult i feeds</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Vist i feeds</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Skjul i historik</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Skjult i historik</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Vist i historik</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Skjul i søgeresultater</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skjult i søgeresultater</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Vises i søgeresultater</string>
@@ -312,15 +315,15 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Skjul knappen \"Opret en Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Opret en Short knap er skjult</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Opret en Short knap vises</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Skjul tidsstempelknap</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tidsstempelknappen er skjult</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Tidsstempelknappen vises</string>
   <string name="revanced_hide_comments_preview_comment_title">Skjul forhåndsvisning kommentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Forhåndsvisning kommentar er skjult</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Forhåndsvis kommentar er vist</string>
   <string name="revanced_hide_comments_thanks_button_title">Skjul \"Tak\"-knap</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tak knappen er skjult</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tak knappen er vist</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Skjul tidsstempelknap</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Tidsstempelknappen er skjult</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Tidsstempelknappen vises</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Skjul YouTube-Doudler</string>
   <string name="revanced_hide_doodles_summary_on">Søgebjælke Doudler er skjult</string>
@@ -374,32 +377,38 @@ Begrænsninger
   <string name="revanced_hide_keyword_toast_invalid_broad">Nøgleord vil skjule alle videoer: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Skjul generelle annoncer</string>
-  <string name="revanced_hide_general_ads_summary_on">Generelle annoncer er skjult</string>
-  <string name="revanced_hide_general_ads_summary_off">Generelle annoncer vises</string>
+  <string name="revanced_hide_creator_store_shelves_title">Skjul skaberens butikshylder</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Butikshylder under afspilleren og i videobeskrivelsen er skjult</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Butikshylder under afspilleren og i videobeskrivelsen vises</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Skjul banner fra butikken på slutskærmen</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Gem banner skjult</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Gem banner vises</string>
   <string name="revanced_hide_fullscreen_ads_title">Skjul fuldskærmsannoncer</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Fuldsskærmsannoncer er skjult
 
 Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Fuldskærms annoncer vises</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Skjul reklamer på fuld skærm virker kun med ældre enheder</string>
+  <string name="revanced_hide_general_ads_title">Skjul generelle annoncer</string>
+  <string name="revanced_hide_general_ads_summary_on">Generelle annoncer er skjult</string>
+  <string name="revanced_hide_general_ads_summary_off">Generelle annoncer vises</string>
+  <string name="revanced_hide_merchandise_banners_title">Skjul merchandise bannere</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Varer bannere er skjult</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Varer bannere er vist</string>
   <string name="revanced_hide_paid_promotion_label_title">Skjul betalt kampagneetiket</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Betalt reklamemærke er skjult</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Betalt salgsfremmende mærke er vist</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Skjul banneret \"Se produkter\"</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Banner i video-overlay er skjult</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Banner i video-overlay vises</string>
   <string name="revanced_hide_self_sponsor_ads_title">Skjul selvsponsorerede kort</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Selvsponsorerede kort er skjult</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Selvsponsorerede kort vises</string>
-  <string name="revanced_hide_products_banner_title">Skjul banneret \"Se produkter\"</string>
-  <string name="revanced_hide_products_banner_summary_on">Banner er skjult</string>
-  <string name="revanced_hide_products_banner_summary_off">Banner er vist</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Skjul banner fra butikken på slutskærmen</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Gem banner skjult</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Gem banner vises</string>
-  <string name="revanced_hide_player_store_shelf_title">Skjul spillerens indkøbshylde</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Shopping hylde er skjult</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Shopping hylde er vist</string>
-  <string name="revanced_hide_shopping_links_title">Skjul shopping links i video beskrivelse</string>
-  <string name="revanced_hide_shopping_links_summary_on">Shopping links i videobeskrivelsen er skjult</string>
-  <string name="revanced_hide_shopping_links_summary_off">Shopping links i videobeskrivelsen vises</string>
+  <string name="revanced_hide_tagged_products_title">Skjul taggede produkter</string>
+  <string name="revanced_hide_tagged_products_summary_on">Taggede produkter i videobeskrivelsen er skjult</string>
+  <string name="revanced_hide_tagged_products_summary_off">Taggere produkter i videobeskrivelsen vises</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Skjul knappen \'Besøg butik\' på kanalsider</string>
   <string name="revanced_hide_visit_store_button_summary_on">Knap på kanalsiden er skjult</string>
@@ -407,11 +416,6 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_hide_web_search_results_title">Skjul søgeresultater</string>
   <string name="revanced_hide_web_search_results_summary_on">Websøgeresultater er skjult</string>
   <string name="revanced_hide_web_search_results_summary_off">Websøgeresultater vises</string>
-  <string name="revanced_hide_merchandise_banners_title">Skjul merchandise bannere</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Varer bannere er skjult</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Varer bannere er vist</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Skjul reklamer på fuld skærm virker kun med ældre enheder</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Skjul YouTube Premium kampagner</string>
@@ -823,7 +827,7 @@ For at vise lydspormenuen skal du ændre \"Spoof videostream\" til iOS TV"</stri
   <string name="revanced_hide_shorts_sound_metadata_label_title">Skjul lyd metadata etiket</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Metadata etiket er skjult</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Metadata etiket er vist</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Skjul fuld video link etiket</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Skjul videolinketiket</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Videolink etiket er skjult</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Videolink etiket er vist</string>
   <string name="revanced_hide_shorts_sound_button_title">Skjul lydknap</string>
@@ -959,11 +963,25 @@ Denne funktion fungerer bedst med en videokvalitet på 720p eller lavere og ved 
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Skjul automatisk Spring over-knap</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip knap skjuler efter et par sekunder</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Spring over-knappen vises for hele segmentet</string>
-  <string name="revanced_sb_general_skiptoast">Vis en toast ved spring</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Toast vises, når et segment automatisk springes over. Tryk her for at se et eksempel</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Toast er ikke vist. Tryk her for at se et eksempel</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">Spring over-knap varighed</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Hvor længe skal knapperne til at springe over og springe til højdepunkt vises, før de automatisk skjules</string>
+  <string name="revanced_sb_general_skiptoast">Vis fortryd oversprings-toast</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Toast vises, når et segment automatisk springes over. Tryk på toast-meddelelsen for at fortryde overspringelsen</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Toast vises ikke</string>
+  <string name="revanced_sb_toast_on_skip_duration">Spring over-toast varighed</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Hvor længe skal fortryd spring over-meddelelsen vises</string>
+  <string name="revanced_sb_duration_1s">1 sekund</string>
+  <string name="revanced_sb_duration_2s">2 sekunder</string>
+  <string name="revanced_sb_duration_3s">3 sekunder</string>
+  <string name="revanced_sb_duration_4s">4 sekunder</string>
+  <string name="revanced_sb_duration_5s">5 sekunder</string>
+  <string name="revanced_sb_duration_6s">6 sekunder</string>
+  <string name="revanced_sb_duration_7s">7 sekunder</string>
+  <string name="revanced_sb_duration_8s">8 sekunder</string>
+  <string name="revanced_sb_duration_9s">9 sekunder</string>
+  <string name="revanced_sb_duration_10s">10 sekunder</string>
   <string name="revanced_sb_general_time_without">Vis videolængde uden segmenter</string>
-  <string name="revanced_sb_general_time_without_sum_on">Videolængde minus alle segmenter, vist i parentes ved siden af den fulde videolængde</string>
+  <string name="revanced_sb_general_time_without_sum_on">Videolængde minus alle segmenter vises på tidslinjen</string>
   <string name="revanced_sb_general_time_without_sum_off">Fuld videolængde vist</string>
   <string name="revanced_sb_create_segment_category">Opretter nye segmenter</string>
   <string name="revanced_sb_enable_create_segment">Vis Opret nyt segment-knap</string>

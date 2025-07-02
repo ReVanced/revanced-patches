@@ -1,17 +1,15 @@
 package app.revanced.extension.spotify.misc;
 
+import app.revanced.ContextMenuItemPlaceholder;
+import app.revanced.extension.shared.Logger;
+import app.revanced.extension.spotify.shared.ComponentFilters.ComponentFilter;
+import app.revanced.extension.spotify.shared.ComponentFilters.ResourceIdComponentFilter;
+import app.revanced.extension.spotify.shared.ComponentFilters.StringComponentFilter;
+
+import java.util.*;
+
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-
-import app.revanced.extension.spotify.shared.ComponentFilters.*;
-import com.spotify.home.evopage.homeapi.proto.Section;
-
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
-import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
 public final class UnlockPremiumPatch {
@@ -99,8 +97,16 @@ public final class UnlockPremiumPatch {
      * response which delivers home sections.
      */
     private static final List<Integer> REMOVED_HOME_SECTIONS = List.of(
-            Section.VIDEO_BRAND_AD_FIELD_NUMBER,
-            Section.IMAGE_BRAND_AD_FIELD_NUMBER
+            com.spotify.home.evopage.homeapi.proto.Section.VIDEO_BRAND_AD_FIELD_NUMBER,
+            com.spotify.home.evopage.homeapi.proto.Section.IMAGE_BRAND_AD_FIELD_NUMBER
+    );
+
+    /**
+     * A list of browse sections feature types ids which should be removed. These ids match the ones from the protobuf
+     * response which delivers browse sections.
+     */
+    private static final List<Integer> REMOVED_BROWSE_SECTIONS = List.of(
+            com.spotify.browsita.v1.resolved.Section.BRAND_ADS_FIELD_NUMBER
     );
 
     /**
@@ -174,28 +180,60 @@ public final class UnlockPremiumPatch {
         }
     }
 
-    /**
-     * Injection point. Remove ads sections from home.
-     * Depends on patching abstract protobuf list ensureIsMutable method.
-     */
-    public static void removeHomeSections(List<Section> sections) {
+    private interface FeatureTypeIdProvider<T> {
+        int getFeatureTypeId(T section);
+    }
+
+    private static <T> void removeSections(
+            List<T> sections,
+            FeatureTypeIdProvider<T> featureTypeExtractor,
+            List<Integer> idsToRemove
+    ) {
         try {
-            Iterator<Section> iterator = sections.iterator();
+            Iterator<T> iterator = sections.iterator();
 
             while (iterator.hasNext()) {
-                Section section = iterator.next();
-                if (REMOVED_HOME_SECTIONS.contains(section.featureTypeCase_)) {
-                    Logger.printInfo(() -> "Removing home section with feature type id " + section.featureTypeCase_);
+                T section = iterator.next();
+                int featureTypeId = featureTypeExtractor.getFeatureTypeId(section);
+                if (idsToRemove.contains(featureTypeId)) {
+                    Logger.printInfo(() -> "Removing section with feature type id " + featureTypeId);
                     iterator.remove();
                 }
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "removeHomeSections failure", ex);
+            Logger.printException(() -> "removeSections failure", ex);
         }
     }
 
     /**
-     * Injection point. Returns whether the context menu item is a Premium ad.
+     * Injection point. Remove ads sections from home.
+     * Depends on patching abstract protobuf list ensureIsMutable method.
+     */
+    public static void removeHomeSections(List<com.spotify.home.evopage.homeapi.proto.Section> sections) {
+        Logger.printInfo(() -> "Removing ads section from home");
+        removeSections(
+                sections,
+                section -> section.featureTypeCase_,
+                REMOVED_HOME_SECTIONS
+        );
+    }
+
+    /**
+     * Injection point. Remove ads sections from browse.
+     * Depends on patching abstract protobuf list ensureIsMutable method.
+     */
+    public static void removeBrowseSections(List<com.spotify.browsita.v1.resolved.Section> sections) {
+        Logger.printInfo(() -> "Removing ads section from browse");
+        removeSections(
+                sections,
+                section -> section.sectionTypeCase_,
+                REMOVED_BROWSE_SECTIONS
+        );
+    }
+
+    /**
+     * Injection point. Returns whether the context menu item is a Premium ad. Used for versions older than
+     * "9.0.60.128".
      */
     public static boolean isFilteredContextMenuItem(Object contextMenuItem) {
         if (contextMenuItem == null) {
@@ -240,5 +278,32 @@ public final class UnlockPremiumPatch {
         }
 
         return false;
+    }
+
+    /**
+     * Injection point. Returns a new list with the context menu items which are a Premium ad filtered.
+     * The original list is immutable and cannot be modified without an extra patch.
+     * The method fingerprint used to patch ensures we can return a "List" here.
+     * ContextMenuItemPlaceholder interface name and getViewModel return value are replaced by a patch to match
+     * the minified names used at runtime. Used in newer versions of the app.
+     */
+    public static List<Object> filterContextMenuItems(List<Object> originalContextMenuItems) {
+        try {
+            ArrayList<Object> filteredContextMenuItems = new ArrayList<>(originalContextMenuItems.size());
+
+            for (Object contextMenuItem : originalContextMenuItems) {
+                if (isFilteredContextMenuItem(((ContextMenuItemPlaceholder) contextMenuItem).getViewModel())) {
+                    continue;
+                }
+
+                filteredContextMenuItems.add(contextMenuItem);
+            }
+
+            return filteredContextMenuItems;
+        } catch (Exception ex) {
+            Logger.printException(() -> "filterContextMenuItems failure", ex);
+        }
+
+        return originalContextMenuItems;
     }
 }

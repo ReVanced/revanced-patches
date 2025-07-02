@@ -285,10 +285,13 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_description_components_screen_title">Տեսանյութի նկարագրություն</string>
   <string name="revanced_hide_description_components_screen_summary">Թաքցնել կամ ցույց տալ տեսանյութի նկարագրության բաղադրամասերը</string>
   <string name="revanced_hide_filter_bar_screen_title">Ֆիլտրի գիծ</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Թաքցնել կամ ցուցադրել ֆիլտրի գոտին լրահոսում, որոնման արդյունքներում և հարակից տեսանյութերում</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Թաքցնել լեզվականում</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Թաքցված է լեզվականում</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Ցույց է տրվում լեզվականում</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Թաքցնել կամ ցուցադրել զտիչի գոտին լրահոսերում, պատմության մեջ, որոնման արդյունքներում և հարակից տեսանյութերում</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Թաքցնել լրահոսերում</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Թաքցված է լրահոսերում</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Ցուցադրված է լրահոսերում</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Թաքցնել պատմության մեջ</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Թաքցված է պատմության մեջ</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Ցուցադրված է պատմության մեջ</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Թաքցնել որոնման արդյունքներում</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Թաքնված է որոնման արդյունքներում</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ցուցադրված է որոնման արդյունքներում</string>
@@ -312,15 +315,15 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_comments_create_a_short_button_title">Թաքցնել \"Ստեղծել Shorts\" կոճակը</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">\"Ստեղծել Short\" կոճակը թաքցված է</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">\"Ստեղծել Short\" կոճակը ցուցադրվում է</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Թաքցնել ժամանակային նշումով կոճակը</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Ժամանակային նշումով կոճակը թաքցված է</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Ժամանակային նշումով կոճակը ցուցադրվում է</string>
   <string name="revanced_hide_comments_preview_comment_title">Թաքցնել նախադիտման մեկնաբանությունը</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Նախադիտման մեկնաբանությունը թաքցված է</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Նախադիտման մեկնաբանությունը երևում է</string>
   <string name="revanced_hide_comments_thanks_button_title">Թաքցնել շնորհակալության կոճակը</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">\"Շնորհակալություն\" կոճակը թաքցված է</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">\"Շնորհակալություն\" կոճակը երևում է</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Թաքցնել ժամանակային նշումով կոճակը</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Ժամանակային նշումով կոճակը թաքցված է</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Ժամանակային նշումով կոճակը ցուցադրվում է</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Թաքցնել YouTube-ի Doodles-ները</string>
   <string name="revanced_hide_doodles_summary_on">Որոնման տողի Doodles-ները թաքցված են</string>
@@ -374,32 +377,38 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_keyword_toast_invalid_broad">Բանալի բառը կթաքցնի բոլոր տեսանյութերը։ %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Թաքցնել ընդհանուր գովազդները</string>
-  <string name="revanced_hide_general_ads_summary_on">Ընդհանուր գովազդները թաքցված են</string>
-  <string name="revanced_hide_general_ads_summary_off">Ընդհանուր գովազդները երևում են</string>
+  <string name="revanced_hide_creator_store_shelves_title">Թաքցնել ստեղծողի խանութի դարակները</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Խանութի դարակները նվագարկչի տակ և տեսանյութի նկարագրության մեջ թաքնված են</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Խանութի դարակները նվագարկչի տակ և տեսանյութի նկարագրության մեջ ցուցադրվում են</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Թաքցնել վերջնական էկրանի խանութի բաները</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Խանութի բանները թաքցված են</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Խանութի բանները ցուցադրվում են</string>
   <string name="revanced_hide_fullscreen_ads_title">Թաքցնել լի էկրանի գովազդները</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"«Լրիվ էկրան» գովազդները թաքցվում են
 
 Այս հատկությունը հասանելի է միայն հին սարքերի համար"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Լի էկրանի գովազդները երևում են</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Լի էկրանի գովազդների թաքցումը գործում է միայն հին սարքերի համար</string>
+  <string name="revanced_hide_general_ads_title">Թաքցնել ընդհանուր գովազդները</string>
+  <string name="revanced_hide_general_ads_summary_on">Ընդհանուր գովազդները թաքցված են</string>
+  <string name="revanced_hide_general_ads_summary_off">Ընդհանուր գովազդները երևում են</string>
+  <string name="revanced_hide_merchandise_banners_title">Թաքցնել ապրանքների բաները</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Ապրանքների բաները թաքցված են</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Ապրանքների բաները երևում են</string>
   <string name="revanced_hide_paid_promotion_label_title">Թաքցնել վճարված խթանման նշանը</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Վճարված խթանման նշանը թաքցված է</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Վճարված խթանման նշանը երևում է</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Թաքցնել \"Դիտել ապրանքները\" պաստառը</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Տեսանյութի ծածկույթում գտնվող դրոշակը թաքնված է</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Տեսանյութի վերադիրում պաստառը ցուցադրվում է</string>
   <string name="revanced_hide_self_sponsor_ads_title">Թաքցնել ինքնահովանավորված քարտերը</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Ինքնահովանավորված քարտերը թաքցված են</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Ինքնահովանավորված քարտերը երևում են</string>
-  <string name="revanced_hide_products_banner_title">Թաքցնել «Դիտել ապրանքները» պաստառը</string>
-  <string name="revanced_hide_products_banner_summary_on">Բաները թաքցված են</string>
-  <string name="revanced_hide_products_banner_summary_off">Բաները երևում են</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Թաքցնել վերջնական էկրանի խանութի բաները</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Խանութի բանները թաքցված են</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Խանութի բանները ցուցադրվում են</string>
-  <string name="revanced_hide_player_store_shelf_title">Թաքցնել խաղացողի խանութի դարակը</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Խանութի դարակը թաքցված է</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Խանութի դարակը երևում է</string>
-  <string name="revanced_hide_shopping_links_title">Թաքցնել խանութի հղումները տեսանյութի նկարագրության մեջ</string>
-  <string name="revanced_hide_shopping_links_summary_on">Տեսանյութի նկարագրության մեջ առկա գնումների հղումները թաքցված են</string>
-  <string name="revanced_hide_shopping_links_summary_off">Տեսանյութի նկարագրության մեջ առկա գնումների հղումները ցուցադրվում են</string>
+  <string name="revanced_hide_tagged_products_title">Թաքցնել պիտակված ապրանքները</string>
+  <string name="revanced_hide_tagged_products_summary_on">Տեսանյութի նկարագրության մեջ պիտակված ապրանքները թաքնված են</string>
+  <string name="revanced_hide_tagged_products_summary_off">Նշված ապրանքները տեսանյութի նկարագրության մեջ ցուցադրվում են</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Թաքցնել \"Անցնել խանութ\" կոճակը ալիքների էջերում</string>
   <string name="revanced_hide_visit_store_button_summary_on">Ալիքի էջում գտնվող կոճակը թաքցված է</string>
@@ -407,11 +416,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_web_search_results_title">Թաքցնել վեբ-որոնման արդյունքները</string>
   <string name="revanced_hide_web_search_results_summary_on">Վեբ-որոնման արդյունքները թաքցված են</string>
   <string name="revanced_hide_web_search_results_summary_off">Վեբ-որոնման արդյունքները երևում են</string>
-  <string name="revanced_hide_merchandise_banners_title">Թաքցնել ապրանքների բաները</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Ապրանքների բաները թաքցված են</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Ապրանքների բաները երևում են</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Լի էկրանի գովազդների թաքցումը գործում է միայն հին սարքերի համար</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Թաքցնել YouTube Premium-ի խթանումները</string>
@@ -823,7 +827,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_sound_metadata_label_title">Թաքցնել ձայնի մետատվությունների լեյբլը</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Մետատվությունների լեյբլը թաքցված է</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Մետատվությունների լեյբլը երևում է</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Թաքցնել լիարժեք տեսանյութի հղման լեյբլը</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Թաքցնել տեսանյութի հղման պիտակը</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Տեսանյութի հղման լեյբլը թաքցված է</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Տեսանյութի հղման լեյբլը երևում է</string>
   <string name="revanced_hide_shorts_sound_button_title">Թաքցնել ձայնի կոճակը</string>
@@ -958,11 +962,25 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Ավտոմատ կերպով թաքցնել Skip կոճակը</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Բաց թողնել կոճակը թաքնվում է մի քանի վայրկյանից հետո</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip կոճակը ցուցադրվում է ամբողջ հատվածի համար</string>
-  <string name="revanced_sb_general_skiptoast">Ցուցադրել toast, երբ բաց թողնվի</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Toast ցույց է տրվում, երբ segment-ը ավտոմատ կերպով բաց թողնվում է: Տվեք այստեղ, որպեսզի տեսնեք օրինակը</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Toast չի ցույց տրվում: Տվեք այստեղ, որպեսզի տեսնեք օրինակը</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">Բաց թողնելու կոճակի տևողությունը</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Որքան ժամանակ ցուցադրել բացթողում և բացթողում՝ ընդգծելու կոճակները մինչև ավտոմատ թաքնվելը</string>
+  <string name="revanced_sb_general_skiptoast">Ցուցադրել բաց թողնելը չեղարկելու ծանուցումը։</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Ծանուցում է ցուցադրվում, երբ հատվածն ավտոմատ կերպով բաց է թողնվում։ Հպեք ծանուցմանը՝ բացթողումը չեղարկելու համար</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Ծանուցումը չի ցուցադրվում</string>
+  <string name="revanced_sb_toast_on_skip_duration">Բաց թողնելու ծանուցման տևողությունը</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Որքան ժամանակ ցուցադրել բացթողումը հետարկելու ծանուցումը</string>
+  <string name="revanced_sb_duration_1s">1 վայրկյան</string>
+  <string name="revanced_sb_duration_2s">2 վայրկյան</string>
+  <string name="revanced_sb_duration_3s">3 վայրկյան</string>
+  <string name="revanced_sb_duration_4s">4 վայրկյան</string>
+  <string name="revanced_sb_duration_5s">5 վայրկյան</string>
+  <string name="revanced_sb_duration_6s">6 վայրկյան</string>
+  <string name="revanced_sb_duration_7s">7 վայրկյան</string>
+  <string name="revanced_sb_duration_8s">8 վայրկյան</string>
+  <string name="revanced_sb_duration_9s">9 վայրկյան</string>
+  <string name="revanced_sb_duration_10s">10 վայրկյան</string>
   <string name="revanced_sb_general_time_without">Ցույց տալ տեսանյութի երկարությունը առանց segment-ների</string>
-  <string name="revanced_sb_general_time_without_sum_on">Տեսանյութի երկարությունը մինուս բոլոր segment-ները, ցույց է տրվում ամբողջ տեսանյութի երկարության կողքին ծալքերում</string>
+  <string name="revanced_sb_general_time_without_sum_on">Տեսանյութի երկարությունը հանած բոլոր հատվածները ցուցադրվում է որոնման գոտում</string>
   <string name="revanced_sb_general_time_without_sum_off">Ցույց է տրվում ամբողջ տեսանյութի երկարությունը</string>
   <string name="revanced_sb_create_segment_category">Նոր segment-ների ստեղծում</string>
   <string name="revanced_sb_enable_create_segment">Ցուցադրել նոր հատված ստեղծելու կոճակը</string>

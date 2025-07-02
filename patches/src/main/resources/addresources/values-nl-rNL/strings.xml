@@ -285,10 +285,13 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_description_components_screen_title">Videobeschrijving</string>
   <string name="revanced_hide_description_components_screen_summary">Skjul eller vis komponentene i videoens beskrivelse</string>
   <string name="revanced_hide_filter_bar_screen_title">Filterbaren</string>
-  <string name="revanced_hide_filter_bar_screen_summary">De filterbalk in de feed, zoekresultaten en gerelateerde video\'s verbergen of weergeven</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Skjul i feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Sjul i feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Vis i feed</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Filterbalk verbergen of tonen in de feeds, geschiedenis, zoekresultaten en gerelateerde video\'s</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Verbergen in feeds</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Verborgen in feeds</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Weergegeven in feeds</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Verbergen in geschiedenis</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Verborgen in geschiedenis</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Weergegeven in geschiedenis</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Verbergen in zoekresultaten</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Verborgen in zoekresultaten</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Weergegeven in zoekresultaten</string>
@@ -312,15 +315,15 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Verberg \'Create a Short\' knop</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Knop \'Een Short maken\' is verborgen</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Knop \'Een Short maken\' wordt weergegeven</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Knop voor tijdstempel verbergen</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Knop voor tijdstempel is verborgen</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Knop voor tijdstempel wordt weergegeven</string>
   <string name="revanced_hide_comments_preview_comment_title">Reactie in preview verbergen</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Preview reactie is verborgen</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Preview reactie wordt getoond</string>
   <string name="revanced_hide_comments_thanks_button_title">Verberg de knop \'Bedankt\'</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Bedankknop is verborgen</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">De knop \'Bedankt\' wordt weergegeven</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Knop voor tijdstempel verbergen</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Knop voor tijdstempel is verborgen</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Knop voor tijdstempel wordt weergegeven</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles verbergen</string>
   <string name="revanced_hide_doodles_summary_on">Doodles in de zoekbalk zijn verborgen</string>
@@ -374,32 +377,38 @@ Beperkingen
   <string name="revanced_hide_keyword_toast_invalid_broad">Keyword verbergt alle video\'s: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Algemene advertenties verbergen</string>
-  <string name="revanced_hide_general_ads_summary_on">Algemene advertenties zijn verborgen</string>
-  <string name="revanced_hide_general_ads_summary_off">Algemene advertenties worden getoond</string>
+  <string name="revanced_hide_creator_store_shelves_title">Verberg schappen van maker</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Winkelplanken onder de speler en in de videobeschrijving zijn verborgen</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Winkelplanken onder de speler en in de videobeschrijving worden getoond</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Verberg de Store-banner op het eindscherm</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">De winkelbanner is verborgen</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">De winkelbanner is zichtbaar</string>
   <string name="revanced_hide_fullscreen_ads_title">Volledig scherm advertenties verbergen</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Volledig schermadvertenties zijn verborgen
 
 Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Volledig scherm advertenties worden getoond</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Volledig scherm advertenties werkt alleen met oudere apparaten</string>
+  <string name="revanced_hide_general_ads_title">Algemene advertenties verbergen</string>
+  <string name="revanced_hide_general_ads_summary_on">Algemene advertenties zijn verborgen</string>
+  <string name="revanced_hide_general_ads_summary_off">Algemene advertenties worden getoond</string>
+  <string name="revanced_hide_merchandise_banners_title">Merchandise banners verbergen</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners zijn verborgen</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners worden getoond</string>
   <string name="revanced_hide_paid_promotion_label_title">Betaalde promotielabel verbergen</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Betaalde promotielabel is verborgen</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Betaalde promotielabel wordt getoond</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Banner \'Producten bekijken\' verbergen</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Banner in video-overlay is verborgen</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Banner in video-overlay wordt getoond</string>
   <string name="revanced_hide_self_sponsor_ads_title">Zelf gesponsorde kaarten verbergen</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Zelf gesponsorde kaarten zijn verborgen</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Zelf gesponsorde kaarten worden getoond</string>
-  <string name="revanced_hide_products_banner_title">Verberg de banner \'Producten bekijken\'</string>
-  <string name="revanced_hide_products_banner_summary_on">Banner is verborgen</string>
-  <string name="revanced_hide_products_banner_summary_off">Banner wordt getoond</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Verberg de Store-banner op het eindscherm</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">De winkelbanner is verborgen</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">De winkelbanner is zichtbaar</string>
-  <string name="revanced_hide_player_store_shelf_title">Winkelplank in de speler verbergen</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Winkelplank is verborgen</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Winkelplank wordt getoond</string>
-  <string name="revanced_hide_shopping_links_title">Winkelkoppelingen in de videobeschrijving verbergen</string>
-  <string name="revanced_hide_shopping_links_summary_on">Winkelkoppelingen in videobeschrijving zijn verborgen</string>
-  <string name="revanced_hide_shopping_links_summary_off">Winkelkoppelingen in videobeschrijving worden weergegeven</string>
+  <string name="revanced_hide_tagged_products_title">Verberg getagde producten</string>
+  <string name="revanced_hide_tagged_products_summary_on">Getagde producten in de videobeschrijving zijn verborgen</string>
+  <string name="revanced_hide_tagged_products_summary_off">Getagde producten in videobeschrijving worden getoond</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">De knop \"Bezoek winkel\" op kanaalpagina\'s verbergen</string>
   <string name="revanced_hide_visit_store_button_summary_on">Knop op kanaalpagina is verborgen</string>
@@ -407,11 +416,6 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_hide_web_search_results_title">Webzoekresultaten verbergen</string>
   <string name="revanced_hide_web_search_results_summary_on">Webzoekresultaten zijn verborgen</string>
   <string name="revanced_hide_web_search_results_summary_off">Webzoekresultaten worden getoond</string>
-  <string name="revanced_hide_merchandise_banners_title">Merchandise banners verbergen</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners zijn verborgen</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners worden getoond</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Volledig scherm advertenties werkt alleen met oudere apparaten</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">YouTube Premium promoties verbergen</string>
@@ -823,7 +827,7 @@ Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS T
   <string name="revanced_hide_shorts_sound_metadata_label_title">Verberg het label \"Geluidsinformatie\"</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Het label \"Geluidsinformatie\" is verborgen</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Het label \"Geluidsinformatie\" is zichtbaar</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Verberg het label \"Volledige videolink\"</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Videolinklabel verbergen</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Het label \"Volledige videolink\" is verborgen</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Het label \"Volledige videolink\" is zichtbaar</string>
   <string name="revanced_hide_shorts_sound_button_title">Verberg de geluidsknop</string>
@@ -957,11 +961,25 @@ Deze functie werkt het beste met een videokwaliteit van 720p of lager en wanneer
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Skip-knop automatisch verbergen</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Oversla-knop wordt na een paar seconden verborgen</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip-knop wordt weergegeven voor het hele segment</string>
-  <string name="revanced_sb_general_skiptoast">Een toast weergeven bij overslaan</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">\"Toast\" wordt weergegeven wanneer een segment automatisch wordt overgeslagen. Tik hier om een voorbeeld te bekijken</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">\"Toast\" wordt niet weergegeven. Tik hier om een voorbeeld te bekijken</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">Duur van overslaan-knop</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Hoe lang de knoppen \"overslaan\" en \"overslaan naar hoogtepunt\" moeten worden weergegeven voordat ze automatisch worden verborgen</string>
+  <string name="revanced_sb_general_skiptoast">Toon \"overslaan ongedaan maken\"-melding</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Een melding wordt getoond wanneer een segment automatisch wordt overgeslagen. Tik op de melding om het overslaan ongedaan te maken</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Toast wordt niet getoond</string>
+  <string name="revanced_sb_toast_on_skip_duration">Duur van overslaan-toast</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Hoe lang de \"overslaan ongedaan maken\"-melding moet worden weergegeven</string>
+  <string name="revanced_sb_duration_1s">1 seconde</string>
+  <string name="revanced_sb_duration_2s">2 seconden</string>
+  <string name="revanced_sb_duration_3s">3 seconden</string>
+  <string name="revanced_sb_duration_4s">4 seconden</string>
+  <string name="revanced_sb_duration_5s">5 seconden</string>
+  <string name="revanced_sb_duration_6s">6 seconden</string>
+  <string name="revanced_sb_duration_7s">7 seconden</string>
+  <string name="revanced_sb_duration_8s">8 seconden</string>
+  <string name="revanced_sb_duration_9s">9 seconden</string>
+  <string name="revanced_sb_duration_10s">10 seconden</string>
   <string name="revanced_sb_general_time_without">Toon de videolengte zonder segmenten</string>
-  <string name="revanced_sb_general_time_without_sum_on">Videolengte minus alle segmenten, weergegeven tussen haakjes naast de volledige videolengte</string>
+  <string name="revanced_sb_general_time_without_sum_on">Videolengte minus alle segmenten wordt getoond op de voortgangsbalk</string>
   <string name="revanced_sb_general_time_without_sum_off">Volledige videolengte weergegeven</string>
   <string name="revanced_sb_create_segment_category">Nieuwe segmenten maken</string>
   <string name="revanced_sb_enable_create_segment">Knop \'Nieuw segment maken\' weergeven</string>
