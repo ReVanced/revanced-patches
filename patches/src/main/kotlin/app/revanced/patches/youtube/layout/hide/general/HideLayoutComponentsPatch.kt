@@ -160,9 +160,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
                     SwitchPreference("revanced_hide_comments_by_members_header"),
                     SwitchPreference("revanced_hide_comments_section"),
                     SwitchPreference("revanced_hide_comments_create_a_short_button"),
-                    SwitchPreference("revanced_hide_comments_timestamp_button"),
                     SwitchPreference("revanced_hide_comments_preview_comment"),
                     SwitchPreference("revanced_hide_comments_thanks_button"),
+                    SwitchPreference("revanced_hide_comments_timestamp_button"),
                 ),
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
             ),
@@ -201,6 +201,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 key = "revanced_hide_filter_bar_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_history"),
                     SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
                     SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos"),
                 ),

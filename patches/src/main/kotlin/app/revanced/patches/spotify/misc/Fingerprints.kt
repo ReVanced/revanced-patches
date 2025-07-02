@@ -42,13 +42,37 @@ internal val contextMenuViewModelClassFingerprint = fingerprint {
     strings("ContextMenuViewModel(header=")
 }
 
-internal val contextMenuViewModelAddItemFingerprint = fingerprint {
+/**
+ * Used in versions older than "9.0.60.128".
+ */
+internal val oldContextMenuViewModelAddItemFingerprint = fingerprint {
     parameters("L")
     returns("V")
     custom { method, _ ->
         method.indexOfFirstInstruction {
             getReference<MethodReference>()?.name == "add"
         } >= 0
+    }
+}
+
+internal val contextMenuViewModelConstructorFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+}
+
+/**
+ * Used to find the interface name of a context menu item.
+ */
+internal val browsePodcastsContextMenuItemClassFingerprint = fingerprint {
+    strings("browse_podcast_item", "ui_navigate")
+}
+
+internal const val CONTEXT_MENU_ITEM_CLASS_DESCRIPTOR_PLACEHOLDER = "Lapp/revanced/ContextMenuItemPlaceholder;"
+internal val extensionFilterContextMenuItemsFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("Ljava/util/List;")
+    parameters("Ljava/util/List;")
+    custom { method, classDef ->
+        method.name == "filterContextMenuItems" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
 }
 
@@ -93,17 +117,27 @@ internal val abstractProtobufListEnsureIsMutableFingerprint = fingerprint {
     }
 }
 
-internal val homeSectionFingerprint = fingerprint {
-    custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
-}
-
-internal val homeStructureGetSectionsFingerprint = fingerprint {
+internal fun structureGetSectionsFingerprint(className: String) = fingerprint {
     custom { method, classDef ->
-        classDef.endsWith("homeapi/proto/HomeStructure;") && method.indexOfFirstInstruction {
+        classDef.endsWith(className) && method.indexOfFirstInstruction {
             opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.name == "sections_"
         } >= 0
     }
 }
+
+internal val homeSectionFingerprint = fingerprint {
+    custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
+}
+
+internal val homeStructureGetSectionsFingerprint =
+    structureGetSectionsFingerprint("homeapi/proto/HomeStructure;")
+
+internal val browseSectionFingerprint = fingerprint {
+    custom { _, classDef-> classDef.endsWith("browsita/v1/resolved/Section;") }
+}
+
+internal val browseStructureGetSectionsFingerprint =
+    structureGetSectionsFingerprint("browsita/v1/resolved/BrowseStructure;")
 
 internal fun reactivexFunctionApplyWithClassInitFingerprint(className: String) = fingerprint {
     returns("Ljava/lang/Object;")

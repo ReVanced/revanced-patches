@@ -285,10 +285,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">وصف الفيديو</string>
   <string name="revanced_hide_description_components_screen_summary">إخفاء أو عرض مكونات وصف الفيديو</string>
   <string name="revanced_hide_filter_bar_screen_title">شريط التصفية</string>
-  <string name="revanced_hide_filter_bar_screen_summary">إخفاء أو عرض شريط الفلتر في الموجز ونتائج البحث والفيديوهات ذات الصلة</string>
+  <string name="revanced_hide_filter_bar_screen_summary">إخفاء أو إظهار شريط الفلترة في الخلاصات، السجل، نتائج البحث، والفيديوهات ذات الصلة</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">إخفاء في الموجز</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">مخفي في الموجز</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">يُعرض في الموجز</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">معروض في الموجز</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">إخفاء في السجل</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">مخفي في السجل</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">معروض في السجل</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">إخفاء في نتائج البحث</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">مخفي في نتائج البحث</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">يُعرض في نتائج البحث</string>
@@ -312,15 +315,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">إخفاء زر \'إنشاء Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">تم إخفاء زر إنشاء Short</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">يتم عرض زر إنشاء Short</string>
-  <string name="revanced_hide_comments_timestamp_button_title">زر إخفاء الطابع الزمني</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">زر الطابع الزمني مخفي</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">زر الطابع الزمني معروض</string>
   <string name="revanced_hide_comments_preview_comment_title">إخفاء تعليق المعاينة</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">تم إخفاء تعليق المعاينة</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">يتم عرض تعليق المعاينة</string>
   <string name="revanced_hide_comments_thanks_button_title">إخفاء زر شكرًا</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">تم إخفاء زر شكرًا</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">يتم عرض زر شكرًا</string>
+  <string name="revanced_hide_comments_timestamp_button_title">زر إخفاء الطابع الزمني</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">زر الطابع الزمني مخفي</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">زر الطابع الزمني معروض</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">إخفاء رسومات YouTube</string>
   <string name="revanced_hide_doodles_summary_on">تم إخفاء رسومات شريط البحث</string>
@@ -374,32 +377,38 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">الكلمة المفتاحية سوف تخفي جميع الفيديوهات: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">إخفاء الإعلانات العامة</string>
-  <string name="revanced_hide_general_ads_summary_on">تم إخفاء الإعلانات بشكل عام</string>
-  <string name="revanced_hide_general_ads_summary_off">يتم عرض الإعلانات العامة</string>
+  <string name="revanced_hide_creator_store_shelves_title">إخفاء رفوف متجر المنشئ</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">رفوف المتجر أسفل المشغل وفي وصف الفيديو مخفية</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">تظهر أرفف المتجر أسفل المشغل وفي وصف الفيديو</string>
+  <string name="revanced_hide_end_screen_store_banner_title">إخفاء لافتة شاشة المتجر النهائية</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">تم إخفاء لافتة المتجر</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">يتم عرض لافتة المتجر</string>
   <string name="revanced_hide_fullscreen_ads_title">إخفاء إعلانات ملء الشاشة</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"يتم إخفاء إعلانات ملء الشاشة
 
 هذه الميزة متاحة فقط للأجهزة القديمة"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">يتم عرض إعلانات ملء الشاشة</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">إخفاء إعلانات ملء الشاشة يعمل فقط مع الأجهزة القديمة</string>
+  <string name="revanced_hide_general_ads_title">إخفاء الإعلانات العامة</string>
+  <string name="revanced_hide_general_ads_summary_on">تم إخفاء الإعلانات بشكل عام</string>
+  <string name="revanced_hide_general_ads_summary_off">يتم عرض الإعلانات العامة</string>
+  <string name="revanced_hide_merchandise_banners_title">إخفاء لافتات البضائع</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">تم إخفاء لافتات البضائع</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">يتم عرض لافتات البضائع</string>
   <string name="revanced_hide_paid_promotion_label_title">إخفاء تسمية الترقية المدفوعة</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">تم إخفاء تسمية الترقية المدفوعة</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">يتم عرض تسمية الترقية المدفوعة</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">إخفاء لافتة \'عرض المنتجات\'</string>
+  <string name="revanced_hide_view_products_banner_summary_on">الشعار في تراكب الفيديو مخفي</string>
+  <string name="revanced_hide_view_products_banner_summary_off">تظهر اللافتة في تراكب الفيديو</string>
   <string name="revanced_hide_self_sponsor_ads_title">إخفاء بطاقات الرعاية الذاتية</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">تم إخفاء بطاقات الرعاية الذاتية</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">يتم عرض بطاقات الرعاية الذاتية</string>
-  <string name="revanced_hide_products_banner_title">إخفاء لافتة \'عرض المنتجات\'</string>
-  <string name="revanced_hide_products_banner_summary_on">تم إخفاء البانر</string>
-  <string name="revanced_hide_products_banner_summary_off">يتم عرض البانر</string>
-  <string name="revanced_hide_end_screen_store_banner_title">إخفاء لافتة شاشة المتجر النهائية</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">تم إخفاء لافتة المتجر</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">يتم عرض لافتة المتجر</string>
-  <string name="revanced_hide_player_store_shelf_title">إخفاء رف مشغل التسوق</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">تم إخفاء رف التسوق</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">يتم عرض رف التسوق</string>
-  <string name="revanced_hide_shopping_links_title">إخفاء روابط التسوق في وصف الفيديو</string>
-  <string name="revanced_hide_shopping_links_summary_on">تم إخفاء روابط التسوق في وصف الفيديو</string>
-  <string name="revanced_hide_shopping_links_summary_off">يتم عرض روابط التسوق في وصف الفيديو</string>
+  <string name="revanced_hide_tagged_products_title">إخفاء المنتجات الموسومة</string>
+  <string name="revanced_hide_tagged_products_summary_on">المنتجات الموسومة في وصف الفيديو مخفية</string>
+  <string name="revanced_hide_tagged_products_summary_off">تظهر المنتجات الموسومة في وصف الفيديو</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">إخفاء زر \'زيارة المتجر\' على صفحات القناة</string>
   <string name="revanced_hide_visit_store_button_summary_on">تم إخفاء الزر في صفحة القناة</string>
@@ -407,11 +416,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_web_search_results_title">إخفاء نتائج بحث الويب</string>
   <string name="revanced_hide_web_search_results_summary_on">تم إخفاء نتائج البحث على الويب</string>
   <string name="revanced_hide_web_search_results_summary_off">يتم عرض نتائج البحث على الويب</string>
-  <string name="revanced_hide_merchandise_banners_title">إخفاء لافتات البضائع</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">تم إخفاء لافتات البضائع</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">يتم عرض لافتات البضائع</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">إخفاء إعلانات ملء الشاشة يعمل فقط مع الأجهزة القديمة</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">إخفاء ترقية YouTube Premium</string>
@@ -823,7 +827,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">إخفاء تسمية بيانات التعريف الصوتية</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">تم إخفاء تسمية بيانات التعريف</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">يتم عرض تسمية بيانات التعريف</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">إخفاء تسمية رابط الفيديو الكامل</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">إخفاء تسمية رابط الفيديو</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">تم إخفاء تسمية رابط الفيديو</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">يتم عرض تسمية رابط الفيديو</string>
   <string name="revanced_hide_shorts_sound_button_title">إخفاء زر الصوت</string>
@@ -957,11 +961,25 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">إخفاء زر التخطي تلقائيًا</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">إخفاء زر التخطي بعد بضع ثوانٍ</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">يتم عرض زر التخطي للمقطع بأكمله</string>
-  <string name="revanced_sb_general_skiptoast">عرض ملاحظة عند التخطي</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">يتم عرض ملاحظة عندما يتم تخطي مقطع تلقائيًا. انقر هنا لمشاهدة مثال</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">لن يتم عرض الملاحظة. انقر هنا لمشاهدة مثال</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">مدة زر التخطي</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">كم المدة لعرض أزرار التخطي والتخطي إلى التمييز قبل الإخفاء التلقائي</string>
+  <string name="revanced_sb_general_skiptoast">إظهار إشعار التراجع عن التخطي</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">يظهر إشعار عند تخطي مقطع تلقائيًا. انقر على الإشعار للتراجع عن التخطي</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">لا يتم عرض التوست</string>
+  <string name="revanced_sb_toast_on_skip_duration">مدة توست التخطي</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">كم المدة لعرض رسالة التراجع عن التخطي المنبثقة</string>
+  <string name="revanced_sb_duration_1s">ثانية واحدة</string>
+  <string name="revanced_sb_duration_2s">ثانيتان</string>
+  <string name="revanced_sb_duration_3s">3 ثوانٍ</string>
+  <string name="revanced_sb_duration_4s">4 ثوانٍ</string>
+  <string name="revanced_sb_duration_5s">5 ثوانٍ</string>
+  <string name="revanced_sb_duration_6s">6 ثوانٍ</string>
+  <string name="revanced_sb_duration_7s">7 ثوانٍ</string>
+  <string name="revanced_sb_duration_8s">8 ثوانٍ</string>
+  <string name="revanced_sb_duration_9s">9 ثوانٍ</string>
+  <string name="revanced_sb_duration_10s">10 ثوانٍ</string>
   <string name="revanced_sb_general_time_without">عرض مدة الفيديو بدون المقاطع</string>
-  <string name="revanced_sb_general_time_without_sum_on">يعرض مدة الفيديو ناقصًا منه جميع المقاطع بين قوسين بجوار مدة الفيديو الكاملة</string>
+  <string name="revanced_sb_general_time_without_sum_on">يتم عرض طول الفيديو مطروحًا منه جميع المقاطع على شريط التقدم</string>
   <string name="revanced_sb_general_time_without_sum_off">يتم عرض مدة الفيديو كاملةً</string>
   <string name="revanced_sb_create_segment_category">إنشاء مقاطع جديدة</string>
   <string name="revanced_sb_enable_create_segment">عرض زر إنشاء مقطع جديد</string>
@@ -1139,6 +1157,7 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_entry_1">الافتراضي</string>
   <string name="revanced_change_form_factor_entry_2">الجوّال</string>
   <string name="revanced_change_form_factor_entry_3">الجهاز اللوحي</string>
+  <string name="revanced_change_form_factor_entry_4">السيارات</string>
   <string name="revanced_change_form_factor_user_dialog_message">"التغييرات تشمل:
 
 تصميم الجهاز اللوحي

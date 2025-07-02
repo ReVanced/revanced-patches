@@ -124,7 +124,7 @@ Wenn Sie dies aktivieren, werden jedoch auch einige Benutzerdaten wie Ihre IP-Ad
   <string name="revanced_debug_stacktrace_summary_off">Debug-Logs enthalten keine Stack-Traces</string>
   <string name="revanced_debug_toast_on_error_title">Toast bei ReVanced Fehler anzeigen</string>
   <string name="revanced_debug_toast_on_error_summary_on">Ein Toast wird angezeigt, wenn ein Fehler auftritt</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Kein Toast wird angezeigt, wenn ein Fehler auftritt</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Es wird keine Toast-Nachricht angezeigt, wenn ein Fehler Auftritt</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Das Ausschalten von Fehler-Toasts blendet alle Benachrichtigungen über Fehler in ReVanced aus.
 
 Sie werden nicht über unerwartete Ereignisse informiert."</string>
@@ -165,9 +165,9 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_join_membership_button_summary_on">Button ist ausgeblendet</string>
   <string name="revanced_hide_join_membership_button_summary_off">Button wird angezeigt</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Regal \"Für dich\" ausblenden</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Regal auf der Kanalseite ist ausgeblendet</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Regal auf der Kanalseite wird angezeigt</string>
+  <string name="revanced_hide_for_you_shelf_title">\"Für dich\" Bereich ausblenden</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Bereich auf der Kanalseite ist ausgeblendet</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Bereich auf der Kanalseite wird angezeigt</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">\'Benachrichtigungen\' Button ausblenden</string>
@@ -281,10 +281,13 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_description_components_screen_title">Videobeschreibung</string>
   <string name="revanced_hide_description_components_screen_summary">Komponenten der Videobeschreibung ausblenden oder anzeigen</string>
   <string name="revanced_hide_filter_bar_screen_title">Filterleiste</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Die Filterleiste im Feed, in den Suchergebnissen und in verwandten Videos ein- oder ausblenden</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Im Feed ausblenden</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Versteckt im Feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Im Feed angezeigt</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Filterleiste in den Feeds, im Verlauf, in den Suchergebnissen und in ähnlichen Videos ein- oder ausblenden</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">In Feeds ausblenden</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">In Feeds ausgeblendet</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">In Feeds angezeigt</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Im Verlauf ausblenden</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Im Verlauf ausgeblendet</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Im Verlauf angezeigt</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">In Suchergebnissen ausblenden</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">In Suchergebnissen versteckt</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">In den Suchergebnissen angezeigt</string>
@@ -308,15 +311,15 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_comments_create_a_short_button_title">\'Verknüpfung erstellen\'-Button ausblenden</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Schaltfläche \" Short erstellen\" ist ausgeblendet</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Schaltfläche \" Short erstellen\" wird angezeigt</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Timestamp-Button ausblenden</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Timestamp-Button ist ausgeblendet</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Timestamp-Button wird angezeigt</string>
   <string name="revanced_hide_comments_preview_comment_title">Vorschaukommentar ausblenden</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Vorschaukommentar ist ausgeblendet</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Vorschau des Kommentars wird angezeigt</string>
   <string name="revanced_hide_comments_thanks_button_title">Schließe die Dankeschön-Schaltfläche aus</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Dankeschön-Taste ist ausgeblendet</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Dankeschön Button wird angezeigt</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Timestamp-Button ausblenden</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_on">Timestamp-Button ist ausgeblendet</string>
+  <string name="revanced_hide_comments_timestamp_button_summary_off">Timestamp-Button wird angezeigt</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles ausblenden</string>
   <string name="revanced_hide_doodles_summary_on">Suchleiste Doodles sind versteckt</string>
@@ -369,32 +372,38 @@ Einschränkungen
   <string name="revanced_hide_keyword_toast_invalid_broad">Stichwort wird alle Videos ausblenden: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Allgemeine Werbung ausblenden</string>
-  <string name="revanced_hide_general_ads_summary_on">Allgemeine Anzeigen sind ausgeblendet</string>
-  <string name="revanced_hide_general_ads_summary_off">Allgemeine Anzeigen werden angezeigt</string>
+  <string name="revanced_hide_creator_store_shelves_title">Creator-Shop-Regale ausblenden</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Shop-Regale unter dem Player und in der Videobeschreibung sind ausgeblendet</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Store-Regale unter dem Player und in der Videobeschreibung werden angezeigt</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Endbild-Banner ausblenden</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Store-Banner wird ausgeblendet</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Store-Banner wird angezeigt</string>
   <string name="revanced_hide_fullscreen_ads_title">Vollbild-Werbung ausblenden</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Vollbildwerbung wird ausgeblendet
 
 Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Vollbild-Anzeigen werden angezeigt</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Vollbild-Werbung ausblenden funktioniert nur mit älteren Geräten</string>
+  <string name="revanced_hide_general_ads_title">Allgemeine Werbung ausblenden</string>
+  <string name="revanced_hide_general_ads_summary_on">Allgemeine Anzeigen sind ausgeblendet</string>
+  <string name="revanced_hide_general_ads_summary_off">Allgemeine Anzeigen werden angezeigt</string>
+  <string name="revanced_hide_merchandise_banners_title">Merchandise-Banner ausblenden</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Merchandise-Banner sind ausgeblendet</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Warenbanner werden angezeigt</string>
   <string name="revanced_hide_paid_promotion_label_title">Bezahltes Werbe-Label ausblenden</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Bezahltes Werbelabel ist ausgeblendet</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Bezahltes Werbe-Label wird angezeigt</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">„Produkte ansehen“-Banner ausblenden</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Banner im Video-Overlay ist ausgeblendet</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Banner im Video-Overlay wird angezeigt</string>
   <string name="revanced_hide_self_sponsor_ads_title">Selbst gesponserte Karten ausblenden</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Selbst gesponserte Karten sind ausgeblendet</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Selbstgesponserte Karten werden angezeigt</string>
-  <string name="revanced_hide_products_banner_title">Banner \"Produkte ansehen\" ausblenden</string>
-  <string name="revanced_hide_products_banner_summary_on">Banner ist ausgeblendet</string>
-  <string name="revanced_hide_products_banner_summary_off">Banner wird angezeigt</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Endbild-Banner ausblenden</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Store-Banner wird ausgeblendet</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Store-Banner wird angezeigt</string>
-  <string name="revanced_hide_player_store_shelf_title">Spieler-Einkaufsregal ausblenden</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Einkaufsregal ist ausgeblendet</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Einkaufsregal wird angezeigt</string>
-  <string name="revanced_hide_shopping_links_title">Einkaufslinks in der Videobeschreibung ausblenden</string>
-  <string name="revanced_hide_shopping_links_summary_on">Shopping-Links in der Videobeschreibung sind ausgeblendet</string>
-  <string name="revanced_hide_shopping_links_summary_off">Shopping-Links in der Videobeschreibung werden angezeigt</string>
+  <string name="revanced_hide_tagged_products_title">Markierte Produkte ausblenden</string>
+  <string name="revanced_hide_tagged_products_summary_on">Markierte Produkte in der Videobeschreibung sind ausgeblendet</string>
+  <string name="revanced_hide_tagged_products_summary_off">Getaggte Produkte in der Videobeschreibung werden angezeigt</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Den \'Store besuchen\'-Button auf Kanalseiten ausblenden</string>
   <string name="revanced_hide_visit_store_button_summary_on">Button auf der Kanalseite ist ausgeblendet</string>
@@ -402,11 +411,6 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_hide_web_search_results_title">Suchergebnisse ausblenden</string>
   <string name="revanced_hide_web_search_results_summary_on">Web-Suchergebnisse sind ausgeblendet</string>
   <string name="revanced_hide_web_search_results_summary_off">Web-Suchergebnisse werden angezeigt</string>
-  <string name="revanced_hide_merchandise_banners_title">Merchandise-Banner ausblenden</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Merchandise-Banner sind ausgeblendet</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Warenbanner werden angezeigt</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Vollbild-Werbung ausblenden funktioniert nur mit älteren Geräten</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">YouTube Premium-Aktionen ausblenden</string>
@@ -816,7 +820,7 @@ Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS T
   <string name="revanced_hide_shorts_sound_metadata_label_title">Sound-Metadaten-Label ausblenden</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Metadatenlabel ist ausgeblendet</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Metadaten-Label wird angezeigt</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Verstecke vollständige Video-Linkbezeichnung</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Video-Link-Label ausblenden</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Video-Link-Label ist ausgeblendet</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Video-Link-Label wird angezeigt</string>
   <string name="revanced_hide_shorts_sound_button_title">Tonschaltfläche ausblenden</string>
@@ -950,11 +954,25 @@ Diese Funktion funktioniert am besten mit einer Videoqualität von 720p oder nie
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Überspringen-Button automatisch ausblenden</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Überspringe Taste verbirgt sich nach ein paar Sekunden</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Die Schaltfläche \"Überspringen\" wird für das gesamte Segment angezeigt</string>
-  <string name="revanced_sb_general_skiptoast">Einen toast beim Überspringen anzeigen</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Toast wird angezeigt, wenn ein Segment automatisch übersprungen wird. Tippe hier, um ein Beispiel zu sehen</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Toast wird nicht angezeigt. Tippe hier, um ein Beispiel zu sehen</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">Dauer des Überspringen-Buttons</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Wie lange die Schaltflächen zum Überspringen und zum Hervorheben angezeigt werden sollen, bevor sie automatisch ausgeblendet werden</string>
+  <string name="revanced_sb_general_skiptoast">Toast zum Rückgängigmachen des Überspringens anzeigen</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Ein Toast wird angezeigt, wenn ein Segment automatisch übersprungen wird. Tippen Sie auf die Toast-Benachrichtigung, um das Überspringen rückgängig zu machen</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Toast-Nachricht wird nicht angezeigt</string>
+  <string name="revanced_sb_toast_on_skip_duration">Dauer der Überspring-Toastmeldung</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Wie lange der Hinweis zum Rückgängigmachen des Überspringens angezeigt werden soll</string>
+  <string name="revanced_sb_duration_1s">1 Sekunde</string>
+  <string name="revanced_sb_duration_2s">2 Sekunden</string>
+  <string name="revanced_sb_duration_3s">3 Sekunden</string>
+  <string name="revanced_sb_duration_4s">4 Sekunden</string>
+  <string name="revanced_sb_duration_5s">5 Sekunden</string>
+  <string name="revanced_sb_duration_6s">6 Sekunden</string>
+  <string name="revanced_sb_duration_7s">7 Sekunden</string>
+  <string name="revanced_sb_duration_8s">8 Sekunden</string>
+  <string name="revanced_sb_duration_9s">9 Sekunden</string>
+  <string name="revanced_sb_duration_10s">10 Sekunden</string>
   <string name="revanced_sb_general_time_without">Videolänge ohne Segmente anzeigen</string>
-  <string name="revanced_sb_general_time_without_sum_on">Videolänge abzüglich aller Segmente in Klammern neben der vollständigen Videolänge</string>
+  <string name="revanced_sb_general_time_without_sum_on">Videolänge abzüglich aller Segmente wird in der Suchleiste angezeigt</string>
   <string name="revanced_sb_general_time_without_sum_off">Vollständige Videolänge angezeigt</string>
   <string name="revanced_sb_create_segment_category">Neue Segmente erstellen</string>
   <string name="revanced_sb_enable_create_segment">Schaltfläche \"Neues Segment erstellen\" anzeigen</string>

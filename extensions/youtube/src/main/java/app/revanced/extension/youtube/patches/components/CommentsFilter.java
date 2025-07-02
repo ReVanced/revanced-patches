@@ -52,7 +52,7 @@ final class CommentsFilter extends Filter {
 
         filterChipBar = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_AI_SUMMARY,
-                "filter_chip_bar.eml"
+                "chip_bar.eml"
         );
 
         aiCommentsSummary = new ByteArrayFilterGroup(

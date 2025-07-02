@@ -9,7 +9,10 @@ import java.util.Objects;
 
 import static app.revanced.extension.shared.StringRef.sf;
 
+import android.util.Range;
+
 public class SponsorSegment implements Comparable<SponsorSegment> {
+
     public enum SegmentVote {
         UPVOTE(sf("revanced_sb_vote_upvote"), 1,false),
         DOWNVOTE(sf("revanced_sb_vote_downvote"), 0, true),
@@ -38,7 +41,7 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
     @NonNull
     public final SegmentCategory category;
     /**
-     * NULL if segment is unsubmitted
+     * NULL if segment is unsubmitted.
      */
     @Nullable
     public final String UUID;
@@ -64,31 +67,52 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
     }
 
     /**
-     * @param nearThreshold threshold to declare the time parameter is near this segment. Must be a positive number
+     * @param nearThreshold threshold to declare the time parameter is near this segment. Must be a positive number.
      */
     public boolean startIsNear(long videoTime, long nearThreshold) {
         return Math.abs(start - videoTime) <= nearThreshold;
     }
 
     /**
-     * @param nearThreshold threshold to declare the time parameter is near this segment. Must be a positive number
+     * @param nearThreshold threshold to declare the time parameter is near this segment. Must be a positive number.
      */
     public boolean endIsNear(long videoTime, long nearThreshold) {
         return Math.abs(end - videoTime) <= nearThreshold;
     }
 
     /**
-     * @return if the time parameter is within this segment
+     * @return if the time parameter is within this segment.
      */
     public boolean containsTime(long videoTime) {
         return start <= videoTime && videoTime < end;
     }
 
     /**
-     * @return if the segment is completely contained inside this segment
+     * @return if the segment is completely contained inside this segment.
      */
     public boolean containsSegment(SponsorSegment other) {
         return start <= other.start && other.end <= end;
+    }
+
+    /**
+     * @return If the range has any overlap with this segment.
+     */
+    public boolean intersectsRange(Range<Long> range) {
+        return range.getLower() < end && range.getUpper() >= start;
+    }
+
+    /**
+     * @return The start/end time in range form.
+     * Range times are adjusted since it uses inclusive and Segments use exclusive.
+     *
+     * {@link SegmentCategory#HIGHLIGHT} is unique and
+     * returns a range from the start of the video until the highlight.
+     */
+    public Range<Long> getUndoRange() {
+        final long undoStart = category == SegmentCategory.HIGHLIGHT
+                ? 0
+                : start;
+        return Range.create(undoStart,  end - 1);
     }
 
     /**
@@ -99,7 +123,7 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
     }
 
     /**
-     * @return 'skip segment' UI overlay button text
+     * @return 'skip segment' UI overlay button text.
      */
     @NonNull
     public String getSkipButtonText() {
@@ -107,7 +131,7 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
     }
 
     /**
-     * @return 'skipped segment' toast message
+     * @return 'skipped segment' toast message.
      */
     @NonNull
     public String getSkippedToastText() {
