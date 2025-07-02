@@ -24,6 +24,22 @@ internal val startupPageLayoutInflateFingerprint = fingerprint {
     strings("blueprintContainer", "gradient", "valuePropositionTextView")
 }
 
+internal val renderStartLoginScreenFingerprint = fingerprint {
+    strings("authenticationButtonFactory", "MORE_OPTIONS")
+}
+
+internal val renderSecondLoginScreenFingerprint = fingerprint {
+    strings("authenticationButtonFactory", "intent_login")
+}
+
+internal val renderThirdLoginScreenFingerprint = fingerprint {
+    strings("EMAIL_OR_USERNAME", "listener")
+}
+
+internal val thirdLoginScreenLoginOnClickFingerprint = fingerprint {
+    strings("login", "listener", "none")
+}
+
 internal val runIntegrityVerificationFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
