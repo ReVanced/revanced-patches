@@ -178,8 +178,6 @@ val unlockPremiumPatch = bytecodePatch(
                     ?.let { interfaceName -> classes.find { it.type == interfaceName } }
                     ?: throw PatchException("Could not find context menu item interface.")
 
-                val contextMenuItemInterfaceName = contextMenuItemInterfaceClassDef.type
-
                 val contextMenuItemViewModelClassName = getViewModelFingerprint
                     .matchOrNull(contextMenuItemInterfaceClassDef)
                     ?.originalMethod
@@ -187,20 +185,20 @@ val unlockPremiumPatch = bytecodePatch(
                     ?: throw PatchException("Could not find context menu item view model class.")
 
                 val castContextMenuItemStubIndex = indexOfFirstInstructionOrThrow {
-                    getReference<TypeReference>()?.type == CONTEXT_MENU_ITEM_PLACEHOLDER_CLASS_NAME
+                    getReference<TypeReference>()?.type == CONTEXT_MENU_ITEM_CLASS_DESCRIPTOR_PLACEHOLDER
                 }
                 val contextMenuItemRegister = getInstruction<OneRegisterInstruction>(castContextMenuItemStubIndex)
                     .registerA
                 val getContextMenuItemStubViewModelIndex = indexOfFirstInstructionOrThrow {
-                    getReference<MethodReference>()?.definingClass == CONTEXT_MENU_ITEM_PLACEHOLDER_CLASS_NAME
+                    getReference<MethodReference>()?.definingClass == CONTEXT_MENU_ITEM_CLASS_DESCRIPTOR_PLACEHOLDER
                 }
 
                 val getViewModelDescriptor =
-                    "$contextMenuItemInterfaceName->getViewModel()$contextMenuItemViewModelClassName"
+                    "$contextMenuItemInterfaceClassDef->getViewModel()$contextMenuItemViewModelClassName"
 
                 replaceInstruction(
                     castContextMenuItemStubIndex,
-                    "check-cast v$contextMenuItemRegister, $contextMenuItemInterfaceName"
+                    "check-cast v$contextMenuItemRegister, $contextMenuItemInterfaceClassDef"
                 )
                 replaceInstruction(
                     getContextMenuItemStubViewModelIndex,
@@ -209,14 +207,15 @@ val unlockPremiumPatch = bytecodePatch(
             }
 
             contextMenuViewModelConstructorFingerprint.match(contextMenuViewModelClassDef).method.apply {
+                val itemsListParameter = parameters.indexOfFirst { it.type == "Ljava/util/List;" } + 1
                 val filterContextMenuItemsDescriptor =
                     "$EXTENSION_CLASS_DESCRIPTOR->filterContextMenuItems(Ljava/util/List;)Ljava/util/List;"
 
                 addInstructions(
                     0,
                     """
-                        invoke-static { p3 }, $filterContextMenuItemsDescriptor
-                        move-result-object p3
+                        invoke-static { p$itemsListParameter }, $filterContextMenuItemsDescriptor
+                        move-result-object p$itemsListParameter
                     """
                 )
             }
@@ -306,8 +305,8 @@ val unlockPremiumPatch = bytecodePatch(
                 onErrorReturnCallIndex,
                 "invoke-static { v$onErrorReturnValueRegister }, " +
                         "$singleClassName->just(Ljava/lang/Object;)$singleClassName\n" +
-                "move-result-object v$onErrorReturnValueRegister\n" +
-                "return-object v$onErrorReturnValueRegister"
+                        "move-result-object v$onErrorReturnValueRegister\n" +
+                        "return-object v$onErrorReturnValueRegister"
             )
 
             // Remove every instruction from the request call to right before the error static value construction.
