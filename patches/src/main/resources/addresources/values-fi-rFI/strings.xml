@@ -377,6 +377,9 @@ Rajoitukset
   <string name="revanced_hide_keyword_toast_invalid_broad">Avainsana piilottaa kaikki videot: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
+  <string name="revanced_hide_creator_store_shelves_title">Piilota sisällöntuottajien kauppojen hyllyt</string>
+  <string name="revanced_hide_creator_store_shelves_summary_on">Kauppahyllyt soittimen alla ja videon kuvauksessa on piilotettu</string>
+  <string name="revanced_hide_creator_store_shelves_summary_off">Kauppahyllyt soittimen alla ja videon kuvauksessa näytetään</string>
   <string name="revanced_hide_end_screen_store_banner_title">Piilota loppunäytön kauppabanneri</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Kauppabanneri on piilotettu</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Kauppabanneri näytetään</string>
@@ -400,6 +403,9 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Piilota itse-sponsoroidut kortit</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Itse-sponsoroidut kortit ovat piilotettu</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Itse-sponsoroidut kortit näytetään</string>
+  <string name="revanced_hide_tagged_products_title">Piilota tagatut tuotteet</string>
+  <string name="revanced_hide_tagged_products_summary_on">Tagatut tuotteet videon kuvauksessa on piilotettu</string>
+  <string name="revanced_hide_tagged_products_summary_off">Tagatut tuotteet videon kuvauksessa näytetään</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Piilota \"Vieraile kaupassa\" -painike kanavasivuilla</string>
   <string name="revanced_hide_visit_store_button_summary_on">Painike on piilotettu kanavasivuilla</string>
@@ -665,7 +671,7 @@ Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videolaatuvalikon alatunniste näytetään</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Piilota Edellinen ja Seuraava -painikkeeet</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Piilota Edellinen &amp; Seuraava -painikkeet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Painikkeet on piilotettu</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Painikkeet näytetään</string>
   <string name="revanced_hide_cast_button_title">Piilota Cast-painike</string>
@@ -1007,7 +1013,7 @@ UserID on kuin salasana, eikä sitä pidä jakaa kenellekään.
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Älä näytä uudelleen</string>
   <string name="revanced_sb_diff_segments">Muuta osion käyttäytymistä</string>
   <string name="revanced_sb_segments_sponsor">Sponsori</string>
-  <string name="revanced_sb_segments_sponsor_sum">Maksettu mainostus, maksetut viittaukset ja suorat mainokset. Ei itsensä mainostukselle tai ilmaisille maininnoille kampanjoista/luojista/nettisivuista/tuotteista, joista he pitävät</string>
+  <string name="revanced_sb_segments_sponsor_sum">Maksettu mainostus, maksetut viittaukset ja suorat mainokset. Ei itsensä mainostukselle tai ilmaisille maininnoille kampanjoista/sisällöntuottajista/nettisivuista/tuotteista, joista he pitävät</string>
   <string name="revanced_sb_segments_selfpromo">Maksamaton/Itsensä mainostus</string>
   <string name="revanced_sb_segments_selfpromo_sum">Samankaltainen \"Sponsorin\" kanssa, mutta maksamattomalle tai itsensä mainostukselle. Tämä sisältää osioita kauppatavarasta, lahjoituksista tai tietoa siitä, kenen kanssa he ovat tehneet yhteistyötä</string>
   <string name="revanced_sb_segments_interaction">Vuorovaikutusmuistutus (tilaaminen)</string>

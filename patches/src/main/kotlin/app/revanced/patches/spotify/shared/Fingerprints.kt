@@ -2,7 +2,7 @@ package app.revanced.patches.spotify.shared
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patches.spotify.misc.extension.mainActivityOnCreateHook
+import com.android.tools.smali.dexlib2.AccessFlags
 
 private const val SPOTIFY_MAIN_ACTIVITY = "Lcom/spotify/music/SpotifyMainActivity;"
 
@@ -12,6 +12,9 @@ private const val SPOTIFY_MAIN_ACTIVITY = "Lcom/spotify/music/SpotifyMainActivit
 internal const val SPOTIFY_MAIN_ACTIVITY_LEGACY = "Lcom/spotify/music/MainActivity;"
 
 internal val mainActivityOnCreateFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("Landroid/os/Bundle;")
     custom { method, classDef ->
         method.name == "onCreate" && (classDef.type == SPOTIFY_MAIN_ACTIVITY
                 || classDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY)
@@ -28,8 +31,7 @@ private var isLegacyAppTarget: Boolean? = null
 context(BytecodePatchContext)
 internal val IS_SPOTIFY_LEGACY_APP_TARGET get(): Boolean {
     if (isLegacyAppTarget == null) {
-        isLegacyAppTarget = mainActivityOnCreateHook.invoke()
-            .fingerprint.originalClassDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY
+        isLegacyAppTarget = mainActivityOnCreateHook.fingerprint.originalClassDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY
     }
     return isLegacyAppTarget!!
 }

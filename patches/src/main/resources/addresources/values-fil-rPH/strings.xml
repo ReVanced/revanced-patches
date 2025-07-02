@@ -960,12 +960,12 @@ Ang tampok na ito ay pinakamahusay na gumagana sa kalidad ng video na 720p o mas
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Tinatago ang pindutan ng skip pagkatapos ng ilang segundo</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Ipinapakita ang button na Laktawan para sa buong segment</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Tagal ng pindutan ng Paglaktaw</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Gaano katagal ipinapakita ang mga pindutan ng awtomatikong pagtago ng laktaw at laktaw upang i-highlight</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Gaano katagal ipakita ang mga pindutan ng paglaktaw at paglaktaw sa highlight bago awtomatikong itago</string>
   <string name="revanced_sb_general_skiptoast">Ipakita ang undo skip toast</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Ipinapakita ang toast kapag awtomatikong nilaktawan ang isang segment. Tapikin ang notipikasyon ng toast upang i-undo ang paglaktaw</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Hindi ipinapakita ang toast</string>
   <string name="revanced_sb_toast_on_skip_duration">Tagal ng toast sa paglaktaw</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Gaano katagal ipinapakita ang notipikasyon ng skip toast</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Gaano katagal ipakita ang paalala ng pag-undo ng paglaktaw</string>
   <string name="revanced_sb_duration_1s">1 segundo</string>
   <string name="revanced_sb_duration_2s">2 segundo</string>
   <string name="revanced_sb_duration_3s">3 segundo</string>

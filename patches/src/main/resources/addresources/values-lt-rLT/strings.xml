@@ -960,12 +960,12 @@ Paieškos juostos miniatiūros bus naudojamos tos pačios kokybės kaip dabartin
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Praleidimo mygtukas pasislėps po kelių sekundžių</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Praleidimo mygtukas rodomas visam segmentui</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Praleidimo mygtuko trukmė</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Kiek laiko rodomi automatinio paslėpimo praleidimo ir praleidimo iki paryškinimo mygtukai</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Kiek laiko rodyti praleidimo ir praleidimo iki paryškinimo mygtukus prieš juos automatiškai paslepiant</string>
   <string name="revanced_sb_general_skiptoast">Rodyti praleidimo anuliavimo pranešimą</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Pranešimas rodomas, kai segmentas automatiškai praleidžiamas. Bakstelėkite pranešimą, norėdami anuliuoti praleidimą</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Pranešimas nerodomas</string>
   <string name="revanced_sb_toast_on_skip_duration">Praleidimo pranešimo trukmė</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Kiek laiko rodomas praleidimo pranešimas</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Kiek laiko rodyti pranešimą apie praleidimo atšaukimą</string>
   <string name="revanced_sb_duration_1s">1 sekundė</string>
   <string name="revanced_sb_duration_2s">2 sekundės</string>
   <string name="revanced_sb_duration_3s">3 sekundės</string>

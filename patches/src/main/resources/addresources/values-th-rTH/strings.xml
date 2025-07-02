@@ -961,12 +961,12 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">ปุ่มข้ามซ่อนหลังจากผ่านไปไม่กี่วินาที</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">ปุ่มข้ามจะแสดงสำหรับทั้งส่วน</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">ระยะเวลาปุ่มข้าม</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">ระยะเวลาที่ปุ่มซ่อนอัตโนมัติสำหรับข้ามและข้ามไปยังไฮไลต์จะแสดง</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">นานแค่ไหนที่จะแสดงปุ่มข้ามและปุ่มข้ามไปยังไฮไลต์ก่อนที่จะซ่อนโดยอัตโนมัติ</string>
   <string name="revanced_sb_general_skiptoast">แสดงการแจ้งเตือนยกเลิกการข้าม</string>
   <string name="revanced_sb_general_skiptoast_sum_on">จะมีการแจ้งเตือนแสดงขึ้นเมื่อมีการข้ามส่วนโดยอัตโนมัติ แตะการแจ้งเตือนแบบชั่วคราวเพื่อยกเลิกการข้าม</string>
   <string name="revanced_sb_general_skiptoast_sum_off">ไม่แสดงข้อความแจ้งเตือน</string>
   <string name="revanced_sb_toast_on_skip_duration">ระยะเวลาข้อความแจ้งเตือนการข้าม</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">ระยะเวลาที่แสดงการแจ้งเตือนข้ามแบบชั่วคราว</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">นานแค่ไหนที่จะแสดงแจ้งเตือนยกเลิกการข้าม</string>
   <string name="revanced_sb_duration_1s">1 วินาที</string>
   <string name="revanced_sb_duration_2s">2 วินาที</string>
   <string name="revanced_sb_duration_3s">3 วินาที</string>

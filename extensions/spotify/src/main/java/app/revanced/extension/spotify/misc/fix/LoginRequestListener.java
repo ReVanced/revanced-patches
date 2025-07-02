@@ -14,11 +14,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Objects;
 
+import static app.revanced.extension.spotify.misc.fix.Session.FAILED_TO_RENEW_SESSION;
 import static fi.iki.elonen.NanoHTTPD.Response.Status.INTERNAL_ERROR;
 
 class LoginRequestListener extends NanoHTTPD {
     LoginRequestListener(int port) {
         super(port);
+
+        try {
+            start();
+        } catch (IOException ex) {
+            Logger.printException(() -> "Failed to start login request listener on port " + port, ex);
+            throw new RuntimeException(ex);
+        }
     }
 
     @NonNull
@@ -31,8 +39,8 @@ class LoginRequestListener extends NanoHTTPD {
         LoginRequest loginRequest;
         try {
             loginRequest = LoginRequest.parseFrom(requestBodyInputStream);
-        } catch (IOException e) {
-            Logger.printException(() -> "Failed to parse LoginRequest", e);
+        } catch (IOException ex) {
+            Logger.printException(() -> "Failed to parse LoginRequest", ex);
             return newResponse(INTERNAL_ERROR);
         }
 
@@ -42,52 +50,49 @@ class LoginRequestListener extends NanoHTTPD {
         // however a webview can only handle one request at a time due to singleton cookie manager.
         // Therefore, synchronize to ensure that only one webview handles the request at a time.
         synchronized (this) {
-            loginResponse = getLoginResponse(loginRequest);
+            try {
+                loginResponse = getLoginResponse(loginRequest);
+            } catch (Exception ex) {
+                Logger.printException(() -> "Failed to get login response", ex);
+                return newResponse(INTERNAL_ERROR);
+            }
         }
 
-        if (loginResponse != null) {
-            return newResponse(Response.Status.OK, loginResponse);
-        }
-
-        return newResponse(INTERNAL_ERROR);
+        return newResponse(Response.Status.OK, loginResponse);
     }
 
 
-    @Nullable
     private static LoginResponse getLoginResponse(@NonNull LoginRequest loginRequest) {
         Session session;
 
-        boolean isInitialLogin = !loginRequest.hasStoredCredential();
-        if (isInitialLogin) {
+        if (!loginRequest.hasStoredCredential()) {
             Logger.printInfo(() -> "Received request for initial login");
-            session = WebApp.currentSession; // Session obtained from WebApp.login.
+            session = WebApp.currentSession; // Session obtained from WebApp.launchLogin, can be null if still in progress.
         } else {
             Logger.printInfo(() -> "Received request to restore saved session");
             session = Session.read(loginRequest.getStoredCredential().getUsername());
         }
 
-        return toLoginResponse(session, isInitialLogin);
+        return toLoginResponse(session);
     }
 
-
-    private static LoginResponse toLoginResponse(Session session, boolean isInitialLogin) {
+    private static LoginResponse toLoginResponse(@Nullable Session session) {
         LoginResponse.Builder builder = LoginResponse.newBuilder();
 
         if (session == null) {
-            if (isInitialLogin) {
-                Logger.printInfo(() -> "Session is null, returning try again later error for initial login");
-                builder.setError(LoginError.TRY_AGAIN_LATER);
-            } else {
-                Logger.printInfo(() -> "Session is null, returning invalid credentials error for stored credential login");
-                builder.setError(LoginError.INVALID_CREDENTIALS);
-            }
-        } else if (session.username == null) {
-            Logger.printInfo(() -> "Session username is null, returning invalid credentials error");
-            builder.setError(LoginError.INVALID_CREDENTIALS);
+            Logger.printException(() -> "Session is null. An initial login may still be in progress, returning try again later error");
+            builder.setError(LoginError.TRY_AGAIN_LATER);
         } else if (session.accessTokenExpired()) {
-            Logger.printInfo(() -> "Access token has expired, renewing session");
-            WebApp.renewSession(session.cookies);
-            return toLoginResponse(WebApp.currentSession, isInitialLogin);
+            Logger.printInfo(() -> "Access token expired, renewing session");
+            WebApp.renewSessionBlocking(session.cookies);
+            return toLoginResponse(WebApp.currentSession);
+        } else if (session.username == null) {
+            Logger.printException(() -> "Session username is null, likely caused by invalid cookies, returning invalid credentials error");
+            session.delete();
+            builder.setError(LoginError.INVALID_CREDENTIALS);
+        } else if (session == FAILED_TO_RENEW_SESSION) {
+            Logger.printException(() -> "Failed to renew session, likely caused by a timeout, returning try again later error");
+            builder.setError(LoginError.TRY_AGAIN_LATER);
         } else {
             session.save();
             Logger.printInfo(() -> "Returning session for username: " + session.username);

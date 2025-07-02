@@ -1,3 +1,38 @@
+# [5.30.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.9...v5.30.0-dev.10) (2025-07-02)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Fix hiding context menu ads on newest versions by simplifying fingerprint ([#5318](https://github.com/ReVanced/revanced-patches/issues/5318)) ([dad0ff4](https://github.com/ReVanced/revanced-patches/commit/dad0ff4fba74c2b020fbde6c6d5eb66e10e6f1f7))
+
+# [5.30.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.8...v5.30.0-dev.9) (2025-07-02)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Fix hiding context menu ads on newest versions ([#5318](https://github.com/ReVanced/revanced-patches/issues/5318)) ([73fd832](https://github.com/ReVanced/revanced-patches/commit/73fd83222e089a5fd6e1526e5c12f5a1e9893a35))
+
+# [5.30.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.7...v5.30.0-dev.8) (2025-07-02)
+
+
+### Bug Fixes
+
+* **Spotify - Spoof client:** Skip native login screens ([#5228](https://github.com/ReVanced/revanced-patches/issues/5228)) ([c5ebc63](https://github.com/ReVanced/revanced-patches/commit/c5ebc6336ed17cc9cc7f1348282a2aa3c173fb95))
+
+# [5.30.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.6...v5.30.0-dev.7) (2025-07-01)
+
+
+### Bug Fixes
+
+* **Spotify - Spoof client:** Handle remaining edge cases to obtain a session ([#5285](https://github.com/ReVanced/revanced-patches/issues/5285)) ([2bb2d59](https://github.com/ReVanced/revanced-patches/commit/2bb2d594936093774e232ad8b274c81e805c5bf6))
+
+# [5.30.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.5...v5.30.0-dev.6) (2025-07-01)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Do not show undo skip if PiP is active ([#5314](https://github.com/ReVanced/revanced-patches/issues/5314)) ([18af8de](https://github.com/ReVanced/revanced-patches/commit/18af8dead2c6c7f0d99cd75b69948240e0bcd12c))
+
 # [5.30.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.30.0-dev.4...v5.30.0-dev.5) (2025-06-30)
 
 

@@ -965,12 +965,12 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">לחצן דילוג נעלם לאחר כמה שניות</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">לחצן דילוג מוצג עבור כל המקטע</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">משך לחצן הדילוג</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">כמה זמן מוצגים כפתורי הדילוג והדילוג לסימון בהסתרה אוטומטית</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">כמה זמן להציג את כפתורי הדילוג ודילוג לסימון לפני הסתרה אוטומטית</string>
   <string name="revanced_sb_general_skiptoast">הצג הודעה קופצת לביטול דילוג</string>
   <string name="revanced_sb_general_skiptoast_sum_on">הודעה קופצת מוצגת כאשר קטע מדולג אוטומטית. הקש על ההודעה הקופצת כדי לבטל את הדילוג</string>
   <string name="revanced_sb_general_skiptoast_sum_off">הטוסט לא מוצג</string>
   <string name="revanced_sb_toast_on_skip_duration">משך טוסט הדילוג</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">כמה זמן מוצגת ההודעה הקופצת של הדילוג</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">כמה זמן להציג את הודעת \"טוסט\" ביטול הדילוג</string>
   <string name="revanced_sb_duration_1s">שנייה אחת</string>
   <string name="revanced_sb_duration_2s">שתי שניות</string>
   <string name="revanced_sb_duration_3s">3 שניות</string>

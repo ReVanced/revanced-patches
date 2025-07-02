@@ -962,12 +962,12 @@ Deze functie werkt het beste met een videokwaliteit van 720p of lager en wanneer
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Oversla-knop wordt na een paar seconden verborgen</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip-knop wordt weergegeven voor het hele segment</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Duur van overslaan-knop</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Hoe lang de \"automatisch verbergen overslaan\"- en \"markeer\"-knoppen worden getoond</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Hoe lang de knoppen \"overslaan\" en \"overslaan naar hoogtepunt\" moeten worden weergegeven voordat ze automatisch worden verborgen</string>
   <string name="revanced_sb_general_skiptoast">Toon \"overslaan ongedaan maken\"-melding</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Een melding wordt getoond wanneer een segment automatisch wordt overgeslagen. Tik op de melding om het overslaan ongedaan te maken</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Toast wordt niet getoond</string>
   <string name="revanced_sb_toast_on_skip_duration">Duur van overslaan-toast</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Hoe lang de overslaan-melding wordt getoond</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Hoe lang de \"overslaan ongedaan maken\"-melding moet worden weergegeven</string>
   <string name="revanced_sb_duration_1s">1 seconde</string>
   <string name="revanced_sb_duration_2s">2 seconden</string>
   <string name="revanced_sb_duration_3s">3 seconden</string>

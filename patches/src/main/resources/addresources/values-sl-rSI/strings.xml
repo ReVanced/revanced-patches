@@ -962,12 +962,12 @@ Ta funkcija deluje najbolje pri kakovosti videa 720p ali nižji in pri uporabi z
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Gumb za preskakovanje se po nekaj sekundah skrije</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Gumb za preskok je prikazan za celoten segment</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Trajanje gumba za preskok</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Kako dolgo so prikazani gumbi za samodejno skrivanje preskakovanja in preskok na poudarek</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Kako dolgo prikazovati gumbe za preskok in preskok do označevalca, preden se samodejno skrijejo</string>
   <string name="revanced_sb_general_skiptoast">Prikaži obvestilo za razveljavitev preskakovanja</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Obvestilo se prikaže, ko je segment samodejno preskočen. Dotaknite se obvestila, da razveljavite preskok</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Obvestilo ni prikazano</string>
   <string name="revanced_sb_toast_on_skip_duration">Trajanje obvestila o preskoku</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Kako dolgo je prikazano obvestilo o preskakovanju.</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Kako dolgo prikazovati obvestilo o razveljavitvi preskoka</string>
   <string name="revanced_sb_duration_1s">1 sekunda</string>
   <string name="revanced_sb_duration_2s">2 sekundi</string>
   <string name="revanced_sb_duration_3s">3 sekunde</string>
