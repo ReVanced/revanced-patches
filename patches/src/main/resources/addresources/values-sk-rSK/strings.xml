@@ -955,12 +955,12 @@ Táto funkcia najlepšie funguje s kvalitou videa 720p alebo nižšou a pri pou�
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Tlačidlo preskočenia sa po niekoľkých sekundách skryje</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Tlačidlo Preskočiť sa zobrazuje pre celý segment</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Dĺžka trvania tlačidla preskočiť</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Ako dlho sú zobrazené tlačidlá pre automatické skrytie preskočenia a preskočenie na zvýraznenie</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Ako dlho zobrazovať tlačidlá preskočiť a preskočiť na zvýraznenie pred automatickým skrytím</string>
   <string name="revanced_sb_general_skiptoast">Zobraziť hlásenie o vrátení preskočenia</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Hlásenie sa zobrazí, keď je segment automaticky preskočený. Klepnutím na hlásenie preskočenie vrátite</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Hlásenie sa nezobrazuje</string>
   <string name="revanced_sb_toast_on_skip_duration">Dĺžka trvania hlásenia preskočenia</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Ako dlho je zobrazené hlásenie o preskočení</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Ako dlho zobrazovať správu o zrušení preskočenia</string>
   <string name="revanced_sb_duration_1s">1 sekunda</string>
   <string name="revanced_sb_duration_2s">2 sekundy</string>
   <string name="revanced_sb_duration_3s">3 sekundy</string>

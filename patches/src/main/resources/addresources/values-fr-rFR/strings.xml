@@ -964,12 +964,12 @@ Cette fonctionnalité fonctionne de manière optimale avec une qualité vidéo d
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Le bouton Passer est masqué après quelques secondes</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Le bouton Passer est affiché pendant toute la durée du segment</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Durée du bouton Passer</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Durée d\'affichage avant masquage automatique des boutons Passer et Passer au temps fort</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Durée d\'affichage des boutons \"Passer\" et \"Passer au temps fort\" avant masquage automatique</string>
   <string name="revanced_sb_general_skiptoast">Afficher le message toast d\'annulation de saut</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Un message toast est affiché lorsqu\'un segment est automatiquement passé. Appuyez dessus pour annuler le saut.</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Le message toast n\'est pas affiché</string>
   <string name="revanced_sb_toast_on_skip_duration">Durée du message toast de saut</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Durée d\'affichage du message toast de saut</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Durée d\'affichage du message toast d\'annulation de saut</string>
   <string name="revanced_sb_duration_1s">1 seconde</string>
   <string name="revanced_sb_duration_2s">2 secondes</string>
   <string name="revanced_sb_duration_3s">3 secondes</string>

@@ -964,12 +964,12 @@ Denne funktion fungerer bedst med en videokvalitet på 720p eller lavere og ved 
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip knap skjuler efter et par sekunder</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Spring over-knappen vises for hele segmentet</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Spring over-knap varighed</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Hvor længe knapperne til automatisk skjuling af overspring og spring til højdepunkt vises</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Hvor længe skal knapperne til at springe over og springe til højdepunkt vises, før de automatisk skjules</string>
   <string name="revanced_sb_general_skiptoast">Vis fortryd oversprings-toast</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Toast vises, når et segment automatisk springes over. Tryk på toast-meddelelsen for at fortryde overspringelsen</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Toast vises ikke</string>
   <string name="revanced_sb_toast_on_skip_duration">Spring over-toast varighed</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Hvor længe toast-meddelelsen ved overspringelse vises</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Hvor længe skal fortryd spring over-meddelelsen vises</string>
   <string name="revanced_sb_duration_1s">1 sekund</string>
   <string name="revanced_sb_duration_2s">2 sekunder</string>
   <string name="revanced_sb_duration_3s">3 sekunder</string>

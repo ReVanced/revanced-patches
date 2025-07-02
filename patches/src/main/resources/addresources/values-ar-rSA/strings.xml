@@ -962,12 +962,12 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">إخفاء زر التخطي بعد بضع ثوانٍ</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">يتم عرض زر التخطي للمقطع بأكمله</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">مدة زر التخطي</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">المدة التي تظهر فيها أزرار التخطي والتخطي إلى التمييز المخفية تلقائيًا</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">كم المدة لعرض أزرار التخطي والتخطي إلى التمييز قبل الإخفاء التلقائي</string>
   <string name="revanced_sb_general_skiptoast">إظهار إشعار التراجع عن التخطي</string>
   <string name="revanced_sb_general_skiptoast_sum_on">يظهر إشعار عند تخطي مقطع تلقائيًا. انقر على الإشعار للتراجع عن التخطي</string>
   <string name="revanced_sb_general_skiptoast_sum_off">لا يتم عرض التوست</string>
   <string name="revanced_sb_toast_on_skip_duration">مدة توست التخطي</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">المدة التي يظهر فيها إشعار التخطي</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">كم المدة لعرض رسالة التراجع عن التخطي المنبثقة</string>
   <string name="revanced_sb_duration_1s">ثانية واحدة</string>
   <string name="revanced_sb_duration_2s">ثانيتان</string>
   <string name="revanced_sb_duration_3s">3 ثوانٍ</string>

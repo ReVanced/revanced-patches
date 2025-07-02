@@ -959,12 +959,12 @@ Esta función funciona mejor con una calidad de vídeo de 720p o inferior y cuan
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Omitir botón se oculta después de unos segundos</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Se muestra el botón Saltar para todo el segmento</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Duración del botón Omitir</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">¿Cuánto tiempo se muestran automáticamente los botones de omitir y omitir para resaltar?</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Cuánto tiempo se deben mostrar los botones de \"saltar\" y \"saltar al momento destacado\" antes de ocultarse automáticamente</string>
   <string name="revanced_sb_general_skiptoast">Mostrar mensaje emergente para deshacer omisión</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Se muestra un mensaje emergente cuando un segmento se omite automáticamente. Toca la notificación de mensaje emergente para deshacer la omisión</string>
   <string name="revanced_sb_general_skiptoast_sum_off">El mensaje emergente no se muestra</string>
   <string name="revanced_sb_toast_on_skip_duration">Duración del mensaje emergente al omitir</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">¿Cuánto tiempo se muestra la notificación de mensaje emergente de omisión?</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Cuánto tiempo se debe mostrar el mensaje emergente de \"deshacer salto\"</string>
   <string name="revanced_sb_duration_1s">1 segundo</string>
   <string name="revanced_sb_duration_2s">2 segundos</string>
   <string name="revanced_sb_duration_3s">3 segundos</string>

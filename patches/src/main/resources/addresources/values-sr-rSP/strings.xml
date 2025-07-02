@@ -962,12 +962,12 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Дугме за прескакање ће бити скривено након неколико секунди</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Дугме за прескакање је приказано за цео сегмент</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Трајање дугмета за прескакање</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Колико дуго се приказују дугмад за аутоматско скривање прескакања и прескакање до истакнутог</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Колико дуго да се приказују дугмад за прескакање и прескакање до истакнутог дела пре аутоматског скривања</string>
   <string name="revanced_sb_general_skiptoast">Прикажи искачуће обавештење о поништавању прескакања</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Искачуће обавештење се приказује, када се сегмент аутоматски прескочи. Додирните искачуће обавештење да бисте поништили прескакање</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Искачуће обавештење се не приказује</string>
   <string name="revanced_sb_toast_on_skip_duration">Трајање искачућег обавештења при прескакању</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Колико дуго се приказује искачуће обавештење о прескакању</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Колико дуго да се приказује тост за поништавање прескакања</string>
   <string name="revanced_sb_duration_1s">1 секунда</string>
   <string name="revanced_sb_duration_2s">2 секунде</string>
   <string name="revanced_sb_duration_3s">3 секунде</string>

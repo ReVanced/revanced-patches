@@ -962,12 +962,12 @@ Această caracteristică funcționează cel mai bine cu o calitate video de 720p
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Omite ascunderea butonului după câteva secunde</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Butonul Skip este afișat pentru întregul segment</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Durata butonului de omitere</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Cât timp sunt afișate butoanele de ascundere automată a săriturii și de săritură la evidențiere</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Cât timp să se afișeze butoanele „Omite” și „Omite la momentul cheie” înainte de a se ascunde automat</string>
   <string name="revanced_sb_general_skiptoast">Afișează notificare toast de anulare a săriturii</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Notificarea toast este afișată când un segment este sărit automat. Atingeți notificarea toast pentru a anula săritura</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Notificarea pop-up nu este afișată</string>
   <string name="revanced_sb_toast_on_skip_duration">Durata notificării pop-up de omitere</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Cât timp este afișată notificarea toast de săritură</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Cât timp să se afișeze notificarea de anulare a omisiunii</string>
   <string name="revanced_sb_duration_1s">1 secundă</string>
   <string name="revanced_sb_duration_2s">2 secunde</string>
   <string name="revanced_sb_duration_3s">3 secunde</string>
