@@ -168,7 +168,6 @@ val spoofClientPatch = bytecodePatch(
         thirdLoginScreenLoginOnClickFingerprint.method.apply {
             // Use placeholder credentials to pass the login screen.
             val loginActionIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID) - 1
-
             val loginActionInstruction = getInstruction<FiveRegisterInstruction>(loginActionIndex)
 
             addInstructions(
