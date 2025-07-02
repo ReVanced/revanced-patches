@@ -55,19 +55,19 @@ internal val oldContextMenuViewModelAddItemFingerprint by fingerprint {
     }
 }
 
-internal val contextMenuViewModelConstructorFingerprint = fingerprint {
+internal val contextMenuViewModelConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
 }
 
 /**
  * Used to find the interface name of a context menu item.
  */
-internal val browsePodcastsContextMenuItemClassFingerprint = fingerprint {
+internal val browsePodcastsContextMenuItemClassFingerprint by fingerprint {
     strings("browse_podcast_item", "ui_navigate")
 }
 
 internal const val CONTEXT_MENU_ITEM_CLASS_DESCRIPTOR_PLACEHOLDER = "Lapp/revanced/ContextMenuItemPlaceholder;"
-internal val extensionFilterContextMenuItemsFingerprint = fingerprint {
+internal val extensionFilterContextMenuItemsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/util/List;")
     parameters("Ljava/util/List;")

@@ -5,6 +5,7 @@ import app.revanced.patcher.string
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val getPackageInfoFingerprint by fingerprint {
@@ -32,15 +33,15 @@ internal val renderSecondLoginScreenFingerprint by fingerprint {
     strings("authenticationButtonFactory", "intent_login")
 }
 
-internal val renderThirdLoginScreenFingerprint = fingerprint {
+internal val renderThirdLoginScreenFingerprint by fingerprint {
     strings("EMAIL_OR_USERNAME", "listener")
 }
 
-internal val thirdLoginScreenLoginOnClickFingerprint = fingerprint {
+internal val thirdLoginScreenLoginOnClickFingerprint by fingerprint {
     strings("login", "listener", "none")
 }
 
-internal val runIntegrityVerificationFingerprint = fingerprint {
+internal val runIntegrityVerificationFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     opcodes(

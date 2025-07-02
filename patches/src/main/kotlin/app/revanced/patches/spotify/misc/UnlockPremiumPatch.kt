@@ -130,9 +130,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Hook the method which adds context menu items and return before adding if the item is a Premium ad.
         oldContextMenuViewModelAddItemFingerprint.matchOrNull(contextMenuViewModelClassDef)?.method?.apply {
             val contextMenuItemInterfaceName = parameterTypes.first()
-            val contextMenuItemInterfaceClassDef = classes.find {
-                it.type == contextMenuItemInterfaceName
-            } ?: throw PatchException("Could not find context menu item interface.")
+            val contextMenuItemInterfaceClassDef = classBy(contextMenuItemInterfaceName.toString())
 
             // The class returned by ContextMenuItem->getViewModel, which represents the actual context menu item we
             // need to stringify.
@@ -173,12 +171,12 @@ val unlockPremiumPatch = bytecodePatch(
             // minified names used at runtime. The instructions need to match the original names so we can call the
             // method in the extension.
             extensionFilterContextMenuItemsFingerprint.method.apply {
-                val contextMenuItemInterfaceClassDef = browsePodcastsContextMenuItemClassFingerprint
-                    .originalClassDef
-                    .interfaces
-                    .firstOrNull()
-                    ?.let { interfaceName -> classes.find { it.type == interfaceName } }
-                    ?: throw PatchException("Could not find context menu item interface.")
+                val contextMenuItemInterfaceClassDef = classBy(
+                    browsePodcastsContextMenuItemClassFingerprint
+                        .originalClassDef
+                        .interfaces
+                        .first()
+                )
 
                 val contextMenuItemViewModelClassName = getViewModelFingerprint
                     .matchOrNull(contextMenuItemInterfaceClassDef)
