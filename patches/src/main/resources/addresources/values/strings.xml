@@ -273,9 +273,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_feed_survey_title">Hide feed surveys</string>
             <string name="revanced_hide_feed_survey_summary_on">Feed surveys are hidden</string>
             <string name="revanced_hide_feed_survey_summary_off">Feed surveys are shown</string>
-            <string name="revanced_hide_community_guidelines_title">Hide community guidelines</string>
-            <string name="revanced_hide_community_guidelines_summary_on">Community guidelines are hidden</string>
-            <string name="revanced_hide_community_guidelines_summary_off">Community guidelines are shown</string>
             <string name="revanced_hide_subscribers_community_guidelines_title">Hide subscribers guidelines</string>
             <string name="revanced_hide_subscribers_community_guidelines_summary_on">Subscribers community guidelines are hidden</string>
             <string name="revanced_hide_subscribers_community_guidelines_summary_off">Subscribers community guidelines are shown</string>
@@ -380,6 +377,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
             <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
             <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
+            <string name="revanced_hide_comments_community_guidelines_title">Hide community guidelines</string>
+            <string name="revanced_hide_comments_community_guidelines_summary_on">Community guidelines are hidden</string>
+            <string name="revanced_hide_comments_community_guidelines_summary_off">Community guidelines are shown</string>
             <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
             <string name="revanced_hide_comments_create_a_short_button_summary_on">Create a Short button is hidden</string>
             <string name="revanced_hide_comments_create_a_short_button_summary_off">Create a Short button is shown</string>

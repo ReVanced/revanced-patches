@@ -60,6 +60,11 @@ final class CommentsFilter extends Filter {
                 "channel_guidelines_entry_banner"
         );
 
+        final var communityGuidelines = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_COMMUNITY_GUIDELINES,
+                "community_guidelines"
+        );
+
         aiCommentsSummary = new ByteArrayFilterGroup(
                 null,
                 "yt_fill_spark_"
@@ -70,6 +75,7 @@ final class CommentsFilter extends Filter {
                 chatSummary,
                 commentsByMembers,
                 comments,
+                communityGuidelines,
                 createAShort,
                 previewComment,
                 thanksButton,

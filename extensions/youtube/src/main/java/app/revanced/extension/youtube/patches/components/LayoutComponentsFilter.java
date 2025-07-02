@@ -83,11 +83,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "poll_post_responsive_root.eml"
         );
 
-        final var communityGuidelines = new StringFilterGroup(
-                Settings.HIDE_COMMUNITY_GUIDELINES,
-                "community_guidelines"
-        );
-
         final var subscribersCommunityGuidelines = new StringFilterGroup(
                 Settings.HIDE_SUBSCRIBERS_COMMUNITY_GUIDELINES,
                 "sponsorships_comments_upsell"
@@ -277,7 +272,6 @@ public final class LayoutComponentsFilter extends Filter {
                 searchResultRecommendationLabels,
                 latestPosts,
                 channelWatermark,
-                communityGuidelines,
                 playables,
                 quickActions,
                 relatedVideos,
