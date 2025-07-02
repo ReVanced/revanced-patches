@@ -145,11 +145,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "post_shelf"
         );
 
-        final var channelGuidelines = new StringFilterGroup(
-                Settings.HIDE_CHANNEL_GUIDELINES,
-                "channel_guidelines_entry_banner"
-        );
-
         final var channelLinksPreview = new StringFilterGroup(
                 Settings.HIDE_CHANNEL_LINKS_PREVIEW,
                 "attribution.eml"
@@ -295,7 +290,6 @@ public final class LayoutComponentsFilter extends Filter {
                 subscribersCommunityGuidelines,
                 subscriptionsChipBar,
                 chipBar,
-                channelGuidelines,
                 channelLinksPreview,
                 channelProfile,
                 audioTrackButton,

@@ -255,9 +255,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
             <string name="revanced_hide_timed_reactions_summary_on">Timed reactions are hidden</string>
             <string name="revanced_hide_timed_reactions_summary_off">Timed reactions are shown</string>
-            <string name="revanced_hide_channel_guidelines_title">Hide channel guidelines</string>
-            <string name="revanced_hide_channel_guidelines_summary_on">Channel guidelines are hidden</string>
-            <string name="revanced_hide_channel_guidelines_summary_off">Channel guidelines are shown</string>
             <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
@@ -374,6 +371,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_comments_ai_summary_title">Hide AI comments summary</string>
             <string name="revanced_hide_comments_ai_summary_summary_on">Comments summary is hidden</string>
             <string name="revanced_hide_comments_ai_summary_summary_off">Comments summary is shown</string>
+            <string name="revanced_hide_comments_channel_guidelines_title">Hide channel guidelines</string>
+            <string name="revanced_hide_comments_channel_guidelines_summary_on">Channel guidelines are hidden</string>
+            <string name="revanced_hide_comments_channel_guidelines_summary_off">Channel guidelines are shown</string>
             <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
             <string name="revanced_hide_comments_by_members_header_summary_on">Comments by members header is hidden</string>
             <string name="revanced_hide_comments_by_members_header_summary_off">Comments by members header is shown</string>

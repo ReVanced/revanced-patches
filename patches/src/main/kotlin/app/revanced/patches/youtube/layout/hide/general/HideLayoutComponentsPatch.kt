@@ -157,6 +157,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 preferences = setOf(
                     SwitchPreference("revanced_hide_comments_ai_chat_summary"),
                     SwitchPreference("revanced_hide_comments_ai_summary"),
+                    SwitchPreference("revanced_hide_comments_channel_guidelines"),
                     SwitchPreference("revanced_hide_comments_by_members_header"),
                     SwitchPreference("revanced_hide_comments_section"),
                     SwitchPreference("revanced_hide_comments_create_a_short_button"),
@@ -167,7 +168,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
             ),
             SwitchPreference("revanced_hide_channel_bar"),
-            SwitchPreference("revanced_hide_channel_guidelines"),
             SwitchPreference("revanced_hide_channel_links_preview"),
             SwitchPreference("revanced_hide_channel_member_shelf"),
             SwitchPreference("revanced_hide_channel_watermark"),

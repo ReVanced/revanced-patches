@@ -55,12 +55,18 @@ final class CommentsFilter extends Filter {
                 "chip_bar.eml"
         );
 
+        final var channelGuidelines = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_CHANNEL_GUIDELINES,
+                "channel_guidelines_entry_banner"
+        );
+
         aiCommentsSummary = new ByteArrayFilterGroup(
                 null,
                 "yt_fill_spark_"
         );
 
         addPathCallbacks(
+                channelGuidelines,
                 chatSummary,
                 commentsByMembers,
                 comments,
