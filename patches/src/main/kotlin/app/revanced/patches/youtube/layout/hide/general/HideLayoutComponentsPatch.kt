@@ -170,7 +170,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             ),
             SwitchPreference("revanced_hide_channel_bar"),
             SwitchPreference("revanced_hide_channel_links_preview"),
-            SwitchPreference("revanced_hide_channel_member_shelf"),
+            SwitchPreference("revanced_hide_channel_members_shelf"),
             SwitchPreference("revanced_hide_channel_watermark"),
             SwitchPreference("revanced_hide_emergency_box"),
             SwitchPreference("revanced_hide_info_panels"),

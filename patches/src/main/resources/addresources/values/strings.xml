@@ -276,9 +276,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_subscribers_community_guidelines_title">Hide subscribers guidelines</string>
             <string name="revanced_hide_subscribers_community_guidelines_summary_on">Subscribers community guidelines are hidden</string>
             <string name="revanced_hide_subscribers_community_guidelines_summary_off">Subscribers community guidelines are shown</string>
-            <string name="revanced_hide_channel_member_shelf_title">Hide channel member shelf</string>
-            <string name="revanced_hide_channel_member_shelf_summary_on">Channel member shelf is hidden</string>
-            <string name="revanced_hide_channel_member_shelf_summary_off">Channel member shelf is shown</string>
+            <string name="revanced_hide_channel_members_shelf_title">Hide channel members shelf</string>
+            <string name="revanced_hide_channel_members_shelf_summary_on">Channel members shelf is hidden</string>
+            <string name="revanced_hide_channel_members_shelf_summary_off">Channel members shelf is shown</string>
             <string name="revanced_hide_emergency_box_title">Hide emergency boxes</string>
             <string name="revanced_hide_emergency_box_summary_on">Emergency boxes are hidden</string>
             <string name="revanced_hide_emergency_box_summary_off">Emergency boxes are shown</string>

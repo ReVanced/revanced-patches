@@ -88,8 +88,8 @@ public final class LayoutComponentsFilter extends Filter {
                 "sponsorships_comments_upsell"
         );
 
-        final var channelMemberShelf = new StringFilterGroup(
-                Settings.HIDE_CHANNEL_MEMBER_SHELF,
+        final var channelMembersShelf = new StringFilterGroup(
+                Settings.HIDE_CHANNEL_MEMBERS_SHELF,
                 "member_recognition_shelf"
         );
 
@@ -290,7 +290,7 @@ public final class LayoutComponentsFilter extends Filter {
                 artistCard,
                 timedReactions,
                 imageShelf,
-                channelMemberShelf,
+                channelMembersShelf,
                 forYouShelf,
                 horizontalShelves
         );
