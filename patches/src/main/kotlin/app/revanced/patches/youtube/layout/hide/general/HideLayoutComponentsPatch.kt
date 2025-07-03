@@ -169,8 +169,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
             ),
             SwitchPreference("revanced_hide_channel_bar"),
-            SwitchPreference("revanced_hide_channel_links_preview"),
-            SwitchPreference("revanced_hide_channel_members_shelf"),
             SwitchPreference("revanced_hide_channel_watermark"),
             SwitchPreference("revanced_hide_emergency_box"),
             SwitchPreference("revanced_hide_info_panels"),
@@ -207,6 +205,16 @@ val hideLayoutComponentsPatch = bytecodePatch(
                     SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos"),
                 ),
             ),
+            PreferenceScreenPreference(
+                key = "revanced_channel_screen",
+                preferences = setOf(
+                    SwitchPreference("revanced_hide_for_you_shelf"),
+                    SwitchPreference("revanced_hide_channel_links_preview"),
+                    SwitchPreference("revanced_hide_channel_members_shelf"),
+                    SwitchPreference("revanced_hide_visit_community_button"),
+                    SwitchPreference("revanced_hide_visit_store_button"),
+                ),
+            ),
             SwitchPreference("revanced_hide_album_cards"),
             SwitchPreference("revanced_hide_artist_cards"),
             SwitchPreference("revanced_hide_community_posts"),
@@ -216,7 +224,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_expandable_chip"),
             SwitchPreference("revanced_hide_feed_survey"),
             SwitchPreference("revanced_hide_floating_microphone_button"),
-            SwitchPreference("revanced_hide_for_you_shelf"),
             SwitchPreference("revanced_hide_horizontal_shelves"),
             SwitchPreference("revanced_hide_image_shelf"),
             SwitchPreference("revanced_hide_latest_posts"),
@@ -227,7 +234,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_search_result_recommendation_labels"),
             SwitchPreference("revanced_hide_show_more_button"),
             SwitchPreference("revanced_hide_ticket_shelf"),
-            SwitchPreference("revanced_hide_visit_community_button"),
             SwitchPreference("revanced_hide_doodles"),
         )
 

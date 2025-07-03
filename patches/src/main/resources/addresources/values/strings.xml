@@ -227,10 +227,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_join_membership_button_title">Hide Join button</string>
             <string name="revanced_hide_join_membership_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_join_membership_button_summary_off">Button is shown</string>
-            <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
-            <string name="revanced_hide_for_you_shelf_title">Hide \'For You\' shelf</string>
-            <string name="revanced_hide_for_you_shelf_summary_on">Shelf in channel page is hidden</string>
-            <string name="revanced_hide_for_you_shelf_summary_off">Shelf in channel page is shown</string>
             <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
             <string name="revanced_hide_notify_me_button_title">Hide \'Notify me\' button</string>
@@ -248,10 +244,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_ticket_shelf_title">Hide ticket shelf</string>
             <string name="revanced_hide_ticket_shelf_summary_on">Ticket shelf is hidden</string>
             <string name="revanced_hide_ticket_shelf_summary_off">Ticket shelf is shown</string>
-            <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_visit_community_button_title">Hide \'Visit Community\' button</string>
-            <string name="revanced_hide_visit_community_button_summary_on">Button in channel page is hidden</string>
-            <string name="revanced_hide_visit_community_button_summary_off">Button in channel page is shown</string>
             <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
             <string name="revanced_hide_timed_reactions_summary_on">Timed reactions are hidden</string>
             <string name="revanced_hide_timed_reactions_summary_off">Timed reactions are shown</string>
@@ -276,9 +268,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_subscribers_community_guidelines_title">Hide subscribers guidelines</string>
             <string name="revanced_hide_subscribers_community_guidelines_summary_on">Subscribers community guidelines are hidden</string>
             <string name="revanced_hide_subscribers_community_guidelines_summary_off">Subscribers community guidelines are shown</string>
-            <string name="revanced_hide_channel_members_shelf_title">Hide channel members shelf</string>
-            <string name="revanced_hide_channel_members_shelf_summary_on">Channel members shelf is hidden</string>
-            <string name="revanced_hide_channel_members_shelf_summary_off">Channel members shelf is shown</string>
             <string name="revanced_hide_emergency_box_title">Hide emergency boxes</string>
             <string name="revanced_hide_emergency_box_summary_on">Emergency boxes are hidden</string>
             <string name="revanced_hide_emergency_box_summary_off">Emergency boxes are shown</string>
@@ -291,9 +280,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_channel_bar_title">Hide channel bar</string>
             <string name="revanced_hide_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_channel_bar_summary_off">Channel bar is shown</string>
-            <string name="revanced_hide_channel_links_preview_title">Hide channel links preview</string>
-            <string name="revanced_hide_channel_links_preview_summary_on">Links preview in channel page is hidden</string>
-            <string name="revanced_hide_channel_links_preview_summary_off">Links preview in channel page is shown</string>
             <string name="revanced_hide_playables_title">Hide Playables</string>
             <string name="revanced_hide_playables_summary_on">Playables are hidden</string>
             <string name="revanced_hide_playables_summary_off">Playables are shown</string>
@@ -359,6 +345,27 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Hide in related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Hidden in related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Shown in related videos</string>
+
+            <string name="revanced_channel_screen_title">Channel pages</string>
+            <string name="revanced_channel_screen_summary">Hide or show the components on user channel pages</string>
+            <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_for_you_shelf_title">Hide \'For You\' shelf</string>
+            <string name="revanced_hide_for_you_shelf_summary_on">Shelf in channel page is hidden</string>
+            <string name="revanced_hide_for_you_shelf_summary_off">Shelf in channel page is shown</string>
+            <string name="revanced_hide_channel_links_preview_title">Hide channel links preview</string>
+            <string name="revanced_hide_channel_links_preview_summary_on">Links preview in channel page is hidden</string>
+            <string name="revanced_hide_channel_links_preview_summary_off">Links preview in channel page is shown</string>
+            <string name="revanced_hide_channel_members_shelf_title">Hide channel members shelf</string>
+            <string name="revanced_hide_channel_members_shelf_summary_on">Channel members shelf is hidden</string>
+            <string name="revanced_hide_channel_members_shelf_summary_off">Channel members shelf is shown</string>
+            <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_visit_community_button_title">Hide \'Visit Community\' button</string>
+            <string name="revanced_hide_visit_community_button_summary_on">Button in channel page is hidden</string>
+            <string name="revanced_hide_visit_community_button_summary_off">Button in channel page is shown</string>
+            <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
+            <string name="revanced_hide_visit_store_button_summary_on">Button in channel page is hidden</string>
+            <string name="revanced_hide_visit_store_button_summary_off">Button in channel page is shown</string>
 
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
@@ -479,10 +486,6 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_view_products_banner_title">Hide \'View products\' banner</string>
             <string name="revanced_hide_view_products_banner_summary_on">Banner in video overlay is hidden</string>
             <string name="revanced_hide_view_products_banner_summary_off">Banner in video overlay is shown</string>
-            <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
-            <string name="revanced_hide_visit_store_button_summary_on">Button in channel page is hidden</string>
-            <string name="revanced_hide_visit_store_button_summary_off">Button in channel page is shown</string>
             <string name="revanced_hide_web_search_results_title">Hide web search results</string>
             <string name="revanced_hide_web_search_results_summary_on">Web search results are hidden</string>
             <string name="revanced_hide_web_search_results_summary_off">Web search results are shown</string>

@@ -41,7 +41,7 @@ public final class LayoutComponentsFilter extends Filter {
     private final ByteArrayFilterGroup ticketShelf;
     private final StringFilterGroup chipBar;
     private final StringFilterGroup channelProfile;
-    private final ByteArrayFilterGroup visitCommunityButton;
+    private final ByteArrayFilterGroupList channelProfileBuffer;
 
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
@@ -239,14 +239,19 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         channelProfile = new StringFilterGroup(
-                Settings.HIDE_VISIT_COMMUNITY_BUTTON,
+                null,
                 "channel_profile.eml",
                 "page_header.eml"
         );
-
-        visitCommunityButton = new ByteArrayFilterGroup(
-                null,
-                "community_button"
+        channelProfileBuffer = new ByteArrayFilterGroupList();
+        channelProfileBuffer.addAll(new ByteArrayFilterGroup(
+                        Settings.HIDE_VISIT_STORE_BUTTON,
+                        "header_store_button"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_VISIT_COMMUNITY_BUTTON,
+                        "community_button"
+                )
         );
 
         horizontalShelves = new StringFilterGroup(
@@ -314,6 +319,10 @@ public final class LayoutComponentsFilter extends Filter {
             return true;
         }
 
+        if (matchedGroup == channelProfile) {
+            return channelProfileBuffer.check(protobufBufferArray).isFiltered();
+        }
+
         if (exceptions.matches(path)) return false; // Exceptions are not filtered.
 
         if (matchedGroup == compactChannelBarInner) {
@@ -331,10 +340,6 @@ public final class LayoutComponentsFilter extends Filter {
             return contentIndex == 0 && NavigationButton.getSelectedNavigationButton() == NavigationButton.LIBRARY;
         }
 
-        if (matchedGroup == channelProfile) {
-            return visitCommunityButton.check(protobufBufferArray).isFiltered();
-        }
-
         return true;
     }
 
@@ -342,7 +347,7 @@ public final class LayoutComponentsFilter extends Filter {
      * Injection point.
      * Called from a different place then the other filters.
      */
-    public static boolean filterMixPlaylists(final Object conversionContext, @Nullable final byte[] bytes) {
+    public static boolean filterMixPlaylists(Object conversionContext, @Nullable final byte[] bytes) {
         try {
             if (!Settings.HIDE_MIX_PLAYLISTS.get()) {
                 return false;
