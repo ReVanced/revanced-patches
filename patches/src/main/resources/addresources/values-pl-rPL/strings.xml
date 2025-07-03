@@ -958,12 +958,12 @@ Ta funkcja działa najlepiej przy jakości wideo 720p lub niższej i przy korzys
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Przycisk od pomijania ukrywa się po kilku sekundach</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Przycisk pomijania jest wyświetlany dla całego segmentu</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Czas trwania przycisku pominięcia</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Jak długo wyświetlane są przyciski automatycznego ukrywania pomijania i przechodzenia do wyróżnienia</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Jak długo wyświetlać przyciski pomijania i przechodzenia do wyróżnienia przed automatycznym ukryciem</string>
   <string name="revanced_sb_general_skiptoast">Pokaż komunikat o cofnięciu pominięcia</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Komunikat jest wyświetlany, gdy segment zostanie automatycznie pominięty. Dotknij powiadomienia, aby cofnąć pominięcie</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Komunikat nie jest wyświetlany</string>
   <string name="revanced_sb_toast_on_skip_duration">Czas trwania komunikatu pominięcia</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Jak długo wyświetlane jest powiadomienie o pominięciu</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Jak długo wyświetlać komunikat wyskakujący o cofnięciu pominięcia</string>
   <string name="revanced_sb_duration_1s">1 sekunda</string>
   <string name="revanced_sb_duration_2s">2 sekundy</string>
   <string name="revanced_sb_duration_3s">3 sekundy</string>

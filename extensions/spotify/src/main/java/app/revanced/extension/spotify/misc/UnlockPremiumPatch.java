@@ -1,16 +1,15 @@
 package app.revanced.extension.spotify.misc;
 
+import app.revanced.ContextMenuItemPlaceholder;
+import app.revanced.extension.shared.Logger;
+import app.revanced.extension.spotify.shared.ComponentFilters.ComponentFilter;
+import app.revanced.extension.spotify.shared.ComponentFilters.ResourceIdComponentFilter;
+import app.revanced.extension.spotify.shared.ComponentFilters.StringComponentFilter;
+
+import java.util.*;
+
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-
-import app.revanced.extension.spotify.shared.ComponentFilters.*;
-
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
-import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
 public final class UnlockPremiumPatch {
@@ -181,7 +180,6 @@ public final class UnlockPremiumPatch {
         }
     }
 
-
     private interface FeatureTypeIdProvider<T> {
         int getFeatureTypeId(T section);
     }
@@ -234,7 +232,8 @@ public final class UnlockPremiumPatch {
     }
 
     /**
-     * Injection point. Returns whether the context menu item is a Premium ad.
+     * Injection point. Returns whether the context menu item is a Premium ad. Used for versions older than
+     * "9.0.60.128".
      */
     public static boolean isFilteredContextMenuItem(Object contextMenuItem) {
         if (contextMenuItem == null) {
@@ -279,5 +278,32 @@ public final class UnlockPremiumPatch {
         }
 
         return false;
+    }
+
+    /**
+     * Injection point. Returns a new list with the context menu items which are a Premium ad filtered.
+     * The original list is immutable and cannot be modified without an extra patch.
+     * The method fingerprint used to patch ensures we can return a "List" here.
+     * ContextMenuItemPlaceholder interface name and getViewModel return value are replaced by a patch to match
+     * the minified names used at runtime. Used in newer versions of the app.
+     */
+    public static List<Object> filterContextMenuItems(List<Object> originalContextMenuItems) {
+        try {
+            ArrayList<Object> filteredContextMenuItems = new ArrayList<>(originalContextMenuItems.size());
+
+            for (Object contextMenuItem : originalContextMenuItems) {
+                if (isFilteredContextMenuItem(((ContextMenuItemPlaceholder) contextMenuItem).getViewModel())) {
+                    continue;
+                }
+
+                filteredContextMenuItems.add(contextMenuItem);
+            }
+
+            return filteredContextMenuItems;
+        } catch (Exception ex) {
+            Logger.printException(() -> "filterContextMenuItems failure", ex);
+        }
+
+        return originalContextMenuItems;
     }
 }

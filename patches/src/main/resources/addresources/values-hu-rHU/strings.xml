@@ -962,12 +962,12 @@ Ez a funkció a legjobban 720p vagy annál alacsonyabb videóminőség mellett �
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">A kihagyás gomb néhány másodperc után eltűnik</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Az Átugrás gomb a teljes szegmenshez megjelenik</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Átugrás gomb időtartama</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Meddig láthatók az automatikus elrejtésű átugrás és kiemelés gombok</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Mennyi ideig jelenjenek meg az átugrás és az átugrás kiemeléshez gombok az automatikus elrejtés előtt</string>
   <string name="revanced_sb_general_skiptoast">Ugrás visszavonása felugró értesítés megjelenítése</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Felugró értesítés jelenik meg, amikor egy szegmens automatikusan átugrásra kerül. Érintse meg a felugró értesítést az átugrás visszavonásához</string>
   <string name="revanced_sb_general_skiptoast_sum_off">A felugró üzenet nem jelenik meg</string>
   <string name="revanced_sb_toast_on_skip_duration">Átugrási felugró üzenet időtartama</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Meddig látható az átugrás felugró értesítés</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Mennyi ideig jelenjen meg az átugrás visszavonása felugró üzenet</string>
   <string name="revanced_sb_duration_1s">1 másodperc</string>
   <string name="revanced_sb_duration_2s">2 másodperc</string>
   <string name="revanced_sb_duration_3s">3 másodperc</string>

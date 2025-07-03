@@ -964,12 +964,12 @@ Bu özellik, 720p veya daha düşük video kalitesi ve çok hızlı bir internet
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Atlama düğmesi birkaç saniye sonra gizlenir</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Atlama düğmesi bütün kısım boyunca gösterilir</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Atla düğmesi süresi</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Otomatik gizlenen atla ve vurgulaya atla düğmelerinin ne kadar süreyle gösterildiği</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Atla ve öne çıkanlara atla düğmelerini otomatik olarak gizlemeden önce ne kadar süreyle göster</string>
   <string name="revanced_sb_general_skiptoast">Atlamayı geri al bildirimini göster</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Bildirim, bir segment otomatik olarak atlandığında gösterilir. Atlamayı geri almak için bildirimine dokunun</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Toast gösterilmiyor</string>
   <string name="revanced_sb_toast_on_skip_duration">Atlama toast süresi</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Atlama bildiriminin ne kadar süreyle gösterildiği</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Geri al atla bildirimini ne kadar süreyle göster</string>
   <string name="revanced_sb_duration_1s">1 saniye</string>
   <string name="revanced_sb_duration_2s">2 saniye</string>
   <string name="revanced_sb_duration_3s">3 saniye</string>

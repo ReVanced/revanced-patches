@@ -962,12 +962,12 @@ Kjo veçori funksionon më mirë me një cilësi video prej 720p ose më të ul�
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Butoni i kalimit fshihet pas disa sekondash</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Butoni Kalo është i shfaqur për të gjithë segmentin</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Kohëzgjatja e butonit të kapërcimit</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Sa gjatë shfaqen butonat e fshehjes automatike të anashkalimit dhe anashkalimit te theksimi</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Sa gjatë të shfaqen butonat \"kapërce\" dhe \"kapërce te pika kryesore\" përpara fshehjes automatike</string>
   <string name="revanced_sb_general_skiptoast">Shfaq njoftimin e zhbërjes së anashkalimit</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Njoftimi shfaqet kur një segment anashkalohet automatikisht. Prek njoftimin për të zhbërë anashkalimin</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Njoftimi i shkurtër nuk shfaqet</string>
   <string name="revanced_sb_toast_on_skip_duration">Kohëzgjatja e njoftimit të kapërcimit</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Sa gjatë shfaqet njoftimi i anashkalimit</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Sa gjatë të shfaqet njoftimi i përkohshëm për zhbërjen e kapërcimit</string>
   <string name="revanced_sb_duration_1s">1 sekondë</string>
   <string name="revanced_sb_duration_2s">2 sekonda</string>
   <string name="revanced_sb_duration_3s">3 sekonda</string>

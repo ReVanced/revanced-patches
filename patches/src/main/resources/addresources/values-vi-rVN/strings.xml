@@ -964,12 +964,12 @@ Tính năng này hoạt động tốt nhất với chất lượng video 720p tr
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Nút bỏ qua sẽ ẩn sau vài giây</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Nút bỏ qua được hiển thị cho toàn bộ phân đoạn</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Thời gian hiển thị nút bỏ qua</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Thời gian tự động ẩn nút bỏ qua và nút bỏ qua đến phần nổi bật</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Thời gian hiển thị nút bỏ qua và nút bỏ qua đến phần nổi bật trước khi tự động ẩn</string>
   <string name="revanced_sb_general_skiptoast">Hiện thông báo nổi hoàn tác bỏ qua</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Thông báo nổi được hiển thị mỗi khi tự động bỏ qua một phân đoạn. Chạm vào thông báo nổi để hoàn tác bỏ qua phân đoạn vừa rồi</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Thông báo nổi không được hiển thị</string>
   <string name="revanced_sb_toast_on_skip_duration">Thời gian hiển thị thông báo nổi bỏ qua</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Thời gian hiển thị thông báo nổi bỏ qua</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Thời gian hiển thị thông báo nổi hoàn tác bỏ qua</string>
   <string name="revanced_sb_duration_1s">1 giây</string>
   <string name="revanced_sb_duration_2s">2 giây</string>
   <string name="revanced_sb_duration_3s">3 giây</string>
