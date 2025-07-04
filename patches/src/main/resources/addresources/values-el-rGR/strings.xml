@@ -162,6 +162,7 @@ Second \"item\" text"</string>
 • Έκτακτη είδηση
 • Συνέχεια παρακολούθησης
 • Εξερευνήστε περισσότερα κανάλια
+• Πιο σχετικό
 • Αγορές
 • Παρακολουθήστε ξανά"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Εμφανίζονται</string>
@@ -170,10 +171,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_join_membership_button_title">Κουμπί «Συμμετοχή»</string>
   <string name="revanced_hide_join_membership_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_join_membership_button_summary_off">Εμφανίζεται</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Ενότητα «Για εσάς» στη σελίδα καναλιού</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Εμφανίζεται</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Κουμπί «Να λαμβάνω ειδοποιήσεις»</string>
@@ -194,15 +191,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">Συγχρονισμένες αντιδράσεις</string>
   <string name="revanced_hide_timed_reactions_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_timed_reactions_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_channel_guidelines_title">Οδηγίες καναλιού</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Κρυμμένες</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_chips_shelf_title">Ενότητα σχετιζόμενων λέξεων</string>
   <string name="revanced_hide_chips_shelf_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_chips_shelf_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_expandable_chip_title">Επεκτάσιμο πλαίσιο κάτω από τα βίντεο</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_expandable_chip_title">Απόκρυψη επεκτάσιμου πλαισίου</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Το επεκτάσιμο πλαίσιο κάτω από τα βίντεο είναι κρυμμένο</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Το επεκτάσιμο πλαίσιο κάτω από τα βίντεο εμφανίζεται</string>
   <string name="revanced_hide_community_posts_title">Δημοσιεύσεις κοινότητας</string>
   <string name="revanced_hide_community_posts_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_community_posts_summary_off">Εμφανίζονται</string>
@@ -215,15 +209,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_feed_survey_title">Έρευνες στη ροή</string>
   <string name="revanced_hide_feed_survey_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_feed_survey_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_community_guidelines_title">Οδηγίες κοινότητας</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Κρυμμένες</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">Οδηγίες συνδρομητών</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_channel_member_shelf_title">Ενότητα μελών καναλιού</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_emergency_box_title">Πλαίσια έκτακτης ανάγκης</string>
   <string name="revanced_hide_emergency_box_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_emergency_box_summary_off">Εμφανίζονται</string>
@@ -239,18 +227,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_playables_title">Παιχνίδια YouTube</string>
   <string name="revanced_hide_playables_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_playables_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_quick_actions_title">Γρήγορες ενέργειες στην πλήρη οθόνη</string>
-  <string name="revanced_hide_quick_actions_summary_on">Εμφανίζονται</string>
-  <string name="revanced_hide_quick_actions_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_related_videos_title">Σχετικά βίντεο στις γρήγορες ενέργειες</string>
-  <string name="revanced_hide_related_videos_summary_on">Κρυμμένα</string>
-  <string name="revanced_hide_related_videos_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_image_shelf_title">Ενότητα εικόνων στα αποτελέσματα αναζήτησης</string>
-  <string name="revanced_hide_image_shelf_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_image_shelf_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_latest_posts_ads_title">Τελευταίες δημοσιεύσεις</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Κρυμμένες</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Εμφανίζονται</string>
+  <string name="revanced_hide_quick_actions_title">Απόκρυψη γρήγορων ενεργειών</string>
+  <string name="revanced_hide_quick_actions_summary_on">Οι γρήγορες ενέργειες σε πλήρη οθόνη είναι κρυμμένες</string>
+  <string name="revanced_hide_quick_actions_summary_off">Οι γρήγορες ενέργειες σε πλήρη οθόνη εμφανίζονται</string>
+  <string name="revanced_hide_related_videos_title">Απόκρυψη σχετικών βίντεο</string>
+  <string name="revanced_hide_related_videos_summary_on">Τα σχετικά βίντεο στις γρήγορες ενέργειες είναι κρυμμένα</string>
+  <string name="revanced_hide_related_videos_summary_off">Τα σχετικά βίντεο στις γρήγορες ενέργειες εμφανίζονται</string>
+  <string name="revanced_hide_image_shelf_title">Απόκρυψη ενότητας εικόνων</string>
+  <string name="revanced_hide_image_shelf_summary_on">Η ενότητα εικόνων στα αποτελέσματα αναζήτησης είναι κρυμμένη</string>
+  <string name="revanced_hide_image_shelf_summary_off">Η ενότητα εικόνων στα αποτελέσματα αναζήτησης εμφανίζεται</string>
+  <string name="revanced_hide_latest_posts_title">Τελευταίες δημοσιεύσεις</string>
+  <string name="revanced_hide_latest_posts_summary_on">Κρυμμένες</string>
+  <string name="revanced_hide_latest_posts_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_mix_playlists_title">Λίστες αναπαραγωγής μίξης</string>
   <string name="revanced_hide_mix_playlists_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_mix_playlists_summary_off">Εμφανίζονται</string>
@@ -300,6 +288,26 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Απόκρυψη στα σχετικά βίντεο</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Εμφανίζεται</string>
+  <string name="revanced_channel_screen_title">Σελίδα καναλιού</string>
+  <string name="revanced_channel_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων σελίδας καναλιού</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Ενότητα «Για εσάς» στη σελίδα καναλιού</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Η ενότητα \"Για εσάς\" είναι κρυμμένη</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Η ενότητα \"Για εσάς\" εμφανίζεται</string>
+  <string name="revanced_hide_links_preview_title">Απόκρυψη προεπισκόπησης συνδέσμων</string>
+  <string name="revanced_hide_links_preview_summary_on">Η προεπισκόπηση συνδέσμων είναι κρυμμένη</string>
+  <string name="revanced_hide_links_preview_summary_off">Η προεπισκόπηση συνδέσμων εμφανίζεται</string>
+  <string name="revanced_hide_members_shelf_title">Απόκρυψη ενότητας μελών</string>
+  <string name="revanced_hide_members_shelf_summary_on">Η ενότητα μελών είναι κρυμμένη</string>
+  <string name="revanced_hide_members_shelf_summary_off">Εμφανίζεται το ράφι μελών</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Απόκρυψη κουμπιού «Επίσκεψη στην Κοινότητα»</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Το κουμπί «Επίσκεψη στην Κοινότητα» κρυμμένο</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Το κουμπί \"Επίσκεψη στην Κοινότητα\" εμφανίζεται</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Κουμπί «Επίσκεψη στο κατάστημα» στη σελίδα καναλιού</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Το κουμπί \"Επίσκεψη στο κατάστημα\" είναι κρυμμένο</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Το κουμπί \"Επίσκεψη στο κατάστημα\" εμφανίζεται</string>
   <string name="revanced_comments_screen_title">Σχόλια</string>
   <string name="revanced_comments_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στα σχόλια</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Σύνοψη συνομιλίας που δημιουργήθηκε από AI</string>
@@ -308,12 +316,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_ai_summary_title">Σύνοψη σχολίων που δημιουργήθηκε από AI</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Οδηγίες καναλιού</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Κρυμμένες</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_comments_by_members_header_title">Κεφαλίδα «Σχόλια από μέλη»</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_comments_section_title">Ενότητα σχολίων</string>
   <string name="revanced_hide_comments_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_section_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Οδηγίες κοινότητας</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Κρυμμένες</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Κουμπί «Δημιουργία Short»</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Εμφανίζεται</string>
@@ -323,7 +337,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_thanks_button_title">Κουμπί «Σας ευχαριστούμε»</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Κουμπί χρονοσήμανσης</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Απόκρυψη κουμπιού χρονοσήμανσης</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Εμφανίζεται</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
@@ -379,9 +393,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Θα κρυφτούν όλα τα βίντεο με την λέξη-κλειδί: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Ενότητες καταστήματος δημιουργών</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Κρυμμένες\n\nΑφορά τις ενότητες καταστήματος κάτω από το πρόγραμμα αναπαραγωγής και στην περιγραφή βίντεο</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Εμφανίζονται\n\nΑφορά τις ενότητες καταστήματος κάτω από το πρόγραμμα αναπαραγωγής και στην περιγραφή βίντεο</string>
+  <string name="revanced_hide_creator_store_shelf_title">Απόκρυψη ενότητας καταστήματος δημιουργού</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Το ράφι καταστήματος κάτω από το πρόγραμμα αναπαραγωγής βίντεο είναι κρυμμένο</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Η ενότητα καταστήματος κάτω από το πρόγραμμα αναπαραγωγής βίντεο εμφανίζεται</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ετικέτα καταστήματος στην τελική οθόνη</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Εμφανίζεται</string>
@@ -401,20 +415,16 @@ Second \"item\" text"</string>
   <string name="revanced_hide_paid_promotion_label_title">Ετικέτες προώθησης επί πληρωμή</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Εμφανίζονται</string>
+  <string name="revanced_hide_self_sponsor_ads_title">Κάρτες αυτοπροώθησης</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">Κρυμμένες</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">Εμφανίζονται</string>
+  <string name="revanced_hide_shopping_links_title">Σύνδεσμοι αγορών</string>
+  <string name="revanced_hide_shopping_links_summary_on">Οι σύνδεσμοι στην περιγραφή βίντεο είναι κρυμμένοι</string>
+  <string name="revanced_hide_shopping_links_summary_off">Οι σύνδεσμοι στην περιγραφή βίντεο εμφανίζονται</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Ετικέτα «Προβολή προϊόντων»</string>
   <string name="revanced_hide_view_products_banner_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_view_products_banner_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_self_sponsor_ads_title">Κάρτες αυτοπροώθησης</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">Κρυμμένες</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_tagged_products_title">Ετικέτες προϊόντων στην περιγραφή βίντεο</string>
-  <string name="revanced_hide_tagged_products_summary_on">Κρυμμένα</string>
-  <string name="revanced_hide_tagged_products_summary_off">Κρυμμένες</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Κουμπί «Επίσκεψη στο κατάστημα» στη σελίδα καναλιού</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_web_search_results_title">Αποτελέσματα αναζήτησης στο διαδίκτυο</string>
   <string name="revanced_hide_web_search_results_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_web_search_results_summary_off">Εμφανίζονται</string>

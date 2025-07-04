@@ -160,6 +160,7 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
 • Son dakika haberleri
 • İzlemeye devam et
 • Daha fazla kanal keşfet
+• En alakalı
 • Alışveriş
 • Tekrar izle"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Raflar görünür</string>
@@ -168,10 +169,6 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_join_membership_button_title">Katıl düğmesini gizle</string>
   <string name="revanced_hide_join_membership_button_summary_on">Düğme gizli</string>
   <string name="revanced_hide_join_membership_button_summary_off">Düğme görünür</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">\'Sizin için\' rafını gizle</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Kanal sayfasındaki raf gizli</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Kanal sayfasındaki raf görünür</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">\'Hatırlatma oluştur\' düğmesini gizle</string>
@@ -192,15 +189,12 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_timed_reactions_title">Süreli tepkileri gizle</string>
   <string name="revanced_hide_timed_reactions_summary_on">Süreli tepkiler gizli</string>
   <string name="revanced_hide_timed_reactions_summary_off">Süreli tepkiler görünür</string>
-  <string name="revanced_hide_channel_guidelines_title">Kanal yönergelerini gizle</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Kanal yönergeleri gizli</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Kanal yönergeleri görünür</string>
   <string name="revanced_hide_chips_shelf_title">Çip rafını gizle</string>
   <string name="revanced_hide_chips_shelf_summary_on">Çip rafı gizli</string>
   <string name="revanced_hide_chips_shelf_summary_off">Çip rafı görünür</string>
-  <string name="revanced_hide_expandable_chip_title">Videoların altındaki genişletilebilir kartı gizle</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Genişletilebilir kart gizli</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Genişletilebilir kart görünür</string>
+  <string name="revanced_hide_expandable_chip_title">Genişletilebilir kartı gizle</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Videoların altındaki genişletilebilir kart gizli</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Videoların altındaki genişletilebilir kart görünür</string>
   <string name="revanced_hide_community_posts_title">Topluluk gönderilerini gizle</string>
   <string name="revanced_hide_community_posts_summary_on">Topluluk gönderileri gizli</string>
   <string name="revanced_hide_community_posts_summary_off">Topluluk gönderileri görünür</string>
@@ -213,15 +207,9 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_feed_survey_title">Akış anketlerini gizle</string>
   <string name="revanced_hide_feed_survey_summary_on">Akış anketleri gizli</string>
   <string name="revanced_hide_feed_survey_summary_off">Akış anketleri görünür</string>
-  <string name="revanced_hide_community_guidelines_title">Topluluk kurallarını gizle</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Topluluk kuralları gizli</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Topluluk kuralları görünür</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">Abone yönergelerini gizle</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Abone topluluk kuralları gizli</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Abone topluluk kuralları görünür</string>
-  <string name="revanced_hide_channel_member_shelf_title">Kanal üyeleri rafını gizle</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Kanal üyeleri rafı gizli</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Kanal üyeleri rafı görünür</string>
   <string name="revanced_hide_emergency_box_title">Acil durum kutularını gizle</string>
   <string name="revanced_hide_emergency_box_summary_on">Acil durum kutuları gizli</string>
   <string name="revanced_hide_emergency_box_summary_off">Acil durum kutuları görünür</string>
@@ -237,18 +225,18 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_playables_title">Hazır Oyunlar\'ı gizle</string>
   <string name="revanced_hide_playables_summary_on">Hazır Oyunlar gizli</string>
   <string name="revanced_hide_playables_summary_off">Hazır Oyunlar görünür</string>
-  <string name="revanced_hide_quick_actions_title">Tam ekrandaki hızlı eylemleri gizle</string>
-  <string name="revanced_hide_quick_actions_summary_on">Hızlı eylemler gizli</string>
-  <string name="revanced_hide_quick_actions_summary_off">Hızlı eylemler görünür</string>
-  <string name="revanced_hide_related_videos_title">Hızlı eylemlerdeki alâkalı videoları gizle</string>
-  <string name="revanced_hide_related_videos_summary_on">Alâkalı videolar gizli</string>
-  <string name="revanced_hide_related_videos_summary_off">Alâkalı videolar görünür</string>
-  <string name="revanced_hide_image_shelf_title">Arama sonuçlarındaki resim rafını gizle</string>
-  <string name="revanced_hide_image_shelf_summary_on">Resim rafı gizli</string>
-  <string name="revanced_hide_image_shelf_summary_off">Resim rafı görünür</string>
-  <string name="revanced_hide_latest_posts_ads_title">Son gönderileri gizle</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Son gönderiler gizli</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Son gönderiler görünür</string>
+  <string name="revanced_hide_quick_actions_title">Hızlı eylemleri gizle</string>
+  <string name="revanced_hide_quick_actions_summary_on">Tam ekrandaki hızlı eylemler gizli</string>
+  <string name="revanced_hide_quick_actions_summary_off">Tam ekrandaki hızlı eylemler görünür</string>
+  <string name="revanced_hide_related_videos_title">İlgili videoları gizle</string>
+  <string name="revanced_hide_related_videos_summary_on">Hızlı eylemlerdeki ilgili videolar gizli</string>
+  <string name="revanced_hide_related_videos_summary_off">Hızlı eylemlerdeki ilgili videolar görünür</string>
+  <string name="revanced_hide_image_shelf_title">Resim rafını gizle</string>
+  <string name="revanced_hide_image_shelf_summary_on">Arama sonuçlarındaki resim rafı gizli</string>
+  <string name="revanced_hide_image_shelf_summary_off">Arama sonuçlarındaki resim rafı görünür</string>
+  <string name="revanced_hide_latest_posts_title">Son gönderileri gizle</string>
+  <string name="revanced_hide_latest_posts_summary_on">Son gönderiler gizli</string>
+  <string name="revanced_hide_latest_posts_summary_off">Son gönderiler görünür</string>
   <string name="revanced_hide_mix_playlists_title">Mix oynatma listelerini gizle</string>
   <string name="revanced_hide_mix_playlists_summary_on">Mix oynatma listeleri gizli</string>
   <string name="revanced_hide_mix_playlists_summary_off">Mix oynatma listeleri görünür</string>
@@ -298,6 +286,26 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Alâkalı videolardakini gizle</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Alâkalı videolardaki gizli</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Alâkalı videolardaki görünür</string>
+  <string name="revanced_channel_screen_title">Kanal sayfası</string>
+  <string name="revanced_channel_screen_summary">Kanal sayfası bileşenlerini gizle veya göster</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">\'Sizin için\' rafını gizle</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Sizin İçin rafı gizli</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Sizin İçin rafı görünür</string>
+  <string name="revanced_hide_links_preview_title">Bağlantı önizlemesini gizle</string>
+  <string name="revanced_hide_links_preview_summary_on">Bağlantı önizlemesi gizli</string>
+  <string name="revanced_hide_links_preview_summary_off">Bağlantı önizlemesi görünür</string>
+  <string name="revanced_hide_members_shelf_title">Üyeler rafını gizle</string>
+  <string name="revanced_hide_members_shelf_summary_on">Üyeler rafı gizli</string>
+  <string name="revanced_hide_members_shelf_summary_off">Üyeler rafı gösteriliyor</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">\'Topluluğu Ziyaret Et\' düğmesini gizle</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Topluluğu Ziyaret Et düğmesi gizli</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Topluluğu Ziyaret Et düğmesi görünür</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Kanal sayfalarındaki \'Mağazayı ziyaret et\' düğmesini gizle</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Mağazayı Ziyaret Et düğmesi gizli</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Mağazayı Ziyaret Et düğmesi görünür</string>
   <string name="revanced_comments_screen_title">Yorumlar</string>
   <string name="revanced_comments_screen_summary">Yorumlar kısmı bileşenlerini gizle veya göster</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Yapay zeka sohbet özetini gizle</string>
@@ -306,12 +314,18 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_comments_ai_summary_title">Yapay zeka yorumlar özetini gizle</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Yorumlar özeti gizli</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Yorumlar özeti görünür</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Kanal yönergelerini gizle</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanal yönergeleri gizli</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanal yönergeleri görünür</string>
   <string name="revanced_hide_comments_by_members_header_title">\'Üyelerin yorumları\' başlığını gizle</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Üyelerin yorumları başlığı gizli</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Üyelerin yorumları başlığı görünür</string>
   <string name="revanced_hide_comments_section_title">Yorumlar kısmını gizle</string>
   <string name="revanced_hide_comments_section_summary_on">Yorumlar kısmı gizli</string>
   <string name="revanced_hide_comments_section_summary_off">Yorumlar kısmı görünür</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Topluluk kurallarını gizle</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Topluluk kuralları gizli</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Topluluk kuralları görünür</string>
   <string name="revanced_hide_comments_create_a_short_button_title">\'Short oluştur\' düğmesini gizle</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Short oluştur düğmesi gizli</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Short oluştur düğmesi görünür</string>
@@ -321,7 +335,7 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_comments_thanks_button_title">Teşekkürler düğmesini gizle</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Teşekkürler düğmesi gizli</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Teşekkürler düğmesi görünür</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Zaman damgası düğmesini gizle</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Zaman Damgası düğmesini gizle</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Zaman damgası düğmesi gizli</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Zaman damgası düğmesi görünür</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
@@ -377,9 +391,9 @@ Sınırlamalar
   <string name="revanced_hide_keyword_toast_invalid_broad">Kelime bütün videoları gizler: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">İçerik oluşturucu mağaza raflarını gizle</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Oynatıcının altındaki ve video açıklamasındaki mağaza rafları gizlendi</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Oynatıcının altındaki ve video açıklamasındaki mağaza rafları gösteriliyor</string>
+  <string name="revanced_hide_creator_store_shelf_title">İçerik oluşturucu mağaza rafını gizle</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Video oynatıcının altındaki mağaza rafı gizli</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Video oynatıcının altındaki mağaza rafı görünür</string>
   <string name="revanced_hide_end_screen_store_banner_title">Bitiş ekranındaki mağaza afişini gizle</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Mağaza afişi gizli</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Mağaza afişi görünür</string>
@@ -399,20 +413,16 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_hide_paid_promotion_label_title">Ücretli tanıtım etiketini gizle</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Ücretli tanıtım etiketi gizli</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Ücretli tanıtım etiketi görünür</string>
+  <string name="revanced_hide_self_sponsor_ads_title">Kendine sponsor kartları gizle</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">Kendine sponsor kartlar gizli</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">Kendine sponsor kartlar görünür</string>
+  <string name="revanced_hide_shopping_links_title">Alışveriş bağlantılarını gizle</string>
+  <string name="revanced_hide_shopping_links_summary_on">Video açıklamasındaki bağlantılar gizli</string>
+  <string name="revanced_hide_shopping_links_summary_off">Video açıklamasındaki bağlantılar görünür</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">\"Ürünleri görüntüle\" afişini gizle</string>
   <string name="revanced_hide_view_products_banner_summary_on">Video yer paylaşımındaki banner gizlendi</string>
   <string name="revanced_hide_view_products_banner_summary_off">Video yer paylaşımındaki afiş gösteriliyor</string>
-  <string name="revanced_hide_self_sponsor_ads_title">Kendine sponsor kartları gizle</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">Kendine sponsor kartlar gizli</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">Kendine sponsor kartlar görünür</string>
-  <string name="revanced_hide_tagged_products_title">Etiketli ürünleri gizle</string>
-  <string name="revanced_hide_tagged_products_summary_on">Video açıklamasındaki etiketli ürünler gizlendi</string>
-  <string name="revanced_hide_tagged_products_summary_off">Video açıklamasındaki etiketli ürünler gösteriliyor</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Kanal sayfalarındaki \'Mağazayı ziyaret et\' düğmesini gizle</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Kanal sayfasındaki düğme gizli</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Kanal sayfasındaki düğme görünür</string>
   <string name="revanced_hide_web_search_results_title">Web arama sonuçlarını gizle</string>
   <string name="revanced_hide_web_search_results_summary_on">Web arama sonuçları gizli</string>
   <string name="revanced_hide_web_search_results_summary_off">Web arama sonuçları görünür</string>
