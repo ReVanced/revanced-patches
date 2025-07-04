@@ -156,22 +156,19 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_channel_watermark_summary_on">Vodoznak kanálu je skrytý</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vodoznak je zobrazen</string>
   <string name="revanced_hide_horizontal_shelves_title">Skrýt horizontální police</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Police jsou skryté, například:
-• Novinky
-• Pokračovat v sledování
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Police jsou skryty, například:
+• Nejnovější zprávy
+• Pokračovat ve sledování
 • Prozkoumat další kanály
-• Nákupy
-• Podívat se znovu"</string>
+• Nejdůležitější
+• Nakupování
+• Zhlédnout znovu"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Police jsou zobrazené</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Skrýt tlačítko Připojit se</string>
   <string name="revanced_hide_join_membership_button_summary_on">Tlačitko je skryté</string>
   <string name="revanced_hide_join_membership_button_summary_off">Tlačítko je zobrazeno</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Skrýt panel „Pro vás“</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Panel polic ve stránce kanálu je skrytý</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Panel polic ve stránce kanálu je zobrazen</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Skrýt tlačitko \'Upozorněte mě\'</string>
@@ -192,15 +189,12 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_timed_reactions_title">Skrýt reakce zobrazené po čase</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reakce zobrazené po čase jsou skryty</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakce se zobrazují po čase</string>
-  <string name="revanced_hide_channel_guidelines_title">Skrýt pravidla kanálu</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Pokyny kanálu sa nezobrazujú</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Zobrazují se pokyny kanálu</string>
   <string name="revanced_hide_chips_shelf_title">Skryť police \"Ďalsej videá\"</string>
   <string name="revanced_hide_chips_shelf_summary_on">Police \"Další videá\" sa nezobrazuje</string>
   <string name="revanced_hide_chips_shelf_summary_off">Zobrazuje sa polícia \"Další videá\"</string>
-  <string name="revanced_hide_expandable_chip_title">Skrýt rozbalovací kartu pod videy</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Rozbalitelná karta je skrytá</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Rozbalitelná karta je zobrazena</string>
+  <string name="revanced_hide_expandable_chip_title">Skrýt rozbalitelnou kartu</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Rozbalitelná karta pod videi je skryta</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Rozbalitelná karta pod videi je zobrazena</string>
   <string name="revanced_hide_community_posts_title">Skrýt příspěvky komunity</string>
   <string name="revanced_hide_community_posts_summary_on">Příspěvky komunity jsou skryté</string>
   <string name="revanced_hide_community_posts_summary_off">Příspěvky komunity jsou zobrazeny</string>
@@ -213,15 +207,9 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_feed_survey_title">Skrýt průzkumy feedu</string>
   <string name="revanced_hide_feed_survey_summary_on">Průzkumy feedu jsou skryty</string>
   <string name="revanced_hide_feed_survey_summary_off">Průzkumy feedu jsou zobrazeny</string>
-  <string name="revanced_hide_community_guidelines_title">Skrýt pokyny pro komunitu</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Pokyny pro komunitu jsou skryty</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Pokyny pro komunitu se zobrazují</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">Skrýt pokyny pro odběratele</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Pokyny pro komunitu předplatitelů jsou skryté</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Pokyny pro komunitu odběratelů se zobrazují</string>
-  <string name="revanced_hide_channel_member_shelf_title">Skryj polici členů kanálu</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Polici členů kanálu je skrytá</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Police na kanálu jsou zobrazeny</string>
   <string name="revanced_hide_emergency_box_title">Skrýt nouzová pole</string>
   <string name="revanced_hide_emergency_box_summary_on">Nouzová pole jsou skrytá</string>
   <string name="revanced_hide_emergency_box_summary_off">Nouzová pole jsou zobrazena</string>
@@ -237,18 +225,18 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_playables_title">Skrýt Playables</string>
   <string name="revanced_hide_playables_summary_on">Playables jsou skryté</string>
   <string name="revanced_hide_playables_summary_off">Přehrávání se zobrazuje</string>
-  <string name="revanced_hide_quick_actions_title">Skrýt rychlé akce v režimu celé obrazovky</string>
-  <string name="revanced_hide_quick_actions_summary_on">Rychlé akce jsou skryty</string>
-  <string name="revanced_hide_quick_actions_summary_off">Rychlé akce se zobrazují</string>
-  <string name="revanced_hide_related_videos_title">Skrýt související videa v rychlých akcích</string>
-  <string name="revanced_hide_related_videos_summary_on">Související videa jsou skryta</string>
-  <string name="revanced_hide_related_videos_summary_off">Související videa se zobrazují</string>
-  <string name="revanced_hide_image_shelf_title">Skrýt polici s obrázky ve výsledcích vyhledávání</string>
-  <string name="revanced_hide_image_shelf_summary_on">Police s obrázky je skryta</string>
-  <string name="revanced_hide_image_shelf_summary_off">Police s obrázky je zobrazena</string>
-  <string name="revanced_hide_latest_posts_ads_title">Skrýt nejnovější příspěvky</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Nejnovější příspěvky jsou skryty</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Nejnovější příspěvky jsou zobrazeny</string>
+  <string name="revanced_hide_quick_actions_title">Skrýt rychlé akce</string>
+  <string name="revanced_hide_quick_actions_summary_on">Rychlé akce na celé obrazovce jsou skryty</string>
+  <string name="revanced_hide_quick_actions_summary_off">Rychlé akce na celé obrazovce jsou zobrazeny</string>
+  <string name="revanced_hide_related_videos_title">Skrýt související videa</string>
+  <string name="revanced_hide_related_videos_summary_on">Související videa v rychlých akcích jsou skryta</string>
+  <string name="revanced_hide_related_videos_summary_off">Související videa v rychlých akcích jsou zobrazena</string>
+  <string name="revanced_hide_image_shelf_title">Skrýt obrázkovou poličku</string>
+  <string name="revanced_hide_image_shelf_summary_on">Obrázková polička ve výsledcích vyhledávání je skryta</string>
+  <string name="revanced_hide_image_shelf_summary_off">Obrázková polička ve výsledcích vyhledávání je zobrazena</string>
+  <string name="revanced_hide_latest_posts_title">Skrýt nejnovější příspěvky</string>
+  <string name="revanced_hide_latest_posts_summary_on">Nejnovější příspěvky jsou skryty</string>
+  <string name="revanced_hide_latest_posts_summary_off">Nejnovější příspěvky jsou zobrazeny</string>
   <string name="revanced_hide_mix_playlists_title">Skrýt seznamy přehrávání Mix</string>
   <string name="revanced_hide_mix_playlists_summary_on">Mix seznamy skladeb jsou skryty</string>
   <string name="revanced_hide_mix_playlists_summary_off">Mix seznamy skladeb se zobrazují</string>
@@ -298,6 +286,26 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Skrýt v souvisejících videích</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">V souvisejících videích skryto</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">V souvisejících videích zobrazeno</string>
+  <string name="revanced_channel_screen_title">Stránka kanálu</string>
+  <string name="revanced_channel_screen_summary">Skrýt nebo zobrazit komponenty stránky kanálu</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Skrýt panel „Pro vás“</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Polička Pro vás je skryta</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Polička Pro vás je zobrazena</string>
+  <string name="revanced_hide_links_preview_title">Skrýt náhled odkazů</string>
+  <string name="revanced_hide_links_preview_summary_on">Náhled odkazů je skryt</string>
+  <string name="revanced_hide_links_preview_summary_off">Náhled odkazů je zobrazen</string>
+  <string name="revanced_hide_members_shelf_title">Skrýt poličku členů</string>
+  <string name="revanced_hide_members_shelf_summary_on">Polička členů je skryta</string>
+  <string name="revanced_hide_members_shelf_summary_off">Police pro členy je zobrazena</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Skrýt tlačítko „Navštívit komunitu“</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Tlačítko Navštívit komunitu je skryto</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Tlačítko Navštívit komunitu je zobrazeno</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Skrýt tlačítko \'Navštívit obchod\' na stránkách kanálů</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Tlačítko Navštívit obchod je skryto</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Tlačítko Navštívit obchod je zobrazeno</string>
   <string name="revanced_comments_screen_title">Komentáře</string>
   <string name="revanced_comments_screen_summary">Skrýt nebo zobrazit komponenty sekce komentářů</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Skrýt souhrn chatu AI</string>
@@ -306,12 +314,18 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_comments_ai_summary_title">Skrýt souhrn komentářů AI</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Souhrn komentářů je skrytý</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Souhrn komentářů je zobrazen</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Skrýt pravidla kanálu</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Pokyny ke kanálu jsou skryty</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Pokyny ke kanálu jsou zobrazeny</string>
   <string name="revanced_hide_comments_by_members_header_title">Skrýt záhlaví \"Komentáře od členů\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Záhlaví Komentáře od členů je skryto</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Záhlaví Komentáře od členů je zobrazeno</string>
   <string name="revanced_hide_comments_section_title">Skrýt sekci komentářů</string>
   <string name="revanced_hide_comments_section_summary_on">Sekce komentářů je skrytá</string>
   <string name="revanced_hide_comments_section_summary_off">Sekce komentářů je zobrazena</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Skrýt pokyny pro komunitu</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Pravidla komunity jsou skryta</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Pravidla komunity jsou zobrazena</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Skrýt tlačítko \"Vytvořit Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačítko Vytvořit Short je skryté</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tlačítko Vytvořit Short je zobrazeno</string>
@@ -321,7 +335,7 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_comments_thanks_button_title">Skrýt tlačítko děk」、「</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tlačítko poděkování je skryto</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tlačítko poděkování je zobrazeno</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Skrýt tlačítko časové osy</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Skrýt tlačítko časové značky</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Tlačítko časové osy je skryté</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Tlačítko časové osy je zobrazeno</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
@@ -377,9 +391,9 @@ Omezení:
   <string name="revanced_hide_keyword_toast_invalid_broad">Klíčové slovo skryje všechna videa: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Skrýt regály obchodu tvůrce</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Regály obchodu pod přehrávačem a v popisu videa jsou skryty</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Police obchodu pod přehrávačem a v popisu videa jsou zobrazeny</string>
+  <string name="revanced_hide_creator_store_shelf_title">Skrýt poličku obchodu tvůrce</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Police obchodu pod přehrávačem videí je skryta</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Polička obchodu pod přehrávačem videa je zobrazena</string>
   <string name="revanced_hide_end_screen_store_banner_title">Skrýt koncový banner obchodu</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Banner obchodu je skrytý</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Banner obchodu je zobrazen</string>
@@ -399,20 +413,16 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_hide_paid_promotion_label_title">Skrýt štítek placené propagace</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Štítek placené propagace je skryt</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Štítek placené propagace je zobrazen</string>
+  <string name="revanced_hide_self_sponsor_ads_title">Skrýt karty se sponzorovanými produkty</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">Karty se sponzorovanými produkty jsou skryty</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">Karty se sponzorovanými produkty jsou zobrazeny</string>
+  <string name="revanced_hide_shopping_links_title">Skrýt nákupní odkazy</string>
+  <string name="revanced_hide_shopping_links_summary_on">Odkazy v popisu videa jsou skryty</string>
+  <string name="revanced_hide_shopping_links_summary_off">Odkazy v popisu videa jsou zobrazeny</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Skrýt banner „Zobrazit produkty“</string>
   <string name="revanced_hide_view_products_banner_summary_on">Banner v překryvu videa je skryt</string>
   <string name="revanced_hide_view_products_banner_summary_off">Banner v překrytí videa je zobrazen</string>
-  <string name="revanced_hide_self_sponsor_ads_title">Skrýt karty se sponzorovanými produkty</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">Karty se sponzorovanými produkty jsou skryty</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">Karty se sponzorovanými produkty jsou zobrazeny</string>
-  <string name="revanced_hide_tagged_products_title">Skrýt označené produkty</string>
-  <string name="revanced_hide_tagged_products_summary_on">Označené produkty v popisu videa jsou skryty</string>
-  <string name="revanced_hide_tagged_products_summary_off">Označení produktů v popisu videa jsou zobrazeny</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Skrýt tlačítko \'Navštívit obchod\' na stránkách kanálů</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Tlačítko na stránce kanálu je skryto</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Tlačítko na stránce kanálu je zobrazeno</string>
   <string name="revanced_hide_web_search_results_title">Skryté webové výsledky vyhledávání</string>
   <string name="revanced_hide_web_search_results_summary_on">Webové výsledky vyhledávání jsou skryté</string>
   <string name="revanced_hide_web_search_results_summary_off">Webové výsledky vyhledávání jsou zobrazeny</string>
