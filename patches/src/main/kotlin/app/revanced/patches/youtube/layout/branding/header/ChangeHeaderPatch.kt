@@ -145,9 +145,16 @@ val changeHeaderPatch = resourcePatch(
                 val targetDpiFolder = get("res").resolve(dpiSourceFolder.name)
                 if (!targetDpiFolder.exists()) return@forEach
 
-                dpiSourceFolder.listFiles { file ->
+                val customFiles = dpiSourceFolder.listFiles { file ->
                     file.isFile && file.name in customResourceFileNames
-                }!!.forEach { imgSourceFile ->
+                }!!
+
+                if (customFiles.size > 0 && customFiles.size != variants.size) {
+                    throw PatchException("Both light/dark mode images " +
+                                "must be specified but only found: " + customFiles.map { it.name })
+                }
+
+                customFiles.forEach { imgSourceFile ->
                     val imgTargetFile = targetDpiFolder.resolve(imgSourceFile.name)
                     imgSourceFile.copyTo(imgTargetFile, true)
 
