@@ -218,6 +218,7 @@ You will not be notified of any unexpected events."</string>
 • Breaking news
 • Continue watching
 • Explore more channels
+• Most relevant
 • Shopping
 • Watch it again"</string>
             <string name="revanced_hide_horizontal_shelves_summary_off">Shelves are shown</string>
@@ -226,10 +227,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_join_membership_button_title">Hide Join button</string>
             <string name="revanced_hide_join_membership_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_join_membership_button_summary_off">Button is shown</string>
-            <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-            <string name="revanced_hide_for_you_shelf_title">Hide \'For you\' shelf</string>
-            <string name="revanced_hide_for_you_shelf_summary_on">Shelf in channel page is hidden</string>
-            <string name="revanced_hide_for_you_shelf_summary_off">Shelf in channel page is shown</string>
             <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
             <string name="revanced_hide_notify_me_button_title">Hide \'Notify me\' button</string>
@@ -250,15 +247,12 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
             <string name="revanced_hide_timed_reactions_summary_on">Timed reactions are hidden</string>
             <string name="revanced_hide_timed_reactions_summary_off">Timed reactions are shown</string>
-            <string name="revanced_hide_channel_guidelines_title">Hide channel guidelines</string>
-            <string name="revanced_hide_channel_guidelines_summary_on">Channel guidelines are hidden</string>
-            <string name="revanced_hide_channel_guidelines_summary_off">Channel guidelines are shown</string>
             <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
-            <string name="revanced_hide_expandable_chip_title">Hide expandable card under videos</string>
-            <string name="revanced_hide_expandable_chip_summary_on">Expandable card is hidden</string>
-            <string name="revanced_hide_expandable_chip_summary_off">Expandable card is shown</string>
+            <string name="revanced_hide_expandable_chip_title">Hide expandable card</string>
+            <string name="revanced_hide_expandable_chip_summary_on">Expandable card under videos is hidden</string>
+            <string name="revanced_hide_expandable_chip_summary_off">Expandable card under videos is shown</string>
             <string name="revanced_hide_community_posts_title">Hide community posts</string>
             <string name="revanced_hide_community_posts_summary_on">Community posts are hidden</string>
             <string name="revanced_hide_community_posts_summary_off">Community posts are shown</string>
@@ -271,15 +265,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_feed_survey_title">Hide feed surveys</string>
             <string name="revanced_hide_feed_survey_summary_on">Feed surveys are hidden</string>
             <string name="revanced_hide_feed_survey_summary_off">Feed surveys are shown</string>
-            <string name="revanced_hide_community_guidelines_title">Hide community guidelines</string>
-            <string name="revanced_hide_community_guidelines_summary_on">Community guidelines are hidden</string>
-            <string name="revanced_hide_community_guidelines_summary_off">Community guidelines are shown</string>
             <string name="revanced_hide_subscribers_community_guidelines_title">Hide subscribers guidelines</string>
             <string name="revanced_hide_subscribers_community_guidelines_summary_on">Subscribers community guidelines are hidden</string>
             <string name="revanced_hide_subscribers_community_guidelines_summary_off">Subscribers community guidelines are shown</string>
-            <string name="revanced_hide_channel_member_shelf_title">Hide channel member shelf</string>
-            <string name="revanced_hide_channel_member_shelf_summary_on">Channel member shelf is hidden</string>
-            <string name="revanced_hide_channel_member_shelf_summary_off">Channel member shelf is shown</string>
             <string name="revanced_hide_emergency_box_title">Hide emergency boxes</string>
             <string name="revanced_hide_emergency_box_summary_on">Emergency boxes are hidden</string>
             <string name="revanced_hide_emergency_box_summary_off">Emergency boxes are shown</string>
@@ -295,18 +283,18 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_playables_title">Hide Playables</string>
             <string name="revanced_hide_playables_summary_on">Playables are hidden</string>
             <string name="revanced_hide_playables_summary_off">Playables are shown</string>
-            <string name="revanced_hide_quick_actions_title">Hide quick actions in fullscreen</string>
-            <string name="revanced_hide_quick_actions_summary_on">Quick actions are hidden</string>
-            <string name="revanced_hide_quick_actions_summary_off">Quick actions are shown</string>
-            <string name="revanced_hide_related_videos_title">Hide related videos in quick actions</string>
-            <string name="revanced_hide_related_videos_summary_on">Related videos are hidden</string>
-            <string name="revanced_hide_related_videos_summary_off">Related videos are shown</string>
-            <string name="revanced_hide_image_shelf_title">Hide image shelf in search results</string>
-            <string name="revanced_hide_image_shelf_summary_on">Image shelf is hidden</string>
-            <string name="revanced_hide_image_shelf_summary_off">Image shelf is shown</string>
-            <string name="revanced_hide_latest_posts_ads_title">Hide latest posts</string>
-            <string name="revanced_hide_latest_posts_ads_summary_on">Latest posts are hidden</string>
-            <string name="revanced_hide_latest_posts_ads_summary_off">Latest posts are shown</string>
+            <string name="revanced_hide_quick_actions_title">Hide quick actions</string>
+            <string name="revanced_hide_quick_actions_summary_on">Quick actions in fullscreen are hidden</string>
+            <string name="revanced_hide_quick_actions_summary_off">Quick actions in fullscreen  are shown</string>
+            <string name="revanced_hide_related_videos_title">Hide related videos</string>
+            <string name="revanced_hide_related_videos_summary_on">Related videos in quick actions are hidden</string>
+            <string name="revanced_hide_related_videos_summary_off">Related videos in quick actions are shown</string>
+            <string name="revanced_hide_image_shelf_title">Hide image shelf</string>
+            <string name="revanced_hide_image_shelf_summary_on">Image shelf in search results is hidden</string>
+            <string name="revanced_hide_image_shelf_summary_off">Image shelf in search results is shown</string>
+            <string name="revanced_hide_latest_posts_title">Hide latest posts</string>
+            <string name="revanced_hide_latest_posts_summary_on">Latest posts are hidden</string>
+            <string name="revanced_hide_latest_posts_summary_off">Latest posts are shown</string>
             <string name="revanced_hide_mix_playlists_title">Hide mix playlists</string>
             <string name="revanced_hide_mix_playlists_summary_on">Mix playlists are hidden</string>
             <string name="revanced_hide_mix_playlists_summary_off">Mix playlists are shown</string>
@@ -358,6 +346,27 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Hidden in related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Shown in related videos</string>
 
+            <string name="revanced_channel_screen_title">Channel page</string>
+            <string name="revanced_channel_screen_summary">Hide or show channel page components</string>
+            <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_for_you_shelf_title">Hide \'For You\' shelf</string>
+            <string name="revanced_hide_for_you_shelf_summary_on">For You shelf is hidden</string>
+            <string name="revanced_hide_for_you_shelf_summary_off">For You shelf is shown</string>
+            <string name="revanced_hide_links_preview_title">Hide links preview</string>
+            <string name="revanced_hide_links_preview_summary_on">Links preview is hidden</string>
+            <string name="revanced_hide_links_preview_summary_off">Links preview is shown</string>
+            <string name="revanced_hide_members_shelf_title">Hide members shelf</string>
+            <string name="revanced_hide_members_shelf_summary_on">Members shelf is hidden</string>
+            <string name="revanced_hide_members_shelf_summary_off">Members shelf is shown</string>
+            <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_visit_community_button_title">Hide \'Visit Community\' button</string>
+            <string name="revanced_hide_visit_community_button_summary_on">Visit Community button is hidden</string>
+            <string name="revanced_hide_visit_community_button_summary_off">Visit Community button is shown</string>
+            <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
+            <string name="revanced_hide_visit_store_button_summary_on">Visit store button is hidden</string>
+            <string name="revanced_hide_visit_store_button_summary_off">Visit store button is shown</string>
+
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
             <string name="revanced_hide_comments_ai_chat_summary_title">Hide AI Chat summary</string>
@@ -366,12 +375,18 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_comments_ai_summary_title">Hide AI comments summary</string>
             <string name="revanced_hide_comments_ai_summary_summary_on">Comments summary is hidden</string>
             <string name="revanced_hide_comments_ai_summary_summary_off">Comments summary is shown</string>
+            <string name="revanced_hide_comments_channel_guidelines_title">Hide channel guidelines</string>
+            <string name="revanced_hide_comments_channel_guidelines_summary_on">Channel guidelines are hidden</string>
+            <string name="revanced_hide_comments_channel_guidelines_summary_off">Channel guidelines are shown</string>
             <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
             <string name="revanced_hide_comments_by_members_header_summary_on">Comments by members header is hidden</string>
             <string name="revanced_hide_comments_by_members_header_summary_off">Comments by members header is shown</string>
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
             <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
             <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
+            <string name="revanced_hide_comments_community_guidelines_title">Hide community guidelines</string>
+            <string name="revanced_hide_comments_community_guidelines_summary_on">Community guidelines are hidden</string>
+            <string name="revanced_hide_comments_community_guidelines_summary_off">Community guidelines are shown</string>
             <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
             <string name="revanced_hide_comments_create_a_short_button_summary_on">Create a Short button is hidden</string>
             <string name="revanced_hide_comments_create_a_short_button_summary_off">Create a Short button is shown</string>
@@ -381,7 +396,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_comments_thanks_button_title">Hide Thanks button</string>
             <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown</string>
-            <string name="revanced_hide_comments_timestamp_button_title">Hide timestamp button</string>
+            <string name="revanced_hide_comments_timestamp_button_title">Hide Timestamp button</string>
             <string name="revanced_hide_comments_timestamp_button_summary_on">Timestamp button is hidden</string>
             <string name="revanced_hide_comments_timestamp_button_summary_off">Timestamp button is shown</string>
 
@@ -439,9 +454,9 @@ Limitations
             <string name="revanced_hide_keyword_toast_invalid_broad">Keyword will hide all videos: %s</string>
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <string name="revanced_hide_creator_store_shelves_title">Hide creator store shelves</string>
-            <string name="revanced_hide_creator_store_shelves_summary_on">Store shelves below the player and in video description are hidden</string>
-            <string name="revanced_hide_creator_store_shelves_summary_off">Store shelves below the player and in video description are shown</string>
+            <string name="revanced_hide_creator_store_shelf_title">Hide creator store shelf</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">Store shelf under video player is hidden</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">Store shelf under video player is shown</string>
             <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
             <string name="revanced_hide_end_screen_store_banner_summary_on">Store banner is hidden</string>
             <string name="revanced_hide_end_screen_store_banner_summary_off">Store banner is shown</string>
@@ -461,20 +476,16 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
             <string name="revanced_hide_paid_promotion_label_summary_on">Paid promotion label is hidden</string>
             <string name="revanced_hide_paid_promotion_label_summary_off">Paid promotion label is shown</string>
+            <string name="revanced_hide_self_sponsor_ads_title">Hide self sponsored cards</string>
+            <string name="revanced_hide_self_sponsor_ads_summary_on">Self sponsored cards are hidden</string>
+            <string name="revanced_hide_self_sponsor_ads_summary_off">Self sponsored cards are shown</string>
+            <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
+            <string name="revanced_hide_shopping_links_summary_on">Links in the video description are hidden</string>
+            <string name="revanced_hide_shopping_links_summary_off">Links in the video description are shown</string>
             <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
             <string name="revanced_hide_view_products_banner_title">Hide \'View products\' banner</string>
             <string name="revanced_hide_view_products_banner_summary_on">Banner in video overlay is hidden</string>
             <string name="revanced_hide_view_products_banner_summary_off">Banner in video overlay is shown</string>
-            <string name="revanced_hide_self_sponsor_ads_title">Hide self sponsored cards</string>
-            <string name="revanced_hide_self_sponsor_ads_summary_on">Self sponsored cards are hidden</string>
-            <string name="revanced_hide_self_sponsor_ads_summary_off">Self sponsored cards are shown</string>
-            <string name="revanced_hide_tagged_products_title">Hide tagged products</string>
-            <string name="revanced_hide_tagged_products_summary_on">Tagged products in video description are hidden</string>
-            <string name="revanced_hide_tagged_products_summary_off">Tagged products in video description are shown</string>
-            <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
-            <string name="revanced_hide_visit_store_button_summary_on">Button in channel page is hidden</string>
-            <string name="revanced_hide_visit_store_button_summary_off">Button in channel page is shown</string>
             <string name="revanced_hide_web_search_results_title">Hide web search results</string>
             <string name="revanced_hide_web_search_results_summary_on">Web search results are hidden</string>
             <string name="revanced_hide_web_search_results_summary_off">Web search results are shown</string>
@@ -851,7 +862,7 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_shorts_new_posts_button_title">Hide New posts button</string>
             <string name="revanced_hide_shorts_new_posts_button_summary_off">New posts button is shown</string>
             <string name="revanced_hide_shorts_new_posts_button_summary_on">New posts button is hidden</string>
-            <string name="revanced_hide_shorts_hashtag_button_title">Hide hashtag button</string>
+            <string name="revanced_hide_shorts_hashtag_button_title">Hide Hashtag button</string>
             <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag button is hidden</string>
             <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag button is shown</string>
             <string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
