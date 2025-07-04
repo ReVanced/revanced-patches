@@ -209,8 +209,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 key = "revanced_channel_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_for_you_shelf"),
-                    SwitchPreference("revanced_hide_channel_links_preview"),
-                    SwitchPreference("revanced_hide_channel_members_shelf"),
+                    SwitchPreference("revanced_hide_links_preview"),
+                    SwitchPreference("revanced_hide_members_shelf"),
                     SwitchPreference("revanced_hide_visit_community_button"),
                     SwitchPreference("revanced_hide_visit_store_button"),
                 ),

@@ -89,7 +89,7 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         final var channelMembersShelf = new StringFilterGroup(
-                Settings.HIDE_CHANNEL_MEMBERS_SHELF,
+                Settings.HIDE_MEMBERS_SHELF,
                 "member_recognition_shelf"
         );
 
@@ -141,7 +141,7 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         final var channelLinksPreview = new StringFilterGroup(
-                Settings.HIDE_CHANNEL_LINKS_PREVIEW,
+                Settings.HIDE_LINKS_PREVIEW,
                 "attribution.eml"
         );
 
