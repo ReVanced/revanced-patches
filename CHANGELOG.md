@@ -1,3 +1,15 @@
+# [5.31.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.30.0...v5.31.0-dev.1) (2025-07-04)
+
+
+### Bug Fixes
+
+* **SoundCloud:** Constrain patches to last working app target ([e8ea89f](https://github.com/ReVanced/revanced-patches/commit/e8ea89fc1a3f0531a0af7529663f13328aca4fe7))
+
+
+### Features
+
+* **Lightroom:** Constrain patches to last working version ([#5335](https://github.com/ReVanced/revanced-patches/issues/5335)) ([32ce70e](https://github.com/ReVanced/revanced-patches/commit/32ce70e994f354b9a569376bb89eb38b3190e6f9))
+
 # [5.30.0](https://github.com/ReVanced/revanced-patches/compare/v5.29.0...v5.30.0) (2025-07-02)
 
 
