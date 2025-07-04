@@ -1,3 +1,10 @@
+# [5.31.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.3...v5.31.0-dev.4) (2025-07-04)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Hide new type of general ad ([#5345](https://github.com/ReVanced/revanced-patches/issues/5345)) ([f23716b](https://github.com/ReVanced/revanced-patches/commit/f23716bc52c03d8d0271bfe38b19247e6de7021d))
+
 # [5.31.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.2...v5.31.0-dev.3) (2025-07-04)
 
 
