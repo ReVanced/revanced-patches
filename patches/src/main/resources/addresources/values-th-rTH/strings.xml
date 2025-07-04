@@ -156,10 +156,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_channel_watermark_summary_on">ลายน้ำถูกซ่อน</string>
   <string name="revanced_hide_channel_watermark_summary_off">ลายน้ำถูกแสดง</string>
   <string name="revanced_hide_horizontal_shelves_title">ซ่อนชั้นวางแนวนอน</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"ชั้นวางถูกซ่อน เช่น:
+  <string name="revanced_hide_horizontal_shelves_summary_on">"ชั้นวางถูกซ่อนไว้ เช่น:
 • ข่าวเด่น
 • ดูต่อ
-• ค้นหาช่องทางเพิ่มเติม
+• สำรวจช่องเพิ่มเติม
+• ที่เกี่ยวข้องที่สุด
 • ช้อปปิ้ง
 • ดูอีกครั้ง"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">ชั้นวางถูกแสดง</string>
@@ -168,10 +169,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_join_membership_button_title">ซ่อนปุ่มเข้าร่วม</string>
   <string name="revanced_hide_join_membership_button_summary_on">ปุ่มถูกซ่อน</string>
   <string name="revanced_hide_join_membership_button_summary_off">ปุ่มถูกแสดง</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">ซ่อนชั้นวาง \'สำหรับคุณ\'</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">ชั้นวางในหน้าแชนเนลถูกซ่อน</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">ชั้นวางในหน้าแชนเนลแสดงอยู่</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">ซ่อนปุ่ม \"แจ้งเตือนฉัน\"</string>
@@ -192,15 +189,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">ซ่อนปฏิกิริยาตามเวลา</string>
   <string name="revanced_hide_timed_reactions_summary_on">ปฏิกิริยาตามเวลาถูกซ่อน</string>
   <string name="revanced_hide_timed_reactions_summary_off">ปฏิกิริยาตามเวลาถูกแสดง</string>
-  <string name="revanced_hide_channel_guidelines_title">ซ่อนแนวทางการใช้งานของช่อง</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">แนวทางการใช้งานของช่องถูกซ่อน</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">แนวทางการใช้งานของช่องถูกแสดง</string>
   <string name="revanced_hide_chips_shelf_title">ซ่อนชั้นวางชิป</string>
   <string name="revanced_hide_chips_shelf_summary_on">ชั้นวางชิปถูกซ่อน</string>
   <string name="revanced_hide_chips_shelf_summary_off">ชั้นวางชิปแสดงอยู่</string>
-  <string name="revanced_hide_expandable_chip_title">ซ่อนการ์ดแบบขยายได้ใต้วิดีโอ</string>
-  <string name="revanced_hide_expandable_chip_summary_on">การ์ดที่ขยายได้ถูกซ่อน</string>
-  <string name="revanced_hide_expandable_chip_summary_off">การ์ดที่ขยายได้แสดงอยู่</string>
+  <string name="revanced_hide_expandable_chip_title">ซ่อนการ์ดแบบขยายได้</string>
+  <string name="revanced_hide_expandable_chip_summary_on">การ์ดแบบขยายได้ใต้คลิปวิดีโอถูกซ่อนไว้</string>
+  <string name="revanced_hide_expandable_chip_summary_off">การ์ดแบบขยายได้ใต้คลิปวิดีโอแสดงอยู่</string>
   <string name="revanced_hide_community_posts_title">ซ่อนโพสต์ชุมชน</string>
   <string name="revanced_hide_community_posts_summary_on">โพสต์ชุมชนถูกซ่อนไว้</string>
   <string name="revanced_hide_community_posts_summary_off">โพสต์ชุมชนแสดงอยู่</string>
@@ -213,15 +207,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_feed_survey_title">ซ่อนแบบสำรวจในฟีด</string>
   <string name="revanced_hide_feed_survey_summary_on">แบบสำรวจในฟีดถูกซ่อนไว้</string>
   <string name="revanced_hide_feed_survey_summary_off">แบบสำรวจในฟีดแสดงอยู่</string>
-  <string name="revanced_hide_community_guidelines_title">ซ่อนแนวทางชุมชน</string>
-  <string name="revanced_hide_community_guidelines_summary_on">แนวทางชุมชนถูกซ่อนไว้</string>
-  <string name="revanced_hide_community_guidelines_summary_off">แนวทางชุมชนแสดงอยู่</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">ซ่อนหลักเกณฑ์สำหรับผู้ติดตาม</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">แนวทางชุมชนสำหรับสมาชิกถูกซ่อนไว้</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">แนวทางชุมชนสำหรับสมาชิกแสดงอยู่</string>
-  <string name="revanced_hide_channel_member_shelf_title">ซ่อนชั้นวางสมาชิกช่อง</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">ชั้นวางสมาชิกช่องถูกซ่อนไว้</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">ชั้นวางสมาชิกช่องแสดงอยู่</string>
   <string name="revanced_hide_emergency_box_title">ซ่อนกล่องฉุกเฉิน</string>
   <string name="revanced_hide_emergency_box_summary_on">กล่องฉุกเฉินถูกซ่อนไว้</string>
   <string name="revanced_hide_emergency_box_summary_off">กล่องฉุกเฉินแสดงอยู่</string>
@@ -237,18 +225,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_playables_title">ซ่อน Playables</string>
   <string name="revanced_hide_playables_summary_on">Playables ถูกซ่อนไว้</string>
   <string name="revanced_hide_playables_summary_off">Playables แสดงอยู่</string>
-  <string name="revanced_hide_quick_actions_title">ซ่อนการกระทำด่วนในแบบเต็มหน้าจอ</string>
-  <string name="revanced_hide_quick_actions_summary_on">การกระทำด่วนถูกซ่อนไว้</string>
-  <string name="revanced_hide_quick_actions_summary_off">การกระทำด่วนแสดงอยู่</string>
-  <string name="revanced_hide_related_videos_title">ซ่อนวิดีโอที่เกี่ยวข้องในการกระทำด่วน</string>
-  <string name="revanced_hide_related_videos_summary_on">วิดีโอที่เกี่ยวข้องถูกซ่อนไว้</string>
-  <string name="revanced_hide_related_videos_summary_off">วิดีโอที่เกี่ยวข้องแสดงอยู่</string>
-  <string name="revanced_hide_image_shelf_title">ซ่อนชั้นวางรูปภาพในผลการค้นหา</string>
-  <string name="revanced_hide_image_shelf_summary_on">ชั้นวางรูปภาพถูกซ่อนไว้</string>
-  <string name="revanced_hide_image_shelf_summary_off">ชั้นวางรูปภาพแสดงอยู่</string>
-  <string name="revanced_hide_latest_posts_ads_title">ซ่อนโพสต์ล่าสุด</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">โพสต์ล่าสุดถูกซ่อนไว้</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">โพสต์ล่าสุดแสดงอยู่</string>
+  <string name="revanced_hide_quick_actions_title">ซ่อนการดำเนินการด่วน</string>
+  <string name="revanced_hide_quick_actions_summary_on">การดำเนินการด่วนในโหมดเต็มจอถูกซ่อนไว้</string>
+  <string name="revanced_hide_quick_actions_summary_off">การดำเนินการด่วนในโหมดเต็มจอแสดงอยู่</string>
+  <string name="revanced_hide_related_videos_title">ซ่อนวิดีโอที่เกี่ยวข้อง</string>
+  <string name="revanced_hide_related_videos_summary_on">วิดีโอที่เกี่ยวข้องในการดำเนินการด่วนถูกซ่อนไว้</string>
+  <string name="revanced_hide_related_videos_summary_off">วิดีโอที่เกี่ยวข้องในการดำเนินการด่วนแสดงอยู่</string>
+  <string name="revanced_hide_image_shelf_title">ซ่อนชั้นวางรูปภาพ</string>
+  <string name="revanced_hide_image_shelf_summary_on">ชั้นวางรูปภาพในผลการค้นหาถูกซ่อนไว้</string>
+  <string name="revanced_hide_image_shelf_summary_off">ชั้นวางรูปภาพในผลการค้นหาแสดงอยู่</string>
+  <string name="revanced_hide_latest_posts_title">ซ่อนโพสต์ล่าสุด</string>
+  <string name="revanced_hide_latest_posts_summary_on">โพสต์ล่าสุดถูกซ่อนไว้</string>
+  <string name="revanced_hide_latest_posts_summary_off">โพสต์ล่าสุดแสดงอยู่</string>
   <string name="revanced_hide_mix_playlists_title">ซ่อนเพลย์ลิสต์แบบผสม</string>
   <string name="revanced_hide_mix_playlists_summary_on">เพลย์ลิสต์แบบผสมถูกซ่อนไว้</string>
   <string name="revanced_hide_mix_playlists_summary_off">เพลย์ลิสต์แบบผสมแสดงอยู่</string>
@@ -298,6 +286,26 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">ซ่อนในวิดีโอที่เกี่ยวข้อง</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">ซ่อนในวิดีโอที่เกี่ยวข้อง</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">แสดงในวิดีโอที่เกี่ยวข้อง</string>
+  <string name="revanced_channel_screen_title">หน้าช่อง</string>
+  <string name="revanced_channel_screen_summary">ซ่อนหรือแสดงองค์ประกอบของหน้าช่อง</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">ซ่อนชั้นวาง \'สำหรับคุณ\'</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">ชั้นวาง \"สำหรับคุณ\" ถูกซ่อนไว้</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">ชั้นวาง \"สำหรับคุณ\" แสดงอยู่</string>
+  <string name="revanced_hide_links_preview_title">ซ่อนตัวอย่างลิงก์</string>
+  <string name="revanced_hide_links_preview_summary_on">ตัวอย่างลิงก์ถูกซ่อนไว้</string>
+  <string name="revanced_hide_links_preview_summary_off">ตัวอย่างลิงก์แสดงอยู่</string>
+  <string name="revanced_hide_members_shelf_title">ซ่อนชั้นวางสมาชิก</string>
+  <string name="revanced_hide_members_shelf_summary_on">ชั้นวางสมาชิกถูกซ่อนไว้</string>
+  <string name="revanced_hide_members_shelf_summary_off">แสดงชั้นวางของสมาชิก</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">ซ่อนปุ่ม \'เยี่ยมชมชุมชน\'</string>
+  <string name="revanced_hide_visit_community_button_summary_on">ซ่อนปุ่มเยี่ยมชมชุมชนแล้ว</string>
+  <string name="revanced_hide_visit_community_button_summary_off">ปุ่ม \"เยี่ยมชมชุมชน\" แสดงอยู่</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">ซ่อนปุ่ม \'ไปที่ร้านค้า\' บนหน้าช่อง</string>
+  <string name="revanced_hide_visit_store_button_summary_on">ปุ่ม \"เยี่ยมชมร้านค้า\" ถูกซ่อนไว้</string>
+  <string name="revanced_hide_visit_store_button_summary_off">ปุ่ม \"เยี่ยมชมร้านค้า\" แสดงอยู่</string>
   <string name="revanced_comments_screen_title">ความคิดเห็น</string>
   <string name="revanced_comments_screen_summary">ซ่อนหรือแสดงส่วนประกอบของส่วนความคิดเห็น</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">ซ่อนสรุปแชท AI</string>
@@ -306,12 +314,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_ai_summary_title">ซ่อนสรุปความคิดเห็น AI</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">ซ่อนสรุปความคิดเห็น</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">แสดงสรุปความคิดเห็น</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">ซ่อนแนวทางปฏิบัติของช่อง</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">ซ่อนแนวทางช่องแล้ว</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">แสดงแนวทางช่องแล้ว</string>
   <string name="revanced_hide_comments_by_members_header_title">ซ่อนส่วนหัว \'ความคิดเห็นโดยสมาชิก\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">ส่วนหัวความคิดเห็นโดยสมาชิกถูกซ่อน</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">ส่วนหัวความคิดเห็นโดยสมาชิกแสดงอยู่</string>
   <string name="revanced_hide_comments_section_title">ซ่อนส่วนความคิดเห็น</string>
   <string name="revanced_hide_comments_section_summary_on">ส่วนความคิดเห็นถูกซ่อนไว้</string>
   <string name="revanced_hide_comments_section_summary_off">ส่วนความคิดเห็นแสดงอยู่</string>
+  <string name="revanced_hide_comments_community_guidelines_title">ซ่อนแนวทางชุมชน</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">แนวทางปฏิบัติของชุมชนถูกซ่อนไว้</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">แนวทางปฏิบัติของชุมชนแสดงอยู่</string>
   <string name="revanced_hide_comments_create_a_short_button_title">ซ่อนปุ่ม \'สร้าง Shorts\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">ปุ่มสร้าง Short ถูกซ่อน</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">ปุ่มสร้าง Short แสดงอยู่</string>
@@ -377,9 +391,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">คำสำคัญจะซ่อนวิดีโอทั้งหมด: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">ซ่อนชั้นวางสินค้าของครีเอเตอร์</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">ซ่อนชั้นวางสินค้าใต้เครื่องเล่นและในคำอธิบายวิดีโอ</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">ชั้นวางสินค้าใต้เครื่องเล่นและในคำอธิบายวิดีโอจะแสดงขึ้น</string>
+  <string name="revanced_hide_creator_store_shelf_title">ซ่อนชั้นวางร้านค้าของผู้สร้าง</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">ซ่อนชั้นวางร้านค้าใต้เครื่องเล่นวิดีโอแล้ว</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">ชั้นวางร้านค้าใต้เครื่องเล่นวิดีโอแสดงอยู่</string>
   <string name="revanced_hide_end_screen_store_banner_title">ซ่อนแบนเนอร์ร้านค้าท้ายจอ</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">แบนเนอร์ร้านค้าถูกซ่อนไว้</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">แบนเนอร์ร้านค้าปรากฏ</string>
@@ -399,20 +413,16 @@ Second \"item\" text"</string>
   <string name="revanced_hide_paid_promotion_label_title">ซ่อนป้ายโฆษณาที่จ่ายเงิน</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">ป้ายโฆษณาที่จ่ายเงินถูกซ่อน</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">ป้ายโฆษณาที่จ่ายเงินจะแสดง</string>
+  <string name="revanced_hide_self_sponsor_ads_title">ซ่อนการ์ดที่สนับสนุนตัวเอง</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">การ์ดที่สนับสนุนตัวเองถูกซ่อน</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">การ์ดที่สนับสนุนตัวเองจะแสดง</string>
+  <string name="revanced_hide_shopping_links_title">ซ่อนลิงก์การช็อปปิ้ง</string>
+  <string name="revanced_hide_shopping_links_summary_on">ลิงก์ในคำอธิบายวิดีโอถูกซ่อนไว้</string>
+  <string name="revanced_hide_shopping_links_summary_off">ลิงก์ในคำอธิบายวิดีโอแสดงอยู่</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">ซ่อนแบนเนอร์ \'ดูสินค้า\'</string>
   <string name="revanced_hide_view_products_banner_summary_on">ซ่อนแบนเนอร์ในโอเวอร์เลย์วิดีโอ</string>
   <string name="revanced_hide_view_products_banner_summary_off">แบนเนอร์ในการวางซ้อนวิดีโอจะแสดงขึ้น</string>
-  <string name="revanced_hide_self_sponsor_ads_title">ซ่อนการ์ดที่สนับสนุนตัวเอง</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">การ์ดที่สนับสนุนตัวเองถูกซ่อน</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">การ์ดที่สนับสนุนตัวเองจะแสดง</string>
-  <string name="revanced_hide_tagged_products_title">ซ่อนสินค้าที่แท็กไว้</string>
-  <string name="revanced_hide_tagged_products_summary_on">ซ่อนสินค้าที่แท็กไว้ในคำอธิบายวิดีโอ</string>
-  <string name="revanced_hide_tagged_products_summary_off">สินค้าที่ติดแท็กในคำอธิบายวิดีโอจะแสดงขึ้น</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">ซ่อนปุ่ม \'ไปที่ร้านค้า\' บนหน้าช่อง</string>
-  <string name="revanced_hide_visit_store_button_summary_on">ปุ่มในหน้าแชนเนลถูกซ่อน</string>
-  <string name="revanced_hide_visit_store_button_summary_off">ปุ่มในหน้าแชนเนลแสดงอยู่</string>
   <string name="revanced_hide_web_search_results_title">ซ่อนผลลัพธ์การค้นหาบนเว็บ</string>
   <string name="revanced_hide_web_search_results_summary_on">ผลลัพธ์การค้นหาบนเว็บถูกซ่อน</string>
   <string name="revanced_hide_web_search_results_summary_off">ผลลัพธ์การค้นหาบนเว็บจะแสดง</string>

@@ -156,22 +156,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_channel_watermark_summary_on">Водният знак на канала е скрит</string>
   <string name="revanced_hide_channel_watermark_summary_off">Водният знак на канала се показва</string>
   <string name="revanced_hide_horizontal_shelves_title">Хоризонтални секции</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Рафтовете са скрити, такива като:
-• Актуални новини
-• Продължавай да гледаш
-• Разгледай още канали
-• Пазаруване
-• Гледай отново"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Рафтовете са скрити, като:\n• Извънредни новини\n• Продължи гледането\n• Разгледайте още канали\n• Най-подходящи\n• Пазаруване\n• Гледайте отново"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Хоризонтални секции се показват</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Скриване на бутона \"Присъединяване\"</string>
   <string name="revanced_hide_join_membership_button_summary_on">Бутона Покажи още е скрит</string>
   <string name="revanced_hide_join_membership_button_summary_off">Бутона \"Уведоми ме\" се показва</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Скриване на рафта \"За вас\"</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Рафтът в страницата на канала е скрит</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Рафтът в страницата на канала е показан</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Скриване на бутона \"Уведоми ме\"</string>
@@ -192,15 +183,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">Скриване на времевите реакции</string>
   <string name="revanced_hide_timed_reactions_summary_on">Времевите реакции са скрити</string>
   <string name="revanced_hide_timed_reactions_summary_off">Времевите реакции се показват</string>
-  <string name="revanced_hide_channel_guidelines_title">Скриване на насоките на канала</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Насоките на канала са скрити</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Насоките на канала се показват</string>
   <string name="revanced_hide_chips_shelf_title">Скриване на филмовите рафтове</string>
   <string name="revanced_hide_chips_shelf_summary_on">Рафтът \"Chip\" е скрит</string>
   <string name="revanced_hide_chips_shelf_summary_off">Рафтовете със снимки се показват</string>
-  <string name="revanced_hide_expandable_chip_title">Скрий разширяемата карта под видеоклиповете</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Разгъваемата карта е скрита</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Разгъваемата карта е показана</string>
+  <string name="revanced_hide_expandable_chip_title">Скриване на разгъваемата карта</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Разгъваемата карта под видеоклиповете е скрита</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Разгъваемата карта под видеоклиповете е показана</string>
   <string name="revanced_hide_community_posts_title">Скриване на публикациите от общността</string>
   <string name="revanced_hide_community_posts_summary_on">Насоките на общността са скрити</string>
   <string name="revanced_hide_community_posts_summary_off">Последните публикации са показани</string>
@@ -213,15 +201,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_feed_survey_title">Скриване на анкети в емисиите</string>
   <string name="revanced_hide_feed_survey_summary_on">Анкетите за емисии са скрити</string>
   <string name="revanced_hide_feed_survey_summary_off">Анкетите за емисии се показват</string>
-  <string name="revanced_hide_community_guidelines_title">Скриване на насоките на общността</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Насоките на общността са скрити</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Скриване на насоките за общността на абонатите</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">Скриване на указанията за абонатори</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Насоките за общността са скрити</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Насоките за общността са показани</string>
-  <string name="revanced_hide_channel_member_shelf_title">Скриване на секцията с членуващи</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Рафта с членуващи е скрит</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Рафта с членуващи се показва</string>
   <string name="revanced_hide_emergency_box_title">Скриване аварийните кутии</string>
   <string name="revanced_hide_emergency_box_summary_on">Спешни кутии са скрити</string>
   <string name="revanced_hide_emergency_box_summary_off">Спешни кутии са показани</string>
@@ -237,18 +219,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_playables_title">Игри в YouTube</string>
   <string name="revanced_hide_playables_summary_on">Игри в YouTube са скрити</string>
   <string name="revanced_hide_playables_summary_off">Игрите в YouTube се показват</string>
-  <string name="revanced_hide_quick_actions_title">Скриване на меню с Бързи действия</string>
-  <string name="revanced_hide_quick_actions_summary_on">Бързи действия са скрити</string>
-  <string name="revanced_hide_quick_actions_summary_off">Бързи действия се показват</string>
-  <string name="revanced_hide_related_videos_title">Скриване на свързаните видеоклипове в бързите действия</string>
-  <string name="revanced_hide_related_videos_summary_on">Сродни видео са скрити</string>
-  <string name="revanced_hide_related_videos_summary_off">Сродни видео са показани</string>
-  <string name="revanced_hide_image_shelf_title">Скриване на рафтовете със снимки</string>
-  <string name="revanced_hide_image_shelf_summary_on">Рафтовете със снимки са скрити</string>
-  <string name="revanced_hide_image_shelf_summary_off">Рафтовете със снимки се показват</string>
-  <string name="revanced_hide_latest_posts_ads_title">Скриване на последните публикации</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Най-новите публикации са скрити</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Последните публикации са показани</string>
+  <string name="revanced_hide_quick_actions_title">Скриване на бързите действия</string>
+  <string name="revanced_hide_quick_actions_summary_on">Бързите действия на цял екран са скрити</string>
+  <string name="revanced_hide_quick_actions_summary_off">Бързите действия на цял екран са показани</string>
+  <string name="revanced_hide_related_videos_title">Скриване на свързани видеоклипове</string>
+  <string name="revanced_hide_related_videos_summary_on">Свързаните видеоклипове в бързите действия са скрити</string>
+  <string name="revanced_hide_related_videos_summary_off">Свързаните видеоклипове в бързите действия са показани</string>
+  <string name="revanced_hide_image_shelf_title">Скриване на рафта с изображения</string>
+  <string name="revanced_hide_image_shelf_summary_on">Рафтът с изображения в резултатите от търсенето е скрит</string>
+  <string name="revanced_hide_image_shelf_summary_off">Рафтът с изображения в резултатите от търсенето е показан</string>
+  <string name="revanced_hide_latest_posts_title">Скриване на последните публикации</string>
+  <string name="revanced_hide_latest_posts_summary_on">Най-новите публикации са скрити</string>
+  <string name="revanced_hide_latest_posts_summary_off">Последните публикации са показани</string>
   <string name="revanced_hide_mix_playlists_title">Скриване на микс плейлист</string>
   <string name="revanced_hide_mix_playlists_summary_on">Плейлист микса е скрит</string>
   <string name="revanced_hide_mix_playlists_summary_off">Плейлист микса се показва</string>
@@ -298,6 +280,26 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Скриване в сродни видеоклипове</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Скриване в сродни видеоклипове</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Показано в сродни видеоклипове</string>
+  <string name="revanced_channel_screen_title">Страница на канала</string>
+  <string name="revanced_channel_screen_summary">Скриване или показване на компоненти на страницата на канала</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Скриване на рафта \"За вас\"</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Рафтът „За Вас“ е скрит</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Рафтът „За Вас“ е показан</string>
+  <string name="revanced_hide_links_preview_title">Скриване на преглед на връзки</string>
+  <string name="revanced_hide_links_preview_summary_on">Прегледът на връзки е скрит</string>
+  <string name="revanced_hide_links_preview_summary_off">Прегледът на връзки е показан</string>
+  <string name="revanced_hide_members_shelf_title">Скриване на рафта за членове</string>
+  <string name="revanced_hide_members_shelf_summary_on">Рафтът за членове е скрит</string>
+  <string name="revanced_hide_members_shelf_summary_off">Рафтът за членове е показан</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Скриване на бутона \"Посетете общността\"</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Бутонът \"Посетете общността\" е скрит</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Бутонът „Посетете общността“ е показан</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Скрийте бутона „Посетете магазина“ на страниците на каналите</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Бутонът „Посетете магазина“ е скрит</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Бутонът „Посетете магазина“ е показан</string>
   <string name="revanced_comments_screen_title">Коментари</string>
   <string name="revanced_comments_screen_summary">Скриване или показване на секцията за коментари</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Скриване на резюмето на AI Chat</string>
@@ -306,12 +308,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_ai_summary_title">Скриване на резюмето на AI коментарите</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Резюмето на коментарите е скрито</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Резюмето на коментарите е показано</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Скриване на насоките на канала</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Указанията за канала са скрити</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Указанията за канала са показани</string>
   <string name="revanced_hide_comments_by_members_header_title">Скриване на „Коментари, направени от членове“</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Заглавието на коментарите от членове е скрито</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Заглавието на коментарите от членове е показано</string>
   <string name="revanced_hide_comments_section_title">Скриване на секцията с коментари</string>
   <string name="revanced_hide_comments_section_summary_on">Секцията с коментари е скрита</string>
   <string name="revanced_hide_comments_section_summary_off">Секцията с коментари се показва</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Скриване на указанията за общността</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Насоките на общността са скрити</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Насоките на общността са показани</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Бутон за създаване на Shorts</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Бутонът \"Създаване на Short\" е скрит</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Бутонът \"Създаване на Short\" е показан</string>
@@ -321,7 +329,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_thanks_button_title">Скрий бутона за харесване</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Бутона за благодарност е скрит</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Бутона за благодарност се показва</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Скриване на бутона за времеви печат</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Скриване на бутона за клеймо за време</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Бутонът за времеви печат е скрит</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Бутонът за времеви печат е показан</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
@@ -377,9 +385,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Всички видеа с ключовата дума ще бъдат скрити: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Скриване на рафтовете на магазина за създатели</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Рафтовете на магазина под плейъра и в описанието на видеоклипа са скрити</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Рафтовете на магазина под плейъра и в описанието на видеоклипа се показват</string>
+  <string name="revanced_hide_creator_store_shelf_title">Скриване на рафта на магазина на създателя</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Рафтът на магазина под видеоплейъра е скрит</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Рафтът на магазина под видеоплейъра е показан</string>
   <string name="revanced_hide_end_screen_store_banner_title">Скрий банера за реклама в края на екрана</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Банерът на магазина е скрит</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Банерът на магазина се показва</string>
@@ -399,20 +407,16 @@ Second \"item\" text"</string>
   <string name="revanced_hide_paid_promotion_label_title">Скриване на платените промоции</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Промоционалните етикети са скрити</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Промоционалните етикети се показват</string>
+  <string name="revanced_hide_self_sponsor_ads_title">Скриване на самоспонсорирани карти</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">Самоспонсорираните карти са скрити</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">Самоспонсорираните карти са показани</string>
+  <string name="revanced_hide_shopping_links_title">Скриване на връзки за пазаруване</string>
+  <string name="revanced_hide_shopping_links_summary_on">Връзките в описанието на видеоклипа са скрити</string>
+  <string name="revanced_hide_shopping_links_summary_off">Връзките в описанието на видеоклипа са показани</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Скриване на банера „Преглед на продукти“</string>
   <string name="revanced_hide_view_products_banner_summary_on">Банерът в наслагването на видеоклипа е скрит</string>
   <string name="revanced_hide_view_products_banner_summary_off">Банерът във видео наслагването се показва</string>
-  <string name="revanced_hide_self_sponsor_ads_title">Скриване на самоспонсорирани карти</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">Самоспонсорираните карти са скрити</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">Самоспонсорираните карти са показани</string>
-  <string name="revanced_hide_tagged_products_title">Скриване на маркирани продукти</string>
-  <string name="revanced_hide_tagged_products_summary_on">Маркираните продукти в описанието на видеоклипа са скрити</string>
-  <string name="revanced_hide_tagged_products_summary_off">Маркираните продукти в описанието на видеоклипа се показват</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Скрийте бутона „Посетете магазина“ на страниците на каналите</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Бутонът в страницата на канала е скрит</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Бутонът в страницата на канала е показан</string>
   <string name="revanced_hide_web_search_results_title">Скриване на резултатите от уеб търсенето</string>
   <string name="revanced_hide_web_search_results_summary_on">Резултатите от уеб търсенето са скрити</string>
   <string name="revanced_hide_web_search_results_summary_off">Резултатите от уеб търсенето са показани.</string>
