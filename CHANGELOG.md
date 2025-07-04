@@ -1,3 +1,10 @@
+# [5.31.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.1...v5.31.0-dev.2) (2025-07-04)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add `Hide channel links preview` and `Hide 'Visit Community' button` in channel page ([#5320](https://github.com/ReVanced/revanced-patches/issues/5320)) ([9d9cce3](https://github.com/ReVanced/revanced-patches/commit/9d9cce3ec5550b2fea88df745f1700bb2f17eb9e))
+
 # [5.31.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.30.0...v5.31.0-dev.1) (2025-07-04)
 
 
