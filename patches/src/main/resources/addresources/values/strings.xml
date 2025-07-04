@@ -1615,7 +1615,7 @@ AVC has a maximum resolution of 1080p, Opus audio codec is not available, and vi
             <string name="revanced_block_video_ads_summary_off">Video ads are unblocked</string>
         </patch>
         <patch id="chat.antidelete.showDeletedMessagesPatch">
-            <string name="revanced_deleted_msg">message deleted</string>
+            <string name="revanced_deleted_msg">Message deleted</string>
             <string name="revanced_show_deleted_messages_title">Show deleted messages</string>
             <string name="revanced_show_deleted_messages_entry_1">Do not show deleted messages</string>
             <string name="revanced_show_deleted_messages_entry_2">Hide deleted messages behind a spoiler</string>
@@ -1636,8 +1636,8 @@ AVC has a maximum resolution of 1080p, Opus audio codec is not available, and vi
             <string name="revanced_settings">ReVanced Settings</string>
             <string name="revanced_about_title">About</string>
             <string name="revanced_about_summary">About ReVanced</string>
-            <string name="revanced_ads_screen_title">Ad blocking</string>
-            <string name="revanced_ads_screen_summary">Ad blocking settings</string>
+            <string name="revanced_ads_screen_title">Ad Blocking</string>
+            <string name="revanced_ads_screen_summary">Ad Blocking settings</string>
             <string name="revanced_chat_screen_title">Chat</string>
             <string name="revanced_chat_screen_summary">Chat settings</string>
             <string name="revanced_misc_screen_title">Miscellaneous</string>
