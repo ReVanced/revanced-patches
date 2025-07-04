@@ -20,10 +20,9 @@ import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.forEachLiteralValueInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import org.w3c.dom.Element
 import java.io.File
 
-internal const val EXTENSION_CLASS_DESCRIPTOR =
+private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ChangeHeaderPatch;"
 
 private val changeHeaderBytecodePatch = bytecodePatch {
@@ -31,10 +30,12 @@ private val changeHeaderBytecodePatch = bytecodePatch {
 
     execute {
         arrayOf(
-            resourceMappings["attr", "ytWordmarkHeader"],
-            resourceMappings["attr", "ytPremiumWordmarkHeader"]
-        ).forEach { literal ->
-            forEachLiteralValueInstruction(literal) { literalIndex ->
+            "ytWordmarkHeader",
+            "ytPremiumWordmarkHeader"
+        ).forEach { resourceName ->
+            val resourceId = resourceMappings["attr", resourceName]
+
+            forEachLiteralValueInstruction(resourceId) { literalIndex ->
                 val register = getInstruction<OneRegisterInstruction>(literalIndex).registerA
                 addInstructions(
                     literalIndex + 1,
@@ -93,7 +94,7 @@ val changeHeaderPatch = resourcePatch(
         key = "custom",
         title = "Custom header logo",
         description = """
-            Folder with images to use as a header in-app custom header.
+            Folder with images to use as a custom header logo.
             
             The folder must contain one or more of the following folders, depending on the DPI of the device:
             
@@ -132,10 +133,10 @@ val changeHeaderPatch = resourcePatch(
         )
 
         if (custom != null) {
-            val customResourceFileNames = mapLightDarkFileNames(CUSTOM_HEADER_RESOURCE_NAME)
-
             val sourceFolders = File(custom!!).listFiles { file -> file.isDirectory }
                 ?: throw PatchException("The provided path is not a directory: $custom")
+
+            val customResourceFileNames = mapLightDarkFileNames(CUSTOM_HEADER_RESOURCE_NAME)
 
             var copiedFiles = false
 
@@ -155,11 +156,11 @@ val changeHeaderPatch = resourcePatch(
             }
 
             if (!copiedFiles) {
-                throw PatchException("No header logo images found in the provided path: $custom")
+                throw PatchException("No custom header images found in the provided path: $custom")
             }
         }
 
-        // Logos are replaced by attribute references.
+        // Logo is replaced using an attribute reference.
         document("res/values/attrs.xml").use { document ->
             val resources = document.childNodes.item(0)
 
@@ -187,27 +188,22 @@ val changeHeaderPatch = resourcePatch(
                 "CairoLightThemeRingo2Updates" to "light",
                 "CairoDarkThemeRingo2Updates" to "dark"
             ).forEach { (style, mode) ->
-                fun createDrawableElement(document: Document, logoName: String, mode: String): Element {
-                    val item = document.createElement("item")
-                    item.setAttribute("name", logoName)
-                    item.textContent = "@drawable/${logoName}_$mode"
-                    return item
-                }
-
                 val styleElement = document.childNodes.findElementByAttributeValueOrThrow(
                     "name", style
                 )
 
+                fun addDrawableElement(document: Document, logoName: String, mode: String) {
+                    val item = document.createElement("item")
+                    item.setAttribute("name", logoName)
+                    item.textContent = "@drawable/${logoName}_$mode"
+                    styleElement.appendChild(item)
+                }
                 logoResourceNames.forEach { logoName ->
-                    styleElement.appendChild(
-                        createDrawableElement(document, logoName, mode)
-                    )
+                    addDrawableElement(document, logoName, mode)
                 }
 
                 if (custom != null) {
-                    styleElement.appendChild(
-                        createDrawableElement(document, CUSTOM_HEADER_RESOURCE_NAME, mode)
-                    )
+                    addDrawableElement(document, CUSTOM_HEADER_RESOURCE_NAME, mode)
                 }
             }
         }
