@@ -41,12 +41,14 @@ Second \"item\" text"</string>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
@@ -57,7 +59,6 @@ Second \"item\" text"</string>
   <patch id="ad.general.hideAdsResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   </patch>

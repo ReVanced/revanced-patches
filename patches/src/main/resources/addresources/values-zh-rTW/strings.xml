@@ -156,22 +156,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_channel_watermark_summary_on">已隱藏影片浮水印</string>
   <string name="revanced_hide_channel_watermark_summary_off">已顯示影片浮水印</string>
   <string name="revanced_hide_horizontal_shelves_title">隱藏橫向區塊</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"這些橫向區塊將被隱藏，例如：
-• 即時新聞
-• 繼續觀看
-• 探索更多頻道
-• 購物
-• 再次觀看"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">已顯示橫向區塊</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">隱藏「加入」按鈕</string>
   <string name="revanced_hide_join_membership_button_summary_on">已隱藏按鈕</string>
   <string name="revanced_hide_join_membership_button_summary_off">已顯示按鈕</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">隱藏「為你推薦」區塊</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">已隱藏頻道頁面的區塊</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">已顯示頻道頁面的區塊</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">隱藏「通知我」按鈕</string>
@@ -192,15 +182,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">隱藏直播即時反應</string>
   <string name="revanced_hide_timed_reactions_summary_on">已隱藏直播即時反應</string>
   <string name="revanced_hide_timed_reactions_summary_off">已顯示直播即時反應</string>
-  <string name="revanced_hide_channel_guidelines_title">隱藏頻道規範</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">已隱藏頻道規範</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">已顯示頻道規範</string>
   <string name="revanced_hide_chips_shelf_title">隱藏標籤列</string>
   <string name="revanced_hide_chips_shelf_summary_on">已隱藏標籤列</string>
   <string name="revanced_hide_chips_shelf_summary_off">已顯示標籤列</string>
-  <string name="revanced_hide_expandable_chip_title">隱藏影片下方的可展開資訊卡</string>
-  <string name="revanced_hide_expandable_chip_summary_on">已隱藏可展開資訊卡</string>
-  <string name="revanced_hide_expandable_chip_summary_off">已顯示可展開資訊卡</string>
   <string name="revanced_hide_community_posts_title">隱藏社群貼文</string>
   <string name="revanced_hide_community_posts_summary_on">已隱藏社群貼文</string>
   <string name="revanced_hide_community_posts_summary_off">已顯示社群貼文</string>
@@ -213,15 +197,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_feed_survey_title">隱藏動態影片問卷調查</string>
   <string name="revanced_hide_feed_survey_summary_on">已隱藏動態影片問卷調查</string>
   <string name="revanced_hide_feed_survey_summary_off">已顯示動態影片問卷調查</string>
-  <string name="revanced_hide_community_guidelines_title">隱藏《社群規範》</string>
-  <string name="revanced_hide_community_guidelines_summary_on">已隱藏《社群規範》</string>
-  <string name="revanced_hide_community_guidelines_summary_off">已顯示《社群規範》</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">隱藏訂閱者規範</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">已隱藏《訂閱者社群規範》</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">已顯示《訂閱者社群規範》</string>
-  <string name="revanced_hide_channel_member_shelf_title">隱藏頻道會員專區</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">已隱藏頻道會員專區</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">已顯示頻道會員專區</string>
   <string name="revanced_hide_emergency_box_title">隱藏影片警告提醒</string>
   <string name="revanced_hide_emergency_box_summary_on">已隱藏影片警告提醒</string>
   <string name="revanced_hide_emergency_box_summary_off">已顯示影片警告提醒</string>
@@ -237,18 +215,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_playables_title">隱藏遊戲角落</string>
   <string name="revanced_hide_playables_summary_on">已隱藏遊戲角落</string>
   <string name="revanced_hide_playables_summary_off">已顯示遊戲角落</string>
-  <string name="revanced_hide_quick_actions_title">隱藏全螢幕中的快捷操作</string>
-  <string name="revanced_hide_quick_actions_summary_on">已隱藏快速操作</string>
-  <string name="revanced_hide_quick_actions_summary_off">已顯示快速操作</string>
-  <string name="revanced_hide_related_videos_title">隱藏快速操作相關影片</string>
-  <string name="revanced_hide_related_videos_summary_on">已隱藏相關影片</string>
-  <string name="revanced_hide_related_videos_summary_off">已顯示相關影片</string>
-  <string name="revanced_hide_image_shelf_title">隱藏搜尋結果中的圖片區塊</string>
-  <string name="revanced_hide_image_shelf_summary_on">已隱藏圖片區塊</string>
-  <string name="revanced_hide_image_shelf_summary_off">已顯示圖片區塊</string>
-  <string name="revanced_hide_latest_posts_ads_title">隱藏最新貼文</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">已隱藏最新貼文</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">已顯示最新貼文</string>
+  <string name="revanced_hide_latest_posts_title">隱藏最新貼文</string>
+  <string name="revanced_hide_latest_posts_summary_on">已隱藏最新貼文</string>
+  <string name="revanced_hide_latest_posts_summary_off">已顯示最新貼文</string>
   <string name="revanced_hide_mix_playlists_title">隱藏合輯</string>
   <string name="revanced_hide_mix_playlists_summary_on">已隱藏合輯</string>
   <string name="revanced_hide_mix_playlists_summary_off">已顯示合輯</string>
@@ -298,6 +267,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">隱藏相關影片</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">已在相關影片中隱藏</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">已在相關影片中顯示</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">隱藏「為你推薦」區塊</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">隱藏「造訪商店」按鈕</string>
   <string name="revanced_comments_screen_title">留言區</string>
   <string name="revanced_comments_screen_summary">隱藏或顯示影片留言區內容</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">隱藏 AI 聊天室摘要</string>
@@ -321,7 +295,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_thanks_button_title">隱藏「感謝」按鈕</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">已隱藏「感謝」按鈕</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">已顯示「感謝」按鈕</string>
-  <string name="revanced_hide_comments_timestamp_button_title">隱藏時間戳記按鈕</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">時間戳記按鈕已隱藏</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">時間戳記按鈕已顯示</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
@@ -396,14 +369,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_paid_promotion_label_title">隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">已隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">已顯示付費推廣標籤</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_self_sponsor_ads_title">隱藏自我贊助資訊卡</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">已隱藏自我贊助資訊卡</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">已顯示自我贊助資訊卡</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">隱藏「造訪商店」按鈕</string>
-  <string name="revanced_hide_visit_store_button_summary_on">已隱藏頻道頁面中的按鈕</string>
-  <string name="revanced_hide_visit_store_button_summary_off">已顯示頻道頁面中的按鈕</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_web_search_results_title">隱藏網頁搜尋結果</string>
   <string name="revanced_hide_web_search_results_summary_on">已隱藏網頁搜尋結果</string>
   <string name="revanced_hide_web_search_results_summary_off">已顯示網頁搜尋結果</string>
