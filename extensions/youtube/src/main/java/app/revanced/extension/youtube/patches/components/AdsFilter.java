@@ -87,6 +87,7 @@ public final class AdsFilter extends Filter {
                 "text_image_no_button_layout", // Tablet layout search results.
                 "video_display_button_group_layout",
                 "video_display_carousel_button_group_layout",
+                "video_display_carousel_buttoned_short_dr_layout",
                 "video_display_full_buttoned_short_dr_layout",
                 "video_display_full_layout",
                 "watch_metadata_app_promo"
