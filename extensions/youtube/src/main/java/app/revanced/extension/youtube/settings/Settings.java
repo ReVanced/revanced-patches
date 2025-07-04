@@ -96,7 +96,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_COMPACT_BANNER = new BooleanSetting("revanced_hide_compact_banner", TRUE);
     public static final BooleanSetting HIDE_CROWDFUNDING_BOX = new BooleanSetting("revanced_hide_crowdfunding_box", FALSE, true);
     public static final BooleanSetting HIDE_DOODLES = new BooleanSetting("revanced_hide_doodles", FALSE, true, "revanced_hide_doodles_user_dialog_message");
-    public static final BooleanSetting HIDE_EXPANDABLE_CHIP = new BooleanSetting("revanced_hide_expandable_chip", TRUE);
+    public static final BooleanSetting HIDE_EXPANDABLE_CARD = new BooleanSetting("revanced_hide_expandable_card", TRUE);
     public static final BooleanSetting HIDE_FEED_SURVEY = new BooleanSetting("revanced_hide_feed_survey", TRUE);
     public static final BooleanSetting HIDE_FILTER_BAR_FEED_IN_FEED = new BooleanSetting("revanced_hide_filter_bar_feed_in_feed", FALSE, true);
     public static final BooleanSetting HIDE_FILTER_BAR_FEED_IN_HISTORY = new BooleanSetting("revanced_hide_filter_bar_feed_in_history", FALSE);
@@ -109,9 +109,10 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_MOVIES_SECTION = new BooleanSetting("revanced_hide_movies_section", TRUE);
     public static final BooleanSetting HIDE_NOTIFY_ME_BUTTON = new BooleanSetting("revanced_hide_notify_me_button", TRUE);
     public static final BooleanSetting HIDE_PLAYABLES = new BooleanSetting("revanced_hide_playables", TRUE);
-    public static final BooleanSetting HIDE_SEARCH_RESULT_RECOMMENDATION_LABELS = new BooleanSetting("revanced_hide_search_result_recommendation_labels", TRUE);
     public static final BooleanSetting HIDE_SHOW_MORE_BUTTON = new BooleanSetting("revanced_hide_show_more_button", TRUE, true);
     public static final BooleanSetting HIDE_TICKET_SHELF = new BooleanSetting("revanced_hide_ticket_shelf", FALSE);
+    public static final BooleanSetting HIDE_VIDEO_RECOMMENDATION_LABELS = new BooleanSetting("revanced_hide_video_recommendation_labels", TRUE);
+    public static final BooleanSetting HIDE_VISUAL_SPACERS = new BooleanSetting("revanced_hide_visual_spacers", TRUE);
     // Alternative thumbnails
     public static final EnumSetting<ThumbnailOption> ALT_THUMBNAIL_HOME = new EnumSetting<>("revanced_alt_thumbnail_home", ThumbnailOption.ORIGINAL);
     public static final EnumSetting<ThumbnailOption> ALT_THUMBNAIL_SUBSCRIPTIONS = new EnumSetting<>("revanced_alt_thumbnail_subscription", ThumbnailOption.ORIGINAL);
@@ -146,6 +147,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_AUTOPLAY_BUTTON = new BooleanSetting("revanced_hide_autoplay_button", TRUE, true);
     public static final BooleanSetting HIDE_CAPTIONS_BUTTON = new BooleanSetting("revanced_hide_captions_button", FALSE);
     public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_hide_cast_button", TRUE, true);
+    public static final BooleanSetting HIDE_CELL_DIVIDER = new BooleanSetting("revanced_hide_cell_divider", FALSE);
     public static final BooleanSetting HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND = new BooleanSetting("revanced_hide_player_control_buttons_background", FALSE, true);
     public static final BooleanSetting HIDE_CHANNEL_BAR = new BooleanSetting("revanced_hide_channel_bar", FALSE);
     public static final BooleanSetting HIDE_EMERGENCY_BOX = new BooleanSetting("revanced_hide_emergency_box", TRUE);
