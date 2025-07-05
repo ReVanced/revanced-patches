@@ -1288,9 +1288,9 @@ Minipredvajalnik lahko povlečete z zaslona na levo ali desno"</string>
   <string name="revanced_gradient_loading_screen_title">Omogoči zaslon za nalaganje z gradientom</string>
   <string name="revanced_gradient_loading_screen_summary_on">Zaslon za nalaganje bo imel ozadje z gradientom</string>
   <string name="revanced_gradient_loading_screen_summary_off">Zaslon za nalaganje bo imel enobarvno ozadje</string>
-  <string name="splash_screen_animation_style_title">Slog uvodnega zaslona</string>
-  <string name="splash_screen_animation_style_entry_1">Barva</string>
-  <string name="splash_screen_animation_style_entry_2">Črno-belo</string>
+  <string name="revanced_splash_screen_animation_style_title">Slog uvodnega zaslona</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Barva</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Črno-belo</string>
   <string name="revanced_seekbar_custom_color_title">Omogoči prilagojeno barvo drsnika</string>
   <string name="revanced_seekbar_custom_color_summary_on">Prilagojena barva drsnika je prikazana</string>
   <string name="revanced_seekbar_custom_color_summary_off">Izvorna barva drsnika je prikazana</string>

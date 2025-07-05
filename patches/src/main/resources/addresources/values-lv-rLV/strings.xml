@@ -1289,9 +1289,9 @@ Miniatskaņotāju var pārvilkt no ekrāna uz kreiso vai labo pusi"</string>
   <string name="revanced_gradient_loading_screen_title">Iespējot gradientu ielādes ekrānu</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ielādes ekrānam būs gradientu fons</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ielādes ekrānam būs ciets fons</string>
-  <string name="splash_screen_animation_style_title">Sākuma ekrāna stils</string>
-  <string name="splash_screen_animation_style_entry_1">Krāsa</string>
-  <string name="splash_screen_animation_style_entry_2">Melnbalts</string>
+  <string name="revanced_splash_screen_animation_style_title">Sākuma ekrāna stils</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Krāsa</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Melnbalts</string>
   <string name="revanced_seekbar_custom_color_title">Iespējot pielāgotu meklēšanas joslas krāsu</string>
   <string name="revanced_seekbar_custom_color_summary_on">Pielāgota meklēšanas joslas krāsa ir redzama</string>
   <string name="revanced_seekbar_custom_color_summary_off">Oriģinālā meklēšanas joslas krāsa ir redzama</string>

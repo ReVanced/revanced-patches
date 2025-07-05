@@ -1290,9 +1290,9 @@ Miniplayer স্ক্রিন থেকে বামে বা ডানে �
   <string name="revanced_gradient_loading_screen_title">গ্রেডিয়েন্ট লোডিং স্ক্রিণ সক্রিয় করুন</string>
   <string name="revanced_gradient_loading_screen_summary_on">লোডিং স্ক্রিণে একটি গ্রেডিয়েন্ড ব্যাকগ্রাউন্ড থাকবে</string>
   <string name="revanced_gradient_loading_screen_summary_off">লোডিং স্ক্রিণে একটি সলিড ব্যাকগ্রাউন্ড থাকবে</string>
-  <string name="splash_screen_animation_style_title">স্প্ল্যাশ স্ক্রিন শৈলী</string>
-  <string name="splash_screen_animation_style_entry_1">রং</string>
-  <string name="splash_screen_animation_style_entry_2">কালো এবং সাদা</string>
+  <string name="revanced_splash_screen_animation_style_title">স্প্ল্যাশ স্ক্রিন শৈলী</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">রং</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">কালো এবং সাদা</string>
   <string name="revanced_seekbar_custom_color_title">সিকবারে নিজস্ব রং সক্রিয় করুন</string>
   <string name="revanced_seekbar_custom_color_summary_on">সিকবারে নিজস্ব রং প্রদর্শিত হয়েছে</string>
   <string name="revanced_seekbar_custom_color_summary_off">সিকবারে মূল রং প্রদর্শিত হয়েছে</string>

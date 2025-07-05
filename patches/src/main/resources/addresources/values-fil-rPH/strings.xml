@@ -1292,9 +1292,9 @@ Ang \"miniplayer\" ay maaaring i-drag palabas ng screen sa kaliwa o kanan"</stri
   <string name="revanced_gradient_loading_screen_title">Paganahin ang gradient loading screen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ang paglo-load ng screen ay magkakaroon ng gradient na background</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ang paglo-load ng screen ay magkakaroon ng solidong background</string>
-  <string name="splash_screen_animation_style_title">Estilo ng splash screen</string>
-  <string name="splash_screen_animation_style_entry_1">Kulay</string>
-  <string name="splash_screen_animation_style_entry_2">Itim at puti</string>
+  <string name="revanced_splash_screen_animation_style_title">Estilo ng splash screen</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Kulay</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Itim at puti</string>
   <string name="revanced_seekbar_custom_color_title">Paganahin ang custom na kulay ng seekbar</string>
   <string name="revanced_seekbar_custom_color_summary_on">Ipinapakita ang kulay ng custom na seekbar</string>
   <string name="revanced_seekbar_custom_color_summary_off">Ipinapakita ang orihinal na kulay ng seekbar</string>

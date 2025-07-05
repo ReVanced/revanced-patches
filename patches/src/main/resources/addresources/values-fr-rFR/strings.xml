@@ -1295,9 +1295,9 @@ Le lecteur réduit peut être déplacé hors de l'écran, à gauche comme à dro
   <string name="revanced_gradient_loading_screen_title">Activer le dégradé sur l\'écran de chargement</string>
   <string name="revanced_gradient_loading_screen_summary_on">Le fond de l\'écran de chargement sera un dégradé de couleurs</string>
   <string name="revanced_gradient_loading_screen_summary_off">Le fond de l\'écran de chargement sera une couleur unie</string>
-  <string name="splash_screen_animation_style_title">Style de l\'écran de lancement</string>
-  <string name="splash_screen_animation_style_entry_1">Couleur </string>
-  <string name="splash_screen_animation_style_entry_2">Noir et blanc</string>
+  <string name="revanced_splash_screen_animation_style_title">Style de l\'écran de lancement</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Couleur </string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Noir et blanc</string>
   <string name="revanced_seekbar_custom_color_title">Personnaliser la couleur de la barre de progression</string>
   <string name="revanced_seekbar_custom_color_summary_on">La couleur de la barre de progression est personnalisée</string>
   <string name="revanced_seekbar_custom_color_summary_off">La couleur originale de la barre de progression est affichée</string>

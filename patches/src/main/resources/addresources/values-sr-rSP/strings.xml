@@ -158,11 +158,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_horizontal_shelves_title">Сакриј хоризонталне полице</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Полице су скривене, као што су:
 • Ударне вести
-• Настави гледање
+• Наставите да гледате
 • Истражите више канала
 • Најрелевантније
 • Куповина
-• Погледај поново"</string>
+• Гледајте поново"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Хоризонталне полице су приказане</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -192,8 +192,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_chips_shelf_title">Сакриј полицу ознака сличних видеа</string>
   <string name="revanced_hide_chips_shelf_summary_on">Полица ознака сличних видеа је скривена</string>
   <string name="revanced_hide_chips_shelf_summary_off">Полица ознака сличних видеа је приказана</string>
-  <string name="revanced_hide_expandable_chip_title">Сакриј развучену картицу</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Развучена картица испод видео снимака је скривена</string>
+  <string name="revanced_hide_expandable_chip_title">Сакриј прошириву картицу</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Проширива картица испод видеа је скривена</string>
   <string name="revanced_hide_expandable_chip_summary_off">Развучена картица испод видео снимака је приказана</string>
   <string name="revanced_hide_community_posts_title">Сакриј објаве заједнице</string>
   <string name="revanced_hide_community_posts_summary_on">Објаве заједнице су скривене</string>
@@ -226,11 +226,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_playables_summary_on">Сала за игру је скривена</string>
   <string name="revanced_hide_playables_summary_off">Сала за игру је приказана</string>
   <string name="revanced_hide_quick_actions_title">Сакриј брзе радње</string>
-  <string name="revanced_hide_quick_actions_summary_on">Брзе радње у приказу преко целог екрана су скривене</string>
-  <string name="revanced_hide_quick_actions_summary_off">Брзе радње у приказу преко целог екрана су приказане</string>
-  <string name="revanced_hide_related_videos_title">Сакриј повезане видео снимке</string>
-  <string name="revanced_hide_related_videos_summary_on">Повезани видео снимци у брзим радњама су скривени</string>
-  <string name="revanced_hide_related_videos_summary_off">Повезани видео снимци у брзим радњама су приказани</string>
+  <string name="revanced_hide_quick_actions_summary_on">Брзе радње у режиму целог екрана су скривене</string>
+  <string name="revanced_hide_quick_actions_summary_off">Брзе радње у режиму целог екрана су приказане</string>
+  <string name="revanced_hide_related_videos_title">Сакриј сродне видее</string>
+  <string name="revanced_hide_related_videos_summary_on">Сродни видеи у брзим радњама су скривени</string>
+  <string name="revanced_hide_related_videos_summary_off">Сродни видеи у брзим радњама су приказани</string>
   <string name="revanced_hide_image_shelf_title">Сакриј полицу са сликама</string>
   <string name="revanced_hide_image_shelf_summary_on">Полица са сликама у резултатима претраге је скривена</string>
   <string name="revanced_hide_image_shelf_summary_off">Полица са сликама у резултатима претраге је приказана</string>
@@ -287,20 +287,20 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Скривено у сродним видеима</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Приказано у сродним видеима</string>
   <string name="revanced_channel_screen_title">Страница канала</string>
-  <string name="revanced_channel_screen_summary">Сакриј или прикажи компоненте странице канала</string>
+  <string name="revanced_channel_screen_summary">Сакријте или прикажите компоненте странице канала</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Сакриј полицу „За вас”</string>
   <string name="revanced_hide_for_you_shelf_summary_on">Полица „За вас” је скривена</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Полица „За вас” је приказана</string>
-  <string name="revanced_hide_links_preview_title">Сакриј преглед веза</string>
-  <string name="revanced_hide_links_preview_summary_on">Преглед веза је скривен</string>
-  <string name="revanced_hide_links_preview_summary_off">Преглед веза је приказан</string>
-  <string name="revanced_hide_members_shelf_title">Сакриј полицу за чланове</string>
-  <string name="revanced_hide_members_shelf_summary_on">Полица за чланове је скривена</string>
+  <string name="revanced_hide_links_preview_title">Сакриј преглед линкова</string>
+  <string name="revanced_hide_links_preview_summary_on">Преглед линкова је скривен</string>
+  <string name="revanced_hide_links_preview_summary_off">Преглед линкова је приказан</string>
+  <string name="revanced_hide_members_shelf_title">Сакриј полицу чланова</string>
+  <string name="revanced_hide_members_shelf_summary_on">Полица чланова је скривена</string>
   <string name="revanced_hide_members_shelf_summary_off">Полица чланова је приказана</string>
   <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_community_button_title">Сакриј дугме „Посети заједницу”</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Дугме „Посети заједницу” је сакривено</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Дугме „Посети заједницу” је скривено</string>
   <string name="revanced_hide_visit_community_button_summary_off">Дугме „Посети заједницу” је приказано</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Сакриј дугме „Посети продавницу” на страницама канала</string>
@@ -315,7 +315,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">„Резиме коментара” је скривен</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">„Резиме коментара” је приказан</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Сакриј смернице канала</string>
-  <string name="revanced_hide_comments_channel_guidelines_summary_on">Смернице канала су сакривене</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Смернице канала су скривене</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Смернице канала су приказане</string>
   <string name="revanced_hide_comments_by_members_header_title">Сакриј заглавље „Коментари од чланова”</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Заглавље „Коментари чланова” је скривено</string>
@@ -392,7 +392,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_creator_store_shelf_title">Сакриј полицу продавнице креатора</string>
-  <string name="revanced_hide_creator_store_shelf_summary_on">Полица продавнице испод видео плејера је сакривена</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Полица продавнице испод видео плејера је скривена</string>
   <string name="revanced_hide_creator_store_shelf_summary_off">Полица продавнице испод видео плејера је приказана</string>
   <string name="revanced_hide_end_screen_store_banner_title">Сакриј банер продавнице на завршном екрану</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Банер продавнице на завршном екрану је скривен</string>
@@ -416,13 +416,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Сакриј картице самоспонзорства</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Картице самоспонзорства су скривене</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Картице самоспонзорства су приказане</string>
-  <string name="revanced_hide_shopping_links_title">Сакриј везе за куповину</string>
-  <string name="revanced_hide_shopping_links_summary_on">Везе у опису видео снимка су скривене</string>
-  <string name="revanced_hide_shopping_links_summary_off">Везе у опису видео снимка су приказане</string>
+  <string name="revanced_hide_shopping_links_title">Сакриј линкове за куповину</string>
+  <string name="revanced_hide_shopping_links_summary_on">Линкови у опису видеа су скривени</string>
+  <string name="revanced_hide_shopping_links_summary_off">Линкови у опису видеа су приказани</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_view_products_banner_title">Сакриј банер \'Прегледај производе\'</string>
-  <string name="revanced_hide_view_products_banner_summary_on">Банер у преклапању видеа је скривен</string>
-  <string name="revanced_hide_view_products_banner_summary_off">Банер у преклапању видеа је приказан</string>
+  <string name="revanced_hide_view_products_banner_title">Сакриј банер „Погледајте производе”</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Банер производа у видео плејеру је скривен</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Банер производа у видео плејеру је приказан</string>
   <string name="revanced_hide_web_search_results_title">Сакриј резултате веб-претраге</string>
   <string name="revanced_hide_web_search_results_summary_on">Резултати веб-претраге су скривени</string>
   <string name="revanced_hide_web_search_results_summary_off">Резултати веб-претраге су приказани</string>
@@ -837,7 +837,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Сакриј ознаку метаподатака звука</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Ознака метаподатака звука је скривена</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Ознака метаподатака звука је приказана</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Сакриј ознаку везе видеа</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Сакриј ознаку линка видеа</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Ознака линка Shorts видеа је скривена</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Ознака линка Shorts видеа је приказана</string>
   <string name="revanced_hide_shorts_sound_button_title">Сакриј дугме „Звук”</string>
@@ -972,12 +972,12 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Дугме за прескакање ће бити скривено након неколико секунди</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Дугме за прескакање је приказано за цео сегмент</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">Трајање дугмета за прескакање</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Колико дуго да се приказују дугмад за прескакање и прескакање до истакнутог дела пре аутоматског скривања</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Колико дуго се приказују дугмад за прескакање и прескакање до истакнутог пре аутоматског скривања</string>
   <string name="revanced_sb_general_skiptoast">Прикажи искачуће обавештење о поништавању прескакања</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Искачуће обавештење се приказује, када се сегмент аутоматски прескочи. Додирните искачуће обавештење да бисте поништили прескакање</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Искачуће обавештење се не приказује</string>
   <string name="revanced_sb_toast_on_skip_duration">Трајање искачућег обавештења при прескакању</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Колико дуго да се приказује тост за поништавање прескакања</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Колико дуго се приказује искачуће обавештење за поништавање прескакања</string>
   <string name="revanced_sb_duration_1s">1 секунда</string>
   <string name="revanced_sb_duration_2s">2 секунде</string>
   <string name="revanced_sb_duration_3s">3 секунде</string>
@@ -1296,9 +1296,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Омогући градијентну позадину екрана учитавања</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екран учитавања ће имати градијентну позадину</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екран учитавања ће имати обичну позадину</string>
-  <string name="splash_screen_animation_style_title">Стил екрана покретања</string>
-  <string name="splash_screen_animation_style_entry_1">Боја</string>
-  <string name="splash_screen_animation_style_entry_2">Црно-бело</string>
+  <string name="revanced_splash_screen_animation_style_title">Стил екрана покретања</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Боја</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Црно-бело</string>
   <string name="revanced_seekbar_custom_color_title">Омогући прилагођену боју траке за премотавање</string>
   <string name="revanced_seekbar_custom_color_summary_on">Прилагођена боја траке за премотавање је приказана</string>
   <string name="revanced_seekbar_custom_color_summary_off">Оригинална боја траке за премотавање је приказана</string>

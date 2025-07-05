@@ -1244,9 +1244,9 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
   <string name="revanced_gradient_loading_screen_title">Dəyişkən yükləmə ekranını aktivləşdir</string>
   <string name="revanced_gradient_loading_screen_summary_on">Yükləmə ekranı, dəyişkən arxa plana malik olacaq</string>
   <string name="revanced_gradient_loading_screen_summary_off">Yükləmə ekranı, vahid arxa plana malik olacaq</string>
-  <string name="splash_screen_animation_style_title">Sıçrama ekran üslubu</string>
-  <string name="splash_screen_animation_style_entry_1">Rəng</string>
-  <string name="splash_screen_animation_style_entry_2">Qara və ağ</string>
+  <string name="revanced_splash_screen_animation_style_title">Sıçrama ekran üslubu</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Rəng</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Qara və ağ</string>
   <string name="revanced_seekbar_custom_color_title">Fərdi irəliləmə cizgisi rəngini aktivləşdir</string>
   <string name="revanced_seekbar_custom_color_summary_on">Fərdi irəliləmə cizgisi rəngi göstərilir</string>
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal irəliləmə cizgisi rəngi göstərilir</string>

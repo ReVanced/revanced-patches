@@ -105,9 +105,9 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_settings_search_history_summary_off">Sökhistorik för inställningar visas inte</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Inaktivera Shorts bakgrundsuppspelning</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts bakgrundsuppspelning är inaktiverat</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts bakgrundsuppspelning är aktiverat</string>
+  <string name="revanced_shorts_disable_background_playback_title">Inaktivera uppspelning av Shorts-videor i bakgrunden</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Uppspelning av Shorts-videor i bakgrunden är inaktiverat</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Uppspelning av Shorts-videor i bakgrunden är aktiverat</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Felsökning</string>
@@ -730,15 +730,15 @@ För att visa ljudspårsmenyn, ändra \"Spoof video streams\" till iOS TV"</stri
   <string name="revanced_shorts_player_screen_title">Shorts-spelare</string>
   <string name="revanced_shorts_player_screen_summary">Dölj eller visa komponenter i Shorts-spelaren</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Dölj Shorts i hemmatningsflödet</string>
-  <string name="revanced_hide_shorts_home_summary_on">Dold i hemflödet och relaterade videor</string>
-  <string name="revanced_hide_shorts_home_summary_off">Visas i hemflödet och relaterade videor</string>
+  <string name="revanced_hide_shorts_home_title">Dölj Shorts-videor i hemflödet</string>
+  <string name="revanced_hide_shorts_home_summary_on">Döljs i hemflödet och liknande videor</string>
+  <string name="revanced_hide_shorts_home_summary_off">Visas i hemflödet och liknande videor</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Dölj Shorts i prenumerationsflöde</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Dolda i prenumerationsflödet</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Visas i prenumerationsflödet</string>
-  <string name="revanced_hide_shorts_search_title">Dölj Shorts i sökresultat</string>
-  <string name="revanced_hide_shorts_search_summary_on">Dolda i sökresultaten</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Dölj Shorts-videor i flödet Prenumerationer</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Döljs i flödet Prenumerationer</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Visas i flödet Prenumerationer</string>
+  <string name="revanced_hide_shorts_search_title">Dölj Shorts-videor i sökresultat</string>
+  <string name="revanced_hide_shorts_search_summary_on">Döljs i sökresultaten</string>
   <string name="revanced_hide_shorts_search_summary_off">Visas i sökresultaten</string>
   <string name="revanced_hide_shorts_history_title">Dölj Shorts-videor i visningshistoriken</string>
   <string name="revanced_hide_shorts_history_summary_on">Döljs i visningshistoriken</string>
@@ -812,7 +812,7 @@ För att visa ljudspårsmenyn, ändra \"Spoof video streams\" till iOS TV"</stri
   <string name="revanced_hide_shorts_comments_button_summary_on">Knappen för kommentarer är dold</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Knappen för kommentarer visas</string>
   <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">DöljRemix-knappen</string>
+  <string name="revanced_hide_shorts_remix_button_title">Dölj Remix-knappen</string>
   <string name="revanced_hide_shorts_remix_button_summary_on">Remix-knappen är dold</string>
   <string name="revanced_hide_shorts_remix_button_summary_off">Remix-knappen visas</string>
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
@@ -872,7 +872,7 @@ Inställningar → Uppspelning → Spela upp nästa video automatiskt"</string>
   <string name="revanced_exit_fullscreen_entry_4">Stående och liggande</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
-  <string name="revanced_open_videos_fullscreen_portrait_title">Öppna videor i helskärmsporträtt</string>
+  <string name="revanced_open_videos_fullscreen_portrait_title">Öppna videor i stående helskärmsläge</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videor öppnas i helskärm</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videor öppnas inte i helskärm</string>
   </patch>
@@ -1218,23 +1218,23 @@ Begränsning: Bakåtknappen i verktygsfältet kanske inte fungerar"</string>
   <string name="revanced_change_start_page_always_summary_off">Startsidan ändras endast vid appstart</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
-  <string name="revanced_disable_resuming_shorts_player_title">Inaktivera återupptagande av Shorts spelare</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts spelare kommer inte att återupptas vid appstart</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts spelare kommer att återupptas vid appstart</string>
+  <string name="revanced_disable_resuming_shorts_player_title">Inaktivera att Shorts-spelaren återupptas</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts-spelaren återupptas inte vid appstart</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts-spelaren återupptas vid appstart</string>
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-  <string name="revanced_shorts_player_type_title">Öppna Shorts med</string>
-  <string name="revanced_shorts_player_type_shorts">Shorts spelare</string>
+  <string name="revanced_shorts_player_type_title">Öppna Shorts-videor med</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts-spelare</string>
   <string name="revanced_shorts_player_type_regular_player">Vanlig spelare</string>
-  <string name="revanced_shorts_player_type_regular_player_fullscreen">Vanlig spelare, helskärm</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Vanlig spelare i helskärm</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
-  <string name="revanced_shorts_autoplay_title">Shorts automatisk uppspelning</string>
-  <string name="revanced_shorts_autoplay_summary_on">Shorts kommer automatiskt spela upp</string>
-  <string name="revanced_shorts_autoplay_summary_off">Shorts kommer att upprepas</string>
+  <string name="revanced_shorts_autoplay_title">Spela upp Shorts-videor automatiskt</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts-videor spelas upp automatiskt</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts-videor upprepas</string>
   <string name="revanced_shorts_autoplay_background_title">Automatisk uppspelning av Shorts-videor i bakgrunden</string>
-  <string name="revanced_shorts_autoplay_background_summary_on">Shorts bakgrundsuppspelning kommer automatiskt spela</string>
-  <string name="revanced_shorts_autoplay_background_summary_off">Shorts bakgrundsuppspelning upprepas</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts-videor spelas upp automatiskt i bakgrunden</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts-videor upprepas i bakgrunden</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispelare</string>
@@ -1287,9 +1287,9 @@ Minispelaren kan dras utanför skärmen till vänster eller höger"</string>
   <string name="revanced_gradient_loading_screen_title">Aktivera tonad inläsningsskärm</string>
   <string name="revanced_gradient_loading_screen_summary_on">Inläsningsskärmen kommer att ha en tonad bakgrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Inläsningsskärmen kommer att ha en enfärgad bakgrund</string>
-  <string name="splash_screen_animation_style_title">Startskärmens stil</string>
-  <string name="splash_screen_animation_style_entry_1">Färg</string>
-  <string name="splash_screen_animation_style_entry_2">Svartvitt</string>
+  <string name="revanced_splash_screen_animation_style_title">Startskärmens stil</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Färg</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Svartvitt</string>
   <string name="revanced_seekbar_custom_color_title">Aktivera anpassad färg på sökreglaget</string>
   <string name="revanced_seekbar_custom_color_summary_on">Sökreglagets anpassade färg visas</string>
   <string name="revanced_seekbar_custom_color_summary_off">Sökreglagets ursprungliga färg visas</string>

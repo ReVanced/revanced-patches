@@ -1292,9 +1292,9 @@ De miniplayer kan naar links of rechts van het scherm worden gesleept"</string>
   <string name="revanced_gradient_loading_screen_title">Schakel het laden van het verloopscherm in</string>
   <string name="revanced_gradient_loading_screen_summary_on">Het laadscherm heeft een verlopende achtergrond</string>
   <string name="revanced_gradient_loading_screen_summary_off">Het laadscherm heeft een effen achtergrond</string>
-  <string name="splash_screen_animation_style_title">Stijl van opstartscherm</string>
-  <string name="splash_screen_animation_style_entry_1">Kleur</string>
-  <string name="splash_screen_animation_style_entry_2">Zwart-wit</string>
+  <string name="revanced_splash_screen_animation_style_title">Stijl van opstartscherm</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Kleur</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Zwart-wit</string>
   <string name="revanced_seekbar_custom_color_title">Schakel aangepaste schuifregelaar kleur in</string>
   <string name="revanced_seekbar_custom_color_summary_on">De aangepaste kleur van de schuifregelaar is zichtbaar</string>
   <string name="revanced_seekbar_custom_color_summary_off">De oorspronkelijke kleur van de schuifregelaar is zichtbaar</string>
