@@ -1307,6 +1307,13 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_seekbar_custom_color_accent_summary">Մարզումից դուրս ողորկության նշման գույնը</string>
   <string name="revanced_seekbar_custom_color_invalid">Սխալ seekbar-ի գույնի արժեք</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Գլխագրի լոգո</string>
+  <string name="revanced_header_logo_entry_1">Լռակյաց</string>
+  <string name="revanced_header_logo_entry_2">Սովորական</string>
+  <string name="revanced_header_logo_entry_5">ReVanced մինիմալ</string>
+  <string name="revanced_header_logo_entry_6">Անհատական</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Անտեսել պատկերի տարածաշրջանի սահմանափակումները</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Օգտագործելով yt4.ggpht.com պատկերային հոսքը</string>

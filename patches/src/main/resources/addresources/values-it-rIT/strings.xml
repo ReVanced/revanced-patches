@@ -1305,6 +1305,14 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
   <string name="revanced_seekbar_custom_color_accent_summary">Il colore primario della barra di avanzamento</string>
   <string name="revanced_seekbar_custom_color_invalid">Valore colore barra di avanzamento non valido</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logo dell\'intestazione</string>
+  <string name="revanced_header_logo_entry_1">Predefinito</string>
+  <string name="revanced_header_logo_entry_2">Regolare</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimale</string>
+  <string name="revanced_header_logo_entry_6">Personalizzato</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Aggira le restrizioni regionali delle immagini</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Usando l\'host yt4.ggpht.com per le immagini</string>

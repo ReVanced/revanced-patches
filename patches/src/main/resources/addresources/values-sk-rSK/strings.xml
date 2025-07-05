@@ -1294,6 +1294,13 @@ Miniprehrávač sa dá potiahnuť mimo obrazovky doľava alebo doprava"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Farba zvýraznenia posuvníka</string>
   <string name="revanced_seekbar_custom_color_invalid">Neplatná farba vyhľadávania panela</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logo záhlavia</string>
+  <string name="revanced_header_logo_entry_1">Predvolené</string>
+  <string name="revanced_header_logo_entry_2">Bežné</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimálne</string>
+  <string name="revanced_header_logo_entry_6">Vlastné</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Obíď ignorovanie obmedzení obrazovaého regiónu</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Pouíž sa hostiteľ obrázkov yt4.ggpht.com</string>

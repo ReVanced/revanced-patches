@@ -1308,6 +1308,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">צבע ההדגשה של סרגל הדילוג</string>
   <string name="revanced_seekbar_custom_color_invalid">ערך צבע סרגל דילוג לא חוקי</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">לוגו כותרת</string>
+  <string name="revanced_header_logo_entry_1">ברירת מחדל</string>
+  <string name="revanced_header_logo_entry_2">רגיל</string>
+  <string name="revanced_header_logo_entry_5">ReVanced מינימלי</string>
+  <string name="revanced_header_logo_entry_6">מותאם אישית</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">עקוף מגבלות תמונה אזוריות</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">שימוב במארח תמונות yt4.ggpht.com</string>

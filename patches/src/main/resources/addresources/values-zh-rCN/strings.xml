@@ -1311,6 +1311,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">进度条的强调色</string>
   <string name="revanced_seekbar_custom_color_invalid">无效的进度条颜色值</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">标题徽标</string>
+  <string name="revanced_header_logo_entry_1">默认</string>
+  <string name="revanced_header_logo_entry_2">常规</string>
+  <string name="revanced_header_logo_entry_5">ReVanced 极简</string>
+  <string name="revanced_header_logo_entry_6">自定义</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">绕过图像区域限制</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">使用图像主机 yt4.ggpht.com</string>

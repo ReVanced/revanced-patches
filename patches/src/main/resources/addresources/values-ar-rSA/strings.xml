@@ -1306,6 +1306,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">اللون المميز لشريط التقدم</string>
   <string name="revanced_seekbar_custom_color_invalid">لون شريط التقدم غير صالح</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">شعار الرأس</string>
+  <string name="revanced_header_logo_entry_1">افتراضي</string>
+  <string name="revanced_header_logo_entry_2">عادي</string>
+  <string name="revanced_header_logo_entry_5">ريـفانسد بسيط</string>
+  <string name="revanced_header_logo_entry_6">مخصص</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">تجاوز قيود منطقة الصورة</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">استخدام مضيف الصورة yt4.ggpht.com</string>

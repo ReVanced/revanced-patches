@@ -1304,6 +1304,14 @@ Miniplayer mund të tërhiqet jashtë ekranit në të majtë ose në të djatht�
   <string name="revanced_seekbar_custom_color_accent_summary">Ngjyra e theksuar e shiritit të kërkimit</string>
   <string name="revanced_seekbar_custom_color_invalid">Vlerë e pavlefshme e ngjyrës së shkallës së kërkimit</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logoja e sipërme</string>
+  <string name="revanced_header_logo_entry_1">Parazgjedhur</string>
+  <string name="revanced_header_logo_entry_2">Normale</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimaliste</string>
+  <string name="revanced_header_logo_entry_6">Personalizuar</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Anashkalo kufizimet e rajonit të imazhit</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Duke përdorur hostin e imazhit yt4.ggpht.com</string>

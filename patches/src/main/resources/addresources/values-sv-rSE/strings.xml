@@ -1299,6 +1299,14 @@ Minispelaren kan dras utanför skärmen till vänster eller höger"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Accentfärgen på sökreglaget</string>
   <string name="revanced_seekbar_custom_color_invalid">Ogiltigt färgvärde för sökreglaget</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Rubriklogotyp</string>
+  <string name="revanced_header_logo_entry_1">Standard</string>
+  <string name="revanced_header_logo_entry_2">Vanlig</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
+  <string name="revanced_header_logo_entry_6">Anpassad</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Begränsningar för förbipassering av bildregionen</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Använder bildvärd yt4.ggpht.com</string>

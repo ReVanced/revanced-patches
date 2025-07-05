@@ -1307,6 +1307,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Акцэнтны колер пошуку</string>
   <string name="revanced_seekbar_custom_color_invalid">Неверное значение цвета ползунка прогресса</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Лагатып загалоўка</string>
+  <string name="revanced_header_logo_entry_1">Па змаўчанні</string>
+  <string name="revanced_header_logo_entry_2">Звычайны</string>
+  <string name="revanced_header_logo_entry_5">ReVanced мінімальны</string>
+  <string name="revanced_header_logo_entry_6">Карыстальніцкі</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Абыход абмежаванняў рэгіёну</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Выкарыстанне хаста відарысаў yt4.ggpht.com</string>

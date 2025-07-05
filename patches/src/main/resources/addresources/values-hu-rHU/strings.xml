@@ -1303,6 +1303,13 @@ A miniatűr képernyőt a képernyő bal vagy jobb szélére húzhatja"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">A keresősáv kiemelõ színe</string>
   <string name="revanced_seekbar_custom_color_invalid">Érvénytelen keresősáv színértéke</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Fejléc logó</string>
+  <string name="revanced_header_logo_entry_1">Alapértelmezett</string>
+  <string name="revanced_header_logo_entry_2">Normál</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimál</string>
+  <string name="revanced_header_logo_entry_6">Egyéni</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Területi kép-korlátozások megkerülése</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">A yt4.ggpht.com képtár használata</string>

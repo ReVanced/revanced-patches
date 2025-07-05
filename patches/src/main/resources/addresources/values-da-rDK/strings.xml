@@ -1302,6 +1302,14 @@ Miniafspiller kan trækkes ud over skærmen til venstre eller højre"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Søgelinjens accentfarve</string>
   <string name="revanced_seekbar_custom_color_invalid">Ugyldig søgelinje farveværdi</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Sidehovedlogo</string>
+  <string name="revanced_header_logo_entry_1">Standard</string>
+  <string name="revanced_header_logo_entry_2">Normal</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
+  <string name="revanced_header_logo_entry_6">Brugerdefineret</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Bypass billede region restriktioner</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Bruger billedvært yt4.ggpht.com</string>

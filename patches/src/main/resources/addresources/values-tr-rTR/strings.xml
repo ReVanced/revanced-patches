@@ -1313,6 +1313,14 @@ Genişletmek veya kapatmak için kaydırın"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Zaman çubuğunun vurgu rengi</string>
   <string name="revanced_seekbar_custom_color_invalid">Geçersiz zaman çubuğu renk değeri</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Başlık logosu</string>
+  <string name="revanced_header_logo_entry_1">Varsayılan</string>
+  <string name="revanced_header_logo_entry_2">Normal</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
+  <string name="revanced_header_logo_entry_6">Özel</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Resimlerin bölge kısıtlamalarını atla</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com resim sunucusu kullanılır</string>

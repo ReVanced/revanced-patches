@@ -240,6 +240,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.theme.themePatch">
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">

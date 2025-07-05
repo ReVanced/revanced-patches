@@ -1243,6 +1243,8 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">跳轉列強調色彩</string>
   <string name="revanced_seekbar_custom_color_invalid">跳轉列色彩值無效</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">繞過圖片區域限制</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">使用圖片主機 yt4.ggpht.com</string>

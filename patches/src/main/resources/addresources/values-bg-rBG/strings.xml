@@ -1300,6 +1300,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Цветът на лентата за търсене</string>
   <string name="revanced_seekbar_custom_color_invalid">Невалидна стойност за цвят на лентата на прогреса</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Лого в заглавката</string>
+  <string name="revanced_header_logo_entry_1">По подразбиране</string>
+  <string name="revanced_header_logo_entry_2">Обикновено</string>
+  <string name="revanced_header_logo_entry_5">ReVanced минимално</string>
+  <string name="revanced_header_logo_entry_6">По избор</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Прескочете забраната за зареждане на изображение</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Домейнът yt4.ggpht.com се използва за зареждане на изображения</string>

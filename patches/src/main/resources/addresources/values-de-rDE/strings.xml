@@ -1293,6 +1293,14 @@ Der Mini-Player kann mit einer Wischgeste vom Bildschirm nach links oder rechts 
   <string name="revanced_seekbar_custom_color_accent_summary">Die Akzentfarbe der Fortschrittsanzeige</string>
   <string name="revanced_seekbar_custom_color_invalid">Ungültiger Suchleisten-Farbwert</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Header-Logo</string>
+  <string name="revanced_header_logo_entry_1">Standard</string>
+  <string name="revanced_header_logo_entry_2">Regulär</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced Minimal</string>
+  <string name="revanced_header_logo_entry_6">Benutzerdefiniert</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Bildgebietsbeschränkungen umgehen</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Bild-Host yt4.ggpht.com verwenden</string>

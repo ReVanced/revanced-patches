@@ -1306,6 +1306,14 @@ Miniplayer có thể được kéo ra khỏi màn hình sang trái hoặc phải
   <string name="revanced_seekbar_custom_color_accent_summary">A cor de destaque da barra de progresso</string>
   <string name="revanced_seekbar_custom_color_invalid">Valor de cor de seekbar inválido</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logotipo do cabeçalho</string>
+  <string name="revanced_header_logo_entry_1">Padrão</string>
+  <string name="revanced_header_logo_entry_2">Regular</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced mínimo</string>
+  <string name="revanced_header_logo_entry_6">Personalizado</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Ignorar restrições de região de imagem</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Usando imagem host yt4.ggpht.com</string>

@@ -1305,6 +1305,14 @@ Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Warna aksen seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">Nilai warna seekbar tidak sah</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logo Header</string>
+  <string name="revanced_header_logo_entry_1">Bawaan</string>
+  <string name="revanced_header_logo_entry_2">Reguler</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
+  <string name="revanced_header_logo_entry_6">Khusus</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Abaikan pembatasan wilayah gambar</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Menggunakan sumber gambar yt4.ggpht.com</string>

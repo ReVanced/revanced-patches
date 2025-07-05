@@ -1294,6 +1294,14 @@ El minireproductor se puede arrastrar fuera de la pantalla hacia la izquierda o 
   <string name="revanced_seekbar_custom_color_accent_summary">El color de acento de la barra de búsqueda</string>
   <string name="revanced_seekbar_custom_color_invalid">Valor de color de la barra de búsqueda inválido</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logotipo del encabezado</string>
+  <string name="revanced_header_logo_entry_1">Predeterminado</string>
+  <string name="revanced_header_logo_entry_2">Normal</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced mínimo</string>
+  <string name="revanced_header_logo_entry_6">Personalizado</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Evitar restricción regional de imágenes</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Usando host de imagen yt4.ggpht.com</string>

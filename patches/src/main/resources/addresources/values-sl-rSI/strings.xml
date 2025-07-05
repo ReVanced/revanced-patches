@@ -1300,6 +1300,14 @@ Minipredvajalnik lahko povlečete z zaslona na levo ali desno"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Barva poudarka iskalnika</string>
   <string name="revanced_seekbar_custom_color_invalid">Neveljavna vrednost barve drsnika</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logotip glave</string>
+  <string name="revanced_header_logo_entry_1">Privzeto</string>
+  <string name="revanced_header_logo_entry_2">Navadno</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimalno</string>
+  <string name="revanced_header_logo_entry_6">Po meri</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Obvozi omejitve območja slike</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Z uporabo gostitelja slik yt4.ggpht.com</string>

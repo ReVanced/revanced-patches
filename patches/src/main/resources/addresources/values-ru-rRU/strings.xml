@@ -1313,6 +1313,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Вторичный цвет полосы прогресса</string>
   <string name="revanced_seekbar_custom_color_invalid">Неверное значение цвета полосы прогресса</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Логотип в шапке</string>
+  <string name="revanced_header_logo_entry_1">Стандартный</string>
+  <string name="revanced_header_logo_entry_2">Обычный</string>
+  <string name="revanced_header_logo_entry_5">ReVanced минимальный</string>
+  <string name="revanced_header_logo_entry_6">Пользовательский</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Обход региональных ограничений изображений</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Использование хоста изображений yt4.ggpht.com</string>

@@ -1305,6 +1305,14 @@ Mini-plejer se može prevući sa ekrana ulevo ili udesno"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Boja naglašavanja trake za premotavanje</string>
   <string name="revanced_seekbar_custom_color_invalid">Nevažeća vrednost boje trake za premotavanje</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logotip zaglavlja</string>
+  <string name="revanced_header_logo_entry_1">Podrazumevano</string>
+  <string name="revanced_header_logo_entry_2">Redovno</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimalistički</string>
+  <string name="revanced_header_logo_entry_6">Prilagođeno</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Zaobiđi ograničenja regiona slike</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Korišćenje hosta slike yt4.ggpht.com</string>

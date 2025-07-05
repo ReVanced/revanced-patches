@@ -1304,6 +1304,14 @@ De miniplayer kan naar links of rechts van het scherm worden gesleept"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">De accentkleur van de zoekbalk</string>
   <string name="revanced_seekbar_custom_color_invalid">Ongeldige waarde voor de kleur van de schuifregelaar</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Headerlogo</string>
+  <string name="revanced_header_logo_entry_1">Standaard</string>
+  <string name="revanced_header_logo_entry_2">Normaal</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimaal</string>
+  <string name="revanced_header_logo_entry_6">Aangepast</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Omzeil beperkingen voor het weergeven van afbeeldingen in bepaalde regio\'s</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Gebruik de afbeeldinghost yt4.ggpht.com</string>

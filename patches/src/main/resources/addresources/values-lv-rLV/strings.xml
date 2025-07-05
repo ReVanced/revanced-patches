@@ -1301,6 +1301,14 @@ Miniatskaņotāju var pārvilkt no ekrāna uz kreiso vai labo pusi"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Meklētājjoslas akcenta krāsa</string>
   <string name="revanced_seekbar_custom_color_invalid">Nederīga meklētāja joslas krāsas vērtība</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Galvenes logotips</string>
+  <string name="revanced_header_logo_entry_1">Noklusējums</string>
+  <string name="revanced_header_logo_entry_2">Parasts</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimāls</string>
+  <string name="revanced_header_logo_entry_6">Pielāgots</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Apsaisīt attēlu reģiona ierobežojumus</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Izmantojot attēlu mitināšanas pakalpojumu yt4.ggpht.com</string>

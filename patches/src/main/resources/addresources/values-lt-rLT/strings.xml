@@ -1305,6 +1305,14 @@ Ribojimas: įrankių juostoje esantis atgal mygtukas gali neveikti."</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Ieškojimo juostos akcento spalva</string>
   <string name="revanced_seekbar_custom_color_invalid">Netinkama slankiklio spalvos vertė</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Antraštės logotipas</string>
+  <string name="revanced_header_logo_entry_1">Numatytasis</string>
+  <string name="revanced_header_logo_entry_2">Įprastas</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimalus</string>
+  <string name="revanced_header_logo_entry_6">Pasirinktinis</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Aplenkti vaizdo regiono apribojimus</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Naudojant vaizdo talpinimo svetainę yt4.ggpht.com</string>

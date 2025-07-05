@@ -1308,6 +1308,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Боја наглашавања траке за премотавање</string>
   <string name="revanced_seekbar_custom_color_invalid">Неважећа вредност боје траке за премотавање</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Лого заглавља</string>
+  <string name="revanced_header_logo_entry_1">Подразумевано</string>
+  <string name="revanced_header_logo_entry_2">Редовно</string>
+  <string name="revanced_header_logo_entry_5">ReVanced минимално</string>
+  <string name="revanced_header_logo_entry_6">Прилагођено</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Заобиђи ограничења региона слике</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Коришћење хоста слике yt4.ggpht.com</string>

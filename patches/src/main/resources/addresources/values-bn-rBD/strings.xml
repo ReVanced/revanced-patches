@@ -1302,6 +1302,13 @@ Miniplayer স্ক্রিন থেকে বামে বা ডানে �
   <string name="revanced_seekbar_custom_color_accent_summary">সিকবারের এক্সেন্ট রঙ</string>
   <string name="revanced_seekbar_custom_color_invalid">অবৈধ সিকবার রঙ মান</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">হেডার লোগো</string>
+  <string name="revanced_header_logo_entry_1">ডিফল্ট</string>
+  <string name="revanced_header_logo_entry_2">সাধারণ</string>
+  <string name="revanced_header_logo_entry_5">রিভ্যান্সড মিনিমাল</string>
+  <string name="revanced_header_logo_entry_6">কাস্টম</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">ছবি অঞ্চল সীমাবদ্ধতা বাইপাস করুন</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com ছবি হোস্ট ব্যবহার করে</string>

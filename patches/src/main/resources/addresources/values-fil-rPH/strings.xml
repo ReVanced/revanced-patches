@@ -1304,6 +1304,14 @@ Ang \"miniplayer\" ay maaaring i-drag palabas ng screen sa kaliwa o kanan"</stri
   <string name="revanced_seekbar_custom_color_accent_summary">Ang accent na kulay ng seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">Hindi wastong halaga ng kulay ng seekbar</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logo ng Header</string>
+  <string name="revanced_header_logo_entry_1">Default</string>
+  <string name="revanced_header_logo_entry_2">Regular</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
+  <string name="revanced_header_logo_entry_6">Pasadyang</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Bypass ang mga paghihigpit sa rehiyon ng imahe</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Ginagamit ang image host yt4.ggpht.com</string>

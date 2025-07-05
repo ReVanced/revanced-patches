@@ -1305,6 +1305,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Значення вторинного кольору смуги прогресу</string>
   <string name="revanced_seekbar_custom_color_invalid">Недійсне значення кольору смуги прогресу</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Логотип заголовка</string>
+  <string name="revanced_header_logo_entry_1">Стандартний</string>
+  <string name="revanced_header_logo_entry_2">Звичайний</string>
+  <string name="revanced_header_logo_entry_5">ReVanced мінімальний</string>
+  <string name="revanced_header_logo_entry_6">Користувацький</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Змінити хост зображень</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Використовується хост зображень yt4.ggpht.com</string>

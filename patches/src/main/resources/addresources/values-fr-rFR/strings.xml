@@ -1307,6 +1307,14 @@ Le lecteur réduit peut être déplacé hors de l'écran, à gauche comme à dro
   <string name="revanced_seekbar_custom_color_accent_summary">La couleur d\'accentuation de la barre de progression</string>
   <string name="revanced_seekbar_custom_color_invalid">Valeur invalide pour la couleur de la barre de progression</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logo d\'en-tête</string>
+  <string name="revanced_header_logo_entry_1">Par défaut</string>
+  <string name="revanced_header_logo_entry_2">Normal</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
+  <string name="revanced_header_logo_entry_6">Personnalisé</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Contourner les restrictions d\'accès aux images basées sur la région</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Utiliser l\'hôte d\'images yt4.ggpht.com</string>

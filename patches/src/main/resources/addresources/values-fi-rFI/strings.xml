@@ -1246,6 +1246,8 @@ Minisoitin voidaan vetää pois näytöltä vasemmalle tai oikealle"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Etenemispalkin korostusväri</string>
   <string name="revanced_seekbar_custom_color_invalid">Virheellinen etenemispalkin väriarvo</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Ohita kuvien alueelliset rajoitukset</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Käyttämällä kuvan isäntä yt4.ggpht.com</string>

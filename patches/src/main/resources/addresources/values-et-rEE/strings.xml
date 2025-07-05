@@ -1300,6 +1300,14 @@ Minimaalset mängijat saab lohistada ekraanilt vasakule või paremale"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Otsinguriba esiletõiduv värv</string>
   <string name="revanced_seekbar_custom_color_invalid">Vigane edastusriba värvi väärtus</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Päise logo</string>
+  <string name="revanced_header_logo_entry_1">Vaikimisi</string>
+  <string name="revanced_header_logo_entry_2">Tavaline</string>
+  <string name="revanced_header_logo_entry_3">Premium</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimaalne</string>
+  <string name="revanced_header_logo_entry_6">Kohandatud</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Ületa pildi piirkondlike piirangute keelud</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Kasutatakse pildi hosti yt4.ggpht.com</string>

@@ -1312,6 +1312,13 @@ Vuốt để mở rộng hoặc đóng"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Màu sắc nổi bật của thanh tiến trình</string>
   <string name="revanced_seekbar_custom_color_invalid">Giá trị màu của thanh tiến trình không hợp lệ</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logo đầu trang</string>
+  <string name="revanced_header_logo_entry_1">Mặc định</string>
+  <string name="revanced_header_logo_entry_2">Thông thường</string>
+  <string name="revanced_header_logo_entry_5">ReVanced tối giản</string>
+  <string name="revanced_header_logo_entry_6">Tùy chỉnh</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Vượt qua hạn chế khu vực cho hình ảnh</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Đang dùng máy chủ hình ảnh yt4.ggpht.com</string>

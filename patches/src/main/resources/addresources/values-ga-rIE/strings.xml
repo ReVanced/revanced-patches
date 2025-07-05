@@ -1306,6 +1306,13 @@ Is féidir an mhion-imreoir a tharraingt as an scáileán ar chlé nó ar dheis"
   <string name="revanced_seekbar_custom_color_accent_summary">Dath accent an bhar taispillte</string>
   <string name="revanced_seekbar_custom_color_invalid">Luach datha barra cuardaigh neamhbhailí</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Lógó Ceanntáisc</string>
+  <string name="revanced_header_logo_entry_1">Réamhshocrú</string>
+  <string name="revanced_header_logo_entry_2">Rialta</string>
+  <string name="revanced_header_logo_entry_5">ReVanced íosta</string>
+  <string name="revanced_header_logo_entry_6">Saincheaptha</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Seachbhóthar srianta réigiún íomhá</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Ag baint úsáide as óstach íomhá yt4.ggpht.com</string>

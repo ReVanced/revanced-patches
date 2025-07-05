@@ -1256,6 +1256,8 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">İrəliləyiş cizgisi vurğu rəngi</string>
   <string name="revanced_seekbar_custom_color_invalid">Etibarsız irəliləmə cizgisi rəng dəyəri</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Təsvir bölgə məhdudiyyətlərini ötür</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Yt4.ggpht.com təsvir serveri istifadə edilir</string>

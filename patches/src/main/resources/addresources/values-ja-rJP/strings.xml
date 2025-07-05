@@ -1307,6 +1307,13 @@ Automotive レイアウト
   <string name="revanced_seekbar_custom_color_accent_summary">シークバーのアクセントカラーの値を編集します</string>
   <string name="revanced_seekbar_custom_color_invalid">シークバーの色の値が無効です</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">ヘッダーロゴ</string>
+  <string name="revanced_header_logo_entry_1">デフォルト</string>
+  <string name="revanced_header_logo_entry_2">標準</string>
+  <string name="revanced_header_logo_entry_5">ReVanced ミニマル</string>
+  <string name="revanced_header_logo_entry_6">カスタム</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限を回避する</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com から画像を取得します</string>
