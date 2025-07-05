@@ -1296,9 +1296,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_gradient_loading_screen_title">เปิดใช้งานหน้าจอโหลดแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_on">หน้าจอโหลดจะมีพื้นหลังแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_off">หน้าจอโหลดจะมีพื้นหลังแบบทึบ</string>
-  <string name="splash_screen_animation_style_title">รูปแบบหน้าจอ Splash</string>
-  <string name="splash_screen_animation_style_entry_1">สี</string>
-  <string name="splash_screen_animation_style_entry_2">ขาวดำ</string>
+  <string name="revanced_splash_screen_animation_style_title">รูปแบบหน้าจอ Splash</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">สี</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">ขาวดำ</string>
   <string name="revanced_seekbar_custom_color_title">เปิดใช้งานสีแถบเลื่อนแบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_summary_on">แสดงสีแถบเลื่อนแบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_summary_off">แสดงสีแถบเลื่อนดั้งเดิม</string>

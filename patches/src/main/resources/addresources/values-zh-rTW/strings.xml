@@ -1231,9 +1231,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">啟用漸層載入畫面</string>
   <string name="revanced_gradient_loading_screen_summary_on">載入畫面將具有漸層背景</string>
   <string name="revanced_gradient_loading_screen_summary_off">載入畫面將具有純色背景</string>
-  <string name="splash_screen_animation_style_title">啟動畫面樣式</string>
-  <string name="splash_screen_animation_style_entry_1">顏色</string>
-  <string name="splash_screen_animation_style_entry_2">黑白</string>
+  <string name="revanced_splash_screen_animation_style_title">啟動畫面樣式</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">顏色</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">黑白</string>
   <string name="revanced_seekbar_custom_color_title">啟用自訂跳轉列顏色</string>
   <string name="revanced_seekbar_custom_color_summary_on">已顯示自訂跳轉列顏色</string>
   <string name="revanced_seekbar_custom_color_summary_off">已顯示原版跳轉列顏色</string>

@@ -1294,9 +1294,9 @@ Is féidir an mhion-imreoir a tharraingt as an scáileán ar chlé nó ar dheis"
   <string name="revanced_gradient_loading_screen_title">Cumasaigh scáileán luchtaithe</string>
   <string name="revanced_gradient_loading_screen_summary_on">Beidh cúlra grádáin ag an scáileán lódála</string>
   <string name="revanced_gradient_loading_screen_summary_off">Beidh cúlra láidir ag scáileán luchtaithe</string>
-  <string name="splash_screen_animation_style_title">Stíl scáileáin splancais</string>
-  <string name="splash_screen_animation_style_entry_1">Dath</string>
-  <string name="splash_screen_animation_style_entry_2">Dubh agus bán</string>
+  <string name="revanced_splash_screen_animation_style_title">Stíl scáileáin splancais</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Dath</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Dubh agus bán</string>
   <string name="revanced_seekbar_custom_color_title">Cumasaigh dath barra cuardaigh saincheaptha</string>
   <string name="revanced_seekbar_custom_color_summary_on">Taispeántar dath barra cuardaigh saincheaptha</string>
   <string name="revanced_seekbar_custom_color_summary_off">Taispeántar dath barr cuardaigh bunaidh</string>
