@@ -26,11 +26,11 @@ public class ChangeHeaderPatch {
         }
 
         /**
-         * @return The resource id of this header logo, or null if the logo should not be replaced.
+         * @return The attribute id of this header logo, or NULL if the logo should not be replaced.
          */
         @Nullable
-        Integer getLogoResourceId() {
-            if (this == DEFAULT) {
+        private Integer getAttributeId() {
+            if (resourceName == null) {
                 return null;
             }
 
@@ -39,7 +39,7 @@ public class ChangeHeaderPatch {
     }
 
     @Nullable
-    private static final Integer headerLogoResource = Settings.HEADER_LOGO.get().getLogoResourceId();
+    private static final Integer headerLogoResource = Settings.HEADER_LOGO.get().getAttributeId();
 
     /**
      * Injection point.

@@ -75,7 +75,7 @@ private const val CUSTOM_HEADER_RESOURCE_NAME = "custom_header"
 @Suppress("unused")
 val changeHeaderPatch = resourcePatch(
     name = "Change header",
-    description = "Applies a custom header in the top left corner within the app. Defaults to the ReVanced header.",
+    description = "Adds an option to change the header logo in the top left corner of the app.",
 ) {
     dependsOn(addResourcesPatch, changeHeaderBytecodePatch)
 
@@ -97,11 +97,9 @@ val changeHeaderPatch = resourcePatch(
             Folder with images to use as a custom header logo.
             
             The folder must contain one or more of the following folders, depending on the DPI of the device:
-            
             ${targetResourceDirectoryNames.keys.joinToString("\n") { "- $it" }}
             
             Each of the folders must contain all of the following files:
-            
             ${variants.joinToString("\n") { variant -> "- ${CUSTOM_HEADER_RESOURCE_NAME}_$variant.png" }}
 
             The image dimensions must be as follows:
@@ -112,17 +110,12 @@ val changeHeaderPatch = resourcePatch(
     execute {
         addResources("youtube", "layout.branding.changeHeaderPatch")
 
-        fun mapLightDarkFileNames(vararg resourceNames: String): Array<String> {
-            var results = mutableListOf<String>()
-            variants.forEach { variant ->
-                results += resourceNames.map { resource ->
-                    resource + "_" + variant + ".png"
-                }
-            }
-            return results.toTypedArray()
-        }
+        fun getLightDarkFileNames(vararg resourceNames: String): Array<String> =
+            variants.flatMap { variant ->
+                resourceNames.map { resource -> "${resource}_$variant.png" }
+            }.toTypedArray()
 
-        val logoResourceFileNames = mapLightDarkFileNames(*logoResourceNames)
+        val logoResourceFileNames = getLightDarkFileNames(*logoResourceNames)
         copyResources(
             "change-header",
             ResourceGroup("drawable-hdpi", *logoResourceFileNames),
@@ -136,7 +129,7 @@ val changeHeaderPatch = resourcePatch(
             val sourceFolders = File(custom!!).listFiles { file -> file.isDirectory }
                 ?: throw PatchException("The provided path is not a directory: $custom")
 
-            val customResourceFileNames = mapLightDarkFileNames(CUSTOM_HEADER_RESOURCE_NAME)
+            val customResourceFileNames = getLightDarkFileNames(CUSTOM_HEADER_RESOURCE_NAME)
 
             var copiedFiles = false
 
@@ -156,7 +149,7 @@ val changeHeaderPatch = resourcePatch(
 
                 customFiles.forEach { imgSourceFile ->
                     val imgTargetFile = targetDpiFolder.resolve(imgSourceFile.name)
-                    imgSourceFile.copyTo(imgTargetFile, true)
+                    imgSourceFile.copyTo(imgTargetFile)
 
                     copiedFiles = true
                 }
@@ -205,6 +198,7 @@ val changeHeaderPatch = resourcePatch(
                     item.textContent = "@drawable/${logoName}_$mode"
                     styleElement.appendChild(item)
                 }
+
                 logoResourceNames.forEach { logoName ->
                     addDrawableElement(document, logoName, mode)
                 }
