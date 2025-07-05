@@ -43,7 +43,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v6
