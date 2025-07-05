@@ -20,7 +20,7 @@ val disableAdsPatch = bytecodePatch(
         //
         // MonetizationDebugSettings seems to be the most general setting to work fine.
         initializeMonetizationDebugSettingsFingerprint.method.apply {
-            val insertIndex = initializeMonetizationDebugSettingsFingerprint.patternMatch!!.startIndex
+            val insertIndex = initializeMonetizationDebugSettingsFingerprint.instructionMatches.first().index
             val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
             addInstructions(

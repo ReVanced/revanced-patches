@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val hideUpdatePopupFingerprint = fingerprint {
+internal val hideUpdatePopupFingerprint by fingerprint {
     accessFlags(AccessFlags.FINAL, AccessFlags.PUBLIC)
     returns("V")
     opcodes(

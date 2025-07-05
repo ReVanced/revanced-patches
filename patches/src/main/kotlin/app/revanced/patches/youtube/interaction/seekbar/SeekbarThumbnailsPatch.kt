@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_09_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/SeekbarThumbnailsPatch;"

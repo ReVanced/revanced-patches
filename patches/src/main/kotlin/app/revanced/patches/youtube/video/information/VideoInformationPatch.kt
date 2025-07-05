@@ -129,12 +129,12 @@ val videoInformationPatch = bytecodePatch(
             val videoLengthMethodMatch = videoLengthFingerprint.match(originalClassDef)
 
             videoLengthMethodMatch.method.apply {
-                val videoLengthRegisterIndex = videoLengthMethodMatch.patternMatch!!.endIndex - 2
+                val videoLengthRegisterIndex = videoLengthMethodMatch.instructionMatches.last().index - 2
                 val videoLengthRegister = getInstruction<OneRegisterInstruction>(videoLengthRegisterIndex).registerA
                 val dummyRegisterForLong = videoLengthRegister + 1 // required for long values since they are wide
 
                 addInstruction(
-                    videoLengthMethodMatch.patternMatch!!.endIndex,
+                    videoLengthMethodMatch.instructionMatches.last().index,
                     "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, " +
                         "$EXTENSION_CLASS_DESCRIPTOR->setVideoLength(J)V",
                 )
@@ -163,7 +163,7 @@ val videoInformationPatch = bytecodePatch(
          * Set the video time method
          */
         timeMethod = navigate(playerControllerSetTimeReferenceFingerprint.originalMethod)
-            .to(playerControllerSetTimeReferenceFingerprint.patternMatch!!.startIndex)
+            .to(playerControllerSetTimeReferenceFingerprint.instructionMatches.first().index)
             .stop()
 
         /*
@@ -190,8 +190,8 @@ val videoInformationPatch = bytecodePatch(
                 getInstruction<ReferenceInstruction>(indexOfFirstInstructionOrThrow(Opcode.IF_EQZ) - 1).reference as FieldReference
 
             setPlaybackSpeedMethod =
-                proxy(classes.first { it.type == setPlaybackSpeedMethodReference.definingClass })
-                    .mutableClass.methods.first { it.name == setPlaybackSpeedMethodReference.name }
+                mutableClassBy(setPlaybackSpeedMethodReference.definingClass)
+                    .methods.first { it.name == setPlaybackSpeedMethodReference.name }
             setPlaybackSpeedMethodIndex = 0
 
             // Add override playback speed method.
@@ -264,12 +264,14 @@ val videoInformationPatch = bytecodePatch(
         // Handle new playback speed menu.
         playbackSpeedMenuSpeedChangedFingerprint.match(
             newVideoQualityChangedFingerprint.originalClassDef,
-        ).method.apply {
-            val index = indexOfFirstInstructionOrThrow(Opcode.IGET)
+        ).let {
+            it.method.apply {
+                val index = it.instructionMatches.first().index
 
-            speedSelectionInsertMethod = this
-            speedSelectionInsertIndex = index + 1
-            speedSelectionValueRegister = getInstruction<TwoRegisterInstruction>(index).registerA
+                speedSelectionInsertMethod = this
+                speedSelectionInsertIndex = index + 1
+                speedSelectionValueRegister = getInstruction<TwoRegisterInstruction>(index).registerA
+            }
         }
 
         videoSpeedChangedHook(EXTENSION_CLASS_DESCRIPTOR, "videoSpeedChanged")

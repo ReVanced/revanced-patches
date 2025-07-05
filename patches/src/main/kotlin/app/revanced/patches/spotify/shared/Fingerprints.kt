@@ -11,7 +11,7 @@ private const val SPOTIFY_MAIN_ACTIVITY = "Lcom/spotify/music/SpotifyMainActivit
  */
 internal const val SPOTIFY_MAIN_ACTIVITY_LEGACY = "Lcom/spotify/music/MainActivity;"
 
-internal val mainActivityOnCreateFingerprint = fingerprint {
+internal val mainActivityOnCreateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/os/Bundle;")
@@ -29,10 +29,9 @@ private var isLegacyAppTarget: Boolean? = null
  * supports Spotify integration on Kenwood/Pioneer car stereos.
  */
 context(BytecodePatchContext)
-internal val IS_SPOTIFY_LEGACY_APP_TARGET
-    get(): Boolean {
-        if (isLegacyAppTarget == null) {
-            isLegacyAppTarget = mainActivityOnCreateFingerprint.originalClassDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY
-        }
-        return isLegacyAppTarget!!
+internal val IS_SPOTIFY_LEGACY_APP_TARGET get(): Boolean {
+    if (isLegacyAppTarget == null) {
+        isLegacyAppTarget = mainActivityOnCreateFingerprint.originalClassDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY
     }
+    return isLegacyAppTarget!!
+}

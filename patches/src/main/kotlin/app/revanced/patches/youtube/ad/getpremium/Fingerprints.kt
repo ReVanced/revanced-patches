@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val getPremiumViewFingerprint = fingerprint {
+internal val getPremiumViewFingerprint by fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")
     parameters("I", "I")
