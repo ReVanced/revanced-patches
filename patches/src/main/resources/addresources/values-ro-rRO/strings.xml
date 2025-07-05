@@ -1293,9 +1293,9 @@ Miniplayerul poate fi tras pe ecran spre stânga sau spre dreapta"</string>
   <string name="revanced_gradient_loading_screen_title">Activează ecranul de încărcare gradient</string>
   <string name="revanced_gradient_loading_screen_summary_on">Încărcarea ecranului va avea un fundal pentru gradient</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ecranul de încărcare va avea un fundal solid</string>
-  <string name="splash_screen_animation_style_title">Stil ecran de pornire</string>
-  <string name="splash_screen_animation_style_entry_1">Culoare</string>
-  <string name="splash_screen_animation_style_entry_2">Alb-negru</string>
+  <string name="revanced_splash_screen_animation_style_title">Stil ecran de pornire</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Culoare</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Alb-negru</string>
   <string name="revanced_seekbar_custom_color_title">Activează culoarea barei de căutare personalizate</string>
   <string name="revanced_seekbar_custom_color_summary_on">Culoarea personalizată a barei de căutare este afișată</string>
   <string name="revanced_seekbar_custom_color_summary_off">Culoarea bara de căutare originală este afișată</string>

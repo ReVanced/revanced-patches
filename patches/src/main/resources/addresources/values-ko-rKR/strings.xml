@@ -1292,9 +1292,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_gradient_loading_screen_title">그라데이션 색상 로딩 화면 활성화하기</string>
   <string name="revanced_gradient_loading_screen_summary_on">그라데이션 색상 로딩 화면을 활성화합니다</string>
   <string name="revanced_gradient_loading_screen_summary_off">기본 로딩 화면을 활성화합니다</string>
-  <string name="splash_screen_animation_style_title">스플래시 애니메이션 스타일</string>
-  <string name="splash_screen_animation_style_entry_1">컬러</string>
-  <string name="splash_screen_animation_style_entry_2">흑백</string>
+  <string name="revanced_splash_screen_animation_style_title">스플래시 애니메이션 스타일</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">컬러</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">흑백</string>
   <string name="revanced_seekbar_custom_color_title">사용자 정의 재생바 색상 활성화하기</string>
   <string name="revanced_seekbar_custom_color_summary_on">사용자 정의 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>

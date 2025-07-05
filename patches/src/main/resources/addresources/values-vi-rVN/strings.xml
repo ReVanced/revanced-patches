@@ -143,9 +143,9 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_debug_logs_clear_toast">Đã xóa nhật ký</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_hide_album_cards_title">Ẩn thẻ album</string>
-  <string name="revanced_hide_album_cards_summary_on">Các thẻ album đã bị ẩn</string>
-  <string name="revanced_hide_album_cards_summary_off">Các thẻ album được hiển thị</string>
+  <string name="revanced_hide_album_cards_title">Ẩn thẻ đĩa nhạc</string>
+  <string name="revanced_hide_album_cards_summary_on">Các thẻ đĩa nhạc đã bị ẩn</string>
+  <string name="revanced_hide_album_cards_summary_off">Các thẻ đĩa nhạc được hiển thị</string>
   <string name="revanced_hide_crowdfunding_box_title">Ẩn hộp chiến dịch gây quỹ</string>
   <string name="revanced_hide_crowdfunding_box_summary_on">Hộp chiến dịch gây quỹ đã bị ẩn</string>
   <string name="revanced_hide_crowdfunding_box_summary_off">Hộp chiến dịch gây quỹ được hiển thị</string>
@@ -156,7 +156,13 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_channel_watermark_summary_on">Hình mờ đã bị ẩn</string>
   <string name="revanced_hide_channel_watermark_summary_off">Hình mờ được hiển thị</string>
   <string name="revanced_hide_horizontal_shelves_title">Ẩn kệ ngang</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Các kệ đã bị ẩn, ví dụ:\n• Tin tức nổi bật\n• Tiếp tục xem\n• Khám phá thêm kênh\n• Phù hợp nhất\n• Mua sắm\n• Xem lại"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Các kệ đã bị ẩn, ví dụ:
+• Tin tức nổi bật
+• Tiếp tục xem
+• Khám phá các chủ đề khác
+• Phù hợp nhất
+• Mua sắm
+• Xem lại"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Kệ ngang được hiển thị</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -293,13 +299,13 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_members_shelf_summary_on">Kệ thành viên đã bị ẩn</string>
   <string name="revanced_hide_members_shelf_summary_off">Kệ thành viên được hiển thị</string>
   <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">Ẩn nút \"Truy cập Cộng đồng\"</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Nút Truy cập Cộng đồng đã bị ẩn</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Nút Ghé thăm Cộng đồng được hiển thị</string>
+  <string name="revanced_hide_visit_community_button_title">Ẩn nút \'Chuyển đến trang Cộng đồng\'</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Nút Chuyển đến trang Cộng đồng đã bị ẩn</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Nút Chuyển đến trang Cộng đồng được hiển thị</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Ẩn nút \'Chuyển đến cửa hàng\'</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Nút Ghé thăm cửa hàng đã bị ẩn</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Nút Ghé thăm cửa hàng được hiển thị</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Nút Chuyển đến cửa hàng đã bị ẩn</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Nút Chuyển đến cửa hàng được hiển thị</string>
   <string name="revanced_comments_screen_title">Bình luận</string>
   <string name="revanced_comments_screen_summary">Ẩn hoặc hiện các thành phần bình luận</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Ẩn Tóm tắt cuộc trò chuyện AI</string>
@@ -410,7 +416,7 @@ Tính năng này chỉ khả dụng trên các thiết bị cũ"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Ẩn thẻ tự tài trợ</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Các thẻ tự tài trợ đã bị ẩn</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Các thẻ tự tài trợ được hiển thị</string>
-  <string name="revanced_hide_shopping_links_title">Ẩn các liên kết mua sắm</string>
+  <string name="revanced_hide_shopping_links_title">Ẩn liên kết mua sắm</string>
   <string name="revanced_hide_shopping_links_summary_on">Liên kết trong mô tả video đã bị ẩn</string>
   <string name="revanced_hide_shopping_links_summary_off">Liên kết trong mô tả video được hiển thị</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
@@ -1294,9 +1300,9 @@ Vuốt để mở rộng hoặc đóng"</string>
   <string name="revanced_gradient_loading_screen_title">Bật màn hình tải màu dốc</string>
   <string name="revanced_gradient_loading_screen_summary_on">Màn hình tải sẽ có một nền màu dốc</string>
   <string name="revanced_gradient_loading_screen_summary_off">Màn hình tải sẽ có một nền màu đặc</string>
-  <string name="splash_screen_animation_style_title">Kiểu màn hình chờ</string>
-  <string name="splash_screen_animation_style_entry_1">Màu</string>
-  <string name="splash_screen_animation_style_entry_2">Đen và trắng</string>
+  <string name="revanced_splash_screen_animation_style_title">Kiểu màn hình chờ</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Màu</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Đen và trắng</string>
   <string name="revanced_seekbar_custom_color_title">Bật màu thanh tiến trình tùy chỉnh</string>
   <string name="revanced_seekbar_custom_color_summary_on">Màu tùy chỉnh của thanh tiến trình được hiển thị</string>
   <string name="revanced_seekbar_custom_color_summary_off">Màu gốc của thanh tiến trình được hiển thị</string>

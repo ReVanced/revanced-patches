@@ -1292,9 +1292,9 @@ Miniplayer mund të tërhiqet jashtë ekranit në të majtë ose në të djatht�
   <string name="revanced_gradient_loading_screen_title">Aktivizo ekranin e ngarkimit me gradient</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ekrani i ngarkimit do të ketë një sfond me gradient</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ekrani i ngarkimit do të ketë një sfond të ngurtë</string>
-  <string name="splash_screen_animation_style_title">Stili i ekranit hapës</string>
-  <string name="splash_screen_animation_style_entry_1">Ngjyra</string>
-  <string name="splash_screen_animation_style_entry_2">E zezë dhe e bardhë</string>
+  <string name="revanced_splash_screen_animation_style_title">Stili i ekranit hapës</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Ngjyra</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">E zezë dhe e bardhë</string>
   <string name="revanced_seekbar_custom_color_title">Aktivizo ngjyrën e personalizuar të shkallës së kërkimit</string>
   <string name="revanced_seekbar_custom_color_summary_on">Ngjyra e personalizuar e shkallës së kërkimit është e dukshme</string>
   <string name="revanced_seekbar_custom_color_summary_off">Ngjyra origjinale e shkallës së kërkimit është e dukshme</string>

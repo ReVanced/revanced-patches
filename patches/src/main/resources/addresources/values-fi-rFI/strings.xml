@@ -1234,9 +1234,9 @@ Minisoitin voidaan vetää pois näytöltä vasemmalle tai oikealle"</string>
   <string name="revanced_gradient_loading_screen_title">Ota liukuvärillinen latausruutu käyttöön</string>
   <string name="revanced_gradient_loading_screen_summary_on">Latausruudulla on liukuvärillinen tausta</string>
   <string name="revanced_gradient_loading_screen_summary_off">Latausruudulla on yksivärinen tausta</string>
-  <string name="splash_screen_animation_style_title">Aloitussivun tyyli</string>
-  <string name="splash_screen_animation_style_entry_1">Väri</string>
-  <string name="splash_screen_animation_style_entry_2">Mustavalkoinen</string>
+  <string name="revanced_splash_screen_animation_style_title">Aloitussivun tyyli</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Väri</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Mustavalkoinen</string>
   <string name="revanced_seekbar_custom_color_title">Ota mukautettu etenemispalkin väri käyttöön</string>
   <string name="revanced_seekbar_custom_color_summary_on">Mukautettu etenemispalkin väri näytetään</string>
   <string name="revanced_seekbar_custom_color_summary_off">Alkuperäinen etenemispalkin väri näytetään</string>

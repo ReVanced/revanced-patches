@@ -1282,9 +1282,9 @@ El minireproductor se puede arrastrar fuera de la pantalla hacia la izquierda o 
   <string name="revanced_gradient_loading_screen_title">Activar la pantalla de carga del degradado</string>
   <string name="revanced_gradient_loading_screen_summary_on">La pantalla de carga tendrá un fondo de degradado</string>
   <string name="revanced_gradient_loading_screen_summary_off">La pantalla de carga tendrá un fondo sólido</string>
-  <string name="splash_screen_animation_style_title">Estilo de la pantalla de presentación</string>
-  <string name="splash_screen_animation_style_entry_1">Color</string>
-  <string name="splash_screen_animation_style_entry_2">Blanco y negro</string>
+  <string name="revanced_splash_screen_animation_style_title">Estilo de la pantalla de presentación</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Color</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Blanco y negro</string>
   <string name="revanced_seekbar_custom_color_title">Activar el color personalizado de la barra de búsqueda</string>
   <string name="revanced_seekbar_custom_color_summary_on">Se muestra el color personalizado de la barra de búsqueda</string>
   <string name="revanced_seekbar_custom_color_summary_off">Se muestra el color original de la barra de búsqueda</string>
