@@ -9,7 +9,6 @@ import app.revanced.extension.tiktok.Utils;
 
 @SuppressWarnings("deprecation")
 public class TogglePreference extends SwitchPreference {
-
     public TogglePreference(Context context, String title, String summary, BooleanSetting setting) {
         super(context);
         setTitle(title);

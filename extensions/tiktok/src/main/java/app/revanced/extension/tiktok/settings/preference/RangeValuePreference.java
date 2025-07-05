@@ -62,6 +62,8 @@ public class RangeValuePreference extends DialogPreference {
 
         LinearLayout dialogView = new LinearLayout(context);
         dialogView.setOrientation(LinearLayout.VERTICAL);
+        int padding = (int) (16 * context.getResources().getDisplayMetrics().density);
+        dialogView.setPadding(padding, padding, padding, padding);
 
         // Min view
         LinearLayout minView = new LinearLayout(context);
