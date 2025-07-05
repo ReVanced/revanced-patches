@@ -748,20 +748,6 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
 
                 if (matchingIndexes.isNotEmpty()) {
                     val mutableMethod = mutableClassBy(classDef).findMutableMethodOf(method)
-
-                    // FIXME: Until patcher V22 is merged, this workaround is needed
-                    //        because if multiple patches modify the same class
-                    //        then after modifying the method indexes of immutable classes
-                    //        are no longer correct.
-                    matchingIndexes.clear()
-                    mutableMethod.instructions.forEachIndexed { index, instruction ->
-                        if ((instruction as? WideLiteralInstruction)?.wideLiteral == literal) {
-                            matchingIndexes.add(index)
-                        }
-                    }
-                    if (matchingIndexes.isEmpty()) return@forEach
-                    // FIXME Remove code above after V22 merge.
-
                     matchingIndexes.asReversed().forEach { index ->
                         block.invoke(mutableMethod, index)
                     }
