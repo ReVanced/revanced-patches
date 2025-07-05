@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
-    name = "Hide Ads"
+    name = "Hide ads"
 ) {
     compatibleWith("com.crunchyroll.crunchyroid")
 
