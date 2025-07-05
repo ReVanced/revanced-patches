@@ -34,7 +34,10 @@ public class ChangeHeaderPatch {
                 return null;
             }
 
-            return Utils.getResourceIdentifier(resourceName, "attr");
+            final int identifier = Utils.getResourceIdentifier(resourceName, "attr");
+            // Identifier is zero if custom header setting was included in imported settings
+            // and a custom image was not included during patching.
+            return identifier == 0 ? null : identifier;
         }
     }
 
