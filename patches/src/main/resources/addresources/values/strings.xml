@@ -1369,9 +1369,9 @@ Swipe to expand or close"</string>
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
             <string name="revanced_gradient_loading_screen_summary_on">Loading screen will have a gradient background</string>
             <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background</string>
-            <string name="splash_screen_animation_style_title">Splash screen style</string>
-            <string name="splash_screen_animation_style_entry_1">Color</string>
-            <string name="splash_screen_animation_style_entry_2">Black and white</string>
+            <string name="revanced_splash_screen_animation_style_title">Splash screen style</string>
+            <string name="revanced_splash_screen_animation_style_entry_1">Color</string>
+            <string name="revanced_splash_screen_animation_style_entry_2">Black and white</string>
             <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
             <string name="revanced_seekbar_custom_color_summary_on">Custom seekbar color is shown</string>
             <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>
@@ -1380,6 +1380,15 @@ Swipe to expand or close"</string>
             <string name="revanced_seekbar_custom_color_accent_title">Custom seekbar accent color</string>
             <string name="revanced_seekbar_custom_color_accent_summary">The accent color of the seekbar</string>
             <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value</string>
+        </patch>
+        <patch id="layout.branding.changeHeaderPatch">
+            <string name="revanced_header_logo_title">Header logo</string>
+            <string name="revanced_header_logo_entry_1">Default</string>
+            <string name="revanced_header_logo_entry_2">Regular</string>
+            <string name="revanced_header_logo_entry_3">Premium</string>
+            <string name="revanced_header_logo_entry_4">ReVanced</string>
+            <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
+            <string name="revanced_header_logo_entry_6">Custom</string>
         </patch>
         <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
             <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
