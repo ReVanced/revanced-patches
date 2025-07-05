@@ -34,10 +34,6 @@ public final class AdsFilter extends Filter {
     private final StringFilterGroup playerShoppingShelf;
     private final ByteArrayFilterGroup playerShoppingShelfBuffer;
 
-    private final StringFilterGroup channelProfile;
-    private final ByteArrayFilterGroup visitStoreButton;
-
-    private final StringFilterGroup shoppingLinks;
 
     public AdsFilter() {
         exceptions.addPatterns(
@@ -91,6 +87,7 @@ public final class AdsFilter extends Filter {
                 "text_image_no_button_layout", // Tablet layout search results.
                 "video_display_button_group_layout",
                 "video_display_carousel_button_group_layout",
+                "video_display_carousel_buttoned_short_dr_layout",
                 "video_display_full_buttoned_short_dr_layout",
                 "video_display_full_layout",
                 "watch_metadata_app_promo"
@@ -113,35 +110,19 @@ public final class AdsFilter extends Filter {
                 "shopping_overlay.eml" // Video player overlay shopping links.
         );
 
-        shoppingLinks = new StringFilterGroup(
-                Settings.HIDE_TAGGED_PRODUCTS,
-                "expandable_list"
-        );
-
-        final var storeProductsShelf = new StringFilterGroup(
-                Settings.HIDE_CREATOR_STORE_SHELVES,
+        final var shoppingLinks = new StringFilterGroup(
+                Settings.HIDE_SHOPPING_LINKS,
                 "shopping_description_shelf.eml"
         );
 
         playerShoppingShelf = new StringFilterGroup(
-                Settings.HIDE_CREATOR_STORE_SHELVES,
+                Settings.HIDE_CREATOR_STORE_SHELF,
                 "horizontal_shelf.eml"
         );
 
         playerShoppingShelfBuffer = new ByteArrayFilterGroup(
                 null,
                 "shopping_item_card_list"
-        );
-
-        channelProfile = new StringFilterGroup(
-                Settings.HIDE_VISIT_STORE_BUTTON,
-                "channel_profile.eml",
-                "page_header.eml"
-        );
-
-        visitStoreButton = new ByteArrayFilterGroup(
-                null,
-                "header_store_button"
         );
 
         final var webLinkPanel = new StringFilterGroup(
@@ -161,7 +142,6 @@ public final class AdsFilter extends Filter {
         );
 
         addPathCallbacks(
-                channelProfile,
                 fullscreenAd,
                 generalAds,
                 merchandise,
@@ -169,7 +149,6 @@ public final class AdsFilter extends Filter {
                 playerShoppingShelf,
                 selfSponsor,
                 shoppingLinks,
-                storeProductsShelf,
                 viewProducts,
                 webLinkPanel
         );
@@ -182,11 +161,6 @@ public final class AdsFilter extends Filter {
             return contentIndex == 0 && playerShoppingShelfBuffer.check(protobufBufferArray).isFiltered();
         }
 
-        // Check for the index because of likelihood of false positives.
-        if (contentIndex != 0 && matchedGroup == shoppingLinks) {
-            return false;
-        }
-
         if (exceptions.matches(path)) {
             return false;
         }
@@ -196,10 +170,6 @@ public final class AdsFilter extends Filter {
 
             // Do not actually filter the fullscreen ad otherwise it will leave a dimmed screen.
             return false;
-        }
-
-        if (matchedGroup == channelProfile) {
-            return visitStoreButton.check(protobufBufferArray).isFiltered();
         }
 
         return true;

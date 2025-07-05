@@ -1,43 +1,83 @@
 package app.revanced.patches.youtube.layout.branding.header
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.patcher.util.Document
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.forEachLiteralValueInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import java.io.File
 
-private const val HEADER_FILE_NAME = "yt_wordmark_header"
-private const val PREMIUM_HEADER_FILE_NAME = "yt_premium_wordmark_header"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/ChangeHeaderPatch;"
 
-private const val HEADER_OPTION = "header*"
-private const val PREMIUM_HEADER_OPTION = "premium*header"
-private const val REVANCED_HEADER_OPTION = "revanced*"
-private const val REVANCED_BORDERLESS_HEADER_OPTION = "revanced*borderless"
+private val changeHeaderBytecodePatch = bytecodePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        arrayOf(
+            "ytWordmarkHeader",
+            "ytPremiumWordmarkHeader"
+        ).forEach { resourceName ->
+            val resourceId = resourceMappings["attr", resourceName]
+
+            forEachLiteralValueInstruction(resourceId) { literalIndex ->
+                val register = getInstruction<OneRegisterInstruction>(literalIndex).registerA
+                addInstructions(
+                    literalIndex + 1,
+                    """
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getHeaderAttributeId(I)I
+                        move-result v$register    
+                    """
+                )
+            }
+        }
+    }
+}
 
 private val targetResourceDirectoryNames = mapOf(
     "xxxhdpi" to "512px x 192px",
     "xxhdpi" to "387px x 144px",
     "xhdpi" to "258px x 96px",
     "hdpi" to "194px x 72px",
-    "mdpi" to "129px x 48px",
-).map { (dpi, dim) ->
-    "drawable-$dpi" to dim
-}.toMap()
+    "mdpi" to "129px x 48px"
+).mapKeys { (dpi, _) -> "drawable-$dpi" }
 
 private val variants = arrayOf("light", "dark")
+
+/**
+ * Header logos built into this patch.
+ */
+private val logoResourceNames = arrayOf(
+    "revanced_header_logo_minimal",
+    "revanced_header_logo",
+)
+
+/**
+ * Custom header resource/file name.
+ */
+private const val CUSTOM_HEADER_RESOURCE_NAME = "custom_header"
 
 @Suppress("unused")
 val changeHeaderPatch = resourcePatch(
     name = "Change header",
-    description = "Applies a custom header in the top left corner within the app. Defaults to the ReVanced header.",
-    use = false,
+    description = "Adds an option to change the header logo in the top left corner of the app.",
 ) {
-    dependsOn(versionCheckPatch)
+    dependsOn(addResourcesPatch, changeHeaderBytecodePatch)
 
     compatibleWith(
         "com.google.android.youtube"(
@@ -50,85 +90,46 @@ val changeHeaderPatch = resourcePatch(
         )
     )
 
-    val header by stringOption(
-        key = "header",
-        default = REVANCED_BORDERLESS_HEADER_OPTION,
-        values = mapOf(
-            "YouTube" to HEADER_OPTION,
-            "YouTube Premium" to PREMIUM_HEADER_OPTION,
-            "ReVanced" to REVANCED_HEADER_OPTION,
-            "ReVanced (borderless logo)" to REVANCED_BORDERLESS_HEADER_OPTION,
-        ),
-        title = "Header",
+    val custom by stringOption(
+        key = "custom",
+        title = "Custom header logo",
         description = """
-            The header to apply to the app.
+            Folder with images to use as a custom header logo.
             
-            If a path to a folder is provided, the folder must contain one or more of the following folders, depending on the DPI of the device:
-            
+            The folder must contain one or more of the following folders, depending on the DPI of the device:
             ${targetResourceDirectoryNames.keys.joinToString("\n") { "- $it" }}
             
             Each of the folders must contain all of the following files:
-            
-            ${variants.joinToString("\n") { variant -> "- ${HEADER_FILE_NAME}_$variant.png" }}
+            ${variants.joinToString("\n") { variant -> "- ${CUSTOM_HEADER_RESOURCE_NAME}_$variant.png" }}
 
             The image dimensions must be as follows:
             ${targetResourceDirectoryNames.map { (dpi, dim) -> "- $dpi: $dim" }.joinToString("\n")}
-        """.trimIndentMultiline(),
-        required = true,
+        """.trimIndentMultiline()
     )
 
     execute {
-        // The directories to copy the header to.
-        val targetResourceDirectories = targetResourceDirectoryNames.keys.mapNotNull {
-            get("res").resolve(it).takeIf(File::exists)
-        }
-        // The files to replace in the target directories.
-        val targetResourceFiles = targetResourceDirectoryNames.keys.map { directoryName ->
-            ResourceGroup(
-                directoryName,
-                *variants.map { variant -> "${HEADER_FILE_NAME}_$variant.png" }.toTypedArray(),
-            )
-        }
+        addResources("youtube", "layout.branding.changeHeaderPatch")
 
-        /**
-         * A function that overwrites both header variants in the target resource directories.
-         */
-        fun overwriteFromTo(from: String, to: String) {
-            targetResourceDirectories.forEach { directory ->
-                variants.forEach { variant ->
-                    val fromPath = directory.resolve("${from}_$variant.png")
-                    val toPath = directory.resolve("${to}_$variant.png")
+        fun getLightDarkFileNames(vararg resourceNames: String): Array<String> =
+            variants.flatMap { variant ->
+                resourceNames.map { resource -> "${resource}_$variant.png" }
+            }.toTypedArray()
 
-                    fromPath.copyTo(toPath, true)
-                }
-            }
-        }
+        val logoResourceFileNames = getLightDarkFileNames(*logoResourceNames)
+        copyResources(
+            "change-header",
+            ResourceGroup("drawable-hdpi", *logoResourceFileNames),
+            ResourceGroup("drawable-mdpi", *logoResourceFileNames),
+            ResourceGroup("drawable-xhdpi", *logoResourceFileNames),
+            ResourceGroup("drawable-xxhdpi", *logoResourceFileNames),
+            ResourceGroup("drawable-xxxhdpi", *logoResourceFileNames),
+        )
 
-        // Functions to overwrite the header to the different variants.
-        fun toPremium() { overwriteFromTo(PREMIUM_HEADER_FILE_NAME, HEADER_FILE_NAME) }
-        fun toHeader() { overwriteFromTo(HEADER_FILE_NAME, PREMIUM_HEADER_FILE_NAME) }
-        fun toReVanced() {
-            // Copy the ReVanced header to the resource directories.
-            targetResourceFiles.forEach { copyResources("change-header/revanced", it) }
+        if (custom != null) {
+            val sourceFolders = File(custom!!).listFiles { file -> file.isDirectory }
+                ?: throw PatchException("The provided path is not a directory: $custom")
 
-            // Overwrite the premium with the custom header as well.
-            toHeader()
-        }
-        fun toReVancedBorderless() {
-            // Copy the ReVanced borderless header to the resource directories.
-            targetResourceFiles.forEach {
-                copyResources(
-                    "change-header/revanced-borderless",
-                    it
-                )
-            }
-
-            // Overwrite the premium with the custom header as well.
-            toHeader()
-        }
-        fun toCustom() {
-            val sourceFolders = File(header!!).listFiles { file -> file.isDirectory }
-                ?: throw PatchException("The provided path is not a directory: $header")
+            val customResourceFileNames = getLightDarkFileNames(CUSTOM_HEADER_RESOURCE_NAME)
 
             var copiedFiles = false
 
@@ -137,62 +138,87 @@ val changeHeaderPatch = resourcePatch(
                 val targetDpiFolder = get("res").resolve(dpiSourceFolder.name)
                 if (!targetDpiFolder.exists()) return@forEach
 
-                val imgSourceFiles = dpiSourceFolder.listFiles { file -> file.isFile }!!
-                imgSourceFiles.forEach { imgSourceFile ->
+                val customFiles = dpiSourceFolder.listFiles { file ->
+                    file.isFile && file.name in customResourceFileNames
+                }!!
+
+                if (customFiles.size > 0 && customFiles.size != variants.size) {
+                    throw PatchException("Both light/dark mode images " +
+                                "must be specified but only found: " + customFiles.map { it.name })
+                }
+
+                customFiles.forEach { imgSourceFile ->
                     val imgTargetFile = targetDpiFolder.resolve(imgSourceFile.name)
-                    imgSourceFile.copyTo(imgTargetFile, true)
+                    imgSourceFile.copyTo(imgTargetFile)
 
                     copiedFiles = true
                 }
             }
 
             if (!copiedFiles) {
-                throw PatchException("No header files were copied from the provided path: $header.")
+                throw PatchException("No custom header images found in the provided path: $custom")
+            }
+        }
+
+        // Logo is replaced using an attribute reference.
+        document("res/values/attrs.xml").use { document ->
+            val resources = document.childNodes.item(0)
+
+            fun addAttributeReference(logoName: String) {
+                val item = document.createElement("attr")
+                item.setAttribute("format", "reference")
+                item.setAttribute("name", logoName)
+                resources.appendChild(item)
             }
 
-            // Overwrite the premium with the custom header as well.
-            toHeader()
+            logoResourceNames.forEach { logoName ->
+                addAttributeReference(logoName)
+            }
+
+            if (custom != null) {
+                addAttributeReference(CUSTOM_HEADER_RESOURCE_NAME)
+            }
         }
 
-        when (header) {
-            HEADER_OPTION -> toHeader()
-            PREMIUM_HEADER_OPTION -> toPremium()
-            REVANCED_HEADER_OPTION -> toReVanced()
-            REVANCED_BORDERLESS_HEADER_OPTION -> toReVancedBorderless()
-            else -> toCustom()
-        }
+        // Add custom drawables to all styles that use the regular and premium logo.
+        document("res/values/styles.xml").use { document ->
+            arrayOf(
+                "Base.Theme.YouTube.Light" to "light",
+                "Base.Theme.YouTube.Dark" to "dark",
+                "CairoLightThemeRingo2Updates" to "light",
+                "CairoDarkThemeRingo2Updates" to "dark"
+            ).forEach { (style, mode) ->
+                val styleElement = document.childNodes.findElementByAttributeValueOrThrow(
+                    "name", style
+                )
 
-        // Fix 19.25+ A/B layout with different header icons:
-        // yt_ringo2_wordmark_header, yt_ringo2_premium_wordmark_header
-        //
-        // These images are webp and not png, so overwriting them is not so simple.
-        // Instead change styles.xml to use the old drawable resources.
-        if (is_19_25_or_greater) {
-            document("res/values/styles.xml").use { document ->
-                val documentChildNodes = document.childNodes
+                fun addDrawableElement(document: Document, logoName: String, mode: String) {
+                    val item = document.createElement("item")
+                    item.setAttribute("name", logoName)
+                    item.textContent = "@drawable/${logoName}_$mode"
+                    styleElement.appendChild(item)
+                }
 
-                arrayOf(
-                    "CairoLightThemeRingo2Updates" to variants[0],
-                    "CairoDarkThemeRingo2Updates" to variants[1]
-                ).forEach { (styleName, theme) ->
-                    val styleNodes = documentChildNodes.findElementByAttributeValueOrThrow(
-                        "name",
-                        styleName,
-                    ).childNodes
+                logoResourceNames.forEach { logoName ->
+                    addDrawableElement(document, logoName, mode)
+                }
 
-                    val drawable = "@drawable/${HEADER_FILE_NAME}_${theme}"
-
-                    arrayOf(
-                        "ytWordmarkHeader",
-                        "ytPremiumWordmarkHeader"
-                    ).forEach { itemName ->
-                        styleNodes.findElementByAttributeValueOrThrow(
-                            "name",
-                            itemName,
-                        ).textContent = drawable
-                    }
+                if (custom != null) {
+                    addDrawableElement(document, CUSTOM_HEADER_RESOURCE_NAME, mode)
                 }
             }
         }
+
+        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            if (custom == null) {
+                ListPreference("revanced_header_logo")
+            } else {
+                ListPreference(
+                    key = "revanced_header_logo",
+                    entriesKey = "revanced_header_logo_custom_entries",
+                    entryValuesKey = "revanced_header_logo_custom_entry_values"
+                )
+            }
+        )
     }
 }

@@ -156,22 +156,19 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_hide_channel_watermark_summary_on">A Marca D\'Água está escondida</string>
   <string name="revanced_hide_channel_watermark_summary_off">A Marca D\'Água está visível</string>
   <string name="revanced_hide_horizontal_shelves_title">Esconder categorias horizontais</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"As prateleiras estão escondidas, tais como:
-- Notícias de última hora
-- Continuar a ver
-- Explorar mais canais
-- Comprar
-- Ver novamente"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"As prateleiras estão ocultas, como:
+• Notícias de última hora
+• Continuar a assistir
+• Explorar mais canais
+• Mais relevantes
+• Compras
+• Assistir novamente"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Categorias são visíveis</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Ocultar botão \"Participar\"</string>
   <string name="revanced_hide_join_membership_button_summary_on">O botão está escondido</string>
   <string name="revanced_hide_join_membership_button_summary_off">O botão está visível</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Ocultar estante \"Para você\"</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">A prateleira na página do canal está oculta</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">A prateleira na página do canal é mostrada</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Ocultar botão \'Notificar-me\'</string>
@@ -192,15 +189,12 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_hide_timed_reactions_title">Esconder reações cronometradas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reações temporizadas estão escondidas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reações temporizadas são visíveis</string>
-  <string name="revanced_hide_channel_guidelines_title">Esconder diretrizes do canal</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Diretrizes do canal estão escondidas</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Diretrizes do canal são visíveis</string>
   <string name="revanced_hide_chips_shelf_title">Esconder categoria de chips</string>
   <string name="revanced_hide_chips_shelf_summary_on">Categoria de chips está escondida</string>
   <string name="revanced_hide_chips_shelf_summary_off">Categoria de chips está visível</string>
-  <string name="revanced_hide_expandable_chip_title">Ocultar cartão expansível sob os vídeos</string>
-  <string name="revanced_hide_expandable_chip_summary_on">O cartão expansível está oculto</string>
-  <string name="revanced_hide_expandable_chip_summary_off">O cartão expansível é mostrado</string>
+  <string name="revanced_hide_expandable_chip_title">Ocultar cartão expansível</string>
+  <string name="revanced_hide_expandable_chip_summary_on">O cartão expansível sob os vídeos está oculto</string>
+  <string name="revanced_hide_expandable_chip_summary_off">O cartão expansível sob os vídeos está exibido</string>
   <string name="revanced_hide_community_posts_title">Esconder publicações da comunidade</string>
   <string name="revanced_hide_community_posts_summary_on">As postagens da comunidade estão escondidas</string>
   <string name="revanced_hide_community_posts_summary_off">Os posts da comunidade são visíveis</string>
@@ -213,15 +207,9 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_hide_feed_survey_title">Esconder inquéritos</string>
   <string name="revanced_hide_feed_survey_summary_on">Inquéritos estão escondidos</string>
   <string name="revanced_hide_feed_survey_summary_off">Inquéritos são visíveis</string>
-  <string name="revanced_hide_community_guidelines_title">Esconder diretrizes da comunidade</string>
-  <string name="revanced_hide_community_guidelines_summary_on">As diretrizes da comunidade estão escondidas</string>
-  <string name="revanced_hide_community_guidelines_summary_off">As diretrizes da comunidade não estão ocultas</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">Ocultar as diretrizes para subscritores</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">As diretrizes da comunidade de subscritores estão escondidas</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">As diretrizes da comunidade são visíveis</string>
-  <string name="revanced_hide_channel_member_shelf_title">Esconder categoria dos membros do canal</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Categoria de membros do canal escondida</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Categoria dos membros do canal é visível</string>
   <string name="revanced_hide_emergency_box_title">Esconder caixas de emergência</string>
   <string name="revanced_hide_emergency_box_summary_on">Caixas de emergência estão escondidas</string>
   <string name="revanced_hide_emergency_box_summary_off">Caixas de emergência são visíveis</string>
@@ -237,18 +225,18 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_hide_playables_title">Ocultar Reprodução</string>
   <string name="revanced_hide_playables_summary_on">Reproduzíveis estão escondidos</string>
   <string name="revanced_hide_playables_summary_off">Reproduzíveis são visíveis</string>
-  <string name="revanced_hide_quick_actions_title">Esconder ações rápidas em ecrã cheio</string>
-  <string name="revanced_hide_quick_actions_summary_on">Ações rápidas estão escondidas</string>
-  <string name="revanced_hide_quick_actions_summary_off">Ações rápidas são visíveis</string>
-  <string name="revanced_hide_related_videos_title">Esconder vídeos relacionados em ações rápidas</string>
-  <string name="revanced_hide_related_videos_summary_on">Vídeos relacionados são escondidos</string>
-  <string name="revanced_hide_related_videos_summary_off">Vídeos relacionados são exibidos</string>
-  <string name="revanced_hide_image_shelf_title">Ocultar categoria de imagem nos resultados da pesquisa</string>
-  <string name="revanced_hide_image_shelf_summary_on">Categoria de imagem escondida</string>
-  <string name="revanced_hide_image_shelf_summary_off">Categoria de imagem é visível</string>
-  <string name="revanced_hide_latest_posts_ads_title">Esconder as últimas publicações</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Últimas publicações estão escondidas</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Últimas publicações são visíveis</string>
+  <string name="revanced_hide_quick_actions_title">Ocultar ações rápidas</string>
+  <string name="revanced_hide_quick_actions_summary_on">As ações rápidas em tela cheia estão ocultas</string>
+  <string name="revanced_hide_quick_actions_summary_off">As ações rápidas em tela cheia estão exibidas</string>
+  <string name="revanced_hide_related_videos_title">Ocultar vídeos relacionados</string>
+  <string name="revanced_hide_related_videos_summary_on">Os vídeos relacionados nas ações rápidas estão ocultos</string>
+  <string name="revanced_hide_related_videos_summary_off">Os vídeos relacionados nas ações rápidas estão exibidos</string>
+  <string name="revanced_hide_image_shelf_title">Ocultar prateleira de imagens</string>
+  <string name="revanced_hide_image_shelf_summary_on">A prateleira de imagens nos resultados da pesquisa está oculta</string>
+  <string name="revanced_hide_image_shelf_summary_off">A prateleira de imagens nos resultados da pesquisa está exibida</string>
+  <string name="revanced_hide_latest_posts_title">Esconder as últimas publicações</string>
+  <string name="revanced_hide_latest_posts_summary_on">Últimas publicações estão escondidas</string>
+  <string name="revanced_hide_latest_posts_summary_off">Últimas publicações são visíveis</string>
   <string name="revanced_hide_mix_playlists_title">Esconder mistura de playlists</string>
   <string name="revanced_hide_mix_playlists_summary_on">Playlists mistas estão escondidas</string>
   <string name="revanced_hide_mix_playlists_summary_off">Playlists misturadas são visíveis</string>
@@ -298,6 +286,26 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Esconder em vídeos relacionados</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Oculto em vídeos relacionados</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Mostrar em vídeos relacionados</string>
+  <string name="revanced_channel_screen_title">Página do canal</string>
+  <string name="revanced_channel_screen_summary">Ocultar ou exibir componentes da página do canal</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Ocultar estante \"Para você\"</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">A prateleira \"Para você\" está oculta</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">A prateleira \"Para você\" está exibida</string>
+  <string name="revanced_hide_links_preview_title">Ocultar pré-visualização de links</string>
+  <string name="revanced_hide_links_preview_summary_on">A pré-visualização de links está oculta</string>
+  <string name="revanced_hide_links_preview_summary_off">A pré-visualização de links está exibida</string>
+  <string name="revanced_hide_members_shelf_title">Ocultar prateleira de membros</string>
+  <string name="revanced_hide_members_shelf_summary_on">A prateleira de membros está oculta</string>
+  <string name="revanced_hide_members_shelf_summary_off">Prateleira de membros é mostrada</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Ocultar botão \"Visitar comunidade\"</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Botão Visitar comunidade está oculto</string>
+  <string name="revanced_hide_visit_community_button_summary_off">O botão Visitar Comunidade está exibido</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Ocultar o botão \'Visitar loja\' nas páginas do canal</string>
+  <string name="revanced_hide_visit_store_button_summary_on">O botão Visitar loja está oculto</string>
+  <string name="revanced_hide_visit_store_button_summary_off">O botão Visitar loja está exibido</string>
   <string name="revanced_comments_screen_title">Comentários</string>
   <string name="revanced_comments_screen_summary">Esconder ou mostrar componentes da seção de comentários</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Ocultar o resumo do chat da IA</string>
@@ -306,12 +314,18 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_hide_comments_ai_summary_title">Ocultar o resumo dos comentários da IA</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">O resumo dos comentários está oculto</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">O resumo dos comentários está visível</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Ocultar diretrizes do canal</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Diretrizes do canal estão ocultas</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Diretrizes do canal são mostradas</string>
   <string name="revanced_hide_comments_by_members_header_title">Ocultar cabeçalho \'Comentários por membros\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">O cabeçalho Comentários de membros está oculto</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">O cabeçalho Comentários de membros é mostrado</string>
   <string name="revanced_hide_comments_section_title">Esconder seção de comentários</string>
   <string name="revanced_hide_comments_section_summary_on">Seção de comentários está oculta</string>
   <string name="revanced_hide_comments_section_summary_off">Seção de comentários exibida</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Ocultar diretrizes da comunidade</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">As diretrizes da comunidade estão ocultas</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">As diretrizes da comunidade estão exibidas</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Ocultar o botão \'Criar um Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">O botão Criar um Short está oculto</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">O botão Criar um Short é mostrado</string>
@@ -321,7 +335,7 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_hide_comments_thanks_button_title">Ocultar botão Obrigado</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">O botão de agradecimento está escondido</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">O botão Obrigado é visível</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Ocultar o botão de carimbo de data/hora</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Ocultar botão de carimbo de data/hora</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">O botão de carimbo de data/hora está oculto</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">O botão de carimbo de data/hora está visível</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
@@ -377,9 +391,9 @@ Limitações
   <string name="revanced_hide_keyword_toast_invalid_broad">Palavra-chave irá ocultar todos os vídeos: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Ocultar prateleiras da loja do criador</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Prateleiras da loja abaixo do reprodutor e na descrição do vídeo estão ocultas</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">As prateleiras da loja abaixo do reprodutor e na descrição do vídeo são exibidas</string>
+  <string name="revanced_hide_creator_store_shelf_title">Ocultar prateleira da loja do criador</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Prateleira da loja abaixo do reprodutor de vídeo está oculta</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">A prateleira da loja sob o reprodutor de vídeo está exibida</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ocultar banner da loja na tela final</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Banner de Loja está ocultado</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Banner de Loja está visível</string>
@@ -399,20 +413,16 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ"</string>
   <string name="revanced_hide_paid_promotion_label_title">Ocultar rótulo de promoção paga</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">O rótulo de promoção pago está oculto</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Rótulo de promoção pago é mostrado</string>
+  <string name="revanced_hide_self_sponsor_ads_title">Esconder cartões autopatrocinados</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">Cartões auto-patrocinados estão escondidos</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">Cartões auto-patrocinados são visíveis</string>
+  <string name="revanced_hide_shopping_links_title">Ocultar links de compras</string>
+  <string name="revanced_hide_shopping_links_summary_on">Os links na descrição do vídeo estão ocultos</string>
+  <string name="revanced_hide_shopping_links_summary_off">Os links na descrição do vídeo estão exibidos</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Ocultar banner \'Ver produtos\'</string>
   <string name="revanced_hide_view_products_banner_summary_on">Banner na sobreposição de vídeo está oculto</string>
   <string name="revanced_hide_view_products_banner_summary_off">O banner na sobreposição do vídeo é exibido</string>
-  <string name="revanced_hide_self_sponsor_ads_title">Esconder cartões autopatrocinados</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">Cartões auto-patrocinados estão escondidos</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">Cartões auto-patrocinados são visíveis</string>
-  <string name="revanced_hide_tagged_products_title">Ocultar produtos marcados</string>
-  <string name="revanced_hide_tagged_products_summary_on">Produtos marcados na descrição do vídeo estão ocultos</string>
-  <string name="revanced_hide_tagged_products_summary_off">Os produtos marcados na descrição do vídeo são exibidos</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Ocultar o botão \'Visitar loja\' nas páginas do canal</string>
-  <string name="revanced_hide_visit_store_button_summary_on">O botão na página do canal está oculto</string>
-  <string name="revanced_hide_visit_store_button_summary_off">O botão na página do canal é mostrado</string>
   <string name="revanced_hide_web_search_results_title">Esconder resultados da pesquisa web</string>
   <string name="revanced_hide_web_search_results_summary_on">Resultados de pesquisa web estão escondidos</string>
   <string name="revanced_hide_web_search_results_summary_off">Resultados de pesquisa web são visíveis</string>
@@ -1284,9 +1294,9 @@ Miniplayer có thể được kéo ra khỏi màn hình sang trái hoặc phải
   <string name="revanced_gradient_loading_screen_title">Ativar ecrã de carregamento do gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_on">Carregar ecrã terá um fundo em gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_off">Carregar ecrã terá um fundo sólido</string>
-  <string name="splash_screen_animation_style_title">Estilo da tela inicial</string>
-  <string name="splash_screen_animation_style_entry_1">Cor</string>
-  <string name="splash_screen_animation_style_entry_2">Preto e branco</string>
+  <string name="revanced_splash_screen_animation_style_title">Estilo da tela inicial</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Cor</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Preto e branco</string>
   <string name="revanced_seekbar_custom_color_title">Ativar a cor personalizada</string>
   <string name="revanced_seekbar_custom_color_summary_on">Cor personalizada da barra de busca é visível</string>
   <string name="revanced_seekbar_custom_color_summary_off">Cor original da barra de busca é visível</string>

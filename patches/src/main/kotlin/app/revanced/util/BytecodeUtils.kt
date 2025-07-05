@@ -355,7 +355,7 @@ fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Float): Int {
  * @see indexOfFirstLiteralInstructionOrThrow
  */
 fun Method.indexOfFirstLiteralInstruction(literal: Double) =
-    indexOfFirstLiteralInstruction(literal.toRawBits().toLong())
+    indexOfFirstLiteralInstruction(literal.toRawBits())
 
 /**
  * Find the index of the first literal instruction with the given double value,
@@ -421,7 +421,7 @@ fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Float): Int {
  * @see indexOfFirstLiteralInstructionOrThrow
  */
 fun Method.indexOfFirstLiteralInstructionReversed(literal: Double) =
-    indexOfFirstLiteralInstructionReversed(literal.toRawBits().toLong())
+    indexOfFirstLiteralInstructionReversed(literal.toRawBits())
 
 /**
  * Find the index of the last wide literal instruction with the given double value,
@@ -715,24 +715,50 @@ internal fun MutableMethod.insertLiteralOverride(literal: Long, override: Boolea
 }
 
 /**
- * Called for _all_ instructions with the given literal value.
+ * Called for _all_ methods with the given literal value.
+ * Method indices are iterated from last to first.
  */
 fun BytecodePatchContext.forEachLiteralValueInstruction(
     literal: Long,
-    block: MutableMethod.(literalInstructionIndex: Int) -> Unit,
+    block: MutableMethod.(matchingIndex: Int) -> Unit,
 ) {
+    val matchingIndexes = ArrayList<Int>()
+
     classes.forEach { classDef ->
         classDef.methods.forEach { method ->
-            method.implementation?.instructions?.forEachIndexed { index, instruction ->
-                if (instruction.opcode == CONST &&
-                    (instruction as WideLiteralInstruction).wideLiteral == literal
-                ) {
+            method.implementation?.instructions?.let { instructions ->
+                matchingIndexes.clear()
+
+                instructions.forEachIndexed { index, instruction ->
+                    if ((instruction as? WideLiteralInstruction)?.wideLiteral == literal) {
+                        matchingIndexes.add(index)
+                    }
+                }
+
+                if (matchingIndexes.isNotEmpty()) {
                     val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)
-                    block.invoke(mutableMethod, index)
+
+                    // FIXME: Until patcher V22 is merged, this workaround is needed
+                    //        because if multiple patches modify the same class
+                    //        then after modifying the method indexes of immutable classes
+                    //        are no longer correct.
+                    matchingIndexes.clear()
+                    mutableMethod.instructions.forEachIndexed { index, instruction ->
+                        if ((instruction as? WideLiteralInstruction)?.wideLiteral == literal) {
+                            matchingIndexes.add(index)
+                        }
+                    }
+                    if (matchingIndexes.isEmpty()) return@forEach
+                    // FIXME Remove code above after V22 merge.
+
+                    matchingIndexes.asReversed().forEach { index ->
+                        block.invoke(mutableMethod, index)
+                    }
                 }
             }
         }
     }
+
 }
 
 private const val RETURN_TYPE_MISMATCH = "Mismatch between override type and Method return type"

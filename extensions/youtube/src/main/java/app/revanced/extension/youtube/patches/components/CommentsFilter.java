@@ -7,13 +7,28 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings("unused")
 final class CommentsFilter extends Filter {
 
-    private final StringFilterGroup filterChipBar;
+    private final StringFilterGroup chipBar;
     private final ByteArrayFilterGroup aiCommentsSummary;
     
     public CommentsFilter() {
         var chatSummary = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_AI_CHAT_SUMMARY,
                 "live_chat_summary_banner.eml"
+        );
+
+        chipBar = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_AI_SUMMARY,
+                "chip_bar.eml"
+        );
+
+        aiCommentsSummary = new ByteArrayFilterGroup(
+                null,
+                "yt_fill_spark_"
+        );
+
+        var channelGuidelines = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_CHANNEL_GUIDELINES,
+                "channel_guidelines_entry_banner"
         );
 
         var commentsByMembers = new StringFilterGroup(
@@ -26,6 +41,11 @@ final class CommentsFilter extends Filter {
                 Settings.HIDE_COMMENTS_SECTION,
                 "video_metadata_carousel",
                 "_comments"
+        );
+
+        var communityGuidelines = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_COMMUNITY_GUIDELINES,
+                "community_guidelines"
         );
 
         var createAShort = new StringFilterGroup(
@@ -50,32 +70,25 @@ final class CommentsFilter extends Filter {
                 "composer_timestamp_button.eml"
         );
 
-        filterChipBar = new StringFilterGroup(
-                Settings.HIDE_COMMENTS_AI_SUMMARY,
-                "chip_bar.eml"
-        );
-
-        aiCommentsSummary = new ByteArrayFilterGroup(
-                null,
-                "yt_fill_spark_"
-        );
-
         addPathCallbacks(
+                channelGuidelines,
                 chatSummary,
+                chipBar,
                 commentsByMembers,
                 comments,
+                communityGuidelines,
                 createAShort,
                 previewComment,
                 thanksButton,
-                timestampButton,
-                filterChipBar
+                timestampButton
+
         );
     }
 
     @Override
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (matchedGroup == filterChipBar) {
+        if (matchedGroup == chipBar) {
             return aiCommentsSummary.check(protobufBufferArray).isFiltered();
         }
 

@@ -12,7 +12,7 @@ import app.revanced.patches.soundcloud.shared.featureConstructorFingerprint
 val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
 ) {
-    compatibleWith("com.soundcloud.android")
+    compatibleWith("com.soundcloud.android"("2025.05.27-release"))
 
     execute {
         // Enable a preset feature to disable audio ads by modifying the JSON server response.

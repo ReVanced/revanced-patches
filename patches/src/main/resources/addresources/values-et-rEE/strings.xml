@@ -156,22 +156,13 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_channel_watermark_summary_on">Kanali vesimärk on peidetud</string>
   <string name="revanced_hide_channel_watermark_summary_off">Kanali vesimärk on nähtav</string>
   <string name="revanced_hide_horizontal_shelves_title">Peida horisontaalsed riiulid</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Riiulid on peidetud, näiteks:
-• Uudised
-• Jätka vaatamist
-• Avasta rohkem kanaleid
-• Ostud
-• Vaata uuesti"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Riiulid on peidetud, näiteks:\n• Värsked uudised\n• Jätka vaatamist\n• Uuri rohkem kanaleid\n• Kõige asjakohasem\n• Ostlemine\n• Vaata uuesti"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Näidatud on riiulid</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Peida Liitu nupp</string>
   <string name="revanced_hide_join_membership_button_summary_on">Nupp on peidetud</string>
   <string name="revanced_hide_join_membership_button_summary_off">Ära näidatakse nuppu</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Peida \"Sulle\" riiul</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Riiul kanali lehel on peidetud</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Riiul kanali lehel on kuvatud</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Peida nupu \"Teata mulle\"</string>
@@ -192,15 +183,12 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_timed_reactions_title">Peida ajastatud reaktsioonid</string>
   <string name="revanced_hide_timed_reactions_summary_on">Ajastatud reaktsioonid on peidetud</string>
   <string name="revanced_hide_timed_reactions_summary_off">Ajastatud reaktsioonid on nähtavad</string>
-  <string name="revanced_hide_channel_guidelines_title">Vihjeleid ei kuvata</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Vihjeleid on peidetud</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Vihjeleid on nähtavad</string>
   <string name="revanced_hide_chips_shelf_title">Peida kiibi riiul</string>
   <string name="revanced_hide_chips_shelf_summary_on">Kiibid on peidetud</string>
   <string name="revanced_hide_chips_shelf_summary_off">Kiipe on nähtaval</string>
-  <string name="revanced_hide_expandable_chip_title">Peida laiendatava kaart videote all</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Laiendatav kaart on peidetud</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Laiendatav kaart on kuvatud</string>
+  <string name="revanced_hide_expandable_chip_title">Peida laiendatav kaart</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Laiendatav kaart videote all on peidetud</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Laiendatav kaart videote all on nähtav</string>
   <string name="revanced_hide_community_posts_title">Peida ühenduse postitused</string>
   <string name="revanced_hide_community_posts_summary_on">Ühenduse postitused on peidetud</string>
   <string name="revanced_hide_community_posts_summary_off">Ühenduse postitused on nähtavad</string>
@@ -213,15 +201,9 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_feed_survey_title">Peida kanalite küsitlused</string>
   <string name="revanced_hide_feed_survey_summary_on">Kanalite küsitlused on peidetud</string>
   <string name="revanced_hide_feed_survey_summary_off">Kanalite küsitlused on nähtavad</string>
-  <string name="revanced_hide_community_guidelines_title">Peida kogukonna juhised</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Kogukonna juhised on peidetud</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Kogukonna juhised on kuvatud</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">Peida tellijate juhised</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Tellijate kogukonna juhised on peidetud</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Tellijate kogukonna juhised on kuvatud</string>
-  <string name="revanced_hide_channel_member_shelf_title">Peida kanaliliikmete riiul</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Kanali liikmete riiul on peidetud</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Kuvatakse kanaliliikmete riiul</string>
   <string name="revanced_hide_emergency_box_title">Peida eriolukastid</string>
   <string name="revanced_hide_emergency_box_summary_on">Eriolukastid on peidetud</string>
   <string name="revanced_hide_emergency_box_summary_off">Eriolukastid on nähtav</string>
@@ -237,18 +219,18 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_playables_title">Peida Playables</string>
   <string name="revanced_hide_playables_summary_on">Playables on varjatud</string>
   <string name="revanced_hide_playables_summary_off">Playables on kuvatud</string>
-  <string name="revanced_hide_quick_actions_title">Peida kiired toimingud täisekraanil</string>
-  <string name="revanced_hide_quick_actions_summary_on">Kiired toimingud on varjatud</string>
-  <string name="revanced_hide_quick_actions_summary_off">Kiired toimingud on kuvatud</string>
-  <string name="revanced_hide_related_videos_title">Peida seotud videod kiirtoimingutega</string>
-  <string name="revanced_hide_related_videos_summary_on">Seotud videod on peidetud</string>
-  <string name="revanced_hide_related_videos_summary_off">Seotud videod on kuvatud</string>
-  <string name="revanced_hide_image_shelf_title">Peida otsingutulemustes pildiriiul</string>
-  <string name="revanced_hide_image_shelf_summary_on">Pildiriiul on peidetud</string>
-  <string name="revanced_hide_image_shelf_summary_off">Pildiriiul on kuvatud</string>
-  <string name="revanced_hide_latest_posts_ads_title">Peida Shortsid</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Shortsid on peidetud</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Shortsid on nähtavad</string>
+  <string name="revanced_hide_quick_actions_title">Peida kiirtoimingud</string>
+  <string name="revanced_hide_quick_actions_summary_on">Kiirtoimingud täisekraanil on peidetud</string>
+  <string name="revanced_hide_quick_actions_summary_off">Kiirtoimingud täisekraanil on nähtavad</string>
+  <string name="revanced_hide_related_videos_title">Peida seotud videod</string>
+  <string name="revanced_hide_related_videos_summary_on">Seotud videod kiirtoimingutes on peidetud</string>
+  <string name="revanced_hide_related_videos_summary_off">Seotud videod kiirtoimingutes on nähtavad</string>
+  <string name="revanced_hide_image_shelf_title">Peida pildiriiul</string>
+  <string name="revanced_hide_image_shelf_summary_on">Pildiriiul otsingutulemustes on peidetud</string>
+  <string name="revanced_hide_image_shelf_summary_off">Pildiriiul otsingutulemustes on nähtav</string>
+  <string name="revanced_hide_latest_posts_title">Peida Shortsid</string>
+  <string name="revanced_hide_latest_posts_summary_on">Shortsid on peidetud</string>
+  <string name="revanced_hide_latest_posts_summary_off">Shortsid on nähtavad</string>
   <string name="revanced_hide_mix_playlists_title">Peida segapleilistid</string>
   <string name="revanced_hide_mix_playlists_summary_on">Segapleilistid on peidetud</string>
   <string name="revanced_hide_mix_playlists_summary_off">Segapleilistid on nähtavad</string>
@@ -298,6 +280,26 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Peida seotud videotes</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Peidetud seotud videotes</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näidatakse seotud videotes</string>
+  <string name="revanced_channel_screen_title">Kanali leht</string>
+  <string name="revanced_channel_screen_summary">Peida või näita kanali lehe komponente</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Peida \"Sulle\" riiul</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Sulle mõeldud riiul on peidetud</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Sulle mõeldud riiul on nähtav</string>
+  <string name="revanced_hide_links_preview_title">Peida linkide eelvaade</string>
+  <string name="revanced_hide_links_preview_summary_on">Linkide eelvaade on peidetud</string>
+  <string name="revanced_hide_links_preview_summary_off">Linkide eelvaade on nähtav</string>
+  <string name="revanced_hide_members_shelf_title">Peida liikmete riiul</string>
+  <string name="revanced_hide_members_shelf_summary_on">Liikmete riiul on peidetud</string>
+  <string name="revanced_hide_members_shelf_summary_off">Liikmete riiul on nähtav</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Peida \"Külasta kogukonda\" nupp</string>
+  <string name="revanced_hide_visit_community_button_summary_on">\"Külasta kogukonda\" nupp on peidetud</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Nupp \"Külasta kogukonda\" on nähtav</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Peida kanali lehelt nuppu \"Külasta poodi\"</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Nupp \"Külasta poodi\" on peidetud</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Nupp \"Külasta poodi\" on nähtav</string>
   <string name="revanced_comments_screen_title">Kommentaarid</string>
   <string name="revanced_comments_screen_summary">Peida või kuva kommentaaride sektsiooni komponendid</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Peida tehisintellekti vestluse kokkuv\u00f5te</string>
@@ -306,12 +308,18 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_comments_ai_summary_title">Peida tehisintellekti kommentaaride kokkuv\u00f5te</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Kommentaaride kokkuv\u00f5te on peidetud</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Kommentaaride kokkuv\u00f5te on n\u00e4idatud</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Peida kanali juhised</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanali juhised on peidetud</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanali juhised on nähtaval</string>
   <string name="revanced_hide_comments_by_members_header_title">Peida päis \'Liikmete kommentaarid\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Liikmete kommentaaride päis on peidetud</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Liikmete kommentaaride päis on kuvatud</string>
   <string name="revanced_hide_comments_section_title">Peida kommentaaride jaotis</string>
   <string name="revanced_hide_comments_section_summary_on">Kommentaaride jaotis on peidetud</string>
   <string name="revanced_hide_comments_section_summary_off">Kommentaaride jaotis on näidatud</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Peida kogukonna juhised</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Kogukonna juhised on peidetud</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Kogukonna juhised on nähtavad</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Peida nupp \"Loo lühis\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Nupp Loo lühivideo on peidetud</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Nupp Loo lühivideo on kuvatud</string>
@@ -377,9 +385,9 @@ Piirangud
   <string name="revanced_hide_keyword_toast_invalid_broad">Võti sõna: %s peidab kõik videod</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Peida looja poeriiulid</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Mängija all ja videokirjelduses olevad poeriiulid on peidetud</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Poeriiulid mängija all ja videokirjelduses on näha</string>
+  <string name="revanced_hide_creator_store_shelf_title">Peida looja poe riiul</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Poe riiul videopleieri all on peidetud</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Poe riiul videopleieri all on nähtav</string>
   <string name="revanced_hide_end_screen_store_banner_title">Peida lõpuekraani poe bänner</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Poebanner on peidetud</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Poebanner on nähtav</string>
@@ -399,20 +407,16 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_hide_paid_promotion_label_title">Peida makstud edendamise silt</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Makstud edendamise silt on peidus</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Makstud edendamise silt on näidatud</string>
+  <string name="revanced_hide_self_sponsor_ads_title">Peida ise-sponsoritud kaardid</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">Ise-sponsoritud kaardid on peidus</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">Ise-sponsoritud kaardid on näidatud</string>
+  <string name="revanced_hide_shopping_links_title">Peida ostulingid</string>
+  <string name="revanced_hide_shopping_links_summary_on">Lingid video kirjelduses on peidetud</string>
+  <string name="revanced_hide_shopping_links_summary_off">Lingid video kirjelduses on nähtavad</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Peida bänner \"Vaata tooteid\"</string>
   <string name="revanced_hide_view_products_banner_summary_on">Video ülekatte bänner on peidetud</string>
   <string name="revanced_hide_view_products_banner_summary_off">Bänner videokatte all on näha</string>
-  <string name="revanced_hide_self_sponsor_ads_title">Peida ise-sponsoritud kaardid</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">Ise-sponsoritud kaardid on peidus</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">Ise-sponsoritud kaardid on näidatud</string>
-  <string name="revanced_hide_tagged_products_title">Peida märgistatud tooted</string>
-  <string name="revanced_hide_tagged_products_summary_on">Videokirjelduses olevad märgistatud tooted on peidetud</string>
-  <string name="revanced_hide_tagged_products_summary_off">Märgistatud tooted videokirjelduses on näha</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Peida kanali lehelt nuppu \"Külasta poodi\"</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Nupp kanali lehel on peidetud</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Nupp kanali lehel on kuvatud</string>
   <string name="revanced_hide_web_search_results_title">Peida veebiotsingu tulemused</string>
   <string name="revanced_hide_web_search_results_summary_on">Veebiotsingu tulemused on peidetud</string>
   <string name="revanced_hide_web_search_results_summary_off">Veebiotsingu tulemused on nähtavad</string>
@@ -1284,9 +1288,9 @@ Minimaalset mängijat saab lohistada ekraanilt vasakule või paremale"</string>
   <string name="revanced_gradient_loading_screen_title">Lülita gradientega laadimiskuva sisse</string>
   <string name="revanced_gradient_loading_screen_summary_on">Laadimiskuval on gradientega taust</string>
   <string name="revanced_gradient_loading_screen_summary_off">Laadimiskuval on tahke taust</string>
-  <string name="splash_screen_animation_style_title">Sissejuhatava ekraani stiil</string>
-  <string name="splash_screen_animation_style_entry_1">Värv</string>
-  <string name="splash_screen_animation_style_entry_2">Mustvalge</string>
+  <string name="revanced_splash_screen_animation_style_title">Sissejuhatava ekraani stiil</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Värv</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Mustvalge</string>
   <string name="revanced_seekbar_custom_color_title">Lülita kohandatud edastusriba värv sisse</string>
   <string name="revanced_seekbar_custom_color_summary_on">Kohandatud edastusriba värv on nähtav</string>
   <string name="revanced_seekbar_custom_color_summary_off">Originaal edastusriba värv on nähtav</string>
