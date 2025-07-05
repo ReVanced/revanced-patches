@@ -190,16 +190,15 @@
                  (YouTube closes the animation as soon as the feed is loaded),
                  only the 60fps 1 second styles are exposed in the settings.
                  Imported settings data can still be manually edited to force the other styles. -->
-            <string-array name="splash_screen_animation_style_entries">
-                <item>@string/splash_screen_animation_style_entry_1</item>
-                <item>@string/splash_screen_animation_style_entry_2</item>
+            <string-array name="revanced_splash_screen_animation_style_entries">
+                <item>@string/revanced_splash_screen_animation_style_entry_1</item>
+                <item>@string/revanced_splash_screen_animation_style_entry_2</item>
             </string-array>
-            <string-array name="splash_screen_animation_style_entry_values">
+            <string-array name="revanced_splash_screen_animation_style_entry_values">
                 <item>FPS_60_ONE_SECOND</item>
                 <item>FPS_60_BLACK_AND_WHITE</item>
             </string-array>
         </patch>
-
         <patch id="layout.player.fullscreen.exitFullscreenPatch">
             <string-array name="revanced_exit_fullscreen_entries">
                 <item>@string/revanced_exit_fullscreen_entry_1</item>
@@ -268,6 +267,38 @@
                 <item>MODERN_1</item>
                 <item>MODERN_2</item>
                 <item>MODERN_3</item>
+            </string-array>
+        </patch>
+        <patch id="layout.branding.changeHeaderPatch">
+            <string-array name="revanced_header_logo_entries">
+                <item>@string/revanced_header_logo_entry_1</item>
+                <item>@string/revanced_header_logo_entry_2</item>
+                <item>@string/revanced_header_logo_entry_3</item>
+                <item>@string/revanced_header_logo_entry_4</item>
+                <item>@string/revanced_header_logo_entry_5</item>
+            </string-array>
+            <string-array name="revanced_header_logo_entry_values">
+                <item>DEFAULT</item>
+                <item>REGULAR</item>
+                <item>PREMIUM</item>
+                <item>REVANCED</item>
+                <item>REVANCED_MINIMAL</item>
+            </string-array>
+            <string-array name="revanced_header_logo_custom_entries">
+                <item>@string/revanced_header_logo_entry_1</item>
+                <item>@string/revanced_header_logo_entry_2</item>
+                <item>@string/revanced_header_logo_entry_3</item>
+                <item>@string/revanced_header_logo_entry_4</item>
+                <item>@string/revanced_header_logo_entry_5</item>
+                <item>@string/revanced_header_logo_entry_6</item>
+            </string-array>
+            <string-array name="revanced_header_logo_custom_entry_values">
+                <item>DEFAULT</item>
+                <item>REGULAR</item>
+                <item>PREMIUM</item>
+                <item>REVANCED</item>
+                <item>REVANCED_MINIMAL</item>
+                <item>CUSTOM</item>
             </string-array>
         </patch>
         <patch id="layout.startpage.changeStartPagePatch">

@@ -222,7 +222,7 @@ val themePatch = bytecodePatch(
 
         if (is_19_47_or_greater) {
             PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-                ListPreference("splash_screen_animation_style")
+                ListPreference("revanced_splash_screen_animation_style")
             )
         }
 

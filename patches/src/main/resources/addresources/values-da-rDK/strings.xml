@@ -156,22 +156,13 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_channel_watermark_summary_on">Vandmærke er skjult</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vandmærke er vist</string>
   <string name="revanced_hide_horizontal_shelves_title">Skjul vandrette hylder</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Hylder er skjult, f.eks.:
-• Seneste nyheder
-• Fortsæt med at se
-• Udforsk flere kanaler
-• Shopping
-• Se igen"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Hylder er skjult, såsom:\n• Seneste nyheder\n• Fortsæt med at se\n• Udforsk flere kanaler\n• Mest relevante\n• Shopping\n• Se igen"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Hylder er vist</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Skjul knappen \"Deltag\"</string>
   <string name="revanced_hide_join_membership_button_summary_on">Knappen er skjult</string>
   <string name="revanced_hide_join_membership_button_summary_off">Knappen er vist</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Skjul hylden \"Til dig\"</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Hylde på kanalsiden er skjult</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Hylde på kanalsiden vises</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Skjul knappen \'Underret mig\'</string>
@@ -192,15 +183,12 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_timed_reactions_title">Skjul tidsreaktioner</string>
   <string name="revanced_hide_timed_reactions_summary_on">Tidsreaktioner skjules</string>
   <string name="revanced_hide_timed_reactions_summary_off">Tidsreaktioner vises</string>
-  <string name="revanced_hide_channel_guidelines_title">Skjul kanalretningslinjer</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Kanalretningslinjer er skjult</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Kanalretningslinjer er vist</string>
   <string name="revanced_hide_chips_shelf_title">Skjul chips hylde</string>
   <string name="revanced_hide_chips_shelf_summary_on">Chips hylde er skjult</string>
   <string name="revanced_hide_chips_shelf_summary_off">Chips hylde er vist</string>
-  <string name="revanced_hide_expandable_chip_title">Skjul udvidelige kort under videoer</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Udvidelseskort er skjult</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Udvidelseskort vises</string>
+  <string name="revanced_hide_expandable_chip_title">Skjul udvideligt kort</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Udvideligt kort under videoer er skjult</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Udvideligt kort under videoer er vist</string>
   <string name="revanced_hide_community_posts_title">Skjul fællesskabs indlæg</string>
   <string name="revanced_hide_community_posts_summary_on">Fællesskabs indlæg er skjult</string>
   <string name="revanced_hide_community_posts_summary_off">Fællesskabs indlæg er vist</string>
@@ -213,15 +201,9 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_feed_survey_title">Skjul feed-undersøgelser</string>
   <string name="revanced_hide_feed_survey_summary_on">Foderundersøgelser er skjult</string>
   <string name="revanced_hide_feed_survey_summary_off">Foderundersøgelser er vist</string>
-  <string name="revanced_hide_community_guidelines_title">Skjul fællesskabs retningslinjer</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Fællesskabets retningslinjer er skjult</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Der er opstillet EF-retningslinjer</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">Skjul retningslinjer for abonnenter</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Abonnenter community retningslinjer er skjult</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Abonnenter community retningslinjer er vist</string>
-  <string name="revanced_hide_channel_member_shelf_title">Skjul kanalmedlems hylde</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Kanalmedlems hylde er skjult</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Kanal medlem hylde er vist</string>
   <string name="revanced_hide_emergency_box_title">Skjul nødbokse</string>
   <string name="revanced_hide_emergency_box_summary_on">Nødbokse er skjult</string>
   <string name="revanced_hide_emergency_box_summary_off">Nødbokse vises</string>
@@ -237,18 +219,18 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_playables_title">Skjul Spilleobjekter</string>
   <string name="revanced_hide_playables_summary_on">Spilleobjekter er skjult</string>
   <string name="revanced_hide_playables_summary_off">Afspilningstabeller vises</string>
-  <string name="revanced_hide_quick_actions_title">Skjul hurtige handlinger i fuldskærm</string>
-  <string name="revanced_hide_quick_actions_summary_on">Hurtige handlinger er skjult</string>
-  <string name="revanced_hide_quick_actions_summary_off">Hurtige handlinger vises</string>
-  <string name="revanced_hide_related_videos_title">Skjul relaterede videoer i hurtige handlinger</string>
-  <string name="revanced_hide_related_videos_summary_on">Relaterede videoer er skjult</string>
-  <string name="revanced_hide_related_videos_summary_off">Relaterede videoer vises</string>
-  <string name="revanced_hide_image_shelf_title">Skjul billedhylde i søgeresultater</string>
-  <string name="revanced_hide_image_shelf_summary_on">Billede hylde er skjult</string>
-  <string name="revanced_hide_image_shelf_summary_off">Billede hylde er vist</string>
-  <string name="revanced_hide_latest_posts_ads_title">Skjul seneste indlæg</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Seneste indlæg er skjult</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Seneste indlæg vises</string>
+  <string name="revanced_hide_quick_actions_title">Skjul hurtige handlinger</string>
+  <string name="revanced_hide_quick_actions_summary_on">Hurtige handlinger i fuldskærm er skjult</string>
+  <string name="revanced_hide_quick_actions_summary_off">Hurtige handlinger i fuldskærm er vist</string>
+  <string name="revanced_hide_related_videos_title">Skjul relaterede videoer</string>
+  <string name="revanced_hide_related_videos_summary_on">Relaterede videoer i hurtige handlinger er skjult</string>
+  <string name="revanced_hide_related_videos_summary_off">Relaterede videoer i hurtige handlinger er vist</string>
+  <string name="revanced_hide_image_shelf_title">Skjul billedhylde</string>
+  <string name="revanced_hide_image_shelf_summary_on">Billedhylde i søgeresultater er skjult</string>
+  <string name="revanced_hide_image_shelf_summary_off">Billedhylde i søgeresultater er vist</string>
+  <string name="revanced_hide_latest_posts_title">Skjul seneste indlæg</string>
+  <string name="revanced_hide_latest_posts_summary_on">Seneste indlæg er skjult</string>
+  <string name="revanced_hide_latest_posts_summary_off">Seneste indlæg vises</string>
   <string name="revanced_hide_mix_playlists_title">Skjul miks afspilningslister</string>
   <string name="revanced_hide_mix_playlists_summary_on">Mix afspilningslister er skjult</string>
   <string name="revanced_hide_mix_playlists_summary_off">Mix afspilningslister vises</string>
@@ -298,6 +280,26 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Skjul i relaterede videoer</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Skjult i relaterede videoer</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Vist i relaterede videoer</string>
+  <string name="revanced_channel_screen_title">Kanalside</string>
+  <string name="revanced_channel_screen_summary">Skjul eller vis kanalsidekomponenter</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Skjul hylden \"Til dig\"</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Til dig-hylden er skjult</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Til dig-hylden er vist</string>
+  <string name="revanced_hide_links_preview_title">Skjul forhåndsvisning af links</string>
+  <string name="revanced_hide_links_preview_summary_on">Forhåndsvisning af links er skjult</string>
+  <string name="revanced_hide_links_preview_summary_off">Forhåndsvisning af links er vist</string>
+  <string name="revanced_hide_members_shelf_title">Skjul medlemshylden</string>
+  <string name="revanced_hide_members_shelf_summary_on">Medlemshylden er skjult</string>
+  <string name="revanced_hide_members_shelf_summary_off">Medlemsvisning er vist</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Skjul knappen \"Besøg fællesskab\"</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Knappen \"Besøg fællesskab\" er skjult</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Besøg fællesskab-knap er vist</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Skjul knappen \'Besøg butik\' på kanalsider</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Besøg butik-knap er skjult</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Besøg butik-knap er vist</string>
   <string name="revanced_comments_screen_title">Kommentarer</string>
   <string name="revanced_comments_screen_summary">Skjul eller vis kommentarer sektion komponenter</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Skjul AI Chat-oversigt</string>
@@ -306,12 +308,18 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_comments_ai_summary_title">Skjul AI Kommentar-oversigt</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Kommentar-oversigt er skjult</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Kommentar-oversigt er vist</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Skjul kanalretningslinjer</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanalretningslinjer er skjult</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanalretningslinjer er vist</string>
   <string name="revanced_hide_comments_by_members_header_title">Skjul \'Kommentarer fra medlemmer\' header</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Kommentarer fra medlemmers overskrift er skjult</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Kommentarer fra medlemmers overskrift vises</string>
   <string name="revanced_hide_comments_section_title">Skjul kommentarsektion</string>
   <string name="revanced_hide_comments_section_summary_on">Kommentarer sektion er skjult</string>
   <string name="revanced_hide_comments_section_summary_off">Kommentarer sektion er vist</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Skjul fællesskabsretningslinjer</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Fællesskabsretningslinjer er skjult</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Fællesskabsretningslinjer er vist</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Skjul knappen \"Opret en Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Opret en Short knap er skjult</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Opret en Short knap vises</string>
@@ -321,7 +329,7 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_comments_thanks_button_title">Skjul \"Tak\"-knap</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tak knappen er skjult</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tak knappen er vist</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Skjul tidsstempelknap</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Skjul Tidsstempel-knap</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Tidsstempelknappen er skjult</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Tidsstempelknappen vises</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
@@ -377,9 +385,9 @@ Begrænsninger
   <string name="revanced_hide_keyword_toast_invalid_broad">Nøgleord vil skjule alle videoer: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Skjul skaberens butikshylder</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Butikshylder under afspilleren og i videobeskrivelsen er skjult</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Butikshylder under afspilleren og i videobeskrivelsen vises</string>
+  <string name="revanced_hide_creator_store_shelf_title">Skjul butikshylde for skabere</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Butikshylde under videoafspiller er skjult</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Butikshylde under videoafspiller er vist</string>
   <string name="revanced_hide_end_screen_store_banner_title">Skjul banner fra butikken på slutskærmen</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Gem banner skjult</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Gem banner vises</string>
@@ -399,20 +407,16 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_hide_paid_promotion_label_title">Skjul betalt kampagneetiket</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Betalt reklamemærke er skjult</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Betalt salgsfremmende mærke er vist</string>
+  <string name="revanced_hide_self_sponsor_ads_title">Skjul selvsponsorerede kort</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">Selvsponsorerede kort er skjult</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">Selvsponsorerede kort vises</string>
+  <string name="revanced_hide_shopping_links_title">Skjul shopping-links</string>
+  <string name="revanced_hide_shopping_links_summary_on">Links i videobeskrivelsen er skjult</string>
+  <string name="revanced_hide_shopping_links_summary_off">Links i videobeskrivelsen er vist</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Skjul banneret \"Se produkter\"</string>
   <string name="revanced_hide_view_products_banner_summary_on">Banner i video-overlay er skjult</string>
   <string name="revanced_hide_view_products_banner_summary_off">Banner i video-overlay vises</string>
-  <string name="revanced_hide_self_sponsor_ads_title">Skjul selvsponsorerede kort</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">Selvsponsorerede kort er skjult</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">Selvsponsorerede kort vises</string>
-  <string name="revanced_hide_tagged_products_title">Skjul taggede produkter</string>
-  <string name="revanced_hide_tagged_products_summary_on">Taggede produkter i videobeskrivelsen er skjult</string>
-  <string name="revanced_hide_tagged_products_summary_off">Taggere produkter i videobeskrivelsen vises</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Skjul knappen \'Besøg butik\' på kanalsider</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Knap på kanalsiden er skjult</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Knap på kanalsiden vises</string>
   <string name="revanced_hide_web_search_results_title">Skjul søgeresultater</string>
   <string name="revanced_hide_web_search_results_summary_on">Websøgeresultater er skjult</string>
   <string name="revanced_hide_web_search_results_summary_off">Websøgeresultater vises</string>
@@ -1286,9 +1290,9 @@ Miniafspiller kan trækkes ud over skærmen til venstre eller højre"</string>
   <string name="revanced_gradient_loading_screen_title">Aktiver gradient indlæsning af skærmen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Indlæser skærmen vil have en gradient baggrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Indlæser skærmen vil have en solid baggrund</string>
-  <string name="splash_screen_animation_style_title">Splash screens udseende</string>
-  <string name="splash_screen_animation_style_entry_1">Farve</string>
-  <string name="splash_screen_animation_style_entry_2">Sort og hvid</string>
+  <string name="revanced_splash_screen_animation_style_title">Splash screens udseende</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Farve</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Sort og hvid</string>
   <string name="revanced_seekbar_custom_color_title">Aktivér brugerdefineret søgelinjefarve</string>
   <string name="revanced_seekbar_custom_color_summary_on">Brugerdefineret søgelinje farve vises</string>
   <string name="revanced_seekbar_custom_color_summary_off">Original søgelinje farve vises</string>
