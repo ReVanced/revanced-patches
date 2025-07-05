@@ -4,6 +4,7 @@ multi-ecosystem-groups:
     schedule:
       interval: "weekly"
       target-branch: dev
+      labels: [ ]
 
 updates:
   - package-ecosystem: github-actions
