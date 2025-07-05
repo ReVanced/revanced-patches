@@ -1,3 +1,10 @@
+# [5.31.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.4...v5.31.0-dev.5) (2025-07-05)
+
+
+### Features
+
+* **YouTube - Change header:** Add in-app setting to change the app header ([#5346](https://github.com/ReVanced/revanced-patches/issues/5346)) ([9ba45b6](https://github.com/ReVanced/revanced-patches/commit/9ba45b6680595d732b47e8fa54bee98b7c7af179))
+
 # [5.31.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.3...v5.31.0-dev.4) (2025-07-04)
 
 
