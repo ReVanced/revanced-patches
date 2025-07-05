@@ -1386,7 +1386,7 @@ Swipe to expand or close"</string>
             <string name="revanced_header_logo_entry_1">Default</string>
             <string name="revanced_header_logo_entry_2">Regular</string>
             <string name="revanced_header_logo_entry_3">Premium</string>
-            <string name="revanced_header_logo_entry_4">ReVanced</string>
+            <string name="revanced_header_logo_entry_4" translatable="false">ReVanced</string>
             <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
             <string name="revanced_header_logo_entry_6">Custom</string>
         </patch>
