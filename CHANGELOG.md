@@ -1,3 +1,10 @@
+# [5.31.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.5...v5.31.0-dev.6) (2025-07-06)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Allow custom speeds with 0.01x precision ([#5360](https://github.com/ReVanced/revanced-patches/issues/5360)) ([0eecef0](https://github.com/ReVanced/revanced-patches/commit/0eecef00fc93d2a217944978e29dce82e3134e35))
+
 # [5.31.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.4...v5.31.0-dev.5) (2025-07-05)
 
 
