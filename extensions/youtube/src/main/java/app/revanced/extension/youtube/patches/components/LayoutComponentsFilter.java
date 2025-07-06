@@ -168,7 +168,7 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         expandableMetadata = new StringFilterGroup(
-                Settings.HIDE_EXPANDABLE_CHIP,
+                Settings.HIDE_EXPANDABLE_CARD,
                 "inline_expander"
         );
 
@@ -234,8 +234,8 @@ public final class LayoutComponentsFilter extends Filter {
                 "mixed_content_shelf"
         );
 
-        final var searchResultRecommendationLabels = new StringFilterGroup(
-                Settings.HIDE_SEARCH_RESULT_RECOMMENDATION_LABELS,
+        final var videoRecommendationLabels = new StringFilterGroup(
+                Settings.HIDE_VIDEO_RECOMMENDATION_LABELS,
                 "endorsement_header_footer.eml"
         );
 
@@ -269,36 +269,35 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         addPathCallbacks(
-                expandableMetadata,
-                inFeedSurvey,
-                notifyMe,
-                compactChannelBar,
-                communityPosts,
-                paidPromotion,
-                searchResultRecommendationLabels,
-                latestPosts,
+                artistCard,
+                audioTrackButton,
+                channelLinksPreview,
+                channelMembersShelf,
+                channelProfile,
                 channelWatermark,
-                playables,
-                quickActions,
-                relatedVideos,
+                chipBar,
                 compactBanner,
+                compactChannelBar,
                 compactChannelBarInner,
-                medicalPanel,
-                infoPanel,
-                singleItemInformationPanel,
+                communityPosts,
                 emergencyBox,
+                expandableMetadata,
+                forYouShelf,
+                horizontalShelves,
+                imageShelf,
+                inFeedSurvey,
+                infoPanel,
+                latestPosts,
+                medicalPanel,
+                notifyMe,
+                paidPromotion,
+                playables,
+                relatedVideos,
+                singleItemInformationPanel,
                 subscribersCommunityGuidelines,
                 subscriptionsChipBar,
-                chipBar,
-                channelLinksPreview,
-                channelProfile,
-                audioTrackButton,
-                artistCard,
                 timedReactions,
-                imageShelf,
-                channelMembersShelf,
-                forYouShelf,
-                horizontalShelves
+                videoRecommendationLabels
         );
     }
 
