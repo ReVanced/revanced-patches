@@ -234,7 +234,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_show_more_button"),
             SwitchPreference("revanced_hide_ticket_shelf"),
             SwitchPreference("revanced_hide_video_recommendation_labels"),
-            SwitchPreference("revanced_hide_visual_spacers"),
             SwitchPreference("revanced_hide_doodles"),
         )
 
@@ -244,7 +243,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_custom_filter"),
-                    // TODO: This should be a dynamic ListPreference, which does not exist yet
                     TextPreference("revanced_custom_filter_strings", inputType = InputType.TEXT_MULTI_LINE),
                 ),
             ),

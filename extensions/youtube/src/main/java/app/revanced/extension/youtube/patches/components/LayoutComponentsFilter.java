@@ -267,11 +267,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "ticket.eml"
         );
 
-        final var visualSpacers = new StringFilterGroup(
-                Settings.HIDE_VISUAL_SPACERS,
-                "cell_divider"
-        );
-
         addPathCallbacks(
                 artistCard,
                 audioTrackButton,
@@ -301,8 +296,7 @@ public final class LayoutComponentsFilter extends Filter {
                 subscribersCommunityGuidelines,
                 subscriptionsChipBar,
                 timedReactions,
-                videoRecommendationLabels,
-                visualSpacers
+                videoRecommendationLabels
         );
     }
 

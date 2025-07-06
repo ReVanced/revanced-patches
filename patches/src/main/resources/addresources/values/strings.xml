@@ -269,9 +269,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_video_recommendation_labels_title">Hide video recommendation labels</string>
             <string name="revanced_hide_video_recommendation_labels_summary_on">\'People also watched\' and \'You might also like\' labels in search results are hidden</string>
             <string name="revanced_hide_video_recommendation_labels_summary_off">\'People also watched\' and \'You might also like\' labels in search results are shown</string>
-            <string name="revanced_hide_visual_spacers_title">Hide visual spacers</string>
-            <string name="revanced_hide_visual_spacers_summary_on">Visual spacers are hidden</string>
-            <string name="revanced_hide_visual_spacers_summary_off">Visual spacers are shown</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
             <string name="revanced_hide_doodles_summary_on">YouTube Doodles animation on the logo is hidden</string>
