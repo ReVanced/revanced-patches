@@ -6,12 +6,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
-import app.revanced.patches.shared.misc.hex.HexPatchBuilder
-import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.*
+import app.revanced.util.findInstructionIndicesReversedOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -37,7 +37,7 @@ val spoofClientPatch = bytecodePatch(
 
     dependsOn(
         sharedExtensionPatch,
-        hexPatch(ignoreMissingTargetFiles = true, block = fun HexPatchBuilder.() {
+        /* hexPatch(ignoreMissingTargetFiles = true, block = fun HexPatchBuilder.() {
             listOf(
                 "arm64-v8a",
                 "armeabi-v7a",
@@ -45,12 +45,18 @@ val spoofClientPatch = bytecodePatch(
                 "x86_64"
             ).forEach { architecture ->
                 "https://login5.spotify.com/v3/login" to "http://127.0.0.1:$requestListenerPort/v3/login" inFile
+                // "https://login5.spotify.com/v3/login" to "http://192.168.0.225:$requestListenerPort/v3/login" inFile
                         "lib/$architecture/liborbit-jni-spotify.so"
 
                 "https://login5.spotify.com/v4/login" to "http://127.0.0.1:$requestListenerPort/v4/login" inFile
+                // "https://login5.spotify.com/v4/login" to "http://192.168.0.225:$requestListenerPort/v4/login" inFile
+                        "lib/$architecture/liborbit-jni-spotify.so"
+
+                "https://clienttoken.spotify.com/v1/clienttoken" to
+                        "http://127.0.0.1:$requestListenerPort/v1/clienttoken" inFile
                         "lib/$architecture/liborbit-jni-spotify.so"
             }
-        })
+        }) */
     )
 
     compatibleWith("com.spotify.music")
@@ -111,7 +117,7 @@ val spoofClientPatch = bytecodePatch(
             """
         )
 
-        startupPageLayoutInflateFingerprint.method.apply {
+        /* startupPageLayoutInflateFingerprint.method.apply {
             val openLoginWebViewDescriptor =
                 "$EXTENSION_CLASS_DESCRIPTOR->launchLogin(Landroid/view/LayoutInflater;)V"
 
@@ -177,7 +183,7 @@ val spoofClientPatch = bytecodePatch(
                     const-string v${loginActionInstruction.registerE}, "placeholder"
                 """
             )
-        }
+        } */
 
         // endregion
 
@@ -187,5 +193,11 @@ val spoofClientPatch = bytecodePatch(
         runIntegrityVerificationFingerprint.method.returnEarly()
 
         // endregion
+
+        clientTokenSuccessConstructorFingerprint.match(clientTokenSuccessClassFingerprint.originalClassDef)
+            .method.addInstruction(
+                0,
+                "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setClientToken(Ljava/lang/String;)V"
+            )
     }
 }

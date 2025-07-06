@@ -7,6 +7,7 @@ import app.revanced.extension.shared.Logger;
 @SuppressWarnings("unused")
 public class SpoofClientPatch {
     private static LoginRequestListener listener;
+    public static volatile String clientToken;
 
     /**
      * Injection point.
@@ -50,5 +51,10 @@ public class SpoofClientPatch {
             startLoginButton.setSoundEffectsEnabled(false);
             startLoginButton.performClick();
         });
+    }
+
+    public static void setClientToken(String newClientToken) {
+        Logger.printInfo(() -> "Setting client token to " + newClientToken);
+        clientToken = newClientToken;
     }
 }

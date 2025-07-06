@@ -59,3 +59,11 @@ internal val runIntegrityVerificationFingerprint = fingerprint {
         } >= 0
     }
 }
+
+internal val clientTokenSuccessClassFingerprint = fingerprint {
+    strings("ClientTokenSuccess(clientToken=")
+}
+
+internal val clientTokenSuccessConstructorFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+}

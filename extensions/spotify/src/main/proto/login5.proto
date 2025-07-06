@@ -5,14 +5,27 @@ package spotify.login5.v4;
 option optimize_for = LITE_RUNTIME;
 option java_package = "app.revanced.extension.spotify.login5.v4.proto";
 
+message ClientInfo {
+    string client_id = 1;
+    string device_id = 2;
+}
+
 message StoredCredential {
     string username = 1;
     bytes data = 2;
 }
 
+message NativePassword {
+    string id = 1;
+    string password = 2;
+}
+
 message LoginRequest {
+    ClientInfo client_info = 1;
+
     oneof login_method {
         StoredCredential stored_credential = 100;
+        NativePassword native_password = 109;
     }
 }
 
@@ -40,4 +53,5 @@ enum LoginError {
     TOO_MANY_ATTEMPTS = 6;
     INVALID_PHONENUMBER = 7;
     TRY_AGAIN_LATER = 8;
+    NOT_ALLOWED = 9;
 }
