@@ -1,3 +1,10 @@
+# [5.31.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.6...v5.31.0-dev.7) (2025-07-06)
+
+
+### Bug Fixes
+
+* Fix refactoring typo ([ec0ae42](https://github.com/ReVanced/revanced-patches/commit/ec0ae42496628cdeb2a639020fce94316b41b751))
+
 # [5.31.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.5...v5.31.0-dev.6) (2025-07-06)
 
 
