@@ -155,7 +155,5 @@ val videoAdsPatch = bytecodePatch(
         },
     )
 
-    compatibleWith(
-        "tv.twitch.android.app",
-    )
+    compatibleWith("tv.twitch.android.app"("16.9.1", "19.1.0"))
 }
