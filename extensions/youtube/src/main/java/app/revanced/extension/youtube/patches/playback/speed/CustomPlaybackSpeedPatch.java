@@ -624,7 +624,7 @@ public class CustomPlaybackSpeedPatch {
      */
     private static float roundSpeedToNearestIncrement(float speed) {
         // Allow speed as-is if it exactly matches a speed preset such as 1.03x.
-        if (Arrays.binarySearch(customPlaybackSpeeds, speed) >= 0) {
+        if (arrayContains(customPlaybackSpeeds, speed)) {
             return speed;
         }
 
