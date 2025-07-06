@@ -61,6 +61,11 @@ public class CustomPlaybackSpeedPatch {
     public static final float PLAYBACK_SPEED_MAXIMUM = 8;
 
     /**
+     * How much +/- speed adjustment buttons change the current speed.
+     */
+    private static final double SPEED_ADJUSTMENT_CHANGE = 0.05;
+
+    /**
      * Scale used to convert user speed to {@link android.widget.ProgressBar#setProgress(int)}.
      */
     private static final float PROGRESS_BAR_VALUE_SCALE = 100;
@@ -390,9 +395,9 @@ public class CustomPlaybackSpeedPatch {
         });
 
         minusButton.setOnClickListener(v -> userSelectedSpeed.apply(
-                VideoInformation.getPlaybackSpeed() - 0.05f));
+                (float) (VideoInformation.getPlaybackSpeed() - SPEED_ADJUSTMENT_CHANGE)));
         plusButton.setOnClickListener(v -> userSelectedSpeed.apply(
-                VideoInformation.getPlaybackSpeed() + 0.05f));
+                (float) (VideoInformation.getPlaybackSpeed() + SPEED_ADJUSTMENT_CHANGE)));
 
         // Create GridLayout for preset speed buttons.
         GridLayout gridLayout = new GridLayout(context);
@@ -611,15 +616,21 @@ public class CustomPlaybackSpeedPatch {
     }
 
     /**
-     * Rounds the given playback speed to the nearest 0.05 increment and ensures it is within valid bounds.
+     * Rounds the given playback speed to the nearest 0.05 increment,
+     * unless the speed exactly matches a preset custom speed.
      *
      * @param speed The playback speed to round.
      * @return The rounded speed, constrained to the specified bounds.
      */
     private static float roundSpeedToNearestIncrement(float speed) {
+        // Allow speed as-is if it exactly matches a speed preset such as 1.03x.
+        if (arrayContains(customPlaybackSpeeds, speed)) {
+            return speed;
+        }
+
         // Round to nearest 0.05 speed.  Must use double precision otherwise rounding error can occur.
-        final double roundedSpeed = Math.round(speed / 0.05) * 0.05;
-        return Utils.clamp((float) roundedSpeed, 0.05f, PLAYBACK_SPEED_MAXIMUM);
+        final double roundedSpeed = Math.round(speed / SPEED_ADJUSTMENT_CHANGE) * SPEED_ADJUSTMENT_CHANGE;
+        return Utils.clamp((float) roundedSpeed, (float) SPEED_ADJUSTMENT_CHANGE, PLAYBACK_SPEED_MAXIMUM);
     }
 
     /**
