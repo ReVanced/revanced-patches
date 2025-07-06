@@ -163,7 +163,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND = new BooleanSetting("revanced_hide_player_control_buttons_background", FALSE, true);
     public static final BooleanSetting HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS = new BooleanSetting("revanced_hide_player_previous_next_buttons", FALSE, true);
     public static final BooleanSetting HIDE_QUICK_ACTIONS = new BooleanSetting("revanced_hide_quick_actions", FALSE);
-    public static final BooleanSetting HIDE_RELATED_VIDEO_OVERLAY = new BooleanSetting("revanced_hide_related_video_overlay", FALSE, true);
+    public static final BooleanSetting HIDE_RELATED_VIDEOS_OVERLAY = new BooleanSetting("revanced_hide_related_video_overlay", FALSE, true);
     public static final BooleanSetting HIDE_RELATED_VIDEOS = new BooleanSetting("revanced_hide_related_videos", FALSE);
     public static final BooleanSetting HIDE_SUBSCRIBERS_COMMUNITY_GUIDELINES = new BooleanSetting("revanced_hide_subscribers_community_guidelines", TRUE);
     public static final BooleanSetting HIDE_TIMED_REACTIONS = new BooleanSetting("revanced_hide_timed_reactions", TRUE);
