@@ -1,3 +1,24 @@
+# [5.31.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.4...v5.31.0-dev.5) (2025-07-05)
+
+
+### Features
+
+* **YouTube - Change header:** Add in-app setting to change the app header ([#5346](https://github.com/ReVanced/revanced-patches/issues/5346)) ([9ba45b6](https://github.com/ReVanced/revanced-patches/commit/9ba45b6680595d732b47e8fa54bee98b7c7af179))
+
+# [5.31.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.3...v5.31.0-dev.4) (2025-07-04)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Hide new type of general ad ([#5345](https://github.com/ReVanced/revanced-patches/issues/5345)) ([f23716b](https://github.com/ReVanced/revanced-patches/commit/f23716bc52c03d8d0271bfe38b19247e6de7021d))
+
+# [5.31.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.2...v5.31.0-dev.3) (2025-07-04)
+
+
+### Bug Fixes
+
+* **Spotify:** Remove other ads type from the browse screen ([#5333](https://github.com/ReVanced/revanced-patches/issues/5333)) ([c68533a](https://github.com/ReVanced/revanced-patches/commit/c68533a33a399ca813380b5c9ccddce434ceadf8))
+
 # [5.31.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.1...v5.31.0-dev.2) (2025-07-04)
 
 

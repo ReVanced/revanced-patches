@@ -156,22 +156,19 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_channel_watermark_summary_on">A vízjel el van rejtve</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vízjel látható</string>
   <string name="revanced_hide_horizontal_shelves_title">Vízszintes polcok elrejtése</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"A következő polcok vannak elrejtve:
+  <string name="revanced_hide_horizontal_shelves_summary_on">"A polcok el vannak rejtve, mint például:
 • Friss hírek
-• Folytatás a nézés
-• További csatornák felfedezése
+• Folytassa a megtekintést
+• Fedezzen fel további csatornákat
+• Legrelevánsabb
 • Vásárlás
-• Nézd meg újra"</string>
+• Nézze meg újra"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">A polcok láthatóak</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Csatlakozás gomb elrejtése</string>
   <string name="revanced_hide_join_membership_button_summary_on">A gomb rejtve van</string>
   <string name="revanced_hide_join_membership_button_summary_off">A gomb megjelenik</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">\"Neked\" polc elrejtése</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">A polc a csatornaoldalon rejtett</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">A polc a csatornaoldalon látható</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">\"Értesítést kérek\" gomb elrejtése</string>
@@ -192,15 +189,12 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_timed_reactions_title">Időzített reakciók elrejtése</string>
   <string name="revanced_hide_timed_reactions_summary_on">Az időzített reakciók elrejtve</string>
   <string name="revanced_hide_timed_reactions_summary_off">Az időzített reakciók megjelenítve</string>
-  <string name="revanced_hide_channel_guidelines_title">Csatornák irányelveinek elrejtése</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">A csatornaírők el vannak rejtve</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">A csatornaírők meg vannak jelenítve</string>
   <string name="revanced_hide_chips_shelf_title">Vágások polc elrejtése</string>
   <string name="revanced_hide_chips_shelf_summary_on">A vágások polc el van rejtve</string>
   <string name="revanced_hide_chips_shelf_summary_off">A részletek polc meg van jelenítve</string>
-  <string name="revanced_hide_expandable_chip_title">Rejtse el a bővíthető kártyát a videók alatt</string>
-  <string name="revanced_hide_expandable_chip_summary_on">A bővíthető kártya rejtett</string>
-  <string name="revanced_hide_expandable_chip_summary_off">A bővíthető kártya látható</string>
+  <string name="revanced_hide_expandable_chip_title">Kibontható kártya elrejtése</string>
+  <string name="revanced_hide_expandable_chip_summary_on">A videók alatti kibontható kártya el van rejtve</string>
+  <string name="revanced_hide_expandable_chip_summary_off">A videók alatti kibontható kártya meg van jelenítve</string>
   <string name="revanced_hide_community_posts_title">Közösségi posztok elrejtése</string>
   <string name="revanced_hide_community_posts_summary_on">A közösségi bejegyzések el vannak rejtve</string>
   <string name="revanced_hide_community_posts_summary_off">A közösségi bejegyzések meg vannak jelenítve</string>
@@ -213,15 +207,9 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_feed_survey_title">Feed felmérések elrejtése</string>
   <string name="revanced_hide_feed_survey_summary_on">A feed felmérések rejtve vannak</string>
   <string name="revanced_hide_feed_survey_summary_off">A feed felmérések láthatóak</string>
-  <string name="revanced_hide_community_guidelines_title">Közösségi irányelvek elrejtése</string>
-  <string name="revanced_hide_community_guidelines_summary_on">A közösségi irányelvek el vannak rejtve</string>
-  <string name="revanced_hide_community_guidelines_summary_off">A közösségi irányelvek láthatóak</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">Feliratkozók közösségi irányelveinek elrejtése</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">A feliratkozók közösségi irányelvei rejtettek</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">A feliratkozók közösségi irányelvei megjelennek</string>
-  <string name="revanced_hide_channel_member_shelf_title">Csatornatag polc elrejtése</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">A csatornatagok polca rejtett</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">A csatornatagok polca megjelenik</string>
   <string name="revanced_hide_emergency_box_title">Vészhelyzeti dobozok elrejtése</string>
   <string name="revanced_hide_emergency_box_summary_on">A vészhelyzeti dobozok el vannak rejtve</string>
   <string name="revanced_hide_emergency_box_summary_off">A vészhelyzeti dobozok láthatóak</string>
@@ -237,18 +225,18 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_playables_title">Lejátszható elemek elrejtése</string>
   <string name="revanced_hide_playables_summary_on">A játékszoba rejtett</string>
   <string name="revanced_hide_playables_summary_off">A játékszoba megjelenik</string>
-  <string name="revanced_hide_quick_actions_title">Gyorsműveletek elrejtése teljes képernyős módban</string>
-  <string name="revanced_hide_quick_actions_summary_on">A gyors műveletek el vannak rejtve</string>
-  <string name="revanced_hide_quick_actions_summary_off">A gyorsműveletek megjelennek</string>
-  <string name="revanced_hide_related_videos_title">Kapcsolódó videók elrejtése a gyorsműveletekben</string>
-  <string name="revanced_hide_related_videos_summary_on">A kapcsolódó videók el vannak rejtve</string>
-  <string name="revanced_hide_related_videos_summary_off">A kapcsoloódó videók meg vannak jelenítve</string>
-  <string name="revanced_hide_image_shelf_title">Képek elrejtése a keresési eredményekben</string>
-  <string name="revanced_hide_image_shelf_summary_on">A képek el vannak rejtve</string>
-  <string name="revanced_hide_image_shelf_summary_off">A képes polc meg van jelenítve</string>
-  <string name="revanced_hide_latest_posts_ads_title">Legutóbbi bejegyzések elrejtése</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">A legutóbbi bejegyzések rejtve vannak</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">A legutóbbi bejegyzések láthatóak</string>
+  <string name="revanced_hide_quick_actions_title">Gyorsműveletek elrejtése</string>
+  <string name="revanced_hide_quick_actions_summary_on">A teljes képernyős gyorsműveletek el vannak rejtve</string>
+  <string name="revanced_hide_quick_actions_summary_off">A teljes képernyős gyorsműveletek meg vannak jelenítve</string>
+  <string name="revanced_hide_related_videos_title">Kapcsolódó videók elrejtése</string>
+  <string name="revanced_hide_related_videos_summary_on">A gyorsműveletekben lévő kapcsolódó videók el vannak rejtve</string>
+  <string name="revanced_hide_related_videos_summary_off">A gyorsműveletekben lévő kapcsolódó videók meg vannak jelenítve</string>
+  <string name="revanced_hide_image_shelf_title">Képpolc elrejtése</string>
+  <string name="revanced_hide_image_shelf_summary_on">A keresési eredményekben lévő képpolc el van rejtve</string>
+  <string name="revanced_hide_image_shelf_summary_off">A keresési eredményekben lévő képpolc meg van jelenítve</string>
+  <string name="revanced_hide_latest_posts_title">Legutóbbi bejegyzések elrejtése</string>
+  <string name="revanced_hide_latest_posts_summary_on">A legutóbbi bejegyzések rejtve vannak</string>
+  <string name="revanced_hide_latest_posts_summary_off">A legutóbbi bejegyzések láthatóak</string>
   <string name="revanced_hide_mix_playlists_title">Egyveleg lejátszási listák elrejtése</string>
   <string name="revanced_hide_mix_playlists_summary_on">Az egyveleg lejátszási listák el vannak rejtve</string>
   <string name="revanced_hide_mix_playlists_summary_off">Az egyveleg lejátszási listák megjelennek</string>
@@ -298,6 +286,26 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Elrejtés a kapcsolódó videók között</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Elrejtve a kapcsolódó videók között</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Megjelenik a kapcsolódó videók között</string>
+  <string name="revanced_channel_screen_title">Csatornaoldal</string>
+  <string name="revanced_channel_screen_summary">Csatornaoldal komponenseinek elrejtése vagy megjelenítése</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">\"Neked\" polc elrejtése</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Az Önnek polc el van rejtve</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Az Önnek polc meg van jelenítve</string>
+  <string name="revanced_hide_links_preview_title">Hivatkozások előnézetének elrejtése</string>
+  <string name="revanced_hide_links_preview_summary_on">A hivatkozások előnézete el van rejtve</string>
+  <string name="revanced_hide_links_preview_summary_off">A hivatkozások előnézete meg van jelenítve</string>
+  <string name="revanced_hide_members_shelf_title">Tagok polcának elrejtése</string>
+  <string name="revanced_hide_members_shelf_summary_on">A tagok polca el van rejtve</string>
+  <string name="revanced_hide_members_shelf_summary_off">Tagok polca látható</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">„Közösség megtekintése” gomb elrejtése</string>
+  <string name="revanced_hide_visit_community_button_summary_on">A „Közösség megtekintése” gomb rejtve van</string>
+  <string name="revanced_hide_visit_community_button_summary_off">A „Közösség megtekintése” gomb meg van jelenítve</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">\'Bolt meglátogatása\' gomb elrejtése a csatornák oldalán</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Az „Áruház megtekintése” gomb el van rejtve</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Az „Áruház megtekintése” gomb meg van jelenítve</string>
   <string name="revanced_comments_screen_title">Megjegyzések</string>
   <string name="revanced_comments_screen_summary">Megjegyzések rész elrejtése vagy megjelenítése</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">AI Chat összefoglaló elrejtése</string>
@@ -306,12 +314,18 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_comments_ai_summary_title">AI-kommentárok összefoglalójának elrejtése</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Kommentárok összefoglalója elrejtve</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Kommentárok összefoglalója megjelenítve</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Csatorna irányelveinek elrejtése</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">A csatorna irányelvei rejtve vannak</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">A csatorna irányelvei láthatók</string>
   <string name="revanced_hide_comments_by_members_header_title">A „Tagok megjegyzései” fejléc elrejtése</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">A tagok hozzászólásainak fejléce rejtett</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">A tagok hozzászólásainak fejléce látható</string>
   <string name="revanced_hide_comments_section_title">A megjegyzések szekció elrejtése</string>
   <string name="revanced_hide_comments_section_summary_on">A komment szekció el van rejtve</string>
   <string name="revanced_hide_comments_section_summary_off">A megjegyzések szekció megjelenik</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Közösségi irányelvek elrejtése</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">A közösségi irányelvek el vannak rejtve</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">A közösségi irányelvek meg vannak jelenítve</string>
   <string name="revanced_hide_comments_create_a_short_button_title">A „Rövid létrehozása” gomb elrejtése</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">A Rövidfilm létrehozása gomb rejtett</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">A Rövidfilm létrehozása gomb látható</string>
@@ -321,7 +335,7 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_comments_thanks_button_title">Köszönet gomb elrejtése</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">A köszönet gomb el van rejtve</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">A köszönet gomb látható</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Az időbélyegző gomb elrejtése</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Időbélyegző gomb elrejtése</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Az időbélyegző gomb el van rejtve</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Az időbélyegző gomb megjelenik</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
@@ -377,9 +391,9 @@ Korlátozások
   <string name="revanced_hide_keyword_toast_invalid_broad">A kulcsszó elrejti az összes videót: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Alkotói bolti polcok elrejtése</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">A lejátszó alatti és a videó leírásában lévő bolti polcok elrejtve</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">A lejátszó alatt és a videó leírásában megjelennek az árupolcok</string>
+  <string name="revanced_hide_creator_store_shelf_title">Alkotói áruház polcának elrejtése</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">A videolejátszó alatti áruházpolc rejtve van</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">A videólejátszó alatti áruház polc meg van jelenítve</string>
   <string name="revanced_hide_end_screen_store_banner_title">A befejező képernyőn lévő üzletbanner elrejtése</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Az áruház banner rejtett</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Az áruház banner megjelenik</string>
@@ -399,20 +413,16 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_hide_paid_promotion_label_title">Fizetett promóció címke elrejtése</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">A fizetett promóciós címke el van rejtve</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">A fizetett promóciós címke meg van jelenítve</string>
+  <string name="revanced_hide_self_sponsor_ads_title">Önpromóciós kártyák elrejtése</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">Az önpromóciós kártyák rejtve vannak</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">Az önpromóciós kártyák megjelennek</string>
+  <string name="revanced_hide_shopping_links_title">Vásárlási hivatkozások elrejtése</string>
+  <string name="revanced_hide_shopping_links_summary_on">A videó leírásában lévő hivatkozások el vannak rejtve</string>
+  <string name="revanced_hide_shopping_links_summary_off">A videó leírásában lévő hivatkozások meg vannak jelenítve</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">A „Termékek megtekintése” szalaghirdetés elrejtése</string>
   <string name="revanced_hide_view_products_banner_summary_on">A videóátfedésben lévő szalaghirdetés elrejtve</string>
   <string name="revanced_hide_view_products_banner_summary_off">A szalaghirdetés megjelenik a videó átfedésében</string>
-  <string name="revanced_hide_self_sponsor_ads_title">Önpromóciós kártyák elrejtése</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">Az önpromóciós kártyák rejtve vannak</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">Az önpromóciós kártyák megjelennek</string>
-  <string name="revanced_hide_tagged_products_title">Címkézett termékek elrejtése</string>
-  <string name="revanced_hide_tagged_products_summary_on">A videó leírásában lévő címkézett termékek elrejtve</string>
-  <string name="revanced_hide_tagged_products_summary_off">A videó leírásában címkézett termékek jelennek meg</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">\'Bolt meglátogatása\' gomb elrejtése a csatornák oldalán</string>
-  <string name="revanced_hide_visit_store_button_summary_on">A gomb a csatornaoldalon rejtett</string>
-  <string name="revanced_hide_visit_store_button_summary_off">A gomb a csatornaoldalon látható</string>
   <string name="revanced_hide_web_search_results_title">Webes keresési találatok elrejtése</string>
   <string name="revanced_hide_web_search_results_summary_on">A webes keresési találatok rejtve vannak</string>
   <string name="revanced_hide_web_search_results_summary_off">A webes keresési találatok megjelennek</string>
@@ -1281,9 +1291,9 @@ A miniatűr képernyőt a képernyő bal vagy jobb szélére húzhatja"</string>
   <string name="revanced_gradient_loading_screen_title">Színátmenetes betöltési képernyő engedélyezése</string>
   <string name="revanced_gradient_loading_screen_summary_on">A betöltési képernyő színátmenetes hatterű lesz</string>
   <string name="revanced_gradient_loading_screen_summary_off">A betöltési képernyő egyszínű hátterű lesz</string>
-  <string name="splash_screen_animation_style_title">Üdvözlőképernyő stílusa</string>
-  <string name="splash_screen_animation_style_entry_1">Színes</string>
-  <string name="splash_screen_animation_style_entry_2">Fekete-fehér</string>
+  <string name="revanced_splash_screen_animation_style_title">Üdvözlőképernyő stílusa</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Színes</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Fekete-fehér</string>
   <string name="revanced_seekbar_custom_color_title">Egyéni keresősáv szín engedélyezése</string>
   <string name="revanced_seekbar_custom_color_summary_on">Az egyéni keresősáv szín megjelenik</string>
   <string name="revanced_seekbar_custom_color_summary_off">Az egyéni keresősáv szín nem jelenik meg</string>

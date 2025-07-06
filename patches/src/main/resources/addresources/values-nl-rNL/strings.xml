@@ -157,21 +157,18 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_channel_watermark_summary_off">Watermerk wordt getoond</string>
   <string name="revanced_hide_horizontal_shelves_title">Horizontale planken verbergen</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Planken zijn verborgen, zoals:
-• Actueel nieuws
-• Doorgaan met kijken
+• Brekend nieuws
+• Verder kijken
 • Meer kanalen verkennen
+• Meest relevant
 • Winkelen
-• Bekijk het opnieuw"</string>
+• Opnieuw bekijken"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Planken worden getoond</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Verberg knop \"Lid worden\"</string>
   <string name="revanced_hide_join_membership_button_summary_on">De knop is verborgen</string>
   <string name="revanced_hide_join_membership_button_summary_off">Knop wordt weergegeven</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Verberg \"Voor jou\"-schap</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Sectie op kanaalpagina is verborgen</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Sectie op kanaalpagina is getoond</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">\'Herinnering sturen\' knop verbergen</string>
@@ -192,15 +189,12 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_timed_reactions_title">Verberg getimede reacties</string>
   <string name="revanced_hide_timed_reactions_summary_on">Gectimed reacties worden verborgen</string>
   <string name="revanced_hide_timed_reactions_summary_off">Gectimed reacties worden getoond</string>
-  <string name="revanced_hide_channel_guidelines_title">Verberg kanaalrichtlijnen</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Kanaalrichtlijnen zijn verborgen</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Kan Richtlijnen Zichtbaar</string>
   <string name="revanced_hide_chips_shelf_title">Chipsrek verbergen</string>
   <string name="revanced_hide_chips_shelf_summary_on">Chipsrek is verborgen</string>
   <string name="revanced_hide_chips_shelf_summary_off">Chip Schap Zichtbaar</string>
-  <string name="revanced_hide_expandable_chip_title">Verberg uitklapbare kaart onder video\'s</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Uitvouwbare kaart is verborgen</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Uitvouwbare kaart wordt weergegeven</string>
+  <string name="revanced_hide_expandable_chip_title">Uitklapbare kaart verbergen</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Uitklapbare kaart onder video\'s is verborgen</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Uitklapbare kaart onder video\'s is getoond</string>
   <string name="revanced_hide_community_posts_title">Community berichten verbergen</string>
   <string name="revanced_hide_community_posts_summary_on">Community berichten zijn verborgen</string>
   <string name="revanced_hide_community_posts_summary_off">Community berichten worden weergegeven</string>
@@ -213,15 +207,9 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_feed_survey_title">Verberg feed-enquêtes</string>
   <string name="revanced_hide_feed_survey_summary_on">Feed-enquêtes zijn verborgen</string>
   <string name="revanced_hide_feed_survey_summary_off">Feed-enquêtes worden weergegeven</string>
-  <string name="revanced_hide_community_guidelines_title">Verberg communityrichtlijnen</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Communityrichtlijnen zijn verborgen</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Communityrichtlijnen worden weergegeven</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">Richtlijnen voor abonnees verbergen</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Abonnementsrichtlijnen voor de community zijn verborgen</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Abonnementsrichtlijnen voor de community worden getoond</string>
-  <string name="revanced_hide_channel_member_shelf_title">Verberg kanaallidmaatschap</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Kanaallidmaatschap is verborgen</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Kanaallidmaatschap wordt getoond</string>
   <string name="revanced_hide_emergency_box_title">Nooddozen verbergen</string>
   <string name="revanced_hide_emergency_box_summary_on">Nooddozen zijn verborgen</string>
   <string name="revanced_hide_emergency_box_summary_off">Nooddozen worden getoond</string>
@@ -237,18 +225,18 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_playables_title">Speelbare items verbergen</string>
   <string name="revanced_hide_playables_summary_on">Speelbare items zijn verborgen</string>
   <string name="revanced_hide_playables_summary_off">Spellen worden getoond</string>
-  <string name="revanced_hide_quick_actions_title">Snelle acties verbergen in volledig scherm</string>
-  <string name="revanced_hide_quick_actions_summary_on">Snelle acties zijn verborgen</string>
-  <string name="revanced_hide_quick_actions_summary_off">Snelle acties worden getoond</string>
-  <string name="revanced_hide_related_videos_title">Gerelateerde video\'s verbergen in snelle acties</string>
-  <string name="revanced_hide_related_videos_summary_on">Gerelateerde video\'s zijn verborgen</string>
-  <string name="revanced_hide_related_videos_summary_off">Gerelateerde video\'s worden weergegeven</string>
-  <string name="revanced_hide_image_shelf_title">Afbeeldingenplank in zoekresultaten verbergen</string>
-  <string name="revanced_hide_image_shelf_summary_on">Afbeeldingenplank is verborgen</string>
-  <string name="revanced_hide_image_shelf_summary_off">Afbeeldingenplank wordt weergegeven</string>
-  <string name="revanced_hide_latest_posts_ads_title">Nieuwste berichten verbergen</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Nieuwste berichten zijn verborgen</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Nieuwste berichten worden weergegeven</string>
+  <string name="revanced_hide_quick_actions_title">Snelle acties verbergen</string>
+  <string name="revanced_hide_quick_actions_summary_on">Snelle acties in volledig scherm zijn verborgen</string>
+  <string name="revanced_hide_quick_actions_summary_off">Snelle acties in volledig scherm zijn getoond</string>
+  <string name="revanced_hide_related_videos_title">Gerelateerde video\'s verbergen</string>
+  <string name="revanced_hide_related_videos_summary_on">Gerelateerde video\'s in snelle acties zijn verborgen</string>
+  <string name="revanced_hide_related_videos_summary_off">Gerelateerde video\'s in snelle acties zijn getoond</string>
+  <string name="revanced_hide_image_shelf_title">Afbeeldingenplank verbergen</string>
+  <string name="revanced_hide_image_shelf_summary_on">Afbeeldingenplank in zoekresultaten is verborgen</string>
+  <string name="revanced_hide_image_shelf_summary_off">Afbeeldingenplank in zoekresultaten is getoond</string>
+  <string name="revanced_hide_latest_posts_title">Nieuwste berichten verbergen</string>
+  <string name="revanced_hide_latest_posts_summary_on">Nieuwste berichten zijn verborgen</string>
+  <string name="revanced_hide_latest_posts_summary_off">Nieuwste berichten worden weergegeven</string>
   <string name="revanced_hide_mix_playlists_title">Mix-afspeellijsten verbergen</string>
   <string name="revanced_hide_mix_playlists_summary_on">De mix-afspeellijsten zijn verborgen</string>
   <string name="revanced_hide_mix_playlists_summary_off">De mix-afspeellijsten worden weergegeven</string>
@@ -298,6 +286,26 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Verbergen in gerelateerde video\'s</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Verborgen in gerelateerde video\'s</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Weergegeven in gerelateerde video\'s</string>
+  <string name="revanced_channel_screen_title">Kanaalpagina</string>
+  <string name="revanced_channel_screen_summary">Kanaalpagina-componenten verbergen of tonen</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Verberg \"Voor jou\"-schap</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Voor jou-plank is verborgen</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Voor jou-plank is getoond</string>
+  <string name="revanced_hide_links_preview_title">Linksvoorbeeld verbergen</string>
+  <string name="revanced_hide_links_preview_summary_on">Linksvoorbeeld is verborgen</string>
+  <string name="revanced_hide_links_preview_summary_off">Linksvoorbeeld is getoond</string>
+  <string name="revanced_hide_members_shelf_title">Ledenplank verbergen</string>
+  <string name="revanced_hide_members_shelf_summary_on">Ledenplank is verborgen</string>
+  <string name="revanced_hide_members_shelf_summary_off">Ledenplank wordt weergegeven</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Knop \'Community bezoeken\' verbergen</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Knop \'Community bezoeken\' is verborgen</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Bezoek community-knop is getoond</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">De knop \"Bezoek winkel\" op kanaalpagina\'s verbergen</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Bezoek winkel-knop is verborgen</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Bezoek winkel-knop is getoond</string>
   <string name="revanced_comments_screen_title">Reacties</string>
   <string name="revanced_comments_screen_summary">Reacties verbergen of tonen</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">AI Chat-samenvatting verbergen</string>
@@ -306,12 +314,18 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_comments_ai_summary_title">AI-opmerkingensamenvatting verbergen</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Samenvatting van opmerkingen is verborgen</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Samenvatting van opmerkingen wordt weergegeven</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Kanaalrichtlijnen verbergen</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanaalrichtlijnen zijn verborgen</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanaalrichtlijnen worden weergegeven</string>
   <string name="revanced_hide_comments_by_members_header_title">Verberg kop \'Comments by members\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Koptekst \'Reacties van leden\' is verborgen</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Koptekst \'Reacties van leden\' wordt weergegeven</string>
   <string name="revanced_hide_comments_section_title">Reacties sectie verbergen</string>
   <string name="revanced_hide_comments_section_summary_on">Reacties sectie is verborgen</string>
   <string name="revanced_hide_comments_section_summary_off">Reacties sectie is getoond</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Communityrichtlijnen verbergen</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Communityrichtlijnen zijn verborgen</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Communityrichtlijnen zijn getoond</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Verberg \'Create a Short\' knop</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Knop \'Een Short maken\' is verborgen</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Knop \'Een Short maken\' wordt weergegeven</string>
@@ -321,7 +335,7 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_comments_thanks_button_title">Verberg de knop \'Bedankt\'</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Bedankknop is verborgen</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">De knop \'Bedankt\' wordt weergegeven</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Knop voor tijdstempel verbergen</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Tijdstempelknop verbergen</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Knop voor tijdstempel is verborgen</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Knop voor tijdstempel wordt weergegeven</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
@@ -377,9 +391,9 @@ Beperkingen
   <string name="revanced_hide_keyword_toast_invalid_broad">Keyword verbergt alle video\'s: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Verberg schappen van maker</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Winkelplanken onder de speler en in de videobeschrijving zijn verborgen</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Winkelplanken onder de speler en in de videobeschrijving worden getoond</string>
+  <string name="revanced_hide_creator_store_shelf_title">Makerswinkelplank verbergen</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Winkelplank onder videospeler is verborgen</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Winkelplank onder videospeler is getoond</string>
   <string name="revanced_hide_end_screen_store_banner_title">Verberg de Store-banner op het eindscherm</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">De winkelbanner is verborgen</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">De winkelbanner is zichtbaar</string>
@@ -399,20 +413,16 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_hide_paid_promotion_label_title">Betaalde promotielabel verbergen</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Betaalde promotielabel is verborgen</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Betaalde promotielabel wordt getoond</string>
+  <string name="revanced_hide_self_sponsor_ads_title">Zelf gesponsorde kaarten verbergen</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">Zelf gesponsorde kaarten zijn verborgen</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">Zelf gesponsorde kaarten worden getoond</string>
+  <string name="revanced_hide_shopping_links_title">Winkellinks verbergen</string>
+  <string name="revanced_hide_shopping_links_summary_on">Links in de videobeschrijving zijn verborgen</string>
+  <string name="revanced_hide_shopping_links_summary_off">Links in de videobeschrijving zijn getoond</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Banner \'Producten bekijken\' verbergen</string>
   <string name="revanced_hide_view_products_banner_summary_on">Banner in video-overlay is verborgen</string>
   <string name="revanced_hide_view_products_banner_summary_off">Banner in video-overlay wordt getoond</string>
-  <string name="revanced_hide_self_sponsor_ads_title">Zelf gesponsorde kaarten verbergen</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">Zelf gesponsorde kaarten zijn verborgen</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">Zelf gesponsorde kaarten worden getoond</string>
-  <string name="revanced_hide_tagged_products_title">Verberg getagde producten</string>
-  <string name="revanced_hide_tagged_products_summary_on">Getagde producten in de videobeschrijving zijn verborgen</string>
-  <string name="revanced_hide_tagged_products_summary_off">Getagde producten in videobeschrijving worden getoond</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">De knop \"Bezoek winkel\" op kanaalpagina\'s verbergen</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Knop op kanaalpagina is verborgen</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Knop op kanaalpagina wordt weergegeven</string>
   <string name="revanced_hide_web_search_results_title">Webzoekresultaten verbergen</string>
   <string name="revanced_hide_web_search_results_summary_on">Webzoekresultaten zijn verborgen</string>
   <string name="revanced_hide_web_search_results_summary_off">Webzoekresultaten worden getoond</string>
@@ -1282,9 +1292,9 @@ De miniplayer kan naar links of rechts van het scherm worden gesleept"</string>
   <string name="revanced_gradient_loading_screen_title">Schakel het laden van het verloopscherm in</string>
   <string name="revanced_gradient_loading_screen_summary_on">Het laadscherm heeft een verlopende achtergrond</string>
   <string name="revanced_gradient_loading_screen_summary_off">Het laadscherm heeft een effen achtergrond</string>
-  <string name="splash_screen_animation_style_title">Stijl van opstartscherm</string>
-  <string name="splash_screen_animation_style_entry_1">Kleur</string>
-  <string name="splash_screen_animation_style_entry_2">Zwart-wit</string>
+  <string name="revanced_splash_screen_animation_style_title">Stijl van opstartscherm</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Kleur</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Zwart-wit</string>
   <string name="revanced_seekbar_custom_color_title">Schakel aangepaste schuifregelaar kleur in</string>
   <string name="revanced_seekbar_custom_color_summary_on">De aangepaste kleur van de schuifregelaar is zichtbaar</string>
   <string name="revanced_seekbar_custom_color_summary_off">De oorspronkelijke kleur van de schuifregelaar is zichtbaar</string>
