@@ -1384,8 +1384,9 @@ Swipe to expand or close"</string>
             <string name="revanced_header_logo_title">Header logo</string>
             <string name="revanced_header_logo_entry_1">Default</string>
             <string name="revanced_header_logo_entry_2">Regular</string>
-            <string name="revanced_header_logo_entry_3">Premium</string>
+            <string name="revanced_header_logo_entry_3" translatable="false">Premium</string>
             <string name="revanced_header_logo_entry_4" translatable="false">ReVanced</string>
+            <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
             <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
             <string name="revanced_header_logo_entry_6">Custom</string>
         </patch>
