@@ -1228,6 +1228,10 @@ public final class app/revanced/patches/youtube/interaction/dialog/RemoveViewerD
 	public static final fun getRemoveViewerDiscretionDialogPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/interaction/doubletap/DisableChapterSkipDoubleTapPatchKt {
+	public static final fun getDisableChapterSkipDoubleTapPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/interaction/downloads/DownloadsPatchKt {
 	public static final fun getDownloadsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
