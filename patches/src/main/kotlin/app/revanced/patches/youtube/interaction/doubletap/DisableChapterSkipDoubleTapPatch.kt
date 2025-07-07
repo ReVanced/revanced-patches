@@ -14,8 +14,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 @Suppress("unused")
 val disableChapterSkipDoubleTapPatch = bytecodePatch(
-    name = "Disable double tap chapter skip",
-    description = "Prevents the double tap gesture from ever skipping to the next/previous chapter.",
+    name = "Disable double tap actions",
+    description = "Adds an option to disable player double tap gestures.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -25,7 +25,11 @@ val disableChapterSkipDoubleTapPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            // Possibly earlier too, but I don't care about that personally
+            "19.34.42",
+            "19.43.41",
+            "19.47.53",
+            "20.07.39",
+            "20.12.46",
             "20.13.41",
         )
     )
@@ -37,26 +41,22 @@ val disableChapterSkipDoubleTapPatch = bytecodePatch(
             SwitchPreference("revanced_disable_chapter_skip_double_tap"),
         )
 
-        doubleTapInfoGetSeekSourceFingerprint.method.apply {
-            // Resets the isChapterSeek flag to false
-            addInstructions(
-                0,
-                """
-                    invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
-                    move-result p1
-                """,
-            )
-        }
+        // Force isChapterSeek flag to false.
+        doubleTapInfoGetSeekSourceFingerprint.method.addInstructions(
+            0,
+            """
+                invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
+                move-result p1
+            """
+        )
 
-        doubleTapInfoCtorFingerprint.match(doubleTapInfoGetSeekSourceFingerprint.classDef).method.apply {
-            // Resets the isChapterSeek flag to false
-            addInstructions(
-                0,
-                """
-                    invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
-                    move-result p3
-                """,
-            )
-        }
+        doubleTapInfoCtorFingerprint.match(
+            doubleTapInfoGetSeekSourceFingerprint.classDef
+        ).method.addInstructions(
+            0, """
+                invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
+                move-result p3
+            """
+        )
     }
 }
