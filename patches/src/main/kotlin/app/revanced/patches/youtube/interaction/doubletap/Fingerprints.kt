@@ -5,13 +5,7 @@ import app.revanced.patcher.fingerprint
 internal val chapterSeekResultToStringFingerprint = fingerprint {
     parameters()
     returns("Ljava/lang/String;")
-    strings(
-        "ChapterSeekResult{isSeekingToChapterStart=",
-        ", seekDuration=",
-        ", seekText=",
-        ", isOverlayCentered=",
-        "}",
-    )
+    strings("ChapterSeekResult{isSeekingToChapterStart=")
     custom { method, _ ->
         method.name == "toString"
     }
