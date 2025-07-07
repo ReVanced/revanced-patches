@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.interaction.doubletap
 
 import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val chapterSeekResultToStringFingerprint = fingerprint {
     parameters()
@@ -12,13 +13,11 @@ internal val chapterSeekResultToStringFingerprint = fingerprint {
 }
 
 internal val chapterSeekResultCtorFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters(
         "Z",
         "Lj\$/time/Duration;",
         "Lj\$/util/Optional;",
         "Z",
     )
-    custom { method, _ ->
-        method.name == "<init>"
-    }
 }
