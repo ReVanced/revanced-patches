@@ -144,7 +144,7 @@ internal fun Node.addResource(
     appendChild(resource.serialize(ownerDocument, resourceCallback))
 }
 
-internal fun org.w3c.dom.Document.getNode(tagName: String) = this.getElementsByTagName(tagName).item(0)
+internal fun Document.getNode(tagName: String) = getElementsByTagName(tagName).item(0)
 
 internal fun NodeList.findElementByAttributeValue(attributeName: String, value: String): Element? {
     for (i in 0 until length) {
