@@ -1,3 +1,10 @@
+# [5.31.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.7...v5.31.0-dev.8) (2025-07-07)
+
+
+### Bug Fixes
+
+* Correctly name `Enable ROM signature spoofing` patch ([d85881a](https://github.com/ReVanced/revanced-patches/commit/d85881a6768232a999534677bebb248e640fe5ab))
+
 # [5.31.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.6...v5.31.0-dev.7) (2025-07-06)
 
 
