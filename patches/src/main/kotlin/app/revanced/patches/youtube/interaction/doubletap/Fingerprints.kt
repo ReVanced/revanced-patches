@@ -12,7 +12,13 @@ internal val chapterSeekResultToStringFingerprint = fingerprint {
 }
 
 internal val chapterSeekResultCtorFingerprint = fingerprint {
+    parameters(
+        "Z",
+        "Lj\$/time/Duration;",
+        "Lj\$/util/Optional;",
+        "Z",
+    )
     custom { method, _ ->
-        method.name == "<init>" && method.parameters.isNotEmpty()
+        method.name == "<init>"
     }
 }
