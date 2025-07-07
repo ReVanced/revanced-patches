@@ -1,3 +1,10 @@
+# [5.31.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.8...v5.31.0-dev.9) (2025-07-07)
+
+
+### Bug Fixes
+
+* Fix accidental changes ([e2ac841](https://github.com/ReVanced/revanced-patches/commit/e2ac8419756e3c7d62e2c0430a2918a3c1c63666))
+
 # [5.31.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.7...v5.31.0-dev.8) (2025-07-07)
 
 
