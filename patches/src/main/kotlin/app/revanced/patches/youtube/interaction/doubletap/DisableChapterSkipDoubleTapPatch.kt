@@ -37,15 +37,24 @@ val disableChapterSkipDoubleTapPatch = bytecodePatch(
             SwitchPreference("revanced_disable_chapter_skip_double_tap"),
         )
 
-        val classDef = chapterSeekResultToStringFingerprint.classDef
-
-        chapterSeekResultCtorFingerprint.match(classDef).method.apply {
-            // Resets the isSeekingToChapterStart flag to false
+        doubleTapInfoGetSeekSourceFingerprint.method.apply {
+            // Resets the isChapterSeek flag to false
             addInstructions(
                 0,
                 """
                     invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
                     move-result p1
+                """,
+            )
+        }
+
+        doubleTapInfoCtorFingerprint.match(doubleTapInfoGetSeekSourceFingerprint.classDef).method.apply {
+            // Resets the isChapterSeek flag to false
+            addInstructions(
+                0,
+                """
+                    invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
+                    move-result p3
                 """,
             )
         }
