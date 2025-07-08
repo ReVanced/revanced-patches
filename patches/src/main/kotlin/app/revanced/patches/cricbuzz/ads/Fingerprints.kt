@@ -9,7 +9,7 @@ internal val userStateSwitchFingerprint = fingerprint {
 }
 
 internal val    cb11ConstructorFingerprint = fingerprint {
-    parameters("Ljava/lang/String;", "Ljava/lang/String;", "Ljava/lang/String;", "I", "Ljava/lang/String;", "Ljava/lang/String;", "Z", "L")
+    parameters("Ljava/lang/String;", "Ljava/lang/String;", "Ljava/lang/String;", "I", "Ljava/lang/String;", "Ljava/lang/String;", "Z", "Ljava/lang/String;", "Ljava/lang/String;", "L")
     custom { _, classDef -> classDef.endsWith("CB11Details;") }
 }
 
