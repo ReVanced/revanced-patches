@@ -1,11 +1,9 @@
 package app.revanced.patches.cricbuzz.ads
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import app.revanced.patches.cricbuzz.misc.extension.sharedExtensionPatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val disableAdsPatch = bytecodePatch (
@@ -13,15 +11,14 @@ val disableAdsPatch = bytecodePatch (
 ) {
     compatibleWith("com.cricbuzz.android"("6.23.02"))
 
-    execute {
-        userStateSwitchFingerprint.method.apply {
-            val opcodeIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
-            val register = getInstruction<OneRegisterInstruction>(opcodeIndex).registerA
+    dependsOn(sharedExtensionPatch)
 
-            addInstruction(
-                opcodeIndex + 1,
-                "const-string v$register, \"ACTIVE\""
-            )
-        }
+    execute {
+        userStateSwitchFingerprint.method.returnEarly(true)
+
+        // Remove region-specific Cricbuzz11 elements.
+        cb11ConstructorFingerprint.method.addInstruction(0, "const/4 p7, 0x0")
+        getBottomBarFingerprint.method.addInstruction(1,
+            "invoke-static { v0 }, Lapp/revanced/extension/cricbuzz/ads/DisableAdsPatch;->filterCb11(Ljava/util/List;)V")
     }
 }
