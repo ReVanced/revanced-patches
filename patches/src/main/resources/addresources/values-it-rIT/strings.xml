@@ -171,7 +171,13 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Il pulsante del microfono fluttuante nella ricerca è nascosto</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Il pulsante del microfono fluttuante nella ricerca è mostrato</string>
   <string name="revanced_hide_horizontal_shelves_title">Nascondi sezioni orizzontali</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Le mensole orizzontali sono nascoste, come:\n• Notizie dell'ultima ora\n• Continua a guardare\n• Esplora altri canali\n• Più rilevanti\n• Acquisti\n• Guardalo di nuovo"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"I ripiani orizzontali sono nascosti, come:
+• Ultime notizie
+• Continua a guardare
+• Esplora altri canali
+• Più pertinenti
+• Shopping
+• Guarda di nuovo"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Le scaffalature orizzontali sono mostrate</string>
   <string name="revanced_hide_image_shelf_title">Nascondi sezione immagini</string>
   <string name="revanced_hide_image_shelf_summary_on">La sezione immagini nei risultati di ricerca è nascosta</string>

@@ -171,7 +171,13 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">A lebegő mikrofon gomb a keresésben elrejtve</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Lebegő mikrofon gomb megjelenik a keresésben</string>
   <string name="revanced_hide_horizontal_shelves_title">Vízszintes polcok elrejtése</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"A vízszintes polcok el vannak rejtve, mint például:• Friss hírek• Folytatás• További csatornák felfedezése• Legrelevánsabb• Vásárlás• Nézze meg újra"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"A vízszintes polcok rejtettek, mint például:
+• Friss hírek
+• Folytassa a megtekintést
+• Fedezzen fel további csatornákat
+• Legrelevánsabb
+• Vásárlás
+• Nézze meg újra"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">A vízszintes polcok láthatók</string>
   <string name="revanced_hide_image_shelf_title">Képpolc elrejtése</string>
   <string name="revanced_hide_image_shelf_summary_on">A keresési eredményekben lévő képpolc el van rejtve</string>

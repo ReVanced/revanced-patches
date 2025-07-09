@@ -24,7 +24,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">환경 검사에 실패하였습니다</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">공식 홈페이지 열기</string>
   <string name="revanced_check_environment_dialog_ignore_button">닫기</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 검사는 이 앱이 다른 사람이 패치했거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 삭제하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 검사는 이 앱이 다른 사람에 의하여 패치되었거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 삭제하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다.</string>
   <string name="revanced_check_environment_not_same_patching_device">다른 기기에서 패치되었습니다</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager에 의해 설치되지 않았습니다</string>
   <string name="revanced_check_environment_not_near_patch_time">10분 이상 전에 패치되었습니다</string>
@@ -168,17 +168,20 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_feed_survey_summary_on">피드 설문 조사가 숨겨집니다</string>
   <string name="revanced_hide_feed_survey_summary_off">피드 설문 조사가 표시됩니다</string>
   <string name="revanced_hide_floating_microphone_button_title">플로팅 마이크 버튼 숨기기</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">검색에서 떠다니는 마이크 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">검색에서 플로팅 마이크 버튼이 숨겨집니다</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">검색에서 플로팅 마이크 버튼이 표시됩니다</string>
   <string name="revanced_hide_horizontal_shelves_title">좌우 슬라이드형 선반 숨기기</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"가로 선반이 숨겨집니다:
-• 주요 뉴스
+  <string name="revanced_hide_horizontal_shelves_summary_on">"다음 선반이 숨겨집니다:
+• 다시 듣기, 다시 시청하기
 • 이어서 시청하기
 • 채널 더보기
-• 가장 관련성 높은
-• 쇼핑
-• 다시 시청하기"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">가로 선반이 표시됩니다</string>
+• 이 게임 더보기
+• 주요 뉴스, 뉴스 속보
+• 맞춤 실시간 스트림
+• 라이브 쇼핑
+• 보건 정보 출처
+• 관련성, etc."</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">다음 선반이 표시됩니다:\n• 다시 듣기, 다시 시청하기\n• 이어서 시청하기\n• 채널 더보기\n• 이 게임 더보기\n• 주요 뉴스, 뉴스 속보\n• 맞춤 실시간 스트림\n• 라이브 쇼핑\n• 보건 정보 출처\n• 관련성, etc.</string>
   <string name="revanced_hide_image_shelf_title">이미지 선반 숨기기</string>
   <string name="revanced_hide_image_shelf_summary_on">검색 결과에서 이미지 선반이 숨겨집니다</string>
   <string name="revanced_hide_image_shelf_summary_off">검색 결과에서 이미지 선반이 표시됩니다</string>
@@ -194,27 +197,27 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                   This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">\'알림 받기\' 버튼 숨기기</string>
-  <string name="revanced_hide_notify_me_button_summary_on">알림 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_notify_me_button_summary_off">알림 버튼이 표시됩니다</string>
+  <string name="revanced_hide_notify_me_button_summary_on">\'알림 받기\' 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_notify_me_button_summary_off">\'알림 받기\' 버튼이 표시됩니다</string>
   <string name="revanced_hide_playables_title">Playables(게임 룸) 선반 숨기기</string>
   <string name="revanced_hide_playables_summary_on">Playables(게임 룸) 선반이 숨겨집니다\n• YouTube 앱에 내장된 미니 게임\n• 일부 국가에서는 아직 서비스가 제공되지 않습니다</string>
   <string name="revanced_hide_playables_summary_off">Playables(게임 룸) 선반이 표시됩니다\n• YouTube 앱에 내장된 미니 게임\n• 일부 국가에서는 아직 서비스가 제공되지 않습니다</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">\'자세히 보기\' 버튼 숨기기</string>
-  <string name="revanced_hide_show_more_button_summary_on">검색 결과에서 더 보기 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_show_more_button_summary_off">검색 결과에서 더 보기 버튼이 표시됩니다</string>
+  <string name="revanced_hide_show_more_button_summary_on">검색 결과에서 \'자세히 보기\' 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_show_more_button_summary_off">검색 결과에서 \'자세히 보기\' 버튼이 표시됩니다</string>
   <string name="revanced_hide_ticket_shelf_title">이벤트 티켓 선반 숨기기</string>
   <string name="revanced_hide_ticket_shelf_summary_on">이벤트 티켓 선반이 숨겨집니다</string>
   <string name="revanced_hide_ticket_shelf_summary_off">이벤트 티켓 선반이 표시됩니다</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_video_recommendation_labels_title">동영상 추천 라벨 숨기기</string>
-  <string name="revanced_hide_video_recommendation_labels_summary_on">검색 결과에서 다음 동영상 추천 라벨이 숨겨집니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
-  <string name="revanced_hide_video_recommendation_labels_summary_off">검색 결과에서 다음 동영상 추천 라벨이 표시됩니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">검색 결과에서 다음 라벨이 숨겨집니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">검색 결과에서 다음 라벨이 표시됩니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles 숨기기</string>
-  <string name="revanced_hide_doodles_summary_on">로고에서 YouTube Doodles 애니메이션이 숨겨집니다</string>
-  <string name="revanced_hide_doodles_summary_off">YouTube 로고에 Doodles 애니메이션이 표시됩니다</string>
+  <string name="revanced_hide_doodles_summary_on">해더 로고에서 YouTube Doodles 애니메이션이 숨겨집니다</string>
+  <string name="revanced_hide_doodles_summary_off">헤더 로고에서 YouTube Doodles 애니메이션이 표시됩니다</string>
   <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles는 공휴일이나 기념일 등, 그날에 맞춘 디자인으로 변경되는 왼쪽 상단의 YouTube 헤더를 말합니다.
 
 현재 거주하는 지역에서 YouTube Doodles가 표시되어 있는데 이 설정이 활성화되어 있는 경우에는 검색창 아래에 표시되는 카테고리 바도 숨겨집니다."</string>
@@ -393,7 +396,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_creator_store_shelf_title">판매자 스토어 선반 숨기기</string>
   <string name="revanced_hide_creator_store_shelf_summary_on">플레이어 하단에서 판매자(크리에이터) 스토어 선반이 숨겨집니다</string>
   <string name="revanced_hide_creator_store_shelf_summary_off">플레이어 하단에서 판매자(크리에이터) 스토어 선반이 표시됩니다</string>
-  <string name="revanced_hide_end_screen_store_banner_title">최종 화면에서 스토어 배너 숨기기</string>
+  <string name="revanced_hide_end_screen_store_banner_title">최종 화면 스토어 배너 숨기기</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">최종 화면에서 스토어 배너가 숨겨집니다</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">최종 화면에서 스토어 배너가 표시됩니다</string>
   <string name="revanced_hide_fullscreen_ads_title">전체 화면 광고 숨기기</string>
@@ -502,9 +505,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_background_opacity_summary">배경 불투명도 값을 0-100 사이에서 지정할 수 있습니다</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 배경 불투명도 값은 0-100 사이여야 합니다</string>
   <string name="revanced_swipe_overlay_progress_brightness_color_title">스와이프 오버레이 밝기 조절바 색상</string>
-  <string name="revanced_swipe_overlay_progress_brightness_color_summary">밝기 조절바 색상을 지정할 수 있습니다</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">밝기 조절 진행률 색상을 지정할 수 있습니다</string>
   <string name="revanced_swipe_overlay_progress_volume_color_title">스와이프 오버레이 볼륨 조절바 색상</string>
-  <string name="revanced_swipe_overlay_progress_volume_color_summary">볼륨 조절바 색상을 지정할 수 있습니다</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">볼륨 조절 진행률 색상을 지정할 수 있습니다</string>
   <string name="revanced_swipe_text_overlay_size_title">스와이프 오버레이 텍스트 크기</string>
   <string name="revanced_swipe_text_overlay_size_summary">텍스트 크기를 1-30 사이에서 지정할 수 있습니다</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">텍스트 크기는 1-30 사이여야 합니다</string>
@@ -520,7 +523,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_style_entry_5">원형 (최소화)</string>
   <string name="revanced_swipe_overlay_style_entry_6">세로</string>
   <string name="revanced_swipe_overlay_style_entry_7">세로 (최소화)</string>
-  <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 활성화하기</string>
+  <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 비활성화하기</string>
   <string name="revanced_swipe_change_video_summary_on">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다</string>
   <string name="revanced_swipe_change_video_summary_off">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다</string>
   </patch>
@@ -544,8 +547,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_share_button_summary_off">공유 버튼이 표시됩니다</string>
   <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_stop_ads_button_title">광고 중단 버튼 숨기기</string>
-  <string name="revanced_hide_stop_ads_button_summary_on">광고 중지 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_stop_ads_button_summary_off">광고 중지 버튼이 표시됩니다</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">광고 중단 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">광고 중단 버튼이 표시됩니다</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">신고 버튼 숨기기</string>
@@ -732,11 +735,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_shorts_player_screen_title">Shorts 플레이어</string>
   <string name="revanced_shorts_player_screen_summary">Shorts 플레이어에서 구성요소를 숨기거나 표시할 수 있습니다</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
-  <string name="revanced_hide_shorts_home_title">홈 피드에서 Shorts 숨기기</string>
+  <string name="revanced_hide_shorts_home_title">홈 피드에서 Shorts 선반 숨기기</string>
   <string name="revanced_hide_shorts_home_summary_on">홈 피드 및 관련 동영상에서 Shorts 선반이 숨겨집니다</string>
   <string name="revanced_hide_shorts_home_summary_off">홈 피드 및 관련 동영상에서 Shorts 선반이 표시됩니다</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">구독 피드에서 Shorts 숨기기</string>
+  <string name="revanced_hide_shorts_subscriptions_title">구독 피드에서 Shorts 선반 숨기기</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">구독 피드에서 Shorts 선반이 숨겨집니다</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">구독 피드에서 Shorts 선반이 표시됩니다</string>
   <string name="revanced_hide_shorts_search_title">검색 결과에서 Shorts 선반 숨기기</string>
@@ -1237,9 +1240,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_shorts_autoplay_title">Shorts 자동재생</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts가 자동넘김됩니다</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts가 반복재생됩니다</string>
-  <string name="revanced_shorts_autoplay_background_title">Shorts PIP 재생 자동넘김</string>
-  <string name="revanced_shorts_autoplay_background_summary_on">Shorts PIP 재생이 자동넘김됩니다</string>
-  <string name="revanced_shorts_autoplay_background_summary_off">Shorts PIP 재생이 반복재생됩니다</string>
+  <string name="revanced_shorts_autoplay_background_title">Shorts PIP 모드 자동넘김</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">PIP 모드에서 Shorts가 자동넘김됩니다</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">PIP 모드에서 Shorts가 반복재생됩니다</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">미니 플레이어</string>
@@ -1331,7 +1334,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_alt_thumbnail_subscription_title">구독 탭</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">내 페이지 탭</string>
-  <string name="revanced_alt_thumbnail_player_title">플레이어: 재생목록 &amp; 추천</string>
+  <string name="revanced_alt_thumbnail_player_title">플레이어: 재생목록, 관련 동영상, etc.</string>
   <string name="revanced_alt_thumbnail_search_title">검색 결과</string>
   <string name="revanced_alt_thumbnail_options_entry_1">원본 썸네일</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; 원본 썸네일</string>
@@ -1547,7 +1550,7 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
   <string name="revanced_block_video_ads_summary_off">동영상 광고를 차단하지 않습니다</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">메시지를 삭제합니다</string>
+  <string name="revanced_deleted_msg">메시지를 삭제하였습니다</string>
   <string name="revanced_show_deleted_messages_title">삭제된 메시지 표시하기</string>
   <string name="revanced_show_deleted_messages_entry_1">삭제된 메시지 표시하지 않기</string>
   <string name="revanced_show_deleted_messages_entry_2">스포일러 뒤에 삭제된 메시지 숨기기</string>
@@ -1569,7 +1572,7 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
   <string name="revanced_about_title">정보</string>
   <string name="revanced_about_summary">ReVanced 정보</string>
   <string name="revanced_ads_screen_title">광고 차단</string>
-  <string name="revanced_ads_screen_summary">광고 차단 설정</string>
+  <string name="revanced_ads_screen_summary">광고 차단 설정을 할 수 있습니다</string>
   <string name="revanced_chat_screen_title">채팅</string>
   <string name="revanced_chat_screen_summary">채팅을 설정할 수 있습니다</string>
   <string name="revanced_misc_screen_title">기타</string>

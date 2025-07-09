@@ -56,20 +56,20 @@ Second \"item\" text"</string>
   <string name="revanced_language_user_dialog_message">"Översättningar till vissa språk kan vara ofullständiga eller saknas.
 
 För att översätta till nya språk besök translate.revanced.app"</string>
-  <string name="revanced_language_DEFAULT">Språk i app</string>
-  <string name="revanced_pref_import_export_title">Importera / Exportera</string>
-  <string name="revanced_pref_import_export_summary">Importera / Exportera ReVanced-inställningar</string>
+  <string name="revanced_language_DEFAULT">Appspråk</string>
+  <string name="revanced_pref_import_export_title">Importera/exportera</string>
+  <string name="revanced_pref_import_export_summary">Importera/exportera ReVanced-inställningar</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Du använder ReVanced Patches version &lt;i&gt;%s&lt;/i&gt;</string>
-  <string name="revanced_settings_about_links_dev_header">Anteckning</string>
-  <string name="revanced_settings_about_links_dev_body">Denna version är en pre-release och du kan uppleva oväntade problem</string>
+  <string name="revanced_settings_about_links_dev_header">Obs!</string>
+  <string name="revanced_settings_about_links_dev_body">Den här versionen är en förhandsversion och du kan uppleva oväntade problem</string>
   <string name="revanced_settings_about_links_header">Officiella länkar</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore är inte installerat. Installera den.</string>
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore är inte installerat. Installera det.</string>
   <string name="gms_core_dialog_title">Åtgärd krävs</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore saknar behörighet att köras i bakgrunden.
 
@@ -116,16 +116,16 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_debug_summary_on">Felsökningsloggar är aktiverade</string>
   <string name="revanced_debug_summary_off">Felsökningsloggar är inaktiverade</string>
   <string name="revanced_debug_protobuffer_title">Logga protokollbuffert</string>
-  <string name="revanced_debug_protobuffer_summary_on">Felsökningsloggar inkluderar protobuffert</string>
-  <string name="revanced_debug_protobuffer_summary_off">Felsökningsloggar inkluderar inte protobuffert</string>
+  <string name="revanced_debug_protobuffer_summary_on">Felsökningsloggar inkluderar protokollbuffert</string>
+  <string name="revanced_debug_protobuffer_summary_off">Felsökningsloggar inkluderar inte protokollbuffert</string>
   <string name="revanced_debug_protobuffer_user_dialog_message">"Om du aktiverar den här inställningen loggas ytterligare layoutdata, inklusive text på skärmen för vissa UI-komponenter.
 
 Detta kan hjälpa till att identifiera komponenter när du skapar anpassade filter.
 
 Men om du aktiverar detta kommer även vissa användardata, t.ex. din IP-adress, att loggas."</string>
-  <string name="revanced_debug_stacktrace_title">Logga stackspår</string>
-  <string name="revanced_debug_stacktrace_summary_on">Felsökningsloggar inkluderar stackspår</string>
-  <string name="revanced_debug_stacktrace_summary_off">Felsökningsloggar inkluderar inte stackspår</string>
+  <string name="revanced_debug_stacktrace_title">Logga stackspårning</string>
+  <string name="revanced_debug_stacktrace_summary_on">Felsökningsloggar inkluderar stackspårning</string>
+  <string name="revanced_debug_stacktrace_summary_off">Felsökningsloggar inkluderar inte stackspårning</string>
   <string name="revanced_debug_toast_on_error_title">Visa ett meddelande om ett fel uppstår med ReVanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">Meddelande visas om fel uppstår</string>
   <string name="revanced_debug_toast_on_error_summary_off">Meddelande visas inte om fel uppstår</string>
@@ -133,7 +133,7 @@ Men om du aktiverar detta kommer även vissa användardata, t.ex. din IP-adress,
 
 Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Exportera felsökningsloggar</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopierar ReVanced-felsökningsloggar till Urklipp</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopierar ReVanced-felsökningsloggar till urklipp</string>
   <string name="revanced_debug_logs_disabled">Felsökningsloggar är inaktiverade</string>
   <string name="revanced_debug_logs_none_found">Inga loggar hittades</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Loggar kopierade</string>
@@ -167,7 +167,7 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_feed_survey_title">Dölj enkäter i flödet</string>
   <string name="revanced_hide_feed_survey_summary_on">Enkäter i flödet är dolda</string>
   <string name="revanced_hide_feed_survey_summary_off">Enkäter i flödet visas</string>
-  <string name="revanced_hide_floating_microphone_button_title">Dölj svävande mikrofonknapp</string>
+  <string name="revanced_hide_floating_microphone_button_title">Dölj flytande mikrofonknapp</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Flytande mikrofonknapp i sökning är dold</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Flytande mikrofonknapp i sökning visas</string>
   <string name="revanced_hide_horizontal_shelves_title">Dölj horisontella hyllor</string>
@@ -205,8 +205,8 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_show_more_button_summary_on">Knappen Visa mer i sökresultat är dold</string>
   <string name="revanced_hide_show_more_button_summary_off">Knappen Visa mer i sökresultat visas</string>
   <string name="revanced_hide_ticket_shelf_title">Dölj biljetthylla</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">Biljettpanelen är dold</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">Biljettpanelen visas</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Biljetthyllan är dold</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Biljetthyllan visas</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_video_recommendation_labels_title">Dölj etiketter för videorekommendationer</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">Etiketter för \"Andra har även tittat på\" och \"Du kanske även gillar\" i sökresultaten är dolda</string>
@@ -1023,7 +1023,7 @@ Den här funktionen fungerar bäst med en videokvalitet på 720p eller lägre oc
   <string name="revanced_sb_api_url_changed">API-webbadress ändrades</string>
   <string name="revanced_sb_settings_ie">Importera/exportera inställningar</string>
   <string name="revanced_sb_settings_copy">Kopiera</string>
-  <string name="revanced_sb_settings_ie_sum">Din SponsorBlock JSON-konfiguration som kan importeras/exporteras till ReVanced och andra SponsorBlock plattformar</string>
+  <string name="revanced_sb_settings_ie_sum">Din JSON-konfiguration för SponsorBlock som kan importeras/exporteras till ReVanced och andra SponsorBlock-plattformar</string>
   <string name="revanced_sb_settings_ie_sum_warning">Din JSON-konfiguration för SponsorBlock som kan importeras/exporteras till ReVanced och andra SponsorBlock-plattformar. Detta inkluderar ditt privata användar-id. Se till att dela detta klokt</string>
   <string name="revanced_sb_settings_import_successful">Inställningar har importerats</string>
   <string name="revanced_sb_settings_import_failed">Det gick inte att importera: %s</string>
@@ -1315,9 +1315,9 @@ Minispelaren kan dras utanför skärmen till vänster eller höger"</string>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Begränsningar för förbipassering av bildregionen</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Använder bildvärd yt4.ggpht.com</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">"Använder originalbildvärd
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"Använder ursprunglig bildvärd
 
-Att aktivera detta kan åtgärda saknade bilder som är blockerade i vissa regioner"</string>
+Om du aktiverar detta kan det åtgärda saknade bilder som blockeras i vissa regioner"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
@@ -1328,10 +1328,10 @@ Att aktivera detta kan åtgärda saknade bilder som är blockerade i vissa regio
   <string name="revanced_alt_thumbnail_library_title">Du flik</string>
   <string name="revanced_alt_thumbnail_player_title">Spelarlistor &amp; rekommendationer för spelare</string>
   <string name="revanced_alt_thumbnail_search_title">Sökresultat</string>
-  <string name="revanced_alt_thumbnail_options_entry_1">Miniatyr original</string>
-  <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Original miniatyrer</string>
-  <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; fångar fortfarande</string>
-  <string name="revanced_alt_thumbnail_options_entry_4">Fortfarande fångar</string>
+  <string name="revanced_alt_thumbnail_options_entry_1">Ursprungliga miniatyrer</string>
+  <string name="revanced_alt_thumbnail_options_entry_2">DeArrow och ursprungliga miniatyrer</string>
+  <string name="revanced_alt_thumbnail_options_entry_3">DeArrow och stillbilder</string>
+  <string name="revanced_alt_thumbnail_options_entry_4">Stillbilder</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow tillhandahåller crowdsourcing-baserade miniatyrbilder för YouTube-videor. Dessa miniatyrbilder är ofta mer relevanta än de som tillhandahålls av YouTube
 
 Om detta aktiveras skickas videoadresser till API-servern och inga andra data skickas. Om en video inte har DeArrow-miniatyrer visas originalet eller stillbilder
@@ -1341,9 +1341,9 @@ Tryck här för att läsa mer om DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Meddelande visas om DeArrow inte är tillgängligt</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Meddelande visas inte om DeArrow inte är tillgängligt</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API-slutpunkt</string>
-  <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL till DeArrow miniatyrbilds slutpunkt</string>
-  <string name="revanced_alt_thumbnail_stills_about_title">Fortfarande videoinspelningar</string>
-  <string name="revanced_alt_thumbnail_stills_about_summary">Fortfarande tas bilder från början/mitten/slutet av varje video. Dessa bilder är inbyggda i YouTube och ingen extern API används</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Slutpunktsadressen för DeArrow-miniatyrbildscachen</string>
+  <string name="revanced_alt_thumbnail_stills_about_title">Stillbilder från videor</string>
+  <string name="revanced_alt_thumbnail_stills_about_summary">Stillbilder tas från början/mitten/slutet av varje video. Dessa bilder är inbyggda i YouTube och inget externt API används</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">Använd snabbt stillbilder</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_on">Använda medelhög kvalitet fortfarande fångar. Miniatyrer kommer att ladda snabbare, men levande strömmar, outgivna eller mycket gamla videor kan visa tomma miniatyrer</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_off">Använda hög kvalitet fortfarande fångar</string>
@@ -1381,7 +1381,7 @@ Högre videokvalitet kan låsas upp men du kan uppleva hackig videouppspelning, 
   <string name="revanced_spoof_device_dimensions_summary_off">"Enhetens dimensioner förfalskas inte
 
 Att aktivera detta kan låsa upp högre videokvalitet"</string>
-  <string name="revanced_spoof_device_dimensions_user_dialog_message">Att aktivera detta kan orsaka uppspelning av videouppspelning, sämre batteritid och okända biverkningar.</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">Om du aktiverar detta kan det leda till hackig videouppspelning, sämre batteritid och okända biverkningar.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore inställningar</string>
@@ -1426,7 +1426,7 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_force_original_audio_summary_on">Använder originalljudspråk</string>
   <string name="revanced_force_original_audio_summary_off">Använder standardljud</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">För att använda den här funktionen, ändra \"Förfalska videoströmmar\" till iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Om du vill använda den här funktionen ändrar du \"Förfalska videoströmmar\" till iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1500,13 +1500,13 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
 
 Videouppspelning kanske inte fungerar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Standardklient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Tvinga iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokodek tvingas till AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodeken bestäms automatiskt</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Att aktivera detta kan förbättra batteritiden och åtgärda hackande uppspelning.
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Om du aktiverar detta kan det förbättra batteritiden och åtgärda hackig uppspelning.
 
-AVC har en maximal upplösning på 1080p, Opus-ljudkodek är inte tillgänglig och videouppspelning använder mer internetdata än VP9 eller AV1."</string>
+AVC har en maximal upplösning på 1080p, Opus-ljudkodek är inte tillgängligt och videouppspelning använder mer internetdata än VP9 eller AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_title">Biverkningar av iOS-förfalskning</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmer eller betalvideor kanske inte spelas upp
 • Jämn volym är inte tillgängligt
@@ -1516,11 +1516,11 @@ AVC har en maximal upplösning på 1080p, Opus-ljudkodek är inte tillgänglig o
 • Stabilt ljud är inte tillgängligt
 • Tvinga originalspråk är inte tillgängligt"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ingen AV1-videocodec</string>
-  <string name="revanced_spoof_video_streams_about_kids_videos">• Videor för barn spelas möglicherweise nicht ab, wenn Sie abgemeldet sind oder sich im Inkognito-Modus befinden</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Visa i statistik för nördar</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttyp visas i statistik för nördar</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten är dold i statistik för nördar</string>
-  <string name="revanced_spoof_video_streams_language_title">VR standardinställningsspråk för ljudström</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• Barnvideor kanske inte spelas upp när du är utloggad eller i inkognitoläge</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Visa i Statistik för nördar</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttypen visas i Statistik för nördar</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten är dold i Statistik för nördar</string>
+  <string name="revanced_spoof_video_streams_language_title">Standardspråk för VR-ljudström</string>
   </patch>
   </app>
   <app id="twitch">

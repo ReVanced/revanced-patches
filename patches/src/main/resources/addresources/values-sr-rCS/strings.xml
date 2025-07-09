@@ -208,13 +208,13 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Polica sa kartama je skrivena</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Polica sa kartama je prikazana</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_video_recommendation_labels_title">Sakrij oznake preporuka video snimaka</string>
-  <string name="revanced_hide_video_recommendation_labels_summary_on">Oznake „Ljudi su gledali i” i „Možda će vam se svideti” u rezultatima pretrage su skrivene</string>
-  <string name="revanced_hide_video_recommendation_labels_summary_off">Oznake „Ljudi su gledali i” i „Možda će vam se svideti” u rezultatima pretrage su prikazane</string>
+  <string name="revanced_hide_video_recommendation_labels_title">Sakrij oznake preporuka videa</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">Oznake „Drugi su takođe gledali ovaj video” i „Možda će vam se takođe dopasti” u rezultatima pretrage su skrivene</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">Oznake „Drugi su takođe gledali ovaj video” i „Možda će vam se takođe dopasti” u rezultatima pretrage su prikazane</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Sakrij YouTube Doodles</string>
-  <string name="revanced_hide_doodles_summary_on">Animacija YouTube Doodles na logotipu je skrivena</string>
-  <string name="revanced_hide_doodles_summary_off">Animacija YouTube Doodles na logotipu je prikazana</string>
+  <string name="revanced_hide_doodles_summary_on">Animacija YouTube Doodlesa na logotipu je skrivena</string>
+  <string name="revanced_hide_doodles_summary_off">Animacija YouTube Doodlesa na logotipu je prikazana</string>
   <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles se prikazuje nekoliko dana svake godine.
 
 Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uključena, traka filtera ispod trake za pretragu takođe će biti skrivena."</string>
@@ -417,12 +417,12 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kartice samosponzorstva su skrivene</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kartice samosponzorstva su prikazane</string>
   <string name="revanced_hide_shopping_links_title">Sakrij linkove za kupovinu</string>
-  <string name="revanced_hide_shopping_links_summary_on">Linkovi za kupovinu u opisu video snimka su skriveni</string>
+  <string name="revanced_hide_shopping_links_summary_on">Linkovi za kupovinu u opisu videa su skriveni</string>
   <string name="revanced_hide_shopping_links_summary_off">Linkovi za kupovinu u opisu videa su prikazani</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Sakrij baner „Pogledajte proizvode”</string>
-  <string name="revanced_hide_view_products_banner_summary_on">Baner za prikaz proizvoda u video plejeru je skriven</string>
-  <string name="revanced_hide_view_products_banner_summary_off">Baner za prikaz proizvoda u video plejeru je prikazan</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Baner „Pogledajte proizvode” u video plejeru je skriven</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Baner „Pogledajte proizvode” u video plejeru je prikazan</string>
   <string name="revanced_hide_web_search_results_title">Sakrij rezultate veb-pretrage</string>
   <string name="revanced_hide_web_search_results_summary_on">Rezultati veb-pretrage su skriveni</string>
   <string name="revanced_hide_web_search_results_summary_off">Rezultati veb-pretrage su prikazani</string>
@@ -736,22 +736,22 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_shorts_player_screen_title">Shorts plejer</string>
   <string name="revanced_shorts_player_screen_summary">Sakrijte ili prikažite komponente u Shorts plejeru</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
-  <string name="revanced_hide_shorts_home_title">Sakrij Shorts u Početnom fidu</string>
-  <string name="revanced_hide_shorts_home_summary_on">Skriveno u Početnom fidu i srodnim video snimcima</string>
-  <string name="revanced_hide_shorts_home_summary_off">Prikazano u Početnom fidu i srodnim video snimcima</string>
+  <string name="revanced_hide_shorts_home_title">Sakrij Shorts u fidu „Početna”</string>
+  <string name="revanced_hide_shorts_home_summary_on">Skriveno u fidu „Početna” i srodnim videima</string>
+  <string name="revanced_hide_shorts_home_summary_off">Prikazano u fidu „Početna” i srodnim videima</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Sakrij Shorts u fidu Pretplate</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Skriveno u fidu Pretplate</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Prikazano u fidu Pretplate</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Sakrij Shorts u fidu „Praćenja”</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Skriveno u fidu „Praćenja”</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Prikazano u fidu „Praćenja”</string>
   <string name="revanced_hide_shorts_search_title">Sakrij Shorts videe u rezultatima pretrage</string>
   <string name="revanced_hide_shorts_search_summary_on">Skriveno u rezultatima pretrage</string>
   <string name="revanced_hide_shorts_search_summary_off">Prikazano u rezultatima pretrage</string>
-  <string name="revanced_hide_shorts_history_title">Sakrij Shorts videe u istoriji gledanja</string>
+  <string name="revanced_hide_shorts_history_title">Sakrij Shorts u istoriji gledanja</string>
   <string name="revanced_hide_shorts_history_summary_on">Skriveno u istoriji gledanja</string>
   <string name="revanced_hide_shorts_history_summary_off">Prikazano u istoriji gledanja</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Sakrij dugme za kupovinu „Superhvala”</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Dugme „Kupi Super Zahvalnost” je skriveno</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Dugme „Kupi Super Zahvalnost” je prikazano</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Dugme „Kupi superhvala” je skriveno</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Dugme „Kupi superhvala” je prikazano</string>
   <string name="revanced_hide_shorts_effect_button_title">Sakrij dugme „Efekat”</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Dugme „Efekat” je skriveno</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Dugme „Efekat” je prikazano</string>
@@ -834,8 +834,8 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_shorts_channel_bar_summary_on">Traka kanala je skrivena</string>
   <string name="revanced_hide_shorts_channel_bar_summary_off">Traka kanala je prikazana</string>
   <string name="revanced_hide_shorts_video_title_title">Sakrij naslov Shorts videa</string>
-  <string name="revanced_hide_shorts_video_title_summary_on">Naslov video snimka je skriven</string>
-  <string name="revanced_hide_shorts_video_title_summary_off">Naslov video snimka je prikazan</string>
+  <string name="revanced_hide_shorts_video_title_summary_on">Naslov videa je skriven</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">Naslov videa je prikazan</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Sakrij oznaku metapodataka zvuka</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Oznaka metapodataka zvuka je skrivena</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Oznaka metapodataka zvuka je prikazana</string>
@@ -855,9 +855,9 @@ Podešavanja → Reprodukcija → Automatski pusti sledeći video"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Predloženi video na završnom ekranu je prikazan</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  <string name="revanced_hide_related_videos_overlay_title">Sakrij preklop srodnih video snimaka</string>
-  <string name="revanced_hide_related_videos_overlay_summary_on">Preklop srodnih video snimaka u režimu celog ekrana je skriven</string>
-  <string name="revanced_hide_related_videos_overlay_summary_off">Preklop srodnih video snimaka u režimu celog ekrana je prikazan</string>
+  <string name="revanced_hide_related_videos_overlay_title">Sakrij srodne videe</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">Srodni videi u režimu celog ekrana su skriveni</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">Srodni videi u režimu celog ekrana su prikazani</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Sakrij vremensku oznaku videa</string>
@@ -1323,10 +1323,10 @@ Ako ovo omogućite, mogu se popraviti nedostajuće slike koje su blokirane u nek
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Kartica „Početna”</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
-  <string name="revanced_alt_thumbnail_subscription_title">Kartica Pretplate</string>
+  <string name="revanced_alt_thumbnail_subscription_title">Kartica „Praćenja”</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">Kartica „Vi”</string>
-  <string name="revanced_alt_thumbnail_player_title">Plejliste plejera &amp; preporuke</string>
+  <string name="revanced_alt_thumbnail_player_title">Plejliste plejera i preporuke</string>
   <string name="revanced_alt_thumbnail_search_title">Rezultati pretrage</string>
   <string name="revanced_alt_thumbnail_options_entry_1">Originalne sličice</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow i originalne sličice</string>
@@ -1543,7 +1543,7 @@ AVC ima maksimalnu rezoluciju od 1080p, audio kodek Opus nije dostupan, a reprod
   <string name="revanced_block_video_ads_summary_off">Video oglasi su odblokirani</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">Poruka obrisana</string>
+  <string name="revanced_deleted_msg">Poruka izbrisana</string>
   <string name="revanced_show_deleted_messages_title">Prikaz izbrisanih poruka</string>
   <string name="revanced_show_deleted_messages_entry_1">Ne prikazuj izbrisane poruke</string>
   <string name="revanced_show_deleted_messages_entry_2">Sakrij izbrisane poruke iza spojlera</string>
