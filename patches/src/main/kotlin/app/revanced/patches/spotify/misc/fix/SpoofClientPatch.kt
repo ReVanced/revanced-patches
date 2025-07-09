@@ -2,21 +2,12 @@ package app.revanced.patches.spotify.misc.fix
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patches.shared.misc.hex.HexPatchBuilder
 import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.returnEarly
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/fix/SpoofClientPatch;"
 
@@ -50,15 +41,6 @@ val spoofClientPatch = bytecodePatch(
                 "https://clienttoken.spotify.com/v1/clienttoken" to
                         "http://127.0.0.1:$requestListenerPort/v1/clienttoken" inFile
                         "lib/$architecture/liborbit-jni-spotify.so"
-
-//                "https://login5.spotify.com/v3/login" to
-//                        "http://127.0.0.1:$requestListenerPort/v3/login" inFile
-//                        "lib/$architecture/liborbit-jni-spotify.so"
-//
-//                "https://login5.spotify.com/v4/login" to
-//                        "http://127.0.0.1:$requestListenerPort/v4/login" inFile
-//                        "lib/$architecture/liborbit-jni-spotify.so"
-
             }
         })
     )
@@ -66,72 +48,6 @@ val spoofClientPatch = bytecodePatch(
     compatibleWith("com.spotify.music")
 
     execute {
-        listOf(
-            "Lcom/spotify/connectivity/ApplicationScopeConfiguration;",
-            "Lcom/spotify/authentication/login5/Login5Configuration;",
-            "Lcom/spotify/connectivity/AuthenticatedScopeConfiguration;",
-            "Lcom/spotify/core/corefullimpl/FullAuthenticatedScopeConfiguration;",
-        ).forEach {
-            fingerprint {
-                custom { m, c ->
-                    c.type == it
-                            && m.name == "setClientId"
-                }
-            }.method.addInstruction(0, "const-string p1, \"58bd3c95768941ea9eb4350aaa033eb3\"")
-        }
-
-        fingerprint {
-            custom { m, c ->
-                c.type == "Lcom/spotify/connectivity/ApplicationScopeConfiguration;"
-                        && m.name == "setDefaultHTTPUserAgent"
-            }
-        }.method.addInstruction(0, "const-string p1, \"Spotify/9.0.58 iOS/19 (iPad8,11)\"")
-
-        // region Spoof package info.
-
-        getPackageInfoFingerprint.method.apply {
-            // region Spoof signature.
-
-            val failedToGetSignaturesStringIndex =
-                getPackageInfoFingerprint.stringMatches!!.first().index
-
-            val concatSignaturesIndex = indexOfFirstInstructionReversedOrThrow(
-                failedToGetSignaturesStringIndex,
-                Opcode.MOVE_RESULT_OBJECT,
-            )
-
-            val signatureRegister = getInstruction<OneRegisterInstruction>(concatSignaturesIndex).registerA
-            val expectedSignature = "d6a6dced4a85f24204bf9505ccc1fce114cadb32"
-
-            replaceInstruction(concatSignaturesIndex, "const-string v$signatureRegister, \"$expectedSignature\"")
-
-            // endregion
-
-            // region Spoof installer name.
-
-            val expectedInstallerName = "com.android.vending"
-
-            findInstructionIndicesReversedOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.name == "getInstallerPackageName" || reference?.name == "getInstallingPackageName"
-            }.forEach { index ->
-                val returnObjectIndex = index + 1
-
-                val installerPackageNameRegister = getInstruction<OneRegisterInstruction>(
-                    returnObjectIndex
-                ).registerA
-
-                addInstruction(
-                    returnObjectIndex + 1,
-                    "const-string v$installerPackageNameRegister, \"$expectedInstallerName\""
-                )
-            }
-
-            // endregion
-        }
-
-        // endregion
-
         // region Spoof client.
 
         loadOrbitLibraryFingerprint.method.addInstructions(
@@ -142,73 +58,22 @@ val spoofClientPatch = bytecodePatch(
             """
         )
 
-        /* startupPageLayoutInflateFingerprint.method.apply {
-            val openLoginWebViewDescriptor =
-                "$EXTENSION_CLASS_DESCRIPTOR->launchLogin(Landroid/view/LayoutInflater;)V"
-
-            addInstructions(
+        listOf(
+            "Lcom/spotify/connectivity/ApplicationScopeConfiguration;",
+            "Lcom/spotify/authentication/login5/Login5Configuration;",
+            "Lcom/spotify/connectivity/AuthenticatedScopeConfiguration;",
+            "Lcom/spotify/core/corefullimpl/FullAuthenticatedScopeConfiguration;",
+        ).forEach {
+            setClientIdFingerprint(it).method.addInstruction(
                 0,
-                "invoke-static/range { p1 .. p1 }, $openLoginWebViewDescriptor"
+                "const-string p1, \"58bd3c95768941ea9eb4350aaa033eb3\""
             )
         }
 
-        renderStartLoginScreenFingerprint.method.apply {
-            val onEventIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "getView"
-            }
-
-            val buttonRegister = getInstruction<OneRegisterInstruction>(onEventIndex + 1).registerA
-
-            addInstruction(
-                onEventIndex + 2,
-                "invoke-static { v$buttonRegister }, $EXTENSION_CLASS_DESCRIPTOR->setNativeLoginHandler(Landroid/view/View;)V"
-            )
-        }
-
-        renderSecondLoginScreenFingerprint.method.apply {
-            val getViewIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "getView"
-            }
-
-            val buttonRegister = getInstruction<OneRegisterInstruction>(getViewIndex + 1).registerA
-
-            // Early return the render for loop since the first item of the loop is the login button.
-            addInstructions(
-                getViewIndex + 2,
-                """
-                    invoke-virtual { v$buttonRegister }, Landroid/view/View;->performClick()Z
-                    return-void
-                """
-            )
-        }
-
-        renderThirdLoginScreenFingerprint.method.apply {
-            val invokeSetListenerIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.definingClass == "Landroid/view/View;" && reference.name == "setOnClickListener"
-            }
-
-            val buttonRegister = getInstruction<FiveRegisterInstruction>(invokeSetListenerIndex).registerC
-
-            addInstruction(
-                invokeSetListenerIndex + 1,
-                "invoke-virtual { v$buttonRegister }, Landroid/view/View;->performClick()Z"
-            )
-        }
-
-        thirdLoginScreenLoginOnClickFingerprint.method.apply {
-            // Use placeholder credentials to pass the login screen.
-            val loginActionIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID) - 1
-            val loginActionInstruction = getInstruction<FiveRegisterInstruction>(loginActionIndex)
-
-            addInstructions(
-                loginActionIndex,
-                """
-                    const-string v${loginActionInstruction.registerD}, "placeholder"
-                    const-string v${loginActionInstruction.registerE}, "placeholder"
-                """
-            )
-        } */
+        setUserAgentFingerprint.method.addInstruction(
+            0,
+            "const-string p1, \"Spotify/9.0.58 iOS/19 (iPad8,11)\""
+        )
 
         // endregion
 
@@ -218,11 +83,5 @@ val spoofClientPatch = bytecodePatch(
         runIntegrityVerificationFingerprint.method.returnEarly()
 
         // endregion
-
-        clientTokenSuccessConstructorFingerprint.match(clientTokenSuccessClassFingerprint.originalClassDef)
-            .method.addInstruction(
-                0,
-                "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setClientToken(Ljava/lang/String;)V"
-            )
     }
 }

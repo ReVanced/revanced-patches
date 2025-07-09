@@ -7,37 +7,24 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val getPackageInfoFingerprint = fingerprint {
-    strings(
-        "Failed to get the application signatures"
-    )
-}
-
 internal val loadOrbitLibraryFingerprint = fingerprint {
     strings("/liborbit-jni-spotify.so")
 }
 
-internal val startupPageLayoutInflateFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
-    parameters("Landroid/view/LayoutInflater;", "Landroid/view/ViewGroup;", "Landroid/os/Bundle;")
-    strings("blueprintContainer", "gradient", "valuePropositionTextView")
+internal fun setClientIdFingerprint(targetClassDef: String) = fingerprint {
+    parameters("Ljava/lang/String;")  // To improve matching speed.
+    custom { method, classDef ->
+        classDef.type == targetClassDef
+                && method.name == "setClientId"
+    }
 }
 
-internal val renderStartLoginScreenFingerprint = fingerprint {
-    strings("authenticationButtonFactory", "MORE_OPTIONS")
-}
-
-internal val renderSecondLoginScreenFingerprint = fingerprint {
-    strings("authenticationButtonFactory", "intent_login")
-}
-
-internal val renderThirdLoginScreenFingerprint = fingerprint {
-    strings("EMAIL_OR_USERNAME", "listener")
-}
-
-internal val thirdLoginScreenLoginOnClickFingerprint = fingerprint {
-    strings("login", "listener", "none")
+internal val setUserAgentFingerprint = fingerprint {
+    parameters("Ljava/lang/String;")  // To improve matching speed.
+    custom { method, classDef ->
+        classDef.type == "Lcom/spotify/connectivity/ApplicationScopeConfiguration;"
+                && method.name == "setDefaultHTTPUserAgent"
+    }
 }
 
 internal val runIntegrityVerificationFingerprint = fingerprint {
@@ -58,12 +45,4 @@ internal val runIntegrityVerificationFingerprint = fingerprint {
             reference?.definingClass == "Ljava/util/Calendar;" && reference.name == "get"
         } >= 0
     }
-}
-
-internal val clientTokenSuccessClassFingerprint = fingerprint {
-    strings("ClientTokenSuccess(clientToken=")
-}
-
-internal val clientTokenSuccessConstructorFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
 }
