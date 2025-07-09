@@ -1,3 +1,31 @@
+# [5.31.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.9...v5.31.0-dev.10) (2025-07-09)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide playlist sort button if 'Hide AI comments summary' is on ([5f3e48e](https://github.com/ReVanced/revanced-patches/commit/5f3e48ec5853f6439800ef58239291c34bcab5f6))
+
+# [5.31.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.8...v5.31.0-dev.9) (2025-07-07)
+
+
+### Bug Fixes
+
+* Fix accidental changes ([e2ac841](https://github.com/ReVanced/revanced-patches/commit/e2ac8419756e3c7d62e2c0430a2918a3c1c63666))
+
+# [5.31.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.7...v5.31.0-dev.8) (2025-07-07)
+
+
+### Bug Fixes
+
+* Correctly name `Enable ROM signature spoofing` patch ([d85881a](https://github.com/ReVanced/revanced-patches/commit/d85881a6768232a999534677bebb248e640fe5ab))
+
+# [5.31.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.6...v5.31.0-dev.7) (2025-07-06)
+
+
+### Bug Fixes
+
+* Fix refactoring typo ([ec0ae42](https://github.com/ReVanced/revanced-patches/commit/ec0ae42496628cdeb2a639020fce94316b41b751))
+
 # [5.31.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.5...v5.31.0-dev.6) (2025-07-06)
 
 

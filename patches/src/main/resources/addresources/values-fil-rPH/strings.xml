@@ -171,7 +171,13 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Nakatago ang lumulutang na pindutan ng mikropono sa paghahanap</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Ang lumulutang na pindutan ng mikropono sa paghahanap ay ipinapakita</string>
   <string name="revanced_hide_horizontal_shelves_title">Itago ang mga pahalang na istante</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Ang mga pahalang na shelf ay nakatago, tulad ng:\n• Nagbabagang balita\n• Ipagpatuloy ang panonood\n• Galugarin ang higit pang channel\n• Pinakanauugnay\n• Pamimili\n• Panoorin muli"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Ang mga pahalang na shelf ay nakatago, tulad ng:
+• Nagbabagang balita
+• Ipagpatuloy ang panonood
+• Galugarin ang higit pang channel
+• Pinakanauugnay
+• Pamimili
+• Panoorin muli"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Ipinapakita ang mga pahalang na istante</string>
   <string name="revanced_hide_image_shelf_title">Itago ang image shelf</string>
   <string name="revanced_hide_image_shelf_summary_on">Nakago na ang image shelf sa mga resulta ng paghahanap</string>

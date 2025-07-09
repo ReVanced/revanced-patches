@@ -213,7 +213,7 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">Label \'Orang juga menonton\' dan \'Anda mungkin juga menyukai\' di hasil pencarian ditampilkan</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Sembunyikan YouTube Doodles</string>
-  <string name="revanced_hide_doodles_summary_on">Animasi Doodles YouTube di logo disembunyikan</string>
+  <string name="revanced_hide_doodles_summary_on">Animasi YouTube Doodles pada logo disembunyikan</string>
   <string name="revanced_hide_doodles_summary_off">Animasi YouTube Doodles pada logo ditampilkan</string>
   <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodle muncul beberapa hari setiap tahun.
 
@@ -736,13 +736,13 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_shorts_player_screen_title">Pemutar Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Sembunyikan atau tampilkan komponen di pemutar Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
-  <string name="revanced_hide_shorts_home_title">Sembunyikan Shorts di feed Beranda</string>
-  <string name="revanced_hide_shorts_home_summary_on">Disembunyikan di feed Beranda dan video terkait</string>
-  <string name="revanced_hide_shorts_home_summary_off">Ditampilkan di feed Beranda dan video terkait</string>
+  <string name="revanced_hide_shorts_home_title">Sembunyikan Shorts di umpan Beranda</string>
+  <string name="revanced_hide_shorts_home_summary_on">Disembunyikan di umpan Beranda dan video terkait</string>
+  <string name="revanced_hide_shorts_home_summary_off">Ditampilkan di umpan Beranda dan video terkait</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Sembunyikan Shorts di feed Langganan</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Disembunyikan di feed Langganan</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Ditampilkan di feed Langganan</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Sembunyikan Shorts di umpan Langganan</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Disembunyikan di umpan Langganan</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Ditampilkan di umpan Langganan</string>
   <string name="revanced_hide_shorts_search_title">Sembunyikan Shorts di hasil pencarian</string>
   <string name="revanced_hide_shorts_search_summary_on">Disembunyikan dalam hasil penelusuran</string>
   <string name="revanced_hide_shorts_search_summary_off">Ditampilkan dalam hasil penelusuran</string>
@@ -1323,7 +1323,7 @@ Mengaktifkan ini dapat memperbaiki gambar yang hilang yang diblokir di beberapa 
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Tab beranda</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
-  <string name="revanced_alt_thumbnail_subscription_title">Tab Langganan</string>
+  <string name="revanced_alt_thumbnail_subscription_title">Bilah Langganan</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">Tab Anda</string>
   <string name="revanced_alt_thumbnail_player_title">Daftar putar &amp; rekomendasi pemutar</string>
