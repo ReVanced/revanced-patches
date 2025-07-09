@@ -172,12 +172,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">搜尋中的浮動麥克風按鈕已顯示</string>
   <string name="revanced_hide_horizontal_shelves_title">隱藏橫向區塊</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"橫向區塊已隱藏，例如：
-• 即時新聞  
-• 繼續觀看  
-• 探索更多頻道  
-• 最相關  
-• 購物  
-• 再看一次 "</string>
+• 即時新聞
+• 繼續觀看
+• 探索更多頻道
+• 最相關
+• 購物
+• 再看一次"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">橫向區塊已顯示</string>
   <string name="revanced_hide_image_shelf_title">隱藏圖庫</string>
   <string name="revanced_hide_image_shelf_summary_on">已隱藏搜尋結果中的圖庫</string>

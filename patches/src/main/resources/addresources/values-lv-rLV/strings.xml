@@ -171,7 +171,13 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Peldošā mikrofona poga meklēšanā ir paslēpta.</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Peldošā mikrofona poga meklēšanā ir redzama</string>
   <string name="revanced_hide_horizontal_shelves_title">Paslēpt horizontālos plauktus</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Horizontālie plaukti ir paslēpti, piemēram:\n• Jaunākās ziņas\n• Turpināt skatīties\n• Izpētīt vairāk kanālu\n• Visatbilstošākais\n• Iepirkšanās\n• Skatīties vēlreiz"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Horizontālie plaukti ir paslēpti, piemēram:
+• Jaunākās ziņas
+• Turpināt skatīties
+• Izpētīt vairāk kanālu
+• Visatbilstošākais
+• Iepirkšanās
+• Skatīties vēlreiz"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Horizontālie plaukti ir redzami.</string>
   <string name="revanced_hide_image_shelf_title">Slēpt attēlu plauktu</string>
   <string name="revanced_hide_image_shelf_summary_on">Attēlu plaukts meklēšanas rezultātos ir paslēpts</string>

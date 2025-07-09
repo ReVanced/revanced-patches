@@ -169,7 +169,13 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Plávajúce tlačidlo mikrofónu vo vyhľadávaní je skryté</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Plávajúce tlačidlo mikrofónu vo vyhľadávaní je zobrazené</string>
   <string name="revanced_hide_horizontal_shelves_title">Skryť horizontálne police</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Vodorovné priehradky sú skryté, napríklad:\n• Najnovšie správy\n• Pokračovať v pozeraní\n• Preskúmať ďalšie kanály\n• Najrelevantnejšie\n• Nakupovanie\n• Pozrieť si znova"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Horizontálne poličky sú skryté, napríklad:
+• Aktuálne správy
+• Pokračovať v sledovaní
+• Preskúmať ďalšie kanály
+• Najrelevantnejšie
+• Nakupovanie
+• Pozrieť znova"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Horizontálne poličky sú zobrazené</string>
   <string name="revanced_hide_image_shelf_title">Skryť poličku s obrázkami</string>
   <string name="revanced_hide_image_shelf_summary_on">Polička s obrázkami vo výsledkoch vyhľadávania je skrytá</string>
@@ -366,7 +372,12 @@ Kľúčové slová môžu byť názvy kanálov alebo akýkoľvek text zobrazený
 
 Slová s veľkými písmenami v strede musia byť zadané s použitím veľkých a malých písmen (napr.: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">O filtrovaní kľúčových slov</string>
-  <string name="revanced_hide_keyword_content_about_summary">"Výsledky vyhľadávania domovskej stránky/odberov/hľadania sa filtrujú, aby sa skryli"</string>
+  <string name="revanced_hide_keyword_content_about_summary">"Domov/Predplatné/Výsledky vyhľadávania sú filtrované tak, aby sa skryl obsah, ktorý zodpovedá kľúčovým slovám
+
+Obmedzenia
+• Shorts sa nedajú skryť podľa názvu kanála
+• Niektoré komponenty používateľského rozhrania sa nemusia skryť
+• Vyhľadávanie kľúčového slova nemusí priniesť žiadne výsledky"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Zhodovať celé slová</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Obkľúčenie kľúčového slova/frázy dvojitými úvodzovkami zabráni čiastočným zhodám názvov videí a mien kanálov&lt;br&gt;&lt;br&gt;Napríklad,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt;  skryje video: &lt;b&gt;Ako funguje AI?&lt;/b&gt;&lt;br&gt;ale neskryje: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>

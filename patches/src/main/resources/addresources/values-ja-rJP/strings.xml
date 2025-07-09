@@ -100,7 +100,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_settings_screen_12_video_title">動画</string>
   <string name="revanced_restore_old_settings_menus_title">古い設定メニューを復元</string>
   <string name="revanced_restore_old_settings_menus_summary_on">旧バージョンの設定メニューが表示されます</string>
-  <string name="revanced_restore_old_settings_menus_summary_off">通常の設定メニューが表示されます</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">旧バージョンの設定メニューは表示されません</string>
   <string name="revanced_settings_search_history_title">設定の検索履歴を表示</string>
   <string name="revanced_settings_search_history_summary_on">設定の検索履歴は表示されます</string>
   <string name="revanced_settings_search_history_summary_off">設定の検索履歴は表示されません</string>
@@ -317,7 +317,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_visit_store_button_summary_off">「ストアに移動」ボタンは表示されます</string>
   <string name="revanced_comments_screen_title">コメント</string>
   <string name="revanced_comments_screen_summary">コメント セクションの設定</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">「チャットの要約」を非表示</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">AI による「チャットの要約」を非表示</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">「チャットの要約」は表示されません</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">「チャットの要約」は表示されます</string>
   <string name="revanced_hide_comments_ai_summary_title">AI によるコメントの要約を非表示</string>
@@ -532,9 +532,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_swipe_change_video_summary_off">全画面表示でスワイプしても、次 / 前の動画に切り替わりません</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_disable_auto_captions_title">デフォルトでの字幕表示を無効化</string>
-  <string name="revanced_disable_auto_captions_summary_on">動画を開いた際に字幕を表示しません</string>
-  <string name="revanced_disable_auto_captions_summary_off">動画を開いた際に字幕を表示しません</string>
+  <string name="revanced_disable_auto_captions_title">自動字幕表示を無効化</string>
+  <string name="revanced_disable_auto_captions_summary_on">動画を開いた際の自動字幕表示は、無効です</string>
+  <string name="revanced_disable_auto_captions_summary_off">動画を開いた際の自動字幕表示は、有効です</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">アクション ボタン</string>
@@ -586,7 +586,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">ナビゲーション ボタン</string>
-  <string name="revanced_navigation_buttons_screen_summary">画面下部のナビゲーション バーに表示されるボタンの設定</string>
+  <string name="revanced_navigation_buttons_screen_summary">ナビゲーション バーのボタンを変更または非表示にします</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
   <string name="revanced_hide_home_button_title">「ホーム」を非表示</string>
   <string name="revanced_hide_home_button_summary_on">ホームボタンは表示されません</string>
@@ -621,7 +621,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_disable_translucent_status_bar_title">ステータスバーの半透明化を無効にする</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">ステータスバーは常に透けません</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">ステータスバーは状況に応じて透けます</string>
-  <string name="revanced_disable_translucent_status_bar_user_dialog_message">一部のデバイスでは、この機能を有効にすると、システムのナビゲーション バーが半透明になりアプリ内の component に重なってしまう可能性があります。</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">一部のデバイスでは、この機能を有効にすると、システムのナビゲーション バーが半透明になりアプリ内のコンポーネントに重なってしまう可能性があります。</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">ライトモード時のナビゲーション バーの半透明化を無効にする</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ライトモード時にナビゲーション バーは透けません</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ライトモード時にナビゲーション バーが状況に応じて透けます</string>
@@ -679,7 +679,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"「音声トラック」は表示されません
 
-「音声トラック」を表示するには、「動画ストリームを偽装する」の「デフォルトのクライアント」を iOS TV に変更してください"</string>
+「音声トラック」を表示するには、「動画ストリームを偽装」の「デフォルトのクライアント」を iOS TV に変更してください"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">「VR で見る」を非表示</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">「VR で見る」は表示されません</string>
@@ -867,9 +867,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_timestamp_summary_off">タイムスタンプは表示されます</string>
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
-  <string name="revanced_hide_player_popup_panels_title">ポップアップ パネルを非表示</string>
-  <string name="revanced_hide_player_popup_panels_summary_on">チャット欄やプレイリストを閉じた状態で動画を開きます</string>
-  <string name="revanced_hide_player_popup_panels_summary_off">チャット欄やプレイリストを展開した状態で動画を開きます</string>
+  <string name="revanced_hide_player_popup_panels_title">プレーヤー ポップアップ パネルを非表示</string>
+  <string name="revanced_hide_player_popup_panels_summary_on">動画を開いた際のプレイリストやチャット欄などのプレーヤー ポップアップ パネルは、表示されません</string>
+  <string name="revanced_hide_player_popup_panels_summary_off">動画を開いた際のプレイリストやチャット欄などのプレーヤー ポップアップ パネルは、表示されます</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
   <string name="revanced_exit_fullscreen_title">再生終了時に全画面表示を解除する</string>
@@ -939,8 +939,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="layout.searchbar.wideSearchbarPatch">
   <string name="revanced_wide_searchbar_title">ワイド検索バーを有効化</string>
-  <string name="revanced_wide_searchbar_summary_on">幅の広い検索バーが表示されます</string>
-  <string name="revanced_wide_searchbar_summary_off">通常の検索バーが表示されます</string>
+  <string name="revanced_wide_searchbar_summary_on">ワイド検索バーは有効です</string>
+  <string name="revanced_wide_searchbar_summary_off">ワイド検索バーは無効です</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
   <string name="revanced_seekbar_thumbnails_high_quality_title">高画質サムネイルを有効にする</string>
@@ -1020,7 +1020,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_general_uuid">非公開ユーザー ID</string>
   <string name="revanced_sb_general_uuid_sum">この ID は公開すべきではありません。パスワードのようなものであり、誰とも共有すべきではありません。もし誰かがこの ID を手に入れた場合、あなたになりすますことができます</string>
   <string name="revanced_sb_general_uuid_invalid">非公開ユーザー ID は 30 文字以上必要です</string>
-  <string name="revanced_sb_general_api_url">API URL</string>
+  <string name="revanced_sb_general_api_url">API URL を変更</string>
   <string name="revanced_sb_general_api_url_sum">SponsorBlock がサーバーとの通信で使用するアドレス</string>
   <string name="revanced_sb_api_url_reset">API URL をリセットしました</string>
   <string name="revanced_sb_api_url_invalid">API URL が無効です</string>
@@ -1034,7 +1034,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_settings_export_failed">エクスポートに失敗しました: %s</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning">"設定には、SponsorBlock の非公開ユーザー ID が含まれています。この ID はパスワードのようなものであり、決して共有すべきではありません。"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">今後表示しない</string>
-  <string name="revanced_sb_diff_segments">セグメントのスキップ</string>
+  <string name="revanced_sb_diff_segments">セグメントの挙動を変更</string>
   <string name="revanced_sb_segments_sponsor">スポンサー</string>
   <string name="revanced_sb_segments_sponsor_sum">有料の宣伝 、有料の紹介、直接的な広告。自己宣伝や好意をもって行う、慈善活動、クリエーター、ウェブサイト、製品などの無償の紹介は含まれません</string>
   <string name="revanced_sb_segments_selfpromo">無報酬の宣伝 / 自己宣伝</string>
@@ -1163,7 +1163,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_about_api_summary">データは SponsorBlock API によって提供されています。詳細を確認するまたは他のプラットフォーム版をダウンロードするには、ここをタップしてください</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
-  <string name="revanced_change_form_factor_title">レイアウト</string>
+  <string name="revanced_change_form_factor_title">レイアウト フォーム ファクター</string>
   <string name="revanced_change_form_factor_entry_1">デフォルト</string>
   <string name="revanced_change_form_factor_entry_2">スマートフォン</string>
   <string name="revanced_change_form_factor_entry_3">タブレット</string>
@@ -1193,11 +1193,11 @@ Automotive レイアウト
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - ナビゲーション アイコンが旧バージョン</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">スタート画面</string>
+  <string name="revanced_change_start_page_title">スタート画面を変更</string>
   <string name="revanced_change_start_page_entry_default">デフォルト</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">すべての登録チャンネル</string>
   <string name="revanced_change_start_page_entry_browse">チャンネル一覧</string>
-  <string name="revanced_change_start_page_entry_courses">学び</string>
+  <string name="revanced_change_start_page_entry_courses">コース / 学び</string>
   <string name="revanced_change_start_page_entry_explore">探索</string>
   <string name="revanced_change_start_page_entry_fashion">ファッションと美容</string>
   <string name="revanced_change_start_page_entry_gaming">ゲーム</string>
@@ -1218,8 +1218,8 @@ Automotive レイアウト
   <string name="revanced_change_start_page_entry_virtual_reality">バーチャル リアリティ</string>
   <string name="revanced_change_start_page_entry_watch_later">後で見る</string>
   <string name="revanced_change_start_page_entry_your_clips">自分のクリップ</string>
-  <string name="revanced_change_start_page_always_title">スタート画面の変更を常時適用する</string>
-  <string name="revanced_change_start_page_always_summary_on">"スタート画面の変更は常時適用されます
+  <string name="revanced_change_start_page_always_title">スタート画面の変更を常時適用</string>
+  <string name="revanced_change_start_page_always_summary_on">"スタート画面の変更は、常時適用されます
 
 制限事項: ツールバーの [戻る] ボタンが機能しない可能性があります"</string>
   <string name="revanced_change_start_page_always_summary_off">スタート画面の変更は、アプリ起動時にのみ適用されます</string>
@@ -1245,7 +1245,7 @@ Automotive レイアウト
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">ミニプレーヤー</string>
-  <string name="revanced_miniplayer_screen_summary">視聴中に [戻る] ボタンをタップまたは画面を下にスワイプするとアプリ内に表示される小さなプレーヤーの設定</string>
+  <string name="revanced_miniplayer_screen_summary">アプリ内に表示される小さな画面のプレーヤーのスタイルを変更します</string>
   <string name="revanced_miniplayer_type_title">ミニプレーヤーのタイプ</string>
   <string name="revanced_miniplayer_type_entry_0">無効</string>
   <string name="revanced_miniplayer_type_entry_1">デフォルト</string>
@@ -1390,7 +1390,7 @@ Automotive レイアウト
   </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">触覚フィードバック</string>
-  <string name="revanced_disable_haptic_feedback_summary">触覚フィードバックの設定</string>
+  <string name="revanced_disable_haptic_feedback_summary">触覚フィードバックの設定を変更します</string>
   <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの触覚フィードバックを無効にする</string>
   <string name="revanced_disable_haptic_feedback_chapters_summary_on">チャプターの触覚フィードバックは無効です</string>
   <string name="revanced_disable_haptic_feedback_chapters_summary_off">チャプターの触覚フィードバックは有効です</string>
@@ -1425,9 +1425,9 @@ Automotive レイアウト
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">オリジナルの音声を強制的に使用</string>
   <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します</string>
-  <string name="revanced_force_original_audio_summary_off">デフォルトの音声トラック (言語) を使用します</string>
+  <string name="revanced_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装する」のクライアントを iOS TV に変更してください</string>
+  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを iOS TV に変更してください</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1460,7 +1460,7 @@ Automotive レイアウト
   <string name="revanced_custom_speed_menu_summary_on">カスタムした再生速度リストが表示されます</string>
   <string name="revanced_custom_speed_menu_summary_off">デフォルトの再生速度リストが表示されます</string>
   <string name="revanced_custom_playback_speeds_title">カスタム再生速度リスト</string>
-  <string name="revanced_custom_playback_speeds_summary">再生速度リストを編集します</string>
+  <string name="revanced_custom_playback_speeds_summary">カスタム再生速度リストを編集します</string>
   <string name="revanced_custom_playback_speeds_invalid">再生速度は %s 未満である必要があります</string>
   <string name="revanced_custom_playback_speeds_parse_exception">カスタム再生速度リストが無効です</string>
   <string name="revanced_custom_playback_speeds_auto">自動</string>
@@ -1493,16 +1493,16 @@ Automotive レイアウト
   <string name="revanced_slide_to_seek_summary_off">スライドしてシークする機能は無効になっています</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">動画ストリームを偽装する</string>
+  <string name="revanced_spoof_video_streams_screen_title">動画ストリームを偽装</string>
   <string name="revanced_spoof_video_streams_screen_summary">動画再生の失敗を回避するために、クライアントの動画ストリームを偽装します</string>
-  <string name="revanced_spoof_video_streams_title">動画ストリームを偽装する</string>
+  <string name="revanced_spoof_video_streams_title">動画ストリームを偽装</string>
   <string name="revanced_spoof_video_streams_summary_on">動画ストリームは偽装されます</string>
   <string name="revanced_spoof_video_streams_summary_off">"動画ストリームは偽装されません
 
 動画の再生に失敗する可能性があります"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">この設定をオフにすると、動画の再生に失敗するようになる可能性があります。</string>
   <string name="revanced_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS クライアントで AVC (H.264) を強制的に使用する</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS クライアントで AVC (H.264) を強制的に使用</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ビデオ コーデックは強制的に AVC (H.264) が使用されます</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオ コーデックは自動的に決定されます</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"この機能を有効にすると、バッテリー寿命が延びたり、動画のカクつきが改善さたりする可能性があります。
