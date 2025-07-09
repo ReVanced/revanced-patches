@@ -43,15 +43,9 @@ class RequestListener extends NanoHTTPD {
                 return newResponse(INTERNAL_ERROR);
             }
 
-            String androidUserAgent = request.getHeaders().get("user-agent");
-            if (androidUserAgent == null) {
-                Logger.printException(() -> "Failed to find original android User-Agent");
-                return newResponse(INTERNAL_ERROR);
-            }
-
             try {
                 ClienttokenHttp.ClientTokenResponse clientTokenResponse =
-                        ClientTokenFetcher.fetchClientToken(androidUserAgent, clientTokenRequest);
+                        ClientTokenFetcher.fetchClientToken(clientTokenRequest);
 
                 if (clientTokenResponse == null) {
                     return newResponse(INTERNAL_ERROR);

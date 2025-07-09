@@ -58,10 +58,9 @@ class ClientTokenFetcher {
 
     @Nullable
     static ClienttokenHttp.ClientTokenResponse fetchClientToken(
-            @NonNull String androidUserAgent,
             @NonNull ClienttokenHttp.ClientTokenRequest originalClientTokenRequest
     ) throws IOException {
-        String iosUserAgent = getIOSUserAgent(androidUserAgent);
+        String iosUserAgent = getIOSUserAgent();
         if (iosUserAgent == null) {
             return null;
         }
@@ -102,17 +101,17 @@ class ClientTokenFetcher {
     }
 
     @Nullable
-    static String getIOSUserAgent(@NonNull String androidUserAgent) {
-        Pattern iosSpotifyVersionPattern = Pattern.compile("Spotify/(\\d+\\.\\d+\\.\\d+)\\.\\d+");
-        Matcher androidSpotifyVersionMatcher = iosSpotifyVersionPattern.matcher(androidUserAgent);
+    static String getIOSUserAgent() {
+        Pattern iosSpotifyVersionPattern = Pattern.compile("iphone-(\\d+\\.\\d+\\.\\d+)\\.\\d+");
+        Matcher iosSpotifyVersionMatcher = iosSpotifyVersionPattern.matcher(getClientVersion());
 
-        if (!androidSpotifyVersionMatcher.find()) {
-            Logger.printException(() -> "Failed to match iOS Spotify version from original android User-Agent. " +
-                    "Original User-Agent: " + androidUserAgent);
+        if (!iosSpotifyVersionMatcher.find()) {
+            Logger.printException(() -> "Failed to match iOS Spotify version from the client version " +
+                    getClientVersion());
             return null;
         }
 
-        String iosSpotifyVersion = androidSpotifyVersionMatcher.group(1);
+        String iosSpotifyVersion = iosSpotifyVersionMatcher.group(1);
         return "Spotify/" + iosSpotifyVersion + " iOS/" +
                 getSystemVersion() + " (" +
                 getHardwareMachine() + ")";
