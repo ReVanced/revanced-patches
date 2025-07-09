@@ -106,9 +106,7 @@ public final class UnlockPremiumPatch {
      * response which delivers browse sections.
      */
     private static final List<Integer> REMOVED_BROWSE_SECTIONS = List.of(
-            com.spotify.browsita.v1.resolved.Section.BRAND_ADS_FIELD_NUMBER,
-            com.spotify.browsita.v1.resolved.Section.PROMOTION_V1_FIELD_NUMBER,
-            com.spotify.browsita.v1.resolved.Section.PROMOTION_V3_FIELD_NUMBER
+            com.spotify.browsita.v1.resolved.Section.BRAND_ADS_FIELD_NUMBER
     );
 
     /**
