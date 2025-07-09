@@ -20,7 +20,7 @@ class ClientTokenFetcher {
     @NonNull
     static final String CLIENT_TOKEN_ENDPOINT = "https://clienttoken.spotify.com" + CLIENT_TOKEN_PATH;
 
-    // The return value of these method are override by the patch.
+    // The return value of these method are overriden by the patch.
     @NonNull
     static String getClientVersion() {
         return "";
