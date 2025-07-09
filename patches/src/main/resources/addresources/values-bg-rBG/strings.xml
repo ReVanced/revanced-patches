@@ -171,7 +171,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Плаващ бутон за микрофон при търсене е скрит</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Плаващият бутон за микрофон в търсенето е показан</string>
   <string name="revanced_hide_horizontal_shelves_title">Хоризонтални секции</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Хоризонтални рафтове са скрити, като:\n• Извънредни новини\n• Продължи гледането\n• Разгледайте още канали\n• Най-подходящи\n• Пазаруване\n• Гледайте отново"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Хоризонтални рафтове са скрити, като:
+• Извънредни новини
+• Продължи гледането
+• Разгледайте още канали
+• Най-подходящи
+• Пазаруване
+• Гледайте отново"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Хоризонталните рафтове са показани</string>
   <string name="revanced_hide_image_shelf_title">Скриване на рафта с изображения</string>
   <string name="revanced_hide_image_shelf_summary_on">Рафтът с изображения в резултатите от търсенето е скрит</string>

@@ -171,7 +171,13 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Plovoucí tlačítko mikrofonu ve vyhledávání je skryto</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Plovoucí tlačítko mikrofonu ve vyhledávání je zobrazeno</string>
   <string name="revanced_hide_horizontal_shelves_title">Skrýt horizontální police</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Horizontální poličky jsou skryty, například:• Nejnovější zprávy• Pokračovat ve sledování• Prozkoumat další kanály• Nejdůležitější• Nakupování• Sledovat znovu"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Vodorovné police jsou skryté, například:
+• Nejnovější zprávy
+• Pokračovat ve sledování
+• Prozkoumat další kanály
+• Nejdůležitější
+• Nakupování
+• Znovu zhlédnout"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Horizontální police jsou zobrazeny</string>
   <string name="revanced_hide_image_shelf_title">Skrýt obrázkovou poličku</string>
   <string name="revanced_hide_image_shelf_summary_on">Obrázková polička ve výsledcích vyhledávání je skryta</string>
