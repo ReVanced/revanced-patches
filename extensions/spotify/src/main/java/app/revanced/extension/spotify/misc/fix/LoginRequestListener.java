@@ -33,34 +33,12 @@ class LoginRequestListener extends NanoHTTPD {
 
         Logger.printInfo(() -> "Serving request for URI: " + uri);
 
-        for (Map.Entry<String, String> entry : request.getHeaders().entrySet()) {
-            Logger.printInfo(() -> entry.getKey() + " = " + entry.getValue());
-        }
-
         InputStream requestBodyInputStream = getRequestBodyInputStream(request);
-        byte[] requestBodyBytes;
-
-        try {
-            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-            int b;
-            while ((b = requestBodyInputStream.read()) != -1) {
-                buffer.write(b);
-            }
-            requestBodyBytes = buffer.toByteArray();
-        } catch (IOException ignored) {
-            return newResponse(INTERNAL_ERROR);
-        }
-
-        StringBuilder hexString = new StringBuilder();
-        for (byte bb : requestBodyBytes) {
-            hexString.append(String.format("%02X", bb));
-        }
-        Logger.printInfo(hexString::toString);
 
         if (uri.equals("/v1/clienttoken")) {
             ClienttokenHttp.ClientTokenRequest clientTokenRequest;
             try {
-                clientTokenRequest = ClienttokenHttp.ClientTokenRequest.parseFrom(requestBodyBytes);
+                clientTokenRequest = ClienttokenHttp.ClientTokenRequest.parseFrom(requestBodyInputStream);
             } catch (IOException ex) {
                 Logger.printException(() -> "Failed to parse ClientTokenRequest", ex);
                 return newResponse(INTERNAL_ERROR);
@@ -97,12 +75,6 @@ class LoginRequestListener extends NanoHTTPD {
                 } else {
                     clientTokenRequestData = clientTokenRequest.toByteArray();
                 }
-
-                hexString = new StringBuilder();
-                for (byte bb : clientTokenRequestData) {
-                    hexString.append(String.format("%02X", bb));
-                }
-                Logger.printInfo(hexString::toString);
 
                 clientTokenRequestConnection.setRequestProperty("Content-Length", Integer.toString(clientTokenRequestData.length));
                 clientTokenRequestConnection.getOutputStream().write(clientTokenRequestData);
