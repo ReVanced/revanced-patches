@@ -32,36 +32,36 @@ class RequestListener extends NanoHTTPD {
         String uri = request.getUri();
         Logger.printInfo(() -> "Serving request for URI: " + uri);
 
-        if (uri.equals(ClientTokenFetcher.CLIENT_TOKEN_PATH)) {
-            InputStream requestBodyInputStream = getRequestBodyInputStream(request);
+        if (!uri.equals(ClientTokenFetcher.CLIENT_TOKEN_API_PATH)) return newResponse(INTERNAL_ERROR);
+        
+        InputStream requestBodyInputStream = getRequestBodyInputStream(request);
 
-            ClienttokenHttp.ClientTokenRequest clientTokenRequest;
-            try {
-                clientTokenRequest = ClienttokenHttp.ClientTokenRequest.parseFrom(requestBodyInputStream);
-            } catch (IOException ex) {
-                Logger.printException(() -> "Failed to parse client token request", ex);
+        ClienttokenHttp.ClientTokenRequest clientTokenRequest;
+        try {
+            clientTokenRequest = ClienttokenHttp.ClientTokenRequest.parseFrom(requestBodyInputStream);
+        } catch (IOException ex) {
+            Logger.printException(() -> "Failed to parse client token request", ex);
+            return newResponse(INTERNAL_ERROR);
+        }
+
+        try {
+            ClienttokenHttp.ClientTokenResponse clientTokenResponse =
+                        ClientTokenFetcher.fetchClientToken(clientTokenRequest);
+
+            if (clientTokenResponse == null) {
                 return newResponse(INTERNAL_ERROR);
             }
 
-            try {
-                ClienttokenHttp.ClientTokenResponse clientTokenResponse =
-                        ClientTokenFetcher.fetchClientToken(clientTokenRequest);
-
-                if (clientTokenResponse == null) {
-                    return newResponse(INTERNAL_ERROR);
-                }
-
-                ClienttokenHttp.ClientTokenResponseType responseGranted =
-                        ClienttokenHttp.ClientTokenResponseType.RESPONSE_GRANTED_TOKEN_RESPONSE;
-                if (clientTokenResponse.getResponseType() == responseGranted) {
-                    Logger.printInfo(() -> "Fetched iOS client token: " +
-                            clientTokenResponse.getGrantedToken().getToken());
-                }
-
-                return newResponse(Response.Status.OK, clientTokenResponse);
-            } catch (IOException ex) {
-                Logger.printException(() -> "Failed to get client token response", ex);
+            ClienttokenHttp.ClientTokenResponseType responseGranted =
+                    ClienttokenHttp.ClientTokenResponseType.RESPONSE_GRANTED_TOKEN_RESPONSE;
+            if (clientTokenResponse.getResponseType() == responseGranted) {
+                Logger.printInfo(() -> "Fetched iOS client token: " +
+                        clientTokenResponse.getGrantedToken().getToken());
             }
+
+            return newResponse(Response.Status.OK, clientTokenResponse);
+        } catch (IOException ex) {
+            Logger.printException(() -> "Failed to get client token response", ex);
         }
 
         return newResponse(INTERNAL_ERROR);

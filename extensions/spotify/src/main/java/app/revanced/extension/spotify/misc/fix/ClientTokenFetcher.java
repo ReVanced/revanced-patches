@@ -3,7 +3,7 @@ package app.revanced.extension.spotify.misc.fix;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp;
+import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp.*;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -16,76 +16,94 @@ class ClientTokenFetcher {
     static final String IOS_CLIENT_ID = "58bd3c95768941ea9eb4350aaa033eb3";
 
     @NonNull
-    static final String CLIENT_TOKEN_PATH = "/v1/clienttoken";
+    static final String CLIENT_TOKEN_API_PATH = "/v1/clienttoken";
     @NonNull
-    static final String CLIENT_TOKEN_ENDPOINT = "https://clienttoken.spotify.com" + CLIENT_TOKEN_PATH;
+    static final String CLIENT_TOKEN_API_URL = "https://clienttoken.spotify.com" + CLIENT_TOKEN_API_PATH;
 
-    // The return value of these methods are overriden by the patch.
+    // Modified by a patch. Do not touch.
     @NonNull
     static String getClientVersion() {
         return "";
     }
 
+    // Modified by a patch. Do not touch.
     @NonNull
     static String getSystemVersion() {
         return "";
     }
 
+    // Modified by a patch. Do not touch.
     @NonNull
     static String getHardwareMachine() {
         return "";
     }
 
+    private static final ConnectivitySdkData DEFAULT_CONNECTIVITY_SDK_DATA =
+            ConnectivitySdkData.newBuilder()
+                    .setPlatformSpecificData(PlatformSpecificData.newBuilder()
+                            .setIos(NativeIOSData.newBuilder()
+                                    .setHwMachine(getHardwareMachine())
+                                    .setSystemVersion(getSystemVersion())
+                                    .build())
+                            .build())
+                    .build();
+
+    private static final ClientDataRequest DEFAULT_CLIENT_DATA_REQUEST =
+            ClientDataRequest.newBuilder()
+                    .setClientVersion(getClientVersion())
+                    .setClientId(IOS_CLIENT_ID)
+                    .build();
+
+    private static final ClientTokenRequest DEFAULT_CLIENT_TOKEN_REQUEST =
+            ClientTokenRequest.newBuilder()
+                    .setRequestType(ClientTokenRequestType.REQUEST_CLIENT_DATA_REQUEST)
+                    .build();
+
+
     @NonNull
-    static ClienttokenHttp.ClientTokenRequest buildSpoofedClientTokenRequest(String deviceId) {
-        return ClienttokenHttp.ClientTokenRequest.newBuilder()
-                .setRequestType(ClienttokenHttp.ClientTokenRequestType.REQUEST_CLIENT_DATA_REQUEST)
-                .setClientData(ClienttokenHttp.ClientDataRequest.newBuilder()
-                        .setClientVersion(getClientVersion())
-                        .setClientId(IOS_CLIENT_ID)
-                        .setConnectivitySdkData(ClienttokenHttp.ConnectivitySdkData.newBuilder()
+    static ClientTokenRequest buildClientTokenRequest(String deviceId) {
+        return DEFAULT_CLIENT_TOKEN_REQUEST
+                .toBuilder()
+                .setClientData(DEFAULT_CLIENT_DATA_REQUEST
+                        .toBuilder()
+                        .setConnectivitySdkData(DEFAULT_CONNECTIVITY_SDK_DATA
+                                .toBuilder()
                                 .setDeviceId(deviceId)
-                                .setPlatformSpecificData(ClienttokenHttp.PlatformSpecificData.newBuilder()
-                                        .setIos(ClienttokenHttp.NativeIOSData.newBuilder()
-                                                .setHwMachine(getHardwareMachine())
-                                                .setSystemVersion(getSystemVersion())
-                                                .build())
-                                        .build())
-                                .build())
-                        .build())
-                .build();
+                                .build()
+                        ).build()
+                ).build();
     }
 
     @Nullable
-    static ClienttokenHttp.ClientTokenResponse fetchClientToken(
-            @NonNull ClienttokenHttp.ClientTokenRequest originalClientTokenRequest
+    static ClientTokenResponse fetchClientToken(
+            @NonNull ClientTokenRequest originalClientTokenRequest
     ) throws IOException {
         String iosUserAgent = getIOSUserAgent();
         if (iosUserAgent == null) {
             return null;
         }
 
-        ClienttokenHttp.ClientTokenRequest clientTokenRequest = spoofClientTokenRequest(originalClientTokenRequest);
+        ClientTokenRequest clientTokenRequest = spoofClientTokenRequest(originalClientTokenRequest);
 
-        HttpURLConnection clientTokenRequestConnection = createProtobufRequestConnection(CLIENT_TOKEN_ENDPOINT);
+        HttpURLConnection clientTokenRequestConnection = createProtobufRequestConnection(CLIENT_TOKEN_API_URL);
         clientTokenRequestConnection.setRequestProperty("User-Agent", iosUserAgent);
         clientTokenRequestConnection.getOutputStream().write(clientTokenRequest.toByteArray());
 
-        return ClienttokenHttp.ClientTokenResponse.parseFrom(clientTokenRequestConnection.getInputStream());
+        return ClientTokenResponse.parseFrom(clientTokenRequestConnection.getInputStream());
     }
 
     @NonNull
-    static ClienttokenHttp.ClientTokenRequest spoofClientTokenRequest(
-            @NonNull ClienttokenHttp.ClientTokenRequest originalClientTokenRequest
+    static ClientTokenRequest spoofClientTokenRequest(
+            @NonNull ClientTokenRequest originalClientTokenRequest
     ) {
-        ClienttokenHttp.ClientTokenRequestType clientTokenRequestType = originalClientTokenRequest.getRequestType();
+        ClientTokenRequestType clientTokenRequestType = originalClientTokenRequest.getRequestType();
 
-        if (clientTokenRequestType != ClienttokenHttp.ClientTokenRequestType.REQUEST_CLIENT_DATA_REQUEST) {
+        if (clientTokenRequestType != ClientTokenRequestType.REQUEST_CLIENT_DATA_REQUEST) {
             return originalClientTokenRequest;
         }
 
         String deviceId = originalClientTokenRequest.getClientData().getConnectivitySdkData().getDeviceId();
-        return buildSpoofedClientTokenRequest(deviceId);
+        return buildClientTokenRequest(deviceId);
     }
 
     @SuppressWarnings("SameParameterValue")
