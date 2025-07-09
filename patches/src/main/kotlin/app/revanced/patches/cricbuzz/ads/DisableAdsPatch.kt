@@ -11,6 +11,9 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/cricbuzz/ads/HideAdsPatch;"
+
 @Suppress("unused")
 val disableAdsPatch = bytecodePatch (
     name = "Hide ads",
@@ -31,7 +34,7 @@ val disableAdsPatch = bytecodePatch (
             val getRegister = getInstruction<TwoRegisterInstruction>(getIndex).registerA
 
             addInstruction(getIndex + 1,
-                "invoke-static { v$getRegister }, Lapp/revanced/extension/cricbuzz/ads/HideAdsPatch;->filterCb11(Ljava/util/List;)V"
+                "invoke-static { v$getRegister }, $EXTENSION_CLASS_DESCRIPTOR->filterCb11(Ljava/util/List;)V"
             )
         }
     }
