@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.patches.components;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 final class CommentsFilter extends Filter {
@@ -89,7 +90,9 @@ final class CommentsFilter extends Filter {
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == chipBar) {
-            return aiCommentsSummary.check(protobufBufferArray).isFiltered();
+            // Playlist sort button uses same components and must only filter if the player is opened.
+            return PlayerType.getCurrent().isMaximizedOrFullscreen()
+                    && aiCommentsSummary.check(protobufBufferArray).isFiltered();
         }
 
         return true;
