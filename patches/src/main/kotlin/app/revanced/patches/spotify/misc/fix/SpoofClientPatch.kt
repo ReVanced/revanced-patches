@@ -1,9 +1,9 @@
 package app.revanced.patches.spotify.misc.fix
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
+import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.shared.misc.hex.HexPatchBuilder
 import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
@@ -19,14 +19,38 @@ val spoofClientPatch = bytecodePatch(
     val requestListenerPort by intOption(
         key = "requestListenerPort",
         default = 4345,
-        title = " Login request listener port",
-        description = "The port to use for the listener that intercepts and handles login requests. " +
+        title = "Request listener port",
+        description = "The port to use for the listener that intercepts and handles spoofed requests. " +
                 "Port must be between 0 and 65535.",
         required = true,
         validator = {
             it!!
             !(it < 0 || it > 65535)
         }
+    )
+
+    val clientVersion by stringOption(
+        key = "clientVersion",
+        default = "iphone-9.0.58.558.g200011c",
+        title = "Client version",
+        description = "The client version used for spoofing the client token. " +
+                "Do not change this option if you do not know what you are doing."
+    )
+
+    val hardwareMachine by stringOption(
+        key = "hardwareMachine",
+        default = "iPhone16,1",
+        title = "Hardware machine",
+        description = "The hardware machine used for spoofing the client token. " +
+                "Do not change this option if you do not know what you are doing."
+    )
+
+    val systemVersion by stringOption(
+        key = "systemVersion",
+        default = "17.7.2",
+        title = "System version",
+        description = "The system version used for spoofing the client token. " +
+                "Do not change this option if you do not know what you are doing."
     )
 
     dependsOn(
@@ -58,22 +82,15 @@ val spoofClientPatch = bytecodePatch(
             """
         )
 
-        listOf(
-            "Lcom/spotify/connectivity/ApplicationScopeConfiguration;",
-            "Lcom/spotify/authentication/login5/Login5Configuration;",
-            "Lcom/spotify/connectivity/AuthenticatedScopeConfiguration;",
-            "Lcom/spotify/core/corefullimpl/FullAuthenticatedScopeConfiguration;",
-        ).forEach {
-            setClientIdFingerprint(it).method.addInstruction(
-                0,
-                "const-string p1, \"58bd3c95768941ea9eb4350aaa033eb3\""
-            )
-        }
+        val clientTokenFetcherClassDef = extensionClientTokenFetcherClassFingerprint.classDef
 
-        setUserAgentFingerprint.method.addInstruction(
-            0,
-            "const-string p1, \"Spotify/9.0.58 iOS/19 (iPad8,11)\""
-        )
+        mapOf(
+            "getClientVersion" to clientVersion!!,
+            "getSystemVersion" to systemVersion!!,
+            "getHardwareMachine" to hardwareMachine!!
+        ).forEach { (methodName, newReturnValue) ->
+            methodFingerprintByName(methodName).match(clientTokenFetcherClassDef).method.returnEarly(newReturnValue)
+        }
 
         // endregion
 

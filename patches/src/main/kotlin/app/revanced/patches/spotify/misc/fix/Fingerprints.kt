@@ -11,20 +11,13 @@ internal val loadOrbitLibraryFingerprint = fingerprint {
     strings("/liborbit-jni-spotify.so")
 }
 
-internal fun setClientIdFingerprint(targetClassDef: String) = fingerprint {
-    parameters("Ljava/lang/String;")  // To improve matching speed.
-    custom { method, classDef ->
-        classDef.type == targetClassDef
-                && method.name == "setClientId"
-    }
+internal const val CLIENT_TOKEN_FETCHER_CLASS_NAME = "Lapp/revanced/extension/spotify/misc/fix/ClientTokenFetcher;"
+internal val extensionClientTokenFetcherClassFingerprint = fingerprint {
+    custom { _, classDef -> classDef.type == CLIENT_TOKEN_FETCHER_CLASS_NAME }
 }
 
-internal val setUserAgentFingerprint = fingerprint {
-    parameters("Ljava/lang/String;")  // To improve matching speed.
-    custom { method, classDef ->
-        classDef.type == "Lcom/spotify/connectivity/ApplicationScopeConfiguration;"
-                && method.name == "setDefaultHTTPUserAgent"
-    }
+internal fun methodFingerprintByName(methodName: String) = fingerprint {
+    custom { method, _ -> method.name == methodName }
 }
 
 internal val runIntegrityVerificationFingerprint = fingerprint {

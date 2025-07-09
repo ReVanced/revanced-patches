@@ -4,12 +4,10 @@ import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
 public class SpoofClientPatch {
-    private static LoginRequestListener listener;
+    private static RequestListener listener;
 
     /**
-     * Injection point.
-     * <br>
-     * Launch login server.
+     * Injection point. Launch requests listener server.
      */
     public static void launchListener(int port) {
         if (listener != null) {
@@ -19,7 +17,7 @@ public class SpoofClientPatch {
 
         try {
             Logger.printInfo(() -> "Launching listener on port " + port);
-            listener = new LoginRequestListener(port);
+            listener = new RequestListener(port);
         } catch (Exception ex) {
             Logger.printException(() -> "launchListener failure", ex);
         }
