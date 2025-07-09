@@ -1,3 +1,10 @@
+# [5.31.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.11...v5.31.0-dev.12) (2025-07-09)
+
+
+### Bug Fixes
+
+* **Sync for Reddit - Spoof client:** Use www instead of ssl API to fix auth related issues ([#5392](https://github.com/ReVanced/revanced-patches/issues/5392)) ([47e6b62](https://github.com/ReVanced/revanced-patches/commit/47e6b62f3d8b07960cfb2963f441222d3e67df92))
+
 # [5.31.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.10...v5.31.0-dev.11) (2025-07-09)
 
 
