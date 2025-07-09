@@ -20,8 +20,24 @@ message NativePassword {
     string password = 2;
 }
 
+message Finish {
+    string uri = 2;
+    string nonce = 3;
+}
+
+message Hint {
+    string ui_locales = 1;
+}
+
+message Interaction {
+    Finish finish = 2;
+    Hint hint = 3;
+}
+
 message LoginRequest {
     ClientInfo client_info = 1;
+
+    Interaction interaction = 4;
 
     oneof login_method {
         StoredCredential stored_credential = 100;

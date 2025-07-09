@@ -4,8 +4,11 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
+import app.revanced.patches.shared.misc.hex.HexPatchBuilder
+import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
@@ -37,31 +40,53 @@ val spoofClientPatch = bytecodePatch(
 
     dependsOn(
         sharedExtensionPatch,
-        /* hexPatch(ignoreMissingTargetFiles = true, block = fun HexPatchBuilder.() {
+        hexPatch(ignoreMissingTargetFiles = true, block = fun HexPatchBuilder.() {
             listOf(
                 "arm64-v8a",
                 "armeabi-v7a",
                 "x86",
                 "x86_64"
             ).forEach { architecture ->
-                "https://login5.spotify.com/v3/login" to "http://127.0.0.1:$requestListenerPort/v3/login" inFile
-                // "https://login5.spotify.com/v3/login" to "http://192.168.0.225:$requestListenerPort/v3/login" inFile
-                        "lib/$architecture/liborbit-jni-spotify.so"
-
-                "https://login5.spotify.com/v4/login" to "http://127.0.0.1:$requestListenerPort/v4/login" inFile
-                // "https://login5.spotify.com/v4/login" to "http://192.168.0.225:$requestListenerPort/v4/login" inFile
-                        "lib/$architecture/liborbit-jni-spotify.so"
-
                 "https://clienttoken.spotify.com/v1/clienttoken" to
                         "http://127.0.0.1:$requestListenerPort/v1/clienttoken" inFile
                         "lib/$architecture/liborbit-jni-spotify.so"
+
+//                "https://login5.spotify.com/v3/login" to
+//                        "http://127.0.0.1:$requestListenerPort/v3/login" inFile
+//                        "lib/$architecture/liborbit-jni-spotify.so"
+//
+//                "https://login5.spotify.com/v4/login" to
+//                        "http://127.0.0.1:$requestListenerPort/v4/login" inFile
+//                        "lib/$architecture/liborbit-jni-spotify.so"
+
             }
-        }) */
+        })
     )
 
     compatibleWith("com.spotify.music")
 
     execute {
+        listOf(
+            "Lcom/spotify/connectivity/ApplicationScopeConfiguration;",
+            "Lcom/spotify/authentication/login5/Login5Configuration;",
+            "Lcom/spotify/connectivity/AuthenticatedScopeConfiguration;",
+            "Lcom/spotify/core/corefullimpl/FullAuthenticatedScopeConfiguration;",
+        ).forEach {
+            fingerprint {
+                custom { m, c ->
+                    c.type == it
+                            && m.name == "setClientId"
+                }
+            }.method.addInstruction(0, "const-string p1, \"58bd3c95768941ea9eb4350aaa033eb3\"")
+        }
+
+        fingerprint {
+            custom { m, c ->
+                c.type == "Lcom/spotify/connectivity/ApplicationScopeConfiguration;"
+                        && m.name == "setDefaultHTTPUserAgent"
+            }
+        }.method.addInstruction(0, "const-string p1, \"Spotify/9.0.58 iOS/19 (iPad8,11)\"")
+
         // region Spoof package info.
 
         getPackageInfoFingerprint.method.apply {
