@@ -1,3 +1,10 @@
+# [5.31.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.9...v5.31.0-dev.10) (2025-07-09)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide playlist sort button if 'Hide AI comments summary' is on ([5f3e48e](https://github.com/ReVanced/revanced-patches/commit/5f3e48ec5853f6439800ef58239291c34bcab5f6))
+
 # [5.31.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.8...v5.31.0-dev.9) (2025-07-07)
 
 
