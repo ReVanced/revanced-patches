@@ -107,7 +107,11 @@ class RequestListener extends NanoHTTPD {
         urlConnection.setRequestProperty("Content-Type", "application/x-protobuf");
         urlConnection.setRequestProperty("Accept", "application/x-protobuf");
         urlConnection.setRequestProperty("User-Agent", IOS_USER_AGENT);
-        urlConnection.getOutputStream().write(request.toByteArray());
+     
+        byte[] requestArray = request.toByteArray();
+        urlConnection.setFixedLengthStreamingMode(requestArray.length);
+        urlConnection.getOutputStream().write(requestArray);
+        
         Logger.printInfo(() -> "user agent: " + IOS_USER_AGENT);
 
         /* StringBuilder hex = new StringBuilder();
