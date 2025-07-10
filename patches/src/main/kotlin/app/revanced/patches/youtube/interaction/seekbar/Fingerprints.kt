@@ -69,14 +69,13 @@ internal val disableFastForwardGestureFingerprint by fingerprint {
     }
 }
 
-/**
- * For 20.19 and below, this matches the same method as [disableFastForwardNoticeFingerprint].
- * For 20.20+, this matches a different method.
- */
 internal val customTapAndHoldFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
+    instructions(
+        literal(2.0f)
+    )
     custom { method, _ ->
         // Code is found in different methods with different strings.
         val findSearchLandingKey = (is_19_34_or_greater && !is_19_47_or_greater)

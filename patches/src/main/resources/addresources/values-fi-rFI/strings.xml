@@ -161,11 +161,19 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_crowdfunding_box_title">Piilota joukkorahoituslaatikko</string>
   <string name="revanced_hide_crowdfunding_box_summary_on">Joukkorahoituslaatikko on piilotettu</string>
   <string name="revanced_hide_crowdfunding_box_summary_off">Joukkorahoituslaatikko näytetään</string>
+  <string name="revanced_hide_expandable_card_title">Piilota laajennettava kortti</string>
+  <string name="revanced_hide_expandable_card_summary_on">Laajennettava kortti on piilotettu videoiden alla</string>
+  <string name="revanced_hide_expandable_card_summary_off">Laajennettava kortti näytetään videoiden alla</string>
   <string name="revanced_hide_feed_survey_title">Piilota syötteen kyselyt</string>
   <string name="revanced_hide_feed_survey_summary_on">Syötteen kyselyt on piilotettu</string>
   <string name="revanced_hide_feed_survey_summary_off">Syötteen kyselyt näytetään</string>
   <string name="revanced_hide_floating_microphone_button_title">Piilota kelluva mikrofonipainike</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Kelluva mikrofonipainike on piilotettu haussa</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Kelluva mikrofonipainike näytetään haussa</string>
   <string name="revanced_hide_horizontal_shelves_title">Piilota vaakasuuntaiset hyllyt</string>
+  <string name="revanced_hide_image_shelf_title">Piilota kuvahylly</string>
+  <string name="revanced_hide_image_shelf_summary_on">Kuvahylly on piilotettu hakutuloksissa</string>
+  <string name="revanced_hide_image_shelf_summary_off">Kuvahylly näytetään hakutuloksissa</string>
   <string name="revanced_hide_latest_posts_title">Piilota uusimmat postaukset</string>
   <string name="revanced_hide_latest_posts_summary_on">Uusimmat postaukset on piilotettu</string>
   <string name="revanced_hide_latest_posts_summary_off">Uusimmat postaukset näytetään</string>
@@ -178,12 +186,16 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                   This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Piilota \"Ilmoita minulle\" -painike</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Ilmoita minulle -painike on piilotettu</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Ilmoita minulle -painike näytetään</string>
   <string name="revanced_hide_playables_title">Piilota Pelattavat</string>
   <string name="revanced_hide_playables_summary_on">Pelattavat on piilotettu</string>
   <string name="revanced_hide_playables_summary_off">Pelattavat näytetään</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Piilota \"Näytä lisää\" -painike</string>
+  <string name="revanced_hide_show_more_button_summary_on">Näytä lisää -painike on piilotettu hakutuloksissa</string>
+  <string name="revanced_hide_show_more_button_summary_off">Näytä lisää -painike näytetään hakutuloksissa</string>
   <string name="revanced_hide_ticket_shelf_title">Piilota lippuhylly</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Lippuhylly on piilotettu</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Lippuhylly näytetään</string>
@@ -208,9 +220,13 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                   This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Piilota Liity-painike</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Liity-painike on piilotettu</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Liity-painike näytetään</string>
   <string name="revanced_hide_medical_panels_title">Piilota lääketieteelliset paneelit</string>
   <string name="revanced_hide_medical_panels_summary_on">Lääketieteelliset paneelit on piilotettu</string>
   <string name="revanced_hide_medical_panels_summary_off">Lääketieteelliset paneelit näytetään</string>
+  <string name="revanced_hide_quick_actions_title">Piilota pikatoiminnot</string>
+  <string name="revanced_hide_related_videos_title">Piilota liittyvät videot</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">Piilota tilaajien ohjeet</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Tilaajien yhteisön säännöt on piilotettu</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Tilaajien yhteisön säännöt näytetään</string>
@@ -260,6 +276,7 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Piilota liittyvissä videoissa</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Piilotettu liittyvissä videoissa</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näytetään liittyvissä videoissa</string>
+  <string name="revanced_channel_screen_title">Kanavasivu</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Piilota \"\'Sinulle\" -hylly</string>
   <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
