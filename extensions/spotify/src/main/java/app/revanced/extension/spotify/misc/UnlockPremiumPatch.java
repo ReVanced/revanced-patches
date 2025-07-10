@@ -273,7 +273,7 @@ public final class UnlockPremiumPatch {
                     return true;
                 }
             }
-        } catch (Exception ex) {
+        } catch (Throwable ex) {
             Logger.printException(() -> "isFilteredContextMenuItem failure", ex);
         }
 

@@ -1,9 +1,11 @@
 package app.revanced.extension.spotify.layout.hide.createbutton;
 
-import java.util.List;
-
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.spotify.shared.ComponentFilters.*;
+import app.revanced.extension.spotify.shared.ComponentFilters.ComponentFilter;
+import app.revanced.extension.spotify.shared.ComponentFilters.ResourceIdComponentFilter;
+import app.revanced.extension.spotify.shared.ComponentFilters.StringComponentFilter;
+
+import java.util.List;
 
 @SuppressWarnings("unused")
 public final class HideCreateButtonPatch {
@@ -53,7 +55,7 @@ public final class HideCreateButtonPatch {
                     return null;
                 }
             }
-        } catch (Exception ex) {
+        } catch (Throwable ex) {
             Logger.printException(() -> "returnNullIfIsCreateButton failure", ex);
         }
 
