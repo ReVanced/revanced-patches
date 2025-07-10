@@ -1,3 +1,10 @@
+# [5.31.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.13...v5.31.0-dev.14) (2025-07-10)
+
+
+### Bug Fixes
+
+* **Bacon Reader - Spoof client:** Use www instead of ssl API to fix auth related issues  ([#5402](https://github.com/ReVanced/revanced-patches/issues/5402)) ([72459bb](https://github.com/ReVanced/revanced-patches/commit/72459bb2eaf4691e32822dfdd1db3240e2fe98dd))
+
 # [5.31.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.12...v5.31.0-dev.13) (2025-07-10)
 
 
