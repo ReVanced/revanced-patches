@@ -54,11 +54,12 @@ class ClientTokenService {
             @NonNull ClientTokenRequest request,
             @NonNull ClientTokenRequestHandler handler
     ) {
+        ClientTokenRequestType clientTokenRequestType = request.getRequestType();
+        Logger.printInfo(() -> "Received client token request of type: " + clientTokenRequestType);
+
         if (request.getRequestType() == ClientTokenRequestType.REQUEST_CLIENT_DATA_REQUEST) {
             String deviceId = request.getClientData().getConnectivitySdkData().getDeviceId();
             request = newIOSClientTokenRequest(deviceId);
-        } else {
-            Logger.printInfo(() -> "Client token request type is not REQUEST_CLIENT_DATA_REQUEST");
         }
 
         ClientTokenResponse clientTokenResponse;
@@ -69,7 +70,12 @@ class ClientTokenService {
             return null;
         }
 
-        Logger.printInfo(() -> "Received response type: " + clientTokenResponse.getResponseType());
+        ClientTokenResponseType clientTokenResponseType = clientTokenResponse.getResponseType();
+        Logger.printInfo(() -> "Received client token response of type: " + clientTokenResponseType);
+
+        if (clientTokenResponseType == ClientTokenResponseType.RESPONSE_GRANTED_TOKEN_RESPONSE) {
+            Logger.printInfo(() -> "Fetched iOS client token: " + clientTokenResponse.getGrantedToken().getToken());
+        }
 
         return clientTokenResponse;
     }
