@@ -1,3 +1,10 @@
+# [5.31.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.12...v5.31.0-dev.13) (2025-07-10)
+
+
+### Bug Fixes
+
+* **YouTube - Slide to seek:** Show tap and hold 2x speed overlay when active ([#5398](https://github.com/ReVanced/revanced-patches/issues/5398)) ([dbc9c5f](https://github.com/ReVanced/revanced-patches/commit/dbc9c5f00c1f5bbb95f8822667cc1ac3c613fa00))
+
 # [5.31.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.11...v5.31.0-dev.12) (2025-07-09)
 
 
