@@ -1,6 +1,7 @@
 package app.revanced.patches.spotify.misc.fix
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patcher.patch.stringOption
@@ -21,7 +22,8 @@ val spoofClientPatch = bytecodePatch(
         default = 4345,
         title = "Request listener port",
         description = "The port to use for the listener that intercepts and handles spoofed requests. " +
-                "Port must be between 0 and 65535. Do not change this option if you do not know what you are doing.",
+                "Port must be between 0 and 65535. " +
+                "Do not change this option, if you do not know what you are doing.",
         required = true,
         validator = {
             it!!
@@ -34,7 +36,7 @@ val spoofClientPatch = bytecodePatch(
         default = "iphone-9.0.58.558.g200011c",
         title = "Client version",
         description = "The client version used for spoofing the client token. " +
-                "Do not change this option if you do not know what you are doing."
+                "Do not change this option, if you do not know what you are doing."
     )
 
     val hardwareMachine by stringOption(
@@ -42,7 +44,7 @@ val spoofClientPatch = bytecodePatch(
         default = "iPhone16,1",
         title = "Hardware machine",
         description = "The hardware machine used for spoofing the client token. " +
-                "Do not change this option if you do not know what you are doing."
+                "Do not change this option, if you do not know what you are doing."
     )
 
     val systemVersion by stringOption(
@@ -50,7 +52,7 @@ val spoofClientPatch = bytecodePatch(
         default = "17.7.2",
         title = "System version",
         description = "The system version used for spoofing the client token. " +
-                "Do not change this option if you do not know what you are doing."
+                "Do not change this option, if you do not know what you are doing."
     )
 
     dependsOn(
@@ -82,14 +84,12 @@ val spoofClientPatch = bytecodePatch(
             """
         )
 
-        val fixConstantsClassDef = extensionFixConstantsFingerprint.classDef
-
         mapOf(
             "getClientVersion" to clientVersion!!,
             "getSystemVersion" to systemVersion!!,
             "getHardwareMachine" to hardwareMachine!!
-        ).forEach { (methodName, newReturnValue) ->
-            methodFingerprintByName(methodName).match(fixConstantsClassDef).method.returnEarly(newReturnValue)
+        ).forEach { (methodName, value) ->
+            extensionFixConstantsFingerprint.classDef.methods.single { it.name == methodName }.returnEarly(value)
         }
 
         // endregion
