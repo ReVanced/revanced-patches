@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.patches.reddit.customclients.sync.detection.piracy.disablePiracyDetectionPatch
+import app.revanced.patches.shared.misc.string.replaceStringPatch
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -13,7 +14,12 @@ import java.util.Base64
 val spoofClientPatch = spoofClientPatch(
     redirectUri = "http://redditsync/auth",
 ) { clientIdOption ->
-    dependsOn(disablePiracyDetectionPatch)
+    dependsOn(
+        disablePiracyDetectionPatch,
+        // Redirects from SSL to WWW domain are bugged causing auth problems.
+        // Manually rewrite the URLs to fix this.
+        replaceStringPatch("ssl.reddit.com", "www.reddit.com")
+    )
 
     compatibleWith(
         "com.laurencedawson.reddit_sync",

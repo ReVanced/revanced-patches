@@ -1,3 +1,17 @@
+# [5.31.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.11...v5.31.0-dev.12) (2025-07-09)
+
+
+### Bug Fixes
+
+* **Sync for Reddit - Spoof client:** Use www instead of ssl API to fix auth related issues ([#5392](https://github.com/ReVanced/revanced-patches/issues/5392)) ([47e6b62](https://github.com/ReVanced/revanced-patches/commit/47e6b62f3d8b07960cfb2963f441222d3e67df92))
+
+# [5.31.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.10...v5.31.0-dev.11) (2025-07-09)
+
+
+### Features
+
+* **Cricbuzz - Hide ads:** Hide Cricbuzz11 UI elements ([#5381](https://github.com/ReVanced/revanced-patches/issues/5381)) ([a42c98f](https://github.com/ReVanced/revanced-patches/commit/a42c98f8b51fd37d815fd38b75a2b7ccc4fb049b))
+
 # [5.31.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.9...v5.31.0-dev.10) (2025-07-09)
 
 
