@@ -9,7 +9,7 @@ public class SpoofClientPatch {
     /**
      * Injection point. Launch requests listener server.
      */
-    public static void launchListener(int port) {
+    public synchronized static void launchListener(int port) {
         if (listener != null) {
             Logger.printInfo(() -> "Listener already running on port " + port);
             return;

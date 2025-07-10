@@ -1,11 +1,10 @@
 package app.revanced.extension.spotify.misc.fix;
 
-import android.annotation.SuppressLint;
+import android.graphics.MeshSpecification;
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp.ClientTokenRequest;
 import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp.ClientTokenResponse;
-import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp.ClientTokenResponseType;
 import com.google.protobuf.MessageLite;
 import fi.iki.elonen.NanoHTTPD;
 
@@ -30,7 +29,7 @@ class RequestListener extends NanoHTTPD {
     static {
         String clientVersion = getClientVersion();
         int commitHashIndex = clientVersion.lastIndexOf(".");
-        String version =clientVersion.substring(
+        String version = clientVersion.substring(
                 clientVersion.indexOf("-") + 1,
                 clientVersion.lastIndexOf(".", commitHashIndex - 1)
         );
@@ -59,42 +58,19 @@ class RequestListener extends NanoHTTPD {
             return INTERNAL_ERROR_RESPONSE;
         }
 
-        long requestContentLength = Long.parseLong(Objects.requireNonNull(session.getHeaders().get("content-length")));
-        InputStream dsf =  newLimitedInputStream(session.getInputStream(), requestContentLength);
-
         ClientTokenRequest clientTokenRequest;
         try (InputStream inputStream = getInputStream(session)) {
-            @SuppressLint({"NewApi", "LocalSuppress"}) byte[] bytes = dsf.readAllBytes();
-            StringBuilder hex = new StringBuilder();
-            for (byte b : bytes) {
-                hex.append(String.format("%02X", b)); // Uppercase hex
-            }
-            Logger.printInfo(() -> "original requestttttttttt " + hex);
-
-            clientTokenRequest = ClientTokenRequest.parseFrom(bytes);
+            clientTokenRequest = ClientTokenRequest.parseFrom(inputStream);
         } catch (IOException ex) {
             Logger.printException(() -> "Failed to parse client token request from input stream", ex);
             return INTERNAL_ERROR_RESPONSE;
         }
-
-        Logger.printInfo(() -> "client token request type " + clientTokenRequest.getRequestType());
 
         ClientTokenResponse response = getClientTokenResponse(clientTokenRequest, RequestListener::requestClientToken);
         if (response == null) {
             Logger.printException(() -> "Failed to get client token response");
             return INTERNAL_ERROR_RESPONSE;
         }
-
-        if (response.getResponseType() == ClientTokenResponseType.RESPONSE_CHALLENGES_RESPONSE) {
-            Logger.printInfo(() -> "sending challenge to native");
-        }
-
-        StringBuilder hex = new StringBuilder();
-        for (byte b : response.toByteArray()) {
-            hex.append(String.format("%02X", b)); // Uppercase hex
-        }
-        Logger.printInfo(() -> "Response " + hex);
-
 
         return newResponse(Response.Status.OK, response);
     }
@@ -107,21 +83,14 @@ class RequestListener extends NanoHTTPD {
         urlConnection.setRequestProperty("Content-Type", "application/x-protobuf");
         urlConnection.setRequestProperty("Accept", "application/x-protobuf");
         urlConnection.setRequestProperty("User-Agent", IOS_USER_AGENT);
-     
+
         byte[] requestArray = request.toByteArray();
         urlConnection.setFixedLengthStreamingMode(requestArray.length);
         urlConnection.getOutputStream().write(requestArray);
-        
-        Logger.printInfo(() -> "user agent: " + IOS_USER_AGENT);
 
-        /* StringBuilder hex = new StringBuilder();
-        int b;
-        while ((b = urlConnection.getInputStream().read()) != -1) {
-            hex.append(String.format("%02X", b)); // Two-digit uppercase hex
+        try (InputStream inputStream = urlConnection.getInputStream()) {
+            return ClientTokenResponse.parseFrom(inputStream);
         }
-        Logger.printInfo(() -> hex.toString()); */
-
-        return ClientTokenResponse.parseFrom(urlConnection.getInputStream());
     }
 
     @NonNull

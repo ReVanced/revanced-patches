@@ -10,6 +10,8 @@ import java.io.IOException;
 import static app.revanced.extension.spotify.misc.fix.Constants.*;
 
 class ClientTokenService {
+    private static final String IOS_CLIENT_ID = "58bd3c95768941ea9eb4350aaa033eb3";
+
     private static final ConnectivitySdkData.Builder IOS_CONNECTIVITY_SDK_DATA =
             ConnectivitySdkData.newBuilder()
                     .setPlatformSpecificData(PlatformSpecificData.newBuilder()
@@ -32,6 +34,7 @@ class ClientTokenService {
     @NonNull
     static ClientTokenRequest newIOSClientTokenRequest(String deviceId) {
         Logger.printInfo(() -> "Creating new iOS client token request with device ID: " + deviceId);
+
         return IOS_CLIENT_TOKEN_REQUEST
                 .setClientData(IOS_CLIENT_DATA_REQUEST
                         .setConnectivitySdkData(IOS_CONNECTIVITY_SDK_DATA
@@ -51,26 +54,12 @@ class ClientTokenService {
             @NonNull ClientTokenRequest request,
             @NonNull ClientTokenRequestHandler handler
     ) {
-        StringBuilder hex = new StringBuilder();
-        for (byte b : request.toByteArray()) {
-            hex.append(String.format("%02X", b)); // Uppercase hex
-        }
-        Logger.printInfo(() -> "original request " + hex);
-
-        ClientTokenRequestType clientTokenRequestType = request.getRequestType();
-        if (clientTokenRequestType == ClientTokenRequestType.REQUEST_CLIENT_DATA_REQUEST) {
-            Logger.printInfo(() -> "Client token data request received");
+        if (request.getRequestType() == ClientTokenRequestType.REQUEST_CLIENT_DATA_REQUEST) {
             String deviceId = request.getClientData().getConnectivitySdkData().getDeviceId();
             request = newIOSClientTokenRequest(deviceId);
-            StringBuilder hex2 = new StringBuilder();
-            for (byte b : request.toByteArray()) {
-                hex2.append(String.format("%02X", b)); // Uppercase hex
-            }
-            Logger.printInfo(() -> "spoofed request " + hex2);
-        } else if (clientTokenRequestType == ClientTokenRequestType.REQUEST_CHALLENGE_ANSWERS_REQUEST) {
-            Logger.printInfo(() -> "Client token challenge answers request received");
+        } else {
+            Logger.printInfo(() -> "Client token request type is not REQUEST_CLIENT_DATA_REQUEST");
         }
-
 
         ClientTokenResponse clientTokenResponse;
         try {
@@ -80,12 +69,7 @@ class ClientTokenService {
             return null;
         }
 
-        ClientTokenResponseType clientTokenResponseType = clientTokenResponse.getResponseType();
-        if (clientTokenResponseType == ClientTokenResponseType.RESPONSE_GRANTED_TOKEN_RESPONSE) {
-            Logger.printInfo(() -> "Fetched iOS client token: " + clientTokenResponse.getGrantedToken().getToken());
-        } else if (clientTokenResponseType == ClientTokenResponseType.RESPONSE_CHALLENGES_RESPONSE) {
-            Logger.printInfo(() -> "Received client token challenge");
-        }
+        Logger.printInfo(() -> "Received response type: " + clientTokenResponse.getResponseType());
 
         return clientTokenResponse;
     }
