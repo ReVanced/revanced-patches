@@ -21,7 +21,7 @@ val spoofClientPatch = bytecodePatch(
         default = 4345,
         title = "Request listener port",
         description = "The port to use for the listener that intercepts and handles spoofed requests. " +
-                "Port must be between 0 and 65535.",
+                "Port must be between 0 and 65535. Do not change this option if you do not know what you are doing.",
         required = true,
         validator = {
             it!!
@@ -82,14 +82,14 @@ val spoofClientPatch = bytecodePatch(
             """
         )
 
-        val clientTokenFetcherClassDef = extensionClientTokenFetcherClassFingerprint.classDef
+        val fixConstantsClassDef = extensionFixConstantsFingerprint.classDef
 
         mapOf(
             "getClientVersion" to clientVersion!!,
             "getSystemVersion" to systemVersion!!,
             "getHardwareMachine" to hardwareMachine!!
         ).forEach { (methodName, newReturnValue) ->
-            methodFingerprintByName(methodName).match(clientTokenFetcherClassDef).method.returnEarly(newReturnValue)
+            methodFingerprintByName(methodName).match(fixConstantsClassDef).method.returnEarly(newReturnValue)
         }
 
         // endregion

@@ -11,9 +11,9 @@ internal val loadOrbitLibraryFingerprint = fingerprint {
     strings("/liborbit-jni-spotify.so")
 }
 
-internal const val CLIENT_TOKEN_FETCHER_CLASS_NAME = "Lapp/revanced/extension/spotify/misc/fix/ClientTokenFetcher;"
-internal val extensionClientTokenFetcherClassFingerprint = fingerprint {
-    custom { _, classDef -> classDef.type == CLIENT_TOKEN_FETCHER_CLASS_NAME }
+internal const val FIX_CONSTANTS_CLASS_NAME = "Lapp/revanced/extension/spotify/misc/fix/Constants;"
+internal val extensionFixConstantsFingerprint = fingerprint {
+    custom { _, classDef -> classDef.type == FIX_CONSTANTS_CLASS_NAME }
 }
 
 internal fun methodFingerprintByName(methodName: String) = fingerprint {

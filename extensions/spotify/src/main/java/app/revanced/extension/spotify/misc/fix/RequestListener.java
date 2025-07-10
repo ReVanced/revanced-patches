@@ -1,8 +1,11 @@
 package app.revanced.extension.spotify.misc.fix;
 
+import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp.*;
+import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp.ClientTokenRequest;
+import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp.ClientTokenResponse;
+import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp.ClientTokenResponseType;
 import com.google.protobuf.MessageLite;
 import fi.iki.elonen.NanoHTTPD;
 
@@ -14,19 +17,23 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Objects;
 
-import static app.revanced.extension.spotify.misc.fix.ClientTokenService.*;
+import static app.revanced.extension.spotify.misc.fix.ClientTokenService.getClientTokenResponse;
 import static app.revanced.extension.spotify.misc.fix.Constants.*;
 import static fi.iki.elonen.NanoHTTPD.Response.Status.INTERNAL_ERROR;
 
 class RequestListener extends NanoHTTPD {
     private static final String CLIENT_TOKEN_API_PATH = "/v1/clienttoken";
     private static final String CLIENT_TOKEN_API_URL = "https://clienttoken.spotify.com" + CLIENT_TOKEN_API_PATH;
-  
+
     private static final String IOS_USER_AGENT;
 
     static {
         String clientVersion = getClientVersion();
-        String version = clientVersion.substring(clientVersion.indexOf("-") + 1, clientVersion.lastIndexOf("."));
+        int commitHashIndex = clientVersion.lastIndexOf(".");
+        String version =clientVersion.substring(
+                clientVersion.indexOf("-") + 1,
+                clientVersion.lastIndexOf(".", commitHashIndex - 1)
+        );
 
         IOS_USER_AGENT = "Spotify/" + version + " iOS/" + getSystemVersion() + " (" + getHardwareMachine() + ")";
     }
@@ -45,30 +52,55 @@ class RequestListener extends NanoHTTPD {
 
     @NonNull
     @Override
-    public Response serve(IHTTPSession session) {
+    public Response serve(@NonNull IHTTPSession session) {
         String uri = session.getUri();
         Logger.printInfo(() -> "Serving request for URI: " + uri);
-        if (!uri.equals(CLIENT_TOKEN_API_PATH)) return INTERNAL_ERROR_RESPONSE;
+        if (!uri.equals(CLIENT_TOKEN_API_PATH)) {
+            return INTERNAL_ERROR_RESPONSE;
+        }
+
+        long requestContentLength = Long.parseLong(Objects.requireNonNull(session.getHeaders().get("content-length")));
+        InputStream dsf =  newLimitedInputStream(session.getInputStream(), requestContentLength);
 
         ClientTokenRequest clientTokenRequest;
         try (InputStream inputStream = getInputStream(session)) {
-            clientTokenRequest = ClientTokenRequest.parseFrom(inputStream);
+            @SuppressLint({"NewApi", "LocalSuppress"}) byte[] bytes = dsf.readAllBytes();
+            StringBuilder hex = new StringBuilder();
+            for (byte b : bytes) {
+                hex.append(String.format("%02X", b)); // Uppercase hex
+            }
+            Logger.printInfo(() -> "original requestttttttttt " + hex);
+
+            clientTokenRequest = ClientTokenRequest.parseFrom(bytes);
         } catch (IOException ex) {
             Logger.printException(() -> "Failed to parse client token request from input stream", ex);
             return INTERNAL_ERROR_RESPONSE;
         }
+
+        Logger.printInfo(() -> "client token request type " + clientTokenRequest.getRequestType());
 
         ClientTokenResponse response = getClientTokenResponse(clientTokenRequest, RequestListener::requestClientToken);
         if (response == null) {
             Logger.printException(() -> "Failed to get client token response");
             return INTERNAL_ERROR_RESPONSE;
         }
-        
+
+        if (response.getResponseType() == ClientTokenResponseType.RESPONSE_CHALLENGES_RESPONSE) {
+            Logger.printInfo(() -> "sending challenge to native");
+        }
+
+        StringBuilder hex = new StringBuilder();
+        for (byte b : response.toByteArray()) {
+            hex.append(String.format("%02X", b)); // Uppercase hex
+        }
+        Logger.printInfo(() -> "Response " + hex);
+
+
         return newResponse(Response.Status.OK, response);
     }
 
     @NonNull
-    private static ClientTokenResponse requestClientToken(ClientTokenRequest request) throws IOException {
+    private static ClientTokenResponse requestClientToken(@NonNull ClientTokenRequest request) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) new URL(CLIENT_TOKEN_API_URL).openConnection();
         urlConnection.setRequestMethod("POST");
         urlConnection.setDoOutput(true);
@@ -76,10 +108,16 @@ class RequestListener extends NanoHTTPD {
         urlConnection.setRequestProperty("Accept", "application/x-protobuf");
         urlConnection.setRequestProperty("User-Agent", IOS_USER_AGENT);
         urlConnection.getOutputStream().write(request.toByteArray());
+        Logger.printInfo(() -> "user agent: " + IOS_USER_AGENT);
 
-        try (InputStream inputStream = urlConnection.getInputStream()) {
-            return ClientTokenResponse.parseFrom(inputStream);
+        /* StringBuilder hex = new StringBuilder();
+        int b;
+        while ((b = urlConnection.getInputStream().read()) != -1) {
+            hex.append(String.format("%02X", b)); // Two-digit uppercase hex
         }
+        Logger.printInfo(() -> hex.toString()); */
+
+        return ClientTokenResponse.parseFrom(urlConnection.getInputStream());
     }
 
     @NonNull
