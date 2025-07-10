@@ -68,7 +68,6 @@ class RequestListener extends NanoHTTPD {
 
         ClientTokenResponse response = getClientTokenResponse(clientTokenRequest, RequestListener::requestClientToken);
         if (response == null) {
-            Logger.printException(() -> "Failed to get client token response");
             return INTERNAL_ERROR_RESPONSE;
         }
 
