@@ -1,7 +1,6 @@
 package app.revanced.patches.spotify.misc.fix
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patcher.patch.stringOption
@@ -24,7 +23,6 @@ val spoofClientPatch = bytecodePatch(
         description = "The port to use for the listener that intercepts and handles spoofed requests. " +
                 "Port must be between 0 and 65535. " +
                 "Do not change this option, if you do not know what you are doing.",
-        required = true,
         validator = {
             it!!
             !(it < 0 || it > 65535)
