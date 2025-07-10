@@ -3,7 +3,7 @@ syntax = "proto3";
 package spotify.clienttoken.data.v0;
 
 option optimize_for = LITE_RUNTIME;
-option java_package = "app.revanced.extension.spotify.clienttoken.data.v0";
+option java_package = "app.revanced.extension.spotify.misc.fix.clienttoken.data.v0";
 
 message ClientTokenRequest {
     ClientTokenRequestType request_type = 1;

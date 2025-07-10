@@ -1,10 +1,9 @@
 package app.revanced.extension.spotify.misc.fix;
 
-import android.graphics.MeshSpecification;
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp.ClientTokenRequest;
-import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp.ClientTokenResponse;
+import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp.ClientTokenRequest;
+import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp.ClientTokenResponse;
 import com.google.protobuf.MessageLite;
 import fi.iki.elonen.NanoHTTPD;
 
@@ -48,7 +47,6 @@ class RequestListener extends NanoHTTPD {
         }
     }
 
-
     @NonNull
     @Override
     public Response serve(@NonNull IHTTPSession session) {
@@ -59,8 +57,10 @@ class RequestListener extends NanoHTTPD {
         }
 
         ClientTokenRequest clientTokenRequest;
-        try (InputStream inputStream = getInputStream(session)) {
+        try  {
+            InputStream inputStream = getInputStream(session);
             clientTokenRequest = ClientTokenRequest.parseFrom(inputStream);
+            // TODO: Adding inputStream.close(); here (or using auto closeable try), breaks the code. Understand why.
         } catch (IOException ex) {
             Logger.printException(() -> "Failed to parse client token request from input stream", ex);
             return INTERNAL_ERROR_RESPONSE;
