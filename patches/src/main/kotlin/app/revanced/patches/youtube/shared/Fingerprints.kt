@@ -128,16 +128,9 @@ internal val subtitleButtonControllerFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")
-    opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.IF_NEZ,
-        Opcode.RETURN_VOID,
-        Opcode.IGET_BOOLEAN,
-        Opcode.CONST_4,
-        Opcode.IF_NEZ,
-        Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IGET_OBJECT,
+    instructions(
+        resourceLiteral("string", "accessibility_captions_unavailable"),
+        resourceLiteral("string", "accessibility_captions_button_name"),
     )
 }
 

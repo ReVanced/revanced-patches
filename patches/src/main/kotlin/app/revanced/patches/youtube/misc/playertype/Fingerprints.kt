@@ -6,15 +6,21 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val playerTypeFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
-    opcodes(
-        Opcode.IF_NE,
-        Opcode.RETURN_VOID,
+internal val playerTypeEnumFingerprint by fingerprint {
+    accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
+    strings(
+        "NONE",
+        "HIDDEN",
+        "WATCH_WHILE_MINIMIZED",
+        "WATCH_WHILE_MAXIMIZED",
+        "WATCH_WHILE_FULLSCREEN",
+        "WATCH_WHILE_SLIDING_MAXIMIZED_FULLSCREEN",
+        "WATCH_WHILE_SLIDING_MINIMIZED_MAXIMIZED",
+        "WATCH_WHILE_SLIDING_MINIMIZED_DISMISSED",
+        "INLINE_MINIMAL",
+        "VIRTUAL_REALITY_FULLSCREEN",
+        "WATCH_WHILE_PICTURE_IN_PICTURE",
     )
-    custom { _, classDef -> classDef.endsWith("/YouTubePlayerOverlaysLayout;") }
 }
 
 internal val reelWatchPagerFingerprint by fingerprint {

@@ -36,7 +36,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        resourceMappingPatch // Used by fingerprints
+        resourceMappingPatch // Used by fingerprints.
     )
 
     compatibleWith(

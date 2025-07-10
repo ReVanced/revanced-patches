@@ -145,26 +145,13 @@ internal val lottieAnimationViewSetAnimationIntFingerprint by fingerprint {
     }
 }
 
-internal val lottieAnimationViewSetAnimationStreamFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("L")
-    returns("V")
-    instructions(
-        methodCall("Ljava/util/Set;", "add"),
-        literal(0)
-    )
-    custom { _, classDef ->
-        classDef.type == LOTTIE_ANIMATION_VIEW_CLASS_TYPE
-    }
-}
-
 internal val lottieCompositionFactoryZipFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    parameters("Landroid/content/Context;", "Ljava/lang/String;", "Ljava/lang/String;")
+    parameters("Landroid/content/Context;", "Ljava/util/zip/ZipInputStream;", "Ljava/lang/String;")
     returns("L")
     instructions(
-        string(".zip"),
-        string(".lottie")
+        string("Unable to parse composition"),
+        string(" however it was not found in the animation.")
     )
 }
 

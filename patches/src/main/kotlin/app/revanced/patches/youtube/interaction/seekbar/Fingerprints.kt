@@ -69,29 +69,6 @@ internal val disableFastForwardGestureFingerprint by fingerprint {
     }
 }
 
-internal val disableFastForwardNoticeFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
-    instructions(
-        opcode(Opcode.CHECK_CAST),
-        // opcode(Opcode.IGET_OBJECT), // 20.25+
-        methodCall(opcode = Opcode.INVOKE_VIRTUAL, returnType = "Z", maxAfter = 1),
-        opcode(Opcode.MOVE_RESULT, maxAfter = 0),
-    )
-    custom { method, _ ->
-        // Code is found in different methods with different strings.
-        val findSearchLandingKey = (is_19_34_or_greater && !is_19_47_or_greater)
-                || is_20_19_or_greater
-
-        method.name == "run" && method.indexOfFirstInstruction {
-            val string = getReference<StringReference>()?.string
-            string == "Failed to easy seek haptics vibrate."
-                    || (findSearchLandingKey && string == "search_landing_cache_key")
-        } >= 0
-    }
-}
-
 /**
  * For 20.19 and below, this matches the same method as [disableFastForwardNoticeFingerprint].
  * For 20.20+, this matches a different method.

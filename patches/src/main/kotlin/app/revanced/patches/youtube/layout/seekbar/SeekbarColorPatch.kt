@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -372,6 +373,14 @@ val seekbarColorPatch = bytecodePatch(
                 factoryStreamReturnType = returnType
             }
 
+            val lottieAnimationViewSetAnimationStreamFingerprint by fingerprint {
+                accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+                parameters(factoryStreamReturnType.toString())
+                returns("V")
+                custom { _, classDef ->
+                    classDef.type == lottieAnimationViewSetAnimationIntFingerprint.originalClassDef.type
+                }
+            }
             val setAnimationStreamName = lottieAnimationViewSetAnimationStreamFingerprint
                 .originalMethod.name
 

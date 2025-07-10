@@ -173,7 +173,7 @@ val themePatch = bytecodePatch(
                 // Fix the splash screen dark mode background color.
                 // In 19.32+ the dark mode splash screen is white and fades to black.
                 // Maybe it's a bug in YT, or maybe it intentionally. Who knows.
-                document("res/values-night-v27/styles.xml").use { document ->
+                document("res/values-night/styles.xml").use { document ->
                     // Create a night mode specific override for the splash screen background.
                     val style = document.createElement("style")
                     style.setAttribute("name", "Theme.YouTube.Home")
