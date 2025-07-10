@@ -2,7 +2,6 @@ package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -13,25 +12,13 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 context(BytecodePatchContext)
 internal val accountAttributeFingerprint get() = fingerprint {
-    custom { _, classDef ->
-        classDef.type == if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            "Lcom/spotify/useraccount/v1/AccountAttribute;"
-        } else {
-            "Lcom/spotify/remoteconfig/internal/AccountAttribute;"
-        }
-    }
+    custom { _, classDef -> classDef.type == "Lcom/spotify/remoteconfig/internal/AccountAttribute;" }
 }
 
 context(BytecodePatchContext)
 internal val productStateProtoGetMapFingerprint get() = fingerprint {
     returns("Ljava/util/Map;")
-    custom { _, classDef ->
-        classDef.type == if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            "Lcom/spotify/ucs/proto/v0/UcsResponseWrapper${'$'}AccountAttributesResponse;"
-        } else {
-            "Lcom/spotify/remoteconfig/internal/ProductStateProto;"
-        }
-    }
+    custom { _, classDef -> classDef.type == "Lcom/spotify/remoteconfig/internal/ProductStateProto;" }
 }
 
 internal val buildQueryParametersFingerprint = fingerprint {

@@ -1,11 +1,9 @@
 package app.revanced.patches.spotify.misc.privacy
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -28,13 +26,9 @@ val sanitizeSharingLinksPatch = bytecodePatch(
         val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->" +
                 "sanitizeUrl(Ljava/lang/String;)Ljava/lang/String;"
 
-        val copyFingerprint = if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            shareCopyUrlLegacyFingerprint
-        } else {
-            shareCopyUrlFingerprint
-        }
+        val copyMethod = shareCopyUrlFingerprint.methodOrNull ?: oldShareCopyUrlFingerprint.method
 
-        copyFingerprint.method.apply {
+        copyMethod.apply {
             val newPlainTextInvokeIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "newPlainText"
             }
@@ -50,13 +44,8 @@ val sanitizeSharingLinksPatch = bytecodePatch(
         }
 
         // Android native share sheet is used for all other quick share types (X, WhatsApp, etc).
-        val shareUrlParameter : String
-        val shareSheetFingerprint : Fingerprint
-        if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            shareSheetFingerprint = formatAndroidShareSheetUrlLegacyFingerprint
-            shareUrlParameter = "p2"
-        } else {
-            shareSheetFingerprint = formatAndroidShareSheetUrlFingerprint
+        var shareUrlParameter = ""
+        val shareSheetMethod = formatAndroidShareSheetUrlFingerprint.methodOrNull?.also {
             val methodAccessFlags = formatAndroidShareSheetUrlFingerprint.originalMethod.accessFlags
             shareUrlParameter = if (AccessFlags.STATIC.isSet(methodAccessFlags)) {
                 // In newer implementations the method is static, so p0 is not `this`.
@@ -66,9 +55,11 @@ val sanitizeSharingLinksPatch = bytecodePatch(
                 // For that reason, add one to the parameter register.
                 "p2"
             }
+        } ?: oldFormatAndroidShareSheetUrlFingerprint.method.also {
+            shareUrlParameter = "p2"
         }
 
-        shareSheetFingerprint.method.addInstructions(
+        shareSheetMethod.addInstructions(
             0,
             """
                 invoke-static { $shareUrlParameter }, $extensionMethodDescriptor
