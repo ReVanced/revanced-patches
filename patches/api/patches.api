@@ -904,6 +904,10 @@ public final class app/revanced/patches/shared/misc/spoof/UserAgentClientSpoofPa
 	public static final fun userAgentClientSpoofPatch (Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/shared/misc/string/ReplaceStringPatchKt {
+	public static final fun replaceStringPatch (Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/solidexplorer2/functionality/filesize/RemoveFileSizeLimitPatchKt {
 	public static final fun getRemoveFileSizeLimitPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
