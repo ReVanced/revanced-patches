@@ -2,7 +2,7 @@ package app.revanced.extension.spotify.misc.fix;
 
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp;
+import app.revanced.extension.spotify.clienttoken.data.v0.ClienttokenHttp.*;
 import com.google.protobuf.MessageLite;
 import fi.iki.elonen.NanoHTTPD;
 
@@ -10,11 +10,27 @@ import java.io.ByteArrayInputStream;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Objects;
 
+import static app.revanced.extension.spotify.misc.fix.ClientTokenService.*;
+import static app.revanced.extension.spotify.misc.fix.Constants.*;
 import static fi.iki.elonen.NanoHTTPD.Response.Status.INTERNAL_ERROR;
 
 class RequestListener extends NanoHTTPD {
+    private static final String CLIENT_TOKEN_API_PATH = "/v1/clienttoken";
+    private static final String CLIENT_TOKEN_API_URL = "https://clienttoken.spotify.com" + CLIENT_TOKEN_API_PATH;
+  
+    private static final String IOS_USER_AGENT;
+
+    static {
+        String clientVersion = getClientVersion();
+        String version = clientVersion.substring(clientVersion.indexOf("-") + 1, clientVersion.lastIndexOf("."));
+
+        IOS_USER_AGENT = "Spotify/" + version + " iOS/" + getSystemVersion() + " (" + getHardwareMachine() + ")";
+    }
+
     RequestListener(int port) {
         super(port);
 
@@ -26,49 +42,48 @@ class RequestListener extends NanoHTTPD {
         }
     }
 
+
     @NonNull
     @Override
-    public Response serve(@NonNull IHTTPSession request) {
-        String uri = request.getUri();
+    public Response serve(IHTTPSession session) {
+        String uri = session.getUri();
         Logger.printInfo(() -> "Serving request for URI: " + uri);
+        if (!uri.equals(CLIENT_TOKEN_API_PATH)) return INTERNAL_ERROR_RESPONSE;
 
-        if (!uri.equals(ClientTokenFetcher.CLIENT_TOKEN_API_PATH)) return newResponse(INTERNAL_ERROR);
+        ClientTokenRequest clientTokenRequest;
+        try (InputStream inputStream = getInputStream(session)) {
+            clientTokenRequest = ClientTokenRequest.parseFrom(inputStream);
+        } catch (IOException ex) {
+            Logger.printException(() -> "Failed to parse client token request from input stream", ex);
+            return INTERNAL_ERROR_RESPONSE;
+        }
+
+        ClientTokenResponse response = getClientTokenResponse(clientTokenRequest, RequestListener::requestClientToken);
+        if (response == null) {
+            Logger.printException(() -> "Failed to get client token response");
+            return INTERNAL_ERROR_RESPONSE;
+        }
         
-        InputStream requestBodyInputStream = getRequestBodyInputStream(request);
-
-        ClienttokenHttp.ClientTokenRequest clientTokenRequest;
-        try {
-            clientTokenRequest = ClienttokenHttp.ClientTokenRequest.parseFrom(requestBodyInputStream);
-        } catch (IOException ex) {
-            Logger.printException(() -> "Failed to parse client token request", ex);
-            return newResponse(INTERNAL_ERROR);
-        }
-
-        try {
-            ClienttokenHttp.ClientTokenResponse clientTokenResponse =
-                        ClientTokenFetcher.fetchClientToken(clientTokenRequest);
-
-            if (clientTokenResponse == null) {
-                return newResponse(INTERNAL_ERROR);
-            }
-
-            ClienttokenHttp.ClientTokenResponseType responseGranted =
-                    ClienttokenHttp.ClientTokenResponseType.RESPONSE_GRANTED_TOKEN_RESPONSE;
-            if (clientTokenResponse.getResponseType() == responseGranted) {
-                Logger.printInfo(() -> "Fetched iOS client token: " +
-                        clientTokenResponse.getGrantedToken().getToken());
-            }
-
-            return newResponse(Response.Status.OK, clientTokenResponse);
-        } catch (IOException ex) {
-            Logger.printException(() -> "Failed to get client token response", ex);
-        }
-
-        return newResponse(INTERNAL_ERROR);
+        return newResponse(Response.Status.OK, response);
     }
 
     @NonNull
-    private static InputStream limitedInputStream(InputStream inputStream, long contentLength) {
+    private static ClientTokenResponse requestClientToken(ClientTokenRequest request) throws IOException {
+        HttpURLConnection urlConnection = (HttpURLConnection) new URL(CLIENT_TOKEN_API_URL).openConnection();
+        urlConnection.setRequestMethod("POST");
+        urlConnection.setDoOutput(true);
+        urlConnection.setRequestProperty("Content-Type", "application/x-protobuf");
+        urlConnection.setRequestProperty("Accept", "application/x-protobuf");
+        urlConnection.setRequestProperty("User-Agent", IOS_USER_AGENT);
+        urlConnection.getOutputStream().write(request.toByteArray());
+
+        try (InputStream inputStream = urlConnection.getInputStream()) {
+            return ClientTokenResponse.parseFrom(inputStream);
+        }
+    }
+
+    @NonNull
+    private static InputStream newLimitedInputStream(InputStream inputStream, long contentLength) {
         return new FilterInputStream(inputStream) {
             private long remaining = contentLength;
 
@@ -92,17 +107,19 @@ class RequestListener extends NanoHTTPD {
     }
 
     @NonNull
-    private static InputStream getRequestBodyInputStream(@NonNull IHTTPSession request) {
-        long requestContentLength =
-                Long.parseLong(Objects.requireNonNull(request.getHeaders().get("content-length")));
-        return limitedInputStream(request.getInputStream(), requestContentLength);
+    private static InputStream getInputStream(@NonNull IHTTPSession session) {
+        long requestContentLength = Long.parseLong(Objects.requireNonNull(session.getHeaders().get("content-length")));
+        return newLimitedInputStream(session.getInputStream(), requestContentLength);
     }
+
+    private static final Response INTERNAL_ERROR_RESPONSE = newResponse(INTERNAL_ERROR);
 
     @SuppressWarnings("SameParameterValue")
     @NonNull
     private static Response newResponse(Response.Status status) {
         return newResponse(status, null);
     }
+
 
     @NonNull
     private static Response newResponse(Response.IStatus status, MessageLite messageLite) {
