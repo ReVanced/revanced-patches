@@ -73,12 +73,9 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Disable the double speed seek gesture.
         if (is_19_17_or_greater) {
-            arrayOf(
-                disableFastForwardGestureFingerprint,
-                disableFastForwardNoticeFingerprint,
-            ).forEach { fingerprint ->
-                fingerprint.method.apply {
-                    val targetIndex = fingerprint.patternMatch!!.endIndex
+            disableFastForwardGestureFingerprint.let {
+                it.method.apply {
+                    val targetIndex = it.patternMatch!!.endIndex
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(

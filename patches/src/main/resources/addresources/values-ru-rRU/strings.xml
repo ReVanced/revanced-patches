@@ -146,115 +146,110 @@ Second \"item\" text"</string>
   <string name="revanced_hide_album_cards_title">Скрыть карточки альбомов</string>
   <string name="revanced_hide_album_cards_summary_on">Карточки альбомов под описанием артистов скрыты</string>
   <string name="revanced_hide_album_cards_summary_off">Карточки альбомов под описанием артистов показаны</string>
-  <string name="revanced_hide_crowdfunding_box_title">Скрыть колонку \"Коллективный сбор\"</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Колонка \"Коллективный сбор\" между плеером и описанием видео скрыта</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Колонка \"Коллективный сбор\" между плеером и описанием видео показана</string>
-  <string name="revanced_hide_floating_microphone_button_title">Скрыть плавающую кнопку микрофона</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Плавающая кнопка микрофона в поиске скрыта</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Плавающая кнопка микрофона в поиске показана</string>
-  <string name="revanced_hide_channel_watermark_title">Скрыть водяной знак канала</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Водяной знак канала в плеере скрыт</string>
-  <string name="revanced_hide_channel_watermark_summary_off">Водяной знак канала в плеере показан</string>
-  <string name="revanced_hide_horizontal_shelves_title">Скрыть горизонтальные секции</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Данные горизонтальные секции скрыты:
-• Срочные новости
-• Продолжить просмотр
-• Исследовать больше каналов
-• Покупки
-• Смотреть еще раз"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Горизонтальные секции показаны</string>
-  <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                 This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Скрыть кнопку \"Стать спонсором\"</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Кнопка \"Стать спонсором\" на странице канала скрыта</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Кнопка \"Стать спонсором\" на странице канала показана</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Скрыть секцию \"Для вас\"</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Секция \"Для вас\" на странице канала скрыта</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Секция \"Для вас\" на странице канала показана</string>
-  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                 This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Скрыть кнопку \"Прислать уведомление\"</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Кнопка \"Прислать уведомление\" под плеером скрыта</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Прислать уведомление\" под плеером показана</string>
-  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendation_labels_title">Скрыть метки видеорекомендаций</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Метки \"Люди также смотрели\" и \"Вам также может понравиться\" в результатах поиска скрыты</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Метки \"Люди также смотрели\" и \"Вам также может понравиться\" в результатах поиска показаны</string>
-  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Скрыть кнопку \"Показать еще\"</string>
-  <string name="revanced_hide_show_more_button_summary_on">Кнопка \"Показать еще\" в результатах поиска скрыта</string>
-  <string name="revanced_hide_show_more_button_summary_off">Кнопка \"Показать еще\" в результатах поиска показана</string>
-  <string name="revanced_hide_ticket_shelf_title">Скрыть секцию билетов</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">Секция билетов под плеером скрыта</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">Секция билетов под плеером показана</string>
-  <string name="revanced_hide_timed_reactions_title">Скрыть временные реакции</string>
-  <string name="revanced_hide_timed_reactions_summary_on">Временные реакции в комментариях и живом чате скрыты</string>
-  <string name="revanced_hide_timed_reactions_summary_off">Временные реакции в комментариях и живом чате показаны</string>
-  <string name="revanced_hide_channel_guidelines_title">Скрыть правила канала</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Правила канала в комментариях скрыты</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Правила канала в комментариях показаны</string>
+  <string name="revanced_hide_artist_cards_title">Скрыть карточки исполнителей</string>
+  <string name="revanced_hide_artist_cards_summary_on">Карточки исполнителей под плеером скрыты</string>
+  <string name="revanced_hide_artist_cards_summary_off">Карточки исполнителей под плеером показаны</string>
   <string name="revanced_hide_chips_shelf_title">Скрыть секцию тегов похожих видео</string>
   <string name="revanced_hide_chips_shelf_summary_on">Секция тегов похожих видео под плеером скрыта</string>
   <string name="revanced_hide_chips_shelf_summary_off">Секция тегов похожих видео под плеером показана</string>
-  <string name="revanced_hide_expandable_chip_title">Скрыть расширяемые фрагменты</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Расширяемые фрагменты под плеером скрыты</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Расширяемые фрагменты под плеером показаны</string>
   <string name="revanced_hide_community_posts_title">Скрыть публикации сообщества</string>
   <string name="revanced_hide_community_posts_summary_on">Публикации сообщества в ленте скрыты</string>
   <string name="revanced_hide_community_posts_summary_off">Публикации сообщества в ленте показаны</string>
   <string name="revanced_hide_compact_banner_title">Скрыть компактные баннеры</string>
   <string name="revanced_hide_compact_banner_summary_on">Компактные баннеры в ленте скрыты</string>
   <string name="revanced_hide_compact_banner_summary_off">Компактные баннеры в ленте показаны</string>
-  <string name="revanced_hide_movies_section_title">Скрыть раздел фильмов</string>
-  <string name="revanced_hide_movies_section_summary_on">Раздел фильмов в поиске скрыт</string>
-  <string name="revanced_hide_movies_section_summary_off">Раздел фильмов в поиске показан</string>
+  <string name="revanced_hide_crowdfunding_box_title">Скрыть колонку \"Коллективный сбор\"</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Колонка \"Коллективный сбор\" между плеером и описанием видео скрыта</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Колонка \"Коллективный сбор\" между плеером и описанием видео показана</string>
+  <string name="revanced_hide_expandable_card_title">Скрыть расширяемые фрагменты</string>
+  <string name="revanced_hide_expandable_card_summary_on">Расширяемые фрагменты под плеером скрыты</string>
+  <string name="revanced_hide_expandable_card_summary_off">Расширяемые фрагменты под плеером показаны</string>
   <string name="revanced_hide_feed_survey_title">Скрыть опросы в ленте</string>
   <string name="revanced_hide_feed_survey_summary_on">Опросы в ленте скрыты</string>
   <string name="revanced_hide_feed_survey_summary_off">Опросы в ленте показаны</string>
-  <string name="revanced_hide_community_guidelines_title">Скрыть правила сообщества</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Правила сообщества в комментариях скрыты</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Правила сообщества в комментариях показаны</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Скрыть правила сообщества подписчиков</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Правила сообщества подписчиков в комментариях скрыты</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Правила сообщества подписчиков в комментариях показаны</string>
-  <string name="revanced_hide_channel_member_shelf_title">Скрыть секцию спонсоров канала</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Секция спонсоров канала на странице канала скрыта</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Секция спонсоров канала на странице канала показана</string>
+  <string name="revanced_hide_floating_microphone_button_title">Скрыть плавающую кнопку микрофона</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Плавающая кнопка микрофона в поиске скрыта</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Плавающая кнопка микрофона в поиске показана</string>
+  <string name="revanced_hide_horizontal_shelves_title">Скрыть горизонтальные секции</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Данные горизонтальные секции скрыты:
+• Срочные новости
+• Продолжить просмотр
+• Исследовать больше каналов
+• Самые релевантные
+• Покупки
+• Смотреть еще раз"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Горизонтальные полки показаны</string>
+  <string name="revanced_hide_image_shelf_title">Скрыть секцию изображений</string>
+  <string name="revanced_hide_image_shelf_summary_on">Секция изображений в результатах поиска скрыта</string>
+  <string name="revanced_hide_image_shelf_summary_off">Секция изображений в результатах поиска показана</string>
+  <string name="revanced_hide_latest_posts_title">Скрыть последние публикации</string>
+  <string name="revanced_hide_latest_posts_summary_on">Последние публикации в ленте скрыты</string>
+  <string name="revanced_hide_latest_posts_summary_off">Последние публикации в ленте показаны</string>
+  <string name="revanced_hide_mix_playlists_title">Скрыть плейлисты \"Джем\"</string>
+  <string name="revanced_hide_mix_playlists_summary_on">Плейлисты \"Джем\" в ленте и плеере скрыты</string>
+  <string name="revanced_hide_mix_playlists_summary_off">Плейлисты \"Джем\" в ленте и плеере показаны</string>
+  <string name="revanced_hide_movies_section_title">Скрыть раздел фильмов</string>
+  <string name="revanced_hide_movies_section_summary_on">Раздел фильмов в поиске скрыт</string>
+  <string name="revanced_hide_movies_section_summary_off">Раздел фильмов в поиске показан</string>
+  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
+                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+  <string name="revanced_hide_notify_me_button_title">Скрыть кнопку \"Прислать уведомление\"</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Кнопка \"Уведомить меня\" скрыта</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Уведомить меня\" показана</string>
+  <string name="revanced_hide_playables_title">Скрыть встроенные игры</string>
+  <string name="revanced_hide_playables_summary_on">Встроенные игры в ленте скрыты</string>
+  <string name="revanced_hide_playables_summary_off">Встроенные игры в ленте показаны</string>
+  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
+                  This button usually appears when searching for a YT creator. -->
+  <string name="revanced_hide_show_more_button_title">Скрыть кнопку \"Показать еще\"</string>
+  <string name="revanced_hide_show_more_button_summary_on">Кнопка \"Показать ещё\" в результатах поиска скрыта</string>
+  <string name="revanced_hide_show_more_button_summary_off">Кнопка \"Показать ещё\" в результатах поиска показана</string>
+  <string name="revanced_hide_ticket_shelf_title">Скрыть секцию билетов</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Секция билетов под плеером скрыта</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Секция билетов под плеером показана</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_video_recommendation_labels_title">Скрыть метки видеорекомендаций</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">Метки \"Люди также смотрели\" и \"Вам также может понравиться\" в результатах поиска скрыты</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">Метки \"Люди также смотрели\" и \"Вам также может понравиться\" в результатах поиска показаны</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Скрыть YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">Анимация Doodles YouTube на логотипе скрыта</string>
+  <string name="revanced_hide_doodles_summary_off">Анимация YouTube Doodles на логотипе показана</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles показываются несколько дней в году.
+
+Если в Вашем регионе в настоящее время показывается Doodle, и данная опция скрытия активна, то панель фильтров под панелью поиска будет также скрыта."</string>
+  <string name="revanced_hide_channel_bar_title">Скрыть панель канала</string>
+  <string name="revanced_hide_channel_bar_summary_on">Панель канала под плеером скрыта</string>
+  <string name="revanced_hide_channel_bar_summary_off">Панель канала под плеером показана</string>
+  <string name="revanced_hide_channel_watermark_title">Скрыть водяной знак канала</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Водяной знак канала в плеере скрыт</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Водяной знак канала в плеере показан</string>
   <string name="revanced_hide_emergency_box_title">Скрыть экстренные колонки</string>
   <string name="revanced_hide_emergency_box_summary_on">Экстренные колонки в результатах поиска и плеере скрыты</string>
   <string name="revanced_hide_emergency_box_summary_off">Экстренные колонки в результатах поиска и плеере показаны</string>
   <string name="revanced_hide_info_panels_title">Скрыть информационные панели</string>
   <string name="revanced_hide_info_panels_summary_on">Информационные панели в ленте, результатах поиска и видео скрыты</string>
   <string name="revanced_hide_info_panels_summary_off">Информационные панели в ленте, результатах поиска и видео показаны</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays.
+                  This appears in the video player for certain videos. -->
+  <string name="revanced_hide_join_membership_button_title">Скрыть кнопку \"Стать спонсором\"</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Кнопка \"Присоединиться\" в Shorts скрыта</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Кнопка \"Присоединиться\" в Shorts показана</string>
   <string name="revanced_hide_medical_panels_title">Скрыть медицинские панели</string>
   <string name="revanced_hide_medical_panels_summary_on">Медицинские панели в ленте, результатах поиска и видео скрыты</string>
   <string name="revanced_hide_medical_panels_summary_off">Медицинские панели в ленте, результатах поиска и видео показаны</string>
-  <string name="revanced_hide_channel_bar_title">Скрыть панель канала</string>
-  <string name="revanced_hide_channel_bar_summary_on">Панель канала под плеером скрыта</string>
-  <string name="revanced_hide_channel_bar_summary_off">Панель канала под плеером показана</string>
-  <string name="revanced_hide_playables_title">Скрыть встроенные игры</string>
-  <string name="revanced_hide_playables_summary_on">Встроенные игры в ленте скрыты</string>
-  <string name="revanced_hide_playables_summary_off">Встроенные игры в ленте показаны</string>
-  <string name="revanced_hide_quick_actions_title">Скрыть быстрые действия в полноэкранном режиме</string>
+  <string name="revanced_hide_quick_actions_title">Скрыть быстрые действия</string>
   <string name="revanced_hide_quick_actions_summary_on">Быстрые действия в полноэкранном режиме скрыты</string>
   <string name="revanced_hide_quick_actions_summary_off">Быстрые действия в полноэкранном режиме показаны</string>
-  <string name="revanced_hide_related_videos_title">Скрыть похожие видео в быстрых действиях</string>
+  <string name="revanced_hide_related_videos_title">Скрыть похожие видео</string>
   <string name="revanced_hide_related_videos_summary_on">Похожие видео в быстрых действиях скрыты</string>
   <string name="revanced_hide_related_videos_summary_off">Похожие видео в быстрых действиях показаны</string>
-  <string name="revanced_hide_image_shelf_title">Скрыть секцию изображений в результатах поиска</string>
-  <string name="revanced_hide_image_shelf_summary_on">Секция изображений в результатах поиска скрыта</string>
-  <string name="revanced_hide_image_shelf_summary_off">Секция изображений в результатах поиска показана</string>
-  <string name="revanced_hide_latest_posts_ads_title">Скрыть последние публикации</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Последние публикации в ленте скрыты</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Последние публикации в ленте показаны</string>
-  <string name="revanced_hide_mix_playlists_title">Скрыть плейлисты \"Джем\"</string>
-  <string name="revanced_hide_mix_playlists_summary_on">Плейлисты \"Джем\" в ленте и плеере скрыты</string>
-  <string name="revanced_hide_mix_playlists_summary_off">Плейлисты \"Джем\" в ленте и плеере показаны</string>
-  <string name="revanced_hide_artist_cards_title">Скрыть карточки исполнителей</string>
-  <string name="revanced_hide_artist_cards_summary_on">Карточки исполнителей под плеером скрыты</string>
-  <string name="revanced_hide_artist_cards_summary_off">Карточки исполнителей под плеером показаны</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Скрыть правила сообщества подписчиков</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Правила сообщества подписчиков в комментариях скрыты</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Правила сообщества подписчиков в комментариях показаны</string>
+  <string name="revanced_hide_timed_reactions_title">Скрыть временные реакции</string>
+  <string name="revanced_hide_timed_reactions_summary_on">Временные реакции в комментариях и живом чате скрыты</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Временные реакции в комментариях и живом чате показаны</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Скрыть секцию AI-резюме видео</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Секция AI-резюме видео в описании видео скрыта</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Секция AI-резюме видео в описании видео показана</string>
@@ -298,6 +293,26 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Скрыть панель фильтров в похожих видео</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Панель фильтров в похожих видео скрыта</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Панель фильтров в похожих видео показана</string>
+  <string name="revanced_channel_screen_title">Страница канала</string>
+  <string name="revanced_channel_screen_summary">Скрыть или показать компоненты страницы канала</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Скрыть секцию \"Для вас\"</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Секция \"Для вас\" скрыта</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Секция \"Для вас\" показана</string>
+  <string name="revanced_hide_links_preview_title">Скрыть предпросмотр ссылок</string>
+  <string name="revanced_hide_links_preview_summary_on">Предпросмотр ссылок скрыт</string>
+  <string name="revanced_hide_links_preview_summary_off">Предпросмотр ссылок показан</string>
+  <string name="revanced_hide_members_shelf_title">Скрыть секцию участников</string>
+  <string name="revanced_hide_members_shelf_summary_on">Секция участников скрыта</string>
+  <string name="revanced_hide_members_shelf_summary_off">Секция участников показана</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Скрыть кнопку \"Посетить сообщество\"</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Кнопка \"Посетить сообщество\" скрыта</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Кнопка \"Перейти в сообщество\" показана</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Скрыть кнопку \"Посетить магазин\"</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Кнопка \"Перейти в магазин\" скрыта</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Кнопка \"Перейти в магазин\" показана</string>
   <string name="revanced_comments_screen_title">Комментарии</string>
   <string name="revanced_comments_screen_summary">Скрыть или показать компоненты раздела комментариев</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Скрыть секцию AI-обзора чата</string>
@@ -306,12 +321,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_ai_summary_title">Скрыть вкладку AI-сводки по темам комментариев </string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Вкладка AI-сводки по темам комментариев скрыта </string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Вкладка AI-сводки по темам комментариев показана</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Скрыть правила канала</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Правила канала в комментариях скрыты</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Правила канала в комментариях показаны</string>
   <string name="revanced_hide_comments_by_members_header_title">Скрыть заголовок \"Комментарии спонсоров\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Заголовок \"Комментарии спонсоров\" в комментариях скрыт</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Заголовок \"Комментарии спонсоров\" в комментариях показан</string>
   <string name="revanced_hide_comments_section_title">Скрыть раздел комментариев</string>
   <string name="revanced_hide_comments_section_summary_on">Раздел комментариев под плеером скрыт</string>
   <string name="revanced_hide_comments_section_summary_off">Раздел комментариев под плеером показан</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Скрыть правила сообщества</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Правила сообщества в комментариях скрыты</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Правила сообщества в комментариях показаны</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Скрыть кнопку \"Создать Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопка \"Создать Short\" при ответе на комментарий скрыта</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка \"Создать Short\" при ответе на комментарий показана</string>
@@ -324,13 +345,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_timestamp_button_title">Скрыть кнопку метки времени</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Кнопка метки времени скрыта</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Кнопка метки времени показана</string>
-  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">Скрыть YouTube Doodles</string>
-  <string name="revanced_hide_doodles_summary_on">Doodles на панели поиска скрыты</string>
-  <string name="revanced_hide_doodles_summary_off">Doodles на панели поиска показаны</string>
-  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles показываются несколько дней в году.
-
-Если в Вашем регионе в настоящее время показывается Doodle, и данная опция скрытия активна, то панель фильтров под панелью поиска будет также скрыта."</string>
   <string name="revanced_custom_filter_screen_title">Кастомный фильтр</string>
   <string name="revanced_custom_filter_screen_summary">Скрыть компоненты с помощью кастомных фильтров</string>
   <string name="revanced_custom_filter_title">Включить кастомный фильтр</string>
@@ -377,12 +391,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Ключевое слово скроет все видео: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Скрыть секции магазина автора</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Секции магазина автора под плеером и в описании видео скрыты</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Секции магазина автора под плеером и в описании видео показаны</string>
+  <string name="revanced_hide_creator_store_shelf_title">Скрыть секцию магазина автора</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Секция магазина автора под видеоплеером скрыта</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Секция магазина автора под видеоплеером показана</string>
   <string name="revanced_hide_end_screen_store_banner_title">Скрыть баннер магазина</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Баннер магазина в конце просмотра скрыт</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Баннер магазина в конце просмотра показан</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Баннер магазина на конечном экране скрыт</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Баннер магазина на конечном экране показан</string>
   <string name="revanced_hide_fullscreen_ads_title">Скрыть полноэкранную рекламу</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Полноэкранная реклама при запуске приложения скрыта
 
@@ -399,20 +413,16 @@ Second \"item\" text"</string>
   <string name="revanced_hide_paid_promotion_label_title">Скрыть метку платной акции</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Метка платной акции в плеере скрыта</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Метка платной акции в плеере показана</string>
+  <string name="revanced_hide_self_sponsor_ads_title">Скрыть заставки саморекламы</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">Заставки саморекламы под информацией о видео скрыты</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">Заставки саморекламы под информацией о видео показаны</string>
+  <string name="revanced_hide_shopping_links_title">Скрыть ссылки на товары</string>
+  <string name="revanced_hide_shopping_links_summary_on">Ссылки на товары в описании видео скрыты</string>
+  <string name="revanced_hide_shopping_links_summary_off">Ссылки на товары в описании видео показаны</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Скрыть баннер просмотра товаров</string>
   <string name="revanced_hide_view_products_banner_summary_on">Баннер просмотра товаров в плеере скрыт</string>
   <string name="revanced_hide_view_products_banner_summary_off">Баннер просмотра товаров в плеере показан</string>
-  <string name="revanced_hide_self_sponsor_ads_title">Скрыть заставки саморекламы</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">Заставки саморекламы под информацией о видео скрыты</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">Заставки саморекламы под информацией о видео показаны</string>
-  <string name="revanced_hide_tagged_products_title">Скрыть товары с тегом</string>
-  <string name="revanced_hide_tagged_products_summary_on">Товары с тегом в описании видео скрыты</string>
-  <string name="revanced_hide_tagged_products_summary_off">Товары с тегом в описании видео показаны</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Скрыть кнопку \"Посетить магазин\"</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Кнопка \"Посетить магазин\" на странице канала скрыта</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Кнопка \"Посетить магазин\" на странице канала показана</string>
   <string name="revanced_hide_web_search_results_title">Скрыть результаты веб-поиска</string>
   <string name="revanced_hide_web_search_results_summary_on">Результаты веб-поиска в ленте скрыты</string>
   <string name="revanced_hide_web_search_results_summary_off">Результаты веб-поиска в ленте показаны</string>
@@ -443,13 +453,18 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Диалоговое окно о нежелательном контенте показано</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Данная опция не обходит возрастное ограничение. Она только принимает возрастное ограничение автоматически.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Отключить пропуск главы по двойному касанию</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Двойное касание никогда не приведёт к переходу к следующей/предыдущей главе</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Двойное касание может иногда приводить к переходу к следующей/предыдущей главе</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Внешний загрузчик</string>
   <string name="revanced_external_downloader_screen_summary">Настройки использования внешнего загрузчика видео</string>
   <string name="revanced_external_downloader_title">Показать кнопку внешнего загрузчика</string>
   <string name="revanced_external_downloader_summary_on">Кнопка внешнего загрузчика в плеере показана</string>
   <string name="revanced_external_downloader_summary_off">Кнопка внешнего загрузчика в плеере скрыта</string>
-  <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
+  <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
   <string name="revanced_external_downloader_action_button_title">Действие кнопки \"Скачать\"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Кнопка \"Скачать\" запускает внешний загрузчик</string>
   <string name="revanced_external_downloader_action_button_summary_off">Кнопка \"Скачать\" запускает собственный загрузчик</string>
@@ -542,7 +557,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Кнопка \"Не показывать рекламу\" скрыта</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Кнопка \"Не показывать рекламу\" показана</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                 This button usually appears only on live streams. -->
+                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Скрыть кнопку \"Пожаловаться\"</string>
   <string name="revanced_hide_report_button_summary_on">Кнопка \"Пожаловаться\" под плеером скрыта</string>
   <string name="revanced_hide_report_button_summary_off">Кнопка \"Пожаловаться\" под плеером показана</string>
@@ -559,7 +574,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_summary_on">Кнопка \"Спасибо\" под плеером скрыта</string>
   <string name="revanced_hide_thanks_button_summary_off">Кнопка \"Спасибо\" под плеером показана</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Скрыть кнопку \"Спросить\"</string>
   <string name="revanced_hide_ask_button_summary_on">Кнопка \"Спросить\" скрыта</string>
   <string name="revanced_hide_ask_button_summary_off">Кнопка \"Спросить\" показана</string>
@@ -583,7 +598,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_button_title">Скрыть кнопку \"Shorts\"</string>
   <string name="revanced_hide_shorts_button_summary_on">Кнопка \"Shorts\" в панели навигации скрыта</string>
   <string name="revanced_hide_shorts_button_summary_off">Кнопка \"Shorts\" в панели навигации показана</string>
-  <!-- The Create button has no display name. Translate normally. -->
+  <!-- 'Create' has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Скрыть кнопку \"Создать\"</string>
   <string name="revanced_hide_create_button_summary_on">Кнопка \"Создать\" в панели навигации скрыта</string>
   <string name="revanced_hide_create_button_summary_off">Кнопка \"Создать\" в панели навигации показана</string>
@@ -652,7 +667,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Пункт \"Скорость воспроизведения\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Пункт \"Скорость воспроизведения\" в выдвижном меню плеера показан</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                 This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
+                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">Скрыть пункт \"Дополнительная информация\"</string>
   <string name="revanced_hide_player_flyout_more_info_summary_on">Пункт \"Дополнительная информация\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_more_info_summary_off">Пункт \"Дополнительная информация\" в выдвижном меню плеера показан</string>
@@ -664,7 +679,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Скрыть пункт \"Звуковая дорожка\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Пункт \"Звуковая дорожка\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Пункт \"Звуковая дорожка\" в выдвижном меню плеера показан</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Пункт \"Звуковая дорожка\" в выдвижном меню плеера скрыт
 
 Для показа пункта \"Звуковая дорожка\" измените клиент \"Подмены видеопотоков\" на iOS TV"</string>
@@ -677,22 +692,22 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Нижний колонтитул старого меню качества видео в выдвижном меню плеера показан</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Скрыть кнопки предыдущего и следующего видео</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопки предыдущего и следующего видео в плеере скрыты</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_off">Кнопки предыдущего и следующего видео в плеере показаны </string>
-  <string name="revanced_hide_cast_button_title">Скрыть кнопку \"Трансляция\"</string>
-  <string name="revanced_hide_cast_button_summary_on">Кнопка \"Трансляция\" в плеере скрыта</string>
-  <string name="revanced_hide_cast_button_summary_off">Кнопка \"Трансляция\" в плеере показана</string>
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Скрыть кнопку \"Субтитры\"</string>
-  <string name="revanced_hide_captions_button_summary_on">Кнопка \"Субтитры\" в плеере скрыта</string>
-  <string name="revanced_hide_captions_button_summary_off">Кнопка \"Субтитры\" в плеере показана</string>
   <string name="revanced_hide_autoplay_button_title">Скрыть кнопку \"Автовоспроизведение\"</string>
   <string name="revanced_hide_autoplay_button_summary_on">Кнопка \"Автовоспроизведение\" в плеере скрыта</string>
   <string name="revanced_hide_autoplay_button_summary_off">Кнопка \"Автовоспроизведение\" в плеере показана</string>
+  <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+  <string name="revanced_hide_captions_button_title">Скрыть кнопку \"Субтитры\"</string>
+  <string name="revanced_hide_captions_button_summary_on">Кнопка \"Субтитры\" в плеере скрыта</string>
+  <string name="revanced_hide_captions_button_summary_off">Кнопка \"Субтитры\" в плеере показана</string>
+  <string name="revanced_hide_cast_button_title">Скрыть кнопку \"Трансляция\"</string>
+  <string name="revanced_hide_cast_button_summary_on">Кнопка \"Трансляция\" в плеере скрыта</string>
+  <string name="revanced_hide_cast_button_summary_off">Кнопка \"Трансляция\" в плеере показана</string>
   <string name="revanced_hide_player_control_buttons_background_title">Скрыть фон кнопок управления плеера</string>
   <string name="revanced_hide_player_control_buttons_background_summary_on">Фон кнопок управления плеера скрыт</string>
   <string name="revanced_hide_player_control_buttons_background_summary_off">Фон кнопок управления плеера показан</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Скрыть кнопки предыдущего и следующего видео</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопки предыдущего и следующего видео в плеере скрыты</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Кнопки предыдущего и следующего видео в плеере показаны </string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Скрыть заставки следующих видео</string>
@@ -725,11 +740,11 @@ Second \"item\" text"</string>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Компоненты плеера Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Скрыть или показать компоненты в плеере Shorts</string>
-  <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Скрыть Shorts в ленте \"Главной\"</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts в ленте \"Главной\" и похожих видео скрыты</string>
   <string name="revanced_hide_shorts_home_summary_off">Shorts в ленте \"Главной\" и похожих видео показаны</string>
-  <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Скрыть Shorts в ленте \"Подписок\"</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts в ленте \"Подписок\" скрыты</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts в ленте \"Подписок\" показаны</string>
@@ -739,62 +754,61 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_history_title">Скрыть Shorts в истории просмотров</string>
   <string name="revanced_hide_shorts_history_summary_on">Shorts в истории просмотров скрыты</string>
   <string name="revanced_hide_shorts_history_summary_off">Shorts в истории просмотров показаны</string>
-  <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Скрыть кнопку \"Присоединиться\"</string>
-  <string name="revanced_hide_shorts_join_button_summary_on">Кнопка \"Присоединиться\" в Shorts скрыта</string>
-  <string name="revanced_hide_shorts_join_button_summary_off">Кнопка \"Присоединиться\" в Shorts показана</string>
-  <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">Скрыть кнопку \"Подписаться\"</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_on">Кнопка \"Подписаться\" в Shorts скрыта</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_off">Кнопка \"Подписаться\" в Shorts показана</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Скрыть кнопки на паузе</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Кнопки \"Подписки\", \"В эфире\" и \"Покупки\" на паузе в Shorts скрыты</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Кнопки \"Подписки\", \"В эфире\" и \"Покупки\" на паузе в Shorts показаны</string>
-  <string name="revanced_hide_shorts_shop_button_title">Скрыть кнопку \"Магазин\"</string>
-  <string name="revanced_hide_shorts_shop_button_summary_on">Кнопка \"Магазин\" в Shorts скрыта</string>
-  <string name="revanced_hide_shorts_shop_button_summary_off">Кнопка \"Магазин\" в Shorts показана</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Скрыть кнопку \"Супер спасибо\"</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Кнопка \"Супер спасибо\" в Shorts скрыта</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Кнопка \"Супер спасибо\" в Shorts показана</string>
-  <string name="revanced_hide_shorts_tagged_products_title">Скрыть товары с тегом</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">Товары с тегом в Shorts скрыты</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_off">Товары с тегом в Shorts показаны</string>
-  <string name="revanced_hide_shorts_location_label_title">Скрыть метку местоположения</string>
-  <string name="revanced_hide_shorts_location_label_summary_on">Метка местоположения в Shorts скрыта</string>
-  <string name="revanced_hide_shorts_location_label_summary_off">Метка местоположения в Shorts показана</string>
-  <string name="revanced_hide_shorts_preview_comment_title">Скрыть превью комментариев</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_on">Превью комментариев под плеером скрыто</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">Превью комментариев под плеером показано</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Скрыть кнопку \"Сохранить музыку\"</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка \"Сохранить музыку\" в Shorts скрыта</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Сохранить музыку\" в Shorts показана</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Скрыть кнопку \"Использовать этот звук\"</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_on">Кнопка \"Использовать этот звук\" скрыта</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_off">Кнопка \"Использовать этот звук\" показана</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Скрыть кнопку \"Использовать шаблон\"</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопка \"Использовать этот шаблон\" скрыта</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка \"Использовать шаблон\" показана</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Скрыть кнопку \"Предстоящие события\"</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопка \"Предстоящие события\" в Shorts скрыта</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопка \"Предстоящие события\" в Shorts показана</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Кнопка \"Купить Супер спасибо\" скрыта</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Кнопка \"Купить Супер спасибо\" показана</string>
   <string name="revanced_hide_shorts_effect_button_title">Скрыть кнопку \"Эффект\"</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Кнопка \"Эффект\" скрыта</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Кнопка \"Эффект\" показана</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Скрыть кнопку \"Зеленый экран\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопка \"Зеленый экран\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка \"Зеленый экран\" в Shorts показана</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Скрыть кнопку \"Новые публикации\"</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_off">Кнопка \"Новые публикации\" в плеере Shorts показана</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_on">Кнопка \"Новые публикации\" в плеере Shorts скрыта</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Скрыть кнопку хэштега</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Кнопка хэштега в Shorts скрыта</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Кнопка хэштега в Shorts показана</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">Скрыть кнопку \"Присоединиться\"</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">Кнопка \"Присоединиться\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">Кнопка \"Присоединиться\" в Shorts показана</string>
+  <string name="revanced_hide_shorts_location_label_title">Скрыть метку местоположения</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">Метка местоположения в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">Метка местоположения в Shorts показана</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Скрыть кнопку \"Новые публикации\"</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Кнопка \"Новые публикации\" в плеере Shorts скрыта</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Кнопка \"Новые публикации\" в плеере Shorts показана</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Скрыть кнопки на паузе</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Кнопки \"Подписки\", \"В эфире\" и \"Покупки\" на паузе в Shorts скрыты</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Кнопки \"Подписки\", \"В эфире\" и \"Покупки\" на паузе в Shorts показаны</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Скрыть превью комментариев</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Превью комментариев под плеером скрыто</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Превью комментариев под плеером показано</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Скрыть кнопку \"Сохранить музыку\"</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка \"Сохранить музыку\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Сохранить музыку\" в Shorts показана</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Скрыть поисковые предложения</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Поисковые предложения в Shorts скрыты</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Поисковые предложения в Shorts показаны</string>
+  <string name="revanced_hide_shorts_shop_button_title">Скрыть кнопку \"Магазин\"</string>
+  <string name="revanced_hide_shorts_shop_button_summary_on">Кнопка \"Магазин\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_shop_button_summary_off">Кнопка \"Магазин\" в Shorts показана</string>
   <string name="revanced_hide_shorts_stickers_title">Скрыть стикеры</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Стикеры в Shorts скрыты</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Стикеры в Shorts показаны</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">Скрыть кнопку \"Подписаться\"</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">Кнопка \"Подписаться\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">Кнопка \"Подписаться\" в Shorts показана</string>
+  <string name="revanced_hide_shorts_tagged_products_title">Скрыть товары с тегом</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">Товары с тегом в Shorts скрыты</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">Товары с тегом в Shorts показаны</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Скрыть кнопку \"Предстоящие события\"</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопка \"Предстоящие события\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопка \"Предстоящие события\" в Shorts показана</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Скрыть кнопку \"Использовать этот звук\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Кнопка \"Использовать этот звук\" скрыта</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Кнопка \"Использовать этот звук\" показана</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Скрыть кнопку \"Использовать шаблон\"</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопка \"Использовать этот шаблон\" скрыта</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка \"Использовать шаблон\" показана</string>
   <string name="revanced_hide_shorts_like_fountain_title">Скрыть анимацию кнопки \"Лайк\"</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">Анимация кнопки \"Лайк\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">Анимация кнопки \"Лайк\" в Shorts показана</string>
@@ -807,14 +821,17 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_comments_button_title">Скрыть кнопку \"Комментарии\"</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Кнопка \"Комментарии\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Кнопка \"Комментарии\" в Shorts показана</string>
-  <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">Скрыть кнопку \"Ремикс\"</string>
-  <string name="revanced_hide_shorts_remix_button_summary_on">Кнопка \"Ремикс\" в Shorts скрыта</string>
-  <string name="revanced_hide_shorts_remix_button_summary_off">Кнопка \"Ремикс\" в Shorts показана</string>
-  <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
+  <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_share_button_title">Скрыть кнопку \"Поделиться\"</string>
   <string name="revanced_hide_shorts_share_button_summary_on">Кнопка \"Поделиться\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_share_button_summary_off">Кнопка \"Поделиться\" в Shorts показана</string>
+  <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_remix_button_title">Скрыть кнопку \"Ремикс\"</string>
+  <string name="revanced_hide_shorts_remix_button_summary_on">Кнопка \"Ремикс\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_remix_button_summary_off">Кнопка \"Ремикс\" в Shorts показана</string>
+  <string name="revanced_hide_shorts_sound_button_title">Скрыть кнопку \"Со звуком\"</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">Кнопка \"Со звуком\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">Кнопка \"Со звуком\" в Shorts показана</string>
   <string name="revanced_hide_shorts_info_panel_title">Скрыть информационную панель</string>
   <string name="revanced_hide_shorts_info_panel_summary_on">Информационная панель в Shorts скрыта</string>
   <string name="revanced_hide_shorts_info_panel_summary_off">Информационная панель в Shorts показана</string>
@@ -822,17 +839,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_channel_bar_summary_on">Панель канала в Shorts скрыта</string>
   <string name="revanced_hide_shorts_channel_bar_summary_off">Панель канала в Shorts показана</string>
   <string name="revanced_hide_shorts_video_title_title">Скрыть заголовок видео</string>
-  <string name="revanced_hide_shorts_video_title_summary_on">Заголовок видео в Shorts скрыт</string>
-  <string name="revanced_hide_shorts_video_title_summary_off">Заголовок видео в Shorts показан</string>
+  <string name="revanced_hide_shorts_video_title_summary_on">Название видео скрыто</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">Название видео показано</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Скрыть метку звуковых метаданных</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Метка звуковых метаданных в Shorts скрыта</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Метка звуковых метаданных в Shorts показана</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Метка звуковых метаданных скрыта</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Метка звуковых метаданных показана</string>
   <string name="revanced_hide_shorts_full_video_link_label_title">Скрыть метку ссылки на видео</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Метка ссылки на полное видео в Shorts скрыта</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Метка ссылки на полное видео в Shorts показана</string>
-  <string name="revanced_hide_shorts_sound_button_title">Скрыть кнопку \"Со звуком\"</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">Кнопка \"Со звуком\" в Shorts скрыта</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">Кнопка \"Со звуком\" в Shorts показана</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Скрыть панель навигации</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Панель навигации в Shorts скрыта</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Панель навигации в Shorts показана</string>
@@ -846,9 +860,9 @@ Second \"item\" text"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Предлагаемые видео в конце просмотра показаны</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  <string name="revanced_hide_related_video_overlay_title">Скрыть похожие видео в полноэкранном режиме</string>
-  <string name="revanced_hide_related_video_overlay_summary_on">Похожие видео в полноэкранном режиме скрыты</string>
-  <string name="revanced_hide_related_video_overlay_summary_off">Похожие видео в полноэкранном режиме показаны</string>
+  <string name="revanced_hide_related_videos_overlay_title">Скрыть наложение похожих видео</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">Похожие видео в полноэкранном режиме скрыты</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">Похожие видео в полноэкранном режиме показаны</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Скрыть метку времени видео</string>
@@ -897,7 +911,7 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_dislike_percentage_title">Показать дизлайки в процентах</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Дизлайки показаны в процентах</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Дизлайки показаны как число</string>
-  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
   <string name="revanced_ryd_compact_layout_title">Компактная кнопка \"Лайк\"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Лайк\" стилизована для минимальной ширины</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Лайк\" стилизована для лучшего внешнего вида</string>
@@ -956,7 +970,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_square_layout">Использовать квадратный макет</string>
   <string name="revanced_sb_square_layout_sum_on">Кнопки и элементы управления квадратные</string>
   <string name="revanced_sb_square_layout_sum_off">Кнопки и элементы управления закругленные</string>
-  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
+  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
   <string name="revanced_sb_enable_compact_skip_button">Компактная кнопка пропуска</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Кнопка пропуска стилизована для минимальной ширины</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Кнопка пропуска стилизована для лучшего внешнего вида</string>
@@ -1100,7 +1114,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_vote_downvote">Голос \"против\"</string>
   <string name="revanced_sb_vote_category">Изменить категорию</string>
   <string name="revanced_sb_vote_no_segments">Нет сегментов для голосования</string>
-  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <!-- A segment start and end time, such as "02:10 to 03:40". -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Выбрать категорию сегмента</string>
   <string name="revanced_sb_new_segment_disabled_category">Категория отключена в настройках. Включите категорию для отправки.</string>
@@ -1179,7 +1193,7 @@ Second \"item\" text"</string>
 
 Если позже данный параметр будет отключен, рекомендуется очистить данные приложения для предотвращения проблем с пользовательским интерфейсом."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Подменить версию приложения на</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Восстановление старых иконок плеера Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Восстановление старых иконок панели навигации</string>
@@ -1291,9 +1305,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Включить градиентный фон экрана загрузки</string>
   <string name="revanced_gradient_loading_screen_summary_on">Градиентный фон экрана загрузки макета включен</string>
   <string name="revanced_gradient_loading_screen_summary_off">Сплошной фон экрана загрузки макета включен</string>
-  <string name="splash_screen_animation_style_title">Стиль экрана заставки</string>
-  <string name="splash_screen_animation_style_entry_1">Цветной</string>
-  <string name="splash_screen_animation_style_entry_2">Черно-белый</string>
+  <string name="revanced_splash_screen_animation_style_title">Стиль экрана заставки</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Цветной</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Черно-белый</string>
   <string name="revanced_seekbar_custom_color_title">Включить кастомный цвет полосы прогресса</string>
   <string name="revanced_seekbar_custom_color_summary_on">Кастомный цвет полосы прогресса включен</string>
   <string name="revanced_seekbar_custom_color_summary_off">Оригинальный цвет полосы прогресса включен</string>
@@ -1303,6 +1317,14 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Вторичный цвет полосы прогресса</string>
   <string name="revanced_seekbar_custom_color_invalid">Неверное значение цвета полосы прогресса</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Логотип в шапке</string>
+  <string name="revanced_header_logo_entry_1">Стандартный</string>
+  <string name="revanced_header_logo_entry_2">Обычный</string>
+  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <string name="revanced_header_logo_entry_5">ReVanced минимальный</string>
+  <string name="revanced_header_logo_entry_6">Пользовательский</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Обход региональных ограничений изображений</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Использование хоста изображений yt4.ggpht.com</string>
@@ -1311,11 +1333,11 @@ Second \"item\" text"</string>
 Активация данной опции может исправить недостающие изображения, которые заблокированы в некоторых регионах "</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Вкладка \"Главная\"</string>
-  <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_alt_thumbnail_subscription_title">Вкладка \"Подписки\"</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">Вкладка \"Вы\"</string>
   <string name="revanced_alt_thumbnail_player_title">Плейлисты плеера, рекомендации</string>
   <string name="revanced_alt_thumbnail_search_title">Результаты поиска</string>
@@ -1416,11 +1438,11 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>
   <string name="revanced_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
   <string name="revanced_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_force_original_audio_not_available">Для использования данной опции измените подмену видеопотока на тип клиента iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Авто</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запоминать изменения качества видео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Изменения качества воспроизведения применяются ко всем видео</string>
@@ -1534,7 +1556,7 @@ Second \"item\" text"</string>
   <string name="revanced_block_video_ads_summary_off">Видеореклама разблокирована</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">сообщение удалено</string>
+  <string name="revanced_deleted_msg">Сообщение удалено</string>
   <string name="revanced_show_deleted_messages_title">Показать удаленные сообщения</string>
   <string name="revanced_show_deleted_messages_entry_1">Не показывать удаленные сообщения</string>
   <string name="revanced_show_deleted_messages_entry_2">Скрыть удаленные сообщения за спойлером</string>
@@ -1546,7 +1568,7 @@ Second \"item\" text"</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Баллы канала не собираются автоматически</string>
   </patch>
   <patch id="debug.debugModePatch">
-  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
+  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
   <string name="revanced_twitch_debug_mode_title">Включить режим отладки Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Режим отладки Twitch включен (не рекомендуется)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Режим отладки Twitch отключен</string>
@@ -1555,7 +1577,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings">Настройки ReVanced</string>
   <string name="revanced_about_title">Информация</string>
   <string name="revanced_about_summary">О ReVanced</string>
-  <string name="revanced_ads_screen_title">Реклама</string>
+  <string name="revanced_ads_screen_title">Блокировка рекламы</string>
   <string name="revanced_ads_screen_summary">Настройки блокировки рекламы</string>
   <string name="revanced_chat_screen_title">Чат</string>
   <string name="revanced_chat_screen_summary">Настройки чата</string>

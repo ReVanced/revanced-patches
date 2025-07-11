@@ -146,115 +146,110 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_album_cards_title">Itago ang mga album card</string>
   <string name="revanced_hide_album_cards_summary_on">Nakatago ang mga card ng album</string>
   <string name="revanced_hide_album_cards_summary_off">Ipinapakita ang mga album card</string>
-  <string name="revanced_hide_crowdfunding_box_title">Itago ang crowdfunding box</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Nakatago ang crowdfunding box</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Ipinapakita ang kahon ng crowdfunding</string>
-  <string name="revanced_hide_floating_microphone_button_title">Itago ang lumulutang na pindutan ng mikropono</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Nakatago ang button ng mikropono</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Ipinapakita ang pindutan ng mikropono</string>
-  <string name="revanced_hide_channel_watermark_title">Itago ang watermark ng channel</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Nakatago ang watermark</string>
-  <string name="revanced_hide_channel_watermark_summary_off">Ipinapakita ang watermark</string>
-  <string name="revanced_hide_horizontal_shelves_title">Itago ang mga pahalang na istante</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Ang mga istante ay nakatago tulad ng:
-• Mga balitang pang-agham
-• Patuloy na panonood
-• Galugarin ang higit pang mga channel
-• Pamimili
-• Panoorin muli"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Ipinapakita ang mga istante</string>
-  <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                 This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Itago ang button na Sumali</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Nakatago ang button</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Ang pindutan ay ipinapakita</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Itago ang shelf na \'Para sa iyo\'</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Nakatago ang Shelf sa page ng channel</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Ipinapakita ang Shelf sa page ng channel</string>
-  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                 This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Itago ang button na \"Abisuhan ako\"</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Nakatago ang button</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Ang pindutan ay ipinapakita</string>
-  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendation_labels_title">Itago ang mga label ng rekomendasyon sa video</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Nakatago ang mga label na \"\'People also watched\'\" at \"\'You might also like\'\"</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Ipinapakita ang mga label na \"\'People also watched\'\" at \"\'You might also like\'\"</string>
-  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Itago ang button na \"Ipakita ang higit pa\"</string>
-  <string name="revanced_hide_show_more_button_summary_on">Nakatago ang button</string>
-  <string name="revanced_hide_show_more_button_summary_off">Ang pindutan ay ipinapakita</string>
-  <string name="revanced_hide_ticket_shelf_title">Itago ang shelf ng ticket</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">Nakatago ang ticket shelf</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">Ipinapakita ang ticket shelf</string>
-  <string name="revanced_hide_timed_reactions_title">Itago ang mga naka-time na reaksyon</string>
-  <string name="revanced_hide_timed_reactions_summary_on">Nakatago ang mga naka-time na reaksyon</string>
-  <string name="revanced_hide_timed_reactions_summary_off">Ang mga naka-time na reaksyon ay ipinapakita</string>
-  <string name="revanced_hide_channel_guidelines_title">Itago ang mga alituntunin ng channel</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Nakatago ang mga alituntunin ng channel</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Ipinapakita ang mga alituntunin sa channel</string>
+  <string name="revanced_hide_artist_cards_title">Itago ang mga card ng artist</string>
+  <string name="revanced_hide_artist_cards_summary_on">Nakatago ang mga artist card</string>
+  <string name="revanced_hide_artist_cards_summary_off">Ipinapakita ang mga card ng artist</string>
   <string name="revanced_hide_chips_shelf_title">Itago ang shelf ng chips</string>
   <string name="revanced_hide_chips_shelf_summary_on">Nakatago ang istante ng chips</string>
   <string name="revanced_hide_chips_shelf_summary_off">Ipinapakita ang istante ng chips</string>
-  <string name="revanced_hide_expandable_chip_title">Itago ang mae-expand na card sa ilalim ng mga video</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Nakatago ang mae-expand na card</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Ipinapakita ang mae-expand na card</string>
   <string name="revanced_hide_community_posts_title">Itago ang mga post sa komunidad</string>
   <string name="revanced_hide_community_posts_summary_on">Nakatago ang mga post sa komunidad</string>
   <string name="revanced_hide_community_posts_summary_off">Ipinapakita ang mga post sa komunidad</string>
   <string name="revanced_hide_compact_banner_title">Itago ang mga compact na banner</string>
   <string name="revanced_hide_compact_banner_summary_on">Nakatago ang mga compact na banner</string>
   <string name="revanced_hide_compact_banner_summary_off">Ang mga compact na banner ay ipinapakita</string>
-  <string name="revanced_hide_movies_section_title">Itago ang seksyon ng mga pelikula</string>
-  <string name="revanced_hide_movies_section_summary_on">Nakatago ang seksyon ng mga pelikula</string>
-  <string name="revanced_hide_movies_section_summary_off">Ipinapakita ang seksyon ng mga pelikula</string>
+  <string name="revanced_hide_crowdfunding_box_title">Itago ang crowdfunding box</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Nakatago ang crowdfunding box</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Ipinapakita ang kahon ng crowdfunding</string>
+  <string name="revanced_hide_expandable_card_title">Itago ang expandable card</string>
+  <string name="revanced_hide_expandable_card_summary_on">Nakago na ang expandable card sa ilalim ng mga video</string>
+  <string name="revanced_hide_expandable_card_summary_off">Ipinapakita ang expandable card sa ilalim ng mga video</string>
   <string name="revanced_hide_feed_survey_title">Itago ang mga survey ng feed</string>
   <string name="revanced_hide_feed_survey_summary_on">Nakatago ang mga survey ng feed</string>
   <string name="revanced_hide_feed_survey_summary_off">Ipinapakita ang mga survey ng feed</string>
-  <string name="revanced_hide_community_guidelines_title">Itago ang mga alituntunin ng komunidad</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Nakatago ang mga alituntunin ng komunidad</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Ipinapakita ang mga alituntunin ng komunidad</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Itago ang mga alituntunin ng mga subscriber</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Nakatago ang mga alituntunin ng komunidad ng mga subscriber</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Ang mga alituntunin ng komunidad ng mga subscriber ay ipinapakita</string>
-  <string name="revanced_hide_channel_member_shelf_title">Itago ang shelf ng miyembro ng channel</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Nakatago ang shelf ng miyembro ng channel</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Ipinapakita ang shelf ng miyembro ng channel</string>
+  <string name="revanced_hide_floating_microphone_button_title">Itago ang lumulutang na pindutan ng mikropono</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Nakatago ang lumulutang na pindutan ng mikropono sa paghahanap</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Ang lumulutang na pindutan ng mikropono sa paghahanap ay ipinapakita</string>
+  <string name="revanced_hide_horizontal_shelves_title">Itago ang mga pahalang na istante</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Ang mga pahalang na shelf ay nakatago, tulad ng:
+• Nagbabagang balita
+• Ipagpatuloy ang panonood
+• Galugarin ang higit pang channel
+• Pinakanauugnay
+• Pamimili
+• Panoorin muli"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Ipinapakita ang mga pahalang na istante</string>
+  <string name="revanced_hide_image_shelf_title">Itago ang image shelf</string>
+  <string name="revanced_hide_image_shelf_summary_on">Nakago na ang image shelf sa mga resulta ng paghahanap</string>
+  <string name="revanced_hide_image_shelf_summary_off">Ipinapakita ang image shelf sa mga resulta ng paghahanap</string>
+  <string name="revanced_hide_latest_posts_title">Itago ang mga pinakabagong post</string>
+  <string name="revanced_hide_latest_posts_summary_on">Nakatago ang pinakabagong mga post</string>
+  <string name="revanced_hide_latest_posts_summary_off">Pinakabagong mga post ay ipinapakita</string>
+  <string name="revanced_hide_mix_playlists_title">Itago ang mga mix playlist</string>
+  <string name="revanced_hide_mix_playlists_summary_on">Nakatago ang mga mix playlist</string>
+  <string name="revanced_hide_mix_playlists_summary_off">Ang mga mix playlist ay ipinapakita</string>
+  <string name="revanced_hide_movies_section_title">Itago ang seksyon ng mga pelikula</string>
+  <string name="revanced_hide_movies_section_summary_on">Nakatago ang seksyon ng mga pelikula</string>
+  <string name="revanced_hide_movies_section_summary_off">Ipinapakita ang seksyon ng mga pelikula</string>
+  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
+                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+  <string name="revanced_hide_notify_me_button_title">Itago ang button na \"Abisuhan ako\"</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Nakatago ang pindutan na Abisuhan ako</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Ipinapakita ang pindutan na Abisuhan ako</string>
+  <string name="revanced_hide_playables_title">Itago ang mga Playable</string>
+  <string name="revanced_hide_playables_summary_on">Nakatago ang mga laruin</string>
+  <string name="revanced_hide_playables_summary_off">Ipinapakita ang mga puwedeng laruin</string>
+  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
+                  This button usually appears when searching for a YT creator. -->
+  <string name="revanced_hide_show_more_button_title">Itago ang button na \"Ipakita ang higit pa\"</string>
+  <string name="revanced_hide_show_more_button_summary_on">Nakatago ang pindutan na Ipakita pa sa mga resulta ng paghahanap</string>
+  <string name="revanced_hide_show_more_button_summary_off">Ipinapakita ang pindutan na Ipakita pa sa mga resulta ng paghahanap</string>
+  <string name="revanced_hide_ticket_shelf_title">Itago ang shelf ng ticket</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Nakatago ang ticket shelf</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Ipinapakita ang ticket shelf</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_video_recommendation_labels_title">Itago ang mga label ng rekomendasyon ng video</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">Ang mga label na \'Pinanood din ng iba\' at \'Maaaring magustuhan mo rin\' sa mga resulta ng paghahanap ay nakatago</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">Ang mga label na \'Pinanood din ng iba\' at \'Maaaring magustuhan mo rin\' sa mga resulta ng paghahanap ay ipinapakita</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Itago ang mga Doodles ng YouTube</string>
+  <string name="revanced_hide_doodles_summary_on">Nakatago ang animasyon ng YouTube Doodles sa logo</string>
+  <string name="revanced_hide_doodles_summary_off">Ang animasyon ng YouTube Doodles sa logo ay ipinapakita</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"Ang mga Doodles ng YouTube ay ipinapakita ng ilang araw bawat taon.
+
+Kung ang isang Doodle ay kasalukuyang ipinapakita sa iyong rehiyon at ang setting na ito ng pagtatago ay naka-on, kung gayon ang filter bar sa ibaba ng search bar ay itatago rin."</string>
+  <string name="revanced_hide_channel_bar_title">Itago ang channel bar</string>
+  <string name="revanced_hide_channel_bar_summary_on">Nakatago ang channel bar</string>
+  <string name="revanced_hide_channel_bar_summary_off">Ipinapakita ang channel bar</string>
+  <string name="revanced_hide_channel_watermark_title">Itago ang watermark ng channel</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Nakatago ang watermark</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Ipinapakita ang watermark</string>
   <string name="revanced_hide_emergency_box_title">Itago ang mga emergency box</string>
   <string name="revanced_hide_emergency_box_summary_on">Nakatago ang mga emergency box</string>
   <string name="revanced_hide_emergency_box_summary_off">Ipinapakita ang mga emergency box</string>
   <string name="revanced_hide_info_panels_title">Itago ang mga panel ng impormasyon</string>
   <string name="revanced_hide_info_panels_summary_on">Nakatago ang mga panel ng impormasyon</string>
   <string name="revanced_hide_info_panels_summary_off">Ang mga panel ng impormasyon ay ipinapakita</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays.
+                  This appears in the video player for certain videos. -->
+  <string name="revanced_hide_join_membership_button_title">Itago ang button na Sumali</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Nakatago ang pindutan na Sumali</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Ipinapakita ang pindutan na Sumali</string>
   <string name="revanced_hide_medical_panels_title">Itago ang mga medikal na panel</string>
   <string name="revanced_hide_medical_panels_summary_on">Nakatago ang mga medikal na panel</string>
   <string name="revanced_hide_medical_panels_summary_off">Ipinapakita ang mga medikal na panel</string>
-  <string name="revanced_hide_channel_bar_title">Itago ang channel bar</string>
-  <string name="revanced_hide_channel_bar_summary_on">Nakatago ang channel bar</string>
-  <string name="revanced_hide_channel_bar_summary_off">Ipinapakita ang channel bar</string>
-  <string name="revanced_hide_playables_title">Itago ang mga Playable</string>
-  <string name="revanced_hide_playables_summary_on">Nakatago ang mga laruin</string>
-  <string name="revanced_hide_playables_summary_off">Ipinapakita ang mga puwedeng laruin</string>
-  <string name="revanced_hide_quick_actions_title">Itago ang mga mabilisang pagkilos sa fullscreen</string>
-  <string name="revanced_hide_quick_actions_summary_on">Nakatago ang mga mabilisang pagkilos</string>
-  <string name="revanced_hide_quick_actions_summary_off">Ang mga mabilisang aksyon ay ipinapakita</string>
-  <string name="revanced_hide_related_videos_title">Itago ang mga kaugnay na video sa mabilisang pagkilos</string>
-  <string name="revanced_hide_related_videos_summary_on">Nakatago ang mga kaugnay na video</string>
-  <string name="revanced_hide_related_videos_summary_off">Ang mga kaugnay na video ay ipinapakita</string>
-  <string name="revanced_hide_image_shelf_title">Itago ang shelf ng larawan sa mga resulta ng paghahanap</string>
-  <string name="revanced_hide_image_shelf_summary_on">Nakatago ang istante ng larawan</string>
-  <string name="revanced_hide_image_shelf_summary_off">Ipinapakita ang istante ng larawan</string>
-  <string name="revanced_hide_latest_posts_ads_title">Itago ang mga pinakabagong post</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Nakatago ang pinakabagong mga post</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Pinakabagong mga post ay ipinapakita</string>
-  <string name="revanced_hide_mix_playlists_title">Itago ang mga mix playlist</string>
-  <string name="revanced_hide_mix_playlists_summary_on">Nakatago ang mga mix playlist</string>
-  <string name="revanced_hide_mix_playlists_summary_off">Ang mga mix playlist ay ipinapakita</string>
-  <string name="revanced_hide_artist_cards_title">Itago ang mga card ng artist</string>
-  <string name="revanced_hide_artist_cards_summary_on">Nakatago ang mga artist card</string>
-  <string name="revanced_hide_artist_cards_summary_off">Ipinapakita ang mga card ng artist</string>
+  <string name="revanced_hide_quick_actions_title">Itago ang mga mabilisang pagkilos</string>
+  <string name="revanced_hide_quick_actions_summary_on">Nakago na ang mga mabilisang pagkilos sa fullscreen</string>
+  <string name="revanced_hide_quick_actions_summary_off">Ipinapakita ang mga mabilisang pagkilos sa fullscreen</string>
+  <string name="revanced_hide_related_videos_title">Itago ang mga kaugnay na video</string>
+  <string name="revanced_hide_related_videos_summary_on">Nakago na ang mga kaugnay na video sa mga mabilisang pagkilos</string>
+  <string name="revanced_hide_related_videos_summary_off">Ipinapakita ang mga kaugnay na video sa mga mabilisang pagkilos</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Itago ang mga alituntunin ng mga subscriber</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Nakatago ang mga alituntunin ng komunidad ng mga subscriber</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Ang mga alituntunin ng komunidad ng mga subscriber ay ipinapakita</string>
+  <string name="revanced_hide_timed_reactions_title">Itago ang mga naka-time na reaksyon</string>
+  <string name="revanced_hide_timed_reactions_summary_on">Nakatago ang mga naka-time na reaksyon</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Ang mga naka-time na reaksyon ay ipinapakita</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Itago ang \'Buod ng video na binuo ng AI\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Nakatago ang seksyon ng buod ng video</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Ipinapakita ang seksyon ng buod ng video</string>
@@ -298,6 +293,26 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Itago sa mga kaugnay na video</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Nakatago sa mga kaugnay na video</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ipinapakita sa mga kaugnay na video</string>
+  <string name="revanced_channel_screen_title">Pahina ng Channel</string>
+  <string name="revanced_channel_screen_summary">Itago o ipakita ang mga bahagi ng pahina ng channel</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Itago ang shelf na \'Para sa iyo\'</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Nakago na ang For You shelf</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Ipinapakita ang For You shelf</string>
+  <string name="revanced_hide_links_preview_title">Itago ang preview ng mga link</string>
+  <string name="revanced_hide_links_preview_summary_on">Nakago na ang preview ng mga link</string>
+  <string name="revanced_hide_links_preview_summary_off">Ipinapakita ang preview ng mga link</string>
+  <string name="revanced_hide_members_shelf_title">Itago ang members shelf</string>
+  <string name="revanced_hide_members_shelf_summary_on">Nakago na ang members shelf</string>
+  <string name="revanced_hide_members_shelf_summary_off">Ipinapakita ang shelf ng Mga Miyembro</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Itago ang button na \"Bisitahin ang Komunidad\"</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Nakatago ang button na Bisitahin ang Komunidad</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Ipinapakita ang button na Bisitahin ang Komunidad</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Itago ang button na \"Bisitahin ang tindahan\" sa mga page ng channel</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Nakago na ang button na Bisitahin ang tindahan</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Ipinapakita ang button na Bisitahin ang tindahan</string>
   <string name="revanced_comments_screen_title">Mga komento</string>
   <string name="revanced_comments_screen_summary">Itago o ipakita ang mga bahagi ng seksyon ng komento</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Itago ang Buod ng Chat ng AI</string>
@@ -306,12 +321,18 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_comments_ai_summary_title">Itago ang Buod ng Mga Komento ng AI</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Nakatago ang buod ng mga komento</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Ipinapakita ang buod ng mga komento</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Itago ang mga guideline ng channel</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Nakatago ang mga alituntunin ng channel</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Ipinapakita ang mga alituntunin ng channel</string>
   <string name="revanced_hide_comments_by_members_header_title">Itago ang header ng \"Mga komento ng mga miyembro\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Nakatago ang header ng Mga komento ng mga miyembro</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Ipinapakita ang header ng Mga komento ng mga miyembro</string>
   <string name="revanced_hide_comments_section_title">Itago ang seksyon ng mga komento</string>
   <string name="revanced_hide_comments_section_summary_on">Nakatago ang seksyon ng mga komento</string>
   <string name="revanced_hide_comments_section_summary_off">Ipinapakita ang seksyon ng mga komento</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Itago ang mga alituntunin ng komunidad</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Nakago na ang mga guideline ng komunidad</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Ipinapakita ang mga guideline ng komunidad</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Itago ang butong \'Gumawa ng Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Nakatago ang button na Gumawa ng isang Short</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Ipinapakita ang button na Gumawa ng isang Short</string>
@@ -321,16 +342,9 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_comments_thanks_button_title">Itago ang pindutang Salamat</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Nakatago ang buton ng salamat</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Ang pindutan ng salamat ay ipinapakita</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Itago ang button na timestamp</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Itago ang button ng Timestamp</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Nakatago ang button na timestamp</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Ipinapakita ang button na timestamp</string>
-  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">Itago ang mga Doodles ng YouTube</string>
-  <string name="revanced_hide_doodles_summary_on">Ang mga Doodles sa search bar ay nakatago</string>
-  <string name="revanced_hide_doodles_summary_off">Ang mga Doodles sa search bar ay ipinapakita</string>
-  <string name="revanced_hide_doodles_user_dialog_message">"Ang mga Doodles ng YouTube ay ipinapakita ng ilang araw bawat taon.
-
-Kung ang isang Doodle ay kasalukuyang ipinapakita sa iyong rehiyon at ang setting na ito ng pagtatago ay naka-on, kung gayon ang filter bar sa ibaba ng search bar ay itatago rin."</string>
   <string name="revanced_custom_filter_screen_title">Custom na filter</string>
   <string name="revanced_custom_filter_screen_summary">Itago ang mga bahagi gamit ang mga custom na filter</string>
   <string name="revanced_custom_filter_title">Paganahin ang custom na filter</string>
@@ -377,12 +391,12 @@ Mga limitasyon
   <string name="revanced_hide_keyword_toast_invalid_broad">Ang keyword ay magtatago ng lahat ng mga video: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Itago ang mga istante ng tindahan ng tagalikha</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Ang mga istante ng tindahan sa ibaba ng player at sa paglalarawan ng video ay nakatago</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Ipinapakita ang mga istante ng tindahan sa ilalim ng player at sa paglalarawan ng video</string>
+  <string name="revanced_hide_creator_store_shelf_title">Itago ang creator store shelf</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Nakatago ang istante ng store ng creator sa ilalim ng video player</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Ang shelf ng creator store sa ilalim ng video player ay ipinapakita</string>
   <string name="revanced_hide_end_screen_store_banner_title">Itago ang banner ng tindahan ng end screen</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Nakatago ang banner ng tindahan</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Ipinakita ang banner ng tindahan</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Nakatago ang banner ng store sa end screen</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Ipinapakita ang banner ng store sa end screen</string>
   <string name="revanced_hide_fullscreen_ads_title">Itago ang mga fullscreen na ad</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Ang mga fullscreen ad ay nakatago
 
@@ -399,20 +413,16 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_hide_paid_promotion_label_title">Itago ang may bayad na label ng promosyon</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Nakatago ang label ng bayad na promosyon</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Ipinapakita ang may bayad na label ng promosyon</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_view_products_banner_title">Itago ang banner na \"Tingnan ang mga produkto\"</string>
-  <string name="revanced_hide_view_products_banner_summary_on">Nakatago ang banner sa overlay ng video</string>
-  <string name="revanced_hide_view_products_banner_summary_off">Ipinapakita ang banner sa overlay ng video</string>
   <string name="revanced_hide_self_sponsor_ads_title">Itago ang mga self sponsored card</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Nakatago ang mga self sponsored card</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Ipinapakita ang mga self sponsored card</string>
-  <string name="revanced_hide_tagged_products_title">Itago ang mga nakatag na produkto</string>
-  <string name="revanced_hide_tagged_products_summary_on">Ang mga nakatag na produkto sa paglalarawan ng video ay nakatago</string>
-  <string name="revanced_hide_tagged_products_summary_off">Ipinapakita ang mga naka-tag na produkto sa paglalarawan ng video</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Itago ang button na \"Bisitahin ang tindahan\" sa mga page ng channel</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Nakatago ang button sa page ng channel</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Ipinapakita ang button sa page ng channel</string>
+  <string name="revanced_hide_shopping_links_title">Itago ang mga link ng pamimili</string>
+  <string name="revanced_hide_shopping_links_summary_on">Nakatago ang mga link ng shopping sa description ng video</string>
+  <string name="revanced_hide_shopping_links_summary_off">Ang mga link sa pamimili sa paglalarawan ng video ay ipinapakita</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Itago ang banner na \"Tingnan ang mga produkto\"</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Nakatago ang banner na Tingnan ang mga produkto sa overlay ng video</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Ipinapakita ang banner na Tingnan ang mga produkto sa overlay ng video</string>
   <string name="revanced_hide_web_search_results_title">Itago ang mga resulta ng paghahanap sa web</string>
   <string name="revanced_hide_web_search_results_summary_on">Nakatago ang mga resulta ng paghahanap sa web</string>
   <string name="revanced_hide_web_search_results_summary_off">Ipinapakita ang mga resulta ng paghahanap sa web</string>
@@ -443,13 +453,18 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Ipapakita ang dialog</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Hindi nito nilalampasan ang paghihigpit sa edad. Awtomatiko lang itong tinatanggap.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Huwag paganahin ang paglaktaw ng kabanata sa doble tap</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Ang doble tap ay hindi kailanman maaaring mag-trigger ng paglaktaw sa susunod/nakaraang kabanata</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Ang doble tap ay paminsan-minsan ay maaaring mag-trigger ng paglaktaw sa susunod/nakaraang kabanata</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Mga panlabas na pag-download</string>
   <string name="revanced_external_downloader_screen_summary">Mga setting para sa paggamit ng external na downloader</string>
   <string name="revanced_external_downloader_title">Ipakita ang external na button sa pag-download</string>
   <string name="revanced_external_downloader_summary_on">Ipinapakita ang button na Mag-download sa player</string>
   <string name="revanced_external_downloader_summary_off">Hindi ipinapakita ang button na Mag-download sa player</string>
-  <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
+  <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
   <string name="revanced_external_downloader_action_button_title">Lagpasan ang button ng aksyon ng Pag-download</string>
   <string name="revanced_external_downloader_action_button_summary_on">Binubuksan ng button sa pag-download ang iyong external na downloader</string>
   <string name="revanced_external_downloader_action_button_summary_off">Binubuksan ng button sa pag-download ang native na in-app na downloader</string>
@@ -542,7 +557,7 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_hide_stop_ads_button_summary_on">Nakatago ang button ng pagtigil sa mga ad</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Napakita ang button ng pagtigil sa mga ad</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                 This button usually appears only on live streams. -->
+                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Itago ang Ulat</string>
   <string name="revanced_hide_report_button_summary_on">Nakatago ang button ng ulat</string>
   <string name="revanced_hide_report_button_summary_off">Ang pindutan ng ulat ay ipinapakita</string>
@@ -559,7 +574,7 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_hide_thanks_button_summary_on">Nakatago ang buton ng salamat</string>
   <string name="revanced_hide_thanks_button_summary_off">Ang pindutan ng salamat ay ipinapakita</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Itago ang Tanong</string>
   <string name="revanced_hide_ask_button_summary_on">Nakatago ang button na Tanong</string>
   <string name="revanced_hide_ask_button_summary_off">Ipinapakita ang button na Tanong</string>
@@ -583,7 +598,7 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_hide_shorts_button_title">Itago ang Shorts</string>
   <string name="revanced_hide_shorts_button_summary_on">Nakatago ang pindutan sa Shorts</string>
   <string name="revanced_hide_shorts_button_summary_off">Nakikita ang Shorts button</string>
-  <!-- The Create button has no display name. Translate normally. -->
+  <!-- 'Create' has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Itago ang Gumawa</string>
   <string name="revanced_hide_create_button_summary_on">Nakatago ang button na Lumikha</string>
   <string name="revanced_hide_create_button_summary_off">Ang pindutan ng Lumikha ay ipinapakita</string>
@@ -650,7 +665,7 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Nakatago ang menu ng bilis ng pag-playback</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Ang menu ng bilis ng pag-playback ay ipinapakita</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                 This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
+                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">Itago ang Higit pang impormasyon</string>
   <string name="revanced_hide_player_flyout_more_info_summary_on">Nakatago ang menu ng higit pang impormasyon</string>
   <string name="revanced_hide_player_flyout_more_info_summary_off">Ang menu ng higit pang impormasyon ay ipinapakita</string>
@@ -662,7 +677,7 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Itago ang Audio track</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Nakatago ang menu ng audio track</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Ipinapakita ang menu ng audio track</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Nakatago ang menu ng audio track
 
 Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS TV"</string>
@@ -675,22 +690,22 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Ang footer ng menu ng kalidad ng video ay ipinapakita</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Itago ang Nakaraan at Susunod na mga pindutan</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_on">Nakatago ang mga pindutan</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_off">Ang mga pindutan ay ipinapakita</string>
-  <string name="revanced_hide_cast_button_title">Itago ang Cast button</string>
-  <string name="revanced_hide_cast_button_summary_on">Ang buton ng Cast ay nakatago</string>
-  <string name="revanced_hide_cast_button_summary_off">Nakikita ang cast button</string>
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Itago ang Captions button</string>
-  <string name="revanced_hide_captions_button_summary_on">Nakatago ang button ng mga caption</string>
-  <string name="revanced_hide_captions_button_summary_off">Ang pindutan ng mga caption ay ipinapakita</string>
   <string name="revanced_hide_autoplay_button_title">Itago ang Autoplay button</string>
   <string name="revanced_hide_autoplay_button_summary_on">Nakatago ang autoplay button</string>
   <string name="revanced_hide_autoplay_button_summary_off">Ang autoplay na button ay ipinapakita</string>
+  <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+  <string name="revanced_hide_captions_button_title">Itago ang Captions button</string>
+  <string name="revanced_hide_captions_button_summary_on">Nakatago ang button ng mga caption</string>
+  <string name="revanced_hide_captions_button_summary_off">Ang pindutan ng mga caption ay ipinapakita</string>
+  <string name="revanced_hide_cast_button_title">Itago ang Cast button</string>
+  <string name="revanced_hide_cast_button_summary_on">Ang buton ng Cast ay nakatago</string>
+  <string name="revanced_hide_cast_button_summary_off">Nakikita ang cast button</string>
   <string name="revanced_hide_player_control_buttons_background_title">Itago ang background ng mga button ng kontrol ng player</string>
   <string name="revanced_hide_player_control_buttons_background_summary_on">Nakatago ang background ng mga button ng kontrol ng player</string>
   <string name="revanced_hide_player_control_buttons_background_summary_off">Ipinapakita ang background ng mga button ng kontrol ng player</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Itago ang Nakaraan at Susunod na mga pindutan</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Nakatago ang mga pindutan</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Ang mga pindutan ay ipinapakita</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Itago ang mga end screen card</string>
@@ -723,76 +738,75 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts Manlalaro</string>
   <string name="revanced_shorts_player_screen_summary">Itago o ipakita ang mga sangkap sa Shorts player</string>
-  <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Itago ang Shorts sa home feed</string>
-  <string name="revanced_hide_shorts_home_summary_on">Nakatago sa home feed at mga kaugnay na video</string>
-  <string name="revanced_hide_shorts_home_summary_off">Ipinakita sa home feed at mga kaugnay na video</string>
-  <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Itago ang Shorts sa feed ng subscription</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Nakatago sa feed ng subscription</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Ipinakita sa feed ng subscription</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
+  <string name="revanced_hide_shorts_home_title">Itago ang Shorts sa Home feed</string>
+  <string name="revanced_hide_shorts_home_summary_on">Nakatago sa Home feed at mga kaugnay na video</string>
+  <string name="revanced_hide_shorts_home_summary_off">Ipinapakita sa Home feed at mga kaugnay na video</string>
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+  <string name="revanced_hide_shorts_subscriptions_title">Itago ang Shorts sa feed ng Mga Subscription</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Nakatago sa feed ng Mga Subscription</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Ipinapakita sa feed ng Mga Subscription</string>
   <string name="revanced_hide_shorts_search_title">Itago ang Shorts sa mga resulta ng paghahanap</string>
   <string name="revanced_hide_shorts_search_summary_on">Nakatago sa mga resulta ng paghahanap</string>
   <string name="revanced_hide_shorts_search_summary_off">Ipinakita sa mga resulta ng paghahanap</string>
   <string name="revanced_hide_shorts_history_title">Itago ang Shorts sa watch history</string>
   <string name="revanced_hide_shorts_history_summary_on">Nakatago sa kasaysayan ng panonood</string>
   <string name="revanced_hide_shorts_history_summary_off">Ipinapakita sa watch history</string>
-  <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Itago ang Join button</string>
-  <string name="revanced_hide_shorts_join_button_summary_on">Nakatago ang button na sumali</string>
-  <string name="revanced_hide_shorts_join_button_summary_off">Ang pindutan ng pagsali ay ipinapakita</string>
-  <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">Itago ang Subscribe button</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_on">Nakatago ang button na mag-subscribe</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_off">Ang pindutan ng pag-subscribe ay ipinapakita</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Itago ang mga naka-pause na pindutan ng overlay</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Nakatago ang mga naka-pause na pindutan ng overlay</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Ang mga naka-pause na pindutan ng overlay ay ipinapakita</string>
-  <string name="revanced_hide_shorts_shop_button_title">Itago ang Shop button</string>
-  <string name="revanced_hide_shorts_shop_button_summary_on">Nakatago ang pindutan ng tindahan</string>
-  <string name="revanced_hide_shorts_shop_button_summary_off">Ang pindutan ng tindahan ay ipinapakita</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Itago ang Buy Super Thanks button</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Nakatago ang Super Thanks button</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Ipinakita ang Super Thanks button</string>
-  <string name="revanced_hide_shorts_tagged_products_title">Itago ang mga naka-tag na produkto</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">Nakatago ang mga naka-tag na produkto</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_off">Ipinapakita ang mga naka-tag na produkto</string>
-  <string name="revanced_hide_shorts_location_label_title">Itago ang label ng lokasyon</string>
-  <string name="revanced_hide_shorts_location_label_summary_on">Nakatago ang label ng lokasyon</string>
-  <string name="revanced_hide_shorts_location_label_summary_off">Ipinapakita ang label ng lokasyon</string>
-  <string name="revanced_hide_shorts_preview_comment_title">Itago ang komento sa preview</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_on">Nakatago ang komento sa preview</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">Ipinapakita ang preview na komento</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Itago ang Save music button</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Ang buton ng pag-save ng musika ay nakatago</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Ang buton ng pag-save ng musika ay ipinapakita</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Itago ang button na Gamitin ang tunog na ito</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_on">Nakatago ang button na Gamitin ang tunog na ito</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_off">Nakikita ang button na Gamitin ang tunog na ito</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Itago ang Gamitin ang button na ito ng template</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Nakatago ang button na Gamitin ang template na ito</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Ipinapakita ang button na Gamitin ang template na ito</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Itago ang Upcoming button</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">Nakatago ang pindutan ng \"Upcoming\"</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">Ipinapakita ang pindutan ng \"Upcoming\"</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Nakatago ang pindutan na Bumili ng Super Thanks</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Ipinapakita ang pindutan na Bumili ng Super Thanks</string>
   <string name="revanced_hide_shorts_effect_button_title">Itago ang Button ng Epekto</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Nakatago ang button ng epekto</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Nakikita ang button ng epekto</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Itago ang Green screen button</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Nakatago ang pindutan ng \"Green screen\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Ipinapakita ang pindutan ng \"Green screen\"</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Itago ang button na Mga bagong post</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_off">Ipinapakita ang button na Mga bagong post</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_on">Nakatago ang button na Mga bagong post</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Itago ang pindutan ng \"Hashtag\"</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Nakatago ang pindutan ng \"Hashtag\"</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Ipinapakita ang pindutan ng \"Hashtag\"</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">Itago ang Join button</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">Nakatago ang button na sumali</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">Ang pindutan ng pagsali ay ipinapakita</string>
+  <string name="revanced_hide_shorts_location_label_title">Itago ang label ng lokasyon</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">Nakatago ang label ng lokasyon</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">Ipinapakita ang label ng lokasyon</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Itago ang button na Mga bagong post</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Nakatago ang button na Mga bagong post</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Ipinapakita ang button na Mga bagong post</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Itago ang mga naka-pause na pindutan ng overlay</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Nakatago ang mga naka-pause na pindutan ng overlay</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Ang mga naka-pause na pindutan ng overlay ay ipinapakita</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Itago ang komento sa preview</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Nakatago ang komento sa preview</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Ipinapakita ang preview na komento</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Itago ang Save music button</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Ang buton ng pag-save ng musika ay nakatago</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Ang buton ng pag-save ng musika ay ipinapakita</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Itago ang mga mungkahi sa paghahanap</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Nakatago ang mga mungkahi sa paghahanap</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Ipinapakita ang mga mungkahi sa paghahanap</string>
+  <string name="revanced_hide_shorts_shop_button_title">Itago ang Shop button</string>
+  <string name="revanced_hide_shorts_shop_button_summary_on">Nakatago ang pindutan ng tindahan</string>
+  <string name="revanced_hide_shorts_shop_button_summary_off">Ang pindutan ng tindahan ay ipinapakita</string>
   <string name="revanced_hide_shorts_stickers_title">Itago ang mga sticker</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Nakatago ang mga sticker</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Ipinapakita ang mga sticker</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">Itago ang Subscribe button</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">Nakatago ang button na mag-subscribe</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">Ang pindutan ng pag-subscribe ay ipinapakita</string>
+  <string name="revanced_hide_shorts_tagged_products_title">Itago ang mga naka-tag na produkto</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">Nakatago ang mga naka-tag na produkto</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">Ipinapakita ang mga naka-tag na produkto</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Itago ang Upcoming button</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Nakatago ang pindutan ng \"Upcoming\"</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Ipinapakita ang pindutan ng \"Upcoming\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Itago ang button na Gamitin ang tunog na ito</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Nakatago ang button na Gamitin ang tunog na ito</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Nakikita ang button na Gamitin ang tunog na ito</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Itago ang Gamitin ang button na ito ng template</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Nakatago ang button na Gamitin ang template na ito</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Ipinapakita ang button na Gamitin ang template na ito</string>
   <string name="revanced_hide_shorts_like_fountain_title">Itago ang Like button fountain animation</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">Nakatago ang animation ng \"like button fountain\"</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">Ipinapakita ang animation ng \"like button fountain\"</string>
@@ -805,14 +819,17 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <string name="revanced_hide_shorts_comments_button_title">Itago ang Comments button</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Nakatago ang button ng mga komento</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Ang pindutan ng mga komento ay ipinapakita</string>
-  <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">Itago ang Remix button</string>
-  <string name="revanced_hide_shorts_remix_button_summary_on">Nakatago ang remix button</string>
-  <string name="revanced_hide_shorts_remix_button_summary_off">Ang remix button ay ipinapakita</string>
-  <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
+  <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_share_button_title">Itago ang Share button</string>
   <string name="revanced_hide_shorts_share_button_summary_on">Nakatago ang share button</string>
   <string name="revanced_hide_shorts_share_button_summary_off">Ang pindutan ng pagbabahagi ay ipinapakita</string>
+  <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_remix_button_title">Itago ang Remix button</string>
+  <string name="revanced_hide_shorts_remix_button_summary_on">Nakatago ang remix button</string>
+  <string name="revanced_hide_shorts_remix_button_summary_off">Ang remix button ay ipinapakita</string>
+  <string name="revanced_hide_shorts_sound_button_title">Itago ang pindutan ng tunog</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">Nakatago ang sound button</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">Ang pindutan ng tunog ay ipinapakita</string>
   <string name="revanced_hide_shorts_info_panel_title">Itago ang panel ng impormasyon</string>
   <string name="revanced_hide_shorts_info_panel_summary_on">Nakatago ang panel ng impormasyon</string>
   <string name="revanced_hide_shorts_info_panel_summary_off">Ang panel ng impormasyon ay ipinapakita</string>
@@ -820,17 +837,14 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <string name="revanced_hide_shorts_channel_bar_summary_on">Nakatago ang channel bar</string>
   <string name="revanced_hide_shorts_channel_bar_summary_off">Ipinapakita ang channel bar</string>
   <string name="revanced_hide_shorts_video_title_title">Itago ang pamagat ng video</string>
-  <string name="revanced_hide_shorts_video_title_summary_on">Nakatago ang pamagat</string>
-  <string name="revanced_hide_shorts_video_title_summary_off">Ang pamagat ay ipinapakita</string>
+  <string name="revanced_hide_shorts_video_title_summary_on">Nakatago ang pamagat ng video</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">Ipinapakita ang pamagat ng video</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Itago ang sound metadata label</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Nakatago ang label ng metadata</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Ang label ng metadata ay ipinapakita</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Nakatago ang label ng sound metadata</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Ipinapakita ang label ng sound metadata</string>
   <string name="revanced_hide_shorts_full_video_link_label_title">Itago ang label ng link ng video</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Nakatago ang label ng link ng video</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Ipinapakita ang label ng link ng video</string>
-  <string name="revanced_hide_shorts_sound_button_title">Itago ang pindutan ng tunog</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">Nakatago ang sound button</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">Ang pindutan ng tunog ay ipinapakita</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Itago ang navigation bar</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Nakatago ang navigation bar</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Ipinapakita ang navigation bar</string>
@@ -844,9 +858,9 @@ Mga Setting → Pag-playback → I-autoplay ang susunod na video"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Ipinapakita ang iminungkahing video sa dulo ng screen</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  <string name="revanced_hide_related_video_overlay_title">Itago ang kaugnay na video overlay sa fullscreen</string>
-  <string name="revanced_hide_related_video_overlay_summary_on">Nakatago ang kaugnay na video overlay</string>
-  <string name="revanced_hide_related_video_overlay_summary_off">Ipinapakita ang kaugnay na video overlay</string>
+  <string name="revanced_hide_related_videos_overlay_title">Itago ang overlay ng mga kaugnay na video</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">Nakatago ang overlay ng mga kaugnay na video sa fullscreen</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">Ipinapakita ang overlay ng mga kaugnay na video sa fullscreen</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Itago ang timestamp ng video</string>
@@ -895,7 +909,7 @@ Limitasyon: Maaaring hindi lumabas ang mga Dislike sa incognito mode"</string>
   <string name="revanced_ryd_dislike_percentage_title">Hindi gusto bilang porsyento</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Ipinapakita ang mga Dislike bilang isang porsyento</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Ipinapakita ang mga Dislike bilang isang numero</string>
-  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
   <string name="revanced_ryd_compact_layout_title">Siksik na Pindutan ng Like</string>
   <string name="revanced_ryd_compact_layout_summary_on">Like button na naka-istilong para sa minimum na lapad</string>
   <string name="revanced_ryd_compact_layout_summary_off">I-style na button para sa pinakamahusay na hitsura</string>
@@ -952,7 +966,7 @@ Ang tampok na ito ay pinakamahusay na gumagana sa kalidad ng video na 720p o mas
   <string name="revanced_sb_square_layout">Gumamit ng layout na parisukat</string>
   <string name="revanced_sb_square_layout_sum_on">Ang mga button at kontrol ay parisukat</string>
   <string name="revanced_sb_square_layout_sum_off">Bilog ang mga button at control</string>
-  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
+  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
   <string name="revanced_sb_enable_compact_skip_button">Gumamit ng compact na button na Laktawan</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Laktawan ang button na naka-istilo para sa minimum na lapad</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Laktawan ang button na may istilo para sa pinakamahusay na hitsura</string>
@@ -1096,7 +1110,7 @@ Umiiral na"</string>
   <string name="revanced_sb_vote_downvote">I-downvote</string>
   <string name="revanced_sb_vote_category">Baguhin ang kategorya</string>
   <string name="revanced_sb_vote_no_segments">Walang mga segment na iboboto</string>
-  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <!-- A segment start and end time, such as "02:10 to 03:40". -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s hanggang %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Piliin ang kategorya ng segment</string>
   <string name="revanced_sb_new_segment_disabled_category">Naka-disable ang kategorya sa mga setting. Paganahin ang kategoryang isumite.</string>
@@ -1175,7 +1189,7 @@ Ito ay magbabago sa hitsura at mga tampok ng app, ngunit maaaring mangyari ang m
 
 Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan ang mga bug ng UI."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Target na bersyon ng Spoof app</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Ibalik ang mga lumang icon ng Shorts player</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Ibalik ang mga lumang icon ng navigation</string>
@@ -1282,9 +1296,9 @@ Ang \"miniplayer\" ay maaaring i-drag palabas ng screen sa kaliwa o kanan"</stri
   <string name="revanced_gradient_loading_screen_title">Paganahin ang gradient loading screen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ang paglo-load ng screen ay magkakaroon ng gradient na background</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ang paglo-load ng screen ay magkakaroon ng solidong background</string>
-  <string name="splash_screen_animation_style_title">Estilo ng splash screen</string>
-  <string name="splash_screen_animation_style_entry_1">Kulay</string>
-  <string name="splash_screen_animation_style_entry_2">Itim at puti</string>
+  <string name="revanced_splash_screen_animation_style_title">Estilo ng splash screen</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Kulay</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Itim at puti</string>
   <string name="revanced_seekbar_custom_color_title">Paganahin ang custom na kulay ng seekbar</string>
   <string name="revanced_seekbar_custom_color_summary_on">Ipinapakita ang kulay ng custom na seekbar</string>
   <string name="revanced_seekbar_custom_color_summary_off">Ipinapakita ang orihinal na kulay ng seekbar</string>
@@ -1294,6 +1308,14 @@ Ang \"miniplayer\" ay maaaring i-drag palabas ng screen sa kaliwa o kanan"</stri
   <string name="revanced_seekbar_custom_color_accent_summary">Ang accent na kulay ng seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">Hindi wastong halaga ng kulay ng seekbar</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logo ng Header</string>
+  <string name="revanced_header_logo_entry_1">Default</string>
+  <string name="revanced_header_logo_entry_2">Regular</string>
+  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
+  <string name="revanced_header_logo_entry_6">Pasadyang</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Bypass ang mga paghihigpit sa rehiyon ng imahe</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Ginagamit ang image host yt4.ggpht.com</string>
@@ -1302,13 +1324,13 @@ Ang \"miniplayer\" ay maaaring i-drag palabas ng screen sa kaliwa o kanan"</stri
 Ang pagpapagana nito ay maaaring ayusin ang mga nawawalang imahe na hinarangan sa ilang mga rehiyon"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Tab ng tahanan</string>
-  <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_alt_thumbnail_subscription_title">Tab ng subscription</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+  <string name="revanced_alt_thumbnail_subscription_title">Tab ng Mga Subscription</string>
+  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">Tab mo</string>
-  <string name="revanced_alt_thumbnail_player_title">Mga playlist ng manlalaro, mga rekomendasyon</string>
+  <string name="revanced_alt_thumbnail_player_title">Mga playlist &amp; rekomendasyon ng player</string>
   <string name="revanced_alt_thumbnail_search_title">Mga Resulta ng Paghahanap</string>
   <string name="revanced_alt_thumbnail_options_entry_1">Mga orihinal na thumbnail</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Mga orihinal na thumbnail</string>
@@ -1407,11 +1429,11 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>
   <string name="revanced_force_original_audio_summary_on">Ginagamit ang orihinal na wika ng audio</string>
   <string name="revanced_force_original_audio_summary_off">Gumagamit ng default audio</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_force_original_audio_not_available">Para magamit ang feature na ito, palitan ang \'Magpanggap na video stream\' sa iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Awtomatik</string>
   <string name="revanced_remember_video_quality_last_selected_title">Tandaan ang mga pagbabago sa kalidad ng video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Nalalapat ang mga pagbabago sa kalidad sa lahat ng video</string>
@@ -1524,7 +1546,7 @@ Ang AVC ay may pinakamataas na resolusyon na 1080p, ang codec ng audio ng Opus a
   <string name="revanced_block_video_ads_summary_off">Na-unblock ang mga video ad</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">mensaheng binura</string>
+  <string name="revanced_deleted_msg">Tinanggal ang mensahe</string>
   <string name="revanced_show_deleted_messages_title">Ipakita ang mga tinanggal na mensahe</string>
   <string name="revanced_show_deleted_messages_entry_1">Huwag ipakita ang mga tinanggal na mensahe</string>
   <string name="revanced_show_deleted_messages_entry_2">Itago ang mga tinanggal na mensahe sa likod ng isang spoiler</string>
@@ -1536,7 +1558,7 @@ Ang AVC ay may pinakamataas na resolusyon na 1080p, ang codec ng audio ng Opus a
   <string name="revanced_auto_claim_channel_points_summary_off">Hindi awtomatikong kine-claim ang Mga Channel Point</string>
   </patch>
   <patch id="debug.debugModePatch">
-  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
+  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
   <string name="revanced_twitch_debug_mode_title">Paganahin ang Twitch debug mode</string>
   <string name="revanced_twitch_debug_mode_summary_on">Naka-enable ang twitch debug mode (hindi inirerekomenda)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Naka-disable ang twitch debug mode</string>
@@ -1545,11 +1567,11 @@ Ang AVC ay may pinakamataas na resolusyon na 1080p, ang codec ng audio ng Opus a
   <string name="revanced_settings">Mga Setting ng ReVanced</string>
   <string name="revanced_about_title">Mga Tungkol</string>
   <string name="revanced_about_summary">Tungkol sa ReVanced</string>
-  <string name="revanced_ads_screen_title">Mga ad</string>
-  <string name="revanced_ads_screen_summary">Mga setting ng pag-block ng ad</string>
+  <string name="revanced_ads_screen_title">Pagba-block ng Ad</string>
+  <string name="revanced_ads_screen_summary">Mga setting ng Pagba-block ng Ad</string>
   <string name="revanced_chat_screen_title">Chat</string>
   <string name="revanced_chat_screen_summary">Mga setting ng chat</string>
-  <string name="revanced_misc_screen_title">Iba Pa</string>
+  <string name="revanced_misc_screen_title">Iba pa</string>
   <string name="revanced_misc_screen_summary">Sari-saring mga setting</string>
   <string name="revanced_general_category_title">Pangkalahatang mga Setting</string>
   <string name="revanced_other_category_title">Iba pang mga setting</string>

@@ -61,7 +61,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
         // region Patch miscellaneous.
 
         // Reddit messed up and does not append a redirect uri to the authorization url to old.reddit.com/login.
-        // Replace old.reddit.com with ssl.reddit.com to fix this.
+        // Replace old.reddit.com with www.reddit.com to fix this.
         buildAuthorizationStringFingerprint.method.apply {
             val index = indexOfFirstInstructionOrThrow {
                 getReference<StringReference>()?.contains("old.reddit.com") == true
@@ -70,7 +70,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
             val targetRegister = getInstruction<OneRegisterInstruction>(index).registerA
             replaceInstruction(
                 index,
-                "const-string v$targetRegister, \"https://ssl.reddit.com/api/v1/authorize.compact\"",
+                "const-string v$targetRegister, \"https://www.reddit.com/api/v1/authorize.compact\"",
             )
         }
 

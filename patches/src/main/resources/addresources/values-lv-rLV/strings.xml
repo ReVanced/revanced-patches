@@ -146,115 +146,110 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_album_cards_title">Paslēpt albumu kartītes</string>
   <string name="revanced_hide_album_cards_summary_on">Albumu kartītes ir paslēptas</string>
   <string name="revanced_hide_album_cards_summary_off">Albumu kartītes ir redzamas</string>
-  <string name="revanced_hide_crowdfunding_box_title">Paslēpt finansēšanas lodziņu</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Finansēšanas lodziņš ir paslēpts</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Finansēšanas lodziņš ir redzams</string>
-  <string name="revanced_hide_floating_microphone_button_title">Paslēpt peldošo mikrofona pogu</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofona poga ir paslēpta</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofona poga ir redzama</string>
-  <string name="revanced_hide_channel_watermark_title">Paslēpt kanāla ūdenszīmi</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Ūdenszīme ir paslēpta</string>
-  <string name="revanced_hide_channel_watermark_summary_off">Ūdenszīme ir redzama</string>
-  <string name="revanced_hide_horizontal_shelves_title">Paslēpt horizontālos plauktus</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Plaukti ir paslēpti, piemēram:
-• Jaunākās ziņas
-• Turpināt skatīties
-• Atklāt vairāk kanālu
-• Pirkumi
-• Skatīties vēlreiz"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Plaukti ir redzami</string>
-  <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                 This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Paslēpt Pievienoties pogu</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Poga ir paslēpta</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Poga ir redzama</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Paslēpt plauktu \"Tev\"</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Plaukts kanāla lapā ir paslēpts</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Plaukts kanāla lapā ir redzams</string>
-  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                 This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Paslēpt \"Paziņot\" pogu</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Poga ir paslēpta</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Poga ir redzama</string>
-  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendation_labels_title">Paslēpt video ieteikumu etiķetes</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Etiķetes “Skatītāji arī skatījās” un “Jums varētu patikt” ir paslēptas</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Etiķetes “Skatītāji arī skatījās” un “Jums varētu patikt” ir redzamas</string>
-  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Paslēpt \"Rādīt vairāk\" pogu</string>
-  <string name="revanced_hide_show_more_button_summary_on">Poga ir paslēpta</string>
-  <string name="revanced_hide_show_more_button_summary_off">Poga ir redzama</string>
-  <string name="revanced_hide_ticket_shelf_title">Paslēpt biļešu plauktu</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">Biļešu plaukts ir paslēpts</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">Biļešu plaukts ir redzams</string>
-  <string name="revanced_hide_timed_reactions_title">Paslēpt laika reakcijas</string>
-  <string name="revanced_hide_timed_reactions_summary_on">Laika reakcijas ir paslēptas</string>
-  <string name="revanced_hide_timed_reactions_summary_off">Laika reakcijas ir redzamas</string>
-  <string name="revanced_hide_channel_guidelines_title">Slēpt kanāla vadlīnijas</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Kanāla vadlīnijas ir paslēptas</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Kanāla vadlīnijas ir redzamas</string>
+  <string name="revanced_hide_artist_cards_title">Slēpt mākslinieku kartītes</string>
+  <string name="revanced_hide_artist_cards_summary_on">Mākslinieku kartītes ir paslēptas</string>
+  <string name="revanced_hide_artist_cards_summary_off">Mākslinieku kartītes ir redzamas</string>
   <string name="revanced_hide_chips_shelf_title">Slēpt mikroshēmu plauktu</string>
   <string name="revanced_hide_chips_shelf_summary_on">Mikroshēmu plaukts ir paslēpts</string>
   <string name="revanced_hide_chips_shelf_summary_off">Mikroshēmu plaukts ir redzams</string>
-  <string name="revanced_hide_expandable_chip_title">Paslēpt izvēršamu kartiņu zem videoklipiem</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Izvēršamā kartīte ir paslēpta</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Izvēršamā kartīte ir redzama</string>
   <string name="revanced_hide_community_posts_title">Slēpt kopienas ierakstus</string>
   <string name="revanced_hide_community_posts_summary_on">Kopienas ieraksti ir paslēpti</string>
   <string name="revanced_hide_community_posts_summary_off">Kopienas ieraksti ir redzami</string>
   <string name="revanced_hide_compact_banner_title">Slēpt kompaktus banerus</string>
   <string name="revanced_hide_compact_banner_summary_on">Kompaktie baneri ir paslēpti</string>
   <string name="revanced_hide_compact_banner_summary_off">Kompaktie baneri ir redzami</string>
-  <string name="revanced_hide_movies_section_title">Slēpt filmu sadaļu</string>
-  <string name="revanced_hide_movies_section_summary_on">Filmu sadaļa ir paslēpta</string>
-  <string name="revanced_hide_movies_section_summary_off">Filmu sadaļa ir redzama</string>
+  <string name="revanced_hide_crowdfunding_box_title">Paslēpt finansēšanas lodziņu</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Finansēšanas lodziņš ir paslēpts</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Finansēšanas lodziņš ir redzams</string>
+  <string name="revanced_hide_expandable_card_title">Slēpt izvēršamo kartīti</string>
+  <string name="revanced_hide_expandable_card_summary_on">Izvēršamā kartīte zem video ir paslēpta</string>
+  <string name="revanced_hide_expandable_card_summary_off">Izvēršamā kartīte zem video ir redzama</string>
   <string name="revanced_hide_feed_survey_title">Slēpt plūsmas aptaujas</string>
   <string name="revanced_hide_feed_survey_summary_on">Plūsmas aptaujas ir paslēptas</string>
   <string name="revanced_hide_feed_survey_summary_off">Plūsmas aptaujas ir redzamas</string>
-  <string name="revanced_hide_community_guidelines_title">Slēpt kopienas vadlīnijas</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Kopienas vadlīnijas ir paslēptas</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Kopienas vadlīnijas ir redzamas</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Paslēpt abonentu vadlīnijas</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Abonētāju kopienas vadlīnijas ir paslēptas</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Abonētāju kopienas vadlīnijas ir redzamas</string>
-  <string name="revanced_hide_channel_member_shelf_title">Slēpt kanāla dalībnieku plauktu</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Kanāla dalībnieku plaukts ir paslēpts</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Kanāla dalībnieku plaukts ir redzams</string>
+  <string name="revanced_hide_floating_microphone_button_title">Paslēpt peldošo mikrofona pogu</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Peldošā mikrofona poga meklēšanā ir paslēpta.</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Peldošā mikrofona poga meklēšanā ir redzama</string>
+  <string name="revanced_hide_horizontal_shelves_title">Paslēpt horizontālos plauktus</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Horizontālie plaukti ir paslēpti, piemēram:
+• Jaunākās ziņas
+• Turpināt skatīties
+• Izpētīt vairāk kanālu
+• Visatbilstošākais
+• Iepirkšanās
+• Skatīties vēlreiz"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Horizontālie plaukti ir redzami.</string>
+  <string name="revanced_hide_image_shelf_title">Slēpt attēlu plauktu</string>
+  <string name="revanced_hide_image_shelf_summary_on">Attēlu plaukts meklēšanas rezultātos ir paslēpts</string>
+  <string name="revanced_hide_image_shelf_summary_off">Attēlu plaukts meklēšanas rezultātos ir redzams</string>
+  <string name="revanced_hide_latest_posts_title">Slēpt jaunākos ierakstus</string>
+  <string name="revanced_hide_latest_posts_summary_on">Jaunākie ieraksti ir paslēpti</string>
+  <string name="revanced_hide_latest_posts_summary_off">Jaunākie ieraksti ir redzami</string>
+  <string name="revanced_hide_mix_playlists_title">Slēpt jaukto atskaņošanas sarakstu</string>
+  <string name="revanced_hide_mix_playlists_summary_on">Jauktie atskaņošanas saraksti ir paslēpti</string>
+  <string name="revanced_hide_mix_playlists_summary_off">Jauktie atskaņošanas saraksti ir redzami</string>
+  <string name="revanced_hide_movies_section_title">Slēpt filmu sadaļu</string>
+  <string name="revanced_hide_movies_section_summary_on">Filmu sadaļa ir paslēpta</string>
+  <string name="revanced_hide_movies_section_summary_off">Filmu sadaļa ir redzama</string>
+  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
+                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+  <string name="revanced_hide_notify_me_button_title">Paslēpt \"Paziņot\" pogu</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Poga \"Informēt mani\" ir paslēpta.</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Poga \"Informēt mani\" ir redzama.</string>
+  <string name="revanced_hide_playables_title">Slēpt spēles</string>
+  <string name="revanced_hide_playables_summary_on">Spēles ir paslēptas</string>
+  <string name="revanced_hide_playables_summary_off">Spēles ir redzamas</string>
+  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
+                  This button usually appears when searching for a YT creator. -->
+  <string name="revanced_hide_show_more_button_title">Paslēpt \"Rādīt vairāk\" pogu</string>
+  <string name="revanced_hide_show_more_button_summary_on">Poga \"Rādīt vairāk\" meklēšanas rezultātos ir paslēpta.</string>
+  <string name="revanced_hide_show_more_button_summary_off">Poga \"Rādīt vairāk\" meklēšanas rezultātos ir redzama.</string>
+  <string name="revanced_hide_ticket_shelf_title">Paslēpt biļešu plauktu</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Biļešu plaukts ir paslēpts</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Biļešu plaukts ir redzams</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_video_recommendation_labels_title">Slēpt video ieteikumu etiķetes.</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">Etiķetes \"Cilvēki skatījās arī\" un \"Jums varētu patikt\" meklēšanas rezultātos ir paslēptas.</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">Etiķetes \"Cilvēki skatījās arī\" un \"Jums varētu patikt\" meklēšanas rezultātos ir redzamas.</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Paslēpt YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">YouTube Doodles animācija uz logotipa ir paslēpta.</string>
+  <string name="revanced_hide_doodles_summary_off">YouTube Doodles animācija uz logotipa ir redzama</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles tiek rādīti dažas dienas gadā.
+
+Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījums ir ieslēgts, tad filtrēšanas josla zem meklēšanas joslas arī tiks paslēpta."</string>
+  <string name="revanced_hide_channel_bar_title">Slēpt kanāla joslu</string>
+  <string name="revanced_hide_channel_bar_summary_on">Kanāla josla ir paslēpta</string>
+  <string name="revanced_hide_channel_bar_summary_off">Kanāla josla ir redzama</string>
+  <string name="revanced_hide_channel_watermark_title">Paslēpt kanāla ūdenszīmi</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Ūdenszīme ir paslēpta</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Ūdenszīme ir redzama</string>
   <string name="revanced_hide_emergency_box_title">Slēpt ārkārtas lodziņus</string>
   <string name="revanced_hide_emergency_box_summary_on">Ārkārtas lodziņi ir paslēpti</string>
   <string name="revanced_hide_emergency_box_summary_off">Ārkārtas lodziņi ir redzami</string>
   <string name="revanced_hide_info_panels_title">Slēpt informācijas paneļus</string>
   <string name="revanced_hide_info_panels_summary_on">Informācijas paneļi ir paslēpti</string>
   <string name="revanced_hide_info_panels_summary_off">Informācijas paneļi ir redzami</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays.
+                  This appears in the video player for certain videos. -->
+  <string name="revanced_hide_join_membership_button_title">Paslēpt Pievienoties pogu</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Poga \"Pievienoties\" ir paslēpta.</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Poga \"Pievienoties\" ir redzama.</string>
   <string name="revanced_hide_medical_panels_title">Slēpt medicīnas paneļus</string>
   <string name="revanced_hide_medical_panels_summary_on">Medicīnas paneļi ir paslēpti</string>
   <string name="revanced_hide_medical_panels_summary_off">Medicīnas paneļi ir redzami</string>
-  <string name="revanced_hide_channel_bar_title">Slēpt kanāla joslu</string>
-  <string name="revanced_hide_channel_bar_summary_on">Kanāla josla ir paslēpta</string>
-  <string name="revanced_hide_channel_bar_summary_off">Kanāla josla ir redzama</string>
-  <string name="revanced_hide_playables_title">Slēpt spēles</string>
-  <string name="revanced_hide_playables_summary_on">Spēles ir paslēptas</string>
-  <string name="revanced_hide_playables_summary_off">Spēles ir redzamas</string>
-  <string name="revanced_hide_quick_actions_title">Slēpt ātrās darbības pilnekrāna režīmā</string>
-  <string name="revanced_hide_quick_actions_summary_on">Ātrās darbības ir paslēptas</string>
-  <string name="revanced_hide_quick_actions_summary_off">Ātrās darbības ir redzamas</string>
-  <string name="revanced_hide_related_videos_title">Slēpt saistītos videoklipus ātrajās darbībās</string>
-  <string name="revanced_hide_related_videos_summary_on">Saistītie videoklipi ir paslēpti</string>
-  <string name="revanced_hide_related_videos_summary_off">Saistītie videoklipi ir redzami</string>
-  <string name="revanced_hide_image_shelf_title">Slēpt attēlu plauktu meklēšanas rezultātos</string>
-  <string name="revanced_hide_image_shelf_summary_on">Attēlu plaukts ir paslēpts</string>
-  <string name="revanced_hide_image_shelf_summary_off">Attēlu plaukts ir redzams</string>
-  <string name="revanced_hide_latest_posts_ads_title">Slēpt jaunākos ierakstus</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Jaunākie ieraksti ir paslēpti</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Jaunākie ieraksti ir redzami</string>
-  <string name="revanced_hide_mix_playlists_title">Slēpt jaukto atskaņošanas sarakstu</string>
-  <string name="revanced_hide_mix_playlists_summary_on">Jauktie atskaņošanas saraksti ir paslēpti</string>
-  <string name="revanced_hide_mix_playlists_summary_off">Jauktie atskaņošanas saraksti ir redzami</string>
-  <string name="revanced_hide_artist_cards_title">Slēpt mākslinieku kartītes</string>
-  <string name="revanced_hide_artist_cards_summary_on">Mākslinieku kartītes ir paslēptas</string>
-  <string name="revanced_hide_artist_cards_summary_off">Mākslinieku kartītes ir redzamas</string>
+  <string name="revanced_hide_quick_actions_title">Slēpt ātrās darbības</string>
+  <string name="revanced_hide_quick_actions_summary_on">Ātrās darbības pilnekrāna režīmā ir paslēptas</string>
+  <string name="revanced_hide_quick_actions_summary_off">Ātrās darbības pilnekrāna režīmā ir redzamas</string>
+  <string name="revanced_hide_related_videos_title">Slēpt saistītos video</string>
+  <string name="revanced_hide_related_videos_summary_on">Saistītie video ātrajās darbībās ir paslēpti</string>
+  <string name="revanced_hide_related_videos_summary_off">Saistītie video ātrajās darbībās ir redzami</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Paslēpt abonentu vadlīnijas</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Abonētāju kopienas vadlīnijas ir paslēptas</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Abonētāju kopienas vadlīnijas ir redzamas</string>
+  <string name="revanced_hide_timed_reactions_title">Paslēpt laika reakcijas</string>
+  <string name="revanced_hide_timed_reactions_summary_on">Laika reakcijas ir paslēptas</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Laika reakcijas ir redzamas</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Paslēpt \"AI ģenerēta video kopsavilkums\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video kopsavilkuma sadaļa ir paslēpta</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video kopsavilkuma sadaļa ir rādīta</string>
@@ -298,6 +293,26 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Slēpt saistītajos videoklipos</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Paslēpts saistītajos videoklipos</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Redzams saistītajos videoklipos</string>
+  <string name="revanced_channel_screen_title">Kanāla lapa</string>
+  <string name="revanced_channel_screen_summary">Slēpt vai parādīt kanāla lapas komponentus</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Paslēpt plauktu \"Tev\"</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">\"Tev\" plaukts ir paslēpts</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">\"Tev\" plaukts ir redzams</string>
+  <string name="revanced_hide_links_preview_title">Slēpt saišu priekšskatījumu</string>
+  <string name="revanced_hide_links_preview_summary_on">Saišu priekšskatījums ir paslēpts</string>
+  <string name="revanced_hide_links_preview_summary_off">Saišu priekšskatījums ir redzams</string>
+  <string name="revanced_hide_members_shelf_title">Slēpt dalībnieku plauktu</string>
+  <string name="revanced_hide_members_shelf_summary_on">Dalībnieku plaukts ir paslēpts</string>
+  <string name="revanced_hide_members_shelf_summary_off">Dalībnieku plaukts ir redzams</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Paslēpt pogu \"Apmeklēt kopienu\"</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Poga \"Apmeklēt kopienu\" ir paslēpta</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Poga \"Apmeklēt kopienu\" ir redzama</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Paslēpt \"Apmeklēt veikalu\" pogu kanāla lapās</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Poga \"Apmeklēt veikalu\" ir paslēpta</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Poga \"Apmeklēt veikalu\" ir redzama</string>
   <string name="revanced_comments_screen_title">Komentāri</string>
   <string name="revanced_comments_screen_summary">Slēpt vai parādīt komentāru sadaļas komponentus</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Slēpt AI tērzēšanas kopsavilkumu</string>
@@ -306,12 +321,18 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_comments_ai_summary_title">Slēpt AI komentāru kopsavilkumu</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Komentāru kopsavilkums ir paslēpts</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Komentāru kopsavilkums ir redzams</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Slēpt kanāla vadlīnijas</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanāla vadlīnijas ir paslēptas</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanāla vadlīnijas ir redzamas</string>
   <string name="revanced_hide_comments_by_members_header_title">Slēpt virsrakstu \"Dalībnieku komentāri\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Dalībnieku komentāru galvene ir paslēpta</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Dalībnieku komentāru galvene ir redzama</string>
   <string name="revanced_hide_comments_section_title">Slēpt komentāru sadaļu</string>
   <string name="revanced_hide_comments_section_summary_on">Komentāru sadaļa ir paslēpta</string>
   <string name="revanced_hide_comments_section_summary_off">Komentāru sadaļa ir redzama</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Paslēpt kopienas vadlīnijas</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Kopienas vadlīnijas ir paslēptas</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Kopienas vadlīnijas ir redzamas</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Paslēpt \"Izveidot īso\" pogu</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Poga Izveidot Short ir paslēpta</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Poga Izveidot Short ir redzama</string>
@@ -324,13 +345,6 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_comments_timestamp_button_title">Paslēpt laika zīmoga pogu</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Laika zīmoga poga ir paslēpta</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Laika zīmoga poga ir redzama</string>
-  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">Paslēpt YouTube Doodles</string>
-  <string name="revanced_hide_doodles_summary_on">Meklēšanas joslas Doodles ir paslēpti</string>
-  <string name="revanced_hide_doodles_summary_off">Meklēšanas joslas Doodles ir redzami</string>
-  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles tiek rādīti dažas dienas gadā.
-
-Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījums ir ieslēgts, tad filtrēšanas josla zem meklēšanas joslas arī tiks paslēpta."</string>
   <string name="revanced_custom_filter_screen_title">Pielāgotais filtrs</string>
   <string name="revanced_custom_filter_screen_summary">Paslēpt komponentus, izmantojot pielāgotos filtrus</string>
   <string name="revanced_custom_filter_title">Aktivizēt pielāgoto filtru</string>
@@ -377,12 +391,12 @@ Ierobežojumi
   <string name="revanced_hide_keyword_toast_invalid_broad">Atslēgvārds paslēps visus video: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Slēpt satura veidotāja veikala plauktus</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Veikala plaukti zem atskaņotāja un video aprakstā ir paslēpti</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Veikalu plaukti zem atskaņotāja un video aprakstā tiek rādīti</string>
+  <string name="revanced_hide_creator_store_shelf_title">Slēpt veidotāja veikala plauktu</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Radītāja veikala plaukts zem video atskaņotāja ir paslēpts.</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Radītāja veikala plaukts zem videoklipu atskaņotāja ir redzams</string>
   <string name="revanced_hide_end_screen_store_banner_title">Paslēpt veikala reklāmkarogu ekrāna beigās</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Noslēguma ekrāna veikala baneris ir paslēpts</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Noslēguma ekrāna veikala baneris ir parādīts</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Beigu ekrāna veikala reklāmkarogs ir paslēpts.</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Beigu ekrāna veikala reklāmkarogs ir redzams.</string>
   <string name="revanced_hide_fullscreen_ads_title">Paslēpt pilnekrāna reklāmas</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Pilnekrāna reklāmas ir paslēptas
 
@@ -399,20 +413,16 @@ Ierobežojumi
   <string name="revanced_hide_paid_promotion_label_title">Paslēpt apmaksātas reklāmas etiķeti</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Apmaksātas reklāmas etiķete ir paslēpta</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Apmaksātas reklāmas etiķete ir redzama</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_view_products_banner_title">Paslēpt reklāmkarogu \"Skatīt produktus\"</string>
-  <string name="revanced_hide_view_products_banner_summary_on">Baneris video pārklājumā ir paslēpts</string>
-  <string name="revanced_hide_view_products_banner_summary_off">Reklāmkarogs video pārklājumā tiek rādīts</string>
   <string name="revanced_hide_self_sponsor_ads_title">Paslēpt pašreklāmas kartītes</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Pašreklāmas kartītes ir paslēptas</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Pašreklāmas kartītes ir redzamas</string>
-  <string name="revanced_hide_tagged_products_title">Slēpt atzīmētos produktus</string>
-  <string name="revanced_hide_tagged_products_summary_on">Video aprakstā atzīmētie produkti ir paslēpti</string>
-  <string name="revanced_hide_tagged_products_summary_off">Video aprakstā tiek rādīti atzīmētie produkti</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Paslēpt \"Apmeklēt veikalu\" pogu kanāla lapās</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Poga kanāla lapā ir paslēpta</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Poga kanāla lapā ir redzama</string>
+  <string name="revanced_hide_shopping_links_title">Slēpt iepirkšanās saites</string>
+  <string name="revanced_hide_shopping_links_summary_on">Iepirkšanās saites video aprakstā ir paslēptas.</string>
+  <string name="revanced_hide_shopping_links_summary_off">Iepirkšanās saites video aprakstā ir redzamas</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Paslēpt reklāmkarogu \"Skatīt produktus\"</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Reklāmkarogs \"Skatīt produktus\" video pārklājumā ir paslēpts.</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Reklāmkarogs \"Skatīt produktus\" video pārklājumā ir redzams.</string>
   <string name="revanced_hide_web_search_results_title">Paslēpt tīmekļa meklēšanas rezultātus</string>
   <string name="revanced_hide_web_search_results_summary_on">Tīmekļa meklēšanas rezultāti ir paslēpti</string>
   <string name="revanced_hide_web_search_results_summary_off">Tīmekļa meklēšanas rezultāti ir redzami</string>
@@ -443,13 +453,18 @@ Ierobežojumi
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialogs tiks rādīts</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tas neapiet vecuma ierobežojumu. Tas vienkārši automātiski to pieņem.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Atspējot divkāršu pieskārienu nodaļas izlaišanai</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Divkāršs pieskāriens nekad nevar iedarbināt izlaišanu uz nākamo/iepriekšējo nodaļu</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Divkāršs pieskāriens reizēm var iedarbināt izlaišanu uz nākamo/iepriekšējo nodaļu</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Ārējie lejupielādētāji</string>
   <string name="revanced_external_downloader_screen_summary">Iestatījumi, lai izmantotu ārējo lejupielādētāju</string>
   <string name="revanced_external_downloader_title">Rādīt ārējo lejupielādēšanas pogu</string>
   <string name="revanced_external_downloader_summary_on">Lejupielādes poga atskaņotājā ir redzama</string>
   <string name="revanced_external_downloader_summary_off">Lejupielādes poga atskaņotājā nav redzama</string>
-  <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
+  <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
   <string name="revanced_external_downloader_action_button_title">Pārrakstīt lejupielādes darbības pogu</string>
   <string name="revanced_external_downloader_action_button_summary_on">Lejupielādēšanas poga atver jūsu ārējo lejupielādētāju</string>
   <string name="revanced_external_downloader_action_button_summary_off">Lejupielādēšanas poga atver vietējo iebūvēto lejupielādētāju</string>
@@ -542,7 +557,7 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Apturēt reklāmas poga ir paslēpta</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Apturēt reklāmas poga ir redzama</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                 This button usually appears only on live streams. -->
+                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Paslēpt Ziņot</string>
   <string name="revanced_hide_report_button_summary_on">Ziņot poga ir paslēpta</string>
   <string name="revanced_hide_report_button_summary_off">Ziņot poga ir redzama</string>
@@ -559,7 +574,7 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_hide_thanks_button_summary_on">Paldies poga ir paslēpta</string>
   <string name="revanced_hide_thanks_button_summary_off">Paldies poga ir redzama</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Paslēpt jautājumu</string>
   <string name="revanced_hide_ask_button_summary_on">Jautājuma poga ir paslēpta</string>
   <string name="revanced_hide_ask_button_summary_off">Jautājuma poga ir redzama</string>
@@ -583,7 +598,7 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_hide_shorts_button_title">Paslēpt Shorts</string>
   <string name="revanced_hide_shorts_button_summary_on">Shorts poga ir paslēpta</string>
   <string name="revanced_hide_shorts_button_summary_off">Shorts poga ir redzama</string>
-  <!-- The Create button has no display name. Translate normally. -->
+  <!-- 'Create' has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Paslēpt Izveidot</string>
   <string name="revanced_hide_create_button_summary_on">Izveidot poga ir paslēpta</string>
   <string name="revanced_hide_create_button_summary_off">Izveidot poga ir redzama</string>
@@ -652,7 +667,7 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_hide_player_flyout_speed_summary_on">Atskaņošanas ātruma izvēlne ir paslēpta</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Atskaņošanas ātruma izvēlne ir redzama</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                 This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
+                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">Paslēpt Papildus informāciju</string>
   <string name="revanced_hide_player_flyout_more_info_summary_on">Papildus informācijas izvēlne ir paslēpta</string>
   <string name="revanced_hide_player_flyout_more_info_summary_off">Papildus informācijas izvēlne ir redzama</string>
@@ -664,7 +679,7 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_hide_player_flyout_audio_track_title">Paslēpt Audio ceļu</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio ceļa izvēlne ir paslēpta</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Audio ceļa izvēlne ir redzama</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Audio celiņu izvēlne ir paslēpta.
 
 Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz iOS TV"</string>
@@ -677,22 +692,22 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kvalitātes izvēlnes apakšējā daļa ir redzama</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Paslēpt iepriekšējo un nākamo pogas</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_on">Pogas ir paslēptas</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_off">Pogas ir redzamas</string>
-  <string name="revanced_hide_cast_button_title">Paslēpt pogu \"Sūtīt\"</string>
-  <string name="revanced_hide_cast_button_summary_on">Pārraides poga ir paslēpta</string>
-  <string name="revanced_hide_cast_button_summary_off">Pārraides poga ir redzama</string>
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Paslēpt pogu \"Subtitri\"</string>
-  <string name="revanced_hide_captions_button_summary_on">Titru poga ir paslēpta</string>
-  <string name="revanced_hide_captions_button_summary_off">Titru poga ir redzama</string>
   <string name="revanced_hide_autoplay_button_title">Paslēpt pogu \"Automātiskā atskaņošana\"</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automātiskās atskaņošanas poga ir paslēpta</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automātiskās atskaņošanas poga ir redzama</string>
+  <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+  <string name="revanced_hide_captions_button_title">Paslēpt pogu \"Subtitri\"</string>
+  <string name="revanced_hide_captions_button_summary_on">Titru poga ir paslēpta</string>
+  <string name="revanced_hide_captions_button_summary_off">Titru poga ir redzama</string>
+  <string name="revanced_hide_cast_button_title">Paslēpt pogu \"Sūtīt\"</string>
+  <string name="revanced_hide_cast_button_summary_on">Pārraides poga ir paslēpta</string>
+  <string name="revanced_hide_cast_button_summary_off">Pārraides poga ir redzama</string>
   <string name="revanced_hide_player_control_buttons_background_title">Slēpt atskaņotāja vadības pogu fonu</string>
   <string name="revanced_hide_player_control_buttons_background_summary_on">Atskaņotāja vadības pogu fons ir paslēpts</string>
   <string name="revanced_hide_player_control_buttons_background_summary_off">Atskaņotāja vadības pogu fons ir redzams</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Paslēpt iepriekšējo un nākamo pogas</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Pogas ir paslēptas</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Pogas ir redzamas</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Paslēpt ekrāna beigās esošās kartītes</string>
@@ -725,76 +740,75 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts atskaņotājs</string>
   <string name="revanced_shorts_player_screen_summary">Paslēpt vai rādīt komponentus Shorts atskaņotājā</string>
-  <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Paslēpt Shorts sākumlapas plūsmā</string>
-  <string name="revanced_hide_shorts_home_summary_on">Paslēpts sākumlapas plūsmā un saistītajos videoklipos</string>
-  <string name="revanced_hide_shorts_home_summary_off">Rādīts sākumlapas plūsmā un saistītajos videoklipos</string>
-  <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Paslēpt Shorts abonementu plūsmā</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Slēpts abonementu plūsmā</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Parādīts abonementu plūsmā</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
+  <string name="revanced_hide_shorts_home_title">Slēpt Shorts sākumlapā.</string>
+  <string name="revanced_hide_shorts_home_summary_on">Paslēpti sākumlapā un saistītajos video.</string>
+  <string name="revanced_hide_shorts_home_summary_off">Redzami sākumlapā un saistītajos video.</string>
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+  <string name="revanced_hide_shorts_subscriptions_title">Slēpt Shorts abonementu plūsmā.</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Paslēpti abonementu plūsmā.</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Redzami abonementu plūsmā.</string>
   <string name="revanced_hide_shorts_search_title">Paslēpt Shorts meklēšanas rezultātos</string>
   <string name="revanced_hide_shorts_search_summary_on">Paslēpts meklēšanas rezultātos</string>
   <string name="revanced_hide_shorts_search_summary_off">Parādīts meklēšanas rezultātos</string>
   <string name="revanced_hide_shorts_history_title">Paslēpt šortus skatīšanās vēsturē</string>
   <string name="revanced_hide_shorts_history_summary_on">Slēpts skatīšanās vēsturē</string>
   <string name="revanced_hide_shorts_history_summary_off">Parādīts skatīšanās vēsturē</string>
-  <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Paslēpt pogu \"Pievienoties\"</string>
-  <string name="revanced_hide_shorts_join_button_summary_on">Pievienošanās poga ir paslēpta</string>
-  <string name="revanced_hide_shorts_join_button_summary_off">Pievienošanās poga ir redzama</string>
-  <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">Paslēpt pogu \"Abonēt\"</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_on">Abonēšanas poga ir paslēpta</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_off">Abonēšanas poga ir redzama</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Paslēpt pauzes pārklājuma pogas</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Pauzes pārklājuma pogas ir paslēptas</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Pauzes pārklājuma pogas ir redzamas</string>
-  <string name="revanced_hide_shorts_shop_button_title">Paslēpt pogu \"Veikals\"</string>
-  <string name="revanced_hide_shorts_shop_button_summary_on">Veikala poga ir paslēpta</string>
-  <string name="revanced_hide_shorts_shop_button_summary_off">Veikala poga ir redzama</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Paslēpt pogu \"Pārpirkt ar Super Thanks\"</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Poga \"Super Thanks\" ir paslēpta</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Poga \"Super Thanks\" ir parādīta</string>
-  <string name="revanced_hide_shorts_tagged_products_title">Paslēpt atzīmētos produktus</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">Atzīmētie produkti ir paslēpti</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_off">Atzīmētie produkti ir redzami</string>
-  <string name="revanced_hide_shorts_location_label_title">Paslēpt atrašanās vietas nosaukumu</string>
-  <string name="revanced_hide_shorts_location_label_summary_on">Atrašanās vietas nosaukums ir paslēpts</string>
-  <string name="revanced_hide_shorts_location_label_summary_off">Atrašanās vietas nosaukums ir redzams</string>
-  <string name="revanced_hide_shorts_preview_comment_title">Paslēpt priekšskatījuma komentāru</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_on">Komentāra priekšskatījums ir paslēpts</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">Priekšskatījuma komentārs tiek rādīts</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Paslēpt pogu \"Saglabāt mūziku\"</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">“Saglabāt mūziku” poga ir paslēpta</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">“Saglabāt mūziku” poga ir redzama</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Paslēpt pogu \"Izmantot šo skaņu\"</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_on">Poga \"Izmantot šo skaņu\" ir paslēpta</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_off">Poga \"Izmantot šo skaņu\" ir redzama</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Slēpt pogu \"Izmantot šo veidni\"</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Poga \"Izmantot šo veidni\" ir paslēpta</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Poga \"Izmantot šo veidni\" ir redzama</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Paslēpt pogu \"Gaidāmie\"</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">Nākamās pogas ir paslēptas</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">Nākamās pogas ir redzamas</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Poga \"Pirkt Super Thanks\" ir paslēpta.</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Poga \"Pirkt Super Thanks\" ir redzama.</string>
   <string name="revanced_hide_shorts_effect_button_title">Paslēpt efekta pogu</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Efekta poga ir paslēpta</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Efekta poga ir redzama</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Paslēpt pogu \"Zaļais ekrāns\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Zaļā ekrāna poga ir paslēpta</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Zaļā ekrāna poga ir redzama</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Paslēpt pogu Jauni ieraksti</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_off">Poga Jauni ieraksti ir redzama</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_on">Poga Jauni ieraksti ir paslēpta</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Paslēpt hashtags pogu</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtags poga ir paslēpta</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtags poga ir redzama</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">Paslēpt pogu \"Pievienoties\"</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">Pievienošanās poga ir paslēpta</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">Pievienošanās poga ir redzama</string>
+  <string name="revanced_hide_shorts_location_label_title">Paslēpt atrašanās vietas nosaukumu</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">Atrašanās vietas nosaukums ir paslēpts</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">Atrašanās vietas nosaukums ir redzams</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Paslēpt pogu Jauni ieraksti</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Poga Jauni ieraksti ir paslēpta</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Poga Jauni ieraksti ir redzama</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Paslēpt pauzes pārklājuma pogas</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Pauzes pārklājuma pogas ir paslēptas</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Pauzes pārklājuma pogas ir redzamas</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Paslēpt priekšskatījuma komentāru</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Komentāra priekšskatījums ir paslēpts</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Priekšskatījuma komentārs tiek rādīts</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Paslēpt pogu \"Saglabāt mūziku\"</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">“Saglabāt mūziku” poga ir paslēpta</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">“Saglabāt mūziku” poga ir redzama</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Paslēpt meklēšanas ieteikumus</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Meklēšanas ieteikumi ir paslēpti</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Meklēšanas ieteikumi ir redzami</string>
+  <string name="revanced_hide_shorts_shop_button_title">Paslēpt pogu \"Veikals\"</string>
+  <string name="revanced_hide_shorts_shop_button_summary_on">Veikala poga ir paslēpta</string>
+  <string name="revanced_hide_shorts_shop_button_summary_off">Veikala poga ir redzama</string>
   <string name="revanced_hide_shorts_stickers_title">Paslēpt uzlīmes</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Uzlīmes ir paslēptas</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Uzlīmes ir redzamas</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">Paslēpt pogu \"Abonēt\"</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">Abonēšanas poga ir paslēpta</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">Abonēšanas poga ir redzama</string>
+  <string name="revanced_hide_shorts_tagged_products_title">Paslēpt atzīmētos produktus</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">Atzīmētie produkti ir paslēpti</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">Atzīmētie produkti ir redzami</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Paslēpt pogu \"Gaidāmie\"</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Nākamās pogas ir paslēptas</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Nākamās pogas ir redzamas</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Paslēpt pogu \"Izmantot šo skaņu\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Poga \"Izmantot šo skaņu\" ir paslēpta</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Poga \"Izmantot šo skaņu\" ir redzama</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Slēpt pogu \"Izmantot šo veidni\"</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Poga \"Izmantot šo veidni\" ir paslēpta</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Poga \"Izmantot šo veidni\" ir redzama</string>
   <string name="revanced_hide_shorts_like_fountain_title">Paslēpt pogas \"Like\" strūklaku animāciju</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">Patīk pogas fonteinu animācija ir paslēpta</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">Patīk pogas fonteinu animācija ir redzama</string>
@@ -807,14 +821,17 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_hide_shorts_comments_button_title">Paslēpt pogu \"Komentāri\"</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Komentāru poga ir paslēpta</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Komentāru poga ir redzama</string>
-  <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">Paslēpt pogu \"Remix\"</string>
-  <string name="revanced_hide_shorts_remix_button_summary_on">Remix poga ir paslēpta</string>
-  <string name="revanced_hide_shorts_remix_button_summary_off">Remix poga ir redzama</string>
-  <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
+  <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_share_button_title">Paslēpt pogu \"Sūtīt\"</string>
   <string name="revanced_hide_shorts_share_button_summary_on">Koplietošanas poga ir paslēpta</string>
   <string name="revanced_hide_shorts_share_button_summary_off">Koplietošanas poga ir redzama</string>
+  <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_remix_button_title">Paslēpt pogu \"Remix\"</string>
+  <string name="revanced_hide_shorts_remix_button_summary_on">Remix poga ir paslēpta</string>
+  <string name="revanced_hide_shorts_remix_button_summary_off">Remix poga ir redzama</string>
+  <string name="revanced_hide_shorts_sound_button_title">Paslēpt skaņas pogu</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">Skaņas poga ir paslēpta</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">Skaņas poga ir redzama</string>
   <string name="revanced_hide_shorts_info_panel_title">Paslēpt informācijas paneli</string>
   <string name="revanced_hide_shorts_info_panel_summary_on">Informācijas panelis ir paslēpts</string>
   <string name="revanced_hide_shorts_info_panel_summary_off">Informācijas panelis ir redzams</string>
@@ -822,17 +839,14 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_hide_shorts_channel_bar_summary_on">Kanāla josla ir paslēpta</string>
   <string name="revanced_hide_shorts_channel_bar_summary_off">Kanāla josla ir redzama</string>
   <string name="revanced_hide_shorts_video_title_title">Paslēpt video nosaukumu</string>
-  <string name="revanced_hide_shorts_video_title_summary_on">Nosaukums ir paslēpts</string>
-  <string name="revanced_hide_shorts_video_title_summary_off">Nosaukums ir redzams</string>
+  <string name="revanced_hide_shorts_video_title_summary_on">Video nosaukums ir paslēpts.</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">Video nosaukums ir redzams.</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Paslēpt skaņas metadatu nosaukumu</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Metadatu nosaukums ir paslēpts</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Metadatu nosaukums ir redzams</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Skaņas metadatu etiķete ir paslēpta.</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Skaņas metadatu etiķete ir redzama.</string>
   <string name="revanced_hide_shorts_full_video_link_label_title">Paslēpt video saites etiķeti</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Video saites nosaukums ir paslēpts</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Video saites nosaukums ir redzams</string>
-  <string name="revanced_hide_shorts_sound_button_title">Paslēpt skaņas pogu</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">Skaņas poga ir paslēpta</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">Skaņas poga ir redzama</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Paslēpt navigācijas joslu</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigācijas josla ir paslēpta</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigācijas josla ir redzama</string>
@@ -846,9 +860,9 @@ Iestatījumi → Atskaņošana → Automātiski atskaņot nākamo video"</string
   <string name="revanced_end_screen_suggested_video_summary_off">Ieteiktais video beigu ekrānā ir redzams</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  <string name="revanced_hide_related_video_overlay_title">Slēpt saistīto video pārklājumu pilnekrāna režīmā</string>
-  <string name="revanced_hide_related_video_overlay_summary_on">Saistīto video pārklājums ir paslēpts</string>
-  <string name="revanced_hide_related_video_overlay_summary_off">Saistīto video pārklājums ir redzams</string>
+  <string name="revanced_hide_related_videos_overlay_title">Slēpt saistīto video pārklājumu.</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">Saistīto video pārklājums pilnekrāna režīmā ir paslēpts.</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">Saistīto video pārklājums pilnekrāna režīmā ir redzams.</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Paslēpt video laika zīmi</string>
@@ -897,7 +911,7 @@ Ierobežojums: Nepatīk var neparādīties inkognito režīmā"</string>
   <string name="revanced_ryd_dislike_percentage_title">Nepatīk pogas kā procenti</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Nepatīk ir redzami kā procentuālā vērtība</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Nepatīk ir redzami kā skaitlis</string>
-  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
   <string name="revanced_ryd_compact_layout_title">Kompaktpoga \"Like\"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Patīk poga ir stilizēta minimālam platumam</string>
   <string name="revanced_ryd_compact_layout_summary_off">Patīk poga ir stilizēta labākam izskatam</string>
@@ -956,7 +970,7 @@ Laika skalas miniatūras izmantos tādu pašu kvalitāti kā pašreizējais vide
   <string name="revanced_sb_square_layout">Izmantot kvadrātveida izkārtojumu</string>
   <string name="revanced_sb_square_layout_sum_on">Pogām un vadīklām ir kvadrātveida forma</string>
   <string name="revanced_sb_square_layout_sum_off">Pogas un vadīklas ir noapaļotas</string>
-  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
+  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
   <string name="revanced_sb_enable_compact_skip_button">Izmantot kompakto pogu Izlaist</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Izlaides poga ir veidota minimālajam platumam</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Izlaides poga ir veidota labākajam izskatam</string>
@@ -1099,7 +1113,7 @@ Jau pastāv"</string>
   <string name="revanced_sb_vote_downvote">Novērtēt uz leju</string>
   <string name="revanced_sb_vote_category">Mainīt kategoriju</string>
   <string name="revanced_sb_vote_no_segments">Nav segmentu, par kuriem balsot</string>
-  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <!-- A segment start and end time, such as "02:10 to 03:40". -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s līdz %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Izvēlieties segmenta kategoriju</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorija ir atspējota iestatījumos. Iespējojiet kategoriju, lai iesniegtu.</string>
@@ -1178,7 +1192,7 @@ Tas mainīs lietotnes izskatu un funkcijas, taču var rasties nezināmas blakusp
 
 Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu lietotāja saskarnes kļūdas."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Viltot lietotnes versijas mērķis</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Atjaunot vecās Shorts spēlētāja ikonas</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Atjaunot vecās navigācijas ikonas</string>
@@ -1285,9 +1299,9 @@ Miniatskaņotāju var pārvilkt no ekrāna uz kreiso vai labo pusi"</string>
   <string name="revanced_gradient_loading_screen_title">Iespējot gradientu ielādes ekrānu</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ielādes ekrānam būs gradientu fons</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ielādes ekrānam būs ciets fons</string>
-  <string name="splash_screen_animation_style_title">Sākuma ekrāna stils</string>
-  <string name="splash_screen_animation_style_entry_1">Krāsa</string>
-  <string name="splash_screen_animation_style_entry_2">Melnbalts</string>
+  <string name="revanced_splash_screen_animation_style_title">Sākuma ekrāna stils</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Krāsa</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Melnbalts</string>
   <string name="revanced_seekbar_custom_color_title">Iespējot pielāgotu meklēšanas joslas krāsu</string>
   <string name="revanced_seekbar_custom_color_summary_on">Pielāgota meklēšanas joslas krāsa ir redzama</string>
   <string name="revanced_seekbar_custom_color_summary_off">Oriģinālā meklēšanas joslas krāsa ir redzama</string>
@@ -1297,6 +1311,14 @@ Miniatskaņotāju var pārvilkt no ekrāna uz kreiso vai labo pusi"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Meklētājjoslas akcenta krāsa</string>
   <string name="revanced_seekbar_custom_color_invalid">Nederīga meklētāja joslas krāsas vērtība</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Galvenes logotips</string>
+  <string name="revanced_header_logo_entry_1">Noklusējums</string>
+  <string name="revanced_header_logo_entry_2">Parasts</string>
+  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <string name="revanced_header_logo_entry_5">ReVanced minimāls</string>
+  <string name="revanced_header_logo_entry_6">Pielāgots</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Apsaisīt attēlu reģiona ierobežojumus</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Izmantojot attēlu mitināšanas pakalpojumu yt4.ggpht.com</string>
@@ -1305,13 +1327,13 @@ Miniatskaņotāju var pārvilkt no ekrāna uz kreiso vai labo pusi"</string>
 Šī iestatījuma ieslēgšana var novērst trūkstošus attēlus, kas dažu reģionu lietotājiem ir bloķēti"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Sākums</string>
-  <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_alt_thumbnail_subscription_title">Abonementi</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+  <string name="revanced_alt_thumbnail_subscription_title">Abonementu cilne.</string>
+  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">Jūs</string>
-  <string name="revanced_alt_thumbnail_player_title">Atskaņotāja atskaņošanas saraksti, ieteikumi</string>
+  <string name="revanced_alt_thumbnail_player_title">Atskaņotāja atskaņošanas saraksti &amp; ieteikumi.</string>
   <string name="revanced_alt_thumbnail_search_title">Meklēšanas rezultāti</string>
   <string name="revanced_alt_thumbnail_options_entry_1">Sākotnējie sīktēli</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; sākotnējie sīktēli</string>
@@ -1410,11 +1432,11 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_force_original_audio_title">Piespiest oriģinālo audio valodu</string>
   <string name="revanced_force_original_audio_summary_on">Izmantot oriģinālo audio valodu</string>
   <string name="revanced_force_original_audio_summary_off">Tiek izmantots noklusējuma audio</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_force_original_audio_not_available">Lai izmantotu šo funkciju, nomainiet \"Video straumju viltošana\" uz iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automātiski</string>
   <string name="revanced_remember_video_quality_last_selected_title">Atcerēties video kvalitātes izmaiņas</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitātes izmaiņas attiecas uz visiem videoklipiem</string>
@@ -1528,7 +1550,7 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_block_video_ads_summary_off">Video reklāmas ir atbloķētas</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">ziņa izdzēsta</string>
+  <string name="revanced_deleted_msg">Ziņojums dzēsts.</string>
   <string name="revanced_show_deleted_messages_title">Rādīt izdzēstās ziņas</string>
   <string name="revanced_show_deleted_messages_entry_1">Nerādīt izdzēstās ziņas</string>
   <string name="revanced_show_deleted_messages_entry_2">Slēpt izdzēstās ziņas aiz spoileriem</string>
@@ -1540,7 +1562,7 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_auto_claim_channel_points_summary_off">Kanāla punkti netiek pieprasīti automātiski</string>
   </patch>
   <patch id="debug.debugModePatch">
-  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
+  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
   <string name="revanced_twitch_debug_mode_title">Iespējot Twitch debug režīmu</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch debug režīms ir iespējots (nav ieteicams)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch debug režīms ir atspējots</string>
@@ -1549,11 +1571,11 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_settings">ReVanced iestatījumi</string>
   <string name="revanced_about_title">Par</string>
   <string name="revanced_about_summary">Par ReVanced</string>
-  <string name="revanced_ads_screen_title">Reklāmas</string>
-  <string name="revanced_ads_screen_summary">Reklāmu bloķēšanas iestatījumi</string>
+  <string name="revanced_ads_screen_title">Reklāmu bloķēšana.</string>
+  <string name="revanced_ads_screen_summary">Reklāmu bloķēšanas iestatījumi.</string>
   <string name="revanced_chat_screen_title">Čats</string>
   <string name="revanced_chat_screen_summary">Čata iestatījumi</string>
-  <string name="revanced_misc_screen_title">Dažādi</string>
+  <string name="revanced_misc_screen_title">Dažādi.</string>
   <string name="revanced_misc_screen_summary">Dažādi iestatījumi</string>
   <string name="revanced_general_category_title">Vispārējie iestatījumi</string>
   <string name="revanced_other_category_title">Citi iestatījumi</string>

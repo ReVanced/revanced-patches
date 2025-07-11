@@ -143,115 +143,110 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
   <string name="revanced_hide_album_cards_title">Ocultar álbumes</string>
   <string name="revanced_hide_album_cards_summary_on">Las tarjetas de álbum están ocultas</string>
   <string name="revanced_hide_album_cards_summary_off">Se muestran las tarjetas de álbum</string>
-  <string name="revanced_hide_crowdfunding_box_title">Ocultar caja de recaudación</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">La caja de Crowdfunding está oculta</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Se muestra la caja de Crowdfunding</string>
-  <string name="revanced_hide_floating_microphone_button_title">Ocultar botón de micrófono flotante</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Botón de micrófono oculto</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Botón del micrófono mostrado</string>
-  <string name="revanced_hide_channel_watermark_title">Ocultar marca de agua del canal</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Marca de agua oculta</string>
-  <string name="revanced_hide_channel_watermark_summary_off">Marca de agua mostrada</string>
-  <string name="revanced_hide_horizontal_shelves_title">Ocultar estantes horizontales</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Los estantes están ocultos, tales como:
-• Noticias de última hora
-• Continuar viendo
-• Explorar más canales
-• Compras
-• Verlo de nuevo"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Se muestran las estanterías</string>
-  <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                 This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Ocultar el botón Unirse</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Botón oculto</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Se muestra el botón</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Ocultar la sección \"Para ti\"</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">El estante en la página del canal está oculto</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">El estante en la página del canal se muestra</string>
-  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                 This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Ocultar el botón \'Notificarme\'</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Botón oculto</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Se muestra el botón</string>
-  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendation_labels_title">Ocultar etiquetas de recomendaciones de video</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Las etiquetas \"También vieron\" y \"También te puede gustar\" están ocultas</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Las etiquetas \"También vieron\" y \"También te puede gustar\" se muestran</string>
-  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Ocultar botón \'Mostrar más\'</string>
-  <string name="revanced_hide_show_more_button_summary_on">Botón oculto</string>
-  <string name="revanced_hide_show_more_button_summary_off">Se muestra el botón</string>
-  <string name="revanced_hide_ticket_shelf_title">Ocultar estante de boletos</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">El estante de boletos está oculto</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">El estante de boletos está visible</string>
-  <string name="revanced_hide_timed_reactions_title">Ocultar reacciones temporizadas</string>
-  <string name="revanced_hide_timed_reactions_summary_on">Las reacciones temporizadas están ocultas</string>
-  <string name="revanced_hide_timed_reactions_summary_off">Se muestran reacciones temporizadas</string>
-  <string name="revanced_hide_channel_guidelines_title">Ocultar pautas de canal</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Las pautas del canal están ocultas</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Se muestran las pautas del canal</string>
+  <string name="revanced_hide_artist_cards_title">Ocultar tarjetas de artistas</string>
+  <string name="revanced_hide_artist_cards_summary_on">Las tarjetas de artistas están ocultas</string>
+  <string name="revanced_hide_artist_cards_summary_off">Se muestran las tarjetas del artista</string>
   <string name="revanced_hide_chips_shelf_title">Ocultar \"Más como esto\"</string>
   <string name="revanced_hide_chips_shelf_summary_on">\"Más como esto\" está oculto</string>
   <string name="revanced_hide_chips_shelf_summary_off">\"Más como esto\" está habilitado</string>
-  <string name="revanced_hide_expandable_chip_title">Ocultar tarjeta expandible debajo de los videos</string>
-  <string name="revanced_hide_expandable_chip_summary_on">La tarjeta expandible está oculta</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Se muestra la tarjeta expandible</string>
   <string name="revanced_hide_community_posts_title">Ocultar mensajes comunitarios</string>
   <string name="revanced_hide_community_posts_summary_on">Los mensajes de la comunidad están ocultos</string>
   <string name="revanced_hide_community_posts_summary_off">Se muestran las publicaciones de la comunidad</string>
   <string name="revanced_hide_compact_banner_title">Ocultar banners compactos</string>
   <string name="revanced_hide_compact_banner_summary_on">Los banners compactos están ocultos</string>
   <string name="revanced_hide_compact_banner_summary_off">Se muestran los banners compactos</string>
-  <string name="revanced_hide_movies_section_title">Ocultar sección de películas</string>
-  <string name="revanced_hide_movies_section_summary_on">La sección de películas está oculta</string>
-  <string name="revanced_hide_movies_section_summary_off">Se muestra la sección de películas</string>
+  <string name="revanced_hide_crowdfunding_box_title">Ocultar caja de recaudación</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">La caja de Crowdfunding está oculta</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Se muestra la caja de Crowdfunding</string>
+  <string name="revanced_hide_expandable_card_title">Ocultar tarjeta expandible</string>
+  <string name="revanced_hide_expandable_card_summary_on">Tarjeta expandible debajo de los videos oculta</string>
+  <string name="revanced_hide_expandable_card_summary_off">Tarjeta expandible debajo de los videos visible</string>
   <string name="revanced_hide_feed_survey_title">Ocultar encuestas</string>
   <string name="revanced_hide_feed_survey_summary_on">Las encuestas en el Inicio están ocultas</string>
   <string name="revanced_hide_feed_survey_summary_off">Se muestran encuestas en el Inicio</string>
-  <string name="revanced_hide_community_guidelines_title">Ocultar pautas comunitarias</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Las pautas comunitarias están ocultas</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Se muestran las pautas comunitarias</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Ocultar las directrices para suscriptores</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Las pautas comunitarias de los suscriptores están ocultas</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Se muestran las pautas de la comunidad de suscriptores</string>
-  <string name="revanced_hide_channel_member_shelf_title">Ocultar estante del miembro del canal</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">El estante del miembro del canal está oculta</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Se muestra el estante del miembro del canal</string>
+  <string name="revanced_hide_floating_microphone_button_title">Ocultar botón de micrófono flotante</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">El botón flotante del micrófono en la búsqueda está oculto</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Se muestra el botón flotante del micrófono en la búsqueda</string>
+  <string name="revanced_hide_horizontal_shelves_title">Ocultar estantes horizontales</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Los estantes horizontales están ocultos, como:
+• Noticias de última hora
+• Seguir viendo
+• Explorar más canales
+• Más relevantes
+• Compras
+• Ver de nuevo"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Se muestran los estantes horizontales</string>
+  <string name="revanced_hide_image_shelf_title">Ocultar estantería de imágenes</string>
+  <string name="revanced_hide_image_shelf_summary_on">Estantería de imágenes en los resultados de búsqueda oculta</string>
+  <string name="revanced_hide_image_shelf_summary_off">Estantería de imágenes en los resultados de búsqueda visible</string>
+  <string name="revanced_hide_latest_posts_title">Ocultar últimos mensajes</string>
+  <string name="revanced_hide_latest_posts_summary_on">Las últimas publicaciones están ocultas</string>
+  <string name="revanced_hide_latest_posts_summary_off">Se muestran las últimas publicaciones</string>
+  <string name="revanced_hide_mix_playlists_title">Ocultar listas de mezcla</string>
+  <string name="revanced_hide_mix_playlists_summary_on">Las listas de reproducción mixtas están ocultas</string>
+  <string name="revanced_hide_mix_playlists_summary_off">Mezclar listas de reproducción son mostradas</string>
+  <string name="revanced_hide_movies_section_title">Ocultar sección de películas</string>
+  <string name="revanced_hide_movies_section_summary_on">La sección de películas está oculta</string>
+  <string name="revanced_hide_movies_section_summary_off">Se muestra la sección de películas</string>
+  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
+                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+  <string name="revanced_hide_notify_me_button_title">Ocultar el botón \'Notificarme\'</string>
+  <string name="revanced_hide_notify_me_button_summary_on">El botón Notificarme está oculto</string>
+  <string name="revanced_hide_notify_me_button_summary_off">El botón Notificarme está visible</string>
+  <string name="revanced_hide_playables_title">Ocultar los reproducibles</string>
+  <string name="revanced_hide_playables_summary_on">Los reproducibles están ocultos</string>
+  <string name="revanced_hide_playables_summary_off">Se muestran los reproducibles</string>
+  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
+                  This button usually appears when searching for a YT creator. -->
+  <string name="revanced_hide_show_more_button_title">Ocultar botón \'Mostrar más\'</string>
+  <string name="revanced_hide_show_more_button_summary_on">El botón Mostrar más en los resultados de búsqueda está oculto</string>
+  <string name="revanced_hide_show_more_button_summary_off">El botón Mostrar más en los resultados de búsqueda está visible</string>
+  <string name="revanced_hide_ticket_shelf_title">Ocultar estante de boletos</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">El estante de boletos está oculto</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">El estante de boletos está visible</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_video_recommendation_labels_title">Ocultar etiquetas de recomendación de vídeo</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">Las etiquetas \"La gente también vio\" y \"También te puede gustar\" en los resultados de búsqueda están ocultas</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">Las etiquetas \"La gente también vio\" y \"También te puede gustar\" en los resultados de búsqueda están visibles</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Ocultar YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">La animación de los Doodles de YouTube en el logotipo está oculta</string>
+  <string name="revanced_hide_doodles_summary_off">Se muestra la animación de Doodles de YouTube en el logo</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"Los doodles de YouTube se muestran durante unos días al año.
+
+Si un doodle se está mostrando actualmente en tu región y este ajuste de ocultación está activado, la barra de filtro situada debajo de la barra de búsqueda también estará oculta."</string>
+  <string name="revanced_hide_channel_bar_title">Ocultar barra de canal</string>
+  <string name="revanced_hide_channel_bar_summary_on">Barra de canales oculta</string>
+  <string name="revanced_hide_channel_bar_summary_off">Barra de canales mostrada</string>
+  <string name="revanced_hide_channel_watermark_title">Ocultar marca de agua del canal</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Marca de agua oculta</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Marca de agua mostrada</string>
   <string name="revanced_hide_emergency_box_title">Ocultar cajas de emergencia</string>
   <string name="revanced_hide_emergency_box_summary_on">Las cajas de emergencia están ocultas</string>
   <string name="revanced_hide_emergency_box_summary_off">Se muestran cajas de emergencia</string>
   <string name="revanced_hide_info_panels_title">Ocultar paneles de información</string>
   <string name="revanced_hide_info_panels_summary_on">Los paneles de información están ocultos</string>
   <string name="revanced_hide_info_panels_summary_off">Los paneles de información se muestran</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays.
+                  This appears in the video player for certain videos. -->
+  <string name="revanced_hide_join_membership_button_title">Ocultar el botón Unirse</string>
+  <string name="revanced_hide_join_membership_button_summary_on">El botón Unirse está oculto</string>
+  <string name="revanced_hide_join_membership_button_summary_off">El botón Unirse está visible</string>
   <string name="revanced_hide_medical_panels_title">Ocultar paneles médicos</string>
   <string name="revanced_hide_medical_panels_summary_on">Los paneles médicos están ocultos</string>
   <string name="revanced_hide_medical_panels_summary_off">Se muestran paneles médicos</string>
-  <string name="revanced_hide_channel_bar_title">Ocultar barra de canal</string>
-  <string name="revanced_hide_channel_bar_summary_on">Barra de canales oculta</string>
-  <string name="revanced_hide_channel_bar_summary_off">Barra de canales mostrada</string>
-  <string name="revanced_hide_playables_title">Ocultar los reproducibles</string>
-  <string name="revanced_hide_playables_summary_on">Los reproducibles están ocultos</string>
-  <string name="revanced_hide_playables_summary_off">Se muestran los reproducibles</string>
-  <string name="revanced_hide_quick_actions_title">Ocultar acciones rápidas en pantalla completa</string>
-  <string name="revanced_hide_quick_actions_summary_on">Las acciones rápidas están ocultas</string>
-  <string name="revanced_hide_quick_actions_summary_off">Se muestran acciones rápidas</string>
-  <string name="revanced_hide_related_videos_title">Ocultar vídeos relacionados en acciones rápidas</string>
-  <string name="revanced_hide_related_videos_summary_on">Vídeos relacionados están ocultos</string>
-  <string name="revanced_hide_related_videos_summary_off">Vídeos relacionados se muestran</string>
-  <string name="revanced_hide_image_shelf_title">Ocultar la imagen en los resultados de búsqueda</string>
-  <string name="revanced_hide_image_shelf_summary_on">El estante de imágenes está oculto</string>
-  <string name="revanced_hide_image_shelf_summary_off">El estante de imágenes se muestra</string>
-  <string name="revanced_hide_latest_posts_ads_title">Ocultar últimos mensajes</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Las últimas publicaciones están ocultas</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Se muestran las últimas publicaciones</string>
-  <string name="revanced_hide_mix_playlists_title">Ocultar listas de mezcla</string>
-  <string name="revanced_hide_mix_playlists_summary_on">Las listas de reproducción mixtas están ocultas</string>
-  <string name="revanced_hide_mix_playlists_summary_off">Mezclar listas de reproducción son mostradas</string>
-  <string name="revanced_hide_artist_cards_title">Ocultar tarjetas de artistas</string>
-  <string name="revanced_hide_artist_cards_summary_on">Las tarjetas de artistas están ocultas</string>
-  <string name="revanced_hide_artist_cards_summary_off">Se muestran las tarjetas del artista</string>
+  <string name="revanced_hide_quick_actions_title">Ocultar acciones rápidas</string>
+  <string name="revanced_hide_quick_actions_summary_on">Acciones rápidas en pantalla completa ocultas</string>
+  <string name="revanced_hide_quick_actions_summary_off">Acciones rápidas en pantalla completa visibles</string>
+  <string name="revanced_hide_related_videos_title">Ocultar videos relacionados</string>
+  <string name="revanced_hide_related_videos_summary_on">Videos relacionados en acciones rápidas ocultos</string>
+  <string name="revanced_hide_related_videos_summary_off">Videos relacionados en acciones rápidas visibles</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Ocultar las directrices para suscriptores</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Las pautas comunitarias de los suscriptores están ocultas</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Se muestran las pautas de la comunidad de suscriptores</string>
+  <string name="revanced_hide_timed_reactions_title">Ocultar reacciones temporizadas</string>
+  <string name="revanced_hide_timed_reactions_summary_on">Las reacciones temporizadas están ocultas</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Se muestran reacciones temporizadas</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ocultar \"Resumen de video generado por IA\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sección de resumen del video está oculta</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sección de resumen del video se muestra</string>
@@ -295,6 +290,26 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ocultar en vídeos relacionados</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Escondido en videos relacionados</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Mostrar en vídeos relacionados</string>
+  <string name="revanced_channel_screen_title">Página del canal</string>
+  <string name="revanced_channel_screen_summary">Ocultar o mostrar componentes de la página del canal</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Ocultar la sección \"Para ti\"</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">La estantería \"Para ti\" está oculta</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">La estantería \"Para ti\" está visible</string>
+  <string name="revanced_hide_links_preview_title">Ocultar vista previa de enlaces</string>
+  <string name="revanced_hide_links_preview_summary_on">Vista previa de enlaces oculta</string>
+  <string name="revanced_hide_links_preview_summary_off">Vista previa de enlaces visible</string>
+  <string name="revanced_hide_members_shelf_title">Ocultar estantería de miembros</string>
+  <string name="revanced_hide_members_shelf_summary_on">Estantería de miembros oculta</string>
+  <string name="revanced_hide_members_shelf_summary_off">El estante de miembros se muestra</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Ocultar el botón \"Visitar comunidad\"</string>
+  <string name="revanced_hide_visit_community_button_summary_on">El botón Visitar comunidad está oculto</string>
+  <string name="revanced_hide_visit_community_button_summary_off">El botón \"Visitar comunidad\" está visible</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Ocultar el botón \'Visitar tienda\' en las páginas del canal</string>
+  <string name="revanced_hide_visit_store_button_summary_on">El botón \"Visitar tienda\" está oculto</string>
+  <string name="revanced_hide_visit_store_button_summary_off">El botón \"Visitar tienda\" está visible</string>
   <string name="revanced_comments_screen_title">Comentarios</string>
   <string name="revanced_comments_screen_summary">Ocultar o mostrar los componentes de sección de comentarios</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Ocultar el resumen del chat de IA</string>
@@ -303,12 +318,18 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
   <string name="revanced_hide_comments_ai_summary_title">Ocultar el resumen de los comentarios de la IA</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">El resumen de los comentarios está oculto</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">El resumen de los comentarios se muestra</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Ocultar directrices del canal</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Las directrices del canal están ocultas</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Las directrices del canal se muestran</string>
   <string name="revanced_hide_comments_by_members_header_title">Ocultar encabezado \'Comentarios por miembros\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">El encabezado Comentarios de los miembros está oculto</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Se muestra el encabezado Comentarios de los miembros</string>
   <string name="revanced_hide_comments_section_title">Ocultar sección de comentarios</string>
   <string name="revanced_hide_comments_section_summary_on">La sección de comentarios está oculta</string>
   <string name="revanced_hide_comments_section_summary_off">Sección de comentarios mostrada</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Ocultar directrices de la comunidad</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Directrices de la comunidad ocultas</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Directrices de la comunidad visibles</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Ocultar botón \'Crear un Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">El botón Crear un Short está oculto</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Se muestra el botón Crear un Short</string>
@@ -321,13 +342,6 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
   <string name="revanced_hide_comments_timestamp_button_title">Ocultar botón de marca de tiempo</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Botón de marca de tiempo oculto</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Botón de marca de tiempo mostrado</string>
-  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">Ocultar YouTube Doodles</string>
-  <string name="revanced_hide_doodles_summary_on">Barra de búsqueda Doodles están ocultos</string>
-  <string name="revanced_hide_doodles_summary_off">Mostrar la barra de búsqueda Doodles</string>
-  <string name="revanced_hide_doodles_user_dialog_message">"Los doodles de YouTube se muestran durante unos días al año.
-
-Si un doodle se está mostrando actualmente en tu región y este ajuste de ocultación está activado, la barra de filtro situada debajo de la barra de búsqueda también estará oculta."</string>
   <string name="revanced_custom_filter_screen_title">Filtro personalizado</string>
   <string name="revanced_custom_filter_screen_summary">Ocultar componentes usando filtros personalizados</string>
   <string name="revanced_custom_filter_title">Activar filtro personalizado</string>
@@ -374,12 +388,12 @@ Limitaciones
   <string name="revanced_hide_keyword_toast_invalid_broad">Palabra clave ocultará todos los vídeos: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Ocultar estantes de la tienda del creador</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Los estantes de la tienda debajo del reproductor y en la descripción del video están ocultos</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Se muestran los estantes de la tienda debajo del reproductor y en la descripción del video</string>
+  <string name="revanced_hide_creator_store_shelf_title">Ocultar estantería de la tienda del creador</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">El estante de la tienda del creador debajo del reproductor de vídeo está oculto</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Se muestra el estante de la tienda del creador debajo del reproductor de video</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ocultar banner de la tienda en la pantalla final</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">El banner de la tienda está oculto</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">El banner de la tienda está mostrado</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">El banner de la tienda de la pantalla final está oculto</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">El banner de la tienda de la pantalla final está visible</string>
   <string name="revanced_hide_fullscreen_ads_title">Ocultar anuncios a pantalla completa</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Los anuncios a pantalla completa están ocultos
 
@@ -396,20 +410,16 @@ Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_hide_paid_promotion_label_title">Ocultar etiqueta de promoción de pago</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Etiqueta de promoción pagada está oculta</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Etiqueta de promoción pagada se muestra</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_view_products_banner_title">Ocultar el banner \"Ver productos\"</string>
-  <string name="revanced_hide_view_products_banner_summary_on">El banner en la superposición del video está oculto</string>
-  <string name="revanced_hide_view_products_banner_summary_off">Se muestra el banner en la superposición del video</string>
   <string name="revanced_hide_self_sponsor_ads_title">Ocultar tarjetas autopatrocinadas</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Las tarjetas autopatrocinadas están ocultas</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Se muestran las tarjetas autopatrocinadas</string>
-  <string name="revanced_hide_tagged_products_title">Ocultar productos etiquetados</string>
-  <string name="revanced_hide_tagged_products_summary_on">Los productos etiquetados en la descripción del video están ocultos</string>
-  <string name="revanced_hide_tagged_products_summary_off">Se muestran los productos etiquetados en la descripción del video</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Ocultar el botón \'Visitar tienda\' en las páginas del canal</string>
-  <string name="revanced_hide_visit_store_button_summary_on">El botón en la página del canal está oculto</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Se muestra el botón en la página del canal</string>
+  <string name="revanced_hide_shopping_links_title">Ocultar enlaces de compras</string>
+  <string name="revanced_hide_shopping_links_summary_on">Los enlaces de compra en la descripción del vídeo están ocultos</string>
+  <string name="revanced_hide_shopping_links_summary_off">Se muestran los enlaces de compras en la descripción del video</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Ocultar el banner \"Ver productos\"</string>
+  <string name="revanced_hide_view_products_banner_summary_on">El banner \"Ver productos\" en la superposición de vídeo está oculto</string>
+  <string name="revanced_hide_view_products_banner_summary_off">El banner \"Ver productos\" en la superposición de vídeo está visible</string>
   <string name="revanced_hide_web_search_results_title">Ocultar resultados de búsqueda web</string>
   <string name="revanced_hide_web_search_results_summary_on">Los resultados de búsqueda web están ocultos</string>
   <string name="revanced_hide_web_search_results_summary_off">Se muestran los resultados de la búsqueda web</string>
@@ -440,13 +450,15 @@ Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Se mostrará el diálogo</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Esto no pasa por alto la restricción de edad, sino que simplemente la acepta automáticamente.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Descargas externa</string>
   <string name="revanced_external_downloader_screen_summary">Configuración para el uso de un descargador externo</string>
   <string name="revanced_external_downloader_title">Mostrar botón externo de descarga</string>
   <string name="revanced_external_downloader_summary_on">Se muestra el botón de descarga en el reproductor</string>
   <string name="revanced_external_downloader_summary_off">No se muestra el botón de descarga en el reproductor</string>
-  <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
+  <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
   <string name="revanced_external_downloader_action_button_title">Anular el botón de acción de descarga</string>
   <string name="revanced_external_downloader_action_button_summary_on">El botón de descarga abre su descarga externa</string>
   <string name="revanced_external_downloader_action_button_summary_off">El botón de descarga abre el descargador nativo en la aplicación</string>
@@ -539,7 +551,7 @@ Ajusta el volumen deslizando verticalmente en el lado derecho de la pantalla"</s
   <string name="revanced_hide_stop_ads_button_summary_on">El botón de detener anuncios está oculto</string>
   <string name="revanced_hide_stop_ads_button_summary_off">El botón de detener anuncios está mostrado</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                 This button usually appears only on live streams. -->
+                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Ocultar informe</string>
   <string name="revanced_hide_report_button_summary_on">El botón Reportar está oculto</string>
   <string name="revanced_hide_report_button_summary_off">Se muestra el botón Reportar</string>
@@ -556,7 +568,7 @@ Ajusta el volumen deslizando verticalmente en el lado derecho de la pantalla"</s
   <string name="revanced_hide_thanks_button_summary_on">El botón de gracias está oculto</string>
   <string name="revanced_hide_thanks_button_summary_off">Se muestra el botón de gracias</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Ocultar pregunta</string>
   <string name="revanced_hide_ask_button_summary_on">El botón \"Preguntar\" está oculto</string>
   <string name="revanced_hide_ask_button_summary_off">Se muestra el botón \"Preguntar\"</string>
@@ -580,7 +592,7 @@ Ajusta el volumen deslizando verticalmente en el lado derecho de la pantalla"</s
   <string name="revanced_hide_shorts_button_title">Ocultar Shorts</string>
   <string name="revanced_hide_shorts_button_summary_on">El botón de Shorts está oculto</string>
   <string name="revanced_hide_shorts_button_summary_off">El botón de Shorts es visible</string>
-  <!-- The Create button has no display name. Translate normally. -->
+  <!-- 'Create' has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Ocultar Crear</string>
   <string name="revanced_hide_create_button_summary_on">El botón Crear está oculto</string>
   <string name="revanced_hide_create_button_summary_off">Se muestra el botón Crear</string>
@@ -649,7 +661,7 @@ Si cambiar este ajuste no tiene efecto, intenta cambiar al modo incógnito."</st
   <string name="revanced_hide_player_flyout_speed_summary_on">Menú de velocidad de reproducción oculto</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Mostrar menú de velocidad de reproducción</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                 This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
+                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">Ocultar Más información</string>
   <string name="revanced_hide_player_flyout_more_info_summary_on">El menú Más información está oculto</string>
   <string name="revanced_hide_player_flyout_more_info_summary_off">Se muestra el menú Más información</string>
@@ -661,7 +673,7 @@ Si cambiar este ajuste no tiene efecto, intenta cambiar al modo incógnito."</st
   <string name="revanced_hide_player_flyout_audio_track_title">Ocultar pista de audio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">El menú de pista de audio está oculto</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">El menú de pista de audio se muestra</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"El menú de la pista de audio está oculto.
 
 Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de video\" a iOS TV"</string>
@@ -674,22 +686,22 @@ Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de 
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">El pie del menú de calidad de vídeo se muestra</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Ocultar botones Anterior &amp; Siguiente</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_on">Los botones están ocultos</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_off">Los botones se muestran</string>
-  <string name="revanced_hide_cast_button_title">Ocultar el botón Transmitir</string>
-  <string name="revanced_hide_cast_button_summary_on">El botón de envío a otros dispositivos está oculto</string>
-  <string name="revanced_hide_cast_button_summary_off">El botón de envío a otros dispositivos es visible</string>
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Ocultar el botón Subtítulos</string>
-  <string name="revanced_hide_captions_button_summary_on">Botón de subtítulos oculto</string>
-  <string name="revanced_hide_captions_button_summary_off">Botón de subtítulos mostrado</string>
   <string name="revanced_hide_autoplay_button_title">Ocultar el botón Reproducción automática</string>
   <string name="revanced_hide_autoplay_button_summary_on">El botón de reproducción automática está oculto</string>
   <string name="revanced_hide_autoplay_button_summary_off">Se muestra el botón de reproducción automática</string>
+  <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+  <string name="revanced_hide_captions_button_title">Ocultar el botón Subtítulos</string>
+  <string name="revanced_hide_captions_button_summary_on">Botón de subtítulos oculto</string>
+  <string name="revanced_hide_captions_button_summary_off">Botón de subtítulos mostrado</string>
+  <string name="revanced_hide_cast_button_title">Ocultar el botón Transmitir</string>
+  <string name="revanced_hide_cast_button_summary_on">El botón de envío a otros dispositivos está oculto</string>
+  <string name="revanced_hide_cast_button_summary_off">El botón de envío a otros dispositivos es visible</string>
   <string name="revanced_hide_player_control_buttons_background_title">Ocultar el fondo de los botones de control del reproductor</string>
   <string name="revanced_hide_player_control_buttons_background_summary_on">El fondo de los botones de control del reproductor está oculto</string>
   <string name="revanced_hide_player_control_buttons_background_summary_off">Se muestra el fondo de los botones de control del reproductor</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Ocultar botones Anterior &amp; Siguiente</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Los botones están ocultos</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Los botones se muestran</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ocultar tarjetas de pantalla final</string>
@@ -722,76 +734,75 @@ Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de 
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Reproductor de Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Oculta o muestra componentes en el reproductor de Shorts</string>
-  <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Ocultar Shorts en el Inicio</string>
-  <string name="revanced_hide_shorts_home_summary_on">Oculto en el feed de inicio y videos relacionados</string>
-  <string name="revanced_hide_shorts_home_summary_off">Se muestra en el feed de inicio y videos relacionados</string>
-  <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Ocultar Shorts en las suscripciones</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Ocultar</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Mostrar</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
+  <string name="revanced_hide_shorts_home_title">Ocultar Shorts en la página principal</string>
+  <string name="revanced_hide_shorts_home_summary_on">Oculto en la página principal y vídeos relacionados</string>
+  <string name="revanced_hide_shorts_home_summary_off">Visible en la página principal y vídeos relacionados</string>
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+  <string name="revanced_hide_shorts_subscriptions_title">Ocultar Shorts en el feed de Suscripciones</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Oculto en el feed de Suscripciones</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Visible en el feed de Suscripciones</string>
   <string name="revanced_hide_shorts_search_title">Ocultar Shorts en los resultados de búsqueda</string>
   <string name="revanced_hide_shorts_search_summary_on">Ocultos en los resultados de búsqueda</string>
   <string name="revanced_hide_shorts_search_summary_off">Mostrar en los resultados de búsqueda</string>
   <string name="revanced_hide_shorts_history_title">Ocultar Shorts en el historial de visualización</string>
   <string name="revanced_hide_shorts_history_summary_on">Oculto en el historial de visualización</string>
   <string name="revanced_hide_shorts_history_summary_off">Mostrado en el historial de visualización</string>
-  <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Ocultar el botón Unirse</string>
-  <string name="revanced_hide_shorts_join_button_summary_on">Botón de unión oculto</string>
-  <string name="revanced_hide_shorts_join_button_summary_off">Se muestra el botón de unirse</string>
-  <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">Ocultar el botón Suscribirse</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_on">El botón de suscripción está oculto</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_off">Se muestra el botón de suscripción</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Ocultar botones de superposición en pausa</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Los botones de superposición pausados están ocultos</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Se muestran los botones de superposición pausados</string>
-  <string name="revanced_hide_shorts_shop_button_title">Ocultar el botón Comprar</string>
-  <string name="revanced_hide_shorts_shop_button_summary_on">El botón de la tienda está oculto</string>
-  <string name="revanced_hide_shorts_shop_button_summary_off">Se muestra el botón de la tienda</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Ocultar el botón Comprar Súper Gracias</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">El botón Súper Gracias está oculto</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">El botón Súper Gracias está mostrado</string>
-  <string name="revanced_hide_shorts_tagged_products_title">Ocultar productos etiquetados</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">Los productos etiquetados están ocultos</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_off">Los productos etiquetados se muestran</string>
-  <string name="revanced_hide_shorts_location_label_title">Ocultar etiqueta de ubicación</string>
-  <string name="revanced_hide_shorts_location_label_summary_on">Etiqueta de ubicación oculta</string>
-  <string name="revanced_hide_shorts_location_label_summary_off">Etiqueta de ubicación mostrada</string>
-  <string name="revanced_hide_shorts_preview_comment_title">Ocultar comentario de vista previa</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_on">El comentario de vista previa está oculto</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">Se muestra la vista previa del comentario</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Ocultar el botón Guardar música</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">El botón Guardar música está oculto</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Mostrar el botón de guardar música</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Ocultar el botón Usar este sonido</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_on">El botón Usar este sonido está oculto</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_off">El botón Usar este sonido está visible</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Ocultar botón Usar esta plantilla</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">El botón Usar esta plantilla está oculto</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">El botón Usar esta plantilla se muestra</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Ocultar el botón Próximos</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">El botón próximo está oculto</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">Se muestra el botón próximo</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">El botón Comprar Super Thanks está oculto</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">El botón Comprar Super Thanks está visible</string>
   <string name="revanced_hide_shorts_effect_button_title">Ocultar botón de efecto</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">El botón de efecto está oculto</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">El botón de efecto está visible</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Ocultar el botón Pantalla verde</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">El botón verde de pantalla está oculto</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Se muestra el botón verde de pantalla</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Ocultar el botón Publicaciones nuevas</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_off">Se muestra el botón Publicaciones nuevas</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_on">El botón Publicaciones nuevas está oculto</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Ocultar botón de hashtag</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">El botón Hashtag está oculto</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Se muestra el botón Hashtag</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">Ocultar el botón Unirse</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">Botón de unión oculto</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">Se muestra el botón de unirse</string>
+  <string name="revanced_hide_shorts_location_label_title">Ocultar etiqueta de ubicación</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">Etiqueta de ubicación oculta</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">Etiqueta de ubicación mostrada</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Ocultar el botón Publicaciones nuevas</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">El botón Publicaciones nuevas está oculto</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Se muestra el botón Publicaciones nuevas</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Ocultar botones de superposición en pausa</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Los botones de superposición pausados están ocultos</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Se muestran los botones de superposición pausados</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Ocultar comentario de vista previa</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">El comentario de vista previa está oculto</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Se muestra la vista previa del comentario</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Ocultar el botón Guardar música</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">El botón Guardar música está oculto</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Mostrar el botón de guardar música</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Ocultar sugerencias de búsqueda</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Las sugerencias de búsqueda están ocultas</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Se muestran sugerencias de búsqueda</string>
+  <string name="revanced_hide_shorts_shop_button_title">Ocultar el botón Comprar</string>
+  <string name="revanced_hide_shorts_shop_button_summary_on">El botón de la tienda está oculto</string>
+  <string name="revanced_hide_shorts_shop_button_summary_off">Se muestra el botón de la tienda</string>
   <string name="revanced_hide_shorts_stickers_title">Ocultar stickers</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Los pegatinas están ocultos</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Se muestran pegatinas</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">Ocultar el botón Suscribirse</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">El botón de suscripción está oculto</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">Se muestra el botón de suscripción</string>
+  <string name="revanced_hide_shorts_tagged_products_title">Ocultar productos etiquetados</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">Los productos etiquetados están ocultos</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">Los productos etiquetados se muestran</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Ocultar el botón Próximos</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">El botón próximo está oculto</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Se muestra el botón próximo</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Ocultar el botón Usar este sonido</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">El botón Usar este sonido está oculto</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">El botón Usar este sonido está visible</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Ocultar botón Usar esta plantilla</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">El botón Usar esta plantilla está oculto</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">El botón Usar esta plantilla se muestra</string>
   <string name="revanced_hide_shorts_like_fountain_title">Ocultar la animación de la fuente de Me gusta</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">La animación de fuente de botón \"Me gusta\" está oculta</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">Se muestra la animación de fuente de botón \"Me gusta\"</string>
@@ -804,14 +815,17 @@ Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de 
   <string name="revanced_hide_shorts_comments_button_title">Ocultar el botón Comentarios</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">El botón de comentarios está oculto</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Se muestra el botón de comentarios</string>
-  <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">Ocultar el botón Remix</string>
-  <string name="revanced_hide_shorts_remix_button_summary_on">El botón Remix está oculto</string>
-  <string name="revanced_hide_shorts_remix_button_summary_off">Se muestra el botón Remix</string>
-  <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
+  <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_share_button_title">Ocultar el botón Compartir</string>
   <string name="revanced_hide_shorts_share_button_summary_on">El botón Compartir está oculto</string>
   <string name="revanced_hide_shorts_share_button_summary_off">Se muestra el botón Compartir</string>
+  <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_remix_button_title">Ocultar el botón Remix</string>
+  <string name="revanced_hide_shorts_remix_button_summary_on">El botón Remix está oculto</string>
+  <string name="revanced_hide_shorts_remix_button_summary_off">Se muestra el botón Remix</string>
+  <string name="revanced_hide_shorts_sound_button_title">Ocultar botón de sonido</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">Botón de sonido oculto</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">Se muestra el botón de sonido</string>
   <string name="revanced_hide_shorts_info_panel_title">Ocultar panel de información</string>
   <string name="revanced_hide_shorts_info_panel_summary_on">Panel de información oculto</string>
   <string name="revanced_hide_shorts_info_panel_summary_off">Se muestra el panel de información</string>
@@ -819,17 +833,14 @@ Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de 
   <string name="revanced_hide_shorts_channel_bar_summary_on">Barra de canales oculta</string>
   <string name="revanced_hide_shorts_channel_bar_summary_off">Barra de canales mostrada</string>
   <string name="revanced_hide_shorts_video_title_title">Ocultar título de vídeo</string>
-  <string name="revanced_hide_shorts_video_title_summary_on">El título está oculto</string>
-  <string name="revanced_hide_shorts_video_title_summary_off">El título se muestra</string>
+  <string name="revanced_hide_shorts_video_title_summary_on">El título del vídeo está oculto</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">El título del vídeo está visible</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Ocultar etiqueta de metadatos de sonido</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Etiqueta de metadatos oculta</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Etiqueta de metadatos mostrada</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">La etiqueta de metadatos de sonido está oculta</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">La etiqueta de metadatos de sonido está visible</string>
   <string name="revanced_hide_shorts_full_video_link_label_title">Ocultar la etiqueta del enlace del video</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Etiqueta de enlace de vídeo oculto</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Etiqueta de enlace de vídeo mostrada</string>
-  <string name="revanced_hide_shorts_sound_button_title">Ocultar botón de sonido</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">Botón de sonido oculto</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">Se muestra el botón de sonido</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Ocultar barra de navegación</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Barra de navegación oculta</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Se muestra la barra de navegación</string>
@@ -843,9 +854,9 @@ Configuración → Reproducción → Reproducir el siguiente vídeo automáticam
   <string name="revanced_end_screen_suggested_video_summary_off">Se muestra el vídeo sugerido de la pantalla final</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  <string name="revanced_hide_related_video_overlay_title">Ocultar la superposición de videos relacionados en pantalla completa</string>
-  <string name="revanced_hide_related_video_overlay_summary_on">Se oculta la superposición de videos relacionados</string>
-  <string name="revanced_hide_related_video_overlay_summary_off">Se muestra la superposición de videos relacionados</string>
+  <string name="revanced_hide_related_videos_overlay_title">Ocultar la superposición de vídeos relacionados</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">La superposición de vídeos relacionados en pantalla completa está oculta</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">La superposición de vídeos relacionados en pantalla completa está visible</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Ocultar fecha y hora de vídeo</string>
@@ -894,7 +905,7 @@ Limitación: Es posible que los Dislikes no aparezcan en el modo de incógnito"<
   <string name="revanced_ryd_dislike_percentage_title">Desliza como porcentaje</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Los Dislikes se muestran como un porcentaje</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Los Dislikes se muestran como un número</string>
-  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
   <string name="revanced_ryd_compact_layout_title">Botón Me gusta compacto</string>
   <string name="revanced_ryd_compact_layout_summary_on">Botón \"Me gusta\" para el ancho mínimo</string>
   <string name="revanced_ryd_compact_layout_summary_off">Botón \"Me gusta\" para una mejor apariencia</string>
@@ -951,7 +962,7 @@ Esta función funciona mejor con una calidad de vídeo de 720p o inferior y cuan
   <string name="revanced_sb_square_layout">Usar diseño cuadrado</string>
   <string name="revanced_sb_square_layout_sum_on">Los botones y los controles son cuadrados</string>
   <string name="revanced_sb_square_layout_sum_off">Los botones y controles están redondeados</string>
-  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
+  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
   <string name="revanced_sb_enable_compact_skip_button">Usar botón Saltar compacto</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Omitir botón con estilo para el ancho mínimo</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Omitir botón con estilo para la mejor apariencia</string>
@@ -1094,7 +1105,7 @@ Ya existe"</string>
   <string name="revanced_sb_vote_downvote">Voto negativo</string>
   <string name="revanced_sb_vote_category">Cambiar categoría</string>
   <string name="revanced_sb_vote_no_segments">No hay segmentos para votar</string>
-  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <!-- A segment start and end time, such as "02:10 to 03:40". -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s a %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Elige la categoría del segmento</string>
   <string name="revanced_sb_new_segment_disabled_category">Categoría está desactivada en la configuración. Habilitar la categoría para enviar.</string>
@@ -1165,7 +1176,7 @@ Esto cambiará la apariencia y las características de la aplicación, pero pued
 
 Si se desactiva posteriormente, se recomienda borrar los datos de la aplicación para evitar errores en la interfaz de usuario."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Versión de aplicación falsa de destino</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurar iconos antiguos del reproductor de Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restaurar iconos de navegación antiguos</string>
@@ -1272,9 +1283,9 @@ El minireproductor se puede arrastrar fuera de la pantalla hacia la izquierda o 
   <string name="revanced_gradient_loading_screen_title">Activar la pantalla de carga del degradado</string>
   <string name="revanced_gradient_loading_screen_summary_on">La pantalla de carga tendrá un fondo de degradado</string>
   <string name="revanced_gradient_loading_screen_summary_off">La pantalla de carga tendrá un fondo sólido</string>
-  <string name="splash_screen_animation_style_title">Estilo de la pantalla de presentación</string>
-  <string name="splash_screen_animation_style_entry_1">Color</string>
-  <string name="splash_screen_animation_style_entry_2">Blanco y negro</string>
+  <string name="revanced_splash_screen_animation_style_title">Estilo de la pantalla de presentación</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Color</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Blanco y negro</string>
   <string name="revanced_seekbar_custom_color_title">Activar el color personalizado de la barra de búsqueda</string>
   <string name="revanced_seekbar_custom_color_summary_on">Se muestra el color personalizado de la barra de búsqueda</string>
   <string name="revanced_seekbar_custom_color_summary_off">Se muestra el color original de la barra de búsqueda</string>
@@ -1284,6 +1295,14 @@ El minireproductor se puede arrastrar fuera de la pantalla hacia la izquierda o 
   <string name="revanced_seekbar_custom_color_accent_summary">El color de acento de la barra de búsqueda</string>
   <string name="revanced_seekbar_custom_color_invalid">Valor de color de la barra de búsqueda inválido</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logotipo del encabezado</string>
+  <string name="revanced_header_logo_entry_1">Predeterminado</string>
+  <string name="revanced_header_logo_entry_2">Normal</string>
+  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <string name="revanced_header_logo_entry_5">ReVanced mínimo</string>
+  <string name="revanced_header_logo_entry_6">Personalizado</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Evitar restricción regional de imágenes</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Usando host de imagen yt4.ggpht.com</string>
@@ -1292,13 +1311,13 @@ El minireproductor se puede arrastrar fuera de la pantalla hacia la izquierda o 
 Habilitar esto puede solucionar las imágenes que faltan que están bloqueadas en algunas regiones"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Pestaña</string>
-  <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_alt_thumbnail_subscription_title">Pestaña de suscripción</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+  <string name="revanced_alt_thumbnail_subscription_title">Pestaña Suscripciones</string>
+  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">Pestaña</string>
-  <string name="revanced_alt_thumbnail_player_title">Listas de reproducción, recomendaciones</string>
+  <string name="revanced_alt_thumbnail_player_title">Listas de reproducción del reproductor &amp; recomendaciones</string>
   <string name="revanced_alt_thumbnail_search_title">Resultados de búsqueda</string>
   <string name="revanced_alt_thumbnail_options_entry_1">Miniaturas originales</string>
   <string name="revanced_alt_thumbnail_options_entry_2">Deflecha &amp; miniaturas originales</string>
@@ -1397,11 +1416,11 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_force_original_audio_title">Forzar idioma de audio original</string>
   <string name="revanced_force_original_audio_summary_on">Usar el idioma de audio original</string>
   <string name="revanced_force_original_audio_summary_off">Utilizando audio predeterminado</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_force_original_audio_not_available">Para usar esta función, cambia \"Suplantar transmisiones de video\" a iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automático</string>
   <string name="revanced_remember_video_quality_last_selected_title">Recordar cambios de calidad de vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Los cambios de calidad se aplican a todos los vídeos</string>
@@ -1515,7 +1534,7 @@ AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está dis
   <string name="revanced_block_video_ads_summary_off">Los anuncios de vídeo están desbloqueados</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">mensaje eliminado</string>
+  <string name="revanced_deleted_msg">Mensaje eliminado</string>
   <string name="revanced_show_deleted_messages_title">Mostrar mensajes borrados</string>
   <string name="revanced_show_deleted_messages_entry_1">No mostrar mensajes borrados</string>
   <string name="revanced_show_deleted_messages_entry_2">Ocultar mensajes eliminados detrás de un spoiler</string>
@@ -1527,7 +1546,7 @@ AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está dis
   <string name="revanced_auto_claim_channel_points_summary_off">Los puntos de canal no se reclaman automáticamente</string>
   </patch>
   <patch id="debug.debugModePatch">
-  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
+  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
   <string name="revanced_twitch_debug_mode_title">Activar modo de depuración de Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">El modo de depuración de Twitch está habilitado (no recomendado)</string>
   <string name="revanced_twitch_debug_mode_summary_off">El modo de depuración de Twitch está desactivado</string>
@@ -1536,11 +1555,11 @@ AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está dis
   <string name="revanced_settings">Ajustes de ReVanced</string>
   <string name="revanced_about_title">Acerca de</string>
   <string name="revanced_about_summary">Acerca de ReVanced</string>
-  <string name="revanced_ads_screen_title">Anuncios</string>
+  <string name="revanced_ads_screen_title">Bloqueo de anuncios</string>
   <string name="revanced_ads_screen_summary">Ajustes de bloqueo de anuncios</string>
   <string name="revanced_chat_screen_title">Chatear</string>
   <string name="revanced_chat_screen_summary">Ajustes del chat</string>
-  <string name="revanced_misc_screen_title">Miscelánea</string>
+  <string name="revanced_misc_screen_title">Varios</string>
   <string name="revanced_misc_screen_summary">Ajustes multifuncionales</string>
   <string name="revanced_general_category_title">Ajustes generales</string>
   <string name="revanced_other_category_title">Otros ajustes</string>

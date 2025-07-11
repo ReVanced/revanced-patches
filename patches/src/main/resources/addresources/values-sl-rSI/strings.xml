@@ -146,115 +146,110 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_album_cards_title">Skrij kartice albuma</string>
   <string name="revanced_hide_album_cards_summary_on">Kartice albuma so skrite</string>
   <string name="revanced_hide_album_cards_summary_off">Kartice albuma so prikazane</string>
-  <string name="revanced_hide_crowdfunding_box_title">Skrij polje za financiranje</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Polje za financiranje je skrito</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Polje za financiranje je prikazano</string>
-  <string name="revanced_hide_floating_microphone_button_title">Skrij plavajoči gumb mikrofona</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Gumb mikrofona je skrit</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Gumb mikrofona je prikazan</string>
-  <string name="revanced_hide_channel_watermark_title">Skrij vodni žig kanala</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Vodni žig je skrit</string>
-  <string name="revanced_hide_channel_watermark_summary_off">Vodni žig je prikazan</string>
-  <string name="revanced_hide_horizontal_shelves_title">Skrij vodoravne police</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Police so skrite, na primer:
-• Najnovejše novice
-• Nadaljujte z gledanjem
-• Raziskujte več kanalov
-• Nakupovanje
-• Oglejte si znova"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Police so prikazane</string>
-  <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                 This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Skrij gumb Pridruži se</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Gumb je skrit</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Gumb je prikazan</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Skrij polico »Za vas«</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Polica na strani kanala je skrita</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Polica na strani kanala je prikazana</string>
-  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                 This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Skrij gumb \"Obvesti me\"</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Gumb je skrit</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Gumb je prikazan</string>
-  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendation_labels_title">Skrij oznake priporočil videoposnetkov</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Oznaki »Ljudje so si ogledali tudi« in »Morda vam bo všeč tudi« sta skriti</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Oznaki »Ljudje so si ogledali tudi« in »Morda vam bo všeč tudi« sta prikazani</string>
-  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Skrij gumb \"Prikaži več\"</string>
-  <string name="revanced_hide_show_more_button_summary_on">Gumb je skrit</string>
-  <string name="revanced_hide_show_more_button_summary_off">Gumb je prikazan</string>
-  <string name="revanced_hide_ticket_shelf_title">Skrij polico za vstopnice</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">Polica za vstopnice je skrita</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">Polica za vstopnice je prikazana</string>
-  <string name="revanced_hide_timed_reactions_title">Skrij časovno usklajene reakcije</string>
-  <string name="revanced_hide_timed_reactions_summary_on">Časovno usklajene reakcije so skrite</string>
-  <string name="revanced_hide_timed_reactions_summary_off">Časovno usklajene reakcije so prikazane</string>
-  <string name="revanced_hide_channel_guidelines_title">Skrij smernice kanala</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Smernice kanala so skrite</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Smernice kanala so prikazane</string>
+  <string name="revanced_hide_artist_cards_title">Skrij kartice izvajalcev</string>
+  <string name="revanced_hide_artist_cards_summary_on">Kartice izvajalcev so skrite</string>
+  <string name="revanced_hide_artist_cards_summary_off">Kartice izvajalcev so prikazane</string>
   <string name="revanced_hide_chips_shelf_title">Skrij polico s čipi</string>
   <string name="revanced_hide_chips_shelf_summary_on">Polica s čipi je skrita</string>
   <string name="revanced_hide_chips_shelf_summary_off">Polica s čipi je prikazana</string>
-  <string name="revanced_hide_expandable_chip_title">Skrij razširljivo kartico pod videi</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Razširljiva kartica je skrita</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Razširljiva kartica je prikazana</string>
   <string name="revanced_hide_community_posts_title">Skrij objave skupnosti</string>
   <string name="revanced_hide_community_posts_summary_on">Objave skupnosti so skrite</string>
   <string name="revanced_hide_community_posts_summary_off">Objave skupnosti so prikazane</string>
   <string name="revanced_hide_compact_banner_title">Skrij kompaktne pasice</string>
   <string name="revanced_hide_compact_banner_summary_on">Kompaktne pasice so skrite</string>
   <string name="revanced_hide_compact_banner_summary_off">Kompaktne pasice so prikazane</string>
-  <string name="revanced_hide_movies_section_title">Skrij oddelek s filmi</string>
-  <string name="revanced_hide_movies_section_summary_on">Oddelek s filmi je skrit</string>
-  <string name="revanced_hide_movies_section_summary_off">Oddelek s filmi je prikazan</string>
+  <string name="revanced_hide_crowdfunding_box_title">Skrij polje za financiranje</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Polje za financiranje je skrito</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Polje za financiranje je prikazano</string>
+  <string name="revanced_hide_expandable_card_title">Skrij razširljivo kartico</string>
+  <string name="revanced_hide_expandable_card_summary_on">Razširljiva kartica pod videoposnetki je skrita</string>
+  <string name="revanced_hide_expandable_card_summary_off">Razširljiva kartica pod videoposnetki je prikazana</string>
   <string name="revanced_hide_feed_survey_title">Skrij ankete v viru</string>
   <string name="revanced_hide_feed_survey_summary_on">Ankete v viru so skrite</string>
   <string name="revanced_hide_feed_survey_summary_off">Ankete v viru so prikazane</string>
-  <string name="revanced_hide_community_guidelines_title">Skrij smernice skupnosti</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Smernice skupnosti so skrite</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Smernice skupnosti so prikazane</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Skrij smernice za naročnike</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Smernice skupnosti naročnikov so skrite</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Smernice skupnosti naročnikov so prikazane</string>
-  <string name="revanced_hide_channel_member_shelf_title">Skrij polico s člani kanala</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Polica s člani kanala je skrita</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Polica s člani kanala je prikazana</string>
+  <string name="revanced_hide_floating_microphone_button_title">Skrij plavajoči gumb mikrofona</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Plavajoči gumb mikrofona v iskanju je skrit</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Plavajoči gumb mikrofona v iskanju je prikazan</string>
+  <string name="revanced_hide_horizontal_shelves_title">Skrij vodoravne police</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Vodoravne police so skrite, kot so:
+• Udarno
+• Nadaljuj z gledanjem
+• Razišči več kanalov
+• Najbolj ustrezno
+• Nakupovanje
+• Glej znova"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Horizontalne police so prikazane</string>
+  <string name="revanced_hide_image_shelf_title">Skrij polico s slikami</string>
+  <string name="revanced_hide_image_shelf_summary_on">Polica s slikami v rezultatih iskanja je skrita</string>
+  <string name="revanced_hide_image_shelf_summary_off">Polica s slikami v rezultatih iskanja je prikazana</string>
+  <string name="revanced_hide_latest_posts_title">Skrij najnovejše objave</string>
+  <string name="revanced_hide_latest_posts_summary_on">Najnovejše objave so skrite</string>
+  <string name="revanced_hide_latest_posts_summary_off">Najnovejše objave so prikazane</string>
+  <string name="revanced_hide_mix_playlists_title">Skrij mešane sezname predvajanja</string>
+  <string name="revanced_hide_mix_playlists_summary_on">Mešani seznami predvajanja so skriti</string>
+  <string name="revanced_hide_mix_playlists_summary_off">Mešani seznami predvajanja so prikazani</string>
+  <string name="revanced_hide_movies_section_title">Skrij oddelek s filmi</string>
+  <string name="revanced_hide_movies_section_summary_on">Oddelek s filmi je skrit</string>
+  <string name="revanced_hide_movies_section_summary_off">Oddelek s filmi je prikazan</string>
+  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
+                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+  <string name="revanced_hide_notify_me_button_title">Skrij gumb \"Obvesti me\"</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Gumb \"Obvesti me\" je skrit</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Gumb \"Obvesti me\" je prikazan</string>
+  <string name="revanced_hide_playables_title">Skrij igre</string>
+  <string name="revanced_hide_playables_summary_on">Igre so skrite</string>
+  <string name="revanced_hide_playables_summary_off">Igre so prikazane</string>
+  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
+                  This button usually appears when searching for a YT creator. -->
+  <string name="revanced_hide_show_more_button_title">Skrij gumb \"Prikaži več\"</string>
+  <string name="revanced_hide_show_more_button_summary_on">Gumb \"Prikaži več\" v rezultatih iskanja je skrit</string>
+  <string name="revanced_hide_show_more_button_summary_off">Gumb \"Prikaži več\" v rezultatih iskanja je prikazan</string>
+  <string name="revanced_hide_ticket_shelf_title">Skrij polico za vstopnice</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Polica za vstopnice je skrita</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Polica za vstopnice je prikazana</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_video_recommendation_labels_title">Skrij oznake priporočenih videoposnetkov</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">Oznake \"Ljudje so si ogledali tudi\" in \"Morda vam bo všeč\" v rezultatih iskanja so skrite</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">Oznake \"Ljudje so si ogledali tudi\" in \"Morda vam bo všeč\" v rezultatih iskanja so prikazane</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Skrij YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">Animacija YouTube Doodles na logotipu je skrita</string>
+  <string name="revanced_hide_doodles_summary_off">Animacija YouTube Doodles na logotipu je prikazana</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"Doodles so prikazani nekaj dni v letu.
+
+Če je Doodle trenutno prikazan v vaši regiji in je ta nastavitev skrita, se bo skrila tudi vrstica filtrov pod iskalno vrstico."</string>
+  <string name="revanced_hide_channel_bar_title">Skrij vrstico kanala</string>
+  <string name="revanced_hide_channel_bar_summary_on">Vrstica kanala je skrita</string>
+  <string name="revanced_hide_channel_bar_summary_off">Vrstica kanala je prikazana</string>
+  <string name="revanced_hide_channel_watermark_title">Skrij vodni žig kanala</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Vodni žig je skrit</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Vodni žig je prikazan</string>
   <string name="revanced_hide_emergency_box_title">Skrij polja za nujne primere</string>
   <string name="revanced_hide_emergency_box_summary_on">Polja za nujne primere so skrita</string>
   <string name="revanced_hide_emergency_box_summary_off">Polja za nujne primere so prikazana</string>
   <string name="revanced_hide_info_panels_title">Skrij informativne plošče</string>
   <string name="revanced_hide_info_panels_summary_on">Informativne plošče so skrite</string>
   <string name="revanced_hide_info_panels_summary_off">Informativne plošče so prikazane</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays.
+                  This appears in the video player for certain videos. -->
+  <string name="revanced_hide_join_membership_button_title">Skrij gumb Pridruži se</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Gumb \"Pridruži se\" je skrit</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Gumb \"Pridruži se\" je prikazan</string>
   <string name="revanced_hide_medical_panels_title">Skrij medicinske plošče</string>
   <string name="revanced_hide_medical_panels_summary_on">Medicinske plošče so skrite</string>
   <string name="revanced_hide_medical_panels_summary_off">Medicinske plošče so prikazane</string>
-  <string name="revanced_hide_channel_bar_title">Skrij vrstico kanala</string>
-  <string name="revanced_hide_channel_bar_summary_on">Vrstica kanala je skrita</string>
-  <string name="revanced_hide_channel_bar_summary_off">Vrstica kanala je prikazana</string>
-  <string name="revanced_hide_playables_title">Skrij igre</string>
-  <string name="revanced_hide_playables_summary_on">Igre so skrite</string>
-  <string name="revanced_hide_playables_summary_off">Igre so prikazane</string>
-  <string name="revanced_hide_quick_actions_title">Skrij hitre akcije v celozaslonskem načinu</string>
-  <string name="revanced_hide_quick_actions_summary_on">Hitre akcije so skrite</string>
-  <string name="revanced_hide_quick_actions_summary_off">Hitre akcije so prikazane</string>
-  <string name="revanced_hide_related_videos_title">Skrij povezane videoposnetke v hitrih akcijah</string>
-  <string name="revanced_hide_related_videos_summary_on">Povezani videoposnetki so skriti</string>
-  <string name="revanced_hide_related_videos_summary_off">Povezani videoposnetki so prikazani</string>
-  <string name="revanced_hide_image_shelf_title">Skrij polico s slikami v rezultatih iskanja</string>
-  <string name="revanced_hide_image_shelf_summary_on">Polica s slikami je skrita</string>
-  <string name="revanced_hide_image_shelf_summary_off">Polica s slikami je prikazana</string>
-  <string name="revanced_hide_latest_posts_ads_title">Skrij najnovejše objave</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Najnovejše objave so skrite</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Najnovejše objave so prikazane</string>
-  <string name="revanced_hide_mix_playlists_title">Skrij mešane sezname predvajanja</string>
-  <string name="revanced_hide_mix_playlists_summary_on">Mešani seznami predvajanja so skriti</string>
-  <string name="revanced_hide_mix_playlists_summary_off">Mešani seznami predvajanja so prikazani</string>
-  <string name="revanced_hide_artist_cards_title">Skrij kartice izvajalcev</string>
-  <string name="revanced_hide_artist_cards_summary_on">Kartice izvajalcev so skrite</string>
-  <string name="revanced_hide_artist_cards_summary_off">Kartice izvajalcev so prikazane</string>
+  <string name="revanced_hide_quick_actions_title">Skrij hitra dejanja</string>
+  <string name="revanced_hide_quick_actions_summary_on">Hitra dejanja v celozaslonskem načinu so skrita</string>
+  <string name="revanced_hide_quick_actions_summary_off">Hitra dejanja v celozaslonskem načinu so prikazana</string>
+  <string name="revanced_hide_related_videos_title">Skrij povezane videoposnetke</string>
+  <string name="revanced_hide_related_videos_summary_on">Povezani videoposnetki v hitrih dejanjih so skriti</string>
+  <string name="revanced_hide_related_videos_summary_off">Povezani videoposnetki v hitrih dejanjih so prikazani</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Skrij smernice za naročnike</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Smernice skupnosti naročnikov so skrite</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Smernice skupnosti naročnikov so prikazane</string>
+  <string name="revanced_hide_timed_reactions_title">Skrij časovno usklajene reakcije</string>
+  <string name="revanced_hide_timed_reactions_summary_on">Časovno usklajene reakcije so skrite</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Časovno usklajene reakcije so prikazane</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Skrij »Povzetek videoposnetka, ustvarjenega z umetno inteligenco«</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Razdelek s povzetkom videoposnetka je skrit</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Razdelek s povzetkom videoposnetka je prikazan</string>
@@ -298,6 +293,26 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Skrij v povezanih videoposnetkih</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Skrita v povezanih videoposnetkih</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Prikazana v povezanih videoposnetkih</string>
+  <string name="revanced_channel_screen_title">Stran kanala</string>
+  <string name="revanced_channel_screen_summary">Skrij ali prikaži komponente strani kanala</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Skrij polico »Za vas«</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Polica Za vas je skrita</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Polica Za vas je prikazana</string>
+  <string name="revanced_hide_links_preview_title">Skrij predogled povezav</string>
+  <string name="revanced_hide_links_preview_summary_on">Predogled povezav je skrit</string>
+  <string name="revanced_hide_links_preview_summary_off">Predogled povezav je prikazan</string>
+  <string name="revanced_hide_members_shelf_title">Skrij polico za člane</string>
+  <string name="revanced_hide_members_shelf_summary_on">Polica za člane je skrita</string>
+  <string name="revanced_hide_members_shelf_summary_off">Polica za člane je prikazana</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Skrij gumb \"Obišči skupnost\"</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Gumb \"Obišči skupnost\" je skrit</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Gumb Obišči skupnost je prikazan</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Skrij gumb \"Obiščite trgovino\" na straneh kanalov</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Gumb Obišči trgovino je skrit</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Gumb Obišči trgovino je prikazan</string>
   <string name="revanced_comments_screen_title">Komentarji</string>
   <string name="revanced_comments_screen_summary">Skrij ali prikaži komponente oddelka s komentarji</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Skrij povzetek klepeta z umetno inteligenco</string>
@@ -306,12 +321,18 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_comments_ai_summary_title">Skrij povzetek komentarjev z umetno inteligenco</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Povzetek komentarjev je skrit</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Povzetek komentarjev je prikazan</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Skrij smernice kanala</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Smernice kanala so skrite</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Smernice kanala so prikazane</string>
   <string name="revanced_hide_comments_by_members_header_title">Skrij naslov \"Komentarji članov\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Glava s komentarji članov je skrita</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Glava s komentarji članov je prikazana</string>
   <string name="revanced_hide_comments_section_title">Skrij oddelek s komentarji</string>
   <string name="revanced_hide_comments_section_summary_on">Oddelek s komentarji je skrit</string>
   <string name="revanced_hide_comments_section_summary_off">Oddelek s komentarji je prikazan</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Skrij smernice skupnosti</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Smernice skupnosti so skrite</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Smernice skupnosti so prikazane</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Skrij gumb \"Ustvari Shorts\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Gumb »Ustvari Short« je skrit</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Gumb »Ustvari Short« je prikazan</string>
@@ -321,16 +342,9 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_comments_thanks_button_title">Skrij gumb Hvala</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Gumb \"Hvala\" je skrit</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Gumb \"Hvala\" je prikazan</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Skrij gumb časovnega žiga</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Skrij gumb za časovni žig</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Gumb časovnega žiga je skrit</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Gumb časovnega žiga je prikazan</string>
-  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">Skrij YouTube Doodles</string>
-  <string name="revanced_hide_doodles_summary_on">Doodles v iskalni vrstici so skriti</string>
-  <string name="revanced_hide_doodles_summary_off">Doodles v iskalni vrstici so prikazani</string>
-  <string name="revanced_hide_doodles_user_dialog_message">"Doodles so prikazani nekaj dni v letu.
-
-Če je Doodle trenutno prikazan v vaši regiji in je ta nastavitev skrita, se bo skrila tudi vrstica filtrov pod iskalno vrstico."</string>
   <string name="revanced_custom_filter_screen_title">Prilagojeni filter</string>
   <string name="revanced_custom_filter_screen_summary">Skrij komponente s prilagojenimi filtri</string>
   <string name="revanced_custom_filter_title">Omogoči prilagojeni filter</string>
@@ -377,12 +391,12 @@ Omejitve
   <string name="revanced_hide_keyword_toast_invalid_broad">Ključna beseda bo skrila vse videoposnetke: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Skrij police trgovine ustvarjalca</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Police trgovine pod predvajalnikom in v opisu videa so skrite</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Prikazane so police trgovine pod predvajalnikom in v opisu videoposnetka</string>
+  <string name="revanced_hide_creator_store_shelf_title">Skrij polico trgovine ustvarjalcev</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Polica trgovine za ustvarjalce pod video predvajalnikom je skrita</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Polica trgovine za ustvarjalce pod video predvajalnikom je prikazana</string>
   <string name="revanced_hide_end_screen_store_banner_title">Skrij pasico trgovine na koncu zaslona</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Pasica trgovine je skrita</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Pasica trgovine je prikazana</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Pasica trgovine na končnem zaslonu je skrita</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Pasica trgovine na končnem zaslonu je prikazana</string>
   <string name="revanced_hide_fullscreen_ads_title">Skrij oglase na celotnem zaslonu</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Oglasi na celotnem zaslonu so skriti
 
@@ -399,20 +413,16 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_hide_paid_promotion_label_title">Skrij nalepko plačane promocije</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Nalepka plačane promocije je skrita</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Nalepka plačane promocije je prikazana</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_view_products_banner_title">Skrij pasico \"Prikaži izdelke\"</string>
-  <string name="revanced_hide_view_products_banner_summary_on">Pasica v prekrivanju videa je skrita</string>
-  <string name="revanced_hide_view_products_banner_summary_off">Prikazana je pasica v prekrivanju videoposnetka</string>
   <string name="revanced_hide_self_sponsor_ads_title">Skrij samoproizvedene oglase</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Samoproizvedeni oglasi so skriti</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Samoproizvedeni oglasi so prikazani</string>
-  <string name="revanced_hide_tagged_products_title">Skrij označene izdelke</string>
-  <string name="revanced_hide_tagged_products_summary_on">Označeni izdelki v opisu videa so skriti</string>
-  <string name="revanced_hide_tagged_products_summary_off">Prikazani so označeni izdelki v opisu videoposnetka</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Skrij gumb \"Obiščite trgovino\" na straneh kanalov</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Gumb na strani kanala je skrit</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Gumb na strani kanala je prikazan</string>
+  <string name="revanced_hide_shopping_links_title">Skrij nakupovalne povezave</string>
+  <string name="revanced_hide_shopping_links_summary_on">Nakupovalne povezave v opisu videoposnetka so skrite</string>
+  <string name="revanced_hide_shopping_links_summary_off">Nakupovalne povezave v opisu videoposnetka so prikazane</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Skrij pasico \"Prikaži izdelke\"</string>
+  <string name="revanced_hide_view_products_banner_summary_on">Pasica \"Ogled izdelkov\" v video prekrivanju je skrita</string>
+  <string name="revanced_hide_view_products_banner_summary_off">Pasica \"Ogled izdelkov\" v video prekrivanju je prikazana</string>
   <string name="revanced_hide_web_search_results_title">Skrij rezultate spletnega iskanja</string>
   <string name="revanced_hide_web_search_results_summary_on">Rezultati spletnega iskanja so skriti</string>
   <string name="revanced_hide_web_search_results_summary_off">Rezultati spletnega iskanja so prikazani</string>
@@ -443,13 +453,18 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Opozorilo bo prikazano</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">To ne obide starostne omejitve. Samo samodejno jo sprejme.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Onemogoči preskok poglavja z dvojnim dotikom</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dvojni dotik nikoli ne more sprožiti preskoka na naslednje/prejšnje poglavje</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dvojni dotik lahko občasno sproži preskok na naslednje/prejšnje poglavje</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Zunanji prenosi</string>
   <string name="revanced_external_downloader_screen_summary">Nastavitve za uporabo zunanjega prenašalnika</string>
   <string name="revanced_external_downloader_title">Prikaži gumb za zunanji prenos</string>
   <string name="revanced_external_downloader_summary_on">Gumb za prenos v predvajalniku je prikazan</string>
   <string name="revanced_external_downloader_summary_off">Gumb za prenos v predvajalniku ni prikazan</string>
-  <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
+  <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
   <string name="revanced_external_downloader_action_button_title">Preglasi gumb \'Prenesi\'</string>
   <string name="revanced_external_downloader_action_button_summary_on">Gumb za prenos odpre vaš zunanji prenašalnik</string>
   <string name="revanced_external_downloader_action_button_summary_off">Gumb za prenos odpre vgrajeni prenašalnik v aplikaciji</string>
@@ -542,7 +557,7 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Gumb za zaustavitev oglasov je skrit</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Gumb za zaustavitev oglasov je prikazan</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                 This button usually appears only on live streams. -->
+                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Skrij Prijavi</string>
   <string name="revanced_hide_report_button_summary_on">Gumb Prijavi je skrit</string>
   <string name="revanced_hide_report_button_summary_off">Gumb Prijavi je prikazan</string>
@@ -559,7 +574,7 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_hide_thanks_button_summary_on">Gumb Hvala je skrit</string>
   <string name="revanced_hide_thanks_button_summary_off">Gumb Hvala je prikazan</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Skrij Vprašaj</string>
   <string name="revanced_hide_ask_button_summary_on">Gumb Vprašaj je skrit</string>
   <string name="revanced_hide_ask_button_summary_off">Gumb Vprašaj je prikazan</string>
@@ -583,7 +598,7 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_hide_shorts_button_title">Skrij Shorts</string>
   <string name="revanced_hide_shorts_button_summary_on">Gumb Shorts je skrit</string>
   <string name="revanced_hide_shorts_button_summary_off">Gumb Shorts je prikazan</string>
-  <!-- The Create button has no display name. Translate normally. -->
+  <!-- 'Create' has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Skrij Ustvari</string>
   <string name="revanced_hide_create_button_summary_on">Gumb Ustvari je skrit</string>
   <string name="revanced_hide_create_button_summary_off">Gumb Ustvari je prikazan</string>
@@ -652,7 +667,7 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Meni s hitrostjo predvajanja je skrit</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Meni s hitrostjo predvajanja je prikazan</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                 This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
+                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">Skrij več informacij</string>
   <string name="revanced_hide_player_flyout_more_info_summary_on">Meni z več informacijami je skrit</string>
   <string name="revanced_hide_player_flyout_more_info_summary_off">Meni z več informacijami je prikazan</string>
@@ -664,7 +679,7 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Skrij zvočni posnetek</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meni z zvočnim posnetkom je skrit</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Meni z zvočnim posnetkom je prikazan</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni zvočnega posnetka je skrit
 
 Če želite prikazati meni zvočnega posnetka, spremenite možnost »Prikazovalnik video tokov« v iOS TV"</string>
@@ -677,22 +692,22 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Noga menija s kakovostjo videa je prikazana</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Skrij gumbe »Prejšnji« &amp; »Naslednji«</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_on">Gumbi so skriti</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_off">Gumbi so prikazani</string>
-  <string name="revanced_hide_cast_button_title">Skrij gumb \'Predvajaj\'</string>
-  <string name="revanced_hide_cast_button_summary_on">Gumb za predvajanje je skrit</string>
-  <string name="revanced_hide_cast_button_summary_off">Gumb za predvajanje je prikazan</string>
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Skrij gumb \'Podnapisi\'</string>
-  <string name="revanced_hide_captions_button_summary_on">Gumb za napise je skrit</string>
-  <string name="revanced_hide_captions_button_summary_off">Gumb za napise je prikazan</string>
   <string name="revanced_hide_autoplay_button_title">Skrij gumb \'Samodejno predvajanje\'</string>
   <string name="revanced_hide_autoplay_button_summary_on">Gumb za samodejno predvajanje je skrit</string>
   <string name="revanced_hide_autoplay_button_summary_off">Gumb za samodejno predvajanje je prikazan</string>
+  <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+  <string name="revanced_hide_captions_button_title">Skrij gumb \'Podnapisi\'</string>
+  <string name="revanced_hide_captions_button_summary_on">Gumb za napise je skrit</string>
+  <string name="revanced_hide_captions_button_summary_off">Gumb za napise je prikazan</string>
+  <string name="revanced_hide_cast_button_title">Skrij gumb \'Predvajaj\'</string>
+  <string name="revanced_hide_cast_button_summary_on">Gumb za predvajanje je skrit</string>
+  <string name="revanced_hide_cast_button_summary_off">Gumb za predvajanje je prikazan</string>
   <string name="revanced_hide_player_control_buttons_background_title">Skrij ozadje gumbov za upravljanje predvajalnika</string>
   <string name="revanced_hide_player_control_buttons_background_summary_on">Ozadje gumbov za upravljanje predvajalnika je skrito</string>
   <string name="revanced_hide_player_control_buttons_background_summary_off">Ozadje gumbov za upravljanje predvajalnika je prikazano</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Skrij gumbe »Prejšnji« &amp; »Naslednji«</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Gumbi so skriti</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Gumbi so prikazani</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skrij kartice na končnem zaslonu</string>
@@ -725,76 +740,75 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Predvajalnik Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Skrij ali prikaži komponente v predvajalniku Shorts</string>
-  <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Skrij Shorts v domačem viru</string>
-  <string name="revanced_hide_shorts_home_summary_on">Skrito v domačem viru in sorodnih videoposnetkih</string>
-  <string name="revanced_hide_shorts_home_summary_off">Prikazano v domačem viru in sorodnih videoposnetkih</string>
-  <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <string name="revanced_hide_shorts_home_summary_on">Skrito v domačem viru in povezanih videoposnetkih</string>
+  <string name="revanced_hide_shorts_home_summary_off">Prikazano v domačem viru in povezanih videoposnetkih</string>
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Skrij Shorts v viru naročnin</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Skrito v viru naročnine</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Prikazano v viru naročnine</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Skrito v viru naročnin</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Prikazano v viru naročnin</string>
   <string name="revanced_hide_shorts_search_title">Skrij Shorts v rezultatih iskanja.</string>
   <string name="revanced_hide_shorts_search_summary_on">Skrito v rezultatih iskanja</string>
   <string name="revanced_hide_shorts_search_summary_off">Prikazano v rezultatih iskanja</string>
   <string name="revanced_hide_shorts_history_title">Skrij kratke posnetke v zgodovini ogledov</string>
   <string name="revanced_hide_shorts_history_summary_on">Skrito v zgodovini ogledov</string>
   <string name="revanced_hide_shorts_history_summary_off">Prikazano v zgodovini ogledov</string>
-  <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Skrij gumb \'Pridruži se\'</string>
-  <string name="revanced_hide_shorts_join_button_summary_on">Gumb za pridružitev je skrit.</string>
-  <string name="revanced_hide_shorts_join_button_summary_off">Gumb \"Pridruži se\" je prikazan</string>
-  <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">Skrij gumb \'Naroči se\'</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_on">Gumb za naročnino je skrit</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_off">Gumb za naročnino je prikazan</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Skrij gumbe v prekinitvenem zaslonu</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Gumbi v prekinitvenem zaslonu so skriti</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Gumbi v prekinitvenem zaslonu so prikazani</string>
-  <string name="revanced_hide_shorts_shop_button_title">Skrij gumb \'Trgovina\'</string>
-  <string name="revanced_hide_shorts_shop_button_summary_on">Gumb za trgovino je skrit</string>
-  <string name="revanced_hide_shorts_shop_button_summary_off">Gumb za trgovino je prikazan</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Skrij gumb \'Kupite Super Zahvale\'</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Gumb \'Super Zahvale\' je skrit</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Gumb \'Super Zahvale\' je prikazan</string>
-  <string name="revanced_hide_shorts_tagged_products_title">Skrij označene izdelke</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">Označeni izdelki so skriti</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_off">Označeni izdelki so prikazani</string>
-  <string name="revanced_hide_shorts_location_label_title">Skrij oznako lokacije</string>
-  <string name="revanced_hide_shorts_location_label_summary_on">Oznaka lokacije je skrita</string>
-  <string name="revanced_hide_shorts_location_label_summary_off">Oznaka lokacije je prikazana</string>
-  <string name="revanced_hide_shorts_preview_comment_title">Skrij predogled komentarja</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_on">Predogled komentarja je skrit</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">Predogled komentarja je prikazan</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Skrij gumb \'Shrani glasbo\'</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Gumb za shranjevanje glasbe je skrit</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Gumb za shranjevanje glasbe je prikazan</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Skrij gumb Uporabi ta zvok</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_on">Gumb Uporabi ta zvok je skrit</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_off">Gumb Uporabi ta zvok je prikazan</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Skrij gumb Uporabi to predlogo</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Gumb Uporabi to predlogo je skrit</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Gumb Uporabi to predlogo je prikazan</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Skrij gumb \'Prihajajoči\'</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">Gumb \"Prihajajoči\" je skrit</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">Gumb \"Prihajajoči\" je prikazan</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Gumb \"Kupi Super zahvale\" je skrit</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Gumb \"Kupi Super zahvale\" je prikazan</string>
   <string name="revanced_hide_shorts_effect_button_title">Skrij gumb učinka</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Gumb za učinek je skrit</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Gumb za učinek je prikazan</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Skrij gumb \'Zelena scena\'</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Gumb za zeleno ozadje je skrit</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Gumb za zeleno ozadje je prikazan</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Skrij gumb za nove objave</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_off">Gumb za nove objave je prikazan</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_on">Gumb za nove objave je skrit</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Skrij gumb za ključnik</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Gumb za ključnik je skrit</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Gumb za ključnik je prikazan</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">Skrij gumb \'Pridruži se\'</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">Gumb za pridružitev je skrit.</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">Gumb \"Pridruži se\" je prikazan</string>
+  <string name="revanced_hide_shorts_location_label_title">Skrij oznako lokacije</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">Oznaka lokacije je skrita</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">Oznaka lokacije je prikazana</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Skrij gumb za nove objave</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Gumb za nove objave je skrit</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Gumb za nove objave je prikazan</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Skrij gumbe v prekinitvenem zaslonu</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Gumbi v prekinitvenem zaslonu so skriti</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Gumbi v prekinitvenem zaslonu so prikazani</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Skrij predogled komentarja</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Predogled komentarja je skrit</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Predogled komentarja je prikazan</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Skrij gumb \'Shrani glasbo\'</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Gumb za shranjevanje glasbe je skrit</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Gumb za shranjevanje glasbe je prikazan</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Skrij predloge za iskanje</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Predlogi za iskanje so skriti</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Predlogi za iskanje so prikazani</string>
+  <string name="revanced_hide_shorts_shop_button_title">Skrij gumb \'Trgovina\'</string>
+  <string name="revanced_hide_shorts_shop_button_summary_on">Gumb za trgovino je skrit</string>
+  <string name="revanced_hide_shorts_shop_button_summary_off">Gumb za trgovino je prikazan</string>
   <string name="revanced_hide_shorts_stickers_title">Skrij nalepke</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Nalepke so skrite</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Nalepke so prikazane</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">Skrij gumb \'Naroči se\'</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">Gumb za naročnino je skrit</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">Gumb za naročnino je prikazan</string>
+  <string name="revanced_hide_shorts_tagged_products_title">Skrij označene izdelke</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">Označeni izdelki so skriti</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">Označeni izdelki so prikazani</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Skrij gumb \'Prihajajoči\'</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Gumb \"Prihajajoči\" je skrit</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Gumb \"Prihajajoči\" je prikazan</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Skrij gumb Uporabi ta zvok</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Gumb Uporabi ta zvok je skrit</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Gumb Uporabi ta zvok je prikazan</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Skrij gumb Uporabi to predlogo</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Gumb Uporabi to predlogo je skrit</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Gumb Uporabi to predlogo je prikazan</string>
   <string name="revanced_hide_shorts_like_fountain_title">Skrij animacijo fontane gumba \'Všeč mi je\'</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">Animacija fontane všečkov je skrita</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">Animacija fontane všečkov je prikazana</string>
@@ -807,14 +821,17 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_shorts_comments_button_title">Skrij gumb \'Komentarji\'</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Gumb za komentarje je skrit</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Gumb za komentarje je prikazan</string>
-  <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">Skrij gumb \'Remix\'</string>
-  <string name="revanced_hide_shorts_remix_button_summary_on">Gumb za remix je skrit</string>
-  <string name="revanced_hide_shorts_remix_button_summary_off">Gumb za remix je prikazan</string>
-  <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
+  <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_share_button_title">Skrij gumb \'Deli\'</string>
   <string name="revanced_hide_shorts_share_button_summary_on">Gumb za deljenje je skrit</string>
   <string name="revanced_hide_shorts_share_button_summary_off">Gumb za deljenje je prikazan</string>
+  <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_remix_button_title">Skrij gumb \'Remix\'</string>
+  <string name="revanced_hide_shorts_remix_button_summary_on">Gumb za remix je skrit</string>
+  <string name="revanced_hide_shorts_remix_button_summary_off">Gumb za remix je prikazan</string>
+  <string name="revanced_hide_shorts_sound_button_title">Skrij gumb za zvok</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">Gumb za zvok je skrit</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">Gumb za zvok je prikazan</string>
   <string name="revanced_hide_shorts_info_panel_title">Skrij informacijski del</string>
   <string name="revanced_hide_shorts_info_panel_summary_on">Informacijski del je skrit</string>
   <string name="revanced_hide_shorts_info_panel_summary_off">Informacijski del je prikazan</string>
@@ -822,17 +839,14 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_shorts_channel_bar_summary_on">Vrstica kanala je skrita</string>
   <string name="revanced_hide_shorts_channel_bar_summary_off">Vrstica kanala je prikazana</string>
   <string name="revanced_hide_shorts_video_title_title">Skrij naslov videoposnetka</string>
-  <string name="revanced_hide_shorts_video_title_summary_on">Naslov je skrit</string>
-  <string name="revanced_hide_shorts_video_title_summary_off">Naslov je prikazan</string>
+  <string name="revanced_hide_shorts_video_title_summary_on">Naslov videoposnetka je skrit</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">Naslov videoposnetka je prikazan</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Skrij nalepko s podatki o zvoku</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Nalepka s podatki je skrita</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Nalepka s podatki je prikazana</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Oznaka zvočnih metapodatkov je skrita</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Oznaka zvočnih metapodatkov je prikazana</string>
   <string name="revanced_hide_shorts_full_video_link_label_title">Skrij oznako povezave do videoposnetka</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Nalepka s povezavo do videoposnetka je skrita</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Nalepka s povezavo do videoposnetka je prikazana</string>
-  <string name="revanced_hide_shorts_sound_button_title">Skrij gumb za zvok</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">Gumb za zvok je skrit</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">Gumb za zvok je prikazan</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Skrij navigacijsko vrstico</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigacijska vrstica je skrita</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigacijska vrstica je prikazana</string>
@@ -846,9 +860,9 @@ Nastavitve → Predvajanje → Samodejno predvajanje naslednjega videoposnetka"<
   <string name="revanced_end_screen_suggested_video_summary_off">Predlagani videoposnetek na koncu zaslona je prikazan</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  <string name="revanced_hide_related_video_overlay_title">Skrij prekrivni element s sorodnim videoposnetkom v celozaslonskem načinu</string>
-  <string name="revanced_hide_related_video_overlay_summary_on">Prekrivni element s sorodnim videoposnetkom je skrit</string>
-  <string name="revanced_hide_related_video_overlay_summary_off">Prekrivni element s sorodnim videoposnetkom je prikazan</string>
+  <string name="revanced_hide_related_videos_overlay_title">Skrij prekrivanje povezanih videoposnetkov</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">Prekrivanje povezanih videoposnetkov v celozaslonskem načinu je skrito</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">Prekrivanje povezanih videoposnetkov v celozaslonskem načinu je prikazano</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skrij časovni žig videoposnetka</string>
@@ -897,7 +911,7 @@ Omejitev: Število »Ni mi všeč« se morda ne bo prikazalo v načinu brez bele
   <string name="revanced_ryd_dislike_percentage_title">Všečkov ne kot odstotek</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Število »Ni mi všeč« je prikazano kot odstotek</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Število »Ni mi všeč« je prikazano kot številka</string>
-  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
   <string name="revanced_ryd_compact_layout_title">Kompaktni gumb \'Všeč mi je\'</string>
   <string name="revanced_ryd_compact_layout_summary_on">Gumb všečkov je oblikovan za minimalno širino</string>
   <string name="revanced_ryd_compact_layout_summary_off">Gumb všečkov je oblikovan za najboljši videz</string>
@@ -954,7 +968,7 @@ Ta funkcija deluje najbolje pri kakovosti videa 720p ali nižji in pri uporabi z
   <string name="revanced_sb_square_layout">Uporabi kvadratno postavitev</string>
   <string name="revanced_sb_square_layout_sum_on">Gumbi in kontrolniki so kvadratni</string>
   <string name="revanced_sb_square_layout_sum_off">Gumbi in kontrolniki so zaobljeni</string>
-  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
+  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
   <string name="revanced_sb_enable_compact_skip_button">Uporabi kompakten gumb za preskok</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Gumb za preskakovanje, oblikovan za minimalno širino</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Gumb za preskakovanje, oblikovan za najboljši videz</string>
@@ -1097,7 +1111,7 @@ Uporabniški ID je, kot je geslo, zato ga nikoli ne delite."</string>
   <string name="revanced_sb_vote_downvote">Glasuj navzdol</string>
   <string name="revanced_sb_vote_category">Spremeni kategorijo</string>
   <string name="revanced_sb_vote_no_segments">Za glasovanje ni nobenih segmentov</string>
-  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <!-- A segment start and end time, such as "02:10 to 03:40". -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s do %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Izberi kategorijo segmenta</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorija je v nastavitvah onemogočena. Omogoči kategorijo, da lahko oddaš.</string>
@@ -1176,7 +1190,7 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
 
 Če ga kasneje izklopite, je priporočljivo počistiti podatke aplikacije, da preprečite napake uporabniškega vmesnika."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Cilj spoofa različice aplikacije</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnovi stare ikone predvajalnika Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Obnovi stare ikone za krmarjenje</string>
@@ -1284,9 +1298,9 @@ Minipredvajalnik lahko povlečete z zaslona na levo ali desno"</string>
   <string name="revanced_gradient_loading_screen_title">Omogoči zaslon za nalaganje z gradientom</string>
   <string name="revanced_gradient_loading_screen_summary_on">Zaslon za nalaganje bo imel ozadje z gradientom</string>
   <string name="revanced_gradient_loading_screen_summary_off">Zaslon za nalaganje bo imel enobarvno ozadje</string>
-  <string name="splash_screen_animation_style_title">Slog uvodnega zaslona</string>
-  <string name="splash_screen_animation_style_entry_1">Barva</string>
-  <string name="splash_screen_animation_style_entry_2">Črno-belo</string>
+  <string name="revanced_splash_screen_animation_style_title">Slog uvodnega zaslona</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Barva</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Črno-belo</string>
   <string name="revanced_seekbar_custom_color_title">Omogoči prilagojeno barvo drsnika</string>
   <string name="revanced_seekbar_custom_color_summary_on">Prilagojena barva drsnika je prikazana</string>
   <string name="revanced_seekbar_custom_color_summary_off">Izvorna barva drsnika je prikazana</string>
@@ -1296,6 +1310,14 @@ Minipredvajalnik lahko povlečete z zaslona na levo ali desno"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Barva poudarka iskalnika</string>
   <string name="revanced_seekbar_custom_color_invalid">Neveljavna vrednost barve drsnika</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Logotip glave</string>
+  <string name="revanced_header_logo_entry_1">Privzeto</string>
+  <string name="revanced_header_logo_entry_2">Navadno</string>
+  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <string name="revanced_header_logo_entry_5">ReVanced minimalno</string>
+  <string name="revanced_header_logo_entry_6">Po meri</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Obvozi omejitve območja slike</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Z uporabo gostitelja slik yt4.ggpht.com</string>
@@ -1304,13 +1326,13 @@ Minipredvajalnik lahko povlečete z zaslona na levo ali desno"</string>
 Omogočanje tega lahko odpravi manjkajoče slike, ki so v nekaterih regijah blokirane"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Domov</string>
-  <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_alt_thumbnail_subscription_title">Naročila</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+  <string name="revanced_alt_thumbnail_subscription_title">Zavihek Naročnine</string>
+  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">Vi</string>
-  <string name="revanced_alt_thumbnail_player_title">Seznami predvajanja predvajalnika, priporočila</string>
+  <string name="revanced_alt_thumbnail_player_title">Seznami predvajanja predvajalnika in priporočila</string>
   <string name="revanced_alt_thumbnail_search_title">Rezultati iskanja</string>
   <string name="revanced_alt_thumbnail_options_entry_1">Prvotne sličice</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Prvotne sličice</string>
@@ -1409,11 +1431,11 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_force_original_audio_title">Izsili izvirni jezik zvoka</string>
   <string name="revanced_force_original_audio_summary_on">Uporabi izvirni jezik zvoka</string>
   <string name="revanced_force_original_audio_summary_off">Uporaba privzetega zvoka</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_force_original_audio_not_available">Če želite uporabiti to funkcijo, spremenite »Spoof video streams« v iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Samodejno</string>
   <string name="revanced_remember_video_quality_last_selected_title">Zapomni si spremembe kakovosti videoposnetka</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Spremembe kakovosti se uporabijo za vse videoposnetke</string>
@@ -1527,7 +1549,7 @@ AVC ima največjo ločljivost 1080p, avdio kodek Opus ni na voljo, predvajanje v
   <string name="revanced_block_video_ads_summary_off">Video oglasi so odklenjeni</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">Sporočilo je bilo izbrisano</string>
+  <string name="revanced_deleted_msg">Sporočilo izbrisano</string>
   <string name="revanced_show_deleted_messages_title">Prikaži izbrisana sporočila</string>
   <string name="revanced_show_deleted_messages_entry_1">Ne prikazuj izbrisanih sporočil</string>
   <string name="revanced_show_deleted_messages_entry_2">Skrij izbrisana sporočila za spojlerjem</string>
@@ -1539,7 +1561,7 @@ AVC ima največjo ločljivost 1080p, avdio kodek Opus ni na voljo, predvajanje v
   <string name="revanced_auto_claim_channel_points_summary_off">Točke kanala se ne zahtevajo samodejno</string>
   </patch>
   <patch id="debug.debugModePatch">
-  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
+  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
   <string name="revanced_twitch_debug_mode_title">Omogoči način za odpravljanje napak za Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Način za odpravljanje napak za Twitch je omogočen (ni priporočljivo)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Način za odpravljanje napak za Twitch je onemogočen</string>
@@ -1548,7 +1570,7 @@ AVC ima največjo ločljivost 1080p, avdio kodek Opus ni na voljo, predvajanje v
   <string name="revanced_settings">Nastavitve ReVanced</string>
   <string name="revanced_about_title">O programu</string>
   <string name="revanced_about_summary">O ReVanced</string>
-  <string name="revanced_ads_screen_title">Oglasi</string>
+  <string name="revanced_ads_screen_title">Blokiranje oglasov</string>
   <string name="revanced_ads_screen_summary">Nastavitve blokiranja oglasov</string>
   <string name="revanced_chat_screen_title">Klepet</string>
   <string name="revanced_chat_screen_summary">Nastavitve klepeta</string>

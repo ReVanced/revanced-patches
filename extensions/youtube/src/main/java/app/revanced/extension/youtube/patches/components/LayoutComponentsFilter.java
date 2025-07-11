@@ -40,6 +40,8 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup horizontalShelves;
     private final ByteArrayFilterGroup ticketShelf;
     private final StringFilterGroup chipBar;
+    private final StringFilterGroup channelProfile;
+    private final ByteArrayFilterGroupList channelProfileBuffer;
 
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
@@ -81,18 +83,13 @@ public final class LayoutComponentsFilter extends Filter {
                 "poll_post_responsive_root.eml"
         );
 
-        final var communityGuidelines = new StringFilterGroup(
-                Settings.HIDE_COMMUNITY_GUIDELINES,
-                "community_guidelines"
-        );
-
         final var subscribersCommunityGuidelines = new StringFilterGroup(
                 Settings.HIDE_SUBSCRIBERS_COMMUNITY_GUIDELINES,
                 "sponsorships_comments_upsell"
         );
 
-        final var channelMemberShelf = new StringFilterGroup(
-                Settings.HIDE_CHANNEL_MEMBER_SHELF,
+        final var channelMembersShelf = new StringFilterGroup(
+                Settings.HIDE_MEMBERS_SHELF,
                 "member_recognition_shelf"
         );
 
@@ -139,13 +136,13 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         final var latestPosts = new StringFilterGroup(
-                Settings.HIDE_HIDE_LATEST_POSTS,
+                Settings.HIDE_LATEST_POSTS,
                 "post_shelf"
         );
 
-        final var channelGuidelines = new StringFilterGroup(
-                Settings.HIDE_HIDE_CHANNEL_GUIDELINES,
-                "channel_guidelines_entry_banner"
+        final var channelLinksPreview = new StringFilterGroup(
+                Settings.HIDE_LINKS_PREVIEW,
+                "attribution.eml"
         );
 
         final var emergencyBox = new StringFilterGroup(
@@ -170,7 +167,7 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         expandableMetadata = new StringFilterGroup(
-                Settings.HIDE_EXPANDABLE_CHIP,
+                Settings.HIDE_EXPANDABLE_CARD,
                 "inline_expander"
         );
 
@@ -200,7 +197,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "image_shelf"
         );
 
-
         final var timedReactions = new StringFilterGroup(
                 Settings.HIDE_TIMED_REACTIONS,
                 "emoji_control_panel",
@@ -227,7 +223,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "sponsorships"
         );
 
-
         final var channelWatermark = new StringFilterGroup(
                 Settings.HIDE_VIDEO_CHANNEL_WATERMARK,
                 "featured_channel_watermark_overlay"
@@ -238,9 +233,25 @@ public final class LayoutComponentsFilter extends Filter {
                 "mixed_content_shelf"
         );
 
-        final var searchResultRecommendationLabels = new StringFilterGroup(
-                Settings.HIDE_SEARCH_RESULT_RECOMMENDATION_LABELS,
+        final var videoRecommendationLabels = new StringFilterGroup(
+                Settings.HIDE_VIDEO_RECOMMENDATION_LABELS,
                 "endorsement_header_footer.eml"
+        );
+
+        channelProfile = new StringFilterGroup(
+                null,
+                "channel_profile.eml",
+                "page_header.eml"
+        );
+        channelProfileBuffer = new ByteArrayFilterGroupList();
+        channelProfileBuffer.addAll(new ByteArrayFilterGroup(
+                        Settings.HIDE_VISIT_STORE_BUTTON,
+                        "header_store_button"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_VISIT_COMMUNITY_BUTTON,
+                        "community_button"
+                )
         );
 
         horizontalShelves = new StringFilterGroup(
@@ -257,36 +268,35 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         addPathCallbacks(
-                expandableMetadata,
-                inFeedSurvey,
-                notifyMe,
-                compactChannelBar,
-                communityPosts,
-                paidPromotion,
-                searchResultRecommendationLabels,
-                latestPosts,
+                artistCard,
+                audioTrackButton,
+                channelLinksPreview,
+                channelMembersShelf,
+                channelProfile,
                 channelWatermark,
-                communityGuidelines,
-                playables,
-                quickActions,
-                relatedVideos,
+                chipBar,
                 compactBanner,
+                compactChannelBar,
                 compactChannelBarInner,
-                medicalPanel,
-                infoPanel,
-                singleItemInformationPanel,
+                communityPosts,
                 emergencyBox,
+                expandableMetadata,
+                forYouShelf,
+                horizontalShelves,
+                imageShelf,
+                inFeedSurvey,
+                infoPanel,
+                latestPosts,
+                medicalPanel,
+                notifyMe,
+                paidPromotion,
+                playables,
+                relatedVideos,
+                singleItemInformationPanel,
                 subscribersCommunityGuidelines,
                 subscriptionsChipBar,
-                chipBar,
-                channelGuidelines,
-                audioTrackButton,
-                artistCard,
                 timedReactions,
-                imageShelf,
-                channelMemberShelf,
-                forYouShelf,
-                horizontalShelves
+                videoRecommendationLabels
         );
     }
 
@@ -306,6 +316,10 @@ public final class LayoutComponentsFilter extends Filter {
         // Filter them separately here.
         if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata) {
             return true;
+        }
+
+        if (matchedGroup == channelProfile) {
+            return channelProfileBuffer.check(protobufBufferArray).isFiltered();
         }
 
         if (exceptions.matches(path)) return false; // Exceptions are not filtered.
@@ -332,7 +346,7 @@ public final class LayoutComponentsFilter extends Filter {
      * Injection point.
      * Called from a different place then the other filters.
      */
-    public static boolean filterMixPlaylists(final Object conversionContext, @Nullable final byte[] bytes) {
+    public static boolean filterMixPlaylists(Object conversionContext, @Nullable final byte[] bytes) {
         try {
             if (!Settings.HIDE_MIX_PLAYLISTS.get()) {
                 return false;

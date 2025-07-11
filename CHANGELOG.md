@@ -1,3 +1,133 @@
+# [5.31.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.16...v5.31.0-dev.17) (2025-07-11)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Remove wrongfully hidden non ad browse sections ([#5403](https://github.com/ReVanced/revanced-patches/issues/5403)) ([8633544](https://github.com/ReVanced/revanced-patches/commit/8633544decc0814d7a548fbc5576b4bdd1d7eee0))
+
+
+### Features
+
+* **Spotify:** Remove support for old versions ([#5404](https://github.com/ReVanced/revanced-patches/issues/5404)) ([9d31238](https://github.com/ReVanced/revanced-patches/commit/9d31238803a45e957472760fc40c3862da2cf3f0))
+
+# [5.31.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.15...v5.31.0-dev.16) (2025-07-11)
+
+
+### Features
+
+* **Spotify - Spoof client:** Fix issues like songs skipping by spoofing to iOS ([#5388](https://github.com/ReVanced/revanced-patches/issues/5388)) ([e36d4c1](https://github.com/ReVanced/revanced-patches/commit/e36d4c1986b58815c7659e6ef44011166873f9c8))
+* **YouTube:** Disable two-finger tap gesture for skipping chapters ([#5374](https://github.com/ReVanced/revanced-patches/issues/5374)) ([71db0a2](https://github.com/ReVanced/revanced-patches/commit/71db0a2661b5f76eb5048cdeed83f26fbfdf4fee))
+
+# [5.31.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.14...v5.31.0-dev.15) (2025-07-11)
+
+
+### Bug Fixes
+
+* Handle empty list of announcements ([de9d720](https://github.com/ReVanced/revanced-patches/commit/de9d7209f4e818a618a7fd9000013ae8ebd728f2))
+
+# [5.31.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.13...v5.31.0-dev.14) (2025-07-10)
+
+
+### Bug Fixes
+
+* **Bacon Reader - Spoof client:** Use www instead of ssl API to fix auth related issues  ([#5402](https://github.com/ReVanced/revanced-patches/issues/5402)) ([72459bb](https://github.com/ReVanced/revanced-patches/commit/72459bb2eaf4691e32822dfdd1db3240e2fe98dd))
+
+# [5.31.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.12...v5.31.0-dev.13) (2025-07-10)
+
+
+### Bug Fixes
+
+* **YouTube - Slide to seek:** Show tap and hold 2x speed overlay when active ([#5398](https://github.com/ReVanced/revanced-patches/issues/5398)) ([dbc9c5f](https://github.com/ReVanced/revanced-patches/commit/dbc9c5f00c1f5bbb95f8822667cc1ac3c613fa00))
+
+# [5.31.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.11...v5.31.0-dev.12) (2025-07-09)
+
+
+### Bug Fixes
+
+* **Sync for Reddit - Spoof client:** Use www instead of ssl API to fix auth related issues ([#5392](https://github.com/ReVanced/revanced-patches/issues/5392)) ([47e6b62](https://github.com/ReVanced/revanced-patches/commit/47e6b62f3d8b07960cfb2963f441222d3e67df92))
+
+# [5.31.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.10...v5.31.0-dev.11) (2025-07-09)
+
+
+### Features
+
+* **Cricbuzz - Hide ads:** Hide Cricbuzz11 UI elements ([#5381](https://github.com/ReVanced/revanced-patches/issues/5381)) ([a42c98f](https://github.com/ReVanced/revanced-patches/commit/a42c98f8b51fd37d815fd38b75a2b7ccc4fb049b))
+
+# [5.31.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.9...v5.31.0-dev.10) (2025-07-09)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide playlist sort button if 'Hide AI comments summary' is on ([5f3e48e](https://github.com/ReVanced/revanced-patches/commit/5f3e48ec5853f6439800ef58239291c34bcab5f6))
+
+# [5.31.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.8...v5.31.0-dev.9) (2025-07-07)
+
+
+### Bug Fixes
+
+* Fix accidental changes ([e2ac841](https://github.com/ReVanced/revanced-patches/commit/e2ac8419756e3c7d62e2c0430a2918a3c1c63666))
+
+# [5.31.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.7...v5.31.0-dev.8) (2025-07-07)
+
+
+### Bug Fixes
+
+* Correctly name `Enable ROM signature spoofing` patch ([d85881a](https://github.com/ReVanced/revanced-patches/commit/d85881a6768232a999534677bebb248e640fe5ab))
+
+# [5.31.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.6...v5.31.0-dev.7) (2025-07-06)
+
+
+### Bug Fixes
+
+* Fix refactoring typo ([ec0ae42](https://github.com/ReVanced/revanced-patches/commit/ec0ae42496628cdeb2a639020fce94316b41b751))
+
+# [5.31.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.5...v5.31.0-dev.6) (2025-07-06)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Allow custom speeds with 0.01x precision ([#5360](https://github.com/ReVanced/revanced-patches/issues/5360)) ([0eecef0](https://github.com/ReVanced/revanced-patches/commit/0eecef00fc93d2a217944978e29dce82e3134e35))
+
+# [5.31.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.4...v5.31.0-dev.5) (2025-07-05)
+
+
+### Features
+
+* **YouTube - Change header:** Add in-app setting to change the app header ([#5346](https://github.com/ReVanced/revanced-patches/issues/5346)) ([9ba45b6](https://github.com/ReVanced/revanced-patches/commit/9ba45b6680595d732b47e8fa54bee98b7c7af179))
+
+# [5.31.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.3...v5.31.0-dev.4) (2025-07-04)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Hide new type of general ad ([#5345](https://github.com/ReVanced/revanced-patches/issues/5345)) ([f23716b](https://github.com/ReVanced/revanced-patches/commit/f23716bc52c03d8d0271bfe38b19247e6de7021d))
+
+# [5.31.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.2...v5.31.0-dev.3) (2025-07-04)
+
+
+### Bug Fixes
+
+* **Spotify:** Remove other ads type from the browse screen ([#5333](https://github.com/ReVanced/revanced-patches/issues/5333)) ([c68533a](https://github.com/ReVanced/revanced-patches/commit/c68533a33a399ca813380b5c9ccddce434ceadf8))
+
+# [5.31.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.1...v5.31.0-dev.2) (2025-07-04)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add `Hide channel links preview` and `Hide 'Visit Community' button` in channel page ([#5320](https://github.com/ReVanced/revanced-patches/issues/5320)) ([9d9cce3](https://github.com/ReVanced/revanced-patches/commit/9d9cce3ec5550b2fea88df745f1700bb2f17eb9e))
+
+# [5.31.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.30.0...v5.31.0-dev.1) (2025-07-04)
+
+
+### Bug Fixes
+
+* **SoundCloud:** Constrain patches to last working app target ([e8ea89f](https://github.com/ReVanced/revanced-patches/commit/e8ea89fc1a3f0531a0af7529663f13328aca4fe7))
+
+
+### Features
+
+* **Lightroom:** Constrain patches to last working version ([#5335](https://github.com/ReVanced/revanced-patches/issues/5335)) ([32ce70e](https://github.com/ReVanced/revanced-patches/commit/32ce70e994f354b9a569376bb89eb38b3190e6f9))
+
 # [5.30.0](https://github.com/ReVanced/revanced-patches/compare/v5.29.0...v5.30.0) (2025-07-02)
 
 

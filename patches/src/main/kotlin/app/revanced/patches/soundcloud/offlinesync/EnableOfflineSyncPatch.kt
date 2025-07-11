@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 val enableOfflineSync = bytecodePatch(
     name = "Enable offline sync",
 ) {
-    compatibleWith("com.soundcloud.android")
+    compatibleWith("com.soundcloud.android"("2025.05.27-release"))
 
     execute {
         // Enable the feature to allow offline track syncing by modifying the JSON server response.

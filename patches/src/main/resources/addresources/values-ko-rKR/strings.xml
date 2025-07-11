@@ -24,7 +24,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">환경 검사에 실패하였습니다</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">공식 홈페이지 열기</string>
   <string name="revanced_check_environment_dialog_ignore_button">닫기</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 검사는 이 앱이 다른 사람이 패치했거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 삭제하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 검사는 이 앱이 다른 사람에 의하여 패치되었거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 삭제하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다.</string>
   <string name="revanced_check_environment_not_same_patching_device">다른 기기에서 패치되었습니다</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager에 의해 설치되지 않았습니다</string>
   <string name="revanced_check_environment_not_near_patch_time">10분 이상 전에 패치되었습니다</string>
@@ -105,9 +105,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_settings_search_history_summary_off">설정 검색 기록을 표시하지 않습니다</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Shorts 백그라운드 재생 비활성화하기</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts 백그라운드 재생을 비활성화합니다</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts 백그라운드 재생을 활성화합니다</string>
+  <string name="revanced_shorts_disable_background_playback_title">Shorts PIP 모드 비활성화하기</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts PIP 모드를 비활성화합니다</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts PIP 모드를 활성화합니다</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">디버깅</string>
@@ -146,119 +146,113 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_album_cards_title">음악 앨범 카드 숨기기</string>
   <string name="revanced_hide_album_cards_summary_on">검색 결과에서 음악 앨범 카드가 숨겨집니다</string>
   <string name="revanced_hide_album_cards_summary_off">검색 결과에서 음악 앨범 카드가 표시됩니다</string>
-  <string name="revanced_hide_crowdfunding_box_title">크라우드 펀딩 박스 숨기기</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">플레이어 하단에서 크라우드 펀딩 박스가 숨겨집니다</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">플레이어 하단에서 크라우드 펀딩 박스가 표시됩니다</string>
-  <string name="revanced_hide_floating_microphone_button_title">플로팅 마이크 버튼 숨기기</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">플로팅 마이크 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">플로팅 마이크 버튼이 표시됩니다</string>
-  <string name="revanced_hide_channel_watermark_title">동영상 하단에서 채널 워터마크 숨기기</string>
-  <string name="revanced_hide_channel_watermark_summary_on">채널 워터마크가 숨겨집니다</string>
-  <string name="revanced_hide_channel_watermark_summary_off">채널 워터마크가 표시됩니다</string>
-  <string name="revanced_hide_horizontal_shelves_title">좌우 슬라이드형 선반 숨기기</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"다음 선반이 숨겨집니다:
-• 다시 듣기
-• 다시 시청하기
-• 이어서 시청하기
-• 채널 더보기
-• 이 게임 더보기
-• 주요 뉴스, 뉴스 속보
-• 맞춤 실시간 스트림
-• 라이브 쇼핑
-• 보건 정보 출처, etc."</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">다음 선반이 표시됩니다:\n• 다시 듣기\n• 다시 시청하기\n• 이어서 시청하기\n• 채널 더보기\n• 이 게임 더보기\n• 주요 뉴스, 뉴스 속보\n• 맞춤 실시간 스트림\n• 라이브 쇼핑\n• 보건 정보 출처, etc</string>
-  <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                 This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">가입 버튼 숨기기</string>
-  <string name="revanced_hide_join_membership_button_summary_on">가입 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_join_membership_button_summary_off">가입 버튼이 표시됩니다</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">추천 선반 숨기기</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">추천 선반이 숨겨집니다</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">추천 선반이 표시됩니다</string>
-  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                 This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">\'알림 받기\' 버튼 숨기기</string>
-  <string name="revanced_hide_notify_me_button_summary_on">\'알림 받기\' 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_notify_me_button_summary_off">\'알림 받기\' 버튼이 표시됩니다</string>
-  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendation_labels_title">동영상 추천 라벨 숨기기</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_on">다음 동영상 추천 라벨이 숨겨집니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_off">다음 동영상 추천 라벨이 표시됩니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
-  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">\'자세히 보기\' 버튼 숨기기</string>
-  <string name="revanced_hide_show_more_button_summary_on">\'자세히 보기\' 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_show_more_button_summary_off">\'자세히 보기\' 버튼이 표시됩니다</string>
-  <string name="revanced_hide_ticket_shelf_title">이벤트 티켓 선반 숨기기</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">이벤트 티켓 선반이 숨겨집니다</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">이벤트 티켓 선반이 표시됩니다</string>
-  <string name="revanced_hide_timed_reactions_title">실시간 이모티콘 리액션 숨기기</string>
-  <string name="revanced_hide_timed_reactions_summary_on">실시간 이모티콘 리액션이 숨겨집니다</string>
-  <string name="revanced_hide_timed_reactions_summary_off">실시간 이모티콘 리액션이 표시됩니다</string>
-  <string name="revanced_hide_channel_guidelines_title">채널 가이드라인 숨기기</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">채널 가이드라인이 숨겨집니다</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">채널 가이드라인이 표시됩니다</string>
+  <string name="revanced_hide_artist_cards_title">아티스트 카드 숨기기</string>
+  <string name="revanced_hide_artist_cards_summary_on">아티스트 카드가 숨겨집니다</string>
+  <string name="revanced_hide_artist_cards_summary_off">아티스트 카드가 표시됩니다</string>
   <string name="revanced_hide_chips_shelf_title">\'다른 주제 더 살펴보기\' 선반 숨기기</string>
   <string name="revanced_hide_chips_shelf_summary_on">\'다른 주제 더 살펴보기\' 선반이 숨겨집니다</string>
   <string name="revanced_hide_chips_shelf_summary_off">\'다른 주제 더 살펴보기\' 선반이 표시됩니다</string>
-  <string name="revanced_hide_expandable_chip_title">펼쳐볼 수 있는 정보 숨기기</string>
-  <string name="revanced_hide_expandable_chip_summary_on">썸네일 하단에서 다음 정보들이 숨겨집니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품, etc.</string>
-  <string name="revanced_hide_expandable_chip_summary_off">썸네일 하단에서 다음 정보들이 표시됩니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품, etc.</string>
   <string name="revanced_hide_community_posts_title">커뮤니티 게시물 숨기기</string>
   <string name="revanced_hide_community_posts_summary_on">커뮤니티 게시물이 숨겨집니다</string>
   <string name="revanced_hide_community_posts_summary_off">커뮤니티 게시물이 표시됩니다</string>
   <string name="revanced_hide_compact_banner_title">소형 배너 숨기기</string>
   <string name="revanced_hide_compact_banner_summary_on">소형 배너가 숨겨집니다</string>
   <string name="revanced_hide_compact_banner_summary_off">소형 배너가 표시됩니다</string>
-  <string name="revanced_hide_movies_section_title">영화 선반 숨기기</string>
-  <string name="revanced_hide_movies_section_summary_on">영화 선반이 숨겨집니다</string>
-  <string name="revanced_hide_movies_section_summary_off">영화 선반이 표시됩니다</string>
+  <string name="revanced_hide_crowdfunding_box_title">크라우드 펀딩 박스 숨기기</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">플레이어 하단에서 크라우드 펀딩 박스가 숨겨집니다</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">플레이어 하단에서 크라우드 펀딩 박스가 표시됩니다</string>
+  <string name="revanced_hide_expandable_card_title">펼쳐볼 수 있는 정보 숨기기</string>
+  <string name="revanced_hide_expandable_card_summary_on">썸네일 하단에서 다음 정보들이 숨겨집니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품, etc.</string>
+  <string name="revanced_hide_expandable_card_summary_off">썸네일 하단에서 다음 정보들이 표시됩니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품, etc.</string>
   <string name="revanced_hide_feed_survey_title">피드 설문 조사 숨기기</string>
   <string name="revanced_hide_feed_survey_summary_on">피드 설문 조사가 숨겨집니다</string>
   <string name="revanced_hide_feed_survey_summary_off">피드 설문 조사가 표시됩니다</string>
-  <string name="revanced_hide_community_guidelines_title">커뮤니티 가이드라인 숨기기</string>
-  <string name="revanced_hide_community_guidelines_summary_on">커뮤니티 가이드라인이 숨겨집니다</string>
-  <string name="revanced_hide_community_guidelines_summary_off">커뮤니티 가이드가인이 표시됩니다</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">구독자를 위한 커뮤니티 가이드라인 숨기기</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_on">구독자를 위한 커뮤니티 가이드라인이 숨겨집니다</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_off">구독자를 위한 커뮤니티 가이드라인이 표시됩니다</string>
-  <string name="revanced_hide_channel_member_shelf_title">채널 회원 선반 숨기기</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">채널 회원 선반이 숨겨집니다</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">채널 회원 선반이 표시됩니다</string>
+  <string name="revanced_hide_floating_microphone_button_title">플로팅 마이크 버튼 숨기기</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">검색에서 플로팅 마이크 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">검색에서 플로팅 마이크 버튼이 표시됩니다</string>
+  <string name="revanced_hide_horizontal_shelves_title">좌우 슬라이드형 선반 숨기기</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"다음 선반이 숨겨집니다:
+• 다시 듣기, 다시 시청하기
+• 이어서 시청하기
+• 채널 더보기
+• 이 게임 더보기
+• 주요 뉴스, 뉴스 속보
+• 맞춤 실시간 스트림
+• 라이브 쇼핑
+• 보건 정보 출처
+• 관련성, etc."</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">다음 선반이 표시됩니다:\n• 다시 듣기, 다시 시청하기\n• 이어서 시청하기\n• 채널 더보기\n• 이 게임 더보기\n• 주요 뉴스, 뉴스 속보\n• 맞춤 실시간 스트림\n• 라이브 쇼핑\n• 보건 정보 출처\n• 관련성, etc.</string>
+  <string name="revanced_hide_image_shelf_title">이미지 선반 숨기기</string>
+  <string name="revanced_hide_image_shelf_summary_on">검색 결과에서 이미지 선반이 숨겨집니다</string>
+  <string name="revanced_hide_image_shelf_summary_off">검색 결과에서 이미지 선반이 표시됩니다</string>
+  <string name="revanced_hide_latest_posts_title">최신 게시물 숨기기</string>
+  <string name="revanced_hide_latest_posts_summary_on">최신 게시물이 숨겨집니다</string>
+  <string name="revanced_hide_latest_posts_summary_off">최신 게시물이 표시됩니다</string>
+  <string name="revanced_hide_mix_playlists_title">믹스 재생목록 숨기기</string>
+  <string name="revanced_hide_mix_playlists_summary_on">믹스 재생목록이 숨겨집니다</string>
+  <string name="revanced_hide_mix_playlists_summary_off">믹스 재생목록이 표시됩니다</string>
+  <string name="revanced_hide_movies_section_title">영화 선반 숨기기</string>
+  <string name="revanced_hide_movies_section_summary_on">영화 선반이 숨겨집니다</string>
+  <string name="revanced_hide_movies_section_summary_off">영화 선반이 표시됩니다</string>
+  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
+                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+  <string name="revanced_hide_notify_me_button_title">\'알림 받기\' 버튼 숨기기</string>
+  <string name="revanced_hide_notify_me_button_summary_on">\'알림 받기\' 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_notify_me_button_summary_off">\'알림 받기\' 버튼이 표시됩니다</string>
+  <string name="revanced_hide_playables_title">Playables(게임 룸) 선반 숨기기</string>
+  <string name="revanced_hide_playables_summary_on">Playables(게임 룸) 선반이 숨겨집니다\n• YouTube 앱에 내장된 미니 게임\n• 일부 국가에서는 아직 서비스가 제공되지 않습니다</string>
+  <string name="revanced_hide_playables_summary_off">Playables(게임 룸) 선반이 표시됩니다\n• YouTube 앱에 내장된 미니 게임\n• 일부 국가에서는 아직 서비스가 제공되지 않습니다</string>
+  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
+                  This button usually appears when searching for a YT creator. -->
+  <string name="revanced_hide_show_more_button_title">\'자세히 보기\' 버튼 숨기기</string>
+  <string name="revanced_hide_show_more_button_summary_on">검색 결과에서 \'자세히 보기\' 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_show_more_button_summary_off">검색 결과에서 \'자세히 보기\' 버튼이 표시됩니다</string>
+  <string name="revanced_hide_ticket_shelf_title">콘서트 선반 숨기기</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">콘서트 선반이 숨겨집니다</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">콘서트 선반이 표시됩니다</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_video_recommendation_labels_title">동영상 추천 라벨 숨기기</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">검색 결과에서 다음 라벨이 숨겨집니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">검색 결과에서 다음 라벨이 표시됩니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">YouTube Doodles 숨기기</string>
+  <string name="revanced_hide_doodles_summary_on">해더 로고에서 YouTube Doodles 애니메이션이 숨겨집니다</string>
+  <string name="revanced_hide_doodles_summary_off">헤더 로고에서 YouTube Doodles 애니메이션이 표시됩니다</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles는 공휴일이나 기념일 등, 그날에 맞춘 디자인으로 변경되는 왼쪽 상단의 YouTube 헤더를 말합니다.
+
+현재 거주하는 지역에서 YouTube Doodles가 표시되어 있는데 이 설정이 활성화되어 있는 경우에는 검색창 아래에 표시되는 카테고리 바도 숨겨집니다."</string>
+  <string name="revanced_hide_channel_bar_title">채널바 숨기기</string>
+  <string name="revanced_hide_channel_bar_summary_on">채널바가 숨겨집니다</string>
+  <string name="revanced_hide_channel_bar_summary_off">채널바가 표시됩니다</string>
+  <string name="revanced_hide_channel_watermark_title">채널 워터마크 숨기기</string>
+  <string name="revanced_hide_channel_watermark_summary_on">동영상 하단에서 채널 워터마크가 숨겨집니다</string>
+  <string name="revanced_hide_channel_watermark_summary_off">동영상 하단에서 채널 워터마크가 표시됩니다</string>
   <string name="revanced_hide_emergency_box_title">긴급 정보 패널 숨기기</string>
   <string name="revanced_hide_emergency_box_summary_on">긴급 정보 패널이 숨겨집니다</string>
   <string name="revanced_hide_emergency_box_summary_off">긴급 정보 패널이 표시됩니다</string>
   <string name="revanced_hide_info_panels_title">정보 패널 숨기기</string>
   <string name="revanced_hide_info_panels_summary_on">정보 패널이 숨겨집니다</string>
   <string name="revanced_hide_info_panels_summary_off">정보 패널이 표시됩니다</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays.
+                  This appears in the video player for certain videos. -->
+  <string name="revanced_hide_join_membership_button_title">가입 버튼 숨기기</string>
+  <string name="revanced_hide_join_membership_button_summary_on">가입 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_join_membership_button_summary_off">가입 버튼이 표시됩니다</string>
   <string name="revanced_hide_medical_panels_title">보건 정보 패널 숨기기</string>
   <string name="revanced_hide_medical_panels_summary_on">보건 정보 패널이 숨겨집니다</string>
   <string name="revanced_hide_medical_panels_summary_off">보건 정보 패널이 표시됩니다</string>
-  <string name="revanced_hide_channel_bar_title">채널바 숨기기</string>
-  <string name="revanced_hide_channel_bar_summary_on">채널바가 숨겨집니다</string>
-  <string name="revanced_hide_channel_bar_summary_off">채널바가 표시됩니다</string>
-  <string name="revanced_hide_playables_title">Playables(게임 룸) 선반 숨기기</string>
-  <string name="revanced_hide_playables_summary_on">Playables(게임 룸) 선반이 숨겨집니다\n• YouTube 앱에 내장된 미니 게임\n• 일부 국가에서는 아직 서비스가 제공되지 않습니다</string>
-  <string name="revanced_hide_playables_summary_off">Playables(게임 룸) 선반이 표시됩니다\n• YouTube 앱에 내장된 미니 게임\n• 일부 국가에서는 아직 서비스가 제공되지 않습니다</string>
-  <string name="revanced_hide_quick_actions_title">전체 화면에서 빠른 작업 컨테이너 숨기기</string>
-  <string name="revanced_hide_quick_actions_summary_on">빠른 작업 컨테이너가 숨겨집니다</string>
-  <string name="revanced_hide_quick_actions_summary_off">빠른 작업 컨테이너가 표시됩니다</string>
-  <string name="revanced_hide_related_videos_title">빠른 작업 컨테이너에서 관련 동영상 숨기기</string>
-  <string name="revanced_hide_related_videos_summary_on">관련 동영상이 숨겨집니다</string>
-  <string name="revanced_hide_related_videos_summary_off">관련 동영상이 표시됩니다</string>
-  <string name="revanced_hide_image_shelf_title">검색 결과에서 이미지 선반 숨기기</string>
-  <string name="revanced_hide_image_shelf_summary_on">이미지 선반이 숨겨집니다</string>
-  <string name="revanced_hide_image_shelf_summary_off">이미지 선반이 표시됩니다</string>
-  <string name="revanced_hide_latest_posts_ads_title">최신 게시물 숨기기</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">최신 게시물이 숨겨집니다</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">최신 게시물이 표시됩니다</string>
-  <string name="revanced_hide_mix_playlists_title">믹스 재생목록 숨기기</string>
-  <string name="revanced_hide_mix_playlists_summary_on">믹스 재생목록이 숨겨집니다</string>
-  <string name="revanced_hide_mix_playlists_summary_off">믹스 재생목록이 표시됩니다</string>
-  <string name="revanced_hide_artist_cards_title">아티스트 카드 숨기기</string>
-  <string name="revanced_hide_artist_cards_summary_on">아티스트 카드가 숨겨집니다</string>
-  <string name="revanced_hide_artist_cards_summary_off">아티스트 카드가 표시됩니다</string>
+  <string name="revanced_hide_quick_actions_title">빠른 동작 컨테이너 숨기기</string>
+  <string name="revanced_hide_quick_actions_summary_on">전체 화면에서 빠른 동작 컨테이너가 숨겨집니다</string>
+  <string name="revanced_hide_quick_actions_summary_off">전체 화면에서 빠른 동작 컨테이너가 표시됩니다</string>
+  <string name="revanced_hide_related_videos_title">관련 동영상 숨기기</string>
+  <string name="revanced_hide_related_videos_summary_on">빠른 동작 컨테이너에서 관련 동영상이 숨겨집니다</string>
+  <string name="revanced_hide_related_videos_summary_off">빠른 동작 컨테이너에서 관련 동영상이 표시됩니다</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">구독자를 위한 커뮤니티 가이드라인 숨기기</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_on">구독자를 위한 커뮤니티 가이드라인이 숨겨집니다</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_off">구독자를 위한 커뮤니티 가이드라인이 표시됩니다</string>
+  <string name="revanced_hide_timed_reactions_title">실시간 이모티콘 리액션 숨기기</string>
+  <string name="revanced_hide_timed_reactions_summary_on">실시간 이모티콘 리액션이 숨겨집니다</string>
+  <string name="revanced_hide_timed_reactions_summary_off">실시간 이모티콘 리액션이 표시됩니다</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">AI 생성 동영상 요약 섹션 숨기기</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI 생성 동영상 요약 섹션이 숨겨집니다</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI 생성 동영상 요약 섹션이 표시됩니다</string>
@@ -302,6 +296,26 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">관련 동영상에서 카테고리 바 숨기기</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">플레이어 하단에 있는 관련 동영상에서 카테고리 바가 숨겨집니다</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">플레이어 하단에 있는 관련 동영상에서 카테고리 바가 표시됩니다</string>
+  <string name="revanced_channel_screen_title">채널 프로필</string>
+  <string name="revanced_channel_screen_summary">채널 프로필에서 구성요소를 숨기거나 표시할 수 있습니다</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">추천 선반 숨기기</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">추천 선반이 숨겨집니다</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">추천 선반이 표시됩니다</string>
+  <string name="revanced_hide_links_preview_title">링크 미리보기 숨기기</string>
+  <string name="revanced_hide_links_preview_summary_on">링크 미리보기가 숨겨집니다</string>
+  <string name="revanced_hide_links_preview_summary_off">링크 미리보기가 표시됩니다</string>
+  <string name="revanced_hide_members_shelf_title">멤버십 선반 숨기기</string>
+  <string name="revanced_hide_members_shelf_summary_on">멤버십 선반이 숨겨집니다</string>
+  <string name="revanced_hide_members_shelf_summary_off">멤버십 선반이 표시됩니다</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">커뮤니티 방문 버튼 숨기기</string>
+  <string name="revanced_hide_visit_community_button_summary_on">커뮤니티 방문 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_visit_community_button_summary_off">커뮤니티 방문 버튼이 표시됩니다</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">스토어 방문 버튼 숨기기</string>
+  <string name="revanced_hide_visit_store_button_summary_on">스토어 방문 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_visit_store_button_summary_off">스토어 방문 버튼이 표시됩니다</string>
   <string name="revanced_comments_screen_title">댓글</string>
   <string name="revanced_comments_screen_summary">댓글 섹션에서 구성요소가 숨기거나 표시할 수 있습니다</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">AI 채팅 요약 숨기기</string>
@@ -310,12 +324,18 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_comments_ai_summary_title">AI 댓글 요약 숨기기</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">AI 댓글 요약이 숨겨집니다</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">AI 댓글 요약이 표시됩니다</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">채널 가이드라인 숨기기</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">채널 가이드라인이 숨겨집니다</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">채널 가이드라인이 표시됩니다</string>
   <string name="revanced_hide_comments_by_members_header_title">회원별 댓글 헤더 숨기기</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">회원별 댓글 헤더가 숨겨집니다</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">회원별 댓글 헤더가 표시됩니다</string>
   <string name="revanced_hide_comments_section_title">댓글 섹션 숨기기</string>
   <string name="revanced_hide_comments_section_summary_on">댓글 섹션이 숨겨집니다</string>
   <string name="revanced_hide_comments_section_summary_off">댓글 섹션이 표시됩니다</string>
+  <string name="revanced_hide_comments_community_guidelines_title">커뮤니티 가이드라인 숨기기</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">커뮤니티 가이드라인이 숨겨집니다</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">커뮤니티 가이드라인이 표시됩니다</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Shorts 만들기 버튼 숨기기</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Shorts 만들기 버튼이 숨겨집니다</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Shorts 만들기 버튼이 표시됩니다</string>
@@ -328,13 +348,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_comments_timestamp_button_title">타임스탬프 버튼 숨기기</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">타임스탬프 버튼이 숨겨집니다</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">타임스탬프 버튼이 표시됩니다</string>
-  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">YouTube Doodles 숨기기</string>
-  <string name="revanced_hide_doodles_summary_on">YouTube Doodles가 숨겨집니다\n• Doodles: 기념일 로고 헤더</string>
-  <string name="revanced_hide_doodles_summary_off">YouTube Doodles가 표시됩니다\n• Doodles: 기념일 로고 헤더</string>
-  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles는 공휴일이나 기념일 등, 그날에 맞춘 디자인으로 변경되는 왼쪽 상단의 YouTube 헤더를 말합니다.
-
-현재 거주하는 지역에서 YouTube Doodles가 표시되어 있는데 이 설정이 활성화되어 있는 경우에는 검색창 아래에 표시되는 카테고리 바도 숨겨집니다."</string>
   <string name="revanced_custom_filter_screen_title">사용자 정의 필터</string>
   <string name="revanced_custom_filter_screen_summary">사용자 정의 필터를 사용하여 구성요소를 숨길 수 있습니다</string>
   <string name="revanced_custom_filter_title">사용자 정의 필터 활성화하기</string>
@@ -380,12 +393,12 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_keyword_toast_invalid_broad">키워드가 모든 동영상을 숨길 것입니다: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">판매자 스토어 선반 숨기기</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">플레이어 아래, 동영상 설명 그리고 채널 프로필에서 판매자(크리에이터) 스토어 선반이 숨겨집니다</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">플레이어 아래, 동영상 설명 그리고 채널 프로필에서 판매자(크리에어터) 스토어 선반이 표시됩니다</string>
-  <string name="revanced_hide_end_screen_store_banner_title">최종 화면에서 스토어 배너 숨기기</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">스토어 배너가 숨겨집니다</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">스토어 배너가 표시됩니다</string>
+  <string name="revanced_hide_creator_store_shelf_title">판매자 스토어 선반 숨기기</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">플레이어 하단에서 판매자(크리에이터) 스토어 선반이 숨겨집니다</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">플레이어 하단에서 판매자(크리에이터) 스토어 선반이 표시됩니다</string>
+  <string name="revanced_hide_end_screen_store_banner_title">최종 화면 스토어 배너 숨기기</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">최종 화면에서 스토어 배너가 숨겨집니다</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">최종 화면에서 스토어 배너가 표시됩니다</string>
   <string name="revanced_hide_fullscreen_ads_title">전체 화면 광고 숨기기</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"전체 화면 광고가 숨겨집니다
 
@@ -402,20 +415,16 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_paid_promotion_label_title">유료 광고 포함 라벨 숨기기</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">유료 광고 포함 라벨이 숨겨집니다</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">유료 광고 포함 라벨이 표시됩니다</string>
+  <string name="revanced_hide_self_sponsor_ads_title">셀프 스폰서 카드 숨기기</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">셀프 스폰서 카드가 숨겨집니다</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">셀프 스폰서 카드가 표시됩니다</string>
+  <string name="revanced_hide_shopping_links_title">쇼핑 링크 숨기기</string>
+  <string name="revanced_hide_shopping_links_summary_on">동영상 설명에서 쇼핑 링크가 숨겨집니다</string>
+  <string name="revanced_hide_shopping_links_summary_off">동영상 설명에서 쇼핑 링크가 표시됩니다</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">\'제품 보기\' 배너 숨기기</string>
   <string name="revanced_hide_view_products_banner_summary_on">동영상 오버레이에서 \'제품 보기\' 배너가 숨겨집니다</string>
   <string name="revanced_hide_view_products_banner_summary_off">동영상 오버레이에서 \'제품 보기\' 배너가 표시됩니다</string>
-  <string name="revanced_hide_self_sponsor_ads_title">셀프 스폰서 카드 숨기기</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">셀프 스폰서 카드가 숨겨집니다</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">셀프 스폰서 카드가 표시됩니다</string>
-  <string name="revanced_hide_tagged_products_title">태그된 제품 숨기기</string>
-  <string name="revanced_hide_tagged_products_summary_on">동영상 설명에서 태그된 제품이 숨겨집니다</string>
-  <string name="revanced_hide_tagged_products_summary_off">동영상 설명에서 태그된 제품이 표시됩니다</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">채널 프로필에서 스토어 방문 버튼 숨기기</string>
-  <string name="revanced_hide_visit_store_button_summary_on">스토어 방문 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_visit_store_button_summary_off">스토어 방문 버튼이 표시됩니다</string>
   <string name="revanced_hide_web_search_results_title">웹 검색 결과 숨기기</string>
   <string name="revanced_hide_web_search_results_summary_on">웹 검색 결과가 숨겨집니다</string>
   <string name="revanced_hide_web_search_results_summary_off">웹 검색 결과가 표시됩니다</string>
@@ -446,13 +455,18 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 삭제하지 않습니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">두 번 탭하여 챕터 건너뛰기 비활성화</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">두 번 탭하여 다음/이전 챕터로 건너뛰기가 절대 트리거되지 않습니다</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">두 번 탭하여 다음/이전 챕터로 건너뛰기가 가끔 트리거될 수 있습니다</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">외부 다운로드</string>
   <string name="revanced_external_downloader_screen_summary">외부 다운로더를 설정할 수 있습니다</string>
   <string name="revanced_external_downloader_title">외부 다운로드 버튼 표시하기</string>
   <string name="revanced_external_downloader_summary_on">플레이어에서 외부 다운로드 버튼을 표시합니다</string>
   <string name="revanced_external_downloader_summary_off">플레이어에서 외부 다운로드 버튼을 표시하지 않습니다</string>
-  <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
+  <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
   <string name="revanced_external_downloader_action_button_title">오프라인 저장 버튼 재정의하기</string>
   <string name="revanced_external_downloader_action_button_summary_on">오프라인 저장 버튼으로 외부 다운로더를 실행할 수 있습니다</string>
   <string name="revanced_external_downloader_action_button_summary_off">오프라인 저장 버튼으로 기본 다운로더를 실행할 수 있습니다 (YouTube Premium 기능)</string>
@@ -496,9 +510,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_background_opacity_summary">배경 불투명도 값을 0-100 사이에서 지정할 수 있습니다</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 배경 불투명도 값은 0-100 사이여야 합니다</string>
   <string name="revanced_swipe_overlay_progress_brightness_color_title">스와이프 오버레이 밝기 조절바 색상</string>
-  <string name="revanced_swipe_overlay_progress_brightness_color_summary">밝기 조절바 색상을 지정할 수 있습니다</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">밝기 조절 진행률 색상을 지정할 수 있습니다</string>
   <string name="revanced_swipe_overlay_progress_volume_color_title">스와이프 오버레이 볼륨 조절바 색상</string>
-  <string name="revanced_swipe_overlay_progress_volume_color_summary">볼륨 조절바 색상을 지정할 수 있습니다</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">볼륨 조절 진행률 색상을 지정할 수 있습니다</string>
   <string name="revanced_swipe_text_overlay_size_title">스와이프 오버레이 텍스트 크기</string>
   <string name="revanced_swipe_text_overlay_size_summary">텍스트 크기를 1-30 사이에서 지정할 수 있습니다</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">텍스트 크기는 1-30 사이여야 합니다</string>
@@ -514,7 +528,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_style_entry_5">원형 (최소화)</string>
   <string name="revanced_swipe_overlay_style_entry_6">세로</string>
   <string name="revanced_swipe_overlay_style_entry_7">세로 (최소화)</string>
-  <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 활성화하기</string>
+  <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 비활성화하기</string>
   <string name="revanced_swipe_change_video_summary_on">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다</string>
   <string name="revanced_swipe_change_video_summary_off">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다</string>
   </patch>
@@ -524,8 +538,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_disable_auto_captions_summary_off">자동 자막을 활성화합니다</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
-  <string name="revanced_hide_buttons_screen_title">액션 버튼</string>
-  <string name="revanced_hide_buttons_screen_summary">플레이어 하단에서 액션 버튼을 숨기거나 표시할 수 있습니다</string>
+  <string name="revanced_hide_buttons_screen_title">동작 버튼</string>
+  <string name="revanced_hide_buttons_screen_summary">플레이어 하단에서 동작 버튼을 숨기거나 표시할 수 있습니다</string>
   <string name="revanced_disable_like_subscribe_glow_title">빛나는 \'좋아요\' / \'구독\' 버튼 비활성화하기</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 때, 해당 버튼에 빛나는 애니메이션을 적용하지 않습니다\n• 일부 언어는 아직 지원되지 않습니다</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 때, 해당 버튼에 빛나는 애니메이션을 적용합니다\n• 일부 언어는 아직 지원되지 않습니다</string>
@@ -538,10 +552,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_share_button_summary_off">공유 버튼이 표시됩니다</string>
   <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_stop_ads_button_title">광고 중단 버튼 숨기기</string>
-  <string name="revanced_hide_stop_ads_button_summary_on">광고 중지 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_stop_ads_button_summary_off">광고 중지 버튼이 표시됩니다</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">광고 중단 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">광고 중단 버튼이 표시됩니다</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                 This button usually appears only on live streams. -->
+                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">신고 버튼 숨기기</string>
   <string name="revanced_hide_report_button_summary_on">신고 버튼이 숨겨집니다</string>
   <string name="revanced_hide_report_button_summary_off">신고 버튼이 표시됩니다</string>
@@ -558,7 +572,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_thanks_button_summary_on">Thanks 버튼이 숨겨집니다</string>
   <string name="revanced_hide_thanks_button_summary_off">Thanks 버튼이 표시됩니다</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">요청 버튼 숨기기</string>
   <string name="revanced_hide_ask_button_summary_on">요청 버튼이 숨겨집니다</string>
   <string name="revanced_hide_ask_button_summary_off">요청 버튼이 표시됩니다</string>
@@ -582,7 +596,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_button_title">Shorts 버튼 숨기기</string>
   <string name="revanced_hide_shorts_button_summary_on">Shorts 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_button_summary_off">Shorts 버튼이 표시됩니다</string>
-  <!-- The Create button has no display name. Translate normally. -->
+  <!-- 'Create' has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">만들기 버튼 숨기기</string>
   <string name="revanced_hide_create_button_summary_on">만들기 버튼이 숨겨집니다</string>
   <string name="revanced_hide_create_button_summary_off">만들기 버튼이 표시됩니다</string>
@@ -652,7 +666,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_flyout_speed_summary_on">재생 속도 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">재생 속도 메뉴가 표시됩니다</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                 This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
+                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">콘텐츠 더보기 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_more_info_summary_on">콘텐츠 더보기 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_more_info_summary_off">콘텐츠 더보기 메뉴가 표시됩니다</string>
@@ -664,7 +678,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_flyout_audio_track_title">오디오 트랙 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">오디오 트랙 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">오디오 트랙 메뉴가 표시됩니다</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"오디오 트랙 메뉴가 숨겨집니다
 
 오디오 트랙 메뉴를 표시하려면 '스트리밍 데이터 변경하기'에서 기본 클라이언트를 iOS TV로 변경하세요"</string>
@@ -677,22 +691,22 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">화질 설정 메뉴에서 하단 설명이 표시됩니다</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">이전 &amp; 다음 버튼 숨기기</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_on">이전 &amp; 다음 동영상 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_off">이전 &amp; 다음 동영상 버튼이 표시됩니다</string>
-  <string name="revanced_hide_cast_button_title">크롬캐스트 버튼 숨기기</string>
-  <string name="revanced_hide_cast_button_summary_on">크롬캐스트 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_cast_button_summary_off">크롬캐스트 버튼이 표시됩니다</string>
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">자막 버튼 숨기기</string>
-  <string name="revanced_hide_captions_button_summary_on">자막 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_captions_button_summary_off">자막 버튼이 표시됩니다</string>
   <string name="revanced_hide_autoplay_button_title">자동재생 버튼 숨기기</string>
   <string name="revanced_hide_autoplay_button_summary_on">자동재생 버튼이 숨겨집니다</string>
   <string name="revanced_hide_autoplay_button_summary_off">자동재생 버튼이 표시됩니다</string>
+  <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+  <string name="revanced_hide_captions_button_title">자막 버튼 숨기기</string>
+  <string name="revanced_hide_captions_button_summary_on">자막 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_captions_button_summary_off">자막 버튼이 표시됩니다</string>
+  <string name="revanced_hide_cast_button_title">크롬캐스트 버튼 숨기기</string>
+  <string name="revanced_hide_cast_button_summary_on">크롬캐스트 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_cast_button_summary_off">크롬캐스트 버튼이 표시됩니다</string>
   <string name="revanced_hide_player_control_buttons_background_title">플레이어 컨트롤 버튼 배경 숨기기</string>
   <string name="revanced_hide_player_control_buttons_background_summary_on">플레이어 컨트롤 버튼 배경이 숨겨집니다</string>
   <string name="revanced_hide_player_control_buttons_background_summary_off">플레이어 컨트롤 버튼 배경이 표시됩니다</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">이전 &amp; 다음 버튼 숨기기</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">이전 &amp; 다음 동영상 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">이전 &amp; 다음 동영상 버튼이 표시됩니다</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">최종 화면 카드 숨기기</string>
@@ -725,11 +739,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts 플레이어</string>
   <string name="revanced_shorts_player_screen_summary">Shorts 플레이어에서 구성요소를 숨기거나 표시할 수 있습니다</string>
-  <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">홈 피드 및 관련 동영상에서 Shorts 선반 숨기기</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
+  <string name="revanced_hide_shorts_home_title">홈 피드에서 Shorts 선반 숨기기</string>
   <string name="revanced_hide_shorts_home_summary_on">홈 피드 및 관련 동영상에서 Shorts 선반이 숨겨집니다</string>
   <string name="revanced_hide_shorts_home_summary_off">홈 피드 및 관련 동영상에서 Shorts 선반이 표시됩니다</string>
-  <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">구독 피드에서 Shorts 선반 숨기기</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">구독 피드에서 Shorts 선반이 숨겨집니다</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">구독 피드에서 Shorts 선반이 표시됩니다</string>
@@ -739,62 +753,61 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_history_title">시청 기록에서 Shorts 숨기기</string>
   <string name="revanced_hide_shorts_history_summary_on">시청 기록에서 Shorts가 숨겨집니다</string>
   <string name="revanced_hide_shorts_history_summary_off">시청 기록에서 Shorts가 표시됩니다</string>
-  <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">가입 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_join_button_summary_on">가입 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_join_button_summary_off">가입 버튼이 표시됩니다</string>
-  <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">구독 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_on">구독 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_off">구독 버튼이 표시됩니다</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_title">일시 정지 오버레이 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">플레이어 왼쪽 상단에서 다음 버튼들이 숨겨집니다\n• 구독 &amp; 라이브 &amp; 트렌드 &amp; 쇼핑</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">플레이어 왼쪽 상단에서 다음 버튼들이 표시됩니다\n• 구독 &amp; 라이브 &amp; 트렌드 &amp; 쇼핑</string>
-  <string name="revanced_hide_shorts_shop_button_title">쇼핑 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_shop_button_summary_on">쇼핑 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_shop_button_summary_off">쇼핑 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Super Thanks 구매 버튼 숨기기</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super Thanks 구매 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super Thanks 구매 버튼이 표시됩니다</string>
-  <string name="revanced_hide_shorts_tagged_products_title">태그된 제품 숨기기</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">태그된 제품이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_off">태그된 제품이 표시됩니다</string>
-  <string name="revanced_hide_shorts_location_label_title">위치 라벨 숨기기</string>
-  <string name="revanced_hide_shorts_location_label_summary_on">위치 라벨이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_location_label_summary_off">위치 라벨이 표시됩니다</string>
-  <string name="revanced_hide_shorts_preview_comment_title">댓글 미리보기 숨기기</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_on">댓글 미리보기가 숨겨집니다</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">댓글 미리보기가 표시됩니다</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">음악 저장 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">음악 저장 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">음악 저장 버튼이 표시됩니다</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">\'이 사운드 사용\' 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_on">\'이 사운드 사용\' 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_off">\'이 사운드 사용\' 버튼이 표시됩니다</string>
-  <string name="revanced_hide_shorts_use_template_button_title">\'이 템플릿 사용\' 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">\'이 템플릿 사용\' 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">\'이 템플릿 사용\' 버튼이 표시됩니다</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">예정 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">(Premiere 또는 실시간) 예정 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">(Premiere 또는 실시간) 예정 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_effect_button_title">효과 버튼 숨기기</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">효과 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">효과 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_green_screen_button_title">그린 스크린 버튼 숨기기</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">그린 스크린 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">그린 스크린 버튼이 표시됩니다</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">새로운 게시물 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_off">새로운 게시물 버튼이 표시됩니다</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_on">새로운 게시물 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_hashtag_button_title">해시태그 버튼 숨기기</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">해시태그 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">해시태그 버튼이 표시됩니다</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">가입 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">가입 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">가입 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_location_label_title">위치 라벨 숨기기</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">위치 라벨이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">위치 라벨이 표시됩니다</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">새로운 게시물 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">새로운 게시물 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">새로운 게시물 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">일시 정지 오버레이 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">플레이어 왼쪽 상단에서 다음 버튼들이 숨겨집니다\n• 구독 &amp; 라이브 &amp; 트렌드 &amp; 쇼핑</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">플레이어 왼쪽 상단에서 다음 버튼들이 표시됩니다\n• 구독 &amp; 라이브 &amp; 트렌드 &amp; 쇼핑</string>
+  <string name="revanced_hide_shorts_preview_comment_title">댓글 미리보기 숨기기</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">댓글 미리보기가 숨겨집니다</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">댓글 미리보기가 표시됩니다</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">음악 저장 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">음악 저장 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">음악 저장 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_search_suggestions_title">검색 추천 숨기기</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">검색 추천이 숨겨집니다</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">검색 추천이 표시됩니다</string>
+  <string name="revanced_hide_shorts_shop_button_title">쇼핑 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_shop_button_summary_on">쇼핑 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_shop_button_summary_off">쇼핑 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_stickers_title">스티커 숨기기</string>
   <string name="revanced_hide_shorts_stickers_summary_on">스티커가 숨겨집니다</string>
   <string name="revanced_hide_shorts_stickers_summary_off">스티커가 표시됩니다</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">구독 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">구독 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">구독 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_tagged_products_title">태그된 제품 숨기기</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">태그된 제품이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">태그된 제품이 표시됩니다</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">예정 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">(Premiere 또는 실시간) 예정 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">(Premiere 또는 실시간) 예정 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">\'이 사운드 사용\' 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">\'이 사운드 사용\' 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">\'이 사운드 사용\' 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_use_template_button_title">\'이 템플릿 사용\' 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">\'이 템플릿 사용\' 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">\'이 템플릿 사용\' 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_like_fountain_title">좋아요 버튼 상단 애니메이션을 비활성화하기</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">좋아요 버튼 상단에 표시되는 애니메이션을 비활성화합니다</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">좋아요 버튼 상단에 표시되는 애니메이션을 활성화합니다</string>
@@ -807,14 +820,17 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_comments_button_title">댓글 버튼 숨기기</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">댓글 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">댓글 버튼이 표시됩니다</string>
-  <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">리믹스 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_remix_button_summary_on">리믹스 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_remix_button_summary_off">리믹스 버튼이 표시됩니다</string>
-  <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
+  <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_share_button_title">공유 버튼 숨기기</string>
   <string name="revanced_hide_shorts_share_button_summary_on">공유 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_share_button_summary_off">공유 버튼이 표시됩니다</string>
+  <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_remix_button_title">리믹스 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_remix_button_summary_on">리믹스 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_remix_button_summary_off">리믹스 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_sound_button_title">사운드 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">사운드 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">사운드 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_info_panel_title">정보 패널 숨기기</string>
   <string name="revanced_hide_shorts_info_panel_summary_on">정보 패널이 숨겨집니다</string>
   <string name="revanced_hide_shorts_info_panel_summary_off">정보 패널이 표시됩니다</string>
@@ -822,17 +838,14 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_channel_bar_summary_on">채널바가 숨겨집니다</string>
   <string name="revanced_hide_shorts_channel_bar_summary_off">채널바가 표시됩니다</string>
   <string name="revanced_hide_shorts_video_title_title">동영상 제목 숨기기</string>
-  <string name="revanced_hide_shorts_video_title_summary_on">제목이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_video_title_summary_off">제목이 표시됩니다</string>
+  <string name="revanced_hide_shorts_video_title_summary_on">동영상 제목이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">동영상 제목이 표시됩니다</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">사운드 메타데이터 라벨 숨기기</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">메타데이터 라벨이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">메타데이터 라벨이 표시됩니다</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">사운드 메타데이터 라벨이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">사운드 메타데이터 라벨이 표시됩니다</string>
   <string name="revanced_hide_shorts_full_video_link_label_title">동영상 링크 라벨 숨기기</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">동영상 링크 라벨이 숨겨집니다</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">동영상 링크 라벨이 표시됩니다</string>
-  <string name="revanced_hide_shorts_sound_button_title">사운드 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">사운드 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">사운드 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_navigation_bar_title">하단바 숨기기</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">하단바가 숨겨집니다</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">하단바가 표시됩니다</string>
@@ -846,9 +859,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_end_screen_suggested_video_summary_off">최종 화면에서 다음 재생 추천 동영상이 표시됩니다</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  <string name="revanced_hide_related_video_overlay_title">전체 화면에서 관련 동영상 오버레이 숨기기</string>
-  <string name="revanced_hide_related_video_overlay_summary_on">관련 동영상 오버레이가 숨겨집니다</string>
-  <string name="revanced_hide_related_video_overlay_summary_off">관련 동영상 오버레이가 표시됩니다</string>
+  <string name="revanced_hide_related_videos_overlay_title">관련 동영상 오버레이 숨기기</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">전체 화면에서 관련 동영상 오버레이가 숨겨집니다</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">전체 화면에서 관련 동영상 오버레이가 표시됩니다</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">동영상 타임스탬프 숨기기</string>
@@ -898,7 +911,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_dislike_percentage_title">싫어요 수를 퍼센트로 표시하기</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">싫어요 수를 퍼센트로 표시합니다</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">싫어요 수를 숫자로 표시합니다</string>
-  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
   <string name="revanced_ryd_compact_layout_title">좋아요 버튼에서 구분선 숨기기</string>
   <string name="revanced_ryd_compact_layout_summary_on">좋아요 버튼에서 구분선을 표시하지 않습니다</string>
   <string name="revanced_ryd_compact_layout_summary_off">좋아요 버튼에서 구분선을 표시합니다</string>
@@ -957,7 +970,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_square_layout">각진 레이아웃 사용하기</string>
   <string name="revanced_sb_square_layout_sum_on">버튼과 컨트롤을 각지게 활성화합니다</string>
   <string name="revanced_sb_square_layout_sum_off">버튼과 컨트롤을 둥글게 활성화합니다</string>
-  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
+  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
   <string name="revanced_sb_enable_compact_skip_button">최소화된 건너뛰기 버튼 표시하기</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">최소화된 건너뛰기 버튼을 표시합니다</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">일반적인 건너뛰기 버튼을 표시합니다</string>
@@ -1100,7 +1113,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_vote_downvote">싫어요</string>
   <string name="revanced_sb_vote_category">카테고리 변경</string>
   <string name="revanced_sb_vote_no_segments">투표할 구간이 없습니다</string>
-  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <!-- A segment start and end time, such as "02:10 to 03:40". -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s ~ %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">구간 카테고리를 선택하세요</string>
   <string name="revanced_sb_new_segment_disabled_category">이 카테고리는 비활성화되어 있습니다. 제출하려면 설정에서 활성화해야 합니다.</string>
@@ -1179,7 +1192,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 
 나중에 이 설정을 비활성화하면 앱 레이아웃 버그를 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 이전 Shorts 플레이어 아이콘을 복원합니다</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - 이전 하단바 아이콘을 복원합니다</string>
@@ -1232,9 +1245,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_shorts_autoplay_title">Shorts 자동재생</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts가 자동넘김됩니다</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts가 반복재생됩니다</string>
-  <string name="revanced_shorts_autoplay_background_title">Shorts 자동 백그라운드 재생</string>
-  <string name="revanced_shorts_autoplay_background_summary_on">Shorts 백그라운드 재생이 자동넘김됩니다</string>
-  <string name="revanced_shorts_autoplay_background_summary_off">Shorts 백그라운드 재생이 반복재생됩니다</string>
+  <string name="revanced_shorts_autoplay_background_title">Shorts PIP 모드 자동넘김</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">PIP 모드에서 Shorts가 자동넘김됩니다</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">PIP 모드에서 Shorts가 반복재생됩니다</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">미니 플레이어</string>
@@ -1292,9 +1305,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_gradient_loading_screen_title">그라데이션 색상 로딩 화면 활성화하기</string>
   <string name="revanced_gradient_loading_screen_summary_on">그라데이션 색상 로딩 화면을 활성화합니다</string>
   <string name="revanced_gradient_loading_screen_summary_off">기본 로딩 화면을 활성화합니다</string>
-  <string name="splash_screen_animation_style_title">스플래시 애니메이션 스타일</string>
-  <string name="splash_screen_animation_style_entry_1">컬러</string>
-  <string name="splash_screen_animation_style_entry_2">흑백</string>
+  <string name="revanced_splash_screen_animation_style_title">스플래시 애니메이션 스타일</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">컬러</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">흑백</string>
   <string name="revanced_seekbar_custom_color_title">사용자 정의 재생바 색상 활성화하기</string>
   <string name="revanced_seekbar_custom_color_summary_on">사용자 정의 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>
@@ -1304,6 +1317,14 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_seekbar_custom_color_accent_summary">재생바 보조 색상을 지정할 수 있습니다</string>
   <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상입니다</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">헤더 로고</string>
+  <string name="revanced_header_logo_entry_1">계정 기본값 사용</string>
+  <string name="revanced_header_logo_entry_2">일반</string>
+  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <string name="revanced_header_logo_entry_5">ReVanced 최소화</string>
+  <string name="revanced_header_logo_entry_6">사용자 정의</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회하기</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">이미지 호스트로 yt4.ggpht.com를 사용합니다</string>
@@ -1312,11 +1333,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 이 설정을 활성화하면 일부 국가에서 차단된 이미지를 수신할 수 있습니다 (채널 프로필 사진, 커뮤니티 게시물 이미지, etc.)"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_alt_thumbnail_home_title">홈 탭</string>
-  <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_alt_thumbnail_subscription_title">구독 탭</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">내 페이지 탭</string>
   <string name="revanced_alt_thumbnail_player_title">플레이어: 재생목록, 관련 동영상, etc.</string>
   <string name="revanced_alt_thumbnail_search_title">검색 결과</string>
@@ -1417,11 +1438,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_force_original_audio_title">원본 오디오 스트림 언어 강제로 활성화하기</string>
   <string name="revanced_force_original_audio_summary_on">원본 오디오 스트림 언어를 사용 중입니다</string>
   <string name="revanced_force_original_audio_summary_off">기본 오디오 스트림 언어를 사용 중입니다</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_force_original_audio_not_available">이 설정을 사용하려면, \'스트리밍 데이터 변경하기\' 설정에서 기본 클라이언트를 iOS TV로 변경하세요</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">자동</string>
   <string name="revanced_remember_video_quality_last_selected_title">동영상 화질 저장 활성화하기</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값이 변경될 때마다 기본 동영상 화질으로 저장합니다</string>
@@ -1534,7 +1555,7 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
   <string name="revanced_block_video_ads_summary_off">동영상 광고를 차단하지 않습니다</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">메시지를 삭제합니다</string>
+  <string name="revanced_deleted_msg">메시지를 삭제하였습니다</string>
   <string name="revanced_show_deleted_messages_title">삭제된 메시지 표시하기</string>
   <string name="revanced_show_deleted_messages_entry_1">삭제된 메시지 표시하지 않기</string>
   <string name="revanced_show_deleted_messages_entry_2">스포일러 뒤에 삭제된 메시지 숨기기</string>
@@ -1546,7 +1567,7 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
   <string name="revanced_auto_claim_channel_points_summary_off">채널 포인트를 자동으로 적립하지 않습니다</string>
   </patch>
   <patch id="debug.debugModePatch">
-  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
+  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
   <string name="revanced_twitch_debug_mode_title">Twitch 디버그 모드 활성화하기</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch 디버그 모드를 활성화합니다 (추천하지 않음)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch 디버그 모드를 비활성화합니다</string>
@@ -1555,8 +1576,8 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
   <string name="revanced_settings">ReVanced 설정</string>
   <string name="revanced_about_title">정보</string>
   <string name="revanced_about_summary">ReVanced 정보</string>
-  <string name="revanced_ads_screen_title">광고</string>
-  <string name="revanced_ads_screen_summary">광고 차단을 설정할 수 있습니다</string>
+  <string name="revanced_ads_screen_title">광고 차단</string>
+  <string name="revanced_ads_screen_summary">광고 차단 설정을 할 수 있습니다</string>
   <string name="revanced_chat_screen_title">채팅</string>
   <string name="revanced_chat_screen_summary">채팅을 설정할 수 있습니다</string>
   <string name="revanced_misc_screen_title">기타</string>
