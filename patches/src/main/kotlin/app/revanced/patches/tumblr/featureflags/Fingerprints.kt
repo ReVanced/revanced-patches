@@ -13,7 +13,7 @@ import app.revanced.patcher.fingerprint
 // Some features seem to be very old and never removed, though, such as Google Login.
 // The startIndex of the opcode pattern is at the start of the function after the arg null check.
 // we want to insert our instructions there.
-internal val getFeatureValueFingerprint = fingerprint {
+internal val getFeatureValueFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters("L", "Z")

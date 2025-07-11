@@ -36,7 +36,7 @@ fun <T> transformInstructionsPatch(
             }
         }.forEach { (classDef, methods) ->
             // And finally transform the methods...
-            val mutableClass = proxy(classDef).mutableClass
+            val mutableClass = mutableClassBy(classDef)
 
             methods.map(mutableClass::findMutableMethodOf).forEach methods@{ mutableMethod ->
                 val patchIndices = findPatchIndices(mutableClass, mutableMethod)?.toCollection(ArrayDeque())

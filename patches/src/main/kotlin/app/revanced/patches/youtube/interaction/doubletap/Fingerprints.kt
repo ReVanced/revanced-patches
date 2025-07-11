@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val doubleTapInfoGetSeekSourceFingerprint = fingerprint {
+internal val doubleTapInfoGetSeekSourceFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Z")
     returns("L")  // Enum SeekSource, but name obfuscated.
@@ -20,7 +20,7 @@ internal val doubleTapInfoGetSeekSourceFingerprint = fingerprint {
     }
 }
 
-internal val doubleTapInfoCtorFingerprint = fingerprint {
+internal val doubleTapInfoCtorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters(
         "Landroid/view/MotionEvent;",

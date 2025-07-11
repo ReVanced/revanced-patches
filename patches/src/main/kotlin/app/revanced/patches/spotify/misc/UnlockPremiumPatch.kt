@@ -51,10 +51,12 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
         // Make _value accessible so that it can be overridden in the extension.
-        accountAttributeFingerprint.classDef.publicizeField("value_")
+        val accountFingerprint by accountAttributeFingerprint
+        accountFingerprint.classDef.publicizeField("value_")
 
         // Override the attributes map in the getter method.
-        productStateProtoGetMapFingerprint.method.apply {
+        val productFingerprint by productStateProtoGetMapFingerprint
+        productFingerprint.method.apply {
             val getAttributesMapIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
             val attributesMapRegister = getInstruction<TwoRegisterInstruction>(getAttributesMapIndex).registerA
 
@@ -69,7 +71,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Add the query parameter trackRows to show popular tracks in the artist page.
         buildQueryParametersFingerprint.method.apply {
             val addQueryParameterConditionIndex = indexOfFirstInstructionReversedOrThrow(
-                buildQueryParametersFingerprint.stringMatches!!.first().index, Opcode.IF_EQZ
+                buildQueryParametersFingerprint.stringMatches.first().index, Opcode.IF_EQZ
             )
 
             removeInstruction(addQueryParameterConditionIndex)
@@ -78,7 +80,7 @@ val unlockPremiumPatch = bytecodePatch(
 
         // Enable choosing a specific song/artist via Google Assistant.
         contextFromJsonFingerprint.method.apply {
-            val insertIndex = contextFromJsonFingerprint.patternMatch!!.startIndex
+            val insertIndex = contextFromJsonFingerprint.patternMatch.startIndex
             // Both the URI and URL need to be modified.
             val registerUrl = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
             val registerUri = getInstruction<FiveRegisterInstruction>(insertIndex + 2).registerD
@@ -118,9 +120,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Hook the method which adds context menu items and return before adding if the item is a Premium ad.
         oldContextMenuViewModelAddItemFingerprint.matchOrNull(contextMenuViewModelClassDef)?.method?.apply {
             val contextMenuItemInterfaceName = parameterTypes.first()
-            val contextMenuItemInterfaceClassDef = classes.find {
-                it.type == contextMenuItemInterfaceName
-            } ?: throw PatchException("Could not find context menu item interface.")
+            val contextMenuItemInterfaceClassDef = classBy(contextMenuItemInterfaceName.toString())
 
             // The class returned by ContextMenuItem->getViewModel, which represents the actual context menu item we
             // need to stringify.
@@ -161,12 +161,12 @@ val unlockPremiumPatch = bytecodePatch(
             // minified names used at runtime. The instructions need to match the original names so we can call the
             // method in the extension.
             extensionFilterContextMenuItemsFingerprint.method.apply {
-                val contextMenuItemInterfaceClassDef = browsePodcastsContextMenuItemClassFingerprint
-                    .originalClassDef
-                    .interfaces
-                    .firstOrNull()
-                    ?.let { interfaceName -> classes.find { it.type == interfaceName } }
-                    ?: throw PatchException("Could not find context menu item interface.")
+                val contextMenuItemInterfaceClassDef = classBy(
+                    browsePodcastsContextMenuItemClassFingerprint
+                        .originalClassDef
+                        .interfaces
+                        .first()
+                )
 
                 val contextMenuItemViewModelClassName = getViewModelFingerprint
                     .matchOrNull(contextMenuItemInterfaceClassDef)
@@ -217,12 +217,12 @@ val unlockPremiumPatch = bytecodePatch(
             // Find the protobuf array list class using the definingClass which contains the empty list static value.
             val classType = getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
 
-            classes.find { it.type == classType } ?: throw PatchException("Could not find protobuf array list class.")
+            classBy { it.type == classType }
         }
 
-        val abstractProtobufListClassDef = classes.find {
+        val abstractProtobufListClassDef = classBy {
             it.type == protobufArrayListClassDef.superclass
-        } ?: throw PatchException("Could not find abstract protobuf list class.")
+        }
 
         // Need to allow mutation of the list so the home ads sections can be removed.
         // Protobuf array list has an 'isMutable' boolean parameter that sets the mutability.

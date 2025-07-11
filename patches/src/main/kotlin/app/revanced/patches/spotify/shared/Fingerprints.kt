@@ -5,7 +5,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 private const val SPOTIFY_MAIN_ACTIVITY = "Lcom/spotify/music/SpotifyMainActivity;"
 
-internal val mainActivityOnCreateFingerprint = fingerprint {
+internal val mainActivityOnCreateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/os/Bundle;")
