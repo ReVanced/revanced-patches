@@ -161,7 +161,7 @@ val unlockPremiumPatch = bytecodePatch(
             // minified names used at runtime. The instructions need to match the original names so we can call the
             // method in the extension.
             extensionFilterContextMenuItemsFingerprint.method.apply {
-                val contextMenuItemInterfaceClassDef = browsePodcastsContextMenuItemClassFingerprint
+                val contextMenuItemInterfaceClassDef = removeAdsContextMenuItemClassFingerprint
                     .originalClassDef
                     .interfaces
                     .firstOrNull()
