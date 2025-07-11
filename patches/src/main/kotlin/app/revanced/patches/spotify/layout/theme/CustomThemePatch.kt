@@ -7,8 +7,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
-import app.revanced.util.*
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
@@ -19,12 +19,6 @@ private val customThemeBytecodePatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
     execute {
-        if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            // Bytecode changes are not needed for legacy app target.
-            // Player background color is changed with existing resource patch.
-            return@execute
-        }
-
         val colorSpaceUtilsClassDef = colorSpaceUtilsClassFingerprint.originalClassDef
 
         // Hook a util method that converts ARGB to RGBA in the sRGB color space to replace hardcoded accent colors.
