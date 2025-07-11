@@ -455,6 +455,11 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Εμφανίζεται</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Αυτό δεν παρακάμπτει τον ηλικιακό περιορισμό. Απλώς τον αποδέχεται αυτόματα.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Απενεργοποίηση παράλειψης κεφαλαίου με διπλό πάτημα</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Το διπλό πάτημα δεν μπορεί ποτέ να ενεργοποιήσει την παράλειψη στο επόμενο/προηγούμενο κεφάλαιο</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Το διπλό πάτημα μπορεί περιστασιακά να ενεργοποιήσει την παράλειψη στο επόμενο/προηγούμενο κεφάλαιο</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Εξωτερικές λήψεις</string>
   <string name="revanced_external_downloader_screen_summary">Ρυθμίσεις για χρήση εξωτερικού προγράμματος λήψης</string>

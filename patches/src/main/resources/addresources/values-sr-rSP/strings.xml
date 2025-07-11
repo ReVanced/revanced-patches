@@ -453,6 +453,11 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Дијалог о дискрецији гледаоца ће бити приказан</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ово не заобилази старосно ограничење. Само га аутоматски прихвата.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Онемогући прескакање поглавља двоструким додиром</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Двоструки додир никада не може покренути прескакање на следеће/претходно поглавље</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Двоструки додир може повремено покренути прескакање на следеће/претходно поглавље</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Спољна преузимања</string>
   <string name="revanced_external_downloader_screen_summary">Подешавања за коришћење спољног програма за преузимање</string>

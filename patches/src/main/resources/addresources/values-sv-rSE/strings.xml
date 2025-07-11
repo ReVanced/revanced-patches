@@ -24,7 +24,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">Kontroller misslyckades</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Öppna officiell hemsida</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorera</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Appen verkar inte vara patchad av dig.&lt;/h5&gt;&lt;br&gt;Den kanske inte fungerar korrekt, &lt;b&gt;kan vara skadlig eller till och med farlig att använda&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Resultatet av kontrollerna innebär att appen är förlagad eller hämtad från någon annan:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Det rekommenderas starkt att &lt;b&gt;avinstallera appen och patcha den själv&lt;/b&gt; för att säkerställa att du använder en validerad och säker app.&lt;p&gt;&lt;br&gt;Om varningen ignoreras kommer den endast visas två gånger.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Appen verkar inte vara patchad av dig.&lt;/h5&gt;&lt;br&gt;Den kanske inte fungerar korrekt, &lt;b&gt;kan vara skadlig eller till och med farlig att använda&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Resultatet av kontrollerna innebär att appen har patchats på förhand eller erhållits från någon annan:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Vi rekommenderar starkt att &lt;b&gt;avinstallera appen och patcha den själv&lt;/b&gt; för att säkerställa att du använder en validerad och säker app.&lt;p&gt;&lt;br&gt;Om du ignorerar den här varningen kommer den endast att visas två gånger.</string>
   <string name="revanced_check_environment_not_same_patching_device">Patchad på en annan enhet</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Inte installerad av ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Patchad för mer än 10 minuter sedan</string>
@@ -51,11 +51,11 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_remove_message">Ta bort från sökhistoriken?</string>
   <string name="revanced_show_menu_icons_title">Visa ikoner för ReVanced-inställningar</string>
   <string name="revanced_show_menu_icons_summary_on">Inställningsikoner visas</string>
-  <string name="revanced_show_menu_icons_summary_off">Ikoner för inställningar visas inte</string>
+  <string name="revanced_show_menu_icons_summary_off">Inställningsikoner visas inte</string>
   <string name="revanced_language_title">Språk för ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Översättningar till vissa språk kan vara ofullständiga eller saknas.
 
-För att översätta till nya språk besök translate.revanced.app"</string>
+Om du vill översätta till nya språk besöker du translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Appspråk</string>
   <string name="revanced_pref_import_export_title">Importera/exportera</string>
   <string name="revanced_pref_import_export_summary">Importera/exportera ReVanced-inställningar</string>
@@ -129,7 +129,7 @@ Men om du aktiverar detta kommer även vissa användardata, t.ex. din IP-adress,
   <string name="revanced_debug_toast_on_error_title">Visa ett popup-meddelande om det uppstår ett ReVanced-fel</string>
   <string name="revanced_debug_toast_on_error_summary_on">Ett popup-meddelande visas om ett fel uppstår</string>
   <string name="revanced_debug_toast_on_error_summary_off">Inget popup-meddelande visas om ett fel uppstår</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Om du stänger av pupup-felmeddelanden döljs alla ReVanced-felmeddelanden.
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Om du stänger av popup-felmeddelanden döljs alla ReVanced-felmeddelanden.
 
 Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Exportera felsökningsloggar</string>
@@ -173,9 +173,9 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_horizontal_shelves_title">Dölj horisontella hyllor</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Horisontella hyllor är dolda, till exempel:
 • Senaste nytt
-• Fortsätt titta
+• Fortsätt att titta
 • Utforska fler kanaler
-• Mest relevant
+• Mest relevanta
 • Shopping
 • Titta igen"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Horisontella hyllor visas</string>
@@ -452,6 +452,11 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialogrutan tas bort</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialogrutan visas</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Detta kringgår inte åldersbegränsningen. Det bara godkänner automatiskt.</string>
+  </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Inaktivera dubbeltryck för att hoppa över kapitel</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dubbeltryck kan aldrig utlösa ett hopp till nästa/föregående kapitel</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dubbeltryck kan ibland utlösa ett hopp till nästa/föregående kapitel</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Externa nerladdningar</string>

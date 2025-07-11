@@ -453,6 +453,11 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">กล่องโต้ตอบจะแสดง</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">สิ่งนี้ไม่ได้ข้ามข้อจำกัดอายุ มันแค่ยอมรับอายุโดยอัตโนมัติ</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">ปิดใช้งานการแตะสองครั้งเพื่อข้ามบท</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">การแตะสองครั้งจะไม่สามารถเรียกให้เกิดการข้ามไปยังบทถัดไป/ก่อนหน้าได้</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">การแตะสองครั้งสามารถเรียกให้เกิดการข้ามไปยังบทถัดไป/ก่อนหน้าได้เป็นบางครั้ง</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">การดาวน์โหลดภายนอก</string>
   <string name="revanced_external_downloader_screen_summary">การตั้งค่าสำหรับการใช้โปรแกรมดาวน์โหลดภายนอก</string>

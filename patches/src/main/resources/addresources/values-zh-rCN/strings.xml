@@ -453,6 +453,11 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">「观看须知」对话框将会显示</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">这并不会绕过年龄限制，只是自动按下接受按钮。</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">禁用双击章节跳过</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">双击永远不会触发跳到下一/上一章节</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">双击偶尔会触发跳到下一/上一章节</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">外部下载</string>
   <string name="revanced_external_downloader_screen_summary">使用外部下载器的设置</string>
