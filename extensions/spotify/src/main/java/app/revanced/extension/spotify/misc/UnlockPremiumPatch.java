@@ -274,6 +274,8 @@ public final class UnlockPremiumPatch {
                 }
             }
         } catch (Throwable ex) {
+            // Catch Throwable as calling toString can cause crashes with wrongfully generated code that throws
+            // NoSuchMethod errors.
             Logger.printException(() -> "isFilteredContextMenuItem failure", ex);
         }
 

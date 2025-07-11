@@ -56,6 +56,8 @@ public final class HideCreateButtonPatch {
                 }
             }
         } catch (Throwable ex) {
+            // Catch Throwable as calling toString can cause crashes with wrongfully generated code that throws
+            // NoSuchMethod errors.
             Logger.printException(() -> "returnNullIfIsCreateButton failure", ex);
         }
 
