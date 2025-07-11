@@ -32,19 +32,15 @@ class RequestListener extends NanoHTTPD {
     @Override
     public Response serve(@NonNull IHTTPSession session) {
         String uri = session.getUri();
+        if (!uri.equals(CLIENT_TOKEN_API_PATH)) return INTERNAL_ERROR_RESPONSE;
+
         Logger.printInfo(() -> "Serving request for URI: " + uri);
-        if (!uri.equals(CLIENT_TOKEN_API_PATH)) {
-            return INTERNAL_ERROR_RESPONSE;
-        }
 
-        InputStream inputStream = getInputStream(session);
-        ClientTokenResponse response = serveClientTokenRequest(inputStream);
-        if (response == null) {
-            Logger.printException(() -> "Failed to serve client token request");
-            return INTERNAL_ERROR_RESPONSE;
-        }
+        ClientTokenResponse response = serveClientTokenRequest(getInputStream(session));
+        if (response != null) return newResponse(Response.Status.OK, response);
 
-        return newResponse(Response.Status.OK, response);
+        Logger.printException(() -> "Failed to serve client token request");
+        return INTERNAL_ERROR_RESPONSE;
     }
 
     @NonNull
