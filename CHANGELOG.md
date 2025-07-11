@@ -1,3 +1,15 @@
+# [5.31.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.16...v5.31.0-dev.17) (2025-07-11)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Remove wrongfully hidden non ad browse sections ([#5403](https://github.com/ReVanced/revanced-patches/issues/5403)) ([8633544](https://github.com/ReVanced/revanced-patches/commit/8633544decc0814d7a548fbc5576b4bdd1d7eee0))
+
+
+### Features
+
+* **Spotify:** Remove support for old versions ([#5404](https://github.com/ReVanced/revanced-patches/issues/5404)) ([9d31238](https://github.com/ReVanced/revanced-patches/commit/9d31238803a45e957472760fc40c3862da2cf3f0))
+
 # [5.31.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.15...v5.31.0-dev.16) (2025-07-11)
 
 
