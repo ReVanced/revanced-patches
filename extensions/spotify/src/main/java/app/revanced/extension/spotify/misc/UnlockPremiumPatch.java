@@ -97,13 +97,13 @@ public final class UnlockPremiumPatch {
      */
     private static final List<List<ComponentFilter>> CONTEXT_MENU_ITEMS_COMPONENT_FILTERS = List.of(
             // "Listen to music ad-free" upsell on playlists.
-            List.of(new ResourceIdComponentFilter("context_menu_remove_ads", "id")),
+            List.of(new ResourceIdComponentFilter("context_menu_remove_ads", "string")),
             // "Listen to music ad-free" upsell on albums.
-            List.of(new ResourceIdComponentFilter("playlist_entity_reinventfree_adsfree_context_menu_item", "id")),
+            List.of(new ResourceIdComponentFilter("playlist_entity_reinventfree_adsfree_context_menu_item", "string")),
             // "Start a Jam" context menu item, but only filtered if the user does not have premium and the item is
             // being used as a Premium upsell (ad).
             List.of(
-                    new ResourceIdComponentFilter("group_session_context_menu_start", "id"),
+                    new ResourceIdComponentFilter("group_session_context_menu_start", "string"),
                     new StringComponentFilter("isPremiumUpsell=true")
             )
     );
@@ -227,7 +227,8 @@ public final class UnlockPremiumPatch {
                     if (componentFilter.filterUnavailable()) {
                         Logger.printInfo(() -> "isFilteredContextMenuItem: Filter " +
                                 componentFilter.getFilterRepresentation() + " not available, skipping");
-                        continue;
+                        allMatch = false;
+                        break;
                     }
 
                     if (!stringifiedContextMenuItem.contains(componentFilter.getFilterValue())) {
