@@ -59,10 +59,11 @@ public final class AnnouncementsPatch {
         int id = Settings.ANNOUNCEMENT_LAST_ID.defaultValue;
         try {
             final var announcementIds = new JSONArray(jsonString);
+            if (announcementIds.length() == 0) return true;
+            
             id = announcementIds.getJSONObject(0).getInt("id");
-
         } catch (Throwable ex) {
-            Logger.printException(() -> "Failed to parse announcement IDs", ex);
+            Logger.printException(() -> "Failed to parse announcement ID", ex);
         }
 
         // Do not show the announcement, if the last announcement id is the same as the current one.
