@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package spotify.clienttoken.data.v0;
+
+option optimize_for = LITE_RUNTIME;
+option java_package = "app.revanced.extension.spotify.misc.fix.clienttoken.data.v0";
+
+message ClientTokenRequest {
+    ClientTokenRequestType request_type = 1;
+
+    oneof request {
+        ClientDataRequest client_data = 2;
+    }
+}
+
+enum ClientTokenRequestType {
+    REQUEST_UNKNOWN = 0;
+    REQUEST_CLIENT_DATA_REQUEST = 1;
+    REQUEST_CHALLENGE_ANSWERS_REQUEST = 2;
+}
+
+message ClientDataRequest {
+    string client_version = 1;
+    string client_id = 2;
+
+    oneof data {
+        ConnectivitySdkData connectivity_sdk_data = 3;
+    }
+}
+
+message ConnectivitySdkData {
+    PlatformSpecificData platform_specific_data = 1;
+    string device_id = 2;
+}
+
+message PlatformSpecificData {
+    oneof data {
+        NativeIOSData ios = 2;
+    }
+}
+
+message NativeIOSData {
+    int32 user_interface_idiom = 1;
+    bool target_iphone_simulator = 2;
+    string hw_machine = 3;
+    string system_version = 4;
+    string simulator_model_identifier = 5;
+}
+
+message ClientTokenResponse {
+    ClientTokenResponseType response_type = 1;
+
+    oneof response {
+        GrantedTokenResponse granted_token = 2;
+    }
+}
+
+enum ClientTokenResponseType {
+    RESPONSE_UNKNOWN = 0;
+    RESPONSE_GRANTED_TOKEN_RESPONSE = 1;
+    RESPONSE_CHALLENGES_RESPONSE = 2;
+}
+
+message GrantedTokenResponse {
+    string token = 1;
+    int32 expires_after_seconds = 2;
+    int32 refresh_after_seconds = 3;
+    repeated TokenDomain domains = 4;
+}
+
+message TokenDomain {
+    string domain = 1;
+}

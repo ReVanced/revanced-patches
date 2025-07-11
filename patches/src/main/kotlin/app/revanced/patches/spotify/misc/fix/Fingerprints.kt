@@ -7,37 +7,12 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val getPackageInfoFingerprint = fingerprint {
-    strings(
-        "Failed to get the application signatures"
-    )
-}
-
 internal val loadOrbitLibraryFingerprint = fingerprint {
     strings("/liborbit-jni-spotify.so")
 }
 
-internal val startupPageLayoutInflateFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
-    parameters("Landroid/view/LayoutInflater;", "Landroid/view/ViewGroup;", "Landroid/os/Bundle;")
-    strings("blueprintContainer", "gradient", "valuePropositionTextView")
-}
-
-internal val renderStartLoginScreenFingerprint = fingerprint {
-    strings("authenticationButtonFactory", "MORE_OPTIONS")
-}
-
-internal val renderSecondLoginScreenFingerprint = fingerprint {
-    strings("authenticationButtonFactory", "intent_login")
-}
-
-internal val renderThirdLoginScreenFingerprint = fingerprint {
-    strings("EMAIL_OR_USERNAME", "listener")
-}
-
-internal val thirdLoginScreenLoginOnClickFingerprint = fingerprint {
-    strings("login", "listener", "none")
+internal val extensionFixConstantsFingerprint = fingerprint {
+    custom { _, classDef -> classDef.type == "Lapp/revanced/extension/spotify/misc/fix/Constants;" }
 }
 
 internal val runIntegrityVerificationFingerprint = fingerprint {
