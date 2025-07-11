@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val doubleTapInfoGetSeekSourceFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Z")
-    returns("L")  // enum SeekSource, but name obfuscated
+    returns("L")  // Enum SeekSource, but name obfuscated.
     opcodes(
         Opcode.IF_EQZ,
         Opcode.SGET_OBJECT,

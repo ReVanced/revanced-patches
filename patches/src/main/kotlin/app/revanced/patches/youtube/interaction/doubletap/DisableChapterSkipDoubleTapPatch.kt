@@ -53,7 +53,8 @@ val disableChapterSkipDoubleTapPatch = bytecodePatch(
         doubleTapInfoCtorFingerprint.match(
             doubleTapInfoGetSeekSourceFingerprint.classDef
         ).method.addInstructions(
-            0, """
+            0,
+            """
                 invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
                 move-result p3
             """
