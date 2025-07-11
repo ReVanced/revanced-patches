@@ -24,11 +24,14 @@ import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFrag
  * This class is responsible for injecting our own fragment by replacing the LicenseActivity.
  */
 @SuppressWarnings("unused")
-public class LicenseActivityHook {
+public class LicenseActivityHook extends Activity {
 
     private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
 
     private static ViewGroup.LayoutParams toolbarLayoutParams;
+
+    @SuppressLint("StaticFieldLeak")
+    public static SearchViewController searchViewController;
 
     public static void setToolbarLayoutParams(Toolbar toolbar) {
         if (toolbarLayoutParams != null) {
@@ -131,7 +134,7 @@ public class LicenseActivityHook {
 
         // Add Search Icon and EditText for ReVancedPreferenceFragment only.
         if (fragment instanceof ReVancedPreferenceFragment) {
-            SearchViewController.addSearchViewComponents(activity, toolbar, (ReVancedPreferenceFragment) fragment);
+            searchViewController = SearchViewController.addSearchViewComponents(activity, toolbar, (ReVancedPreferenceFragment) fragment);
         }
 
         toolBarParent.addView(toolbar, 0);

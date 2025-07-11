@@ -83,8 +83,8 @@ public class SearchViewController {
     /**
      * Adds search view components to the activity.
      */
-    public static void addSearchViewComponents(Activity activity, Toolbar toolbar, ReVancedPreferenceFragment fragment) {
-        new SearchViewController(activity, toolbar, fragment);
+    public static SearchViewController addSearchViewComponents(Activity activity, Toolbar toolbar, ReVancedPreferenceFragment fragment) {
+        return new SearchViewController(activity, toolbar, fragment);
     }
 
     private SearchViewController(Activity activity, Toolbar toolbar, ReVancedPreferenceFragment fragment) {
@@ -197,7 +197,7 @@ public class SearchViewController {
                 if (isSearchActive) {
                     closeSearch();
                 } else {
-                    activity.onBackPressed();
+                    activity.finish();
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "navigation click failure", ex);
@@ -313,7 +313,7 @@ public class SearchViewController {
     /**
      * Closes the search view and hides the keyboard.
      */
-    private void closeSearch() {
+    public void closeSearch() {
         isSearchActive = false;
         toolbar.getMenu().findItem(getResourceIdentifier(
                 "action_search", "id")).setVisible(true);
@@ -324,6 +324,19 @@ public class SearchViewController {
         // Hide keyboard.
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+    }
+
+    public static boolean handleBackPress() {
+        if (LicenseActivityHook.searchViewController != null
+                && LicenseActivityHook.searchViewController.isSearchExpanded()) {
+            LicenseActivityHook.searchViewController.closeSearch();
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isSearchExpanded() {
+        return isSearchActive;
     }
 
     /**
