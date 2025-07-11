@@ -453,6 +453,11 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Диалоговое окно о нежелательном контенте показано</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Данная опция не обходит возрастное ограничение. Она только принимает возрастное ограничение автоматически.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Отключить пропуск главы по двойному касанию</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Двойное касание никогда не приведёт к переходу к следующей/предыдущей главе</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Двойное касание может иногда приводить к переходу к следующей/предыдущей главе</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Внешний загрузчик</string>
   <string name="revanced_external_downloader_screen_summary">Настройки использования внешнего загрузчика видео</string>

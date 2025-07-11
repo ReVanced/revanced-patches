@@ -1,22 +1,26 @@
 version: 2
+multi-ecosystem-groups:
+  dependency:
+    schedule:
+      interval: "weekly"
+      target-branch: dev
+      labels: [ ]
+
 updates:
   - package-ecosystem: github-actions
-    labels: []
+    multi-ecosystem-group: "dependency"
     directory: /
-    target-branch: dev
-    schedule:
-      interval: monthly
+    patterns:
+      - "*"
 
   - package-ecosystem: npm
-    labels: []
+    multi-ecosystem-group: "dependency"
     directory: /
-    target-branch: dev
-    schedule:
-      interval: monthly
+    patterns:
+      - "*"
 
   - package-ecosystem: gradle
-    labels: []
+    multi-ecosystem-group: "dependency"
     directory: /
-    target-branch: dev
-    schedule:
-      interval: monthly
+    patterns:
+      - "*"

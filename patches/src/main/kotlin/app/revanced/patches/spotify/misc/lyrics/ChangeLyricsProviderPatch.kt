@@ -7,7 +7,6 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -59,16 +58,10 @@ val changeLyricsProviderPatch = bytecodePatch(
     }
 
     execute {
-        if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            Logger.getLogger(this::class.java.name).severe(
-                "Change lyrics provider patch is not supported for this target version."
-            )
-            return@execute
-        }
-
         val httpClientBuilderMethod = httpClientBuilderFingerprint.originalMethod
 
         // region Create a modified copy of the HTTP client builder method with the custom lyrics provider host.
+
         val patchedHttpClientBuilderMethod = with(httpClientBuilderMethod) {
             val invokeBuildUrlIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.returnType == "Lokhttp3/HttpUrl;"
@@ -91,6 +84,7 @@ val changeLyricsProviderPatch = bytecodePatch(
                 httpClientBuilderFingerprint.classDef.methods.add(this)
             }
         }
+
         //endregion
 
         // region Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
@@ -132,6 +126,7 @@ val changeLyricsProviderPatch = bytecodePatch(
                 )
             )
         }
+
         //endregion
     }
 }

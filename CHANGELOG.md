@@ -1,3 +1,44 @@
+# [5.31.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.16...v5.31.0-dev.17) (2025-07-11)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Remove wrongfully hidden non ad browse sections ([#5403](https://github.com/ReVanced/revanced-patches/issues/5403)) ([8633544](https://github.com/ReVanced/revanced-patches/commit/8633544decc0814d7a548fbc5576b4bdd1d7eee0))
+
+
+### Features
+
+* **Spotify:** Remove support for old versions ([#5404](https://github.com/ReVanced/revanced-patches/issues/5404)) ([9d31238](https://github.com/ReVanced/revanced-patches/commit/9d31238803a45e957472760fc40c3862da2cf3f0))
+
+# [5.31.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.15...v5.31.0-dev.16) (2025-07-11)
+
+
+### Features
+
+* **Spotify - Spoof client:** Fix issues like songs skipping by spoofing to iOS ([#5388](https://github.com/ReVanced/revanced-patches/issues/5388)) ([e36d4c1](https://github.com/ReVanced/revanced-patches/commit/e36d4c1986b58815c7659e6ef44011166873f9c8))
+* **YouTube:** Disable two-finger tap gesture for skipping chapters ([#5374](https://github.com/ReVanced/revanced-patches/issues/5374)) ([71db0a2](https://github.com/ReVanced/revanced-patches/commit/71db0a2661b5f76eb5048cdeed83f26fbfdf4fee))
+
+# [5.31.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.14...v5.31.0-dev.15) (2025-07-11)
+
+
+### Bug Fixes
+
+* Handle empty list of announcements ([de9d720](https://github.com/ReVanced/revanced-patches/commit/de9d7209f4e818a618a7fd9000013ae8ebd728f2))
+
+# [5.31.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.13...v5.31.0-dev.14) (2025-07-10)
+
+
+### Bug Fixes
+
+* **Bacon Reader - Spoof client:** Use www instead of ssl API to fix auth related issues  ([#5402](https://github.com/ReVanced/revanced-patches/issues/5402)) ([72459bb](https://github.com/ReVanced/revanced-patches/commit/72459bb2eaf4691e32822dfdd1db3240e2fe98dd))
+
+# [5.31.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.12...v5.31.0-dev.13) (2025-07-10)
+
+
+### Bug Fixes
+
+* **YouTube - Slide to seek:** Show tap and hold 2x speed overlay when active ([#5398](https://github.com/ReVanced/revanced-patches/issues/5398)) ([dbc9c5f](https://github.com/ReVanced/revanced-patches/commit/dbc9c5f00c1f5bbb95f8822667cc1ac3c613fa00))
+
 # [5.31.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.11...v5.31.0-dev.12) (2025-07-09)
 
 

@@ -453,6 +453,11 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Будзе паказана дыялогавае акно</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Гэта не абыходзіць узроставае абмежаванне. Ён проста прымае гэта аўтаматычна.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Адключыць прапуск раздзела па двайным націску</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Двайны націск ніколі не можа выклікаць прапуск да наступнага/папярэдняга раздзела</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Двайны націск можа час ад часу выклікаць прапуск да наступнага/папярэдняга раздзела</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Знешнія загрузкі</string>
   <string name="revanced_external_downloader_screen_summary">Налады для выкарыстання вонкавага загрузніка</string>

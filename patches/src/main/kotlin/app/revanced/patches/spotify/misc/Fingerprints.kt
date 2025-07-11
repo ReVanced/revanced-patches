@@ -2,7 +2,6 @@ package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -13,25 +12,13 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 context(BytecodePatchContext)
 internal val accountAttributeFingerprint get() = fingerprint {
-    custom { _, classDef ->
-        classDef.type == if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            "Lcom/spotify/useraccount/v1/AccountAttribute;"
-        } else {
-            "Lcom/spotify/remoteconfig/internal/AccountAttribute;"
-        }
-    }
+    custom { _, classDef -> classDef.type == "Lcom/spotify/remoteconfig/internal/AccountAttribute;" }
 }
 
 context(BytecodePatchContext)
 internal val productStateProtoGetMapFingerprint get() = fingerprint {
     returns("Ljava/util/Map;")
-    custom { _, classDef ->
-        classDef.type == if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            "Lcom/spotify/ucs/proto/v0/UcsResponseWrapper${'$'}AccountAttributesResponse;"
-        } else {
-            "Lcom/spotify/remoteconfig/internal/ProductStateProto;"
-        }
-    }
+    custom { _, classDef -> classDef.type == "Lcom/spotify/remoteconfig/internal/ProductStateProto;" }
 }
 
 internal val buildQueryParametersFingerprint by fingerprint {
@@ -90,14 +77,14 @@ internal val contextFromJsonFingerprint by fingerprint {
     )
     custom { method, classDef ->
         method.name == "fromJson" &&
-                classDef.endsWith("voiceassistants/playermodels/ContextJsonAdapter;")
+                classDef.type.endsWith("voiceassistants/playermodels/ContextJsonAdapter;")
     }
 }
 
 internal val readPlayerOptionOverridesFingerprint by fingerprint {
     custom { method, classDef ->
         method.name == "readPlayerOptionOverrides" &&
-                classDef.endsWith("voiceassistants/playermodels/PreparePlayOptionsJsonAdapter;")
+                classDef.type.endsWith("voiceassistants/playermodels/PreparePlayOptionsJsonAdapter;")
     }
 }
 
@@ -119,21 +106,21 @@ internal val abstractProtobufListEnsureIsMutableFingerprint by fingerprint {
 
 internal fun structureGetSectionsFingerprint(className: String) = fingerprint {
     custom { method, classDef ->
-        classDef.endsWith(className) && method.indexOfFirstInstruction {
+        classDef.type.endsWith(className) && method.indexOfFirstInstruction {
             opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.name == "sections_"
         } >= 0
     }
 }
 
 internal val homeSectionFingerprint by fingerprint {
-    custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
+    custom { _, classDef -> classDef.type.endsWith("homeapi/proto/Section;") }
 }
 
 internal val homeStructureGetSectionsFingerprint by
     structureGetSectionsFingerprint("homeapi/proto/HomeStructure;")
 
 internal val browseSectionFingerprint by fingerprint {
-    custom { _, classDef-> classDef.endsWith("browsita/v1/resolved/Section;") }
+    custom { _, classDef-> classDef.type.endsWith("browsita/v1/resolved/Section;") }
 }
 
 internal val browseStructureGetSectionsFingerprint by

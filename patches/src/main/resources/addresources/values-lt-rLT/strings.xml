@@ -453,6 +453,11 @@ Apribojimai
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialogas bus rodomas</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tai neaplenkia amžiaus apribojimo. Jis tiesiog jį automatiškai priima.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Išjungti dvigubo bakstelėjimo skyriaus praleidimą</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dvigubas bakstelėjimas niekada negali suaktyvinti praleidimo į kitą/ankstesnį skyrių</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dvigubas bakstelėjimas kartais gali suaktyvinti praleidimą į kitą/ankstesnį skyrių</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Išoriniai atsisiuntimai</string>
   <string name="revanced_external_downloader_screen_summary">Nustatymai naudojant išorinį atsisiuntimo įrankį</string>
