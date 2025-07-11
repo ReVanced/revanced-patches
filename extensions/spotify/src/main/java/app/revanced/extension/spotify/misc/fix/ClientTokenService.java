@@ -6,6 +6,9 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp.*;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import static app.revanced.extension.spotify.misc.fix.Constants.*;
 
@@ -44,39 +47,58 @@ class ClientTokenService {
                 .build();
     }
 
-    interface ClientTokenRequestHandler {
-        @NonNull
-        ClientTokenResponse request(@NonNull ClientTokenRequest request) throws IOException;
-    }
-
     @Nullable
-    static ClientTokenResponse getClientTokenResponse(
-            @NonNull ClientTokenRequest request,
-            @NonNull ClientTokenRequestHandler handler
-    ) {
-        ClientTokenRequestType clientTokenRequestType = request.getRequestType();
-        Logger.printInfo(() -> "Received client token request of type: " + clientTokenRequestType);
-
+    static ClientTokenResponse getClientTokenResponse(@NonNull ClientTokenRequest request) {
         if (request.getRequestType() == ClientTokenRequestType.REQUEST_CLIENT_DATA_REQUEST) {
+            Logger.printInfo(() -> "Requesting iOS client token");
             String deviceId = request.getClientData().getConnectivitySdkData().getDeviceId();
             request = newIOSClientTokenRequest(deviceId);
         }
 
-        ClientTokenResponse clientTokenResponse;
+        ClientTokenResponse response;
         try {
-            clientTokenResponse = handler.request(request);
+            response = requestClientToken(request);
         } catch (IOException ex) {
-            Logger.printException(() -> "Failed to request client token", ex);
+            Logger.printException(() -> "Failed to handle request", ex);
             return null;
         }
 
-        ClientTokenResponseType clientTokenResponseType = clientTokenResponse.getResponseType();
-        Logger.printInfo(() -> "Received client token response of type: " + clientTokenResponseType);
+        return response;
+    }
 
-        if (clientTokenResponseType == ClientTokenResponseType.RESPONSE_GRANTED_TOKEN_RESPONSE) {
-            Logger.printInfo(() -> "Fetched iOS client token: " + clientTokenResponse.getGrantedToken().getToken());
+
+    @NonNull
+    private static ClientTokenResponse requestClientToken(@NonNull ClientTokenRequest request) throws IOException {
+        HttpURLConnection urlConnection = (HttpURLConnection) new URL(CLIENT_TOKEN_API_URL).openConnection();
+        urlConnection.setRequestMethod("POST");
+        urlConnection.setDoOutput(true);
+        urlConnection.setRequestProperty("Content-Type", "application/x-protobuf");
+        urlConnection.setRequestProperty("Accept", "application/x-protobuf");
+        urlConnection.setRequestProperty("User-Agent", IOS_USER_AGENT);
+
+        byte[] requestArray = request.toByteArray();
+        urlConnection.setFixedLengthStreamingMode(requestArray.length);
+        urlConnection.getOutputStream().write(requestArray);
+
+        try (InputStream inputStream = urlConnection.getInputStream()) {
+            return ClientTokenResponse.parseFrom(inputStream);
         }
+    }
 
-        return clientTokenResponse;
+    @Nullable
+    static ClientTokenResponse serveClientTokenRequest(@NonNull InputStream inputStream) {
+        ClientTokenRequest request;
+        try {
+            request = ClientTokenRequest.parseFrom(inputStream);
+        } catch (IOException ex) {
+            Logger.printException(() -> "Failed to parse request from input stream", ex);
+            return null;
+        }
+        Logger.printInfo(() -> "Request of type: " + request.getRequestType());
+
+        ClientTokenResponse response = getClientTokenResponse(request);
+        if (response != null) Logger.printInfo(() -> "Response of type: " + response.getResponseType());
+
+        return response;
     }
 }

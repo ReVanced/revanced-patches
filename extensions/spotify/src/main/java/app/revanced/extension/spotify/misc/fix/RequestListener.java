@@ -2,6 +2,7 @@ package app.revanced.extension.spotify.misc.fix;
 
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp;
 import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp.ClientTokenRequest;
 import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp.ClientTokenResponse;
 import com.google.protobuf.MessageLite;
@@ -16,26 +17,11 @@ import java.net.URL;
 import java.util.Objects;
 
 import static app.revanced.extension.spotify.misc.fix.ClientTokenService.getClientTokenResponse;
+import static app.revanced.extension.spotify.misc.fix.ClientTokenService.serveClientTokenRequest;
 import static app.revanced.extension.spotify.misc.fix.Constants.*;
 import static fi.iki.elonen.NanoHTTPD.Response.Status.INTERNAL_ERROR;
 
 class RequestListener extends NanoHTTPD {
-    private static final String CLIENT_TOKEN_API_PATH = "/v1/clienttoken";
-    private static final String CLIENT_TOKEN_API_URL = "https://clienttoken.spotify.com" + CLIENT_TOKEN_API_PATH;
-
-    private static final String IOS_USER_AGENT;
-
-    static {
-        String clientVersion = getClientVersion();
-        int commitHashIndex = clientVersion.lastIndexOf(".");
-        String version = clientVersion.substring(
-                clientVersion.indexOf("-") + 1,
-                clientVersion.lastIndexOf(".", commitHashIndex - 1)
-        );
-
-        IOS_USER_AGENT = "Spotify/" + version + " iOS/" + getSystemVersion() + " (" + getHardwareMachine() + ")";
-    }
-
     RequestListener(int port) {
         super(port);
 
@@ -56,40 +42,14 @@ class RequestListener extends NanoHTTPD {
             return INTERNAL_ERROR_RESPONSE;
         }
 
-        ClientTokenRequest clientTokenRequest;
-        try  {
-            InputStream inputStream = getInputStream(session);
-            clientTokenRequest = ClientTokenRequest.parseFrom(inputStream);
-            // TODO: Adding inputStream.close(); here (or using auto closeable try), breaks the code. Understand why.
-        } catch (IOException ex) {
-            Logger.printException(() -> "Failed to parse client token request from input stream", ex);
-            return INTERNAL_ERROR_RESPONSE;
-        }
-
-        ClientTokenResponse response = getClientTokenResponse(clientTokenRequest, RequestListener::requestClientToken);
+        InputStream inputStream = getInputStream(session);
+        ClientTokenResponse response = serveClientTokenRequest(inputStream);
         if (response == null) {
+            Logger.printException(() -> "Failed to serve client token request");
             return INTERNAL_ERROR_RESPONSE;
         }
 
         return newResponse(Response.Status.OK, response);
-    }
-
-    @NonNull
-    private static ClientTokenResponse requestClientToken(@NonNull ClientTokenRequest request) throws IOException {
-        HttpURLConnection urlConnection = (HttpURLConnection) new URL(CLIENT_TOKEN_API_URL).openConnection();
-        urlConnection.setRequestMethod("POST");
-        urlConnection.setDoOutput(true);
-        urlConnection.setRequestProperty("Content-Type", "application/x-protobuf");
-        urlConnection.setRequestProperty("Accept", "application/x-protobuf");
-        urlConnection.setRequestProperty("User-Agent", IOS_USER_AGENT);
-
-        byte[] requestArray = request.toByteArray();
-        urlConnection.setFixedLengthStreamingMode(requestArray.length);
-        urlConnection.getOutputStream().write(requestArray);
-
-        try (InputStream inputStream = urlConnection.getInputStream()) {
-            return ClientTokenResponse.parseFrom(inputStream);
-        }
     }
 
     @NonNull
