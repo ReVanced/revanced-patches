@@ -59,6 +59,7 @@ val changeLyricsProviderPatch = bytecodePatch(
         val httpClientBuilderMethod = httpClientBuilderFingerprint.originalMethod
 
         // region Create a modified copy of the HTTP client builder method with the custom lyrics provider host.
+
         val patchedHttpClientBuilderMethod = with(httpClientBuilderMethod) {
             val invokeBuildUrlIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.returnType == "Lokhttp3/HttpUrl;"
@@ -81,9 +82,11 @@ val changeLyricsProviderPatch = bytecodePatch(
                 httpClientBuilderFingerprint.classDef.methods.add(this)
             }
         }
+
         //endregion
 
         // region Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
+
         getLyricsHttpClientFingerprint(httpClientBuilderMethod).method.apply {
             val getLyricsHttpClientIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>() == httpClientBuilderMethod
@@ -110,6 +113,7 @@ val changeLyricsProviderPatch = bytecodePatch(
                 )
             )
         }
+
         //endregion
     }
 }

@@ -26,9 +26,13 @@ val sanitizeSharingLinksPatch = bytecodePatch(
         val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->" +
                 "sanitizeUrl(Ljava/lang/String;)Ljava/lang/String;"
 
-        val copyMethod = shareCopyUrlFingerprint.methodOrNull ?: oldShareCopyUrlFingerprint.method
+        val copyFingerprint = if (shareCopyUrlFingerprint.originalMethodOrNull != null) {
+            shareCopyUrlFingerprint
+        } else {
+            oldShareCopyUrlFingerprint
+        }
 
-        copyMethod.apply {
+        copyFingerprint.method.apply {
             val newPlainTextInvokeIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "newPlainText"
             }
@@ -44,10 +48,10 @@ val sanitizeSharingLinksPatch = bytecodePatch(
         }
 
         // Android native share sheet is used for all other quick share types (X, WhatsApp, etc).
-        var shareUrlParameter = ""
-        val shareSheetMethod = formatAndroidShareSheetUrlFingerprint.methodOrNull?.also {
-            val methodAccessFlags = formatAndroidShareSheetUrlFingerprint.originalMethod.accessFlags
-            shareUrlParameter = if (AccessFlags.STATIC.isSet(methodAccessFlags)) {
+        val shareUrlParameter: String
+        val shareSheetFingerprint = if (formatAndroidShareSheetUrlFingerprint.originalMethodOrNull != null) {
+            val methodAccessFlags = formatAndroidShareSheetUrlFingerprint.originalMethod
+            shareUrlParameter = if (AccessFlags.STATIC.isSet(methodAccessFlags.accessFlags)) {
                 // In newer implementations the method is static, so p0 is not `this`.
                 "p1"
             } else {
@@ -55,11 +59,14 @@ val sanitizeSharingLinksPatch = bytecodePatch(
                 // For that reason, add one to the parameter register.
                 "p2"
             }
-        } ?: oldFormatAndroidShareSheetUrlFingerprint.method.also {
+
+            formatAndroidShareSheetUrlFingerprint
+        } else {
             shareUrlParameter = "p2"
+            oldFormatAndroidShareSheetUrlFingerprint
         }
 
-        shareSheetMethod.addInstructions(
+        shareSheetFingerprint.method.addInstructions(
             0,
             """
                 invoke-static { $shareUrlParameter }, $extensionMethodDescriptor

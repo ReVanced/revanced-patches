@@ -77,14 +77,14 @@ internal val contextFromJsonFingerprint = fingerprint {
     )
     custom { method, classDef ->
         method.name == "fromJson" &&
-                classDef.endsWith("voiceassistants/playermodels/ContextJsonAdapter;")
+                classDef.type.endsWith("voiceassistants/playermodels/ContextJsonAdapter;")
     }
 }
 
 internal val readPlayerOptionOverridesFingerprint = fingerprint {
     custom { method, classDef ->
         method.name == "readPlayerOptionOverrides" &&
-                classDef.endsWith("voiceassistants/playermodels/PreparePlayOptionsJsonAdapter;")
+                classDef.type.endsWith("voiceassistants/playermodels/PreparePlayOptionsJsonAdapter;")
     }
 }
 
@@ -106,21 +106,21 @@ internal val abstractProtobufListEnsureIsMutableFingerprint = fingerprint {
 
 internal fun structureGetSectionsFingerprint(className: String) = fingerprint {
     custom { method, classDef ->
-        classDef.endsWith(className) && method.indexOfFirstInstruction {
+        classDef.type.endsWith(className) && method.indexOfFirstInstruction {
             opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.name == "sections_"
         } >= 0
     }
 }
 
 internal val homeSectionFingerprint = fingerprint {
-    custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
+    custom { _, classDef -> classDef.type.endsWith("homeapi/proto/Section;") }
 }
 
 internal val homeStructureGetSectionsFingerprint =
     structureGetSectionsFingerprint("homeapi/proto/HomeStructure;")
 
 internal val browseSectionFingerprint = fingerprint {
-    custom { _, classDef-> classDef.endsWith("browsita/v1/resolved/Section;") }
+    custom { _, classDef-> classDef.type.endsWith("browsita/v1/resolved/Section;") }
 }
 
 internal val browseStructureGetSectionsFingerprint =

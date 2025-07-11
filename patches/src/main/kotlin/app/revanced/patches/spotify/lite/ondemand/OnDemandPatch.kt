@@ -6,4 +6,4 @@ import app.revanced.patcher.patch.bytecodePatch
 @Suppress("unused")
 val onDemandPatch = bytecodePatch(
     description = "Enables listening to songs on-demand, allowing to play any song from playlists, albums or artists without limitations. This does not remove ads.",
-) {}
+)
