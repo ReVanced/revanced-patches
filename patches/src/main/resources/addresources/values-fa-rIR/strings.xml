@@ -115,6 +115,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
   </patch>

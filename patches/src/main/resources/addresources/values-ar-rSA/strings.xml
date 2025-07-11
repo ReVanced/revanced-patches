@@ -453,6 +453,11 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">سيتم عرض مربع الحوار</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">وهذا لا يتجاوز قيود السن. بل يقبلها تلقائيًا.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">تعطيل تخطي الفصل بالنقر المزدوج</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">لا يمكن للنقر المزدوج مطلقًا أن يؤدي إلى تخطي الفصل التالي/السابق</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">يمكن للنقر المزدوج أن يؤدي أحيانًا إلى تخطي الفصل التالي/السابق</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">التنزيلات الخارجية</string>
   <string name="revanced_external_downloader_screen_summary">إعدادات لاستخدام أداة التنزيل الخارجية</string>
