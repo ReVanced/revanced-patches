@@ -453,6 +453,8 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoq göstərilir</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Bu, yaş məhdudiyyətini ötürmür. Sadəcə birbaşa qəbul edir.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Xarici yükləmələr</string>
   <string name="revanced_external_downloader_screen_summary">Xarici yükləyici istifadəsi üçün tənzimləmələr</string>

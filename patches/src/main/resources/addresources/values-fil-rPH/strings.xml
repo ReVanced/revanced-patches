@@ -453,6 +453,11 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Ipapakita ang dialog</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Hindi nito nilalampasan ang paghihigpit sa edad. Awtomatiko lang itong tinatanggap.</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Huwag paganahin ang paglaktaw ng kabanata sa doble tap</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Ang doble tap ay hindi kailanman maaaring mag-trigger ng paglaktaw sa susunod/nakaraang kabanata</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Ang doble tap ay paminsan-minsan ay maaaring mag-trigger ng paglaktaw sa susunod/nakaraang kabanata</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Mga panlabas na pag-download</string>
   <string name="revanced_external_downloader_screen_summary">Mga setting para sa paggamit ng external na downloader</string>
