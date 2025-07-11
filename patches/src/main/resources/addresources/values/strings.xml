@@ -765,9 +765,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_cast_button_title">Hide Cast button</string>
             <string name="revanced_hide_cast_button_summary_on">Cast button is hidden</string>
             <string name="revanced_hide_cast_button_summary_off">Cast button is shown</string>
-            <string name="revanced_hide_player_control_buttons_background_title">Hide player control buttons background</string>
-            <string name="revanced_hide_player_control_buttons_background_summary_on">Player control buttons background is hidden</string>
-            <string name="revanced_hide_player_control_buttons_background_summary_off">Player control buttons background is shown</string>
+            <string name="revanced_hide_player_control_buttons_background_title">Hide player controls background</string>
+            <string name="revanced_hide_player_control_buttons_background_summary_on">Player controls background is hidden</string>
+            <string name="revanced_hide_player_control_buttons_background_summary_off">Player controls background is shown</string>
             <string name="revanced_hide_player_previous_next_buttons_title">Hide Previous &amp; Next buttons</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons are hidden</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_off">Buttons are shown</string>
