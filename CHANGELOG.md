@@ -1,3 +1,10 @@
+## [5.31.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.0...v5.31.1) (2025-07-11)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Fix hiding context menu ads for latest version ([#5415](https://github.com/ReVanced/revanced-patches/issues/5415)) ([dcde393](https://github.com/ReVanced/revanced-patches/commit/dcde3935bde3172576d0f9f5ff9eb62ecfff7dfe))
+
 ## [5.31.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.0...v5.31.1-dev.1) (2025-07-11)
 
 
