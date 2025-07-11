@@ -5,6 +5,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.spotify.shared.ComponentFilters.ComponentFilter;
 import app.revanced.extension.spotify.shared.ComponentFilters.ResourceIdComponentFilter;
 import app.revanced.extension.spotify.shared.ComponentFilters.StringComponentFilter;
+import com.spotify.remoteconfig.internal.AccountAttribute;
 
 import java.util.*;
 
@@ -13,25 +14,6 @@ import static java.lang.Boolean.TRUE;
 
 @SuppressWarnings("unused")
 public final class UnlockPremiumPatch {
-
-    private static final String SPOTIFY_MAIN_ACTIVITY_LEGACY = "com.spotify.music.MainActivity";
-
-    /**
-     * If the app target is 8.6.98.900.
-     */
-    private static final boolean IS_SPOTIFY_LEGACY_APP_TARGET;
-
-    static {
-        boolean isLegacy;
-        try {
-            Class.forName(SPOTIFY_MAIN_ACTIVITY_LEGACY);
-            isLegacy = true;
-        } catch (ClassNotFoundException ex) {
-            isLegacy = false;
-        }
-
-        IS_SPOTIFY_LEGACY_APP_TARGET = isLegacy;
-    }
 
     private static class OverrideAttribute {
         /**
@@ -66,7 +48,7 @@ public final class UnlockPremiumPatch {
             new OverrideAttribute("ads", FALSE),
             // Works along on-demand, allows playing any song without restriction.
             new OverrideAttribute("player-license", "premium"),
-            new OverrideAttribute("player-license-v2", "premium", !IS_SPOTIFY_LEGACY_APP_TARGET),
+            new OverrideAttribute("player-license-v2", "premium"),
             // Disables shuffle being initially enabled when first playing a playlist.
             new OverrideAttribute("shuffle", FALSE),
             // Allows playing any song on-demand, without a shuffled order.
@@ -75,7 +57,7 @@ public final class UnlockPremiumPatch {
             new OverrideAttribute("streaming", TRUE),
             // Allows adding songs to queue and removes the smart shuffle mode restriction,
             // allowing to pick any of the other modes. Flag is not present in legacy app target.
-            new OverrideAttribute("pick-and-shuffle", FALSE, !IS_SPOTIFY_LEGACY_APP_TARGET),
+            new OverrideAttribute("pick-and-shuffle", FALSE),
             // Disables shuffle-mode streaming-rule, which forces songs to be played shuffled
             // and breaks the player when other patches are applied.
             new OverrideAttribute("streaming-rules", ""),
@@ -129,10 +111,10 @@ public final class UnlockPremiumPatch {
     /**
      * Injection point. Override account attributes.
      */
-    public static void overrideAttributes(Map<String, /*AccountAttribute*/ Object> attributes) {
+    public static void overrideAttributes(Map<String, AccountAttribute> attributes) {
         try {
             for (OverrideAttribute override : PREMIUM_OVERRIDES) {
-                Object attribute = attributes.get(override.key);
+                AccountAttribute attribute = attributes.get(override.key);
 
                 if (attribute == null) {
                     if (override.isExpected) {
@@ -143,11 +125,7 @@ public final class UnlockPremiumPatch {
 
                 Object overrideValue = override.overrideValue;
                 Object originalValue;
-                if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-                    originalValue = ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_;
-                } else {
-                    originalValue = ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_;
-                }
+                originalValue = attribute.value_;
 
                 if (overrideValue.equals(originalValue)) {
                     continue;
@@ -156,11 +134,7 @@ public final class UnlockPremiumPatch {
                 Logger.printInfo(() -> "Overriding account attribute " + override.key +
                         " from " + originalValue + " to " + overrideValue);
 
-                if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-                    ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_ = overrideValue;
-                } else {
-                    ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_ = overrideValue;
-                }
+                attribute.value_ = overrideValue;
             }
         } catch (Exception ex) {
             Logger.printException(() -> "overrideAttributes failure", ex);
@@ -273,7 +247,9 @@ public final class UnlockPremiumPatch {
                     return true;
                 }
             }
-        } catch (Exception ex) {
+        } catch (Throwable ex) {
+            // Catch Throwable as calling toString can cause crashes with wrongfully generated code that throws
+            // NoSuchMethod errors.
             Logger.printException(() -> "isFilteredContextMenuItem failure", ex);
         }
 

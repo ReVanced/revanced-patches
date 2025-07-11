@@ -14,7 +14,7 @@ internal val shareCopyUrlFingerprint = fingerprint {
     }
 }
 
-internal val shareCopyUrlLegacyFingerprint = fingerprint {
+internal val oldShareCopyUrlFingerprint = fingerprint {
     returns("Ljava/lang/Object;")
     parameters("Ljava/lang/Object;")
     strings("clipboard", "createNewSession failed")
@@ -38,7 +38,7 @@ internal val formatAndroidShareSheetUrlFingerprint = fingerprint {
     }
 }
 
-internal val formatAndroidShareSheetUrlLegacyFingerprint = fingerprint {
+internal val oldFormatAndroidShareSheetUrlFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("Ljava/lang/String;")
     parameters("Lcom/spotify/share/social/sharedata/ShareData;", "Ljava/lang/String;")

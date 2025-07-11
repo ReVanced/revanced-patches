@@ -146,115 +146,110 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_album_cards_title">Թաքցնել  ալբոմի  քարտերը</string>
   <string name="revanced_hide_album_cards_summary_on">Ալբոմի  քարտերը  թաքցված  են</string>
   <string name="revanced_hide_album_cards_summary_off">Ալբոմի  քարտերը  ցույց  են  տրվում</string>
-  <string name="revanced_hide_crowdfunding_box_title">Թաքցնել  հավաքագրման  պատուհանը</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Հավաքագրման  պատուհանը  թաքցված  է</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Հավաքագրման  պատուհանը  ցույց  է  տրվում</string>
-  <string name="revanced_hide_floating_microphone_button_title">Թաքցնել  միկրոֆոնի  ողջ  կոճակը</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Միկրոֆոնի  կոճակը  թաքցված  է</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Միկրոֆոնի  կոճակը  ցույց  է  տրվում</string>
-  <string name="revanced_hide_channel_watermark_title">Թաքցնել  ալիքի  ջրային  նշանը</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Ջրային  նշանը  թաքցված  է</string>
-  <string name="revanced_hide_channel_watermark_summary_off">Ջրային  նշանը  ցույց  է  տրվում</string>
-  <string name="revanced_hide_horizontal_shelves_title">Թաքցնել  հորիզոնական  մարզերը</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Պահոցները թաքցված են, ինչպիսիք են․
-• Բեկումնային լուրեր
-• Շարունակել դիտել
-• Հետազոտել ավելի շատ ալիքներ
-• Ցուցադրում
-• Հետ կրկին դիտել"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Մարզերը  ցույց  են  տրվում</string>
-  <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                 This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Թաքցնել Join կոճակը</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Կոճակը  թաքցված  է</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Կոճակը  ցույց  է  տրվում</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Թաքցնել \'Ձեզ համար\' դարակը</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Ալիքի էջում գտնվող մարզը թաքցված է</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Ալիքի էջում գտնվող մարզը ցուցադրվում է</string>
-  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                 This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Թաքցնել  \'Notify me\'  կոճակը</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Կոճակը  թաքցված  է</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Կոճակը  ցույց  է  տրվում</string>
-  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendation_labels_title">Թաքցնել տեսանյութի առաջարկությունների պիտակները</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_on">«Դիտել են նաև» և «Ձեզ նույնպես կարող է դուր գալ» պիտակները թաքցված են</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_off">«Դիտել են նաև» և «Ձեզ նույնպես կարող է դուր գալ» պիտակները ցուցադրվում են</string>
-  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Թաքցնել  \'Show more\'  կոճակը</string>
-  <string name="revanced_hide_show_more_button_summary_on">Կոճակը  թաքցված  է</string>
-  <string name="revanced_hide_show_more_button_summary_off">Կոճակը  ցույց  է  տրվում</string>
-  <string name="revanced_hide_ticket_shelf_title">Թաքցնել տոմսարկղի մարզը</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">Տոմսարկղի մարզը թաքցված է</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">Տոմսարկղի մարզը ցուցադրվում է</string>
-  <string name="revanced_hide_timed_reactions_title">Թաքցնել  ժամանակավոր  ռեակցիաները</string>
-  <string name="revanced_hide_timed_reactions_summary_on">Ժամանակավոր  ռեակցիաները  թաքցված  են</string>
-  <string name="revanced_hide_timed_reactions_summary_off">Ժամանակավոր  ռեակցիաները  ցույց  են  տրվում</string>
-  <string name="revanced_hide_channel_guidelines_title">Թաքցնել  ալիքի  ուղեցույցները</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Ալիքի  ուղեցույցները  թաքցված  են</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Ալիքի  ուղեցույցները  ցույց  են  տրվում</string>
+  <string name="revanced_hide_artist_cards_title">Թաքցնել կատարողների քարտերը</string>
+  <string name="revanced_hide_artist_cards_summary_on">Կատարողների քարտերը թաքցված են</string>
+  <string name="revanced_hide_artist_cards_summary_off">Կատարողների քարտերը երևում են</string>
   <string name="revanced_hide_chips_shelf_title">Թաքցնել  չիպսի  մարզը</string>
   <string name="revanced_hide_chips_shelf_summary_on">Չիպսերի դարակը թաքցված է</string>
   <string name="revanced_hide_chips_shelf_summary_off">Չիպսերի դարակը երևում է</string>
-  <string name="revanced_hide_expandable_chip_title">Տեսանյութերի տակ ծալվող քարտը թաքցնել</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Ընդարձակվող քարտը թաքցված է</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Ընդարձակվող քարտը ցուցադրվում է</string>
   <string name="revanced_hide_community_posts_title">Թաքցնել համայնքային գրառումները</string>
   <string name="revanced_hide_community_posts_summary_on">Համայնքային գրառումները թաքցված են</string>
   <string name="revanced_hide_community_posts_summary_off">Համայնքային գրառումները երևում են</string>
   <string name="revanced_hide_compact_banner_title">Թաքցնել կոմպակտ բաները</string>
   <string name="revanced_hide_compact_banner_summary_on">Կոմպակտ բաները թաքցված են</string>
   <string name="revanced_hide_compact_banner_summary_off">Կոմպակտ բաները երևում են</string>
-  <string name="revanced_hide_movies_section_title">Թաքցնել ֆիլմերի բաժինը</string>
-  <string name="revanced_hide_movies_section_summary_on">Ֆիլմերի բաժինը թաքցված է</string>
-  <string name="revanced_hide_movies_section_summary_off">Ֆիլմերի բաժինը երևում է</string>
+  <string name="revanced_hide_crowdfunding_box_title">Թաքցնել  հավաքագրման  պատուհանը</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Հավաքագրման  պատուհանը  թաքցված  է</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Հավաքագրման  պատուհանը  ցույց  է  տրվում</string>
+  <string name="revanced_hide_expandable_card_title">Թաքցնել ընդլայնվող քարտը</string>
+  <string name="revanced_hide_expandable_card_summary_on">Տեսանյութերի տակ գտնվող ընդլայնվող քարտը թաքնված է</string>
+  <string name="revanced_hide_expandable_card_summary_off">Տեսանյութերի տակ գտնվող ընդլայնվող քարտը ցուցադրված է</string>
   <string name="revanced_hide_feed_survey_title">Թաքցնել լեզվական հարցումները</string>
   <string name="revanced_hide_feed_survey_summary_on">Լեզվական հարցումները թաքցված են</string>
   <string name="revanced_hide_feed_survey_summary_off">Լեզվական հարցումները երևում են</string>
-  <string name="revanced_hide_community_guidelines_title">Թաքցնել համայնքի կանոնները</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Համայնքի կանոնները թաքցված են</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Համայնքի կանոնները երևում են</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Թաքցնել բաժանորդների ուղեցույցները</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Բաժանորդագրերի համայնքի կանոնները թաքցված են</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Բաժանորդագրերի համայնքի կանոնները երևում են</string>
-  <string name="revanced_hide_channel_member_shelf_title">Թաքցնել ալիքի անդամի դարակը</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Ալիքի անդամի դարակը թաքցված է</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Ալիքի անդամի դարակը երևում է</string>
+  <string name="revanced_hide_floating_microphone_button_title">Թաքցնել  միկրոֆոնի  ողջ  կոճակը</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Որոնման լողացող խոսափողի կոճակը թաքնված է</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Լողացող խոսափողի կոճակը որոնման մեջ ցուցադրվում է</string>
+  <string name="revanced_hide_horizontal_shelves_title">Թաքցնել  հորիզոնական  մարզերը</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Հորիզոնական դարակները թաքնված են, ինչպիսիք են:
+• Թարմ նորություններ
+• Շարունակել դիտելը
+• Բացահայտել ավելի շատ ալիքներ
+• Ամենաակտուալը
+• Գնումներ
+• Կրկին դիտել"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Ցուցադրված են հորիզոնական դարակները</string>
+  <string name="revanced_hide_image_shelf_title">Թաքցնել պատկերների դարակը</string>
+  <string name="revanced_hide_image_shelf_summary_on">Որոնման արդյունքներում պատկերների դարակը թաքնված է</string>
+  <string name="revanced_hide_image_shelf_summary_off">Որոնման արդյունքներում պատկերների դարակը ցուցադրված է</string>
+  <string name="revanced_hide_latest_posts_title">Թաքցնել վերջին գրառումները</string>
+  <string name="revanced_hide_latest_posts_summary_on">Վերջին գրառումները թաքցված են</string>
+  <string name="revanced_hide_latest_posts_summary_off">Վերջին գրառումները երևում են</string>
+  <string name="revanced_hide_mix_playlists_title">Թաքցնել խառը ցուցակները</string>
+  <string name="revanced_hide_mix_playlists_summary_on">Խառը ցուցակները թաքցված են</string>
+  <string name="revanced_hide_mix_playlists_summary_off">Խառը ցուցակները երևում են</string>
+  <string name="revanced_hide_movies_section_title">Թաքցնել ֆիլմերի բաժինը</string>
+  <string name="revanced_hide_movies_section_summary_on">Ֆիլմերի բաժինը թաքցված է</string>
+  <string name="revanced_hide_movies_section_summary_off">Ֆիլմերի բաժինը երևում է</string>
+  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
+                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+  <string name="revanced_hide_notify_me_button_title">Թաքցնել  \'Notify me\'  կոճակը</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Ինձ ծանուցել կոճակը թաքնված է</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Ինձ ծանուցել կոճակը ցուցադրված է</string>
+  <string name="revanced_hide_playables_title">Թաքցնել խաղերը</string>
+  <string name="revanced_hide_playables_summary_on">Խաղերը թաքցված են</string>
+  <string name="revanced_hide_playables_summary_off">Խաղերը երևում են</string>
+  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
+                  This button usually appears when searching for a YT creator. -->
+  <string name="revanced_hide_show_more_button_title">Թաքցնել  \'Show more\'  կոճակը</string>
+  <string name="revanced_hide_show_more_button_summary_on">Որոնման արդյունքներում «Ավելին ցույց տալ» կոճակը թաքնված է</string>
+  <string name="revanced_hide_show_more_button_summary_off">Որոնման արդյունքներում «Ավելին ցույց տալ» կոճակը ցուցադրված է</string>
+  <string name="revanced_hide_ticket_shelf_title">Թաքցնել տոմսարկղի մարզը</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Տոմսարկղի մարզը թաքցված է</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Տոմսարկղի մարզը ցուցադրվում է</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_video_recommendation_labels_title">Թաքցնել տեսանյութի առաջարկի պիտակները</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">«Մարդիկ նույնպես դիտել են» և «Ձեզ կարող է նաև դուր գալ» պիտակները որոնման արդյունքներում թաքնված են</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">«Մարդիկ նույնպես դիտել են» և «Ձեզ կարող է նաև դուր գալ» պիտակները որոնման արդյունքներում ցուցադրված են</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Թաքցնել YouTube-ի Doodles-ները</string>
+  <string name="revanced_hide_doodles_summary_on">YouTube Doodles անիմացիան լոգոյի վրա թաքնված է</string>
+  <string name="revanced_hide_doodles_summary_off">YouTube Doodles անիմացիան լոգոյի վրա ցուցադրվում է</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles-ները ցուցադրվում են տարեկան մի քանի օր։
+
+Եթե Doodle-ը ներկայումս ցուցադրվում է ձեր տարածաշրջանում և այս թաքցնելու առաջադրանքը միացված է, ապա ֆիլտրի գոտին, որը գտնվում է որոնման գոտուց ներքև, նույնպես կթաքնվի։"</string>
+  <string name="revanced_hide_channel_bar_title">Թաքցնել ալիքի գծանշանը</string>
+  <string name="revanced_hide_channel_bar_summary_on">Ալիքի գծանշանը թաքցված է</string>
+  <string name="revanced_hide_channel_bar_summary_off">Ալիքի գծանշանը երևում է</string>
+  <string name="revanced_hide_channel_watermark_title">Թաքցնել  ալիքի  ջրային  նշանը</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Ջրային  նշանը  թաքցված  է</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Ջրային  նշանը  ցույց  է  տրվում</string>
   <string name="revanced_hide_emergency_box_title">Թաքցնել արտակարգ իրավիճակների տուփերը</string>
   <string name="revanced_hide_emergency_box_summary_on">Արտակարգ իրավիճակների տուփերը թաքցված են</string>
   <string name="revanced_hide_emergency_box_summary_off">Արտակարգ իրավիճակների տուփերը երևում են</string>
   <string name="revanced_hide_info_panels_title">Թաքցնել տեղեկատվական վահանակները</string>
   <string name="revanced_hide_info_panels_summary_on">Տեղեկատվական վահանակները թաքցված են</string>
   <string name="revanced_hide_info_panels_summary_off">Տեղեկատվական վահանակները երևում են</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays.
+                  This appears in the video player for certain videos. -->
+  <string name="revanced_hide_join_membership_button_title">Թաքցնել Join կոճակը</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Միանալ կոճակը թաքնված է</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Միանալ կոճակը ցուցադրված է</string>
   <string name="revanced_hide_medical_panels_title">Թաքցնել բժշկական վահանակները</string>
   <string name="revanced_hide_medical_panels_summary_on">Բժշկական վահանակները թաքցված են</string>
   <string name="revanced_hide_medical_panels_summary_off">Բժշկական վահանակները երևում են</string>
-  <string name="revanced_hide_channel_bar_title">Թաքցնել ալիքի գծանշանը</string>
-  <string name="revanced_hide_channel_bar_summary_on">Ալիքի գծանշանը թաքցված է</string>
-  <string name="revanced_hide_channel_bar_summary_off">Ալիքի գծանշանը երևում է</string>
-  <string name="revanced_hide_playables_title">Թաքցնել խաղերը</string>
-  <string name="revanced_hide_playables_summary_on">Խաղերը թաքցված են</string>
-  <string name="revanced_hide_playables_summary_off">Խաղերը երևում են</string>
-  <string name="revanced_hide_quick_actions_title">Թաքցնել արագ գործողությունները լի էկրանի վրա</string>
-  <string name="revanced_hide_quick_actions_summary_on">Արագ գործողությունները թաքցված են</string>
-  <string name="revanced_hide_quick_actions_summary_off">Արագ գործողությունները երևում են</string>
-  <string name="revanced_hide_related_videos_title">Թաքցնել կապված տեսանյութերը արագ գործողություններում</string>
-  <string name="revanced_hide_related_videos_summary_on">Կապված տեսանյութերը թաքցված են</string>
-  <string name="revanced_hide_related_videos_summary_off">Կապված տեսանյութերը երևում են</string>
-  <string name="revanced_hide_image_shelf_title">Թաքցնել պատկերների դարակը որոնման արդյունքներում</string>
-  <string name="revanced_hide_image_shelf_summary_on">Պատկերների դարակը թաքցված է</string>
-  <string name="revanced_hide_image_shelf_summary_off">Պատկերների դարակը երևում է</string>
-  <string name="revanced_hide_latest_posts_ads_title">Թաքցնել վերջին գրառումները</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Վերջին գրառումները թաքցված են</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Վերջին գրառումները երևում են</string>
-  <string name="revanced_hide_mix_playlists_title">Թաքցնել խառը ցուցակները</string>
-  <string name="revanced_hide_mix_playlists_summary_on">Խառը ցուցակները թաքցված են</string>
-  <string name="revanced_hide_mix_playlists_summary_off">Խառը ցուցակները երևում են</string>
-  <string name="revanced_hide_artist_cards_title">Թաքցնել կատարողների քարտերը</string>
-  <string name="revanced_hide_artist_cards_summary_on">Կատարողների քարտերը թաքցված են</string>
-  <string name="revanced_hide_artist_cards_summary_off">Կատարողների քարտերը երևում են</string>
+  <string name="revanced_hide_quick_actions_title">Թաքցնել արագ գործողությունները</string>
+  <string name="revanced_hide_quick_actions_summary_on">Ամբողջ էկրանի արագ գործողությունները թաքնված են</string>
+  <string name="revanced_hide_quick_actions_summary_off">Ամբողջ էկրանի արագ գործողությունները ցուցադրված են</string>
+  <string name="revanced_hide_related_videos_title">Թաքցնել հարակից տեսանյութերը</string>
+  <string name="revanced_hide_related_videos_summary_on">Արագ գործողությունների հարակից տեսանյութերը թաքնված են</string>
+  <string name="revanced_hide_related_videos_summary_off">Արագ գործողությունների հարակից տեսանյութերը ցուցադրված են</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Թաքցնել բաժանորդների ուղեցույցները</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Բաժանորդագրերի համայնքի կանոնները թաքցված են</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Բաժանորդագրերի համայնքի կանոնները երևում են</string>
+  <string name="revanced_hide_timed_reactions_title">Թաքցնել  ժամանակավոր  ռեակցիաները</string>
+  <string name="revanced_hide_timed_reactions_summary_on">Ժամանակավոր  ռեակցիաները  թաքցված  են</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Ժամանակավոր  ռեակցիաները  ցույց  են  տրվում</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Թաքցնել «AI-ով ստեղծված տեսանյութի ամփոփումը»</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Տեսանյութի ամփոփման բաժինը թաքցված է</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Տեսանյութի ամփոփման բաժինը ցուցադրվում է</string>
@@ -298,6 +293,26 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Թաքցնել կապված տեսանյութերում</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Թաքցված է կապված տեսանյութերում</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ցույց է տրվում կապված տեսանյութերում</string>
+  <string name="revanced_channel_screen_title">Ալիքի էջ</string>
+  <string name="revanced_channel_screen_summary">Թաքցնել կամ ցուցադրել ալիքի էջի բաղադրիչները</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Թաքցնել \'Ձեզ համար\' դարակը</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">«Քեզ համար» դարակը թաքնված է</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">«Քեզ համար» դարակը ցուցադրված է</string>
+  <string name="revanced_hide_links_preview_title">Թաքցնել հղումների նախադիտումը</string>
+  <string name="revanced_hide_links_preview_summary_on">Հղումների նախադիտումը թաքնված է</string>
+  <string name="revanced_hide_links_preview_summary_off">Հղումների նախադիտումը ցուցադրված է</string>
+  <string name="revanced_hide_members_shelf_title">Թաքցնել անդամների դարակը</string>
+  <string name="revanced_hide_members_shelf_summary_on">Անդամների դարակը թաքնված է</string>
+  <string name="revanced_hide_members_shelf_summary_off">Մասնակիցների դարակը ցուցադրված է</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">Թաքցնել \"Այցելել համայնք\" կոճակը</string>
+  <string name="revanced_hide_visit_community_button_summary_on">\"Այցելել համայնք\" կոճակը թաքցված է</string>
+  <string name="revanced_hide_visit_community_button_summary_off">«Այցելել համայնք» կոճակը ցուցադրված է</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Թաքցնել \"Անցնել խանութ\" կոճակը ալիքների էջերում</string>
+  <string name="revanced_hide_visit_store_button_summary_on">«Այցելել խանութ» կոճակը թաքնված է</string>
+  <string name="revanced_hide_visit_store_button_summary_off">«Այցելել խանութ» կոճակը ցուցադրված է</string>
   <string name="revanced_comments_screen_title">Մեկնաբանություններ</string>
   <string name="revanced_comments_screen_summary">Թաքցնել կամ ցույց տալ մեկնաբանությունների բաժնի բաղադրամասերը</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Թաքցնել AI զրույցի ամփոփումը</string>
@@ -306,12 +321,18 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_comments_ai_summary_title">Թաքցնել AI մեկնաբանությունների ամփոփումը</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Մեկնաբանությունների ամփոփումը թաքցված է</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Մեկնաբանությունների ամփոփումը ցուցադրվում է</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">Թաքցնել ալիքի ուղեցույցները</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">Ալիքի ուղեցույցները թաքցված են</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">Ալիքի ուղեցույցները ցուցադրված են</string>
   <string name="revanced_hide_comments_by_members_header_title">Թաքցնել \"Մեկնաբանություններ անդամների կողմից\" վերնագիրը</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Մասնակիցների կողմից մեկնաբանությունների վերնագիրը թաքցված է</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Մասնակիցների կողմից մեկնաբանությունների վերնագիրը ցուցադրվում է</string>
   <string name="revanced_hide_comments_section_title">Թաքցնել մեկնաբանությունների բաժինը</string>
   <string name="revanced_hide_comments_section_summary_on">Մեկնաբանությունների բաժինը թաքցված է</string>
   <string name="revanced_hide_comments_section_summary_off">Մեկնաբանությունների բաժինը երևում է</string>
+  <string name="revanced_hide_comments_community_guidelines_title">Թաքցնել համայնքի ուղեցույցները</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">Համայնքի ուղեցույցները թաքնված են</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">Համայնքի ուղեցույցները ցուցադրված են</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Թաքցնել \"Ստեղծել Shorts\" կոճակը</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">\"Ստեղծել Short\" կոճակը թաքցված է</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">\"Ստեղծել Short\" կոճակը ցուցադրվում է</string>
@@ -321,16 +342,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_comments_thanks_button_title">Թաքցնել շնորհակալության կոճակը</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">\"Շնորհակալություն\" կոճակը թաքցված է</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">\"Շնորհակալություն\" կոճակը երևում է</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Թաքցնել ժամանակային նշումով կոճակը</string>
+  <string name="revanced_hide_comments_timestamp_button_title">Թաքցնել ժամանակի դրոշմի կոճակը</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">Ժամանակային նշումով կոճակը թաքցված է</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">Ժամանակային նշումով կոճակը ցուցադրվում է</string>
-  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">Թաքցնել YouTube-ի Doodles-ները</string>
-  <string name="revanced_hide_doodles_summary_on">Որոնման տողի Doodles-ները թաքցված են</string>
-  <string name="revanced_hide_doodles_summary_off">Որոնման տողի Doodles-ները երևում են</string>
-  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles-ները ցուցադրվում են տարեկան մի քանի օր։
-
-Եթե Doodle-ը ներկայումս ցուցադրվում է ձեր տարածաշրջանում և այս թաքցնելու առաջադրանքը միացված է, ապա ֆիլտրի գոտին, որը գտնվում է որոնման գոտուց ներքև, նույնպես կթաքնվի։"</string>
   <string name="revanced_custom_filter_screen_title">Պատրաստված լրացուցիչ կարգավորումներ</string>
   <string name="revanced_custom_filter_screen_summary">Թաքցնել բաղադրիչները՝ օգտագործելով պատրաստված լրացուցիչ կարգավորումներ</string>
   <string name="revanced_custom_filter_title">Միացնել պատրաստված լրացուցիչ կարգավորումները</string>
@@ -377,12 +391,12 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_keyword_toast_invalid_broad">Բանալի բառը կթաքցնի բոլոր տեսանյութերը։ %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_creator_store_shelves_title">Թաքցնել ստեղծողի խանութի դարակները</string>
-  <string name="revanced_hide_creator_store_shelves_summary_on">Խանութի դարակները նվագարկչի տակ և տեսանյութի նկարագրության մեջ թաքնված են</string>
-  <string name="revanced_hide_creator_store_shelves_summary_off">Խանութի դարակները նվագարկչի տակ և տեսանյութի նկարագրության մեջ ցուցադրվում են</string>
+  <string name="revanced_hide_creator_store_shelf_title">Թաքցնել ստեղծողի խանութի դարակը</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Ստեղծողի խանութի դարակը տեսանվագարկչի տակ թաքնված է</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Ստեղծողի խանութի դարակը վիդեո նվագարկչի տակ ցուցադրվում է</string>
   <string name="revanced_hide_end_screen_store_banner_title">Թաքցնել վերջնական էկրանի խանութի բաները</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Խանութի բանները թաքցված են</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Խանութի բանները ցուցադրվում են</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Վերջնական էկրանի խանութի դրոշակը թաքնված է</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Վերջնական էկրանի խանութի դրոշակը ցուցադրված է</string>
   <string name="revanced_hide_fullscreen_ads_title">Թաքցնել լի էկրանի գովազդները</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"«Լրիվ էկրան» գովազդները թաքցվում են
 
@@ -399,20 +413,16 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_paid_promotion_label_title">Թաքցնել վճարված խթանման նշանը</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Վճարված խթանման նշանը թաքցված է</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Վճարված խթանման նշանը երևում է</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_view_products_banner_title">Թաքցնել \"Դիտել ապրանքները\" պաստառը</string>
-  <string name="revanced_hide_view_products_banner_summary_on">Տեսանյութի ծածկույթում գտնվող դրոշակը թաքնված է</string>
-  <string name="revanced_hide_view_products_banner_summary_off">Տեսանյութի վերադիրում պաստառը ցուցադրվում է</string>
   <string name="revanced_hide_self_sponsor_ads_title">Թաքցնել ինքնահովանավորված քարտերը</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Ինքնահովանավորված քարտերը թաքցված են</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Ինքնահովանավորված քարտերը երևում են</string>
-  <string name="revanced_hide_tagged_products_title">Թաքցնել պիտակված ապրանքները</string>
-  <string name="revanced_hide_tagged_products_summary_on">Տեսանյութի նկարագրության մեջ պիտակված ապրանքները թաքնված են</string>
-  <string name="revanced_hide_tagged_products_summary_off">Նշված ապրանքները տեսանյութի նկարագրության մեջ ցուցադրվում են</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Թաքցնել \"Անցնել խանութ\" կոճակը ալիքների էջերում</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Ալիքի էջում գտնվող կոճակը թաքցված է</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Ալիքի էջում գտնվող կոճակը ցուցադրվում է</string>
+  <string name="revanced_hide_shopping_links_title">Թաքցնել գնումների հղումները</string>
+  <string name="revanced_hide_shopping_links_summary_on">Գնումների հղումները տեսանյութի նկարագրության մեջ թաքնված են</string>
+  <string name="revanced_hide_shopping_links_summary_off">Գնումների հղումները տեսանյութի նկարագրության մեջ ցուցադրվում են</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">Թաքցնել \"Դիտել ապրանքները\" պաստառը</string>
+  <string name="revanced_hide_view_products_banner_summary_on">«Դիտել ապրանքները» դրոշակը տեսանյութի վերադիրում թաքնված է</string>
+  <string name="revanced_hide_view_products_banner_summary_off">«Դիտել ապրանքները» դրոշակը տեսանյութի վերադիրում ցուցադրված է</string>
   <string name="revanced_hide_web_search_results_title">Թաքցնել վեբ-որոնման արդյունքները</string>
   <string name="revanced_hide_web_search_results_summary_on">Վեբ-որոնման արդյունքները թաքցված են</string>
   <string name="revanced_hide_web_search_results_summary_off">Վեբ-որոնման արդյունքները երևում են</string>
@@ -443,13 +453,18 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Զրույցը կցուցադրվի</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Սա չի խուսափում տարիքային սահմանափակումից։ Այն պարզապես ավտոմատ կերպով ընդունում է այն։</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Անջատել կրկնակի հպումով գլուխը բաց թողնելը</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Կրկնակի հպումը երբեք չի կարող առաջացնել հաջորդ/նախորդ գլուխն անցնելը</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Կրկնակի հպումը երբեմն կարող է առաջացնել հաջորդ/նախորդ գլուխն անցնելը</string>
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Արտաքին ներբեռնումներ</string>
   <string name="revanced_external_downloader_screen_summary">Արտաքին ներբեռնող օգտագործելու համար կարգավորումներ</string>
   <string name="revanced_external_downloader_title">Ցույց տալ արտաքին ներբեռնման կոճակը</string>
   <string name="revanced_external_downloader_summary_on">Նվագարկչի ներբեռնման կոճակը ցուցադրվում է</string>
   <string name="revanced_external_downloader_summary_off">Նվագարկչի ներբեռնման կոճակը չի ցուցադրվում</string>
-  <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
+  <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
   <string name="revanced_external_downloader_action_button_title">Վերահսկիր ներբեռնման գործողությունների կոճակը</string>
   <string name="revanced_external_downloader_action_button_summary_on">Ներբեռնման կոճակը բացում է ձեր արտաքին ներբեռնողը</string>
   <string name="revanced_external_downloader_action_button_summary_off">Ներբեռնման կոճակը բացում է ներկառուցված ներբեռնողը</string>
@@ -542,7 +557,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_stop_ads_button_summary_on">Գովազդները դադարեցնելու կոճակը թաքցված է</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Գովազդները դադարեցնելու կոճակը ցուցադրված է</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                 This button usually appears only on live streams. -->
+                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Թաքցնել Report</string>
   <string name="revanced_hide_report_button_summary_on">Report կոճակը թաքցված է</string>
   <string name="revanced_hide_report_button_summary_off">Report կոճակը ցուցադրվում է</string>
@@ -559,7 +574,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_thanks_button_summary_on">Thanks կոճակը թաքցված է</string>
   <string name="revanced_hide_thanks_button_summary_off">Thanks կոճակը ցուցադրվում է</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Թաքցնել հարցումը</string>
   <string name="revanced_hide_ask_button_summary_on">Հարցման կոճակը թաքցված է</string>
   <string name="revanced_hide_ask_button_summary_off">Հարցման կոճակը երևում է</string>
@@ -583,7 +598,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_button_title">Թաքցնել Shorts</string>
   <string name="revanced_hide_shorts_button_summary_on">Shorts կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_button_summary_off">Shorts կոճակը ցուցադրվում է</string>
-  <!-- The Create button has no display name. Translate normally. -->
+  <!-- 'Create' has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Թաքցնել Create</string>
   <string name="revanced_hide_create_button_summary_on">Create կոճակը թաքցված է</string>
   <string name="revanced_hide_create_button_summary_off">Create կոճակը ցուցադրվում է</string>
@@ -652,7 +667,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_speed_summary_on">Վերարտադրման արագության մենյուը թաքցված է</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Վերարտադրման արագության մենյուը երևում է</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                 This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
+                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">Լրացուցիչ տեղեկությունը թաքցնել</string>
   <string name="revanced_hide_player_flyout_more_info_summary_on">Լրացուցիչ տեղեկությունների մենյուը թաքցված է</string>
   <string name="revanced_hide_player_flyout_more_info_summary_off">Լրացուցիչ տեղեկությունների մենյուը երևում է</string>
@@ -664,7 +679,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_audio_track_title">Աուդիո ձայնագրությունը թաքցնել</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Աուդիո ձայնագրման մենյուը թաքցված է</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Աուդիո ձայնագրման մենյուը երևում է</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Աուդիո ուղու ընտրացանկը թաքնված է:
 
 Աուդիո ուղու ընտրացանկը ցուցադրելու համար փոխեք «Կեղծել տեսահոսքերը»-ը iOS TV-ի"</string>
@@ -677,22 +692,22 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Տեսանյութի որակի մենյուի ստորագրությունը երևում է</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Թաքցնել \"Նախորդ\" և \"Հաջորդ\" կոճակները</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_on">Կոճակները թաքցված են</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_off">Կոճակները երևում են</string>
-  <string name="revanced_hide_cast_button_title">Թաքցնել Cast կոճակը</string>
-  <string name="revanced_hide_cast_button_summary_on">Թափոնելու կոճակը թաքցված է</string>
-  <string name="revanced_hide_cast_button_summary_off">Թափոնելու կոճակը երևում է</string>
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Թաքցնել Սուբտիտրեր կոճակը</string>
-  <string name="revanced_hide_captions_button_summary_on">Կրճատումների կոճակը թաքցված է</string>
-  <string name="revanced_hide_captions_button_summary_off">Կրճատումների կոճակը երևում է</string>
   <string name="revanced_hide_autoplay_button_title">Թաքցնել Ավտոմատ կրկնում կոճակը</string>
   <string name="revanced_hide_autoplay_button_summary_on">Ավտոմատ վերարտադրման կոճակը թաքցված է</string>
   <string name="revanced_hide_autoplay_button_summary_off">Ավտոմատ վերարտադրման կոճակը երևում է</string>
+  <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+  <string name="revanced_hide_captions_button_title">Թաքցնել Սուբտիտրեր կոճակը</string>
+  <string name="revanced_hide_captions_button_summary_on">Կրճատումների կոճակը թաքցված է</string>
+  <string name="revanced_hide_captions_button_summary_off">Կրճատումների կոճակը երևում է</string>
+  <string name="revanced_hide_cast_button_title">Թաքցնել Cast կոճակը</string>
+  <string name="revanced_hide_cast_button_summary_on">Թափոնելու կոճակը թաքցված է</string>
+  <string name="revanced_hide_cast_button_summary_off">Թափոնելու կոճակը երևում է</string>
   <string name="revanced_hide_player_control_buttons_background_title">Թաքցնել նվագարկչի կառավարման կոճակների ֆոնը</string>
   <string name="revanced_hide_player_control_buttons_background_summary_on">Նվագարկչի կառավարման կոճակների ֆոնը թաքնված է</string>
   <string name="revanced_hide_player_control_buttons_background_summary_off">Նվագարկչի կառավարման կոճակների ֆոնը ցուցադրվում է</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Թաքցնել \"Նախորդ\" և \"Հաջորդ\" կոճակները</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Կոճակները թաքցված են</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Կոճակները երևում են</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Էկրանի վերջում քարտերը թաքցնել</string>
@@ -725,76 +740,75 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts կրող</string>
   <string name="revanced_shorts_player_screen_summary">Թաքցնել կամ ցույց տալ Shorts կրողի բաղադրիչները</string>
-  <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Թաքցնել Shorts-ը գլխավոր էջում</string>
-  <string name="revanced_hide_shorts_home_summary_on">Թաքնված է տնային լրահոսում և հարակից տեսանյութերում</string>
-  <string name="revanced_hide_shorts_home_summary_off">Ցուցադրված է հիմնական լրահոսում և հարակից տեսանյութերում</string>
-  <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Թաքցնել Shorts-ը բաժանորդագրության էջում</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Թաքնված է բաժանորդագրման կերակրման մեջ</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Ցուցադրված է բաժանորդագրման կերակրման մեջ</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
+  <string name="revanced_hide_shorts_home_title">Թաքցնել Shorts-ը Գլխավորի լրահոսում</string>
+  <string name="revanced_hide_shorts_home_summary_on">Թաքնված է Գլխավորի լրահոսում և հարակից տեսանյութերում</string>
+  <string name="revanced_hide_shorts_home_summary_off">Ցուցադրված է Գլխավորի լրահոսում և հարակից տեսանյութերում</string>
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+  <string name="revanced_hide_shorts_subscriptions_title">Թաքցնել Shorts-ը Բաժանորդագրությունների լրահոսում</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Թաքնված է Բաժանորդագրությունների լրահոսում</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Ցուցադրված է Բաժանորդագրությունների լրահոսում</string>
   <string name="revanced_hide_shorts_search_title">Թաքցնել Shorts-ը որոնման արդյունքներում</string>
   <string name="revanced_hide_shorts_search_summary_on">Որոնման արդյունքներում թաքնված է</string>
   <string name="revanced_hide_shorts_search_summary_off">Ցուցադրված է որոնման արդյունքներում</string>
   <string name="revanced_hide_shorts_history_title">Թաքցնել շորտերը դիտման պատմության մեջ</string>
   <string name="revanced_hide_shorts_history_summary_on">Թաքնված է դիտման պատմության մեջ</string>
   <string name="revanced_hide_shorts_history_summary_off">Ցուցադրվում է դիտման պատմության մեջ</string>
-  <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Թաքցնել միանալ կոճակը</string>
-  <string name="revanced_hide_shorts_join_button_summary_on">Միանալու կոճակը թաքցված է</string>
-  <string name="revanced_hide_shorts_join_button_summary_off">Միանալու կոճակը երևում է</string>
-  <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">Թաքցնել բաժանորդագրվել կոճակը</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_on">Բաժանորդագրության կոճակը թաքցված է</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_off">Բաժանորդագրության կոճակը երևում է</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Թաքցնել կանգնեցված վերարտադրման ծածկի կոճակները</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Կանգնեցված վերարտադրման ծածկի կոճակները թաքցված են</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Կանգնեցված էկրանի կոճակները ցուցադրվում են</string>
-  <string name="revanced_hide_shorts_shop_button_title">Թաքցնել խանութ կոճակը</string>
-  <string name="revanced_hide_shorts_shop_button_summary_on">Խանութի կոճակը թաքցված է</string>
-  <string name="revanced_hide_shorts_shop_button_summary_off">Խանութի կոճակը ցուցադրվում է</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Թաքցնել «Super Thanks» կոճակը</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">«Super Thanks» կոճակը թաքցված է</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">«Super Thanks» կոճակը ցուցադրվում է</string>
-  <string name="revanced_hide_shorts_tagged_products_title">Թաքցնել նշված ապրանքները</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">Նշված ապրանքները թաքցված են</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_off">Նշված ապրանքները ցուցադրվում են</string>
-  <string name="revanced_hide_shorts_location_label_title">Թաքցնել տեղանքի նշումը</string>
-  <string name="revanced_hide_shorts_location_label_summary_on">Տեղանքի նշումը թաքցված է</string>
-  <string name="revanced_hide_shorts_location_label_summary_off">Տեղանքի նշումը ցուցադրվում է</string>
-  <string name="revanced_hide_shorts_preview_comment_title">Թաքցնել նախադիտման մեկնաբանությունը</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_on">Նախադիտման մեկնաբանությունը թաքնված է</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">Ցուցադրվում է մեկնաբանության նախադիտումը</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Թաքցնել երաժշտությունը պահպանել կոճակը</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">«Save music» կոճակը թաքցված է</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">«Save music» կոճակը ցուցադրվում է</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Թաքցնել «Օգտագործել այս ձայնը» կոճակը</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_on">«Օգտագործել այս ձայնը» կոճակը թաքցված է</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_off">«Օգտագործել այս ձայնը» կոճակը ցուցադրված է</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Թաքցնել Օգտագործել այս ձևանմուշի կոճակը</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">«Օգտագործել այս ձևանմուշը» կոճակը թաքցված է</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Օգտագործել այս ձևանմուշի կոճակը ցուցադրված է</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Թաքցնել Առաջիկա կոճակը</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">\"Upcoming\" կոճակը թաքցված է</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">\"Upcoming\" կոճակը երևում է</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Գնել Super Thanks կոճակը թաքնված է</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Գնել Super Thanks կոճակը ցուցադրված է</string>
   <string name="revanced_hide_shorts_effect_button_title">Թաքցնել Էֆեկտ կոճակը</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Էֆեկտի կոճակը թաքնված է</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Էֆեկտի կոճակը ցուցադրված է</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Թաքցնել Կանաչ էկրան կոճակը</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Green Screen\" կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Green Screen\" կոճակը երևում է</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Թաքցնել «Նոր գրառումներ» կոճակը</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_off">«Նոր գրառումներ» կոճակը երևում է</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_on">«Նոր գրառումներ» կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Թաքցնել \"Hashtag\" կոճակը</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">\"Hashtag\" կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">\"Hashtag\" կոճակը երևում է</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">Թաքցնել միանալ կոճակը</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">Միանալու կոճակը թաքցված է</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">Միանալու կոճակը երևում է</string>
+  <string name="revanced_hide_shorts_location_label_title">Թաքցնել տեղանքի նշումը</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">Տեղանքի նշումը թաքցված է</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">Տեղանքի նշումը ցուցադրվում է</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Թաքցնել «Նոր գրառումներ» կոճակը</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">«Նոր գրառումներ» կոճակը թաքցված է</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">«Նոր գրառումներ» կոճակը երևում է</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Թաքցնել կանգնեցված վերարտադրման ծածկի կոճակները</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Կանգնեցված վերարտադրման ծածկի կոճակները թաքցված են</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Կանգնեցված էկրանի կոճակները ցուցադրվում են</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Թաքցնել նախադիտման մեկնաբանությունը</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Նախադիտման մեկնաբանությունը թաքնված է</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Ցուցադրվում է մեկնաբանության նախադիտումը</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Թաքցնել երաժշտությունը պահպանել կոճակը</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">«Save music» կոճակը թաքցված է</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">«Save music» կոճակը ցուցադրվում է</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Թաքցնել որոնման առաջարկները</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Որոնման առաջարկները թաքցված են</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Որոնման առաջարկները երևում են</string>
+  <string name="revanced_hide_shorts_shop_button_title">Թաքցնել խանութ կոճակը</string>
+  <string name="revanced_hide_shorts_shop_button_summary_on">Խանութի կոճակը թաքցված է</string>
+  <string name="revanced_hide_shorts_shop_button_summary_off">Խանութի կոճակը ցուցադրվում է</string>
   <string name="revanced_hide_shorts_stickers_title">Թաքցնել սթիկերները</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Սթիկերները թաքցված են</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Սթիկերները երևում են</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">Թաքցնել բաժանորդագրվել կոճակը</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">Բաժանորդագրության կոճակը թաքցված է</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">Բաժանորդագրության կոճակը երևում է</string>
+  <string name="revanced_hide_shorts_tagged_products_title">Թաքցնել նշված ապրանքները</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">Նշված ապրանքները թաքցված են</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">Նշված ապրանքները ցուցադրվում են</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Թաքցնել Առաջիկա կոճակը</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">\"Upcoming\" կոճակը թաքցված է</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">\"Upcoming\" կոճակը երևում է</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Թաքցնել «Օգտագործել այս ձայնը» կոճակը</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">«Օգտագործել այս ձայնը» կոճակը թաքցված է</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">«Օգտագործել այս ձայնը» կոճակը ցուցադրված է</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Թաքցնել Օգտագործել այս ձևանմուշի կոճակը</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">«Օգտագործել այս ձևանմուշը» կոճակը թաքցված է</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Օգտագործել այս ձևանմուշի կոճակը ցուցադրված է</string>
   <string name="revanced_hide_shorts_like_fountain_title">Թաքցնել «Like» կոճակի շատրվանի անիմացիան</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">\"Like\" կոճակի ֆունտանային անիմացիան թաքցված է</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">\"Like\" կոճակի ֆունտանային անիմացիան երևում է</string>
@@ -807,14 +821,17 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_comments_button_title">Թաքցնել մեկնաբանություններ կոճակը</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Մեկնաբանությունների կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Մեկնաբանությունների կոճակը երևում է</string>
-  <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">Թաքցնել ռեմիքս կոճակը</string>
-  <string name="revanced_hide_shorts_remix_button_summary_on">\"Remix\" կոճակը թաքցված է</string>
-  <string name="revanced_hide_shorts_remix_button_summary_off">\"Remix\" կոճակը երևում է</string>
-  <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
+  <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_share_button_title">Թաքցնել կիսվել կոճակը</string>
   <string name="revanced_hide_shorts_share_button_summary_on">\"Share\" կոճակը թաքցված է</string>
   <string name="revanced_hide_shorts_share_button_summary_off">\"Share\" կոճակը երևում է</string>
+  <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_remix_button_title">Թաքցնել ռեմիքս կոճակը</string>
+  <string name="revanced_hide_shorts_remix_button_summary_on">\"Remix\" կոճակը թաքցված է</string>
+  <string name="revanced_hide_shorts_remix_button_summary_off">\"Remix\" կոճակը երևում է</string>
+  <string name="revanced_hide_shorts_sound_button_title">Թաքցնել ձայնի կոճակը</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">Ձայնի կոճակը թաքցված է</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">Ձայնի կոճակը երևում է</string>
   <string name="revanced_hide_shorts_info_panel_title">Թաքցնել տեղեկատվության վահանակը</string>
   <string name="revanced_hide_shorts_info_panel_summary_on">Տեղեկատվության վահանակը թաքցված է</string>
   <string name="revanced_hide_shorts_info_panel_summary_off">Տեղեկատվության վահանակը երևում է</string>
@@ -822,17 +839,14 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_channel_bar_summary_on">Ալիքի ձողը թաքցված է</string>
   <string name="revanced_hide_shorts_channel_bar_summary_off">Ալիքի ձողը երևում է</string>
   <string name="revanced_hide_shorts_video_title_title">Թաքցնել տեսանյութի վերնագիրը</string>
-  <string name="revanced_hide_shorts_video_title_summary_on">Վերնագիրը թաքցված է</string>
-  <string name="revanced_hide_shorts_video_title_summary_off">Վերնագիրը երևում է</string>
+  <string name="revanced_hide_shorts_video_title_summary_on">Տեսանյութի վերնագիրը թաքնված է</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">Տեսանյութի վերնագիրը ցուցադրված է</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Թաքցնել ձայնի մետատվությունների լեյբլը</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Մետատվությունների լեյբլը թաքցված է</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Մետատվությունների լեյբլը երևում է</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Ձայնի մետատվյալների պիտակը թաքնված է</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Ձայնի մետատվյալների պիտակը ցուցադրված է</string>
   <string name="revanced_hide_shorts_full_video_link_label_title">Թաքցնել տեսանյութի հղման պիտակը</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Տեսանյութի հղման լեյբլը թաքցված է</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Տեսանյութի հղման լեյբլը երևում է</string>
-  <string name="revanced_hide_shorts_sound_button_title">Թաքցնել ձայնի կոճակը</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">Ձայնի կոճակը թաքցված է</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">Ձայնի կոճակը երևում է</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Թաքցնել նավիգացիայի ձողը</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Նավիգացիայի ձողը թաքցված է</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Նավիգացիայի ձողը երևում է</string>
@@ -846,9 +860,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_end_screen_suggested_video_summary_off">Վերջնական էկրանին առաջարկվող տեսանյութը ցուցադրվում է</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  <string name="revanced_hide_related_video_overlay_title">Թաքցնել կապակցված տեսանյութի վահանակը լիաէկրան ռեժիմում</string>
-  <string name="revanced_hide_related_video_overlay_summary_on">Կապակցված տեսանյութի վահանակը թաքցված է</string>
-  <string name="revanced_hide_related_video_overlay_summary_off">Կապակցված տեսանյութի վահանակը ցուցադրվում է</string>
+  <string name="revanced_hide_related_videos_overlay_title">Թաքցնել հարակից տեսանյութերի վերադիրը</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">Հարակից տեսանյութերի վերադիրը ամբողջ էկրանով թաքնված է</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">Հարակից տեսանյութերի վերադիրը ամբողջ էկրանով ցուցադրված է</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Թաքցնել տեսանյութի ժամանակային կետը</string>
@@ -897,7 +911,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_ryd_dislike_percentage_title">\"Dislike\"-երը  տոկոսային  հարաբերակցությամբ</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">\"Dislike\"-երը ցուցադրվում են որպես տոկոս</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">\"Dislike\"-երը ցուցադրվում են որպես թիվ</string>
-  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
   <string name="revanced_ryd_compact_layout_title">Միարժեք «Like» կոճակ</string>
   <string name="revanced_ryd_compact_layout_summary_on">\"Like\" կոճակը  ոճավորված է  մինիմալ  մեծության համար</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Like\" կոճակը  ոճավորված է  լավագույն  հայացքի համար</string>
@@ -955,7 +969,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_square_layout">Օգտագործե՛ք քառակուսի դասավորություն</string>
   <string name="revanced_sb_square_layout_sum_on">Կոճակները և հսկիչները քառակուսի են</string>
   <string name="revanced_sb_square_layout_sum_off">Կոճակները և կառավարման վահանակները կլորացված են</string>
-  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
+  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
   <string name="revanced_sb_enable_compact_skip_button">Օգտագործել կոմպակտ Skip կոճակը</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Բաց թողնել կոճակը ոճավորվել է նվազագույն լայնության համար</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Բաց թողնել կոճակը ոճավորվել է լավագույն տեսքի համար</string>
@@ -1099,7 +1113,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_vote_downvote">Նվազեցնել</string>
   <string name="revanced_sb_vote_category">Փոխել կատեգորիան</string>
   <string name="revanced_sb_vote_no_segments">Քվեարկելու համար հատվածներ չկան</string>
-  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <!-- A segment start and end time, such as "02:10 to 03:40". -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s-ից %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Ընտրեք հատվածի կատեգորիան</string>
   <string name="revanced_sb_new_segment_disabled_category">Կատեգորիան անջատված է կարգավորումներում։ Անջատել կատեգորիան՝ լրացնելու համար։</string>
@@ -1178,7 +1192,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
 
 Եթե հետագայում անջատվի, խորհուրդ է տրվում մաքրել հավելվածի տվյալները՝ UI սխալներից խուսափելու համար։"</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Spoof-ի կիրառության տարբերակի նպատակ</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Վերականգնել հին Shorts պլեյերի պատկերակները</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Վերականգնել հին նավիգացիոն պատկերակները</string>
@@ -1285,9 +1299,9 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_gradient_loading_screen_title">Աктиվացնել գրադիենտի բեռնման էկրանը</string>
   <string name="revanced_gradient_loading_screen_summary_on">Բեռնման էկրանը կունենա գրադիենտի ֆոն</string>
   <string name="revanced_gradient_loading_screen_summary_off">Բեռնման էկրանը կունենա մեկ գույնի ֆոն</string>
-  <string name="splash_screen_animation_style_title">Մեկնարկային էկրանի ոճը</string>
-  <string name="splash_screen_animation_style_entry_1">Գույն</string>
-  <string name="splash_screen_animation_style_entry_2">Սև և սպիտակ</string>
+  <string name="revanced_splash_screen_animation_style_title">Մեկնարկային էկրանի ոճը</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">Գույն</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">Սև և սպիտակ</string>
   <string name="revanced_seekbar_custom_color_title">Աктиվացնել հարմարեցված seekbar-ի գույնը</string>
   <string name="revanced_seekbar_custom_color_summary_on">Հարմարեցված seekbar-ի գույնը ցուցադրվում է</string>
   <string name="revanced_seekbar_custom_color_summary_off">Սկզբնական seekbar-ի գույնը ցուցադրվում է</string>
@@ -1297,6 +1311,14 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_seekbar_custom_color_accent_summary">Մարզումից դուրս ողորկության նշման գույնը</string>
   <string name="revanced_seekbar_custom_color_invalid">Սխալ seekbar-ի գույնի արժեք</string>
   </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">Գլխագրի լոգո</string>
+  <string name="revanced_header_logo_entry_1">Լռակյաց</string>
+  <string name="revanced_header_logo_entry_2">Սովորական</string>
+  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <string name="revanced_header_logo_entry_5">ReVanced մինիմալ</string>
+  <string name="revanced_header_logo_entry_6">Անհատական</string>
+  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Անտեսել պատկերի տարածաշրջանի սահմանափակումները</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Օգտագործելով yt4.ggpht.com պատկերային հոսքը</string>
@@ -1305,13 +1327,13 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
 Այս կարգավորման միացումը կարող է լուծել որոշ տարածաշրջաններում կասեցված պատկերների խնդիրը։"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Գլխավոր ներդիր</string>
-  <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_alt_thumbnail_subscription_title">Գրանցումների ներդիր</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+  <string name="revanced_alt_thumbnail_subscription_title">Բաժանորդագրություններ ներդիրը</string>
+  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">Դուք ներդիր</string>
-  <string name="revanced_alt_thumbnail_player_title">Պլեյերի պլեյլիստեր, առաջարկներ</string>
+  <string name="revanced_alt_thumbnail_player_title">Նվագարկչի երգացանկեր &amp; առաջարկություններ</string>
   <string name="revanced_alt_thumbnail_search_title">Որոնման արդյունքներ</string>
   <string name="revanced_alt_thumbnail_options_entry_1">Սկզբնական էскизներ</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Սկզբնական էскизներ</string>
@@ -1410,11 +1432,11 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել լեզուն</string>
   <string name="revanced_force_original_audio_summary_on">Օգտագործելով ձայնային օրիգինալ լեզուն</string>
   <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_force_original_audio_not_available">Այս գործառույթն օգտագործելու համար փոխեք «Կեղծել տեսահոսքերը» iOS TV-ի</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Ավտո</string>
   <string name="revanced_remember_video_quality_last_selected_title">Հիշել  տեսանյութի  որակի  փոփոխությունները</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Որակի  փոփոխությունները  կիրառվում են  բոլոր  տեսանյութերի  համար</string>
@@ -1528,7 +1550,7 @@ AVC-ի առավելագույն թույլտվությունը 1080p է, Opus ա
   <string name="revanced_block_video_ads_summary_off">Տեսահոլովակների գովազդները բլոկավորված չեն</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">հաղորդագրությունը ջնջվել է</string>
+  <string name="revanced_deleted_msg">Հաղորդագրությունը ջնջված է</string>
   <string name="revanced_show_deleted_messages_title">Ցուցադրել հեռացված հաղորդագրությունները</string>
   <string name="revanced_show_deleted_messages_entry_1">Մի ցուցադրել հեռացված հաղորդագրությունները</string>
   <string name="revanced_show_deleted_messages_entry_2">Թաքցնել ջնջված հաղորդագրությունները սպոիլերով</string>
@@ -1540,7 +1562,7 @@ AVC-ի առավելագույն թույլտվությունը 1080p է, Opus ա
   <string name="revanced_auto_claim_channel_points_summary_off">Ալիքի կետերը ստացվում են ավտոմատ կերպով</string>
   </patch>
   <patch id="debug.debugModePatch">
-  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
+  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
   <string name="revanced_twitch_debug_mode_title">Աктиվացնել Twitch-ի լրացուցիչ ռեժիմը</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch-ի լրացուցիչ ռեժիմը գործարկված է (չի խորհուրդ տրվում)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch-ի լրացուցիչ ռեժիմը անջատված է</string>
@@ -1549,11 +1571,11 @@ AVC-ի առավելագույն թույլտվությունը 1080p է, Opus ա
   <string name="revanced_settings">ReVanced կարգավորումներ</string>
   <string name="revanced_about_title">Ծրագրի մասին</string>
   <string name="revanced_about_summary">ReVanced-ի մասին</string>
-  <string name="revanced_ads_screen_title">Գովազդներ</string>
-  <string name="revanced_ads_screen_summary">Գովազդի կանխարգելման կարգավորումներ</string>
+  <string name="revanced_ads_screen_title">Գովազդի արգելափակում</string>
+  <string name="revanced_ads_screen_summary">Գովազդի արգելափակման կարգավորումներ</string>
   <string name="revanced_chat_screen_title">Չատ</string>
   <string name="revanced_chat_screen_summary">Չատի կարգավորումներ</string>
-  <string name="revanced_misc_screen_title">Այլ</string>
+  <string name="revanced_misc_screen_title">Տարբեր</string>
   <string name="revanced_misc_screen_summary">Այլ կարգավորումներ</string>
   <string name="revanced_general_category_title">Ընդհանուր կարգավորումներ</string>
   <string name="revanced_other_category_title">Այլ կարգավորումներ</string>

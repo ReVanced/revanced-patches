@@ -61,7 +61,7 @@ val hideRelatedVideoOverlayPatch = bytecodePatch(
         addResources("youtube", "layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_related_video_overlay")
+            SwitchPreference("revanced_hide_related_videos_overlay")
         )
 
         relatedEndScreenResultsFingerprint.match(

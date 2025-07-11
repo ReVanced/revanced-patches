@@ -8,7 +8,7 @@ val disableTelemetryPatch = bytecodePatch(
     name = "Disable telemetry",
     description = "Disables SoundCloud's telemetry system.",
 ) {
-    compatibleWith("com.soundcloud.android")
+    compatibleWith("com.soundcloud.android"("2025.05.27-release"))
 
     execute {
         // Empty the "backend" argument to abort the initializer.

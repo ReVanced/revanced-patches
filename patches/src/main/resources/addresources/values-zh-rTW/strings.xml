@@ -146,115 +146,110 @@ Second \"item\" text"</string>
   <string name="revanced_hide_album_cards_title">隱藏專輯資訊卡</string>
   <string name="revanced_hide_album_cards_summary_on">已隱藏專輯資訊卡</string>
   <string name="revanced_hide_album_cards_summary_off">已顯示專輯資訊卡</string>
-  <string name="revanced_hide_crowdfunding_box_title">隱藏群眾募資方塊</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">已隱藏群眾募資方塊</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">已顯示群眾募資方塊</string>
-  <string name="revanced_hide_floating_microphone_button_title">隱藏「懸浮麥克風」按鈕</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">已隱藏「麥克風」按鈕</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">已顯示「麥克風」按鈕</string>
-  <string name="revanced_hide_channel_watermark_title">隱藏頻道浮水印</string>
-  <string name="revanced_hide_channel_watermark_summary_on">已隱藏影片浮水印</string>
-  <string name="revanced_hide_channel_watermark_summary_off">已顯示影片浮水印</string>
-  <string name="revanced_hide_horizontal_shelves_title">隱藏橫向區塊</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"這些橫向區塊將被隱藏，例如：
-• 即時新聞
-• 繼續觀看
-• 探索更多頻道
-• 購物
-• 再次觀看"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">已顯示橫向區塊</string>
-  <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                 This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">隱藏「加入」按鈕</string>
-  <string name="revanced_hide_join_membership_button_summary_on">已隱藏按鈕</string>
-  <string name="revanced_hide_join_membership_button_summary_off">已顯示按鈕</string>
-  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">隱藏「為你推薦」區塊</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">已隱藏頻道頁面的區塊</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">已顯示頻道頁面的區塊</string>
-  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                 This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">隱藏「通知我」按鈕</string>
-  <string name="revanced_hide_notify_me_button_summary_on">已隱藏按鈕</string>
-  <string name="revanced_hide_notify_me_button_summary_off">已顯示按鈕</string>
-  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendation_labels_title">隱藏影片推薦標籤</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_on">「其他人也觀看」與「您可能也喜歡」的標籤已隱藏</string>
-  <string name="revanced_hide_search_result_recommendation_labels_summary_off">「其他人也觀看」與「您可能也喜歡」的標籤已顯示</string>
-  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">隱藏「顯示更多」按鈕</string>
-  <string name="revanced_hide_show_more_button_summary_on">已隱藏按鈕</string>
-  <string name="revanced_hide_show_more_button_summary_off">已顯示按鈕</string>
-  <string name="revanced_hide_ticket_shelf_title">隱藏票券架</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">票券架已隱藏</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">票券架已顯示</string>
-  <string name="revanced_hide_timed_reactions_title">隱藏直播即時反應</string>
-  <string name="revanced_hide_timed_reactions_summary_on">已隱藏直播即時反應</string>
-  <string name="revanced_hide_timed_reactions_summary_off">已顯示直播即時反應</string>
-  <string name="revanced_hide_channel_guidelines_title">隱藏頻道規範</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">已隱藏頻道規範</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">已顯示頻道規範</string>
+  <string name="revanced_hide_artist_cards_title">隱藏藝人資訊卡</string>
+  <string name="revanced_hide_artist_cards_summary_on">已隱藏藝人資訊卡</string>
+  <string name="revanced_hide_artist_cards_summary_off">已顯示藝人資訊卡</string>
   <string name="revanced_hide_chips_shelf_title">隱藏標籤列</string>
   <string name="revanced_hide_chips_shelf_summary_on">已隱藏標籤列</string>
   <string name="revanced_hide_chips_shelf_summary_off">已顯示標籤列</string>
-  <string name="revanced_hide_expandable_chip_title">隱藏影片下方的可展開資訊卡</string>
-  <string name="revanced_hide_expandable_chip_summary_on">已隱藏可展開資訊卡</string>
-  <string name="revanced_hide_expandable_chip_summary_off">已顯示可展開資訊卡</string>
   <string name="revanced_hide_community_posts_title">隱藏社群貼文</string>
   <string name="revanced_hide_community_posts_summary_on">已隱藏社群貼文</string>
   <string name="revanced_hide_community_posts_summary_off">已顯示社群貼文</string>
   <string name="revanced_hide_compact_banner_title">隱藏精簡橫幅</string>
   <string name="revanced_hide_compact_banner_summary_on">已隱藏精簡橫幅</string>
   <string name="revanced_hide_compact_banner_summary_off">已顯示精簡橫幅</string>
-  <string name="revanced_hide_movies_section_title">隱藏電影版面</string>
-  <string name="revanced_hide_movies_section_summary_on">已隱藏電影版面</string>
-  <string name="revanced_hide_movies_section_summary_off">已顯示電影版面</string>
+  <string name="revanced_hide_crowdfunding_box_title">隱藏群眾募資方塊</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">已隱藏群眾募資方塊</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">已顯示群眾募資方塊</string>
+  <string name="revanced_hide_expandable_card_title">隱藏可展開卡片</string>
+  <string name="revanced_hide_expandable_card_summary_on">已隱藏影片下方可展開的卡片</string>
+  <string name="revanced_hide_expandable_card_summary_off">已顯示影片下方可展開的卡片</string>
   <string name="revanced_hide_feed_survey_title">隱藏動態影片問卷調查</string>
   <string name="revanced_hide_feed_survey_summary_on">已隱藏動態影片問卷調查</string>
   <string name="revanced_hide_feed_survey_summary_off">已顯示動態影片問卷調查</string>
-  <string name="revanced_hide_community_guidelines_title">隱藏《社群規範》</string>
-  <string name="revanced_hide_community_guidelines_summary_on">已隱藏《社群規範》</string>
-  <string name="revanced_hide_community_guidelines_summary_off">已顯示《社群規範》</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">隱藏訂閱者規範</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_on">已隱藏《訂閱者社群規範》</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_off">已顯示《訂閱者社群規範》</string>
-  <string name="revanced_hide_channel_member_shelf_title">隱藏頻道會員專區</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">已隱藏頻道會員專區</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">已顯示頻道會員專區</string>
+  <string name="revanced_hide_floating_microphone_button_title">隱藏「懸浮麥克風」按鈕</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">搜尋中的浮動麥克風按鈕已隱藏</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">搜尋中的浮動麥克風按鈕已顯示</string>
+  <string name="revanced_hide_horizontal_shelves_title">隱藏橫向區塊</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"橫向區塊已隱藏，例如：
+• 即時新聞
+• 繼續觀看
+• 探索更多頻道
+• 最相關
+• 購物
+• 再看一次"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">橫向區塊已顯示</string>
+  <string name="revanced_hide_image_shelf_title">隱藏圖庫</string>
+  <string name="revanced_hide_image_shelf_summary_on">已隱藏搜尋結果中的圖庫</string>
+  <string name="revanced_hide_image_shelf_summary_off">已顯示搜尋結果中的圖庫</string>
+  <string name="revanced_hide_latest_posts_title">隱藏最新貼文</string>
+  <string name="revanced_hide_latest_posts_summary_on">已隱藏最新貼文</string>
+  <string name="revanced_hide_latest_posts_summary_off">已顯示最新貼文</string>
+  <string name="revanced_hide_mix_playlists_title">隱藏合輯</string>
+  <string name="revanced_hide_mix_playlists_summary_on">已隱藏合輯</string>
+  <string name="revanced_hide_mix_playlists_summary_off">已顯示合輯</string>
+  <string name="revanced_hide_movies_section_title">隱藏電影版面</string>
+  <string name="revanced_hide_movies_section_summary_on">已隱藏電影版面</string>
+  <string name="revanced_hide_movies_section_summary_off">已顯示電影版面</string>
+  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
+                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+  <string name="revanced_hide_notify_me_button_title">隱藏「通知我」按鈕</string>
+  <string name="revanced_hide_notify_me_button_summary_on">「提醒我」按鈕已隱藏</string>
+  <string name="revanced_hide_notify_me_button_summary_off">「提醒我」按鈕已顯示</string>
+  <string name="revanced_hide_playables_title">隱藏遊戲角落</string>
+  <string name="revanced_hide_playables_summary_on">已隱藏遊戲角落</string>
+  <string name="revanced_hide_playables_summary_off">已顯示遊戲角落</string>
+  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
+                  This button usually appears when searching for a YT creator. -->
+  <string name="revanced_hide_show_more_button_title">隱藏「顯示更多」按鈕</string>
+  <string name="revanced_hide_show_more_button_summary_on">搜尋結果中的「顯示更多」按鈕已隱藏</string>
+  <string name="revanced_hide_show_more_button_summary_off">搜尋結果中的「顯示更多」按鈕已顯示</string>
+  <string name="revanced_hide_ticket_shelf_title">隱藏票券架</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">票券架已隱藏</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">票券架已顯示</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_video_recommendation_labels_title">隱藏影片推薦標籤</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">搜尋結果中的「其他人也觀看」與「您可能也喜歡」標籤已隱藏</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">搜尋結果中的「其他人也觀看」與「您可能也喜歡」標籤已顯示</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">隱藏 YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">YouTube 標誌上的 Doodles 動畫已隱藏</string>
+  <string name="revanced_hide_doodles_summary_off">YouTube 標誌上的 Doodles 動畫已顯示</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles 每年會顯示幾天。
+
+如果塗鴉目前在你所在國家/地區顯示，而且此隱藏設定處於啟用狀態，搜尋列下方顯示的篩選列也會隱藏。"</string>
+  <string name="revanced_hide_channel_bar_title">隱藏頻道欄</string>
+  <string name="revanced_hide_channel_bar_summary_on">已隱藏頻道欄</string>
+  <string name="revanced_hide_channel_bar_summary_off">已顯示頻道欄</string>
+  <string name="revanced_hide_channel_watermark_title">隱藏頻道浮水印</string>
+  <string name="revanced_hide_channel_watermark_summary_on">已隱藏影片浮水印</string>
+  <string name="revanced_hide_channel_watermark_summary_off">已顯示影片浮水印</string>
   <string name="revanced_hide_emergency_box_title">隱藏影片警告提醒</string>
   <string name="revanced_hide_emergency_box_summary_on">已隱藏影片警告提醒</string>
   <string name="revanced_hide_emergency_box_summary_off">已顯示影片警告提醒</string>
   <string name="revanced_hide_info_panels_title">隱藏資訊面板</string>
   <string name="revanced_hide_info_panels_summary_on">已隱藏資訊面板</string>
   <string name="revanced_hide_info_panels_summary_off">已顯示資訊面板</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays.
+                  This appears in the video player for certain videos. -->
+  <string name="revanced_hide_join_membership_button_title">隱藏「加入」按鈕</string>
+  <string name="revanced_hide_join_membership_button_summary_on">「加入」按鈕已隱藏</string>
+  <string name="revanced_hide_join_membership_button_summary_off">「加入」按鈕已顯示</string>
   <string name="revanced_hide_medical_panels_title">隱藏醫療資訊面板</string>
   <string name="revanced_hide_medical_panels_summary_on">已隱藏醫療資訊面板</string>
   <string name="revanced_hide_medical_panels_summary_off">已顯示醫療資訊面板</string>
-  <string name="revanced_hide_channel_bar_title">隱藏頻道欄</string>
-  <string name="revanced_hide_channel_bar_summary_on">已隱藏頻道欄</string>
-  <string name="revanced_hide_channel_bar_summary_off">已顯示頻道欄</string>
-  <string name="revanced_hide_playables_title">隱藏遊戲角落</string>
-  <string name="revanced_hide_playables_summary_on">已隱藏遊戲角落</string>
-  <string name="revanced_hide_playables_summary_off">已顯示遊戲角落</string>
-  <string name="revanced_hide_quick_actions_title">隱藏全螢幕中的快捷操作</string>
-  <string name="revanced_hide_quick_actions_summary_on">已隱藏快速操作</string>
-  <string name="revanced_hide_quick_actions_summary_off">已顯示快速操作</string>
-  <string name="revanced_hide_related_videos_title">隱藏快速操作相關影片</string>
-  <string name="revanced_hide_related_videos_summary_on">已隱藏相關影片</string>
-  <string name="revanced_hide_related_videos_summary_off">已顯示相關影片</string>
-  <string name="revanced_hide_image_shelf_title">隱藏搜尋結果中的圖片區塊</string>
-  <string name="revanced_hide_image_shelf_summary_on">已隱藏圖片區塊</string>
-  <string name="revanced_hide_image_shelf_summary_off">已顯示圖片區塊</string>
-  <string name="revanced_hide_latest_posts_ads_title">隱藏最新貼文</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">已隱藏最新貼文</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">已顯示最新貼文</string>
-  <string name="revanced_hide_mix_playlists_title">隱藏合輯</string>
-  <string name="revanced_hide_mix_playlists_summary_on">已隱藏合輯</string>
-  <string name="revanced_hide_mix_playlists_summary_off">已顯示合輯</string>
-  <string name="revanced_hide_artist_cards_title">隱藏藝人資訊卡</string>
-  <string name="revanced_hide_artist_cards_summary_on">已隱藏藝人資訊卡</string>
-  <string name="revanced_hide_artist_cards_summary_off">已顯示藝人資訊卡</string>
+  <string name="revanced_hide_quick_actions_title">隱藏快速操作</string>
+  <string name="revanced_hide_quick_actions_summary_on">已於全螢幕中隱藏快速操作</string>
+  <string name="revanced_hide_quick_actions_summary_off">已於全螢幕中顯示快速操作</string>
+  <string name="revanced_hide_related_videos_title">隱藏相關影片</string>
+  <string name="revanced_hide_related_videos_summary_on">已隱藏快速操作中的相關影片</string>
+  <string name="revanced_hide_related_videos_summary_off">已顯示快速操作中的相關影片</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">隱藏訂閱者規範</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_on">已隱藏《訂閱者社群規範》</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_off">已顯示《訂閱者社群規範》</string>
+  <string name="revanced_hide_timed_reactions_title">隱藏直播即時反應</string>
+  <string name="revanced_hide_timed_reactions_summary_on">已隱藏直播即時反應</string>
+  <string name="revanced_hide_timed_reactions_summary_off">已顯示直播即時反應</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">隱藏「AI 產生的影片摘要」</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">已隱藏影片摘要區塊</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">已顯示影片摘要區塊</string>
@@ -298,6 +293,26 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">隱藏相關影片</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">已在相關影片中隱藏</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">已在相關影片中顯示</string>
+  <string name="revanced_channel_screen_title">頻道頁面</string>
+  <string name="revanced_channel_screen_summary">隱藏或顯示頻道頁面元件</string>
+  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">隱藏「為你推薦」區塊</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">已隱藏「為您推薦」</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">已顯示「為您推薦」</string>
+  <string name="revanced_hide_links_preview_title">隱藏連結預覽</string>
+  <string name="revanced_hide_links_preview_summary_on">已隱藏連結預覽</string>
+  <string name="revanced_hide_links_preview_summary_off">已顯示連結預覽</string>
+  <string name="revanced_hide_members_shelf_title">隱藏會員專屬區塊</string>
+  <string name="revanced_hide_members_shelf_summary_on">會員專屬區塊已隱藏</string>
+  <string name="revanced_hide_members_shelf_summary_off">會員專屬區塊已顯示</string>
+  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_community_button_title">隱藏「造訪社群」按鈕</string>
+  <string name="revanced_hide_visit_community_button_summary_on">「造訪社群」按鈕已隱藏</string>
+  <string name="revanced_hide_visit_community_button_summary_off">「造訪社群」按鈕已顯示</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">隱藏「造訪商店」按鈕</string>
+  <string name="revanced_hide_visit_store_button_summary_on">「造訪商店」按鈕已隱藏</string>
+  <string name="revanced_hide_visit_store_button_summary_off">「造訪商店」按鈕已顯示</string>
   <string name="revanced_comments_screen_title">留言區</string>
   <string name="revanced_comments_screen_summary">隱藏或顯示影片留言區內容</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">隱藏 AI 聊天室摘要</string>
@@ -306,12 +321,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_ai_summary_title">隱藏 AI 留言摘要</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">已隱藏留言摘要</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">已顯示留言摘要</string>
+  <string name="revanced_hide_comments_channel_guidelines_title">隱藏頻道準則</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_on">已隱藏頻道準則</string>
+  <string name="revanced_hide_comments_channel_guidelines_summary_off">已顯示頻道準則</string>
   <string name="revanced_hide_comments_by_members_header_title">隱藏「會員留言」標題</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">已隱藏會員留言標題</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">已顯示會員留言標題</string>
   <string name="revanced_hide_comments_section_title">隱藏留言區</string>
   <string name="revanced_hide_comments_section_summary_on">已隱藏留言區</string>
   <string name="revanced_hide_comments_section_summary_off">已顯示留言區</string>
+  <string name="revanced_hide_comments_community_guidelines_title">隱藏社群守則</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_on">社群守則已隱藏</string>
+  <string name="revanced_hide_comments_community_guidelines_summary_off">社群守則已顯示</string>
   <string name="revanced_hide_comments_create_a_short_button_title">隱藏「建立 Short」按鈕</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">已隱藏「建立 Short」按鈕</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">已顯示「建立 Short」按鈕</string>
@@ -324,13 +345,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_timestamp_button_title">隱藏時間戳記按鈕</string>
   <string name="revanced_hide_comments_timestamp_button_summary_on">時間戳記按鈕已隱藏</string>
   <string name="revanced_hide_comments_timestamp_button_summary_off">時間戳記按鈕已顯示</string>
-  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">隱藏 YouTube Doodles</string>
-  <string name="revanced_hide_doodles_summary_on">已隱藏位於搜尋列的 Doodles </string>
-  <string name="revanced_hide_doodles_summary_off">已顯示位於搜尋列的 Doodles </string>
-  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles 每年會顯示幾天。
-
-如果塗鴉目前在你所在國家/地區顯示，而且此隱藏設定處於啟用狀態，搜尋列下方顯示的篩選列也會隱藏。"</string>
   <string name="revanced_custom_filter_screen_title">自訂篩選器</string>
   <string name="revanced_custom_filter_screen_summary">使用自訂篩選器隱藏元件</string>
   <string name="revanced_custom_filter_title">啟用自訂篩選器</string>
@@ -377,9 +391,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">關鍵字將隱藏所有影片：%s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
+  <string name="revanced_hide_creator_store_shelf_title">隱藏創作者商店區塊</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">影片播放器下方的創作者商店區塊已隱藏</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">影片播放器下方的創作者商店區塊已顯示</string>
   <string name="revanced_hide_end_screen_store_banner_title">隱藏片尾商店橫幅</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">已隱藏商店橫幅</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">已顯示商店橫幅</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">結尾畫面的商店橫幅已隱藏</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">結尾畫面的商店橫幅已顯示</string>
   <string name="revanced_hide_fullscreen_ads_title">隱藏全螢幕廣告</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"已隱藏全螢幕廣告
 
@@ -396,14 +413,16 @@ Second \"item\" text"</string>
   <string name="revanced_hide_paid_promotion_label_title">隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">已隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">已顯示付費推廣標籤</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_self_sponsor_ads_title">隱藏自我贊助資訊卡</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">已隱藏自我贊助資訊卡</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">已顯示自我贊助資訊卡</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">隱藏「造訪商店」按鈕</string>
-  <string name="revanced_hide_visit_store_button_summary_on">已隱藏頻道頁面中的按鈕</string>
-  <string name="revanced_hide_visit_store_button_summary_off">已顯示頻道頁面中的按鈕</string>
+  <string name="revanced_hide_shopping_links_title">隱藏購物連結</string>
+  <string name="revanced_hide_shopping_links_summary_on">影片說明中的購物連結已隱藏</string>
+  <string name="revanced_hide_shopping_links_summary_off">影片說明中的購物連結已顯示</string>
+  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_view_products_banner_title">隱藏「查看商品」橫幅</string>
+  <string name="revanced_hide_view_products_banner_summary_on">影片畫面上的「查看商品」橫幅已隱藏</string>
+  <string name="revanced_hide_view_products_banner_summary_off">影片畫面上的「查看商品」橫幅已顯示</string>
   <string name="revanced_hide_web_search_results_title">隱藏網頁搜尋結果</string>
   <string name="revanced_hide_web_search_results_summary_on">已隱藏網頁搜尋結果</string>
   <string name="revanced_hide_web_search_results_summary_off">已顯示網頁搜尋結果</string>
@@ -434,13 +453,15 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">將顯示對話方塊</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">這不會繞過年齡限制，只是自動按下同意。</string>
   </patch>
+  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">外部下載</string>
   <string name="revanced_external_downloader_screen_summary">使用外部下載器的設定</string>
   <string name="revanced_external_downloader_title">顯示外部下載按鈕</string>
   <string name="revanced_external_downloader_summary_on">在播放器中顯示下載按鈕</string>
   <string name="revanced_external_downloader_summary_off">在播放器中不顯示下載按鈕</string>
-  <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
+  <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
   <string name="revanced_external_downloader_action_button_title">覆蓋「下載」動作按鈕</string>
   <string name="revanced_external_downloader_action_button_summary_on">下載按鈕會開啟你的外部下載器</string>
   <string name="revanced_external_downloader_action_button_summary_off">下載按鈕會開啟內建應用程式下載器</string>
@@ -533,7 +554,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">「停止廣告」按鈕已隱藏</string>
   <string name="revanced_hide_stop_ads_button_summary_off">「停止廣告」按鈕已顯示</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                 This button usually appears only on live streams. -->
+                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">隱藏檢舉</string>
   <string name="revanced_hide_report_button_summary_on">已隱藏「檢舉」按鈕</string>
   <string name="revanced_hide_report_button_summary_off">已顯示「檢舉」按鈕</string>
@@ -550,7 +571,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_summary_on">已隱藏「感謝」按鈕</string>
   <string name="revanced_hide_thanks_button_summary_off">已顯示「感謝」按鈕</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">隱藏詢問</string>
   <string name="revanced_hide_ask_button_summary_on">詢問按鈕已隱藏</string>
   <string name="revanced_hide_ask_button_summary_off">詢問按鈕已顯示</string>
@@ -574,7 +595,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_button_title">隱藏 Shorts</string>
   <string name="revanced_hide_shorts_button_summary_on">已隱藏「Shorts」按鈕</string>
   <string name="revanced_hide_shorts_button_summary_off">已顯示「Shorts」按鈕</string>
-  <!-- The Create button has no display name. Translate normally. -->
+  <!-- 'Create' has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">隱藏建立</string>
   <string name="revanced_hide_create_button_summary_on">已隱藏「建立」按鈕</string>
   <string name="revanced_hide_create_button_summary_off">已顯示「建立」按鈕</string>
@@ -643,7 +664,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">已隱藏播放速度選單</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">已顯示播放速度選單</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                 This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
+                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">隱藏更多資訊</string>
   <string name="revanced_hide_player_flyout_more_info_summary_on">已隱藏更多資訊選單</string>
   <string name="revanced_hide_player_flyout_more_info_summary_off">已顯示更多資訊選單</string>
@@ -655,7 +676,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">隱藏音軌</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">已隱藏音軌選單</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">已顯示音軌選單</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"已隱藏音軌選單
 
 如要顯示音軌選單，請將「欺騙視訊串流」變更為 iOS TV。"</string>
@@ -668,22 +689,22 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">已顯示影片畫質選單頁尾</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">隱藏「上一部」和「下一部」按鈕</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_on">已隱藏按鈕</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_off">已顯示按鈕</string>
-  <string name="revanced_hide_cast_button_title">隱藏「投放」按鈕</string>
-  <string name="revanced_hide_cast_button_summary_on">已隱藏「投放」按鈕</string>
-  <string name="revanced_hide_cast_button_summary_off">已顯示「投放」按鈕</string>
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">隱藏「字幕」按鈕</string>
-  <string name="revanced_hide_captions_button_summary_on">已隱藏「字幕」按鈕</string>
-  <string name="revanced_hide_captions_button_summary_off">已顯示「字幕」按鈕</string>
   <string name="revanced_hide_autoplay_button_title">隱藏「自動播放」按鈕</string>
   <string name="revanced_hide_autoplay_button_summary_on">已隱藏「自動播放」按鈕</string>
   <string name="revanced_hide_autoplay_button_summary_off">已顯示「自動播放」按鈕</string>
+  <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+  <string name="revanced_hide_captions_button_title">隱藏「字幕」按鈕</string>
+  <string name="revanced_hide_captions_button_summary_on">已隱藏「字幕」按鈕</string>
+  <string name="revanced_hide_captions_button_summary_off">已顯示「字幕」按鈕</string>
+  <string name="revanced_hide_cast_button_title">隱藏「投放」按鈕</string>
+  <string name="revanced_hide_cast_button_summary_on">已隱藏「投放」按鈕</string>
+  <string name="revanced_hide_cast_button_summary_off">已顯示「投放」按鈕</string>
   <string name="revanced_hide_player_control_buttons_background_title">隱藏播放器控制按鈕背景</string>
   <string name="revanced_hide_player_control_buttons_background_summary_on">播放器控制按鈕背景已隱藏</string>
   <string name="revanced_hide_player_control_buttons_background_summary_off">播放器控制按鈕背景已顯示</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">隱藏「上一部」和「下一部」按鈕</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">已隱藏按鈕</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">已顯示按鈕</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">隱藏片尾資訊卡</string>
@@ -716,76 +737,75 @@ Second \"item\" text"</string>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts 播放器</string>
   <string name="revanced_shorts_player_screen_summary">隱藏或顯示 Shorts 播放器的元件</string>
-  <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">隱藏 Shorts 首頁推薦內容</string>
-  <string name="revanced_hide_shorts_home_summary_on">已在首頁推薦內容和相關影片中隱藏</string>
-  <string name="revanced_hide_shorts_home_summary_off">已在首頁推薦內容和相關影片中顯示</string>
-  <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
+  <string name="revanced_hide_shorts_home_title">隱藏「查看商品」橫幅</string>
+  <string name="revanced_hide_shorts_home_summary_on">影片畫面上的「查看商品」橫幅已隱藏</string>
+  <string name="revanced_hide_shorts_home_summary_off">影片畫面上的「查看商品」橫幅已顯示</string>
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">隱藏訂閱內容中的 Shorts</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">已在訂閱內容中隱藏</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">已在訂閱推薦內容中顯示</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">已在訂閱內容中顯示</string>
   <string name="revanced_hide_shorts_search_title">隱藏搜尋結果中的 Shorts</string>
   <string name="revanced_hide_shorts_search_summary_on">已在搜尋結果中隱藏</string>
   <string name="revanced_hide_shorts_search_summary_off">已在搜尋結果中顯示</string>
   <string name="revanced_hide_shorts_history_title">隱藏觀看記錄中的 Shorts</string>
   <string name="revanced_hide_shorts_history_summary_on">已在觀看記錄中隱藏</string>
   <string name="revanced_hide_shorts_history_summary_off">已在觀看記錄中顯示</string>
-  <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">隱藏「加入」按鈕</string>
-  <string name="revanced_hide_shorts_join_button_summary_on">已隱藏「加入」按鈕</string>
-  <string name="revanced_hide_shorts_join_button_summary_off">已顯示「加入」按鈕</string>
-  <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">隱藏「訂閱」按鈕</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_on">已隱藏「訂閱」按鈕</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_off">已顯示「訂閱」按鈕</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_title">隱藏暫停時顯示的按鈕</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">已隱藏暫停時顯示的按鈕</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">已顯示暫停時顯示的按鈕</string>
-  <string name="revanced_hide_shorts_shop_button_title">隱藏「商店」按鈕</string>
-  <string name="revanced_hide_shorts_shop_button_summary_on">已隱藏「商店」按鈕</string>
-  <string name="revanced_hide_shorts_shop_button_summary_off">已顯示「商店」按鈕</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">隱藏「購買超級感謝」按鈕</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">已隱藏「感謝」按鈕</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">已顯示「感謝」按鈕</string>
-  <string name="revanced_hide_shorts_tagged_products_title">隱藏標記產品</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">已隱藏標記產品</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_off">已顯示標記產品</string>
-  <string name="revanced_hide_shorts_location_label_title">隱藏地點標籤</string>
-  <string name="revanced_hide_shorts_location_label_summary_on">已隱藏地點標籤</string>
-  <string name="revanced_hide_shorts_location_label_summary_off">已顯示地點標籤</string>
-  <string name="revanced_hide_shorts_preview_comment_title">隱藏留言預覽</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_on">留言預覽已隱藏</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">留言預覽已顯示</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">隱藏「儲存音樂」按鈕</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">已隱藏「儲存音樂」按鈕</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">已顯示「儲存音樂」按鈕</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">隱藏「使用此音效」按鈕</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_on">「使用此音效」按鈕已隱藏</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_off">「使用此音效」按鈕已顯示</string>
-  <string name="revanced_hide_shorts_use_template_button_title">隱藏「使用此範本」按鈕</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">「使用此範本」按鈕已隱藏</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">「使用此範本」按鈕已顯示</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">隱藏「即將直播/首播」按鈕</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">已隱藏「即將直播/首播」按鈕</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">已顯示「即將直播/首播」按鈕</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">「購買超級感謝」按鈕已隱藏</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">「購買超級感謝」按鈕已顯示</string>
   <string name="revanced_hide_shorts_effect_button_title">隱藏「特效」按鈕</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">「特效」按鈕已隱藏</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">「特效」按鈕已顯示</string>
   <string name="revanced_hide_shorts_green_screen_button_title">隱藏「綠幕」按鈕</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">已隱藏「綠幕」按鈕</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">已顯示「綠幕」按鈕</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">隱藏「新貼文」按鈕</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_off">「新貼文」按鈕已顯示</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_on">「新貼文」按鈕已隱藏</string>
   <string name="revanced_hide_shorts_hashtag_button_title">隱藏主題標記按鈕</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">已隱藏主題標記按鈕</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">已顯示主題標記按鈕</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">隱藏「加入」按鈕</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">已隱藏「加入」按鈕</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">已顯示「加入」按鈕</string>
+  <string name="revanced_hide_shorts_location_label_title">隱藏地點標籤</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">已隱藏地點標籤</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">已顯示地點標籤</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">隱藏「新貼文」按鈕</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">「新貼文」按鈕已隱藏</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">「新貼文」按鈕已顯示</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">隱藏暫停時顯示的按鈕</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">已隱藏暫停時顯示的按鈕</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">已顯示暫停時顯示的按鈕</string>
+  <string name="revanced_hide_shorts_preview_comment_title">隱藏留言預覽</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">留言預覽已隱藏</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">留言預覽已顯示</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">隱藏「儲存音樂」按鈕</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">已隱藏「儲存音樂」按鈕</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">已顯示「儲存音樂」按鈕</string>
   <string name="revanced_hide_shorts_search_suggestions_title">隱藏搜尋建議</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">已隱藏搜尋建議</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">已顯示搜尋建議</string>
+  <string name="revanced_hide_shorts_shop_button_title">隱藏「商店」按鈕</string>
+  <string name="revanced_hide_shorts_shop_button_summary_on">已隱藏「商店」按鈕</string>
+  <string name="revanced_hide_shorts_shop_button_summary_off">已顯示「商店」按鈕</string>
   <string name="revanced_hide_shorts_stickers_title">隱藏貼圖</string>
   <string name="revanced_hide_shorts_stickers_summary_on">已隱藏貼圖</string>
   <string name="revanced_hide_shorts_stickers_summary_off">已顯示貼圖</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">隱藏「訂閱」按鈕</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">已隱藏「訂閱」按鈕</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">已顯示「訂閱」按鈕</string>
+  <string name="revanced_hide_shorts_tagged_products_title">隱藏標記產品</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">已隱藏標記產品</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">已顯示標記產品</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">隱藏「即將直播/首播」按鈕</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">已隱藏「即將直播/首播」按鈕</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">已顯示「即將直播/首播」按鈕</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">隱藏「使用此音效」按鈕</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">「使用此音效」按鈕已隱藏</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">「使用此音效」按鈕已顯示</string>
+  <string name="revanced_hide_shorts_use_template_button_title">隱藏「使用此範本」按鈕</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">「使用此範本」按鈕已隱藏</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">「使用此範本」按鈕已顯示</string>
   <string name="revanced_hide_shorts_like_fountain_title">隱藏喜歡按鈕的噴泉動畫</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">已隱藏喜歡按鈕的動畫</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">已顯示喜歡按鈕的動畫</string>
@@ -798,14 +818,17 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_comments_button_title">隱藏「留言」按鈕</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">已隱藏「留言」按鈕</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">已顯示「留言」按鈕</string>
-  <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">隱藏「Remix」按鈕</string>
-  <string name="revanced_hide_shorts_remix_button_summary_on">已隱藏「Remix」按鈕</string>
-  <string name="revanced_hide_shorts_remix_button_summary_off">已顯示「Remix」按鈕</string>
-  <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
+  <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_share_button_title">隱藏「分享」按鈕</string>
   <string name="revanced_hide_shorts_share_button_summary_on">已隱藏「分享」按鈕</string>
   <string name="revanced_hide_shorts_share_button_summary_off">已顯示「分享」按鈕</string>
+  <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_remix_button_title">隱藏「Remix」按鈕</string>
+  <string name="revanced_hide_shorts_remix_button_summary_on">已隱藏「Remix」按鈕</string>
+  <string name="revanced_hide_shorts_remix_button_summary_off">已顯示「Remix」按鈕</string>
+  <string name="revanced_hide_shorts_sound_button_title">隱藏「音效」按鈕</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">已隱藏「音效」按鈕</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">已顯示「音效」按鈕</string>
   <string name="revanced_hide_shorts_info_panel_title">隱藏資訊面板</string>
   <string name="revanced_hide_shorts_info_panel_summary_on">已隱藏資訊面板</string>
   <string name="revanced_hide_shorts_info_panel_summary_off">已顯示資訊面板</string>
@@ -813,16 +836,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_channel_bar_summary_on">已隱藏頻道列</string>
   <string name="revanced_hide_shorts_channel_bar_summary_off">已顯示頻道列</string>
   <string name="revanced_hide_shorts_video_title_title">隱藏影片標題</string>
-  <string name="revanced_hide_shorts_video_title_summary_on">已隱藏標題</string>
-  <string name="revanced_hide_shorts_video_title_summary_off">已顯示標題</string>
+  <string name="revanced_hide_shorts_video_title_summary_on">影片標題已隱藏</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">影片標題已顯示</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">隱藏聲音中繼資料標籤</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">已隱藏中繼資料標籤</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">已顯示中繼資料標籤</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">音效中繼資料標籤已隱藏</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">音效中繼資料標籤已顯示</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">隱藏影片連結標籤</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">已隱藏影片連結標籤</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">已顯示影片連結標籤</string>
-  <string name="revanced_hide_shorts_sound_button_title">隱藏「音效」按鈕</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">已隱藏「音效」按鈕</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">已顯示「音效」按鈕</string>
   <string name="revanced_hide_shorts_navigation_bar_title">隱藏導覽列</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">已隱藏導覽列</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">已顯示導覽列</string>
@@ -836,9 +857,9 @@ Second \"item\" text"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">已顯示片尾推薦影片</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  <string name="revanced_hide_related_video_overlay_title">在全螢幕中隱藏相關影片覆蓋層</string>
-  <string name="revanced_hide_related_video_overlay_summary_on">相關影片覆蓋層已隱藏</string>
-  <string name="revanced_hide_related_video_overlay_summary_off">相關影片覆蓋層已顯示</string>
+  <string name="revanced_hide_related_videos_overlay_title">隱藏相關影片覆蓋層</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">全螢幕中的相關影片覆蓋層已隱藏</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">全螢幕中的相關影片覆蓋層已顯示</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">隱藏影片時間戳記</string>
@@ -887,7 +908,7 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_dislike_percentage_title">不喜歡人數比例</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">以百分比顯示不喜歡人數</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">以數字顯示不喜歡人數</string>
-  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
   <string name="revanced_ryd_compact_layout_title">精簡「喜歡」按鈕</string>
   <string name="revanced_ryd_compact_layout_summary_on">「喜歡」按鈕樣式設為最小寬度</string>
   <string name="revanced_ryd_compact_layout_summary_off">「喜歡」按鈕樣式設為最佳外觀</string>
@@ -945,14 +966,32 @@ Second \"item\" text"</string>
   <string name="revanced_sb_square_layout">使用方形版面配置</string>
   <string name="revanced_sb_square_layout_sum_on">已將按鈕和控制項設為方形</string>
   <string name="revanced_sb_square_layout_sum_off">已將按鈕和控制項設為圓角</string>
-  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
+  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
   <string name="revanced_sb_enable_compact_skip_button">使用精簡「跳過」按鈕</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">「跳過」按鈕樣式設為最小寬度</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">「跳過」按鈕樣式設為最佳外觀</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">自動隱藏「略過」按鈕</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">在幾秒過後隱藏「跳過」按鈕</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">整個片段皆顯示「跳過」按鈕</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">跳過按鈕顯示時間</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">跳過與「跳至重點」按鈕顯示多久後自動隱藏</string>
+  <string name="revanced_sb_general_skiptoast">顯示「取消跳過」提示</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">當片段自動跳過時會顯示提示。點擊提示通知可取消跳過</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">不顯示提示</string>
+  <string name="revanced_sb_toast_on_skip_duration">「取消跳過」提示顯示時間</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">「取消跳過」提示顯示多久</string>
+  <string name="revanced_sb_duration_1s">1 秒</string>
+  <string name="revanced_sb_duration_2s">2 秒</string>
+  <string name="revanced_sb_duration_3s">3 秒</string>
+  <string name="revanced_sb_duration_4s">4 秒</string>
+  <string name="revanced_sb_duration_5s">5 秒</string>
+  <string name="revanced_sb_duration_6s">6 秒</string>
+  <string name="revanced_sb_duration_7s">7 秒</string>
+  <string name="revanced_sb_duration_8s">8 秒</string>
+  <string name="revanced_sb_duration_9s">9 秒</string>
+  <string name="revanced_sb_duration_10s">10 秒</string>
   <string name="revanced_sb_general_time_without">顯示不包含被跳過片段的時間戳記</string>
+  <string name="revanced_sb_general_time_without_sum_on">在進度條上顯示扣除所有片段後的影片長度</string>
   <string name="revanced_sb_general_time_without_sum_off">只顯示完整的時間戳記</string>
   <string name="revanced_sb_create_segment_category">建立新片段</string>
   <string name="revanced_sb_enable_create_segment">顯示「建立片段」按鈕</string>
@@ -1070,7 +1109,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_vote_downvote">倒讚</string>
   <string name="revanced_sb_vote_category">變更類別</string>
   <string name="revanced_sb_vote_no_segments">沒有可以投票的片段</string>
-  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <!-- A segment start and end time, such as "02:10 to 03:40". -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s 至 %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">選擇片段的類別</string>
   <string name="revanced_sb_new_segment_disabled_category">已在設定中停用類別。啟用類別以提交。</string>
@@ -1150,7 +1189,7 @@ Second \"item\" text"</string>
 
 如果之後關閉此設定，建議清除應用程式資料以避免 UI 錯誤。"</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">應用程式偽裝目標版本</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 還原舊版 Shorts 播放圖示</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - 還原舊版導覽圖示</string>
@@ -1262,9 +1301,9 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">啟用漸層載入畫面</string>
   <string name="revanced_gradient_loading_screen_summary_on">載入畫面將具有漸層背景</string>
   <string name="revanced_gradient_loading_screen_summary_off">載入畫面將具有純色背景</string>
-  <string name="splash_screen_animation_style_title">啟動畫面樣式</string>
-  <string name="splash_screen_animation_style_entry_1">顏色</string>
-  <string name="splash_screen_animation_style_entry_2">黑白</string>
+  <string name="revanced_splash_screen_animation_style_title">啟動畫面樣式</string>
+  <string name="revanced_splash_screen_animation_style_entry_1">顏色</string>
+  <string name="revanced_splash_screen_animation_style_entry_2">黑白</string>
   <string name="revanced_seekbar_custom_color_title">啟用自訂跳轉列顏色</string>
   <string name="revanced_seekbar_custom_color_summary_on">已顯示自訂跳轉列顏色</string>
   <string name="revanced_seekbar_custom_color_summary_off">已顯示原版跳轉列顏色</string>
@@ -1273,6 +1312,14 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_title">自訂跳轉列強調色彩</string>
   <string name="revanced_seekbar_custom_color_accent_summary">跳轉列強調色彩</string>
   <string name="revanced_seekbar_custom_color_invalid">跳轉列色彩值無效</string>
+  </patch>
+  <patch id="layout.branding.changeHeaderPatch">
+  <string name="revanced_header_logo_title">標題標誌</string>
+  <string name="revanced_header_logo_entry_1">預設</string>
+  <string name="revanced_header_logo_entry_2">一般</string>
+  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <string name="revanced_header_logo_entry_5">ReVanced 精簡版</string>
+  <string name="revanced_header_logo_entry_6">自訂</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">繞過圖片區域限制</string>
@@ -1284,13 +1331,13 @@ Second \"item\" text"</string>
 "</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_alt_thumbnail_home_title">首頁分頁</string>
-  <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_alt_thumbnail_subscription_title">訂閱內容分頁</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+  <string name="revanced_alt_thumbnail_subscription_title">訂閱分頁</string>
+  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">個人中心分頁</string>
-  <string name="revanced_alt_thumbnail_player_title">播放器播放清單、推薦內容</string>
+  <string name="revanced_alt_thumbnail_player_title">播放器的播放清單與推薦影片</string>
   <string name="revanced_alt_thumbnail_search_title">搜尋結果</string>
   <string name="revanced_alt_thumbnail_options_entry_1">原版縮圖</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow 和原版縮圖</string>
@@ -1391,11 +1438,11 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">強制使用原始音訊語言</string>
   <string name="revanced_force_original_audio_summary_on">正在使用原始音訊語言</string>
   <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
-  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_force_original_audio_not_available">如要使用這項功能，請將「偽裝視訊串流」變更為 iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">自動</string>
   <string name="revanced_remember_video_quality_last_selected_title">記住影片畫質</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">畫質變更適用於所有影片</string>
@@ -1509,7 +1556,7 @@ A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 
   <string name="revanced_block_video_ads_summary_off">未攔截影片廣告</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">已刪除訊息</string>
+  <string name="revanced_deleted_msg">訊息已刪除</string>
   <string name="revanced_show_deleted_messages_title">顯示已刪除的訊息</string>
   <string name="revanced_show_deleted_messages_entry_1">不顯示已刪除的訊息</string>
   <string name="revanced_show_deleted_messages_entry_2">將已刪除的訊息隱藏在劇透後面</string>
@@ -1521,7 +1568,7 @@ A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 
   <string name="revanced_auto_claim_channel_points_summary_off">已關閉自動化領取頻道忠誠點數</string>
   </patch>
   <patch id="debug.debugModePatch">
-  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
+  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
   <string name="revanced_twitch_debug_mode_title">啟用 Twitch 偵錯模式</string>
   <string name="revanced_twitch_debug_mode_summary_on">已啟用 Twitch 偵錯模式（不推薦啟用）</string>
   <string name="revanced_twitch_debug_mode_summary_off">已停用 Twitch 偵錯模式</string>
@@ -1530,8 +1577,8 @@ A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 
   <string name="revanced_settings">ReVanced 設定</string>
   <string name="revanced_about_title">關於</string>
   <string name="revanced_about_summary">關於 ReVanced</string>
-  <string name="revanced_ads_screen_title">廣告</string>
-  <string name="revanced_ads_screen_summary">廣告攔截設定</string>
+  <string name="revanced_ads_screen_title">廣告封鎖</string>
+  <string name="revanced_ads_screen_summary">廣告封鎖設定</string>
   <string name="revanced_chat_screen_title">聊天</string>
   <string name="revanced_chat_screen_summary">聊天設定</string>
   <string name="revanced_misc_screen_title">其他</string>

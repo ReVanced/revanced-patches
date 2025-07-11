@@ -116,8 +116,8 @@ public final class app/revanced/patches/all/misc/shortcut/sharetargets/RemoveSha
 	public static final fun getRemoveShareTargetsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/all/misc/spoof/SignatureSpoofPatchKt {
-	public static final fun getSignatureSpoofPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/revanced/patches/all/misc/spoof/EnableRomSignatureSpoofingKt {
+	public static final fun getEnableRomSignatureSpoofing ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/all/misc/targetSdk/SetTargetSdkVersion34Kt {
@@ -166,6 +166,10 @@ public final class app/revanced/patches/cieid/restrictions/root/BypassRootChecks
 
 public final class app/revanced/patches/cricbuzz/ads/DisableAdsPatchKt {
 	public static final fun getDisableAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/cricbuzz/misc/extension/ExtensionPatchKt {
+	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/crunchyroll/ads/HideAdsPatchKt {
@@ -900,6 +904,10 @@ public final class app/revanced/patches/shared/misc/spoof/UserAgentClientSpoofPa
 	public static final fun userAgentClientSpoofPatch (Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/shared/misc/string/ReplaceStringPatchKt {
+	public static final fun replaceStringPatch (Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/solidexplorer2/functionality/filesize/RemoveFileSizeLimitPatchKt {
 	public static final fun getRemoveFileSizeLimitPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1226,6 +1234,10 @@ public final class app/revanced/patches/youtube/interaction/copyvideourl/CopyVid
 
 public final class app/revanced/patches/youtube/interaction/dialog/RemoveViewerDiscretionDialogPatchKt {
 	public static final fun getRemoveViewerDiscretionDialogPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/interaction/doubletap/DisableChapterSkipDoubleTapPatchKt {
+	public static final fun getDisableChapterSkipDoubleTapPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/interaction/downloads/DownloadsPatchKt {

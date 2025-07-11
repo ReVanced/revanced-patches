@@ -3,14 +3,12 @@ package app.revanced.patches.youtube.interaction.seekbar
 import app.revanced.patcher.fingerprint
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionReversed
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 internal val swipingUpGestureParentFingerprint = fingerprint {
     returns("Z")
@@ -56,25 +54,6 @@ internal val disableFastForwardGestureFingerprint = fingerprint {
     custom { methodDef, classDef ->
         methodDef.implementation!!.instructions.count() > 30 &&
             classDef.type.endsWith("/NextGenWatchLayout;")
-    }
-}
-
-internal val disableFastForwardNoticeFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
-    opcodes(
-        Opcode.CHECK_CAST,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-    )
-    custom { method, _ ->
-        method.name == "run" && method.indexOfFirstInstruction {
-            // In later targets the code is found in different methods with different strings.
-            val string = getReference<StringReference>()?.string
-            string == "Failed to easy seek haptics vibrate." || string == "search_landing_cache_key"
-        } >= 0
     }
 }
 
