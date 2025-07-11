@@ -1,3 +1,11 @@
+# [5.31.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.15...v5.31.0-dev.16) (2025-07-11)
+
+
+### Features
+
+* **Spotify - Spoof client:** Fix issues like songs skipping by spoofing to iOS ([#5388](https://github.com/ReVanced/revanced-patches/issues/5388)) ([e36d4c1](https://github.com/ReVanced/revanced-patches/commit/e36d4c1986b58815c7659e6ef44011166873f9c8))
+* **YouTube:** Disable two-finger tap gesture for skipping chapters ([#5374](https://github.com/ReVanced/revanced-patches/issues/5374)) ([71db0a2](https://github.com/ReVanced/revanced-patches/commit/71db0a2661b5f76eb5048cdeed83f26fbfdf4fee))
+
 # [5.31.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.14...v5.31.0-dev.15) (2025-07-11)
 
 
