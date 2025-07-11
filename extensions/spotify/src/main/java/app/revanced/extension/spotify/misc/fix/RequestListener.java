@@ -2,8 +2,6 @@ package app.revanced.extension.spotify.misc.fix;
 
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp;
-import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp.ClientTokenRequest;
 import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp.ClientTokenResponse;
 import com.google.protobuf.MessageLite;
 import fi.iki.elonen.NanoHTTPD;
@@ -12,13 +10,10 @@ import java.io.ByteArrayInputStream;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Objects;
 
-import static app.revanced.extension.spotify.misc.fix.ClientTokenService.getClientTokenResponse;
 import static app.revanced.extension.spotify.misc.fix.ClientTokenService.serveClientTokenRequest;
-import static app.revanced.extension.spotify.misc.fix.Constants.*;
+import static app.revanced.extension.spotify.misc.fix.Constants.CLIENT_TOKEN_API_PATH;
 import static fi.iki.elonen.NanoHTTPD.Response.Status.INTERNAL_ERROR;
 
 class RequestListener extends NanoHTTPD {
@@ -89,7 +84,6 @@ class RequestListener extends NanoHTTPD {
     private static Response newResponse(Response.Status status) {
         return newResponse(status, null);
     }
-
 
     @NonNull
     private static Response newResponse(Response.IStatus status, MessageLite messageLite) {

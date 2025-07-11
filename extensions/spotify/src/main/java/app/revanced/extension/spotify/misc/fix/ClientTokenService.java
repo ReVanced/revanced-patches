@@ -14,6 +14,18 @@ import static app.revanced.extension.spotify.misc.fix.Constants.*;
 
 class ClientTokenService {
     private static final String IOS_CLIENT_ID = "58bd3c95768941ea9eb4350aaa033eb3";
+    private static final String IOS_USER_AGENT;
+
+    static {
+        String clientVersion = getClientVersion();
+        int commitHashIndex = clientVersion.lastIndexOf(".");
+        String version = clientVersion.substring(
+                clientVersion.indexOf("-") + 1,
+                clientVersion.lastIndexOf(".", commitHashIndex - 1)
+        );
+
+        IOS_USER_AGENT = "Spotify/" + version + " iOS/" + getSystemVersion() + " (" + getHardwareMachine() + ")";
+    }
 
     private static final ConnectivitySdkData.Builder IOS_CONNECTIVITY_SDK_DATA =
             ConnectivitySdkData.newBuilder()
@@ -65,7 +77,6 @@ class ClientTokenService {
 
         return response;
     }
-
 
     @NonNull
     private static ClientTokenResponse requestClientToken(@NonNull ClientTokenRequest request) throws IOException {
