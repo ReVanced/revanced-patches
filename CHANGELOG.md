@@ -1,3 +1,10 @@
+# [5.31.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.14...v5.31.0-dev.15) (2025-07-11)
+
+
+### Bug Fixes
+
+* Handle empty list of announcements ([de9d720](https://github.com/ReVanced/revanced-patches/commit/de9d7209f4e818a618a7fd9000013ae8ebd728f2))
+
 # [5.31.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.31.0-dev.13...v5.31.0-dev.14) (2025-07-10)
 
 
