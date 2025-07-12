@@ -1,3 +1,10 @@
+## [5.31.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.1...v5.31.2-dev.2) (2025-07-12)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Show correct custom header logo if 'Hide YouTube Doodles' is enabled ([#5431](https://github.com/ReVanced/revanced-patches/issues/5431)) ([20cc141](https://github.com/ReVanced/revanced-patches/commit/20cc141e61f75de1a1749247c4f4aed167dee8ea))
+
 ## [5.31.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.1...v5.31.2-dev.1) (2025-07-12)
 
 
