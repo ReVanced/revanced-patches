@@ -702,9 +702,9 @@ Chun roghchlár na rian fuaime a thaispeáint, athraigh 'Srutháin físeáin bhr
   <string name="revanced_hide_cast_button_title">Folaigh cnaipe an Chasta</string>
   <string name="revanced_hide_cast_button_summary_on">Tá cnaipe teilgthe i bhfolach</string>
   <string name="revanced_hide_cast_button_summary_off">Taispeántar cnaipe teilgthe</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Folaigh cúlra cnaipí rialaithe an tseinnteora</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Tá cúlra cnaipí rialaithe an tseinnteora folaithe</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Taispeántar cúlra cnaipí rialaithe an tseinnteora</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Folaigh cúlra rialuithe an imreora</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Tá cúlra rialuithe an imreora i bhfolach</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Taispeántar cúlra rialuithe an imreora</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Folaigh Cnaipí Roimhe &amp; Ar Aghaidh</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tá cnaipí i bhfolach</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Taispeántar cnaipí</string>

@@ -702,9 +702,9 @@ Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet vide
   <string name="revanced_hide_cast_button_title">Fsheh butonin Transmeto</string>
   <string name="revanced_hide_cast_button_summary_on">Butoni \"Transmeto\" është i fshehur</string>
   <string name="revanced_hide_cast_button_summary_off">Butoni \"Transmeto\" është i dukshëm</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Fshihni sfondin e butonave të kontrollit të luajtësit</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Sfondi i butonave të kontrollit të luajtësit është i fshehur</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Sfondi i butonave të kontrollit të luajtësit është shfaqur</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Fshih sfondin e kontrollave të luajtësit</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Sfondi i kontrolleve të luajtësit është i fshehur</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Sfondi i kontrolleve të luajtësit është shfaqur.</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Fsheh Butonat e Mëparshme &amp; Tjetër</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Butonat janë të fshehur</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Butonat janë të dukshme</string>

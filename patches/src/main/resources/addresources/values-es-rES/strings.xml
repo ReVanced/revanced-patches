@@ -193,9 +193,9 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
   <string name="revanced_hide_notify_me_button_title">Ocultar el botón \'Notificarme\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">El botón Notificarme está oculto</string>
   <string name="revanced_hide_notify_me_button_summary_off">El botón Notificarme está visible</string>
-  <string name="revanced_hide_playables_title">Ocultar los reproducibles</string>
-  <string name="revanced_hide_playables_summary_on">Los reproducibles están ocultos</string>
-  <string name="revanced_hide_playables_summary_off">Se muestran los reproducibles</string>
+  <string name="revanced_hide_playables_title">Ocultar jugables</string>
+  <string name="revanced_hide_playables_summary_on">Los jugables están ocultos</string>
+  <string name="revanced_hide_playables_summary_off">Los jugables están visibles</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Ocultar botón \'Mostrar más\'</string>
@@ -451,6 +451,9 @@ Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Esto no pasa por alto la restricción de edad, sino que simplemente la acepta automáticamente.</string>
   </patch>
   <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Deshabilitar el salto de capítulo con doble toque</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">El doble toque nunca puede activar un salto al capítulo siguiente/anterior</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">El doble toque puede ocasionalmente activar un salto al capítulo siguiente/anterior</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Descargas externa</string>
@@ -696,9 +699,9 @@ Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de 
   <string name="revanced_hide_cast_button_title">Ocultar el botón Transmitir</string>
   <string name="revanced_hide_cast_button_summary_on">El botón de envío a otros dispositivos está oculto</string>
   <string name="revanced_hide_cast_button_summary_off">El botón de envío a otros dispositivos es visible</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Ocultar el fondo de los botones de control del reproductor</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">El fondo de los botones de control del reproductor está oculto</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Se muestra el fondo de los botones de control del reproductor</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Ocultar fondo de los controles del reproductor</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">El fondo de los controles del reproductor está oculto</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Se muestra el fondo de los controles del reproductor</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Ocultar botones Anterior &amp; Siguiente</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Los botones están ocultos</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Los botones se muestran</string>

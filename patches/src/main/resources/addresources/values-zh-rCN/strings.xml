@@ -196,9 +196,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">隐藏「通知我」按钮</string>
   <string name="revanced_hide_notify_me_button_summary_on">通知我按钮已隐藏</string>
   <string name="revanced_hide_notify_me_button_summary_off">通知我按钮已显示</string>
-  <string name="revanced_hide_playables_title">隐藏游戏</string>
-  <string name="revanced_hide_playables_summary_on">游戏已隐藏</string>
-  <string name="revanced_hide_playables_summary_off">游戏已显示</string>
+  <string name="revanced_hide_playables_title">隐藏可播放内容</string>
+  <string name="revanced_hide_playables_summary_on">可播放内容已隐藏</string>
+  <string name="revanced_hide_playables_summary_off">可播放内容已显示</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">隐藏「显示更多」按钮</string>
@@ -702,9 +702,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_cast_button_title">隐藏「投屏」按钮</string>
   <string name="revanced_hide_cast_button_summary_on">投屏按钮已隐藏</string>
   <string name="revanced_hide_cast_button_summary_off">投屏按钮已显示</string>
-  <string name="revanced_hide_player_control_buttons_background_title">隐藏播放器控件按钮背景</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">播放器控件按钮背景已隐藏</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">播放器控件按钮背景已显示</string>
+  <string name="revanced_hide_player_control_buttons_background_title">隐藏播放器控件背景</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">播放器控件背景已隐藏</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">播放器控件背景已显示</string>
   <string name="revanced_hide_player_previous_next_buttons_title">隐藏上一个和下一个按钮</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">按钮已隐藏</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">按钮已显示</string>

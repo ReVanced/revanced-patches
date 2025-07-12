@@ -296,8 +296,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">관련 동영상에서 카테고리 바 숨기기</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">플레이어 하단에 있는 관련 동영상에서 카테고리 바가 숨겨집니다</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">플레이어 하단에 있는 관련 동영상에서 카테고리 바가 표시됩니다</string>
-  <string name="revanced_channel_screen_title">채널 프로필</string>
-  <string name="revanced_channel_screen_summary">채널 프로필에서 구성요소를 숨기거나 표시할 수 있습니다</string>
+  <string name="revanced_channel_screen_title">채널 페이지</string>
+  <string name="revanced_channel_screen_summary">채널 페이지에서 구성요소를 숨기거나 표시할 수 있습니다</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">추천 선반 숨기기</string>
   <string name="revanced_hide_for_you_shelf_summary_on">추천 선반이 숨겨집니다</string>
@@ -456,9 +456,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다.</string>
   </patch>
   <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
-  <string name="revanced_disable_chapter_skip_double_tap_title">두 번 탭하여 챕터 건너뛰기 비활성화</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_on">두 번 탭하여 다음/이전 챕터로 건너뛰기가 절대 트리거되지 않습니다</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_off">두 번 탭하여 다음/이전 챕터로 건너뛰기가 가끔 트리거될 수 있습니다</string>
+  <string name="revanced_disable_chapter_skip_double_tap_title">두 번 눌러서 챕터 건너뛰기 비활성화하기</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">두 번 눌러서 다음/이전 챕터로 건너뛰기가 절대 트리거될 수 없습니다</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">두 번 눌러서 다음/이전 챕터로 건너뛰기가 가끔 트리거될 수 있습니다</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">외부 다운로드</string>

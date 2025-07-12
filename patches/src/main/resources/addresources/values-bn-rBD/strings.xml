@@ -698,9 +698,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_cast_button_title">কাস্ট বোতামটি লুকান</string>
   <string name="revanced_hide_cast_button_summary_on">কাস্ট বাটন লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_cast_button_summary_off">কাস্ট বাটন প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_player_control_buttons_background_title">প্লেয়ার কন্ট্রোল বোতামগুলির পটভূমি লুকান</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">প্লেয়ার কন্ট্রোল বোতামগুলির পটভূমি লুকানো আছে</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">প্লেয়ার কন্ট্রোল বোতামগুলির পটভূমি দেখানো হয়েছে</string>
+  <string name="revanced_hide_player_control_buttons_background_title">প্লেয়ার কন্ট্রোল ব্যাকগ্রাউন্ড লুকান</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">প্লেয়ার নিয়ন্ত্রণের পটভূমি লুকানো আছে</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">প্লেয়ার কন্ট্রোল ব্যাকগ্রাউন্ড দেখানো হয়েছে</string>
   <string name="revanced_hide_player_previous_next_buttons_title">পূর্ববর্তী লুকান &amp; পরবর্তী বোতাম</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">বোতাম লুকানো হয়</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">বোতাম দেখানো হয়</string>

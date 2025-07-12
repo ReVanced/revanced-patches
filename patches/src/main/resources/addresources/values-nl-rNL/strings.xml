@@ -702,9 +702,9 @@ Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS T
   <string name="revanced_hide_cast_button_title">Verberg Cast-knop</string>
   <string name="revanced_hide_cast_button_summary_on">Castknop is verborgen</string>
   <string name="revanced_hide_cast_button_summary_off">Castknop wordt weergegeven</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Achtergrond van afspeelknoppen verbergen</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Achtergrond van afspeelknoppen is verborgen</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Achtergrond van afspeelknoppen wordt weergegeven</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Achtergrond van spelerbediening verbergen</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Achtergrond van spelerbediening is verborgen</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Achtergrond van spelerbediening wordt weergegeven</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Verberg Vorige &amp; Volgende knoppen</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knoppen zijn verborgen</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knoppen worden weergegeven</string>

@@ -702,9 +702,9 @@ Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítá
   <string name="revanced_hide_cast_button_title">Küldés gomb elrejtése</string>
   <string name="revanced_hide_cast_button_summary_on">Az átküldés gomb rejtve van</string>
   <string name="revanced_hide_cast_button_summary_off">Az átküldés gomb látható</string>
-  <string name="revanced_hide_player_control_buttons_background_title">A lejátszó vezérlőgombjainak hátterének elrejtése</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">A lejátszó vezérlőgombjainak háttere rejtve</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">A lejátszó vezérlőgombjainak háttere látható</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Lejátszóvezérlők hátterének elrejtése</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">A lejátszóvezérlők háttere rejtett</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">A lejátszóvezérlők háttere látható</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Az Előző és a Következő gombok elrejtése</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">A gombok elrejtve</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">A gombok megjelennek</string>

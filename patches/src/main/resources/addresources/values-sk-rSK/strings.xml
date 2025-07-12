@@ -700,9 +700,9 @@ Ak chcete zobraziť ponuku zvukovej stopy, zmeňte možnosť „Oklamať videost
   <string name="revanced_hide_cast_button_title">Skryť tlačidlo Cast</string>
   <string name="revanced_hide_cast_button_summary_on">Tlačidlo zdieľania obrazovky je skryté</string>
   <string name="revanced_hide_cast_button_summary_off">Tlačidlo zdieľania obrazovky je zobrazené</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Skryť pozadie tlačidiel ovládania prehrávača</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Pozadie tlačidiel ovládania prehrávača je skryté</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Zobrazuje sa pozadie tlačidiel ovládania prehrávača</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Skryť pozadie ovládacích prvkov prehrávača</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Pozadie ovládacích prvkov prehrávača je skryté</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Pozadie ovládacích prvkov prehrávača sa zobrazuje</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Skryť tlačidlá Predchádzajúce &amp; Nasledujúce</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tlačidlá sú skryté</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Zobrazia sa tlačidlá</string>

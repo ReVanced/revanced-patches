@@ -702,9 +702,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_cast_button_title">Схаваць кнопку «Трансляцыя»</string>
   <string name="revanced_hide_cast_button_summary_on">Кнопка Cast схавана</string>
   <string name="revanced_hide_cast_button_summary_off">Паказана кнопка Cast</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Схаваць фон кнопак кіравання прайгравальнікам</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Фон кнопак кіравання прайгравальнікам схаваны</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Фон кнопак кіравання прайгравальнікам паказаны</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Схаваць фон элементаў кіравання прайгравальнікам</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Фон элементаў кіравання плэерам схаваны</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Фон элементаў кіравання паказаны</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Схаваць папярэднія &amp; кнопкі «Далей»</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопкі схаваныя</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Паказваюцца кнопкі</string>

@@ -702,9 +702,9 @@ Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS 
   <string name="revanced_hide_cast_button_title">Nascondi il pulsante Trasmetti</string>
   <string name="revanced_hide_cast_button_summary_on">Il pulsante Trasmetti è nascosto</string>
   <string name="revanced_hide_cast_button_summary_off">Il pulsante Trasmetti è visibile</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Nascondi sfondo dei pulsanti di controllo del player</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Lo sfondo dei pulsanti di controllo del player è nascosto</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Lo sfondo dei pulsanti di controllo del player è mostrato</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Nascondi lo sfondo dei controlli del player</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Lo sfondo dei controlli del player è nascosto</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Lo sfondo dei controlli del player è mostrato</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Nascondi i pulsanti Precedente e Successivo</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">I pulsanti sono nascosti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">I pulsanti sono visibili</string>

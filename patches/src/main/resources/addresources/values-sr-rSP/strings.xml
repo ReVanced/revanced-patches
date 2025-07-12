@@ -702,9 +702,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_cast_button_title">Сакриј дугме „Пребацуј”</string>
   <string name="revanced_hide_cast_button_summary_on">Дугме „Пребацуј” је скривено</string>
   <string name="revanced_hide_cast_button_summary_off">Дугме „Пребацуј” је приказано</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Сакриј позадину дугмади за контролу плејера</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Позадина дугмади за контролу плејера је скривена</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Позадина дугмади за контролу плејера је приказана</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Сакриј позадину контрола плејера</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Позадина контрола плејера је скривена</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Позадина контрола плејера је приказана</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Сакриј дугмад за претходни и следећи видео</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Дугмад за претходни и следећи видео су скривена</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Дугмад за претходни и следећи видео су приказана</string>

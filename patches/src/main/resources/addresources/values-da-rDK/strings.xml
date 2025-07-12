@@ -702,9 +702,9 @@ For at vise lydspormenuen skal du ændre \"Spoof videostream\" til iOS TV"</stri
   <string name="revanced_hide_cast_button_title">Skjul Cast-knappen</string>
   <string name="revanced_hide_cast_button_summary_on">Cast-knappen er skjult</string>
   <string name="revanced_hide_cast_button_summary_off">Cast knap er vist</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Skjul baggrunden for afspillerens kontrolknapper</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Baggrunden for afspillerens kontrolknapper er skjult</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Baggrunden for afspillerens kontrolknapper vises</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Skjul baggrund for afspillerkontroller</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Baggrund for afspilningskontroller er skjult</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Baggrund for afspillerkontroller vises</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Skjul Forrige &amp; Næste knapper</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knapper er skjult</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knapper vises</string>

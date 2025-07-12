@@ -687,9 +687,6 @@ Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <string name="revanced_hide_cast_button_title">Piilota Cast-painike</string>
   <string name="revanced_hide_cast_button_summary_on">Cast-painike on piilotettu</string>
   <string name="revanced_hide_cast_button_summary_off">Cast-painike näytetään</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Piilota soittimen ohjauspainikkeiden tausta</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Soittimen ohjauspainikkeiden tausta on piilotettu</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Soittimen ohjauspainikkeiden tausta näytetään</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Piilota Edellinen &amp; Seuraava -painikkeet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Painikkeet on piilotettu</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Painikkeet näytetään</string>

@@ -454,9 +454,9 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Це не обходить вікові обмеження, а просто приймає їх автоматично.</string>
   </patch>
   <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
-  <string name="revanced_disable_chapter_skip_double_tap_title">Вимкнути подвійне натискання для пропуску розділу</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Подвійне натискання ніколи не призведе до пропуску до наступного/попереднього розділу</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Подвійне натискання іноді може призвести до пропуску до наступного/попереднього розділу</string>
+  <string name="revanced_disable_chapter_skip_double_tap_title">Вимкнути пропуск розділу подвійним натисканням</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Подвійне натискання двома пальцями ніколи не викличе пропуск до наступного/попереднього розділу</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Подвійне натискання двома пальцями іноді може викликати пропуск до наступного/попереднього розділу</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Зовнішній завантажувач</string>

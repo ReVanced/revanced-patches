@@ -702,9 +702,9 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_cast_button_title">Skrij gumb \'Predvajaj\'</string>
   <string name="revanced_hide_cast_button_summary_on">Gumb za predvajanje je skrit</string>
   <string name="revanced_hide_cast_button_summary_off">Gumb za predvajanje je prikazan</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Skrij ozadje gumbov za upravljanje predvajalnika</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Ozadje gumbov za upravljanje predvajalnika je skrito</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Ozadje gumbov za upravljanje predvajalnika je prikazano</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Skrij ozadje kontrolnikov predvajalnika</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Ozadje nadzornih gumbov predvajalnika je skrito</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Ozadje kontrolnikov predvajalnika je prikazano</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Skrij gumbe »Prejšnji« &amp; »Naslednji«</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Gumbi so skriti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Gumbi so prikazani</string>

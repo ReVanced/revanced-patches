@@ -457,8 +457,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Απενεργοποίηση παράλειψης κεφαλαίου με διπλό πάτημα</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Το διπλό πάτημα δεν μπορεί ποτέ να ενεργοποιήσει την παράλειψη στο επόμενο/προηγούμενο κεφάλαιο</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Το διπλό πάτημα μπορεί περιστασιακά να ενεργοποιήσει την παράλειψη στο επόμενο/προηγούμενο κεφάλαιο</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Το διπλό πάτημα δεν παράλειπει στο επόμενο/προηγούμενο κεφάλαιο</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Το διπλό πάτημα μπορεί περιστασιακά να παραλείψει στο επόμενο/προηγούμενο κεφάλαιο</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Εξωτερικές λήψεις</string>

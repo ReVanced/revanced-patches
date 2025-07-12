@@ -702,9 +702,9 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_hide_cast_button_title">Sembunyikan tombol Transmisi</string>
   <string name="revanced_hide_cast_button_summary_on">Tombol transmisi disembunyikan</string>
   <string name="revanced_hide_cast_button_summary_off">Tombol transmisi ditampilkan</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Sembunyikan latar belakang tombol kontrol pemutar</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Latar belakang tombol kontrol pemutar disembunyikan</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Latar belakang tombol kontrol pemutar ditampilkan</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Sembunyikan latar belakang kontrol pemutar</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Latar belakang kontrol pemutar disembunyikan</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Latar belakang kontrol pemutar ditampilkan</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Sembunyikan tombol Sebelumnya &amp; Berikutnya</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tombol ditampilkan</string>

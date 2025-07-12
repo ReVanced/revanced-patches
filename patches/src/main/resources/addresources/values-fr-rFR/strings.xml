@@ -454,6 +454,9 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Cette option ne contourne pas la vérification de l\'âge. Elle est juste confirmée automatiquement.</string>
   </patch>
   <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Désactiver le double appui pour sauter les chapitres</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Le double appui ne peut jamais déclencher un saut au chapitre suivant/précédent</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Le double appui peut occasionnellement déclencher un saut au chapitre suivant/précédent</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Téléchargements externes</string>
@@ -699,9 +702,9 @@ Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur
   <string name="revanced_hide_cast_button_title">Masquer le bouton Caster</string>
   <string name="revanced_hide_cast_button_summary_on">Le bouton Caster est masqué</string>
   <string name="revanced_hide_cast_button_summary_off">Le bouton Caster est affiché</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Masquer l\'arrière-plan des boutons de commande du lecteur</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">L\'arrière-plan des boutons de commande du lecteur est masqué</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">L\'arrière-plan des boutons de commande du lecteur est affiché</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Masquer l\'arrière-plan des commandes du lecteur</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">L\'arrière-plan des commandes du lecteur est masqué</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">L\'arrière-plan des commandes du lecteur est affiché</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Masquer les boutons Précédent et Suivant</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Les boutons sont masqués</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Les boutons sont affichés</string>
