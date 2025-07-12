@@ -702,9 +702,9 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <string name="revanced_hide_cast_button_title">Ẩn nút truyền</string>
   <string name="revanced_hide_cast_button_summary_on">Nút Truyền đã bị ẩn</string>
   <string name="revanced_hide_cast_button_summary_off">Nút Truyền được hiển thị</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Ẩn nền của các nút điều khiển trình phát</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Nền của các nút điều khiển trình phát đã ẩn</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Nền của các nút điều khiển trình phát đã hiển thị</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Ẩn nền điều khiển trình phát</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Nền điều khiển trình phát bị ẩn</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Nền điều khiển trình phát được hiển thị</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút Trước &amp; Tiếp theo</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Các nút đã bị ẩn</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Các nút được hiển thị</string>

@@ -702,9 +702,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_cast_button_title">Թաքցնել Cast կոճակը</string>
   <string name="revanced_hide_cast_button_summary_on">Թափոնելու կոճակը թաքցված է</string>
   <string name="revanced_hide_cast_button_summary_off">Թափոնելու կոճակը երևում է</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Թաքցնել նվագարկչի կառավարման կոճակների ֆոնը</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Նվագարկչի կառավարման կոճակների ֆոնը թաքնված է</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Նվագարկչի կառավարման կոճակների ֆոնը ցուցադրվում է</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Թաքցնել նվագարկչի կառավարման վահանակի ֆոնը</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Նվագարկչի կառավարման վահանակի ֆոնը թաքնված է</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Նվագարկչի կառավարման վահանակի ֆոնը ցուցադրվում է</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Թաքցնել \"Նախորդ\" և \"Հաջորդ\" կոճակները</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Կոճակները թաքցված են</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Կոճակները երևում են</string>

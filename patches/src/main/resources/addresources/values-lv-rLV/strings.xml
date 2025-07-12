@@ -702,9 +702,9 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_hide_cast_button_title">Paslēpt pogu \"Sūtīt\"</string>
   <string name="revanced_hide_cast_button_summary_on">Pārraides poga ir paslēpta</string>
   <string name="revanced_hide_cast_button_summary_off">Pārraides poga ir redzama</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Slēpt atskaņotāja vadības pogu fonu</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Atskaņotāja vadības pogu fons ir paslēpts</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Atskaņotāja vadības pogu fons ir redzams</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Paslēpt atskaņotāja vadīklu fonu</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Atskaņotāja vadības elementu fons ir paslēpts</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Atskaņotāja vadīklu fons tiek rādīts</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Paslēpt iepriekšējo un nākamo pogas</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Pogas ir paslēptas</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Pogas ir redzamas</string>

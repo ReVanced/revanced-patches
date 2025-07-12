@@ -698,9 +698,9 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_hide_cast_button_title">Ukryj przycisk transmisji</string>
   <string name="revanced_hide_cast_button_summary_on">Przycisk powielania jest ukryty</string>
   <string name="revanced_hide_cast_button_summary_off">Przycisk powielania jest widoczny</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Ukryj tło przycisków sterowania odtwarzacza</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Tło przycisków sterowania odtwarzacza jest ukryte</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Tło przycisków sterowania odtwarzacza jest wyświetlane</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Ukryj tło sterowania odtwarzacza</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Tło elementów sterujących odtwarzacza jest ukryte</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Tło sterowania odtwarzacza jest widoczne</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Ukryj przyciski Poprzedni i Następny</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Przyciski są ukryte</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Przyciski są widoczne</string>

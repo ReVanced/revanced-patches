@@ -702,9 +702,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_cast_button_title">إخفاء زر البث</string>
   <string name="revanced_hide_cast_button_summary_on">تم إخفاء زر البث</string>
   <string name="revanced_hide_cast_button_summary_off">يتم عرض زر البث</string>
-  <string name="revanced_hide_player_control_buttons_background_title">إخفاء خلفية أزرار التحكم في المشغل</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">تم إخفاء خلفية أزرار التحكم في المشغل</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">تم إظهار خلفية أزرار التحكم في المشغل</string>
+  <string name="revanced_hide_player_control_buttons_background_title">إخفاء خلفية عناصر التحكم بالمشغل</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">خلفية عناصر تحكم المشغل مخفية</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">يتم عرض خلفية عناصر التحكم بالمشغل</string>
   <string name="revanced_hide_player_previous_next_buttons_title">إخفاء زري \"السابق\" و \"التالي\"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">تم إخفاء الأزرار</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">يتم عرض الأزرار</string>

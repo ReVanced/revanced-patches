@@ -702,9 +702,9 @@ Chcete-li zobrazit nabídku zvukové stopy, změňte možnost „Zfalšovat stre
   <string name="revanced_hide_cast_button_title">Skrýt tlačítko Odeslat</string>
   <string name="revanced_hide_cast_button_summary_on">Tlačítko pro odesílání je skryto</string>
   <string name="revanced_hide_cast_button_summary_off">Tlačítko vysílání je viditelné</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Skrýt pozadí ovládacích tlačítek přehrávače</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Pozadí ovládacích tlačítek přehrávače je skryté</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Zobrazuje se pozadí ovládacích tlačítek přehrávače</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Skrýt pozadí ovládacích prvků přehrávače</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Pozadí ovládacích prvků přehrávače je skryto</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Pozadí ovládacích prvků přehrávače je zobrazeno</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Skrýt tlačítka Předchozí a Další</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tlačítka jsou skryta</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tlačítka jsou zobrazena</string>

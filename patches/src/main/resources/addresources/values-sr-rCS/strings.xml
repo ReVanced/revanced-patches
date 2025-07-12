@@ -454,9 +454,9 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ovo ne zaobilazi starosno ograničenje. Samo ga automatski prihvata.</string>
   </patch>
   <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
-  <string name="revanced_disable_chapter_skip_double_tap_title">Onemogući dvostruki dodir za preskakanje poglavlja</string>
+  <string name="revanced_disable_chapter_skip_double_tap_title">Onemogući preskakanje poglavlja dvostrukim dodirom</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dvostruki dodir nikada ne može pokrenuti preskakanje na sledeće/prethodno poglavlje</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dvostruki dodir povremeno može pokrenuti preskakanje na sledeće/prethodno poglavlje</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dvostruki dodir može povremeno pokrenuti preskakanje na sledeće/prethodno poglavlje</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Spoljna preuzimanja</string>
@@ -702,9 +702,9 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_cast_button_title">Sakrij dugme „Prebacuj”</string>
   <string name="revanced_hide_cast_button_summary_on">Dugme „Prebacuj” je skriveno</string>
   <string name="revanced_hide_cast_button_summary_off">Dugme „Prebacuj” je prikazano</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Sakrij pozadinu dugmadi za kontrolu plejera</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Pozadina dugmadi za kontrolu plejera je skrivena</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Pozadina dugmadi za kontrolu plejera je prikazana</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Sakrij pozadinu kontrola plejera</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Pozadina kontrola plejera je skrivena</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Pozadina kontrola plejera je prikazana</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Sakrij dugmad za prethodni i sledeći video</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Dugmad za prethodni i sledeći video su skrivena</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Dugmad za prethodni i sledeći video su prikazana</string>
