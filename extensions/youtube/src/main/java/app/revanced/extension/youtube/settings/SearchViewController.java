@@ -52,6 +52,7 @@ public class SearchViewController {
     private final Deque<String> searchHistory;
     private final AutoCompleteTextView autoCompleteTextView;
     private final boolean showSettingsSearchHistory;
+    private int currentOrientation;
 
     /**
      * Creates a background drawable for the SearchView with rounded corners.
@@ -207,6 +208,8 @@ public class SearchViewController {
                 Logger.printException(() -> "navigation click failure", ex);
             }
         });
+
+        monitorOrientationChanges();
     }
 
     /**
@@ -287,6 +290,21 @@ public class SearchViewController {
             adapter.addAll(searchHistory);
             adapter.notifyDataSetChanged();
         }
+    }
+
+    private void monitorOrientationChanges() {
+        currentOrientation = activity.getResources().getConfiguration().orientation;
+
+        searchView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+            int newOrientation = activity.getResources().getConfiguration().orientation;
+            if (newOrientation != currentOrientation) {
+                currentOrientation = newOrientation;
+                if (autoCompleteTextView != null) {
+                    autoCompleteTextView.dismissDropDown();
+                    Logger.printDebug(() -> "Orientation changed, search history dismissed");
+                }
+            }
+        });
     }
 
     /**
