@@ -1,3 +1,10 @@
+## [5.31.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.1...v5.31.2-dev.1) (2025-07-12)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide quick actions does not work ([#5423](https://github.com/ReVanced/revanced-patches/issues/5423)) ([9c66729](https://github.com/ReVanced/revanced-patches/commit/9c6672946d44001e106bdac9041e2d79ef3f6ab2))
+
 ## [5.31.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.0...v5.31.1) (2025-07-11)
 
 
