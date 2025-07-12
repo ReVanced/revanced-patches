@@ -136,13 +136,22 @@ private val settingsResourcePatch = resourcePatch {
             }
         }
 
-        // Modify the manifest and add a data intent filter to the LicenseActivity.
-        // Some devices freak out if undeclared data is passed to an intent,
-        // and this change appears to fix the issue.
+        // Modify the manifest to enhance LicenseActivity behavior:
+        // 1. Add a data intent filter with MIME type "text/plain".
+        //    Some devices crash if undeclared data is passed to an intent,
+        //    and this change appears to fix the issue.
+        // 2. Add android:configChanges="orientation|screenSize|keyboardHidden".
+        //    This prevents the activity from being recreated on configuration changes
+        //    (e.g., screen rotation), preserving its current state and fragment.
         document("AndroidManifest.xml").use { document ->
             val licenseElement = document.childNodes.findElementByAttributeValueOrThrow(
                 "android:name",
                 "com.google.android.libraries.social.licenses.LicenseActivity",
+            )
+
+            licenseElement.setAttribute(
+                "android:configChanges",
+                "orientation|screenSize|keyboardHidden"
             )
 
             val mimeType = document.createElement("data")
