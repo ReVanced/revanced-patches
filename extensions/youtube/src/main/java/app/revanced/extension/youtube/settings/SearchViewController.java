@@ -10,6 +10,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -114,6 +115,9 @@ public class SearchViewController {
         autoCompleteTextView = searchView.findViewById(
                 searchView.getContext().getResources().getIdentifier(
                         "android:id/search_src_text", null, null));
+
+        // Disable fullscreen keyboard mode.
+        autoCompleteTextView.setImeOptions(autoCompleteTextView.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
 
         // Set background and query hint.
         searchView.setBackground(createBackgroundDrawable(toolbar.getContext()));
