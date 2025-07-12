@@ -187,4 +187,25 @@ public class PlayerControlButton {
         if (view != null) view.setVisibility(View.GONE);
         isVisible = false;
     }
+
+    /**
+     * Sets the icon of the button.
+     * @param resourceName The name of the drawable resource.
+     */
+    public void setIcon(String resourceName) {
+        try {
+            View button = buttonRef.get();
+            if (button instanceof ImageView) {
+                int resourceId = Utils.getResourceIdentifier(resourceName, "drawable");
+                if (resourceId != 0) {
+                    ((ImageView) button).setImageResource(resourceId);
+                    Logger.printDebug(() -> "Set button icon to: " + resourceName);
+                } else {
+                    Logger.printDebug(() -> "Resource not found: " + resourceName);
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "setIcon failure", ex);
+        }
+    }
 }
