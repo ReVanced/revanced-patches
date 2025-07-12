@@ -10,6 +10,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -51,6 +52,7 @@ public class SearchViewController {
     private final Deque<String> searchHistory;
     private final AutoCompleteTextView autoCompleteTextView;
     private final boolean showSettingsSearchHistory;
+    private int currentOrientation;
 
     /**
      * Creates a background drawable for the SearchView with rounded corners.
@@ -83,8 +85,8 @@ public class SearchViewController {
     /**
      * Adds search view components to the activity.
      */
-    public static void addSearchViewComponents(Activity activity, Toolbar toolbar, ReVancedPreferenceFragment fragment) {
-        new SearchViewController(activity, toolbar, fragment);
+    public static SearchViewController addSearchViewComponents(Activity activity, Toolbar toolbar, ReVancedPreferenceFragment fragment) {
+        return new SearchViewController(activity, toolbar, fragment);
     }
 
     private SearchViewController(Activity activity, Toolbar toolbar, ReVancedPreferenceFragment fragment) {
@@ -114,6 +116,9 @@ public class SearchViewController {
         autoCompleteTextView = searchView.findViewById(
                 searchView.getContext().getResources().getIdentifier(
                         "android:id/search_src_text", null, null));
+
+        // Disable fullscreen keyboard mode.
+        autoCompleteTextView.setImeOptions(autoCompleteTextView.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
 
         // Set background and query hint.
         searchView.setBackground(createBackgroundDrawable(toolbar.getContext()));
@@ -197,12 +202,14 @@ public class SearchViewController {
                 if (isSearchActive) {
                     closeSearch();
                 } else {
-                    activity.onBackPressed();
+                    activity.finish();
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "navigation click failure", ex);
             }
         });
+
+        monitorOrientationChanges();
     }
 
     /**
@@ -285,6 +292,21 @@ public class SearchViewController {
         }
     }
 
+    private void monitorOrientationChanges() {
+        currentOrientation = activity.getResources().getConfiguration().orientation;
+
+        searchView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+            int newOrientation = activity.getResources().getConfiguration().orientation;
+            if (newOrientation != currentOrientation) {
+                currentOrientation = newOrientation;
+                if (autoCompleteTextView != null) {
+                    autoCompleteTextView.dismissDropDown();
+                    Logger.printDebug(() -> "Orientation changed, search history dismissed");
+                }
+            }
+        });
+    }
+
     /**
      * Opens the search view and shows the keyboard.
      */
@@ -313,7 +335,7 @@ public class SearchViewController {
     /**
      * Closes the search view and hides the keyboard.
      */
-    private void closeSearch() {
+    public void closeSearch() {
         isSearchActive = false;
         toolbar.getMenu().findItem(getResourceIdentifier(
                 "action_search", "id")).setVisible(true);
@@ -324,6 +346,19 @@ public class SearchViewController {
         // Hide keyboard.
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+    }
+
+    public static boolean handleBackPress() {
+        if (LicenseActivityHook.searchViewController != null
+                && LicenseActivityHook.searchViewController.isSearchExpanded()) {
+            LicenseActivityHook.searchViewController.closeSearch();
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isSearchExpanded() {
+        return isSearchActive;
     }
 
     /**
