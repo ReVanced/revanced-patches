@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
@@ -28,7 +29,6 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.google.common.primitives.Shorts
 
 internal val hideShortsAppShortcutOption = booleanOption(
     key = "hideShortsAppShortcut",
@@ -172,7 +172,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
         forEachLiteralValueInstruction(
-            getResourceId("dimen", "reel_player_right_pivot_v2_size")
+            getResourceId(ResourceType.DIMEN, "reel_player_right_pivot_v2_size")
         ) { literalInstructionIndex ->
             val targetIndex = indexOfFirstInstructionOrThrow(literalInstructionIndex) {
                 getReference<MethodReference>()?.name == "getDimensionPixelSize"

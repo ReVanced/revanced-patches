@@ -2,15 +2,18 @@ package app.revanced.extension.twitch.settings;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.appcompat.app.ActionBar;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.twitch.settings.preference.ReVancedPreferenceFragment;
 import tv.twitch.android.feature.settings.menu.SettingsMenuGroup;
 import tv.twitch.android.settings.SettingsActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Hooks AppCompatActivity.
@@ -105,7 +108,7 @@ public class AppCompatActivityHook {
 
         base.getFragmentManager()
                 .beginTransaction()
-                .replace(Utils.getResourceIdentifier("fragment_container", "id"), fragment)
+                .replace(Utils.getResourceIdentifier(ResourceType.ID, "fragment_container"), fragment)
                 .commit();
         return true;
     }

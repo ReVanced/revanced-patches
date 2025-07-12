@@ -7,6 +7,7 @@ import app.revanced.patcher.methodCall
 import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -49,8 +50,8 @@ internal val layoutConstructorFingerprint by fingerprint {
     returns("V")
     instructions(
         literal(159962),
-        resourceLiteral("id", "player_control_previous_button_touch_area"),
-        resourceLiteral("id", "player_control_next_button_touch_area"),
+        resourceLiteral(ResourceType.ID, "player_control_previous_button_touch_area"),
+        resourceLiteral(ResourceType.ID, "player_control_next_button_touch_area"),
         methodCall(parameters = listOf("Landroid/view/View;", "I"))
     )
 }
@@ -129,8 +130,8 @@ internal val subtitleButtonControllerFingerprint by fingerprint {
     returns("V")
     parameters("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")
     instructions(
-        resourceLiteral("string", "accessibility_captions_unavailable"),
-        resourceLiteral("string", "accessibility_captions_button_name"),
+        resourceLiteral(ResourceType.STRING, "accessibility_captions_unavailable"),
+        resourceLiteral(ResourceType.STRING, "accessibility_captions_button_name"),
     )
 }
 

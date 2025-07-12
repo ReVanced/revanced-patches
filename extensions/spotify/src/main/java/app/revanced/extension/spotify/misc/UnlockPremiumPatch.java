@@ -2,6 +2,7 @@ package app.revanced.extension.spotify.misc;
 
 import app.revanced.ContextMenuItemPlaceholder;
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.spotify.shared.ComponentFilters.ComponentFilter;
 import app.revanced.extension.spotify.shared.ComponentFilters.ResourceIdComponentFilter;
 import app.revanced.extension.spotify.shared.ComponentFilters.StringComponentFilter;
@@ -97,13 +98,13 @@ public final class UnlockPremiumPatch {
      */
     private static final List<List<ComponentFilter>> CONTEXT_MENU_ITEMS_COMPONENT_FILTERS = List.of(
             // "Listen to music ad-free" upsell on playlists.
-            List.of(new ResourceIdComponentFilter("context_menu_remove_ads", "string")),
+            List.of(new ResourceIdComponentFilter(ResourceType.STRING, "context_menu_remove_ads")),
             // "Listen to music ad-free" upsell on albums.
-            List.of(new ResourceIdComponentFilter("playlist_entity_reinventfree_adsfree_context_menu_item", "string")),
+            List.of(new ResourceIdComponentFilter(ResourceType.STRING, "playlist_entity_reinventfree_adsfree_context_menu_item")),
             // "Start a Jam" context menu item, but only filtered if the user does not have premium and the item is
             // being used as a Premium upsell (ad).
             List.of(
-                    new ResourceIdComponentFilter("group_session_context_menu_start", "string"),
+                    new ResourceIdComponentFilter(ResourceType.STRING, "group_session_context_menu_start"),
                     new StringComponentFilter("isPremiumUpsell=true")
             )
     );

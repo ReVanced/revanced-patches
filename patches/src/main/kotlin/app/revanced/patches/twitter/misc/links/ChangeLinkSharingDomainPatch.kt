@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
@@ -20,7 +21,7 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
     execute {
-        tweetShareLinkTemplateId = getResourceId("string", "tweet_share_link")
+        tweetShareLinkTemplateId = getResourceId(ResourceType.STRING, "tweet_share_link")
     }
 }
 

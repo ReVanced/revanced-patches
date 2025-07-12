@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -37,7 +38,7 @@ private val hideInfocardsResourcePatch = resourcePatch {
         )
 
         drawerResourceId = getResourceId(
-            "id",
+            ResourceType.ID,
             "info_cards_drawer_header",
         )
     }

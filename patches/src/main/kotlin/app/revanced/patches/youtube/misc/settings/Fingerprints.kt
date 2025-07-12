@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.misc.settings
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -21,7 +22,7 @@ internal val setThemeFingerprint by fingerprint {
     returns("L")
     parameters()
     instructions(
-        resourceLiteral("string", "app_theme_appearance_dark"),
+        resourceLiteral(ResourceType.STRING, "app_theme_appearance_dark"),
     )
 }
 

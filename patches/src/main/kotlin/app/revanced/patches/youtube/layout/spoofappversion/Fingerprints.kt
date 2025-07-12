@@ -4,6 +4,7 @@ import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -13,7 +14,7 @@ internal val toolBarButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Landroid/view/MenuItem;")
     instructions(
-        resourceLiteral("id", "menu_item_view"),
+        resourceLiteral(ResourceType.ID, "menu_item_view"),
         methodCall(returnType = "I", opcode = Opcode.INVOKE_INTERFACE),
         opcode(Opcode.MOVE_RESULT, maxAfter = 0), // Value is zero if resource does not exist.
         fieldAccess(type = "Landroid/widget/ImageView;", opcode = Opcode.IGET_OBJECT, maxAfter = 6),

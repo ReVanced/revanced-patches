@@ -5,6 +5,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -14,7 +15,7 @@ internal val actionBarSearchResultsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     instructions(
-        resourceLiteral("layout", "action_bar_search_results_view_mic"),
+        resourceLiteral(ResourceType.LAYOUT, "action_bar_search_results_view_mic"),
         methodCall(name = "setLayoutDirection")
     )
 }
@@ -22,7 +23,7 @@ internal val actionBarSearchResultsFingerprint by fingerprint {
 internal val toolbarLayoutFingerprint by fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.CONSTRUCTOR)
     instructions(
-        resourceLiteral("id", "toolbar_container"),
+        resourceLiteral(ResourceType.ID, "toolbar_container"),
         checkCast("Lcom/google/android/apps/youtube/app/ui/actionbar/MainCollapsingToolbarLayout;")
     )
 }
@@ -46,7 +47,7 @@ internal val initializeButtonsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     instructions(
-        resourceLiteral("layout", "image_only_tab")
+        resourceLiteral(ResourceType.LAYOUT, "image_only_tab")
     )
 }
 
@@ -142,6 +143,6 @@ internal val imageEnumConstructorFingerprint by fingerprint {
 internal val setEnumMapFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        resourceLiteral("drawable", "yt_fill_bell_black_24")
+        resourceLiteral(ResourceType.DRAWABLE, "yt_fill_bell_black_24")
     )
 }

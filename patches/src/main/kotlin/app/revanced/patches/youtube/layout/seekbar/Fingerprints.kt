@@ -6,6 +6,7 @@ import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -22,8 +23,8 @@ internal val fullscreenSeekbarThumbnailsFingerprint by fingerprint {
 internal val playerSeekbarColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        resourceLiteral("color", "inline_time_bar_played_not_highlighted_color"),
-        resourceLiteral("color", "inline_time_bar_colorized_bar_played_color_dark")
+        resourceLiteral(ResourceType.COLOR, "inline_time_bar_played_not_highlighted_color"),
+        resourceLiteral(ResourceType.COLOR, "inline_time_bar_colorized_bar_played_color_dark")
     )
 }
 
@@ -38,7 +39,7 @@ internal val setSeekbarClickedColorFingerprint by fingerprint {
 internal val shortsSeekbarColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        resourceLiteral("color", "reel_time_bar_played_color")
+        resourceLiteral(ResourceType.COLOR, "reel_time_bar_played_color")
     )
 }
 
@@ -46,16 +47,16 @@ internal val playerSeekbarHandle1ColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("Landroid/content/Context;")
     instructions(
-        resourceLiteral("attr", "ytTextSecondary"),
-        resourceLiteral("attr", "ytStaticBrandRed"),
+        resourceLiteral(ResourceType.ATTR, "ytTextSecondary"),
+        resourceLiteral(ResourceType.ATTR, "ytStaticBrandRed"),
     )
 }
 
 internal val playerSeekbarHandle2ColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        resourceLiteral("color", "inline_time_bar_live_seekable_range"),
-        resourceLiteral("attr", "ytStaticBrandRed"),
+        resourceLiteral(ResourceType.COLOR, "inline_time_bar_live_seekable_range"),
+        resourceLiteral(ResourceType.ATTR, "ytStaticBrandRed"),
     )
 }
 
@@ -84,7 +85,7 @@ internal val playerLinearGradientFingerprint by fingerprint {
     parameters("I", "I", "I", "I", "Landroid/content/Context;", "I")
     returns("Landroid/graphics/LinearGradient;")
     instructions(
-        resourceLiteral("color", "yt_youtube_magenta"),
+        resourceLiteral(ResourceType.COLOR, "yt_youtube_magenta"),
 
         opcode(Opcode.FILLED_NEW_ARRAY, maxAfter = 5),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
@@ -97,7 +98,7 @@ internal val playerLinearGradientFingerprint by fingerprint {
 internal val playerLinearGradientLegacyFingerprint by fingerprint {
     returns("V")
     instructions(
-        resourceLiteral("color", "yt_youtube_magenta"),
+        resourceLiteral(ResourceType.COLOR, "yt_youtube_magenta"),
 
         opcode(Opcode.FILLED_NEW_ARRAY),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),

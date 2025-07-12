@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
@@ -33,7 +34,7 @@ private val customPlayerOverlayOpacityResourcePatch = resourcePatch {
         )
 
         scrimOverlayId = getResourceId(
-            "id",
+            ResourceType.ID,
             "scrim_overlay",
         )
     }

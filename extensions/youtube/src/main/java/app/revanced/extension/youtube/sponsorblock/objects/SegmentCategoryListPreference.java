@@ -26,6 +26,7 @@ import java.util.Locale;
 import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.ColorPickerView;
@@ -100,10 +101,10 @@ public class SegmentCategoryListPreference extends ListPreference {
             contentLayout.addView(radioGroup);
 
             // Inflate the color picker view.
-            View colorPickerContainer = LayoutInflater.from(context)
-                    .inflate(getResourceIdentifier("revanced_color_picker", "layout"), null);
+            View colorPickerContainer = LayoutInflater.from(context).inflate(
+                    getResourceIdentifier(ResourceType.LAYOUT, "revanced_color_picker"), null);
             dialogColorPickerView = colorPickerContainer.findViewById(
-                    getResourceIdentifier("revanced_color_picker_view", "id"));
+                    getResourceIdentifier(ResourceType.ID, "revanced_color_picker_view"));
             dialogColorPickerView.setColor(categoryColor);
             contentLayout.addView(colorPickerContainer);
 

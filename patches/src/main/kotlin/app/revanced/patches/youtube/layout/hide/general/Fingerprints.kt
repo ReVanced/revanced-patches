@@ -5,6 +5,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.layout.searchbar.wideSearchbarLayoutFingerprint
 import app.revanced.util.literal
@@ -19,7 +20,7 @@ internal val hideShowMoreButtonFingerprint by fingerprint {
     returns("V")
     parameters("L", "Ljava/lang/Object;")
     instructions(
-        resourceLiteral("layout", "expand_button_down"),
+        resourceLiteral(ResourceType.LAYOUT, "expand_button_down"),
         methodCall(smali = "Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;"),
         opcode(Opcode.MOVE_RESULT_OBJECT, 0)
     )
@@ -28,7 +29,7 @@ internal val hideShowMoreButtonFingerprint by fingerprint {
 internal val hideShowMoreLegacyButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        resourceLiteral("layout", "expand_button_down"),
+        resourceLiteral(ResourceType.LAYOUT, "expand_button_down"),
         methodCall(smali = "Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;"),
         opcode(Opcode.MOVE_RESULT_OBJECT)
     )
@@ -67,7 +68,7 @@ internal val yoodlesImageViewFingerprint by fingerprint {
     returns("Landroid/view/View;")
     parameters("L", "L")
     instructions(
-        resourceLiteral("id", "youtube_logo")
+        resourceLiteral(ResourceType.ID, "youtube_logo")
     )
 }
 
@@ -132,7 +133,7 @@ internal val showFloatingMicrophoneButtonFingerprint by fingerprint {
     returns("V")
     parameters()
     instructions(
-        resourceLiteral("id", "fab"),
+        resourceLiteral(ResourceType.ID, "fab"),
         checkCast("/FloatingActionButton;", maxAfter = 10),
         opcode(Opcode.IGET_BOOLEAN, maxAfter = 10)
     )

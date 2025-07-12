@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.swipecontrols.controller
 import android.app.Activity
 import android.util.TypedValue
 import android.view.ViewGroup
+import app.revanced.extension.shared.ResourceType
 import app.revanced.extension.shared.Utils
 import app.revanced.extension.youtube.swipecontrols.misc.Rectangle
 import app.revanced.extension.youtube.swipecontrols.misc.applyDimension
@@ -56,7 +57,8 @@ class SwipeZonesController(
     /**
      * id for R.id.player_view
      */
-    private val playerViewId = Utils.getResourceIdentifier(host, "player_view", "id")
+    private val playerViewId = Utils.getResourceIdentifier(
+        host, ResourceType.ID, "player_view")
 
     /**
      * current bounding rectangle of the player

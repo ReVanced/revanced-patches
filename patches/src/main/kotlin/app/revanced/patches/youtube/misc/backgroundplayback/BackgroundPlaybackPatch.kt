@@ -3,9 +3,9 @@ package app.revanced.patches.youtube.misc.backgroundplayback
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -24,14 +24,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 internal var prefBackgroundAndOfflineCategoryId = -1L
     private set
 
-private val backgroundPlaybackResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch, addResourcesPatch)
-
-    execute {
-        prefBackgroundAndOfflineCategoryId = getResourceId("string", "pref_background_and_offline_category")
-    }
-}
-
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/BackgroundPlaybackPatch;"
 
@@ -40,7 +32,8 @@ val backgroundPlaybackPatch = bytecodePatch(
     description = "Removes restrictions on background playback, including playing kids videos in the background.",
 ) {
     dependsOn(
-        backgroundPlaybackResourcePatch,
+        resourceMappingPatch,
+        addResourcesPatch,
         sharedExtensionPatch,
         playerTypeHookPatch,
         videoInformationPatch,
@@ -63,7 +56,12 @@ val backgroundPlaybackPatch = bytecodePatch(
         addResources("youtube", "misc.backgroundplayback.backgroundPlaybackPatch")
 
         PreferenceScreen.SHORTS.addPreferences(
-            SwitchPreference("revanced_shorts_disable_background_playback"),
+            SwitchPreference("revanced_shorts_disable_background_playback")
+        )
+
+        prefBackgroundAndOfflineCategoryId = getResourceId(
+            ResourceType.STRING,
+            "pref_background_and_offline_category"
         )
 
         arrayOf(

@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.searchbar
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.layout.hide.general.yoodlesImageViewFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -10,8 +11,8 @@ internal val setWordmarkHeaderFingerprint by fingerprint {
     returns("V")
     parameters("Landroid/widget/ImageView;")
     instructions(
-        resourceLiteral("attr", "ytPremiumWordmarkHeader"),
-        resourceLiteral("attr", "ytWordmarkHeader")
+        resourceLiteral(ResourceType.ATTR, "ytPremiumWordmarkHeader"),
+        resourceLiteral(ResourceType.ATTR, "ytWordmarkHeader")
     )
 }
 
@@ -23,6 +24,6 @@ internal val wideSearchbarLayoutFingerprint by fingerprint {
     returns("Landroid/view/View;")
     parameters("L", "L")
     instructions(
-         resourceLiteral("layout", "action_bar_ringo"),
+         resourceLiteral(ResourceType.LAYOUT, "action_bar_ringo"),
     )
 }

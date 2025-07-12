@@ -14,6 +14,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
@@ -54,27 +55,27 @@ private val hideLayoutComponentsResourcePatch = resourcePatch {
 
     execute {
         albumCardId = getResourceId(
-            "layout",
+            ResourceType.LAYOUT,
             "album_card",
         )
 
         crowdfundingBoxId = getResourceId(
-            "layout",
+            ResourceType.LAYOUT,
             "donation_companion",
         )
 
         relatedChipCloudMarginId = getResourceId(
-            "layout",
+            ResourceType.LAYOUT,
             "related_chip_cloud_reduced_margins",
         )
 
         filterBarHeightId = getResourceId(
-            "dimen",
+            ResourceType.DIMEN,
             "filter_bar_height",
         )
 
         barContainerHeightId = getResourceId(
-            "dimen",
+            ResourceType.DIMEN,
             "bar_container_height",
         )
     }

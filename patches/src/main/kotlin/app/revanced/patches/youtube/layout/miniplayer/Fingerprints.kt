@@ -8,6 +8,7 @@ import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -35,10 +36,9 @@ internal val miniplayerDimensionsCalculatorParentFingerprint by fingerprint {
     returns("V")
     parameters("L")
     instructions(
-        resourceLiteral("dimen", "floaty_bar_button_top_margin")
+        resourceLiteral(ResourceType.DIMEN, "floaty_bar_button_top_margin")
     )
 }
-
 
 internal val miniplayerModernViewParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -66,7 +66,7 @@ internal val miniplayerModernCloseButtonFingerprint by fingerprint {
     returns("L")
     parameters()
     instructions(
-        resourceLiteral("id", "modern_miniplayer_close"),
+        resourceLiteral(ResourceType.ID, "modern_miniplayer_close"),
         checkCast("Landroid/widget/ImageView;")
     )
 }
@@ -79,7 +79,7 @@ internal val miniplayerModernExpandButtonFingerprint by fingerprint {
     returns("L")
     parameters()
     instructions(
-        resourceLiteral("id", "modern_miniplayer_expand"),
+        resourceLiteral(ResourceType.ID, "modern_miniplayer_expand"),
         checkCast("Landroid/widget/ImageView;")
     )
 }
@@ -104,7 +104,7 @@ internal val miniplayerModernForwardButtonFingerprint by fingerprint {
     returns("L")
     parameters()
     instructions(
-        resourceLiteral("id", "modern_miniplayer_forward_button"),
+        resourceLiteral(ResourceType.ID, "modern_miniplayer_forward_button"),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 5)
     )
 }
@@ -113,7 +113,7 @@ internal val miniplayerModernOverlayViewFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     instructions(
-        resourceLiteral("id", "scrim_overlay"),
+        resourceLiteral(ResourceType.ID, "scrim_overlay"),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 5)
     )
 }
@@ -126,7 +126,7 @@ internal val miniplayerModernRewindButtonFingerprint by fingerprint {
     returns("L")
     parameters()
     instructions(
-        resourceLiteral("id", "modern_miniplayer_rewind_button"),
+        resourceLiteral(ResourceType.ID, "modern_miniplayer_rewind_button"),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 5)
     )
 }
@@ -139,7 +139,7 @@ internal val miniplayerModernActionButtonFingerprint by fingerprint {
     returns("L")
     parameters()
     instructions(
-        resourceLiteral("id", "modern_miniplayer_overlay_action_button"),
+        resourceLiteral(ResourceType.ID, "modern_miniplayer_overlay_action_button"),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 5)
     )
 }
@@ -147,7 +147,7 @@ internal val miniplayerModernActionButtonFingerprint by fingerprint {
 internal val miniplayerMinimumSizeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        resourceLiteral("dimen", "miniplayer_max_size"),
+        resourceLiteral(ResourceType.DIMEN, "miniplayer_max_size"),
         literal(192), // Default miniplayer width constant.
         literal(128)  // Default miniplayer height constant.
     )

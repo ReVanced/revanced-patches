@@ -667,27 +667,64 @@ public final class app/revanced/patches/shared/misc/hex/Replacement {
 }
 
 public final class app/revanced/patches/shared/misc/mapping/ResourceElement {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;J)V
-	public final fun component1 ()Ljava/lang/String;
+	public fun <init> (Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;J)V
+	public final fun component1 ()Lapp/revanced/patches/shared/misc/mapping/ResourceType;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()J
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;J)Lapp/revanced/patches/shared/misc/mapping/ResourceElement;
-	public static synthetic fun copy$default (Lapp/revanced/patches/shared/misc/mapping/ResourceElement;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lapp/revanced/patches/shared/misc/mapping/ResourceElement;
+	public final fun copy (Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;J)Lapp/revanced/patches/shared/misc/mapping/ResourceElement;
+	public static synthetic fun copy$default (Lapp/revanced/patches/shared/misc/mapping/ResourceElement;Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;JILjava/lang/Object;)Lapp/revanced/patches/shared/misc/mapping/ResourceElement;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getId ()J
 	public final fun getName ()Ljava/lang/String;
-	public final fun getType ()Ljava/lang/String;
+	public final fun getType ()Lapp/revanced/patches/shared/misc/mapping/ResourceType;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatchKt {
 	public static final fun getResourceElements ()Ljava/util/Collection;
-	public static final fun getResourceId (Ljava/lang/String;Ljava/lang/String;)J
+	public static final fun getResourceId (Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;)J
 	public static final fun getResourceMappingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-	public static final fun hasResourceId (Ljava/lang/String;Ljava/lang/String;)Z
-	public static final fun resourceLiteral (Ljava/lang/String;Ljava/lang/String;I)Lapp/revanced/patcher/LiteralFilter;
-	public static synthetic fun resourceLiteral$default (Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lapp/revanced/patcher/LiteralFilter;
+	public static final fun hasResourceId (Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;)Z
+	public static final fun resourceLiteral (Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;I)Lapp/revanced/patcher/LiteralFilter;
+	public static synthetic fun resourceLiteral$default (Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;IILjava/lang/Object;)Lapp/revanced/patcher/LiteralFilter;
+}
+
+public final class app/revanced/patches/shared/misc/mapping/ResourceType : java/lang/Enum {
+	public static final field ANIM Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field ANIMATOR Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field ARRAY Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field ATTR Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field BOOL Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field COLOR Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field Companion Lapp/revanced/patches/shared/misc/mapping/ResourceType$Companion;
+	public static final field DIMEN Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field DRAWABLE Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field FONT Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field FRACTION Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field ID Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field INTEGER Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field INTERPOLATOR Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field LAYOUT Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field MENU Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field MIPMAP Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field NAVIGATION Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field PLURALS Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field RAW Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field STRING Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field STYLE Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field STYLEABLE Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field TRANSITION Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field VALUES Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static final field XML Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+	public static fun values ()[Lapp/revanced/patches/shared/misc/mapping/ResourceType;
+}
+
+public final class app/revanced/patches/shared/misc/mapping/ResourceType$Companion {
+	public final fun fromValue (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/mapping/ResourceType;
 }
 
 public final class app/revanced/patches/shared/misc/pairip/license/DisableLicenseCheckPatchKt {

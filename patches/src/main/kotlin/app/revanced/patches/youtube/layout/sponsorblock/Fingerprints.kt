@@ -4,6 +4,7 @@ import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.shared.seekbarFingerprint
 import app.revanced.util.getReference
@@ -18,7 +19,7 @@ internal val appendTimeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;")
     instructions(
-        resourceLiteral("string", "total_time"),
+        resourceLiteral(ResourceType.STRING, "total_time"),
 
         methodCall(smali = "Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;"),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
@@ -30,7 +31,7 @@ internal val controlsOverlayFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     parameters()
     instructions(
-        resourceLiteral("id", "inset_overlay_view_layout"),
+        resourceLiteral(ResourceType.ID, "inset_overlay_view_layout"),
         checkCast("Landroid/widget/FrameLayout;", maxAfter = 20)
     )
 }

@@ -302,42 +302,42 @@ public class Utils {
     /**
      * @return zero, if the resource is not found.
      */
-    @SuppressLint("DiscouragedApi")
-    public static int getResourceIdentifier(Context context, String resourceIdentifierName, String type) {
-        return context.getResources().getIdentifier(resourceIdentifierName, type, context.getPackageName());
+    public static int getResourceIdentifier(ResourceType type, String resourceIdentifierName) {
+        return getResourceIdentifier(getContext(), type, resourceIdentifierName);
     }
 
     /**
      * @return zero, if the resource is not found.
      */
-    public static int getResourceIdentifier(String resourceIdentifierName, String type) {
-        return getResourceIdentifier(getContext(), resourceIdentifierName, type);
+    @SuppressLint("DiscouragedApi")
+    public static int getResourceIdentifier(Context context, ResourceType type, String resourceIdentifierName) {
+        return context.getResources().getIdentifier(resourceIdentifierName, type.value, context.getPackageName());
     }
 
     public static int getResourceInteger(String resourceIdentifierName) throws Resources.NotFoundException {
-        return getContext().getResources().getInteger(getResourceIdentifier(resourceIdentifierName, "integer"));
+        return getContext().getResources().getInteger(getResourceIdentifier(ResourceType.INTEGER, resourceIdentifierName));
     }
 
     public static Animation getResourceAnimation(String resourceIdentifierName) throws Resources.NotFoundException {
-        return AnimationUtils.loadAnimation(getContext(), getResourceIdentifier(resourceIdentifierName, "anim"));
+        return AnimationUtils.loadAnimation(getContext(), getResourceIdentifier(ResourceType.ANIM, resourceIdentifierName));
     }
 
     @ColorInt
     public static int getResourceColor(String resourceIdentifierName) throws Resources.NotFoundException {
         //noinspection deprecation
-        return getContext().getResources().getColor(getResourceIdentifier(resourceIdentifierName, "color"));
+        return getContext().getResources().getColor(getResourceIdentifier(ResourceType.COLOR, resourceIdentifierName));
     }
 
     public static int getResourceDimensionPixelSize(String resourceIdentifierName) throws Resources.NotFoundException {
-        return getContext().getResources().getDimensionPixelSize(getResourceIdentifier(resourceIdentifierName, "dimen"));
+        return getContext().getResources().getDimensionPixelSize(getResourceIdentifier(ResourceType.DIMEN, resourceIdentifierName));
     }
 
     public static float getResourceDimension(String resourceIdentifierName) throws Resources.NotFoundException {
-        return getContext().getResources().getDimension(getResourceIdentifier(resourceIdentifierName, "dimen"));
+        return getContext().getResources().getDimension(getResourceIdentifier(ResourceType.DIMEN, resourceIdentifierName));
     }
 
     public static String[] getResourceStringArray(String resourceIdentifierName) throws Resources.NotFoundException {
-        return getContext().getResources().getStringArray(getResourceIdentifier(resourceIdentifierName, "array"));
+        return getContext().getResources().getStringArray(getResourceIdentifier(ResourceType.ARRAY, resourceIdentifierName));
     }
 
     public interface MatchFilter<T> {
@@ -348,7 +348,7 @@ public class Utils {
      * Includes sub children.
      */
     public static <R extends View> R getChildViewByResourceName(View view, String str) {
-        var child = view.findViewById(Utils.getResourceIdentifier(str, "id"));
+        var child = view.findViewById(Utils.getResourceIdentifier(ResourceType.ID, str));
         if (child != null) {
             //noinspection unchecked
             return (R) child;

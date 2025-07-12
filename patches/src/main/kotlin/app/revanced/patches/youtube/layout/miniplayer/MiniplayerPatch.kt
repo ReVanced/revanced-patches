@@ -13,6 +13,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.*
@@ -47,19 +48,19 @@ private val miniplayerResourcePatch = resourcePatch {
         // Resource id is not used during patching, but is used by extension.
         // Verify the resource is present while patching.
         getResourceId(
-            "id",
+            ResourceType.ID,
             "modern_miniplayer_subtitle_text",
         )
 
         // Only required for exactly 19.16
         if (!is_19_17_or_greater) {
             ytOutlinePictureInPictureWhite24 = getResourceId(
-                "drawable",
+                ResourceType.DRAWABLE,
                 "yt_outline_picture_in_picture_white_24",
             )
 
             ytOutlineXWhite24 = getResourceId(
-                "drawable",
+                ResourceType.DRAWABLE,
                 "yt_outline_x_white_24",
             )
         }

@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.fix.verticalscroll.verticalScrollPatch
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -56,8 +57,8 @@ private val hideAdsResourcePatch = resourcePatch {
 
         addLithoFilter("Lapp/revanced/extension/youtube/patches/components/AdsFilter;")
 
-        adAttributionId = getResourceId("id", "ad_attribution")
-        fullScreenEngagementAdContainer = getResourceId("id", "fullscreen_engagement_ad_container")
+        adAttributionId = getResourceId(ResourceType.ID, "ad_attribution")
+        fullScreenEngagementAdContainer = getResourceId(ResourceType.ID, "fullscreen_engagement_ad_container")
     }
 }
 

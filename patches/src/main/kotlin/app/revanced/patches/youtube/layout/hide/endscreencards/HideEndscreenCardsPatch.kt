@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -35,7 +36,7 @@ private val hideEndscreenCardsResourcePatch = resourcePatch {
             SwitchPreference("revanced_hide_endscreen_cards"),
         )
 
-        fun idOf(name: String) = getResourceId("layout", "endscreen_element_layout_$name")
+        fun idOf(name: String) = getResourceId(ResourceType.LAYOUT, "endscreen_element_layout_$name")
 
         layoutCircle = idOf("circle")
         layoutIcon = idOf("icon")

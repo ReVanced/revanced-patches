@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.misc.gms
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -12,8 +13,8 @@ internal val specificNetworkErrorViewControllerFingerprint by fingerprint {
     returns("V")
     parameters()
     instructions(
-        resourceLiteral("drawable", "ic_offline_no_content_upside_down"),
-        resourceLiteral("string", "offline_no_content_body_text_not_offline_eligible"),
+        resourceLiteral(ResourceType.DRAWABLE, "ic_offline_no_content_upside_down"),
+        resourceLiteral(ResourceType.STRING, "offline_no_content_body_text_not_offline_eligible"),
         methodCall(name = "getString", returnType = "Ljava/lang/String;"),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
     )
@@ -26,8 +27,8 @@ internal val loadingFrameLayoutControllerFingerprint by fingerprint {
     returns("V")
     parameters("L")
     instructions(
-        resourceLiteral("drawable", "ic_offline_no_content_upside_down"),
-        resourceLiteral("string", "offline_no_content_body_text_not_offline_eligible"),
+        resourceLiteral(ResourceType.DRAWABLE, "ic_offline_no_content_upside_down"),
+        resourceLiteral(ResourceType.STRING, "offline_no_content_body_text_not_offline_eligible"),
         methodCall(name = "getString", returnType = "Ljava/lang/String;"),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
     )

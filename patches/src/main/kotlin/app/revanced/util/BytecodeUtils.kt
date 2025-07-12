@@ -14,6 +14,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.util.InstructionUtils.Companion.branchOpcodes
@@ -282,8 +283,7 @@ fun MutableMethod.addInstructionsAtControlFlowLabel(
  * @see [indexOfFirstResourceIdOrThrow], [indexOfFirstLiteralInstructionReversed]
  */
 fun Method.indexOfFirstResourceId(resourceName: String): Int {
-    val resourceId = getResourceId("id", resourceName)
-    return indexOfFirstLiteralInstruction(resourceId)
+    return indexOfFirstLiteralInstruction(getResourceId(ResourceType.ID, resourceName))
 }
 
 /**

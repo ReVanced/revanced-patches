@@ -4,6 +4,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 
@@ -67,6 +68,6 @@ internal val exitVideoPlayerFingerprint by fingerprint {
     returns("V")
     parameters()
     instructions(
-        resourceLiteral("id", "mdx_drawer_layout")
+        resourceLiteral(ResourceType.ID, "mdx_drawer_layout")
     )
 }

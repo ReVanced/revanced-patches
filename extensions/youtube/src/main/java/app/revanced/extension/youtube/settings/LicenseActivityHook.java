@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
@@ -82,7 +83,7 @@ public class LicenseActivityHook {
             setActivityTheme(licenseActivity);
             ReVancedPreferenceFragment.setNavigationBarColor(licenseActivity.getWindow());
             licenseActivity.setContentView(getResourceIdentifier(
-                    "revanced_settings_with_toolbar", "layout"));
+                    ResourceType.LAYOUT, "revanced_settings_with_toolbar"));
 
             // Sanity check.
             String dataString = licenseActivity.getIntent().getDataString();
@@ -97,7 +98,7 @@ public class LicenseActivityHook {
             //noinspection deprecation
             licenseActivity.getFragmentManager()
                     .beginTransaction()
-                    .replace(getResourceIdentifier("revanced_settings_fragments", "id"), fragment)
+                    .replace(getResourceIdentifier(ResourceType.ID, "revanced_settings_fragments"), fragment)
                     .commit();
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
@@ -109,7 +110,7 @@ public class LicenseActivityHook {
         // Replace dummy placeholder toolbar.
         // This is required to fix submenu title alignment issue with Android ASOP 15+
         ViewGroup toolBarParent = activity.findViewById(
-                getResourceIdentifier("revanced_toolbar_parent", "id"));
+                getResourceIdentifier(ResourceType.ID, "revanced_toolbar_parent"));
         ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent, "revanced_toolbar");
         toolbarLayoutParams = dummyToolbar.getLayoutParams();
         toolBarParent.removeView(dummyToolbar);
@@ -117,7 +118,7 @@ public class LicenseActivityHook {
         Toolbar toolbar = new Toolbar(toolBarParent.getContext());
         toolbar.setBackgroundColor(getToolbarBackgroundColor());
         toolbar.setNavigationIcon(ReVancedPreferenceFragment.getBackButtonDrawable());
-        toolbar.setTitle(getResourceIdentifier("revanced_settings_title", "string"));
+        toolbar.setTitle(getResourceIdentifier(ResourceType.STRING, "revanced_settings_title"));
 
         final int margin = Utils.dipToPixels(16);
         toolbar.setTitleMarginStart(margin);
@@ -141,7 +142,7 @@ public class LicenseActivityHook {
         final var theme = Utils.isDarkModeEnabled()
                 ? "Theme.YouTube.Settings.Dark"
                 : "Theme.YouTube.Settings";
-        activity.setTheme(getResourceIdentifier(theme, "style"));
+        activity.setTheme(getResourceIdentifier(ResourceType.STYLE, theme));
     }
 
     public static int getToolbarBackgroundColor() {

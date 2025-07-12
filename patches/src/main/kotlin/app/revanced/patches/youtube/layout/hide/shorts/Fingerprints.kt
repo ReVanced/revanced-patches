@@ -5,6 +5,7 @@ import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -29,7 +30,7 @@ internal val shortsBottomBarContainerFingerprint by fingerprint {
     parameters("Landroid/view/View;", "Landroid/os/Bundle;")
     instructions(
         string("r_pfvc"),
-        resourceLiteral("id", "bottom_bar_container"),
+        resourceLiteral(ResourceType.ID, "bottom_bar_container"),
         methodCall(name = "getHeight"),
         opcode(Opcode.MOVE_RESULT)
     )

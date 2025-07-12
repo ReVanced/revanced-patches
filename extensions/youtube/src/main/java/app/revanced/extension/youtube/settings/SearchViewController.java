@@ -29,6 +29,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
@@ -66,7 +67,7 @@ public class SearchViewController {
     /**
      * Creates a background drawable for suggestion items with rounded corners.
      */
-    private static GradientDrawable createSuggestionBackgroundDrawable(Context context) {
+    private static GradientDrawable createSuggestionBackgroundDrawable() {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
         background.setColor(getSearchViewBackground());
@@ -106,9 +107,11 @@ public class SearchViewController {
 
         // Retrieve SearchView and container from XML.
         searchView = activity.findViewById(getResourceIdentifier(
-                "revanced_search_view", "id"));
+                ResourceType.ID,
+                "revanced_search_view"));
         searchContainer = activity.findViewById(getResourceIdentifier(
-                "revanced_search_view_container", "id"));
+                ResourceType.ID,
+                "revanced_search_view_container"));
 
         // Initialize AutoCompleteTextView.
         autoCompleteTextView = searchView.findViewById(
@@ -172,8 +175,8 @@ public class SearchViewController {
         });
 
         // Set menu and search icon.
-        final int actionSearchId = getResourceIdentifier("action_search", "id");
-        toolbar.inflateMenu(getResourceIdentifier("revanced_search_menu", "menu"));
+        final int actionSearchId = getResourceIdentifier(ResourceType.ID, "action_search");
+        toolbar.inflateMenu(getResourceIdentifier(ResourceType.MENU, "revanced_search_menu"));
         MenuItem searchItem = toolbar.getMenu().findItem(actionSearchId);
 
         // Set menu item click listener.
@@ -291,7 +294,8 @@ public class SearchViewController {
     private void openSearch() {
         isSearchActive = true;
         toolbar.getMenu().findItem(getResourceIdentifier(
-                "action_search", "id")).setVisible(false);
+                ResourceType.ID,
+                "action_search")).setVisible(false);
         toolbar.setTitle("");
         searchContainer.setVisibility(View.VISIBLE);
         searchView.requestFocus();
@@ -316,7 +320,8 @@ public class SearchViewController {
     private void closeSearch() {
         isSearchActive = false;
         toolbar.getMenu().findItem(getResourceIdentifier(
-                "action_search", "id")).setVisible(true);
+                ResourceType.ID,
+                "action_search")).setVisible(true);
         toolbar.setTitle(originalTitle);
         searchContainer.setVisibility(View.GONE);
         searchView.setQuery("", false);
@@ -339,16 +344,18 @@ public class SearchViewController {
         public View getView(int position, View convertView, @NonNull android.view.ViewGroup parent) {
             if (convertView == null) {
                 convertView = LinearLayout.inflate(getContext(), getResourceIdentifier(
-                        "revanced_search_suggestion_item", "layout"), null);
+                        ResourceType.LAYOUT,
+                        "revanced_search_suggestion_item"), null);
             }
 
             // Apply rounded corners programmatically.
-            convertView.setBackground(createSuggestionBackgroundDrawable(getContext()));
+            convertView.setBackground(createSuggestionBackgroundDrawable());
             String query = getItem(position);
 
             // Set query text.
             TextView textView = convertView.findViewById(getResourceIdentifier(
-                    "suggestion_text", "id"));
+                    ResourceType.ID,
+                    "suggestion_text"));
             if (textView != null) {
                 textView.setText(query);
             }

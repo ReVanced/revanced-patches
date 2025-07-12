@@ -5,6 +5,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -34,7 +35,7 @@ internal val playerTopControlsInflateFingerprint by fingerprint {
     returns("V")
     parameters()
     instructions(
-        resourceLiteral("id", "controls_layout_stub"),
+        resourceLiteral(ResourceType.ID, "controls_layout_stub"),
         methodCall("Landroid/view/ViewStub;", "inflate"),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
     )
@@ -44,7 +45,7 @@ internal val playerBottomControlsInflateFingerprint by fingerprint {
     returns("Ljava/lang/Object;")
     parameters()
     instructions(
-        resourceLiteral("id", "bottom_ui_container_stub"),
+        resourceLiteral(ResourceType.ID, "bottom_ui_container_stub"),
         methodCall("Landroid/view/ViewStub;", "inflate"),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
     )
@@ -55,8 +56,8 @@ internal val overlayViewInflateFingerprint by fingerprint {
     returns("V")
     parameters("Landroid/view/View;")
     instructions(
-        resourceLiteral("id", "heatseeker_viewstub"),
-        resourceLiteral("id", "fullscreen_button"),
+        resourceLiteral(ResourceType.ID, "heatseeker_viewstub"),
+        resourceLiteral(ResourceType.ID, "fullscreen_button"),
         checkCast("Landroid/widget/ImageView;")
     )
 }

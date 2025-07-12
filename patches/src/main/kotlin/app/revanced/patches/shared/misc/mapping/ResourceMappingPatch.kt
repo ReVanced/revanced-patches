@@ -8,19 +8,54 @@ import app.revanced.patcher.patch.resourcePatch
 import org.w3c.dom.Element
 import java.util.Collections
 
-data class ResourceElement(val type: String, val name: String, val id: Long)
+enum class ResourceType(val value: String) {
+    ANIM("anim"),
+    ANIMATOR("animator"),
+    ARRAY("array"),
+    ATTR("attr"),
+    BOOL("bool"),
+    COLOR("color"),
+    DIMEN("dimen"),
+    DRAWABLE("drawable"),
+    FONT("font"),
+    FRACTION("fraction"),
+    ID("id"),
+    INTEGER("integer"),
+    INTERPOLATOR("interpolator"),
+    LAYOUT("layout"),
+    MENU("menu"),
+    MIPMAP("mipmap"),
+    NAVIGATION("navigation"),
+    PLURALS("plurals"),
+    RAW("raw"),
+    STRING("string"),
+    STYLE("style"),
+    STYLEABLE("styleable"),
+    TRANSITION("transition"),
+    VALUES("values"),
+    XML("xml");
+
+    companion object {
+        private val VALUE_MAP: Map<String, ResourceType> = entries.associateBy { it.value }
+
+        fun fromValue(value: String) = VALUE_MAP[value]
+            ?: throw IllegalArgumentException("Unknown resource type: $value")
+    }
+}
+
+data class ResourceElement(val type: ResourceType, val name: String, val id: Long)
 
 private lateinit var resourceMappings: MutableMap<String, ResourceElement>
 
-private fun setResourceId(type: String, name: String, id: Long) {
-    resourceMappings[type + name] = ResourceElement(type, name, id)
+private fun setResourceId(type: ResourceType, name: String, id: Long) {
+    resourceMappings[type.value + name] = ResourceElement(type, name, id)
 }
 
 /**
  * @return A resource id of the given resource type and name.
  * @throws PatchException if the resource is not found.
  */
-fun getResourceId(type: String, name: String) = resourceMappings[type + name]?.id
+fun getResourceId(type: ResourceType, name: String) = resourceMappings[type.value + name]?.id
     ?: throw PatchException("Could not find resource type: $type name: $name")
 
 /**
@@ -31,7 +66,7 @@ fun getResourceElements() = Collections.unmodifiableCollection(resourceMappings.
 /**
  * @return If the resource exists.
  */
-fun hasResourceId(type: String, name: String) = resourceMappings[type + name] != null
+fun hasResourceId(type: ResourceType, name: String) = resourceMappings[type.value + name] != null
 
 /**
  * Identical to [LiteralFilter] except uses a decoded resource literal value.
@@ -40,7 +75,7 @@ fun hasResourceId(type: String, name: String) = resourceMappings[type + name] !=
  * also declare [resourceMappingPatch] as a dependency.
  */
 fun resourceLiteral(
-    type: String,
+    type: ResourceType,
     name: String,
     maxBefore: Int = METHOD_MAX_INSTRUCTIONS,
 ) = literal({ getResourceId(type, name) }, null, maxBefore)
@@ -65,7 +100,7 @@ val resourceMappingPatch = resourcePatch {
                 val typeAttribute = node.getAttribute("type")
                 val id = node.getAttribute("id").substring(2).toLong(16)
 
-                setResourceId(typeAttribute, nameAttribute, id)
+                setResourceId(ResourceType.fromValue(typeAttribute), nameAttribute, id)
             }
         }
     }

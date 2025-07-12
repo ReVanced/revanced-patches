@@ -5,9 +5,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -24,23 +24,6 @@ internal var videoQualityBottomSheetListFragmentTitle = -1L
 internal var videoQualityQuickMenuAdvancedMenuDescription = -1L
     private set
 
-private val advancedVideoQualityMenuResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        // Used for the old type of the video quality menu.
-        videoQualityBottomSheetListFragmentTitle = getResourceId(
-            "layout",
-            "video_quality_bottom_sheet_list_fragment_title",
-        )
-
-        videoQualityQuickMenuAdvancedMenuDescription = getResourceId(
-            "string",
-            "video_quality_quick_menu_advanced_menu_description",
-        )
-    }
-}
-
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/quality/AdvancedVideoQualityMenuPatch;"
 
@@ -49,12 +32,12 @@ private const val FILTER_CLASS_DESCRIPTOR =
 
 internal val advancedVideoQualityMenuPatch = bytecodePatch {
     dependsOn(
-        advancedVideoQualityMenuResourcePatch,
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
         lithoFilterPatch,
         recyclerViewTreeHookPatch,
+        resourceMappingPatch
     )
 
     execute {
@@ -62,6 +45,17 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
 
         settingsMenuVideoQualityGroup.add(
             SwitchPreference("revanced_advanced_video_quality_menu")
+        )
+
+        // Used for the old type of the video quality menu.
+        videoQualityBottomSheetListFragmentTitle = getResourceId(
+            ResourceType.LAYOUT,
+            "video_quality_bottom_sheet_list_fragment_title",
+        )
+
+        videoQualityQuickMenuAdvancedMenuDescription = getResourceId(
+            ResourceType.STRING,
+            "video_quality_quick_menu_advanced_menu_description",
         )
 
         // region Patch for the old type of the video quality menu.
