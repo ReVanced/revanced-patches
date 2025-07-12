@@ -291,6 +291,7 @@ public final class LayoutComponentsFilter extends Filter {
                 notifyMe,
                 paidPromotion,
                 playables,
+                quickActions,
                 relatedVideos,
                 singleItemInformationPanel,
                 subscribersCommunityGuidelines,
