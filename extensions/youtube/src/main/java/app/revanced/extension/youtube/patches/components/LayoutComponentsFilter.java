@@ -4,12 +4,14 @@ import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButt
 
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.StringTrieSearch;
+import app.revanced.extension.youtube.patches.ChangeHeaderPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -437,13 +439,11 @@ public final class LayoutComponentsFilter extends Filter {
     /**
      * Injection point.
      */
-    @Nullable
-    public static Drawable hideYoodles(Drawable animatedYoodle) {
-        if (HIDE_DOODLES_ENABLED) {
-            return null;
-        }
-
-        return animatedYoodle;
+    public static void setDoodleDrawable(ImageView imageView, Drawable original) {
+        Drawable replacement = HIDE_DOODLES_ENABLED
+                ? ChangeHeaderPatch.getDrawable(original)
+                : original;
+        imageView.setImageDrawable(replacement);
     }
 
     private static final boolean HIDE_SHOW_MORE_BUTTON_ENABLED = Settings.HIDE_SHOW_MORE_BUTTON.get();
