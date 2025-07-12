@@ -703,8 +703,8 @@ Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ vä
   <string name="revanced_hide_cast_button_summary_on">Ülekandmise nupp on peidetud</string>
   <string name="revanced_hide_cast_button_summary_off">Ülekandmise nupp on nähtav</string>
   <string name="revanced_hide_player_control_buttons_background_title">Peida pleieri juhtnuppude taust</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Pleieri juhtnuppude taust on peidetud</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Pleieri juhtnuppude taust on näidatud</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Mängija juhtnuppude taust on peidetud</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Pleieri juhtnuppude taust on nähtav</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Peida eelmine &amp; järgmine nupp</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Nupud on peidetud</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Nupud on nähtavad</string>

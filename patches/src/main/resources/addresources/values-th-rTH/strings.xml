@@ -700,9 +700,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_cast_button_title">ซ่อนปุ่มส่ง</string>
   <string name="revanced_hide_cast_button_summary_on">ปุ่มแคสต์ซ่อนอยู่</string>
   <string name="revanced_hide_cast_button_summary_off">ปุ่มแคสต์แสดงอยู่</string>
-  <string name="revanced_hide_player_control_buttons_background_title">ซ่อนพื้นหลังปุ่มควบคุมเครื่องเล่น</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">พื้นหลังปุ่มควบคุมเครื่องเล่นถูกซ่อนอยู่</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">พื้นหลังปุ่มควบคุมเครื่องเล่นปรากฏ</string>
+  <string name="revanced_hide_player_control_buttons_background_title">ซ่อนพื้นหลังส่วนควบคุมเครื่องเล่น</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">ซ่อนพื้นหลังส่วนควบคุมเครื่องเล่น</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">แสดงพื้นหลังส่วนควบคุมเครื่องเล่น</string>
   <string name="revanced_hide_player_previous_next_buttons_title">ซ่อนปุ่มก่อนหน้า &amp; ถัดไป</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">ปุ่มซ่อนอยู่</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">ปุ่มแสดงอยู่</string>

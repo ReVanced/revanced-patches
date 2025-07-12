@@ -702,9 +702,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_cast_button_title">הסתר לחצן העברה</string>
   <string name="revanced_hide_cast_button_summary_on">לחצן העברה מוסתר</string>
   <string name="revanced_hide_cast_button_summary_off">לחצן העברה מוצג</string>
-  <string name="revanced_hide_player_control_buttons_background_title">הסתר רקע של לחצני שליטה בנגן</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">רקע לחצני השליטה בנגן מוסתר</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">רקע לחצני השליטה בנגן מוצג</string>
+  <string name="revanced_hide_player_control_buttons_background_title">הסתר רקע פקדי נגן</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">רקע פקדי הנגן מוסתר</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">רקע פקדי הנגן מוצג</string>
   <string name="revanced_hide_player_previous_next_buttons_title">הסתר לחצני הקודם &amp; הבא</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">הלחצנים מוסתרים</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">הלחצנים מוצגים</string>
