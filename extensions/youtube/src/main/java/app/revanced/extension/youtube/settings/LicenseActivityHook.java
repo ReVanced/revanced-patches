@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.preference.PreferenceFragment;
+import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -129,6 +130,7 @@ public class LicenseActivityHook extends Activity {
                 view -> view instanceof TextView);
         if (toolbarTextView != null) {
             toolbarTextView.setTextColor(Utils.getAppForegroundColor());
+            toolbarTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
         }
         setToolbarLayoutParams(toolbar);
 

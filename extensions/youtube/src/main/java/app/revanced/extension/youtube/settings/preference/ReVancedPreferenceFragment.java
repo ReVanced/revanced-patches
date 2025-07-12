@@ -17,6 +17,7 @@ import android.preference.SwitchPreference;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
+import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowInsets;
@@ -273,6 +274,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                                     true, TextView.class::isInstance);
                             if (toolbarTextView != null) {
                                 toolbarTextView.setTextColor(Utils.getAppForegroundColor());
+                                toolbarTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                             }
 
                             LicenseActivityHook.setToolbarLayoutParams(toolbar);
