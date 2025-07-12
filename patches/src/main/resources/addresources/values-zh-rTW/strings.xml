@@ -699,9 +699,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_cast_button_title">隱藏「投放」按鈕</string>
   <string name="revanced_hide_cast_button_summary_on">已隱藏「投放」按鈕</string>
   <string name="revanced_hide_cast_button_summary_off">已顯示「投放」按鈕</string>
-  <string name="revanced_hide_player_control_buttons_background_title">隱藏播放器控制按鈕背景</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">播放器控制按鈕背景已隱藏</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">播放器控制按鈕背景已顯示</string>
+  <string name="revanced_hide_player_control_buttons_background_title">隱藏播放器控制背景</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">播放器控制背景已隱藏</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">播放器控制背景已顯示</string>
   <string name="revanced_hide_player_previous_next_buttons_title">隱藏「上一部」和「下一部」按鈕</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">已隱藏按鈕</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">已顯示按鈕</string>
