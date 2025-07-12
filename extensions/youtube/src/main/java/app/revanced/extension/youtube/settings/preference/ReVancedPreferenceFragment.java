@@ -248,7 +248,15 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                                 rootView.setOnApplyWindowInsetsListener((v, insets) -> {
                                     Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
                                     Insets navInsets = insets.getInsets(WindowInsets.Type.navigationBars());
-                                    v.setPadding(0, statusInsets.top, 0, navInsets.bottom);
+                                    Insets cutoutInsets = insets.getInsets(WindowInsets.Type.displayCutout());
+
+                                    // Apply padding for display cutout in landscape.
+                                    int leftPadding = cutoutInsets.left;
+                                    int rightPadding = cutoutInsets.right;
+                                    int topPadding = statusInsets.top;
+                                    int bottomPadding = navInsets.bottom;
+
+                                    v.setPadding(leftPadding, topPadding, rightPadding, bottomPadding);
                                     return insets;
                                 });
                             }
