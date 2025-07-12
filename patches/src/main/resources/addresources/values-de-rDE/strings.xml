@@ -695,9 +695,9 @@ Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS T
   <string name="revanced_hide_cast_button_title">Cast-Button ausblenden</string>
   <string name="revanced_hide_cast_button_summary_on">Der Cast button ist ausgeblendet</string>
   <string name="revanced_hide_cast_button_summary_off">Der Cast button wird angezeigt</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Hintergrund der Player-Steuerungstasten ausblenden</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Hintergrund der Player-Steuerungstasten ist ausgeblendet</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Hintergrund der Player-Steuerungstasten wird angezeigt</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Hintergrund der Player-Steuerelemente ausblenden</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Hintergrund der Wiedergabesteuerung ist ausgeblendet</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Hintergrund der Player-Steuerelemente wird angezeigt</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Vorherige &amp; Nächste Tasten ausblenden</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons sind ausgeblendet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tasten werden angezeigt</string>

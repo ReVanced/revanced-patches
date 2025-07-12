@@ -702,9 +702,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_cast_button_title">Скриване на бутона Cast</string>
   <string name="revanced_hide_cast_button_summary_on">Бутонът за предаване е скрит</string>
   <string name="revanced_hide_cast_button_summary_off">Бутонът за предаване се показва</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Скриване на фона на бутоните за управление на плейъра</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Фонът на бутоните за управление на плейъра е скрит</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Фонът на бутоните за управление на плейъра е показан</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Скриване на фона на контролите на плейъра</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Фонът на контролите на плейъра е скрит</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Фонът на контролите на плейъра е показан</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Скриване на бутоните \"Предишен и Следващ\"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Бутоните са скрити</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Бутоните се показват</string>

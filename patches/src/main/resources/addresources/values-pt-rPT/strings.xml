@@ -702,9 +702,9 @@ Para mostrar o menu da faixa de áudio, altere \"Spoof video streams\" para iOS 
   <string name="revanced_hide_cast_button_title">Ocultar botão Transmitir</string>
   <string name="revanced_hide_cast_button_summary_on">Botão \"Transmitir\" está escondido</string>
   <string name="revanced_hide_cast_button_summary_off">Botão \"Transmitir\" é visível</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Ocultar o fundo dos botões de controlo do reprodutor</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">O fundo dos botões de controlo do reprodutor está oculto</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">O fundo dos botões de controlo do reprodutor é mostrado</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Ocultar fundo dos controles do player</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">O fundo dos controles do reprodutor está oculto</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">O fundo dos controles do player é exibido</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Ocultar botões Anterior &amp; Próximo</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Botões estão ocultos</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Botões são exibidos</string>

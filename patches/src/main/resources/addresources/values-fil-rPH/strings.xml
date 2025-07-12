@@ -700,9 +700,9 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <string name="revanced_hide_cast_button_title">Itago ang Cast button</string>
   <string name="revanced_hide_cast_button_summary_on">Ang buton ng Cast ay nakatago</string>
   <string name="revanced_hide_cast_button_summary_off">Nakikita ang cast button</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Itago ang background ng mga button ng kontrol ng player</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Nakatago ang background ng mga button ng kontrol ng player</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Ipinapakita ang background ng mga button ng kontrol ng player</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Itago ang background ng mga kontrol ng manlalaro</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Nakatago ang background ng mga kontrol ng manlalaro</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Ipinapakita ang background ng mga kontrol ng manlalaro</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Itago ang Nakaraan at Susunod na mga pindutan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Nakatago ang mga pindutan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Ang mga pindutan ay ipinapakita</string>

@@ -21,6 +21,8 @@ import app.revanced.util.forEachLiteralValueInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import java.io.File
 
+private val variants = arrayOf("light", "dark")
+
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ChangeHeaderPatch;"
 
@@ -28,6 +30,17 @@ private val changeHeaderBytecodePatch = bytecodePatch {
     dependsOn(resourceMappingPatch)
 
     execute {
+        // Resources are not used during patching, but extension code uses these
+        // images so verify they exist.
+        arrayOf(
+            "yt_ringo2_wordmark_header",
+            "yt_ringo2_premium_wordmark_header"
+        ).forEach { resource ->
+            variants.forEach { theme ->
+                getResourceId("drawable", resource + "_" + theme)
+            }
+        }
+
         arrayOf(
             "ytWordmarkHeader",
             "ytPremiumWordmarkHeader"
@@ -56,7 +69,6 @@ private val targetResourceDirectoryNames = mapOf(
     "mdpi" to "129px x 48px"
 ).mapKeys { (dpi, _) -> "drawable-$dpi" }
 
-private val variants = arrayOf("light", "dark")
 
 /**
  * Header logos built into this patch.

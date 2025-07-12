@@ -49,8 +49,8 @@ internal val contextMenuViewModelConstructorFingerprint by fingerprint {
 /**
  * Used to find the interface name of a context menu item.
  */
-internal val browsePodcastsContextMenuItemClassFingerprint by fingerprint {
-    strings("browse_podcast_item", "ui_navigate")
+internal val removeAdsContextMenuItemClassFingerprint by fingerprint {
+    strings("remove_ads_item", "ui_navigate")
 }
 
 internal const val CONTEXT_MENU_ITEM_CLASS_DESCRIPTOR_PLACEHOLDER = "Lapp/revanced/ContextMenuItemPlaceholder;"

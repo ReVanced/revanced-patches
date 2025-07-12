@@ -454,6 +454,9 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Aceasta nu ocolește restricția de vârstă. O acceptă automat.</string>
   </patch>
   <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Dezactivare omisiune capitol prin atingere dublă</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Atingerea dublă nu va declanșa niciodată sărirea la capitolul următor/anterior</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Atingerea dublă poate declanșa ocazional sărirea la capitolul următor/anterior</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Descărcări externe</string>
@@ -699,9 +702,9 @@ Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fl
   <string name="revanced_hide_cast_button_title">Ascunde butonul Distribuție</string>
   <string name="revanced_hide_cast_button_summary_on">Butonul de distribuție este ascuns</string>
   <string name="revanced_hide_cast_button_summary_off">Butonul de execuție este afișat</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Ascunde fundalul butoanelor de control al playerului</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Fundalul butoanelor de control al playerului este ascuns</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Fundalul butoanelor de control al playerului este afișat</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Ascunde fundalul controalelor playerului</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Fundalul comenzilor playerului este ascuns</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Fundalul comenzilor playerului este afișat</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Ascunde butoanele Anterior &amp; Următorul</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Butoanele sunt ascunse</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Butoanele sunt afișate</string>

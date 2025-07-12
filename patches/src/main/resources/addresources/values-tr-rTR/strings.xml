@@ -702,9 +702,9 @@ Ses parçası menüsünü göstermek için \"Video akışlarını taklit et\" ay
   <string name="revanced_hide_cast_button_title">Yayınla düğmesini gizle</string>
   <string name="revanced_hide_cast_button_summary_on">Yayınla düğmesi gizli</string>
   <string name="revanced_hide_cast_button_summary_off">Yayınla düğmesi görünür</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Oynatıcı kontrol düğmeleri arka planını gizle</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Oynatıcı kontrol düğmeleri arka planı gizlendi</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Oynatıcı kontrol düğmeleri arka planı gösteriliyor</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Oynatıcı kontrolleri arka planını gizle</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Oynatıcı kontrolleri arka planı gizli</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Oynatıcı kontrolleri arka planı gösteriliyor</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Önceki &amp; Sonraki düğmelerini gizle</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düğmeler gizli</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düğmeler görünür</string>

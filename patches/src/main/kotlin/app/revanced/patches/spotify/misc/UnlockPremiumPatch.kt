@@ -161,12 +161,12 @@ val unlockPremiumPatch = bytecodePatch(
             // minified names used at runtime. The instructions need to match the original names so we can call the
             // method in the extension.
             extensionFilterContextMenuItemsFingerprint.method.apply {
-                val contextMenuItemInterfaceClassDef = classBy(
-                    browsePodcastsContextMenuItemClassFingerprint
-                        .originalClassDef
-                        .interfaces
-                        .first()
-                )
+                val contextMenuItemInterfaceClassDef = removeAdsContextMenuItemClassFingerprint
+                    .originalClassDef
+                    .interfaces
+                    .firstOrNull()
+                    ?.let { interfaceName -> classBy(interfaceName) }
+                    ?: throw PatchException("Could not find context menu item interface.")
 
                 val contextMenuItemViewModelClassName = getViewModelFingerprint
                     .matchOrNull(contextMenuItemInterfaceClassDef)

@@ -700,9 +700,9 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_cast_button_title">Paslėpti mygtuką \"Transliuoti\"</string>
   <string name="revanced_hide_cast_button_summary_on">Transliacijos mygtukas yra paslėptas</string>
   <string name="revanced_hide_cast_button_summary_off">Transliacijos mygtukas yra rodomas</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Slėpti grotuvo valdymo mygtukų foną</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Grotuvo valdymo mygtukų fonas paslėptas</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Grotuvo valdymo mygtukų fonas rodomas</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Slėpti grotuvo valdiklių foną</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Grotojo valdiklių fonas paslėptas</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Rodomas grotuvo valdiklių fonas</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Slėpti ankstesnius ir kitus mygtukus</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Mygtukai yra paslėpti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Mygtukai yra rodomi</string>
