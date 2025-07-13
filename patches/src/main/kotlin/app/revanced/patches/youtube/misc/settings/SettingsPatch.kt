@@ -12,31 +12,15 @@ import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.overrideThemeColors
-import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.InputType
-import app.revanced.patches.shared.misc.settings.preference.IntentPreference
-import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
-import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
+import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.shared.misc.settings.settingsPatch
 import app.revanced.patches.youtube.misc.check.checkEnvironmentPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.fix.playbackspeed.fixPlaybackSpeedWhilePlayingPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
-import app.revanced.util.ResourceGroup
-import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.copyResources
-import app.revanced.util.copyXmlNode
-import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.inputStreamFromBundledResource
-import app.revanced.util.insertLiteralOverride
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -152,13 +136,22 @@ private val settingsResourcePatch = resourcePatch {
             }
         }
 
-        // Modify the manifest and add a data intent filter to the LicenseActivity.
-        // Some devices freak out if undeclared data is passed to an intent,
-        // and this change appears to fix the issue.
+        // Modify the manifest to enhance LicenseActivity behavior:
+        // 1. Add a data intent filter with MIME type "text/plain".
+        //    Some devices crash if undeclared data is passed to an intent,
+        //    and this change appears to fix the issue.
+        // 2. Add android:configChanges="orientation|screenSize|keyboardHidden".
+        //    This prevents the activity from being recreated on configuration changes
+        //    (e.g., screen rotation), preserving its current state and fragment.
         document("AndroidManifest.xml").use { document ->
             val licenseElement = document.childNodes.findElementByAttributeValueOrThrow(
                 "android:name",
                 "com.google.android.libraries.social.licenses.LicenseActivity",
+            )
+
+            licenseElement.setAttribute(
+                "android:configChanges",
+                "orientation|screenSize|keyboardHidden"
             )
 
             val mimeType = document.createElement("data")
@@ -267,6 +260,32 @@ val settingsPatch = bytecodePatch(
             methods.add(attachBaseContext)
         }
 
+        licenseActivityOnCreateFingerprint.classDef.apply {
+            val onBackPressed = ImmutableMethod(
+                type,
+                "onBackPressed",
+                emptyList(),
+                "V",
+                AccessFlags.PUBLIC.value,
+                null,
+                null,
+                MutableMethodImplementation(3)
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                        invoke-static {}, Lapp/revanced/extension/youtube/settings/SearchViewController;->handleBackPress()Z
+                        move-result v0
+                        if-nez v0, :search_handled
+                        invoke-virtual { p0 }, Landroid/app/Activity;->finish()V
+                        :search_handled
+                        return-void
+                    """
+                )
+
+            };
+            methods.add(onBackPressed);
+        };
+
         // Update shared dark mode status based on YT theme.
         // This is needed because YT allows forcing light/dark mode
         // which then differs from the system dark mode status.
@@ -338,20 +357,18 @@ object PreferenceScreen : BasePreferenceScreen() {
         icon = "@drawable/revanced_settings_screen_05_player",
         layout = "@layout/preference_with_icon",
     )
-
     val SHORTS = Screen(
         key = "revanced_settings_screen_06_shorts",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_06_shorts",
         layout = "@layout/preference_with_icon",
     )
-
     val SEEKBAR = Screen(
         key = "revanced_settings_screen_07_seekbar",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_07_seekbar",
         layout = "@layout/preference_with_icon",
-        )
+    )
     val SWIPE_CONTROLS = Screen(
         key = "revanced_settings_screen_08_swipe_controls",
         summaryKey = null,
