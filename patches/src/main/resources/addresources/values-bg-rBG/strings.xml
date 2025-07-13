@@ -453,7 +453,7 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Диалоговият прозорец ще бъде показан</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Тази функция не заобикаля възрастовото ограничение. Тя просто приема възрастовата граница автоматично.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Деактивиране на пропускане на глава с двойно докосване</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Двойното докосване никога не може да предизвика пропускане до следваща/предишна глава</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Двойното докосване може понякога да предизвика пропускане до следваща/предишна глава</string>

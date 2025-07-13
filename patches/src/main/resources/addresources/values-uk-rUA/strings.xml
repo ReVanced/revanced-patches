@@ -453,7 +453,7 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Діалогове вікно про неприйнятний контент буде показуватися</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Це не обходить вікові обмеження, а просто приймає їх автоматично.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Вимкнути пропуск розділу подвійним натисканням</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Подвійне натискання двома пальцями ніколи не викличе пропуск до наступного/попереднього розділу</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Подвійне натискання двома пальцями іноді може викликати пропуск до наступного/попереднього розділу</string>

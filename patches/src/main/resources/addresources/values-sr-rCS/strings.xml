@@ -453,7 +453,7 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dijalog o diskreciji gledaoca će biti prikazan</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ovo ne zaobilazi starosno ograničenje. Samo ga automatski prihvata.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Onemogući preskakanje poglavlja dvostrukim dodirom</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dvostruki dodir nikada ne može pokrenuti preskakanje na sledeće/prethodno poglavlje</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dvostruki dodir može povremeno pokrenuti preskakanje na sledeće/prethodno poglavlje</string>

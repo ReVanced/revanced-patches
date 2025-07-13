@@ -453,7 +453,7 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog bude zobrazen</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tímto krokem neobcházíte věkové omezení. Pouze jej automaticky akceptujete.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Zakázat přeskočení kapitoly dvojitým klepnutím</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dvojité klepnutí nikdy nespustí přeskočení na další/předchozí kapitolu</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dvojité klepnutí může občas spustit přeskočení na další/předchozí kapitolu</string>

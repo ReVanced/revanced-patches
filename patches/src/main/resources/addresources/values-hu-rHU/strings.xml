@@ -453,7 +453,7 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">A párbeszédpanel megjelenik</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ez nem kerüli meg a korhatárt, csak automatikusan elfogadja.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Dupla koppintásos fejezetátugrás letiltása</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">A dupla koppintás soha nem indíthatja el a következő/előző fejezetre való ugrást</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">A dupla koppintás alkalmanként elindíthatja a következő/előző fejezetre való ugrást</string>
