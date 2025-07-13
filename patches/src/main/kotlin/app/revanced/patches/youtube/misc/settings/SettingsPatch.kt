@@ -304,6 +304,25 @@ val settingsPatch = bytecodePatch(
 
             };
             methods.add(onBackPressed);
+
+            ImmutableMethod(
+                type,
+                "onConfigurationChanged",
+                listOf(ImmutableMethodParameter("Landroid/content/res/Configuration;", null, null)),
+                "V",
+                AccessFlags.PUBLIC.value,
+                null,
+                null,
+                MutableMethodImplementation(3)
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                        invoke-super { p0, p1 }, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+                        invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->handleConfigurationChanged(Landroid/app/Activity;Landroid/content/res/Configuration;)V
+                        return-void
+                    """
+                )
+            }.let(methods::add)
         };
 
         // Update shared dark mode status based on YT theme.
