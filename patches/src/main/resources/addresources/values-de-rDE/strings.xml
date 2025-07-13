@@ -448,7 +448,7 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog wird angezeigt</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Dies umgeht nicht die Altersbeschränkung, sondern akzeptiert sie nur automatisch.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Doppeltippen zum Kapitelüberspringen deaktivieren</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Doppeltippen kann niemals ein Überspringen zum nächsten/vorherigen Kapitel auslösen</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Doppeltippen kann gelegentlich ein Überspringen zum nächsten/vorherigen Kapitel auslösen</string>

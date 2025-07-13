@@ -453,7 +453,7 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Va fi afișat catalogul</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Aceasta nu ocolește restricția de vârstă. O acceptă automat.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Dezactivare omisiune capitol prin atingere dublă</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Atingerea dublă nu va declanșa niciodată sărirea la capitolul următor/anterior</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Atingerea dublă poate declanșa ocazional sărirea la capitolul următor/anterior</string>

@@ -455,7 +455,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">ダイアログは表示されます</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">この機能によって年齢制限が回避される訳ではありません。自動的に承認するだけです。</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">ダブルタップ時のチャプター スキップを無効化</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">ダブルタップしたときに、次または前のチャプターへスキップしてしまうことはありません</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">ダブルタップしたときに、たまに次または前のチャプターへスキップしてしまうことがあります</string>

@@ -453,7 +453,7 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoog kuvatakse</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">See ei mööda vanusepiirangust. See lihtsalt aktsepteerib seda automaatselt.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Keela topeltpuudutusega peatüki vahelejätmine</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Topeltpuudutus ei saa kunagi käivitada järgmise/eelmise peatüki vahelejätmist</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Topeltpuudutus võib aeg-ajalt käivitada järgmise/eelmise peatüki vahelejätmise</string>
