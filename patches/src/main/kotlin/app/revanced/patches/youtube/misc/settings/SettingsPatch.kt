@@ -278,32 +278,6 @@ val settingsPatch = bytecodePatch(
                     """
                 )
             }.let(methods::add)
-        }
-
-        licenseActivityOnCreateFingerprint.classDef.apply {
-            val onBackPressed = ImmutableMethod(
-                type,
-                "onBackPressed",
-                emptyList(),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(3)
-            ).toMutable().apply {
-                addInstructions(
-                    """
-                        invoke-static {}, Lapp/revanced/extension/youtube/settings/SearchViewController;->handleBackPress()Z
-                        move-result v0
-                        if-nez v0, :search_handled
-                        invoke-virtual { p0 }, Landroid/app/Activity;->finish()V
-                        :search_handled
-                        return-void
-                    """
-                )
-
-            };
-            methods.add(onBackPressed);
 
             ImmutableMethod(
                 type,
