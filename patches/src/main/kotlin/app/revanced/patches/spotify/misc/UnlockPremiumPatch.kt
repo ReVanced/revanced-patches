@@ -351,16 +351,16 @@ val unlockPremiumPatch = bytecodePatch(
         // subscription.
         fun MutableMethod.injectPremiumPlanRow() {
             // The index where the request is made.
-            val fetchPremiumPlanRowindex = indexOfFirstInstructionOrThrow {
+            val fetchPremiumPlanRowIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.returnType == "Lio/reactivex/rxjava3/core/Single;"
             }
-            val fetchPremiumPlanRowMoveResultInstructionIndex = fetchPremiumPlanRowindex + 1
+            val fetchPremiumPlanRowMoveResultInstructionIndex = fetchPremiumPlanRowIndex + 1
             val singleRegister =
                 getInstruction<OneRegisterInstruction>(fetchPremiumPlanRowMoveResultInstructionIndex).registerA
 
             // The index where the objects which execute the request are accessed.
             val prepareFetchPremiumPlanRowSingleInstructionIndex =
-                indexOfFirstInstructionReversedOrThrow(fetchPremiumPlanRowindex - 1) {
+                indexOfFirstInstructionReversedOrThrow(fetchPremiumPlanRowIndex - 1) {
                     opcode != Opcode.IGET_OBJECT
                 } + 1
 
@@ -403,6 +403,8 @@ val unlockPremiumPatch = bytecodePatch(
             val instructionAfterFetchPlanOverviewView = getInstruction(fetchPlanOverviewViewMoveResultIndex + 1)
 
             // Cannot use findFreeRegister because a branch instruction is reached before it can find a free register.
+            // Subtract 2 because registers start at 0 and the parameter register 0 is `this`, which is uncounted for
+            // when subtracting parameterTypes.size.
             val freeRegister = implementation!!.registerCount - parameterTypes.size - 2
 
             addInstructionsWithLabels(
