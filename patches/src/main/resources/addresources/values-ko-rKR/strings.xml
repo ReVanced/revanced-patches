@@ -225,8 +225,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_channel_bar_summary_on">채널바가 숨겨집니다</string>
   <string name="revanced_hide_channel_bar_summary_off">채널바가 표시됩니다</string>
   <string name="revanced_hide_channel_watermark_title">채널 워터마크 숨기기</string>
-  <string name="revanced_hide_channel_watermark_summary_on">동영상 하단에서 채널 워터마크가 숨겨집니다</string>
-  <string name="revanced_hide_channel_watermark_summary_off">동영상 하단에서 채널 워터마크가 표시됩니다</string>
+  <string name="revanced_hide_channel_watermark_summary_on">플레이어 하단에서 채널 워터마크가 숨겨집니다</string>
+  <string name="revanced_hide_channel_watermark_summary_off">플레이어 하단에서 채널 워터마크가 표시됩니다</string>
   <string name="revanced_hide_emergency_box_title">긴급 정보 패널 숨기기</string>
   <string name="revanced_hide_emergency_box_summary_on">긴급 정보 패널이 숨겨집니다</string>
   <string name="revanced_hide_emergency_box_summary_off">긴급 정보 패널이 표시됩니다</string>
@@ -423,8 +423,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shopping_links_summary_off">동영상 설명에서 쇼핑 링크가 표시됩니다</string>
   <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">\'제품 보기\' 배너 숨기기</string>
-  <string name="revanced_hide_view_products_banner_summary_on">동영상 오버레이에서 \'제품 보기\' 배너가 숨겨집니다</string>
-  <string name="revanced_hide_view_products_banner_summary_off">동영상 오버레이에서 \'제품 보기\' 배너가 표시됩니다</string>
+  <string name="revanced_hide_view_products_banner_summary_on">플레이어에서 제품 보기 배너가 숨겨집니다</string>
+  <string name="revanced_hide_view_products_banner_summary_off">플레이어에서 제품 보기 배너가 표시됩니다</string>
   <string name="revanced_hide_web_search_results_title">웹 검색 결과 숨기기</string>
   <string name="revanced_hide_web_search_results_summary_on">웹 검색 결과가 숨겨집니다</string>
   <string name="revanced_hide_web_search_results_summary_off">웹 검색 결과가 표시됩니다</string>
