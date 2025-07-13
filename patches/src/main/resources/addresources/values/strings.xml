@@ -516,7 +516,7 @@ This feature is only available for older devices"</string>
             <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog will be shown</string>
             <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction. It just accepts it automatically.</string>
         </patch>
-        <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+        <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
             <string name="revanced_disable_chapter_skip_double_tap_title">Disable double tap chapter skip</string>
             <string name="revanced_disable_chapter_skip_double_tap_summary_on">Double tap can never trigger a skip to the next/previous chapter</string>
             <string name="revanced_disable_chapter_skip_double_tap_summary_off">Double tap can occasionally trigger a skip to the next/previous chapter</string>
