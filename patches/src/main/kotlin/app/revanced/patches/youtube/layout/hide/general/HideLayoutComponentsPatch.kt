@@ -187,8 +187,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_hide_keyword_content_home"),
-                    SwitchPreference("revanced_hide_keyword_content_subscriptions"),
                     SwitchPreference("revanced_hide_keyword_content_search"),
+                    SwitchPreference("revanced_hide_keyword_content_subscriptions"),
                     TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
                     NonInteractivePreference("revanced_hide_keyword_content_about"),
                     NonInteractivePreference(
@@ -201,9 +201,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 key = "revanced_hide_filter_bar_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
-                    SwitchPreference("revanced_hide_filter_bar_feed_in_history"),
-                    SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
                     SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_history"),
                 ),
             ),
             PreferenceScreenPreference(
@@ -223,7 +223,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_crowdfunding_box"),
             SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_expandable_card"),
-            SwitchPreference("revanced_hide_feed_survey"),
             SwitchPreference("revanced_hide_floating_microphone_button"),
             SwitchPreference("revanced_hide_horizontal_shelves"),
             SwitchPreference("revanced_hide_image_shelf"),
@@ -233,6 +232,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_notify_me_button"),
             SwitchPreference("revanced_hide_playables"),
             SwitchPreference("revanced_hide_show_more_button"),
+            SwitchPreference("revanced_hide_surveys"),
             SwitchPreference("revanced_hide_ticket_shelf"),
             SwitchPreference("revanced_hide_video_recommendation_labels"),
             SwitchPreference("revanced_hide_doodles"),
