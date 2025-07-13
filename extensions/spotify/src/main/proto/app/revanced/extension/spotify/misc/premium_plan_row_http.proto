@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package spotify.pamviewservice.v1;
+
+option optimize_for = LITE_RUNTIME;
+option java_package = "app.revanced.extension.spotify.misc.pamviewservice.v1";
+
+message PremiumPlanRow {
+  string premium_plan = 3;
+  string plan_color = 4;
+  SubscriptionType subscription_type = 6;
+  SubscriptionProvider subscription_provider = 10;
+  PlanTier plan_tier = 16;
+  string premium_plan_short_name = 18;
+}
+
+enum SubscriptionType {
+  SUBSCRIPTION_TYPE_UNKNOWN = 0;
+  SUBSCRIPTION_TYPE_RECURRING_MONTHLY = 1;
+  SUBSCRIPTION_TYPE_TRIAL = 2;
+  SUBSCRIPTION_TYPE_PREPAID = 3;
+}
+
+enum SubscriptionProvider {
+  SUBSCRIPTION_PROVIDER_UNKNOWN = 0;
+  SUBSCRIPTION_PROVIDER_SPOTIFY = 1;
+  SUBSCRIPTION_PROVIDER_GOOGLE = 2;
+}
+
+enum PlanTier {
+  PLAN_TIER_UNSPECIFIED = 0;
+  PLAN_TIER_FREE = 1;
+  PLAN_TIER_PREMIUM = 2;
+  PLAN_TIER_NEMO = 3;
+}

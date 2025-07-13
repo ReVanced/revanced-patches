@@ -1,7 +1,6 @@
 package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -10,13 +9,11 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
-context(BytecodePatchContext)
-internal val accountAttributeFingerprint get() = fingerprint {
+internal val accountAttributeFingerprint = fingerprint {
     custom { _, classDef -> classDef.type == "Lcom/spotify/remoteconfig/internal/AccountAttribute;" }
 }
 
-context(BytecodePatchContext)
-internal val productStateProtoGetMapFingerprint get() = fingerprint {
+internal val productStateProtoGetMapFingerprint = fingerprint {
     returns("Ljava/util/Map;")
     custom { _, classDef -> classDef.type == "Lcom/spotify/remoteconfig/internal/ProductStateProto;" }
 }
@@ -88,7 +85,7 @@ internal val readPlayerOptionOverridesFingerprint = fingerprint {
     }
 }
 
-internal val protobufListsFingerprint = fingerprint {
+internal val protobufEmptyListFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     custom { method, _ -> method.name == "emptyProtobufList" }
 }
@@ -143,3 +140,56 @@ internal val pendragonJsonFetchMessageRequestFingerprint =
 internal const val PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME = "FetchMessageListRequest;"
 internal val pendragonProtoFetchMessageListRequestFingerprint =
     reactivexFunctionApplyWithClassInitFingerprint(PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME)
+
+internal val extensionProtobufParseFromFingerprint = fingerprint {
+    parameters("L", "[B")
+    returns("L")
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+    custom { method, classDef -> method.name == "protobufParseFrom" && classDef.type == EXTENSION_CLASS_DESCRIPTOR }
+}
+
+internal const val PREMIUM_PLAN_ROW_CLASS_NAME = "Lcom/spotify/pamviewservice/v1/proto/PremiumPlanRow;"
+internal val premiumPlanRowFingerprint = fingerprint {
+    custom { _, classDef -> classDef.type == PREMIUM_PLAN_ROW_CLASS_NAME }
+}
+
+internal val fetchSidebarPremiumPlanRowFingerprint = fingerprint {
+    strings("nft-disabled", "restrict-settings-for-child", "employee")
+}
+
+internal val fetchSettingsPremiumPlanRowFingerprint = fingerprint {
+    strings("call to 'resume' before 'invoke' with coroutine")
+    custom { method, _ ->
+        method.indexOfFirstInstruction {
+            opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type == PREMIUM_PLAN_ROW_CLASS_NAME
+        } >= 0 && method.indexOfFirstInstruction {
+            getReference<MethodReference>()?.name == "onErrorComplete"
+        } >= 0
+    }
+}
+
+internal const val PLAN_OVERVIEW_VIEW_RESPONSE_CLASS_NAME = "Lcom/spotify/pam/v2/GetPlanOverviewViewResponse;"
+internal val planOverviewViewResponseFingerprint = fingerprint {
+    custom { _, classDef -> classDef.type == PLAN_OVERVIEW_VIEW_RESPONSE_CLASS_NAME }
+}
+
+internal const val PLAN_OVERVIEW_VIEW_REQUEST_CLASS_NAME = "Lcom/spotify/pam/v2/GetPlanOverviewViewRequest;"
+internal val fetchSettingsPlanOverviewViewFingerprint = fingerprint {
+    strings("call to 'resume' before 'invoke' with coroutine", "TIME")
+    custom { method, _ ->
+        method.indexOfFirstInstruction {
+            getReference<MethodReference>()?.parameterTypes?.firstOrNull() == PLAN_OVERVIEW_VIEW_REQUEST_CLASS_NAME
+        } >= 0
+    }
+}
+
+internal val fetchManagePlanPlanOverviewViewFingerprint = fingerprint {
+    strings("call to 'resume' before 'invoke' with coroutine")
+    custom { method, _ ->
+        method.indexOfFirstInstruction {
+            getReference<MethodReference>()?.parameterTypes?.firstOrNull() == PLAN_OVERVIEW_VIEW_REQUEST_CLASS_NAME
+        } >= 0 && method.indexOfFirstInstruction {
+            opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type?.endsWith("/AstroOn;") == true
+        } >= 0
+    }
+}

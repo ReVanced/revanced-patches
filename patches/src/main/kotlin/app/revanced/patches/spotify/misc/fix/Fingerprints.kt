@@ -24,8 +24,8 @@ internal val runIntegrityVerificationFingerprint = fingerprint {
         Opcode.INVOKE_STATIC, // Calendar.getInstance()
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_VIRTUAL, // instance.get(6)
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQ, // if (x == instance.get(6)) return
+        Opcode.MOVE_RESULT, // y = return of instance.get(6)
+        Opcode.IF_EQ, // if (x == y) return
     )
     custom { method, _ ->
         method.indexOfFirstInstruction {

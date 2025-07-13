@@ -15,6 +15,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.*
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -212,7 +213,7 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
 
-        val protobufArrayListClassDef = with(protobufListsFingerprint.originalMethod) {
+        val protobufArrayListClassDef = with(protobufEmptyListFingerprint.originalMethod) {
             val emptyProtobufListGetIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
             // Find the protobuf array list class using the definingClass which contains the empty list static value.
             val classType = getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
@@ -295,8 +296,8 @@ val unlockPremiumPatch = bytecodePatch(
                 onErrorReturnCallIndex,
                 "invoke-static { v$onErrorReturnValueRegister }, " +
                         "$singleClassName->just(Ljava/lang/Object;)$singleClassName\n" +
-                        "move-result-object v$onErrorReturnValueRegister\n" +
-                        "return-object v$onErrorReturnValueRegister"
+                "move-result-object v$onErrorReturnValueRegister\n" +
+                "return-object v$onErrorReturnValueRegister"
             )
 
             // Remove every instruction from the request call to right before the error static value construction.
@@ -311,5 +312,122 @@ val unlockPremiumPatch = bytecodePatch(
         pendragonProtoFetchMessageListRequestFingerprint.method.replaceFetchRequestSingleWithError(
             PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME
         )
+
+
+        val protobufGeneratedMessageLiteClassName = protobufEmptyListFingerprint.originalClassDef.type
+
+        // Replace the placeholder class name from the parseFrom method call instruction with the minified names
+        // used at runtime. This way, our extension method can properly deserialize proto messages into the proper
+        // classes the application uses.
+        extensionProtobufParseFromFingerprint.method.apply {
+            val parseFromIndex = indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.name == "parseFrom"
+            }
+            val parseFromInstruction = getInstruction<FiveRegisterInstruction>(parseFromIndex)
+            val defaultInstanceRegister = parseFromInstruction.registerC
+            val messageBytesRegister = parseFromInstruction.registerD
+
+            val parseFromDescriptor = "$protobufGeneratedMessageLiteClassName->parseFrom(" +
+                    "$protobufGeneratedMessageLiteClassName[B" +
+                    ")$protobufGeneratedMessageLiteClassName"
+
+            replaceInstruction(
+                parseFromIndex,
+                "invoke-static { v$defaultInstanceRegister, v$messageBytesRegister }, $parseFromDescriptor"
+            )
+        }
+
+        fun MutableClass.publicizeConstructor() {
+            methods.first {
+                it.accessFlags == AccessFlags.PRIVATE.value.or(AccessFlags.CONSTRUCTOR.value)
+            }.apply {
+                accessFlags = accessFlags.toPublicAccessFlags()
+            }
+        }
+
+        premiumPlanRowFingerprint.classDef.publicizeConstructor()
+
+        // Return our spoofed Premium PremiumPlanRow request response if the account does not have an actual Premium
+        // subscription.
+        fun MutableMethod.injectPremiumPlanRow() {
+            // The index where the request is made.
+            val fetchPremiumPlanRowindex = indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.returnType == "Lio/reactivex/rxjava3/core/Single;"
+            }
+            val fetchPremiumPlanRowMoveResultInstructionIndex = fetchPremiumPlanRowindex + 1
+            val singleRegister =
+                getInstruction<OneRegisterInstruction>(fetchPremiumPlanRowMoveResultInstructionIndex).registerA
+
+            // The index where the objects which execute the request are accessed.
+            val prepareFetchPremiumPlanRowSingleInstructionIndex =
+                indexOfFirstInstructionReversedOrThrow(fetchPremiumPlanRowindex - 1) {
+                    opcode != Opcode.IGET_OBJECT
+                } + 1
+
+            // The first instruction after the request result is moved into a register.
+            val instructionAfterFetchPremiumPlanRow =
+                getInstruction(fetchPremiumPlanRowMoveResultInstructionIndex + 1)
+
+            val getPremiumPlanRowDescriptor =
+                "$EXTENSION_CLASS_DESCRIPTOR->getPremiumPlanRowSingle()Lio/reactivex/rxjava3/core/Single;"
+
+            addInstructionsWithLabels(
+                prepareFetchPremiumPlanRowSingleInstructionIndex,
+                """
+                    invoke-static {}, $getPremiumPlanRowDescriptor
+                    move-result-object v$singleRegister
+                    
+                    # If the return value is null the account has an actual Premium subscription and the request
+                    # response should not be spoofed.
+                    if-nez v$singleRegister, :skip-fetch-premium-plan-row
+                """,
+                ExternalLabel("skip-fetch-premium-plan-row", instructionAfterFetchPremiumPlanRow)
+            )
+        }
+
+        fetchSidebarPremiumPlanRowFingerprint.method.injectPremiumPlanRow()
+        fetchSettingsPremiumPlanRowFingerprint.method.injectPremiumPlanRow()
+
+        planOverviewViewResponseFingerprint.classDef.publicizeConstructor()
+
+        fun MutableMethod.injectGetPlanOverviewResponse() {
+            // The index where the request is made.
+            val fetchPlanOverviewViewIndex = indexOfFirstInstructionOrThrow() {
+                getReference<MethodReference>()?.parameterTypes?.firstOrNull() == PLAN_OVERVIEW_VIEW_REQUEST_CLASS_NAME
+            }
+            val fetchPlanOverviewViewMoveResultIndex = fetchPlanOverviewViewIndex + 1
+            val planOverviewViewResponseRegister =
+                getInstruction<OneRegisterInstruction>(fetchPlanOverviewViewMoveResultIndex).registerA
+
+            // The first instruction after the request result is moved into a register.
+            val instructionAfterFetchPlanOverviewView = getInstruction(fetchPlanOverviewViewMoveResultIndex + 1)
+
+            // Cannot use findFreeRegister because a branch instruction is reached before it can find a free register.
+            val freeRegister = implementation!!.registerCount - parameterTypes.size - 2
+
+            addInstructionsWithLabels(
+                fetchPlanOverviewViewIndex,
+                """
+                    # In the index we are adding our instructions planOverviewViewResponseRegister already includes
+                    # a value, thus move its current value into a free register.
+                    move-object/from16 v$freeRegister, v$planOverviewViewResponseRegister
+                    
+                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->getPlanOverviewViewResponse()Ljava/lang/Object;
+                    move-result-object v$planOverviewViewResponseRegister
+                    
+                    # If the return value is null the account has an actual Premium subscription and the request
+                    # response should not be spoofed.
+                    if-nez v$planOverviewViewResponseRegister, :skip-fetch-plan-overview-view
+                    
+                    # If the request is not being spoofed, restore the original value of
+                    # planOverviewViewResponseRegister.
+                    move-object/from16 v$planOverviewViewResponseRegister, v$freeRegister
+                """,
+                ExternalLabel("skip-fetch-plan-overview-view", instructionAfterFetchPlanOverviewView)
+            )
+        }
+
+        fetchSettingsPlanOverviewViewFingerprint.method.injectGetPlanOverviewResponse()
+        fetchManagePlanPlanOverviewViewFingerprint.method.injectGetPlanOverviewResponse()
     }
 }

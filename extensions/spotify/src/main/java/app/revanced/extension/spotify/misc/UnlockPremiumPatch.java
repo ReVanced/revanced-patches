@@ -1,11 +1,18 @@
 package app.revanced.extension.spotify.misc;
 
+import androidx.annotation.Nullable;
 import app.revanced.ContextMenuItemPlaceholder;
+import app.revanced.GeneratedMessageLitePlaceholder;
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.spotify.misc.pam.v2.PlanOverviewViewHttp;
+import app.revanced.extension.spotify.misc.pamviewservice.v1.PremiumPlanRowHttp;
 import app.revanced.extension.spotify.shared.ComponentFilters.ComponentFilter;
 import app.revanced.extension.spotify.shared.ComponentFilters.ResourceIdComponentFilter;
 import app.revanced.extension.spotify.shared.ComponentFilters.StringComponentFilter;
+import com.spotify.pam.v2.GetPlanOverviewViewResponse;
+import com.spotify.pamviewservice.v1.proto.PremiumPlanRow;
 import com.spotify.remoteconfig.internal.AccountAttribute;
+import io.reactivex.rxjava3.core.Single;
 
 import java.util.*;
 
@@ -14,6 +21,75 @@ import static java.lang.Boolean.TRUE;
 
 @SuppressWarnings("unused")
 public final class UnlockPremiumPatch {
+
+    private static boolean ACCOUNT_PRODUCT_IS_FREE = false;
+
+    private static final String PLAN_NAME = "Premium Individual";
+    private static final String SHORT_PLAN_NAME = "Individual";
+    private static final String PLAN_COLOR = "#FFD2D7";
+    private static final List<String> PREMIUM_PATCH_BENEFITS = List.of(
+            "Ad-free music listening",
+            "Play songs in any order",
+            "Organize listening queue"
+    );
+
+    private static final PremiumPlanRow PREMIUM_PLAN_ROW;
+    private static final GetPlanOverviewViewResponse GET_PLAN_OVERVIEW_VIEW_RESPONSE;
+
+    static {
+        PremiumPlanRowHttp.PremiumPlanRow premiumPlanRow = PremiumPlanRowHttp.PremiumPlanRow.newBuilder()
+                .setPremiumPlan(PLAN_NAME)
+                .setPremiumPlanShortName(SHORT_PLAN_NAME)
+                .setPlanColor(PLAN_COLOR)
+                .setSubscriptionType(PremiumPlanRowHttp.SubscriptionType.SUBSCRIPTION_TYPE_RECURRING_MONTHLY)
+                .setSubscriptionProvider(PremiumPlanRowHttp.SubscriptionProvider.SUBSCRIPTION_PROVIDER_SPOTIFY)
+                .setPlanTier(PremiumPlanRowHttp.PlanTier.PLAN_TIER_PREMIUM)
+                .build();
+
+        PREMIUM_PLAN_ROW = protobufParseFrom(new PremiumPlanRow(), premiumPlanRow.toByteArray());
+
+        List<PlanOverviewViewHttp.Benefit> planBenefits = new ArrayList<>();
+        for (String premiumPatchBenefit : PREMIUM_PATCH_BENEFITS) {
+            planBenefits.add(PlanOverviewViewHttp.Benefit.newBuilder()
+                    .setIcon("CHECK")
+                    .setIconColor("#1ED760")
+                    .setTitle(premiumPatchBenefit)
+                    .build());
+        }
+
+        planBenefits.add(PlanOverviewViewHttp.Benefit.newBuilder()
+                        .setIcon("CHECK")
+                        .setIconColor("#1ED760")
+                        .setTitle("Spotify Premium brought to you by the ReVanced Team!")
+                        .setIsHighlighted(true)
+                .build());
+
+        PlanOverviewViewHttp.GetPlanOverviewViewResponse getPlanOverviewViewResponse =
+                PlanOverviewViewHttp.GetPlanOverviewViewResponse.newBuilder()
+                        .setPlan(PlanOverviewViewHttp.Plan.newBuilder()
+                                .setPlanType(PlanOverviewViewHttp.PlanType.PLAN_TYPE_INDIVIDUAL)
+                                .setPlanTier(PlanOverviewViewHttp.PlanTier.PLAN_TIER_PREMIUM)
+                                .setPlanName(PLAN_NAME)
+                                .setShortPlanName(SHORT_PLAN_NAME)
+                                .setPlanColor(PLAN_COLOR)
+                                .setPlanBackgroundUri("https://prefab.spotifycdn.com/unboxing/background.png")
+                                .addAllBenefits(planBenefits)
+                        )
+                        .setAccount(PlanOverviewViewHttp.Account.newBuilder()
+                                .setSchedule(PlanOverviewViewHttp.Schedule.SCHEDULE_RECURRING)
+                        )
+                        .build();
+
+        GET_PLAN_OVERVIEW_VIEW_RESPONSE =
+                protobufParseFrom(new GetPlanOverviewViewResponse(), getPlanOverviewViewResponse.toByteArray());
+    }
+
+    private static <T extends GeneratedMessageLitePlaceholder> T protobufParseFrom(
+            T defaultInstance,
+            byte[] messageBytes
+    ) {
+        return GeneratedMessageLitePlaceholder.parseFrom(defaultInstance, messageBytes);
+    }
 
     private static class OverrideAttribute {
         /**
@@ -124,8 +200,7 @@ public final class UnlockPremiumPatch {
                 }
 
                 Object overrideValue = override.overrideValue;
-                Object originalValue;
-                originalValue = attribute.value_;
+                Object originalValue = attribute.value_;
 
                 if (overrideValue.equals(originalValue)) {
                     continue;
@@ -135,6 +210,13 @@ public final class UnlockPremiumPatch {
                         " from " + originalValue + " to " + overrideValue);
 
                 attribute.value_ = overrideValue;
+            }
+
+            // Financial product is not spoofed by our patches and thus can be used to find the real subscription of
+            // the account.
+            AccountAttribute accountFinancialProduct = attributes.get("financial-product");
+            if (accountFinancialProduct != null) {
+                ACCOUNT_PRODUCT_IS_FREE = ((String) accountFinancialProduct.value_).contains("free");
             }
         } catch (Exception ex) {
             Logger.printException(() -> "overrideAttributes failure", ex);
@@ -282,5 +364,29 @@ public final class UnlockPremiumPatch {
         }
 
         return originalContextMenuItems;
+    }
+
+    /**
+     * Injection point. Spoofs a Premium PremiumPlanRow.
+     */
+    @Nullable
+    public static Single<PremiumPlanRow> getPremiumPlanRowSingle() {
+        if (ACCOUNT_PRODUCT_IS_FREE) {
+            return Single.just(PREMIUM_PLAN_ROW);
+        }
+
+        return null;
+    }
+
+    /**
+     * Injection point. Spoofs a Premium GetPlanOverviewViewResponse.
+     */
+    @Nullable
+    public static Object getPlanOverviewViewResponse() {
+        if (ACCOUNT_PRODUCT_IS_FREE) {
+            return GET_PLAN_OVERVIEW_VIEW_RESPONSE;
+        }
+
+        return null;
     }
 }

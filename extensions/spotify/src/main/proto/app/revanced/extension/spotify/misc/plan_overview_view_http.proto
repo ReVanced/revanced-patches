@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package spotify.pam.v2;
+
+option optimize_for = LITE_RUNTIME;
+option java_package = "app.revanced.extension.spotify.misc.pam.v2";
+
+message GetPlanOverviewViewResponse  {
+  Plan plan = 1;
+  Account account = 2;
+}
+
+message Plan {
+  PlanType plan_type = 1;
+  PlanTier plan_tier = 2;
+  string plan_name = 3;
+  string short_plan_name = 4;
+  string plan_color = 5;
+  string plan_background_uri = 19;
+  repeated Benefit benefits = 20;
+}
+
+enum PlanType {
+  PLAN_TYPE_UNSUPPORTED = 0;
+  PLAN_TYPE_INDIVIDUAL = 1;
+  PLAN_TYPE_STUDENT = 2;
+  PLAN_TYPE_DUO = 3;
+  PLAN_TYPE_FAMILY = 4;
+  PLAN_TYPE_BASIC = 5;
+  PLAN_TYPE_MINI = 6;
+}
+
+enum PlanTier {
+  PLAN_TIER_UNSPECIFIED = 0;
+  PLAN_TIER_FREE = 1;
+  PLAN_TIER_PREMIUM = 2;
+  PLAN_TIER_NEMO = 3;
+  PLAN_TIER_YOPLAIT = 4;
+  PLAN_TIER_ASTRO = 5;
+}
+
+message Benefit {
+  string icon = 1;
+  string title = 2;
+  string icon_color = 4;
+  bool is_highlighted = 5;
+}
+
+message Account {
+  string billing_description = 1;
+  Schedule schedule = 7;
+}
+
+enum Schedule {
+  SCHEDULE_TRIAL = 0;
+  SCHEDULE_PREPAID = 1;
+  SCHEDULE_RECURRING = 2;
+}
