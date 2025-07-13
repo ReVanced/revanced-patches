@@ -453,7 +453,7 @@ Ierobežojumi
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialogs tiks rādīts</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tas neapiet vecuma ierobežojumu. Tas vienkārši automātiski to pieņem.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Atspējot divkāršu pieskārienu nodaļas izlaišanai</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Divkāršs pieskāriens nekad nevar iedarbināt izlaišanu uz nākamo/iepriekšējo nodaļu</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Divkāršs pieskāriens reizēm var iedarbināt izlaišanu uz nākamo/iepriekšējo nodaļu</string>

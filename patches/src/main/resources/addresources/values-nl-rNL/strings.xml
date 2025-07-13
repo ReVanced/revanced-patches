@@ -453,7 +453,7 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog wordt getoond</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Dit omzeilt de leeftijdsbeperking niet. Het accepteert het alleen automatisch.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Dubbeltik om hoofdstukken over te slaan uitschakelen</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dubbeltikken kan nooit leiden tot het overslaan naar het volgende/vorige hoofdstuk.</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dubbeltikken kan af en toe leiden tot het overslaan naar het volgende/vorige hoofdstuk.</string>

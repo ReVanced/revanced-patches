@@ -453,7 +453,7 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">דו-שיח יוצג</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">זה לא עוקף את מגבלת הגיל. זה רק מסכים לזה באופן אוטומטי.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">ביטול דילוג פרקים בלחיצה כפולה</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">לחיצה כפולה לעולם לא תפעיל דילוג לפרק הבא/הקודם</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">לחיצה כפולה יכולה להפעיל מדי פעם דילוג לפרק הבא/הקודם</string>

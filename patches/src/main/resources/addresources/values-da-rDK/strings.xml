@@ -453,7 +453,7 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog vil blive vist</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Dette går ikke uden om aldersbegrænsningen. Det accepterer bare det automatisk.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Deaktiver dobbeltklik kapitelspring</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dobbeltklik kan aldrig udløse et spring til næste/forrige kapitel</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dobbeltklik kan lejlighedsvis udløse et spring til næste/forrige kapitel</string>

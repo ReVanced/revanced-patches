@@ -453,7 +453,7 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Opozorilo bo prikazano</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">To ne obide starostne omejitve. Samo samodejno jo sprejme.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Onemogoči preskok poglavja z dvojnim dotikom</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dvojni dotik nikoli ne more sprožiti preskoka na naslednje/prejšnje poglavje</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dvojni dotik lahko občasno sproži preskok na naslednje/prejšnje poglavje</string>
