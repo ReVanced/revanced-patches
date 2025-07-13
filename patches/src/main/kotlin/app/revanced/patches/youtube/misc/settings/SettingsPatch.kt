@@ -235,8 +235,8 @@ val settingsPatch = bytecodePatch(
             methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
         }
 
-        // Add context override to force a specific settings language.
         licenseActivityOnCreateFingerprint.classDef.apply {
+            // Add attachBaseContext method to override the context for setting a specific language.
             ImmutableMethod(
                 type,
                 "attachBaseContext",
@@ -257,6 +257,7 @@ val settingsPatch = bytecodePatch(
                 )
             }.let(methods::add)
 
+            // Add onBackPressed method to handle back button presses, delegating to SearchViewController.
             ImmutableMethod(
                 type,
                 "onBackPressed",
@@ -279,6 +280,7 @@ val settingsPatch = bytecodePatch(
                 )
             }.let(methods::add)
 
+            // Add onConfigurationChanged method to handle configuration changes (e.g., screen orientation).
             ImmutableMethod(
                 type,
                 "onConfigurationChanged",
@@ -297,7 +299,7 @@ val settingsPatch = bytecodePatch(
                     """
                 )
             }.let(methods::add)
-        };
+        }
 
         // Update shared dark mode status based on YT theme.
         // This is needed because YT allows forcing light/dark mode
