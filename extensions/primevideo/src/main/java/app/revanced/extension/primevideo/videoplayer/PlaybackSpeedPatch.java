@@ -2,15 +2,19 @@ package app.revanced.extension.primevideo.videoplayer;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.RectF;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.LinearLayout;
 import android.view.ViewGroup;
 import android.graphics.Color;
-import android.graphics.Typeface;
-import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.ColorFilter;
+import android.graphics.PixelFormat;
 
 import app.revanced.extension.shared.Logger;
 
@@ -18,7 +22,7 @@ import com.amazon.video.sdk.player.Player;
 
 public class PlaybackSpeedPatch {
     private static Player player;
- 
+
 
     public static void setPlayer(Player playerInstance) {
         player = playerInstance;
@@ -39,59 +43,60 @@ public class PlaybackSpeedPatch {
             }
 
             Context context = userControlsView.getContext();
-            TextView speedText = new TextView(context);
-            speedText.setText("⚡");
-            speedText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-            speedText.setTextColor(Color.WHITE);
-            speedText.setTypeface(null, Typeface.BOLD);
-            speedText.setGravity(Gravity.CENTER);
-            speedText.setTag("speed_overlay");
+            TextView speedButton = new TextView(context);
+            speedButton.setTag("speed_overlay");
+            speedButton.setText("");
+            speedButton.setGravity(Gravity.CENTER_VERTICAL);
 
-            GradientDrawable background = new GradientDrawable();
-            background.setShape(GradientDrawable.RECTANGLE);
-            background.setCornerRadius(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, context.getResources().getDisplayMetrics()));
-            background.setColor(Color.parseColor("#80000000"));
+            speedButton.setTextColor(Color.WHITE);
+            speedButton.setClickable(true);
+            speedButton.setFocusable(true);
 
-            speedText.setBackground(background);
+            SpeedIconDrawable speedIcon = new SpeedIconDrawable();
+            int iconSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 32,
+                    context.getResources().getDisplayMetrics());
+            speedIcon.setBounds(0, 0, iconSize, iconSize);
+            speedButton.setCompoundDrawables(speedIcon, null, null, null);
 
-            int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, context.getResources().getDisplayMetrics());
-            speedText.setPadding(padding, padding, padding, padding);
+            int buttonSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48,
+                    context.getResources().getDisplayMetrics());
+            speedButton.setMinimumWidth(buttonSize);
+            speedButton.setMinimumHeight(buttonSize);
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            
-            int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, context.getResources().getDisplayMetrics());
-            params.setMargins(margin, margin, margin, 0);
-
-            speedText.setLayoutParams(params);
-            speedText.setOnClickListener(v -> changePlayBackSpeed(speedText));
-
-            int castButtonIndex = -1;
-            for (int i = 0; i < buttonContainer.getChildCount(); i++) {
-                View child = buttonContainer.getChildAt(i);
-                if (child.getId() != View.NO_ID) {
-                    try {
-                        String resourceName = context.getResources().getResourceEntryName(child.getId());
-                        if (resourceName != null && resourceName.equals("player_cast_btn")) {
-                            castButtonIndex = i;
-                            break;
-                        }
-                    } catch (Exception e) {
-                        Logger.printException(() -> "Error finding cast button", e);
-                    }
-                }
-            }
-
+            params.setMargins(0, 0, 4, 0);
+            speedButton.setLayoutParams(params);
+            speedButton.setOnClickListener(v -> changePlayBackSpeed(speedButton));
+            int castButtonIndex = findCastButtonIndex(buttonContainer, context);
             if (castButtonIndex != -1) {
-                buttonContainer.addView(speedText, castButtonIndex);
+                buttonContainer.addView(speedButton, castButtonIndex);
             } else {
-                buttonContainer.addView(speedText);
+                buttonContainer.addView(speedButton);
             }
+
         } catch (Exception e) {
             Logger.printException(() -> "Error initializing speed overlay", e);
         }
+    }
+
+    private static int findCastButtonIndex(LinearLayout buttonContainer, Context context) {
+        for (int i = 0; i < buttonContainer.getChildCount(); i++) {
+            View child = buttonContainer.getChildAt(i);
+            if (child.getId() != View.NO_ID) {
+                try {
+                    String resourceName = context.getResources().getResourceEntryName(child.getId());
+                    if (resourceName != null && resourceName.equals("player_cast_btn")) {
+                        return i;
+                    }
+                } catch (Exception e) {
+                    // Continue searching
+                }
+            }
+        }
+        return -1;
     }
 
     private static void changePlayBackSpeed(TextView speedText) {
@@ -123,7 +128,7 @@ public class PlaybackSpeedPatch {
         Context context = speedText.getContext();
         String[] speedOptions = {"1.0x", "1.5x", "2.0x"};
         float[] speedValues = {1.0f, 1.5f, 2.0f};
-        
+
         int currentSelection = 0;
         if (player != null) {
             try {
@@ -162,7 +167,7 @@ public class PlaybackSpeedPatch {
             if (userControlsView instanceof ViewGroup viewGroup) {
                 for (int i = 0; i < viewGroup.getChildCount(); i++) {
                     View child = viewGroup.getChildAt(i);
-                    
+
                     if (child instanceof LinearLayout && child.getId() != View.NO_ID) {
                         try {
                             String resourceName = userControlsView.getContext().getResources().getResourceEntryName(child.getId());
@@ -173,7 +178,7 @@ public class PlaybackSpeedPatch {
                             Logger.printException(() -> "Error finding button container", e);
                         }
                     }
-                    
+
                     LinearLayout result = findTopButtonContainer(child);
                     if (result != null) {
                         return result;
@@ -184,5 +189,69 @@ public class PlaybackSpeedPatch {
             Logger.printException(() -> "Error finding button container", e);
         }
         return null;
+    }
+}
+
+class SpeedIconDrawable extends Drawable {
+    private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+    @Override
+    public void draw(Canvas canvas) {
+        int w = getBounds().width();
+        int h = getBounds().height();
+        float centerX = w / 2f;
+        float centerY = h * 0.7f; // Position gauge in lower portion
+        float radius = Math.min(w, h) / 2f * 0.8f;
+
+        paint.setColor(Color.WHITE);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(radius * 0.1f);
+
+        // Draw semicircle
+        RectF oval = new RectF(centerX - radius, centerY - radius, centerX + radius, centerY + radius);
+        canvas.drawArc(oval, 180, 180, false, paint);
+
+        // Draw three tick marks
+        paint.setStrokeWidth(radius * 0.06f);
+        for (int i = 0; i < 3; i++) {
+            float angle = 180 + (i * 45); // 180°, 225°, 270°
+            float angleRad = (float) Math.toRadians(angle);
+
+            float startX = centerX + (radius * 0.8f) * (float) Math.cos(angleRad);
+            float startY = centerY + (radius * 0.8f) * (float) Math.sin(angleRad);
+            float endX = centerX + radius * (float) Math.cos(angleRad);
+            float endY = centerY + radius * (float) Math.sin(angleRad);
+
+            canvas.drawLine(startX, startY, endX, endY, paint);
+        }
+
+        // Draw needle
+        paint.setStrokeWidth(radius * 0.08f);
+        float needleAngle = 200; // Slightly right of center
+        float needleAngleRad = (float) Math.toRadians(needleAngle);
+
+        float needleEndX = centerX + (radius * 0.6f) * (float) Math.cos(needleAngleRad);
+        float needleEndY = centerY + (radius * 0.6f) * (float) Math.sin(needleAngleRad);
+
+        canvas.drawLine(centerX, centerY, needleEndX, needleEndY, paint);
+
+        // Center dot
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawCircle(centerX, centerY, radius * 0.06f, paint);
+    }
+
+    @Override
+    public void setAlpha(int alpha) {
+        paint.setAlpha(alpha);
+    }
+
+    @Override
+    public void setColorFilter(ColorFilter colorFilter) {
+        paint.setColorFilter(colorFilter);
+    }
+
+    @Override
+    public int getOpacity() {
+        return PixelFormat.TRANSLUCENT;
     }
 }
