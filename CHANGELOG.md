@@ -1,3 +1,10 @@
+## [5.31.2-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.3...v5.31.2-dev.4) (2025-07-13)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Back button/gesture closes search instead of exiting ([#5418](https://github.com/ReVanced/revanced-patches/issues/5418)) ([134b278](https://github.com/ReVanced/revanced-patches/commit/134b278baa7b90d2c4b06200cabacabf55ebc055))
+
 ## [5.31.2-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.2...v5.31.2-dev.3) (2025-07-13)
 
 
