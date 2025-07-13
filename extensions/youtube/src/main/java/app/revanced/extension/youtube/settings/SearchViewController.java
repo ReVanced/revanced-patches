@@ -350,14 +350,14 @@ public class SearchViewController {
 
     public static boolean handleBackPress() {
         if (LicenseActivityHook.searchViewController != null
-                && LicenseActivityHook.searchViewController.isSearchExpanded()) {
+                && LicenseActivityHook.searchViewController.isSearchActive()) {
             LicenseActivityHook.searchViewController.closeSearch();
             return true;
         }
         return false;
     }
 
-    public boolean isSearchExpanded() {
+    public boolean isSearchActive() {
         return isSearchActive;
     }
 

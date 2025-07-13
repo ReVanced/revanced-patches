@@ -237,7 +237,7 @@ val settingsPatch = bytecodePatch(
 
         // Add context override to force a specific settings language.
         licenseActivityOnCreateFingerprint.classDef.apply {
-            val attachBaseContext = ImmutableMethod(
+            ImmutableMethod(
                 type,
                 "attachBaseContext",
                 listOf(ImmutableMethodParameter("Landroid/content/Context;", null, null)),
@@ -255,9 +255,29 @@ val settingsPatch = bytecodePatch(
                         return-void
                     """
                 )
-            }
+            }.let(methods::add)
 
-            methods.add(attachBaseContext)
+            ImmutableMethod(
+                type,
+                "onBackPressed",
+                emptyList(),
+                "V",
+                AccessFlags.PUBLIC.value,
+                null,
+                null,
+                MutableMethodImplementation(3),
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                        invoke-static {}, Lapp/revanced/extension/youtube/settings/SearchViewController;->handleBackPress()Z
+                        move-result v0
+                        if-nez v0, :search_handled
+                        invoke-virtual { p0 }, Landroid/app/Activity;->finish()V
+                        :search_handled
+                        return-void
+                    """
+                )
+            }.let(methods::add)
         }
 
         licenseActivityOnCreateFingerprint.classDef.apply {
