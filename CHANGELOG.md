@@ -1,3 +1,10 @@
+## [5.31.2-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.4...v5.31.2-dev.5) (2025-07-14)
+
+
+### Bug Fixes
+
+* **Spotify - Spoof client:** Fix login failing by spoofing login request in addition ([#5448](https://github.com/ReVanced/revanced-patches/issues/5448)) ([4e59ddc](https://github.com/ReVanced/revanced-patches/commit/4e59ddc62388d09f71b89593fc8b76933d9facea))
+
 ## [5.31.2-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.3...v5.31.2-dev.4) (2025-07-13)
 
 
