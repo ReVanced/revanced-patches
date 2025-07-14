@@ -93,7 +93,7 @@ val spoofClientPatch = bytecodePatch(
             0, "const-string p1, \"58bd3c95768941ea9eb4350aaa033eb3\""
         )
 
-        // endregion    
+        // endregion
 
         // region Spoof client-token request.
 
