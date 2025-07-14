@@ -164,9 +164,6 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_expandable_card_title">Slėpti išskleidžiamą kortelę</string>
   <string name="revanced_hide_expandable_card_summary_on">Išskleidžiama kortelė po vaizdo įrašais paslėpta</string>
   <string name="revanced_hide_expandable_card_summary_off">Išskleidžiama kortelė po vaizdo įrašais rodoma</string>
-  <string name="revanced_hide_feed_survey_title">Slėpti sklaidos apklausas</string>
-  <string name="revanced_hide_feed_survey_summary_on">Sklaidos apklausos yra paslėptos</string>
-  <string name="revanced_hide_feed_survey_summary_off">Sklaidos apklausos yra rodomos</string>
   <string name="revanced_hide_floating_microphone_button_title">Slėpti plūduriuojantį mikrofono mygtuką</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Plaukiojantis mikrofono mygtukas paieškoje yra paslėptas</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Plaukiojantis mikrofono mygtukas paieškoje rodomas</string>
@@ -192,7 +189,7 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_movies_section_summary_on">Filmų skyrius yra paslėptas</string>
   <string name="revanced_hide_movies_section_summary_off">Filmų skyrius yra rodomas</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Slėpti mygtuką \"Pranešti man\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Pranešti mygtukas yra paslėptas</string>
   <string name="revanced_hide_notify_me_button_summary_off">Pranešti mygtukas yra rodomas</string>
@@ -204,6 +201,9 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_show_more_button_title">Slėpti mygtuką \"Rodyti daugiau\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Rodyti daugiau mygtukas paieškos rezultatuose yra paslėptas</string>
   <string name="revanced_hide_show_more_button_summary_off">Rodyti daugiau mygtukas paieškos rezultatuose yra rodomas</string>
+  <string name="revanced_hide_surveys_title">Slėpti apklausas</string>
+  <string name="revanced_hide_surveys_summary_on">Apklausos paslėptos</string>
+  <string name="revanced_hide_surveys_summary_off">Apklausos rodomos</string>
   <string name="revanced_hide_ticket_shelf_title">Slėpti bilietų lentyną</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Bilietų lentyna yra paslėpta</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Bilietų lentyna yra rodoma</string>
@@ -251,8 +251,8 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <string name="revanced_hide_timed_reactions_summary_on">Laiku įvykusios reakcijos yra paslėptos</string>
   <string name="revanced_hide_timed_reactions_summary_off">Laiku įvykusios reakcijos yra rodomos</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Slėpti „AI sukurtos vaizdo įrašo santraukos“</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Vaizdo įrašo santraukos skyrius yra paslėptas</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Vaizdo įrašo santraukos skyrius yra rodomas</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Dirbtinio intelekto sugeneruotos vaizdo įrašo santraukos skyrius paslėptas</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Rodomas dirbtinio intelekto sugeneruotos vaizdo įrašo santraukos skyrius</string>
   <string name="revanced_hide_ask_section_title">Slėpti \"Klausti\"</string>
   <string name="revanced_hide_ask_section_summary_on">Skyrius „Klausti“ yra paslėptas</string>
   <string name="revanced_hide_ask_section_summary_off">Skyrius „Klausti“ yra rodomas</string>
@@ -280,19 +280,19 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <string name="revanced_hide_description_components_screen_title">Vaizdo įrašo aprašymas</string>
   <string name="revanced_hide_description_components_screen_summary">Slėpti arba rodyti vaizdo įrašo aprašymo komponentus</string>
   <string name="revanced_hide_filter_bar_screen_title">Filtravimo juosta</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Slėpti arba rodyti filtrų juostą sklaidos kanaluose, istorijoje, paieškos rezultatuose ir susijusiuose vaizdo įrašuose.</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Slėpti arba rodyti filtro juostą sklaidos kanaluose, susijusiuose vaizdo įrašuose, paieškos rezultatuose ir žiūrėjimo istorijoje</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Slėpti sklaidos kanaluose</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Paslėpta sklaidos kanaluose</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Matoma sklaidos kanaluose</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Slėpti istorijoje</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Paslėpta istorijoje</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Matoma istorijoje</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Slėpti paieškos rezultatuose</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Paslėpta paieškos rezultatuose</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Rodoma paieškos rezultatuose</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Slėpti susijusiuose vaizdo įrašuose</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Paslėpta susijusiuose vaizdo įrašuose</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Rodoma susijusiuose vaizdo įrašuose</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Slėpti paieškos rezultatuose</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Paslėpta paieškos rezultatuose</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Rodoma paieškos rezultatuose</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Slėpti žiūrėjimo istorijoje</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Paslėpta žiūrėjimo istorijoje</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Rodoma žiūrėjimo istorijoje</string>
   <string name="revanced_channel_screen_title">Kanalo puslapis</string>
   <string name="revanced_channel_screen_summary">Slėpti arba rodyti kanalo puslapio komponentus</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -315,12 +315,12 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <string name="revanced_hide_visit_store_button_summary_off">Mygtukas „Aplankyti parduotuvę“ rodomas</string>
   <string name="revanced_comments_screen_title">Komentarai</string>
   <string name="revanced_comments_screen_summary">Slėpti arba rodyti komentarų skyriaus komponentus</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Slėpti AI pokalbio santrauką</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Pokalbio santrauka paslėpta</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Pokalbio santrauka rodoma</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Slėpti AI pokalbių santrauką</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">AI pokalbių santrauka paslėpta</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">AI pokalbių santrauka rodoma</string>
   <string name="revanced_hide_comments_ai_summary_title">Slėpti AI komentarų santrauką</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Komentarų santrauka paslėpta</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Komentarų santrauka rodoma</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">AI komentarų santrauka paslėpta</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">AI komentarų santrauka rodoma</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Slėpti kanalo gaires</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanalo gairės paslėptos</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanalo gairės rodomos</string>
@@ -419,7 +419,6 @@ Apribojimai
   <string name="revanced_hide_shopping_links_title">Slėpti pirkimo nuorodas</string>
   <string name="revanced_hide_shopping_links_summary_on">Apsipirkimo nuorodos vaizdo įrašo aprašyme yra paslėptos</string>
   <string name="revanced_hide_shopping_links_summary_off">Apsipirkimo nuorodos vaizdo įrašo aprašyme rodomos</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Slėpti reklamjuostę „Žiūrėti produktus“</string>
   <string name="revanced_hide_view_products_banner_summary_on">Peržiūrėti produktus reklaminis skydelis vaizdo įrašo perdangoje yra paslėptas</string>
   <string name="revanced_hide_view_products_banner_summary_off">Peržiūrėti produktus reklaminis skydelis vaizdo įrašo perdangoje yra rodomas</string>
@@ -453,7 +452,7 @@ Apribojimai
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialogas bus rodomas</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tai neaplenkia amžiaus apribojimo. Jis tiesiog jį automatiškai priima.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Išjungti dvigubo bakstelėjimo skyriaus praleidimą</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dvigubas bakstelėjimas niekada negali suaktyvinti praleidimo į kitą/ankstesnį skyrių</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dvigubas bakstelėjimas kartais gali suaktyvinti praleidimą į kitą/ankstesnį skyrių</string>
@@ -700,9 +699,9 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_cast_button_title">Paslėpti mygtuką \"Transliuoti\"</string>
   <string name="revanced_hide_cast_button_summary_on">Transliacijos mygtukas yra paslėptas</string>
   <string name="revanced_hide_cast_button_summary_off">Transliacijos mygtukas yra rodomas</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Slėpti grotuvo valdymo mygtukų foną</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Grotuvo valdymo mygtukų fonas paslėptas</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Grotuvo valdymo mygtukų fonas rodomas</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Slėpti grotuvo valdiklių foną</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Grotojo valdiklių fonas paslėptas</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Rodomas grotuvo valdiklių fonas</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Slėpti ankstesnius ir kitus mygtukus</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Mygtukai yra paslėpti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Mygtukai yra rodomi</string>
@@ -728,27 +727,27 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_disable_rolling_number_animations_summary_off">Besisukantys skaičiai yra animuoti</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Slėpti ieškojimo juostą vaizdo įrašų grotuve</string>
+  <string name="revanced_hide_seekbar_title">Slėpti vaizdo įrašo grotuvo paieškos juostą</string>
   <string name="revanced_hide_seekbar_summary_on">Vaizdo įrašų grotuvo ieškojimo juosta yra paslėpta</string>
   <string name="revanced_hide_seekbar_summary_off">Vaizdo įrašų grotuvo ieškojimo juosta yra rodoma</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Slėpti ieškojimo juostą vaizdo įrašų miniatiūrose</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Miniatiūrų ieškojimo juosta yra paslėpta</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatiūrų ieškojimo juosta yra rodoma</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Slėpti vaizdo įrašo miniatiūrų paieškos juostą</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Vaizdo įrašo miniatiūrų paieškos juosta paslėpta</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Vaizdo įrašo miniatiūrų paieškos juosta rodoma</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts grotuvas</string>
-  <string name="revanced_shorts_player_screen_summary">Slėpti arba rodyti komponentus Shorts grotuve</string>
+  <string name="revanced_shorts_player_screen_summary">Slėpti arba rodyti Shorts grotuvo komponentus</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Slėpti Shorts pagrindiniame sraute</string>
   <string name="revanced_hide_shorts_home_summary_on">Paslėpta pagrindiniame sraute ir susijusiuose vaizdo įrašuose</string>
   <string name="revanced_hide_shorts_home_summary_off">Rodoma pagrindiniame sraute ir susijusiuose vaizdo įrašuose</string>
+  <string name="revanced_hide_shorts_search_title">Slėpti Shorts paieškos rezultatuose</string>
+  <string name="revanced_hide_shorts_search_summary_on">Paslėpti paieškos rezultatuose</string>
+  <string name="revanced_hide_shorts_search_summary_off">Rodoma paieškos rezultatuose</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Slėpti Shorts prenumeratų sraute</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Paslėpta prenumeratų sraute</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Rodoma prenumeratų sraute</string>
-  <string name="revanced_hide_shorts_search_title">Slėpti Shorts paieškos rezultatuose</string>
-  <string name="revanced_hide_shorts_search_summary_on">Paslėpti paieškos rezultatuose</string>
-  <string name="revanced_hide_shorts_search_summary_off">Rodoma paieškos rezultatuose</string>
   <string name="revanced_hide_shorts_history_title">Slėpti šortus žiūrėjimo istorijoje</string>
   <string name="revanced_hide_shorts_history_summary_on">Paslėpta žiūrėjimo istorijoje</string>
   <string name="revanced_hide_shorts_history_summary_off">Rodoma žiūrėjimo istorijoje</string>

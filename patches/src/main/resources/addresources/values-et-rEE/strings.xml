@@ -164,9 +164,6 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_expandable_card_title">Peida laiendatav kaart</string>
   <string name="revanced_hide_expandable_card_summary_on">Laiendatav kaart videote all on peidetud</string>
   <string name="revanced_hide_expandable_card_summary_off">Laiendatav kaart videote all on nähtav</string>
-  <string name="revanced_hide_feed_survey_title">Peida kanalite küsitlused</string>
-  <string name="revanced_hide_feed_survey_summary_on">Kanalite küsitlused on peidetud</string>
-  <string name="revanced_hide_feed_survey_summary_off">Kanalite küsitlused on nähtavad</string>
   <string name="revanced_hide_floating_microphone_button_title">Peida ujuv mikrofoninupp</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Ujuv mikrofoni nupp otsingus on peidetud</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Ujuv mikrofoni nupp otsingus on nähtav</string>
@@ -192,7 +189,7 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_movies_section_summary_on">Filmide jaotis on peidetud</string>
   <string name="revanced_hide_movies_section_summary_off">Filmide jaotis on nähtav</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Peida nupu \"Teata mulle\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Teata mulle nupp on peidetud</string>
   <string name="revanced_hide_notify_me_button_summary_off">Teata mulle nupp on nähtaval</string>
@@ -204,6 +201,9 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_show_more_button_title">Peida nupp \"Kuva rohkem\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Kuva rohkem nupp otsingutulemustes on peidetud</string>
   <string name="revanced_hide_show_more_button_summary_off">Kuva rohkem nupp otsingutulemustes on nähtaval</string>
+  <string name="revanced_hide_surveys_title">Peida küsitlused</string>
+  <string name="revanced_hide_surveys_summary_on">Küsitlused on peidetud</string>
+  <string name="revanced_hide_surveys_summary_off">Küsitlused on nähtaval</string>
   <string name="revanced_hide_ticket_shelf_title">Peida pääsmeriiul</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Pääsmeriiul on peidetud</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Pääsmeriiul on nähtav</string>
@@ -251,8 +251,8 @@ Kui Doodle on teie piirkonnas praegu nähtav ja see peitmise seade on sisse lül
   <string name="revanced_hide_timed_reactions_summary_on">Ajastatud reaktsioonid on peidetud</string>
   <string name="revanced_hide_timed_reactions_summary_off">Ajastatud reaktsioonid on nähtavad</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Peida „AI-ga loodud video kokkuvõte”</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video kokkuvõtte osa on peidetud</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video kokkuvõtte osa on näidatud</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Tehisintellekti loodud videokokkuvõtete jaotis on peidetud</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI-ga loodud videokokkuvõtte jaotis on nähtaval</string>
   <string name="revanced_hide_ask_section_title">Peida küsi</string>
   <string name="revanced_hide_ask_section_summary_on">Küsi osa on peidetud</string>
   <string name="revanced_hide_ask_section_summary_off">Küsi osa on nähtav</string>
@@ -280,19 +280,19 @@ Kui Doodle on teie piirkonnas praegu nähtav ja see peitmise seade on sisse lül
   <string name="revanced_hide_description_components_screen_title">Video kirjeldus</string>
   <string name="revanced_hide_description_components_screen_summary">Peida videokirjelduse komponendid või kuva need</string>
   <string name="revanced_hide_filter_bar_screen_title">Filtriseriba</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Peida või näita filtririba voogudes, ajaloos, otsingutulemustes ja seotud videotes</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Peida või näita filtririba voogudes, seotud videotes, otsingutulemustes ja vaatamiste ajaloos</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Peida voogudes</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Peidetud voogudes</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Näidatud voogudes</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Peida ajaloos</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Peidetud ajaloos</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Näidatud ajaloos</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Peida otsingutulemustes</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Peidetud otsingutulemustes</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Kuvatakse otsingutulemustes</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Peida seotud videotes</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Peidetud seotud videotes</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näidatakse seotud videotes</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Peida otsingutulemustes</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Peidetud otsingutulemustes</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Kuvatakse otsingutulemustes</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Peida vaatamisajaloos</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Peidetud vaatamiste ajaloos</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Nähtav vaatamisajaloos</string>
   <string name="revanced_channel_screen_title">Kanali leht</string>
   <string name="revanced_channel_screen_summary">Peida või näita kanali lehe komponente</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -315,12 +315,12 @@ Kui Doodle on teie piirkonnas praegu nähtav ja see peitmise seade on sisse lül
   <string name="revanced_hide_visit_store_button_summary_off">Nupp \"Külasta poodi\" on nähtav</string>
   <string name="revanced_comments_screen_title">Kommentaarid</string>
   <string name="revanced_comments_screen_summary">Peida või kuva kommentaaride sektsiooni komponendid</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Peida tehisintellekti vestluse kokkuv\u00f5te</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Vestluse kokkuv\u00f5te on peidetud</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Vestluse kokkuv\u00f5te on n\u00e4idatud</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Peida AI vestluse kokkuvõte</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">AI vestluse kokkuvõte on peidetud</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">AI vestluse kokkuvõte on nähtav</string>
   <string name="revanced_hide_comments_ai_summary_title">Peida tehisintellekti kommentaaride kokkuv\u00f5te</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Kommentaaride kokkuv\u00f5te on peidetud</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Kommentaaride kokkuv\u00f5te on n\u00e4idatud</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">AI kommentaaride kokkuvõte on peidetud</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">AI kommentaaride kokkuvõte on nähtav</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Peida kanali juhised</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanali juhised on peidetud</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanali juhised on nähtaval</string>
@@ -419,7 +419,6 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_hide_shopping_links_title">Peida ostulingid</string>
   <string name="revanced_hide_shopping_links_summary_on">Ostulingid video kirjelduses on peidetud</string>
   <string name="revanced_hide_shopping_links_summary_off">Ostlemise lingid videokirjelduses on nähtavad</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Peida bänner \"Vaata tooteid\"</string>
   <string name="revanced_hide_view_products_banner_summary_on">Vaata tooteid bänner videokattel on peidetud</string>
   <string name="revanced_hide_view_products_banner_summary_off">Vaata tooteid bänner videokattel on nähtaval</string>
@@ -453,7 +452,7 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoog kuvatakse</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">See ei mööda vanusepiirangust. See lihtsalt aktsepteerib seda automaatselt.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Keela topeltpuudutusega peatüki vahelejätmine</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Topeltpuudutus ei saa kunagi käivitada järgmise/eelmise peatüki vahelejätmist</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Topeltpuudutus võib aeg-ajalt käivitada järgmise/eelmise peatüki vahelejätmise</string>
@@ -703,8 +702,8 @@ Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ vä
   <string name="revanced_hide_cast_button_summary_on">Ülekandmise nupp on peidetud</string>
   <string name="revanced_hide_cast_button_summary_off">Ülekandmise nupp on nähtav</string>
   <string name="revanced_hide_player_control_buttons_background_title">Peida pleieri juhtnuppude taust</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Pleieri juhtnuppude taust on peidetud</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Pleieri juhtnuppude taust on näidatud</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Mängija juhtnuppude taust on peidetud</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Pleieri juhtnuppude taust on nähtav</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Peida eelmine &amp; järgmine nupp</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Nupud on peidetud</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Nupud on nähtavad</string>
@@ -730,27 +729,27 @@ Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ vä
   <string name="revanced_disable_rolling_number_animations_summary_off">Rulluvad numbrid on animeeritud</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Peida otsimisriba videopleieris</string>
+  <string name="revanced_hide_seekbar_title">Peida videopleieri edenemisriba</string>
   <string name="revanced_hide_seekbar_summary_on">Videopleieri otsimisriba on peidetud</string>
   <string name="revanced_hide_seekbar_summary_off">Videopleieri otsimisriba on nähtav</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Peida otsimisriba videominiatuurides</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Miniatuuri otsimisriba on peidetud</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatuuri otsimisriba on nähtav</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Peida video pisipiltide edenemisriba</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Video pisipiltide edenemisriba on peidetud</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Video pisipiltide edenemisriba on nähtav</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts esitusprogramm</string>
-  <string name="revanced_shorts_player_screen_summary">Peida või näita komponente Shorts esitusprogrammis</string>
+  <string name="revanced_shorts_player_screen_summary">Peida või näita Shortside pleieri komponente</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Peida Shorts esilehel</string>
   <string name="revanced_hide_shorts_home_summary_on">Peidetud esilehel ja seotud videotes</string>
   <string name="revanced_hide_shorts_home_summary_off">Nähtaval esilehel ja seotud videotes</string>
+  <string name="revanced_hide_shorts_search_title">Peida Shorts otsingutulemustes</string>
+  <string name="revanced_hide_shorts_search_summary_on">Peida otsingutulemustest</string>
+  <string name="revanced_hide_shorts_search_summary_off">Näidatud otsingutulemustes</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Peida Shorts tellimuste voos</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Peidetud tellimuste voos</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Nähtaval tellimuste voos</string>
-  <string name="revanced_hide_shorts_search_title">Peida Shorts otsingutulemustes</string>
-  <string name="revanced_hide_shorts_search_summary_on">Peida otsingutulemustest</string>
-  <string name="revanced_hide_shorts_search_summary_off">Näidatud otsingutulemustes</string>
   <string name="revanced_hide_shorts_history_title">Peida Shortsid vaatamisaegadust</string>
   <string name="revanced_hide_shorts_history_summary_on">Peidetud vaatamise ajaloos</string>
   <string name="revanced_hide_shorts_history_summary_off">Näidatud vaatamisaegadus</string>

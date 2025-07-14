@@ -40,7 +40,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
@@ -58,7 +58,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   </patch>
@@ -68,7 +67,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->

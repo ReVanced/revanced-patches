@@ -164,9 +164,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_expandable_card_title">Сакриј прошириву картицу</string>
   <string name="revanced_hide_expandable_card_summary_on">Проширива картица испод видеа је скривена</string>
   <string name="revanced_hide_expandable_card_summary_off">Развучена картица испод видео снимака је приказана</string>
-  <string name="revanced_hide_feed_survey_title">Сакриј анкете у фиду</string>
-  <string name="revanced_hide_feed_survey_summary_on">Анкете у фиду су скривене</string>
-  <string name="revanced_hide_feed_survey_summary_off">Анкете у фиду су приказане</string>
   <string name="revanced_hide_floating_microphone_button_title">Сакриј плутајуће дугме микрофона</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Плутајуће дугме микрофона у претрази је скривено</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Плутајуће дугме микрофона у претрази је приказано</string>
@@ -192,7 +189,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_movies_section_summary_on">Одељак за филмове је скривен</string>
   <string name="revanced_hide_movies_section_summary_off">Одељак за филмове је приказан</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Сакриј дугме „Обавести ме”</string>
   <string name="revanced_hide_notify_me_button_summary_on">Дугме „Обавести ме” је скривено</string>
   <string name="revanced_hide_notify_me_button_summary_off">Дугме „Обавести ме” је приказано</string>
@@ -204,6 +201,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">Сакриј дугме „Прикажи још”</string>
   <string name="revanced_hide_show_more_button_summary_on">Дугме „Прикажи више” у резултатима претраге је скривено</string>
   <string name="revanced_hide_show_more_button_summary_off">Дугме „Прикажи више” у резултатима претраге је приказано</string>
+  <string name="revanced_hide_surveys_title">Сакриј анкете</string>
+  <string name="revanced_hide_surveys_summary_on">Анкете су скривене</string>
+  <string name="revanced_hide_surveys_summary_off">Анкете су приказане</string>
   <string name="revanced_hide_ticket_shelf_title">Сакриј полицу са картама</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Полица са картама је скривена</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Полица са картама је приказана</string>
@@ -251,8 +251,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_summary_on">Временске реакције су скривене</string>
   <string name="revanced_hide_timed_reactions_summary_off">Временске реакције су приказане</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Сакриј „Резиме видеа који је генерисала вештачка интелигенција”</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Одељак „Резиме видеа” је скривен</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Одељак „Резиме видеа” је приказан</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Одељак сажетка видеа генерисаног вештачком интелигенцијом је скривен</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Приказан је одељак са AI генерисаним резимеом видеа</string>
   <string name="revanced_hide_ask_section_title">Сакриј одељак „Питај”</string>
   <string name="revanced_hide_ask_section_summary_on">Одељак „Питај” је скривен</string>
   <string name="revanced_hide_ask_section_summary_off">Одељак „Питај” је приказан</string>
@@ -280,19 +280,19 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Опис видеа</string>
   <string name="revanced_hide_description_components_screen_summary">Сакријте или прикажите компоненте описа видеа</string>
   <string name="revanced_hide_filter_bar_screen_title">Трака филтера</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Сакријте или прикажите траку филтера у фидовима, историји, резултатима претраге и сродним видеима</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Сакријте или прикажите траку филтера у фидовима, сродним видеима, резултатима претраге и историји гледања</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Сакриј у фидовима</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Скривено у фидовима</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Приказано у фидовима</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Сакриј у историји</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Скривено у историји</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Приказано у историји</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Сакриј у резултатима претраге</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Скривено у резултатима претраге</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Приказано у резултатима претраге</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Сакриј у сродним видеима</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Скривено у сродним видеима</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Приказано у сродним видеима</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Сакриј у резултатима претраге</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Скривено у резултатима претраге</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Приказано у резултатима претраге</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Сакриј у историји гледања</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Скривено у историји гледања</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Приказано у историји гледања</string>
   <string name="revanced_channel_screen_title">Страница канала</string>
   <string name="revanced_channel_screen_summary">Сакријте или прикажите компоненте странице канала</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -315,12 +315,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_visit_store_button_summary_off">Дугме „Посети продавницу” је приказано</string>
   <string name="revanced_comments_screen_title">Коментари</string>
   <string name="revanced_comments_screen_summary">Сакријте или прикажите компоненте одељка за коментаре</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Сакриј „Резиме ћаскања који је генерисала вештачка интелигенција”</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">„Резиме ћаскања” је скривен</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">„Резиме ћаскања” је приказан</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Сакриј сажетак АИ ћаскања</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Сажетак АИ ћаскања је скривен</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Сажетак АИ ћаскања је приказан</string>
   <string name="revanced_hide_comments_ai_summary_title">Сакриј „Резиме коментара који је генерисала вештачка интелигенција”</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">„Резиме коментара” је скривен</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">„Резиме коментара” је приказан</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Сажетак АИ коментара је скривен</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Сажетак АИ коментара је приказан</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Сакриј смернице канала</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Смернице канала су скривене</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Смернице канала су приказане</string>
@@ -419,7 +419,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shopping_links_title">Сакриј линкове за куповину</string>
   <string name="revanced_hide_shopping_links_summary_on">Линкови за куповину у опису видеа су скривени</string>
   <string name="revanced_hide_shopping_links_summary_off">Линкови за куповину у опису видеа су приказани</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Сакриј банер „Погледајте производе”</string>
   <string name="revanced_hide_view_products_banner_summary_on">Банер „Погледајте производе” у видео плејеру је скривен</string>
   <string name="revanced_hide_view_products_banner_summary_off">Банер „Погледајте производе” у видео плејеру је приказан</string>
@@ -453,7 +452,7 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Дијалог о дискрецији гледаоца ће бити приказан</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ово не заобилази старосно ограничење. Само га аутоматски прихвата.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Онемогући прескакање поглавља двоструким додиром</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Двоструки додир никада не може покренути прескакање на следеће/претходно поглавље</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Двоструки додир може повремено покренути прескакање на следеће/претходно поглавље</string>
@@ -702,9 +701,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_cast_button_title">Сакриј дугме „Пребацуј”</string>
   <string name="revanced_hide_cast_button_summary_on">Дугме „Пребацуј” је скривено</string>
   <string name="revanced_hide_cast_button_summary_off">Дугме „Пребацуј” је приказано</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Сакриј позадину дугмади за контролу плејера</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Позадина дугмади за контролу плејера је скривена</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Позадина дугмади за контролу плејера је приказана</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Сакриј позадину контрола плејера</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Позадина контрола плејера је скривена</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Позадина контрола плејера је приказана</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Сакриј дугмад за претходни и следећи видео</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Дугмад за претходни и следећи видео су скривена</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Дугмад за претходни и следећи видео су приказана</string>
@@ -730,27 +729,27 @@ Second \"item\" text"</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Бројеви су анимирани</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Сакриј траку за премотавање у видео плејеру</string>
+  <string name="revanced_hide_seekbar_title">Сакриј траку за премотавање видео плејера</string>
   <string name="revanced_hide_seekbar_summary_on">Трака за премотавање у видео плејеру је скривена</string>
   <string name="revanced_hide_seekbar_summary_off">Трака за премотавање у видео плејеру је приказана</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Сакриј траку за премотавање на сличици видеа</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Трака за премотавање на сличици видеа је скривена</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Трака за премотавање на сличици видеа је приказана</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Сакриј траку за премотавање сличица видеа</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Трака за премотавање сличица видеа је скривена</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Трака за премотавање сличица видеа је приказана</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts плејер</string>
-  <string name="revanced_shorts_player_screen_summary">Сакријте или прикажите компоненте у Shorts плејеру</string>
+  <string name="revanced_shorts_player_screen_summary">Сакријте или прикажите компоненте Shorts плејера</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Сакриј Shorts у фиду „Почетна”</string>
   <string name="revanced_hide_shorts_home_summary_on">Скривено у фиду „Почетна” и сродним видеима</string>
   <string name="revanced_hide_shorts_home_summary_off">Приказано у фиду „Почетна” и сродним видеима</string>
+  <string name="revanced_hide_shorts_search_title">Сакриј Shorts видее у резултатима претраге</string>
+  <string name="revanced_hide_shorts_search_summary_on">Скривено у резултатима претраге</string>
+  <string name="revanced_hide_shorts_search_summary_off">Приказано у резултатима претраге</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Сакриј Shorts у фиду „Праћења”</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Скривено у фиду „Праћења”</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Приказано у фиду „Праћења”</string>
-  <string name="revanced_hide_shorts_search_title">Сакриј Shorts видее у резултатима претраге</string>
-  <string name="revanced_hide_shorts_search_summary_on">Скривено у резултатима претраге</string>
-  <string name="revanced_hide_shorts_search_summary_off">Приказано у резултатима претраге</string>
   <string name="revanced_hide_shorts_history_title">Сакриј Shorts у историји гледања</string>
   <string name="revanced_hide_shorts_history_summary_on">Скривено у историји гледања</string>
   <string name="revanced_hide_shorts_history_summary_off">Приказано у историји гледања</string>

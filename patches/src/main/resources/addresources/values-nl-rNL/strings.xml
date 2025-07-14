@@ -164,9 +164,6 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_expandable_card_title">Uitklapbare kaart verbergen</string>
   <string name="revanced_hide_expandable_card_summary_on">Uitklapbare kaart onder video\'s is verborgen</string>
   <string name="revanced_hide_expandable_card_summary_off">Uitklapbare kaart onder video\'s is getoond</string>
-  <string name="revanced_hide_feed_survey_title">Verberg feed-enquêtes</string>
-  <string name="revanced_hide_feed_survey_summary_on">Feed-enquêtes zijn verborgen</string>
-  <string name="revanced_hide_feed_survey_summary_off">Feed-enquêtes worden weergegeven</string>
   <string name="revanced_hide_floating_microphone_button_title">Verberg zwevende microfoonknop</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Zwevende microfoonknop in zoeken is verborgen</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Zwevende microfoonknop in zoeken wordt getoond</string>
@@ -192,7 +189,7 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_movies_section_summary_on">Films sectie is verborgen</string>
   <string name="revanced_hide_movies_section_summary_off">De sectie Films wordt weergegeven</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">\'Herinnering sturen\' knop verbergen</string>
   <string name="revanced_hide_notify_me_button_summary_on">Meld mij-knop is verborgen</string>
   <string name="revanced_hide_notify_me_button_summary_off">Meld mij-knop wordt getoond</string>
@@ -204,6 +201,9 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_show_more_button_title">Verberg knop \'Meer weergeven\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Meer weergeven-knop in zoekresultaten is verborgen</string>
   <string name="revanced_hide_show_more_button_summary_off">Meer weergeven-knop in zoekresultaten wordt getoond</string>
+  <string name="revanced_hide_surveys_title">Enquêtes verbergen</string>
+  <string name="revanced_hide_surveys_summary_on">Enquêtes zijn verborgen</string>
+  <string name="revanced_hide_surveys_summary_off">Enquêtes worden getoond</string>
   <string name="revanced_hide_ticket_shelf_title">Ticketsectie verbergen</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Ticketsectie is verborgen</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Ticketsectie is getoond</string>
@@ -251,8 +251,8 @@ Als er momenteel een Doodle wordt getoond in je regio en deze instelling voor ve
   <string name="revanced_hide_timed_reactions_summary_on">Gectimed reacties worden verborgen</string>
   <string name="revanced_hide_timed_reactions_summary_off">Gectimed reacties worden getoond</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">\'AI-gegenereerde videosamenvatting\' verbergen</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Transcriptgedeelte is verborgen</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videobeschrijvingssectie is zichtbaar</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI-gegenereerde videosamenvattingssectie is verborgen</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sectie met door AI gegenereerde videosamenvatting wordt getoond</string>
   <string name="revanced_hide_ask_section_title">Vraag verbergen</string>
   <string name="revanced_hide_ask_section_summary_on">Vraaggedeelte is verborgen</string>
   <string name="revanced_hide_ask_section_summary_off">Vraaggedeelte wordt weergegeven</string>
@@ -280,19 +280,19 @@ Als er momenteel een Doodle wordt getoond in je regio en deze instelling voor ve
   <string name="revanced_hide_description_components_screen_title">Videobeschrijving</string>
   <string name="revanced_hide_description_components_screen_summary">Skjul eller vis komponentene i videoens beskrivelse</string>
   <string name="revanced_hide_filter_bar_screen_title">Filterbaren</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Filterbalk verbergen of tonen in de feeds, geschiedenis, zoekresultaten en gerelateerde video\'s</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Filterbalk verbergen of tonen in feeds, gerelateerde video\'s, zoekresultaten en kijkgeschiedenis</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Verbergen in feeds</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Verborgen in feeds</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Weergegeven in feeds</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Verbergen in geschiedenis</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Verborgen in geschiedenis</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Weergegeven in geschiedenis</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Verbergen in zoekresultaten</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Verborgen in zoekresultaten</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Weergegeven in zoekresultaten</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Verbergen in gerelateerde video\'s</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Verborgen in gerelateerde video\'s</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Weergegeven in gerelateerde video\'s</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Verbergen in zoekresultaten</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Verborgen in zoekresultaten</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Weergegeven in zoekresultaten</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Verbergen in kijkgeschiedenis</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Verborgen in kijkgeschiedenis</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Getoond in kijkgeschiedenis</string>
   <string name="revanced_channel_screen_title">Kanaalpagina</string>
   <string name="revanced_channel_screen_summary">Kanaalpagina-componenten verbergen of tonen</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -315,12 +315,12 @@ Als er momenteel een Doodle wordt getoond in je regio en deze instelling voor ve
   <string name="revanced_hide_visit_store_button_summary_off">Bezoek winkel-knop is getoond</string>
   <string name="revanced_comments_screen_title">Reacties</string>
   <string name="revanced_comments_screen_summary">Reacties verbergen of tonen</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">AI Chat-samenvatting verbergen</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chatsamenvatting is verborgen</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Chatsamenvatting wordt weergegeven</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">AI-chatsamenvatting verbergen</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">AI-chatsamenvatting is verborgen</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">AI-chatsamenvatting is getoond</string>
   <string name="revanced_hide_comments_ai_summary_title">AI-opmerkingensamenvatting verbergen</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Samenvatting van opmerkingen is verborgen</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Samenvatting van opmerkingen wordt weergegeven</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">AI-opmerkingensamenvatting is verborgen</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">AI-opmerkingensamenvatting is getoond</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Kanaalrichtlijnen verbergen</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanaalrichtlijnen zijn verborgen</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanaalrichtlijnen worden weergegeven</string>
@@ -419,7 +419,6 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_hide_shopping_links_title">Winkellinks verbergen</string>
   <string name="revanced_hide_shopping_links_summary_on">Winkellinks in videobeschrijving zijn verborgen</string>
   <string name="revanced_hide_shopping_links_summary_off">Winkellinks in videobeschrijving worden getoond</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Banner \'Producten bekijken\' verbergen</string>
   <string name="revanced_hide_view_products_banner_summary_on">Producten bekijken-banner in video-overlay is verborgen</string>
   <string name="revanced_hide_view_products_banner_summary_off">Producten bekijken-banner in video-overlay wordt getoond</string>
@@ -453,7 +452,7 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog wordt getoond</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Dit omzeilt de leeftijdsbeperking niet. Het accepteert het alleen automatisch.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Dubbeltik om hoofdstukken over te slaan uitschakelen</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dubbeltikken kan nooit leiden tot het overslaan naar het volgende/vorige hoofdstuk.</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dubbeltikken kan af en toe leiden tot het overslaan naar het volgende/vorige hoofdstuk.</string>
@@ -702,9 +701,9 @@ Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS T
   <string name="revanced_hide_cast_button_title">Verberg Cast-knop</string>
   <string name="revanced_hide_cast_button_summary_on">Castknop is verborgen</string>
   <string name="revanced_hide_cast_button_summary_off">Castknop wordt weergegeven</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Achtergrond van afspeelknoppen verbergen</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Achtergrond van afspeelknoppen is verborgen</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Achtergrond van afspeelknoppen wordt weergegeven</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Achtergrond van spelerbediening verbergen</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Achtergrond van spelerbediening is verborgen</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Achtergrond van spelerbediening wordt weergegeven</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Verberg Vorige &amp; Volgende knoppen</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knoppen zijn verborgen</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knoppen worden weergegeven</string>
@@ -730,27 +729,27 @@ Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS T
   <string name="revanced_disable_rolling_number_animations_summary_off">Rollende nummers zijn geanimeerd</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Verberg zoekbalk in videospeler</string>
+  <string name="revanced_hide_seekbar_title">Zoekbalk videospeler verbergen</string>
   <string name="revanced_hide_seekbar_summary_on">Zoekbalk videospeler verborgen</string>
   <string name="revanced_hide_seekbar_summary_off">Zoekbalk videospeler is weergegeven</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Verberg zoekbalk in video miniaturen</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Zoekbalk in miniaturen is verborgen</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Zoekbalk in miniaturen wordt weergegeven</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Zoekbalk videominiaturen verbergen</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Zoekbalk videominiaturen is verborgen</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Zoekbalk videominiaturen is getoond</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts-speler</string>
-  <string name="revanced_shorts_player_screen_summary">Verberg of toon onderdelen in de Shorts-speler</string>
+  <string name="revanced_shorts_player_screen_summary">Shorts-spelercomponenten verbergen of tonen</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts verbergen in Home-feed</string>
   <string name="revanced_hide_shorts_home_summary_on">Verborgen in Home-feed en gerelateerde video\'s</string>
   <string name="revanced_hide_shorts_home_summary_off">Getoond in Home-feed en gerelateerde video\'s</string>
+  <string name="revanced_hide_shorts_search_title">Verberg Shorts in zoekresultaten</string>
+  <string name="revanced_hide_shorts_search_summary_on">Verborgen in zoekresultaten</string>
+  <string name="revanced_hide_shorts_search_summary_off">Wordt weergegeven in zoekresultaten</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Shorts verbergen in Abonnementen-feed</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Verborgen in Abonnementen-feed</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Getoond in Abonnementen-feed</string>
-  <string name="revanced_hide_shorts_search_title">Verberg Shorts in zoekresultaten</string>
-  <string name="revanced_hide_shorts_search_summary_on">Verborgen in zoekresultaten</string>
-  <string name="revanced_hide_shorts_search_summary_off">Wordt weergegeven in zoekresultaten</string>
   <string name="revanced_hide_shorts_history_title">Verberg Shorts in geschiedenis bekijken</string>
   <string name="revanced_hide_shorts_history_summary_on">Verborgen in de kijkgeschiedenis</string>
   <string name="revanced_hide_shorts_history_summary_off">Getoond in geschiedenis bekijken</string>

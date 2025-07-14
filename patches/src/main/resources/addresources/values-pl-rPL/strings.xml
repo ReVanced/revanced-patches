@@ -160,9 +160,6 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_expandable_card_title">Ukryj rozwijaną kartę</string>
   <string name="revanced_hide_expandable_card_summary_on">Rozwijana karta pod filmami jest ukryta</string>
   <string name="revanced_hide_expandable_card_summary_off">Rozwijana karta pod filmami jest widoczna</string>
-  <string name="revanced_hide_feed_survey_title">Ukryj ankiety na stronie głównej</string>
-  <string name="revanced_hide_feed_survey_summary_on">Ankiety na stronie głównej są ukryte</string>
-  <string name="revanced_hide_feed_survey_summary_off">Ankiety na stronie głównej są widoczne</string>
   <string name="revanced_hide_floating_microphone_button_title">Ukryj pływający przycisk mikrofonu</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Pływający przycisk mikrofonu w wyszukiwarce jest ukryty</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Pływający przycisk mikrofonu w wyszukiwaniu jest widoczny</string>
@@ -188,7 +185,7 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_movies_section_summary_on">Sekcja filmów kinowych jest ukryta</string>
   <string name="revanced_hide_movies_section_summary_off">Sekcja filmów kinowych jest widoczna</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Ukryj przycisk \'Powiadom mnie\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Przycisk „Powiadom mnie” jest ukryty</string>
   <string name="revanced_hide_notify_me_button_summary_off">Przycisk „Powiadom mnie” jest widoczny</string>
@@ -200,6 +197,9 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_show_more_button_title">Ukryj przycisk \'Pokaż więcej\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Przycisk „Pokaż więcej” w wynikach wyszukiwania jest ukryty</string>
   <string name="revanced_hide_show_more_button_summary_off">Przycisk „Pokaż więcej” w wynikach wyszukiwania jest widoczny</string>
+  <string name="revanced_hide_surveys_title">Ukryj ankiety</string>
+  <string name="revanced_hide_surveys_summary_on">Ankiety są ukryte</string>
+  <string name="revanced_hide_surveys_summary_off">Ankiety są widoczne</string>
   <string name="revanced_hide_ticket_shelf_title">Ukryj pasek z biletami</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Pasek z biletami jest ukryty</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Pasek z biletami jest widoczny</string>
@@ -247,8 +247,8 @@ Jeśli Doodle jest obecnie wyświetlany w Twoim regionie, a to ustawienie ukryci
   <string name="revanced_hide_timed_reactions_summary_on">Reakcje czasowe są ukryte</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakcje czasowe są widoczne</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ukryj sekcję „Podsumowanie wideo wygenerowane przez AI”</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sekcja podsumowania wideo jest ukryta</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sekcja podsumowania wideo jest widoczna</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sekcja podsumowania wideo wygenerowana przez AI jest ukryta</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sekcja podsumowania wideo generowanego przez AI jest widoczna</string>
   <string name="revanced_hide_ask_section_title">Ukryj Pytanie</string>
   <string name="revanced_hide_ask_section_summary_on">Sekcja Pytania jest ukryta</string>
   <string name="revanced_hide_ask_section_summary_off">Sekcja Pytania jest widoczna</string>
@@ -276,19 +276,19 @@ Jeśli Doodle jest obecnie wyświetlany w Twoim regionie, a to ustawienie ukryci
   <string name="revanced_hide_description_components_screen_title">Opis filmu</string>
   <string name="revanced_hide_description_components_screen_summary">Ukryj lub pokaż elementy opisu filmu</string>
   <string name="revanced_hide_filter_bar_screen_title">Pasek filtrowania</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ukryj lub pokaż pasek filtrów w kanałach, historii, wynikach wyszukiwania i powiązanych filmach</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ukryj lub pokaż pasek filtrów w kanałach, powiązanych filmach, wynikach wyszukiwania i historii oglądania</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Ukryj w kanałach</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Ukryte w kanałach</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Pokazane w kanałach</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Ukryj w historii</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Ukryte w historii</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Pokazane w historii</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Ukryj w wynikach wyszukiwania</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ukryte w wynikach wyszukiwania</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Wyświetlane w wynikach wyszukiwania</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">W powiązanych filmach</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Ukryte w powiązanych filmach</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Widoczne w powiązanych filmach</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Ukryj w wynikach wyszukiwania</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ukryte w wynikach wyszukiwania</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Wyświetlane w wynikach wyszukiwania</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Ukryj w historii oglądania</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Ukryty w historii oglądania</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Widoczne w historii oglądania</string>
   <string name="revanced_channel_screen_title">Strona kanału</string>
   <string name="revanced_channel_screen_summary">Ukryj lub pokaż komponenty strony kanału</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -312,11 +312,11 @@ Jeśli Doodle jest obecnie wyświetlany w Twoim regionie, a to ustawienie ukryci
   <string name="revanced_comments_screen_title">Komentarze</string>
   <string name="revanced_comments_screen_summary">Ukryj lub pokazuj komentarze</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Ukryj podsumowanie czatu AI</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Podsumowanie czatu jest ukryte</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Podsumowanie czatu jest wyświetlane</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Podsumowanie czatu AI jest ukryte</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Podsumowanie czatu AI jest pokazane</string>
   <string name="revanced_hide_comments_ai_summary_title">Ukryj podsumowanie komentarzy AI</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Podsumowanie komentarzy jest ukryte</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Podsumowanie komentarzy jest wyświetlane</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Podsumowanie komentarzy AI jest ukryte</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Podsumowanie komentarzy AI jest pokazane</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Ukryj wytyczne kanału</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Wytyczne kanału są ukryte</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Wytyczne kanału są widoczne</string>
@@ -415,7 +415,6 @@ Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_hide_shopping_links_title">Ukryj linki do zakupów</string>
   <string name="revanced_hide_shopping_links_summary_on">Linki do zakupów w opisie wideo są ukryte</string>
   <string name="revanced_hide_shopping_links_summary_off">Linki zakupowe w opisie filmu są widoczne</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Ukryj baner \'Zobacz produkty\'</string>
   <string name="revanced_hide_view_products_banner_summary_on">Baner „Zobacz produkty” w nakładce wideo jest ukryty</string>
   <string name="revanced_hide_view_products_banner_summary_off">Baner „Zobacz produkty” w nakładce wideo jest widoczny</string>
@@ -449,7 +448,7 @@ Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Okno dialogowe zostanie wyświetlone</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">To nie pomija ograniczeń wiekowych i akceptuje je automatycznie.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Wyłącz pomijanie rozdziałów dwukrotnym stuknięciem</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dwukrotne stuknięcie nigdy nie spowoduje przejścia do następnego/poprzedniego rozdziału</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dwukrotne stuknięcie może sporadycznie spowodować przejście do następnego/poprzedniego rozdziału</string>
@@ -698,9 +697,9 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_hide_cast_button_title">Ukryj przycisk transmisji</string>
   <string name="revanced_hide_cast_button_summary_on">Przycisk powielania jest ukryty</string>
   <string name="revanced_hide_cast_button_summary_off">Przycisk powielania jest widoczny</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Ukryj tło przycisków sterowania odtwarzacza</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Tło przycisków sterowania odtwarzacza jest ukryte</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Tło przycisków sterowania odtwarzacza jest wyświetlane</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Ukryj tło sterowania odtwarzacza</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Tło elementów sterujących odtwarzacza jest ukryte</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Tło sterowania odtwarzacza jest widoczne</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Ukryj przyciski Poprzedni i Następny</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Przyciski są ukryte</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Przyciski są widoczne</string>
@@ -726,27 +725,27 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_disable_rolling_number_animations_summary_off">Liczby są animowane</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Pasek postępu filmu w odtwarzaczu</string>
+  <string name="revanced_hide_seekbar_title">Ukryj pasek przewijania odtwarzacza wideo</string>
   <string name="revanced_hide_seekbar_summary_on">Pasek postępu w odtwarzaczu jest ukryty</string>
   <string name="revanced_hide_seekbar_summary_off">Pasek postępu w odtwarzaczu jest widoczny</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Pasek postępu filmu w miniaturkach</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Pasek postępu jest ukryty</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Pasek postępu jest widoczny</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Ukryj pasek przewijania miniatur wideo</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Pasek przewijania miniatur wideo jest ukryty</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Pasek przewijania miniatur wideo jest pokazany</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Odtwarzacz Shortsów</string>
-  <string name="revanced_shorts_player_screen_summary">Ukryj lub pokaż przyciski w odtwarzaczu Shortsów</string>
+  <string name="revanced_shorts_player_screen_summary">Ukryj lub pokaż komponenty odtwarzacza Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Ukryj Shorts na stronie głównej</string>
   <string name="revanced_hide_shorts_home_summary_on">Ukryte na stronie głównej i w powiązanych filmach</string>
   <string name="revanced_hide_shorts_home_summary_off">Widoczne na stronie głównej i w powiązanych filmach</string>
+  <string name="revanced_hide_shorts_search_title">Shortsy w wynikach wyszukiwania</string>
+  <string name="revanced_hide_shorts_search_summary_on">Ukryte w wynikach wyszukiwania</string>
+  <string name="revanced_hide_shorts_search_summary_off">Wyświetlane w wynikach wyszukiwania</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ukryj Shorts w subskrypcjach</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Ukryte w subskrypcjach</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Widoczne w subskrypcjach</string>
-  <string name="revanced_hide_shorts_search_title">Shortsy w wynikach wyszukiwania</string>
-  <string name="revanced_hide_shorts_search_summary_on">Ukryte w wynikach wyszukiwania</string>
-  <string name="revanced_hide_shorts_search_summary_off">Wyświetlane w wynikach wyszukiwania</string>
   <string name="revanced_hide_shorts_history_title">Ukryj Shortsy w historii oglądania</string>
   <string name="revanced_hide_shorts_history_summary_on">Ukryte w historii oglądania</string>
   <string name="revanced_hide_shorts_history_summary_off">Wyświetlone w historii oglądania</string>

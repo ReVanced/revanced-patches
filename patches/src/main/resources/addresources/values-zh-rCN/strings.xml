@@ -164,9 +164,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_expandable_card_title">隐藏可展开卡片</string>
   <string name="revanced_hide_expandable_card_summary_on">视频下方的可展开卡片已隐藏</string>
   <string name="revanced_hide_expandable_card_summary_off">视频下方的可展开卡片已显示</string>
-  <string name="revanced_hide_feed_survey_title">隐藏问卷调查</string>
-  <string name="revanced_hide_feed_survey_summary_on">问卷调查已隐藏</string>
-  <string name="revanced_hide_feed_survey_summary_off">问卷调查已显示</string>
   <string name="revanced_hide_floating_microphone_button_title">隐藏浮动麦克风按钮</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">搜索中的浮动麦克风按钮已隐藏</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">搜索中的浮动麦克风按钮已显示</string>
@@ -192,18 +189,21 @@ Second \"item\" text"</string>
   <string name="revanced_hide_movies_section_summary_on">相关电影部分已隐藏</string>
   <string name="revanced_hide_movies_section_summary_off">相关电影部分已显示</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">隐藏「通知我」按钮</string>
   <string name="revanced_hide_notify_me_button_summary_on">通知我按钮已隐藏</string>
   <string name="revanced_hide_notify_me_button_summary_off">通知我按钮已显示</string>
-  <string name="revanced_hide_playables_title">隐藏游戏</string>
-  <string name="revanced_hide_playables_summary_on">游戏已隐藏</string>
-  <string name="revanced_hide_playables_summary_off">游戏已显示</string>
+  <string name="revanced_hide_playables_title">隐藏可播放内容</string>
+  <string name="revanced_hide_playables_summary_on">可播放内容已隐藏</string>
+  <string name="revanced_hide_playables_summary_off">可播放内容已显示</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">隐藏「显示更多」按钮</string>
   <string name="revanced_hide_show_more_button_summary_on">搜索结果中的显示更多按钮已隐藏</string>
   <string name="revanced_hide_show_more_button_summary_off">搜索结果中的显示更多按钮已显示</string>
+  <string name="revanced_hide_surveys_title">隐藏调查</string>
+  <string name="revanced_hide_surveys_summary_on">问卷已隐藏</string>
+  <string name="revanced_hide_surveys_summary_off">问卷已显示</string>
   <string name="revanced_hide_ticket_shelf_title">隐藏票券架</string>
   <string name="revanced_hide_ticket_shelf_summary_on">票券架已隐藏</string>
   <string name="revanced_hide_ticket_shelf_summary_off">票券架已显示</string>
@@ -251,8 +251,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_summary_on">定时表情反应已隐藏</string>
   <string name="revanced_hide_timed_reactions_summary_off">定时表情反应已显示</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">隐藏“AI 生成的视频摘要”</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">视频摘要部分已隐藏</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">视频摘要部分已显示</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI 生成的视频摘要部分已隐藏</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI 生成的视频摘要部分已显示</string>
   <string name="revanced_hide_ask_section_title">隐藏“提问”</string>
   <string name="revanced_hide_ask_section_summary_on">“提问”部分已隐藏</string>
   <string name="revanced_hide_ask_section_summary_off">“提问”部分已显示</string>
@@ -280,19 +280,19 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">视频说明</string>
   <string name="revanced_hide_description_components_screen_summary">隐藏或显示视频说明组件</string>
   <string name="revanced_hide_filter_bar_screen_title">筛选栏</string>
-  <string name="revanced_hide_filter_bar_screen_summary">在动态、历史记录、搜索结果和相关视频中隐藏或显示筛选栏</string>
+  <string name="revanced_hide_filter_bar_screen_summary">在动态、相关视频、搜索结果和观看历史中隐藏或显示筛选栏</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">在动态中隐藏</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">已在动态中隐藏</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">已在动态中显示</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">在历史记录中隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">已在历史记录中隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">已在历史记录中显示</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">在搜索结果中隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">在搜索结果中已隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">在搜索结果中显示</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">在相关视频中隐藏</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">已在相关视频中隐藏</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">已在相关视频中显示</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">在搜索结果中隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">在搜索结果中已隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">在搜索结果中显示</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">在观看历史记录中隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">在观看历史中隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">在观看历史记录中显示</string>
   <string name="revanced_channel_screen_title">频道页面</string>
   <string name="revanced_channel_screen_summary">隐藏或显示频道页面组件</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -316,11 +316,11 @@ Second \"item\" text"</string>
   <string name="revanced_comments_screen_title">评论</string>
   <string name="revanced_comments_screen_summary">隐藏或显示评论部分</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">隐藏 AI 聊天摘要</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">聊天摘要已隐藏</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">聊天摘要已显示</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">AI 聊天摘要已隐藏</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">AI 聊天摘要已显示</string>
   <string name="revanced_hide_comments_ai_summary_title">隐藏 AI 评论摘要</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">评论摘要已隐藏</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">评论摘要已显示</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">AI 评论摘要已隐藏</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">AI 评论摘要已显示</string>
   <string name="revanced_hide_comments_channel_guidelines_title">隐藏频道准则</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">频道准则已隐藏</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">频道准则已显示</string>
@@ -419,7 +419,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shopping_links_title">隐藏购物链接</string>
   <string name="revanced_hide_shopping_links_summary_on">视频说明中的购物链接已隐藏</string>
   <string name="revanced_hide_shopping_links_summary_off">视频描述中的购物链接已显示</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">隐藏“查看商品”横幅</string>
   <string name="revanced_hide_view_products_banner_summary_on">视频叠加层中的查看商品横幅已隐藏</string>
   <string name="revanced_hide_view_products_banner_summary_off">视频叠加层中的查看商品横幅已显示</string>
@@ -453,7 +452,7 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">「观看须知」对话框将会显示</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">这并不会绕过年龄限制，只是自动按下接受按钮。</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">禁用双击章节跳过</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">双击永远不会触发跳到下一/上一章节</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">双击偶尔会触发跳到下一/上一章节</string>
@@ -702,9 +701,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_cast_button_title">隐藏「投屏」按钮</string>
   <string name="revanced_hide_cast_button_summary_on">投屏按钮已隐藏</string>
   <string name="revanced_hide_cast_button_summary_off">投屏按钮已显示</string>
-  <string name="revanced_hide_player_control_buttons_background_title">隐藏播放器控件按钮背景</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">播放器控件按钮背景已隐藏</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">播放器控件按钮背景已显示</string>
+  <string name="revanced_hide_player_control_buttons_background_title">隐藏播放器控件背景</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">播放器控件背景已隐藏</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">播放器控件背景已显示</string>
   <string name="revanced_hide_player_previous_next_buttons_title">隐藏上一个和下一个按钮</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">按钮已隐藏</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">按钮已显示</string>
@@ -730,12 +729,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">滚动动画已启用</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">隐藏视频播放器中的进度条</string>
+  <string name="revanced_hide_seekbar_title">隐藏视频播放器进度条</string>
   <string name="revanced_hide_seekbar_summary_on">视频播放器进度条已隐藏</string>
   <string name="revanced_hide_seekbar_summary_off">视频播放器进度条已显示</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">隐藏缩略图中的进度条</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">缩略图进度条已隐藏</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">缩略图进度条已显示</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">隐藏视频缩略图进度条</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">视频缩略图进度条已隐藏</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">视频缩略图进度条已显示</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts 播放器</string>
@@ -744,13 +743,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_home_title">在首页信息流中隐藏Shorts</string>
   <string name="revanced_hide_shorts_home_summary_on">已在首页信息流和相关视频中隐藏</string>
   <string name="revanced_hide_shorts_home_summary_off">已在首页信息流和相关视频中显示</string>
+  <string name="revanced_hide_shorts_search_title">在搜索结果中隐藏 Shorts 视频</string>
+  <string name="revanced_hide_shorts_search_summary_on">在搜索结果中隐藏</string>
+  <string name="revanced_hide_shorts_search_summary_off">显示在搜索结果中</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">在订阅内容流中隐藏Shorts</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">已在订阅内容流中隐藏</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">已在订阅内容流中显示</string>
-  <string name="revanced_hide_shorts_search_title">在搜索结果中隐藏 Shorts 视频</string>
-  <string name="revanced_hide_shorts_search_summary_on">在搜索结果中隐藏</string>
-  <string name="revanced_hide_shorts_search_summary_off">显示在搜索结果中</string>
   <string name="revanced_hide_shorts_history_title">在观看历史中隐藏 Shorts</string>
   <string name="revanced_hide_shorts_history_summary_on">隐藏在观看历史记录中</string>
   <string name="revanced_hide_shorts_history_summary_off">显示在观看历史中</string>

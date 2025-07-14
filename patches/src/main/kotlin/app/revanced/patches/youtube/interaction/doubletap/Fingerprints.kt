@@ -2,22 +2,13 @@ package app.revanced.patches.youtube.interaction.doubletap
 
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
 
-internal val doubleTapInfoGetSeekSourceFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Z")
-    returns("L")  // Enum SeekSource, but name obfuscated.
-    opcodes(
-        Opcode.IF_EQZ,
-        Opcode.SGET_OBJECT,
-        Opcode.RETURN_OBJECT,
-        Opcode.SGET_OBJECT,
-        Opcode.RETURN_OBJECT,
+internal val seekTypeEnumFingerprint = fingerprint {
+    accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
+    strings(
+        "SEEK_SOURCE_SEEK_TO_NEXT_CHAPTER",
+        "SEEK_SOURCE_SEEK_TO_PREVIOUS_CHAPTER"
     )
-    custom { _, classDef ->
-        classDef.fields.count() == 4
-    }
 }
 
 internal val doubleTapInfoCtorFingerprint = fingerprint {

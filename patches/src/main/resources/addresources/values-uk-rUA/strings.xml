@@ -164,9 +164,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_expandable_card_title">Приховати розширювану картку</string>
   <string name="revanced_hide_expandable_card_summary_on">Розширювану картку під відео приховано</string>
   <string name="revanced_hide_expandable_card_summary_off">Розширювана картка під відео показується</string>
-  <string name="revanced_hide_feed_survey_title">Приховати опитування</string>
-  <string name="revanced_hide_feed_survey_summary_on">Опитування в стрічці приховано</string>
-  <string name="revanced_hide_feed_survey_summary_off">Опитування в стрічці показуються</string>
   <string name="revanced_hide_floating_microphone_button_title">Приховати плаваючу кнопку мікрофона</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Плаваючу кнопку мікрофона в пошуку приховано</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Плаваюча кнопка мікрофона в пошуку показується</string>
@@ -192,7 +189,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_movies_section_summary_on">Секцію фільмів приховано</string>
   <string name="revanced_hide_movies_section_summary_off">Секція фільмів показується</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Приховати кнопку \"Сповістити мене\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Кнопку \"Сповістити мене\" приховано</string>
   <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Сповістити мене\" показується</string>
@@ -204,6 +201,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">Приховати кнопку \"Показати більше\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Кнопку \"Показати більше\" у результатах пошуку приховано</string>
   <string name="revanced_hide_show_more_button_summary_off">Кнопка \"Показати більше\" у результатах пошуку показується</string>
+  <string name="revanced_hide_surveys_title">Приховати опитування</string>
+  <string name="revanced_hide_surveys_summary_on">Опитування приховано</string>
+  <string name="revanced_hide_surveys_summary_off">Опитування показуються</string>
   <string name="revanced_hide_ticket_shelf_title">Приховати полицю квитків</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Полицю квитків приховано</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Полиця квитків показується</string>
@@ -251,8 +251,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_summary_on">Тимчасові реакції приховано</string>
   <string name="revanced_hide_timed_reactions_summary_off">Тимчасові реакції показуються</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Приховати секцію \"Короткий переказ від ШІ\"</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Секцію \"Короткий переказ\" приховано</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Секція \"Короткий переказ\" показується</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Секцію короткого переказу відео, згенерованого ШІ, приховано</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Секція короткого переказу відео, згенерованого ШІ, показується</string>
   <string name="revanced_hide_ask_section_title">Приховати \"Запитати\"</string>
   <string name="revanced_hide_ask_section_summary_on">Секцію \"Запитати\" приховано</string>
   <string name="revanced_hide_ask_section_summary_off">Секція \"Запитати\" показується</string>
@@ -280,19 +280,19 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Опис відео</string>
   <string name="revanced_hide_description_components_screen_summary">Приховати або показувати компоненти опису відео</string>
   <string name="revanced_hide_filter_bar_screen_title">Панель фільтрів</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Приховати або показувати панель фільтрів у стрічках, історії, результатах пошуку та пов\'язаних відео</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Приховати панель у стрічках</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Панель фільтрів у стрічках приховано</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Панель фільтрів у стрічках показується</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Приховати панель в історії</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Панель фільтрів у історії приховано</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Панель фільтрів у історії показується</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Приховати панель у результатах пошуку</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панель фільтрів у результатах пошуку приховано</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панель фільтрів у результатах пошуку показується</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Приховати панель у пов\'язаних відео</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Панель фільтрів у пов\'язаних відео приховано</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Панель фільтрів у пов\'язаних відео показується</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Приховати або показувати панель фільтрів у стрічках, пов\'язаних відео, результатах пошуку та історії</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Приховати у стрічках</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Приховано у стрічках</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Показується у стрічках</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Приховати у пов\'язаних відео</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Приховано у пов\'язаних відео</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Показується у пов\'язаних відео</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Приховати у результатах пошуку</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Приховано у результатах пошуку</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Показується у результатах пошуку</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Приховати в історії переглядів</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Приховано в історії переглядів</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Показується в історії переглядів</string>
   <string name="revanced_channel_screen_title">Сторінка каналу</string>
   <string name="revanced_channel_screen_summary">Приховати або показувати компоненти сторінки каналу</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -316,11 +316,11 @@ Second \"item\" text"</string>
   <string name="revanced_comments_screen_title">Коментарі</string>
   <string name="revanced_comments_screen_summary">Приховати або показувати компоненти секції коментарів</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Приховати \"Огляд чату від ШІ\"</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">\"Огляд чату\" приховано</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">\"Огляд чату\" показується</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">\"Огляд чату від ШІ\" приховано</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">\"Огляд чату від ШІ\" показується</string>
   <string name="revanced_hide_comments_ai_summary_title">Приховати вкладку \"За темою\"</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Вкладку \"За темою\" приховано</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Вкладка \"За темою\" показується</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Зведення коментарів від ШІ приховано</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Зведення коментарів від ШІ показується</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Приховати правила каналу</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Правила каналу приховано</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Правила каналу показуються</string>
@@ -419,7 +419,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shopping_links_title">Приховати посилання на покупки</string>
   <string name="revanced_hide_shopping_links_summary_on">Посилання на покупки в описі відео приховано</string>
   <string name="revanced_hide_shopping_links_summary_off">Посилання на покупки в описі відео показуються</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Приховати банер \"Перегляд товарів\"</string>
   <string name="revanced_hide_view_products_banner_summary_on">Банер перегляду товарів у інтерфейсі відеоплеєра приховано</string>
   <string name="revanced_hide_view_products_banner_summary_off">Банер перегляду товарів у інтерфейсі відеоплеєра показується</string>
@@ -453,10 +452,10 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Діалогове вікно про неприйнятний контент буде показуватися</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Це не обходить вікові обмеження, а просто приймає їх автоматично.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
-  <string name="revanced_disable_chapter_skip_double_tap_title">Вимкнути подвійне натискання для пропуску розділу</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Подвійне натискання ніколи не призведе до пропуску до наступного/попереднього розділу</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Подвійне натискання іноді може призвести до пропуску до наступного/попереднього розділу</string>
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Вимкнути пропуск розділу подвійним натисканням</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Подвійне натискання двома пальцями ніколи не викличе пропуск до наступного/попереднього розділу</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Подвійне натискання двома пальцями іноді може викликати пропуск до наступного/попереднього розділу</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Зовнішній завантажувач</string>
@@ -730,27 +729,27 @@ Second \"item\" text"</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Лічильники анімовані</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Приховати панель прогресу</string>
+  <string name="revanced_hide_seekbar_title">Приховати панель прогресу відеоплеєра</string>
   <string name="revanced_hide_seekbar_summary_on">Панель прогресу у відеоплеєрі приховано</string>
   <string name="revanced_hide_seekbar_summary_off">Панель прогресу у відеоплеєрі показується</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Приховати панель прогресу у прев\'ю</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Панель прогресу у прев\'ю переглянутих відео приховано</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Панель прогресу у прев\'ю переглянутих відео показується</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Приховати панель прогресу прев\'ю відео</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Панель прогресу у прев\'ю відео приховано</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Панель прогресу у прев\'ю відео показується</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Плеєр Shorts</string>
-  <string name="revanced_shorts_player_screen_summary">Приховати або показувати компоненти у плеєрі Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Приховати або показувати компоненти плеєра Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Приховати Shorts у стрічці</string>
   <string name="revanced_hide_shorts_home_summary_on">Приховано в домашній стрічці та пов’язаних відео</string>
   <string name="revanced_hide_shorts_home_summary_off">Показуються в домашній стрічці та пов’язаних відео</string>
+  <string name="revanced_hide_shorts_search_title">Приховати Shorts у пошуку</string>
+  <string name="revanced_hide_shorts_search_summary_on">Приховано в результатах пошуку</string>
+  <string name="revanced_hide_shorts_search_summary_off">Показуються в результатах пошуку</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Приховати Shorts у підписках</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Приховано в стрічці підписок</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Показуються в стрічці підписок</string>
-  <string name="revanced_hide_shorts_search_title">Приховати Shorts у пошуку</string>
-  <string name="revanced_hide_shorts_search_summary_on">Приховано в результатах пошуку</string>
-  <string name="revanced_hide_shorts_search_summary_off">Показуються в результатах пошуку</string>
   <string name="revanced_hide_shorts_history_title">Приховати Shorts в історії</string>
   <string name="revanced_hide_shorts_history_summary_on">Приховано в історії переглядів</string>
   <string name="revanced_hide_shorts_history_summary_off">Показуються в історії переглядів</string>

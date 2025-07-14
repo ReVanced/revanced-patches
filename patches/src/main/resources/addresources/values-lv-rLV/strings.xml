@@ -164,9 +164,6 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_expandable_card_title">Slēpt izvēršamo kartīti</string>
   <string name="revanced_hide_expandable_card_summary_on">Izvēršamā kartīte zem video ir paslēpta</string>
   <string name="revanced_hide_expandable_card_summary_off">Izvēršamā kartīte zem video ir redzama</string>
-  <string name="revanced_hide_feed_survey_title">Slēpt plūsmas aptaujas</string>
-  <string name="revanced_hide_feed_survey_summary_on">Plūsmas aptaujas ir paslēptas</string>
-  <string name="revanced_hide_feed_survey_summary_off">Plūsmas aptaujas ir redzamas</string>
   <string name="revanced_hide_floating_microphone_button_title">Paslēpt peldošo mikrofona pogu</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Peldošā mikrofona poga meklēšanā ir paslēpta.</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Peldošā mikrofona poga meklēšanā ir redzama</string>
@@ -192,7 +189,7 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_movies_section_summary_on">Filmu sadaļa ir paslēpta</string>
   <string name="revanced_hide_movies_section_summary_off">Filmu sadaļa ir redzama</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Paslēpt \"Paziņot\" pogu</string>
   <string name="revanced_hide_notify_me_button_summary_on">Poga \"Informēt mani\" ir paslēpta.</string>
   <string name="revanced_hide_notify_me_button_summary_off">Poga \"Informēt mani\" ir redzama.</string>
@@ -204,6 +201,9 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_show_more_button_title">Paslēpt \"Rādīt vairāk\" pogu</string>
   <string name="revanced_hide_show_more_button_summary_on">Poga \"Rādīt vairāk\" meklēšanas rezultātos ir paslēpta.</string>
   <string name="revanced_hide_show_more_button_summary_off">Poga \"Rādīt vairāk\" meklēšanas rezultātos ir redzama.</string>
+  <string name="revanced_hide_surveys_title">Slēpt aptaujas</string>
+  <string name="revanced_hide_surveys_summary_on">Aptaujas ir paslēptas</string>
+  <string name="revanced_hide_surveys_summary_off">Aptaujas ir redzamas</string>
   <string name="revanced_hide_ticket_shelf_title">Paslēpt biļešu plauktu</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Biļešu plaukts ir paslēpts</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Biļešu plaukts ir redzams</string>
@@ -251,8 +251,8 @@ Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījum
   <string name="revanced_hide_timed_reactions_summary_on">Laika reakcijas ir paslēptas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Laika reakcijas ir redzamas</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Paslēpt \"AI ģenerēta video kopsavilkums\"</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video kopsavilkuma sadaļa ir paslēpta</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video kopsavilkuma sadaļa ir rādīta</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI ģenerētā video kopsavilkuma sadaļa ir paslēpta</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Tiek rādīta AI ģenerētā video kopsavilkuma sadaļa</string>
   <string name="revanced_hide_ask_section_title">Slēpt Jautāt</string>
   <string name="revanced_hide_ask_section_summary_on">Jautājumu sadaļa ir paslēpta</string>
   <string name="revanced_hide_ask_section_summary_off">Jautājumu sadaļa ir redzama</string>
@@ -280,19 +280,19 @@ Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījum
   <string name="revanced_hide_description_components_screen_title">Videoklipa apraksts</string>
   <string name="revanced_hide_description_components_screen_summary">Slēpt vai parādīt videoklipa apraksta komponentus</string>
   <string name="revanced_hide_filter_bar_screen_title">Filtra josla</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Slēpt vai rādīt filtru joslu plūsmās, vēsturē, meklēšanas rezultātos un saistītajos videoklipos</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Slēpt vai rādīt filtra joslu plūsmās, saistītajos videoklipos, meklēšanas rezultātos un skatīšanās vēsturē</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Slēpt plūsmās</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Slēpts plūsmās</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Rādīts plūsmās</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Slēpt vēsturē</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Slēpts vēsturē</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Rādīts vēsturē</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Paslēpt meklēšanas rezultātos</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Paslēpts meklēšanas rezultātos</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Redzams meklēšanas rezultātos</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Slēpt saistītajos videoklipos</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Paslēpts saistītajos videoklipos</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Redzams saistītajos videoklipos</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Paslēpt meklēšanas rezultātos</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Paslēpts meklēšanas rezultātos</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Redzams meklēšanas rezultātos</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Slēpt skatīšanās vēsturē</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Paslēpts skatīšanās vēsturē</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Parādīts skatīšanās vēsturē</string>
   <string name="revanced_channel_screen_title">Kanāla lapa</string>
   <string name="revanced_channel_screen_summary">Slēpt vai parādīt kanāla lapas komponentus</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -316,11 +316,11 @@ Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījum
   <string name="revanced_comments_screen_title">Komentāri</string>
   <string name="revanced_comments_screen_summary">Slēpt vai parādīt komentāru sadaļas komponentus</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Slēpt AI tērzēšanas kopsavilkumu</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tērzēšanas kopsavilkums ir paslēpts</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Tērzēšanas kopsavilkums ir redzams</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">AI tērzēšanas kopsavilkums ir paslēpts</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">AI tērzēšanas kopsavilkums ir redzams</string>
   <string name="revanced_hide_comments_ai_summary_title">Slēpt AI komentāru kopsavilkumu</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Komentāru kopsavilkums ir paslēpts</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Komentāru kopsavilkums ir redzams</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">AI komentāru kopsavilkums ir paslēpts</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">AI komentāru kopsavilkums ir redzams</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Slēpt kanāla vadlīnijas</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanāla vadlīnijas ir paslēptas</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanāla vadlīnijas ir redzamas</string>
@@ -419,7 +419,6 @@ Ierobežojumi
   <string name="revanced_hide_shopping_links_title">Slēpt iepirkšanās saites</string>
   <string name="revanced_hide_shopping_links_summary_on">Iepirkšanās saites video aprakstā ir paslēptas.</string>
   <string name="revanced_hide_shopping_links_summary_off">Iepirkšanās saites video aprakstā ir redzamas</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Paslēpt reklāmkarogu \"Skatīt produktus\"</string>
   <string name="revanced_hide_view_products_banner_summary_on">Reklāmkarogs \"Skatīt produktus\" video pārklājumā ir paslēpts.</string>
   <string name="revanced_hide_view_products_banner_summary_off">Reklāmkarogs \"Skatīt produktus\" video pārklājumā ir redzams.</string>
@@ -453,7 +452,7 @@ Ierobežojumi
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialogs tiks rādīts</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tas neapiet vecuma ierobežojumu. Tas vienkārši automātiski to pieņem.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Atspējot divkāršu pieskārienu nodaļas izlaišanai</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Divkāršs pieskāriens nekad nevar iedarbināt izlaišanu uz nākamo/iepriekšējo nodaļu</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Divkāršs pieskāriens reizēm var iedarbināt izlaišanu uz nākamo/iepriekšējo nodaļu</string>
@@ -702,9 +701,9 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_hide_cast_button_title">Paslēpt pogu \"Sūtīt\"</string>
   <string name="revanced_hide_cast_button_summary_on">Pārraides poga ir paslēpta</string>
   <string name="revanced_hide_cast_button_summary_off">Pārraides poga ir redzama</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Slēpt atskaņotāja vadības pogu fonu</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Atskaņotāja vadības pogu fons ir paslēpts</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Atskaņotāja vadības pogu fons ir redzams</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Paslēpt atskaņotāja vadīklu fonu</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Atskaņotāja vadības elementu fons ir paslēpts</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Atskaņotāja vadīklu fons tiek rādīts</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Paslēpt iepriekšējo un nākamo pogas</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Pogas ir paslēptas</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Pogas ir redzamas</string>
@@ -730,27 +729,27 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_disable_rolling_number_animations_summary_off">Ritinošie skaitļi ir animēti</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Paslēpt meklēšanas joslu video atskaņotājā</string>
+  <string name="revanced_hide_seekbar_title">Slēpt video atskaņotāja laika joslu</string>
   <string name="revanced_hide_seekbar_summary_on">Video atskaņotāja meklēšanas josla ir paslēpta</string>
   <string name="revanced_hide_seekbar_summary_off">Video atskaņotāja meklēšanas josla ir redzama</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Paslēpt meklēšanas joslu video sīktēlos</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Sīktēlu meklēšanas josla ir paslēpta</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Sīktēlu meklēšanas josla ir redzama</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Slēpt video sīktēlu laika joslu</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Video sīktēlu laika josla ir paslēpta</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Video sīktēlu laika josla ir redzama</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts atskaņotājs</string>
-  <string name="revanced_shorts_player_screen_summary">Paslēpt vai rādīt komponentus Shorts atskaņotājā</string>
+  <string name="revanced_shorts_player_screen_summary">Slēpt vai rādīt Shorts atskaņotāja komponentus</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Slēpt Shorts sākumlapā.</string>
   <string name="revanced_hide_shorts_home_summary_on">Paslēpti sākumlapā un saistītajos video.</string>
   <string name="revanced_hide_shorts_home_summary_off">Redzami sākumlapā un saistītajos video.</string>
+  <string name="revanced_hide_shorts_search_title">Paslēpt Shorts meklēšanas rezultātos</string>
+  <string name="revanced_hide_shorts_search_summary_on">Paslēpts meklēšanas rezultātos</string>
+  <string name="revanced_hide_shorts_search_summary_off">Parādīts meklēšanas rezultātos</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Slēpt Shorts abonementu plūsmā.</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Paslēpti abonementu plūsmā.</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Redzami abonementu plūsmā.</string>
-  <string name="revanced_hide_shorts_search_title">Paslēpt Shorts meklēšanas rezultātos</string>
-  <string name="revanced_hide_shorts_search_summary_on">Paslēpts meklēšanas rezultātos</string>
-  <string name="revanced_hide_shorts_search_summary_off">Parādīts meklēšanas rezultātos</string>
   <string name="revanced_hide_shorts_history_title">Paslēpt šortus skatīšanās vēsturē</string>
   <string name="revanced_hide_shorts_history_summary_on">Slēpts skatīšanās vēsturē</string>
   <string name="revanced_hide_shorts_history_summary_off">Parādīts skatīšanās vēsturē</string>
