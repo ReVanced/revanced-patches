@@ -418,7 +418,7 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s</string>
 
             <string name="revanced_hide_keyword_content_screen_title">Hide keyword content</string>
-            <string name="revanced_hide_keyword_content_screen_summary">Hide videos across feeds and search results using custom keyword filters</string>
+            <string name="revanced_hide_keyword_content_screen_summary">Hide feed and search videos using keyword filters</string>
             <string name="revanced_hide_keyword_content_home_title">Hide Home videos by keywords</string>
             <string name="revanced_hide_keyword_content_home_summary_on">Videos in Home tab are filtered by keywords</string>
             <string name="revanced_hide_keyword_content_home_summary_off">Videos in Home tab are not filtered by keywords</string>
