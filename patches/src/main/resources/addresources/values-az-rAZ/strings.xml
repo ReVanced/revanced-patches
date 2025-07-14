@@ -453,7 +453,7 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoq göstərilir</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Bu, yaş məhdudiyyətini ötürmür. Sadəcə birbaşa qəbul edir.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Cüt toxunuşla fəsil ötürməsini qapat</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Cüt toxunma heç vaxt növbəti/əvvəlki fəsilə keçidi zorlaya bilməz</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Cüt toxunma bəzən növbəti/əvvəlki fəsilə keçidi zorlaya bilər</string>

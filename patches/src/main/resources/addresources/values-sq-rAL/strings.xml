@@ -453,7 +453,7 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Kutia e dialogut do të shfaqet</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Kjo nuk e anashkalon kufizimin e moshës. Thjesht e pranon atë automatikisht.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Çaktivizo anashkalimin e kapitullit me prekje të dyfishtë</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Prekja e dyfishtë nuk mund të shkaktojë kurrë një anashkalim te kapitulli tjetër/i mëparshëm</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Prekja e dyfishtë mund të shkaktojë herë pas here një anashkalim te kapitulli tjetër/i mëparshëm</string>

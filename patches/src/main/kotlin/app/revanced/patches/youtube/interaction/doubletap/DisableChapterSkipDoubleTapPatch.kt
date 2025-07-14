@@ -77,8 +77,3 @@ val disableDoubleTapActionsPatch = bytecodePatch(
         )
     }
 }
-
-@Deprecated("Patch was renamed", ReplaceWith("disableDoubleTapActionsPatch"))
-val disableChapterSkipDoubleTapPatch = bytecodePatch {
-    dependsOn(disableDoubleTapActionsPatch)
-}

@@ -33,7 +33,7 @@ public final class LayoutComponentsFilter extends Filter {
     );
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
-    private final StringFilterGroup inFeedSurvey;
+    private final StringFilterGroup surveys;
     private final StringFilterGroup notifyMe;
     private final StringFilterGroup singleItemInformationPanel;
     private final StringFilterGroup expandableMetadata;
@@ -111,8 +111,8 @@ public final class LayoutComponentsFilter extends Filter {
                 "chip_bar"
         );
 
-        inFeedSurvey = new StringFilterGroup(
-                Settings.HIDE_FEED_SURVEY,
+        surveys = new StringFilterGroup(
+                Settings.HIDE_SURVEYS,
                 "in_feed_survey",
                 "slimline_survey",
                 "feed_nudge"
@@ -287,7 +287,6 @@ public final class LayoutComponentsFilter extends Filter {
                 forYouShelf,
                 horizontalShelves,
                 imageShelf,
-                inFeedSurvey,
                 infoPanel,
                 latestPosts,
                 medicalPanel,
@@ -299,6 +298,7 @@ public final class LayoutComponentsFilter extends Filter {
                 singleItemInformationPanel,
                 subscribersCommunityGuidelines,
                 subscriptionsChipBar,
+                surveys,
                 timedReactions,
                 videoRecommendationLabels
         );
@@ -318,7 +318,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         // The groups are excluded from the filter due to the exceptions list below.
         // Filter them separately here.
-        if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata) {
+        if (matchedGroup == notifyMe || matchedGroup == surveys || matchedGroup == expandableMetadata) {
             return true;
         }
 

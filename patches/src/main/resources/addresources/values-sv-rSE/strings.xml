@@ -453,7 +453,7 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialogrutan visas</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Detta kringgår inte åldersbegränsningen. Det bara godkänner automatiskt.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Inaktivera dubbeltryck för att hoppa över kapitel</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dubbeltryck kan aldrig utlösa ett hopp till nästa/föregående kapitel</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dubbeltryck kan ibland utlösa ett hopp till nästa/föregående kapitel</string>

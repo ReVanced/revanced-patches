@@ -1,3 +1,17 @@
+## [5.31.2-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.3...v5.31.2-dev.4) (2025-07-13)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Back button/gesture closes search instead of exiting ([#5418](https://github.com/ReVanced/revanced-patches/issues/5418)) ([134b278](https://github.com/ReVanced/revanced-patches/commit/134b278baa7b90d2c4b06200cabacabf55ebc055))
+
+## [5.31.2-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.2...v5.31.2-dev.3) (2025-07-13)
+
+
+### Bug Fixes
+
+* **YouTube - Disable double tap actions:** Remove old incompatible targets ([857053e](https://github.com/ReVanced/revanced-patches/commit/857053e29b72ded10a84b0ac693fa107705342d9))
+
 ## [5.31.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.1...v5.31.2-dev.2) (2025-07-12)
 
 

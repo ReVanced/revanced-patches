@@ -449,7 +449,7 @@ Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Okno dialogowe zostanie wyświetlone</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">To nie pomija ograniczeń wiekowych i akceptuje je automatycznie.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Wyłącz pomijanie rozdziałów dwukrotnym stuknięciem</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dwukrotne stuknięcie nigdy nie spowoduje przejścia do następnego/poprzedniego rozdziału</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Dwukrotne stuknięcie może sporadycznie spowodować przejście do następnego/poprzedniego rozdziału</string>
