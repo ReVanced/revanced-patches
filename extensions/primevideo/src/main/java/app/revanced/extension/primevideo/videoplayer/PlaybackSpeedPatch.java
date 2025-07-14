@@ -26,6 +26,11 @@ public class PlaybackSpeedPatch {
 
     public static void setPlayer(Player playerInstance) {
         player = playerInstance;
+        if (player != null) {
+            // When we switch between episodes the playback rate we get is not correct.
+            // So we reset it to 1.0 so we can show the correct playback rate in the speed dialog.
+            player.setPlaybackRate(1.0f);
+        }
     }
 
     public static void initializeTextOverlay(View userControlsView) {
