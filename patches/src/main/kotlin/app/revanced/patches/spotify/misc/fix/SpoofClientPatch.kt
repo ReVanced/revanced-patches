@@ -78,8 +78,12 @@ val spoofClientPatch = bytecodePatch(
         val systemVersion = systemVersion!!
 
         // region Spoof login request.
-
-        val version = clientVersion.substringAfter('-').substringBeforeLast('.')
+        
+        val version = clientVersion
+            .substringAfter('-')
+            .substringBeforeLast('.')
+            .substringBeforeLast('.')
+        
         setUserAgentFingerprint.method.addInstruction(
             0,
             "const-string p1, \"Spotify/$version iOS/$systemVersion ($hardwareMachine)\""
