@@ -14,8 +14,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/primevideo/videoplayer/PlaybackSpeedPatch;"
 
 val playbackSpeedPatch = bytecodePatch(
-    name = "Playback speed control",
-    description = "Adds playback speed control to the Prime Video player with a speed button in the player controls.",
+    name = "Playback speed",
+    description = "Adds playback speed controls to the video player.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -37,7 +37,7 @@ val playbackSpeedPatch = bytecodePatch(
             addInstructions(
                 getIndex + 1,
                 """
-                invoke-static {v$getRegister}, $EXTENSION_CLASS_DESCRIPTOR->initializeTextOverlay(Landroid/view/View;)V
+                invoke-static { v$getRegister }, $EXTENSION_CLASS_DESCRIPTOR->initializeSpeedOverlay(Landroid/view/View;)V
                 """
             )
         }
@@ -46,9 +46,9 @@ val playbackSpeedPatch = bytecodePatch(
             addInstructions(
                 0,
                 """
-                invoke-virtual {p1}, Lcom/amazon/avod/playbackclient/PlaybackContext;->getPlayer()Lcom/amazon/video/sdk/player/Player;
+                invoke-virtual { p1 }, Lcom/amazon/avod/playbackclient/PlaybackContext;->getPlayer()Lcom/amazon/video/sdk/player/Player;
                 move-result-object v0
-                invoke-static {v0}, $EXTENSION_CLASS_DESCRIPTOR->setPlayer(Lcom/amazon/video/sdk/player/Player;)V
+                invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->setPlayer(Lcom/amazon/video/sdk/player/Player;)V
                 """
             )
         }

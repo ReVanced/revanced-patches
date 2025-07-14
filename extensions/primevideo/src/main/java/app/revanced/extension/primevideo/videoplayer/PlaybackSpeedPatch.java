@@ -4,196 +4,133 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.RectF;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.view.ViewGroup;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.ColorFilter;
 import android.graphics.PixelFormat;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 
 import com.amazon.video.sdk.player.Player;
 
 public class PlaybackSpeedPatch {
     private static Player player;
-
+    private static final float[] SPEED_VALUES = {1.0f, 1.25f, 1.5f, 2.0f};
+    private static final String SPEED_BUTTON_TAG = "speed_overlay";
 
     public static void setPlayer(Player playerInstance) {
         player = playerInstance;
         if (player != null) {
-            // When we switch between episodes the playback rate we get is not correct.
-            // So we reset it to 1.0 so we can show the correct playback rate in the speed dialog.
+            // Reset playback rate when switching between episodes to ensure correct display
             player.setPlaybackRate(1.0f);
         }
     }
 
-    public static void initializeTextOverlay(View userControlsView) {
+    public static void initializeSpeedOverlay(View userControlsView) {
         try {
-            LinearLayout buttonContainer = findTopButtonContainer(userControlsView);
-            if (buttonContainer == null) {
+            LinearLayout buttonContainer = Utils.getChildViewByResourceName(userControlsView, "ButtonContainerPlayerTop");
+
+            // If the speed overlay exists we should return early
+            if (Utils.getChildView(buttonContainer, false, child ->
+                    child instanceof ImageView && SPEED_BUTTON_TAG.equals(child.getTag())) != null) {
                 return;
             }
 
-            for (int i = 0; i < buttonContainer.getChildCount(); i++) {
-                View child = buttonContainer.getChildAt(i);
-                if (child instanceof TextView && child.getTag() != null && "speed_overlay".equals(child.getTag())) {
-                    return;
-                }
-            }
+            ImageView speedButton = createSpeedButton(userControlsView.getContext());
+            speedButton.setOnClickListener(v -> changePlaybackSpeed(speedButton));
+            buttonContainer.addView(speedButton, 0);
 
-            Context context = userControlsView.getContext();
-            TextView speedButton = new TextView(context);
-            speedButton.setTag("speed_overlay");
-            speedButton.setText("");
-            speedButton.setGravity(Gravity.CENTER_VERTICAL);
-
-            speedButton.setTextColor(Color.WHITE);
-            speedButton.setClickable(true);
-            speedButton.setFocusable(true);
-
-            SpeedIconDrawable speedIcon = new SpeedIconDrawable();
-            int iconSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 32,
-                    context.getResources().getDisplayMetrics());
-            speedIcon.setBounds(0, 0, iconSize, iconSize);
-            speedButton.setCompoundDrawables(speedIcon, null, null, null);
-
-            int buttonSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48,
-                    context.getResources().getDisplayMetrics());
-            speedButton.setMinimumWidth(buttonSize);
-            speedButton.setMinimumHeight(buttonSize);
-
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-            );
-            params.setMargins(0, 0, 4, 0);
-            speedButton.setLayoutParams(params);
-            speedButton.setOnClickListener(v -> changePlayBackSpeed(speedButton));
-            int castButtonIndex = findCastButtonIndex(buttonContainer, context);
-            if (castButtonIndex != -1) {
-                buttonContainer.addView(speedButton, castButtonIndex);
-            } else {
-                buttonContainer.addView(speedButton);
-            }
-
+        } catch (IllegalArgumentException e) {
+            Logger.printException(() -> "initializeSpeedOverlay, no button container found", e);
         } catch (Exception e) {
-            Logger.printException(() -> "Error initializing speed overlay", e);
+            Logger.printException(() -> "initializeSpeedOverlay failure", e);
         }
     }
 
-    private static int findCastButtonIndex(LinearLayout buttonContainer, Context context) {
-        for (int i = 0; i < buttonContainer.getChildCount(); i++) {
-            View child = buttonContainer.getChildAt(i);
-            if (child.getId() != View.NO_ID) {
-                try {
-                    String resourceName = context.getResources().getResourceEntryName(child.getId());
-                    if (resourceName != null && resourceName.equals("player_cast_btn")) {
-                        return i;
-                    }
-                } catch (Exception e) {
-                    // Continue searching
-                }
-            }
-        }
-        return -1;
+    private static ImageView createSpeedButton(Context context) {
+        ImageView speedButton = new ImageView(context);
+        speedButton.setContentDescription("Playback Speed");
+        speedButton.setTag(SPEED_BUTTON_TAG);
+        speedButton.setClickable(true);
+        speedButton.setFocusable(true);
+        speedButton.setScaleType(ImageView.ScaleType.CENTER);
+
+        SpeedIconDrawable speedIcon = new SpeedIconDrawable();
+        speedButton.setImageDrawable(speedIcon);
+
+        int buttonSize = Utils.dipToPixels(48);
+        speedButton.setMinimumWidth(buttonSize);
+        speedButton.setMinimumHeight(buttonSize);
+
+        return speedButton;
     }
 
-    private static void changePlayBackSpeed(TextView speedText) {
+    private static String[] getSpeedOptions() {
+        String[] options = new String[SPEED_VALUES.length];
+        for (int i = 0; i < SPEED_VALUES.length; i++) {
+            options[i] = SPEED_VALUES[i] + "x";
+        }
+        return options;
+    }
+
+    private static void changePlaybackSpeed(ImageView imageView) {
+        if (player == null) {
+            Logger.printException(() -> "Player not available");
+            return;
+        }
+
         try {
-            if (player != null) {
-                player.pause();
+            player.pause();
+            AlertDialog dialog = createSpeedPlaybackDialog(imageView);
+            dialog.setOnDismissListener(dialogInterface -> player.play());
+            dialog.show();
 
-                AlertDialog dialog = speedPlaybackDialog(speedText);
-                dialog.setOnDismissListener(dialogInterface -> {
-                    try {
-                        if (player != null) {
-                            player.play();
-                        }
-                    } catch (Exception e) {
-                        Logger.printException(() -> "Error resuming playback", e);
-                    }
-                });
-
-                dialog.show();
-            } else {
-                Logger.printDebug(() -> "Player not available");
-            }
         } catch (Exception e) {
-            Logger.printException(() -> "Error in changePlayBackSpeed", e);
+            Logger.printException(() -> "changePlaybackSpeed", e);
         }
     }
 
-    private static AlertDialog speedPlaybackDialog(TextView speedText) {
-        Context context = speedText.getContext();
-        String[] speedOptions = {"1.0x", "1.5x", "2.0x"};
-        float[] speedValues = {1.0f, 1.5f, 2.0f};
+    private static AlertDialog createSpeedPlaybackDialog(ImageView imageView) {
+        Context context = imageView.getContext();
+        int currentSelection = getCurrentSpeedSelection();
 
-        int currentSelection = 0;
-        if (player != null) {
-            try {
-                float currentRate = player.getPlaybackRate();
-                for (int i = 0; i < speedValues.length; i++) {
-                    if (Math.abs(currentRate - speedValues[i]) < 0.1f) {
-                        currentSelection = i;
-                        break;
-                    }
+        return new AlertDialog.Builder(context)
+                .setTitle("Select Playback Speed")
+                .setSingleChoiceItems(getSpeedOptions(), currentSelection,
+                        PlaybackSpeedPatch::handleSpeedSelection)
+                .create();
+    }
+
+    private static int getCurrentSpeedSelection() {
+        try {
+            float currentRate = player.getPlaybackRate();
+            for (int i = 0; i < SPEED_VALUES.length; i++) {
+                if (SPEED_VALUES[i] == currentRate) {
+                    return i;
                 }
-            } catch (Exception e) {
-                Logger.printException(() -> "Error getting current playback rate", e);
             }
+            return 0;
+        } catch (Exception e) {
+            Logger.printException(() -> "getCurrentSpeedSelection error getting current playback speed", e);
+            return 0;
         }
+    }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Select Playback Speed");
-        builder.setSingleChoiceItems(speedOptions, currentSelection, (dialog, which) -> {
-            try {
-                if (player != null) {
-                    float speed = speedValues[which];
-                    player.setPlaybackRate(speed);
-                    player.play();
-                }
-            } catch (Exception e) {
-                Logger.printException(() -> "Error setting playback speed", e);
-            }
+    private static void handleSpeedSelection(android.content.DialogInterface dialog, int selectedIndex) {
+        try {
+            float selectedSpeed = SPEED_VALUES[selectedIndex];
+            player.setPlaybackRate(selectedSpeed);
+            player.play();
+        } catch (Exception e) {
+            Logger.printException(() -> "handleSpeedSelection error setting playback speed", e);
+        } finally {
             dialog.dismiss();
-        });
-
-        return builder.create();
-    }
-
-    private static LinearLayout findTopButtonContainer(View userControlsView) {
-        try {
-            if (userControlsView instanceof ViewGroup viewGroup) {
-                for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                    View child = viewGroup.getChildAt(i);
-
-                    if (child instanceof LinearLayout && child.getId() != View.NO_ID) {
-                        try {
-                            String resourceName = userControlsView.getContext().getResources().getResourceEntryName(child.getId());
-                            if (resourceName != null && resourceName.equals("ButtonContainerPlayerTop")) {
-                                return (LinearLayout) child;
-                            }
-                        } catch (Exception e) {
-                            Logger.printException(() -> "Error finding button container", e);
-                        }
-                    }
-
-                    LinearLayout result = findTopButtonContainer(child);
-                    if (result != null) {
-                        return result;
-                    }
-                }
-            }
-        } catch (Exception e) {
-            Logger.printException(() -> "Error finding button container", e);
         }
-        return null;
     }
 }
 
@@ -205,18 +142,19 @@ class SpeedIconDrawable extends Drawable {
         int w = getBounds().width();
         int h = getBounds().height();
         float centerX = w / 2f;
-        float centerY = h * 0.7f; // Position gauge in lower portion
+        // Position gauge in lower portion.
+        float centerY = h * 0.7f;
         float radius = Math.min(w, h) / 2f * 0.8f;
 
         paint.setColor(Color.WHITE);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(radius * 0.1f);
 
-        // Draw semicircle
+        // Draw semicircle.
         RectF oval = new RectF(centerX - radius, centerY - radius, centerX + radius, centerY + radius);
         canvas.drawArc(oval, 180, 180, false, paint);
 
-        // Draw three tick marks
+        // Draw three tick marks.
         paint.setStrokeWidth(radius * 0.06f);
         for (int i = 0; i < 3; i++) {
             float angle = 180 + (i * 45); // 180°, 225°, 270°
@@ -230,7 +168,7 @@ class SpeedIconDrawable extends Drawable {
             canvas.drawLine(startX, startY, endX, endY, paint);
         }
 
-        // Draw needle
+        // Draw needle.
         paint.setStrokeWidth(radius * 0.08f);
         float needleAngle = 200; // Slightly right of center
         float needleAngleRad = (float) Math.toRadians(needleAngle);
@@ -240,7 +178,7 @@ class SpeedIconDrawable extends Drawable {
 
         canvas.drawLine(centerX, centerY, needleEndX, needleEndY, paint);
 
-        // Center dot
+        // Center dot.
         paint.setStyle(Paint.Style.FILL);
         canvas.drawCircle(centerX, centerY, radius * 0.06f, paint);
     }
@@ -258,5 +196,15 @@ class SpeedIconDrawable extends Drawable {
     @Override
     public int getOpacity() {
         return PixelFormat.TRANSLUCENT;
+    }
+
+    @Override
+    public int getIntrinsicWidth() {
+        return Utils.dipToPixels(32);
+    }
+
+    @Override
+    public int getIntrinsicHeight() {
+        return Utils.dipToPixels(32);
     }
 }
