@@ -26,7 +26,7 @@ public class PlaybackSpeedPatch {
     public static void setPlayer(Player playerInstance) {
         player = playerInstance;
         if (player != null) {
-            // Reset playback rate when switching between episodes to ensure correct display
+            // Reset playback rate when switching between episodes to ensure correct display.
             player.setPlaybackRate(1.0f);
         }
     }
@@ -35,7 +35,7 @@ public class PlaybackSpeedPatch {
         try {
             LinearLayout buttonContainer = Utils.getChildViewByResourceName(userControlsView, "ButtonContainerPlayerTop");
 
-            // If the speed overlay exists we should return early
+            // If the speed overlay exists we should return early.
             if (Utils.getChildView(buttonContainer, false, child ->
                     child instanceof ImageView && SPEED_BUTTON_TAG.equals(child.getTag())) != null) {
                 return;
@@ -157,7 +157,7 @@ class SpeedIconDrawable extends Drawable {
         // Draw three tick marks.
         paint.setStrokeWidth(radius * 0.06f);
         for (int i = 0; i < 3; i++) {
-            float angle = 180 + (i * 45); // 180°, 225°, 270°
+            float angle = 180 + (i * 45); // 180°, 225°, 270°.
             float angleRad = (float) Math.toRadians(angle);
 
             float startX = centerX + (radius * 0.8f) * (float) Math.cos(angleRad);
@@ -170,7 +170,7 @@ class SpeedIconDrawable extends Drawable {
 
         // Draw needle.
         paint.setStrokeWidth(radius * 0.08f);
-        float needleAngle = 200; // Slightly right of center
+        float needleAngle = 200; // Slightly right of center.
         float needleAngleRad = (float) Math.toRadians(needleAngle);
 
         float needleEndX = centerX + (radius * 0.6f) * (float) Math.cos(needleAngleRad);
