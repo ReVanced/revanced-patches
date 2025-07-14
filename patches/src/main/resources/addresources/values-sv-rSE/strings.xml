@@ -164,9 +164,6 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_expandable_card_title">Dölj expanderbart kort</string>
   <string name="revanced_hide_expandable_card_summary_on">Expanderbart kort under videor är dolt</string>
   <string name="revanced_hide_expandable_card_summary_off">Expanderbart kort under videor visas</string>
-  <string name="revanced_hide_feed_survey_title">Dölj enkäter i flödet</string>
-  <string name="revanced_hide_feed_survey_summary_on">Enkäter i flödet är dolda</string>
-  <string name="revanced_hide_feed_survey_summary_off">Enkäter i flödet visas</string>
   <string name="revanced_hide_floating_microphone_button_title">Dölj flytande mikrofonknapp</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Flytande mikrofonknapp i sökning är dold</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Flytande mikrofonknapp i sökning visas</string>
@@ -192,7 +189,7 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_movies_section_summary_on">Filmsektionen är dold</string>
   <string name="revanced_hide_movies_section_summary_off">Filmsektionen visas</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Dölj knappen Meddela mig</string>
   <string name="revanced_hide_notify_me_button_summary_on">Knappen Meddela mig är dold</string>
   <string name="revanced_hide_notify_me_button_summary_off">Knappen Meddela mig visas</string>
@@ -204,6 +201,9 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_show_more_button_title">Dölj knappen Visa mer</string>
   <string name="revanced_hide_show_more_button_summary_on">Knappen Visa mer i sökresultat är dold</string>
   <string name="revanced_hide_show_more_button_summary_off">Knappen Visa mer i sökresultat visas</string>
+  <string name="revanced_hide_surveys_title">Dölj enkäter</string>
+  <string name="revanced_hide_surveys_summary_on">Undersökningar är dolda</string>
+  <string name="revanced_hide_surveys_summary_off">Undersökningar visas</string>
   <string name="revanced_hide_ticket_shelf_title">Dölj biljetthylla</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Biljetthyllan är dold</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Biljetthyllan visas</string>
@@ -251,8 +251,8 @@ Om en doodle visas för närvarande i din region och den här döljningsinställ
   <string name="revanced_hide_timed_reactions_summary_on">Tidsbaserade reaktioner är dolda</string>
   <string name="revanced_hide_timed_reactions_summary_off">Tidsbaserade reaktioner visas</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Dölj AI-genererad videosammanfattning</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Avsnittet för videosammanfattning är dolt</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Avsnittet för videosammanfattning visas</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI-genererat avsnitt för videosammanfattning är dolt</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI-genererat avsnitt för videosammanfattning visas</string>
   <string name="revanced_hide_ask_section_title">Dölj Fråga</string>
   <string name="revanced_hide_ask_section_summary_on">Avsnittet Fråga är dolt</string>
   <string name="revanced_hide_ask_section_summary_off">Avsnittet Fråga visas</string>
@@ -280,19 +280,19 @@ Om en doodle visas för närvarande i din region och den här döljningsinställ
   <string name="revanced_hide_description_components_screen_title">Videobeskrivning</string>
   <string name="revanced_hide_description_components_screen_summary">Dölj eller visa komponenter i videobeskrivningen</string>
   <string name="revanced_hide_filter_bar_screen_title">Filterfält</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Dölj eller visa filterfältet i flödena, historiken, sökresultaten och liknande videor</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Dölj eller visa filterfältet i flödena, liknande videor, sökresultaten och visningshistoriken</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Dölj i flöden</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Dolt i flöden</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Visas i flöden</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Dölj i historik</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Dolt i historik</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Visas i historik</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Dölj i sökresultat</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Dolt i sökresultat</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Visas i sökresultat</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Dölj i liknande videor</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Dolt i liknande videor</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Visas i liknande videor</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Dölj i sökresultat</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Dolt i sökresultat</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Visas i sökresultat</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Dölj i visningshistoriken</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Döljs i visningshistoriken</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Visas i visningshistoriken</string>
   <string name="revanced_channel_screen_title">Kanalsida</string>
   <string name="revanced_channel_screen_summary">Dölj eller visa komponenter på kanalsidan</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -316,11 +316,11 @@ Om en doodle visas för närvarande i din region och den här döljningsinställ
   <string name="revanced_comments_screen_title">Kommentarer</string>
   <string name="revanced_comments_screen_summary">Dölj eller visa komponenter i kommentarsfältet</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Dölj AI-sammanfattning av chatt</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Sammanfattning av chatt är dold</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Sammanfattning av chatt visas</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">AI-sammanfattning av chatt är dold</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">AI-sammanfattning av chatt visas</string>
   <string name="revanced_hide_comments_ai_summary_title">Dölj AI-sammanfattning av kommentarer</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Sammanfattning av kommentarer är dold</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Sammanfattning av kommentarer visas</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">AI-sammanfattning av kommentarer är dold</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">AI-sammanfattning av kommentarer visas</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Dölj kanalriktlinjer</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanalriktlinjer är dolda</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanalriktlinjer visas</string>
@@ -419,7 +419,6 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_hide_shopping_links_title">Dölj butikslänkar</string>
   <string name="revanced_hide_shopping_links_summary_on">Butikslänkar i videobeskrivningen är dolda</string>
   <string name="revanced_hide_shopping_links_summary_off">Butikslänkar i videobeskrivningen visas</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Dölj bannern Visa produkter</string>
   <string name="revanced_hide_view_products_banner_summary_on">Bannern Visa produkter i videoöverlägget är dold</string>
   <string name="revanced_hide_view_products_banner_summary_off">Bannern Visa produkter i videoöverlägget visas</string>
@@ -730,12 +729,12 @@ För att visa ljudspårsmenyn, ändra \"Förfalska videoströmmar\" till iOS TV"
   <string name="revanced_disable_rolling_number_animations_summary_off">Rullande siffror animeras</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Dölj sökreglage i videospelare</string>
+  <string name="revanced_hide_seekbar_title">Dölj sökreglaget i videospelaren</string>
   <string name="revanced_hide_seekbar_summary_on">Sökreglaget i videospelaren är dolt</string>
   <string name="revanced_hide_seekbar_summary_off">Sökreglaget i videospelaren visas</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Dölj sökreglage i videominiatyrer</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Sökreglaget i miniatyrbilder är dolt</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Sökreglaget i miniatyrbilder visas</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Dölj sökreglaget för videominiatyrer</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Sökreglaget för videominiatyrer är dolt</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Sökreglaget för videominiatyrer visas</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts-spelare</string>
@@ -744,13 +743,13 @@ För att visa ljudspårsmenyn, ändra \"Förfalska videoströmmar\" till iOS TV"
   <string name="revanced_hide_shorts_home_title">Dölj Shorts i hemflödet</string>
   <string name="revanced_hide_shorts_home_summary_on">Döljs i hemflödet och liknande videor</string>
   <string name="revanced_hide_shorts_home_summary_off">Visas i hemflödet och liknande videor</string>
+  <string name="revanced_hide_shorts_search_title">Dölj Shorts-videor i sökresultat</string>
+  <string name="revanced_hide_shorts_search_summary_on">Döljs i sökresultaten</string>
+  <string name="revanced_hide_shorts_search_summary_off">Visas i sökresultaten</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Dölj Shorts i flödet Prenumerationer</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Döljs i flödet Prenumerationer</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Visas i flödet Prenumerationer</string>
-  <string name="revanced_hide_shorts_search_title">Dölj Shorts-videor i sökresultat</string>
-  <string name="revanced_hide_shorts_search_summary_on">Döljs i sökresultaten</string>
-  <string name="revanced_hide_shorts_search_summary_off">Visas i sökresultaten</string>
   <string name="revanced_hide_shorts_history_title">Dölj Shorts-videor i visningshistoriken</string>
   <string name="revanced_hide_shorts_history_summary_on">Döljs i visningshistoriken</string>
   <string name="revanced_hide_shorts_history_summary_off">Visas i visningshistoriken</string>
@@ -1000,29 +999,29 @@ Den här funktionen fungerar bäst med en videokvalitet på 720p eller lägre oc
   <string name="revanced_sb_enable_create_segment_sum_on">Knappen Skapa nytt segment visas</string>
   <string name="revanced_sb_enable_create_segment_sum_off">Knappen Skapa nytt segment visas inte</string>
   <string name="revanced_sb_general_adjusting">Justera steg för nytt segment</string>
-  <string name="revanced_sb_general_adjusting_sum">Antal millisekunder som tidsjusteringsknapparna hoppar framåt/bakåt när nya segment skapas</string>
+  <string name="revanced_sb_general_adjusting_sum">Antal millisekunder som knapparna för tidsjustering flyttar tiden med när du skapar nya segment</string>
   <string name="revanced_sb_general_adjusting_invalid">Värdet måste vara ett positivt tal</string>
   <string name="revanced_sb_guidelines_preference_title">Visa riktlinjer</string>
-  <string name="revanced_sb_guidelines_preference_sum">Riktlinjer innehåller regler och tips för att skapa nya segment</string>
+  <string name="revanced_sb_guidelines_preference_sum">Riktlinjerna innehåller regler och tips för att skapa nya segment</string>
   <string name="revanced_sb_guidelines_popup_title">Följ riktlinjerna</string>
   <string name="revanced_sb_guidelines_popup_content">Läs riktlinjerna för SponsorBlock innan du skapar nya segment</string>
   <string name="revanced_sb_guidelines_popup_already_read">Redan läst</string>
   <string name="revanced_sb_guidelines_popup_open">Visa mig</string>
   <string name="revanced_sb_general">Allmänt</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Visa ett meddelande om API inte är tillgängligt</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Meddelande visas om SponsorBlock inte är tillgängligt</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Meddelande visas inte om SponsorBlock inte är tillgängligt</string>
+  <string name="revanced_sb_toast_on_connection_error_title">Visa ett popup-meddelande om API inte är tillgängligt</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_on">Popup-meddelande visas om SponsorBlock inte är tillgängligt</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_off">Popup-meddelande visas inte om SponsorBlock inte är tillgängligt</string>
   <string name="revanced_sb_general_skipcount">Aktivera spårning av antalet överhoppningar</string>
   <string name="revanced_sb_general_skipcount_sum_on">Låter SponsorBlock-topplistan veta hur mycket tid som sparas. Ett meddelande skickas till topplistan varje gång ett segment hoppas över</string>
   <string name="revanced_sb_general_skipcount_sum_off">Spårning av antalet överhoppningar är inte aktiverat</string>
   <string name="revanced_sb_general_min_duration">Minsta segmentlängd</string>
-  <string name="revanced_sb_general_min_duration_sum">Segment kortare än detta värde (i sekunder) kommer inte att visas eller hoppas över</string>
+  <string name="revanced_sb_general_min_duration_sum">Segment som är kortare än detta värde (i sekunder) kommer inte att visas eller hoppas över</string>
   <string name="revanced_sb_general_min_duration_invalid">Ogiltig tidslängd</string>
   <string name="revanced_sb_general_uuid">Ditt privata användar-id</string>
   <string name="revanced_sb_general_uuid_sum">Detta bör hållas privat. Detta är som ett lösenord och bör inte delas med någon. Om någon har detta kan de utge sig för att vara du</string>
   <string name="revanced_sb_general_uuid_invalid">Privat användar-id måste vara minst 30 tecken långt</string>
   <string name="revanced_sb_general_api_url">Ändra API-webbadress</string>
-  <string name="revanced_sb_general_api_url_sum">Adressen SponsorBlock använder för att ringa samtal till servern</string>
+  <string name="revanced_sb_general_api_url_sum">Adressen SponsorBlock använder för att göra anrop till servern</string>
   <string name="revanced_sb_api_url_reset">API-webbadress återställdes</string>
   <string name="revanced_sb_api_url_invalid">API-webbadress är ogiltig</string>
   <string name="revanced_sb_api_url_changed">API-webbadress ändrades</string>
@@ -1056,7 +1055,7 @@ Ditt användar-id är som ett lösenord och det bör aldrig delas."</string>
   <string name="revanced_sb_segments_filler_sum">Ämnesavvikande scener som endast läggs till som utfyllnad eller för humor som inte krävs för att förstå det huvudsakliga innehållet i videon. Inkluderar inte segment som tillhandahåller kontext eller bakgrundsinformation</string>
   <string name="revanced_sb_segments_nomusic">Musik: Icke-musiksektion</string>
   <string name="revanced_sb_segments_nomusic_sum">Endast för användning i musikvideor. Sektioner av musikvideor utan musik, som inte redan omfattas av en annan kategori</string>
-  <string name="revanced_sb_skip_button_compact">Hoppa</string>
+  <string name="revanced_sb_skip_button_compact">Hoppa över</string>
   <string name="revanced_sb_skip_button_compact_highlight">Höjdpunkt</string>
   <string name="revanced_sb_skip_button_sponsor">Hoppa över sponsor</string>
   <string name="revanced_sb_skip_button_selfpromo">Hoppa över reklam</string>
@@ -1069,7 +1068,7 @@ Ditt användar-id är som ett lösenord och det bör aldrig delas."</string>
   <string name="revanced_sb_skip_button_preview_beginning">Hoppa över förhandstitt</string>
   <string name="revanced_sb_skip_button_preview_middle">Hoppa över förhandstitt</string>
   <string name="revanced_sb_skip_button_preview_end">Hoppa över sammanfattning</string>
-  <string name="revanced_sb_skip_button_filler">Hoppa över fyllmedel</string>
+  <string name="revanced_sb_skip_button_filler">Hoppa över utfyllnad</string>
   <string name="revanced_sb_skip_button_nomusic">Hoppa över icke-musik</string>
   <string name="revanced_sb_skip_button_unsubmitted">Hoppa över segment</string>
   <string name="revanced_sb_skipped_sponsor">Hoppade över sponsor</string>
@@ -1083,7 +1082,7 @@ Ditt användar-id är som ett lösenord och det bör aldrig delas."</string>
   <string name="revanced_sb_skipped_preview_beginning">Hoppade över förhandstitt</string>
   <string name="revanced_sb_skipped_preview_middle">Hoppade över förhandstitt</string>
   <string name="revanced_sb_skipped_preview_end">Hoppade över sammanfattning</string>
-  <string name="revanced_sb_skipped_filler">Hoppade över ämnesavvikelse</string>
+  <string name="revanced_sb_skipped_filler">Hoppade över utfyllnad</string>
   <string name="revanced_sb_skipped_nomusic">Hoppade över en icke-musiksektion</string>
   <string name="revanced_sb_skipped_unsubmitted">Hoppade över oinskickat segment</string>
   <string name="revanced_sb_skipped_multiple_segments">Hoppade över flera segment</string>
@@ -1092,36 +1091,36 @@ Ditt användar-id är som ett lösenord och det bör aldrig delas."</string>
   <string name="revanced_sb_skip_showbutton">Visa en Hoppa över-knapp</string>
   <string name="revanced_sb_skip_seekbaronly">Visa i sökreglaget</string>
   <string name="revanced_sb_skip_ignore">Inaktivera</string>
-  <string name="revanced_sb_submit_failed_invalid">Det går inte att skicka segment: %s</string>
+  <string name="revanced_sb_submit_failed_invalid">Det gick inte att skicka segment: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock är tillfälligt nere</string>
-  <string name="revanced_sb_submit_failed_unknown_error">Det går inte att skicka segment (status: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Kunde inte skicka segment. Begäran begränsad (för många från samma användare eller IP)</string>
-  <string name="revanced_sb_submit_failed_forbidden">Kan inte skicka segmentet: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">"Kan inte skicka segmentet.
-Redan finns"</string>
+  <string name="revanced_sb_submit_failed_unknown_error">Det gick inte att skicka segment (status: %1$d %2$s)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Det gick inte att skicka segment. Frekvensbegränsad (för många från samma användare eller IP)</string>
+  <string name="revanced_sb_submit_failed_forbidden">Det går inte att skicka segmentet: %s</string>
+  <string name="revanced_sb_submit_failed_duplicate">"Det går inte att skicka segmentet.
+Finns redan"</string>
   <string name="revanced_sb_submit_succeeded">Segmentet har skickats</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock är inte tillgängligt (API timed out)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock ej tillgängligt just nu (API-tidsgräns nådd)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock tillfälligt inte tillgängligt (status %d)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock är tillfälligt inte tillgängligt</string>
-  <string name="revanced_sb_vote_failed_timeout">Det går inte att rösta för segmentet (API-tiden har gått ut)</string>
-  <string name="revanced_sb_vote_failed_unknown_error">Det gick inte att rösta för segment (status: %1$d %2$s)</string>
-  <string name="revanced_sb_vote_failed_forbidden">Det går inte att rösta för segment: %s</string>
+  <string name="revanced_sb_vote_failed_timeout">Det gick inte att rösta på segment (API-tidsgräns nådd)</string>
+  <string name="revanced_sb_vote_failed_unknown_error">Det gick inte att rösta på segment (status: %1$d %2$s)</string>
+  <string name="revanced_sb_vote_failed_forbidden">Det gick inte att rösta på segment: %s</string>
   <string name="revanced_sb_vote_upvote">Upprösta</string>
   <string name="revanced_sb_vote_downvote">Nedrösta</string>
   <string name="revanced_sb_vote_category">Ändra kategori</string>
   <string name="revanced_sb_vote_no_segments">Det finns inga segment att rösta på</string>
   <!-- A segment start and end time, such as "02:10 to 03:40". -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s till %2$s</string>
-  <string name="revanced_sb_new_segment_choose_category">Välj segmentkategori</string>
-  <string name="revanced_sb_new_segment_disabled_category">Kategorin är inaktiverad i inställningar. Aktivera kategori för att skicka.</string>
-  <string name="revanced_sb_new_segment_title">Nytt Sponsorblock-segment</string>
-  <string name="revanced_sb_new_segment_mark_time_as_question">Ange %s som början eller slutet av ett nytt segment?</string>
-  <string name="revanced_sb_new_segment_mark_start">Början</string>
+  <string name="revanced_sb_new_segment_choose_category">Välj kategorin för segmentet</string>
+  <string name="revanced_sb_new_segment_disabled_category">Kategorin är inaktiverad i inställningarna. Aktivera kategorin för att skicka.</string>
+  <string name="revanced_sb_new_segment_title">Nytt SponsorBlock-segment</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Ange %s som starten eller slutet av ett nytt segment?</string>
+  <string name="revanced_sb_new_segment_mark_start">Start</string>
   <string name="revanced_sb_new_segment_mark_end">Slut</string>
   <string name="revanced_sb_new_segment_now">Nu</string>
-  <string name="revanced_sb_new_segment_time_start">Tid då segmentet börjar på</string>
-  <string name="revanced_sb_new_segment_time_end">Tid då segmentet slutar på</string>
+  <string name="revanced_sb_new_segment_time_start">Tiden segmentet börjar vid</string>
+  <string name="revanced_sb_new_segment_time_end">Tiden segmentet slutar vid</string>
   <string name="revanced_sb_new_segment_confirm_title">Är tiderna korrekta?</string>
   <string name="revanced_sb_new_segment_confirm_content">"Segmentet är från
 
@@ -1132,7 +1131,7 @@ till
 (%3$s)
 
 Redo att skicka in?"</string>
-  <string name="revanced_sb_new_segment_start_is_before_end">Start måste vara innan slutet</string>
+  <string name="revanced_sb_new_segment_start_is_before_end">Starten måste infalla före slutet</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Markera två platser i tidsfältet först</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Förhandsgranska segmentet och se till att det hoppar över smidigt</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Redigera tid för segment manuellt</string>
@@ -1141,7 +1140,7 @@ Redo att skicka in?"</string>
   <string name="revanced_sb_stats_title">Statistik</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistik är tillfälligt inte tillgänglig (API är nere)</string>
-  <string name="revanced_sb_stats_loading">Laddar...</string>
+  <string name="revanced_sb_stats_loading">Läser in ...</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock är inaktiverad</string>
   <string name="revanced_sb_stats_username">Ditt användarnamn: &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_username_change">Tryck här för att ändra ditt användarnamn</string>
@@ -1150,13 +1149,13 @@ Redo att skicka in?"</string>
   <string name="revanced_sb_stats_reputation">Ditt rykte är &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">Du har skapat &lt;b&gt;%s&lt;/b&gt; segment</string>
   <string name="revanced_sb_stats_submissions_sum">Tryck här för att visa dina segment</string>
-  <string name="revanced_sb_stats_saved_zero">Sponsra topplista</string>
+  <string name="revanced_sb_stats_saved_zero">SponsorBlock topplista</string>
   <string name="revanced_sb_stats_saved">Du har räddat personer från &lt;b&gt;%s&lt;/b&gt; segment</string>
   <string name="revanced_sb_stats_saved_sum_zero">Tryck här för att se den globala statistiken och de bästa bidragsgivarna</string>
   <string name="revanced_sb_stats_saved_sum">Det är &lt;b&gt;%s&lt;/b&gt; av deras liv.&lt;br&gt;Tryck här för att se leaderboarden</string>
   <string name="revanced_sb_stats_self_saved">Du har hoppat över &lt;b&gt;%s&lt;/b&gt; segment</string>
   <string name="revanced_sb_stats_self_saved_sum">Det är &lt;b&gt;%s&lt;/b&gt;</string>
-  <string name="revanced_sb_stats_self_saved_reset_title">Återställ överhoppade segment räknare?</string>
+  <string name="revanced_sb_stats_self_saved_reset_title">Återställ räknaren för överhoppade segment?</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s timmar %2$s minuter</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minuter %2$s sekunder</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekunder</string>
@@ -1342,16 +1341,16 @@ Om du aktiverar detta kan det åtgärda saknade bilder som blockeras i vissa reg
 Om detta aktiveras skickas videoadresser till API-servern och inga andra data skickas. Om en video inte har DeArrow-miniatyrer visas originalet eller stillbilder
 
 Tryck här för att läsa mer om DeArrow"</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Visa ett meddelande om API inte är tillgängligt</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Meddelande visas om DeArrow inte är tillgängligt</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Meddelande visas inte om DeArrow inte är tillgängligt</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Visa ett popup-meddelande om API inte är tillgängligt</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Popup-meddelande visas om DeArrow inte är tillgängligt</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Popup-meddelande visas inte om DeArrow inte är tillgängligt</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API-slutpunkt</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow-miniatyrcacheminnets slutpunktsadress</string>
   <string name="revanced_alt_thumbnail_stills_about_title">Stillbilder från videor</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Stillbilder tas från början/mitten/slutet av varje video. Dessa bilder är inbyggda i YouTube och inget externt API används</string>
-  <string name="revanced_alt_thumbnail_stills_fast_title">Använd snabbt stillbilder</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Använda medelhög kvalitet fortfarande fångar. Miniatyrer kommer att ladda snabbare, men levande strömmar, outgivna eller mycket gamla videor kan visa tomma miniatyrer</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_off">Använda hög kvalitet fortfarande fångar</string>
+  <string name="revanced_alt_thumbnail_stills_fast_title">Använd snabba stillbilder</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Använder stillbilder av medelhög kvalitet. Miniatyrer kommer att läsas in snabbare, men livestreamar, videor som inte har släppts eller mycket gamla videor kan visa tomma miniatyrer</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_off">Använder stillbilder av hög kvalitet</string>
   <string name="revanced_alt_thumbnail_stills_time_title">Videotid att ta stillbilder från</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_1">Början av videon</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_2">Mitten av video</string>
@@ -1417,9 +1416,9 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_bypass_url_redirects_summary_off">Webbadressomdirigeringar hoppas inte över</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
-  <string name="revanced_external_browser_title">Öppna länkar i webbläsaren</string>
-  <string name="revanced_external_browser_summary_on">Öppna länkar i extern webbläsare</string>
-  <string name="revanced_external_browser_summary_off">Öppna länkar i webbläsaren i appen</string>
+  <string name="revanced_external_browser_title">Öppna länkar i webbläsare</string>
+  <string name="revanced_external_browser_summary_on">Öppnar länkar i extern webbläsare</string>
+  <string name="revanced_external_browser_summary_off">Öppnar länkar i webbläsare i appen</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Ta bort spårningsfrågeparameter</string>
@@ -1436,14 +1435,14 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automatiskt</string>
-  <string name="revanced_remember_video_quality_last_selected_title">Kom ihåg förändringar i videokvaliteten</string>
+  <string name="revanced_remember_video_quality_last_selected_title">Kom ihåg ändringar av videokvalitet</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitetsändringar gäller för alla videor</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitetsförändringar gäller endast för den aktuella videon</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitetsändringar gäller endast för den aktuella videon</string>
   <string name="revanced_remember_video_quality_last_selected_toast_title">Visa meddelande vid ändringar av videokvalitet</string>
   <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Ett meddelande visas när standardvideokvaliteten ändras</string>
   <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Ett meddelande visas inte när standardvideokvaliteten ändras</string>
-  <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-nätverk</string>
-  <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilt nätverk</string>
+  <string name="revanced_video_quality_default_wifi_title">Standardvideokvalitet på Wi-Fi-nätverk</string>
+  <string name="revanced_video_quality_default_mobile_title">Standardvideokvalitet på mobilnätverk</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Kom ihåg kvalitetsändringar för Shorts</string>
   <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitetsändringar gäller alla Shorts</string>
   <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitetsändringar gäller endast aktuell Short</string>
