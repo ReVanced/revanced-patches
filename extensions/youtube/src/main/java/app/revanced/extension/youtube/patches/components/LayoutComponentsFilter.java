@@ -4,12 +4,14 @@ import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButt
 
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.StringTrieSearch;
+import app.revanced.extension.youtube.patches.ChangeHeaderPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -30,7 +32,7 @@ public final class LayoutComponentsFilter extends Filter {
     );
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
-    private final StringFilterGroup inFeedSurvey;
+    private final StringFilterGroup surveys;
     private final StringFilterGroup notifyMe;
     private final StringFilterGroup singleItemInformationPanel;
     private final StringFilterGroup expandableMetadata;
@@ -108,8 +110,8 @@ public final class LayoutComponentsFilter extends Filter {
                 "chip_bar"
         );
 
-        inFeedSurvey = new StringFilterGroup(
-                Settings.HIDE_FEED_SURVEY,
+        surveys = new StringFilterGroup(
+                Settings.HIDE_SURVEYS,
                 "in_feed_survey",
                 "slimline_survey",
                 "feed_nudge"
@@ -284,17 +286,18 @@ public final class LayoutComponentsFilter extends Filter {
                 forYouShelf,
                 horizontalShelves,
                 imageShelf,
-                inFeedSurvey,
                 infoPanel,
                 latestPosts,
                 medicalPanel,
                 notifyMe,
                 paidPromotion,
                 playables,
+                quickActions,
                 relatedVideos,
                 singleItemInformationPanel,
                 subscribersCommunityGuidelines,
                 subscriptionsChipBar,
+                surveys,
                 timedReactions,
                 videoRecommendationLabels
         );
@@ -314,7 +317,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         // The groups are excluded from the filter due to the exceptions list below.
         // Filter them separately here.
-        if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata) {
+        if (matchedGroup == notifyMe || matchedGroup == surveys || matchedGroup == expandableMetadata) {
             return true;
         }
 
@@ -436,13 +439,11 @@ public final class LayoutComponentsFilter extends Filter {
     /**
      * Injection point.
      */
-    @Nullable
-    public static Drawable hideYoodles(Drawable animatedYoodle) {
-        if (HIDE_DOODLES_ENABLED) {
-            return null;
-        }
-
-        return animatedYoodle;
+    public static void setDoodleDrawable(ImageView imageView, Drawable original) {
+        Drawable replacement = HIDE_DOODLES_ENABLED
+                ? ChangeHeaderPatch.getDrawable(original)
+                : original;
+        imageView.setImageDrawable(replacement);
     }
 
     private static final boolean HIDE_SHOW_MORE_BUTTON_ENABLED = Settings.HIDE_SHOW_MORE_BUTTON.get();

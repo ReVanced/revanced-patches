@@ -164,9 +164,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_expandable_card_title">הסתר כרטיס מתרחב</string>
   <string name="revanced_hide_expandable_card_summary_on">כרטיס מתרחב מתחת לסרטונים מוסתר</string>
   <string name="revanced_hide_expandable_card_summary_off">כרטיס מתרחב מתחת לסרטונים מוצג</string>
-  <string name="revanced_hide_feed_survey_title">הסתר סקרי פיד</string>
-  <string name="revanced_hide_feed_survey_summary_on">סקרי פיד מוסתרים</string>
-  <string name="revanced_hide_feed_survey_summary_off">סקרי פיד מוצגים</string>
   <string name="revanced_hide_floating_microphone_button_title">הסתר לחצן מיקרופון צף</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">כפתור מיקרופון צף בחיפוש מוסתר</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">כפתור מיקרופון צף בחיפוש מוצג</string>
@@ -192,7 +189,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_movies_section_summary_on">מדור הסרטים מוסתר</string>
   <string name="revanced_hide_movies_section_summary_off">מדור הסרטים מוצג</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">הסתר לחצן \'אני רוצה לקבל התראה\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">כפתור \'הודע לי\' מוסתר</string>
   <string name="revanced_hide_notify_me_button_summary_off">כפתור \"הודע לי\" מוצג</string>
@@ -204,6 +201,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">הסתר לחצן \'הצג עוד\'</string>
   <string name="revanced_hide_show_more_button_summary_on">כפתור \"הצג עוד\" בתוצאות חיפוש מוסתר</string>
   <string name="revanced_hide_show_more_button_summary_off">כפתור הצג עוד בתוצאות החיפוש מוצג</string>
+  <string name="revanced_hide_surveys_title">הסתר סקרים</string>
+  <string name="revanced_hide_surveys_summary_on">סקרים מוסתרים</string>
+  <string name="revanced_hide_surveys_summary_off">סקרים מוצגים</string>
   <string name="revanced_hide_ticket_shelf_title">הסתר מדף כרטיסים</string>
   <string name="revanced_hide_ticket_shelf_summary_on">מדף כרטיסים מוסתר</string>
   <string name="revanced_hide_ticket_shelf_summary_off">מדף כרטיסים מוצג</string>
@@ -251,8 +251,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_summary_on">תגובות באמוג\'י מתוזמנות מוסתרות</string>
   <string name="revanced_hide_timed_reactions_summary_off">תגובות באמוג\'י מתוזמנות מוצגות</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">הסתר את \'סיכום הווידאו שנוצר על ידי בינה מלאכותית\'</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">מדור סיכום הסרטון מוסתר</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">מדור סיכום הסרטון מוצג</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">קטע סיכום וידאו שנוצר על ידי בינה מלאכותית מוסתר</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">קטע סיכום וידאו שנוצר על ידי AI מוצג</string>
   <string name="revanced_hide_ask_section_title">הסתר Ask</string>
   <string name="revanced_hide_ask_section_summary_on">מדור Ask מוסתר</string>
   <string name="revanced_hide_ask_section_summary_off">מדור Ask מוצג</string>
@@ -280,19 +280,19 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">תיאור סרטון</string>
   <string name="revanced_hide_description_components_screen_summary">הסתר או הצג רכיבי תיאור סרטון</string>
   <string name="revanced_hide_filter_bar_screen_title">סרגל סינון</string>
-  <string name="revanced_hide_filter_bar_screen_summary">הסתר או הצג את סרגל הסינון בפידים, היסטוריה, תוצאות חיפוש, וסרטונים קשורים</string>
+  <string name="revanced_hide_filter_bar_screen_summary">הסתר או הצג את סרגל הסינון בפידים, סרטונים קשורים, תוצאות חיפוש והיסטוריית צפייה</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">הסתר בפידים</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">מוסתר בפידים</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">מוצג בפידים</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">הסתר בהיסטוריה</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">מוסתר בהיסטוריה</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">מוצג בהיסטוריה</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">הסתר בתוצאות חיפוש</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">מוסתר בתוצאות חיפוש</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">מוצג בתוצאות חיפוש</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">הסתר בסרטונים קשורים</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">מוסתר בסרטונים קשורים</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">מוצג בסרטונים קשורים</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">הסתר בתוצאות חיפוש</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">מוסתר בתוצאות חיפוש</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">מוצג בתוצאות חיפוש</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">הסתר בהיסטוריית הצפייה</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">מוסתר בהיסטוריית הצפייה</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">מוצג בהיסטוריית הצפייה</string>
   <string name="revanced_channel_screen_title">דף ערוץ</string>
   <string name="revanced_channel_screen_summary">הסתר או הצג רכיבי דף ערוץ</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -315,12 +315,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_visit_store_button_summary_off">כפתור \"בקר בחנות\" מוצג</string>
   <string name="revanced_comments_screen_title">תגובות</string>
   <string name="revanced_comments_screen_summary">הסתר או הצג רכיבי מדור תגובות</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">הסתר סיכום צ\'אט של בינה מלאכותית</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">סיכום צ\'אט מוסתר</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">סיכום צ\'אט מוצג</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">הסתר סיכום צ\'אט בינה מלאכותית</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">סיכום צ\'אט בינה מלאכותית מוסתר</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">סיכום צ\'אט בינה מלאכותית מוצג</string>
   <string name="revanced_hide_comments_ai_summary_title">הסתר סיכום תגובות AI</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">סיכום תגובות מוסתר</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">סיכום התגובות מוצג</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">סיכום תגובות בינה מלאכותית מוסתר</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">סיכום תגובות בינה מלאכותית מוצג</string>
   <string name="revanced_hide_comments_channel_guidelines_title">הסתר הנחיות ערוץ</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">הנחיות הערוץ מוסתרות</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">הנחיות הערוץ מוצגות</string>
@@ -419,7 +419,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shopping_links_title">הסתר קישורי קניות</string>
   <string name="revanced_hide_shopping_links_summary_on">קישורי קניות בתיאור הסרטון מוסתרים</string>
   <string name="revanced_hide_shopping_links_summary_off">קישורי קניות בתיאור הסרטון מוצגים</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">הסתר באנר \'צפה במוצרים\'</string>
   <string name="revanced_hide_view_products_banner_summary_on">באנר הצגת המוצרים בשכבת-על של הווידאו מוסתר</string>
   <string name="revanced_hide_view_products_banner_summary_off">באנר צפייה במוצרים בשכבת-על של וידאו מוצג</string>
@@ -453,7 +452,7 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">דו-שיח יוצג</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">זה לא עוקף את מגבלת הגיל. זה רק מסכים לזה באופן אוטומטי.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">ביטול דילוג פרקים בלחיצה כפולה</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">לחיצה כפולה לעולם לא תפעיל דילוג לפרק הבא/הקודם</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">לחיצה כפולה יכולה להפעיל מדי פעם דילוג לפרק הבא/הקודם</string>
@@ -702,9 +701,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_cast_button_title">הסתר לחצן העברה</string>
   <string name="revanced_hide_cast_button_summary_on">לחצן העברה מוסתר</string>
   <string name="revanced_hide_cast_button_summary_off">לחצן העברה מוצג</string>
-  <string name="revanced_hide_player_control_buttons_background_title">הסתר רקע של לחצני שליטה בנגן</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">רקע לחצני השליטה בנגן מוסתר</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">רקע לחצני השליטה בנגן מוצג</string>
+  <string name="revanced_hide_player_control_buttons_background_title">הסתר רקע פקדי נגן</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">רקע פקדי הנגן מוסתר</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">רקע פקדי הנגן מוצג</string>
   <string name="revanced_hide_player_previous_next_buttons_title">הסתר לחצני הקודם &amp; הבא</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">הלחצנים מוסתרים</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">הלחצנים מוצגים</string>
@@ -730,27 +729,27 @@ Second \"item\" text"</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">מספרים מתגלגלים מונפשים</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">הסתר סרגל דילוג בנגן וידאו</string>
+  <string name="revanced_hide_seekbar_title">הסתר סרגל חיפוש נגן וידאו</string>
   <string name="revanced_hide_seekbar_summary_on">סרגל דילוג של נגן וידאו מוסתר</string>
   <string name="revanced_hide_seekbar_summary_off">סרגל דילוג של נגן וידאו מוצג</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">הסתר סרגל דילוג בתמונות ממוזערות של סרטונים</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">סרגל דילוג תמונות ממוזערות מוסתר</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">סרגל דילוג תמונות ממוזערות מוצג</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">הסתר סרגל חיפוש תמונות ממוזערות של וידאו</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">סרגל חיפוש תמונות ממוזערות של וידאו מוסתר</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">סרגל חיפוש תמונות ממוזערות של וידאו מוצג</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">נגן Shorts</string>
-  <string name="revanced_shorts_player_screen_summary">הסתר או הצג רכיבים בנגן ה-Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">הסתר או הצג רכיבי נגן Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">להסתיר Shorts בפיד הבית</string>
   <string name="revanced_hide_shorts_home_summary_on">מוסתר בפיד הבית וסרטונים קשורים</string>
   <string name="revanced_hide_shorts_home_summary_off">מוצג בפיד הבית ובסרטונים קשורים</string>
+  <string name="revanced_hide_shorts_search_title">הסתר Shorts בתוצאות חיפוש</string>
+  <string name="revanced_hide_shorts_search_summary_on">מוסתר בתוצאות חיפוש</string>
+  <string name="revanced_hide_shorts_search_summary_off">מוצג בתוצאות חיפוש</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">להסתיר Shorts בפיד המינויים</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">מוסתר בפיד המנויים</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">מוצג בפיד מינויים</string>
-  <string name="revanced_hide_shorts_search_title">הסתר Shorts בתוצאות חיפוש</string>
-  <string name="revanced_hide_shorts_search_summary_on">מוסתר בתוצאות חיפוש</string>
-  <string name="revanced_hide_shorts_search_summary_off">מוצג בתוצאות חיפוש</string>
   <string name="revanced_hide_shorts_history_title">הסתר Shorts בהיסטוריית הצפייה</string>
   <string name="revanced_hide_shorts_history_summary_on">מוסתר בהיסטוריית הצפייה</string>
   <string name="revanced_hide_shorts_history_summary_off">מוצג בהיסטוריית הצפייה</string>

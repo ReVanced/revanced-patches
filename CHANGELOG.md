@@ -1,3 +1,38 @@
+## [5.31.2-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.4...v5.31.2-dev.5) (2025-07-14)
+
+
+### Bug Fixes
+
+* **Spotify - Spoof client:** Fix login failing by spoofing login request in addition ([#5448](https://github.com/ReVanced/revanced-patches/issues/5448)) ([4e59ddc](https://github.com/ReVanced/revanced-patches/commit/4e59ddc62388d09f71b89593fc8b76933d9facea))
+
+## [5.31.2-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.3...v5.31.2-dev.4) (2025-07-13)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Back button/gesture closes search instead of exiting ([#5418](https://github.com/ReVanced/revanced-patches/issues/5418)) ([134b278](https://github.com/ReVanced/revanced-patches/commit/134b278baa7b90d2c4b06200cabacabf55ebc055))
+
+## [5.31.2-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.2...v5.31.2-dev.3) (2025-07-13)
+
+
+### Bug Fixes
+
+* **YouTube - Disable double tap actions:** Remove old incompatible targets ([857053e](https://github.com/ReVanced/revanced-patches/commit/857053e29b72ded10a84b0ac693fa107705342d9))
+
+## [5.31.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.1...v5.31.2-dev.2) (2025-07-12)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Show correct custom header logo if 'Hide YouTube Doodles' is enabled ([#5431](https://github.com/ReVanced/revanced-patches/issues/5431)) ([20cc141](https://github.com/ReVanced/revanced-patches/commit/20cc141e61f75de1a1749247c4f4aed167dee8ea))
+
+## [5.31.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.1...v5.31.2-dev.1) (2025-07-12)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide quick actions does not work ([#5423](https://github.com/ReVanced/revanced-patches/issues/5423)) ([9c66729](https://github.com/ReVanced/revanced-patches/commit/9c6672946d44001e106bdac9041e2d79ef3f6ab2))
+
 ## [5.31.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.0...v5.31.1) (2025-07-11)
 
 

@@ -222,9 +222,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_expandable_card_title">Hide expandable card</string>
             <string name="revanced_hide_expandable_card_summary_on">Expandable card under videos is hidden</string>
             <string name="revanced_hide_expandable_card_summary_off">Expandable card under videos is shown</string>
-            <string name="revanced_hide_feed_survey_title">Hide feed surveys</string>
-            <string name="revanced_hide_feed_survey_summary_on">Feed surveys are hidden</string>
-            <string name="revanced_hide_feed_survey_summary_off">Feed surveys are shown</string>
             <string name="revanced_hide_floating_microphone_button_title">Hide floating microphone button</string>
             <string name="revanced_hide_floating_microphone_button_summary_on">Floating microphone button in search is hidden</string>
             <string name="revanced_hide_floating_microphone_button_summary_off">Floating microphone button in search is shown</string>
@@ -250,7 +247,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_movies_section_summary_on">Movies section is hidden</string>
             <string name="revanced_hide_movies_section_summary_off">Movies section is shown</string>
             <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
             <string name="revanced_hide_notify_me_button_title">Hide \'Notify me\' button</string>
             <string name="revanced_hide_notify_me_button_summary_on">Notify me button is hidden</string>
             <string name="revanced_hide_notify_me_button_summary_off">Notify me button is shown</string>
@@ -262,6 +259,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_show_more_button_title">Hide \'Show more\' button</string>
             <string name="revanced_hide_show_more_button_summary_on">Show more button in search results is hidden</string>
             <string name="revanced_hide_show_more_button_summary_off">Show more button in search results is shown</string>
+            <string name="revanced_hide_surveys_title">Hide surveys</string>
+            <string name="revanced_hide_surveys_summary_on">Surveys are hidden</string>
+            <string name="revanced_hide_surveys_summary_off">Surveys are shown</string>
             <string name="revanced_hide_ticket_shelf_title">Hide ticket shelf</string>
             <string name="revanced_hide_ticket_shelf_summary_on">Ticket shelf is hidden</string>
             <string name="revanced_hide_ticket_shelf_summary_off">Ticket shelf is shown</string>
@@ -309,8 +309,8 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_timed_reactions_summary_on">Timed reactions are hidden</string>
             <string name="revanced_hide_timed_reactions_summary_off">Timed reactions are shown</string>
             <string name="revanced_hide_ai_generated_video_summary_section_title">Hide \'AI-generated video summary\'</string>
-            <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video summary section is hidden</string>
-            <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video summary section is shown</string>
+            <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI-generated video summary section is hidden</string>
+            <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI-generated video summary section is shown</string>
             <string name="revanced_hide_ask_section_title">Hide Ask</string>
             <string name="revanced_hide_ask_section_summary_on">Ask section is hidden</string>
             <string name="revanced_hide_ask_section_summary_off">Ask section is shown</string>
@@ -339,19 +339,19 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_description_components_screen_summary">Hide or show video description components</string>
 
             <string name="revanced_hide_filter_bar_screen_title">Filter bar</string>
-            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feeds, history, search results, and related videos</string>
+            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in feeds, related videos, search results, and watch history</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_title">Hide in feeds</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Hidden in feeds</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Shown in feeds</string>
-            <string name="revanced_hide_filter_bar_feed_in_history_title">Hide in history</string>
-            <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Hidden in history</string>
-            <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Shown in history</string>
-            <string name="revanced_hide_filter_bar_feed_in_search_title">Hide in search results</string>
-            <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Hidden in search results</string>
-            <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Shown in search results</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Hide in related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Hidden in related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Shown in related videos</string>
+            <string name="revanced_hide_filter_bar_feed_in_search_title">Hide in search results</string>
+            <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Hidden in search results</string>
+            <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Shown in search results</string>
+            <string name="revanced_hide_filter_bar_feed_in_history_title">Hide in watch history</string>
+            <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Hidden in watch history</string>
+            <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Shown in watch history</string>
 
             <string name="revanced_channel_screen_title">Channel page</string>
             <string name="revanced_channel_screen_summary">Hide or show channel page components</string>
@@ -376,12 +376,12 @@ If a Doodle is currently showing in your region and this hide setting is on, the
 
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
-            <string name="revanced_hide_comments_ai_chat_summary_title">Hide AI Chat summary</string>
-            <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chat summary is hidden</string>
-            <string name="revanced_hide_comments_ai_chat_summary_summary_off">Chat summary is shown</string>
+            <string name="revanced_hide_comments_ai_chat_summary_title">Hide AI chat summary</string>
+            <string name="revanced_hide_comments_ai_chat_summary_summary_on">AI chat summary is hidden</string>
+            <string name="revanced_hide_comments_ai_chat_summary_summary_off">AI chat summary is shown</string>
             <string name="revanced_hide_comments_ai_summary_title">Hide AI comments summary</string>
-            <string name="revanced_hide_comments_ai_summary_summary_on">Comments summary is hidden</string>
-            <string name="revanced_hide_comments_ai_summary_summary_off">Comments summary is shown</string>
+            <string name="revanced_hide_comments_ai_summary_summary_on">AI comments summary is hidden</string>
+            <string name="revanced_hide_comments_ai_summary_summary_off">AI comments summary is shown</string>
             <string name="revanced_hide_comments_channel_guidelines_title">Hide channel guidelines</string>
             <string name="revanced_hide_comments_channel_guidelines_summary_on">Channel guidelines are hidden</string>
             <string name="revanced_hide_comments_channel_guidelines_summary_off">Channel guidelines are shown</string>
@@ -418,16 +418,16 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s</string>
 
             <string name="revanced_hide_keyword_content_screen_title">Hide keyword content</string>
-            <string name="revanced_hide_keyword_content_screen_summary">Hide search and feed videos using keyword filters</string>
-            <string name="revanced_hide_keyword_content_home_title">Hide home videos by keywords</string>
-            <string name="revanced_hide_keyword_content_home_summary_on">Videos in the home tab are filtered by keywords</string>
-            <string name="revanced_hide_keyword_content_home_summary_off">Videos in the home tab are not filtered by keywords</string>
+            <string name="revanced_hide_keyword_content_screen_summary">Hide feed and search videos using keyword filters</string>
+            <string name="revanced_hide_keyword_content_home_title">Hide Home videos by keywords</string>
+            <string name="revanced_hide_keyword_content_home_summary_on">Videos in Home tab are filtered by keywords</string>
+            <string name="revanced_hide_keyword_content_home_summary_off">Videos in Home tab are not filtered by keywords</string>
             <string name="revanced_hide_keyword_content_search_title">Hide search results by keywords</string>
             <string name="revanced_hide_keyword_content_search_summary_on">Search results are filtered by keywords</string>
             <string name="revanced_hide_keyword_content_search_summary_off">Search results are not filtered by keywords</string>
-            <string name="revanced_hide_keyword_content_subscriptions_title">Hide subscription videos by keywords</string>
-            <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videos in the subscriptions tab are filtered by keywords</string>
-            <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videos in the subscriptions tab are not filtered by keywords</string>
+            <string name="revanced_hide_keyword_content_subscriptions_title">Hide Subscriptions videos by keywords</string>
+            <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videos in Subscriptions tab are filtered by keywords</string>
+            <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videos in Subscriptions tab are not filtered by keywords</string>
             <string name="revanced_hide_keyword_content_phrases_title">Keywords to hide</string>
             <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
@@ -437,7 +437,7 @@ Keywords can be channel names or any text shown in video titles
 
 Words with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc)"</string>
             <string name="revanced_hide_keyword_content_about_title">About keyword filtering</string>
-            <string name="revanced_hide_keyword_content_about_summary">"Home/Subscription/Search results are filtered to hide content that matches keyword phrases
+            <string name="revanced_hide_keyword_content_about_summary">"Home/Subscriptions/Search results are filtered to hide content that matches keyword phrases
 
 Limitations
 • Shorts cannot be hidden by channel name
@@ -482,8 +482,7 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
             <string name="revanced_hide_shopping_links_summary_on">Shopping links in video description are hidden</string>
             <string name="revanced_hide_shopping_links_summary_off">Shopping links in video description are shown</string>
-            <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_view_products_banner_title">Hide \'View products\' banner</string>
+            <string name="revanced_hide_view_products_banner_title">Hide view products banner</string>
             <string name="revanced_hide_view_products_banner_summary_on">View products banner in video overlay is hidden</string>
             <string name="revanced_hide_view_products_banner_summary_off">View products banner in video overlay is shown</string>
             <string name="revanced_hide_web_search_results_title">Hide web search results</string>
@@ -516,7 +515,7 @@ This feature is only available for older devices"</string>
             <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog will be shown</string>
             <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction. It just accepts it automatically.</string>
         </patch>
-        <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+        <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
             <string name="revanced_disable_chapter_skip_double_tap_title">Disable double tap chapter skip</string>
             <string name="revanced_disable_chapter_skip_double_tap_summary_on">Double tap can never trigger a skip to the next/previous chapter</string>
             <string name="revanced_disable_chapter_skip_double_tap_summary_off">Double tap can occasionally trigger a skip to the next/previous chapter</string>
@@ -537,8 +536,8 @@ This feature is only available for older devices"</string>
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
             <string name="revanced_disable_precise_seeking_gesture_title">Disable precise seeking gesture</string>
-            <string name="revanced_disable_precise_seeking_gesture_summary_on">Gesture is disabled</string>
-            <string name="revanced_disable_precise_seeking_gesture_summary_off">Gesture is enabled</string>
+            <string name="revanced_disable_precise_seeking_gesture_summary_on">Precise seeking gesture is disabled</string>
+            <string name="revanced_disable_precise_seeking_gesture_summary_off">Precise seeking gesture is enabled</string>
         </patch>
         <patch id="interaction.seekbar.enableSeekbarTappingPatch">
             <string name="revanced_seekbar_tapping_title">Enable tap to seek</string>
@@ -652,7 +651,7 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
         </patch>
         <patch id="layout.buttons.navigation.navigationButtonsPatch">
             <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
-            <string name="revanced_navigation_buttons_screen_summary">Hide or change buttons in the navigation bar</string>
+            <string name="revanced_navigation_buttons_screen_summary">Hide or change navigation bar buttons</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
             <string name="revanced_hide_home_button_title">Hide Home</string>
             <string name="revanced_hide_home_button_summary_on">Home button is hidden</string>
@@ -769,8 +768,8 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_player_control_buttons_background_summary_on">Player controls background is hidden</string>
             <string name="revanced_hide_player_control_buttons_background_summary_off">Player controls background is shown</string>
             <string name="revanced_hide_player_previous_next_buttons_title">Hide Previous &amp; Next buttons</string>
-            <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons are hidden</string>
-            <string name="revanced_hide_player_previous_next_buttons_summary_off">Buttons are shown</string>
+            <string name="revanced_hide_player_previous_next_buttons_summary_on">Previous &amp; Next buttons are hidden</string>
+            <string name="revanced_hide_player_previous_next_buttons_summary_off">Previous &amp; Next buttons are shown</string>
         </patch>
         <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
             <string name="revanced_hide_endscreen_cards_title">Hide end screen cards</string>
@@ -793,27 +792,27 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_disable_rolling_number_animations_summary_off">Rolling numbers are animated</string>
         </patch>
         <patch id="layout.hide.seekbar.hideSeekbarPatch">
-            <string name="revanced_hide_seekbar_title">Hide seekbar in video player</string>
+            <string name="revanced_hide_seekbar_title">Hide video player seekbar</string>
             <string name="revanced_hide_seekbar_summary_on">Video player seekbar is hidden</string>
             <string name="revanced_hide_seekbar_summary_off">Video player seekbar is shown</string>
-            <string name="revanced_hide_seekbar_thumbnail_title">Hide seekbar in video thumbnails</string>
-            <string name="revanced_hide_seekbar_thumbnail_summary_on">Thumbnail seekbar is hidden</string>
-            <string name="revanced_hide_seekbar_thumbnail_summary_off">Thumbnail seekbar is shown</string>
+            <string name="revanced_hide_seekbar_thumbnail_title">Hide video thumbnails seekbar</string>
+            <string name="revanced_hide_seekbar_thumbnail_summary_on">Video thumbnails seekbar is hidden</string>
+            <string name="revanced_hide_seekbar_thumbnail_summary_off">Video thumbnails seekbar is shown</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
             <string name="revanced_shorts_player_screen_title">Shorts player</string>
-            <string name="revanced_shorts_player_screen_summary">Hide or show components in the Shorts player</string>
+            <string name="revanced_shorts_player_screen_summary">Hide or show Shorts player components</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <string name="revanced_hide_shorts_home_title">Hide Shorts in Home feed</string>
             <string name="revanced_hide_shorts_home_summary_on">Hidden in Home feed and related videos</string>
             <string name="revanced_hide_shorts_home_summary_off">Shown in Home feed and related videos</string>
+            <string name="revanced_hide_shorts_search_title">Hide Shorts in search results</string>
+            <string name="revanced_hide_shorts_search_summary_on">Hidden in search results</string>
+            <string name="revanced_hide_shorts_search_summary_off">Shown in search results</string>
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
             <string name="revanced_hide_shorts_subscriptions_title">Hide Shorts in Subscriptions feed</string>
             <string name="revanced_hide_shorts_subscriptions_summary_on">Hidden in Subscriptions feed</string>
             <string name="revanced_hide_shorts_subscriptions_summary_off">Shown in Subscriptions feed</string>
-            <string name="revanced_hide_shorts_search_title">Hide Shorts in search results</string>
-            <string name="revanced_hide_shorts_search_summary_on">Hidden in search results</string>
-            <string name="revanced_hide_shorts_search_summary_off">Shown in search results</string>
             <string name="revanced_hide_shorts_history_title">Hide Shorts in watch history</string>
             <string name="revanced_hide_shorts_history_summary_on">Hidden in watch history</string>
             <string name="revanced_hide_shorts_history_summary_off">Shown in watch history</string>
@@ -945,9 +944,9 @@ Settings → Playback → Autoplay next video"</string>
             <string name="revanced_exit_fullscreen_entry_4">Portrait and landscape</string>
         </patch>
         <patch id="layout.player.fullscreen.openVideosFullscreen">
-            <string name="revanced_open_videos_fullscreen_portrait_title">Open videos in fullscreen portrait</string>
-            <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videos open fullscreen</string>
-            <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videos do not open fullscreen</string>
+            <string name="revanced_open_videos_fullscreen_portrait_title">Open videos in fullscreen portrait mode</string>
+            <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videos open in fullscreen mode</string>
+            <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videos do not open in fullscreen mode</string>
         </patch>
         <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
             <string name="revanced_player_overlay_opacity_title">Player overlay opacity</string>

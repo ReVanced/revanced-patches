@@ -8,6 +8,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -200,9 +201,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 key = "revanced_hide_filter_bar_screen",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
-                    SwitchPreference("revanced_hide_filter_bar_feed_in_history"),
-                    SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
                     SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_history"),
                 ),
             ),
             PreferenceScreenPreference(
@@ -222,7 +223,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_crowdfunding_box"),
             SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_expandable_card"),
-            SwitchPreference("revanced_hide_feed_survey"),
             SwitchPreference("revanced_hide_floating_microphone_button"),
             SwitchPreference("revanced_hide_horizontal_shelves"),
             SwitchPreference("revanced_hide_image_shelf"),
@@ -232,6 +232,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_notify_me_button"),
             SwitchPreference("revanced_hide_playables"),
             SwitchPreference("revanced_hide_show_more_button"),
+            SwitchPreference("revanced_hide_surveys"),
             SwitchPreference("revanced_hide_ticket_shelf"),
             SwitchPreference("revanced_hide_video_recommendation_labels"),
             SwitchPreference("revanced_hide_doodles"),
@@ -379,16 +380,13 @@ val hideLayoutComponentsPatch = bytecodePatch(
             findInstructionIndicesReversedOrThrow {
                 getReference<MethodReference>()?.name == "setImageDrawable"
             }.forEach { insertIndex ->
-                val register = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+                val drawableRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+                val imageViewRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
-                addInstructionsWithLabels(
+                replaceInstruction(
                     insertIndex,
-                    """
-                        invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideYoodles(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-                        move-result-object v$register
-                        if-eqz v$register, :hide
-                    """,
-                    ExternalLabel("hide", getInstruction(insertIndex + 1)),
+                    "invoke-static { v$imageViewRegister, v$drawableRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->" +
+                            "setDoodleDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V"
                 )
             }
         }

@@ -160,9 +160,6 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_expandable_card_title">Ausklappbare Karte ausblenden</string>
   <string name="revanced_hide_expandable_card_summary_on">Ausklappbare Karte unter Videos ist ausgeblendet</string>
   <string name="revanced_hide_expandable_card_summary_off">Ausklappbare Karte unter Videos ist angezeigt</string>
-  <string name="revanced_hide_feed_survey_title">Feed-Umfragen ausblenden</string>
-  <string name="revanced_hide_feed_survey_summary_on">Feed-Umfragen sind ausgeblendet</string>
-  <string name="revanced_hide_feed_survey_summary_off">Feed-Umfragen werden angezeigt</string>
   <string name="revanced_hide_floating_microphone_button_title">Schwebende Mikrofon-Taste ausblenden</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Schwebende Mikrofonschaltfläche in der Suche ist ausgeblendet</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Der schwebende Mikrofon-Button in der Suche wird angezeigt</string>
@@ -188,7 +185,7 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_movies_section_summary_on">Film Abschnitt ist ausgeblendet</string>
   <string name="revanced_hide_movies_section_summary_off">Film Bereich wird angezeigt</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">\'Benachrichtigungen\' Button ausblenden</string>
   <string name="revanced_hide_notify_me_button_summary_on">Schaltfläche \"Benachrichtige mich\" ist ausgeblendet</string>
   <string name="revanced_hide_notify_me_button_summary_off">Schaltfläche \"Benachrichtige mich\" wird angezeigt</string>
@@ -200,6 +197,9 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_show_more_button_title">\'Mehr anzeigen\' Button ausblenden</string>
   <string name="revanced_hide_show_more_button_summary_on">Schaltfläche \"Mehr anzeigen\" in den Suchergebnissen ist ausgeblendet</string>
   <string name="revanced_hide_show_more_button_summary_off">Schaltfläche \"Mehr anzeigen\" in den Suchergebnissen wird angezeigt</string>
+  <string name="revanced_hide_surveys_title">Umfragen ausblenden</string>
+  <string name="revanced_hide_surveys_summary_on">Umfragen sind ausgeblendet</string>
+  <string name="revanced_hide_surveys_summary_off">Umfragen werden angezeigt</string>
   <string name="revanced_hide_ticket_shelf_title">Ticket-Reihe ausblenden</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Ticket-Reihe ist ausgeblendet</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Ticket-Reihe wird angezeigt</string>
@@ -246,8 +246,8 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <string name="revanced_hide_timed_reactions_summary_on">Zeitgesteuerte Reaktionen sind ausgeblendet</string>
   <string name="revanced_hide_timed_reactions_summary_off">Zeitgesteuerte Reaktionen werden angezeigt</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">\'KI-generierte Videozusammenfassung\' ausblenden</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videozusammenfassungsbereich ist ausgeblendet</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videozusammenfassungsbereich wird angezeigt</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">KI-generierter Videozusammenfassungsbereich ist ausgeblendet</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Abschnitt mit KI-generierter Videozusammenfassung wird angezeigt</string>
   <string name="revanced_hide_ask_section_title">Ask ausblenden</string>
   <string name="revanced_hide_ask_section_summary_on">Ask Abschnitt ist ausgeblendet</string>
   <string name="revanced_hide_ask_section_summary_off">Ask Abschnitt wird angezeigt</string>
@@ -275,19 +275,19 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <string name="revanced_hide_description_components_screen_title">Videobeschreibung</string>
   <string name="revanced_hide_description_components_screen_summary">Komponenten der Videobeschreibung ausblenden oder anzeigen</string>
   <string name="revanced_hide_filter_bar_screen_title">Filterleiste</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Filterleiste in den Feeds, im Verlauf, in den Suchergebnissen und in ähnlichen Videos ein- oder ausblenden</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Filterleiste in Feeds, ähnlichen Videos, Suchergebnissen und im Wiedergabeverlauf aus- oder einblenden</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">In Feeds ausblenden</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">In Feeds ausgeblendet</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">In Feeds angezeigt</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Im Verlauf ausblenden</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Im Verlauf ausgeblendet</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Im Verlauf angezeigt</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">In Suchergebnissen ausblenden</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">In Suchergebnissen versteckt</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">In den Suchergebnissen angezeigt</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">In verwandten Videos ausblenden</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Versteckt in verwandten Videos</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">In verwandten Videos angezeigt</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">In Suchergebnissen ausblenden</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">In Suchergebnissen versteckt</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">In den Suchergebnissen angezeigt</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Im Wiedergabeverlauf ausblenden</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Im Wiedergabeverlauf ausgeblendet</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Im Wiedergabeverlauf angezeigt</string>
   <string name="revanced_channel_screen_title">Kanalseite</string>
   <string name="revanced_channel_screen_summary">Kanalseitenkomponenten ausblenden oder anzeigen</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -311,11 +311,11 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <string name="revanced_comments_screen_title">Kommentare</string>
   <string name="revanced_comments_screen_summary">Komponenten der Kommentar-Sektion ausblenden oder anzeigen</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">KI-Chat-Zusammenfassung ausblenden</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chat-Übersichtsanzeige ist ausgeblendet</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Die Chat-Zusammenfassung wird angezeigt</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">KI-Chat-Zusammenfassung ist ausgeblendet</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">KI-Chat-Zusammenfassung ist eingeblendet</string>
   <string name="revanced_hide_comments_ai_summary_title">KI-Kommentarübersicht ausblenden</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Kommentarübersicht ist ausgeblendet</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Kommentarübersicht wird angezeigt</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">KI-Kommentar-Zusammenfassung ist ausgeblendet</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">KI-Kommentar-Zusammenfassung ist eingeblendet</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Kanalrichtlinien ausblenden</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanalrichtlinien sind ausgeblendet</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanalrichtlinien werden angezeigt</string>
@@ -414,7 +414,6 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_hide_shopping_links_title">Shopping-Links ausblenden</string>
   <string name="revanced_hide_shopping_links_summary_on">Shopping-Links in der Videobeschreibung sind ausgeblendet</string>
   <string name="revanced_hide_shopping_links_summary_off">Shopping-Links in der Videobeschreibung werden angezeigt</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">„Produkte ansehen“-Banner ausblenden</string>
   <string name="revanced_hide_view_products_banner_summary_on">Produkte anzeigen-Banner im Video-Overlay ist ausgeblendet</string>
   <string name="revanced_hide_view_products_banner_summary_off">Produkte anzeigen-Banner im Video-Overlay wird angezeigt</string>
@@ -448,7 +447,7 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog wird angezeigt</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Dies umgeht nicht die Altersbeschränkung, sondern akzeptiert sie nur automatisch.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Doppeltippen zum Kapitelüberspringen deaktivieren</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Doppeltippen kann niemals ein Überspringen zum nächsten/vorherigen Kapitel auslösen</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Doppeltippen kann gelegentlich ein Überspringen zum nächsten/vorherigen Kapitel auslösen</string>
@@ -695,9 +694,9 @@ Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS T
   <string name="revanced_hide_cast_button_title">Cast-Button ausblenden</string>
   <string name="revanced_hide_cast_button_summary_on">Der Cast button ist ausgeblendet</string>
   <string name="revanced_hide_cast_button_summary_off">Der Cast button wird angezeigt</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Hintergrund der Player-Steuerungstasten ausblenden</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Hintergrund der Player-Steuerungstasten ist ausgeblendet</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Hintergrund der Player-Steuerungstasten wird angezeigt</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Hintergrund der Player-Steuerelemente ausblenden</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Hintergrund der Wiedergabesteuerung ist ausgeblendet</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Hintergrund der Player-Steuerelemente wird angezeigt</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Vorherige &amp; Nächste Tasten ausblenden</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons sind ausgeblendet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tasten werden angezeigt</string>
@@ -723,27 +722,27 @@ Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS T
   <string name="revanced_disable_rolling_number_animations_summary_off">Rollende Zahlen sind animiert</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Suchleiste im Video-Player ausblenden</string>
+  <string name="revanced_hide_seekbar_title">Video-Player-Suchleiste ausblenden</string>
   <string name="revanced_hide_seekbar_summary_on">Video-Player-Suchleiste ist ausgeblendet</string>
   <string name="revanced_hide_seekbar_summary_off">Suchleiste für Video-Player wird angezeigt</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Suchleiste in Video-Thumbnails ausblenden</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Miniaturansicht-Suchleiste ist ausgeblendet</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniaturansicht-Suchleiste wird angezeigt</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Suchleiste für Video-Thumbnails ausblenden</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Suchleiste für Video-Thumbnails ist ausgeblendet</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Suchleiste für Video-Thumbnails ist eingeblendet</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts Spieler</string>
-  <string name="revanced_shorts_player_screen_summary">Komponenten im Shorts Spieler ausblenden oder anzeigen</string>
+  <string name="revanced_shorts_player_screen_summary">Shorts-Player-Komponenten aus- oder einblenden</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts im Startseiten-Feed ausblenden</string>
   <string name="revanced_hide_shorts_home_summary_on">Im Startseiten-Feed und verwandten Videos ausgeblendet</string>
   <string name="revanced_hide_shorts_home_summary_off">Im Startseiten-Feed und verwandten Videos angezeigt</string>
+  <string name="revanced_hide_shorts_search_title">Shorts in den Suchergebnissen ausblenden</string>
+  <string name="revanced_hide_shorts_search_summary_on">In Suchergebnissen versteckt</string>
+  <string name="revanced_hide_shorts_search_summary_off">In den Suchergebnissen angezeigt</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Shorts im Abos-Feed ausblenden</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Im Abos-Feed ausgeblendet</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Im Abos-Feed angezeigt</string>
-  <string name="revanced_hide_shorts_search_title">Shorts in den Suchergebnissen ausblenden</string>
-  <string name="revanced_hide_shorts_search_summary_on">In Suchergebnissen versteckt</string>
-  <string name="revanced_hide_shorts_search_summary_off">In den Suchergebnissen angezeigt</string>
   <string name="revanced_hide_shorts_history_title">Shorts im Verlauf verstecken</string>
   <string name="revanced_hide_shorts_history_summary_on">Im Verlauf versteckt</string>
   <string name="revanced_hide_shorts_history_summary_off">Im Verlauf angezeigt</string>

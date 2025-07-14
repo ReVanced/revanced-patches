@@ -164,9 +164,6 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_expandable_card_title">Sembunyikan kartu yang dapat diperluas</string>
   <string name="revanced_hide_expandable_card_summary_on">Kartu yang dapat diperluas di bawah video disembunyikan</string>
   <string name="revanced_hide_expandable_card_summary_off">Kartu yang dapat diperluas di bawah video ditampilkan</string>
-  <string name="revanced_hide_feed_survey_title">Sembunyikan survei umpan balik</string>
-  <string name="revanced_hide_feed_survey_summary_on">Survei umpan balik disembunyikan</string>
-  <string name="revanced_hide_feed_survey_summary_off">Survei umpan balik ditampilkan</string>
   <string name="revanced_hide_floating_microphone_button_title">Sembunyikan tombol mikrofon mengambang</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Tombol mikrofon mengambang di pencarian disembunyikan</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Tombol mikrofon mengambang dalam pencarian ditampilkan</string>
@@ -192,7 +189,7 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_movies_section_summary_on">Bagian film disembunyikan</string>
   <string name="revanced_hide_movies_section_summary_off">Bagian film ditampilkan</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Sembunyikan \'Beri tahu saya\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Tombol beri tahu saya disembunyikan</string>
   <string name="revanced_hide_notify_me_button_summary_off">Tombol beri tahu saya ditampilkan</string>
@@ -204,6 +201,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_show_more_button_title">Sembunyikan tombol \'Tampilkan selengkapnya\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Tombol tampilkan lebih banyak di hasil pencarian disembunyikan</string>
   <string name="revanced_hide_show_more_button_summary_off">Tombol tampilkan lebih banyak di hasil pencarian ditampilkan</string>
+  <string name="revanced_hide_surveys_title">Sembunyikan survei</string>
+  <string name="revanced_hide_surveys_summary_on">Survei disembunyikan</string>
+  <string name="revanced_hide_surveys_summary_off">Survei ditampilkan</string>
   <string name="revanced_hide_ticket_shelf_title">Sembunyikan rak tiket</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Rak tiket disembunyikan</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Rak tiket ditampilkan</string>
@@ -251,8 +251,8 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_timed_reactions_summary_on">Reaksi terjadwal disembunyikan</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reaksi terjadwal ditampilkan</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Sembunyikan \'Ringkasan video yang dibuat AI\'</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Bagian ringkasan video disembunyikan</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Bagian ringkasan video ditampilkan</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Bagian ringkasan video buatan AI disembunyikan</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Bagian ringkasan video buatan AI ditampilkan</string>
   <string name="revanced_hide_ask_section_title">Sembunyikan Tanya</string>
   <string name="revanced_hide_ask_section_summary_on">Bagian Tanya disembunyikan</string>
   <string name="revanced_hide_ask_section_summary_off">Bagian Tanya ditampilkan</string>
@@ -280,19 +280,19 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_description_components_screen_title">Keterangan video</string>
   <string name="revanced_hide_description_components_screen_summary">Sembunyikan atau tampilkan komponen keterangan video</string>
   <string name="revanced_hide_filter_bar_screen_title">Bilah saring</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Sembunyikan atau tampilkan bilah penyaring di umpan, riwayat, hasil pencarian, dan video terkait</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Sembunyikan atau tampilkan bilah penyaring di umpan, video terkait, hasil pencarian, dan riwayat tontonan</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Sembunyikan di umpan</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Disembunyikan di umpan</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Ditampilkan di umpan</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Sembunyikan di histori</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Disembunyikan di riwayat</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Ditampilkan di riwayat</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Sembunyikan di hasil penelusuran</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Disembunyikan di hasil penelusuran</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ditampilkan di hasil penelusuran</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Sembunyikan di video terkait</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Disembunyikan di video terkait</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ditampilkan di video terkait</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Sembunyikan di hasil penelusuran</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Disembunyikan di hasil penelusuran</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ditampilkan di hasil penelusuran</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Sembunyikan di riwayat tontonan</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Disembunyikan di riwayat tontonan</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Ditampilkan di riwayat tontonan</string>
   <string name="revanced_channel_screen_title">Halaman saluran</string>
   <string name="revanced_channel_screen_summary">Sembunyikan atau tampilkan komponen halaman saluran</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -315,12 +315,12 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_visit_store_button_summary_off">Tombol Kunjungi toko ditampilkan</string>
   <string name="revanced_comments_screen_title">Komentar</string>
   <string name="revanced_comments_screen_summary">Sembunyikan atau tampilkan komponen bagian komentar</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Sembunyikan ringkasan Obrolan AI</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Ringkasan obrolan disembunyikan</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Ringkasan obrolan ditampilkan</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Sembunyikan ringkasan chat AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Ringkasan chat AI disembunyikan</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Ringkasan chat AI ditampilkan</string>
   <string name="revanced_hide_comments_ai_summary_title">Sembunyikan ringkasan Komentar AI</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Ringkasan komentar disembunyikan</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Ringkasan komentar ditampilkan</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Ringkasan komentar AI disembunyikan</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Ringkasan komentar AI ditampilkan</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Sembunyikan pedoman saluran</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Pedoman saluran disembunyikan</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Pedoman saluran ditampilkan</string>
@@ -419,7 +419,6 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_shopping_links_title">Sembunyikan tautan belanja</string>
   <string name="revanced_hide_shopping_links_summary_on">Tautan belanja di deskripsi video disembunyikan</string>
   <string name="revanced_hide_shopping_links_summary_off">Tautan belanja di deskripsi video ditampilkan</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Sembunyikan spanduk \'Lihat produk\'</string>
   <string name="revanced_hide_view_products_banner_summary_on">Spanduk lihat produk di hamparan video disembunyikan</string>
   <string name="revanced_hide_view_products_banner_summary_off">Spanduk lihat produk di hamparan video ditampilkan</string>
@@ -453,7 +452,7 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog akan ditampilkan</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ini tidak mengabaikan batasan usia. Ini hanya menerimanya secara otomatis.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Nonaktifkan lewati bab dengan ketuk dua kali</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Ketuk dua kali tidak akan pernah memicu lewati ke bab berikutnya/sebelumnya</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Ketuk dua kali terkadang dapat memicu lewati ke bab berikutnya/sebelumnya</string>
@@ -702,9 +701,9 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_hide_cast_button_title">Sembunyikan tombol Transmisi</string>
   <string name="revanced_hide_cast_button_summary_on">Tombol transmisi disembunyikan</string>
   <string name="revanced_hide_cast_button_summary_off">Tombol transmisi ditampilkan</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Sembunyikan latar belakang tombol kontrol pemutar</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Latar belakang tombol kontrol pemutar disembunyikan</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Latar belakang tombol kontrol pemutar ditampilkan</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Sembunyikan latar belakang kontrol pemutar</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Latar belakang kontrol pemutar disembunyikan</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Latar belakang kontrol pemutar ditampilkan</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Sembunyikan tombol Sebelumnya &amp; Berikutnya</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tombol ditampilkan</string>
@@ -730,27 +729,27 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Angka bergulir dianimasikan</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Sembunyikan seekbar di pemutar video</string>
+  <string name="revanced_hide_seekbar_title">Sembunyikan bilah pencari pemutar video</string>
   <string name="revanced_hide_seekbar_summary_on">Seekbar pemutar video disembunyikan</string>
   <string name="revanced_hide_seekbar_summary_off">Seekbar pemutar video ditampilkan</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Sembunyikan seekbar di thumbnail video</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Seekbar thumbnail disembunyikan</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Seekbar thumbnail ditampilkan</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Sembunyikan bilah pencari thumbnail video</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Bilah pencari thumbnail video disembunyikan</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Bilah pencari thumbnail video ditampilkan</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Pemutar Shorts</string>
-  <string name="revanced_shorts_player_screen_summary">Sembunyikan atau tampilkan komponen di pemutar Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Sembunyikan atau tampilkan komponen pemutar Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Sembunyikan Shorts di umpan Beranda</string>
   <string name="revanced_hide_shorts_home_summary_on">Disembunyikan di umpan Beranda dan video terkait</string>
   <string name="revanced_hide_shorts_home_summary_off">Ditampilkan di umpan Beranda dan video terkait</string>
+  <string name="revanced_hide_shorts_search_title">Sembunyikan Shorts di hasil pencarian</string>
+  <string name="revanced_hide_shorts_search_summary_on">Disembunyikan dalam hasil penelusuran</string>
+  <string name="revanced_hide_shorts_search_summary_off">Ditampilkan dalam hasil penelusuran</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Sembunyikan Shorts di umpan Langganan</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Disembunyikan di umpan Langganan</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Ditampilkan di umpan Langganan</string>
-  <string name="revanced_hide_shorts_search_title">Sembunyikan Shorts di hasil pencarian</string>
-  <string name="revanced_hide_shorts_search_summary_on">Disembunyikan dalam hasil penelusuran</string>
-  <string name="revanced_hide_shorts_search_summary_off">Ditampilkan dalam hasil penelusuran</string>
   <string name="revanced_hide_shorts_history_title">Sembunyikan Shorts dalam riwayat tontonan</string>
   <string name="revanced_hide_shorts_history_summary_on">Disembunyikan dalam riwayat tontonan</string>
   <string name="revanced_hide_shorts_history_summary_off">Ditampilkan dalam riwayat tontonan</string>

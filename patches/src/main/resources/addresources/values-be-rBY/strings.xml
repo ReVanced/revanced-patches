@@ -164,9 +164,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_expandable_card_title">Схаваць раскладвальную картку</string>
   <string name="revanced_hide_expandable_card_summary_on">Раскладвальная картка пад відэа схаваная</string>
   <string name="revanced_hide_expandable_card_summary_off">Раскладвальная картка пад відэа паказаная</string>
-  <string name="revanced_hide_feed_survey_title">Схаваць апытанні стужкі</string>
-  <string name="revanced_hide_feed_survey_summary_on">Апытанні каналаў схаваныя</string>
-  <string name="revanced_hide_feed_survey_summary_off">Паказваюцца даследаванні кармоў</string>
   <string name="revanced_hide_floating_microphone_button_title">Схаваць плаваючую кнопку мікрафона</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Плаваючая кнопка мікрафона ў пошуку схаваная</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Плаваючая кнопка мікрафона ў пошуку паказана</string>
@@ -192,7 +189,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_movies_section_summary_on">Раздзел фільмаў схаваны</string>
   <string name="revanced_hide_movies_section_summary_off">Паказваецца раздзел фільмаў</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Схаваць кнопку \"Паведаміць мне\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Кнопка «Паведаміць мне» схаваная</string>
   <string name="revanced_hide_notify_me_button_summary_off">Кнопка «Паведаміць мне» паказаная</string>
@@ -204,6 +201,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">Схаваць кнопку \"Паказаць больш\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Кнопка «Паказаць больш» у выніках пошуку схаваная</string>
   <string name="revanced_hide_show_more_button_summary_off">Кнопка «Паказаць больш» у выніках пошуку паказаная</string>
+  <string name="revanced_hide_surveys_title">Схаваць апытанні</string>
+  <string name="revanced_hide_surveys_summary_on">Апытанні схаваныя</string>
+  <string name="revanced_hide_surveys_summary_off">Апытанні паказаны</string>
   <string name="revanced_hide_ticket_shelf_title">Схаваць паліцу білетаў</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Паліца білетаў схавана</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Паліца білетаў паказана</string>
@@ -251,8 +251,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_summary_on">Часовыя рэакцыі схаваныя</string>
   <string name="revanced_hide_timed_reactions_summary_off">Паказваюцца рэакцыі па часе</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Схаваць «Зводку відэа, згенэраваную штучным інтэлектам»</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Раздзел зводкі відэа схаваны</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Раздзел зводкі відэа паказаны</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Раздзел згенераваных штучным інтэлектам відэа-рэзюмэ схаваны</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Паказаны раздзел зводкі відэа, створанай штучным інтэлектам</string>
   <string name="revanced_hide_ask_section_title">Схаваць «Спытаць»</string>
   <string name="revanced_hide_ask_section_summary_on">Раздзел «Спытаць» схаваны</string>
   <string name="revanced_hide_ask_section_summary_off">Раздзел «Спытаць» паказаны</string>
@@ -280,19 +280,19 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Апісанне відэа</string>
   <string name="revanced_hide_description_components_screen_summary">Схаваць або паказаць кампаненты апісання відэа</string>
   <string name="revanced_hide_filter_bar_screen_title">Панэль фільтраў</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Схаваць ці паказаць панэль фільтраў у стужках, гісторыі, выніках пошуку і звязаных відэа</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Схаваць або паказаць панэль фільтраў у стужках, звязаных відэа, выніках пошуку і гісторыі праглядаў</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Схаваць у стужках</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Схавана ў стужках</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Паказана ў стужках</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Схаваць у гісторыі</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Схавана ў гісторыі</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Паказана ў гісторыі</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Схаваць у выніках пошуку</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Схавана ў выніках пошуку</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Паказана ў выніках пошуку</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Схаваць у звязаных відэа</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Схавана ў звязаных відэа</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Паказана ў звязаных відэа</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Схаваць у выніках пошуку</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Схавана ў выніках пошуку</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Паказана ў выніках пошуку</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Схаваць у гісторыі праглядаў</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Схавана ў гісторыі праглядаў</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Паказаны ў гісторыі праглядаў</string>
   <string name="revanced_channel_screen_title">Старонка канала</string>
   <string name="revanced_channel_screen_summary">Схаваць або паказаць кампаненты старонкі канала</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -316,11 +316,11 @@ Second \"item\" text"</string>
   <string name="revanced_comments_screen_title">Каментарыі</string>
   <string name="revanced_comments_screen_summary">Схаваць або паказаць кампаненты раздзела каментарыяў</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Схаваць зводку чата са штучным інтэлектам</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Зводка чата схаваная</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Зводка чата паказаная</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Зводка чата са штучным інтэлектам схавана</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Зводка чата са штучным інтэлектам паказана</string>
   <string name="revanced_hide_comments_ai_summary_title">Схаваць зводку каментарыяў са штучным інтэлектам</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Зводка каментарыяў схаваная</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Зводка каментарыяў паказаная</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Зводка каментарыяў штучнага інтэлекту схавана</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Зводка каментарыяў штучнага інтэлекту паказана</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Схаваць правілы канала</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Рэкамендацыі канала схаваны</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Рэкамендацыі канала паказаны</string>
@@ -419,7 +419,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shopping_links_title">Схаваць спасылкі для пакупак</string>
   <string name="revanced_hide_shopping_links_summary_on">Спасылкі на пакупкі ў апісанні відэа схаваныя</string>
   <string name="revanced_hide_shopping_links_summary_off">Спасылкі на пакупкі ў апісанні відэа паказаны</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Схаваць банэр \"Прагледзець тавары\"</string>
   <string name="revanced_hide_view_products_banner_summary_on">Банер «Паглядзець тавары» ў накладцы відэа схаваны</string>
   <string name="revanced_hide_view_products_banner_summary_off">Банер «Паглядзець тавары» ў накладцы відэа паказаны</string>
@@ -453,7 +452,7 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Будзе паказана дыялогавае акно</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Гэта не абыходзіць узроставае абмежаванне. Ён проста прымае гэта аўтаматычна.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Адключыць прапуск раздзела па двайным націску</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Двайны націск ніколі не можа выклікаць прапуск да наступнага/папярэдняга раздзела</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Двайны націск можа час ад часу выклікаць прапуск да наступнага/папярэдняга раздзела</string>
@@ -702,9 +701,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_cast_button_title">Схаваць кнопку «Трансляцыя»</string>
   <string name="revanced_hide_cast_button_summary_on">Кнопка Cast схавана</string>
   <string name="revanced_hide_cast_button_summary_off">Паказана кнопка Cast</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Схаваць фон кнопак кіравання прайгравальнікам</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Фон кнопак кіравання прайгравальнікам схаваны</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Фон кнопак кіравання прайгравальнікам паказаны</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Схаваць фон элементаў кіравання прайгравальнікам</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Фон элементаў кіравання плэерам схаваны</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Фон элементаў кіравання паказаны</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Схаваць папярэднія &amp; кнопкі «Далей»</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопкі схаваныя</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Паказваюцца кнопкі</string>
@@ -730,27 +729,27 @@ Second \"item\" text"</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Пракатныя лічбы аніміраваныя</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Схаваць панэль пошуку ў відэаплэеры</string>
+  <string name="revanced_hide_seekbar_title">Схаваць панэль прагрэсу відэапрайгравальніка</string>
   <string name="revanced_hide_seekbar_summary_on">Панэль пошуку відэаплэера схавана</string>
   <string name="revanced_hide_seekbar_summary_off">Адлюстроўваецца панэль пошуку відэаплэера</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Схаваць панэль пошуку ў мініяцюрах відэа</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Панэль пошуку эскізаў схавана</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Адлюстроўваецца панэль пошуку эскізаў</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Схаваць панэль прагрэсу з эскізамі відэа</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Панэль прагрэсу з эскізамі відэа схавана</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Панэль прагрэсу з эскізамі відэа паказана</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Прайгравальнік Shorts</string>
-  <string name="revanced_shorts_player_screen_summary">Схаваць або паказаць кампаненты ў прайгравальніку Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Схаваць або паказаць кампаненты прайгравальніка Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Схаваць Shorts у стужцы «Галоўная»</string>
   <string name="revanced_hide_shorts_home_summary_on">Схавана ў стужцы «Галоўная» і звязаных відэа</string>
   <string name="revanced_hide_shorts_home_summary_off">Паказана ў стужцы «Галоўная» і звязаных відэа</string>
+  <string name="revanced_hide_shorts_search_title">Схаваць Shorts у выніках пошуку</string>
+  <string name="revanced_hide_shorts_search_summary_on">Схаваны ў выніках пошуку</string>
+  <string name="revanced_hide_shorts_search_summary_off">Паказана ў выніках пошуку</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Схаваць Shorts у стужцы «Падпіскі»</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Схавана ў стужцы «Падпіскі»</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Паказана ў стужцы «Падпіскі»</string>
-  <string name="revanced_hide_shorts_search_title">Схаваць Shorts у выніках пошуку</string>
-  <string name="revanced_hide_shorts_search_summary_on">Схаваны ў выніках пошуку</string>
-  <string name="revanced_hide_shorts_search_summary_off">Паказана ў выніках пошуку</string>
   <string name="revanced_hide_shorts_history_title">Схаваць Shorts з гісторыі праглядаў</string>
   <string name="revanced_hide_shorts_history_summary_on">Схавана ў гісторыі праглядаў</string>
   <string name="revanced_hide_shorts_history_summary_off">Паказаны ў гісторыі праглядаў</string>

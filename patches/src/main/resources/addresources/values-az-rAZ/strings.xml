@@ -164,9 +164,6 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_expandable_card_title">Genişlənən kartı gizlət</string>
   <string name="revanced_hide_expandable_card_summary_on">Videoların aşağısında genişlənən kart gizlidir</string>
   <string name="revanced_hide_expandable_card_summary_off">Videoların altında genişlənən kart görünür</string>
-  <string name="revanced_hide_feed_survey_title">Axın sorğuların gizlət</string>
-  <string name="revanced_hide_feed_survey_summary_on">Axın sorğuları gizlidir</string>
-  <string name="revanced_hide_feed_survey_summary_off">Axın sorğuları göstərilir</string>
   <string name="revanced_hide_floating_microphone_button_title">Üzən mikrofon düyməsini gizlət</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Axtarışda üzən mikrofon düyməsi gizlidir</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Üzən mikrofon düyməsi axtarışda göstərilir</string>
@@ -192,7 +189,7 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_movies_section_summary_on">Filmlər bölməsi gizlidir</string>
   <string name="revanced_hide_movies_section_summary_off">Filmlər bölməsi göstərilir</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">\"Mənə bildir\" düyməsini gizlət</string>
   <string name="revanced_hide_notify_me_button_summary_on">Mənə bildir düyməsi gizlidir</string>
   <string name="revanced_hide_notify_me_button_summary_off">Mənə bildir düyməsi görünür</string>
@@ -251,8 +248,6 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_timed_reactions_summary_on">Zamanlanmış reaksiyalar gizlədilir</string>
   <string name="revanced_hide_timed_reactions_summary_off">Zamanlanmış reaksiyalar göstərilir</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">\"AI ilə yaradılan video xülasəsini\" gizlət</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video xülasə bölməsi gizlədilib</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video xülasə bölməsi göstərilir</string>
   <string name="revanced_hide_ask_section_title">Soruş\'u Gizlət</string>
   <string name="revanced_hide_ask_section_summary_on">Soruş bölməsi gizlidir</string>
   <string name="revanced_hide_ask_section_summary_off">\"Soruş\" bölməsi göstərilir</string>
@@ -280,19 +275,15 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_description_components_screen_title">Video təsviri</string>
   <string name="revanced_hide_description_components_screen_summary">Video təsviri elementlərini gizlət və ya göstər</string>
   <string name="revanced_hide_filter_bar_screen_title">Filtr çubuğu</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Axınlar, tarixçə, axtarış nəticələri və əlaqəli videolarda filtr panelini gizlət və ya göstər</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Axınlarda gizlət</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Axınlarda gizlidir</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Axınlarda göstər</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Tarixçədə gizlət</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Tarixçədə gizlədilib</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Tarixçədə göstərilib</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Axtarış nəticələrində gizlət</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Axtarış nəticələrində gizlədilib</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Axtarış nəticələrində göstərilir</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Əlaqəli videolarda gizlət</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Əlaqəli videolarda gizlidir</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Əlaqəli videolarda görünür</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Axtarış nəticələrində gizlət</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Axtarış nəticələrində gizlədilib</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Axtarış nəticələrində göstərilir</string>
   <string name="revanced_channel_screen_title">Kanal səhifəsi</string>
   <string name="revanced_channel_screen_summary">Kanal səhifə elementlərini gizlət və ya göstər</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -315,12 +306,7 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_visit_store_button_summary_off">Mağazaya baxın düyməsi görünür</string>
   <string name="revanced_comments_screen_title">Şərhlər</string>
   <string name="revanced_comments_screen_summary">Şərhlər bölməsi elementlərin gizlət və ya göstər</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">AI Söhbət Xülasəsini Gizlət</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Söhbət yekunu gizlidir </string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Söhbət yekunu görünür</string>
   <string name="revanced_hide_comments_ai_summary_title">AI Ṣərhlər Xülasəsini Gizlət</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Ṣərh yekunu gizlidir </string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Şərh yekunu görünür</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Kanal təlimatlarını gizlət</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanal təlimatları gizlidir</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanal təlimatları görünür</string>
@@ -419,7 +405,6 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_shopping_links_title">Alış-veriş linklərini gizlət</string>
   <string name="revanced_hide_shopping_links_summary_on">Alış-veriş linkləri video təsvirdə gizlidir</string>
   <string name="revanced_hide_shopping_links_summary_off">Alış-veriş linkləri video təsvirdə görünür</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">“Məhsullara baxın” panelin gizlət</string>
   <string name="revanced_hide_view_products_banner_summary_on">Məhsullara baxış etiketi video örtüyündə gizlidir</string>
   <string name="revanced_hide_view_products_banner_summary_off">Məhsullara baxış etiketi video örtüyündə görünür</string>
@@ -453,7 +438,10 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoq göstərilir</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Bu, yaş məhdudiyyətini ötürmür. Sadəcə birbaşa qəbul edir.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Cüt toxunuşla fəsil ötürməsini qapat</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Cüt toxunma heç vaxt növbəti/əvvəlki fəsilə keçidi zorlaya bilməz</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Cüt toxunma bəzən növbəti/əvvəlki fəsilə keçidi zorlaya bilər</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Xarici yükləmələr</string>
@@ -699,9 +687,9 @@ Audio trek seçimin göstərmək üçün \"Video axınları saxtalaşdır\"ı iO
   <string name="revanced_hide_cast_button_title">Yayımla düyməsini gizlət</string>
   <string name="revanced_hide_cast_button_summary_on">Yayım düyməsi gizlidir</string>
   <string name="revanced_hide_cast_button_summary_off">Yayım düyməsi göstərilir</string>
-  <string name="revanced_hide_player_control_buttons_background_title">Oynadıcı idarəetmə düymələri fonunu gizlət</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">Oynadıcı idarəetmə düymələri fonu gizlidir</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Oynadıcı idarəetmə düymələri fonu görünür</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Oynadıcı idarəetmələri fonunu gizlət</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Oynadıcı idarəetmə fonu gizlədilib</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Oynadıcı idarəetmə fonu görünür</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Əvvəlki və Növbəti düymələrin gizlət</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düymələr gizlidir</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düymələr göstərilir</string>
@@ -727,27 +715,22 @@ Audio trek seçimin göstərmək üçün \"Video axınları saxtalaşdır\"ı iO
   <string name="revanced_disable_rolling_number_animations_summary_off">Sürüşən say animasiyası açıqdır</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Video oynadıcıda irəliləyiş cizgisin gizlə</string>
   <string name="revanced_hide_seekbar_summary_on">Video oynadıcı irəliləyiş cizgisi gizlidir</string>
   <string name="revanced_hide_seekbar_summary_off">Video oynadıcı irəliləyiş cizgisi göstərilir</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Video miniatürdə irəliləmə cizgisin gizlə</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Miniatür irəliləmə cizgisi gizlədilib</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatür irəliləmə cizgisi göstərilir</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts oynadıcı</string>
-  <string name="revanced_shorts_player_screen_summary">Shorts oynadıcıda hissəcikləri gizlət və ya göstər</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts-u Ev axınında gizlət</string>
   <string name="revanced_hide_shorts_home_summary_on">Ev axını və əlaqəli videolarda gizlidir</string>
   <string name="revanced_hide_shorts_home_summary_off">Ev axını və əlaqəli videolarda görünür</string>
+  <string name="revanced_hide_shorts_search_title">Axtarış nəticələrindəki \"Shorts\"u gizlət</string>
+  <string name="revanced_hide_shorts_search_summary_on">Axtarış nəticələrində gizlidir</string>
+  <string name="revanced_hide_shorts_search_summary_off">Axtarış nəticələrində görünür</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Shorts-u Abunəliklər axınında gizlət</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Abunəliklər axınında gizlidir</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Abunəliklər axınında görünür</string>
-  <string name="revanced_hide_shorts_search_title">Axtarış nəticələrindəki \"Shorts\"u gizlət</string>
-  <string name="revanced_hide_shorts_search_summary_on">Axtarış nəticələrində gizlidir</string>
-  <string name="revanced_hide_shorts_search_summary_off">Axtarış nəticələrində görünür</string>
   <string name="revanced_hide_shorts_history_title">Baxış tarixçəsində Shorts-u gizlət</string>
   <string name="revanced_hide_shorts_history_summary_on">Baxış tarixçəsində gizlidir</string>
   <string name="revanced_hide_shorts_history_summary_off">Baxış tarixçəsində göstərilib</string>

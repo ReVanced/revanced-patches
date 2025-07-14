@@ -75,7 +75,7 @@ Second \"item\" text"</string>
 
 Ακολουθήστε τον οδηγό \"Don't kill my app\" για το τηλέφωνό σας και εφαρμόστε τις οδηγίες στο MicroG.
 
-Αυτό είναι απαραίτητο για τη λειτουργία της εφαρμογής."</string>
+Αυτό είναι απαραίτητο για τη σωστή λειτουργία της εφαρμογής."</string>
   <string name="gms_core_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Οι βελτιστοποιήσεις μπαταρίας πρέπει να απενεργοποιηθούν για το MicroG GmsCore ώστε να αποφευχθούν προβλήματα.
 
@@ -164,9 +164,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_expandable_card_title">Επεκτάσιμο πλαίσιο κάτω από τα βίντεο</string>
   <string name="revanced_hide_expandable_card_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_expandable_card_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_feed_survey_title">Έρευνες στη ροή</string>
-  <string name="revanced_hide_feed_survey_summary_on">Κρυμμένες</string>
-  <string name="revanced_hide_feed_survey_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_floating_microphone_button_title">Αιωρούμενο κουμπί μικροφώνου στην αναζήτηση</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Εμφανίζεται</string>
@@ -194,7 +191,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_movies_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_movies_section_summary_off">Εμφανίζεται</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Κουμπί «Να λαμβάνω ειδοποιήσεις»</string>
   <string name="revanced_hide_notify_me_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_notify_me_button_summary_off">Εμφανίζεται</string>
@@ -206,6 +203,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">Κουμπί «Εμφάνιση περισσότερων»</string>
   <string name="revanced_hide_show_more_button_summary_on">Κρυμμένο\n\nΑφορά το κουμπί «Εμφάνιση περισσότερων» στα αποτελέσματα αναζήτησης</string>
   <string name="revanced_hide_show_more_button_summary_off">Εμφανίζεται\n\nΑφορά το κουμπί «Εμφάνιση περισσότερων» στα αποτελέσματα αναζήτησης</string>
+  <string name="revanced_hide_surveys_title">Απόκρυψη ερευνών</string>
+  <string name="revanced_hide_surveys_summary_on">Κρυμμένες</string>
+  <string name="revanced_hide_surveys_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_ticket_shelf_title">Ενότητα εισιτηρίων</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Εμφανίζεται</string>
@@ -253,8 +253,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_timed_reactions_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Σύνοψη βίντεο που δημιουργήθηκε από AI</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Η ενότητα σύνοψης βίντεο που δημιουργήθηκε από AI είναι κρυμμένη</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Ενότητα σύνοψης βίντεο που δημιουργείται από ΤΝ: Εμφανίζεται</string>
   <string name="revanced_hide_ask_section_title">Ενότητα «Ερώτηση»</string>
   <string name="revanced_hide_ask_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_ask_section_summary_off">Εμφανίζεται</string>
@@ -282,19 +282,19 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Περιγραφή βίντεο</string>
   <string name="revanced_hide_description_components_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων περιγραφής βίντεο</string>
   <string name="revanced_hide_filter_bar_screen_title">Γραμμή φίλτρων</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Απόκρυψη ή εμφάνιση της γραμμής φίλτρων στις ροές, στο ιστορικό, στα αποτελέσματα αναζήτησης και στα σχετικά βίντεο</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Απόκρυψη στις ροές</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Απόκρυψη ή εμφάνιση της γραμμής φίλτρων στις ροές, στα σχετικά βίντεο, στα αποτελέσματα αναζήτησης και στο ιστορικό παρακολούθησης</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Γραμμή κατηγοριών στις ροές</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Απόκρυψη στο ιστορικό</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Απόκρυψη στα αποτελέσματα αναζήτησης</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Απόκρυψη στα σχετικά βίντεο</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Γραμμή κατηγοριών στα σχετικά βίντεο</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Γραμμή κατηγοριών στα αποτελέσματα αναζήτησης</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Απόκρυψη στο ιστορικό παρακολούθησης</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Κρυμμένα</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Εμφανίζονται</string>
   <string name="revanced_channel_screen_title">Σελίδα καναλιού</string>
   <string name="revanced_channel_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων της σελίδας καναλιού</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -312,17 +312,17 @@ Second \"item\" text"</string>
   <string name="revanced_hide_visit_community_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_visit_community_button_summary_off">Εμφανίζεται</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Κουμπί «Επίσκεψη στο κατάστημα» στη σελίδα καναλιού</string>
+  <string name="revanced_hide_visit_store_button_title">Κουμπί «Επίσκεψη στο κατάστημα»</string>
   <string name="revanced_hide_visit_store_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_visit_store_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_comments_screen_title">Σχόλια</string>
   <string name="revanced_comments_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στα σχόλια</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Σύνοψη συνομιλίας που δημιουργήθηκε από AI</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Απόκρυψη σύνοψης συνομιλίας AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Η σύνοψη συνομιλίας AI είναι κρυμμένη</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Η σύνοψη συνομιλίας AI εμφανίζεται</string>
   <string name="revanced_hide_comments_ai_summary_title">Σύνοψη σχολίων που δημιουργήθηκε από AI</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Η σύνοψη σχολίων AI είναι κρυμμένη</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Η σύνοψη σχολίων AI εμφανίζεται</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Οδηγίες καναλιού</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Εμφανίζονται</string>
@@ -358,9 +358,9 @@ Second \"item\" text"</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Μη έγκυρο προσαρμοσμένο φίλτρο: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">Απόκρυψη περιεχομένου λέξεων-κλειδιών</string>
   <string name="revanced_hide_keyword_content_screen_summary">Απόκρυψη βίντεο ροής και αναζήτησης χρησιμοποιώντας φίλτρα λέξεων-κλειδιών</string>
-  <string name="revanced_hide_keyword_content_home_title">Φιλτράρισμα αρχικής σελίδας</string>
-  <string name="revanced_hide_keyword_content_home_summary_on">Τα βίντεο στην αρχική σελίδα φιλτράρονται με τη χρήση λέξεων-κλειδιών</string>
-  <string name="revanced_hide_keyword_content_home_summary_off">Τα βίντεο στην αρχική σελίδα δε φιλτράρονται από λέξεις-κλειδιά</string>
+  <string name="revanced_hide_keyword_content_home_title">Φιλτράρισμα αρχικής ροής</string>
+  <string name="revanced_hide_keyword_content_home_summary_on">Τα βίντεο στην αρχική ροή φιλτράρονται με τη χρήση λέξεων-κλειδιών</string>
+  <string name="revanced_hide_keyword_content_home_summary_off">Τα βίντεο στην αρχική ροή δε φιλτράρονται από λέξεις-κλειδιά</string>
   <string name="revanced_hide_keyword_content_search_title">Φιλτράρισμα αποτελεσμάτων αναζήτησης</string>
   <string name="revanced_hide_keyword_content_search_summary_on">Τα αποτελέσματα αναζήτησης φιλτράρονται με τη χρήση λέξεων-κλειδιών</string>
   <string name="revanced_hide_keyword_content_search_summary_off">Τα αποτελέσματα αναζήτησης δε φιλτράρονται από λέξεις-κλειδιά</string>
@@ -379,8 +379,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_content_about_summary">"Οι καρτέλες «Αρχική», «Εγγραφές» και τα αποτελέσματα αναζήτησης φιλτράρονται για απόκρυψη περιεχομένου που ταιριάζει με τις λέξεις-κλειδιά
 
 Περιορισμοί:
-• Τα Shorts δεν γίνεται να κρύβονται με βάση το όνομα καναλιού
-• Κάποια στοιχεία UI ενδέχεται να μην κρύβονται
+• Δεν γίνεται απόκρυψη των Shorts με βάση το όνομα καναλιού
+• Κάποια στοιχεία UI ενδέχεται να μην είναι κρυμμένα
 • Η αναζήτηση για μια λέξη-κλειδί ενδέχεται να μην εμφανίζει κανένα αποτέλεσμα"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Ταίριασμα ολόκληρων λέξεων</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
@@ -421,7 +421,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shopping_links_title">Σύνδεσμοι αγορών στην περιγραφή βίντεο</string>
   <string name="revanced_hide_shopping_links_summary_on">Κρυμμένοι</string>
   <string name="revanced_hide_shopping_links_summary_off">Εμφανίζονται</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Ετικέτα «Προβολή προϊόντων» στην οθόνη αναπαραγωγής</string>
   <string name="revanced_hide_view_products_banner_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_view_products_banner_summary_off">Εμφανίζεται</string>
@@ -455,10 +454,10 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Εμφανίζεται</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Αυτό δεν παρακάμπτει τον ηλικιακό περιορισμό. Απλώς τον αποδέχεται αυτόματα.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Απενεργοποίηση παράλειψης κεφαλαίου με διπλό πάτημα</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Το διπλό πάτημα δεν μπορεί ποτέ να ενεργοποιήσει την παράλειψη στο επόμενο/προηγούμενο κεφάλαιο</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Το διπλό πάτημα μπορεί περιστασιακά να ενεργοποιήσει την παράλειψη στο επόμενο/προηγούμενο κεφάλαιο</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Το διπλό πάτημα δεν παράλειπει στο επόμενο/προηγούμενο κεφάλαιο</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Το διπλό πάτημα μπορεί περιστασιακά να παραλείψει στο επόμενο/προηγούμενο κεφάλαιο</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Εξωτερικές λήψεις</string>
@@ -732,27 +731,27 @@ Second \"item\" text"</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Οι αριθμοί κινούνται αυξανόμενοι εκθετικά</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Γραμμή προόδου στην οθόνη αναπαραγωγής</string>
+  <string name="revanced_hide_seekbar_title">Απόκρυψη γραμμής αναζήτησης αναπαραγωγής βίντεο</string>
   <string name="revanced_hide_seekbar_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_seekbar_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Γραμμή προόδου σε μικρογραφίες βίντεο</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Απόκρυψη γραμμής αναζήτησης μικρογραφιών βίντεο</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Η γραμμή αναζήτησης μικρογραφιών βίντεο είναι κρυμμένη</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Η γραμμή αναζήτησης μικρογραφιών βίντεο εμφανίζεται</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Οθόνη αναπαραγωγής Shorts</string>
-  <string name="revanced_shorts_player_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στην οθόνη αναπαραγωγής Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων αναπαραγωγής Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
-  <string name="revanced_hide_shorts_home_title">Shorts στην αρχική σελίδα και στα σχετικά βίντεο</string>
+  <string name="revanced_hide_shorts_home_title">Shorts στην αρχική ροή και στα σχετικά βίντεο</string>
   <string name="revanced_hide_shorts_home_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_shorts_home_summary_off">Εμφανίζονται</string>
+  <string name="revanced_hide_shorts_search_title">Shorts στα αποτελέσματα αναζήτησης</string>
+  <string name="revanced_hide_shorts_search_summary_on">Κρυμμένα</string>
+  <string name="revanced_hide_shorts_search_summary_off">Εμφανίζονται</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Shorts στην καρτέλα «Εγγραφές»</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_shorts_search_title">Shorts στα αποτελέσματα αναζήτησης</string>
-  <string name="revanced_hide_shorts_search_summary_on">Κρυμμένα</string>
-  <string name="revanced_hide_shorts_search_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_shorts_history_title">Shorts στο ιστορικό παρακολούθησης</string>
   <string name="revanced_hide_shorts_history_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_shorts_history_summary_off">Εμφανίζονται</string>
@@ -808,7 +807,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_use_sound_button_title">Κουμπί «Χρήση αυτού του ήχου»</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Κουμπί «Χρήση προτύπου»</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Κουμπί «Χρήση αυτού του προτύπου»</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_shorts_like_fountain_title">Εφέ κουμπιού «Μου αρέσει»</string>
@@ -862,8 +861,8 @@ Second \"item\" text"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Εμφανίζεται</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  <string name="revanced_hide_related_videos_overlay_title">Προεπισκόπηση σχετικών βίντεο στην πλήρη οθόνη</string>
-  <string name="revanced_hide_related_videos_overlay_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_related_videos_overlay_title">Πλαίσιο σχετικών βίντεο στην πλήρη οθόνη</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_related_videos_overlay_summary_off">Εμφανίζεται</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
@@ -885,8 +884,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Άνοιγμα των βίντεο σε πλήρη οθόνη με κατακόρυφη προβολή</string>
-  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Τα βίντεο ανοίγουν σε λειτουργία πλήρους οθόνης</string>
-  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Τα βίντεο δεν ανοίγουν σε λειτουργία πλήρους οθόνης</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Τα βίντεο ανοίγουν αυτόματα σε λειτουργία πλήρους οθόνης</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Τα βίντεο δεν ανοίγουν αυτόματα σε λειτουργία πλήρους οθόνης</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Αδιαφάνεια φόντου οθόνης αναπαραγωγής</string>
@@ -1119,7 +1118,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_disabled_category">Η κατηγορία είναι απενεργοποιημένη στις ρυθμίσεις. Ενεργοποιήστε την κατηγορία για υποβολή.</string>
   <string name="revanced_sb_new_segment_title">Νέο τμήμα SponsorBlock</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">Ορισμός %s ως αρχή ή τέλος ενός νέου τμήματος;</string>
-  <string name="revanced_sb_new_segment_mark_start">Έναρξη</string>
+  <string name="revanced_sb_new_segment_mark_start">Αρχή</string>
   <string name="revanced_sb_new_segment_mark_end">Τέλος</string>
   <string name="revanced_sb_new_segment_now">Τώρα</string>
   <string name="revanced_sb_new_segment_time_start">Χρόνος έναρξης του τμήματος</string>
@@ -1183,9 +1182,9 @@ Second \"item\" text"</string>
 • Η ροή οργανώνεται ανά θέματα και κανάλια"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
-  <string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
-  <string name="revanced_spoof_app_version_summary_on">Η έκδοση τροποποιείται</string>
-  <string name="revanced_spoof_app_version_summary_off">Η έκδοση δεν τροποποιείται</string>
+  <string name="revanced_spoof_app_version_title">Παραποίηση έκδοσης εφαρμογής</string>
+  <string name="revanced_spoof_app_version_summary_on">Η έκδοση παραποιείται</string>
+  <string name="revanced_spoof_app_version_summary_off">Η έκδοση δεν παραποιείται</string>
   <string name="revanced_spoof_app_version_user_dialog_message">"Η έκδοση της εφαρμογής YouTube θα παραποιηθεί σε παλιότερη.
 
 Αυτό θα αλλάξει την εμφάνιση και τα χαρακτηριστικά της εφαρμογής, αλλά ενδέχεται να εμφανιστούν άγνωστες παρενέργειες.
@@ -1193,7 +1192,7 @@ Second \"item\" text"</string>
 Αν αργότερα απενεργοποιηθεί, συνιστάται η εκκαθάριση δεδομένων της εφαρμογής για την αποφυγή σφαλμάτων UI."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
-  <string name="revanced_spoof_app_version_target_title">Έκδοση τροποποίησης της εφαρμογής</string>
+  <string name="revanced_spoof_app_version_target_title">Έκδοση παραποίησης της εφαρμογής</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Επαναφορά των παλιών εικονιδίων της οθόνης αναπαραγωγής Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Επαναφορά παλιών εικονιδίων γραμμής πλοήγησης</string>
   </patch>
@@ -1328,7 +1327,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
-  <string name="revanced_alt_thumbnail_home_title">Αρχική σελίδα</string>
+  <string name="revanced_alt_thumbnail_home_title">Καρτέλα «Αρχική»</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_alt_thumbnail_subscription_title">Καρτέλα «Εγγραφές»</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
