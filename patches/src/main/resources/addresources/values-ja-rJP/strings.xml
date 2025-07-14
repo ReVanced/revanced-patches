@@ -165,9 +165,6 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_expandable_card_title">展開可能なカードを非表示</string>
   <string name="revanced_hide_expandable_card_summary_on">動画下の展開可能なカードは表示されません</string>
   <string name="revanced_hide_expandable_card_summary_off">動画下の展開可能なカードは表示されます</string>
-  <string name="revanced_hide_feed_survey_title">フィードのアンケートを非表示</string>
-  <string name="revanced_hide_feed_survey_summary_on">フィードのアンケートは表示されません</string>
-  <string name="revanced_hide_feed_survey_summary_off">フィードのアンケートは表示されます</string>
   <string name="revanced_hide_floating_microphone_button_title">音声入力のフローティング ボタンを非表示</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">検索時の音声入力のフローティング ボタンは表示されません</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">検索時の音声入力のフローティング ボタンは表示されます</string>
@@ -194,7 +191,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_movies_section_summary_on">映画セクションは表示されません</string>
   <string name="revanced_hide_movies_section_summary_off">映画セクションは表示されます</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">「通知を受け取る」ボタンを非表示</string>
   <string name="revanced_hide_notify_me_button_summary_on">「通知を受け取る」ボタンは表示されません</string>
   <string name="revanced_hide_notify_me_button_summary_off">「通知を受け取る」ボタンは表示されます</string>
@@ -206,6 +203,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_show_more_button_title">「もっと見る」ボタンを非表示</string>
   <string name="revanced_hide_show_more_button_summary_on">検索結果の「もっと見る」ボタンは表示されません</string>
   <string name="revanced_hide_show_more_button_summary_off">検索結果の「もっと見る」ボタンは表示されます</string>
+  <string name="revanced_hide_surveys_title">アンケートを非表示にする</string>
+  <string name="revanced_hide_surveys_summary_on">アンケートは非表示</string>
+  <string name="revanced_hide_surveys_summary_off">アンケートは表示</string>
   <string name="revanced_hide_ticket_shelf_title">チケット欄を非表示</string>
   <string name="revanced_hide_ticket_shelf_summary_on">チケット欄は表示されません</string>
   <string name="revanced_hide_ticket_shelf_summary_off">チケット欄は表示されます</string>
@@ -253,8 +253,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_timed_reactions_summary_on">Timed Reaction とチャット欄のハートマーク アイコンは表示されません</string>
   <string name="revanced_hide_timed_reactions_summary_off">Timed Reaction とチャット欄のハートマー ク アイコンは表示されます</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">「AI 生成による動画の要約」を非表示</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">動画の要約セクションは表示されません</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">動画の要約セクションは表示されます</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AIが生成した動画の要約セクションは非表示です</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AIが生成した動画の要約セクションは表示</string>
   <string name="revanced_hide_ask_section_title">質問セクションを非表示</string>
   <string name="revanced_hide_ask_section_summary_on">質問セクションは表示されません</string>
   <string name="revanced_hide_ask_section_summary_off">質問セクションは表示されます</string>
@@ -282,19 +282,19 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_description_components_screen_title">動画の概要欄</string>
   <string name="revanced_hide_description_components_screen_summary">動画の概要欄のコンポーネントを表示または非表示にします</string>
   <string name="revanced_hide_filter_bar_screen_title">フィルタバー</string>
-  <string name="revanced_hide_filter_bar_screen_summary">フィード、履歴、検索結果、関連動画でフィルターバーを表示または非表示にします</string>
+  <string name="revanced_hide_filter_bar_screen_summary">フィード、関連動画、検索結果、視聴履歴でフィルターバーを表示または非表示にします</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">フィードで非表示</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">フィードに表示されません</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">フィードに表示されます</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">履歴で非表示</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">履歴に表示されません</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">履歴に表示されます</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">検索結果で非表示</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">検索結果に表示されません</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">検索結果に表示されます</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">関連動画で非表示</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">関連動画に表示されません</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">関連動画に表示されます</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">検索結果で非表示</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">検索結果に表示されません</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">検索結果に表示されます</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">再生履歴で非表示</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">再生履歴にショート動画は表示されません</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">再生履歴にショート動画が表示されます</string>
   <string name="revanced_channel_screen_title">チャンネル ページ</string>
   <string name="revanced_channel_screen_summary">チャンネル ページのコンポーネントを表示または非表示にします</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -317,12 +317,12 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_visit_store_button_summary_off">「ストアに移動」ボタンは表示されます</string>
   <string name="revanced_comments_screen_title">コメント</string>
   <string name="revanced_comments_screen_summary">コメント セクションの設定</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">AI による「チャットの要約」を非表示</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">「チャットの要約」は表示されません</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">「チャットの要約」は表示されます</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">AIチャットの要約を非表示にする</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">AIチャットの要約は非表示です</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">AIチャットの要約は表示されます</string>
   <string name="revanced_hide_comments_ai_summary_title">AI によるコメントの要約を非表示</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">コメントの要約は表示されません</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">コメントの要約は表示されます</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">AIコメントの要約は非表示です</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">AIコメントの要約は表示されます</string>
   <string name="revanced_hide_comments_channel_guidelines_title">チャンネルのガイドラインを非表示</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">チャンネルのガイドラインは表示されません</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">チャンネルのガイドラインは表示されます</string>
@@ -421,7 +421,6 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_shopping_links_title">商品へのリンクを非表示</string>
   <string name="revanced_hide_shopping_links_summary_on">動画の概要欄にある商品へのリンクは表示されません</string>
   <string name="revanced_hide_shopping_links_summary_off">動画の概要欄にある商品へのリンクは表示されます</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">「商品を表示」バナーを非表示</string>
   <string name="revanced_hide_view_products_banner_summary_on">動画オーバーレイの「商品を表示」バナーは表示されません</string>
   <string name="revanced_hide_view_products_banner_summary_off">動画オーバーレイの「商品を表示」バナーは表示されます</string>
@@ -732,27 +731,27 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_disable_rolling_number_animations_summary_off">数字のアニメーションは有効です</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">動画プレーヤーのシークバーを非表示</string>
+  <string name="revanced_hide_seekbar_title">動画プレーヤーのシークバーを非表示にする</string>
   <string name="revanced_hide_seekbar_summary_on">動画プレーヤーのシークバーは表示されません</string>
   <string name="revanced_hide_seekbar_summary_off">動画プレーヤーのシークバーは表示されます</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">サムネイルのシークバーを非表示</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">サムネイルのシークバーは表示されません</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">サムネイルのシークバーは表示されます</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">動画のサムネイルシークバーを非表示にする</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">動画のサムネイルシークバーは非表示です</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">動画のサムネイルシークバーは表示されます</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">ショート動画プレーヤー</string>
-  <string name="revanced_shorts_player_screen_summary">ショート動画プレーヤーの設定</string>
+  <string name="revanced_shorts_player_screen_summary">Shortsプレーヤーのコンポーネントを表示または非表示にする</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">ホームフィードでショートを非表示</string>
   <string name="revanced_hide_shorts_home_summary_on">ホームフィードおよび関連動画にショートは表示されません</string>
   <string name="revanced_hide_shorts_home_summary_off">ホームフィードおよび関連動画にショートが表示されます</string>
+  <string name="revanced_hide_shorts_search_title">検索結果でショート動画を非表示</string>
+  <string name="revanced_hide_shorts_search_summary_on">検索結果にショート動画は表示されません</string>
+  <string name="revanced_hide_shorts_search_summary_off">検索結果にショート動画が表示されます</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">登録チャンネル フィードでショートを非表示</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">登録チャンネル フィードにショートは表示されません</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">登録チャンネル フィードにショートが表示されます</string>
-  <string name="revanced_hide_shorts_search_title">検索結果でショート動画を非表示</string>
-  <string name="revanced_hide_shorts_search_summary_on">検索結果にショート動画は表示されません</string>
-  <string name="revanced_hide_shorts_search_summary_off">検索結果にショート動画が表示されます</string>
   <string name="revanced_hide_shorts_history_title">再生履歴でショート動画を非表示</string>
   <string name="revanced_hide_shorts_history_summary_on">再生履歴にショート動画は表示されません</string>
   <string name="revanced_hide_shorts_history_summary_off">再生履歴にショート動画が表示されます</string>
