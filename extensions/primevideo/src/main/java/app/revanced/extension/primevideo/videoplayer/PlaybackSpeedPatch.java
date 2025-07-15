@@ -12,6 +12,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.ColorFilter;
 import android.graphics.PixelFormat;
+import java.util.Arrays;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -20,7 +21,7 @@ import com.amazon.video.sdk.player.Player;
 
 public class PlaybackSpeedPatch {
     private static Player player;
-    private static final float[] SPEED_VALUES = {1.0f, 1.25f, 1.5f, 2.0f};
+    private static final float[] SPEED_VALUES = {0.5f, 0.7f, 0.8f, 0.9f, 0.95f, 1.0f, 1.05f, 1.1f, 1.2f, 1.3f, 1.5f, 2.0f};
     private static final String SPEED_BUTTON_TAG = "speed_overlay";
 
     public static void setPlayer(Player playerInstance) {
@@ -109,12 +110,8 @@ public class PlaybackSpeedPatch {
     private static int getCurrentSpeedSelection() {
         try {
             float currentRate = player.getPlaybackRate();
-            for (int i = 0; i < SPEED_VALUES.length; i++) {
-                if (SPEED_VALUES[i] == currentRate) {
-                    return i;
-                }
-            }
-            return 0;
+            int index = Arrays.binarySearch(SPEED_VALUES, currentRate);
+            return Math.max(index, 0); // Use slowest speed if not found.
         } catch (Exception e) {
             Logger.printException(() -> "getCurrentSpeedSelection error getting current playback speed", e);
             return 0;
