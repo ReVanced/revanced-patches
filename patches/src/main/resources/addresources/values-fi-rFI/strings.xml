@@ -115,7 +115,7 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_debug_title">Virheenkorjauksen kirjaaminen</string>
   <string name="revanced_debug_summary_on">Virheenkorjauslokit ovat käytössä</string>
   <string name="revanced_debug_summary_off">Virheenkorjauslokit eivät ole käytössä</string>
-  <string name="revanced_debug_protobuffer_title">Loki protokollan puskuri</string>
+  <string name="revanced_debug_protobuffer_title">Kirjaa protokollapuskuri</string>
   <string name="revanced_debug_protobuffer_summary_on">Virheenkorjauslokit sisältävät proto-puskurin</string>
   <string name="revanced_debug_protobuffer_summary_off">Virheenkorjauslokit eivät sisällä proto-puskuria</string>
   <string name="revanced_debug_protobuffer_user_dialog_message">"Tämän asetuksen käyttöönotto kirjaa lisätietoja asettelusta, mm. joidenkin käyttöliittymän osien näyttötekstiä.
@@ -194,6 +194,9 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_show_more_button_title">Piilota \"Näytä lisää\" -painike</string>
   <string name="revanced_hide_show_more_button_summary_on">Näytä lisää -painike on piilotettu hakutuloksissa</string>
   <string name="revanced_hide_show_more_button_summary_off">Näytä lisää -painike näytetään hakutuloksissa</string>
+  <string name="revanced_hide_surveys_title">Piilota kyselyt</string>
+  <string name="revanced_hide_surveys_summary_on">Kyselyt on piilotettu</string>
+  <string name="revanced_hide_surveys_summary_off">Kyselyt näytetään</string>
   <string name="revanced_hide_ticket_shelf_title">Piilota lippuhylly</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Lippuhylly on piilotettu</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Lippuhylly näytetään</string>
@@ -239,6 +242,8 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_hide_timed_reactions_summary_on">Ajoitetut reaktiot on piilotettu</string>
   <string name="revanced_hide_timed_reactions_summary_off">Ajoitetut reaktiot näytetään</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Piilota \"tekoälyn luoma videoyhteenveto\"</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Tekoälyn luoma videon yhteenveto-osio on piilotettu</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Tekoälyn luoma videon yhteenveto-osio näytetään</string>
   <string name="revanced_hide_ask_section_title">Piilota Ask</string>
   <string name="revanced_hide_ask_section_summary_on">Ask-osio on piilotettu</string>
   <string name="revanced_hide_ask_section_summary_off">Ask-osio näytetään</string>
@@ -266,6 +271,7 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_hide_description_components_screen_title">Videon kuvaus</string>
   <string name="revanced_hide_description_components_screen_summary">Piilota tai näytä videon kuvauksen osia</string>
   <string name="revanced_hide_filter_bar_screen_title">Suodatinpalkki</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Piilota tai näytä suodatinpalkki syötteissä, liittyvissä videoissa, hakutuloksissa ja katseluhistoriassa</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Piilota syötteissä</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Piilotettu syötteissä</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Näytetään syötteissä</string>
@@ -275,6 +281,9 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_hide_filter_bar_feed_in_search_title">Piilota hakutuloksissa</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Piilotettu hakutuloksissa</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Näytetään hakutuloksissa</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Piilota katseluhistoriassa</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Piilotettu katseluhistoriassa</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Näytetään katseluhistoriassa</string>
   <string name="revanced_channel_screen_title">Kanavasivu</string>
   <string name="revanced_channel_screen_summary">Piilota tai näytä kanavasivun osia</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -297,7 +306,12 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_hide_visit_store_button_summary_off">Kaupan \"Näytä kaikki\" -painike näytetään</string>
   <string name="revanced_comments_screen_title">Kommentit</string>
   <string name="revanced_comments_screen_summary">Piilota tai näytä kommenttiosion osia</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Piilota tekoälyn luoma chat-yhteenveto</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tekoälyn luoma chat-yhteenveto on piilotettu</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Tekoälyn luoma chat-yhteenveto näytetään</string>
   <string name="revanced_hide_comments_ai_summary_title">Piilota tekoälyn luoma kommenttiyhteenveto</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Tekoälyn luoma kommenttien yhteenveto on piilotettu</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Tekoälyn luoma kommenttien yhteenveto näytetään</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Piilota kanavan säännöt</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Kanavan säännöt on piilotettu</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Kanavan säännöt näytetään</string>
@@ -430,6 +444,9 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tämä ei ohita ikärajoitusta. Se vain hyväksyy sen automaattisesti.</string>
   </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
+  <string name="revanced_disable_chapter_skip_double_tap_title">Poista videon osan ohittaminen kaksoisnapauttamalla käytöstä</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Kaksoisnapautus ei voi koskaan aiheuttaa siirtymistä videon seuraavaan/edelliseen osaan</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Kaksoisnapautus voi joskus aiheuttaa siirtymisen videon seuraavaan/edelliseen osaan</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Ulkoiset lataukset</string>
@@ -526,6 +543,9 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_share_button_summary_on">Jaa-painike on piilotettu</string>
   <string name="revanced_hide_share_button_summary_off">Jaa-painike näytetään</string>
   <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_stop_ads_button_title">Piilota \"Estä mainokset\"</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Estä mainokset -painike on piilotettu</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Estä mainokset -painike näytetään</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Piilota Tee ilmoitus</string>
@@ -672,6 +692,9 @@ Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <string name="revanced_hide_cast_button_title">Piilota Cast-painike</string>
   <string name="revanced_hide_cast_button_summary_on">Cast-painike on piilotettu</string>
   <string name="revanced_hide_cast_button_summary_off">Cast-painike näytetään</string>
+  <string name="revanced_hide_player_control_buttons_background_title">Piilota soittimen ohjainten tausta</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">Soittimen ohjainten tausta on piilotettu</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Soittimen ohjainten tausta näytetään</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Piilota Edellinen &amp; Seuraava -painikkeet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Painikkeet on piilotettu</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Painikkeet näytetään</string>
@@ -697,11 +720,17 @@ Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Vierivät numerot animoidaan</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <string name="revanced_hide_seekbar_title">Piilota videosoittimen etenemispalkki</string>
   <string name="revanced_hide_seekbar_summary_on">Videosoittimen etenemispalkki on piilotettu</string>
   <string name="revanced_hide_seekbar_summary_off">Videosoittimen etenemispalkki näytetään</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+  <string name="revanced_hide_seekbar_thumbnail_title">Piilota videoiden pikkukuvien etenemispalkki</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Videoiden pikkukuvien etenemispalkki on piilotettu</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Videoiden pikkukuvien etenemispalkki näytetään</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts-soitin</string>
+  <string name="revanced_shorts_player_screen_summary">Piilota tai näytä Shorts-soittimen osia</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Piilota Shortsit kotisyötteessä</string>
   <string name="revanced_hide_shorts_home_summary_on">Piilotettu kotisyötteessä ja liittyvissä videoissa</string>
@@ -1152,8 +1181,6 @@ Ajoneuvo-asettelu
 Tämä muuttaa sovelluksen ulkoasua ja ominaisuuksia, mutta tuntemattomia sivuvaikutuksia saattaa esiintyä.
 
 Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovelluksen tiedot käyttöliittymävirheiden välttämiseksi."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Naamioitava kohdeversio</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Palauta vanhat Shorts-soittimen kuvakkeet</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Palauta vanhat navigointikuvakkeet</string>
