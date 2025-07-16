@@ -1,3 +1,10 @@
+# [5.32.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.3-dev.1...v5.32.0-dev.1) (2025-07-16)
+
+
+### Features
+
+* **Prime Video:** Add `Playback speed` patch ([#5444](https://github.com/ReVanced/revanced-patches/issues/5444)) ([22cf313](https://github.com/ReVanced/revanced-patches/commit/22cf313a7b99b69e17b9d488c514802043a5dc10))
+
 ## [5.31.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.2...v5.31.3-dev.1) (2025-07-16)
 
 
