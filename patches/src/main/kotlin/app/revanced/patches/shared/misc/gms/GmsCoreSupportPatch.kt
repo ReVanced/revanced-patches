@@ -148,7 +148,7 @@ fun gmsCoreSupportPatch(
 
         fun packageNameTransform(fromPackageName: String, toPackageName: String): (String) -> String? = { string ->
             when (string) {
-                "$fromPackageName.SuggestionsProvider",
+                "$fromPackageName.SuggestionProvider",
                 "$fromPackageName.fileprovider",
                 -> string.replace(fromPackageName, toPackageName)
 

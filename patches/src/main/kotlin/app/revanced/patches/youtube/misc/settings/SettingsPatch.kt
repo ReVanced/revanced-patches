@@ -235,9 +235,9 @@ val settingsPatch = bytecodePatch(
             methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
         }
 
-        // Add context override to force a specific settings language.
         licenseActivityOnCreateFingerprint.classDef.apply {
-            val attachBaseContext = ImmutableMethod(
+            // Add attachBaseContext method to override the context for setting a specific language.
+            ImmutableMethod(
                 type,
                 "attachBaseContext",
                 listOf(ImmutableMethodParameter("Landroid/content/Context;", null, null)),
@@ -255,13 +255,10 @@ val settingsPatch = bytecodePatch(
                         return-void
                     """
                 )
-            }
+            }.let(methods::add)
 
-            methods.add(attachBaseContext)
-        }
-
-        licenseActivityOnCreateFingerprint.classDef.apply {
-            val onBackPressed = ImmutableMethod(
+            // Add onBackPressed method to handle back button presses, delegating to SearchViewController.
+            ImmutableMethod(
                 type,
                 "onBackPressed",
                 emptyList(),
@@ -269,7 +266,7 @@ val settingsPatch = bytecodePatch(
                 AccessFlags.PUBLIC.value,
                 null,
                 null,
-                MutableMethodImplementation(3)
+                MutableMethodImplementation(3),
             ).toMutable().apply {
                 addInstructions(
                     """
@@ -281,10 +278,28 @@ val settingsPatch = bytecodePatch(
                         return-void
                     """
                 )
+            }.let(methods::add)
 
-            };
-            methods.add(onBackPressed);
-        };
+            // Add onConfigurationChanged method to handle configuration changes (e.g., screen orientation).
+            ImmutableMethod(
+                type,
+                "onConfigurationChanged",
+                listOf(ImmutableMethodParameter("Landroid/content/res/Configuration;", null, null)),
+                "V",
+                AccessFlags.PUBLIC.value,
+                null,
+                null,
+                MutableMethodImplementation(3)
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                        invoke-super { p0, p1 }, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+                        invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->handleConfigurationChanged(Landroid/app/Activity;Landroid/content/res/Configuration;)V
+                        return-void
+                    """
+                )
+            }.let(methods::add)
+        }
 
         // Update shared dark mode status based on YT theme.
         // This is needed because YT allows forcing light/dark mode

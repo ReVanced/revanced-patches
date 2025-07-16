@@ -280,7 +280,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                             LicenseActivityHook.setToolbarLayoutParams(toolbar);
 
                             if (LicenseActivityHook.searchViewController != null
-                                    && LicenseActivityHook.searchViewController.isSearchExpanded()) {
+                                    && LicenseActivityHook.searchViewController.isSearchActive()) {
                                 toolbar.post(() -> LicenseActivityHook.searchViewController.closeSearch());
                             }
 
