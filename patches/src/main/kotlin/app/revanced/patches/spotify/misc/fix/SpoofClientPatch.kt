@@ -63,6 +63,14 @@ val spoofClientPatch = bytecodePatch(
                 "x86",
                 "x86_64"
             ).forEach { architecture ->
+                // Used to spoof spclient hosts to the listener
+                // to spoof the body of /playplay/v1/keys requests
+                // and avoid 403 errors.
+                "https://apresolve.spotify.com" to
+                        "http://127.0.0.1:$requestListenerPort/ap" inFile
+                        "lib/$architecture/liborbit-jni-spotify.so"
+
+                // Required to spoof to iOS client token requests.
                 "https://clienttoken.spotify.com/v1/clienttoken" to
                         "http://127.0.0.1:$requestListenerPort/v1/clienttoken" inFile
                         "lib/$architecture/liborbit-jni-spotify.so"
@@ -78,12 +86,12 @@ val spoofClientPatch = bytecodePatch(
         val systemVersion = systemVersion!!
 
         // region Spoof login request.
-        
+
         val version = clientVersion
             .substringAfter('-')
             .substringBeforeLast('.')
             .substringBeforeLast('.')
-        
+
         setUserAgentFingerprint.method.addInstruction(
             0,
             "const-string p1, \"Spotify/$version iOS/$systemVersion ($hardwareMachine)\""

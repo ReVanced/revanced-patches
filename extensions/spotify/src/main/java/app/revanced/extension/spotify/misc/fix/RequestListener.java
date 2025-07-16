@@ -2,23 +2,29 @@ package app.revanced.extension.spotify.misc.fix;
 
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp.ClientTokenResponse;
-import com.google.protobuf.MessageLite;
 import fi.iki.elonen.NanoHTTPD;
 
-import java.io.ByteArrayInputStream;
-import java.io.FilterInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Objects;
+import java.io.*;
+import java.util.*;
 
-import static app.revanced.extension.spotify.misc.fix.ClientTokenService.serveClientTokenRequest;
-import static app.revanced.extension.spotify.misc.fix.Constants.CLIENT_TOKEN_API_PATH;
 import static fi.iki.elonen.NanoHTTPD.Response.Status.INTERNAL_ERROR;
 
 class RequestListener extends NanoHTTPD {
+    private final SpoofClientService service;
+
+    private final Set<Map.Entry<String, RouteHandler>> routeHandlers;
+
     RequestListener(int port) {
         super(port);
+
+        service = new SpoofClientService(port);
+        routeHandlers = new HashMap<String, RouteHandler>() {
+            {
+                put("/ap", service::serveApResolveRequest);
+                put("/v1/clienttoken", service::serveClientTokenRequest);
+                put("/playplay", service::servePlayPlayRequest);
+            }
+        }.entrySet();
 
         try {
             start();
@@ -28,67 +34,29 @@ class RequestListener extends NanoHTTPD {
         }
     }
 
+    interface RouteHandler {
+        @NonNull
+        Response serve(@NonNull IHTTPSession session);
+    }
+
+
     @NonNull
     @Override
     public Response serve(@NonNull IHTTPSession session) {
         String uri = session.getUri();
-        if (!uri.equals(CLIENT_TOKEN_API_PATH)) return INTERNAL_ERROR_RESPONSE;
-
         Logger.printInfo(() -> "Serving request for URI: " + uri);
 
-        ClientTokenResponse response = serveClientTokenRequest(getInputStream(session));
-        if (response != null) return newResponse(Response.Status.OK, response);
+        for (Map.Entry<String, RouteHandler> entry : routeHandlers) {
+            String pathPrefix = entry.getKey();
+            if (!uri.startsWith(pathPrefix)) continue;
 
-        Logger.printException(() -> "Failed to serve client token request");
-        return INTERNAL_ERROR_RESPONSE;
-    }
-
-    @NonNull
-    private static InputStream newLimitedInputStream(InputStream inputStream, long contentLength) {
-        return new FilterInputStream(inputStream) {
-            private long remaining = contentLength;
-
-            @Override
-            public int read() throws IOException {
-                if (remaining <= 0) return -1;
-                int result = super.read();
-                if (result != -1) remaining--;
-                return result;
-            }
-
-            @Override
-            public int read(byte[] b, int off, int len) throws IOException {
-                if (remaining <= 0) return -1;
-                len = (int) Math.min(len, remaining);
-                int result = super.read(b, off, len);
-                if (result != -1) remaining -= result;
-                return result;
-            }
-        };
-    }
-
-    @NonNull
-    private static InputStream getInputStream(@NonNull IHTTPSession session) {
-        long requestContentLength = Long.parseLong(Objects.requireNonNull(session.getHeaders().get("content-length")));
-        return newLimitedInputStream(session.getInputStream(), requestContentLength);
-    }
-
-    private static final Response INTERNAL_ERROR_RESPONSE = newResponse(INTERNAL_ERROR);
-
-    @SuppressWarnings("SameParameterValue")
-    @NonNull
-    private static Response newResponse(Response.Status status) {
-        return newResponse(status, null);
-    }
-
-    @NonNull
-    private static Response newResponse(Response.IStatus status, MessageLite messageLite) {
-        if (messageLite == null) {
-            return newFixedLengthResponse(status, "application/x-protobuf", null);
+            RouteHandler handler = entry.getValue();
+            return handler.serve(session);
         }
 
-        byte[] messageBytes = messageLite.toByteArray();
-        InputStream stream = new ByteArrayInputStream(messageBytes);
-        return newFixedLengthResponse(status, "application/x-protobuf", stream, messageBytes.length);
+        // All other requests should only be spclient requests.
+        return service.serveSpClientRequest(session);
     }
+
+    static final Response INTERNAL_ERROR_RESPONSE = newFixedLengthResponse(INTERNAL_ERROR, "application/x-protobuf", null);
 }
