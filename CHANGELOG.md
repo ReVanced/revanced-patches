@@ -1,3 +1,10 @@
+## [5.31.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.2...v5.31.3-dev.1) (2025-07-16)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore support:** Fix search suggestions when logged out by using correct search provider ([#5483](https://github.com/ReVanced/revanced-patches/issues/5483)) ([e86fdc8](https://github.com/ReVanced/revanced-patches/commit/e86fdc86b161a6077960b85149e83bacbac664e7))
+
 ## [5.31.2](https://github.com/ReVanced/revanced-patches/compare/v5.31.1...v5.31.2) (2025-07-14)
 
 
