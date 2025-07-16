@@ -1,7 +1,5 @@
 package app.revanced.extension.shared.settings.preference;
 
-import static app.revanced.extension.shared.Utils.dipToPixels;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -15,6 +13,7 @@ import android.widget.*;
 
 import androidx.annotation.NonNull;
 
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 
 /**
@@ -56,11 +55,14 @@ public class CustomDialogListPreference extends ListPreference {
                 view = inflater.inflate(layoutResourceId, parent, false);
                 holder = new SubViewDataContainer();
                 holder.checkIcon = view.findViewById(Utils.getResourceIdentifier(
-                        "revanced_check_icon", "id"));
+                        ResourceType.ID,
+                        "revanced_check_icon"));
                 holder.placeholder = view.findViewById(Utils.getResourceIdentifier(
-                        "revanced_check_icon_placeholder", "id"));
+                        ResourceType.ID,
+                        "revanced_check_icon_placeholder"));
                 holder.itemText = view.findViewById(Utils.getResourceIdentifier(
-                        "revanced_item_text", "id"));
+                        ResourceType.ID,
+                        "revanced_item_text"));
                 view.setTag(holder);
             } else {
                 holder = (SubViewDataContainer) view.getTag();
@@ -113,7 +115,7 @@ public class CustomDialogListPreference extends ListPreference {
         // Create custom adapter for the ListView.
         ListPreferenceArrayAdapter adapter = new ListPreferenceArrayAdapter(
                 context,
-                Utils.getResourceIdentifier("revanced_custom_list_item_checked", "layout"),
+                Utils.getResourceIdentifier(ResourceType.LAYOUT, "revanced_custom_list_item_checked"),
                 getEntries(),
                 getEntryValues(),
                 getValue()

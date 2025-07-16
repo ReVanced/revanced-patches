@@ -32,6 +32,7 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
@@ -171,7 +172,8 @@ public class ColorPickerPreference extends EditTextPreference {
         }
 
         // Set the widget layout to a custom layout containing the colored dot.
-        setWidgetLayoutResource(getResourceIdentifier("revanced_color_dot_widget", "layout"));
+        setWidgetLayoutResource(getResourceIdentifier(
+                ResourceType.LAYOUT, "revanced_color_dot_widget"));
     }
 
     /**
@@ -208,9 +210,11 @@ public class ColorPickerPreference extends EditTextPreference {
         super.onBindView(view);
 
         widgetColorDot = view.findViewById(getResourceIdentifier(
-                "revanced_color_dot_widget", "id"));
+                ResourceType.ID,
+                "revanced_color_dot_widget"));
         widgetColorDot.setBackgroundResource(getResourceIdentifier(
-                "revanced_settings_circle_background", "drawable"));
+                ResourceType.DRAWABLE,
+                "revanced_settings_circle_background"));
         widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
         widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
     }
@@ -286,10 +290,10 @@ public class ColorPickerPreference extends EditTextPreference {
         Context context = getContext();
 
         // Inflate color picker view.
-        View colorPicker = LayoutInflater.from(context).inflate(
-                getResourceIdentifier("revanced_color_picker", "layout"), null);
-        dialogColorPickerView = colorPicker.findViewById(
-                getResourceIdentifier("revanced_color_picker_view", "id"));
+        View colorPicker = LayoutInflater.from(context).inflate(getResourceIdentifier(
+                ResourceType.LAYOUT, "revanced_color_picker"), null);
+        dialogColorPickerView = colorPicker.findViewById(getResourceIdentifier(
+                ResourceType.ID, "revanced_color_picker_view"));
         dialogColorPickerView.setColor(currentColor);
 
         // Horizontal layout for preview and EditText.

@@ -11,8 +11,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findFreeRegister
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -37,38 +35,46 @@ val enableSeekbarTappingPatch = bytecodePatch(
 
         // Find the required methods to tap the seekbar.
         val seekbarTappingMethods = onTouchEventHandlerFingerprint.let {
-            fun getMethodReference(index: Int) = it.method.getInstruction<ReferenceInstruction>(index)
+            fun getReference(index: Int) = it.method.getInstruction<ReferenceInstruction>(index)
                 .reference as MethodReference
 
             listOf(
-                getMethodReference(it.patternMatch!!.startIndex),
-                getMethodReference(it.patternMatch!!.endIndex)
+                getReference(it.instructionMatches.first().index),
+                getReference(it.instructionMatches.last().index)
             )
         }
 
-        seekbarTappingFingerprint.method.apply {
-            val pointIndex = indexOfNewPointInstruction(this)
-            val invokeIndex = indexOfFirstInstructionOrThrow(pointIndex, Opcode.INVOKE_VIRTUAL)
-            val insertIndex = invokeIndex + 1
+        seekbarTappingFingerprint.let {
+            val insertIndex = it.instructionMatches.last().index + 1
 
-            val thisInstanceRegister = getInstruction<FiveRegisterInstruction>(invokeIndex).registerC
-            val xAxisRegister = this.getInstruction<FiveRegisterInstruction>(pointIndex).registerD
-            val freeRegister = findFreeRegister(insertIndex, thisInstanceRegister, xAxisRegister)
+            it.method.apply {
+                val thisInstanceRegister = getInstruction<FiveRegisterInstruction>(
+                    insertIndex - 1
+                ).registerC
 
-            val oMethod = seekbarTappingMethods[0]
-            val nMethod = seekbarTappingMethods[1]
+                val xAxisRegister = this.getInstruction<FiveRegisterInstruction>(
+                    it.instructionMatches[2].index
+                ).registerD
 
-            addInstructionsWithLabels(
-                insertIndex,
-                """
-                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->seekbarTappingEnabled()Z
-                    move-result v$freeRegister
-                    if-eqz v$freeRegister, :disabled
-                    invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $oMethod
-                    invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $nMethod
-                """,
-                ExternalLabel("disabled", getInstruction(insertIndex)),
-            )
+                val freeRegister = findFreeRegister(
+                    insertIndex, thisInstanceRegister, xAxisRegister
+                )
+
+                val oMethod = seekbarTappingMethods[0]
+                val nMethod = seekbarTappingMethods[1]
+
+                addInstructionsWithLabels(
+                    insertIndex,
+                    """
+                        invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->seekbarTappingEnabled()Z
+                        move-result v$freeRegister
+                        if-eqz v$freeRegister, :disabled
+                        invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $oMethod
+                        invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $nMethod
+                    """,
+                    ExternalLabel("disabled", getInstruction(insertIndex)),
+                )
+            }
         }
     }
 }
