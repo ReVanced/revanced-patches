@@ -6,7 +6,11 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val openLinkFingerprint = fingerprint {
     returns("V")
-    parameters("Landroid/content/Context;", "Landroid/content/Intent;", "Landroid/os/Bundle;")
+    parameters(
+        "Landroid/content/Context;",
+        "Landroid/content/Intent;",
+        "Landroid/os/Bundle;"
+    )
 }
 
 internal val sanitizeSharingLinksFingerprint = fingerprint {
@@ -26,6 +30,8 @@ internal val linkResourceGetterFingerprint = fingerprint {
     literal { tweetShareLinkTemplateId }
 }
 
-internal val linkSharingDomainFingerprint = fingerprint {
-    strings("https://fxtwitter.com")
+internal val linkSharingDomainHelperFingerprint = fingerprint {
+    custom { method, classDef ->
+        method.name == "getShareDomain" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
+    }
 }
