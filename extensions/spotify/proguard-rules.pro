@@ -1,0 +1,3 @@
+-keep class com.spotify.** { *;}
+-keep class xyz.gianlu.librespot.** { *; }
+-dontwarn **
