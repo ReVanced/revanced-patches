@@ -27,6 +27,7 @@ internal val linkResourceGetterFingerprint = fingerprint {
 }
 
 internal val linkSharingDomainHelperFingerprint = fingerprint {
-    strings("https://fxtwitter.com")
-    custom { _, classDef -> classDef.type == "Lapp/revanced/twitter/patches/links/ChangeLinkSharingDomainPatch;" }
+    custom { method, classDef ->
+        method.name == "getShareDomain" && classDef.type == "Lapp/revanced/twitter/patches/links/ChangeLinkSharingDomainPatch;"
+    }
 }
