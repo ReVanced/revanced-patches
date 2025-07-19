@@ -54,15 +54,22 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     )
 
     execute {
-        val replacementIndex =
-            linkSharingDomainFingerprint.stringMatches!!.first().index
-        val domainRegister =
-            linkSharingDomainFingerprint.method.getInstruction<OneRegisterInstruction>(replacementIndex).registerA
-
-        linkSharingDomainFingerprint.method.replaceInstruction(
-            replacementIndex,
-            "const-string v$domainRegister, \"https://$domainName\"",
-        )
+        // Replace the domain name in the link sharing extension methods.
+        val cls = classes.single { it.type == EXTENSION_CLASS_DESCRIPTOR }
+        listOf(
+            resourceLinkSharingDomainFingerprint,
+            linkSharingDomainFingerprint,
+        ).forEach { fingerprint ->
+            fingerprint.matchOrNull(cls)?.let { match ->
+                val replacementIndex = match.stringMatches!!.first().index
+                val domainRegister =
+                    match.method.getInstruction<OneRegisterInstruction>(replacementIndex).registerA
+                match.method.replaceInstruction(
+                    replacementIndex,
+                    "const-string v$domainRegister, \"https://$domainName\"",
+                )
+            }
+        }
 
         // Replace the domain name when copying a link with "Copy link" button.
         linkBuilderFingerprint.method.apply {

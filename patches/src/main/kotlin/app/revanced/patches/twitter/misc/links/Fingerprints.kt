@@ -27,5 +27,11 @@ internal val linkResourceGetterFingerprint = fingerprint {
 }
 
 internal val linkSharingDomainFingerprint = fingerprint {
+    // parameters("JLjava/lang/String;")
+    strings("https://fxtwitter.com")
+}
+
+internal val resourceLinkSharingDomainFingerprint = fingerprint {
+    parameters("[Ljava/lang/Object;")
     strings("https://fxtwitter.com")
 }
