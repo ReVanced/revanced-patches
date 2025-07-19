@@ -26,12 +26,7 @@ internal val linkResourceGetterFingerprint = fingerprint {
     literal { tweetShareLinkTemplateId }
 }
 
-internal val linkSharingDomainFingerprint = fingerprint {
-    // parameters("JLjava/lang/String;")
+internal val linkSharingDomainHelperFingerprint = fingerprint {
     strings("https://fxtwitter.com")
-}
-
-internal val resourceLinkSharingDomainFingerprint = fingerprint {
-    parameters("[Ljava/lang/Object;")
-    strings("https://fxtwitter.com")
+    custom { _, classDef -> classDef.type == "Lapp/revanced/twitter/patches/links/ChangeLinkSharingDomainPatch;" }
 }

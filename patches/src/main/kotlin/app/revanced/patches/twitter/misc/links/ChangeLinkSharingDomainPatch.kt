@@ -13,6 +13,7 @@ import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import app.revanced.util.returnEarly
 
 internal var tweetShareLinkTemplateId = -1L
     private set
@@ -55,21 +56,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
 
     execute {
         // Replace the domain name in the link sharing extension methods.
-        val cls = classes.single { it.type == EXTENSION_CLASS_DESCRIPTOR }
-        listOf(
-            resourceLinkSharingDomainFingerprint,
-            linkSharingDomainFingerprint,
-        ).forEach { fingerprint ->
-            fingerprint.matchOrNull(cls)?.let { match ->
-                val replacementIndex = match.stringMatches!!.first().index
-                val domainRegister =
-                    match.method.getInstruction<OneRegisterInstruction>(replacementIndex).registerA
-                match.method.replaceInstruction(
-                    replacementIndex,
-                    "const-string v$domainRegister, \"https://$domainName\"",
-                )
-            }
-        }
+        linkSharingDomainHelperFingerprint.method.returnEarly("https://$domainName")
 
         // Replace the domain name when copying a link with "Copy link" button.
         linkBuilderFingerprint.method.apply {
