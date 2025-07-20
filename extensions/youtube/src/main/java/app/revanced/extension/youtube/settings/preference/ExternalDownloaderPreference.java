@@ -44,26 +44,14 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         SEAL("Seal", "com.junkfood.seal", "https://github.com/JunkFood02/Seal/releases/latest"),
         TUBULAR("Tubular", "org.polymorphicshade.tubular", "https://github.com/polymorphicshade/Tubular/releases/latest");
 
-        private final String name;
-        private final String packageName;
-        private final String url;
+        public final String name;
+        public final String packageName;
+        public final String url;
 
         Downloader(String name, String packageName, String url) {
             this.name = name;
             this.packageName = packageName;
             this.url = url;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getPackageName() {
-            return packageName;
-        }
-
-        public String getUrl() {
-            return url;
         }
 
         /**
@@ -80,24 +68,33 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         }
     }
 
+    {
+        // Instance initialization block.
+        Downloader[] downloaders = Downloader.values();
+        CharSequence[] entries = new CharSequence[downloaders.length];
+        CharSequence[] entryValues = new CharSequence[downloaders.length];
+        for (int i = 0; i < downloaders.length; i++) {
+            entries[i] = downloaders[i].name;
+            entryValues[i] = downloaders[i].packageName;
+        }
+        setEntries(entries);
+        setEntryValues(entryValues);
+    }
+
     public ExternalDownloaderPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        initializeEntries();
     }
 
     public ExternalDownloaderPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initializeEntries();
     }
 
     public ExternalDownloaderPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initializeEntries();
     }
 
     public ExternalDownloaderPreference(Context context) {
         super(context);
-        initializeEntries();
     }
 
     /**
@@ -110,22 +107,6 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         //
         // This is required otherwise the ReVanced preference fragment
         // sets all ListPreference summaries to show the current selection.
-    }
-
-    /**
-     * Initializes the entries and entry values for the ListPreference.
-     */
-    private void initializeEntries() {
-        Downloader[] downloaders = Downloader.values();
-        CharSequence[] entries = new CharSequence[downloaders.length];
-        CharSequence[] entryValues = new CharSequence[downloaders.length];
-        for (int i = 0; i < downloaders.length; i++) {
-            entries[i] = downloaders[i].getName();
-            entryValues[i] = downloaders[i].getPackageName();
-        }
-        setEntries(entries);
-        setEntryValues(entryValues);
-        setDefaultValue(settings.defaultValue);
     }
 
     /**
@@ -211,7 +192,8 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
                 Utils.createCornerRadii(10), null, null));
         editTextBackground.getPaint().setColor(Utils.getEditTextBackground());
-        editText.setPadding(dipToPixels(8), dipToPixels(8), dipToPixels(8), dipToPixels(8));
+        final int dip8 = dipToPixels(8);
+        editText.setPadding(dip8, dip8, dip8, dip8);
         editText.setBackground(editTextBackground);
         editText.setClipToOutline(true);
         contentLayout.addView(editText);
@@ -227,7 +209,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                     String newValue = editText.getText().toString().trim();
                     checkPackageIsInstalled(newValue);
                 },
-                () -> {},
+                () -> {}, // Cancel button action (dismiss only).
                 str("revanced_settings_reset"),
                 () -> {
                     final String newValue = settings.defaultValue;
@@ -258,12 +240,11 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         // Update ListView height dynamically.
         Runnable updateListViewHeight = () -> {
             DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-            int maxHeight = (int) (metrics.heightPixels * 0.3);
-
             int totalHeight = 0;
             ListAdapter listAdapter = listView.getAdapter();
             if (listAdapter != null) {
-                for (int i = 0; i < listAdapter.getCount(); i++) {
+                int listAdapterCount = listAdapter.getCount();
+                for (int i = 0; i < listAdapterCount; i++) {
                     View item = listAdapter.getView(i, null, listView);
                     item.measure(
                             View.MeasureSpec.makeMeasureSpec(metrics.widthPixels, View.MeasureSpec.AT_MOST),
@@ -271,10 +252,10 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                     );
                     totalHeight += item.getMeasuredHeight();
                 }
-                totalHeight += listView.getDividerHeight() * (listAdapter.getCount() - 1);
+                totalHeight += listView.getDividerHeight() * (listAdapterCount - 1);
             }
 
-            int finalHeight = Math.min(totalHeight, maxHeight);
+            int finalHeight = Math.min(totalHeight, Utils.percentageHeightToPixels(0.3f)); // 30% of the screen height.
             listViewParams.height = finalHeight;
             listView.setLayoutParams(listViewParams);
         };
@@ -292,7 +273,6 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         // Show the dialog.
         dialogPair.first.show();
     }
-
 
     /**
      * Checks if the package is installed, shows a dialog if not installed for predefined packages.
@@ -323,11 +303,11 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                         // OK button action: open the downloader's URL if available and save custom package name.
                         if (downloader != null) {
                             try {
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(downloader.getUrl()));
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(downloader.url));
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 context.startActivity(intent);
                             } catch (Exception ex) {
-                                Logger.printException(() -> "Failed to open downloader URL: " + downloader.getUrl(), ex);
+                                Logger.printException(() -> "Failed to open downloader URL: " + downloader.url, ex);
                             }
                         } else {
                             // Save custom package name if not installed.
