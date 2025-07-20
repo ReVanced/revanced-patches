@@ -195,7 +195,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_logs_disabled">Debug logging is disabled</string>
             <string name="revanced_debug_logs_none_found">No logs found</string>
             <string name="revanced_debug_logs_copied_to_clipboard">Logs copied</string>
-            <string name="revanced_debug_logs_failed_to_export">Failed to export logs: $s</string>
+            <string name="revanced_debug_logs_failed_to_export">Failed to export logs: %s</string>
             <string name="revanced_debug_logs_clear_buffer_title">Clear debug logs</string>
             <string name="revanced_debug_logs_clear_buffer_summary">Clears all stored ReVanced debug logs</string>
             <string name="revanced_debug_logs_clear_toast">Logs cleared</string>
@@ -945,7 +945,7 @@ Settings → Playback → Autoplay next video"</string>
             <string name="revanced_exit_fullscreen_entry_4">Portrait and landscape</string>
         </patch>
         <patch id="layout.player.fullscreen.openVideosFullscreen">
-            <string name="revanced_open_videos_fullscreen_portrait_title">Open videos in fullscreen portrait mode</string>
+            <string name="revanced_open_videos_fullscreen_portrait_title">Open videos in fullscreen portrait</string>
             <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videos open in fullscreen mode</string>
             <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videos do not open in fullscreen mode</string>
         </patch>
