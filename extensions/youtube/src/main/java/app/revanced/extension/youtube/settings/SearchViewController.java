@@ -96,6 +96,7 @@ public class SearchViewController {
         this.originalTitle = toolbar.getTitle();
         this.showSettingsSearchHistory = Settings.SETTINGS_SEARCH_HISTORY.get();
         this.searchHistory = new LinkedList<>();
+        this.currentOrientation = activity.getResources().getConfiguration().orientation;
         StringSetting searchEntries = Settings.SETTINGS_SEARCH_ENTRIES;
         if (showSettingsSearchHistory) {
             String entries = searchEntries.get();
@@ -211,8 +212,6 @@ public class SearchViewController {
                 Logger.printException(() -> "navigation click failure", ex);
             }
         });
-
-        monitorOrientationChanges();
     }
 
     /**
@@ -295,19 +294,14 @@ public class SearchViewController {
         }
     }
 
-    private void monitorOrientationChanges() {
-        currentOrientation = activity.getResources().getConfiguration().orientation;
-
-        searchView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
-            int newOrientation = activity.getResources().getConfiguration().orientation;
-            if (newOrientation != currentOrientation) {
-                currentOrientation = newOrientation;
-                if (autoCompleteTextView != null) {
-                    autoCompleteTextView.dismissDropDown();
-                    Logger.printDebug(() -> "Orientation changed, search history dismissed");
-                }
+    public void handleOrientationChange(int newOrientation) {
+        if (newOrientation != currentOrientation) {
+            currentOrientation = newOrientation;
+            if (autoCompleteTextView != null) {
+                autoCompleteTextView.dismissDropDown();
+                Logger.printDebug(() -> "Orientation changed, search history dismissed");
             }
-        });
+        }
     }
 
     /**
@@ -355,14 +349,14 @@ public class SearchViewController {
 
     public static boolean handleBackPress() {
         if (LicenseActivityHook.searchViewController != null
-                && LicenseActivityHook.searchViewController.isSearchExpanded()) {
+                && LicenseActivityHook.searchViewController.isSearchActive()) {
             LicenseActivityHook.searchViewController.closeSearch();
             return true;
         }
         return false;
     }
 
-    public boolean isSearchExpanded() {
+    public boolean isSearchActive() {
         return isSearchActive;
     }
 

@@ -201,9 +201,9 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_show_more_button_title">Masquer le bouton Afficher plus</string>
   <string name="revanced_hide_show_more_button_summary_on">Le bouton Afficher plus dans les résultats de recherche est masqué</string>
   <string name="revanced_hide_show_more_button_summary_off">Le bouton Afficher plus dans les résultats de recherche est affiché</string>
-  <string name="revanced_hide_surveys_title">Masquer les sondages</string>
-  <string name="revanced_hide_surveys_summary_on">Les sondages sont masqués</string>
-  <string name="revanced_hide_surveys_summary_off">Les sondages sont affichés</string>
+  <string name="revanced_hide_surveys_title">Masquer les enquêtes</string>
+  <string name="revanced_hide_surveys_summary_on">Les enquêtes sont masquées</string>
+  <string name="revanced_hide_surveys_summary_off">Les enquêtes sont affichées</string>
   <string name="revanced_hide_ticket_shelf_title">Masquer l\'étagère des billets</string>
   <string name="revanced_hide_ticket_shelf_summary_on">L\'étagère des billets est masquée</string>
   <string name="revanced_hide_ticket_shelf_summary_off">L\'étagère des billets est affichée</string>
@@ -251,8 +251,8 @@ Si un Doodle est actuellement affiché dans votre région et que cette option de
   <string name="revanced_hide_timed_reactions_summary_on">Les réactions minutées sont masquées</string>
   <string name="revanced_hide_timed_reactions_summary_off">Les réactions minutées sont affichées</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Masquer \"Résumé de la vidéo généré par IA\"</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La section de résumé vidéo généré par l\'IA est masquée</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La section de résumé vidéo générée par l\'IA est affichée</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La section du résumé de la vidéo généré par IA est masquée</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La section du résumé de la vidéo généré par IA est affichée</string>
   <string name="revanced_hide_ask_section_title">Masquer \"Demander\"</string>
   <string name="revanced_hide_ask_section_summary_on">La section Demander est masquée</string>
   <string name="revanced_hide_ask_section_summary_off">La section Demander est affichée</string>
@@ -280,7 +280,7 @@ Si un Doodle est actuellement affiché dans votre région et que cette option de
   <string name="revanced_hide_description_components_screen_title">Description de la vidéo</string>
   <string name="revanced_hide_description_components_screen_summary">Masquez ou affichez des éléments dans la description des vidéos</string>
   <string name="revanced_hide_filter_bar_screen_title">Barre des filtres</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Masquez ou affichez la barre des filtres dans les flux, les vidéos associées, les résultats de recherche et l\'historique</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Masquez ou affichez la barre des filtres dans les flux, l\'historique des vidéos regardées, les résultats de recherche et les vidéos associées</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Masquer dans les flux</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Masquée dans les flux</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Affichée dans les flux</string>
@@ -290,9 +290,9 @@ Si un Doodle est actuellement affiché dans votre région et que cette option de
   <string name="revanced_hide_filter_bar_feed_in_search_title">Masquer dans les résultats de recherche</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Masquée dans les résultats de recherche</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Affichée dans les résultats de recherche</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Masquer dans l\'historique de visionnage</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Masquée dans l\'historique</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Affichée dans l\'historique de visionnage</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Masquer dans l\'historique des vidéos regardées</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Masquée dans l\'historique des vidéos regardées</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Affichée dans l\'historique des vidéos regardées</string>
   <string name="revanced_channel_screen_title">Page de chaîne</string>
   <string name="revanced_channel_screen_summary">Masquez ou affichez des composants des pages de chaîne</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -315,12 +315,12 @@ Si un Doodle est actuellement affiché dans votre région et que cette option de
   <string name="revanced_hide_visit_store_button_summary_off">Le bouton Visiter la boutique est affiché</string>
   <string name="revanced_comments_screen_title">Commentaires</string>
   <string name="revanced_comments_screen_summary">Masquez ou affichez des composants de la section commentaires</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Masquer le résumé de chat IA</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Le résumé de chat IA est masqué</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Le résumé de chat IA est affiché</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Masquer le résumé IA du chat</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Le résumé IA du chat est masqué</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Le résumé IA du chat est affiché</string>
   <string name="revanced_hide_comments_ai_summary_title">Masquer le résumé IA des commentaires</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Le résumé des commentaires IA est masqué</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Le résumé des commentaires IA est affiché</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Le résumé IA des commentaires est masqué</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Le résumé IA des commentaires est affiché</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Masquer les consignes de chaîne</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Les consignes de chaîne sont masquées</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Les consignes de chaîne sont affichées</string>
@@ -453,9 +453,9 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Cette option ne contourne pas la vérification de l\'âge. Elle est juste confirmée automatiquement.</string>
   </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
-  <string name="revanced_disable_chapter_skip_double_tap_title">Désactiver le double appui pour sauter les chapitres</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Le double appui ne peut jamais déclencher un saut au chapitre suivant/précédent</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Le double appui peut occasionnellement déclencher un saut au chapitre suivant/précédent</string>
+  <string name="revanced_disable_chapter_skip_double_tap_title">Désactiver le double appui pour passer à un chapitre</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">Le double appui ne peut jamais déclencher de saut vers le chapitre suivant/précédent</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">Le double appui peut occasionnellement déclencher un saut vers le chapitre suivant/précédent</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Téléchargements externes</string>
@@ -729,16 +729,17 @@ Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur
   <string name="revanced_disable_rolling_number_animations_summary_off">Les statistiques numériques sont animées</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Masquer la barre de défilement du lecteur vidéo</string>
+  <string name="revanced_hide_seekbar_title">Masquer la barre de progression du lecteur vidéo</string>
   <string name="revanced_hide_seekbar_summary_on">La barre de progression du lecteur vidéo est masquée</string>
   <string name="revanced_hide_seekbar_summary_off">La barre de progression du lecteur vidéo est affichée</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Masquer la barre de défilement des miniatures vidéo</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">La barre de défilement des miniatures vidéo est masquée</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">La barre de défilement des miniatures vidéo est affichée</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+  <string name="revanced_hide_seekbar_thumbnail_title">Masquer la barre de progression dans la miniature des vidéos</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">La barre de progression dans la miniature des vidéos est masquée</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">La barre de progression dans la miniature des vidéos est affichée</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Lecteur Shorts</string>
-  <string name="revanced_shorts_player_screen_summary">Masquez ou affichez les composants du lecteur Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Masquez ou affichez des composants du lecteur Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Masquer les Shorts dans le flux Accueil</string>
   <string name="revanced_hide_shorts_home_summary_on">Masqués dans le flux Accueil et dans les vidéos associées</string>
@@ -1190,8 +1191,6 @@ Format Automotive
 Cela modifiera l'apparence et les fonctionnalités de l'application, mais il peut y avoir des effets secondaires inconnus.
 
 Si désactivé ultérieurement, il est recommandé d'effacer les données de l'application pour éviter des bugs d'interface."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Version cible</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurer les anciennes icônes du lecteur Shorts </string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restaurer les anciennes icônes de navigation</string>

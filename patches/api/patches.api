@@ -444,6 +444,10 @@ public final class app/revanced/patches/primevideo/misc/permissions/RenamePermis
 	public static final fun getRenamePermissionsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/primevideo/video/speed/PlaybackSpeedPatchKt {
+	public static final fun getPlaybackSpeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/protonmail/account/RemoveFreeAccountsLimitPatchKt {
 	public static final fun getRemoveFreeAccountsLimitPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
