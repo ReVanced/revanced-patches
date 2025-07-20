@@ -202,6 +202,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         editText = new EditText(context);
         editText.setHint(settings.defaultValue);
         editText.setText(packageName);
+        editText.setSingleLine(true); // Restrict EditText to a single line.
         editText.setSelection(packageName != null ? packageName.length() : 0);
         // Set initial EditText state based on selected downloader.
         Downloader selectedDownloader = Downloader.findByPackageName(packageName);
