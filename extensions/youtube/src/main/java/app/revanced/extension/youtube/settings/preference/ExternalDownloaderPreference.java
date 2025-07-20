@@ -15,6 +15,8 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.*;
 
 import androidx.annotation.Nullable;
@@ -203,6 +205,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         editText.setHint(settings.defaultValue);
         editText.setText(packageName);
         editText.setSingleLine(true); // Restrict EditText to a single line.
+        editText.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI); // Prevent fullscreen keyboard mode.
         editText.setSelection(packageName != null ? packageName.length() : 0);
         // Set initial EditText state based on selected downloader.
         Downloader selectedDownloader = Downloader.findByPackageName(packageName);
@@ -308,6 +311,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 },
                 false
         );
+        dialogPair.first.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE); // Adjust dialog size instead of fullscreen keyboard.
 
         // Add the content layout directly to the dialog's main layout.
         LinearLayout dialogMainLayout = dialogPair.second;
