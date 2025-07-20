@@ -40,9 +40,10 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
      */
     public enum Downloader {
         YTDLNIS("YTDLnis", "com.deniscerri.ytdl", "https://github.com/deniscerri/ytdlnis/releases/latest"),
-        NEW_PIPE("NewPipe", "org.schabi.newpipe", "https://github.com/TeamNewPipe/NewPipe/releases/latest"),
         SEAL("Seal", "com.junkfood.seal", "https://github.com/JunkFood02/Seal/releases/latest"),
         TUBULAR("Tubular", "org.polymorphicshade.tubular", "https://github.com/polymorphicshade/Tubular/releases/latest"),
+        LIBRETUBE("LibreTube", "com.github.libretube", "https://github.com/libre-tube/LibreTube/releases/latest"),
+        NEW_PIPE("NewPipe", "org.schabi.newpipe", "https://github.com/TeamNewPipe/NewPipe/releases/latest"),
         CUSTOM(str("revanced_external_downloader_custom_item"), null, null);
 
         public final String name;
