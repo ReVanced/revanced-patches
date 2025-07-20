@@ -1441,23 +1441,23 @@ public class Utils {
     /**
      * Converts a percentage of the screen height to actual device pixels.
      *
-     * @param percentage The percentage of the screen height (e.g., 0.3 for 30%).
+     * @param percentage The percentage of the screen height (e.g., 30 for 30%).
      * @return The device pixel value corresponding to the percentage of screen height.
      */
-    public static int percentageHeightToPixels(float percentage) {
+    public static int percentageHeightToPixels(int percentage) {
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-        return (int) (metrics.heightPixels * percentage);
+        return (int) (metrics.heightPixels * (percentage / 100.0f));
     }
 
     /**
      * Converts a percentage of the screen width to actual device pixels.
      *
-     * @param percentage The percentage of the screen width (e.g., 0.3 for 30%).
+     * @param percentage The percentage of the screen width (e.g., 30 for 30%).
      * @return The device pixel value corresponding to the percentage of screen width.
      */
-    public static int percentageWidthToPixels(float percentage) {
+    public static int percentageWidthToPixels(int percentage) {
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-        return (int) (metrics.widthPixels * percentage);
+        return (int) (metrics.widthPixels * (percentage / 100.0f));
     }
 
     /**

@@ -335,7 +335,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 totalHeight += listView.getDividerHeight() * (listAdapterCount - 1);
             }
 
-            int finalHeight = Math.min(totalHeight, Utils.percentageHeightToPixels(0.3f)); // 30% of the screen height.
+            int finalHeight = Math.min(totalHeight, Utils.percentageHeightToPixels(30)); // 30% of the screen height.
             listViewParams.height = finalHeight;
             listView.setLayoutParams(listViewParams);
         };
