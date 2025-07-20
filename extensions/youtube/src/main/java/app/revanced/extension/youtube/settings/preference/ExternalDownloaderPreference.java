@@ -313,7 +313,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         LinearLayout dialogMainLayout = dialogPair.second;
         dialogMainLayout.addView(contentLayout, dialogMainLayout.getChildCount() - 1);
 
-        // Update ListView height dynamically.
+        // Update ListView height dynamically based on orientation.
         Runnable updateListViewHeight = () -> {
             DisplayMetrics metrics = context.getResources().getDisplayMetrics();
             int totalHeight = 0;
@@ -331,8 +331,15 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 totalHeight += listView.getDividerHeight() * (listAdapterCount - 1);
             }
 
-            int finalHeight = Math.min(totalHeight, Utils.percentageHeightToPixels(30)); // 30% of the screen height.
-            listViewParams.height = finalHeight;
+            int orientation = context.getResources().getConfiguration().orientation;
+            if (orientation == android.content.res.Configuration.ORIENTATION_PORTRAIT) {
+                // In portrait orientation, use WRAP_CONTENT for ListView height.
+                listViewParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
+            } else {
+                // In landscape orientation, limit ListView height to 30% of screen height.
+                int maxHeight = Utils.percentageHeightToPixels(30);
+                listViewParams.height = Math.min(totalHeight, maxHeight);
+            }
             listView.setLayoutParams(listViewParams);
         };
 
