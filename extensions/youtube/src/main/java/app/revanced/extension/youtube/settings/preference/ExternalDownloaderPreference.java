@@ -47,7 +47,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
     public enum Downloader {
         YTDLNIS("YTDLnis",
                 "com.deniscerri.ytdl",
-                "https://github.com/deniscerri/ytdlnis/releases/latest",
+                "https://ytdlnis.org",
                 true),
         SEAL("Seal",
                 "com.junkfood.seal",
@@ -55,16 +55,16 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 true),
         GRAYJAY("Grayjay",
                 "com.futo.platformplayer",
-                "https://grayjay.app/#download"),
+                "https://grayjay.app"),
         LIBRETUBE("LibreTube",
                 "com.github.libretube",
-                "https://github.com/libre-tube/LibreTube/releases/latest"),
+                "https://libretube.dev"),
         NEW_PIPE("NewPipe",
                 "org.schabi.newpipe",
-                "https://github.com/TeamNewPipe/NewPipe/releases/latest"),
+                "https://newpipe.net"),
         PIPE_PIPE("PipePipe",
                 "InfinityLoop1309.NewPipeEnhanced",
-                "https://github.com/InfinityLoop1308/PipePipe/releases/latest"),
+                "https://pipepipe.dev"),
         TUBULAR("Tubular",
                 "org.polymorphicshade.tubular",
                 "https://github.com/polymorphicshade/Tubular/releases/latest"),
@@ -90,7 +90,9 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         }
 
         public final String name;
+        @Nullable
         public final String packageName;
+        @Nullable
         public final String downloadUrl;
         /**
          * If a downloader app should be shown in the preference settings
@@ -102,7 +104,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
             this(name, packageName, downloadUrl, false);
         }
 
-        Downloader(String name, String packageName, String downloadUrl, boolean isPreferred) {
+        Downloader(String name, @Nullable String packageName, @Nullable String downloadUrl, boolean isPreferred) {
             this.name = name;
             this.packageName = packageName;
             this.downloadUrl = downloadUrl;
@@ -110,7 +112,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         }
 
         public boolean isInstalled() {
-            return isAppInstalledAndEnabled(packageName);
+            return packageName != null && isAppInstalledAndEnabled(packageName);
         }
     }
 
@@ -214,12 +216,13 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
             CharSequence[] entryValues = getEntryValues();
 
             for (int i = 0, length = entryValues.length; i < length; i++) {
-                if (entryValues[i].toString().equals(downloader != null
+                String entryString = entryValues[i].toString();
+                if (entryString.equals(downloader != null
                         ? updatedPackageName
                         : Downloader.OTHER.name)) {
                     listView.setItemChecked(i, true);
                     listView.setSelection(i);
-                    adapter.setSelectedValue(entryValues[i].toString());
+                    adapter.setSelectedValue(entryString);
                     adapter.notifyDataSetChanged();
                     break;
                 }
@@ -411,7 +414,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 okButtonText,
                 () -> {
                     try {
-                        // OK button action: open the downloader's URL if available and save custom package name.
+                        // OK button action: open the downloader's URL if available.
                         if (downloadUrl != null) {
                             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(downloadUrl));
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
