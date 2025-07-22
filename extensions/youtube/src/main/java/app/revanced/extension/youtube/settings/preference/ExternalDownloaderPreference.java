@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Pair;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -256,6 +257,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         editText.setHint(str("revanced_external_downloader_other_item_hint"));
         editText.setText(packageName);
         editText.setSingleLine(true); // Restrict EditText to a single line.
+        editText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
         editText.setSelection(packageName.length());
         // Set initial EditText state based on selected downloader.
         Downloader selectedDownloader = Downloader.findByPackageName(packageName);
