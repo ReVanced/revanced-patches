@@ -45,19 +45,22 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 "com.junkfood.seal",
                 "https://github.com/JunkFood02/Seal/releases/latest",
                 true),
-        TUBULAR("Tubular",
-                "org.polymorphicshade.tubular",
-                "https://github.com/polymorphicshade/Tubular/releases/latest",
-                false),
+        GRAYJAY("Grayjay",
+                "com.futo.platformplayer",
+                "https://grayjay.app/#download"),
         LIBRETUBE("LibreTube",
                 "com.github.libretube",
-                "https://github.com/libre-tube/LibreTube/releases/latest",
-                false),
+                "https://github.com/libre-tube/LibreTube/releases/latest"),
         NEW_PIPE("NewPipe",
                 "org.schabi.newpipe",
-                "https://github.com/TeamNewPipe/NewPipe/releases/latest",
-                false),
-        CUSTOM(str("revanced_external_downloader_custom_item"),
+                "https://github.com/TeamNewPipe/NewPipe/releases/latest"),
+        PIPE_PIPE("PipePipe",
+                "InfinityLoop1309.NewPipeEnhanced",
+                "https://github.com/InfinityLoop1308/PipePipe/releases/latest"),
+        TUBULAR("Tubular",
+                "org.polymorphicshade.tubular",
+                "https://github.com/polymorphicshade/Tubular/releases/latest"),
+        OTHER(str("revanced_external_downloader_other_item"),
                 null,
                 null,
                 true);
@@ -69,6 +72,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         @Nullable
         public static Downloader findByPackageName(String packageName) {
             if (packageName == null) return null;
+
             for (Downloader downloader : values()) {
                 if (packageName.equals(downloader.packageName)) {
                     return downloader;
@@ -85,6 +89,10 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
          * if the app is not currently installed.
          */
         public final boolean isPreferred;
+
+        Downloader(String name, String packageName, String downloadUrl) {
+            this(name, packageName, downloadUrl, false);
+        }
 
         Downloader(String name, String packageName, String downloadUrl, boolean isPreferred) {
             this.name = name;
@@ -137,7 +145,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 entries.add(downloader.name);
                 entryValues.add(packageName != null
                         ? packageName
-                        : Downloader.CUSTOM.name);
+                        : Downloader.OTHER.name);
             }
         }
 
@@ -186,7 +194,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 getEntryValues(),
                 Downloader.findByPackageName(packageName) != null
                         ? packageName
-                        : Downloader.CUSTOM.name
+                        : Downloader.OTHER.name
         );
         listView.setAdapter(adapter);
 
@@ -206,7 +214,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
             } else {
                 // Select Custom for non-predefined package names.
                 for (int i = 0, length = entryValues.length; i < length; i++) {
-                    if (entryValues[i].toString().equals(Downloader.CUSTOM.name)) {
+                    if (entryValues[i].toString().equals(Downloader.OTHER.name)) {
                         selectedPosition = i;
                         break;
                     }
@@ -226,12 +234,12 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
             String selectedValue = getEntryValues()[position].toString();
             Downloader selectedApp = Downloader.findByPackageName(selectedValue);
 
-            if (selectedApp != null && selectedApp != Downloader.CUSTOM) {
+            if (selectedApp != null && selectedApp != Downloader.OTHER) {
                 editText.setText(selectedApp.packageName);
                 editText.setEnabled(false); // Disable editing for predefined options.
             } else {
                 editText.setText(""); // Clear text for Custom.
-                editText.setHint(str("revanced_external_downloader_custom_item_hint")); // Set hint for Custom.
+                editText.setHint(str("revanced_external_downloader_other_item_hint")); // Set hint for Custom.
                 editText.setEnabled(true); // Enable editing for Custom.
             }
             editText.setSelection(editText.getText().length());
@@ -255,9 +263,9 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         editText.setSelection(packageName.length());
         // Set initial EditText state based on selected downloader.
         Downloader selectedDownloader = Downloader.findByPackageName(packageName);
-        editText.setEnabled(selectedDownloader == null || selectedDownloader == Downloader.CUSTOM);
-        if (selectedDownloader == null || selectedDownloader == Downloader.CUSTOM) {
-            editText.setHint(str("revanced_external_downloader_custom_item_hint")); // Set hint for Custom if selected.
+        editText.setEnabled(selectedDownloader == null || selectedDownloader == Downloader.OTHER);
+        if (selectedDownloader == null || selectedDownloader == Downloader.OTHER) {
+            editText.setHint(str("revanced_external_downloader_other_item_hint")); // Set hint for Custom if selected.
         }
 
         editText.addTextChangedListener(new android.text.TextWatcher() {
@@ -275,12 +283,12 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
 
                 // Select Custom when input is not a predefined package.
                 for (int i = 0, length = entryValues.length; i < length; i++) {
-                    if (entryValues[i].toString().equals(Downloader.CUSTOM.name)) {
+                    if (entryValues[i].toString().equals(Downloader.OTHER.name)) {
                         listView.setItemChecked(i, true);
                         listView.setSelection(i);
                         adapter.setSelectedValue(
-                                (downloader == null || downloader == Downloader.CUSTOM)
-                                ? Downloader.CUSTOM.name
+                                (downloader == null || downloader == Downloader.OTHER)
+                                ? Downloader.OTHER.name
                                 : input);
                         adapter.notifyDataSetChanged();
                         break;
@@ -411,7 +419,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                     ? str("gms_core_dialog_open_website_text") // Open website.
                     : null; // Ok.
             // Show a dialog if the package is not installed, using the app name for predefined downloaders.
-            String displayName = downloader != null && downloader != Downloader.CUSTOM
+            String displayName = downloader != null && downloader != Downloader.OTHER
                     ? downloader.name
                     : newValue;
             String message = str("revanced_external_downloader_not_installed_warning", displayName);
