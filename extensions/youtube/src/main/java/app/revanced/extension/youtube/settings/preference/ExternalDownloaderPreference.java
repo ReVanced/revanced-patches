@@ -15,7 +15,10 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.view.View;
-import android.widget.*;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 
@@ -102,21 +105,24 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         }
 
         public boolean isInstalled() {
-            try {
-                return Utils.getContext().getPackageManager().getApplicationInfo(packageName, 0).enabled;
-            } catch (PackageManager.NameNotFoundException error) {
-                Logger.printDebug(() -> "App could not be found: " + error);
-                return false;
-            }
+            return isAppInstalledAndEnabled(packageName);
         }
+    }
+
+    private static boolean isAppInstalledAndEnabled(String packageName) {
+        try {
+            if (Utils.getContext().getPackageManager().getApplicationInfo(packageName, 0).enabled) {
+                Logger.printDebug(() -> "App installed: " + packageName);
+                return true;
+            }
+        } catch (PackageManager.NameNotFoundException error) {
+            Logger.printDebug(() -> "App not installed: " + packageName);
+        }
+        return false;
     }
 
     private EditText editText;
     private CustomDialogListPreference.ListPreferenceArrayAdapter adapter;
-
-    {
-        updateEntries();
-    }
 
     public ExternalDownloaderPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
@@ -200,32 +206,19 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
 
         // Set checked item, default to Custom if packageName is not predefined.
         {
-            CharSequence[] entryValues = getEntryValues();
             Downloader downloader = Downloader.findByPackageName(packageName);
-            int selectedPosition = -1;
-            if (downloader != null) {
-                // Select predefined option if packageName matches.
-                for (int i = 0, length = entryValues.length; i < length; i++) {
-                    if (packageName.equals(entryValues[i].toString())) {
-                        selectedPosition = i;
-                        break;
-                    }
-                }
-            } else {
-                // Select Custom for non-predefined package names.
-                for (int i = 0, length = entryValues.length; i < length; i++) {
-                    if (entryValues[i].toString().equals(Downloader.OTHER.name)) {
-                        selectedPosition = i;
-                        break;
-                    }
-                }
-            }
+            CharSequence[] entryValues = getEntryValues();
 
-            if (selectedPosition >= 0) {
-                listView.setItemChecked(selectedPosition, true);
-                listView.setSelection(selectedPosition);
-                adapter.setSelectedValue(entryValues[selectedPosition].toString());
-                adapter.notifyDataSetChanged();
+            for (int i = 0, length = entryValues.length; i < length; i++) {
+                if (entryValues[i].toString().equals(downloader != null
+                        ? packageName
+                        : Downloader.OTHER.name)) {
+                    listView.setItemChecked(i, true);
+                    listView.setSelection(i);
+                    adapter.setSelectedValue(entryValues[i].toString());
+                    adapter.notifyDataSetChanged();
+                    break;
+                }
             }
         }
 
@@ -257,16 +250,15 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
 
         // Add EditText for custom package name.
         editText = new EditText(context);
-        editText.setHint(Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME.defaultValue);
         editText.setText(packageName);
         editText.setSingleLine(true); // Restrict EditText to a single line.
         editText.setSelection(packageName.length());
         // Set initial EditText state based on selected downloader.
         Downloader selectedDownloader = Downloader.findByPackageName(packageName);
         editText.setEnabled(selectedDownloader == null || selectedDownloader == Downloader.OTHER);
-        if (selectedDownloader == null || selectedDownloader == Downloader.OTHER) {
-            editText.setHint(str("revanced_external_downloader_other_item_hint")); // Set hint for Custom if selected.
-        }
+//        if (selectedDownloader == null || selectedDownloader == Downloader.OTHER) {
+//            editText.setHint(str("revanced_external_downloader_other_item_hint")); // Set hint for Custom if selected.
+//        }
 
         editText.addTextChangedListener(new android.text.TextWatcher() {
             @Override
@@ -286,8 +278,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                     if (entryValues[i].toString().equals(Downloader.OTHER.name)) {
                         listView.setItemChecked(i, true);
                         listView.setSelection(i);
-                        adapter.setSelectedValue(
-                                (downloader == null || downloader == Downloader.OTHER)
+                        adapter.setSelectedValue(downloader == null
                                 ? Downloader.OTHER.name
                                 : input);
                         adapter.notifyDataSetChanged();
@@ -365,11 +356,11 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         // Update ListView height dynamically based on orientation.
         //noinspection ExtractMethodRecommender
         Runnable updateListViewHeight = () -> {
-            DisplayMetrics metrics = context.getResources().getDisplayMetrics();
             int totalHeight = 0;
             ListAdapter listAdapter = listView.getAdapter();
             if (listAdapter != null) {
-                int listAdapterCount = listAdapter.getCount();
+                DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+                final int listAdapterCount = listAdapter.getCount();
                 for (int i = 0; i < listAdapterCount; i++) {
                     View item = listAdapter.getView(i, null, listView);
                     item.measure(
@@ -381,13 +372,13 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 totalHeight += listView.getDividerHeight() * (listAdapterCount - 1);
             }
 
-            int orientation = context.getResources().getConfiguration().orientation;
+            final int orientation = context.getResources().getConfiguration().orientation;
             if (orientation == android.content.res.Configuration.ORIENTATION_PORTRAIT) {
                 // In portrait orientation, use WRAP_CONTENT for ListView height.
                 listViewParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
             } else {
                 // In landscape orientation, limit ListView height to 30% of screen height.
-                int maxHeight = Utils.percentageHeightToPixels(30);
+                final int maxHeight = Utils.percentageHeightToPixels(30);
                 listViewParams.height = Math.min(totalHeight, maxHeight);
             }
             listView.setLayoutParams(listViewParams);
@@ -409,13 +400,10 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
      * Checks if the package is installed, shows a dialog if not installed for predefined packages.
      */
     private void checkPackageIsInstalled(String newValue) {
-        Downloader downloader = Downloader.findByPackageName(newValue);
-
-        if (downloader == null || !downloader.isInstalled()) {
-            Context context = getContext();
-            // Find the corresponding downloader for the package, if it exists.
-            // Set OK button text.
-            String okButtonText = downloader != null && downloader.downloadUrl != null
+        if (!isAppInstalledAndEnabled(newValue)) {
+            Downloader downloader = Downloader.findByPackageName(newValue);
+            String downloadUrl = downloader == null ? null : downloader.downloadUrl;
+            String okButtonText = downloadUrl != null
                     ? str("gms_core_dialog_open_website_text") // Open website.
                     : null; // Ok.
             // Show a dialog if the package is not installed, using the app name for predefined downloaders.
@@ -423,6 +411,8 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                     ? downloader.name
                     : newValue;
             String message = str("revanced_external_downloader_not_installed_warning", displayName);
+            Context context = getContext();
+
             Utils.createCustomDialog(
                     context,
                     str("revanced_external_downloader_name_title"),
@@ -430,20 +420,20 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                     null,
                     okButtonText,
                     () -> {
-                        // OK button action: open the downloader's URL if available and save custom package name.
-                        if (downloader != null && downloader.downloadUrl != null) {
-                            try {
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(downloader.downloadUrl));
+                        try {
+                            // OK button action: open the downloader's URL if available and save custom package name.
+                            if (downloadUrl != null) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(downloadUrl));
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 context.startActivity(intent);
-                            } catch (Exception ex) {
-                                Logger.printException(() -> "Failed to open downloader URL: " + downloader.downloadUrl, ex);
+                            } else {
+                                // Save custom package name if not installed.
+                                if (callChangeListener(newValue)) {
+                                    setValue(newValue);
+                                }
                             }
-                        } else {
-                            // Save custom package name if not installed.
-                            if (callChangeListener(newValue)) {
-                                setValue(newValue);
-                            }
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "Failed to open downloader URL: " + downloader, ex);
                         }
                     },
                     () -> {}, // Cancel button action (dismiss only).
