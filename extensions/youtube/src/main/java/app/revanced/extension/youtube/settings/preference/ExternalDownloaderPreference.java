@@ -322,7 +322,15 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                         ).first.show();
                         return;
                     }
-                    checkPackageIsInstalled(newValue);
+
+                    if (showDialogIfAppIsNotInstalled(getContext(), newValue)) {
+                        return;
+                    }
+
+                    // Proceed with setting the package name if it is installed.
+                    if (callChangeListener(newValue)) {
+                        setValue(newValue);
+                    }
                 },
                 () -> {}, // Cancel button action (dismiss only).
                 str("revanced_settings_reset"),
@@ -397,56 +405,48 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
     }
 
     /**
-     * Checks if the package is installed, shows a dialog if not installed for predefined packages.
+     * @return If the app is not installed and a dialog was shown.
      */
-    private void checkPackageIsInstalled(String newValue) {
-        if (!isAppInstalledAndEnabled(newValue)) {
-            Downloader downloader = Downloader.findByPackageName(newValue);
-            String downloadUrl = downloader == null ? null : downloader.downloadUrl;
-            String okButtonText = downloadUrl != null
-                    ? str("gms_core_dialog_open_website_text") // Open website.
-                    : null; // Ok.
-            // Show a dialog if the package is not installed, using the app name for predefined downloaders.
-            String displayName = downloader != null && downloader != Downloader.OTHER
-                    ? downloader.name
-                    : newValue;
-            String message = str("revanced_external_downloader_not_installed_warning", displayName);
-            Context context = getContext();
+    public static boolean showDialogIfAppIsNotInstalled(Context context, String packageName) {
+        if (isAppInstalledAndEnabled(packageName)) {
+            return false;
+        }
 
-            Utils.createCustomDialog(
-                    context,
-                    str("revanced_external_downloader_name_title"),
-                    message,
-                    null,
-                    okButtonText,
-                    () -> {
-                        try {
-                            // OK button action: open the downloader's URL if available and save custom package name.
-                            if (downloadUrl != null) {
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(downloadUrl));
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                context.startActivity(intent);
-                            } else {
-                                // Save custom package name if not installed.
-                                if (callChangeListener(newValue)) {
-                                    setValue(newValue);
-                                }
-                            }
-                        } catch (Exception ex) {
-                            Logger.printException(() -> "Failed to open downloader URL: " + downloader, ex);
+        Downloader downloader = Downloader.findByPackageName(packageName);
+        String downloadUrl = downloader == null ? null : downloader.downloadUrl;
+        String okButtonText = downloadUrl != null
+                ? str("gms_core_dialog_open_website_text") // Open website.
+                : null; // Ok.
+        // Show a dialog if the package is not installed, using the app name for predefined downloaders.
+        String displayName = downloader != null && downloader != Downloader.OTHER
+                ? downloader.name
+                : packageName;
+        String message = str("revanced_external_downloader_not_installed_warning", displayName);
+
+        Utils.createCustomDialog(
+                context,
+                str("revanced_external_downloader_name_title"),
+                message,
+                null,
+                okButtonText,
+                () -> {
+                    try {
+                        // OK button action: open the downloader's URL if available and save custom package name.
+                        if (downloadUrl != null) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(downloadUrl));
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(intent);
                         }
-                    },
-                    () -> {}, // Cancel button action (dismiss only).
-                    null,
-                    null,
-                    false
-            ).first.show();
-            return;
-        }
+                    } catch (Exception ex) {
+                        Logger.printException(() -> "Failed to open downloader URL: " + downloader, ex);
+                    }
+                },
+                () -> {}, // Cancel button action (dismiss only).
+                null,
+                null,
+                false
+        ).first.show();
 
-        // Proceed with setting the package name if it is installed.
-        if (callChangeListener(newValue)) {
-            setValue(newValue);
-        }
+        return true;
     }
 }
