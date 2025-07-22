@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.settings.preference;
 
+import static app.revanced.extension.shared.StringRef.sf;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
 
@@ -11,6 +12,8 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Pair;
@@ -25,6 +28,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -64,7 +68,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         TUBULAR("Tubular",
                 "org.polymorphicshade.tubular",
                 "https://github.com/polymorphicshade/Tubular/releases/latest"),
-        OTHER(str("revanced_external_downloader_other_item"),
+        OTHER(sf("revanced_external_downloader_other_item").toString(),
                 null,
                 null,
                 true);
@@ -177,8 +181,8 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
      */
     @Override
     protected void showDialog(@Nullable Bundle state) {
-        // Update entries to handle if a new app is installed
-        // while the settings were still open in the background.
+        // Must set entries before showing the dialog, to handle if
+        // an app is installed while the settings are open in the background.
         updateEntries();
 
         Context context = getContext();
@@ -205,14 +209,13 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         );
         listView.setAdapter(adapter);
 
-        // Set checked item, default to Custom if packageName is not predefined.
-        {
-            Downloader downloader = Downloader.findByPackageName(packageName);
+        Function<String, Void> updateListViewSelection = (updatedPackageName) -> {
+            Downloader downloader = Downloader.findByPackageName(updatedPackageName);
             CharSequence[] entryValues = getEntryValues();
 
             for (int i = 0, length = entryValues.length; i < length; i++) {
                 if (entryValues[i].toString().equals(downloader != null
-                        ? packageName
+                        ? updatedPackageName
                         : Downloader.OTHER.name)) {
                     listView.setItemChecked(i, true);
                     listView.setSelection(i);
@@ -221,7 +224,9 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                     break;
                 }
             }
-        }
+            return null;
+        };
+        updateListViewSelection.apply(packageName);
 
         // Handle item click to select value.
         listView.setOnItemClickListener((parent, view, position, id) -> {
@@ -262,7 +267,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         // Set initial EditText state based on selected downloader.
         Downloader selectedDownloader = Downloader.findByPackageName(packageName);
         editText.setEnabled(selectedDownloader == null || selectedDownloader == Downloader.OTHER);
-        editText.addTextChangedListener(new android.text.TextWatcher() {
+        editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -270,23 +275,9 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
             public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
-            public void afterTextChanged(android.text.Editable s) {
-                String input = s.toString().trim();
-                Downloader downloader = Downloader.findByPackageName(input);
-                CharSequence[] entryValues = getEntryValues();
-
-                // Select Custom when input is not a predefined package.
-                for (int i = 0, length = entryValues.length; i < length; i++) {
-                    if (entryValues[i].toString().equals(Downloader.OTHER.name)) {
-                        listView.setItemChecked(i, true);
-                        listView.setSelection(i);
-                        adapter.setSelectedValue(downloader == null
-                                ? Downloader.OTHER.name
-                                : input);
-                        adapter.notifyDataSetChanged();
-                        break;
-                    }
-                }
+            public void afterTextChanged(Editable edit) {
+                String updatedPackageName = edit.toString().trim();
+                updateListViewSelection.apply(updatedPackageName);
             }
         });
 
@@ -336,25 +327,12 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 },
                 () -> {}, // Cancel button action (dismiss only).
                 str("revanced_settings_reset"),
-                () -> {
-                    final String newValue = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME.defaultValue;
-                    editText.setText(newValue);
-                    editText.setSelection(newValue.length());
+                () -> { // Reset action.
+                    String defaultValue = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME.defaultValue;
+                    editText.setText(defaultValue);
+                    editText.setSelection(defaultValue.length());
                     editText.setEnabled(false); // Disable editing on reset.
-                    listView.clearChoices();
-                    adapter.setSelectedValue(newValue);
-                    adapter.notifyDataSetChanged();
-                    Downloader selectedApp = Downloader.findByPackageName(newValue);
-                    if (selectedApp != null) {
-                        CharSequence[] entryValues = getEntryValues();
-                        for (int i = 0, length = entryValues.length; i < length; i++) {
-                            if (newValue.equals(entryValues[i].toString())) {
-                                listView.setItemChecked(i, true);
-                                listView.setSelection(i);
-                                break;
-                            }
-                        }
-                    }
+                    updateListViewSelection.apply(defaultValue);
                 },
                 false
         );
