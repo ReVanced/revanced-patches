@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Pair;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -204,7 +205,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         );
         listView.setAdapter(adapter);
 
-        // Set checked item, default to Custom if packageName is not predefined.
+        // Set checked item, default to Other if packageName is not predefined.
         {
             Downloader downloader = Downloader.findByPackageName(packageName);
             CharSequence[] entryValues = getEntryValues();
@@ -231,9 +232,9 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 editText.setText(selectedApp.packageName);
                 editText.setEnabled(false); // Disable editing for predefined options.
             } else {
-                editText.setText(""); // Clear text for Custom.
-                editText.setHint(str("revanced_external_downloader_other_item_hint")); // Set hint for Custom.
-                editText.setEnabled(true); // Enable editing for Custom.
+                editText.setText(""); // Clear text for Other.
+                editText.setHint(str("revanced_external_downloader_other_item_hint")); // Set hint for Other.
+                editText.setEnabled(true); // Enable editing for Other.
             }
             editText.setSelection(editText.getText().length());
             adapter.setSelectedValue(selectedValue);
@@ -252,13 +253,11 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         editText = new EditText(context);
         editText.setText(packageName);
         editText.setSingleLine(true); // Restrict EditText to a single line.
+        editText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
         editText.setSelection(packageName.length());
         // Set initial EditText state based on selected downloader.
         Downloader selectedDownloader = Downloader.findByPackageName(packageName);
         editText.setEnabled(selectedDownloader == null || selectedDownloader == Downloader.OTHER);
-//        if (selectedDownloader == null || selectedDownloader == Downloader.OTHER) {
-//            editText.setHint(str("revanced_external_downloader_other_item_hint")); // Set hint for Custom if selected.
-//        }
 
         editText.addTextChangedListener(new android.text.TextWatcher() {
             @Override
@@ -273,7 +272,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 Downloader downloader = Downloader.findByPackageName(input);
                 CharSequence[] entryValues = getEntryValues();
 
-                // Select Custom when input is not a predefined package.
+                // Select Other when input is not a predefined package.
                 for (int i = 0, length = entryValues.length; i < length; i++) {
                     if (entryValues[i].toString().equals(Downloader.OTHER.name)) {
                         listView.setItemChecked(i, true);
