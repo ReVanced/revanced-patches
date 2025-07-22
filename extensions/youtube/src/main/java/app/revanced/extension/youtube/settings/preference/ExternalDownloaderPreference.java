@@ -227,12 +227,15 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
             String selectedValue = getEntryValues()[position].toString();
             Downloader selectedApp = Downloader.findByPackageName(selectedValue);
 
-            if (selectedApp != null && selectedApp != Downloader.OTHER) {
+            if (selectedApp != null) {
                 editText.setText(selectedApp.packageName);
                 editText.setEnabled(false); // Disable editing for predefined options.
             } else {
-                editText.setText(""); // Clear text for Custom.
-                editText.setHint(str("revanced_external_downloader_other_item_hint")); // Set hint for Custom.
+                String savedPackageName = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME.get();
+                editText.setText(Downloader.findByPackageName(savedPackageName) == null
+                        ? savedPackageName // Retain existing other app if the user is clicking thru options.
+                        : ""
+                );
                 editText.setEnabled(true); // Enable editing for Custom.
             }
             editText.setSelection(editText.getText().length());
@@ -250,16 +253,13 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
 
         // Add EditText for custom package name.
         editText = new EditText(context);
+        editText.setHint(str("revanced_external_downloader_other_item_hint"));
         editText.setText(packageName);
         editText.setSingleLine(true); // Restrict EditText to a single line.
         editText.setSelection(packageName.length());
         // Set initial EditText state based on selected downloader.
         Downloader selectedDownloader = Downloader.findByPackageName(packageName);
         editText.setEnabled(selectedDownloader == null || selectedDownloader == Downloader.OTHER);
-//        if (selectedDownloader == null || selectedDownloader == Downloader.OTHER) {
-//            editText.setHint(str("revanced_external_downloader_other_item_hint")); // Set hint for Custom if selected.
-//        }
-
         editText.addTextChangedListener(new android.text.TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
