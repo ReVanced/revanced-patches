@@ -408,7 +408,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
 
         Utils.createCustomDialog(
                 context,
-                str("revanced_external_downloader_name_title"),
+                str("revanced_external_downloader_not_found_title"),
                 message,
                 null,
                 okButtonText,
