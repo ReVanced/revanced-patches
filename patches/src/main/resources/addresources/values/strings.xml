@@ -532,7 +532,7 @@ This feature is only available for older devices"</string>
             <string name="revanced_external_downloader_action_button_summary_off">Download button opens the native in-app downloader</string>
             <string name="revanced_external_downloader_name_title">Downloader package name</string>
             <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader app, such as YTDLnis or Seal</string>
-            <string name="revanced_external_downloader_not_installed_warning">\'%s\' is not installed. Please install it</string>
+            <string name="revanced_external_downloader_not_installed_warning">\'%s\' is not installed. Please install it.</string>
             <string name="revanced_external_downloader_custom_item">Custom</string>
             <string name="revanced_external_downloader_custom_item_hint">Enter the package name</string>
             <string name="revanced_external_downloader_empty_warning">The package name cannot be empty</string>

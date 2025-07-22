@@ -16,10 +16,8 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings({"unused", "deprecation"})
 public final class CustomVideoSpeedListPreference extends CustomDialogListPreference {
 
-    /**
-     * Initialize a settings preference list with the available playback speeds.
-     */
-    private void initializeEntryValues() {
+    {
+        // Initialize a settings preference list with the available playback speeds.
         float[] customPlaybackSpeeds = CustomPlaybackSpeedPatch.customPlaybackSpeeds;
         final int numberOfEntries = customPlaybackSpeeds.length + 1;
         String[] preferenceListEntries = new String[numberOfEntries];
@@ -39,10 +37,6 @@ public final class CustomVideoSpeedListPreference extends CustomDialogListPrefer
 
         setEntries(preferenceListEntries);
         setEntryValues(preferenceListEntryValues);
-    }
-
-    {
-        initializeEntryValues();
     }
 
     public CustomVideoSpeedListPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
