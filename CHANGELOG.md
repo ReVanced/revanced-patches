@@ -1,3 +1,10 @@
+# [5.32.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.1...v5.32.0-dev.2) (2025-07-23)
+
+
+### Bug Fixes
+
+* **YouTube  - Hide layout components:** Fix "Hide ticket shelf" ([#5516](https://github.com/ReVanced/revanced-patches/issues/5516)) ([3b85c71](https://github.com/ReVanced/revanced-patches/commit/3b85c71433325fff49e01c77c7b9ff8ddd0a7068))
+
 # [5.32.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.3-dev.1...v5.32.0-dev.1) (2025-07-16)
 
 
