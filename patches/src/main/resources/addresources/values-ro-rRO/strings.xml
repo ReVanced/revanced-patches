@@ -137,7 +137,7 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_debug_logs_disabled">Înregistrarea în jurnal de depanare este dezactivată</string>
   <string name="revanced_debug_logs_none_found">Nu au fost găsite jurnale</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Jurnale copiate</string>
-  <string name="revanced_debug_logs_failed_to_export">Nu s-a putut exporta jurnalele: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Eșec la exportarea jurnalelor: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Șterge jurnalele de depanare</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Șterge toate jurnalele de depanare ReVanced stocate</string>
   <string name="revanced_debug_logs_clear_toast">Jurnale șterse</string>
@@ -164,9 +164,6 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_expandable_card_title">Ascunde cardul extins</string>
   <string name="revanced_hide_expandable_card_summary_on">Cardul extins sub videoclipuri este ascuns</string>
   <string name="revanced_hide_expandable_card_summary_off">Cardul extins sub videoclipuri este afișat</string>
-  <string name="revanced_hide_feed_survey_title">Ascunde chestionare feed</string>
-  <string name="revanced_hide_feed_survey_summary_on">Sondajele flux sunt ascunse</string>
-  <string name="revanced_hide_feed_survey_summary_off">Sondajele sunt afișate</string>
   <string name="revanced_hide_floating_microphone_button_title">Ascunderea butonului microfon plutitor</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Butonul microfon plutitor din căutare este ascuns.</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Butonul microfonului plutitor din căutare este afișat</string>
@@ -192,7 +189,7 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_movies_section_summary_on">Secțiunea filmelor este ascunsă</string>
   <string name="revanced_hide_movies_section_summary_off">Se afișează secțiunea Filme</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Ascunde butonul \'Notifică-mă\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Butonul \"Anunță-mă\" este ascuns.</string>
   <string name="revanced_hide_notify_me_button_summary_off">Butonul \"Anunță-mă\" este afișat.</string>
@@ -204,6 +201,9 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_show_more_button_title">Ascunderea butonului „Afișează mai multe”</string>
   <string name="revanced_hide_show_more_button_summary_on">Butonul \"Afișează mai mult\" din rezultatele căutării este ascuns.</string>
   <string name="revanced_hide_show_more_button_summary_off">Butonul \"Afișează mai mult\" din rezultatele căutării este afișat.</string>
+  <string name="revanced_hide_surveys_title">Ascunde sondajele</string>
+  <string name="revanced_hide_surveys_summary_on">Sondajele sunt ascunse</string>
+  <string name="revanced_hide_surveys_summary_off">Sondajele sunt afișate</string>
   <string name="revanced_hide_ticket_shelf_title">Ascunde raftul de bilete</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Raftul de bilete este ascuns</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Raftul de bilete este afișat</string>
@@ -251,8 +251,8 @@ Dacă un Doodle este afișat în prezent în regiunea dvs. și această setare d
   <string name="revanced_hide_timed_reactions_summary_on">Reacţiile cronologice sunt ascunse</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reacţiile cronologice sunt evidenţiate</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ascundeți \"Rezumat video generat de AI\"</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Secțiunea de rezumat video este ascunsă</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Secțiunea de rezumat video este afișată</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Secțiunea de rezumat video generată de AI este ascunsă</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Secțiunea de rezumat video generată de AI este afișată</string>
   <string name="revanced_hide_ask_section_title">Ascunde Întreabă</string>
   <string name="revanced_hide_ask_section_summary_on">Secțiunea Întreabă este ascunsă</string>
   <string name="revanced_hide_ask_section_summary_off">Secțiunea Întreabă este afișată</string>
@@ -280,19 +280,19 @@ Dacă un Doodle este afișat în prezent în regiunea dvs. și această setare d
   <string name="revanced_hide_description_components_screen_title">Descriere video</string>
   <string name="revanced_hide_description_components_screen_summary">Ascunde sau afișează componentele descrierii video</string>
   <string name="revanced_hide_filter_bar_screen_title">Bară de filtrare</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ascundeți sau afișați bara de filtre în fluxuri, istoric, rezultate ale căutării și videoclipuri conexe</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ascunde sau afișează bara de filtre în fluxuri, videoclipuri similare, rezultate ale căutării și istoricul vizionărilor</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Ascunde în feeduri</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Ascuns în feeduri</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Afișat în feeduri</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Ascunde în istoric</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Ascuns în istoric</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Afișat în istoric</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Ascunde în rezultatele căutării</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ascuns în rezultatele căutării</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Afișat în rezultatele căutării</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ascunde în videoclipurile asociate</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Ascuns în videoclipuri asemănătoare</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Afișat în videoclipuri conexe</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Ascunde în rezultatele căutării</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ascuns în rezultatele căutării</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Afișat în rezultatele căutării</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Ascunde în istoricul de vizionare</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Ascuns în istoricul vizionărilor</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Afișat în istoricul de vizionare</string>
   <string name="revanced_channel_screen_title">Pagina canalului</string>
   <string name="revanced_channel_screen_summary">Ascunde sau afișează componentele paginii canalului</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -315,12 +315,12 @@ Dacă un Doodle este afișat în prezent în regiunea dvs. și această setare d
   <string name="revanced_hide_visit_store_button_summary_off">Butonul Vizitează magazinul este afișat</string>
   <string name="revanced_comments_screen_title">Comentarii</string>
   <string name="revanced_comments_screen_summary">Ascunde sau afișează componentele secțiunii comentarii</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Ascunde rezumatul conversației cu IA</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Rezumatul conversației este ascuns</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Rezumatul conversației este afișat</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Ascunde rezumatul chatului AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Rezumatul chatului AI este ascuns</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Rezumatul chatului AI este afișat</string>
   <string name="revanced_hide_comments_ai_summary_title">Ascunde rezumatul comentariilor cu IA</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Rezumatul comentariilor este ascuns</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Rezumatul comentariilor este afișat</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Rezumatul comentariilor AI este ascuns</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Rezumatul comentariilor AI este afișat</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Ascunde ghidurile canalului</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Regulile canalului sunt ascunse</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Regulile canalului sunt afișate</string>
@@ -419,7 +419,6 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_hide_shopping_links_title">Ascunde linkurile de cumpărături</string>
   <string name="revanced_hide_shopping_links_summary_on">Linkurile de cumpărături din descrierea videoclipului sunt ascunse.</string>
   <string name="revanced_hide_shopping_links_summary_off">Linkurile de cumpărături din descrierea video sunt afișate</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Ascunde bannerul \"Vezi produse\"</string>
   <string name="revanced_hide_view_products_banner_summary_on">Bannerul \"Vezi produse\" din suprapunerea video este ascuns.</string>
   <string name="revanced_hide_view_products_banner_summary_off">Bannerul \"Vezi produse\" din suprapunerea video este afișat.</string>
@@ -730,27 +729,28 @@ Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fl
   <string name="revanced_disable_rolling_number_animations_summary_off">Numerele de rulare sunt animate</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Ascunde bara de căutare în playerul video</string>
+  <string name="revanced_hide_seekbar_title">Ascunde bara de derulare a playerului video</string>
   <string name="revanced_hide_seekbar_summary_on">Bara de căutare a playerului video este ascunsă</string>
   <string name="revanced_hide_seekbar_summary_off">Se afișează bara de căutare a playerului video</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Ascunde bara de căutare în miniaturile video</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Pictograma bara de căutare este ascunsă</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Pictograma bara de căutare este afișată</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+  <string name="revanced_hide_seekbar_thumbnail_title">Ascunde bara de derulare a miniaturilor video</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Bara de derulare a miniaturilor video este ascunsă</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Bara de derulare a miniaturilor video este afișată</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Player Shorts</string>
-  <string name="revanced_shorts_player_screen_summary">Ascunde sau afișează componente în playerul Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Ascunde sau afișează componentele playerului Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Ascunde Shorts-urile din feedul Acasă.</string>
   <string name="revanced_hide_shorts_home_summary_on">Ascunse în feedul Acasă și în videoclipurile similare.</string>
   <string name="revanced_hide_shorts_home_summary_off">Afișate în feedul Acasă și în videoclipurile similare.</string>
+  <string name="revanced_hide_shorts_search_title">Ascunde Shorts în rezultatele căutării</string>
+  <string name="revanced_hide_shorts_search_summary_on">Ascunse în rezultatele căutării</string>
+  <string name="revanced_hide_shorts_search_summary_off">Afișat în rezultatele căutării</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ascunde Shorts-urile din feedul Abonamente.</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Ascunse în feedul Abonamente.</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Afișate în feedul Abonamente.</string>
-  <string name="revanced_hide_shorts_search_title">Ascunde Shorts în rezultatele căutării</string>
-  <string name="revanced_hide_shorts_search_summary_on">Ascunse în rezultatele căutării</string>
-  <string name="revanced_hide_shorts_search_summary_off">Afișat în rezultatele căutării</string>
   <string name="revanced_hide_shorts_history_title">Ascunde Shorts în istoricul vizionărilor</string>
   <string name="revanced_hide_shorts_history_summary_on">Ascuns în istoricul vizionărilor</string>
   <string name="revanced_hide_shorts_history_summary_off">Afișate în istoricul vizionărilor</string>
@@ -1189,8 +1189,6 @@ Aspect auto
 Acest lucru va schimba aspectul și caracteristicile aplicației, dar pot apărea efecte secundare necunoscute.
 
 Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației pentru a preveni erorile UI."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Țintă versiune falsificată a aplicației</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurează pictogramele vechi ale playerului Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restaurați pictogramele de navigare vechi</string>

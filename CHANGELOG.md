@@ -1,3 +1,42 @@
+# [5.32.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.1...v5.32.0-dev.2) (2025-07-23)
+
+
+### Bug Fixes
+
+* **YouTube  - Hide layout components:** Fix "Hide ticket shelf" ([#5516](https://github.com/ReVanced/revanced-patches/issues/5516)) ([3b85c71](https://github.com/ReVanced/revanced-patches/commit/3b85c71433325fff49e01c77c7b9ff8ddd0a7068))
+
+# [5.32.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.3-dev.1...v5.32.0-dev.1) (2025-07-16)
+
+
+### Features
+
+* **Prime Video:** Add `Playback speed` patch ([#5444](https://github.com/ReVanced/revanced-patches/issues/5444)) ([22cf313](https://github.com/ReVanced/revanced-patches/commit/22cf313a7b99b69e17b9d488c514802043a5dc10))
+
+## [5.31.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.2...v5.31.3-dev.1) (2025-07-16)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore support:** Fix search suggestions when logged out by using correct search provider ([#5483](https://github.com/ReVanced/revanced-patches/issues/5483)) ([e86fdc8](https://github.com/ReVanced/revanced-patches/commit/e86fdc86b161a6077960b85149e83bacbac664e7))
+
+## [5.31.2](https://github.com/ReVanced/revanced-patches/compare/v5.31.1...v5.31.2) (2025-07-14)
+
+
+### Bug Fixes
+
+* **Spotify - Spoof client:** Fix login failing by spoofing login request in addition ([#5448](https://github.com/ReVanced/revanced-patches/issues/5448)) ([4e59ddc](https://github.com/ReVanced/revanced-patches/commit/4e59ddc62388d09f71b89593fc8b76933d9facea))
+* **YouTube - Disable double tap actions:** Remove old incompatible targets ([857053e](https://github.com/ReVanced/revanced-patches/commit/857053e29b72ded10a84b0ac693fa107705342d9))
+* **YouTube - Hide layout components:** Hide quick actions does not work ([#5423](https://github.com/ReVanced/revanced-patches/issues/5423)) ([9c66729](https://github.com/ReVanced/revanced-patches/commit/9c6672946d44001e106bdac9041e2d79ef3f6ab2))
+* **YouTube - Hide layout components:** Show correct custom header logo if 'Hide YouTube Doodles' is enabled ([#5431](https://github.com/ReVanced/revanced-patches/issues/5431)) ([20cc141](https://github.com/ReVanced/revanced-patches/commit/20cc141e61f75de1a1749247c4f4aed167dee8ea))
+* **YouTube - Settings:** Back button/gesture closes search instead of exiting ([#5418](https://github.com/ReVanced/revanced-patches/issues/5418)) ([134b278](https://github.com/ReVanced/revanced-patches/commit/134b278baa7b90d2c4b06200cabacabf55ebc055))
+
+## [5.31.2-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.4...v5.31.2-dev.5) (2025-07-14)
+
+
+### Bug Fixes
+
+* **Spotify - Spoof client:** Fix login failing by spoofing login request in addition ([#5448](https://github.com/ReVanced/revanced-patches/issues/5448)) ([4e59ddc](https://github.com/ReVanced/revanced-patches/commit/4e59ddc62388d09f71b89593fc8b76933d9facea))
+
 ## [5.31.2-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.3...v5.31.2-dev.4) (2025-07-13)
 
 
