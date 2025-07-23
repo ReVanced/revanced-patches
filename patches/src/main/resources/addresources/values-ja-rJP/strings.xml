@@ -138,7 +138,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_debug_logs_disabled">デバッグログは無効です</string>
   <string name="revanced_debug_logs_none_found">ログが見つかりませんでした</string>
   <string name="revanced_debug_logs_copied_to_clipboard">ログをコピーしました</string>
-  <string name="revanced_debug_logs_failed_to_export">ログのエクスポートに失敗しました: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">ログのエクスポートに失敗しました: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">デバッグログを消去</string>
   <string name="revanced_debug_logs_clear_buffer_summary">保存されているすべての ReVanced デバッグログを消去します</string>
   <string name="revanced_debug_logs_clear_toast">ログを消去しました</string>

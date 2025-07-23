@@ -137,7 +137,7 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_debug_logs_disabled">Atkļūdošanas žurnālu reģistrēšana ir atspējota</string>
   <string name="revanced_debug_logs_none_found">Žurnāli nav atrasti</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Žurnāli ir kopēti</string>
-  <string name="revanced_debug_logs_failed_to_export">Neizdevās eksportēt žurnālus: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Neizdevās eksportēt žurnālus: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Notīrīt atkļūdošanas žurnālus</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Notīra visus saglabātos ReVanced atkļūdošanas žurnālus</string>
   <string name="revanced_debug_logs_clear_toast">Žurnāli ir notīrīti</string>

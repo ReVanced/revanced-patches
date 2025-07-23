@@ -137,7 +137,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_debug_logs_disabled">Վրեժխնդրության մատյանների գրանցումն անջատված է</string>
   <string name="revanced_debug_logs_none_found">Մատյաններ չեն գտնվել</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Մատյանները պատճենված են</string>
-  <string name="revanced_debug_logs_failed_to_export">Մատյանների արտահանումը ձախողվեց. $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Չհաջողվեց արտահանել տեղեկամատյանները՝ %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Մաքրել վրեժխնդրության մատյանները</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Մաքրում է բոլոր պահված ReVanced կարգաբերման մատյանները</string>
   <string name="revanced_debug_logs_clear_toast">Մատյանները մաքրվել են</string>

@@ -137,7 +137,7 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_debug_logs_disabled">Beleženje napak je onemogočeno</string>
   <string name="revanced_debug_logs_none_found">Dnevnikov ni mogoče najti</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Dnevniki so bili kopirani</string>
-  <string name="revanced_debug_logs_failed_to_export">Izvoz dnevnikov ni uspel: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Izvoz dnevnikov ni uspel: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Počisti dnevnike napak</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Počisti vse shranjene dnevnike napak ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Dnevniki so bili izbrisani</string>

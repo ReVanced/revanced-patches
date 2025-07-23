@@ -137,7 +137,7 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_debug_logs_disabled">Felsökningsloggar är inaktiverade</string>
   <string name="revanced_debug_logs_none_found">Inga loggar hittades</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Loggar kopierade</string>
-  <string name="revanced_debug_logs_failed_to_export">Det gick inte att exportera loggar: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Det gick inte att exportera loggar: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Rensa felsökningsloggar</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Rensar alla lagrade ReVanced-felsökningsloggar</string>
   <string name="revanced_debug_logs_clear_toast">Loggar rensade</string>
@@ -251,8 +251,8 @@ Om en doodle visas för närvarande i din region och den här döljningsinställ
   <string name="revanced_hide_timed_reactions_summary_on">Tidsbaserade reaktioner är dolda</string>
   <string name="revanced_hide_timed_reactions_summary_off">Tidsbaserade reaktioner visas</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Dölj AI-genererad videosammanfattning</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI-genererat avsnitt för videosammanfattning är dolt</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI-genererat avsnitt för videosammanfattning visas</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Avsnittet för AI-genererad videosammanfattning är dolt</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Avsnittet för AI-genererad videosammanfattning visas</string>
   <string name="revanced_hide_ask_section_title">Dölj Fråga</string>
   <string name="revanced_hide_ask_section_summary_on">Avsnittet Fråga är dolt</string>
   <string name="revanced_hide_ask_section_summary_off">Avsnittet Fråga visas</string>
@@ -482,12 +482,12 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_seekbar_tapping_summary_off">Tryck för att söka är inaktiverat</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
-  <string name="revanced_swipe_brightness_title">Aktivera gest för ljusstyrka</string>
+  <string name="revanced_swipe_brightness_title">Aktivera ljusstyrkegest</string>
   <string name="revanced_swipe_brightness_summary_on">"Svepgest för ljusstyrka i helskärm är aktiverad
 
 Justera ljusstyrkan genom att svepa vertikalt till vänster på skärmen"</string>
   <string name="revanced_swipe_brightness_summary_off">Svepgest för ljusstyrka i helskärm är inaktiverad</string>
-  <string name="revanced_swipe_volume_title">Aktivera gest för volym</string>
+  <string name="revanced_swipe_volume_title">Aktivera volymgest</string>
   <string name="revanced_swipe_volume_summary_on">"Svepgest för volym i helskärm är aktiverad
 
 Justera volymen genom att svepa vertikalt till höger på skärmen"</string>
@@ -508,23 +508,23 @@ Justera volymen genom att svepa vertikalt till höger på skärmen"</string>
   <string name="revanced_swipe_overlay_timeout_title">Tidsgräns för svepöverlägg</string>
   <string name="revanced_swipe_overlay_timeout_summary">Antalet millisekunder som överlägget är synligt</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Bakgrundsopacitet för svepöverlägg</string>
-  <string name="revanced_swipe_overlay_background_opacity_summary">Opacitetsvärde mellan 0-100</string>
-  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opacitet för svepöverlägg måste vara mellan 0-100</string>
-  <string name="revanced_swipe_overlay_progress_brightness_color_title">Färg på svepöverlägg för ljusstyrka</string>
-  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Färgen på mätaren för ljusstyrkegest</string>
-  <string name="revanced_swipe_overlay_progress_volume_color_title">Färg på svepöverlägg för volym</string>
-  <string name="revanced_swipe_overlay_progress_volume_color_summary">Färgen på mätaren för volymgest</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Opacitetsvärde mellan 0 och 100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Svepöverläggets opacitet måste vara mellan 0 och 100</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_title">Färg på svepöverlägg för ljusstyrkegest</string>
+  <string name="revanced_swipe_overlay_progress_brightness_color_summary">Färgen på mätaren för ljusstyrka</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_title">Färg på svepöverlägg för volymgest</string>
+  <string name="revanced_swipe_overlay_progress_volume_color_summary">Färgen på mätaren för volym</string>
   <string name="revanced_swipe_text_overlay_size_title">Textstorlek för svepöverlägg</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Textstorleken för svepöverlägg mellan 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Textstorleken för svepöverlägg mellan 1 och 30</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">Textstorleken måste vara mellan 1 och 30</string>
   <string name="revanced_swipe_threshold_title">Tröskelvärde för svep</string>
   <string name="revanced_swipe_threshold_summary">Tröskelvärdet för att svep ska uppstå</string>
   <string name="revanced_swipe_volume_sensitivity_title">Svepkänslighet för volymgest</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Hur mycket volymen ändras per svep</string>
-  <string name="revanced_swipe_overlay_style_title">Stil för svepöverlägg</string>
+  <string name="revanced_swipe_overlay_style_title">Stil på svepöverlägg</string>
   <string name="revanced_swipe_overlay_style_entry_1">Horisontellt överlägg</string>
-  <string name="revanced_swipe_overlay_style_entry_2">Horisontellt överlägg (minimalt - överst)</string>
-  <string name="revanced_swipe_overlay_style_entry_3">Horisontellt överlägg (minimalt - mitten)</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Horisontellt överlägg (minimalt – överst)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Horisontellt överlägg (minimalt – mitten)</string>
   <string name="revanced_swipe_overlay_style_entry_4">Cirkulärt överlägg</string>
   <string name="revanced_swipe_overlay_style_entry_5">Cirkulärt överlägg (minimalt)</string>
   <string name="revanced_swipe_overlay_style_entry_6">Vertikalt överlägg</string>
@@ -553,8 +553,8 @@ Justera volymen genom att svepa vertikalt till höger på skärmen"</string>
   <string name="revanced_hide_share_button_summary_off">Knappen Dela visas</string>
   <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_stop_ads_button_title">Dölj Stoppa annonser</string>
-  <string name="revanced_hide_stop_ads_button_summary_on">Knappen för att stoppa annonser är dold</string>
-  <string name="revanced_hide_stop_ads_button_summary_off">Knappen för att stoppa annonser visas</string>
+  <string name="revanced_hide_stop_ads_button_summary_on">Knappen Stoppa annonser är dold</string>
+  <string name="revanced_hide_stop_ads_button_summary_off">Knappen Stoppa annonser visas</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Dölj Rapportera</string>
@@ -679,9 +679,9 @@ Om du ändrar den här inställningen utan att det träder i kraft kan du testa 
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menyn Ljudspår är dold</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menyn Ljudspår visas</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ljudspårsmenyn är dold
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menyn Ljudspår är dold
 
-För att visa ljudspårsmenyn, ändra \"Förfalska videoströmmar\" till iOS TV"</string>
+För att visa menyn Ljudspår, ändra \"Förfalska videoströmmar\" till iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Dölj Titta i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menyn Titta i VR är dold</string>
@@ -733,22 +733,22 @@ För att visa ljudspårsmenyn, ändra \"Förfalska videoströmmar\" till iOS TV"
   <string name="revanced_hide_seekbar_summary_on">Sökreglaget i videospelaren är dolt</string>
   <string name="revanced_hide_seekbar_summary_off">Sökreglaget i videospelaren visas</string>
   <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
-  <string name="revanced_hide_seekbar_thumbnail_title">Dölj sökreglaget för videominiatyrer</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Sökreglaget för videominiatyrer är dolt</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Sökreglaget för videominiatyrer visas</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Dölj sökreglaget i videominiatyrer</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Sökreglaget i videominiatyrer är dolt</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Sökreglaget i videominiatyrer visas</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts-spelare</string>
   <string name="revanced_shorts_player_screen_summary">Dölj eller visa komponenter i Shorts-spelaren</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
-  <string name="revanced_hide_shorts_home_title">Dölj Shorts i hemflödet</string>
+  <string name="revanced_hide_shorts_home_title">Dölj Shorts-videor i hemflödet</string>
   <string name="revanced_hide_shorts_home_summary_on">Döljs i hemflödet och liknande videor</string>
   <string name="revanced_hide_shorts_home_summary_off">Visas i hemflödet och liknande videor</string>
   <string name="revanced_hide_shorts_search_title">Dölj Shorts-videor i sökresultat</string>
   <string name="revanced_hide_shorts_search_summary_on">Döljs i sökresultat</string>
   <string name="revanced_hide_shorts_search_summary_off">Visas i sökresultat</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Dölj Shorts i flödet Prenumerationer</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Dölj Shorts-videor i flödet Prenumerationer</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Döljs i flödet Prenumerationer</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Visas i flödet Prenumerationer</string>
   <string name="revanced_hide_shorts_history_title">Dölj Shorts-videor i visningshistoriken</string>
@@ -887,13 +887,13 @@ Inställningar → Uppspelning → Spela upp nästa video automatiskt"</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videor öppnas inte i helskärm</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
-  <string name="revanced_player_overlay_opacity_title">Spelarens överläggsopacitet</string>
-  <string name="revanced_player_overlay_opacity_summary">Opacitetsvärde mellan 0-100, där 0 är genomskinligt</string>
-  <string name="revanced_player_overlay_opacity_invalid_toast">Spelarens överläggsopacitet måste vara mellan 0-100</string>
+  <string name="revanced_player_overlay_opacity_title">Spelaröverläggets opacitet</string>
+  <string name="revanced_player_overlay_opacity_summary">Opacitetsvärde mellan 0 och 100, där 0 är genomskinligt</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">Spelaröverläggets opacitet måste vara mellan 0 och 100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_ryd_failure_connection_timeout">Ogillanden ej tillg. just nu (API-tidsgräns nådd)</string>
+  <string name="revanced_ryd_failure_connection_timeout">Ogilla-mark. är ej tillg. just nu (API-tidsgräns nådd)</string>
   <string name="revanced_ryd_failure_connection_status_code">Ogilla-markeringar är inte tillgängliga (status %d)</string>
   <string name="revanced_ryd_failure_client_rate_limit_requested">Ogilla-markeringar är inte tillgängliga (API-gräns för klienten)</string>
   <string name="revanced_ryd_failure_generic">Ogilla-markeringar är inte tillgängliga (%s)</string>
@@ -913,8 +913,8 @@ Begränsning: Ogilla-markeringar kanske inte visas i inkognitoläge"</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Ogilla-markeringar visas som ett tal</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
   <string name="revanced_ryd_compact_layout_title">Kompakt gilla-knapp</string>
-  <string name="revanced_ryd_compact_layout_summary_on">Gilla-knappen stylas för minsta bredd</string>
-  <string name="revanced_ryd_compact_layout_summary_off">Gilla-knappen stylas för bästa utseende</string>
+  <string name="revanced_ryd_compact_layout_summary_on">Gilla-knapp stylad för minsta bredd</string>
+  <string name="revanced_ryd_compact_layout_summary_off">Gilla-knapp stylad för bästa utseende</string>
   <string name="revanced_ryd_estimated_like_title">Visa uppskattade gilla-markeringar</string>
   <string name="revanced_ryd_estimated_like_summary_on">Videor med inaktiverade gilla-markeringar visar ett uppskattat antal gilla-markeringar</string>
   <string name="revanced_ryd_estimated_like_summary_off">Uppskattade gilla-markeringar visas inte</string>
@@ -969,9 +969,9 @@ Den här funktionen fungerar bäst med en videokvalitet på 720p eller lägre oc
   <string name="revanced_sb_square_layout_sum_on">Knappar och kontroller är fyrkantiga</string>
   <string name="revanced_sb_square_layout_sum_off">Knappar och kontroller är rundade</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
-  <string name="revanced_sb_enable_compact_skip_button">Använd kompakt Hoppa över-knapp</string>
-  <string name="revanced_sb_enable_compact_skip_button_sum_on">Hoppa över-knappen stylas för minsta bredd</string>
-  <string name="revanced_sb_enable_compact_skip_button_sum_off">Hoppa över-knappen stylas för bästa utseende</string>
+  <string name="revanced_sb_enable_compact_skip_button">Använd kompakt överhoppningsknapp</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_on">Överhoppningsknapp stylad för minsta bredd</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_off">Överhoppningsknapp stylad för bästa utseende</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Dölj Hoppa över-knappen automatiskt</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Hoppa över-knappen döljs efter några sekunder</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Hoppa över-knappen visas under hela segmentet</string>
@@ -1102,7 +1102,7 @@ Finns redan"</string>
   <string name="revanced_sb_submit_succeeded">Segmentet har skickats</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock ej tillgängligt just nu (API-tidsgräns nådd)</string>
-  <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock tillfälligt inte tillgängligt (status %d)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock är för tillfället inte tillgängligt (status %d)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock är för tillfället inte tillgängligt</string>
   <string name="revanced_sb_vote_failed_timeout">Det gick inte att rösta på segment (API-tidsgräns nådd)</string>
   <string name="revanced_sb_vote_failed_unknown_error">Det gick inte att rösta på segment (status: %1$d %2$s)</string>
@@ -1182,16 +1182,16 @@ Billayout
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Förfalska appversionen</string>
-  <string name="revanced_spoof_app_version_summary_on">Version förfalskad</string>
-  <string name="revanced_spoof_app_version_summary_off">Version inte förfalskad</string>
+  <string name="revanced_spoof_app_version_summary_on">Versionen är förfalskad</string>
+  <string name="revanced_spoof_app_version_summary_off">Versionen är inte förfalskad</string>
   <string name="revanced_spoof_app_version_user_dialog_message">"Appversionen kommer att förfalskas till en äldre version av YouTube.
 
 Detta kommer att ändra utseendet och funktionerna i appen, men okända bieffekter kan uppstå.
 
 Om du senare inaktiverar det rekommenderar vi att rensa appens data för att förhindra fel i användargränssnittet."</string>
   <string name="revanced_spoof_app_version_target_title">Mål för Förfalska appversionen</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Återställ gamla ikoner i Shorts-spelaren</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Återställ gamla navigeringsikoner</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 – Återställ gamla ikoner i Shorts-spelaren</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Återställ gamla navigeringsikoner</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Byt startsida</string>
@@ -1260,10 +1260,10 @@ Begränsning: Bakåtknappen i verktygsfältet kanske inte fungerar"</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Hörnen är rundade</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Hörnen är fyrkantiga</string>
   <string name="revanced_miniplayer_double_tap_action_title">Aktivera dubbeltryck och nyp för att ändra storlek</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">"Dubbeltrycksåtgärd och nypning för att ändra storlek är aktiverat
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"Dubbeltrycksåtgärd och nyp för att ändra storlek är aktiverat
 
-• Dubbeltryck för att öka minspelarens storlek
-• Dubbeltryck igen för att återställa originalstorleken"</string>
+• Tryck snabbt två gånger för att öka minispelarens storlek
+• Tryck snabbt två gånger igen för att återställa den ursprungliga storleken"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Dubbeltrycksåtgärd och nyp för att ändra storlek är inaktiverat</string>
   <string name="revanced_miniplayer_drag_and_drop_title">Aktivera dra och släpp</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">"Dra och släpp är aktiverat
@@ -1288,14 +1288,14 @@ Minispelaren kan dras utanför skärmen till vänster eller höger"</string>
   <string name="revanced_miniplayer_width_dip_summary">Ursprunglig storlek på skärmen, i pixlar</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">Pixelstorlek måste vara mellan %1$s och %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Överläggets opacitet</string>
-  <string name="revanced_miniplayer_opacity_summary">Opacitetsvärde mellan 0-100, där 0 är genomskinligt</string>
-  <string name="revanced_miniplayer_opacity_invalid_toast">Minispelarens överläggsopacitet måste vara mellan 0-100</string>
+  <string name="revanced_miniplayer_opacity_summary">Opacitetsvärde mellan 0 och 100, där 0 är genomskinligt</string>
+  <string name="revanced_miniplayer_opacity_invalid_toast">Minispelaröverläggets opacitet måste vara mellan 0 och 100</string>
   </patch>
   <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">Aktivera tonad inläsningsskärm</string>
   <string name="revanced_gradient_loading_screen_summary_on">Inläsningsskärmen kommer att ha en tonad bakgrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Inläsningsskärmen kommer att ha en enfärgad bakgrund</string>
-  <string name="revanced_splash_screen_animation_style_title">Startskärmens stil</string>
+  <string name="revanced_splash_screen_animation_style_title">Välkomstskärmens stil</string>
   <string name="revanced_splash_screen_animation_style_entry_1">Färg</string>
   <string name="revanced_splash_screen_animation_style_entry_2">Svartvit</string>
   <string name="revanced_seekbar_custom_color_title">Aktivera anpassad färg på sökreglaget</string>
@@ -1312,7 +1312,7 @@ Minispelaren kan dras utanför skärmen till vänster eller höger"</string>
   <string name="revanced_header_logo_entry_1">Standard</string>
   <string name="revanced_header_logo_entry_2">Vanlig</string>
   <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
-  <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
+  <string name="revanced_header_logo_entry_5">ReVanced minimalistisk</string>
   <string name="revanced_header_logo_entry_6">Anpassad</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1343,7 +1343,7 @@ Tryck här för att läsa mer om DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Visa ett popup-meddelande om API inte är tillgängligt</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Popup-meddelande visas om DeArrow inte är tillgängligt</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Popup-meddelande visas inte om DeArrow inte är tillgängligt</string>
-  <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API-slutpunkt</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_title">API-slutpunkt för DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow-miniatyrcachens slutpunktsadress</string>
   <string name="revanced_alt_thumbnail_stills_about_title">Stillbilder från videor</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Stillbilder tas från början/mitten/slutet av varje video. Dessa bilder är inbyggda i YouTube och inget externt API används</string>
@@ -1467,13 +1467,13 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ogiltiga anpassade uppspelningshastigheter</string>
   <string name="revanced_custom_playback_speeds_auto">Automatiskt</string>
   <string name="revanced_speed_tap_and_hold_title">Anpassad hastighet för att trycka länge</string>
-  <string name="revanced_speed_tap_and_hold_summary">Uppspelningshastighet mellan 0 och 8.</string>
+  <string name="revanced_speed_tap_and_hold_summary">Uppspelningshastighet mellan 0 och 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Kom ihåg ändringar av uppspelningshastigheten</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Ändring av uppspelningshastighet gäller för alla videor</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Ändring av uppspelningshastighet gäller endast för den aktuella videon</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_title">Visa ett popup-meddelande när uppspelningshastigheten ändras</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Visa ett popup-meddelande när du ändrar uppspelningshastigheten</string>
   <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Ett popup-meddelande visas när standarduppspelningshastigheten ändras</string>
   <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Ett popup-meddelande visas inte när standarduppspelningshastigheten ändras</string>
   <string name="revanced_playback_speed_default_title">Standarduppspelningshastighet</string>

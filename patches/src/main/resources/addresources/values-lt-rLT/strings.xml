@@ -137,7 +137,7 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_debug_logs_disabled">Derinimo žurnalų registravimas išjungtas</string>
   <string name="revanced_debug_logs_none_found">Žurnalų nerasta</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Žurnalai nukopijuoti</string>
-  <string name="revanced_debug_logs_failed_to_export">Nepavyko eksportuoti žurnalų: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Nepavyko eksportuoti žurnalų: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Išvalyti derinimo žurnalus</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Išvalo visus išsaugotus „ReVanced“ derinimo žurnalus</string>
   <string name="revanced_debug_logs_clear_toast">Žurnalai išvalyti</string>

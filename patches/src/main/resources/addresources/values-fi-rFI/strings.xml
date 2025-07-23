@@ -137,7 +137,7 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_debug_logs_disabled">Virheenkorjausloki ei ole käytössä</string>
   <string name="revanced_debug_logs_none_found">Lokeja ei löytynyt</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Lokit kopioitu</string>
-  <string name="revanced_debug_logs_failed_to_export">Lokien vienti epäonnistui: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Lokien vienti epäonnistui: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Tyhjennä virheenkorjauslokit</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Tyhjentää kaikki tallennetut ReVanced-virheenkorjauslokit</string>
   <string name="revanced_debug_logs_clear_toast">Lokit tyhjennetty</string>

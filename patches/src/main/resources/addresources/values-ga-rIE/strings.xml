@@ -137,7 +137,7 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_debug_logs_disabled">Tá logáil dífhabhtaithe díchumasaithe</string>
   <string name="revanced_debug_logs_none_found">Ní bhfuarthas aon loga</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Lógaí cóipeáilte</string>
-  <string name="revanced_debug_logs_failed_to_export">Theip ar lógaí a easpórtáil: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Theip ar logaí a easpórtáil: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Glan logaí dífhabhtaithe</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Glanann sé gach loga dífhabhtaithe ReVanced stóráilte</string>
   <string name="revanced_debug_logs_clear_toast">Lógaí glanta</string>

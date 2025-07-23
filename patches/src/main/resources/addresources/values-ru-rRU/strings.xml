@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">Журналы отладки отключены</string>
   <string name="revanced_debug_logs_none_found">Журналы не найдены</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Журналы скопированы</string>
-  <string name="revanced_debug_logs_failed_to_export">Не удалось экспортировать журналы: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Не удалось экспортировать журналы: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Очистить журналы отладки</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Очищает все сохраненные журналы отладки ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Журналы очищены</string>
@@ -739,7 +739,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Компоненты плеера Shorts</string>
-  <string name="revanced_shorts_player_screen_summary">Скрыть или показать компоненты проигрывателя Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Скрыть или показать компоненты плеера Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Скрыть Shorts в ленте \"Главной\"</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts в ленте \"Главной\" и похожих видео скрыты</string>
@@ -964,14 +964,14 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_sb">Включить SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock – это краудсорсинговая система для пропуска раздражающих фрагментов видео YouTube</string>
   <string name="revanced_sb_appearance_category">Внешний вид</string>
-  <string name="revanced_sb_enable_voting">Кнопка голосования за сегмент</string>
+  <string name="revanced_sb_enable_voting">Показать кнопку голосования за сегмент</string>
   <string name="revanced_sb_enable_voting_sum_on">Кнопка голосования за сегмент показана</string>
   <string name="revanced_sb_enable_voting_sum_off">Кнопка голосования за сегмент скрыта</string>
   <string name="revanced_sb_square_layout">Использовать квадратный макет</string>
   <string name="revanced_sb_square_layout_sum_on">Кнопки и элементы управления квадратные</string>
   <string name="revanced_sb_square_layout_sum_off">Кнопки и элементы управления закругленные</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
-  <string name="revanced_sb_enable_compact_skip_button">Компактная кнопка пропуска</string>
+  <string name="revanced_sb_enable_compact_skip_button">Стиль кнопки пропуска</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Кнопка пропуска стилизована для минимальной ширины</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Кнопка пропуска стилизована для лучшего внешнего вида</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Автоскрытие кнопки пропуска</string>
@@ -994,11 +994,11 @@ Second \"item\" text"</string>
   <string name="revanced_sb_duration_8s">8 секунд</string>
   <string name="revanced_sb_duration_9s">9 секунд</string>
   <string name="revanced_sb_duration_10s">10 секунд</string>
-  <string name="revanced_sb_general_time_without">Длительность видео без сегментов</string>
+  <string name="revanced_sb_general_time_without">Показать длительность видео без сегментов</string>
   <string name="revanced_sb_general_time_without_sum_on">Длина видео без учета всех сегментов показана на полосе прогресса</string>
   <string name="revanced_sb_general_time_without_sum_off">Полная длительность видео показана</string>
   <string name="revanced_sb_create_segment_category">Создание новых сегментов</string>
-  <string name="revanced_sb_enable_create_segment">Кнопка создания сегмента</string>
+  <string name="revanced_sb_enable_create_segment">Показать кнопку создания сегмента</string>
   <string name="revanced_sb_enable_create_segment_sum_on">Кнопка создания нового сегмента показана</string>
   <string name="revanced_sb_enable_create_segment_sum_off">Кнопка создания нового сегмента скрыта</string>
   <string name="revanced_sb_general_adjusting">Настроить шаг нового сегмента</string>
@@ -1014,7 +1014,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_toast_on_connection_error_title">Уведомление при недоступности API</string>
   <string name="revanced_sb_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности SponsorBlock показано</string>
   <string name="revanced_sb_toast_on_connection_error_summary_off">Всплывающее уведомление при недоступности SponsorBlock скрыто</string>
-  <string name="revanced_sb_general_skipcount">Подсчет количества пропусков</string>
+  <string name="revanced_sb_general_skipcount">Включить подсчет количества пропусков</string>
   <string name="revanced_sb_general_skipcount_sum_on">Это позволяет системе лидеров SponsorBlock знать, сколько времени было сэкономлено. Сообщение отправляется на сервер каждый раз при пропуске сегмента</string>
   <string name="revanced_sb_general_skipcount_sum_off">Подсчет количества пропусков отключен</string>
   <string name="revanced_sb_general_min_duration">Минимальная продолжительность сегмента</string>

@@ -37,7 +37,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_reset">Đặt lại</string>
   <string name="revanced_settings_reset_color">Đặt lại màu</string>
   <string name="revanced_settings_color_invalid">Màu không hợp lệ</string>
-  <string name="revanced_settings_restart_title">Yêu cầu khởi động lại</string>
+  <string name="revanced_settings_restart_title">Cần khởi động lại</string>
   <string name="revanced_settings_restart_dialog_message">Khởi động lại ứng dụng để thay đổi này có hiệu lực.</string>
   <string name="revanced_settings_restart">Khởi động lại</string>
   <string name="revanced_settings_import">Nhập</string>
@@ -137,7 +137,7 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_debug_logs_disabled">Tính năng ghi nhật ký gỡ lỗi đã tắt</string>
   <string name="revanced_debug_logs_none_found">Không tìm thấy nhật ký</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Đã sao chép nhật ký</string>
-  <string name="revanced_debug_logs_failed_to_export">Không xuất được nhật ký: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Xuất nhật ký thất bại: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Xóa nhật ký gỡ lỗi</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Xóa tất cả nhật ký gỡ lỗi ReVanced đã lưu trữ</string>
   <string name="revanced_debug_logs_clear_toast">Đã xóa nhật ký</string>
@@ -253,9 +253,9 @@ Nếu cài đặt này được bật và Doodle đang hiển thị tại khu v�
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ẩn \'Bản tóm tắt video do AI tạo\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Phần tóm tắt video do AI tạo đã bị ẩn</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Phần tóm tắt video do AI tạo được hiển thị</string>
-  <string name="revanced_hide_ask_section_title">Ẩn Hỏi</string>
-  <string name="revanced_hide_ask_section_summary_on">Phần Hỏi đã bị ẩn</string>
-  <string name="revanced_hide_ask_section_summary_off">Phần Hỏi được hiển thị</string>
+  <string name="revanced_hide_ask_section_title">Ẩn Đặt câu hỏi</string>
+  <string name="revanced_hide_ask_section_summary_on">Phần đặt câu hỏi đã bị ẩn</string>
+  <string name="revanced_hide_ask_section_summary_off">Phần đặt câu hỏi được hiển thị</string>
   <string name="revanced_hide_attributes_section_title">Ẩn Thuộc tính</string>
   <string name="revanced_hide_attributes_section_summary_on">Phần Địa điểm nổi bật, Trò chơi, Âm nhạc và Người được đề cập đã bị ẩn</string>
   <string name="revanced_hide_attributes_section_summary_off">Phần Địa điểm nổi bật, Trò chơi, Âm nhạc và Người được đề cập được hiển thị</string>
@@ -394,7 +394,7 @@ Hạn chế
   <string name="revanced_hide_creator_store_shelf_title">Ẩn kệ cửa hàng của nhà sáng tạo</string>
   <string name="revanced_hide_creator_store_shelf_summary_on">Kệ cửa hàng của nhà sáng tạo bên dưới trình phát video đã bị ẩn</string>
   <string name="revanced_hide_creator_store_shelf_summary_off">Kệ cửa hàng của người sáng tạo dưới trình phát video đang hiển thị</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Ẩn biểu ngữ cửa hàng ở cuối màn hình</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Ẩn biểu ngữ cửa hàng trên màn hình kết thúc</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Biểu ngữ cửa hàng trên màn hình kết thúc đã bị ẩn</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Biểu ngữ cửa hàng trên màn hình kết thúc được hiển thị</string>
   <string name="revanced_hide_fullscreen_ads_title">Ẩn quảng cáo toàn màn hình</string>
@@ -574,9 +574,9 @@ Tính năng này chỉ khả dụng trên các thiết bị cũ"</string>
   <string name="revanced_hide_thanks_button_summary_off">Nút cảm ơn được hiển thị</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
                   This button only shows up if the user ip is from specific region such as the USA or EU. -->
-  <string name="revanced_hide_ask_button_title">Ẩn Hỏi</string>
-  <string name="revanced_hide_ask_button_summary_on">Nút hỏi đã bị ẩn</string>
-  <string name="revanced_hide_ask_button_summary_off">Nút hỏi được hiển thị</string>
+  <string name="revanced_hide_ask_button_title">Ẩn Đặt câu hỏi</string>
+  <string name="revanced_hide_ask_button_summary_on">Nút đặt câu hỏi đã bị ẩn</string>
+  <string name="revanced_hide_ask_button_summary_off">Nút đặt câu hỏi được hiển thị</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Ẩn Tạo đoạn video</string>
   <string name="revanced_hide_clip_button_summary_on">Nút tạo đoạn video đã bị ẩn</string>
@@ -703,7 +703,7 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <string name="revanced_hide_cast_button_summary_off">Nút Truyền được hiển thị</string>
   <string name="revanced_hide_player_control_buttons_background_title">Ẩn nền điều khiển trình phát</string>
   <string name="revanced_hide_player_control_buttons_background_summary_on">Nền điều khiển trình phát bị ẩn</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">Nền điều khiển trình phát được hiển thị</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">Nền điều khiển trình phát được hiện</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút Trước &amp; Tiếp theo</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Các nút đã bị ẩn</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Các nút được hiển thị</string>
@@ -733,9 +733,9 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <string name="revanced_hide_seekbar_summary_on">Thanh tiến trình trong trình phát video đã bị ẩn</string>
   <string name="revanced_hide_seekbar_summary_off">Thanh tiến trình trong trình phát video được hiển thị</string>
   <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
-  <string name="revanced_hide_seekbar_thumbnail_title">Ẩn thanh tiến trình trên hình thu nhỏ</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Thanh tiến trình trên hình thu nhỏ video trong thẻ Trang chủ hoặc các trang video và video đã xem đã bị ẩn</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Thanh tiến trình trên hình thu nhỏ video trong thẻ Trang chủ hoặc các trang video và video đã xem được hiển thị</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Ẩn thanh tiến trình trong hình thu nhỏ</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Thanh tiến trình trong hình thu nhỏ video đã xem đã bị ẩn</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Thanh tiến trình trong hình thu nhỏ video đã xem được hiển thị</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Trình phát Shorts</string>
@@ -1444,7 +1444,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_video_quality_last_selected_title">Nhớ các thay đổi chất lượng video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Thay đổi chất lượng áp dụng cho tất cả video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho video hiện tại</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_title">Hiển thị thông báo nổi khi chất lượng video thay đổi</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_title">Hiện thông báo nổi khi chất lượng video thay đổi</string>
   <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Thông báo nổi sẽ hiển thị khi chất lượng video mặc định được thay đổi</string>
   <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Thông báo nổi sẽ không hiển thị khi chất lượng video mặc định được thay đổi</string>
   <string name="revanced_video_quality_default_wifi_title">Chất lượng mặc định trên mạng Wi-Fi</string>
@@ -1480,7 +1480,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_playback_speed_last_selected_title">Nhớ các thay đổi tốc độ phát</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Thay đổi tốc độ phát áp dụng cho tất cả video</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Thay đổi tốc độ phát chỉ áp dụng cho video hiện tại</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_title">Hiển thị thông báo nổi khi tốc độ phát thay đổi</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_title">Hiện thông báo nổi khi tốc độ phát thay đổi</string>
   <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Thông báo nổi sẽ hiển thị khi tốc độ phát mặc định được thay đổi</string>
   <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Thông báo nổi không hiển thị khi tốc độ phát mặc định được thay đổi</string>
   <string name="revanced_playback_speed_default_title">Tốc độ phát mặc định</string>

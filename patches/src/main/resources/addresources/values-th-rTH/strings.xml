@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">ปิดใช้งานการบันทึกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_logs_none_found">ไม่พบบันทึก</string>
   <string name="revanced_debug_logs_copied_to_clipboard">คัดลอกบันทึกแล้ว</string>
-  <string name="revanced_debug_logs_failed_to_export">ส่งออกบันทึกล้มเหลว: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">ส่งออกบันทึกไม่สำเร็จ: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">ล้างบันทึกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_logs_clear_buffer_summary">ล้างบันทึกการแก้ไขข้อบกพร่องของ ReVanced ที่จัดเก็บไว้ทั้งหมด</string>
   <string name="revanced_debug_logs_clear_toast">ล้างบันทึกแล้ว</string>
