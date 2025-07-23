@@ -27,7 +27,10 @@ import android.widget.ListView;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.function.Function;
 
 import app.revanced.extension.shared.Logger;
@@ -73,20 +76,24 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 null,
                 true);
 
+        private static final Map<String, Downloader> PACKAGE_TO_ENUM = new HashMap<>();
+
+        static {
+            for (Downloader downloader : values()) {
+                String packageName = downloader.packageName;
+                if (packageName != null) {
+                    PACKAGE_TO_ENUM.put(packageName, downloader);
+                }
+            }
+        }
+
         /**
-         * Finds a Downloader by its package name.
+         * Finds a Downloader by its package name. This method can never return {@link #OTHER}.
          * @return The Downloader enum or null if not found.
          */
         @Nullable
         public static Downloader findByPackageName(String packageName) {
-            if (packageName == null) return null;
-
-            for (Downloader downloader : values()) {
-                if (packageName.equals(downloader.packageName)) {
-                    return downloader;
-                }
-            }
-            return null;
+            return PACKAGE_TO_ENUM.get(Objects.requireNonNull(packageName));
         }
 
         public final String name;
@@ -242,7 +249,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
             } else {
                 String savedPackageName = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME.get();
                 editText.setText(Downloader.findByPackageName(savedPackageName) == null
-                        ? savedPackageName // Retain existing other app if the user is clicking thru options.
+                        ? savedPackageName // If the user is clicking thru options then retain existing other app.
                         : ""
                 );
                 editText.setEnabled(true); // Enable editing for Custom.
@@ -263,14 +270,13 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
 
         // Add EditText for custom package name.
         editText = new EditText(context);
-        editText.setHint(str("revanced_external_downloader_other_item_hint"));
         editText.setText(packageName);
+        editText.setSelection(packageName.length());
+        editText.setHint(str("revanced_external_downloader_other_item_hint"));
         editText.setSingleLine(true); // Restrict EditText to a single line.
         editText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        editText.setSelection(packageName.length());
         // Set initial EditText state based on selected downloader.
-        Downloader selectedDownloader = Downloader.findByPackageName(packageName);
-        editText.setEnabled(selectedDownloader == null || selectedDownloader == Downloader.OTHER);
+        editText.setEnabled(Downloader.findByPackageName(packageName) == null);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -321,10 +327,10 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                     }
 
                     if (showDialogIfAppIsNotInstalled(getContext(), newValue)) {
-                        return;
+                        return; // Invalid package. Do not save.
                     }
 
-                    // Proceed with setting the package name if it is installed.
+                    // Save custom package name.
                     if (callChangeListener(newValue)) {
                         setValue(newValue);
                     }
