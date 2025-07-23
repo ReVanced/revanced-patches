@@ -403,15 +403,16 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         }
 
         Downloader downloader = Downloader.findByPackageName(packageName);
-        String downloadUrl = downloader == null ? null : downloader.downloadUrl;
+        String downloadUrl = downloader != null
+                ? downloader.downloadUrl
+                : null;
         String okButtonText = downloadUrl != null
                 ? str("gms_core_dialog_open_website_text") // Open website.
                 : null; // Ok.
-        // Show a dialog if the package is not installed, using the app name for predefined downloaders.
-        String displayName = downloader != null && downloader != Downloader.OTHER
-                ? downloader.name
-                : packageName;
-        String message = str("revanced_external_downloader_not_installed_warning", displayName);
+        // Show a dialog if the recommended app is not installed or if the custom package cannot be found.
+        String message = downloader != null
+                ? str("revanced_external_downloader_not_installed_warning", downloader.name)
+                : str("revanced_external_downloader_package_not_found_warning", packageName);
 
         Utils.createCustomDialog(
                 context,
