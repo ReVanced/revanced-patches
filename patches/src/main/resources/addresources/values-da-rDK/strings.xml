@@ -137,7 +137,7 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_debug_logs_disabled">Fejlsøgningslogning er deaktiveret</string>
   <string name="revanced_debug_logs_none_found">Ingen logfiler fundet</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Logfiler kopieret</string>
-  <string name="revanced_debug_logs_failed_to_export">Kunne ikke eksportere logfiler: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Kunne ikke eksportere logfiler: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Ryd fejlsøgningslogfiler</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Rydder alle gemte ReVanced-fejlsøgningslogfiler</string>
   <string name="revanced_debug_logs_clear_toast">Logfiler ryddet</string>

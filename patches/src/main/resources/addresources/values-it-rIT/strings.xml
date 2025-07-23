@@ -137,7 +137,7 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_debug_logs_disabled">La registrazione di debug è disabilitata</string>
   <string name="revanced_debug_logs_none_found">Nessun log trovato</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Log copiati</string>
-  <string name="revanced_debug_logs_failed_to_export">Esportazione dei log non riuscita: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Esportazione dei log non riuscita: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Cancella i log di debug</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Cancella tutti i log di debug di ReVanced memorizzati</string>
   <string name="revanced_debug_logs_clear_toast">Log cancellati</string>

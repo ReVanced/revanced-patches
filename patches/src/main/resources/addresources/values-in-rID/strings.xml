@@ -137,7 +137,7 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_debug_logs_disabled">Pencatatan debug dinonaktifkan</string>
   <string name="revanced_debug_logs_none_found">Tidak ditemukan catatan</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Catatan disalin</string>
-  <string name="revanced_debug_logs_failed_to_export">Gagal mengekspor catatan: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Gagal mengekspor log: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Bersihkan catatan debug</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Menghapus semua catatan debug ReVanced yang tersimpan</string>
   <string name="revanced_debug_logs_clear_toast">Catatan dibersihkan</string>

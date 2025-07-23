@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">Отстраняването на грешки е деактивирано</string>
   <string name="revanced_debug_logs_none_found">Не са намерени логове</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Логовете са копирани</string>
-  <string name="revanced_debug_logs_failed_to_export">Неуспешно експортиране на логове: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Неуспешно експортиране на логове: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Изчистване на логовете за отстраняване на грешки</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Изчиства всички съхранени логове за отстраняване на грешки на ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Логовете са изчистени</string>

@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">تم تعطيل تسجيلات تصحيح الأخطاء</string>
   <string name="revanced_debug_logs_none_found">لم يتم العثور على سجلات</string>
   <string name="revanced_debug_logs_copied_to_clipboard">تم نسخ السجلات</string>
-  <string name="revanced_debug_logs_failed_to_export">فشل تصدير السجلات: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">فشل تصدير السجلات: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">مسح سجلات تصحيح الأخطاء</string>
   <string name="revanced_debug_logs_clear_buffer_summary">يمسح جميع سجلات تصحيح أخطاء ReVanced المخزنة</string>
   <string name="revanced_debug_logs_clear_toast">تم مسح السجلات</string>

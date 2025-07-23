@@ -137,7 +137,7 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_debug_logs_disabled">Foutopsporing is uitgeschakeld</string>
   <string name="revanced_debug_logs_none_found">Geen logboeken gevonden</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Logboeken gekopieerd</string>
-  <string name="revanced_debug_logs_failed_to_export">Kan logboeken niet exporteren: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Mislukt om logboeken te exporteren: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Foutopsporingslogboeken wissen</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Wist alle opgeslagen ReVanced-foutopsporingslogboeken</string>
   <string name="revanced_debug_logs_clear_toast">Logboeken gewist</string>

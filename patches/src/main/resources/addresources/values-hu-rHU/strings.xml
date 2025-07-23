@@ -137,7 +137,7 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_debug_logs_disabled">A hibakeresési naplózás ki van kapcsolva</string>
   <string name="revanced_debug_logs_none_found">Nem találhatók naplók</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Naplók másolva</string>
-  <string name="revanced_debug_logs_failed_to_export">Nem sikerült exportálni a naplókat: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Nem sikerült exportálni a naplókat: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Hibakeresési naplók törlése</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Törli az összes tárolt ReVanced hibakeresési naplót</string>
   <string name="revanced_debug_logs_clear_toast">Naplók törölve</string>

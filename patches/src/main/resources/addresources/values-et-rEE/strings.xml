@@ -137,7 +137,7 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_debug_logs_disabled">Silumislogimine on keelatud</string>
   <string name="revanced_debug_logs_none_found">Logisid ei leitud</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Logid kopeeritud</string>
-  <string name="revanced_debug_logs_failed_to_export">Logide eksportimine ebaõnnestus: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Logide eksportimine ebaõnnestus: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Puhasta silumislogid</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Puhastab kõik salvestatud ReVanced silumislogid</string>
   <string name="revanced_debug_logs_clear_toast">Logid puhastatud</string>

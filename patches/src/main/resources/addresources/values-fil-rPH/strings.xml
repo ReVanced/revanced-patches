@@ -137,7 +137,7 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_debug_logs_disabled">Hindi pinagana ang pag-log ng debug</string>
   <string name="revanced_debug_logs_none_found">Walang nakitang mga log</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Nakopya ang mga log</string>
-  <string name="revanced_debug_logs_failed_to_export">Nabigong i-export ang mga log: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Nabigo ang pag-export ng mga log: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">I-clear ang mga debug log</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Iki-clear ang lahat ng nakaimbak na ReVanced debug log</string>
   <string name="revanced_debug_logs_clear_toast">Na-clear ang mga log</string>

@@ -137,7 +137,7 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_debug_logs_disabled">Înregistrarea în jurnal de depanare este dezactivată</string>
   <string name="revanced_debug_logs_none_found">Nu au fost găsite jurnale</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Jurnale copiate</string>
-  <string name="revanced_debug_logs_failed_to_export">Nu s-a putut exporta jurnalele: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Eșec la exportarea jurnalelor: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Șterge jurnalele de depanare</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Șterge toate jurnalele de depanare ReVanced stocate</string>
   <string name="revanced_debug_logs_clear_toast">Jurnale șterse</string>
