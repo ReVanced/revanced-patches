@@ -1,5 +1,6 @@
 package app.revanced.patches.spotify.misc.fix
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
@@ -72,7 +73,29 @@ val spoofClientPatch = bytecodePatch(
     compatibleWith("com.spotify.music")
 
     execute {
-        // region Spoof client.
+        val clientVersion = clientVersion!!
+        val hardwareMachine = hardwareMachine!!
+        val systemVersion = systemVersion!!
+
+        // region Spoof login request.
+        
+        val version = clientVersion
+            .substringAfter('-')
+            .substringBeforeLast('.')
+            .substringBeforeLast('.')
+        
+        setUserAgentFingerprint.method.addInstruction(
+            0,
+            "const-string p1, \"Spotify/$version iOS/$systemVersion ($hardwareMachine)\""
+        )
+
+        setClientIdFingerprint.method.addInstruction(
+            0, "const-string p1, \"58bd3c95768941ea9eb4350aaa033eb3\""
+        )
+
+        // endregion
+
+        // region Spoof client-token request.
 
         loadOrbitLibraryFingerprint.method.addInstructions(
             0,
@@ -83,9 +106,9 @@ val spoofClientPatch = bytecodePatch(
         )
 
         mapOf(
-            "getClientVersion" to clientVersion!!,
-            "getSystemVersion" to systemVersion!!,
-            "getHardwareMachine" to hardwareMachine!!
+            "getClientVersion" to clientVersion,
+            "getSystemVersion" to systemVersion,
+            "getHardwareMachine" to hardwareMachine
         ).forEach { (methodName, value) ->
             extensionFixConstantsFingerprint.classDef.methods.single { it.name == methodName }.returnEarly(value)
         }

@@ -11,6 +11,22 @@ internal val loadOrbitLibraryFingerprint = fingerprint {
     strings("/liborbit-jni-spotify.so")
 }
 
+internal val setClientIdFingerprint = fingerprint {
+    parameters("Ljava/lang/String;")
+    custom { method, classDef ->
+        classDef.type == "Lcom/spotify/connectivity/ApplicationScopeConfiguration;"
+                && method.name == "setClientId"
+    }
+}
+
+internal val setUserAgentFingerprint = fingerprint {
+    parameters("Ljava/lang/String;")
+    custom { method, classDef ->
+        classDef.type == "Lcom/spotify/connectivity/ApplicationScopeConfiguration;"
+                && method.name == "setDefaultHTTPUserAgent"
+    }
+}
+
 internal val extensionFixConstantsFingerprint = fingerprint {
     custom { _, classDef -> classDef.type == "Lapp/revanced/extension/spotify/misc/fix/Constants;" }
 }
