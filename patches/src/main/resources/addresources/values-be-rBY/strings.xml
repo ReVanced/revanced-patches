@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">Адладачнае лагаванне адключана</string>
   <string name="revanced_debug_logs_none_found">Лагі не знойдзены</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Лагі скапіяваны</string>
-  <string name="revanced_debug_logs_failed_to_export">Не атрымалася экспартаваць лагі: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Не ўдалося экспартаваць журналы: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Ачысціць адладачныя лагі</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Ачышчае ўсе захаваныя адладачныя лагі ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Лагі ачышчаны</string>

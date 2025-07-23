@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">Евидентирање отклањања грешака је онемогућено</string>
   <string name="revanced_debug_logs_none_found">Нема пронађених евиденција</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Евиденције су копиране</string>
-  <string name="revanced_debug_logs_failed_to_export">Извоз евиденција није успео: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Неуспешан извоз евиденција: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Избриши евиденције отклањања грешака</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Брише све сачуване евиденције отклањања грешака ReVanced-а</string>
   <string name="revanced_debug_logs_clear_toast">Евиденције су избрисане</string>
@@ -251,8 +251,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_summary_on">Временске реакције су скривене</string>
   <string name="revanced_hide_timed_reactions_summary_off">Временске реакције су приказане</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Сакриј „Резиме видеа који је генерисала вештачка интелигенција”</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Одељак сажетка видеа генерисаног вештачком интелигенцијом је скривен</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Приказан је одељак са AI генерисаним резимеом видеа</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Одељак „Резиме видеа који је генерисала вештачка интелигенција” је скривен</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Одељак „Резиме видеа који је генерисала вештачка интелигенција” је приказан</string>
   <string name="revanced_hide_ask_section_title">Сакриј одељак „Питај”</string>
   <string name="revanced_hide_ask_section_summary_on">Одељак „Питај” је скривен</string>
   <string name="revanced_hide_ask_section_summary_off">Одељак „Питај” је приказан</string>
@@ -315,12 +315,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_visit_store_button_summary_off">Дугме „Посети продавницу” је приказано</string>
   <string name="revanced_comments_screen_title">Коментари</string>
   <string name="revanced_comments_screen_summary">Сакријте или прикажите компоненте одељка за коментаре</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Сакриј сажетак АИ ћаскања</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Сажетак АИ ћаскања је скривен</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Сажетак АИ ћаскања је приказан</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Сакриј „Резиме ћаскања који је генерисала вештачка интелигенција”</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">„Резиме ћаскања који је генерисала вештачка интелигенција” је скривен</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">„Резиме ћаскања који је генерисала вештачка интелигенција” је приказан</string>
   <string name="revanced_hide_comments_ai_summary_title">Сакриј „Резиме коментара који је генерисала вештачка интелигенција”</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Сажетак АИ коментара је скривен</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Сажетак АИ коментара је приказан</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">„Резиме коментара који је генерисала вештачка интелигенција” је скривен</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">„Резиме коментара који је генерисала вештачка интелигенција” је приказан</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Сакриј смернице канала</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Смернице канала су скривене</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Смернице канала су приказане</string>
@@ -729,13 +729,13 @@ Second \"item\" text"</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Бројеви су анимирани</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Сакриј траку за премотавање видео плејера</string>
+  <string name="revanced_hide_seekbar_title">Сакриј траку за премотавање у видео плејеру</string>
   <string name="revanced_hide_seekbar_summary_on">Трака за премотавање у видео плејеру је скривена</string>
   <string name="revanced_hide_seekbar_summary_off">Трака за премотавање у видео плејеру је приказана</string>
   <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
-  <string name="revanced_hide_seekbar_thumbnail_title">Сакриј траку за премотавање сличица видеа</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Трака за премотавање сличица видеа је скривена</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Трака за премотавање сличица видеа је приказана</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Сакриј траку за премотавање на сличицама видеа</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Трака за премотавање на сличицама видеа је скривена</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Трака за премотавање на сличицама видеа је приказана</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts плејер</string>

@@ -137,7 +137,7 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_debug_logs_disabled">Regjistrimi i korrigjimeve është çaktivizuar</string>
   <string name="revanced_debug_logs_none_found">Nuk u gjetën regjistra</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Regjistrat u kopjuan</string>
-  <string name="revanced_debug_logs_failed_to_export">Eksportimi i regjistrave dështoi: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Dështoi eksportimi i regjistrave: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Pastro regjistrat e korrigjimit</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Pastro të gjithë regjistrat e ruajtur të korrigjimit të ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Regjistrat u pastruan</string>

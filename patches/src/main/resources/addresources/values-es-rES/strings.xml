@@ -29,26 +29,26 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_manager_not_expected_installer">No instalado por ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Parcheado hace más de 10 minutos</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Parcheado hace %s días</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">La fecha de compilación del APK está dañada</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">La fecha de compilación del APK está corrupta</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ajustes</string>
-  <string name="revanced_settings_confirm_user_dialog_title">¿Está seguro de que quiere continuar?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">¿Estás seguro de que quieres continuar?</string>
   <string name="revanced_settings_reset">Restablecer</string>
   <string name="revanced_settings_reset_color">Restablecer color</string>
   <string name="revanced_settings_color_invalid">Color no válido</string>
   <string name="revanced_settings_restart_title">Reinicio necesario</string>
-  <string name="revanced_settings_restart_dialog_message">Reinicie la aplicación para que este cambio surta efecto.</string>
+  <string name="revanced_settings_restart_dialog_message">Reinicia la aplicación para que este cambio surta efecto.</string>
   <string name="revanced_settings_restart">Reiniciar</string>
   <string name="revanced_settings_import">Importar</string>
   <string name="revanced_settings_import_copy">Copiar</string>
-  <string name="revanced_settings_import_reset">Configuración ReVanced restablecida por defecto</string>
+  <string name="revanced_settings_import_reset">Ajustes de ReVanced restablecidos a los valores predeterminados</string>
   <string name="revanced_settings_import_success">Configuración importada de %d</string>
-  <string name="revanced_settings_import_failure_parse">Error de importación: %s</string>
-  <string name="revanced_settings_search_hint">Ajustes de búsqueda</string>
+  <string name="revanced_settings_import_failure_parse">Importación fallida: %s</string>
+  <string name="revanced_settings_search_hint">Buscar ajustes</string>
   <string name="revanced_settings_search_no_results_title">No se encontraron resultados para «%s»</string>
   <string name="revanced_settings_search_no_results_summary">Prueba con otra palabra clave</string>
-  <string name="revanced_settings_search_remove_message">¿Quitar del historial de búsqueda?</string>
+  <string name="revanced_settings_search_remove_message">¿Eliminar del historial de búsqueda?</string>
   <string name="revanced_show_menu_icons_title">Mostrar iconos de configuración de ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Se muestran los iconos de configuración</string>
   <string name="revanced_show_menu_icons_summary_off">No se muestran los iconos de configuración</string>
@@ -62,25 +62,26 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Estás usando la versión de ReVanced Patches: &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Nota</string>
-  <string name="revanced_settings_about_links_dev_body">Esta versión es una pre-versión y puedes experimentar problemas inesperados</string>
+  <string name="revanced_settings_about_links_dev_body">Esta versión es un pre-lanzamiento y podrías experimentar problemas inesperados</string>
   <string name="revanced_settings_about_links_header">Enlaces oficiales</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore no está instalado. Instálala.</string>
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore no está instalado. Instálalo.</string>
   <string name="gms_core_dialog_title">Acción necesaria</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore no tiene permiso para ejecutarse en segundo plano.
 
-Sigue la guía \"No cierres mi aplicación\" para su teléfono, y aplica las instrucciones a tu instalación de MicroG
+Sigue la guía \"Don't kill my app\" para tu teléfono, y aplica las instrucciones a tu instalación de MicroG
 
-Esto es requerido para el funcionamiento de la APP"</string>
+Esto es requerido para el funcionamiento de la aplicación."</string>
   <string name="gms_core_dialog_open_website_text">Abrir sitio web</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"La optimización de la batería de MicroG GmsCore debe estar deshabilitada para evitar problemas.
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Las optimizaciones de batería para MicroG GmsCore deben estar desactivadas para evitar problemas.
 
-Desactivar las optimizaciones de batería para MicroG no afectará negativamente el gasto de la batería
-"</string>
+Deshabilitar las optimizaciones de batería para MicroG no afectará negativamente el uso de la batería.
+
+Toca el botón continuar y permite los cambios de optimización."</string>
   <string name="gms_core_dialog_continue_text">Continuar</string>
   </patch>
   </app>
@@ -92,26 +93,26 @@ Desactivar las optimizaciones de batería para MicroG no afectará negativamente
   <string name="revanced_settings_screen_03_feed_title">Fuente</string>
   <string name="revanced_settings_screen_04_general_title">General</string>
   <string name="revanced_settings_screen_05_player_title">Reproductor</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Barra</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Barra de progreso</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controles de deslizamiento</string>
-  <string name="revanced_settings_screen_11_misc_title">Miscelánea</string>
+  <string name="revanced_settings_screen_11_misc_title">Otros</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
-  <string name="revanced_restore_old_settings_menus_title">Restaurar los menús de configuración antiguos</string>
+  <string name="revanced_restore_old_settings_menus_title">Restaurar menús de configuración antiguos</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Se muestran los menús de configuración antiguos</string>
   <string name="revanced_restore_old_settings_menus_summary_off">No se muestran los menús de configuración antiguos</string>
   <string name="revanced_settings_search_history_title">Mostrar el historial de búsqueda de ajustes</string>
-  <string name="revanced_settings_search_history_summary_on">Se muestra el historial de búsqueda de ajustes</string>
+  <string name="revanced_settings_search_history_summary_on">El historial de búsqueda de los ajustes está visible</string>
   <string name="revanced_settings_search_history_summary_off">El historial de búsqueda de ajustes no se muestra</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Desactivar la reproducción en segundo plano de Shorts</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">La reproducción de Shorts en segundo plano está desactivada</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">La reproducción de Shorts en segundo plano está activada</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">La reproducción en segundo plano de Shorts está deshabilitada</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">La reproducción en segundo plano de Shorts está habilitada</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Depuración</string>
   <string name="revanced_debug_screen_summary">Activar o desactivar las opciones de depuración</string>
-  <string name="revanced_debug_title">Depurar registro</string>
+  <string name="revanced_debug_title">Registro de depuración</string>
   <string name="revanced_debug_summary_on">Los registros de depuración están habilitados</string>
   <string name="revanced_debug_summary_off">Los registros de depuración están desactivados</string>
   <string name="revanced_debug_protobuffer_title">Búfer de protocolo de registro</string>
@@ -125,39 +126,41 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
   <string name="revanced_debug_stacktrace_title">Registrar stack traces</string>
   <string name="revanced_debug_stacktrace_summary_on">Los registros de depuración incluyen stack trace</string>
   <string name="revanced_debug_stacktrace_summary_off">Los registros de depuración no incluyen stack trace</string>
-  <string name="revanced_debug_toast_on_error_title">Mostrar brindis en error ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Se muestra un toast si se produce un error</string>
-  <string name="revanced_debug_toast_on_error_summary_off">No se muestra un toast si se produce un error</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Desactivar las notificaciones de error oculta todas las notificaciones de error de ReVanced."</string>
+  <string name="revanced_debug_toast_on_error_title">Mostrar mensaje de error en ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Se muestra un mensaje si se produce un error</string>
+  <string name="revanced_debug_toast_on_error_summary_off">No se muestra un mensaje si se produce un error</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Desactivar los avisos de error oculta todas las notificaciones de error de ReVanced.
+
+No se le notificará de ningún evento inesperado."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Exportar registros de depuración</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Copia los registros de depuración de ReVanced al portapapeles</string>
   <string name="revanced_debug_logs_disabled">El registro de depuración está desactivado</string>
   <string name="revanced_debug_logs_none_found">No se encontraron registros</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Registros copiados</string>
-  <string name="revanced_debug_logs_failed_to_export">Error al exportar los registros: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Error al exportar registros: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Borrar registros de depuración</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Borra todos los registros de depuración de ReVanced almacenados</string>
   <string name="revanced_debug_logs_clear_toast">Registros borrados</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_hide_album_cards_title">Ocultar álbumes</string>
+  <string name="revanced_hide_album_cards_title">Ocultar tarjetas de álbum</string>
   <string name="revanced_hide_album_cards_summary_on">Las tarjetas de álbum están ocultas</string>
   <string name="revanced_hide_album_cards_summary_off">Se muestran las tarjetas de álbum</string>
-  <string name="revanced_hide_artist_cards_title">Ocultar tarjetas de artistas</string>
-  <string name="revanced_hide_artist_cards_summary_on">Las tarjetas de artistas están ocultas</string>
-  <string name="revanced_hide_artist_cards_summary_off">Se muestran las tarjetas del artista</string>
+  <string name="revanced_hide_artist_cards_title">Ocultar tarjetas de artista</string>
+  <string name="revanced_hide_artist_cards_summary_on">Las tarjetas de artista están ocultas</string>
+  <string name="revanced_hide_artist_cards_summary_off">Se muestran las tarjetas de artista</string>
   <string name="revanced_hide_chips_shelf_title">Ocultar \"Más como esto\"</string>
   <string name="revanced_hide_chips_shelf_summary_on">\"Más como esto\" está oculto</string>
   <string name="revanced_hide_chips_shelf_summary_off">\"Más como esto\" está habilitado</string>
-  <string name="revanced_hide_community_posts_title">Ocultar mensajes comunitarios</string>
-  <string name="revanced_hide_community_posts_summary_on">Los mensajes de la comunidad están ocultos</string>
+  <string name="revanced_hide_community_posts_title">Ocultar publicaciones de comunidad</string>
+  <string name="revanced_hide_community_posts_summary_on">Las publicaciones de la comunidad están ocultas</string>
   <string name="revanced_hide_community_posts_summary_off">Se muestran las publicaciones de la comunidad</string>
   <string name="revanced_hide_compact_banner_title">Ocultar banners compactos</string>
   <string name="revanced_hide_compact_banner_summary_on">Los banners compactos están ocultos</string>
   <string name="revanced_hide_compact_banner_summary_off">Se muestran los banners compactos</string>
-  <string name="revanced_hide_crowdfunding_box_title">Ocultar caja de recaudación</string>
+  <string name="revanced_hide_crowdfunding_box_title">Ocultar caja de Crowdfunding</string>
   <string name="revanced_hide_crowdfunding_box_summary_on">La caja de Crowdfunding está oculta</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Se muestra la caja de Crowdfunding</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">La caja de Crowdfunding está visible</string>
   <string name="revanced_hide_expandable_card_title">Ocultar tarjeta expandible</string>
   <string name="revanced_hide_expandable_card_summary_on">Tarjeta expandible debajo de los videos oculta</string>
   <string name="revanced_hide_expandable_card_summary_off">Tarjeta expandible debajo de los videos visible</string>
@@ -172,19 +175,19 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
 • Más relevantes
 • Compras
 • Ver de nuevo"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Se muestran los estantes horizontales</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Los estantes horizontales están visibles</string>
   <string name="revanced_hide_image_shelf_title">Ocultar estantería de imágenes</string>
   <string name="revanced_hide_image_shelf_summary_on">Estantería de imágenes en los resultados de búsqueda oculta</string>
   <string name="revanced_hide_image_shelf_summary_off">Estantería de imágenes en los resultados de búsqueda visible</string>
-  <string name="revanced_hide_latest_posts_title">Ocultar últimos mensajes</string>
+  <string name="revanced_hide_latest_posts_title">Ocultar últimas publicaciones</string>
   <string name="revanced_hide_latest_posts_summary_on">Las últimas publicaciones están ocultas</string>
   <string name="revanced_hide_latest_posts_summary_off">Se muestran las últimas publicaciones</string>
-  <string name="revanced_hide_mix_playlists_title">Ocultar listas de mezcla</string>
-  <string name="revanced_hide_mix_playlists_summary_on">Las listas de reproducción mixtas están ocultas</string>
-  <string name="revanced_hide_mix_playlists_summary_off">Mezclar listas de reproducción son mostradas</string>
+  <string name="revanced_hide_mix_playlists_title">Ocultar lista de reproducción Mix</string>
+  <string name="revanced_hide_mix_playlists_summary_on">La lista de reproducción Mix está oculta</string>
+  <string name="revanced_hide_mix_playlists_summary_off">La lista de reproducción Mix está visible</string>
   <string name="revanced_hide_movies_section_title">Ocultar sección de películas</string>
   <string name="revanced_hide_movies_section_summary_on">La sección de películas está oculta</string>
-  <string name="revanced_hide_movies_section_summary_off">Se muestra la sección de películas</string>
+  <string name="revanced_hide_movies_section_summary_off">La sección de películas está visible</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                   This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Ocultar el botón \'Notificarme\'</string>
@@ -200,9 +203,9 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
   <string name="revanced_hide_show_more_button_summary_off">El botón Mostrar más en los resultados de búsqueda está visible</string>
   <string name="revanced_hide_surveys_title">Ocultar encuestas</string>
   <string name="revanced_hide_surveys_summary_on">Las encuestas están ocultas</string>
-  <string name="revanced_hide_surveys_summary_off">Las encuestas están mostradas</string>
-  <string name="revanced_hide_ticket_shelf_title">Ocultar estante de boletos</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">El estante de boletos está oculto</string>
+  <string name="revanced_hide_surveys_summary_off">Las encuestas están visibles</string>
+  <string name="revanced_hide_ticket_shelf_title">Ocultar estantes de tickets</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">El estante de tickets está oculto</string>
   <string name="revanced_hide_ticket_shelf_summary_off">El estante de boletos está visible</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_video_recommendation_labels_title">Ocultar etiquetas de recomendación de vídeo</string>

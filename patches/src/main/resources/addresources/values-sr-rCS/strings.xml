@@ -137,7 +137,7 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_debug_logs_disabled">Evidentiranje otklanjanja grešaka je onemogućeno</string>
   <string name="revanced_debug_logs_none_found">Nema pronađenih evidencija</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Evidencije su kopirane</string>
-  <string name="revanced_debug_logs_failed_to_export">Izvoz evidencija nije uspeo: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Neuspešan izvoz evidencija: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Izbriši evidencije otklanjanja grešaka</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Briše sve sačuvane evidencije otklanjanja grešaka ReVanceda</string>
   <string name="revanced_debug_logs_clear_toast">Evidencije su izbrisane</string>
@@ -251,8 +251,8 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <string name="revanced_hide_timed_reactions_summary_on">Vremenske reakcije su skrivene</string>
   <string name="revanced_hide_timed_reactions_summary_off">Vremenske reakcije su prikazane</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Sakrij „Rezime videa koji je generisala veštačka inteligencija”</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Odeljak rezimea video snimka generisan veštačkom inteligencijom je skriven</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Prikazana je sekcija sa sažetkom video zapisa generisanog veštačkom inteligencijom</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Odeljak „Rezime videa koji je generisala veštačka inteligencija” je skriven</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Odeljak „Rezime videa koji je generisala veštačka inteligencija” je prikazan</string>
   <string name="revanced_hide_ask_section_title">Sakrij odeljak „Pitaj”</string>
   <string name="revanced_hide_ask_section_summary_on">Odeljak „Pitaj” je skriven</string>
   <string name="revanced_hide_ask_section_summary_off">Odeljak „Pitaj” je prikazan</string>
@@ -315,12 +315,12 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <string name="revanced_hide_visit_store_button_summary_off">Dugme „Poseti prodavnicu” je prikazano</string>
   <string name="revanced_comments_screen_title">Komentari</string>
   <string name="revanced_comments_screen_summary">Sakrijte ili prikažite komponente odeljka za komentare</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Sakrij rezime AI četa</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Rezime AI četa je skriven</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Rezime AI četa je prikazan</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Sakrij „Rezime ćaskanja koji je generisala veštačka inteligencija”</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">„Rezime ćaskanja koji je generisala veštačka inteligencija” je skriven</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">„Rezime ćaskanja koji je generisala veštačka inteligencija” je prikazan</string>
   <string name="revanced_hide_comments_ai_summary_title">Sakrij „Rezime komentara koji je generisala veštačka inteligencija”</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Rezime AI komentara je skriven</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Rezime AI komentara je prikazan</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">„Rezime komentara koji je generisala veštačka inteligencija” je skriven</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">„Rezime komentara koji je generisala veštačka inteligencija” je prikazan</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Sakrij smernice kanala</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Smernice kanala su skrivene</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Smernice kanala su prikazane</string>
@@ -729,17 +729,17 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_disable_rolling_number_animations_summary_off">Brojevi su animirani</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Sakrij traku za pretragu video plejera</string>
+  <string name="revanced_hide_seekbar_title">Sakrij traku za premotavanje u video plejeru</string>
   <string name="revanced_hide_seekbar_summary_on">Traka za premotavanje u video plejeru je skrivena</string>
   <string name="revanced_hide_seekbar_summary_off">Traka za premotavanje u video plejeru je prikazana</string>
   <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
-  <string name="revanced_hide_seekbar_thumbnail_title">Sakrij traku za pretragu sličica video snimaka</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Traka za pretragu sličica video snimaka je skrivena</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Traka za pretragu sličica video snimaka je prikazana</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Sakrij traku za premotavanje na sličicama videa</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Traka za premotavanje na sličicama videa je skrivena</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Traka za premotavanje na sličicama videa je prikazana</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts plejer</string>
-  <string name="revanced_shorts_player_screen_summary">Sakrijte ili prikažite komponente plejera za Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Sakrijte ili prikažite komponente Shorts plejera</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Sakrij Shorts u fidu „Početna”</string>
   <string name="revanced_hide_shorts_home_summary_on">Skriveno u fidu „Početna” i srodnim videima</string>

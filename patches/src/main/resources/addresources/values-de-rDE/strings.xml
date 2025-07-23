@@ -72,7 +72,9 @@ Um neue Sprachen zu übersetzen, besuchen Sie translate.revanced.app"</string>
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore ist nicht installiert. Installieren Sie es.</string>
   <string name="gms_core_dialog_title">Aktion notwendig</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore hat keine Berechtigung, im Hintergrund zu laufen.
-Folgen Sie der Anleitung \"Meine App nicht beenden\" für Ihr Telefon und wenden Sie die Anweisungen auf Ihre MicroG-Installation an.
+
+Folgen Sie der Anleitung \"Don't kill my app\" für Ihr Gerät und wenden Sie die Anweisungen auf Ihre MicroG-Installation an.
+
 Dies ist erforderlich, damit die App funktioniert."</string>
   <string name="gms_core_dialog_open_website_text">Website öffnen</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Die Batterieoptimierung von MicroG GmsCore muss deaktiviert werden, um Probleme zu vermeiden.
@@ -85,7 +87,7 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Über</string>
   <string name="revanced_settings_screen_01_ads_title">Werbung</string>
-  <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative Miniaturbilder</string>
+  <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative Thumbnails</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_general_title">Allgemein</string>
   <string name="revanced_settings_screen_05_player_title">Spieler</string>
@@ -133,7 +135,7 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_debug_logs_disabled">Debug-Protokollierung ist deaktiviert</string>
   <string name="revanced_debug_logs_none_found">Keine Protokolle gefunden</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Protokolle kopiert</string>
-  <string name="revanced_debug_logs_failed_to_export">Fehler beim Exportieren von Protokollen: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Fehler beim Exportieren der Protokolle: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Debug-Protokolle löschen</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Löscht alle gespeicherten ReVanced-Debug-Protokolle</string>
   <string name="revanced_debug_logs_clear_toast">Protokolle gelöscht</string>

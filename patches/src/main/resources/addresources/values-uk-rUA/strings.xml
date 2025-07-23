@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">Журнали налагодження вимкнено</string>
   <string name="revanced_debug_logs_none_found">Журнали не знайдено</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Журнали скопійовано</string>
-  <string name="revanced_debug_logs_failed_to_export">Не вдалося експортувати журнали: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Не вдалося експортувати журнали: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Очистити журнали налагодження</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Очищує всі збережені журнали налагодження ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Журнали очищено</string>
