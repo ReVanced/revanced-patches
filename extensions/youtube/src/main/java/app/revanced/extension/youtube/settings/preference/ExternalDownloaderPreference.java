@@ -246,6 +246,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                         : ""
                 );
                 editText.setEnabled(true); // Enable editing for Custom.
+                editText.requestFocus();
             }
             editText.setSelection(editText.getText().length());
             adapter.setSelectedValue(selectedValue);
