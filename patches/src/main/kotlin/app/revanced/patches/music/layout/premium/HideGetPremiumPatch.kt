@@ -15,7 +15,7 @@ val hideGetPremiumPatch = bytecodePatch(
         "com.google.android.apps.youtube.music"(
             "7.16.53",
             "8.05.51",
-            "8.29.52"
+            "8.12.54",
         )
     )
 
