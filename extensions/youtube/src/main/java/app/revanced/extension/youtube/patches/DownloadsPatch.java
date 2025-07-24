@@ -1,17 +1,15 @@
 package app.revanced.extension.youtube.patches;
 
+import static app.revanced.extension.youtube.settings.preference.ExternalDownloaderPreference.showDialogIfAppIsNotInstalled;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-
-import androidx.annotation.NonNull;
 
 import java.lang.ref.WeakReference;
 import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.StringRef;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -36,7 +34,7 @@ public final class DownloadsPatch {
      *
      * Appears to always be called from the main thread.
      */
-    public static boolean inAppDownloadButtonOnClick(@NonNull String videoId) {
+    public static boolean inAppDownloadButtonOnClick(String videoId) {
         try {
             if (!Settings.EXTERNAL_DOWNLOADER_ACTION_BUTTON.get()) {
                 return false;
@@ -48,6 +46,9 @@ public final class DownloadsPatch {
             boolean isActivityContext = true;
             if (context == null) {
                 // Utils context is the application context, and not an activity context.
+                //
+                // Edit: This check may no longer be needed since YT can now
+                // only be launched from the main Activity (embedded usage in other apps no longer works).
                 context = Utils.getContext();
                 isActivityContext = false;
             }
@@ -64,8 +65,7 @@ public final class DownloadsPatch {
      * @param isActivityContext If the context parameter is for an Activity.  If this is false, then
      *                          the downloader is opened as a new task (which forces YT to minimize).
      */
-    public static void launchExternalDownloader(@NonNull String videoId,
-                                                @NonNull Context context, boolean isActivityContext) {
+    public static void launchExternalDownloader(String videoId, Context context, boolean isActivityContext) {
         try {
             Objects.requireNonNull(videoId);
             Logger.printDebug(() -> "Launching external downloader with context: " + context);
@@ -73,16 +73,8 @@ public final class DownloadsPatch {
             // Trim string to avoid any accidental whitespace.
             var downloaderPackageName = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME.get().trim();
 
-            boolean packageEnabled = false;
-            try {
-                packageEnabled = context.getPackageManager().getApplicationInfo(downloaderPackageName, 0).enabled;
-            } catch (PackageManager.NameNotFoundException error) {
-                Logger.printDebug(() -> "External downloader could not be found: " + error);
-            }
-
-            // If the package is not installed, show the toast
-            if (!packageEnabled) {
-                Utils.showToastLong(StringRef.str("revanced_external_downloader_not_installed_warning", downloaderPackageName));
+            // If the package is not installed, show a dialog.
+            if (showDialogIfAppIsNotInstalled(context, downloaderPackageName)) {
                 return;
             }
 

@@ -137,7 +137,7 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_debug_logs_disabled">Ladění je vypnuto</string>
   <string name="revanced_debug_logs_none_found">Nebyly nalezeny žádné protokoly</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Protokoly zkopírovány</string>
-  <string name="revanced_debug_logs_failed_to_export">Nepodařilo se exportovat protokoly: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Nepodařilo se exportovat protokoly: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Vymazat ladicí protokoly</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Vymaže všechny uložené ladicí protokoly ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Protokoly vymazány</string>

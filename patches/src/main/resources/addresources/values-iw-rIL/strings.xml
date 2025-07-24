@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">תיעוד איתור באגים מושבת</string>
   <string name="revanced_debug_logs_none_found">לא נמצאו יומנים</string>
   <string name="revanced_debug_logs_copied_to_clipboard">היומנים הועתקו</string>
-  <string name="revanced_debug_logs_failed_to_export">נכשל לייצא יומנים: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">נכשל ייצוא יומנים: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">נקה יומני איתור באגים</string>
   <string name="revanced_debug_logs_clear_buffer_summary">מנקה את כל היומנים לאיתור באגים של Revanced המאוחסנים</string>
   <string name="revanced_debug_logs_clear_toast">היומנים נוקו</string>

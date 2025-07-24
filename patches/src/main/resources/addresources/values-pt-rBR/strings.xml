@@ -137,7 +137,7 @@ Você não será notificado sobre nenhum evento inesperado."</string>
   <string name="revanced_debug_logs_disabled">O registro de depuração está desativado</string>
   <string name="revanced_debug_logs_none_found">Nenhum registro encontrado</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Registros copiados</string>
-  <string name="revanced_debug_logs_failed_to_export">Falha ao exportar os registros: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Falha ao exportar registros: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Limpar registros de depuração</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Limpa todos os registros de depuração do ReVanced armazenados</string>
   <string name="revanced_debug_logs_clear_toast">Registros limpos</string>

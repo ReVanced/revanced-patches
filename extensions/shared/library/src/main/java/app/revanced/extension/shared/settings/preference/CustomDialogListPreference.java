@@ -25,7 +25,7 @@ public class CustomDialogListPreference extends ListPreference {
     /**
      * Custom ArrayAdapter to handle checkmark visibility.
      */
-    private static class ListPreferenceArrayAdapter extends ArrayAdapter<CharSequence> {
+    public static class ListPreferenceArrayAdapter extends ArrayAdapter<CharSequence> {
         private static class SubViewDataContainer {
             ImageView checkIcon;
             View placeholder;

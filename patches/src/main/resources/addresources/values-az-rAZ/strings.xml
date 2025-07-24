@@ -137,7 +137,6 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_debug_logs_disabled">Sazlama qeydi qapalıdır</string>
   <string name="revanced_debug_logs_none_found">Qeydlər tapılmadı</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Qeydlər köçürüldü</string>
-  <string name="revanced_debug_logs_failed_to_export">Qeydləri ixrac etmək alınmadı: $s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Sazlama qeydlərini təmizlə</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Saxlanılan bütün ReVanced sazlama qeydlərini təmizləyir</string>
   <string name="revanced_debug_logs_clear_toast">Qeydlər silindi</string>

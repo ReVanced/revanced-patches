@@ -94,7 +94,7 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
   <string name="revanced_settings_screen_04_general_title">Genel</string>
   <string name="revanced_settings_screen_05_player_title">Oynatıcı</string>
   <string name="revanced_settings_screen_07_seekbar_title">Zaman çubuğu</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">Kaydırma kontrolleri</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Kaydırma denetimleri</string>
   <string name="revanced_settings_screen_11_misc_title">Çeşitli</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Eski ayarlar menülerini geri getir</string>
@@ -134,10 +134,10 @@ Ancak, bunun etkinleştirilmesi IP adresiniz gibi bazı kullanıcı verilerini d
 Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Hata ayıklama kayıtlarını dışa aktar</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced hata ayıklama kayıtlarını panoya kopyalar</string>
-  <string name="revanced_debug_logs_disabled">Hata ayıklama kaydı devre dışı</string>
+  <string name="revanced_debug_logs_disabled">Hata ayıklama kayıtları devre dışı</string>
   <string name="revanced_debug_logs_none_found">Kayıt bulunamadı</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Kayıtlar kopyalandı</string>
-  <string name="revanced_debug_logs_failed_to_export">Kayıtlar dışa aktarılamadı: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Kayıtlar dışa aktarılamadı: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Hata ayıklama kayıtlarını temizle</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Kaydedilmiş tüm ReVanced hata ayıklama kayıtlarını temizler</string>
   <string name="revanced_debug_logs_clear_toast">Kayıtlar temizlendi</string>
@@ -251,29 +251,29 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
   <string name="revanced_hide_timed_reactions_summary_on">Süreli tepkiler gizli</string>
   <string name="revanced_hide_timed_reactions_summary_off">Süreli tepkiler görünür</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">\'Yapay zeka tarafından oluşturulan video özeti\'ni gizle</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Yapay zeka tarafından oluşturulan video özet bölümü gizli</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Yapay zeka tarafından oluşturulan video özet bölümü gösteriliyor</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Yapay zeka tarafından oluşturulan video özet kısmı gizli</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Yapay zeka tarafından oluşturulan video özet kısmı görünür</string>
   <string name="revanced_hide_ask_section_title">\'Sor\'u gizle</string>
   <string name="revanced_hide_ask_section_summary_on">Sor kısmı gizli</string>
   <string name="revanced_hide_ask_section_summary_off">Sor kısmı görünür</string>
   <string name="revanced_hide_attributes_section_title">Nitelikleri gizle</string>
-  <string name="revanced_hide_attributes_section_summary_on">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler bölümleri gizli</string>
-  <string name="revanced_hide_attributes_section_summary_off">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler bölümleri görünür</string>
+  <string name="revanced_hide_attributes_section_summary_on">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler kısımları gizli</string>
+  <string name="revanced_hide_attributes_section_summary_off">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler kısımları görünür</string>
   <string name="revanced_hide_chapters_section_title">Bölümleri gizle</string>
   <string name="revanced_hide_chapters_section_summary_on">Bölümler kısmı gizli</string>
   <string name="revanced_hide_chapters_section_summary_off">Bölümler kısmı görünür</string>
   <string name="revanced_hide_how_this_was_made_section_title">\'Bu içerik nasıl yapıldı\'yı gizle</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_on">Bu içerik nasıl yapıldı bölümü gizli</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_off">Bu içerik nasıl yapıldı bölümü görünür</string>
-  <string name="revanced_hide_podcast_section_title">\"\'Podcast\'i keşfedin\"\'i gizle</string>
-  <string name="revanced_hide_podcast_section_summary_on">Podcast\'i keşfedin bölümü gizli</string>
-  <string name="revanced_hide_podcast_section_summary_off">Podcast\'i keşfedin bölümü görünür</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">Bu içerik nasıl yapıldı kısmı gizli</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">Bu içerik nasıl yapıldı kısmı görünür</string>
+  <string name="revanced_hide_podcast_section_title">\"Podcast\'i keşfedin\"i gizle</string>
+  <string name="revanced_hide_podcast_section_summary_on">Podcast\'i keşfedin kısmı gizli</string>
+  <string name="revanced_hide_podcast_section_summary_off">Podcast\'i keşfedin kısmı görünür</string>
   <string name="revanced_hide_info_cards_section_title">Bilgi kartlarını gizle</string>
   <string name="revanced_hide_info_cards_section_summary_on">Bilgi kartları kısmı gizli</string>
   <string name="revanced_hide_info_cards_section_summary_off">Bilgi kartları kısmı görünür</string>
   <string name="revanced_hide_key_concepts_section_title">\'Anahtar kavramlar\'ı gizle</string>
-  <string name="revanced_hide_key_concepts_section_summary_on">Anahtar kavramlar bölümü gizli</string>
-  <string name="revanced_hide_key_concepts_section_summary_off">Anahtar kavramlar bölümü görünür</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Anahtar kavramlar kısmı gizli</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Anahtar kavramlar kısmı görünür</string>
   <string name="revanced_hide_transcript_section_title">Transkripti gizle</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkript kısmı gizli</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkript kısmı görünür</string>
@@ -281,18 +281,18 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
   <string name="revanced_hide_description_components_screen_summary">Video açıklamasındaki öğeleri gizle veya göster</string>
   <string name="revanced_hide_filter_bar_screen_title">Filtreleme çubuğu</string>
   <string name="revanced_hide_filter_bar_screen_summary">Akışlarda, ilgili videolarda, arama sonuçlarında ve izleme geçmişinde filtre çubuğunu gizle veya göster</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Beslemelerde gizle</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Beslemelerde gizlendi</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Beslemelerde gösterildi</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Alâkalı videolardakini gizle</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Alâkalı videolardaki gizli</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Alâkalı videolardaki görünür</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Akışlarda gizle</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Akışlarda gizli</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Akışlarda görünür</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Alâkalı videolarda gizle</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Alâkalı videolarda gizli</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Alâkalı videolarda görünür</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Arama sonuçlarında gizle</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Arama sonuçlarında gizli</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Arama sonuçlarında görünür</string>
   <string name="revanced_hide_filter_bar_feed_in_history_title">İzleme geçmişinde gizle</string>
   <string name="revanced_hide_filter_bar_feed_in_history_summary_on">İzleme geçmişinde gizli</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">İzleme geçmişinde gösteriliyor</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">İzleme geçmişinde görünür</string>
   <string name="revanced_channel_screen_title">Kanal sayfası</string>
   <string name="revanced_channel_screen_summary">Kanal sayfası bileşenlerini gizle veya göster</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -370,7 +370,7 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Yeni satırlarla ayrılmış gizlenecek anahtar kelimeler ve ifadeler
 
-Anahtar kelimeler kanal adları veya video başlıklarında gösterilen herhangi bir metin olabilir
+Anahtar kelimeler, kanal adları veya video başlıklarında gösterilen herhangi bir metin olabilir
 
 Ortadaki harfleri büyük olan kelimeler, büyük/küçük harf kullanımına göre girilmelidir (örneğin: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">Anahtar kelimeyle filtreleme hakkında</string>
@@ -393,7 +393,7 @@ Sınırlamalar
   <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_creator_store_shelf_title">İçerik oluşturucu mağaza rafını gizle</string>
   <string name="revanced_hide_creator_store_shelf_summary_on">Video oynatıcısının altındaki içerik üreticisi mağazası rafı gizli</string>
-  <string name="revanced_hide_creator_store_shelf_summary_off">Video oynatıcının altındaki içerik üreticisi mağaza rafı gösteriliyor</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Video oynatıcının altındaki içerik üreticisi mağaza rafı görünür</string>
   <string name="revanced_hide_end_screen_store_banner_title">Bitiş ekranındaki mağaza afişini gizle</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Bitiş ekranı mağaza afişi gizli</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Bitiş ekranı mağaza afişi görünür</string>

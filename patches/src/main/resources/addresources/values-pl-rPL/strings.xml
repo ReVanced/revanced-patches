@@ -133,7 +133,7 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_debug_logs_disabled">Rejestrowanie debugowania jest wyłączone</string>
   <string name="revanced_debug_logs_none_found">Nie znaleziono dzienników</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Dzienniki skopiowane</string>
-  <string name="revanced_debug_logs_failed_to_export">Nie udało się wyeksportować dzienników: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Nie udało się wyeksportować logów: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Wyczyść dzienniki debugowania</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Czyści wszystkie zapisane dzienniki debugowania ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Dzienniki wyczyszczone</string>

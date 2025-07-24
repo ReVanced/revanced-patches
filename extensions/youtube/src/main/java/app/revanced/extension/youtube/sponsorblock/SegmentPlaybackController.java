@@ -826,11 +826,10 @@ public class SegmentPlaybackController {
             WindowManager.LayoutParams params = window.getAttributes();
             params.gravity = Gravity.BOTTOM;
             params.y = dipToPixels(72);
-            DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
-            int portraitWidth = (int) (displayMetrics.widthPixels * 0.6);
+            int portraitWidth = Utils.percentageWidthToPixels(60); // 60% of the screen width.
 
             if (Resources.getSystem().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                portraitWidth = (int) Math.min(portraitWidth, displayMetrics.heightPixels * 0.6);
+                portraitWidth = Math.min(portraitWidth, Utils.percentageHeightToPixels(60)); // 60% of the screen height.
             }
             params.width = portraitWidth;
             params.dimAmount = 0.0f;

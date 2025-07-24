@@ -135,7 +135,7 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_debug_logs_disabled">Protokolovanie ladenia je vypnuté</string>
   <string name="revanced_debug_logs_none_found">Nenašli sa žiadne protokoly</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Protokoly skopírované</string>
-  <string name="revanced_debug_logs_failed_to_export">Nepodarilo sa exportovať protokoly: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Nepodarilo sa exportovať protokoly: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Vymazať protokoly ladenia</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Vymaže všetky uložené protokoly ladenia ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Protokoly vymazané</string>
