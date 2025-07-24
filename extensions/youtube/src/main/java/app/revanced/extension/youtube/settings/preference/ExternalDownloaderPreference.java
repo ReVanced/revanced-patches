@@ -47,7 +47,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
     /**
      * Enum representing supported external downloaders with their display names, package names, and download URLs.
      */
-    public enum Downloader {
+    private enum Downloader {
         YTDLNIS("YTDLnis",
                 "com.deniscerri.ytdl",
                 "https://ytdlnis.org",
@@ -62,10 +62,10 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         LIBRETUBE("LibreTube",
                 "com.github.libretube",
                 "https://libretube.dev"),
-        NEW_PIPE("NewPipe",
+        NEWPIPE("NewPipe",
                 "org.schabi.newpipe",
                 "https://newpipe.net"),
-        PIPE_PIPE("PipePipe",
+        PIPEPIPE("PipePipe",
                 "InfinityLoop1309.NewPipeEnhanced",
                 "https://pipepipe.dev"),
         TUBULAR("Tubular",
@@ -207,26 +207,27 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         // Create custom adapter for the ListView.
+        final boolean usingCustomDownloader = Downloader.findByPackageName(packageName) == null;
         adapter = new CustomDialogListPreference.ListPreferenceArrayAdapter(
                 context,
                 Utils.getResourceIdentifier("revanced_custom_list_item_checked", "layout"),
                 getEntries(),
                 getEntryValues(),
-                Downloader.findByPackageName(packageName) != null
-                        ? packageName
-                        : Downloader.OTHER.name
+                usingCustomDownloader
+                        ? Downloader.OTHER.name
+                        : packageName
         );
         listView.setAdapter(adapter);
 
         Function<String, Void> updateListViewSelection = (updatedPackageName) -> {
-            Downloader downloader = Downloader.findByPackageName(updatedPackageName);
+            String entryValueName = Downloader.findByPackageName(updatedPackageName) == null
+                    ? Downloader.OTHER.name
+                    : updatedPackageName;
             CharSequence[] entryValues = getEntryValues();
 
             for (int i = 0, length = entryValues.length; i < length; i++) {
                 String entryString = entryValues[i].toString();
-                if (entryString.equals(downloader != null
-                        ? updatedPackageName
-                        : Downloader.OTHER.name)) {
+                if (entryString.equals(entryValueName)) {
                     listView.setItemChecked(i, true);
                     listView.setSelection(i);
                     adapter.setSelectedValue(entryString);
@@ -276,7 +277,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         editText.setSingleLine(true); // Restrict EditText to a single line.
         editText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
         // Set initial EditText state based on selected downloader.
-        editText.setEnabled(Downloader.findByPackageName(packageName) == null);
+        editText.setEnabled(usingCustomDownloader);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
