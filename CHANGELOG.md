@@ -1,3 +1,10 @@
+# [5.32.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.2...v5.32.0-dev.3) (2025-07-24)
+
+
+### Features
+
+* **YouTube - External downloads:** Improve the selection of the external downloader package ([#5504](https://github.com/ReVanced/revanced-patches/issues/5504)) ([5de9aa9](https://github.com/ReVanced/revanced-patches/commit/5de9aa9fad4f24186da045fb188f8718d6f63d7a))
+
 # [5.32.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.1...v5.32.0-dev.2) (2025-07-23)
 
 
