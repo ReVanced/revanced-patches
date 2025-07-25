@@ -459,7 +459,6 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Lataa-painike avaa ulkoisen lataajan</string>
   <string name="revanced_external_downloader_action_button_summary_off">Lataa-painike avaa sovelluksen sisäisen lataajan</string>
   <string name="revanced_external_downloader_name_title">Lataajan paketin nimi</string>
-  <string name="revanced_external_downloader_name_summary">Asentamasi ulkoisen lataussovelluksen, kuten NewPipen tai Sealin, paketin nimi</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ei ole asennettu. Asenna se.</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">

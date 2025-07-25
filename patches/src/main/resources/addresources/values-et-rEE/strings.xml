@@ -468,8 +468,15 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Allalaadimise nupp avab teie välise allalaadija</string>
   <string name="revanced_external_downloader_action_button_summary_off">Allalaadimise nupp avab seadme sisseehitatud allalaadija</string>
   <string name="revanced_external_downloader_name_title">Allalaadija paketi nimi</string>
-  <string name="revanced_external_downloader_name_summary">Teie installitud välise allalaadija rakenduse paketi nimi, näiteks NewPipe või Seal</string>
+  <string name="revanced_external_downloader_name_summary">Paigaldatud välise allalaadimisrakenduse paketi nimi</string>
+  <string name="revanced_external_downloader_other_item_hint">Sisesta paketi nimi</string>
+  <string name="revanced_external_downloader_other_item">Muu</string>
+  <string name="revanced_external_downloader_not_found_title">Rakendus pole installitud</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ei ole installitud. Palun installige see.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Installitud rakendust ei leitud paketi nimega: %s
+
+Veendu, et paketi nimi on õige ja rakendus on installitud"</string>
+  <string name="revanced_external_downloader_empty_warning">Paketi nimi ei tohi olla tühi</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Keela täpne otsingu žest</string>

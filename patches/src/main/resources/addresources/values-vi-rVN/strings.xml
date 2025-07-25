@@ -468,8 +468,15 @@ Tính năng này chỉ khả dụng trên các thiết bị cũ"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Nút tải xuống mở trình tải xuống bên ngoài của bạn</string>
   <string name="revanced_external_downloader_action_button_summary_off">Nút tải xuống mở trình tải xuống trong ứng dụng gốc</string>
   <string name="revanced_external_downloader_name_title">Tên gói trình tải xuống</string>
-  <string name="revanced_external_downloader_name_summary">Tên gói ứng dụng trình tải xuống bên ngoài đã cài đặt của bạn, chẳng hạn như NewPipe hoặc Seal</string>
+  <string name="revanced_external_downloader_name_summary">Tên gói ứng dụng trình tải xuống bên ngoài đã cài đặt của bạn</string>
+  <string name="revanced_external_downloader_other_item_hint">Nhập tên gói</string>
+  <string name="revanced_external_downloader_other_item">Khác</string>
+  <string name="revanced_external_downloader_not_found_title">Ứng dụng chưa được cài đặt</string>
   <string name="revanced_external_downloader_not_installed_warning">%s chưa được cài đặt. Vui lòng cài đặt ứng dụng.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Không tìm thấy ứng dụng đã cài với tên gói: %s
+
+Vui lòng kiểm tra lại tên gói và đảm bảo ứng dụng đã được cài trên thiết bị"</string>
+  <string name="revanced_external_downloader_empty_warning">Tên gói không được để trống</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Tắt cử chỉ tua chính xác</string>

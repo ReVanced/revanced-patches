@@ -470,8 +470,15 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_external_downloader_action_button_summary_on">오프라인 저장 버튼으로 외부 다운로더를 실행할 수 있습니다</string>
   <string name="revanced_external_downloader_action_button_summary_off">오프라인 저장 버튼으로 기본 다운로더를 실행할 수 있습니다</string>
   <string name="revanced_external_downloader_name_title">외부 다운로더 앱 패키지명</string>
-  <string name="revanced_external_downloader_name_summary">NewPipe 또는 Seal와 같은 설치된 외부 다운로더 앱 패키지명입니다</string>
+  <string name="revanced_external_downloader_name_summary">설치된 외부 다운로더 앱 패키지명을 설정하세요</string>
+  <string name="revanced_external_downloader_other_item_hint">앱 패키지명을 입력하세요</string>
+  <string name="revanced_external_downloader_other_item">기타</string>
+  <string name="revanced_external_downloader_not_found_title">앱이 설치되지 않습니다</string>
   <string name="revanced_external_downloader_not_installed_warning">%s 는 설치되어 있지 않습니다. 설치하세요</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"패키지 이름이 '%s'인 설치된 앱을 찾을 수 없습니다
+
+패키지 이름이 올바르고 앱이 설치되어 있는지 확인하세요"</string>
+  <string name="revanced_external_downloader_empty_warning">패키지명은 비워둘 수 없습니다</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">세밀한 탐색 제스처 비활성화하기</string>

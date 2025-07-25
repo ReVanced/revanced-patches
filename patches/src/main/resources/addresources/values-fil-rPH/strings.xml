@@ -468,8 +468,15 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Binubuksan ng button sa pag-download ang iyong external na downloader</string>
   <string name="revanced_external_downloader_action_button_summary_off">Binubuksan ng button sa pag-download ang native na in-app na downloader</string>
   <string name="revanced_external_downloader_name_title">Pangalan ng package ng downloader</string>
-  <string name="revanced_external_downloader_name_summary">Pangalan ng package ng iyong naka-install na external na downloader app, gaya ng NewPipe o Seal</string>
+  <string name="revanced_external_downloader_name_summary">Pangalan ng package ng iyong naka-install na panlabas na downloader app</string>
+  <string name="revanced_external_downloader_other_item_hint">Ilagay ang pangalan ng package</string>
+  <string name="revanced_external_downloader_other_item">Iba pa</string>
+  <string name="revanced_external_downloader_not_found_title">Hindi naka-install ang app</string>
   <string name="revanced_external_downloader_not_installed_warning">Hindi naka-install ang %s. Mangyaring i-install ito.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Hindi makita ang naka-install na app na may pangalan ng package: %s
+
+Suriin kung tama ang pangalan ng package at kung naka-install ang app"</string>
+  <string name="revanced_external_downloader_empty_warning">Hindi maaaring walang laman ang pangalan ng package</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Huwag paganahin ang tumpak na kilos sa paghahanap</string>

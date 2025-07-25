@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">下载按钮打开你的外部下载工具</string>
   <string name="revanced_external_downloader_action_button_summary_off">下载按钮打开主要的在服务程序下载工具</string>
   <string name="revanced_external_downloader_name_title">下载器的应用包名</string>
-  <string name="revanced_external_downloader_name_summary">已安装外部下载器程序的软件包名称，例如 NewPipe 或 Seal</string>
+  <string name="revanced_external_downloader_name_summary">您已安装的外部下载器应用的包名</string>
+  <string name="revanced_external_downloader_other_item_hint">输入包名</string>
+  <string name="revanced_external_downloader_other_item">其他</string>
+  <string name="revanced_external_downloader_not_found_title">应用未安装</string>
   <string name="revanced_external_downloader_not_installed_warning">%s 未安装，请安装。</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"找不到包名为 %s 的已安装应用
+
+请验证包名是否正确且应用已安装"</string>
+  <string name="revanced_external_downloader_empty_warning">包名不能为空</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">禁用上滑精确定位进度手势</string>

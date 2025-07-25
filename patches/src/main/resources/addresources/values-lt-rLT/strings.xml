@@ -468,8 +468,15 @@ Apribojimai
   <string name="revanced_external_downloader_action_button_summary_on">Atsisiuntimo mygtukas atidaro jūsų išorinį atsisiuntimo įrankį</string>
   <string name="revanced_external_downloader_action_button_summary_off">Atsisiuntimo mygtukas atidaro gimtąjį programėlės atsisiuntimo įrankį</string>
   <string name="revanced_external_downloader_name_title">Atsisiuntimo įrankio paketo pavadinimas</string>
-  <string name="revanced_external_downloader_name_summary">Jūsų įdiegtos išorinės atsisiuntimo programėlės paketo pavadinimas, pvz., NewPipe arba Seal</string>
+  <string name="revanced_external_downloader_name_summary">Įdiegtos išorinės atsisiuntimo programos paketo pavadinimas</string>
+  <string name="revanced_external_downloader_other_item_hint">Įveskite paketo pavadinimą</string>
+  <string name="revanced_external_downloader_other_item">Kita</string>
+  <string name="revanced_external_downloader_not_found_title">Programa neįdiegta</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nėra įdiegtas. Prašome įdiegti.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Nepavyko rasti įdiegtos programos, turinčios paketo pavadinimą: %s
+
+Patikrinkite, ar paketo pavadinimas yra teisingas ir programa įdiegta"</string>
+  <string name="revanced_external_downloader_empty_warning">Paketo pavadinimas negali būti tuščias</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Išjungti tikslų slinkties gestą</string>

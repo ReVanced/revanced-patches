@@ -468,8 +468,15 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Knappen Ladda ned öppnar din externa nerladdare</string>
   <string name="revanced_external_downloader_action_button_summary_off">Knappen Ladda ned öppnar den inbyggda nedladdaren i appen</string>
   <string name="revanced_external_downloader_name_title">Nedladdarens paketnamn</string>
-  <string name="revanced_external_downloader_name_summary">Paketnamn på din installerade externa nedladdningsapp, till exempel NewPipe eller Seal</string>
+  <string name="revanced_external_downloader_name_summary">Paketnamn på din installerade externa nedladdningsapp</string>
+  <string name="revanced_external_downloader_other_item_hint">Ange paketnamnet</string>
+  <string name="revanced_external_downloader_other_item">Annat</string>
+  <string name="revanced_external_downloader_not_found_title">Appen är inte installerad</string>
   <string name="revanced_external_downloader_not_installed_warning">%s är inte installerat. Installera det.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Kunde inte hitta installerad app med paketnamn: %s
+
+Kontrollera att paketnamnet är korrekt och att appen är installerad"</string>
+  <string name="revanced_external_downloader_empty_warning">Paketnamnet får inte vara tomt</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Inaktivera gest för exakt sökning</string>

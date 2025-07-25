@@ -468,8 +468,15 @@ Este recurso está disponível apenas para dispositivos mais antigos"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Botão de download abre seu app de download externo</string>
   <string name="revanced_external_downloader_action_button_summary_off">Botão de download abre o download nativo</string>
   <string name="revanced_external_downloader_name_title">Nome do pacote do app de download</string>
-  <string name="revanced_external_downloader_name_summary">Nome do pacote do seu app de baixar externo instalado, como NewPipe ou Seal</string>
+  <string name="revanced_external_downloader_name_summary">Nome do pacote do seu aplicativo de download externo instalado</string>
+  <string name="revanced_external_downloader_other_item_hint">Insira o nome do pacote</string>
+  <string name="revanced_external_downloader_other_item">Outro</string>
+  <string name="revanced_external_downloader_not_found_title">Aplicativo não instalado</string>
   <string name="revanced_external_downloader_not_installed_warning">%s não está instalado. Por favor, instale.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Não foi possível encontrar o aplicativo instalado com o nome do pacote: %s
+
+Verifique se o nome do pacote está correto e se o aplicativo está instalado"</string>
+  <string name="revanced_external_downloader_empty_warning">O nome do pacote não pode estar vazio</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Desativar gesto de busca precisa</string>

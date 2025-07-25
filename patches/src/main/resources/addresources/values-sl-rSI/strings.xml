@@ -468,8 +468,15 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Gumb za prenos odpre vaš zunanji prenašalnik</string>
   <string name="revanced_external_downloader_action_button_summary_off">Gumb za prenos odpre vgrajeni prenašalnik v aplikaciji</string>
   <string name="revanced_external_downloader_name_title">Ime paketa prenašalnika</string>
-  <string name="revanced_external_downloader_name_summary">Ime paketa vaše nameščene zunanje aplikacije za prenašanje, kot sta NewPipe ali Seal</string>
+  <string name="revanced_external_downloader_name_summary">Ime paketa vaše nameščene zunanje aplikacije za prenos</string>
+  <string name="revanced_external_downloader_other_item_hint">Vnesite ime paketa</string>
+  <string name="revanced_external_downloader_other_item">Drugo</string>
+  <string name="revanced_external_downloader_not_found_title">Aplikacija ni nameščena</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ni nameščen. Prosimo, namestite ga.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Ni bilo mogoče najti nameščene aplikacije z imenom paketa: %s
+
+Preverite, ali je ime paketa pravilno in ali je aplikacija nameščena"</string>
+  <string name="revanced_external_downloader_empty_warning">Ime paketa ne sme biti prazno</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Onemogoči natančno kretnjo iskanja</string>

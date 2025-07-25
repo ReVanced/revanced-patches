@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Кнопка \"Спампаваць\" адкрывае ваш знешні загрузнік</string>
   <string name="revanced_external_downloader_action_button_summary_off">Кнопка \"Спампаваць\" адкрывае ўласную праграму загрузкі ў праграме</string>
   <string name="revanced_external_downloader_name_title">Назва пакета загрузніка</string>
-  <string name="revanced_external_downloader_name_summary">Імя пакета ўсталяванай знешняй праграмы загрузкі, напрыклад NewPipe або Seal</string>
+  <string name="revanced_external_downloader_name_summary">Назва пакета вашага ўсталяванага знешняга спампоўшчыка праграмы</string>
+  <string name="revanced_external_downloader_other_item_hint">Увядзіце назву пакета</string>
+  <string name="revanced_external_downloader_other_item">Іншае</string>
+  <string name="revanced_external_downloader_not_found_title">Праграма не ўстаноўлена</string>
   <string name="revanced_external_downloader_not_installed_warning">%s не ўсталяваны. Калі ласка, усталюйце яго.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Не ўдалося знайсці ўстаноўленую праграму з назвай пакета: %s
+
+Праверце, ці правільная назва пакета і ці ўстаноўлена праграма"</string>
+  <string name="revanced_external_downloader_empty_warning">Назва пакета не можа быць пустой</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Адключыць жэст дакладнага пошуку</string>

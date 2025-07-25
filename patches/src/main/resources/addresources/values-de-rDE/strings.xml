@@ -465,8 +465,15 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Download-Button öffnet den externen Downloader</string>
   <string name="revanced_external_downloader_action_button_summary_off">Download-Button öffnet den nativen In-App-Downloader</string>
   <string name="revanced_external_downloader_name_title">Paketname des Downloaders</string>
-  <string name="revanced_external_downloader_name_summary">Paketname deiner installierten externen Downloader-App wie NewPipe oder Siegel</string>
+  <string name="revanced_external_downloader_name_summary">Paketname Ihrer installierten externen Downloader-App</string>
+  <string name="revanced_external_downloader_other_item_hint">Paketnamen eingeben</string>
+  <string name="revanced_external_downloader_other_item">Andere</string>
+  <string name="revanced_external_downloader_not_found_title">App nicht installiert</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ist nicht installiert. Installier es.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Installierte App mit Paketnamen nicht gefunden: %s
+
+Stellen Sie sicher, dass der Paketname korrekt ist und die App installiert ist"</string>
+  <string name="revanced_external_downloader_empty_warning">Der Paketname darf nicht leer sein</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Genaue Suchgeste deaktivieren</string>

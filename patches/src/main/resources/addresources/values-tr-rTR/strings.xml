@@ -468,8 +468,15 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_external_downloader_action_button_summary_on">İndirme düğmesi harici indiricinizi açar</string>
   <string name="revanced_external_downloader_action_button_summary_off">İndirme düğmesi yerel uygulama içi indiriciyi açar</string>
   <string name="revanced_external_downloader_name_title">İndirici paket adı</string>
-  <string name="revanced_external_downloader_name_summary">NewPipe veya Seal gibi yüklü olan harici indirici uygulamanızın paket adı</string>
+  <string name="revanced_external_downloader_name_summary">Yüklü harici indirme uygulamanızın paket adı</string>
+  <string name="revanced_external_downloader_other_item_hint">Paket adını girin</string>
+  <string name="revanced_external_downloader_other_item">Diğer</string>
+  <string name="revanced_external_downloader_not_found_title">Uygulama yüklü değil</string>
   <string name="revanced_external_downloader_not_installed_warning">%s yüklü değil. Lütfen yükleyin.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"%s paket adıyla yüklü uygulama bulunamadı
+
+Paket adının doğru olduğunu ve uygulamanın yüklü olduğunu doğrulayın"</string>
+  <string name="revanced_external_downloader_empty_warning">Paket adı boş olamaz</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Hassas sarma hareketini devre dışı bırak</string>
