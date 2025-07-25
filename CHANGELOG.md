@@ -1,3 +1,10 @@
+# [5.32.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.3...v5.32.0-dev.4) (2025-07-25)
+
+
+### Bug Fixes
+
+* **Messenger - Hide inbox ads:** Support the latest app version ([2959c02](https://github.com/ReVanced/revanced-patches/commit/2959c0214dfa703ee623ef1f89bded7f78c9d252))
+
 # [5.32.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.2...v5.32.0-dev.3) (2025-07-24)
 
 
