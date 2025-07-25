@@ -468,8 +468,15 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_external_downloader_action_button_summary_on">Le bouton de téléchargement ouvre votre outil externe</string>
   <string name="revanced_external_downloader_action_button_summary_off">Le bouton de téléchargement ouvre l\'outil intégré à l\'application</string>
   <string name="revanced_external_downloader_name_title">Nom de paquet de l\'outil de téléchargement</string>
-  <string name="revanced_external_downloader_name_summary">Nom de paquet de l\'appli de téléchargement externe que vous avez installée, telle que NewPipe ou Seal</string>
+  <string name="revanced_external_downloader_name_summary">Nom de paquet de votre application de téléchargement externe installée</string>
+  <string name="revanced_external_downloader_other_item_hint">Saisir le nom du paquet</string>
+  <string name="revanced_external_downloader_other_item">Autre</string>
+  <string name="revanced_external_downloader_not_found_title">Application non installée</string>
   <string name="revanced_external_downloader_not_installed_warning">%s n\'est pas installé. Veuillez l\'installer.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Impossible de trouver une application installée ayant pour nom de paquet : %s
+
+Vérifiez que le nom de paquet est correct et que l'application est installée."</string>
+  <string name="revanced_external_downloader_empty_warning">Le nom du paquet ne peut pas être vide</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Désactiver le geste de recherche précise</string>

@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Кнопка \"Завантажити\" запускає зовнішній завантажувач</string>
   <string name="revanced_external_downloader_action_button_summary_off">Кнопка \"Завантажити\" запускає власний завантажувач</string>
   <string name="revanced_external_downloader_name_title">Ім\'я пакета завантажувача</string>
-  <string name="revanced_external_downloader_name_summary">Ім\'я пакета встановленого Вами додатку зовнішнього завантажувача, такого як NewPipe чи YTDLnis</string>
+  <string name="revanced_external_downloader_name_summary">Ім\'я пакета встановленого Вами застосунку зовнішнього завантажувача</string>
+  <string name="revanced_external_downloader_other_item_hint">Введіть ім\'я пакета</string>
+  <string name="revanced_external_downloader_other_item">Вказати вручну</string>
+  <string name="revanced_external_downloader_not_found_title">Застосунок не встановлено</string>
   <string name="revanced_external_downloader_not_installed_warning">%s не встановлено. Встановіть його.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Не вдалося знайти встановлений застосунок з ім'ям пакета: %s
+
+Перевірте, чи правильне ім'я пакета та чи встановлено застосунок"</string>
+  <string name="revanced_external_downloader_empty_warning">Ім\'я пакета не може бути порожнім</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Вимкнути жест точного перемотування</string>

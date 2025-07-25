@@ -468,8 +468,15 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Downloadknop opent je externe downloader</string>
   <string name="revanced_external_downloader_action_button_summary_off">Downloadknop opent de native in-app downloader</string>
   <string name="revanced_external_downloader_name_title">Downloader pakketnaam</string>
-  <string name="revanced_external_downloader_name_summary">Pakketnaam van je geïnstalleerde externe downloader-app, zoals NewPipe of Seal</string>
+  <string name="revanced_external_downloader_name_summary">Pakketnaam van uw geïnstalleerde externe downloader-app</string>
+  <string name="revanced_external_downloader_other_item_hint">Voer de pakketnaam in</string>
+  <string name="revanced_external_downloader_other_item">Overige</string>
+  <string name="revanced_external_downloader_not_found_title">App niet geïnstalleerd</string>
   <string name="revanced_external_downloader_not_installed_warning">%s is niet geïnstalleerd. Installeer het.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Kon geïnstalleerde app met pakketnaam niet vinden: %s
+
+Controleer of de pakketnaam correct is en de app is geïnstalleerd"</string>
+  <string name="revanced_external_downloader_empty_warning">De pakketnaam kan niet leeg zijn</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Precisie-zoekbeweging uitschakelen</string>

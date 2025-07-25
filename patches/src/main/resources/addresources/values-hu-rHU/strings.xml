@@ -468,8 +468,15 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_external_downloader_action_button_summary_on">A letöltés gomb a külső letöltőt nyitja meg</string>
   <string name="revanced_external_downloader_action_button_summary_off">A letöltés gomb az alkalmazáson belüli letöltőt használja</string>
   <string name="revanced_external_downloader_name_title">Letöltő csomag neve</string>
-  <string name="revanced_external_downloader_name_summary">A telepített külső letöltő alkalmazás csomagneve, például NewPipe vagy Seal</string>
+  <string name="revanced_external_downloader_name_summary">A telepített külső letöltő alkalmazásod csomagneve</string>
+  <string name="revanced_external_downloader_other_item_hint">Adja meg a csomagnevet</string>
+  <string name="revanced_external_downloader_other_item">Egyéb</string>
+  <string name="revanced_external_downloader_not_found_title">Az alkalmazás nincs telepítve</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nincs telepítve. Kérjük telepítse.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Nem található telepített alkalmazás a(z) %s csomagnévvel
+
+Ellenőrizze, hogy a csomagnév helyes-e és az alkalmazás telepítve van-e"</string>
+  <string name="revanced_external_downloader_empty_warning">A csomagnév nem lehet üres</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Pontos keresési kézmozdulat letiltása</string>

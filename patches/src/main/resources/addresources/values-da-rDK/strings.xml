@@ -468,8 +468,15 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Download-knappen åbner din eksterne downloader</string>
   <string name="revanced_external_downloader_action_button_summary_off">Download-knappen åbner den indfødte in-app downloader</string>
   <string name="revanced_external_downloader_name_title">Downloader pakkenavn</string>
-  <string name="revanced_external_downloader_name_summary">Pakkenavn på din installerede eksterne downloader-app, såsom NewPipe eller Seal</string>
+  <string name="revanced_external_downloader_name_summary">Pakkenavn på din installerede eksterne download-app</string>
+  <string name="revanced_external_downloader_other_item_hint">Indtast pakkenavnet</string>
+  <string name="revanced_external_downloader_other_item">Andet</string>
+  <string name="revanced_external_downloader_not_found_title">Appen er ikke installeret</string>
   <string name="revanced_external_downloader_not_installed_warning">%s er ikke installeret. Installér den.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Kunne ikke finde installeret app med pakkenavn: %s
+
+Kontrollér, at pakkenavnet er korrekt, og at appen er installeret"</string>
+  <string name="revanced_external_downloader_empty_warning">Pakkenavnet må ikke være tomt</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Deaktivér præcis søgemåde</string>

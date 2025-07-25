@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Бутонът за изтегляне отваря избраното от Вас външно приложение за изтегляне</string>
   <string name="revanced_external_downloader_action_button_summary_off">Бутонът за изтегляне отваря вграденото приложение за изтегляне</string>
   <string name="revanced_external_downloader_name_title">Име на пакета на изтеглящото приложение</string>
-  <string name="revanced_external_downloader_name_summary">Име на пакета на приложението за изтегляне, като NewPipe или Seal</string>
+  <string name="revanced_external_downloader_name_summary">Име на пакета на вашето инсталирано външно приложение за изтегляне</string>
+  <string name="revanced_external_downloader_other_item_hint">Въведете името на пакета</string>
+  <string name="revanced_external_downloader_other_item">Други</string>
+  <string name="revanced_external_downloader_not_found_title">Приложението не е инсталирано</string>
   <string name="revanced_external_downloader_not_installed_warning">%s не е инсталиран. Инсталирайте го.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Не може да бъде намерено инсталирано приложение с име на пакет: %s
+
+Проверете дали името на пакета е правилно и приложението е инсталирано"</string>
+  <string name="revanced_external_downloader_empty_warning">Името на пакета не може да бъде празно</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Деактивиране на жеста за точно търсене</string>
