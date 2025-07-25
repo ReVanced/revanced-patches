@@ -8,13 +8,7 @@ val enableExclusiveAudioPlaybackPatch = bytecodePatch(
     name = "Enable exclusive audio playback",
     description = "Enables the option to play audio without video.",
 ) {
-    compatibleWith(
-        "com.google.android.apps.youtube.music"(
-            "7.16.53",
-            "8.05.51",
-            "8.12.54",
-        )
-    )
+    compatibleWith("com.google.android.apps.youtube.music")
 
     execute {
         allowExclusiveAudioPlaybackFingerprint.method.returnEarly(true)
