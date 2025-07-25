@@ -468,8 +468,15 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Butoni \"Shkarko\" hap shkarkuesin tuaj të jashtëm</string>
   <string name="revanced_external_downloader_action_button_summary_off">Butoni \"Shkarko\" hap shkarkuesin e integruar në aplikacion</string>
   <string name="revanced_external_downloader_name_title">Emri i paketave të shkarkuesit</string>
-  <string name="revanced_external_downloader_name_summary">Emri i paketave të aplikacionit tuaj të shkarkuesit të jashtëm të instaluar, siç janë NewPipe ose Seal</string>
+  <string name="revanced_external_downloader_name_summary">Emri i paketës së aplikacionit tuaj të instaluar të shkarkuesit të jashtëm</string>
+  <string name="revanced_external_downloader_other_item_hint">Shkruani emrin e paketës</string>
+  <string name="revanced_external_downloader_other_item">Tjetër</string>
+  <string name="revanced_external_downloader_not_found_title">Aplikacioni nuk është instaluar</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nuk është instaluar. Ju lutemi instaloni atë.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Nuk u gjet asnjë aplikacion i instaluar me emrin e paketës: %s
+
+Verifikoni që emri i paketës është i saktë dhe aplikacioni është instaluar"</string>
+  <string name="revanced_external_downloader_empty_warning">Emri i paketës nuk mund të jetë bosh</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Çaktivizo lëvizjen e saktë të kërkimit</string>

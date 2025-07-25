@@ -468,8 +468,15 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_external_downloader_action_button_summary_on">Ներբեռնման կոճակը բացում է ձեր արտաքին ներբեռնողը</string>
   <string name="revanced_external_downloader_action_button_summary_off">Ներբեռնման կոճակը բացում է ներկառուցված ներբեռնողը</string>
   <string name="revanced_external_downloader_name_title">Ներբեռնողի փաթեթի անունը</string>
-  <string name="revanced_external_downloader_name_summary">Ձեր տեղադրված արտաքին ներբեռնողի ծրագրի փաթեթի անունը, օրինակ՝ NewPipe կամ Seal</string>
+  <string name="revanced_external_downloader_name_summary">Ձեր տեղադրված արտաքին ներբեռնիչ հավելվածի փաթեթի անունը</string>
+  <string name="revanced_external_downloader_other_item_hint">Մուտքագրեք փաթեթի անունը</string>
+  <string name="revanced_external_downloader_other_item">Այլ</string>
+  <string name="revanced_external_downloader_not_found_title">Հավելվածը տեղադրված չէ</string>
   <string name="revanced_external_downloader_not_installed_warning">%s չի տեղադրված։ Խնդրում ենք տեղադրել այն։</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Չհաջողվեց գտնել տեղադրված հավելվածը` փաթեթի անվանմամբ՝ %s
+
+Ստուգեք, որ փաթեթի անունը ճիշտ է և հավելվածը տեղադրված է"</string>
+  <string name="revanced_external_downloader_empty_warning">Փաթեթի անունը չի կարող դատարկ լինել</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Անջատել ճշգրիտ փնտրման ժեստը</string>

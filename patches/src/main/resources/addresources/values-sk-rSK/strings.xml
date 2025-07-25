@@ -466,8 +466,15 @@ Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Tlačidlo Stiahnuť otvorí váš externý downloader</string>
   <string name="revanced_external_downloader_action_button_summary_off">Tlačidlo Stiahnuť otvorí natívny nástroj na sťahovanie v aplikácii</string>
   <string name="revanced_external_downloader_name_title">Názov balíka sťahovania</string>
-  <string name="revanced_external_downloader_name_summary">Názov balíka nainštalovanej externej aplikácie na sťahovanie, napríklad NewPipe alebo Seal</string>
+  <string name="revanced_external_downloader_name_summary">Názov balíka vašej nainštalovanej externej aplikácie na sťahovanie</string>
+  <string name="revanced_external_downloader_other_item_hint">Zadajte názov balíka</string>
+  <string name="revanced_external_downloader_other_item">Iné</string>
+  <string name="revanced_external_downloader_not_found_title">Aplikácia nie je nainštalovaná</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nie je nainštalovaný. Nainštalujte si ho.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Nepodarilo sa nájsť nainštalovanú aplikáciu s názvom balíka: %s
+
+Overte, či je názov balíka správny a aplikácia je nainštalovaná"</string>
+  <string name="revanced_external_downloader_empty_warning">Názov balíka nemôže byť prázdny</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Zakázať gesto presného vyhľadávania</string>

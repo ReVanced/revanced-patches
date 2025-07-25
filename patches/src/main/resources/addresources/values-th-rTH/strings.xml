@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">ปุ่มดาวน์โหลดเปิดโปรแกรมดาวน์โหลดภายนอกของคุณ</string>
   <string name="revanced_external_downloader_action_button_summary_off">ปุ่มดาวน์โหลดเปิดโปรแกรมดาวน์โหลดในแอปแบบเนทีฟ</string>
   <string name="revanced_external_downloader_name_title">ชื่อแพ็คเกจโปรแกรมดาวน์โหลด</string>
-  <string name="revanced_external_downloader_name_summary">ชื่อแพ็คเกจของโปรแกรมดาวน์โหลดภายนอกที่ติดตั้งของคุณ เช่น NewPipe หรือ Seal</string>
+  <string name="revanced_external_downloader_name_summary">ชื่อแพ็กเกจของแอปดาวน์โหลดภายนอกที่คุณติดตั้ง</string>
+  <string name="revanced_external_downloader_other_item_hint">ป้อนชื่อแพ็กเกจ</string>
+  <string name="revanced_external_downloader_other_item">อื่น ๆ</string>
+  <string name="revanced_external_downloader_not_found_title">ไม่ได้ติดตั้งแอป</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ไม่ได้ติดตั้ง โปรดติดตั้ง</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"ไม่พบแอปที่ติดตั้งด้วยชื่อแพ็กเกจ: %s
+
+ตรวจสอบว่าชื่อแพ็กเกจถูกต้องและติดตั้งแอปแล้ว"</string>
+  <string name="revanced_external_downloader_empty_warning">ชื่อแพ็กเกจต้องไม่ว่างเปล่า</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">ปิดใช้งานท่าทางการค้นหาแบบแม่นยำ</string>
