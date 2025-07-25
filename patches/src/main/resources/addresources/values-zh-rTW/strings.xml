@@ -468,7 +468,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">下載按鈕會開啟你的外部下載器</string>
   <string name="revanced_external_downloader_action_button_summary_off">下載按鈕會開啟內建應用程式下載器</string>
   <string name="revanced_external_downloader_name_title">下載器套件名稱</string>
-  <string name="revanced_external_downloader_name_summary">你已安裝的外部下載器應用程式的套件名稱，例如 NewPipe 或 Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">未安裝 %s。請前往安裝。</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">

@@ -468,8 +468,15 @@ Ierobežojumi
   <string name="revanced_external_downloader_action_button_summary_on">Lejupielādēšanas poga atver jūsu ārējo lejupielādētāju</string>
   <string name="revanced_external_downloader_action_button_summary_off">Lejupielādēšanas poga atver vietējo iebūvēto lejupielādētāju</string>
   <string name="revanced_external_downloader_name_title">Lejupielādētāja pakotnes nosaukums</string>
-  <string name="revanced_external_downloader_name_summary">Instalētā ārējā lejupielādētāja lietotnes pakotnes nosaukums, piemēram, NewPipe vai Seal</string>
+  <string name="revanced_external_downloader_name_summary">Jūsu instalētās ārējās lejupielādētāja lietotnes pakotnes nosaukums</string>
+  <string name="revanced_external_downloader_other_item_hint">Ievadiet pakotnes nosaukumu</string>
+  <string name="revanced_external_downloader_other_item">Cits</string>
+  <string name="revanced_external_downloader_not_found_title">Lietotne nav instalēta</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nav instalēts. Lūdzu, instalējiet to.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Nevarēja atrast instalēto lietotni ar pakotnes nosaukumu: %s
+
+Pārbaudiet, vai pakotnes nosaukums ir pareizs un lietotne ir instalēta"</string>
+  <string name="revanced_external_downloader_empty_warning">Pakotnes nosaukums nevar būt tukšs</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Atslēgt precīzu meklēšanas žestu</string>

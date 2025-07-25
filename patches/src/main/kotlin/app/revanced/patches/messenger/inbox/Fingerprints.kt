@@ -23,7 +23,6 @@ internal val createInboxSubTabsFingerprint by fingerprint {
 }
 
 internal val loadInboxAdsFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("V")
     strings(
         "ads_load_begin",

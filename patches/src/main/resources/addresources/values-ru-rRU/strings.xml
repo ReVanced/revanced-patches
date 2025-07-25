@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Кнопка \"Скачать\" запускает внешний загрузчик</string>
   <string name="revanced_external_downloader_action_button_summary_off">Кнопка \"Скачать\" запускает собственный загрузчик</string>
   <string name="revanced_external_downloader_name_title">Имя пакета загрузчика</string>
-  <string name="revanced_external_downloader_name_summary">Имя пакета установленного Вами приложения внешнего загрузчика, такого как NewPipe или Seal</string>
+  <string name="revanced_external_downloader_name_summary">Имя пакета установленного Вами приложения внешнего загрузчика</string>
+  <string name="revanced_external_downloader_other_item_hint">Введите имя пакета</string>
+  <string name="revanced_external_downloader_other_item">Другое</string>
+  <string name="revanced_external_downloader_not_found_title">Приложение не установлено</string>
   <string name="revanced_external_downloader_not_installed_warning">%s не установлен. Пожалуйста, установите его.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Не удалось найти установленное приложение с именем пакета: %s
+
+Убедитесь, что имя пакета указано правильно и приложение установлено"</string>
+  <string name="revanced_external_downloader_empty_warning">Имя пакета не может быть пустым</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Отключить жест покадровой перемотки</string>

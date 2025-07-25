@@ -464,8 +464,15 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_external_downloader_action_button_summary_on">ডাউনলোড বোতামটি আপনার বাহিরের ডাউনলোডার খুলবে</string>
   <string name="revanced_external_downloader_action_button_summary_off">ডাউনলোড বোতামটি নেটিভ ইন-অ্যাপ ডাউনলোডার খুলবে</string>
   <string name="revanced_external_downloader_name_title">ডাউনলোডারের প্যাকেজ নাম</string>
-  <string name="revanced_external_downloader_name_summary">আপনার ইনস্টল করা বাইরের ডাউনলোডার অ্যাপের প্যাকেজ নাম, যেমন NewPipe বা Seal</string>
+  <string name="revanced_external_downloader_name_summary">আপনার ইনস্টল করা বাহ্যিক ডাউনলোডার অ্যাপের প্যাকেজের নাম</string>
+  <string name="revanced_external_downloader_other_item_hint">প্যাকেজের নাম লিখুন</string>
+  <string name="revanced_external_downloader_other_item">অন্যান্য</string>
+  <string name="revanced_external_downloader_not_found_title">অ্যাপ ইনস্টল করা নেই</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ইনস্টল করা নেই, ইনস্টল করুন।</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"প্যাকেজের নাম: %s সহ ইনস্টল করা অ্যাপটি খুঁজে পাওয়া যায়নি
+
+প্যাকেজের নামটি সঠিক এবং অ্যাপটি ইনস্টল করা আছে কিনা তা যাচাই করুন"</string>
+  <string name="revanced_external_downloader_empty_warning">প্যাকেজের নাম খালি রাখা যাবে না</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">ভিডিওর নির্দিষ্ট অংশে যাওয়ার অঙ্গভঙ্গি নিষ্ক্রিয় করুন</string>

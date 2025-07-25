@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">يفتح زر التنزيل أداة التنزيل الخارجية</string>
   <string name="revanced_external_downloader_action_button_summary_off">يفتح زر التنزيل أداة التنزيل الأصلية داخل التطبيق</string>
   <string name="revanced_external_downloader_name_title">اسم حزمة أداة التنزيل</string>
-  <string name="revanced_external_downloader_name_summary">اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك، مثل NewPipe أو Seal</string>
+  <string name="revanced_external_downloader_name_summary">اسم حزمة تطبيق التنزيل الخارجي المثبت لديك</string>
+  <string name="revanced_external_downloader_other_item_hint">أدخل اسم الحزمة</string>
+  <string name="revanced_external_downloader_other_item">أخرى</string>
+  <string name="revanced_external_downloader_not_found_title">التطبيق غير مثبت</string>
   <string name="revanced_external_downloader_not_installed_warning">لم يتم تثبيت %s . الرجاء تثبيته.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"تعذر العثور على التطبيق المثبت باسم الحزمة: %s
+
+تأكد من أن اسم الحزمة صحيح وأن التطبيق مثبت"</string>
+  <string name="revanced_external_downloader_empty_warning">لا يمكن أن يكون اسم الحزمة فارغًا</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">تعطيل إيماءة التمرير الدقيقة</string>

@@ -468,8 +468,15 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Osclaíonn an cnaipe íoslódála do íoslódálaí seachtrach</string>
   <string name="revanced_external_downloader_action_button_summary_off">Osclaíonn an cnaipe íoslódála an t-íoslódálaí dúchais in-app</string>
   <string name="revanced_external_downloader_name_title">Ainm pacáiste íoslódáil</string>
-  <string name="revanced_external_downloader_name_summary">Ainm pacáiste d\'aip íoslódála seachtrach suiteáilte, mar shampla NewPipe nó Seal</string>
+  <string name="revanced_external_downloader_name_summary">Ainm an phacáiste de d\'aip íoslódálaí seachtrach suiteáilte</string>
+  <string name="revanced_external_downloader_other_item_hint">Iontráil ainm an phacáiste</string>
+  <string name="revanced_external_downloader_other_item">Eile</string>
+  <string name="revanced_external_downloader_not_found_title">Níl an aip suiteáilte</string>
   <string name="revanced_external_downloader_not_installed_warning">Níl %s suiteáilte. Suiteáil é le do thoil.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Níorbh fhéidir an aip suiteáilte a aimsiú le hainm an phacáiste: %s
+
+Deimhnigh go bhfuil ainm an phacáiste ceart agus go bhfuil an aip suiteáilte"</string>
+  <string name="revanced_external_downloader_empty_warning">Ní féidir le hainm an phacáiste a bheith folamh</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Díchumasaigh comhartha cuardaigh beacht</string>

@@ -467,7 +467,6 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Yükləmə düyməsi, xarici yükləyicinizi açır</string>
   <string name="revanced_external_downloader_action_button_summary_off">Yükləmə düyməsi tətbiqə xas yükləyicini açır</string>
   <string name="revanced_external_downloader_name_title">Yükləyici paketi adı</string>
-  <string name="revanced_external_downloader_name_summary">NewPipe və ya Seal kimi quraşdırılan xarici yükləmə tətbiqinizin paket adı</string>
   <string name="revanced_external_downloader_not_installed_warning">%s quraşdırılmayıb. Lütfən, bunu quraşdır.</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
