@@ -1,3 +1,10 @@
+# [5.32.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.4...v5.32.0-dev.5) (2025-07-26)
+
+
+### Features
+
+* **YT Music:** Support latest versions ([#5524](https://github.com/ReVanced/revanced-patches/issues/5524)) ([551dcf0](https://github.com/ReVanced/revanced-patches/commit/551dcf01ca9c489a779196b49c8744727d79d6bc))
+
 # [5.32.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.3...v5.32.0-dev.4) (2025-07-25)
 
 
