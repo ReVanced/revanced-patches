@@ -168,6 +168,13 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Kelluva mikrofonipainike on piilotettu haussa</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Kelluva mikrofonipainike näytetään haussa</string>
   <string name="revanced_hide_horizontal_shelves_title">Piilota vaakasuuntaiset hyllyt</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Vaakahyllyt on piilotettu, kuten:
+• Tuoreimmat uutiset
+• Jatka katselua
+• Tutustu useampiin kanaviin
+• Olennaisimmat
+• Ostokset
+• Katso uudelleen"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Vaakasuuntaiset hyllyt näytetään</string>
   <string name="revanced_hide_image_shelf_title">Piilota kuvahylly</string>
   <string name="revanced_hide_image_shelf_summary_on">Kuvahylly on piilotettu hakutuloksissa</string>
@@ -202,6 +209,8 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Lippuhylly näytetään</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_video_recommendation_labels_title">Piilota videosuositusten tunnisteet</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">\'Ihmiset katsoivat myös\' ja \'Saatat myös pitää\' -merkinnät hakutuloksissa ovat piilotettuna</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">\"Ihmiset katsoivat myös\" ja \"Saatat myös pitää\" -otsikot näkyvät hakutuloksissa</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Piilota YouTube Doodlet</string>
   <string name="revanced_hide_doodles_summary_on">Logon YouTube Doodles -animaatio on piilotettu</string>
@@ -459,7 +468,15 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Lataa-painike avaa ulkoisen lataajan</string>
   <string name="revanced_external_downloader_action_button_summary_off">Lataa-painike avaa sovelluksen sisäisen lataajan</string>
   <string name="revanced_external_downloader_name_title">Lataajan paketin nimi</string>
+  <string name="revanced_external_downloader_name_summary">Asennetun ulkoisen lataussovelluksen paketin nimi</string>
+  <string name="revanced_external_downloader_other_item_hint">Anna paketin nimi</string>
+  <string name="revanced_external_downloader_other_item">Muu</string>
+  <string name="revanced_external_downloader_not_found_title">Sovellusta ei ole asennettu</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ei ole asennettu. Asenna se.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Ei löytynyt asennettua sovellusta paketin nimellä: %s
+
+Tarkista, että paketin nimi on oikein ja sovellus on asennettu"</string>
+  <string name="revanced_external_downloader_empty_warning">Paketin nimi ei voi olla tyhjä</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Poista tarkka etsintäele käytöstä</string>

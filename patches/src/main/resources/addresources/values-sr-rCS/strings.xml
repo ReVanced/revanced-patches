@@ -468,7 +468,7 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Dugme „Preuzmi” otvara spoljni program za preuzimanje</string>
   <string name="revanced_external_downloader_action_button_summary_off">Dugme „Preuzmi” otvara izvorni program za preuzimanje u aplikaciji</string>
   <string name="revanced_external_downloader_name_title">Naziv paketa programa za preuzimanje</string>
-  <string name="revanced_external_downloader_name_summary">Naziv paketa vaše instalirane spoljne aplikacije za preuzimanje</string>
+  <string name="revanced_external_downloader_name_summary">Naziv paketa vašeg instaliranog spoljnog programa za preuzimanje</string>
   <string name="revanced_external_downloader_other_item_hint">Unesite naziv paketa</string>
   <string name="revanced_external_downloader_other_item">Ostalo</string>
   <string name="revanced_external_downloader_not_found_title">Aplikacija nije instalirana</string>
