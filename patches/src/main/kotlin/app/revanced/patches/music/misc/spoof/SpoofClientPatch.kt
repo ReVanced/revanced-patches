@@ -25,12 +25,7 @@ val spoofClientPatch = bytecodePatch(
     name = "Spoof client",
     description = "Spoofs the client to fix playback.",
 ) {
-    compatibleWith(
-        "com.google.android.apps.youtube.music"(
-            "7.16.53",
-            "8.05.51"
-        )
-    )
+    compatibleWith("com.google.android.apps.youtube.music")
 
     dependsOn(
         sharedExtensionPatch,

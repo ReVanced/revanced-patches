@@ -378,7 +378,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_keyword_content_about_title">키워드 필터링 정보</string>
   <string name="revanced_hide_keyword_content_about_summary">"홈 / 구독 / 검색 결과가 필터링되어 키워드 구문과 일치하는 콘텐츠가 숨겨집니다
 
-알려진 문제점:
+제한 사항:
 • 채널 이름으로 Shorts는 숨길 수 없습니다
 • 일부 화면 구성요소는 숨겨지지 않을 수 있습니다
 • 필터링 키워드를 검색하면 검색 결과가 표시되지 않을 수 있습니다"</string>
@@ -912,7 +912,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 수 표시하기</string>
   <string name="revanced_ryd_shorts_summary_on">"Shorts에서 싫어요 수를 표시합니다
 
-알려진 문제점:
+제한 사항:
 • 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 싫어요 수가 표시되지 않을 수 있습니다"</string>
   <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요 수를 표시하지 않습니다</string>
   <string name="revanced_ryd_dislike_percentage_title">싫어요 수를 퍼센트로 표시하기</string>
@@ -1231,7 +1231,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_change_start_page_always_title">앱 시작 페이지 항상 변경하기</string>
   <string name="revanced_change_start_page_always_summary_on">"앱 시작 페이지를 항상 변경합니다
 
-알려진 문제점:
+제한 사항:
 • 툴바에서 '뒤로 가기' 버튼이 작동하지 않을 수 있습니다"</string>
   <string name="revanced_change_start_page_always_summary_off">앱 시작 페이지를 앱 시작 시에만 변경합니다</string>
   </patch>
