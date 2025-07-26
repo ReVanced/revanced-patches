@@ -470,15 +470,15 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_external_downloader_action_button_summary_on">オフライン ボタンは外部ダウンローダーを呼び出します</string>
   <string name="revanced_external_downloader_action_button_summary_off">オフライン ボタンはアプリ内のダウンローダーを呼び出します</string>
   <string name="revanced_external_downloader_name_title">外部ダウンローダーのパッケージ名</string>
-  <string name="revanced_external_downloader_name_summary">インストールされている外部ダウンローダーアプリのパッケージ名</string>
+  <string name="revanced_external_downloader_name_summary">インストールされている外部ダウンローダー アプリのパッケージ名</string>
   <string name="revanced_external_downloader_other_item_hint">パッケージ名を入力してください</string>
   <string name="revanced_external_downloader_other_item">その他</string>
   <string name="revanced_external_downloader_not_found_title">アプリがインストールされていません</string>
   <string name="revanced_external_downloader_not_installed_warning">%s はインストールされていません。インストールしてください。</string>
-  <string name="revanced_external_downloader_package_not_found_warning">"パッケージ名: %s のインストール済みアプリが見つかりませんでした
+  <string name="revanced_external_downloader_package_not_found_warning">"パッケージ名 %s のインストール済みアプリが見つかりませんでした
 
 パッケージ名が正しいこと、およびアプリがインストールされていることを確認してください"</string>
-  <string name="revanced_external_downloader_empty_warning">パッケージ名を空にすることはできません</string>
+  <string name="revanced_external_downloader_empty_warning">パッケージ名は空欄にできません</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">精密シークモードを無効にする</string>
