@@ -468,14 +468,14 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Дугме „Преузми” отвара спољни програм за преузимање</string>
   <string name="revanced_external_downloader_action_button_summary_off">Дугме „Преузми” отвара изворни програм за преузимање у апликацији</string>
   <string name="revanced_external_downloader_name_title">Назив пакета програма за преузимање</string>
-  <string name="revanced_external_downloader_name_summary">Назив пакета ваше инсталиране спољне апликације за преузимање</string>
+  <string name="revanced_external_downloader_name_summary">Назив пакета вашег инсталираног спољног програма за преузимање</string>
   <string name="revanced_external_downloader_other_item_hint">Унесите назив пакета</string>
   <string name="revanced_external_downloader_other_item">Остало</string>
   <string name="revanced_external_downloader_not_found_title">Апликација није инсталирана</string>
   <string name="revanced_external_downloader_not_installed_warning">%s није инсталиран. Инсталирајте га.</string>
-  <string name="revanced_external_downloader_package_not_found_warning">"Није могуће пронаћи инсталирану апликацију са називом пакета: %s
+  <string name="revanced_external_downloader_package_not_found_warning">"Није пронађена инсталирана апликација са називом пакета: %s
 
-Проверите да ли је назив пакета тачан и да ли је апликација инсталирана"</string>
+Проверите да ли је назив пакета исправан и да ли је апликација инсталирана"</string>
   <string name="revanced_external_downloader_empty_warning">Назив пакета не може бити празан</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">

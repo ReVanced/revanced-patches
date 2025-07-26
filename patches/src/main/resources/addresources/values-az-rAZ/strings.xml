@@ -137,6 +137,7 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_debug_logs_disabled">Sazlama qeydi qapalıdır</string>
   <string name="revanced_debug_logs_none_found">Qeydlər tapılmadı</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Qeydlər köçürüldü</string>
+  <string name="revanced_debug_logs_failed_to_export">Qeydləri ixrac etmək alınmadı: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Sazlama qeydlərini təmizlə</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Saxlanılan bütün ReVanced sazlama qeydlərini təmizləyir</string>
   <string name="revanced_debug_logs_clear_toast">Qeydlər silindi</string>
@@ -467,7 +468,15 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Yükləmə düyməsi, xarici yükləyicinizi açır</string>
   <string name="revanced_external_downloader_action_button_summary_off">Yükləmə düyməsi tətbiqə xas yükləyicini açır</string>
   <string name="revanced_external_downloader_name_title">Yükləyici paketi adı</string>
+  <string name="revanced_external_downloader_name_summary">Quraşdırılan xarici yükləyici tətbiqinizin paket adı</string>
+  <string name="revanced_external_downloader_other_item_hint">Paket adını yerləşdir</string>
+  <string name="revanced_external_downloader_other_item">Digər</string>
+  <string name="revanced_external_downloader_not_found_title">Tətbiq quraşdırılmayıb</string>
   <string name="revanced_external_downloader_not_installed_warning">%s quraşdırılmayıb. Lütfən, bunu quraşdır.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Paket adı ilə quraşdırılan tətbiq tapılmadı: %s
+
+Paket adının düzgün olduğun yoxla və tətbiqi quraşdırın"</string>
+  <string name="revanced_external_downloader_empty_warning">Paket adı boş ola bilməz</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Dəqiq axtarış jestini qapadın</string>
