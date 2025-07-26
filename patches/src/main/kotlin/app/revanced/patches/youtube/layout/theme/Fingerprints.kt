@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.theme
 
+import app.revanced.patcher.anyInstruction
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
@@ -51,7 +52,10 @@ internal val splashScreenStyleFingerprint by fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
     instructions(
-        literal(269032877L)
+        anyInstruction(
+            literal(1074339245), // 20.30+
+            literal(269032877L) // 20.29 and lower.
+        )
     )
     custom { method, classDef ->
         method.name == "onCreate" && classDef.endsWith("/MainActivity;")

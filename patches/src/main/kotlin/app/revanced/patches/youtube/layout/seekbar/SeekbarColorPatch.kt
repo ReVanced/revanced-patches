@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_49_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_30_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.copyXmlNode
@@ -296,7 +297,11 @@ val seekbarColorPatch = bytecodePatch(
             mainActivityOnCreateFingerprint
         ).forEach { fingerprint ->
             fingerprint.method.insertLiteralOverride(
-                launchScreenLayoutTypeLotteFeatureFlag,
+                if (is_20_30_or_greater) {
+                    launchScreenLayoutTypeLotteFeatureFlag
+                } else {
+                    launchScreenLayoutTypeLotteFeatureLegacyFlag
+                },
                 "$EXTENSION_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z"
             )
         }
