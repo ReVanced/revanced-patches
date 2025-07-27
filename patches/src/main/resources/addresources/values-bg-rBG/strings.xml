@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">Отстраняването на грешки е деактивирано</string>
   <string name="revanced_debug_logs_none_found">Не са намерени логове</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Логовете са копирани</string>
-  <string name="revanced_debug_logs_failed_to_export">Неуспешно експортиране на логове: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Неуспешно експортиране на логове: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Изчистване на логовете за отстраняване на грешки</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Изчиства всички съхранени логове за отстраняване на грешки на ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Логовете са изчистени</string>
@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Бутонът за изтегляне отваря избраното от Вас външно приложение за изтегляне</string>
   <string name="revanced_external_downloader_action_button_summary_off">Бутонът за изтегляне отваря вграденото приложение за изтегляне</string>
   <string name="revanced_external_downloader_name_title">Име на пакета на изтеглящото приложение</string>
-  <string name="revanced_external_downloader_name_summary">Име на пакета на приложението за изтегляне, като NewPipe или Seal</string>
+  <string name="revanced_external_downloader_name_summary">Име на пакета на вашето инсталирано външно приложение за изтегляне</string>
+  <string name="revanced_external_downloader_other_item_hint">Въведете името на пакета</string>
+  <string name="revanced_external_downloader_other_item">Други</string>
+  <string name="revanced_external_downloader_not_found_title">Приложението не е инсталирано</string>
   <string name="revanced_external_downloader_not_installed_warning">%s не е инсталиран. Инсталирайте го.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Не може да бъде намерено инсталирано приложение с име на пакет: %s
+
+Проверете дали името на пакета е правилно и приложението е инсталирано"</string>
+  <string name="revanced_external_downloader_empty_warning">Името на пакета не може да бъде празно</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Деактивиране на жеста за точно търсене</string>
@@ -732,6 +739,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_seekbar_title">Скриване на лентата за търсене на видео плейър</string>
   <string name="revanced_hide_seekbar_summary_on">Лентата за време на плейъра е скрита</string>
   <string name="revanced_hide_seekbar_summary_off">Лентата за време на плейъра се показва</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="revanced_hide_seekbar_thumbnail_title">Скриване на лентата за търсене на миниатюри на видеоклипове</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Лентата за търсене на миниатюри на видеоклипове е скрита</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Лентата за търсене на миниатюри на видеоклипове е показана</string>
@@ -1189,8 +1197,6 @@ Second \"item\" text"</string>
 Това ще промени външния вид и функциите на приложението, но може да възникнат неизвестни странични ефекти.
 
 Ако по-късно бъде изключено, препоръчително е да изчистите данните на приложението, за да предотвратите грешки в потребителския интерфейс."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Подлъгване за версията на</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Възстановете старите икони на Shorts в плейъра</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Възстановяване на стари икони за навигация</string>

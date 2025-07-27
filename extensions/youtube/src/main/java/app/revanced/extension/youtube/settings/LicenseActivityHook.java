@@ -5,6 +5,7 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.preference.PreferenceFragment;
 import android.util.TypedValue;
 import android.view.ViewGroup;
@@ -169,6 +170,12 @@ public class LicenseActivityHook extends Activity {
         if (currentThemeValueOrdinal != themeOrdinal) {
             currentThemeValueOrdinal = themeOrdinal;
             Utils.setIsDarkModeEnabled(themeOrdinal == 1);
+        }
+    }
+
+    public static void handleConfigurationChanged(Activity activity, Configuration newConfig) {
+        if (searchViewController != null) {
+            searchViewController.handleOrientationChange(newConfig.orientation);
         }
     }
 }

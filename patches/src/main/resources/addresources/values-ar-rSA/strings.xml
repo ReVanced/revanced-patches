@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">تم تعطيل تسجيلات تصحيح الأخطاء</string>
   <string name="revanced_debug_logs_none_found">لم يتم العثور على سجلات</string>
   <string name="revanced_debug_logs_copied_to_clipboard">تم نسخ السجلات</string>
-  <string name="revanced_debug_logs_failed_to_export">فشل تصدير السجلات: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">فشل تصدير السجلات: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">مسح سجلات تصحيح الأخطاء</string>
   <string name="revanced_debug_logs_clear_buffer_summary">يمسح جميع سجلات تصحيح أخطاء ReVanced المخزنة</string>
   <string name="revanced_debug_logs_clear_toast">تم مسح السجلات</string>
@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">يفتح زر التنزيل أداة التنزيل الخارجية</string>
   <string name="revanced_external_downloader_action_button_summary_off">يفتح زر التنزيل أداة التنزيل الأصلية داخل التطبيق</string>
   <string name="revanced_external_downloader_name_title">اسم حزمة أداة التنزيل</string>
-  <string name="revanced_external_downloader_name_summary">اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك، مثل NewPipe أو Seal</string>
+  <string name="revanced_external_downloader_name_summary">اسم حزمة تطبيق التنزيل الخارجي المثبت لديك</string>
+  <string name="revanced_external_downloader_other_item_hint">أدخل اسم الحزمة</string>
+  <string name="revanced_external_downloader_other_item">أخرى</string>
+  <string name="revanced_external_downloader_not_found_title">التطبيق غير مثبت</string>
   <string name="revanced_external_downloader_not_installed_warning">لم يتم تثبيت %s . الرجاء تثبيته.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"تعذر العثور على التطبيق المثبت باسم الحزمة: %s
+
+تأكد من أن اسم الحزمة صحيح وأن التطبيق مثبت"</string>
+  <string name="revanced_external_downloader_empty_warning">لا يمكن أن يكون اسم الحزمة فارغًا</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">تعطيل إيماءة التمرير الدقيقة</string>
@@ -732,6 +739,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_seekbar_title">إخفاء شريط تقدم مشغل الفيديو</string>
   <string name="revanced_hide_seekbar_summary_on">تم إخفاء شريط تقدم الفيديو</string>
   <string name="revanced_hide_seekbar_summary_off">يتم عرض شريط تقدم الفيديو</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="revanced_hide_seekbar_thumbnail_title">إخفاء شريط تقدم صور مصغرة للفيديو</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">شريط تقدم صور مصغرة للفيديو مخفي</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">شريط تقدم صور مصغرة للفيديو معروض</string>
@@ -1189,8 +1197,6 @@ Second \"item\" text"</string>
 سيؤدي هذا إلى تغيير مظهر ومميزات التطبيق، ولكن قد تحدث تأثيرات جانبية غير معروفة.
 
 إذا تم إيقاف تشغيله لاحقًا، من المستحسن مسح بيانات التطبيق لمنع حدوث أخطاء في واجهة المستخدم."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">الهدف من تغيير إصدار التطبيق</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - استعادة أيقونات مشغل Shorts القديمة</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - استعادة أيقونات التنقل القديمة</string>

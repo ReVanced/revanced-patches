@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">调试日志记录已禁用</string>
   <string name="revanced_debug_logs_none_found">未找到日志</string>
   <string name="revanced_debug_logs_copied_to_clipboard">日志已复制</string>
-  <string name="revanced_debug_logs_failed_to_export">导出日志失败：$s</string>
+  <string name="revanced_debug_logs_failed_to_export">导出日志失败：%s</string>
   <string name="revanced_debug_logs_clear_buffer_title">清除调试日志</string>
   <string name="revanced_debug_logs_clear_buffer_summary">清除所有存储的 ReVanced 调试日志</string>
   <string name="revanced_debug_logs_clear_toast">日志已清除</string>
@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">下载按钮打开你的外部下载工具</string>
   <string name="revanced_external_downloader_action_button_summary_off">下载按钮打开主要的在服务程序下载工具</string>
   <string name="revanced_external_downloader_name_title">下载器的应用包名</string>
-  <string name="revanced_external_downloader_name_summary">已安装外部下载器程序的软件包名称，例如 NewPipe 或 Seal</string>
+  <string name="revanced_external_downloader_name_summary">您已安装的外部下载器应用的包名</string>
+  <string name="revanced_external_downloader_other_item_hint">输入包名</string>
+  <string name="revanced_external_downloader_other_item">其他</string>
+  <string name="revanced_external_downloader_not_found_title">应用未安装</string>
   <string name="revanced_external_downloader_not_installed_warning">%s 未安装，请安装。</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"找不到包名为 %s 的已安装应用
+
+请验证包名是否正确且应用已安装"</string>
+  <string name="revanced_external_downloader_empty_warning">包名不能为空</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">禁用上滑精确定位进度手势</string>
@@ -732,6 +739,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_seekbar_title">隐藏视频播放器进度条</string>
   <string name="revanced_hide_seekbar_summary_on">视频播放器进度条已隐藏</string>
   <string name="revanced_hide_seekbar_summary_off">视频播放器进度条已显示</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="revanced_hide_seekbar_thumbnail_title">隐藏视频缩略图进度条</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">视频缩略图进度条已隐藏</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">视频缩略图进度条已显示</string>
@@ -1194,8 +1202,6 @@ Second \"item\" text"</string>
 这会改变应用程序的外观和功能，但可能会出现未知的副作用。
 
 如果稍后关闭，建议清除应用程序数据以防止 UI 错误。"</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">伪装应用程序版本为</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 恢复旧的 Shorts 播放器图标</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - 还原旧的导航图标</string>
