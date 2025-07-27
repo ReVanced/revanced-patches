@@ -478,7 +478,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_external_downloader_package_not_found_warning">"パッケージ名 %s のインストール済みアプリが見つかりませんでした
 
 パッケージ名が正しいこと、およびアプリがインストールされていることを確認してください"</string>
-  <string name="revanced_external_downloader_empty_warning">パッケージ名は空欄にできません</string>
+  <string name="revanced_external_downloader_empty_warning">パッケージ名は空欄にはできません</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">精密シークモードを無効にする</string>
