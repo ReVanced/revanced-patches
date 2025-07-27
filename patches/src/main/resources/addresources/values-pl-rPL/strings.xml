@@ -133,7 +133,7 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_debug_logs_disabled">Rejestrowanie debugowania jest wyłączone</string>
   <string name="revanced_debug_logs_none_found">Nie znaleziono dzienników</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Dzienniki skopiowane</string>
-  <string name="revanced_debug_logs_failed_to_export">Nie udało się wyeksportować dzienników: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Nie udało się wyeksportować logów: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Wyczyść dzienniki debugowania</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Czyści wszystkie zapisane dzienniki debugowania ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Dzienniki wyczyszczone</string>
@@ -464,8 +464,15 @@ Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Przycisk pobierania otwiera zewnętrzną aplikację</string>
   <string name="revanced_external_downloader_action_button_summary_off">Przycisk pobierania otwiera natywne pobieranie w aplikacji</string>
   <string name="revanced_external_downloader_name_title">Nazwa pakietu aplikacji od pobierania</string>
-  <string name="revanced_external_downloader_name_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania, takiej jak NewPipe lub Seal</string>
+  <string name="revanced_external_downloader_name_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji do pobierania</string>
+  <string name="revanced_external_downloader_other_item_hint">Wprowadź nazwę pakietu</string>
+  <string name="revanced_external_downloader_other_item">Inne</string>
+  <string name="revanced_external_downloader_not_found_title">Aplikacja nie jest zainstalowana</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nie jest zainstalowany, zainstaluj.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Nie znaleziono zainstalowanej aplikacji o nazwie pakietu: %s
+
+Sprawdź, czy nazwa pakietu jest prawidłowa i czy aplikacja jest zainstalowana"</string>
+  <string name="revanced_external_downloader_empty_warning">Nazwa pakietu nie może być pusta</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Gest precyzyjnego przewijania</string>
@@ -728,6 +735,7 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_hide_seekbar_title">Ukryj pasek przewijania odtwarzacza wideo</string>
   <string name="revanced_hide_seekbar_summary_on">Pasek postępu w odtwarzaczu jest ukryty</string>
   <string name="revanced_hide_seekbar_summary_off">Pasek postępu w odtwarzaczu jest widoczny</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="revanced_hide_seekbar_thumbnail_title">Ukryj pasek przewijania miniatur wideo</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Pasek przewijania miniatur wideo jest ukryty</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Pasek przewijania miniatur wideo jest pokazany</string>
@@ -1185,8 +1193,6 @@ Układ samochodowy
 Spowoduje to zmianę wyglądu i funkcjonalności aplikacji, ale mogą wystąpić nieznane efekty uboczne.
 
 Jeśli później zostanie wyłączony, zaleca się wyczyszczenie danych aplikacji, aby zapobiec błędom interfejsu użytkownika."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Docelowa oszukiwana wersja aplikacji</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Przywraca stare ikony odtwarzacza Shortsów</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Przywróć stare ikony nawigacji</string>

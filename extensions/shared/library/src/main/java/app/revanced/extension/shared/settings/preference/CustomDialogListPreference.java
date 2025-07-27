@@ -1,7 +1,5 @@
 package app.revanced.extension.shared.settings.preference;
 
-import static app.revanced.extension.shared.Utils.dipToPixels;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -26,7 +24,7 @@ public class CustomDialogListPreference extends ListPreference {
     /**
      * Custom ArrayAdapter to handle checkmark visibility.
      */
-    private static class ListPreferenceArrayAdapter extends ArrayAdapter<CharSequence> {
+    public static class ListPreferenceArrayAdapter extends ArrayAdapter<CharSequence> {
         private static class SubViewDataContainer {
             ImageView checkIcon;
             View placeholder;
