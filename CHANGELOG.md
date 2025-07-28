@@ -1,3 +1,10 @@
+# [5.33.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.32.0...v5.33.0-dev.1) (2025-07-28)
+
+
+### Features
+
+* **YouTube - Playback speed:** Add "Restore old playback speed menu" option ([#5552](https://github.com/ReVanced/revanced-patches/issues/5552)) ([b01f15b](https://github.com/ReVanced/revanced-patches/commit/b01f15b9acb0427aed99b0141ae271831b7936bf))
+
 # [5.32.0](https://github.com/ReVanced/revanced-patches/compare/v5.31.2...v5.32.0) (2025-07-27)
 
 
