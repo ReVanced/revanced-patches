@@ -1,3 +1,26 @@
+# [5.32.0](https://github.com/ReVanced/revanced-patches/compare/v5.31.2...v5.32.0) (2025-07-27)
+
+
+### Bug Fixes
+
+* **Messenger - Hide inbox ads:** Support the latest app version ([2959c02](https://github.com/ReVanced/revanced-patches/commit/2959c0214dfa703ee623ef1f89bded7f78c9d252))
+* **YouTube  - Hide layout components:** Fix "Hide ticket shelf" ([#5516](https://github.com/ReVanced/revanced-patches/issues/5516)) ([3b85c71](https://github.com/ReVanced/revanced-patches/commit/3b85c71433325fff49e01c77c7b9ff8ddd0a7068))
+* **YouTube - GmsCore support:** Fix search suggestions when logged out by using correct search provider ([#5483](https://github.com/ReVanced/revanced-patches/issues/5483)) ([e86fdc8](https://github.com/ReVanced/revanced-patches/commit/e86fdc86b161a6077960b85149e83bacbac664e7))
+
+
+### Features
+
+* **Prime Video:** Add `Playback speed` patch ([#5444](https://github.com/ReVanced/revanced-patches/issues/5444)) ([22cf313](https://github.com/ReVanced/revanced-patches/commit/22cf313a7b99b69e17b9d488c514802043a5dc10))
+* **YouTube - External downloads:** Improve the selection of the external downloader package ([#5504](https://github.com/ReVanced/revanced-patches/issues/5504)) ([5de9aa9](https://github.com/ReVanced/revanced-patches/commit/5de9aa9fad4f24186da045fb188f8718d6f63d7a))
+* **YT Music:** Support latest versions ([#5524](https://github.com/ReVanced/revanced-patches/issues/5524)) ([551dcf0](https://github.com/ReVanced/revanced-patches/commit/551dcf01ca9c489a779196b49c8744727d79d6bc))
+
+# [5.32.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.4...v5.32.0-dev.5) (2025-07-26)
+
+
+### Features
+
+* **YT Music:** Support latest versions ([#5524](https://github.com/ReVanced/revanced-patches/issues/5524)) ([551dcf0](https://github.com/ReVanced/revanced-patches/commit/551dcf01ca9c489a779196b49c8744727d79d6bc))
+
 # [5.32.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.3...v5.32.0-dev.4) (2025-07-25)
 
 
