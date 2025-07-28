@@ -23,7 +23,6 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -42,7 +41,7 @@ import java.util.function.Function;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.VideoInformation;
-import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilterPatch;
+import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilter;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 import kotlin.Unit;
@@ -94,6 +93,11 @@ public class CustomPlaybackSpeedPatch {
      * Minimum and maximum custom playback speeds of {@link #customPlaybackSpeeds}.
      */
     private static final float customPlaybackSpeedsMin, customPlaybackSpeedsMax;
+
+    /**
+     * The last time the old playback menu was forcefully called.
+     */
+    private static volatile long lastTimeOldPlaybackMenuInvoked;
 
     static {
         // Cap at 2 decimals (rounds automatically).
@@ -174,25 +178,33 @@ public class CustomPlaybackSpeedPatch {
     public static void onFlyoutMenuCreate(RecyclerView recyclerView) {
         recyclerView.getViewTreeObserver().addOnDrawListener(() -> {
             try {
-                if (PlaybackSpeedMenuFilterPatch.isPlaybackRateSelectorMenuVisible) {
-                    if (hideLithoMenuAndShowCustomSpeedMenu(recyclerView, 5)) {
-                        PlaybackSpeedMenuFilterPatch.isPlaybackRateSelectorMenuVisible = false;
+                if (PlaybackSpeedMenuFilter.isPlaybackRateSelectorMenuVisible) {
+                    if (hideLithoMenuAndShowSpeedMenu(recyclerView, 5)) {
+                        PlaybackSpeedMenuFilter.isPlaybackRateSelectorMenuVisible = false;
                     }
                 }
             } catch (Exception ex) {
-                Logger.printException(() -> "onFlyoutMenuCreate failure", ex);
+                Logger.printException(() -> "isPlaybackRateSelectorMenuVisible failure", ex);
+            }
+
+            try {
+                if (PlaybackSpeedMenuFilter.isOldPlaybackSpeedMenuVisible) {
+                    if (hideLithoMenuAndShowSpeedMenu(recyclerView, 8)) {
+                        PlaybackSpeedMenuFilter.isOldPlaybackSpeedMenuVisible = false;
+                    }
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "isOldPlaybackSpeedMenuVisible failure", ex);
             }
         });
     }
 
-    @SuppressWarnings("SameParameterValue")
-    private static boolean hideLithoMenuAndShowCustomSpeedMenu(RecyclerView recyclerView, int expectedChildCount) {
+    private static boolean hideLithoMenuAndShowSpeedMenu(RecyclerView recyclerView, int expectedChildCount) {
         if (recyclerView.getChildCount() == 0) {
             return false;
         }
 
-        View firstChild = recyclerView.getChildAt(0);
-        if (!(firstChild instanceof ViewGroup playbackSpeedParentView)) {
+        if (!(recyclerView.getChildAt(0) instanceof ViewGroup playbackSpeedParentView)) {
             return false;
         }
 
@@ -200,31 +212,49 @@ public class CustomPlaybackSpeedPatch {
             return false;
         }
 
-        ViewParent parentView3rd = Utils.getParentView(recyclerView, 3);
-        if (!(parentView3rd instanceof ViewGroup)) {
-            return true;
+        if (!(Utils.getParentView(recyclerView, 3) instanceof ViewGroup parentView3rd)) {
+            return false;
         }
 
-        ViewParent parentView4th = parentView3rd.getParent();
-        if (!(parentView4th instanceof ViewGroup)) {
-            return true;
+        if (!(parentView3rd.getParent() instanceof ViewGroup parentView4th)) {
+            return false;
         }
 
         // Dismiss View [R.id.touch_outside] is the 1st ChildView of the 4th ParentView.
         // This only shows in phone layout.
-        final var touchInsidedView = ((ViewGroup) parentView4th).getChildAt(0);
+        var touchInsidedView = parentView4th.getChildAt(0);
         touchInsidedView.setSoundEffectsEnabled(false);
         touchInsidedView.performClick();
 
         // In tablet layout there is no Dismiss View, instead we just hide all two parent views.
-        ((ViewGroup) parentView3rd).setVisibility(View.GONE);
-        ((ViewGroup) parentView4th).setVisibility(View.GONE);
+        parentView3rd.setVisibility(View.GONE);
+        parentView4th.setVisibility(View.GONE);
 
-        // Close the litho speed menu and show the modern custom speed dialog.
-        showModernCustomPlaybackSpeedDialog(recyclerView.getContext());
-        Logger.printDebug(() -> "Modern playback speed dialog shown");
+        // Show old playback speed menu.
+        if (Settings.RESTORE_OLD_SPEED_MENU.get()) {
+            showOldPlaybackSpeedMenu();
+            Logger.printDebug(() -> "Old playback speed dialog shown");
+        } else {
+            // Close the litho speed menu and show the modern custom speed dialog.
+            showModernCustomPlaybackSpeedDialog(recyclerView.getContext());
+            Logger.printDebug(() -> "Modern playback speed dialog shown");
+        }
 
         return true;
+    }
+
+    public static void showOldPlaybackSpeedMenu() {
+        // This method is sometimes used multiple times.
+        // To prevent this, ignore method reuse within 1 second.
+        final long now = System.currentTimeMillis();
+        if (now - lastTimeOldPlaybackMenuInvoked < 1000) {
+            Logger.printDebug(() -> "Ignoring call to showOldPlaybackSpeedMenu");
+            return;
+        }
+        lastTimeOldPlaybackMenuInvoked = now;
+        Logger.printDebug(() -> "Old video quality menu shown");
+
+        // Rest of the implementation added by patch.
     }
 
     /**

@@ -26,7 +26,7 @@ import app.revanced.extension.youtube.TrieSearch;
  *
  * Once a way to asynchronously update litho text is found, this strategy will no longer be needed.
  */
-public final class ReturnYouTubeDislikeFilterPatch extends Filter {
+public final class ReturnYouTubeDislikeFilter extends Filter {
 
     /**
      * Last unique video id's loaded.  Value is ignored and Map is treated as a Set.
@@ -67,7 +67,7 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
 
     private final ByteArrayFilterGroupList videoIdFilterGroup = new ByteArrayFilterGroupList();
 
-    public ReturnYouTubeDislikeFilterPatch() {
+    public ReturnYouTubeDislikeFilter() {
         // When a new Short is opened, the like buttons always seem to load before the dislike.
         // But if swiping back to a previous video and liking/disliking, then only that single button reloads.
         // So must check for both buttons.

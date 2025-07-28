@@ -91,7 +91,7 @@ val hideInfoCardsPatch = bytecodePatch(
                     invoke-static {}, Lapp/revanced/extension/youtube/patches/HideInfoCardsPatch;->hideInfoCardsMethodCall()Z
                     move-result v$toggleRegister
                     if-nez v$toggleRegister, :hide_info_cards
-                """,
+            """,
             ExternalLabel(
                 "hide_info_cards",
                 hideInfoCardsCallMethod.getInstruction(invokeInterfaceIndex + 1),
@@ -99,7 +99,8 @@ val hideInfoCardsPatch = bytecodePatch(
         )
 
         // Info cards can also appear as Litho components.
-        val filterClassDescriptor = "Lapp/revanced/extension/youtube/patches/components/HideInfoCardsFilterPatch;"
+        // Edit: This may be obsolete and no longer used by any supported versions.
+        val filterClassDescriptor = "Lapp/revanced/extension/youtube/patches/components/HideInfoCardsFilter;"
         addLithoFilter(filterClassDescriptor)
     }
 }

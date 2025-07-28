@@ -1,11 +1,45 @@
 package app.revanced.patches.youtube.video.speed.custom
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.newInstance
+import app.revanced.patcher.opcode
+import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
+
+
+internal val getOldPlaybackSpeedsFingerprint by fingerprint {
+    parameters("[L", "I")
+    strings("menu_item_playback_speed")
+}
+
+internal val showOldPlaybackSpeedMenuFingerprint by fingerprint {
+    instructions(
+        resourceLiteral(ResourceType.STRING, "varispeed_unavailable_message")
+    )
+}
+
+internal val showOldPlaybackSpeedMenuExtensionFingerprint by fingerprint {
+    custom { method, _ -> method.name == "showOldPlaybackSpeedMenu" }
+}
+
+internal val speedArrayGeneratorFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("[L")
+    parameters("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;")
+    instructions(
+        methodCall(name = "size", returnType = "I"),
+        newInstance("Ljava/text/DecimalFormat;"),
+        string("0.0#"),
+        app.revanced.patcher.literal(7),
+        opcode(Opcode.NEW_ARRAY),
+        fieldAccess(definingClass = "/PlayerConfigModel;", type = "[F")
+    )
+}
 
 internal val speedLimiterFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -21,17 +55,4 @@ internal val speedLimiterFingerprint by fingerprint {
         Opcode.CONST_HIGH16,
         Opcode.INVOKE_STATIC,
     )
-}
-
-internal val disableFastForwardNoticeFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
-    custom { method, _ ->
-        method.name == "run" && method.indexOfFirstInstruction {
-            // In later targets the code is found in different methods with different strings.
-            val string = getReference<StringReference>()?.string
-            string == "Failed to easy seek haptics vibrate." || string == "search_landing_cache_key"
-        } >= 0
-    }
 }
