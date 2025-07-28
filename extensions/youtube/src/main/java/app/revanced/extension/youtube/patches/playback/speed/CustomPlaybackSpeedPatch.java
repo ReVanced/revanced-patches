@@ -80,16 +80,6 @@ public class CustomPlaybackSpeedPatch {
     public static final float[] customPlaybackSpeeds;
 
     /**
-     * Formats speeds to UI strings.
-     */
-    private static final NumberFormat speedFormatter = NumberFormat.getNumberInstance();
-
-    /**
-     * Weak reference to the currently open dialog.
-     */
-    private static WeakReference<Dialog> currentDialog = new WeakReference<>(null);
-
-    /**
      * Minimum and maximum custom playback speeds of {@link #customPlaybackSpeeds}.
      */
     private static final float customPlaybackSpeedsMin, customPlaybackSpeedsMax;
@@ -98,6 +88,16 @@ public class CustomPlaybackSpeedPatch {
      * The last time the old playback menu was forcefully called.
      */
     private static volatile long lastTimeOldPlaybackMenuInvoked;
+
+    /**
+     * Formats speeds to UI strings.
+     */
+    private static final NumberFormat speedFormatter = NumberFormat.getNumberInstance();
+
+    /**
+     * Weak reference to the currently open dialog.
+     */
+    private static WeakReference<Dialog> currentDialog = new WeakReference<>(null);
 
     static {
         // Cap at 2 decimals (rounds automatically).
@@ -230,12 +230,11 @@ public class CustomPlaybackSpeedPatch {
         parentView3rd.setVisibility(View.GONE);
         parentView4th.setVisibility(View.GONE);
 
-        // Show old playback speed menu.
+        // Close the litho speed menu and show the custom speeds.
         if (Settings.RESTORE_OLD_SPEED_MENU.get()) {
             showOldPlaybackSpeedMenu();
             Logger.printDebug(() -> "Old playback speed dialog shown");
         } else {
-            // Close the litho speed menu and show the modern custom speed dialog.
             showModernCustomPlaybackSpeedDialog(recyclerView.getContext());
             Logger.printDebug(() -> "Modern playback speed dialog shown");
         }
@@ -252,7 +251,6 @@ public class CustomPlaybackSpeedPatch {
             return;
         }
         lastTimeOldPlaybackMenuInvoked = now;
-        Logger.printDebug(() -> "Old video quality menu shown");
 
         // Rest of the implementation added by patch.
     }

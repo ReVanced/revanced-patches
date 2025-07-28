@@ -25,18 +25,9 @@ internal var drawerResourceId = -1L
     private set
 
 private val hideInfocardsResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        resourceMappingPatch,
-        addResourcesPatch,
+    dependsOn(resourceMappingPatch
     )
     execute {
-        addResources("youtube", "layout.hide.infocards.hideInfocardsResourcePatch")
-
-        PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_info_cards"),
-        )
-
         drawerResourceId = getResourceId(
             ResourceType.ID,
             "info_cards_drawer_header",
@@ -53,6 +44,8 @@ val hideInfoCardsPatch = bytecodePatch(
         sharedExtensionPatch,
         lithoFilterPatch,
         hideInfocardsResourcePatch,
+        settingsPatch,
+        addResourcesPatch,
     )
 
     compatibleWith(
@@ -67,6 +60,13 @@ val hideInfoCardsPatch = bytecodePatch(
     )
 
     execute {
+        addResources("youtube", "layout.hide.infocards.hideInfocardsResourcePatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            SwitchPreference("revanced_hide_info_cards"),
+        )
+
+        // Edit: This old non litho code may be obsolete and no longer used by any supported versions.
         infocardsIncognitoFingerprint.match(infocardsIncognitoParentFingerprint.originalClassDef).method.apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
@@ -80,26 +80,28 @@ val hideInfoCardsPatch = bytecodePatch(
             )
         }
 
-        val hideInfoCardsCallMethod = infocardsMethodCallFingerprint.method
+        // Edit: This old non litho code may be obsolete and no longer used by any supported versions.
+        infocardsMethodCallFingerprint.let {
+            val invokeInterfaceIndex = it.instructionMatches.last().index
+            it.method.apply {
+                val register = implementation!!.registerCount - 1
 
-        val invokeInterfaceIndex = infocardsMethodCallFingerprint.instructionMatches.last().index
-        val toggleRegister = infocardsMethodCallFingerprint.method.implementation!!.registerCount - 1
-
-        hideInfoCardsCallMethod.addInstructionsWithLabels(
-            invokeInterfaceIndex,
-            """
-                    invoke-static {}, Lapp/revanced/extension/youtube/patches/HideInfoCardsPatch;->hideInfoCardsMethodCall()Z
-                    move-result v$toggleRegister
-                    if-nez v$toggleRegister, :hide_info_cards
-            """,
-            ExternalLabel(
-                "hide_info_cards",
-                hideInfoCardsCallMethod.getInstruction(invokeInterfaceIndex + 1),
-            ),
-        )
+                addInstructionsWithLabels(
+                    invokeInterfaceIndex,
+                    """
+                        invoke-static {}, Lapp/revanced/extension/youtube/patches/HideInfoCardsPatch;->hideInfoCardsMethodCall()Z
+                        move-result v$register
+                        if-nez v$register, :hide_info_cards
+                    """,
+                    ExternalLabel(
+                        "hide_info_cards",
+                        getInstruction(invokeInterfaceIndex + 1),
+                    )
+                )
+            }
+        }
 
         // Info cards can also appear as Litho components.
-        // Edit: This may be obsolete and no longer used by any supported versions.
         val filterClassDescriptor = "Lapp/revanced/extension/youtube/patches/components/HideInfoCardsFilter;"
         addLithoFilter(filterClassDescriptor)
     }
