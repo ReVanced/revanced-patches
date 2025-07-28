@@ -16,7 +16,7 @@ import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.patches.components.ReturnYouTubeDislikeFilterPatch;
+import app.revanced.extension.youtube.patches.components.ReturnYouTubeDislikeFilter;
 import app.revanced.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -55,7 +55,7 @@ public class ReturnYouTubeDislikePatch {
     private static volatile ReturnYouTubeDislike lastLithoShortsVideoData;
 
     /**
-     * Because litho Shorts spans are created offscreen after {@link ReturnYouTubeDislikeFilterPatch}
+     * Because litho Shorts spans are created offscreen after {@link ReturnYouTubeDislikeFilter}
      * detects the video ids, but the current Short can arbitrarily reload the same span,
      * then use the {@link #lastLithoShortsVideoData} if this value is greater than zero.
      */
