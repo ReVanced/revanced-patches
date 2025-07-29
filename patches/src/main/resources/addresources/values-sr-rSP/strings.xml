@@ -1471,6 +1471,9 @@ Second \"item\" text"</string>
   <string name="revanced_custom_speed_menu_title">Мени прилагођене брзине репродукције</string>
   <string name="revanced_custom_speed_menu_summary_on">Мени прилагођене брзине репродукције је приказан</string>
   <string name="revanced_custom_speed_menu_summary_off">Мени прилагођене брзине репродукције није приказан</string>
+  <string name="revanced_restore_old_speed_menu_title">Врати стари мени брзине репродукције</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Приказан је стари мени брзине репродукције</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Приказан је модерни мени брзине репродукције</string>
   <string name="revanced_custom_playback_speeds_title">Прилагођене брзине репродукције</string>
   <string name="revanced_custom_playback_speeds_summary">Додајте или промените прилагођене брзине репродукције</string>
   <string name="revanced_custom_playback_speeds_invalid">Прилагођене брзине морају бити мање од %s</string>

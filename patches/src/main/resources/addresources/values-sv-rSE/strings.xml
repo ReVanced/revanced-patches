@@ -1468,6 +1468,9 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_custom_speed_menu_title">Anpassad meny för uppspelningshastighet</string>
   <string name="revanced_custom_speed_menu_summary_on">Anpassad hastighetsmeny visas</string>
   <string name="revanced_custom_speed_menu_summary_off">Anpassad hastighetsmeny visas inte</string>
+  <string name="revanced_restore_old_speed_menu_title">Återställ gammal uppspelningshastighetsmeny</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Den gamla hastighetsmenyn visas</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Den moderna hastighetsmenyn visas</string>
   <string name="revanced_custom_playback_speeds_title">Anpassade uppspelningshastigheter</string>
   <string name="revanced_custom_playback_speeds_summary">Lägg till eller ändra de anpassade uppspelningshastigheterna</string>
   <string name="revanced_custom_playback_speeds_invalid">Anpassade hastigheter måste vara mindre än %s</string>

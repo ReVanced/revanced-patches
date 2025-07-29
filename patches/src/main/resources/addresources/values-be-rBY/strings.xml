@@ -1470,6 +1470,9 @@ Second \"item\" text"</string>
   <string name="revanced_custom_speed_menu_title">Меню пользовательской скорости воспроизведения</string>
   <string name="revanced_custom_speed_menu_summary_on">Меню пользовательской скорости отображается</string>
   <string name="revanced_custom_speed_menu_summary_off">Меню пользовательской скорости не отображается</string>
+  <string name="revanced_restore_old_speed_menu_title">Аднавіць старое меню хуткасці прайгравання</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Паказана старое меню хуткасці</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Паказана сучаснае меню хуткасці</string>
   <string name="revanced_custom_playback_speeds_title">Карыстальніцкія хуткасці прайгравання</string>
   <string name="revanced_custom_playback_speeds_summary">Добавьте или измените пользовательскую скорость воспроизведения</string>
   <string name="revanced_custom_playback_speeds_invalid">Нестандартныя хуткасці павінны быць менш за %s</string>
