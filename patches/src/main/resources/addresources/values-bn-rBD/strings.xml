@@ -1465,6 +1465,9 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_custom_speed_menu_title">কাস্টম প্লেব্যাক গতি মেনু</string>
   <string name="revanced_custom_speed_menu_summary_on">কাস্টম স্পিড মেনু দেখানো হচ্ছে</string>
   <string name="revanced_custom_speed_menu_summary_off">কাস্টম স্পিড মেনু দেখানো হচ্ছে না</string>
+  <string name="revanced_restore_old_speed_menu_title">পুরানো প্লেব্যাক গতি মেনু পুনরুদ্ধার করুন</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">পুরানো গতির মেনু দেখানো হয়েছে</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">আধুনিক গতির মেনু দেখানো হয়েছে</string>
   <string name="revanced_custom_playback_speeds_title">নিজস্ব প্লেব্যাক স্পিড</string>
   <string name="revanced_custom_playback_speeds_summary">কাস্টম প্লেব্যাক গতি যোগ করুন অথবা পরিবর্তন করুন</string>
   <string name="revanced_custom_playback_speeds_invalid">কাস্টম গতি %s এর চেয়ে কম হতে হবে</string>

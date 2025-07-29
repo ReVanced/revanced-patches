@@ -1468,6 +1468,9 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_custom_speed_menu_title">Meni prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_speed_menu_summary_on">Meni prilagođene brzine reprodukcije je prikazan</string>
   <string name="revanced_custom_speed_menu_summary_off">Meni prilagođene brzine reprodukcije nije prikazan</string>
+  <string name="revanced_restore_old_speed_menu_title">Vrati stari meni za brzinu reprodukcije</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Prikazan je stari meni brzine reprodukcije</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Prikazan je moderni meni brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_title">Prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_summary">Dodajte ili promenite prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_invalid">Prilagođene brzine moraju biti manje od %s</string>

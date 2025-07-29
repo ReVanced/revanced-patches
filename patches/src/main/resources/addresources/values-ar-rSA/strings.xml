@@ -1469,6 +1469,9 @@ Second \"item\" text"</string>
   <string name="revanced_custom_speed_menu_title">قائمة سرعة التشغيل المخصصة</string>
   <string name="revanced_custom_speed_menu_summary_on">يتم عرض قائمة سرعة التشغيل المخصصة</string>
   <string name="revanced_custom_speed_menu_summary_off">لا يتم عرض قائمة سرعة التشغيل المخصصة</string>
+  <string name="revanced_restore_old_speed_menu_title">استعادة قائمة سرعة التشغيل القديمة</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">قائمة السرعة القديمة معروضة</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">قائمة السرعة الحديثة معروضة</string>
   <string name="revanced_custom_playback_speeds_title">سرعة التشغيل المخصصة</string>
   <string name="revanced_custom_playback_speeds_summary">إضافة أو تغيير سرعة التشغيل المخصصة</string>
   <string name="revanced_custom_playback_speeds_invalid">يجب أن تكون سرعات التشغيل المخصصة أقل من %s</string>

@@ -1469,6 +1469,9 @@ Second \"item\" text"</string>
   <string name="revanced_custom_speed_menu_title">Менюто за потребителска скорост</string>
   <string name="revanced_custom_speed_menu_summary_on">Менюто за потребителска скорост се показва</string>
   <string name="revanced_custom_speed_menu_summary_off">Менюто за потребителска скорост не се показва</string>
+  <string name="revanced_restore_old_speed_menu_title">Възстановяване на старото меню за скорост на възпроизвеждане</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Показва се старото меню за скорост</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Показва се модерното меню за скорост</string>
   <string name="revanced_custom_playback_speeds_title">Персонализирани скорости на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_summary">Добавете или променете скоростa на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_invalid">Персонализираните скорости трябва да са по-малки от %s</string>

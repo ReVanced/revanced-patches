@@ -1470,6 +1470,9 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_custom_speed_menu_title">Menu de vitesse de lecture personnalisée</string>
   <string name="revanced_custom_speed_menu_summary_on">Le menu de vitesse personnalisée est affiché</string>
   <string name="revanced_custom_speed_menu_summary_off">Le menu de vitesse personnalisée n\'est pas affiché</string>
+  <string name="revanced_restore_old_speed_menu_title">Restaurer l\'ancien menu de vitesse de lecture</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">L\'ancien menu de vitesse est affiché</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Le menu de vitesse moderne est affiché</string>
   <string name="revanced_custom_playback_speeds_title">Vitesses de lecture personnalisées</string>
   <string name="revanced_custom_playback_speeds_summary">Ajouter ou modifier les vitesses de lecture personnalisées</string>
   <string name="revanced_custom_playback_speeds_invalid">Il doit y avoir moins de %s vitesses personnalisées</string>
