@@ -1,3 +1,10 @@
+# [5.33.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.1...v5.33.0-dev.2) (2025-07-29)
+
+
+### Features
+
+* **ORF ON:** Add `Remove root detection` patch ([#5551](https://github.com/ReVanced/revanced-patches/issues/5551)) ([6c6aa35](https://github.com/ReVanced/revanced-patches/commit/6c6aa35411a139dddc3a15dd757fbeded5d1a0a3))
+
 # [5.33.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.32.0...v5.33.0-dev.1) (2025-07-28)
 
 
