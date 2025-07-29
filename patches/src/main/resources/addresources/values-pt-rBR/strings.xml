@@ -1468,6 +1468,9 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_custom_speed_menu_title">Menu de velocidade de reprodução personalizado</string>
   <string name="revanced_custom_speed_menu_summary_on">O menu de velocidade personalizado é mostrado</string>
   <string name="revanced_custom_speed_menu_summary_off">O menu de velocidade personalizado não é mostrado</string>
+  <string name="revanced_restore_old_speed_menu_title">Restaurar menu antigo de velocidade de reprodução</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Menu antigo de velocidade de reprodução é exibido</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Menu moderno de velocidade de reprodução é exibido</string>
   <string name="revanced_custom_playback_speeds_title">Velocidade de reprodução personalizada</string>
   <string name="revanced_custom_playback_speeds_summary">Adicionar ou mudar as velocidades de reprodução personalizadas</string>
   <string name="revanced_custom_playback_speeds_invalid">Velocidades personalizadas devem ser menores que %s</string>

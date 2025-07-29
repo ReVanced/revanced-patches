@@ -1464,6 +1464,9 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_custom_speed_menu_title">Benutzerdefiniertes Wiedergabegeschwindigkeitsmenü</string>
   <string name="revanced_custom_speed_menu_summary_on">Benutzerdefiniertes Geschwindigkeitsmenü wird angezeigt</string>
   <string name="revanced_custom_speed_menu_summary_off">Benutzerdefiniertes Geschwindigkeitsmenü wird nicht angezeigt</string>
+  <string name="revanced_restore_old_speed_menu_title">Altes Wiedergabegeschwindigkeitsmenü wiederherstellen</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Altes Geschwindigkeitsmenü wird angezeigt</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Modernes Geschwindigkeitsmenü wird angezeigt</string>
   <string name="revanced_custom_playback_speeds_title">Benutzerdefinierte Wiedergabegeschwindigkeiten</string>
   <string name="revanced_custom_playback_speeds_summary">Hinzufügen oder Ändern der benutzerdefinierten Wiedergabegeschwindigkeit</string>
   <string name="revanced_custom_playback_speeds_invalid">Benutzerdefinierte Geschwindigkeiten müssen kleiner als %s sein</string>

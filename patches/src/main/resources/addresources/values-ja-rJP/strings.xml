@@ -1469,6 +1469,9 @@ Automotive レイアウト
   <string name="revanced_custom_speed_menu_title">カスタムした再生速度リストを使用する</string>
   <string name="revanced_custom_speed_menu_summary_on">カスタムした再生速度リストが表示されます</string>
   <string name="revanced_custom_speed_menu_summary_off">デフォルトの再生速度リストが表示されます</string>
+  <string name="revanced_restore_old_speed_menu_title">古い再生速度メニューを復元</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">古い速度メニューが表示されます</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">最新の速度メニューが表示されます</string>
   <string name="revanced_custom_playback_speeds_title">カスタム再生速度リスト</string>
   <string name="revanced_custom_playback_speeds_summary">カスタム再生速度リストを編集します</string>
   <string name="revanced_custom_playback_speeds_invalid">再生速度は %s 未満である必要があります</string>

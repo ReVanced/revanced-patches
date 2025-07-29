@@ -1470,6 +1470,9 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_custom_speed_menu_title">Pielāgotas atskaņošanas ātruma izvēlne</string>
   <string name="revanced_custom_speed_menu_summary_on">Pielāgotas ātruma izvēlne tiek rādīta</string>
   <string name="revanced_custom_speed_menu_summary_off">Pielāgotas ātruma izvēlne netiek rādīta</string>
+  <string name="revanced_restore_old_speed_menu_title">Atjaunot veco atskaņošanas ātruma izvēlni</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Tiek rādīta vecā ātruma izvēlne</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Tiek rādīta modernā ātruma izvēlne</string>
   <string name="revanced_custom_playback_speeds_title">Pielāgotie atskaņošanas ātrumi</string>
   <string name="revanced_custom_playback_speeds_summary">Pievienojiet vai mainiet pielāgotos atskaņošanas ātrumus</string>
   <string name="revanced_custom_playback_speeds_invalid">Pielāgoti ātrumi ir jābūt mazākiem par %s</string>
