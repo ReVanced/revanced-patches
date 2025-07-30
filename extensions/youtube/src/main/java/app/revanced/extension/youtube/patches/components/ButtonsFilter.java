@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
-
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -100,7 +98,7 @@ final class ButtonsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == likeSubscribeGlow) {
             return (path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX) || path.startsWith(COMPACT_CHANNEL_BAR_PATH_PREFIX))
@@ -117,7 +115,7 @@ final class ButtonsFilter extends Filter {
             // Make sure the current path is the right one
             //  to avoid false positives.
             return path.startsWith(VIDEO_ACTION_BAR_PATH)
-                    && bufferButtonsGroupList.check(protobufBufferArray).isFiltered();
+                    && bufferButtonsGroupList.check(buffer).isFiltered();
         }
 
         return true;
