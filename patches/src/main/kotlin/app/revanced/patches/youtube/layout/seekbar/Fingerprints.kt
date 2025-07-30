@@ -105,7 +105,7 @@ internal val playerLinearGradientLegacyFingerprint by fingerprint {
     )
 }
 
-internal const val launchScreenLayoutTypeLotteFeatureLegacyFlag = 1074339245L
+internal const val launchScreenLayoutTypeLotteFeatureLegacyFlag = 268507948L
 internal const val launchScreenLayoutTypeLotteFeatureFlag = 1073814316L
 
 internal val launchScreenLayoutTypeFingerprint by fingerprint {
