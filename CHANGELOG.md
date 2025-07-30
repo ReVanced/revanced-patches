@@ -1,3 +1,10 @@
+# [5.33.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.2...v5.33.0-dev.3) (2025-07-30)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Use old speed menu for player button if enabled ([1e8f436](https://github.com/ReVanced/revanced-patches/commit/1e8f4368e117f4b278c24709231cb32546e46dc0))
+
 # [5.33.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.1...v5.33.0-dev.2) (2025-07-29)
 
 
