@@ -84,15 +84,15 @@ public final class ReturnYouTubeDislikeFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (!Settings.RYD_ENABLED.get() || !Settings.RYD_SHORTS.get()) {
             return false;
         }
 
-        FilterGroup.FilterGroupResult result = videoIdFilterGroup.check(protobufBufferArray);
+        FilterGroup.FilterGroupResult result = videoIdFilterGroup.check(buffer);
         if (result.isFiltered()) {
-            String matchedVideoId = findVideoId(protobufBufferArray);
+            String matchedVideoId = findVideoId(buffer);
             // Matched video will be null if in incognito mode.
             // Must pass a null id to correctly clear out the current video data.
             // Otherwise if a Short is opened in non-incognito, then incognito is enabled and another Short is opened,

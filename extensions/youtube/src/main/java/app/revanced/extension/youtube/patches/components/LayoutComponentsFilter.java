@@ -304,7 +304,7 @@ public final class LayoutComponentsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // This identifier is used not only in players but also in search results:
         // https://github.com/ReVanced/revanced-patches/issues/3245
@@ -322,7 +322,7 @@ public final class LayoutComponentsFilter extends Filter {
         }
 
         if (matchedGroup == channelProfile) {
-            return channelProfileBuffer.check(protobufBufferArray).isFiltered();
+            return channelProfileBuffer.check(buffer).isFiltered();
         }
 
         if (exceptions.matches(path)) return false; // Exceptions are not filtered.
@@ -331,11 +331,11 @@ public final class LayoutComponentsFilter extends Filter {
             return compactChannelBarInnerButton.check(path).isFiltered()
                     // The filter may be broad, but in the context of a compactChannelBarInnerButton,
                     // it's safe to assume that the button is the only thing that should be hidden.
-                    && joinMembershipButton.check(protobufBufferArray).isFiltered();
+                    && joinMembershipButton.check(buffer).isFiltered();
         }
 
         if (matchedGroup == horizontalShelves) {
-            return contentIndex == 0 && (hideShelves() || ticketShelf.check(protobufBufferArray).isFiltered());
+            return contentIndex == 0 && (hideShelves() || ticketShelf.check(buffer).isFiltered());
         }
 
         if (matchedGroup == chipBar) {

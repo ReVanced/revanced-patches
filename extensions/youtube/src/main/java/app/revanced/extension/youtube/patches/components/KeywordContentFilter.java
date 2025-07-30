@@ -554,7 +554,7 @@ final class KeywordContentFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (contentIndex != 0 && matchedGroup == startsWithFilter) {
             return false;
@@ -574,7 +574,7 @@ final class KeywordContentFilter extends Filter {
         }
 
         MutableReference<String> matchRef = new MutableReference<>();
-        if (bufferSearch.matches(protobufBufferArray, matchRef)) {
+        if (bufferSearch.matches(buffer, matchRef)) {
             updateStats(true, matchRef.value);
             return true;
         }

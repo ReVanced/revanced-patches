@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
-
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 
@@ -87,12 +85,12 @@ final class CommentsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == chipBar) {
             // Playlist sort button uses same components and must only filter if the player is opened.
             return PlayerType.getCurrent().isMaximizedOrFullscreen()
-                    && aiCommentsSummary.check(protobufBufferArray).isFiltered();
+                    && aiCommentsSummary.check(buffer).isFiltered();
         }
 
         return true;

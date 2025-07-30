@@ -4,8 +4,6 @@ import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButt
 
 import android.view.View;
 
-import androidx.annotation.Nullable;
-
 import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
 
 import java.lang.ref.WeakReference;
@@ -13,7 +11,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -321,7 +318,7 @@ public final class ShortsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (contentType == FilterContentType.PATH) {
             if (matchedGroup == subscribeButton || matchedGroup == joinButton || matchedGroup == paidPromotionButton) {
@@ -330,22 +327,22 @@ public final class ShortsFilter extends Filter {
             }
 
             if (matchedGroup == useSoundButton) {
-                return useSoundButtonBuffer.check(protobufBufferArray).isFiltered();
+                return useSoundButtonBuffer.check(buffer).isFiltered();
             }
 
             if (matchedGroup == useTemplateButton) {
-                return useTemplateButtonBuffer.check(protobufBufferArray).isFiltered();
+                return useTemplateButtonBuffer.check(buffer).isFiltered();
             }
 
             if (matchedGroup == shortsCompactFeedVideo) {
-                return shouldHideShortsFeedItems() && shortsCompactFeedVideoBuffer.check(protobufBufferArray).isFiltered();
+                return shouldHideShortsFeedItems() && shortsCompactFeedVideoBuffer.check(buffer).isFiltered();
             }
 
             // Video action buttons (comment, share, remix) have the same path.
             // Like and dislike are separate path filters and don't require buffer searching.
             if (matchedGroup == shortsActionBar) {
                 return videoActionButton.check(path).isFiltered()
-                        && videoActionButtonBuffer.check(protobufBufferArray).isFiltered();
+                        && videoActionButtonBuffer.check(buffer).isFiltered();
             }
 
             if (matchedGroup == suggestedAction) {
@@ -356,7 +353,7 @@ public final class ShortsFilter extends Filter {
                     return true;
                 }
 
-                return suggestedActionsBuffer.check(protobufBufferArray).isFiltered();
+                return suggestedActionsBuffer.check(buffer).isFiltered();
             }
 
             return true;
