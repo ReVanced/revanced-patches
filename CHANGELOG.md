@@ -1,3 +1,10 @@
+# [5.33.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.3...v5.33.0-dev.4) (2025-07-30)
+
+
+### Performance Improvements
+
+* **YouTube:** Filter identifier callback only on root component creation ([#5558](https://github.com/ReVanced/revanced-patches/issues/5558)) ([ccac46e](https://github.com/ReVanced/revanced-patches/commit/ccac46eebc2e14b094454e37ef4461d48a62c53f))
+
 # [5.33.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.2...v5.33.0-dev.3) (2025-07-30)
 
 
