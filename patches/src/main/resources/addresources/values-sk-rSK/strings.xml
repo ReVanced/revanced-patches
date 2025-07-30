@@ -1462,6 +1462,9 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_custom_speed_menu_title">Menu vlastnej rýchlosti prehrávania</string>
   <string name="revanced_custom_speed_menu_summary_on">Menu vlastnej rýchlosti sa zobrazuje</string>
   <string name="revanced_custom_speed_menu_summary_off">Menu vlastnej rýchlosti sa nezobrazuje</string>
+  <string name="revanced_restore_old_speed_menu_title">Obnoviť staré menu rýchlosti prehrávania</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Zobrazuje sa staré menu rýchlosti</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Zobrazuje sa moderné menu rýchlosti</string>
   <string name="revanced_custom_playback_speeds_title">Vlastné rýchlosti prehrávania</string>
   <string name="revanced_custom_playback_speeds_summary">Pridať alebo zmeň vlastné rýchlosti prehrávania</string>
   <string name="revanced_custom_playback_speeds_invalid">Vlastné rýchlosti musia byť menšie ako %s</string>

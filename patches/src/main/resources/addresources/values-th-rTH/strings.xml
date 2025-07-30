@@ -1471,6 +1471,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_custom_speed_menu_title">เมนูกำหนดความเร็วในการเล่นแบบกำหนดเอง</string>
   <string name="revanced_custom_speed_menu_summary_on">แสดงเมนูกำหนดความเร็ว</string>
   <string name="revanced_custom_speed_menu_summary_off">ไม่แสดงเมนูกำหนดความเร็ว</string>
+  <string name="revanced_restore_old_speed_menu_title">คืนค่าเมนูความเร็วในการเล่นแบบเก่า</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">แสดงเมนูความเร็วแบบเก่า</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">แสดงเมนูความเร็วแบบใหม่</string>
   <string name="revanced_custom_playback_speeds_title">ความเร็วในการเล่นแบบกำหนดเอง</string>
   <string name="revanced_custom_playback_speeds_summary">เพิ่มหรือเปลี่ยนความเร็วในการเล่นแบบกำหนดเอง</string>
   <string name="revanced_custom_playback_speeds_invalid">ความเร็วที่กําหนดเองต้องน้อยกว่า %s</string>

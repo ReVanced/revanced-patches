@@ -392,6 +392,10 @@ public final class app/revanced/patches/openinghours/misc/fix/crash/FixCrashPatc
 	public static final fun getFixCrashPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/orfon/detection/root/RemoveRootDetectionPatchKt {
+	public static final fun getRemoveRootDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/pandora/ads/DisableAudioAdsPatchKt {
 	public static final fun getDisableAudioAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

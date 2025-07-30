@@ -9,9 +9,6 @@ import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
-import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.showToastShort;
-
 @SuppressWarnings("unused")
 public class PlaybackSpeedDialogButton {
     @Nullable
@@ -29,7 +26,11 @@ public class PlaybackSpeedDialogButton {
                     Settings.PLAYBACK_SPEED_DIALOG_BUTTON::get,
                     view -> {
                         try {
-                            CustomPlaybackSpeedPatch.showModernCustomPlaybackSpeedDialog(view.getContext());
+                            if (Settings.RESTORE_OLD_SPEED_MENU.get()) {
+                                CustomPlaybackSpeedPatch.showOldPlaybackSpeedMenu();
+                            } else {
+                                CustomPlaybackSpeedPatch.showModernCustomPlaybackSpeedDialog(view.getContext());
+                            }
                         } catch (Exception ex) {
                             Logger.printException(() -> "speed button onClick failure", ex);
                         }

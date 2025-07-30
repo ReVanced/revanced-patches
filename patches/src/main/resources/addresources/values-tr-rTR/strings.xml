@@ -1476,6 +1476,9 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_custom_speed_menu_title">Özel oynatma hızı menüsü</string>
   <string name="revanced_custom_speed_menu_summary_on">Özel oynatma hızı menüsü gösterilir</string>
   <string name="revanced_custom_speed_menu_summary_off">Özel oynatma hızı menüsü gösterilmez</string>
+  <string name="revanced_restore_old_speed_menu_title">Eski oynatma hızı menüsünü geri yükle</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Eski hız menüsü gösterilir</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Modern hız menüsü gösterilir</string>
   <string name="revanced_custom_playback_speeds_title">Özel oynatma hızları</string>
   <string name="revanced_custom_playback_speeds_summary">Özel oynatma hızları ekle veya değiştir</string>
   <string name="revanced_custom_playback_speeds_invalid">Özel hızlar %s\'den az olmalıdır</string>
