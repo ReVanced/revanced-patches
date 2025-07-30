@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
-
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.settings.Settings;
@@ -96,7 +94,7 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == videoQualityMenuFooter) {
             return true;
@@ -107,10 +105,10 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
         }
 
         // Shorts also use this player flyout panel
-        if (PlayerType.getCurrent().isNoneOrHidden() || exception.check(protobufBufferArray).isFiltered()) {
+        if (PlayerType.getCurrent().isNoneOrHidden() || exception.check(buffer).isFiltered()) {
             return false;
         }
 
-        return flyoutFilterGroupList.check(protobufBufferArray).isFiltered();
+        return flyoutFilterGroupList.check(buffer).isFiltered();
     }
 }
