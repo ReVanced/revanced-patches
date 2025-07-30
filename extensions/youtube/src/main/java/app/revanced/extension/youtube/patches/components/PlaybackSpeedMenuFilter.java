@@ -34,8 +34,7 @@ public final class PlaybackSpeedMenuFilter extends Filter {
                 Settings.CUSTOM_SPEED_MENU,
                 "playback_speed_sheet_content.eml-js");
 
-
-        addPathCallbacks(playbackRateSelectorGroup);
+        addPathCallbacks(playbackRateSelectorGroup, oldPlaybackMenuGroup);
     }
 
     @Override
