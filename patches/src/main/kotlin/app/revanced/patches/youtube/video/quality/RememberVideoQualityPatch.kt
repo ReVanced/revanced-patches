@@ -81,7 +81,7 @@ val rememberVideoQualityPatch = bytecodePatch {
             it.method.addInstructions(
                 0,
                 """
-                    invoke-static { p1, p2 }, $EXTENSION_CLASS_DESCRIPTOR->fixVideoQualityIncorrectResolution(ILjava/lang/String;)I    
+                    invoke-static { p2, p1 }, $EXTENSION_CLASS_DESCRIPTOR->fixVideoQualityResolution(Ljava/lang/String;I)I    
                     move-result p1       
                 """
             )
@@ -196,22 +196,21 @@ val rememberVideoQualityPatch = bytecodePatch {
                     iget-object v0, p0, $onItemClickListenerClassReference
                     iget-object v0, v0, $setQualityFieldReference
                     
-                    invoke-static { p1, v0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality([${YOUTUBE_VIDEO_QUALITY_CLASS_TYPE}${EXTENSION_VIDEO_QUALITY_MENU_INTERFACE}I)I
+                    invoke-static { p1, v0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality([$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE${EXTENSION_VIDEO_QUALITY_MENU_INTERFACE}I)I
                     move-result p2
                 """
             )
         }
 
-        // Inject a call to remember the user selected quality.
-
         // Inject a call to remember the selected quality.
-        videoQualityItemOnClickParentFingerprint.classDef.methods.first {
-            it.name == "onItemClick"
-        }.addInstruction(
+        videoQualityItemOnClickFingerprint.match(
+            videoQualityItemOnClickParentFingerprint.classDef
+        ).method.addInstruction(
             0,
             "invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V"
         )
 
+        // Inject a call to remember the user selected quality.
         videoQualityChangedFingerprint.let {
             it.method.apply {
                 val index = it.patternMatch!!.startIndex
@@ -219,7 +218,7 @@ val rememberVideoQualityPatch = bytecodePatch {
 
                 addInstruction(
                     index + 1,
-                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQualityInNewFlyout(I)V",
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQualityInFlyout(I)V",
                 )
             }
         }

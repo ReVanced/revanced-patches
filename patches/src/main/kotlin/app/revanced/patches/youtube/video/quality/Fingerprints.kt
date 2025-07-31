@@ -38,6 +38,22 @@ internal val videoQualityItemOnClickParentFingerprint = fingerprint {
     strings("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT")
 }
 
+/**
+ * Resolves to class found in [videoQualityItemOnClickFingerprint].
+ */
+internal val videoQualityItemOnClickFingerprint = fingerprint {
+    returns("V")
+    parameters(
+        "Landroid/widget/AdapterView;",
+        "Landroid/view/View;",
+        "I",
+        "J"
+    )
+    custom { method, _ ->
+        method.name == "onItemClick"
+    }
+}
+
 internal val videoQualitySetterFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")

@@ -38,7 +38,8 @@ public class RememberVideoQualityPatch {
 
     /**
      * If the user selected a new quality from the flyout menu,
-     * and {@link Settings#REMEMBER_VIDEO_QUALITY_LAST_SELECTED} is enabled.
+     * and {@link Settings#REMEMBER_VIDEO_QUALITY_LAST_SELECTED}
+     * or {@link Settings#REMEMBER_SHORTS_QUALITY_LAST_SELECTED} is enabled.
      */
     private static boolean userChangedDefaultQuality;
 
@@ -48,7 +49,7 @@ public class RememberVideoQualityPatch {
     private static int userSelectedQualityIndex;
 
     /**
-     * The available qualities of the current video in human readable form: [1080, 720, 480]
+     * The available qualities of the current video.
      */
     @Nullable
     private static List<VideoQuality> videoQualities;
@@ -61,20 +62,21 @@ public class RememberVideoQualityPatch {
     }
 
     private static void changeDefaultQuality(int qualityResolution) {
+        final boolean shortPlayerOpen = ShortsPlayerState.isOpen();
         String networkTypeMessage;
-        boolean useShortsPreference = ShortsPlayerState.isOpen();
+        IntegerSetting qualitySetting;
         if (Utils.getNetworkType() == NetworkType.MOBILE) {
-            if (useShortsPreference) shortsQualityMobile.save(qualityResolution);
-            else videoQualityMobile.save(qualityResolution);
             networkTypeMessage = str("revanced_remember_video_quality_mobile");
+            qualitySetting = shortPlayerOpen ? shortsQualityMobile : videoQualityMobile;
         } else {
-            if (useShortsPreference) shortsQualityWifi.save(qualityResolution);
-            else videoQualityWifi.save(qualityResolution);
             networkTypeMessage = str("revanced_remember_video_quality_wifi");
+            qualitySetting = shortPlayerOpen ? shortsQualityWifi : videoQualityWifi;
         }
+        qualitySetting.save(qualityResolution);
+
         if (Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED_TOAST.get())
             Utils.showToastShort(str(
-                    useShortsPreference
+                    shortPlayerOpen
                             ? "revanced_remember_video_quality_toast_shorts"
                             : "revanced_remember_video_quality_toast",
                     networkTypeMessage,
@@ -144,15 +146,15 @@ public class RememberVideoQualityPatch {
                 Logger.printDebug(() -> "Video is already preferred quality: " + qualityToUseName);
             } else {
                 Logger.printDebug(() -> "Changing video quality from: "
-                        + videoQualities.get(originalQualityIndex) + " to: " + qualityToUseName);
+                        + videoQualities.get(originalQualityIndex).patch_getQualityName()
+                        + " to: " + qualityToUseName);
             }
 
-            // On first load of a new video, if the UI video quality flyout menu
-            // is not updated then it will still show 'Auto' (ie: Auto (480p)),
-            // even though it's already set to the desired resolution.
+            // On first load of a new video, if the video is already the desired quality
+            // then the quality flyout will show 'Auto' (ie: Auto (720p)).
             //
-            // To prevent user confusion, set the video index even if it matches the existing index,
-            // as that will force the UI picker to not display "Auto".
+            // To prevent user confusion, set the video index even if the
+            // quality is already correct so the UI picker will not display "Auto".
             menu.patch_setMenuIndexFromQuality(qualities[qualityIndexToUse]);
 
             return qualityIndexToUse;
@@ -165,32 +167,37 @@ public class RememberVideoQualityPatch {
     /**
      * Injection point. Fixes bad data used by YouTube.
      */
-    public static int fixVideoQualityIncorrectResolution(int quality, String name) {
-        if (quality != 480 && name.equals("480p")) {
-            Logger.printDebug(() -> "Fixing incorrect 480p resolution from: " + quality);
-            return 480;
+    public static int fixVideoQualityResolution(String name, int quality) {
+        final int correctQuality = 480;
+        if (name.equals("480p") && quality != correctQuality) {
+            Logger.printDebug(() -> "Fixing bad data of " + name + " from: " + quality
+                    + " to: " + correctQuality);
+            return correctQuality;
         }
+
         return quality;
     }
 
     /**
-     * Injection point. Old quality menu.
+     * Injection point.
+     * @param qualityIndex Element index of {@link #videoQualities}.
      */
-    public static void userChangedQuality(int selectedQualityIndex) {
+    public static void userChangedQuality(int qualityIndex) {
         if (shouldRememberVideoQuality()) {
-            userSelectedQualityIndex = selectedQualityIndex;
+            userSelectedQualityIndex = qualityIndex;
             userChangedDefaultQuality = true;
         }
     }
 
     /**
-     * Injection point. New quality menu.
+     * Injection point.
+     * @param videoResolution Human readable resolution: 480, 720, 1080.
      */
-    public static void userChangedQualityInNewFlyout(int selectedQuality) {
+    public static void userChangedQualityInFlyout(int videoResolution) {
         Utils.verifyOnMainThread();
         if (!shouldRememberVideoQuality()) return;
 
-        changeDefaultQuality(selectedQuality); // Quality is human readable resolution (ie: 1080).
+        changeDefaultQuality(videoResolution);
     }
 
     /**
