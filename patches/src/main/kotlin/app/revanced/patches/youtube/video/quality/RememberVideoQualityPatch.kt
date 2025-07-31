@@ -196,22 +196,14 @@ val rememberVideoQualityPatch = bytecodePatch {
         }
 
         // Inject a call to remember the selected quality.
-        videoQualityItemOnClickParentFingerprint.classDef.methods.first {
-            it.name == "onItemClick"
-        }.addInstruction(
-            0,
-            "invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V"
-        )
-
-        // Remember video quality if not using old layout menu.
-        newVideoQualityChangedFingerprint.method.apply {
-            val index = newVideoQualityChangedFingerprint.patternMatch!!.startIndex
+        videoQualityChangedFingerprint.method.apply {
+            val index = videoQualityChangedFingerprint.patternMatch!!.startIndex
             val qualityRegister = getInstruction<TwoRegisterInstruction>(index).registerA
 
             addInstruction(
                 index + 1,
                 "invoke-static { v$qualityRegister }, " +
-                    "$EXTENSION_CLASS_DESCRIPTOR->userChangedQualityInNewFlyout(I)V",
+                    "$EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
             )
         }
     }

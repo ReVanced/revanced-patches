@@ -22,7 +22,7 @@ import app.revanced.extension.youtube.shared.ShortsPlayerState;
 public class RememberVideoQualityPatch {
 
     /**
-     * Interface added to class to access obfuscated fields.
+     * Interface to use obfuscated methods.
      */
     public interface VideoQualityMenuInterface {
         void patch_setMenuIndexFromQuality(VideoQuality quality);
@@ -163,19 +163,9 @@ public class RememberVideoQualityPatch {
     }
 
     /**
-     * Injection point.  Old quality menu.
-     */
-    public static void userChangedQuality(int selectedQualityIndex) {
-        if (shouldRememberVideoQuality()) {
-            userSelectedQualityIndex = selectedQualityIndex;
-            userChangedDefaultQuality = true;
-        }
-    }
-
-    /**
      * Injection point.  New quality menu.
      */
-    public static void userChangedQualityInNewFlyout(int selectedQuality) {
+    public static void userChangedQuality(int selectedQuality) {
         Utils.verifyOnMainThread();
         if (!shouldRememberVideoQuality()) return;
 
