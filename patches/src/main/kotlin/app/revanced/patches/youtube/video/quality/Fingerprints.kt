@@ -33,6 +33,11 @@ internal val setQualityByIndexMethodClassFieldReferenceFingerprint = fingerprint
     )
 }
 
+internal val videoQualityItemOnClickParentFingerprint = fingerprint {
+    returns("V")
+    strings("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT")
+}
+
 internal val videoQualitySetterFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")

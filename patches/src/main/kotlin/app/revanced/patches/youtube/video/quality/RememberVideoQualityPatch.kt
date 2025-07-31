@@ -13,7 +13,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
-import app.revanced.patches.youtube.shared.videoQualityItemOnClickParentFingerprint
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import com.android.tools.smali.dexlib2.AccessFlags

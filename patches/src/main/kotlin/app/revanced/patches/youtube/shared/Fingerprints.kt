@@ -121,12 +121,6 @@ internal val subtitleButtonControllerFingerprint = fingerprint {
     )
 }
 
-internal val videoQualityItemOnClickParentFingerprint = fingerprint {
-    returns("V")
-    strings("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT")
-}
-
-
 internal val videoQualityChangedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
