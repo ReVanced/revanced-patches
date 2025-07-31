@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.video.quality
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
@@ -13,7 +12,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
+import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -135,32 +134,29 @@ val rememberVideoQualityPatch = bytecodePatch {
 
         // Inject a call to set the remembered quality once a video loads.
         setQualityByIndexMethodClassFieldReferenceFingerprint.match(
-            videoQualitySetterFingerprint.originalClassDef,
+            videoQualitySetterFingerprint.originalClassDef
         ).let { match ->
             // This instruction refers to the field with the type that contains the setQualityByIndex method.
             val instructions = match.method.implementation!!.instructions
-
             val getOnItemClickListenerClassReference =
                 (instructions.elementAt(0) as ReferenceInstruction).reference
-            val getSetQualityByIndexMethodClassFieldReference =
+            val getSetQualityByIndexFieldReference =
                 (instructions.elementAt(1) as ReferenceInstruction).reference
-
-            val setQualityByIndexMethodClassFieldReference =
-                getSetQualityByIndexMethodClassFieldReference as FieldReference
 
             val setQualityByIndexMethodClass = proxy(
                 classes.find {
-                    classDef -> classDef.type == setQualityByIndexMethodClassFieldReference.type
+                    classDef -> classDef.type == (getSetQualityByIndexFieldReference as FieldReference).type
                 }!!
             ).mutableClass
 
-            // Get the name of the setQualityByIndex method.
-            val setQualityByIndexMethod = setQualityByIndexMethodClass.methods
-                .single { method -> method.parameterTypes.first() == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE }
-
-            // Add interface and helper methods to allow extensions to call obfuscated methods.
             setQualityByIndexMethodClass.apply {
+                // Add interface and helper methods to allow extensions to call obfuscated methods.
                 interfaces.add(EXTENSION_VIDEO_QUALITY_MENU_INTERFACE)
+
+                // Get the name of the setQualityByIndex method.
+                val setQualityByIndexMethod = setQualityByIndexMethodClass.methods.single {
+                    method -> method.parameterTypes.firstOrNull() == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+                }
 
                 methods.add(
                     ImmutableMethod(
@@ -191,7 +187,7 @@ val rememberVideoQualityPatch = bytecodePatch {
                 """
                     # Get the object instance to invoke the setQualityByIndex method on.
                     iget-object v0, p0, $getOnItemClickListenerClassReference
-                    iget-object v0, v0, $getSetQualityByIndexMethodClassFieldReference
+                    iget-object v0, v0, $getSetQualityByIndexFieldReference
                     
                     invoke-static { p1, v0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality([${YOUTUBE_VIDEO_QUALITY_CLASS_TYPE}${EXTENSION_VIDEO_QUALITY_MENU_INTERFACE}I)I
                     move-result p2
