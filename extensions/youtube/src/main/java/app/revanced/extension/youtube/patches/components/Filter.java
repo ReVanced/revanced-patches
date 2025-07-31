@@ -41,8 +41,6 @@ abstract class Filter {
      * Adds callbacks to {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
      * if any of the groups are found.
      * <p>
-     * Note: This callback is done only during the initial component creation,
-     *       and the path will always be an empty string. 
      */
     protected final void addIdentifierCallbacks(StringFilterGroup... groups) {
         identifierCallbacks.addAll(Arrays.asList(groups));
