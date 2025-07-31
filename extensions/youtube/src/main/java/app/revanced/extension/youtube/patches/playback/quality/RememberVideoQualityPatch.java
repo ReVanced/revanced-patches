@@ -92,7 +92,7 @@ public class RememberVideoQualityPatch {
         try {
             Utils.verifyOnMainThread();
 
-            boolean useShortsPreference = ShortsPlayerState.isOpen();
+            final boolean useShortsPreference = ShortsPlayerState.isOpen();
             final int preferredQuality = Utils.getNetworkType() == NetworkType.MOBILE
                     ? (useShortsPreference ? shortsQualityMobile : videoQualityMobile).get()
                     : (useShortsPreference ? shortsQualityWifi : videoQualityWifi).get();
@@ -157,15 +157,36 @@ public class RememberVideoQualityPatch {
 
             return qualityIndexToUse;
         } catch (Exception ex) {
-            Logger.printException(() -> "Failed to set quality", ex);
+            Logger.printException(() -> "setVideoQuality failure", ex);
             return originalQualityIndex;
         }
     }
 
     /**
-     * Injection point.  New quality menu.
+     * Injection point. Fixes bad data used by YouTube.
      */
-    public static void userChangedQuality(int selectedQuality) {
+    public static int fixVideoQualityIncorrectResolution(int quality, String name) {
+        if (quality != 480 && name.equals("480p")) {
+            Logger.printDebug(() -> "Fixing incorrect 480p resolution from: " + quality);
+            return 480;
+        }
+        return quality;
+    }
+
+    /**
+     * Injection point. Old quality menu.
+     */
+    public static void userChangedQuality(int selectedQualityIndex) {
+        if (shouldRememberVideoQuality()) {
+            userSelectedQualityIndex = selectedQualityIndex;
+            userChangedDefaultQuality = true;
+        }
+    }
+
+    /**
+     * Injection point. New quality menu.
+     */
+    public static void userChangedQualityInNewFlyout(int selectedQuality) {
         Utils.verifyOnMainThread();
         if (!shouldRememberVideoQuality()) return;
 

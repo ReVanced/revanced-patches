@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
+import app.revanced.patches.youtube.shared.videoQualityItemOnClickParentFingerprint
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -76,58 +77,69 @@ val rememberVideoQualityPatch = bytecodePatch {
          */
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
 
-        // Add methods to access obfuscated quality fields.
-        videoQualityFingerprint.classDef.apply {
-            methods.add(
-                ImmutableMethod(
-                    type,
-                    "patch_getQualityName",
-                    listOf(),
-                    "Ljava/lang/String;",
-                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
-                    null,
-                    null,
-                    MutableMethodImplementation(2),
-                ).toMutable().apply {
-                    // Only one string field.
-                    val qualityNameField = fields.single { field ->
-                        field.type == "Ljava/lang/String;"
-                    }
-
-                    addInstructions(
-                        0,
-                        """
-                            iget-object v0, p0, $qualityNameField
-                            return-object v0
-                        """
-                    )
-                }
+        videoQualityFingerprint.let {
+            // Fix bad data used by YouTube.
+            it.method.addInstructions(
+                0,
+                """
+                    invoke-static { p1, p2 }, $EXTENSION_CLASS_DESCRIPTOR->fixVideoQualityIncorrectResolution(ILjava/lang/String;)I    
+                    move-result p1       
+                """
             )
 
-            methods.add(
-                ImmutableMethod(
-                    type,
-                    "patch_getResolution",
-                    listOf(),
-                    "I",
-                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
-                    null,
-                    null,
-                    MutableMethodImplementation(2),
-                ).toMutable().apply {
-                    val resolutionField = fields.single { field ->
-                        field.type == "I"
-                    }
+            // Add methods to access obfuscated quality fields.
+            it.classDef.apply {
+                methods.add(
+                    ImmutableMethod(
+                        type,
+                        "patch_getQualityName",
+                        listOf(),
+                        "Ljava/lang/String;",
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(2),
+                    ).toMutable().apply {
+                        // Only one string field.
+                        val qualityNameField = fields.single { field ->
+                            field.type == "Ljava/lang/String;"
+                        }
 
-                    addInstructions(
-                        0,
-                        """
-                            iget v0, p0, $resolutionField
-                            return v0
-                        """
-                    )
-                }
-            )
+                        addInstructions(
+                            0,
+                            """
+                                iget-object v0, p0, $qualityNameField
+                                return-object v0
+                            """
+                        )
+                    }
+                )
+
+                methods.add(
+                    ImmutableMethod(
+                        type,
+                        "patch_getResolution",
+                        listOf(),
+                        "I",
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(2),
+                    ).toMutable().apply {
+                        val resolutionField = fields.single { field ->
+                            field.type == "I"
+                        }
+
+                        addInstructions(
+                            0,
+                            """
+                                iget v0, p0, $resolutionField
+                                return v0
+                            """
+                        )
+                    }
+                )
+            }
         }
 
         // Inject a call to set the remembered quality once a video loads.
@@ -192,6 +204,15 @@ val rememberVideoQualityPatch = bytecodePatch {
         }
 
         // Inject a call to remember the user selected quality.
+
+        // Inject a call to remember the selected quality.
+        videoQualityItemOnClickParentFingerprint.classDef.methods.first {
+            it.name == "onItemClick"
+        }.addInstruction(
+            0,
+            "invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V"
+        )
+
         videoQualityChangedFingerprint.let {
             it.method.apply {
                 val index = it.patternMatch!!.startIndex
@@ -199,7 +220,7 @@ val rememberVideoQualityPatch = bytecodePatch {
 
                 addInstruction(
                     index + 1,
-                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQualityInNewFlyout(I)V",
                 )
             }
         }
