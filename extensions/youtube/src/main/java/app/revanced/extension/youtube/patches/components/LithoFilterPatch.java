@@ -195,6 +195,10 @@ public final class LithoFilterPatch {
      */
     public static boolean isFiltered(String lithoIdentifier, StringBuilder pathBuilder) {
         try {
+            if (lithoIdentifier.isEmpty() && pathBuilder.length() == 0) {
+                return false;
+            }
+
             byte[] buffer = bufferThreadLocal.get();
             // Potentially the buffer may have been null or never set up until now.
             // Use an empty buffer so the litho id/path filters still work correctly.
@@ -202,14 +206,16 @@ public final class LithoFilterPatch {
                 buffer = EMPTY_BYTE_ARRAY;
             }
 
-            String path = pathBuilder.toString();
-            LithoFilterParameters parameter = new LithoFilterParameters(lithoIdentifier, path, buffer);
+            LithoFilterParameters parameter = new LithoFilterParameters(
+                    lithoIdentifier, pathBuilder.toString(), buffer);
             Logger.printDebug(() -> "Searching " + parameter);
 
-            if (path.isEmpty()) {
-                // Identifier is filtered only if there is no path,
-                // meaning no component or sub components have been created yet.
-                return identifierSearchTree.matches(parameter.identifier, parameter);
+            if (identifierSearchTree.matches(parameter.identifier, parameter)) {
+                return true;
+            }
+
+            if (pathSearchTree.matches(parameter.path, parameter)) {
+                return true;
             }
 
             return pathSearchTree.matches(parameter.path, parameter);

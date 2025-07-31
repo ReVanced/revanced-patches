@@ -6,6 +6,21 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+internal const val YOUTUBE_VIDEO_QUALITY_CLASS_TYPE = "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
+
+internal val videoQualityFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters(
+        "I", // Resolution.
+        "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
+        "Z",
+        "L"
+    )
+    custom { _, classDef ->
+        classDef.type == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+    }
+}
+
 /**
  * Matches with the class found in [videoQualitySetterFingerprint].
  */
@@ -26,6 +41,22 @@ internal val videoQualityItemOnClickParentFingerprint by fingerprint {
     )
 }
 
+/**
+ * Resolves to class found in [videoQualityItemOnClickFingerprint].
+ */
+internal val videoQualityItemOnClickFingerprint by fingerprint {
+    returns("V")
+    parameters(
+        "Landroid/widget/AdapterView;",
+        "Landroid/view/View;",
+        "I",
+        "J"
+    )
+    custom { method, _ ->
+        method.name == "onItemClick"
+    }
+}
+
 internal val videoQualitySetterFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
@@ -39,7 +70,6 @@ internal val videoQualitySetterFingerprint by fingerprint {
     )
     strings("menu_item_video_quality")
 }
-
 
 internal val videoQualityMenuOptionsFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC)

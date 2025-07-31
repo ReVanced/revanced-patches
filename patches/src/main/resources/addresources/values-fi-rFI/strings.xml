@@ -1469,6 +1469,9 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_custom_speed_menu_title">Mukautettu toistonopeusvalikko</string>
   <string name="revanced_custom_speed_menu_summary_on">Mukautettu nopeusvalikko näytetään</string>
   <string name="revanced_custom_speed_menu_summary_off">Mukautettua nopeusvalikkoa ei näytetä</string>
+  <string name="revanced_restore_old_speed_menu_title">Palauta vanha toistonopeusvalikko</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Vanha nopeusvalikko näytetään</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Moderni nopeusvalikko näytetään</string>
   <string name="revanced_custom_playback_speeds_title">Mukautetut toistonopeudet</string>
   <string name="revanced_custom_playback_speeds_summary">Lisää tai muuta mukautettuja toistonopeuksia</string>
   <string name="revanced_custom_playback_speeds_invalid">Mukautettujen nopeuksien tulee olla alle %s</string>
