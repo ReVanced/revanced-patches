@@ -1,3 +1,10 @@
+# [5.33.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.4...v5.33.0-dev.5) (2025-07-31)
+
+
+### Bug Fixes
+
+* **YouTube - Litho filter:** Correctly filter identifier of older YouTube targets ([bf29d69](https://github.com/ReVanced/revanced-patches/commit/bf29d6909e389819bad878ad3b94bbc90d823cc9))
+
 # [5.33.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.3...v5.33.0-dev.4) (2025-07-30)
 
 
