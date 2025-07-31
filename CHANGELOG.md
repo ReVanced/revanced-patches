@@ -1,3 +1,10 @@
+# [5.33.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.5...v5.33.0-dev.6) (2025-07-31)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Use 1080p enhanced bitrate for Premium users ([#5565](https://github.com/ReVanced/revanced-patches/issues/5565)) ([bd3ace0](https://github.com/ReVanced/revanced-patches/commit/bd3ace0bd04ccd0369adb49d63aa0cf986402346))
+
 # [5.33.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.4...v5.33.0-dev.5) (2025-07-31)
 
 
