@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
@@ -15,12 +16,17 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/quality/RememberVideoQualityPatch;"
+private const val EXTENSION_VIDEO_QUALITY_INTERFACE =
+    "Lapp/revanced/extension/youtube/patches/playback/quality/RememberVideoQualityPatch\$VideoQuality;"
 
 val rememberVideoQualityPatch = bytecodePatch {
     dependsOn(
@@ -33,6 +39,63 @@ val rememberVideoQualityPatch = bytecodePatch {
 
     execute {
         addResources("youtube", "video.quality.rememberVideoQualityPatch")
+
+        // Add extensions interface and methods to access obfuscated fields.
+        videoQualityFingerprint.classDef.apply {
+            interfaces.add(EXTENSION_VIDEO_QUALITY_INTERFACE)
+            val definingClass = type
+
+            // Only one string field.
+            val qualityNameField = fields.single { field ->
+                field.type == "Ljava/lang/String;"
+            }
+
+            methods.add(
+                ImmutableMethod(
+                    definingClass,
+                    "patch_getQualityName",
+                    listOf(),
+                    "Ljava/lang/String;",
+                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(2),
+                ).toMutable().apply {
+                    addInstructions(
+                        0,
+                        """
+                            iget-object v0, p0, $qualityNameField
+                            return-object v0
+                        """
+                    )
+                }
+            )
+
+            val resolutionField = fields.single { field ->
+                field.type == "I"
+            }
+
+            methods.add(
+                ImmutableMethod(
+                    definingClass,
+                    "patch_getResolution",
+                    listOf(),
+                    "I",
+                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(2),
+                ).toMutable().apply {
+                    addInstructions(
+                        0,
+                        """
+                            iget v0, p0, $resolutionField
+                            return v0
+                        """
+                    )
+                }
+            )
+        }
 
         settingsMenuVideoQualityGroup.addAll(listOf(
             ListPreference(
@@ -108,9 +171,9 @@ val rememberVideoQualityPatch = bytecodePatch {
                     # The second parameter is the index of the selected quality.
                     # The register v0 stores the object instance to invoke the setQualityByIndex method on.
                     # The register v1 stores the name of the setQualityByIndex method.
-                    invoke-static { p1, p2, v0, v1 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality([Ljava/lang/Object;ILjava/lang/Object;Ljava/lang/String;)I
+                    invoke-static { p1, p2, v0, v1 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality([${EXTENSION_VIDEO_QUALITY_INTERFACE}ILjava/lang/Object;Ljava/lang/String;)I
                     move-result p2
-                """,
+                """
             )
         }
 

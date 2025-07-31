@@ -5,6 +5,12 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+internal val videoQualityFingerprint = fingerprint {
+    custom { _, classDef ->
+        classDef.type == "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
+    }
+}
+
 /**
  * Matches with the class found in [videoQualitySetterFingerprint].
  */

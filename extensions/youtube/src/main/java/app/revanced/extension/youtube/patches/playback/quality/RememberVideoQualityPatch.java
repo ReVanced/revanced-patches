@@ -3,11 +3,9 @@ package app.revanced.extension.youtube.patches.playback.quality;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.NetworkType;
 
-import androidx.annotation.Nullable;
-
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
@@ -20,6 +18,15 @@ import app.revanced.extension.youtube.shared.ShortsPlayerState;
 
 @SuppressWarnings("unused")
 public class RememberVideoQualityPatch {
+
+    /**
+     * Interface added to class to access obfuscated fields.
+     */
+    public interface VideoQuality {
+        String patch_getQualityName();
+        int patch_getResolution();
+    }
+
     private static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
     private static final IntegerSetting videoQualityWifi = Settings.VIDEO_QUALITY_DEFAULT_WIFI;
     private static final IntegerSetting videoQualityMobile = Settings.VIDEO_QUALITY_DEFAULT_MOBILE;
@@ -42,8 +49,7 @@ public class RememberVideoQualityPatch {
     /**
      * The available qualities of the current video in human readable form: [1080, 720, 480]
      */
-    @Nullable
-    private static List<Integer> videoQualities;
+    private static List<Integer> videoQualities = Collections.emptyList();
 
     private static boolean shouldRememberVideoQuality() {
         BooleanSetting preference = ShortsPlayerState.isOpen() ?
@@ -77,7 +83,7 @@ public class RememberVideoQualityPatch {
      * @param qualities Video qualities available, ordered from largest to smallest, with index 0 being the 'automatic' value of -2
      * @param originalQualityIndex quality index to use, as chosen by YouTube
      */
-    public static int setVideoQuality(Object[] qualities, final int originalQualityIndex, Object qInterface, String qIndexMethod) {
+    public static int setVideoQuality(VideoQuality[] qualities, final int originalQualityIndex, Object qInterface, String qIndexMethod) {
         try {
             boolean useShortsPreference = ShortsPlayerState.isOpen();
             final int preferredQuality = Utils.getNetworkType() == NetworkType.MOBILE
@@ -88,15 +94,10 @@ public class RememberVideoQualityPatch {
                 return originalQualityIndex; // Nothing to do.
             }
 
-            if (videoQualities == null || videoQualities.size() != qualities.length) {
+            if (videoQualities.size() != qualities.length) {
                 videoQualities = new ArrayList<>(qualities.length);
-                for (Object streamQuality : qualities) {
-                    for (Field field : streamQuality.getClass().getFields()) {
-                        if (field.getType().isAssignableFrom(Integer.TYPE)
-                                && field.getName().length() <= 2) {
-                            videoQualities.add(field.getInt(streamQuality));
-                        }
-                    }
+                for (VideoQuality quality : qualities) {
+                    videoQualities.add(quality.patch_getResolution());
                 }
                 
                 // After changing videos the qualities can initially be for the prior video.
