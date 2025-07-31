@@ -3,7 +3,11 @@ package app.revanced.extension.youtube.patches.playback.quality;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.NetworkType;
 
-import java.lang.reflect.Method;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,6 +19,7 @@ import app.revanced.extension.shared.settings.IntegerSetting;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
+import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
 
 @SuppressWarnings("unused")
 public class RememberVideoQualityPatch {
@@ -22,9 +27,55 @@ public class RememberVideoQualityPatch {
     /**
      * Interface added to class to access obfuscated fields.
      */
-    public interface VideoQuality {
-        String patch_getQualityName();
-        int patch_getResolution();
+    public interface VideoQualityMenuInterface {
+        void patch_setMenuIndexFromQuality(VideoQuality quality);
+    }
+
+    /**
+     * Simple wrapper to sort qualities.
+     */
+    private static class VideoQualityWrapper implements Comparable<VideoQualityWrapper> {
+        final VideoQuality quality;
+        final String name;
+        final int resolution;
+
+        private VideoQualityWrapper(VideoQuality quality) {
+            this.quality = quality;
+            this.name = quality.patch_getQualityName();
+            this.resolution = quality.patch_getResolution();
+        }
+
+        @Override
+        public int compareTo(VideoQualityWrapper other) {
+            final int compare = resolution - other.resolution;
+            if (compare != 0) {
+                return compare;
+            }
+
+            // Same resolution, but one is Premium or 60fps.
+            // All languages use the same '1080p Premium' name for enhanced bitrate.
+            // The quality with the longer name indicates which is 'better'.
+            return name.length() - other.name.length();
+        }
+
+        @Override
+        public boolean equals(@Nullable Object obj) {
+            if (this == obj) return true;
+            if (!(obj instanceof VideoQualityWrapper wrapper)) return false;
+            return quality.patch_getQualityName().equals(wrapper.quality.patch_getQualityName())
+                    && quality.patch_getResolution() == wrapper.quality.patch_getResolution();
+        }
+
+        @Override
+        public int hashCode() {
+            return quality.hashCode();
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return "VideoQualityWrapper{" + "name=" + name + ", resolution=" + resolution + '}';
+        }
     }
 
     private static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
@@ -49,7 +100,8 @@ public class RememberVideoQualityPatch {
     /**
      * The available qualities of the current video in human readable form: [1080, 720, 480]
      */
-    private static List<Integer> videoQualities = Collections.emptyList();
+    @Nullable
+    private static List<VideoQualityWrapper> videoQualities;
 
     private static boolean shouldRememberVideoQuality() {
         BooleanSetting preference = ShortsPlayerState.isOpen() ?
@@ -58,22 +110,22 @@ public class RememberVideoQualityPatch {
         return preference.get();
     }
 
-    private static void changeDefaultQuality(int defaultQuality) {
+    private static void changeDefaultQuality(int qualityResolution) {
         String networkTypeMessage;
         boolean useShortsPreference = ShortsPlayerState.isOpen();
         if (Utils.getNetworkType() == NetworkType.MOBILE) {
-            if (useShortsPreference) shortsQualityMobile.save(defaultQuality);
-            else videoQualityMobile.save(defaultQuality);
+            if (useShortsPreference) shortsQualityMobile.save(qualityResolution);
+            else videoQualityMobile.save(qualityResolution);
             networkTypeMessage = str("revanced_remember_video_quality_mobile");
         } else {
-            if (useShortsPreference) shortsQualityWifi.save(defaultQuality);
-            else videoQualityWifi.save(defaultQuality);
+            if (useShortsPreference) shortsQualityWifi.save(qualityResolution);
+            else videoQualityWifi.save(qualityResolution);
             networkTypeMessage = str("revanced_remember_video_quality_wifi");
         }
         if (Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED_TOAST.get())
             Utils.showToastShort(str(
                     useShortsPreference ? "revanced_remember_video_quality_toast_shorts" : "revanced_remember_video_quality_toast",
-                    networkTypeMessage, (defaultQuality + "p")
+                    networkTypeMessage, (qualityResolution + "p")
             ));
     }
 
@@ -83,7 +135,7 @@ public class RememberVideoQualityPatch {
      * @param qualities Video qualities available, ordered from largest to smallest, with index 0 being the 'automatic' value of -2
      * @param originalQualityIndex quality index to use, as chosen by YouTube
      */
-    public static int setVideoQuality(VideoQuality[] qualities, final int originalQualityIndex, Object qInterface, String qIndexMethod) {
+    public static int setVideoQuality(VideoQuality[] qualities, VideoQualityMenuInterface menu, int originalQualityIndex) {
         try {
             boolean useShortsPreference = ShortsPlayerState.isOpen();
             final int preferredQuality = Utils.getNetworkType() == NetworkType.MOBILE
@@ -94,10 +146,10 @@ public class RememberVideoQualityPatch {
                 return originalQualityIndex; // Nothing to do.
             }
 
-            if (videoQualities.size() != qualities.length) {
+            if (videoQualities == null || videoQualities.size() != qualities.length) {
                 videoQualities = new ArrayList<>(qualities.length);
                 for (VideoQuality quality : qualities) {
-                    videoQualities.add(quality.patch_getResolution());
+                    videoQualities.add(new VideoQualityWrapper(quality));
                 }
                 
                 // After changing videos the qualities can initially be for the prior video.
@@ -108,9 +160,9 @@ public class RememberVideoQualityPatch {
 
             if (userChangedDefaultQuality) {
                 userChangedDefaultQuality = false;
-                final int quality = videoQualities.get(userSelectedQualityIndex);
+                VideoQualityWrapper quality = videoQualities.get(userSelectedQualityIndex);
                 Logger.printDebug(() -> "User changed default quality to: " + quality);
-                changeDefaultQuality(quality);
+                changeDefaultQuality(quality.resolution);
                 return userSelectedQualityIndex;
             }
 
@@ -120,11 +172,11 @@ public class RememberVideoQualityPatch {
             qualityNeedsUpdating = false;
 
             // Find the highest quality that is equal to or less than the preferred.
-            int qualityToUse = videoQualities.get(0); // first element is automatic mode
+            VideoQualityWrapper qualityToUse = videoQualities.get(0); // first element is automatic mode
             int qualityIndexToUse = 0;
             int i = 0;
-            for (Integer quality : videoQualities) {
-                if (quality <= preferredQuality && qualityToUse < quality)  {
+            for (VideoQualityWrapper quality : videoQualities) {
+                if (quality.resolution <= preferredQuality && qualityToUse.resolution < quality.resolution)  {
                     qualityToUse = quality;
                     qualityIndexToUse = i;
                 }
@@ -133,7 +185,7 @@ public class RememberVideoQualityPatch {
 
             // If the desired quality index is equal to the original index,
             // then the video is already set to the desired default quality.
-            final int qualityToUseFinal = qualityToUse;
+            final VideoQualityWrapper qualityToUseFinal = qualityToUse;
             if (qualityIndexToUse == originalQualityIndex) {
                 // On first load of a new video, if the UI video quality flyout menu
                 // is not updated then it will still show 'Auto' (ie: Auto (480p)),
@@ -147,8 +199,8 @@ public class RememberVideoQualityPatch {
                         + videoQualities.get(originalQualityIndex) + " to: " + qualityToUseFinal);
             }
 
-            Method m = qInterface.getClass().getMethod(qIndexMethod, Integer.TYPE);
-            m.invoke(qInterface, qualityToUse);
+            menu.patch_setMenuIndexFromQuality(qualities[qualityIndexToUse]);
+
             return qualityIndexToUse;
         } catch (Exception ex) {
             Logger.printException(() -> "Failed to set quality", ex);
