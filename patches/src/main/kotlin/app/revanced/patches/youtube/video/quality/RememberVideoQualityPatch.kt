@@ -11,6 +11,8 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.information.onCreateHook
@@ -35,6 +37,7 @@ val rememberVideoQualityPatch = bytecodePatch {
         playerTypeHookPatch,
         settingsPatch,
         addResourcesPatch,
+        versionCheckPatch,
     )
 
     execute {
@@ -76,13 +79,14 @@ val rememberVideoQualityPatch = bytecodePatch {
          */
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
 
-        videoQualityFingerprint.let {
+        (if (is_20_20_or_greater) videoQualityFingerprint else videoQualityLegacyFingerprint).let {
             // Fix bad data used by YouTube.
+            val nameRegister = if (is_20_20_or_greater) "p3" else "p2"
             it.method.addInstructions(
                 0,
                 """
-                    invoke-static { p2, p1 }, $EXTENSION_CLASS_DESCRIPTOR->fixVideoQualityResolution(Ljava/lang/String;I)I    
-                    move-result p1       
+                    invoke-static { $nameRegister, p1 }, $EXTENSION_CLASS_DESCRIPTOR->fixVideoQualityResolution(Ljava/lang/String;I)I    
+                    move-result p1
                 """
             )
 

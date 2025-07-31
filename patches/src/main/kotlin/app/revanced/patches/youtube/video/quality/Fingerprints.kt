@@ -8,10 +8,27 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal const val YOUTUBE_VIDEO_QUALITY_CLASS_TYPE = "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
 
+/**
+ * YouTube 20.19 and lower.
+ */
+internal val videoQualityLegacyFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters(
+        "I", // Resolution.
+        "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
+        "Z",
+        "L"
+    )
+    custom { _, classDef ->
+        classDef.type == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+    }
+}
+
 internal val videoQualityFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters(
         "I", // Resolution.
+        "L",
         "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
         "Z",
         "L"
