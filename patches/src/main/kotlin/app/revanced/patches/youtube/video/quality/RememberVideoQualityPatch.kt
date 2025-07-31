@@ -78,16 +78,9 @@ val rememberVideoQualityPatch = bytecodePatch {
 
         // Add methods to access obfuscated quality fields.
         videoQualityFingerprint.classDef.apply {
-            val definingClass = type
-
-            // Only one string field.
-            val qualityNameField = fields.single { field ->
-                field.type == "Ljava/lang/String;"
-            }
-
             methods.add(
                 ImmutableMethod(
-                    definingClass,
+                    type,
                     "patch_getQualityName",
                     listOf(),
                     "Ljava/lang/String;",
@@ -96,6 +89,11 @@ val rememberVideoQualityPatch = bytecodePatch {
                     null,
                     MutableMethodImplementation(2),
                 ).toMutable().apply {
+                    // Only one string field.
+                    val qualityNameField = fields.single { field ->
+                        field.type == "Ljava/lang/String;"
+                    }
+
                     addInstructions(
                         0,
                         """
@@ -106,13 +104,9 @@ val rememberVideoQualityPatch = bytecodePatch {
                 }
             )
 
-            val resolutionField = fields.single { field ->
-                field.type == "I"
-            }
-
             methods.add(
                 ImmutableMethod(
-                    definingClass,
+                    type,
                     "patch_getResolution",
                     listOf(),
                     "I",
@@ -121,6 +115,10 @@ val rememberVideoQualityPatch = bytecodePatch {
                     null,
                     MutableMethodImplementation(2),
                 ).toMutable().apply {
+                    val resolutionField = fields.single { field ->
+                        field.type == "I"
+                    }
+
                     addInstructions(
                         0,
                         """
@@ -138,23 +136,21 @@ val rememberVideoQualityPatch = bytecodePatch {
         ).let { match ->
             // This instruction refers to the field with the type that contains the setQualityByIndex method.
             val instructions = match.method.implementation!!.instructions
-            val getOnItemClickListenerClassReference =
+            val onItemClickListenerClassReference =
                 (instructions.elementAt(0) as ReferenceInstruction).reference
-            val getSetQualityByIndexFieldReference =
-                (instructions.elementAt(1) as ReferenceInstruction).reference
+            val setQualityFieldReference =
+                ((instructions.elementAt(1) as ReferenceInstruction).reference) as FieldReference
 
-            val setQualityByIndexMethodClass = proxy(
-                classes.find {
-                    classDef -> classDef.type == (getSetQualityByIndexFieldReference as FieldReference).type
+            proxy(
+                classes.find { classDef ->
+                    classDef.type == setQualityFieldReference.type
                 }!!
-            ).mutableClass
-
-            setQualityByIndexMethodClass.apply {
-                // Add interface and helper methods to allow extensions to call obfuscated methods.
+            ).mutableClass.apply {
+                // Add interface and helper methods to allow extension code to call obfuscated methods.
                 interfaces.add(EXTENSION_VIDEO_QUALITY_MENU_INTERFACE)
 
                 // Get the name of the setQualityByIndex method.
-                val setQualityByIndexMethod = setQualityByIndexMethodClass.methods.single {
+                val setQualityMenuIndexMethod = methods.single {
                     method -> method.parameterTypes.firstOrNull() == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
                 }
 
@@ -174,7 +170,7 @@ val rememberVideoQualityPatch = bytecodePatch {
                         addInstructions(
                             0,
                             """
-                                invoke-virtual { p0, p1 }, $setQualityByIndexMethod
+                                invoke-virtual { p0, p1 }, $setQualityMenuIndexMethod
                                 return-void
                             """
                         )
@@ -186,8 +182,8 @@ val rememberVideoQualityPatch = bytecodePatch {
                 0,
                 """
                     # Get the object instance to invoke the setQualityByIndex method on.
-                    iget-object v0, p0, $getOnItemClickListenerClassReference
-                    iget-object v0, v0, $getSetQualityByIndexFieldReference
+                    iget-object v0, p0, $onItemClickListenerClassReference
+                    iget-object v0, v0, $setQualityFieldReference
                     
                     invoke-static { p1, v0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality([${YOUTUBE_VIDEO_QUALITY_CLASS_TYPE}${EXTENSION_VIDEO_QUALITY_MENU_INTERFACE}I)I
                     move-result p2
@@ -195,16 +191,17 @@ val rememberVideoQualityPatch = bytecodePatch {
             )
         }
 
-        // Inject a call to remember the selected quality.
-        videoQualityChangedFingerprint.method.apply {
-            val index = videoQualityChangedFingerprint.patternMatch!!.startIndex
-            val qualityRegister = getInstruction<TwoRegisterInstruction>(index).registerA
+        // Inject a call to remember the user selected quality.
+        videoQualityChangedFingerprint.let {
+            it.method.apply {
+                val index = it.patternMatch!!.startIndex
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
-            addInstruction(
-                index + 1,
-                "invoke-static { v$qualityRegister }, " +
-                    "$EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
-            )
+                addInstruction(
+                    index + 1,
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
+                )
+            }
         }
     }
 }

@@ -129,7 +129,7 @@ public class RememberVideoQualityPatch {
             int i = 0;
             for (VideoQuality quality : videoQualities) {
                 final int qualityResolution = quality.patch_getResolution();
-                if (qualityResolution <= preferredQuality && qualityToUse.patch_getResolution() < qualityResolution)  {
+                if (qualityResolution > qualityToUse.patch_getResolution() && qualityResolution <= preferredQuality) {
                     qualityToUse = quality;
                     qualityIndexToUse = i;
                     break;
@@ -141,18 +141,18 @@ public class RememberVideoQualityPatch {
             // then the video is already set to the desired default quality.
             String qualityToUseName = qualityToUse.patch_getQualityName();
             if (qualityIndexToUse == originalQualityIndex) {
-                // On first load of a new video, if the UI video quality flyout menu
-                // is not updated then it will still show 'Auto' (ie: Auto (480p)),
-                // even though it's already set to the desired resolution.
-                //
-                // To prevent confusion, set the video index anyways (even if it matches the existing index)
-                // as that will force the UI picker to not display "Auto".
                 Logger.printDebug(() -> "Video is already preferred quality: " + qualityToUseName);
             } else {
                 Logger.printDebug(() -> "Changing video quality from: "
                         + videoQualities.get(originalQualityIndex) + " to: " + qualityToUseName);
             }
 
+            // On first load of a new video, if the UI video quality flyout menu
+            // is not updated then it will still show 'Auto' (ie: Auto (480p)),
+            // even though it's already set to the desired resolution.
+            //
+            // To prevent user confusion, set the video index even if it matches the existing index,
+            // as that will force the UI picker to not display "Auto".
             menu.patch_setMenuIndexFromQuality(qualities[qualityIndexToUse]);
 
             return qualityIndexToUse;
