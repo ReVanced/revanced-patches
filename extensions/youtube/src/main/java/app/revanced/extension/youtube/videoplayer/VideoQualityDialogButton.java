@@ -75,7 +75,7 @@ public class VideoQualityDialogButton {
                             // Apply automatic quality immediately.
                             RememberVideoQualityPatch.VideoQualityMenuInterface menu
                                     = RememberVideoQualityPatch.getCurrentMenuInterface();
-                            List<VideoQuality> qualities = RememberVideoQualityPatch.getVideoQualities();
+                            List<VideoQuality> qualities = RememberVideoQualityPatch.getCurrentQualities();
                             if (menu != null && qualities != null) {
                                 menu.patch_setMenuIndexFromQuality(qualities.get(0)); // Auto is index 0.
                                 Logger.printDebug(() -> "Applied automatic quality via long press");

@@ -78,7 +78,7 @@ public class RememberVideoQualityPatch {
      * The available qualities of the current video.
      */
     @Nullable
-    private static List<VideoQuality> videoQualities;
+    private static List<VideoQuality> currentQualities;
 
     /**
      * The current VideoQualityMenuInterface, set during setVideoQuality.
@@ -101,13 +101,13 @@ public class RememberVideoQualityPatch {
     }
 
     @Nullable
-    public static VideoQualityMenuInterface getCurrentMenuInterface() {
-        return currentMenuInterface;
+    public static List<VideoQuality> getCurrentQualities() {
+        return currentQualities;
     }
 
     @Nullable
-    public static List<VideoQuality> getVideoQualities() {
-        return videoQualities;
+    public static VideoQualityMenuInterface getCurrentMenuInterface() {
+        return currentMenuInterface;
     }
 
     private static void changeDefaultQuality(int qualityResolution) {
@@ -149,24 +149,20 @@ public class RememberVideoQualityPatch {
 
             currentMenuInterface = menu; // Later used by player quality button.
 
-            final boolean useShortsPreference = ShortsPlayerState.isOpen();
-            final int preferredQuality = Utils.getNetworkType() == NetworkType.MOBILE
-                    ? (useShortsPreference ? shortsQualityMobile : videoQualityMobile).get()
-                    : (useShortsPreference ? shortsQualityWifi : videoQualityWifi).get();
-
-            final boolean qualitiesChanged = videoQualities == null || videoQualities.size() != qualities.length;
+            final boolean qualitiesChanged = currentQualities == null || currentQualities.size() != qualities.length;
             if (qualitiesChanged) {
-                videoQualities = Arrays.asList(qualities);
-                Logger.printDebug(() -> "VideoQualities: " + videoQualities);
+                currentQualities = Arrays.asList(qualities);
+                Logger.printDebug(() -> "VideoQualities: " + currentQualities);
             }
 
+            final int preferredQuality = getDefaultVideoQuality();
             if (!userChangedDefaultQuality && preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
                 return originalQualityIndex; // Nothing to do.
             }
 
             if (userChangedDefaultQuality) {
                 userChangedDefaultQuality = false;
-                VideoQuality quality = videoQualities.get(userSelectedQualityIndex);
+                VideoQuality quality = qualities[userSelectedQualityIndex];
                 Logger.printDebug(() -> "User changed default quality to: " + quality);
                 changeDefaultQuality(quality.patch_getResolution());
                 return userSelectedQualityIndex;
@@ -180,10 +176,10 @@ public class RememberVideoQualityPatch {
             qualityNeedsUpdating = false;
 
             // Find the highest quality that is equal to or less than the preferred.
-            VideoQuality qualityToUse = videoQualities.get(0); // First element is automatic mode.
+            VideoQuality qualityToUse = qualities[0]; // First element is automatic mode.
             int qualityIndexToUse = 0;
             int i = 0;
-            for (VideoQuality quality : videoQualities) {
+            for (VideoQuality quality : qualities) {
                 final int qualityResolution = quality.patch_getResolution();
                 if (qualityResolution > qualityToUse.patch_getResolution() && qualityResolution <= preferredQuality) {
                     qualityToUse = quality;
@@ -200,7 +196,7 @@ public class RememberVideoQualityPatch {
                 Logger.printDebug(() -> "Video is already preferred quality: " + qualityToUseFinal);
             } else {
                 Logger.printDebug(() -> "Changing video quality from: "
-                        + videoQualities.get(originalQualityIndex) + " to: " + qualityToUseFinal);
+                        + qualities[originalQualityIndex] + " to: " + qualityToUseFinal);
             }
 
             // On first load of a new video, if the video is already the desired quality
@@ -233,7 +229,7 @@ public class RememberVideoQualityPatch {
 
     /**
      * Injection point.
-     * @param qualityIndex Element index of {@link #videoQualities}.
+     * @param qualityIndex Element index of {@link #currentQualities}.
      */
     public static void userChangedQuality(int qualityIndex) {
         if (shouldRememberVideoQuality()) {
@@ -261,7 +257,7 @@ public class RememberVideoQualityPatch {
 
         Logger.printDebug(() -> "newVideoStarted");
         qualityNeedsUpdating = true;
-        videoQualities = null;
+        currentQualities = null;
         currentMenuInterface = null;
     }
 
@@ -270,7 +266,7 @@ public class RememberVideoQualityPatch {
      */
     public static void showVideoQualityDialog(Context context) {
         try {
-            List<VideoQuality> qualities = videoQualities;
+            List<VideoQuality> qualities = currentQualities;
             if (qualities == null) {
                 Logger.printDebug(() -> "Cannot show qualities dialog, videoQualities is null");
                 return;
