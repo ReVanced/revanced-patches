@@ -44,14 +44,26 @@ import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class VideoQualityDialogButton {
+    private static final int DRAWABLE_LHD = getDrawableIdentifier("revanced_video_quality_dialog_button_lhd");
+    private static final int DRAWABLE_HD = getDrawableIdentifier("revanced_video_quality_dialog_button_hd");
+    private static final int DRAWABLE_FHD = getDrawableIdentifier("revanced_video_quality_dialog_button_fhd");
+    private static final int DRAWABLE_QHD = getDrawableIdentifier("revanced_video_quality_dialog_button_qhd");
+    private static final int DRAWABLE_4K = getDrawableIdentifier("revanced_video_quality_dialog_button_4k");
+    private static final int DRAWABLE_UNKNOWN = 0; // Do not show a button icon.
+
+    private static int getDrawableIdentifier(String resourceName) {
+        final int resourceId = Utils.getResourceIdentifier(resourceName, "drawable");
+        if (resourceId == 0) Logger.printException(() -> "Could not find resource: " + resourceName);
+        return resourceId;
+    }
+
     @Nullable
     private static PlayerControlButton instance;
 
     /**
      * The current resource name of the button icon.
      */
-    @Nullable
-    private static String currentIconResource;
+    private static int currentIconResource;
 
     @Nullable
     private static Runnable updateIconRunnable;
@@ -69,16 +81,16 @@ public class VideoQualityDialogButton {
                     : currentQuality.patch_getResolution();
 
             // Map quality to appropriate icon.
-            String iconResource = switch (resolution) {
-                case 144, 240, 360, 480 -> "revanced_video_quality_dialog_button_lhd";
-                case 720  -> "revanced_video_quality_dialog_button_hd";
-                case 1080 -> "revanced_video_quality_dialog_button_fhd";
-                case 1440 -> "revanced_video_quality_dialog_button_qhd";
-                case 2160 -> "revanced_video_quality_dialog_button_4k";
-                default   -> "revanced_video_quality_dialog_button_unknown";
+            final int iconResource = switch (resolution) {
+                case 144, 240, 360, 480 -> DRAWABLE_LHD;
+                case 720  -> DRAWABLE_HD;
+                case 1080 -> DRAWABLE_FHD;
+                case 1440 -> DRAWABLE_QHD;
+                case 2160 -> DRAWABLE_4K;
+                default -> DRAWABLE_UNKNOWN;
             };
 
-            if (!iconResource.equals(currentIconResource)) {
+            if (iconResource != currentIconResource) {
                 cleanup();
 
                 Runnable update = () -> {

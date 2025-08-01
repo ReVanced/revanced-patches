@@ -251,6 +251,7 @@ public class RememberVideoQualityPatch {
         currentQuality = null;
         currentMenuInterface = null;
 
-        VideoQualityDialogButton.cleanup();
+        // Hide the quality button until playback starts and the qualities are available.
+        VideoQualityDialogButton.updateButtonIcon(null, true);
     }
 }
