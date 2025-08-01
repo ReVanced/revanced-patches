@@ -4,6 +4,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playercontrols.*
@@ -48,7 +49,12 @@ val playbackSpeedButtonPatch = bytecodePatch(
         addResources("youtube", "video.speed.button.playbackSpeedButtonPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_playback_speed_dialog_button"),
+            PreferenceScreenPreference(
+                key = "revanced_player_buttons_screen",
+                preferences = setOf(
+                    SwitchPreference("revanced_playback_speed_dialog_button"),
+                ),
+            ),
         )
 
         initializeBottomControl(SPEED_BUTTON_CLASS_DESCRIPTOR)

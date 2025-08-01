@@ -161,6 +161,8 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_settings_search_history_title">Show settings search history</string>
             <string name="revanced_settings_search_history_summary_on">Settings search history is shown</string>
             <string name="revanced_settings_search_history_summary_off">Settings search history is not shown</string>
+            <string name="revanced_player_buttons_screen_title">Player buttons</string>
+            <string name="revanced_player_buttons_screen_summary">Hide or show player buttons</string>
         </patch>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
             <string name="revanced_shorts_disable_background_playback_title">Disable Shorts background play</string>
@@ -521,8 +523,7 @@ This feature is only available for older devices"</string>
             <string name="revanced_disable_chapter_skip_double_tap_summary_off">Double tap can occasionally trigger a skip to the next/previous chapter</string>
         </patch>
         <patch id="interaction.downloads.downloadsResourcePatch">
-            <string name="revanced_external_downloader_screen_title">External downloads</string>
-            <string name="revanced_external_downloader_screen_summary">Settings for using an external downloader</string>
+            <string name="revanced_external_downloader_category_title">External downloads</string>
             <string name="revanced_external_downloader_title">Show external download button</string>
             <string name="revanced_external_downloader_summary_on">Download button in player is shown</string>
             <string name="revanced_external_downloader_summary_off">Download button in player is not shown</string>

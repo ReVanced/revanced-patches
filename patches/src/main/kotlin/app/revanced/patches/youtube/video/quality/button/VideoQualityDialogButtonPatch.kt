@@ -4,6 +4,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playercontrols.*
@@ -53,7 +54,12 @@ val videoQualityButtonPatch = bytecodePatch(
         addResources("youtube", "video.quality.button.videoQualityButtonPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_video_quality_dialog_button"),
+            PreferenceScreenPreference(
+                key = "revanced_player_buttons_screen",
+                preferences = setOf(
+                    SwitchPreference("revanced_video_quality_dialog_button"),
+                ),
+            ),
         )
 
         initializeBottomControl(QUALITY_BUTTON_CLASS_DESCRIPTOR)

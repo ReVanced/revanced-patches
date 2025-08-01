@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -34,17 +35,23 @@ private val downloadsResourcePatch = resourcePatch {
 
         PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreenPreference(
-                key = "revanced_external_downloader_screen",
-                sorting = Sorting.UNSORTED,
+                key = "revanced_player_buttons_screen",
                 preferences = setOf(
-                    SwitchPreference("revanced_external_downloader"),
-                    SwitchPreference("revanced_external_downloader_action_button"),
-                    TextPreference(
-                        "revanced_external_downloader_name",
-                        tag = "app.revanced.extension.youtube.settings.preference.ExternalDownloaderPreference",
-                    ),
-                ),
-            ),
+                    PreferenceCategory(
+                        key = "revanced_external_downloader_category",
+                        titleKey = "revanced_external_downloader_category_title",
+                        sorting = Sorting.UNSORTED,
+                        preferences = mutableSetOf(
+                            SwitchPreference("revanced_external_downloader"),
+                            SwitchPreference("revanced_external_downloader_action_button"),
+                            TextPreference(
+                                key = "revanced_external_downloader_name",
+                                tag = "app.revanced.extension.youtube.settings.preference.ExternalDownloaderPreference"
+                            )
+                        )
+                    )
+                )
+            )
         )
 
         copyResources(
