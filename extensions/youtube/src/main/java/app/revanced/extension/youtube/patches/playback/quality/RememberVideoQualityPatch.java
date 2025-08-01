@@ -54,7 +54,7 @@ public class RememberVideoQualityPatch {
         void patch_setMenuIndexFromQuality(VideoQuality quality);
     }
 
-    private static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
+    public static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
     private static final IntegerSetting videoQualityWifi = Settings.VIDEO_QUALITY_DEFAULT_WIFI;
     private static final IntegerSetting videoQualityMobile = Settings.VIDEO_QUALITY_DEFAULT_MOBILE;
     private static final IntegerSetting shortsQualityWifi = Settings.SHORTS_QUALITY_DEFAULT_WIFI;
@@ -266,7 +266,8 @@ public class RememberVideoQualityPatch {
      */
     public static void showVideoQualityDialog(Context context) {
         try {
-            if (videoQualities == null) {
+            List<VideoQuality> qualities = videoQualities;
+            if (qualities == null) {
                 Logger.printDebug(() -> "Cannot show qualities dialog, videoQualities is null");
                 return;
             }
@@ -308,7 +309,7 @@ public class RememberVideoQualityPatch {
             TextView titleView = new TextView(context);
             final int currentQuality = getDefaultVideoQuality();
             String currentQualityLabel;
-            if (currentQuality == AUTOMATIC_VIDEO_QUALITY_VALUE || videoQualities == null) {
+            if (currentQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
                 currentQualityLabel = str("video_quality_quick_menu_auto_toast");
             } else {
                 currentQualityLabel = str("video_quality_quick_menu_auto_toast");
@@ -367,12 +368,12 @@ public class RememberVideoQualityPatch {
             titleView.setLayoutParams(titleParams);
             mainLayout.addView(titleView);
 
-            List<String> qualityLabels = new ArrayList<>();
-            List<Integer> qualityIndices = new ArrayList<>();
-            for (int i = 0; i < videoQualities.size(); i++) {
-                VideoQuality quality = videoQualities.get(i);
-                int resolution = quality.patch_getResolution();
-                if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE) {
+            final int qualitySize = qualities.size();
+            List<String> qualityLabels = new ArrayList<>(qualitySize);
+            List<Integer> qualityIndices = new ArrayList<>(qualitySize);
+            for (int i = 0; i < qualitySize; i++) {
+                VideoQuality quality = qualities.get(i);
+                if (quality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
                     qualityLabels.add(quality.patch_getQualityName());
                     qualityIndices.add(i);
                 }
@@ -387,8 +388,8 @@ public class RememberVideoQualityPatch {
             // Only select an index if currentQuality is not Auto.
             int selectedIndex = -1;
             if (currentQuality != AUTOMATIC_VIDEO_QUALITY_VALUE) {
-                for (int i = 0; i < videoQualities.size(); i++) {
-                    if (videoQualities.get(i).patch_getResolution() == currentQuality) {
+                for (int i = 0; i < qualitySize; i++) {
+                    if (qualities.get(i).patch_getResolution() == currentQuality) {
                         selectedIndex = qualityIndices.indexOf(i);
                         break;
                     }
@@ -406,12 +407,13 @@ public class RememberVideoQualityPatch {
                 try {
                     if (currentMenuInterface == null) {
                         Logger.printDebug(() -> "VideoQualityMenuInterface is null in showVideoQualityDialog");
+                        dialog.dismiss();
                         return;
                     }
-                    int originalIndex = qualityIndices.get(which);
+                    final int originalIndex = qualityIndices.get(which);
                     VideoQuality selectedQuality = videoQualities.get(originalIndex);
                     currentMenuInterface.patch_setMenuIndexFromQuality(selectedQuality);
-                    Logger.printDebug(() -> "Applied dialog quality: " + selectedQuality.patch_getQualityName() + " (index: " + originalIndex + ")");
+                    Logger.printDebug(() -> "Applied dialog quality: " + selectedQuality + " index: " + originalIndex);
 
                     if (shouldRememberVideoQuality()) {
                         changeDefaultQuality(selectedQuality.patch_getResolution());
@@ -461,6 +463,7 @@ public class RememberVideoQualityPatch {
             slideInABottomAnimation.setDuration(fadeDurationFast);
             mainLayout.startAnimation(slideInABottomAnimation);
 
+            // noinspection ClickableViewAccessibility
             mainLayout.setOnTouchListener(new View.OnTouchListener() {
                 final float dismissThreshold = dipToPixels(100);
                 float touchY;
@@ -482,6 +485,7 @@ public class RememberVideoQualityPatch {
                         case MotionEvent.ACTION_UP:
                         case MotionEvent.ACTION_CANCEL:
                             if (mainLayout.getTranslationY() > dismissThreshold) {
+                                //noinspection ExtractMethodRecommender
                                 final float remainingDistance = context.getResources().getDisplayMetrics().heightPixels
                                         - mainLayout.getTop();
                                 TranslateAnimation slideOut = new TranslateAnimation(
@@ -557,7 +561,7 @@ public class RememberVideoQualityPatch {
             }
 
             viewHolder.textView.setText(getItem(position));
-            boolean isSelected = position == selectedPosition;
+            final boolean isSelected = position == selectedPosition;
             viewHolder.checkIcon.setVisibility(isSelected ? View.VISIBLE : View.GONE);
             viewHolder.placeholder.setVisibility(isSelected ? View.GONE : View.INVISIBLE);
 
