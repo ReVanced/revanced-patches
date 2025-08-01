@@ -132,27 +132,20 @@ public class VideoQualityDialogButton {
                             }
 
                             // Reset to default quality.
-                            VideoQuality resetQuality = qualities.get(0);
-                            int resetIndex = 0;
                             final int defaultResolution = RememberVideoQualityPatch.getDefaultQualityResolution();
                             for (VideoQuality quality : qualities) {
                                 final int resolution = quality.patch_getResolution();
                                 if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
-                                    resetQuality = quality;
-                                    break;
+                                    Logger.printDebug(() -> "Resetting quality to: " + quality);
+                                    menu.patch_setMenuIndexFromQuality(quality);
+                                    updateButtonIcon();
+                                    return true;
                                 }
-                                resetIndex++;
                             }
-
-                            VideoQuality resetQualityFinal = resetQuality;
-                            Logger.printDebug(() -> "Resetting quality to: " + resetQualityFinal);
-                            menu.patch_setMenuIndexFromQuality(resetQuality);
-                            updateButtonIcon();
-                            return true;
                         } catch (Exception ex) {
                             Logger.printException(() -> "Video quality button reset failure", ex);
-                            return false;
                         }
+                        return false;
                     }
             );
 
