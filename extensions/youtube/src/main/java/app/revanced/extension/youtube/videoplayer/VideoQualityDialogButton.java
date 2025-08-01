@@ -135,6 +135,7 @@ public class VideoQualityDialogButton {
                             // Existing hook cannot set default quality to auto.
                             // Instead show the quality dialog.
                             showVideoQualityDialog(view.getContext());
+                            return true;
                         } catch (Exception ex) {
                             Logger.printException(() -> "Video quality button reset failure", ex);
                         }
@@ -180,7 +181,7 @@ public class VideoQualityDialogButton {
             }
             if (currentQualities.size() < 2) {
                 // Should never happen.
-                Logger.printDebug(() -> "Cannot show qualities dialog, no qualities available");
+                Logger.printException(() -> "Cannot show qualities dialog, no qualities available");
                 return;
             }
 
