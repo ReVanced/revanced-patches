@@ -137,29 +137,21 @@ public class RememberVideoQualityPatch {
         try {
             Utils.verifyOnMainThread();
 
-            currentMenuInterface = menu; // Store the menu interface.
+            currentMenuInterface = menu; // Later used by player quality button.
 
             final boolean useShortsPreference = ShortsPlayerState.isOpen();
             final int preferredQuality = Utils.getNetworkType() == NetworkType.MOBILE
                     ? (useShortsPreference ? shortsQualityMobile : videoQualityMobile).get()
                     : (useShortsPreference ? shortsQualityWifi : videoQualityWifi).get();
 
-            if (!userChangedDefaultQuality && preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
-                // Initialize videoQualities to ensure showVideoQualityDialog has data.
-                if (videoQualities == null || videoQualities.size() != qualities.length) {
-                    videoQualities = Arrays.asList(qualities);
-                    Logger.printDebug(() -> "VideoQualities initialized for Auto: " + videoQualities);
-                }
-                return originalQualityIndex; // Nothing to do.
+            final boolean qualitiesChanged = videoQualities == null || videoQualities.size() != qualities.length;
+            if (qualitiesChanged) {
+                videoQualities = Arrays.asList(qualities);
+                Logger.printDebug(() -> "VideoQualities: " + videoQualities);
             }
 
-            if (videoQualities == null || videoQualities.size() != qualities.length) {
-                videoQualities = Arrays.asList(qualities);
-
-                // After changing videos the qualities can initially be for the prior video.
-                // So if the qualities have changed an update is needed.
-                qualityNeedsUpdating = true;
-                Logger.printDebug(() -> "VideoQualities: " + videoQualities);
+            if (!userChangedDefaultQuality && preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
+                return originalQualityIndex; // Nothing to do.
             }
 
             if (userChangedDefaultQuality) {
@@ -170,7 +162,9 @@ public class RememberVideoQualityPatch {
                 return userSelectedQualityIndex;
             }
 
-            if (!qualityNeedsUpdating) {
+            // After changing videos the qualities can initially be for the prior video.
+            // If the qualities have changed and the default is not auto then an update is needed.
+            if (!qualityNeedsUpdating && !qualitiesChanged) {
                 return originalQualityIndex;
             }
             qualityNeedsUpdating = false;
@@ -308,16 +302,20 @@ public class RememberVideoQualityPatch {
             // Add title with current quality.
             TextView titleView = new TextView(context);
             final int currentQuality = getDefaultVideoQuality();
+            int listViewSelectedIndex = -1;
             String currentQualityLabel;
             if (currentQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
                 currentQualityLabel = str("video_quality_quick_menu_auto_toast");
             } else {
                 currentQualityLabel = str("video_quality_quick_menu_auto_toast");
-                for (VideoQuality quality : videoQualities) {
+                int i = 0;
+                for (VideoQuality quality : qualities) {
                     if (quality.patch_getResolution() == currentQuality) {
                         currentQualityLabel = quality.patch_getQualityName();
+                        listViewSelectedIndex = i - 1; // Adjust for automatic quality at first index.
                         break;
                     }
+                    i++;
                 }
             }
 
@@ -370,12 +368,10 @@ public class RememberVideoQualityPatch {
 
             final int qualitySize = qualities.size();
             List<String> qualityLabels = new ArrayList<>(qualitySize);
-            List<Integer> qualityIndices = new ArrayList<>(qualitySize);
             for (int i = 0; i < qualitySize; i++) {
                 VideoQuality quality = qualities.get(i);
                 if (quality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
                     qualityLabels.add(quality.patch_getQualityName());
-                    qualityIndices.add(i);
                 }
             }
 
@@ -385,20 +381,9 @@ public class RememberVideoQualityPatch {
                 return;
             }
 
-            // Only select an index if currentQuality is not Auto.
-            int selectedIndex = -1;
-            if (currentQuality != AUTOMATIC_VIDEO_QUALITY_VALUE) {
-                for (int i = 0; i < qualitySize; i++) {
-                    if (qualities.get(i).patch_getResolution() == currentQuality) {
-                        selectedIndex = qualityIndices.indexOf(i);
-                        break;
-                    }
-                }
-            }
-
             ListView listView = new ListView(context);
             CustomQualityAdapter adapter = new CustomQualityAdapter(context, qualityLabels);
-            adapter.setSelectedPosition(selectedIndex);
+            adapter.setSelectedPosition(listViewSelectedIndex);
             listView.setAdapter(adapter);
             listView.setDivider(null);
             listView.setPadding(dip16, 0, 0, 0);
@@ -410,7 +395,7 @@ public class RememberVideoQualityPatch {
                         dialog.dismiss();
                         return;
                     }
-                    final int originalIndex = qualityIndices.get(which);
+                    final int originalIndex = which + 1;
                     VideoQuality selectedQuality = videoQualities.get(originalIndex);
                     currentMenuInterface.patch_setMenuIndexFromQuality(selectedQuality);
                     Logger.printDebug(() -> "Applied dialog quality: " + selectedQuality + " index: " + originalIndex);
