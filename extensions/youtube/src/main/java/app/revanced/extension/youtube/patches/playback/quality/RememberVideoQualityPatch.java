@@ -396,7 +396,7 @@ public class RememberVideoQualityPatch {
                         return;
                     }
                     final int originalIndex = which + 1;
-                    VideoQuality selectedQuality = videoQualities.get(originalIndex);
+                    VideoQuality selectedQuality = qualities.get(originalIndex);
                     currentMenuInterface.patch_setMenuIndexFromQuality(selectedQuality);
                     Logger.printDebug(() -> "Applied dialog quality: " + selectedQuality + " index: " + originalIndex);
 
@@ -404,9 +404,6 @@ public class RememberVideoQualityPatch {
                         changeDefaultQuality(selectedQuality.patch_getResolution());
                     }
 
-                    if (Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED_TOAST.get()) {
-                        Utils.showToastShort(str("revanced_video_quality_selected_toast", qualityLabels.get(which)));
-                    }
                     dialog.dismiss();
                 } catch (Exception ex) {
                     Logger.printException(() -> "Video quality selection failure", ex);
