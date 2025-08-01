@@ -562,6 +562,6 @@ public class RememberVideoQualityPatch {
 
     public static int getAdjustedTitleForegroundColor() {
         final int baseColor = Utils.getAppForegroundColor();
-        return Utils.adjustColorBrightness(baseColor, 0.6f, 1.6f);
+        return Utils.adjustColorBrightness(baseColor, 1.6f, 0.6f);
     }
 }
