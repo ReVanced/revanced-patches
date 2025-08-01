@@ -133,26 +133,24 @@ public class RememberVideoQualityPatch {
     public static int setVideoQuality(VideoQuality[] qualities, VideoQualityMenuInterface menu, int originalQualityIndex) {
         try {
             Utils.verifyOnMainThread();
+            currentMenuInterface = menu;
 
-            currentMenuInterface = menu; // Later used by player quality button.
-
-            final boolean qualitiesChanged = currentQualities == null || currentQualities.size() != qualities.length;
-            if (qualitiesChanged) {
+            final boolean availableQualitiesChanged = currentQualities == null
+                    || currentQualities.size() != qualities.length;
+            if (availableQualitiesChanged) {
                 currentQualities = Arrays.asList(qualities);
                 Logger.printDebug(() -> "VideoQualities: " + currentQualities);
             }
 
-            boolean currentQualityChanged = false;
             VideoQuality updatedCurrentQuality = qualities[originalQualityIndex];
             if (currentQuality == null
                     || currentQuality.patch_getResolution() != updatedCurrentQuality.patch_getResolution()) {
                 currentQuality = updatedCurrentQuality;
-                currentQualityChanged = true;
                 Logger.printDebug(() -> "Current quality changed to: " + updatedCurrentQuality);
-            }
 
-            if (qualitiesChanged || currentQualityChanged) {
-                VideoQualityDialogButton.updateButtonIcon();
+                if (updatedCurrentQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
+                    VideoQualityDialogButton.updateButtonIcon(updatedCurrentQuality);
+                }
             }
 
             final int preferredQuality = getDefaultQualityResolution();
@@ -165,12 +163,13 @@ public class RememberVideoQualityPatch {
                 VideoQuality quality = qualities[userSelectedQualityIndex];
                 Logger.printDebug(() -> "User changed default quality to: " + quality);
                 changeDefaultQuality(quality.patch_getResolution());
+                VideoQualityDialogButton.updateButtonIcon(quality);
                 return userSelectedQualityIndex;
             }
 
             // After changing videos the qualities can initially be for the prior video.
             // If the qualities have changed and the default is not auto then an update is needed.
-            if (!qualityNeedsUpdating && !qualitiesChanged) {
+            if (!qualityNeedsUpdating && !availableQualitiesChanged) {
                 return originalQualityIndex;
             }
             qualityNeedsUpdating = false;
@@ -194,6 +193,7 @@ public class RememberVideoQualityPatch {
                     //
                     // To prevent user confusion, set the video index even if the
                     // quality is already correct so the UI picker will not display "Auto".
+                    Logger.printDebug(() -> "Changing quality to default: " + quality);
                     menu.patch_setMenuIndexFromQuality(qualities[i]);
                     return i;
                 }
@@ -251,6 +251,7 @@ public class RememberVideoQualityPatch {
         currentQuality = null;
         currentMenuInterface = null;
 
-        VideoQualityDialogButton.cleanup();
+        // Hide the quality button until playback starts and the qualities are available.
+        VideoQualityDialogButton.updateButtonIcon(null);
     }
 }

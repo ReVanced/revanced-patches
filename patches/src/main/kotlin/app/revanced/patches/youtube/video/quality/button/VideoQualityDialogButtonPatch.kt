@@ -27,7 +27,6 @@ private val videoQualityButtonResourcePatch = resourcePatch {
                 "revanced_video_quality_dialog_button_fhd.xml",
                 "revanced_video_quality_dialog_button_qhd.xml",
                 "revanced_video_quality_dialog_button_4k.xml",
-                "revanced_video_quality_dialog_button_unknown.xml",
             ),
         )
 
