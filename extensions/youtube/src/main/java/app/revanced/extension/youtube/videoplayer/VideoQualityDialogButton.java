@@ -30,8 +30,13 @@ public class VideoQualityDialogButton {
         try {
             if (instance == null) return;
 
+            VideoQuality currentQuality = RememberVideoQualityPatch.getCurrentQuality();
+            final int resolution = currentQuality == null
+                    ? RememberVideoQualityPatch.getDefaultVideoQuality()
+                    : currentQuality.patch_getResolution();
+
             // Map quality to appropriate icon.
-            String iconResource = switch (RememberVideoQualityPatch.getDefaultVideoQuality()) {
+            String iconResource = switch (resolution) {
                 case 144, 240, 360, 480 -> "revanced_video_quality_dialog_button_lhd";
                 case 720  -> "revanced_video_quality_dialog_button_hd";
                 case 1080 -> "revanced_video_quality_dialog_button_fhd";
@@ -72,11 +77,12 @@ public class VideoQualityDialogButton {
                             // Reset to automatic quality.
                             RememberVideoQualityPatch.userChangedQualityInFlyout(
                                     RememberVideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE);
+
                             // Apply automatic quality immediately.
+                            List<VideoQuality> qualities = RememberVideoQualityPatch.getCurrentQualities();
                             RememberVideoQualityPatch.VideoQualityMenuInterface menu
                                     = RememberVideoQualityPatch.getCurrentMenuInterface();
-                            List<VideoQuality> qualities = RememberVideoQualityPatch.getCurrentQualities();
-                            if (menu != null && qualities != null) {
+                            if (qualities != null && menu != null) {
                                 menu.patch_setMenuIndexFromQuality(qualities.get(0)); // Auto is index 0.
                                 Logger.printDebug(() -> "Applied automatic quality via long press");
                             }
