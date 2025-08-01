@@ -43,6 +43,7 @@ import app.revanced.extension.shared.settings.IntegerSetting;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
+import app.revanced.extension.youtube.videoplayer.VideoQualityDialogButton;
 
 @SuppressWarnings("unused")
 public class RememberVideoQualityPatch {
@@ -81,6 +82,12 @@ public class RememberVideoQualityPatch {
     private static List<VideoQuality> currentQualities;
 
     /**
+     * The current quality of the video playing.
+     */
+    @Nullable
+    private static VideoQuality currentQuality;
+
+    /**
      * The current VideoQualityMenuInterface, set during setVideoQuality.
      */
     @Nullable
@@ -103,6 +110,11 @@ public class RememberVideoQualityPatch {
     @Nullable
     public static List<VideoQuality> getCurrentQualities() {
         return currentQualities;
+    }
+
+    @Nullable
+    public static VideoQuality getCurrentQuality() {
+        return currentQuality;
     }
 
     @Nullable
@@ -153,6 +165,11 @@ public class RememberVideoQualityPatch {
             if (qualitiesChanged) {
                 currentQualities = Arrays.asList(qualities);
                 Logger.printDebug(() -> "VideoQualities: " + currentQualities);
+            }
+            VideoQuality updatedCurrentQuality = qualities[originalQualityIndex];
+            if (currentQuality != updatedCurrentQuality) {
+                currentQuality = updatedCurrentQuality;
+                VideoQualityDialogButton.updateButtonIcon();
             }
 
             final int preferredQuality = getDefaultVideoQuality();
@@ -258,6 +275,7 @@ public class RememberVideoQualityPatch {
         Logger.printDebug(() -> "newVideoStarted");
         qualityNeedsUpdating = true;
         currentQualities = null;
+        currentQuality = null;
         currentMenuInterface = null;
     }
 
@@ -266,44 +284,29 @@ public class RememberVideoQualityPatch {
      */
     public static void showVideoQualityDialog(Context context) {
         try {
-            List<VideoQuality> qualities = currentQualities;
-            if (qualities == null) {
+            if (currentQualities == null || currentQuality == null) {
                 Logger.printDebug(() -> "Cannot show qualities dialog, videoQualities is null");
                 return;
             }
-            VideoQualityMenuInterface menu = currentMenuInterface;
-            if (menu == null) {
+            if (currentMenuInterface == null) {
                 Logger.printDebug(() -> "Cannot show qualities dialog, menu is null");
                 return;
             }
-
-            String currentQualityLabel = str("video_quality_quick_menu_auto_toast");
-            final int currentQuality = getDefaultVideoQuality();
-            int listViewSelectedIndex = -1;
-            if (currentQuality != AUTOMATIC_VIDEO_QUALITY_VALUE) {
-                int i = 0;
-                for (VideoQuality quality : qualities) {
-                    if (quality.patch_getResolution() == currentQuality) {
-                        currentQualityLabel = quality.patch_getQualityName();
-                        listViewSelectedIndex = i - 1; // Adjust for automatic quality at first index.
-                        break;
-                    }
-                    i++;
-                }
-            }
-
-            final int qualitySize = qualities.size();
-            List<String> qualityLabels = new ArrayList<>(qualitySize);
-            for (int i = 0; i < qualitySize; i++) {
-                VideoQuality quality = qualities.get(i);
-                if (quality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
-                    qualityLabels.add(quality.patch_getQualityName());
-                }
-            }
-
-            if (qualityLabels.isEmpty()) {
-                Logger.printException(() -> "Video has no available qualities");
+            if (currentQualities.size() < 2) {
+                // Should never happen.
+                Logger.printDebug(() -> "Cannot show qualities dialog, no qualities available");
                 return;
+            }
+
+            // -1 adjustment for automatic quality at first index.
+            final int listViewSelectedIndex = currentQualities.indexOf(currentQuality) - 1;
+
+            final int qualitySize = currentQualities.size();
+            List<String> qualityLabels = new ArrayList<>(qualitySize - 1);
+            for (VideoQuality availableQuality : currentQualities) {
+                if (availableQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
+                    qualityLabels.add(availableQuality.patch_getQualityName());
+                }
             }
 
             Dialog dialog = new Dialog(context);
@@ -367,11 +370,11 @@ public class RememberVideoQualityPatch {
 
             // Append quality label with adjusted title color.
             final int qualityStart = spannableTitle.length();
-            spannableTitle.append(currentQualityLabel);
+            spannableTitle.append(currentQuality.patch_getQualityName());
             spannableTitle.setSpan(
                     new ForegroundColorSpan(getAdjustedTitleForegroundColor()),
                     qualityStart,
-                    qualityStart + currentQualityLabel.length(),
+                    qualityStart + currentQuality.patch_getQualityName().length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             );
 
@@ -396,10 +399,10 @@ public class RememberVideoQualityPatch {
 
             listView.setOnItemClickListener((parent, view, which, id) -> {
                 try {
-                    final int originalIndex = which + 1;
-                    VideoQuality selectedQuality = qualities.get(originalIndex);
-                    menu.patch_setMenuIndexFromQuality(selectedQuality);
-                    Logger.printDebug(() -> "Applied dialog quality: " + selectedQuality + " index: " + originalIndex);
+                    final int originalIndex = which + 1; // Adjust for automatic.
+                    VideoQuality selectedQuality = currentQualities.get(originalIndex);
+                    currentMenuInterface.patch_setMenuIndexFromQuality(selectedQuality);
+                    Logger.printDebug(() -> "Applied dialog quality: " + selectedQuality);
 
                     if (shouldRememberVideoQuality()) {
                         changeDefaultQuality(selectedQuality.patch_getResolution());
@@ -560,15 +563,11 @@ public class RememberVideoQualityPatch {
 
     public static int getAdjustedHandleBarBackgroundColor() {
         final int baseColor = Utils.getDialogBackgroundColor();
-        return Utils.isDarkModeEnabled()
-                ? Utils.adjustColorBrightness(baseColor, 1.25f)
-                : Utils.adjustColorBrightness(baseColor, 0.9f);
+        return Utils.adjustColorBrightness(baseColor, 0.9f, 1.25f);
     }
 
     public static int getAdjustedTitleForegroundColor() {
         final int baseColor = Utils.getAppForegroundColor();
-        return Utils.isDarkModeEnabled()
-                ? Utils.adjustColorBrightness(baseColor, 0.6f)
-                : Utils.adjustColorBrightness(baseColor, 1.6f);
+        return Utils.adjustColorBrightness(baseColor, 0.6f, 1.6f);
     }
 }
