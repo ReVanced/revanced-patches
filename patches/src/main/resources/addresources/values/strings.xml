@@ -1546,7 +1546,7 @@ Enabling this can unlock higher video qualities"</string>
         </patch>
         <patch id="video.quality.button.videoQualityButtonPatch">
             <string name="revanced_video_quality_dialog_button_title">Show video quality button</string>
-            <string name="revanced_video_quality_dialog_button_summary_on">Button is shown. Tap and hold to reset video quality to Auto</string>
+            <string name="revanced_video_quality_dialog_button_summary_on">Button is shown. Tap and hold to reset quality to default</string>
             <string name="revanced_video_quality_dialog_button_summary_off">Button is not shown</string>
         </patch>
         <patch id="video.speed.custom.customPlaybackSpeedPatch">
