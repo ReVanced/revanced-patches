@@ -100,6 +100,16 @@ public class RememberVideoQualityPatch {
                 : (isShorts ? shortsQualityWifi : videoQualityWifi).get();
     }
 
+    @Nullable
+    public static VideoQualityMenuInterface getCurrentMenuInterface() {
+        return currentMenuInterface;
+    }
+
+    @Nullable
+    public static List<VideoQuality> getVideoQualities() {
+        return videoQualities;
+    }
+
     private static void changeDefaultQuality(int qualityResolution) {
         final boolean shortPlayerOpen = ShortsPlayerState.isOpen();
         String networkTypeMessage;
@@ -265,6 +275,11 @@ public class RememberVideoQualityPatch {
                 Logger.printDebug(() -> "Cannot show qualities dialog, videoQualities is null");
                 return;
             }
+            VideoQualityMenuInterface menu = currentMenuInterface;
+            if (menu == null) {
+                Logger.printDebug(() -> "Cannot show qualities dialog, menu is null");
+                return;
+            }
 
             Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -390,14 +405,9 @@ public class RememberVideoQualityPatch {
 
             listView.setOnItemClickListener((parent, view, which, id) -> {
                 try {
-                    if (currentMenuInterface == null) {
-                        Logger.printDebug(() -> "VideoQualityMenuInterface is null in showVideoQualityDialog");
-                        dialog.dismiss();
-                        return;
-                    }
                     final int originalIndex = which + 1;
                     VideoQuality selectedQuality = qualities.get(originalIndex);
-                    currentMenuInterface.patch_setMenuIndexFromQuality(selectedQuality);
+                    menu.patch_setMenuIndexFromQuality(selectedQuality);
                     Logger.printDebug(() -> "Applied dialog quality: " + selectedQuality + " index: " + originalIndex);
 
                     if (shouldRememberVideoQuality()) {
@@ -569,15 +579,5 @@ public class RememberVideoQualityPatch {
         return Utils.isDarkModeEnabled()
                 ? Utils.adjustColorBrightness(baseColor, 0.6f)
                 : Utils.adjustColorBrightness(baseColor, 1.6f);
-    }
-
-    @Nullable
-    public static VideoQualityMenuInterface getCurrentMenuInterface() {
-        return currentMenuInterface;
-    }
-
-    @Nullable
-    public static List<VideoQuality> getVideoQualities() {
-        return videoQualities;
     }
 }

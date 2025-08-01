@@ -197,6 +197,10 @@ public class PlayerControlButton {
             View button = buttonRef.get();
             if (button instanceof ImageView imageButton) {
                 final int resourceId = Utils.getResourceIdentifier(resourceName, "drawable");
+                if (resourceId == 0) {
+                    Logger.printException(() -> "Could not set button icon to: " + resourceName);
+                    return;
+                }
                 imageButton.setImageResource(resourceId);
                 Logger.printDebug(() -> "Set button icon to: " + resourceName);
             }
