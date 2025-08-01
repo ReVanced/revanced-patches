@@ -4,14 +4,13 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
+
+import java.util.List;
+
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.shared.ShortsPlayerState;
-
-import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.showToastShort;
 
 @SuppressWarnings("unused")
 public class VideoQualityDialogButton {
@@ -19,17 +18,20 @@ public class VideoQualityDialogButton {
     private static PlayerControlButton instance;
 
     /**
+     * The current resource name of the button icon.
+     */
+    @Nullable
+    private static String currentIconResource;
+
+    /**
      * Updates the button icon based on the current video quality.
      */
     public static void updateButtonIcon() {
-        if (instance == null) return;
-
         try {
-            // Get the current preferred quality from settings based on network and player state.
-            boolean isShorts = ShortsPlayerState.isOpen();
-            int currentQuality = Utils.getNetworkType() == Utils.NetworkType.MOBILE
-                    ? (isShorts ? Settings.SHORTS_QUALITY_DEFAULT_MOBILE : Settings.VIDEO_QUALITY_DEFAULT_MOBILE).get()
-                    : (isShorts ? Settings.SHORTS_QUALITY_DEFAULT_WIFI : Settings.VIDEO_QUALITY_DEFAULT_WIFI).get();
+            if (instance == null) return;
+
+            //noinspection ExtractMethodRecommender
+            final int currentQuality = RememberVideoQualityPatch.getDefaultVideoQuality();
 
             // Map quality to appropriate icon.
             String iconResource = switch (currentQuality) {
@@ -41,8 +43,11 @@ public class VideoQualityDialogButton {
                 default   -> "revanced_video_quality_dialog_button";
             };
 
-            instance.setIcon(iconResource);
-            Logger.printDebug(() -> "Updated button icon to: " + iconResource);
+            if (!iconResource.equals(currentIconResource)) {
+                currentIconResource = iconResource;
+                instance.setIcon(iconResource);
+                Logger.printDebug(() -> "Updated button icon to: " + iconResource);
+            }
         } catch (Exception ex) {
             Logger.printException(() -> "Failed to update button icon", ex);
         }
@@ -69,14 +74,17 @@ public class VideoQualityDialogButton {
                     view -> {
                         try {
                             // Reset to automatic quality.
-                            final int autoQuality = -2; // Auto.
-                            RememberVideoQualityPatch.userChangedQualityInFlyout(autoQuality);
+                            RememberVideoQualityPatch.userChangedQualityInFlyout(
+                                    RememberVideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE);
                             // Apply automatic quality immediately.
-                            if (RememberVideoQualityPatch.getCurrentMenuInterface() != null && RememberVideoQualityPatch.getVideoQualities() != null) {
-                                RememberVideoQualityPatch.getCurrentMenuInterface().patch_setMenuIndexFromQuality(
-                                        RememberVideoQualityPatch.getVideoQualities().get(0)); // Auto is index 0.
+                            RememberVideoQualityPatch.VideoQualityMenuInterface menu
+                                    = RememberVideoQualityPatch.getCurrentMenuInterface();
+                            List<VideoQuality> qualities = RememberVideoQualityPatch.getVideoQualities();
+                            if (menu != null && qualities != null) {
+                                menu.patch_setMenuIndexFromQuality(qualities.get(0)); // Auto is index 0.
                                 Logger.printDebug(() -> "Applied automatic quality via long press");
                             }
+
                             updateButtonIcon(); // Update icon after reset.
                             return true;
                         } catch (Exception ex) {
@@ -85,6 +93,7 @@ public class VideoQualityDialogButton {
                         }
                     }
             );
+
             updateButtonIcon(); // Set initial icon.
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);

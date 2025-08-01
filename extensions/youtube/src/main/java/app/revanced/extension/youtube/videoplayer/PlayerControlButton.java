@@ -195,14 +195,10 @@ public class PlayerControlButton {
     public void setIcon(String resourceName) {
         try {
             View button = buttonRef.get();
-            if (button instanceof ImageView) {
-                int resourceId = Utils.getResourceIdentifier(resourceName, "drawable");
-                if (resourceId != 0) {
-                    ((ImageView) button).setImageResource(resourceId);
-                    Logger.printDebug(() -> "Set button icon to: " + resourceName);
-                } else {
-                    Logger.printDebug(() -> "Resource not found: " + resourceName);
-                }
+            if (button instanceof ImageView imageButton) {
+                final int resourceId = Utils.getResourceIdentifier(resourceName, "drawable");
+                imageButton.setImageResource(resourceId);
+                Logger.printDebug(() -> "Set button icon to: " + resourceName);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "setIcon failure", ex);

@@ -93,6 +93,13 @@ public class RememberVideoQualityPatch {
         return preference.get();
     }
 
+    public static int getDefaultVideoQuality() {
+        final boolean isShorts = ShortsPlayerState.isOpen();
+        return Utils.getNetworkType() == NetworkType.MOBILE
+                ? (isShorts ? shortsQualityMobile : videoQualityMobile).get()
+                : (isShorts ? shortsQualityWifi : videoQualityWifi).get();
+    }
+
     private static void changeDefaultQuality(int qualityResolution) {
         final boolean shortPlayerOpen = ShortsPlayerState.isOpen();
         String networkTypeMessage;
@@ -184,13 +191,12 @@ public class RememberVideoQualityPatch {
 
             // If the desired quality index is equal to the original index,
             // then the video is already set to the desired default quality.
-            String qualityToUseName = qualityToUse.patch_getQualityName();
+            VideoQuality qualityToUseFinal = qualityToUse;
             if (qualityIndexToUse == originalQualityIndex) {
-                Logger.printDebug(() -> "Video is already preferred quality: " + qualityToUseName);
+                Logger.printDebug(() -> "Video is already preferred quality: " + qualityToUseFinal);
             } else {
                 Logger.printDebug(() -> "Changing video quality from: "
-                        + videoQualities.get(originalQualityIndex).patch_getQualityName()
-                        + " to: " + qualityToUseName);
+                        + videoQualities.get(originalQualityIndex) + " to: " + qualityToUseFinal);
             }
 
             // On first load of a new video, if the video is already the desired quality
@@ -258,7 +264,7 @@ public class RememberVideoQualityPatch {
     /**
      * Shows a dialog with available video qualities, excluding Auto, with a title showing the current quality.
      */
-    public static void showVideoQualityDialog(@NonNull Context context) {
+    public static void showVideoQualityDialog(Context context) {
         try {
             Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -295,10 +301,7 @@ public class RememberVideoQualityPatch {
 
             // Add title with current quality.
             TextView titleView = new TextView(context);
-            boolean isShorts = ShortsPlayerState.isOpen();
-            int currentQuality = Utils.getNetworkType() == NetworkType.MOBILE
-                    ? (isShorts ? shortsQualityMobile : videoQualityMobile).get()
-                    : (isShorts ? shortsQualityWifi : videoQualityWifi).get();
+            final int currentQuality = getDefaultVideoQuality();
             String currentQualityLabel;
             if (currentQuality == AUTOMATIC_VIDEO_QUALITY_VALUE || videoQualities == null) {
                 currentQualityLabel = str("video_quality_quick_menu_auto_toast");
