@@ -60,12 +60,10 @@ public class VideoQualityDialogButton {
     /**
      * Updates the button icon based on the current video quality.
      */
-    public static void updateButtonIcon() {
+    public static void updateButtonIcon(@Nullable VideoQuality currentQuality, boolean updateImmediately) {
         try {
             if (instance == null) return;
 
-            //noinspection ExtractMethodRecommender
-            VideoQuality currentQuality = RememberVideoQualityPatch.getCurrentQuality();
             final int resolution = currentQuality == null
                     ? AUTOMATIC_VIDEO_QUALITY_VALUE // Video is still loading.
                     : currentQuality.patch_getResolution();
@@ -81,16 +79,19 @@ public class VideoQualityDialogButton {
             };
 
             if (!iconResource.equals(currentIconResource)) {
-                if (updateIconRunnable != null) {
-                    handler.removeCallbacks(updateIconRunnable);
-                }
+                cleanup();
 
-                updateIconRunnable = () -> {
+                Runnable update = () -> {
                     currentIconResource = iconResource;
                     instance.setIcon(iconResource);
                 };
 
-                handler.postDelayed(updateIconRunnable, 300);
+                if (updateImmediately) {
+                    update.run();
+                } else {
+                    updateIconRunnable = update;
+                    handler.postDelayed(update, 300);
+                }
             }
         } catch (Exception ex) {
             Logger.printException(() -> "updateButtonIcon failure", ex);
@@ -117,7 +118,6 @@ public class VideoQualityDialogButton {
                     view -> {
                         try {
                             showVideoQualityDialog(view.getContext());
-                            updateButtonIcon();
                         } catch (Exception ex) {
                             Logger.printException(() -> "Video quality button onClick failure", ex);
                         }
@@ -138,8 +138,8 @@ public class VideoQualityDialogButton {
                                 final int resolution = quality.patch_getResolution();
                                 if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
                                     Logger.printDebug(() -> "Resetting quality to: " + quality);
+                                    updateButtonIcon(quality, true);
                                     menu.patch_setMenuIndexFromQuality(quality);
-                                    updateButtonIcon();
                                     return true;
                                 }
                             }
@@ -147,7 +147,6 @@ public class VideoQualityDialogButton {
                             // Existing hook cannot set default quality to auto.
                             // Instead show the quality dialog.
                             showVideoQualityDialog(view.getContext());
-                            updateButtonIcon();
                         } catch (Exception ex) {
                             Logger.printException(() -> "Video quality button reset failure", ex);
                         }
@@ -155,7 +154,8 @@ public class VideoQualityDialogButton {
                     }
             );
 
-            updateButtonIcon(); // Set initial icon.
+            // Set initial icon.
+            updateButtonIcon(RememberVideoQualityPatch.getCurrentQuality(), true);
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);
         }
@@ -167,7 +167,6 @@ public class VideoQualityDialogButton {
     public static void setVisibilityImmediate(boolean visible) {
         if (instance != null) {
             instance.setVisibilityImmediate(visible);
-            if (visible) updateButtonIcon();
         }
     }
 
@@ -177,7 +176,6 @@ public class VideoQualityDialogButton {
     public static void setVisibility(boolean visible, boolean animated) {
         if (instance != null) {
             instance.setVisibility(visible, animated);
-            if (visible) updateButtonIcon();
         }
     }
 
@@ -311,8 +309,9 @@ public class VideoQualityDialogButton {
                 try {
                     final int originalIndex = which + 1; // Adjust for automatic.
                     VideoQuality selectedQuality = currentQualities.get(originalIndex);
+                    Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
+                    updateButtonIcon(selectedQuality, true);
                     menu.patch_setMenuIndexFromQuality(selectedQuality);
-                    Logger.printDebug(() -> "Applied dialog quality: " + selectedQuality);
 
                     if (RememberVideoQualityPatch.shouldRememberVideoQuality()) {
                         RememberVideoQualityPatch.changeDefaultQuality(selectedQuality.patch_getResolution());
