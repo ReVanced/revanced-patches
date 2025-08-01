@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.videoplayer;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE;
+import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.VideoQualityMenuInterface;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -113,8 +114,7 @@ public class VideoQualityDialogButton {
                     view -> {
                         try {
                             List<VideoQuality> qualities = RememberVideoQualityPatch.getCurrentQualities();
-                            RememberVideoQualityPatch.VideoQualityMenuInterface menu
-                                    = RememberVideoQualityPatch.getCurrentMenuInterface();
+                            VideoQualityMenuInterface menu = RememberVideoQualityPatch.getCurrentMenuInterface();
                             if (qualities == null || menu == null) {
                                 Logger.printDebug(() -> "Cannot reset quality, videoQualities is null");
                                 return true;
@@ -185,7 +185,7 @@ public class VideoQualityDialogButton {
                 return;
             }
 
-            RememberVideoQualityPatch.VideoQualityMenuInterface menu = RememberVideoQualityPatch.getCurrentMenuInterface();
+            VideoQualityMenuInterface menu = RememberVideoQualityPatch.getCurrentMenuInterface();
             if (menu == null) {
                 Logger.printDebug(() -> "Cannot show qualities dialog, menu is null");
                 return;
@@ -194,8 +194,7 @@ public class VideoQualityDialogButton {
             // -1 adjustment for automatic quality at first index.
             final int listViewSelectedIndex = currentQualities.indexOf(currentQuality) - 1;
 
-            final int qualitySize = currentQualities.size();
-            List<String> qualityLabels = new ArrayList<>(qualitySize - 1);
+            List<String> qualityLabels = new ArrayList<>(currentQualities.size() - 1);
             for (VideoQuality availableQuality : currentQualities) {
                 if (availableQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
                     qualityLabels.add(availableQuality.patch_getQualityName());

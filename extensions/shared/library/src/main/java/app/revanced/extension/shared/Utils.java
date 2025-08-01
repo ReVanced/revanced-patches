@@ -1461,7 +1461,7 @@ public class Utils {
     }
 
     /**
-     * Uses {@link #adjustColorBrightness(int, float)} depending if dark mode is enabled or not.
+     * Uses {@link #adjustColorBrightness(int, float)} depending if light or dark mode is active.
      */
     @ColorInt
     public static int adjustColorBrightness(@ColorInt int baseColor, float lightThemeFactor, float darkThemeFactor) {

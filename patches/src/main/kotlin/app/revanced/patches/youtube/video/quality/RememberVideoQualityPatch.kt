@@ -82,7 +82,7 @@ val rememberVideoQualityPatch = bytecodePatch {
                 0,
                 """
                     invoke-static { p2, p1 }, $EXTENSION_CLASS_DESCRIPTOR->fixVideoQualityResolution(Ljava/lang/String;I)I    
-                    move-result p1       
+                    move-result p1
                 """
             )
 
@@ -160,11 +160,6 @@ val rememberVideoQualityPatch = bytecodePatch {
                 // Add interface and helper methods to allow extension code to call obfuscated methods.
                 interfaces.add(EXTENSION_VIDEO_QUALITY_MENU_INTERFACE)
 
-                // Get the name of the setQualityByIndex method.
-                val setQualityMenuIndexMethod = methods.single {
-                    method -> method.parameterTypes.firstOrNull() == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
-                }
-
                 methods.add(
                     ImmutableMethod(
                         type,
@@ -178,6 +173,10 @@ val rememberVideoQualityPatch = bytecodePatch {
                         null,
                         MutableMethodImplementation(2),
                     ).toMutable().apply {
+                        val setQualityMenuIndexMethod = methods.single { method ->
+                            method.parameterTypes.firstOrNull() == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+                        }
+
                         addInstructions(
                             0,
                             """
