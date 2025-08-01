@@ -38,7 +38,7 @@ public class VideoQualityDialogButton {
                 case 144, 240, 360, 480 -> "revanced_video_quality_dialog_button_lhd";
                 case 720  -> "revanced_video_quality_dialog_button_hd";
                 case 1080 -> "revanced_video_quality_dialog_button_fhd";
-                case 1440 -> "revanced_video_quality_dialog_button_2k";
+                case 1440 -> "revanced_video_quality_dialog_button_qhd";
                 case 2160 -> "revanced_video_quality_dialog_button_4k";
                 default   -> "revanced_video_quality_dialog_button";
             };
