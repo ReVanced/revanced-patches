@@ -53,8 +53,9 @@ public class VideoQualityDialogButton {
     @Nullable
     private static String currentIconResource;
 
-    private static final Handler handler = new Handler(Looper.getMainLooper());
+    @Nullable
     private static Runnable updateIconRunnable;
+    private static final Handler handler = new Handler(Looper.getMainLooper());
 
     /**
      * Updates the button icon based on the current video quality.
@@ -142,6 +143,11 @@ public class VideoQualityDialogButton {
                                     return true;
                                 }
                             }
+
+                            // Existing hook cannot set default quality to auto.
+                            // Instead show the quality dialog.
+                            showVideoQualityDialog(view.getContext());
+                            updateButtonIcon();
                         } catch (Exception ex) {
                             Logger.printException(() -> "Video quality button reset failure", ex);
                         }
