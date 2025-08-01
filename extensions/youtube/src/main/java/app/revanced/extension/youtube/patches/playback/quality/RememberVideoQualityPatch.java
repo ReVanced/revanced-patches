@@ -281,6 +281,35 @@ public class RememberVideoQualityPatch {
                 return;
             }
 
+            String currentQualityLabel = str("video_quality_quick_menu_auto_toast");
+            final int currentQuality = getDefaultVideoQuality();
+            int listViewSelectedIndex = -1;
+            if (currentQuality != AUTOMATIC_VIDEO_QUALITY_VALUE) {
+                int i = 0;
+                for (VideoQuality quality : qualities) {
+                    if (quality.patch_getResolution() == currentQuality) {
+                        currentQualityLabel = quality.patch_getQualityName();
+                        listViewSelectedIndex = i - 1; // Adjust for automatic quality at first index.
+                        break;
+                    }
+                    i++;
+                }
+            }
+
+            final int qualitySize = qualities.size();
+            List<String> qualityLabels = new ArrayList<>(qualitySize);
+            for (int i = 0; i < qualitySize; i++) {
+                VideoQuality quality = qualities.get(i);
+                if (quality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
+                    qualityLabels.add(quality.patch_getQualityName());
+                }
+            }
+
+            if (qualityLabels.isEmpty()) {
+                Logger.printException(() -> "Video has no available qualities");
+                return;
+            }
+
             Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setCanceledOnTouchOutside(true);
@@ -314,31 +343,10 @@ public class RememberVideoQualityPatch {
             handleBar.setLayoutParams(handleParams);
             mainLayout.addView(handleBar);
 
-            // Add title with current quality.
-            TextView titleView = new TextView(context);
-            final int currentQuality = getDefaultVideoQuality();
-            int listViewSelectedIndex = -1;
-            String currentQualityLabel;
-            if (currentQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
-                currentQualityLabel = str("video_quality_quick_menu_auto_toast");
-            } else {
-                currentQualityLabel = str("video_quality_quick_menu_auto_toast");
-                int i = 0;
-                for (VideoQuality quality : qualities) {
-                    if (quality.patch_getResolution() == currentQuality) {
-                        currentQualityLabel = quality.patch_getQualityName();
-                        listViewSelectedIndex = i - 1; // Adjust for automatic quality at first index.
-                        break;
-                    }
-                    i++;
-                }
-            }
-
             // Create SpannableStringBuilder for formatted text.
             SpannableStringBuilder spannableTitle = new SpannableStringBuilder();
             String titlePart = str("video_quality_quick_menu_title");
             String separatorPart = str("video_quality_title_seperator");
-            String qualityPart = currentQualityLabel;
 
             // Append title part with default foreground color.
             spannableTitle.append(titlePart);
@@ -362,15 +370,17 @@ public class RememberVideoQualityPatch {
             spannableTitle.append("   "); // Space after separator.
 
             // Append quality label with adjusted title color.
-            int qualityStart = spannableTitle.length();
-            spannableTitle.append(qualityPart);
+            final int qualityStart = spannableTitle.length();
+            spannableTitle.append(currentQualityLabel);
             spannableTitle.setSpan(
                     new ForegroundColorSpan(getAdjustedTitleForegroundColor()),
                     qualityStart,
-                    qualityStart + qualityPart.length(),
+                    qualityStart + currentQualityLabel.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             );
 
+            // Add title with current quality.
+            TextView titleView = new TextView(context);
             titleView.setText(spannableTitle);
             titleView.setTextSize(16);
             // Remove setTextColor since color is handled by SpannableStringBuilder.
@@ -380,21 +390,6 @@ public class RememberVideoQualityPatch {
             titleParams.setMargins(dip8, 0, 0, dip20);
             titleView.setLayoutParams(titleParams);
             mainLayout.addView(titleView);
-
-            final int qualitySize = qualities.size();
-            List<String> qualityLabels = new ArrayList<>(qualitySize);
-            for (int i = 0; i < qualitySize; i++) {
-                VideoQuality quality = qualities.get(i);
-                if (quality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
-                    qualityLabels.add(quality.patch_getQualityName());
-                }
-            }
-
-            if (qualityLabels.isEmpty()) {
-                Logger.printDebug(() -> "showVideoQualityDialog: No valid video qualities available");
-                dialog.dismiss();
-                return;
-            }
 
             ListView listView = new ListView(context);
             CustomQualityAdapter adapter = new CustomQualityAdapter(context, qualityLabels);

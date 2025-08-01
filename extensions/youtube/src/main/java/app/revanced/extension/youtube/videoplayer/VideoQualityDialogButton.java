@@ -30,11 +30,8 @@ public class VideoQualityDialogButton {
         try {
             if (instance == null) return;
 
-            //noinspection ExtractMethodRecommender
-            final int currentQuality = RememberVideoQualityPatch.getDefaultVideoQuality();
-
             // Map quality to appropriate icon.
-            String iconResource = switch (currentQuality) {
+            String iconResource = switch (RememberVideoQualityPatch.getDefaultVideoQuality()) {
                 case 144, 240, 360, 480 -> "revanced_video_quality_dialog_button_lhd";
                 case 720  -> "revanced_video_quality_dialog_button_hd";
                 case 1080 -> "revanced_video_quality_dialog_button_fhd";
@@ -46,7 +43,6 @@ public class VideoQualityDialogButton {
             if (!iconResource.equals(currentIconResource)) {
                 currentIconResource = iconResource;
                 instance.setIcon(iconResource);
-                Logger.printDebug(() -> "Updated button icon to: " + iconResource);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "Failed to update button icon", ex);
