@@ -61,7 +61,7 @@ public class VideoQualityDialogButton {
                     view -> {
                         try {
                             RememberVideoQualityPatch.showVideoQualityDialog(view.getContext());
-                            updateButtonIcon(); // Update icon after dialog interaction
+                            updateButtonIcon(); // Update icon after dialog interaction.
                         } catch (Exception ex) {
                             Logger.printException(() -> "Video quality button onClick failure", ex);
                         }
@@ -71,8 +71,13 @@ public class VideoQualityDialogButton {
                             // Reset to automatic quality.
                             final int autoQuality = -2; // Auto.
                             RememberVideoQualityPatch.userChangedQualityInFlyout(autoQuality);
+                            // Apply automatic quality immediately.
+                            if (RememberVideoQualityPatch.getCurrentMenuInterface() != null && RememberVideoQualityPatch.getVideoQualities() != null) {
+                                RememberVideoQualityPatch.getCurrentMenuInterface().patch_setMenuIndexFromQuality(
+                                        RememberVideoQualityPatch.getVideoQualities().get(0)); // Auto is index 0.
+                                Logger.printDebug(() -> "Applied automatic quality via long press");
+                            }
                             updateButtonIcon(); // Update icon after reset.
-                            showToastShort(str("revanced_video_quality_reset_toast"));
                             return true;
                         } catch (Exception ex) {
                             Logger.printException(() -> "Video quality button reset failure", ex);

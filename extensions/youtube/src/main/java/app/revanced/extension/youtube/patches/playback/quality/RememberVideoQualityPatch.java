@@ -106,14 +106,18 @@ public class RememberVideoQualityPatch {
         }
         qualitySetting.save(qualityResolution);
 
-        if (Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED_TOAST.get())
+        if (Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED_TOAST.get()) {
+            String qualityLabel = qualityResolution == AUTOMATIC_VIDEO_QUALITY_VALUE
+                    ? str("video_quality_quick_menu_auto_toast")
+                    : qualityResolution + "p";
             Utils.showToastShort(str(
                     shortPlayerOpen
                             ? "revanced_remember_video_quality_toast_shorts"
                             : "revanced_remember_video_quality_toast",
                     networkTypeMessage,
-                    (qualityResolution + "p"))
+                    qualityLabel)
             );
+        }
     }
 
     /**
@@ -357,28 +361,30 @@ public class RememberVideoQualityPatch {
 
             List<String> qualityLabels = new ArrayList<>();
             List<Integer> qualityIndices = new ArrayList<>();
-            if (videoQualities != null) {
-                for (int i = 0; i < videoQualities.size(); i++) {
-                    VideoQuality quality = videoQualities.get(i);
-                    int resolution = quality.patch_getResolution();
-                    if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE) {
-                        qualityLabels.add(quality.patch_getQualityName());
-                        qualityIndices.add(i);
-                    }
+            for (int i = 0; i < videoQualities.size(); i++) {
+                VideoQuality quality = videoQualities.get(i);
+                int resolution = quality.patch_getResolution();
+                if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE) {
+                    qualityLabels.add(quality.patch_getQualityName());
+                    qualityIndices.add(i);
                 }
             }
 
+            if (qualityLabels.isEmpty()) {
+                Logger.printDebug(() -> "showVideoQualityDialog: No valid video qualities available");
+                dialog.dismiss();
+                return;
+            }
+
+            // Only select an index if currentQuality is not Auto.
             int selectedIndex = -1;
-            if (videoQualities != null && currentQuality != AUTOMATIC_VIDEO_QUALITY_VALUE) {
+            if (currentQuality != AUTOMATIC_VIDEO_QUALITY_VALUE) {
                 for (int i = 0; i < videoQualities.size(); i++) {
                     if (videoQualities.get(i).patch_getResolution() == currentQuality) {
                         selectedIndex = qualityIndices.indexOf(i);
                         break;
                     }
                 }
-            }
-            if (selectedIndex < 0 && !qualityLabels.isEmpty()) {
-                selectedIndex = 0;
             }
 
             ListView listView = new ListView(context);
@@ -403,7 +409,9 @@ public class RememberVideoQualityPatch {
                         changeDefaultQuality(selectedQuality.patch_getResolution());
                     }
 
-                    Utils.showToastShort(str("revanced_video_quality_selected_toast", qualityLabels.get(which)));
+                    if (Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED_TOAST.get()) {
+                        Utils.showToastShort(str("revanced_video_quality_selected_toast", qualityLabels.get(which)));
+                    }
                     dialog.dismiss();
                 } catch (Exception ex) {
                     Logger.printException(() -> "Video quality selection failure", ex);
@@ -567,5 +575,15 @@ public class RememberVideoQualityPatch {
         return Utils.isDarkModeEnabled()
                 ? Utils.adjustColorBrightness(baseColor, 0.6f)
                 : Utils.adjustColorBrightness(baseColor, 1.6f);
+    }
+
+    @Nullable
+    public static VideoQualityMenuInterface getCurrentMenuInterface() {
+        return currentMenuInterface;
+    }
+
+    @Nullable
+    public static List<VideoQuality> getVideoQualities() {
+        return videoQualities;
     }
 }
