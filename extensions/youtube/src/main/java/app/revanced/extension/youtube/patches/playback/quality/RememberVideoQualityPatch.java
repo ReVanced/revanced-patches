@@ -266,6 +266,11 @@ public class RememberVideoQualityPatch {
      */
     public static void showVideoQualityDialog(Context context) {
         try {
+            if (videoQualities == null) {
+                Logger.printDebug(() -> "Cannot show qualities dialog, videoQualities is null");
+                return;
+            }
+
             Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setCanceledOnTouchOutside(true);
