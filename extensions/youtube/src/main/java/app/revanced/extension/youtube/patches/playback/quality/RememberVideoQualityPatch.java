@@ -271,6 +271,8 @@ public class RememberVideoQualityPatch {
         currentQualities = null;
         currentQuality = null;
         currentMenuInterface = null;
+
+        VideoQualityDialogButton.cleanup();
     }
 
     /**

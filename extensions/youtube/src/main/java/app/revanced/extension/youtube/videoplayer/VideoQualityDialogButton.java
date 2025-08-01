@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.videoplayer;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -22,6 +24,9 @@ public class VideoQualityDialogButton {
      */
     @Nullable
     private static String currentIconResource;
+
+    private static final Handler handler = new Handler(Looper.getMainLooper());
+    private static Runnable updateIconRunnable;
 
     /**
      * Updates the button icon based on the current video quality.
@@ -46,11 +51,26 @@ public class VideoQualityDialogButton {
             };
 
             if (!iconResource.equals(currentIconResource)) {
-                currentIconResource = iconResource;
-                instance.setIcon(iconResource);
+                if (updateIconRunnable != null) {
+                    handler.removeCallbacks(updateIconRunnable);
+                }
+
+                updateIconRunnable = () -> {
+                    currentIconResource = iconResource;
+                    instance.setIcon(iconResource);
+                };
+
+                handler.postDelayed(updateIconRunnable, 300);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "updateButtonIcon failure", ex);
+        }
+    }
+
+    public static void cleanup() {
+        if (updateIconRunnable != null) {
+            handler.removeCallbacks(updateIconRunnable);
+            updateIconRunnable = null;
         }
     }
 
