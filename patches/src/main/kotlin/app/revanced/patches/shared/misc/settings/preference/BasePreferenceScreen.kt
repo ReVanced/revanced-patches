@@ -54,35 +54,7 @@ abstract class BasePreferenceScreen(
 
         fun addPreferences(vararg preferences: BasePreference) {
             ensureScreenInserted()
-
-            preferences.forEach { newPreference ->
-                if (newPreference is PreferenceScreenPreference) {
-                    val existingPreference = this.preferences
-                        .filterIsInstance<PreferenceScreenPreference>()
-                        .firstOrNull { it.originalKey == newPreference.originalKey }
-
-                    if (existingPreference != null) {
-                        val mergedPreferences = (existingPreference.preferences + newPreference.preferences).toMutableSet()
-                        this.preferences.remove(existingPreference)
-                        this.preferences.add(
-                            PreferenceScreenPreference(
-                                key = newPreference.originalKey,
-                                titleKey = newPreference.titleKey,
-                                summaryKey = newPreference.summaryKey,
-                                icon = newPreference.icon,
-                                layout = newPreference.layout,
-                                sorting = newPreference.sorting,
-                                tag = newPreference.tag,
-                                preferences = mergedPreferences
-                            )
-                        )
-                    } else {
-                        this.preferences.add(newPreference)
-                    }
-                } else {
-                    this.preferences.add(newPreference)
-                }
-            }
+            this.preferences.addAll(preferences)
         }
 
         open inner class Category(

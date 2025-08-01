@@ -12,7 +12,6 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -72,16 +71,11 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         addResources("youtube", "layout.buttons.overlay.hidePlayerOverlayButtonsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            PreferenceScreenPreference(
-                key = "revanced_player_buttons_screen",
-                preferences = setOf(
-                    SwitchPreference("revanced_hide_player_previous_next_buttons"),
-                    SwitchPreference("revanced_hide_cast_button"),
-                    SwitchPreference("revanced_hide_captions_button"),
-                    SwitchPreference("revanced_hide_autoplay_button"),
-                    SwitchPreference("revanced_hide_player_control_buttons_background"),
-                ),
-            ),
+            SwitchPreference("revanced_hide_player_previous_next_buttons"),
+            SwitchPreference("revanced_hide_cast_button"),
+            SwitchPreference("revanced_hide_captions_button"),
+            SwitchPreference("revanced_hide_autoplay_button"),
+            SwitchPreference("revanced_hide_player_control_buttons_background"),
         )
 
         // region Hide player next/previous button.
