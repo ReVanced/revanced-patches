@@ -5,10 +5,10 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch;
 import app.revanced.extension.youtube.settings.Settings;
-
-import java.util.List;
+import app.revanced.extension.youtube.shared.ShortsPlayerState;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.showToastShort;
@@ -25,18 +25,14 @@ public class VideoQualityDialogButton {
         if (instance == null) return;
 
         try {
-            // Get the current quality.
-            int lastAppliedQualityIndex = RememberVideoQualityPatch.getLastAppliedQualityIndex();
-            List<Integer> videoQualities = RememberVideoQualityPatch.getVideoQualities();
+            // Get the current preferred quality from settings based on network and player state.
+            boolean isShorts = ShortsPlayerState.isOpen();
+            int currentQuality = Utils.getNetworkType() == Utils.NetworkType.MOBILE
+                    ? (isShorts ? Settings.SHORTS_QUALITY_DEFAULT_MOBILE : Settings.VIDEO_QUALITY_DEFAULT_MOBILE).get()
+                    : (isShorts ? Settings.SHORTS_QUALITY_DEFAULT_WIFI : Settings.VIDEO_QUALITY_DEFAULT_WIFI).get();
 
-            if (videoQualities == null || lastAppliedQualityIndex < 0 || lastAppliedQualityIndex >= videoQualities.size()) {
-                // Default to a generic icon or "Auto".
-                instance.setIcon("revanced_video_quality_dialog_button");
-                return;
-            }
-
-            int quality = videoQualities.get(lastAppliedQualityIndex);
-            String iconResource = switch (quality) {
+            // Map quality to appropriate icon.
+            String iconResource = switch (currentQuality) {
                 case 144, 240, 360, 480 -> "revanced_video_quality_dialog_button_lhd";
                 case 720  -> "revanced_video_quality_dialog_button_hd";
                 case 1080 -> "revanced_video_quality_dialog_button_fhd";
@@ -74,7 +70,7 @@ public class VideoQualityDialogButton {
                         try {
                             // Reset to automatic quality.
                             final int autoQuality = -2; // Auto.
-                            RememberVideoQualityPatch.userChangedQualityInNewFlyout(autoQuality);
+                            RememberVideoQualityPatch.userChangedQualityInFlyout(autoQuality);
                             updateButtonIcon(); // Update icon after reset.
                             showToastShort(str("revanced_video_quality_reset_toast"));
                             return true;
@@ -110,4 +106,3 @@ public class VideoQualityDialogButton {
         }
     }
 }
-
