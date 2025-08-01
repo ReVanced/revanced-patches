@@ -100,7 +100,7 @@ public class RememberVideoQualityPatch {
         return preference.get();
     }
 
-    public static int getDefaultVideoQuality() {
+    public static int getDefaultQualityResolution() {
         final boolean isShorts = ShortsPlayerState.isOpen();
         return Utils.getNetworkType() == NetworkType.MOBILE
                 ? (isShorts ? shortsQualityMobile : videoQualityMobile).get()
@@ -167,14 +167,20 @@ public class RememberVideoQualityPatch {
                 Logger.printDebug(() -> "VideoQualities: " + currentQualities);
             }
 
+            boolean currentQualityChanged = false;
             VideoQuality updatedCurrentQuality = qualities[originalQualityIndex];
-            if (currentQuality != updatedCurrentQuality) {
+            if (currentQuality == null
+                    || currentQuality.patch_getResolution() != updatedCurrentQuality.patch_getResolution()) {
                 currentQuality = updatedCurrentQuality;
+                currentQualityChanged = true;
                 Logger.printDebug(() -> "Current quality changed to: " + updatedCurrentQuality);
+            }
+
+            if (qualitiesChanged || currentQualityChanged) {
                 VideoQualityDialogButton.updateButtonIcon();
             }
 
-            final int preferredQuality = getDefaultVideoQuality();
+            final int preferredQuality = getDefaultQualityResolution();
             if (!userChangedDefaultQuality && preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
                 return originalQualityIndex; // Nothing to do.
             }
@@ -230,8 +236,6 @@ public class RememberVideoQualityPatch {
     public static int fixVideoQualityResolution(String name, int quality) {
         final int correctQuality = 480;
         if (name.equals("480p") && quality != correctQuality) {
-            Logger.printDebug(() -> "Fixing bad data of " + name + " from: " + quality
-                    + " to: " + correctQuality);
             return correctQuality;
         }
 

@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.videoplayer;
 
+import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE;
+
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
@@ -37,7 +39,7 @@ public class VideoQualityDialogButton {
 
             VideoQuality currentQuality = RememberVideoQualityPatch.getCurrentQuality();
             final int resolution = currentQuality == null
-                    ? RememberVideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE
+                    ? AUTOMATIC_VIDEO_QUALITY_VALUE
                     : currentQuality.patch_getResolution();
 
             // Map quality to appropriate icon.
@@ -87,27 +89,38 @@ public class VideoQualityDialogButton {
                     view -> {
                         try {
                             RememberVideoQualityPatch.showVideoQualityDialog(view.getContext());
-                            updateButtonIcon(); // Update icon after dialog interaction.
+                            updateButtonIcon();
                         } catch (Exception ex) {
                             Logger.printException(() -> "Video quality button onClick failure", ex);
                         }
                     },
                     view -> {
                         try {
-                            // Reset to automatic quality.
-                            RememberVideoQualityPatch.userChangedQualityInFlyout(
-                                    RememberVideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE);
-
-                            // Apply automatic quality immediately.
                             List<VideoQuality> qualities = RememberVideoQualityPatch.getCurrentQualities();
                             RememberVideoQualityPatch.VideoQualityMenuInterface menu
                                     = RememberVideoQualityPatch.getCurrentMenuInterface();
-                            if (qualities != null && menu != null) {
-                                menu.patch_setMenuIndexFromQuality(qualities.get(0)); // Auto is index 0.
-                                Logger.printDebug(() -> "Applied automatic quality via long press");
+                            if (qualities == null || menu == null) {
+                                Logger.printDebug(() -> "Cannot reset quality, videoQualities is null");
+                                return true;
                             }
 
-                            updateButtonIcon(); // Update icon after reset.
+                            // Reset to default quality.
+                            VideoQuality resetQuality = qualities.get(0);
+                            int resetIndex = 0;
+                            final int defaultResolution = RememberVideoQualityPatch.getDefaultQualityResolution();
+                            for (VideoQuality quality : qualities) {
+                                final int resolution = quality.patch_getResolution();
+                                if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
+                                    resetQuality = quality;
+                                    break;
+                                }
+                                resetIndex++;
+                            }
+
+                            VideoQuality resetQualityFinal = resetQuality;
+                            Logger.printDebug(() -> "Resetting quality to: " + resetQualityFinal);
+                            menu.patch_setMenuIndexFromQuality(resetQuality);
+                            updateButtonIcon();
                             return true;
                         } catch (Exception ex) {
                             Logger.printException(() -> "Video quality button reset failure", ex);
