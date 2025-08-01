@@ -15,7 +15,7 @@
         android:paddingBottom="0dp"
         android:longClickable="false"
         android:scaleType="center"
-        android:src="@drawable/revanced_video_quality_dialog_button"
+        android:src="@drawable/revanced_video_quality_dialog_button_unknown"
         yt:layout_constraintBottom_toTopOf="@+id/quick_actions_container"
         yt:layout_constraintRight_toLeftOf="@+id/fullscreen_button" />
 

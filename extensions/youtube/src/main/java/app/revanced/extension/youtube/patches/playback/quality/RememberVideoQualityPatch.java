@@ -76,9 +76,10 @@ public class RememberVideoQualityPatch {
 
     public static int getDefaultQualityResolution() {
         final boolean isShorts = ShortsPlayerState.isOpen();
-        return Utils.getNetworkType() == NetworkType.MOBILE
-                ? (isShorts ? shortsQualityMobile : videoQualityMobile).get()
-                : (isShorts ? shortsQualityWifi : videoQualityWifi).get();
+        IntegerSetting preference = Utils.getNetworkType() == NetworkType.MOBILE
+                ? (isShorts ? shortsQualityMobile : videoQualityMobile)
+                : (isShorts ? shortsQualityWifi : videoQualityWifi);
+        return preference.get();
     }
 
     @Nullable

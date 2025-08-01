@@ -21,12 +21,12 @@ private val videoQualityButtonResourcePatch = resourcePatch {
             "qualitybutton",
             ResourceGroup(
                 "drawable",
-                "revanced_video_quality_dialog_button.xml",
-                "revanced_video_quality_dialog_button_4k.xml",
-                "revanced_video_quality_dialog_button_fhd.xml",
-                "revanced_video_quality_dialog_button_hd.xml",
                 "revanced_video_quality_dialog_button_lhd.xml",
+                "revanced_video_quality_dialog_button_hd.xml",
+                "revanced_video_quality_dialog_button_fhd.xml",
                 "revanced_video_quality_dialog_button_qhd.xml",
+                "revanced_video_quality_dialog_button_4k.xml",
+                "revanced_video_quality_dialog_button_unknown.xml",
             ),
         )
 

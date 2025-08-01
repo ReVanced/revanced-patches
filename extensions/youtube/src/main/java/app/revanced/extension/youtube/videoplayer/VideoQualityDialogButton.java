@@ -66,7 +66,7 @@ public class VideoQualityDialogButton {
             //noinspection ExtractMethodRecommender
             VideoQuality currentQuality = RememberVideoQualityPatch.getCurrentQuality();
             final int resolution = currentQuality == null
-                    ? AUTOMATIC_VIDEO_QUALITY_VALUE
+                    ? AUTOMATIC_VIDEO_QUALITY_VALUE // Video is still loading.
                     : currentQuality.patch_getResolution();
 
             // Map quality to appropriate icon.
@@ -76,7 +76,7 @@ public class VideoQualityDialogButton {
                 case 1080 -> "revanced_video_quality_dialog_button_fhd";
                 case 1440 -> "revanced_video_quality_dialog_button_qhd";
                 case 2160 -> "revanced_video_quality_dialog_button_4k";
-                default   -> "revanced_video_quality_dialog_button";
+                default   -> "revanced_video_quality_dialog_button_unknown";
             };
 
             if (!iconResource.equals(currentIconResource)) {
