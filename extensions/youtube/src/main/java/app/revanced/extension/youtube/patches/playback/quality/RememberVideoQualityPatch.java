@@ -166,9 +166,11 @@ public class RememberVideoQualityPatch {
                 currentQualities = Arrays.asList(qualities);
                 Logger.printDebug(() -> "VideoQualities: " + currentQualities);
             }
+
             VideoQuality updatedCurrentQuality = qualities[originalQualityIndex];
             if (currentQuality != updatedCurrentQuality) {
                 currentQuality = updatedCurrentQuality;
+                Logger.printDebug(() -> "Current quality changed to: " + updatedCurrentQuality);
                 VideoQualityDialogButton.updateButtonIcon();
             }
 
@@ -193,41 +195,33 @@ public class RememberVideoQualityPatch {
             qualityNeedsUpdating = false;
 
             // Find the highest quality that is equal to or less than the preferred.
-            VideoQuality qualityToUse = qualities[0]; // First element is automatic mode.
-            int qualityIndexToUse = 0;
             int i = 0;
             for (VideoQuality quality : qualities) {
                 final int qualityResolution = quality.patch_getResolution();
-                if (qualityResolution > qualityToUse.patch_getResolution() && qualityResolution <= preferredQuality) {
-                    qualityToUse = quality;
-                    qualityIndexToUse = i;
-                    break;
+                if (qualityResolution != AUTOMATIC_VIDEO_QUALITY_VALUE && qualityResolution <= preferredQuality) {
+                    // If the desired quality index is equal to the original index,
+                    // then the video is already set to the desired default quality.
+                    if (i == originalQualityIndex) {
+                        Logger.printDebug(() -> "Video is already preferred quality: " + quality);
+                    } else {
+                        Logger.printDebug(() -> "Changing video quality from: "
+                                + qualities[originalQualityIndex] + " to: " + quality);
+                    }
+
+                    // On first load of a new video, if the video is already the desired quality
+                    // then the quality flyout will show 'Auto' (ie: Auto (720p)).
+                    //
+                    // To prevent user confusion, set the video index even if the
+                    // quality is already correct so the UI picker will not display "Auto".
+                    menu.patch_setMenuIndexFromQuality(qualities[i]);
+                    return i;
                 }
                 i++;
             }
-
-            // If the desired quality index is equal to the original index,
-            // then the video is already set to the desired default quality.
-            VideoQuality qualityToUseFinal = qualityToUse;
-            if (qualityIndexToUse == originalQualityIndex) {
-                Logger.printDebug(() -> "Video is already preferred quality: " + qualityToUseFinal);
-            } else {
-                Logger.printDebug(() -> "Changing video quality from: "
-                        + qualities[originalQualityIndex] + " to: " + qualityToUseFinal);
-            }
-
-            // On first load of a new video, if the video is already the desired quality
-            // then the quality flyout will show 'Auto' (ie: Auto (720p)).
-            //
-            // To prevent user confusion, set the video index even if the
-            // quality is already correct so the UI picker will not display "Auto".
-            menu.patch_setMenuIndexFromQuality(qualities[qualityIndexToUse]);
-
-            return qualityIndexToUse;
         } catch (Exception ex) {
             Logger.printException(() -> "setVideoQuality failure", ex);
-            return originalQualityIndex;
         }
+        return originalQualityIndex;
     }
 
     /**

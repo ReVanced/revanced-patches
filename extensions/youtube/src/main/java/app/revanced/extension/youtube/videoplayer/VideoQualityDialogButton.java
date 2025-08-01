@@ -32,7 +32,7 @@ public class VideoQualityDialogButton {
 
             VideoQuality currentQuality = RememberVideoQualityPatch.getCurrentQuality();
             final int resolution = currentQuality == null
-                    ? RememberVideoQualityPatch.getDefaultVideoQuality()
+                    ? RememberVideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE
                     : currentQuality.patch_getResolution();
 
             // Map quality to appropriate icon.
@@ -50,7 +50,7 @@ public class VideoQualityDialogButton {
                 instance.setIcon(iconResource);
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "Failed to update button icon", ex);
+            Logger.printException(() -> "updateButtonIcon failure", ex);
         }
     }
 
