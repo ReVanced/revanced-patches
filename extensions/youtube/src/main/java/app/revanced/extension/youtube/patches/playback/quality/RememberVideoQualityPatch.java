@@ -134,6 +134,11 @@ public class RememberVideoQualityPatch {
                     : (useShortsPreference ? shortsQualityWifi : videoQualityWifi).get();
 
             if (!userChangedDefaultQuality && preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
+                // Initialize videoQualities to ensure showVideoQualityDialog has data.
+                if (videoQualities == null || videoQualities.size() != qualities.length) {
+                    videoQualities = Arrays.asList(qualities);
+                    Logger.printDebug(() -> "VideoQualities initialized for Auto: " + videoQualities);
+                }
                 return originalQualityIndex; // Nothing to do.
             }
 
@@ -260,7 +265,7 @@ public class RememberVideoQualityPatch {
             final int dip5 = dipToPixels(5);   // Padding for mainLayout.
             final int dip6 = dipToPixels(6);   // Bottom margin.
             final int dip8 = dipToPixels(8);   // Side padding.
-            final int dip16 = dipToPixels(16); // Increased left padding for ListView.
+            final int dip16 = dipToPixels(16); // Left padding for ListView.
             final int dip20 = dipToPixels(20); // Margin below handle.
             final int dip40 = dipToPixels(40); // Width for handle bar.
 
@@ -319,22 +324,22 @@ public class RememberVideoQualityPatch {
             );
             spannableTitle.append("   "); // Space after title.
 
-            // Append separator part with adjusted handle bar color.
+            // Append separator part with adjusted title color.
             int separatorStart = spannableTitle.length();
             spannableTitle.append(separatorPart);
             spannableTitle.setSpan(
-                    new ForegroundColorSpan(getAdjustedTitleBarBackgroundColor()),
+                    new ForegroundColorSpan(getAdjustedTitleForegroundColor()),
                     separatorStart,
                     separatorStart + separatorPart.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             );
             spannableTitle.append("   "); // Space after separator.
 
-            // Append quality label with adjusted handle bar color.
+            // Append quality label with adjusted title color.
             int qualityStart = spannableTitle.length();
             spannableTitle.append(qualityPart);
             spannableTitle.setSpan(
-                    new ForegroundColorSpan(getAdjustedTitleBarBackgroundColor()),
+                    new ForegroundColorSpan(getAdjustedTitleForegroundColor()),
                     qualityStart,
                     qualityStart + qualityPart.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
@@ -557,7 +562,7 @@ public class RememberVideoQualityPatch {
                 : Utils.adjustColorBrightness(baseColor, 0.9f);
     }
 
-    public static int getAdjustedTitleBarBackgroundColor() {
+    public static int getAdjustedTitleForegroundColor() {
         final int baseColor = Utils.getAppForegroundColor();
         return Utils.isDarkModeEnabled()
                 ? Utils.adjustColorBrightness(baseColor, 0.6f)
