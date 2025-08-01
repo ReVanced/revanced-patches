@@ -1,3 +1,142 @@
+# [5.33.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.5...v5.33.0-dev.6) (2025-07-31)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Use 1080p enhanced bitrate for Premium users ([#5565](https://github.com/ReVanced/revanced-patches/issues/5565)) ([bd3ace0](https://github.com/ReVanced/revanced-patches/commit/bd3ace0bd04ccd0369adb49d63aa0cf986402346))
+
+# [5.33.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.4...v5.33.0-dev.5) (2025-07-31)
+
+
+### Bug Fixes
+
+* **YouTube - Litho filter:** Correctly filter identifier of older YouTube targets ([bf29d69](https://github.com/ReVanced/revanced-patches/commit/bf29d6909e389819bad878ad3b94bbc90d823cc9))
+
+# [5.33.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.3...v5.33.0-dev.4) (2025-07-30)
+
+
+### Performance Improvements
+
+* **YouTube:** Filter identifier callback only on root component creation ([#5558](https://github.com/ReVanced/revanced-patches/issues/5558)) ([ccac46e](https://github.com/ReVanced/revanced-patches/commit/ccac46eebc2e14b094454e37ef4461d48a62c53f))
+
+# [5.33.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.2...v5.33.0-dev.3) (2025-07-30)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Use old speed menu for player button if enabled ([1e8f436](https://github.com/ReVanced/revanced-patches/commit/1e8f4368e117f4b278c24709231cb32546e46dc0))
+
+# [5.33.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.1...v5.33.0-dev.2) (2025-07-29)
+
+
+### Features
+
+* **ORF ON:** Add `Remove root detection` patch ([#5551](https://github.com/ReVanced/revanced-patches/issues/5551)) ([6c6aa35](https://github.com/ReVanced/revanced-patches/commit/6c6aa35411a139dddc3a15dd757fbeded5d1a0a3))
+
+# [5.33.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.32.0...v5.33.0-dev.1) (2025-07-28)
+
+
+### Features
+
+* **YouTube - Playback speed:** Add "Restore old playback speed menu" option ([#5552](https://github.com/ReVanced/revanced-patches/issues/5552)) ([b01f15b](https://github.com/ReVanced/revanced-patches/commit/b01f15b9acb0427aed99b0141ae271831b7936bf))
+
+# [5.32.0](https://github.com/ReVanced/revanced-patches/compare/v5.31.2...v5.32.0) (2025-07-27)
+
+
+### Bug Fixes
+
+* **Messenger - Hide inbox ads:** Support the latest app version ([2959c02](https://github.com/ReVanced/revanced-patches/commit/2959c0214dfa703ee623ef1f89bded7f78c9d252))
+* **YouTube  - Hide layout components:** Fix "Hide ticket shelf" ([#5516](https://github.com/ReVanced/revanced-patches/issues/5516)) ([3b85c71](https://github.com/ReVanced/revanced-patches/commit/3b85c71433325fff49e01c77c7b9ff8ddd0a7068))
+* **YouTube - GmsCore support:** Fix search suggestions when logged out by using correct search provider ([#5483](https://github.com/ReVanced/revanced-patches/issues/5483)) ([e86fdc8](https://github.com/ReVanced/revanced-patches/commit/e86fdc86b161a6077960b85149e83bacbac664e7))
+
+
+### Features
+
+* **Prime Video:** Add `Playback speed` patch ([#5444](https://github.com/ReVanced/revanced-patches/issues/5444)) ([22cf313](https://github.com/ReVanced/revanced-patches/commit/22cf313a7b99b69e17b9d488c514802043a5dc10))
+* **YouTube - External downloads:** Improve the selection of the external downloader package ([#5504](https://github.com/ReVanced/revanced-patches/issues/5504)) ([5de9aa9](https://github.com/ReVanced/revanced-patches/commit/5de9aa9fad4f24186da045fb188f8718d6f63d7a))
+* **YT Music:** Support latest versions ([#5524](https://github.com/ReVanced/revanced-patches/issues/5524)) ([551dcf0](https://github.com/ReVanced/revanced-patches/commit/551dcf01ca9c489a779196b49c8744727d79d6bc))
+
+# [5.32.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.4...v5.32.0-dev.5) (2025-07-26)
+
+
+### Features
+
+* **YT Music:** Support latest versions ([#5524](https://github.com/ReVanced/revanced-patches/issues/5524)) ([551dcf0](https://github.com/ReVanced/revanced-patches/commit/551dcf01ca9c489a779196b49c8744727d79d6bc))
+
+# [5.32.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.3...v5.32.0-dev.4) (2025-07-25)
+
+
+### Bug Fixes
+
+* **Messenger - Hide inbox ads:** Support the latest app version ([2959c02](https://github.com/ReVanced/revanced-patches/commit/2959c0214dfa703ee623ef1f89bded7f78c9d252))
+
+# [5.32.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.2...v5.32.0-dev.3) (2025-07-24)
+
+
+### Features
+
+* **YouTube - External downloads:** Improve the selection of the external downloader package ([#5504](https://github.com/ReVanced/revanced-patches/issues/5504)) ([5de9aa9](https://github.com/ReVanced/revanced-patches/commit/5de9aa9fad4f24186da045fb188f8718d6f63d7a))
+
+# [5.32.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.32.0-dev.1...v5.32.0-dev.2) (2025-07-23)
+
+
+### Bug Fixes
+
+* **YouTube  - Hide layout components:** Fix "Hide ticket shelf" ([#5516](https://github.com/ReVanced/revanced-patches/issues/5516)) ([3b85c71](https://github.com/ReVanced/revanced-patches/commit/3b85c71433325fff49e01c77c7b9ff8ddd0a7068))
+
+# [5.32.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.3-dev.1...v5.32.0-dev.1) (2025-07-16)
+
+
+### Features
+
+* **Prime Video:** Add `Playback speed` patch ([#5444](https://github.com/ReVanced/revanced-patches/issues/5444)) ([22cf313](https://github.com/ReVanced/revanced-patches/commit/22cf313a7b99b69e17b9d488c514802043a5dc10))
+
+## [5.31.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.2...v5.31.3-dev.1) (2025-07-16)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore support:** Fix search suggestions when logged out by using correct search provider ([#5483](https://github.com/ReVanced/revanced-patches/issues/5483)) ([e86fdc8](https://github.com/ReVanced/revanced-patches/commit/e86fdc86b161a6077960b85149e83bacbac664e7))
+
+## [5.31.2](https://github.com/ReVanced/revanced-patches/compare/v5.31.1...v5.31.2) (2025-07-14)
+
+
+### Bug Fixes
+
+* **Spotify - Spoof client:** Fix login failing by spoofing login request in addition ([#5448](https://github.com/ReVanced/revanced-patches/issues/5448)) ([4e59ddc](https://github.com/ReVanced/revanced-patches/commit/4e59ddc62388d09f71b89593fc8b76933d9facea))
+* **YouTube - Disable double tap actions:** Remove old incompatible targets ([857053e](https://github.com/ReVanced/revanced-patches/commit/857053e29b72ded10a84b0ac693fa107705342d9))
+* **YouTube - Hide layout components:** Hide quick actions does not work ([#5423](https://github.com/ReVanced/revanced-patches/issues/5423)) ([9c66729](https://github.com/ReVanced/revanced-patches/commit/9c6672946d44001e106bdac9041e2d79ef3f6ab2))
+* **YouTube - Hide layout components:** Show correct custom header logo if 'Hide YouTube Doodles' is enabled ([#5431](https://github.com/ReVanced/revanced-patches/issues/5431)) ([20cc141](https://github.com/ReVanced/revanced-patches/commit/20cc141e61f75de1a1749247c4f4aed167dee8ea))
+* **YouTube - Settings:** Back button/gesture closes search instead of exiting ([#5418](https://github.com/ReVanced/revanced-patches/issues/5418)) ([134b278](https://github.com/ReVanced/revanced-patches/commit/134b278baa7b90d2c4b06200cabacabf55ebc055))
+
+## [5.31.2-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.4...v5.31.2-dev.5) (2025-07-14)
+
+
+### Bug Fixes
+
+* **Spotify - Spoof client:** Fix login failing by spoofing login request in addition ([#5448](https://github.com/ReVanced/revanced-patches/issues/5448)) ([4e59ddc](https://github.com/ReVanced/revanced-patches/commit/4e59ddc62388d09f71b89593fc8b76933d9facea))
+
+## [5.31.2-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.3...v5.31.2-dev.4) (2025-07-13)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Back button/gesture closes search instead of exiting ([#5418](https://github.com/ReVanced/revanced-patches/issues/5418)) ([134b278](https://github.com/ReVanced/revanced-patches/commit/134b278baa7b90d2c4b06200cabacabf55ebc055))
+
+## [5.31.2-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.2...v5.31.2-dev.3) (2025-07-13)
+
+
+### Bug Fixes
+
+* **YouTube - Disable double tap actions:** Remove old incompatible targets ([857053e](https://github.com/ReVanced/revanced-patches/commit/857053e29b72ded10a84b0ac693fa107705342d9))
+
+## [5.31.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.31.2-dev.1...v5.31.2-dev.2) (2025-07-12)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Show correct custom header logo if 'Hide YouTube Doodles' is enabled ([#5431](https://github.com/ReVanced/revanced-patches/issues/5431)) ([20cc141](https://github.com/ReVanced/revanced-patches/commit/20cc141e61f75de1a1749247c4f4aed167dee8ea))
+
 ## [5.31.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.31.1...v5.31.2-dev.1) (2025-07-12)
 
 

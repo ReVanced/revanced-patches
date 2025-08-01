@@ -121,7 +121,7 @@ internal val subtitleButtonControllerFingerprint = fingerprint {
     )
 }
 
-internal val newVideoQualityChangedFingerprint = fingerprint {
+internal val videoQualityChangedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")

@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.video.information
 
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
+import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -110,7 +110,7 @@ internal val seekRelativeFingerprint = fingerprint {
 }
 
 /**
- * Resolves with the class found in [newVideoQualityChangedFingerprint].
+ * Resolves with the class found in [videoQualityChangedFingerprint].
  */
 internal val playbackSpeedMenuSpeedChangedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)

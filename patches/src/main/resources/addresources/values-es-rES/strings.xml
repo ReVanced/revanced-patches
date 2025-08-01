@@ -29,26 +29,26 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_manager_not_expected_installer">No instalado por ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Parcheado hace más de 10 minutos</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Parcheado hace %s días</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">La fecha de compilación del APK está dañada</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">La fecha de compilación del APK está corrupta</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ajustes</string>
-  <string name="revanced_settings_confirm_user_dialog_title">¿Está seguro de que quiere continuar?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">¿Estás seguro de que quieres continuar?</string>
   <string name="revanced_settings_reset">Restablecer</string>
   <string name="revanced_settings_reset_color">Restablecer color</string>
   <string name="revanced_settings_color_invalid">Color no válido</string>
   <string name="revanced_settings_restart_title">Reinicio necesario</string>
-  <string name="revanced_settings_restart_dialog_message">Reinicie la aplicación para que este cambio surta efecto.</string>
+  <string name="revanced_settings_restart_dialog_message">Reinicia la aplicación para que este cambio surta efecto.</string>
   <string name="revanced_settings_restart">Reiniciar</string>
   <string name="revanced_settings_import">Importar</string>
   <string name="revanced_settings_import_copy">Copiar</string>
-  <string name="revanced_settings_import_reset">Configuración ReVanced restablecida por defecto</string>
+  <string name="revanced_settings_import_reset">Ajustes de ReVanced restablecidos a los valores predeterminados</string>
   <string name="revanced_settings_import_success">Configuración importada de %d</string>
-  <string name="revanced_settings_import_failure_parse">Error de importación: %s</string>
-  <string name="revanced_settings_search_hint">Ajustes de búsqueda</string>
+  <string name="revanced_settings_import_failure_parse">Importación fallida: %s</string>
+  <string name="revanced_settings_search_hint">Buscar ajustes</string>
   <string name="revanced_settings_search_no_results_title">No se encontraron resultados para «%s»</string>
   <string name="revanced_settings_search_no_results_summary">Prueba con otra palabra clave</string>
-  <string name="revanced_settings_search_remove_message">¿Quitar del historial de búsqueda?</string>
+  <string name="revanced_settings_search_remove_message">¿Eliminar del historial de búsqueda?</string>
   <string name="revanced_show_menu_icons_title">Mostrar iconos de configuración de ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Se muestran los iconos de configuración</string>
   <string name="revanced_show_menu_icons_summary_off">No se muestran los iconos de configuración</string>
@@ -62,25 +62,26 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Estás usando la versión de ReVanced Patches: &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Nota</string>
-  <string name="revanced_settings_about_links_dev_body">Esta versión es una pre-versión y puedes experimentar problemas inesperados</string>
+  <string name="revanced_settings_about_links_dev_body">Esta versión es un pre-lanzamiento y podrías experimentar problemas inesperados</string>
   <string name="revanced_settings_about_links_header">Enlaces oficiales</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore no está instalado. Instálala.</string>
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore no está instalado. Instálalo.</string>
   <string name="gms_core_dialog_title">Acción necesaria</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore no tiene permiso para ejecutarse en segundo plano.
 
-Sigue la guía \"No cierres mi aplicación\" para su teléfono, y aplica las instrucciones a tu instalación de MicroG
+Sigue la guía \"Don't kill my app\" para tu teléfono, y aplica las instrucciones a tu instalación de MicroG
 
-Esto es requerido para el funcionamiento de la APP"</string>
+Esto es requerido para el funcionamiento de la aplicación."</string>
   <string name="gms_core_dialog_open_website_text">Abrir sitio web</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"La optimización de la batería de MicroG GmsCore debe estar deshabilitada para evitar problemas.
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Las optimizaciones de batería para MicroG GmsCore deben estar desactivadas para evitar problemas.
 
-Desactivar las optimizaciones de batería para MicroG no afectará negativamente el gasto de la batería
-"</string>
+Deshabilitar las optimizaciones de batería para MicroG no afectará negativamente el uso de la batería.
+
+Toca el botón continuar y permite los cambios de optimización."</string>
   <string name="gms_core_dialog_continue_text">Continuar</string>
   </patch>
   </app>
@@ -92,26 +93,26 @@ Desactivar las optimizaciones de batería para MicroG no afectará negativamente
   <string name="revanced_settings_screen_03_feed_title">Fuente</string>
   <string name="revanced_settings_screen_04_general_title">General</string>
   <string name="revanced_settings_screen_05_player_title">Reproductor</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Barra</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Barra de progreso</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controles de deslizamiento</string>
-  <string name="revanced_settings_screen_11_misc_title">Miscelánea</string>
+  <string name="revanced_settings_screen_11_misc_title">Otros</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
-  <string name="revanced_restore_old_settings_menus_title">Restaurar los menús de configuración antiguos</string>
+  <string name="revanced_restore_old_settings_menus_title">Restaurar menús de configuración antiguos</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Se muestran los menús de configuración antiguos</string>
   <string name="revanced_restore_old_settings_menus_summary_off">No se muestran los menús de configuración antiguos</string>
   <string name="revanced_settings_search_history_title">Mostrar el historial de búsqueda de ajustes</string>
-  <string name="revanced_settings_search_history_summary_on">Se muestra el historial de búsqueda de ajustes</string>
+  <string name="revanced_settings_search_history_summary_on">El historial de búsqueda de los ajustes está visible</string>
   <string name="revanced_settings_search_history_summary_off">El historial de búsqueda de ajustes no se muestra</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Desactivar la reproducción en segundo plano de Shorts</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">La reproducción de Shorts en segundo plano está desactivada</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">La reproducción de Shorts en segundo plano está activada</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">La reproducción en segundo plano de Shorts está deshabilitada</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">La reproducción en segundo plano de Shorts está habilitada</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Depuración</string>
   <string name="revanced_debug_screen_summary">Activar o desactivar las opciones de depuración</string>
-  <string name="revanced_debug_title">Depurar registro</string>
+  <string name="revanced_debug_title">Registro de depuración</string>
   <string name="revanced_debug_summary_on">Los registros de depuración están habilitados</string>
   <string name="revanced_debug_summary_off">Los registros de depuración están desactivados</string>
   <string name="revanced_debug_protobuffer_title">Búfer de protocolo de registro</string>
@@ -125,45 +126,44 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
   <string name="revanced_debug_stacktrace_title">Registrar stack traces</string>
   <string name="revanced_debug_stacktrace_summary_on">Los registros de depuración incluyen stack trace</string>
   <string name="revanced_debug_stacktrace_summary_off">Los registros de depuración no incluyen stack trace</string>
-  <string name="revanced_debug_toast_on_error_title">Mostrar brindis en error ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Se muestra un toast si se produce un error</string>
-  <string name="revanced_debug_toast_on_error_summary_off">No se muestra un toast si se produce un error</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Desactivar las notificaciones de error oculta todas las notificaciones de error de ReVanced."</string>
+  <string name="revanced_debug_toast_on_error_title">Mostrar mensaje de error en ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Se muestra un mensaje si se produce un error</string>
+  <string name="revanced_debug_toast_on_error_summary_off">No se muestra un mensaje si se produce un error</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Desactivar los avisos de error oculta todas las notificaciones de error de ReVanced.
+
+No se le notificará de ningún evento inesperado."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Exportar registros de depuración</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Copia los registros de depuración de ReVanced al portapapeles</string>
   <string name="revanced_debug_logs_disabled">El registro de depuración está desactivado</string>
   <string name="revanced_debug_logs_none_found">No se encontraron registros</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Registros copiados</string>
-  <string name="revanced_debug_logs_failed_to_export">Error al exportar los registros: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Error al exportar registros: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Borrar registros de depuración</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Borra todos los registros de depuración de ReVanced almacenados</string>
   <string name="revanced_debug_logs_clear_toast">Registros borrados</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_hide_album_cards_title">Ocultar álbumes</string>
+  <string name="revanced_hide_album_cards_title">Ocultar tarjetas de álbum</string>
   <string name="revanced_hide_album_cards_summary_on">Las tarjetas de álbum están ocultas</string>
   <string name="revanced_hide_album_cards_summary_off">Se muestran las tarjetas de álbum</string>
-  <string name="revanced_hide_artist_cards_title">Ocultar tarjetas de artistas</string>
-  <string name="revanced_hide_artist_cards_summary_on">Las tarjetas de artistas están ocultas</string>
-  <string name="revanced_hide_artist_cards_summary_off">Se muestran las tarjetas del artista</string>
+  <string name="revanced_hide_artist_cards_title">Ocultar tarjetas de artista</string>
+  <string name="revanced_hide_artist_cards_summary_on">Las tarjetas de artista están ocultas</string>
+  <string name="revanced_hide_artist_cards_summary_off">Se muestran las tarjetas de artista</string>
   <string name="revanced_hide_chips_shelf_title">Ocultar \"Más como esto\"</string>
   <string name="revanced_hide_chips_shelf_summary_on">\"Más como esto\" está oculto</string>
   <string name="revanced_hide_chips_shelf_summary_off">\"Más como esto\" está habilitado</string>
-  <string name="revanced_hide_community_posts_title">Ocultar mensajes comunitarios</string>
-  <string name="revanced_hide_community_posts_summary_on">Los mensajes de la comunidad están ocultos</string>
+  <string name="revanced_hide_community_posts_title">Ocultar publicaciones de comunidad</string>
+  <string name="revanced_hide_community_posts_summary_on">Las publicaciones de la comunidad están ocultas</string>
   <string name="revanced_hide_community_posts_summary_off">Se muestran las publicaciones de la comunidad</string>
   <string name="revanced_hide_compact_banner_title">Ocultar banners compactos</string>
   <string name="revanced_hide_compact_banner_summary_on">Los banners compactos están ocultos</string>
   <string name="revanced_hide_compact_banner_summary_off">Se muestran los banners compactos</string>
-  <string name="revanced_hide_crowdfunding_box_title">Ocultar caja de recaudación</string>
+  <string name="revanced_hide_crowdfunding_box_title">Ocultar caja de Crowdfunding</string>
   <string name="revanced_hide_crowdfunding_box_summary_on">La caja de Crowdfunding está oculta</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Se muestra la caja de Crowdfunding</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">La caja de Crowdfunding está visible</string>
   <string name="revanced_hide_expandable_card_title">Ocultar tarjeta expandible</string>
   <string name="revanced_hide_expandable_card_summary_on">Tarjeta expandible debajo de los videos oculta</string>
   <string name="revanced_hide_expandable_card_summary_off">Tarjeta expandible debajo de los videos visible</string>
-  <string name="revanced_hide_feed_survey_title">Ocultar encuestas</string>
-  <string name="revanced_hide_feed_survey_summary_on">Las encuestas en el Inicio están ocultas</string>
-  <string name="revanced_hide_feed_survey_summary_off">Se muestran encuestas en el Inicio</string>
   <string name="revanced_hide_floating_microphone_button_title">Ocultar botón de micrófono flotante</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">El botón flotante del micrófono en la búsqueda está oculto</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Se muestra el botón flotante del micrófono en la búsqueda</string>
@@ -175,21 +175,21 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
 • Más relevantes
 • Compras
 • Ver de nuevo"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Se muestran los estantes horizontales</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Los estantes horizontales están visibles</string>
   <string name="revanced_hide_image_shelf_title">Ocultar estantería de imágenes</string>
   <string name="revanced_hide_image_shelf_summary_on">Estantería de imágenes en los resultados de búsqueda oculta</string>
   <string name="revanced_hide_image_shelf_summary_off">Estantería de imágenes en los resultados de búsqueda visible</string>
-  <string name="revanced_hide_latest_posts_title">Ocultar últimos mensajes</string>
+  <string name="revanced_hide_latest_posts_title">Ocultar últimas publicaciones</string>
   <string name="revanced_hide_latest_posts_summary_on">Las últimas publicaciones están ocultas</string>
   <string name="revanced_hide_latest_posts_summary_off">Se muestran las últimas publicaciones</string>
-  <string name="revanced_hide_mix_playlists_title">Ocultar listas de mezcla</string>
-  <string name="revanced_hide_mix_playlists_summary_on">Las listas de reproducción mixtas están ocultas</string>
-  <string name="revanced_hide_mix_playlists_summary_off">Mezclar listas de reproducción son mostradas</string>
+  <string name="revanced_hide_mix_playlists_title">Ocultar lista de reproducción Mix</string>
+  <string name="revanced_hide_mix_playlists_summary_on">La lista de reproducción Mix está oculta</string>
+  <string name="revanced_hide_mix_playlists_summary_off">La lista de reproducción Mix está visible</string>
   <string name="revanced_hide_movies_section_title">Ocultar sección de películas</string>
   <string name="revanced_hide_movies_section_summary_on">La sección de películas está oculta</string>
-  <string name="revanced_hide_movies_section_summary_off">Se muestra la sección de películas</string>
+  <string name="revanced_hide_movies_section_summary_off">La sección de películas está visible</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Ocultar el botón \'Notificarme\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">El botón Notificarme está oculto</string>
   <string name="revanced_hide_notify_me_button_summary_off">El botón Notificarme está visible</string>
@@ -201,8 +201,11 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
   <string name="revanced_hide_show_more_button_title">Ocultar botón \'Mostrar más\'</string>
   <string name="revanced_hide_show_more_button_summary_on">El botón Mostrar más en los resultados de búsqueda está oculto</string>
   <string name="revanced_hide_show_more_button_summary_off">El botón Mostrar más en los resultados de búsqueda está visible</string>
-  <string name="revanced_hide_ticket_shelf_title">Ocultar estante de boletos</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">El estante de boletos está oculto</string>
+  <string name="revanced_hide_surveys_title">Ocultar encuestas</string>
+  <string name="revanced_hide_surveys_summary_on">Las encuestas están ocultas</string>
+  <string name="revanced_hide_surveys_summary_off">Las encuestas están visibles</string>
+  <string name="revanced_hide_ticket_shelf_title">Ocultar estantes de tickets</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">El estante de tickets está oculto</string>
   <string name="revanced_hide_ticket_shelf_summary_off">El estante de boletos está visible</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_video_recommendation_labels_title">Ocultar etiquetas de recomendación de vídeo</string>
@@ -248,8 +251,8 @@ Si un doodle se está mostrando actualmente en tu región y este ajuste de ocult
   <string name="revanced_hide_timed_reactions_summary_on">Las reacciones temporizadas están ocultas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Se muestran reacciones temporizadas</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ocultar \"Resumen de video generado por IA\"</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sección de resumen del video está oculta</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sección de resumen del video se muestra</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sección de resumen de vídeo generada por IA está oculta</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sección de resumen de vídeo generada por IA está mostrada</string>
   <string name="revanced_hide_ask_section_title">Ocultar pregunta</string>
   <string name="revanced_hide_ask_section_summary_on">La sección de preguntas está oculta</string>
   <string name="revanced_hide_ask_section_summary_off">Se muestra la sección de preguntas</string>
@@ -277,19 +280,19 @@ Si un doodle se está mostrando actualmente en tu región y este ajuste de ocult
   <string name="revanced_hide_description_components_screen_title">Descripción del vídeo</string>
   <string name="revanced_hide_description_components_screen_summary">Ocultar o mostrar componentes de descripción de vídeo</string>
   <string name="revanced_hide_filter_bar_screen_title">Barra de filtros</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ocultar o mostrar la barra de filtros en las fuentes, historial, resultados de búsqueda y vídeos relacionados</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ocultar o mostrar la barra de filtros en las fuentes, vídeos relacionados, resultados de búsqueda e historial de reproducciones</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Ocultar en feeds</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Oculto en feeds</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Visible en feeds</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Ocultar en el historial</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Oculto en el historial</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Visible en el historial</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Ocultar en los resultados de búsqueda</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Oculto en los resultados de búsqueda</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Mostrado en los resultados de búsqueda</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ocultar en vídeos relacionados</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Escondido en videos relacionados</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Mostrar en vídeos relacionados</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Ocultar en los resultados de búsqueda</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Oculto en los resultados de búsqueda</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Mostrado en los resultados de búsqueda</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Ocultar en el historial de reproducciones</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Oculto en el historial de reproducciones</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Mostrado en el historial de reproducciones</string>
   <string name="revanced_channel_screen_title">Página del canal</string>
   <string name="revanced_channel_screen_summary">Ocultar o mostrar componentes de la página del canal</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -312,12 +315,12 @@ Si un doodle se está mostrando actualmente en tu región y este ajuste de ocult
   <string name="revanced_hide_visit_store_button_summary_off">El botón \"Visitar tienda\" está visible</string>
   <string name="revanced_comments_screen_title">Comentarios</string>
   <string name="revanced_comments_screen_summary">Ocultar o mostrar los componentes de sección de comentarios</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Ocultar el resumen del chat de IA</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">El resumen del chat está oculto</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">El resumen del chat se muestra</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Ocultar resumen de chat de IA</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">El resumen del chat de IA está oculto</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">El resumen del chat de IA está visible</string>
   <string name="revanced_hide_comments_ai_summary_title">Ocultar el resumen de los comentarios de la IA</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">El resumen de los comentarios está oculto</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">El resumen de los comentarios se muestra</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">El resumen de comentarios de IA está oculto</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">El resumen de comentarios de IA está visible</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Ocultar directrices del canal</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Las directrices del canal están ocultas</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Las directrices del canal se muestran</string>
@@ -416,7 +419,6 @@ Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_hide_shopping_links_title">Ocultar enlaces de compras</string>
   <string name="revanced_hide_shopping_links_summary_on">Los enlaces de compra en la descripción del vídeo están ocultos</string>
   <string name="revanced_hide_shopping_links_summary_off">Se muestran los enlaces de compras en la descripción del video</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Ocultar el banner \"Ver productos\"</string>
   <string name="revanced_hide_view_products_banner_summary_on">El banner \"Ver productos\" en la superposición de vídeo está oculto</string>
   <string name="revanced_hide_view_products_banner_summary_off">El banner \"Ver productos\" en la superposición de vídeo está visible</string>
@@ -450,7 +452,7 @@ Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Se mostrará el diálogo</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Esto no pasa por alto la restricción de edad, sino que simplemente la acepta automáticamente.</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Deshabilitar el salto de capítulo con doble toque</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">El doble toque nunca puede activar un salto al capítulo siguiente/anterior</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">El doble toque puede ocasionalmente activar un salto al capítulo siguiente/anterior</string>
@@ -466,8 +468,15 @@ Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_external_downloader_action_button_summary_on">El botón de descarga abre su descarga externa</string>
   <string name="revanced_external_downloader_action_button_summary_off">El botón de descarga abre el descargador nativo en la aplicación</string>
   <string name="revanced_external_downloader_name_title">Nombre del paquete del descargado</string>
-  <string name="revanced_external_downloader_name_summary">Nombre del paquete de su aplicación de descarga externa instalada, como NewPipe o Seal</string>
+  <string name="revanced_external_downloader_name_summary">Nombre del paquete de tu aplicación de descarga externa instalada</string>
+  <string name="revanced_external_downloader_other_item_hint">Introduce el nombre del paquete</string>
+  <string name="revanced_external_downloader_other_item">Otro</string>
+  <string name="revanced_external_downloader_not_found_title">Aplicación no instalada</string>
   <string name="revanced_external_downloader_not_installed_warning">%s no está instalado. Por favor, instálelo.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"No se pudo encontrar la aplicación instalada con el nombre de paquete: %s
+
+Verifica que el nombre del paquete sea correcto y que la aplicación esté instalada"</string>
+  <string name="revanced_external_downloader_empty_warning">El nombre del paquete no puede estar vacío</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Desactivar gesto de búsqueda preciso</string>
@@ -727,27 +736,28 @@ Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de 
   <string name="revanced_disable_rolling_number_animations_summary_off">Los números de registro son animados</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Ocultar barra de búsqueda en el reproductor de vídeo</string>
+  <string name="revanced_hide_seekbar_title">Ocultar barra de búsqueda del reproductor de vídeo</string>
   <string name="revanced_hide_seekbar_summary_on">La barra de búsqueda del reproductor de vídeo está oculta</string>
   <string name="revanced_hide_seekbar_summary_off">La barra de búsqueda del reproductor de vídeo se muestra</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Ocultar barra de búsqueda en miniaturas de vídeo</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">La barra de búsqueda de miniaturas está oculta</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">La barra de búsqueda de miniaturas se muestra</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+  <string name="revanced_hide_seekbar_thumbnail_title">Ocultar barra de búsqueda de miniaturas de vídeo</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">La barra de búsqueda de miniaturas de vídeo está oculta</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">La barra de búsqueda de miniaturas de vídeo está visible</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Reproductor de Shorts</string>
-  <string name="revanced_shorts_player_screen_summary">Oculta o muestra componentes en el reproductor de Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Ocultar o mostrar componentes del reproductor de Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Ocultar Shorts en la página principal</string>
   <string name="revanced_hide_shorts_home_summary_on">Oculto en la página principal y vídeos relacionados</string>
   <string name="revanced_hide_shorts_home_summary_off">Visible en la página principal y vídeos relacionados</string>
+  <string name="revanced_hide_shorts_search_title">Ocultar Shorts en los resultados de búsqueda</string>
+  <string name="revanced_hide_shorts_search_summary_on">Ocultos en los resultados de búsqueda</string>
+  <string name="revanced_hide_shorts_search_summary_off">Mostrar en los resultados de búsqueda</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ocultar Shorts en el feed de Suscripciones</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Oculto en el feed de Suscripciones</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Visible en el feed de Suscripciones</string>
-  <string name="revanced_hide_shorts_search_title">Ocultar Shorts en los resultados de búsqueda</string>
-  <string name="revanced_hide_shorts_search_summary_on">Ocultos en los resultados de búsqueda</string>
-  <string name="revanced_hide_shorts_search_summary_off">Mostrar en los resultados de búsqueda</string>
   <string name="revanced_hide_shorts_history_title">Ocultar Shorts en el historial de visualización</string>
   <string name="revanced_hide_shorts_history_summary_on">Oculto en el historial de visualización</string>
   <string name="revanced_hide_shorts_history_summary_off">Mostrado en el historial de visualización</string>
@@ -1178,8 +1188,6 @@ Diseño para automóviles
 Esto cambiará la apariencia y las características de la aplicación, pero pueden producirse efectos secundarios desconocidos.
 
 Si se desactiva posteriormente, se recomienda borrar los datos de la aplicación para evitar errores en la interfaz de usuario."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Versión de aplicación falsa de destino</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurar iconos antiguos del reproductor de Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restaurar iconos de navegación antiguos</string>
@@ -1452,6 +1460,9 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_custom_speed_menu_title">Menú de velocidad de reproducción personalizada</string>
   <string name="revanced_custom_speed_menu_summary_on">Menú de velocidad personalizado se muestra</string>
   <string name="revanced_custom_speed_menu_summary_off">Menú de velocidad personalizado no se muestra</string>
+  <string name="revanced_restore_old_speed_menu_title">Restaurar el menú de velocidad de reproducción antiguo</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Se muestra el menú de velocidad antiguo</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Se muestra el menú de velocidad moderno</string>
   <string name="revanced_custom_playback_speeds_title">Velocidades de reproducción personalizadas</string>
   <string name="revanced_custom_playback_speeds_summary">Añadir o cambiar las velocidades de reproducción personalizadas</string>
   <string name="revanced_custom_playback_speeds_invalid">Las velocidades personalizadas deben ser menores que %s</string>

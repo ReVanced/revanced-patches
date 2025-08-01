@@ -137,7 +137,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_debug_logs_disabled">Վրեժխնդրության մատյանների գրանցումն անջատված է</string>
   <string name="revanced_debug_logs_none_found">Մատյաններ չեն գտնվել</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Մատյանները պատճենված են</string>
-  <string name="revanced_debug_logs_failed_to_export">Մատյանների արտահանումը ձախողվեց. $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Չհաջողվեց արտահանել տեղեկամատյանները՝ %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Մաքրել վրեժխնդրության մատյանները</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Մաքրում է բոլոր պահված ReVanced կարգաբերման մատյանները</string>
   <string name="revanced_debug_logs_clear_toast">Մատյանները մաքրվել են</string>
@@ -164,9 +164,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_expandable_card_title">Թաքցնել ընդլայնվող քարտը</string>
   <string name="revanced_hide_expandable_card_summary_on">Տեսանյութերի տակ գտնվող ընդլայնվող քարտը թաքնված է</string>
   <string name="revanced_hide_expandable_card_summary_off">Տեսանյութերի տակ գտնվող ընդլայնվող քարտը ցուցադրված է</string>
-  <string name="revanced_hide_feed_survey_title">Թաքցնել լեզվական հարցումները</string>
-  <string name="revanced_hide_feed_survey_summary_on">Լեզվական հարցումները թաքցված են</string>
-  <string name="revanced_hide_feed_survey_summary_off">Լեզվական հարցումները երևում են</string>
   <string name="revanced_hide_floating_microphone_button_title">Թաքցնել  միկրոֆոնի  ողջ  կոճակը</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Որոնման լողացող խոսափողի կոճակը թաքնված է</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Լողացող խոսափողի կոճակը որոնման մեջ ցուցադրվում է</string>
@@ -192,7 +189,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_movies_section_summary_on">Ֆիլմերի բաժինը թաքցված է</string>
   <string name="revanced_hide_movies_section_summary_off">Ֆիլմերի բաժինը երևում է</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Թաքցնել  \'Notify me\'  կոճակը</string>
   <string name="revanced_hide_notify_me_button_summary_on">Ինձ ծանուցել կոճակը թաքնված է</string>
   <string name="revanced_hide_notify_me_button_summary_off">Ինձ ծանուցել կոճակը ցուցադրված է</string>
@@ -204,6 +201,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_show_more_button_title">Թաքցնել  \'Show more\'  կոճակը</string>
   <string name="revanced_hide_show_more_button_summary_on">Որոնման արդյունքներում «Ավելին ցույց տալ» կոճակը թաքնված է</string>
   <string name="revanced_hide_show_more_button_summary_off">Որոնման արդյունքներում «Ավելին ցույց տալ» կոճակը ցուցադրված է</string>
+  <string name="revanced_hide_surveys_title">Թաքցնել հարցումները</string>
+  <string name="revanced_hide_surveys_summary_on">Հարցումները թաքնված են</string>
+  <string name="revanced_hide_surveys_summary_off">Հարցումները ցուցադրվում են</string>
   <string name="revanced_hide_ticket_shelf_title">Թաքցնել տոմսարկղի մարզը</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Տոմսարկղի մարզը թաքցված է</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Տոմսարկղի մարզը ցուցադրվում է</string>
@@ -251,8 +251,8 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_timed_reactions_summary_on">Ժամանակավոր  ռեակցիաները  թաքցված  են</string>
   <string name="revanced_hide_timed_reactions_summary_off">Ժամանակավոր  ռեակցիաները  ցույց  են  տրվում</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Թաքցնել «AI-ով ստեղծված տեսանյութի ամփոփումը»</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Տեսանյութի ամփոփման բաժինը թաքցված է</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Տեսանյութի ամփոփման բաժինը ցուցադրվում է</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Արհեստական բանականության կողմից ստեղծված տեսանյութի ամփոփման բաժինը թաքցված է</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Արհեստական բանականությամբ ստեղծված տեսանյութի ամփոփման բաժինը ցուցադրվում է</string>
   <string name="revanced_hide_ask_section_title">Թաքցնել հարցումը</string>
   <string name="revanced_hide_ask_section_summary_on">Հարցումների բաժինը թաքցված է</string>
   <string name="revanced_hide_ask_section_summary_off">Հարցումների բաժինը ցուցադրվում է</string>
@@ -280,19 +280,19 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_description_components_screen_title">Տեսանյութի նկարագրություն</string>
   <string name="revanced_hide_description_components_screen_summary">Թաքցնել կամ ցույց տալ տեսանյութի նկարագրության բաղադրամասերը</string>
   <string name="revanced_hide_filter_bar_screen_title">Ֆիլտրի գիծ</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Թաքցնել կամ ցուցադրել զտիչի գոտին լրահոսերում, պատմության մեջ, որոնման արդյունքներում և հարակից տեսանյութերում</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Թաքցնել կամ ցուցադրել զտիչի գոտին լրահոսերում, հարակից տեսանյութերում, որոնման արդյունքներում և դիտման պատմության մեջ</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Թաքցնել լրահոսերում</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Թաքցված է լրահոսերում</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Ցուցադրված է լրահոսերում</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_title">Թաքցնել պատմության մեջ</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Թաքցված է պատմության մեջ</string>
-  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Ցուցադրված է պատմության մեջ</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Թաքցնել որոնման արդյունքներում</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Թաքնված է որոնման արդյունքներում</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ցուցադրված է որոնման արդյունքներում</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Թաքցնել կապված տեսանյութերում</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Թաքցված է կապված տեսանյութերում</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ցույց է տրվում կապված տեսանյութերում</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Թաքցնել որոնման արդյունքներում</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Թաքնված է որոնման արդյունքներում</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ցուցադրված է որոնման արդյունքներում</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_title">Թաքցնել դիտումների պատմությունում</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_on">Թաքցված է դիտման պատմության մեջ</string>
+  <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Ցուցադրվում է դիտումների պատմությունում</string>
   <string name="revanced_channel_screen_title">Ալիքի էջ</string>
   <string name="revanced_channel_screen_summary">Թաքցնել կամ ցուցադրել ալիքի էջի բաղադրիչները</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -315,12 +315,12 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_visit_store_button_summary_off">«Այցելել խանութ» կոճակը ցուցադրված է</string>
   <string name="revanced_comments_screen_title">Մեկնաբանություններ</string>
   <string name="revanced_comments_screen_summary">Թաքցնել կամ ցույց տալ մեկնաբանությունների բաժնի բաղադրամասերը</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Թաքցնել AI զրույցի ամփոփումը</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Զրույցի ամփոփումը թաքցված է</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Զրույցի ամփոփումը ցուցադրվում է</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Թաքցնել արհեստական բանականության զրույցի ամփոփումը</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Արհեստական բանականության զրույցի ամփոփումը թաքցված է</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Արհեստական բանականության զրույցի ամփոփումը ցուցադրված է</string>
   <string name="revanced_hide_comments_ai_summary_title">Թաքցնել AI մեկնաբանությունների ամփոփումը</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Մեկնաբանությունների ամփոփումը թաքցված է</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Մեկնաբանությունների ամփոփումը ցուցադրվում է</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Արհեստական բանականության մեկնաբանությունների ամփոփումը թաքցված է</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Արհեստական բանականության մեկնաբանությունների ամփոփումը ցուցադրված է</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Թաքցնել ալիքի ուղեցույցները</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_on">Ալիքի ուղեցույցները թաքցված են</string>
   <string name="revanced_hide_comments_channel_guidelines_summary_off">Ալիքի ուղեցույցները ցուցադրված են</string>
@@ -419,7 +419,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shopping_links_title">Թաքցնել գնումների հղումները</string>
   <string name="revanced_hide_shopping_links_summary_on">Գնումների հղումները տեսանյութի նկարագրության մեջ թաքնված են</string>
   <string name="revanced_hide_shopping_links_summary_off">Գնումների հղումները տեսանյութի նկարագրության մեջ ցուցադրվում են</string>
-  <!-- 'View products' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_view_products_banner_title">Թաքցնել \"Դիտել ապրանքները\" պաստառը</string>
   <string name="revanced_hide_view_products_banner_summary_on">«Դիտել ապրանքները» դրոշակը տեսանյութի վերադիրում թաքնված է</string>
   <string name="revanced_hide_view_products_banner_summary_off">«Դիտել ապրանքները» դրոշակը տեսանյութի վերադիրում ցուցադրված է</string>
@@ -453,7 +452,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Զրույցը կցուցադրվի</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Սա չի խուսափում տարիքային սահմանափակումից։ Այն պարզապես ավտոմատ կերպով ընդունում է այն։</string>
   </patch>
-  <patch id="interaction.doubletap.disableChapterSkipDoubleTapPatch">
+  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Անջատել կրկնակի հպումով գլուխը բաց թողնելը</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Կրկնակի հպումը երբեք չի կարող առաջացնել հաջորդ/նախորդ գլուխն անցնելը</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_off">Կրկնակի հպումը երբեմն կարող է առաջացնել հաջորդ/նախորդ գլուխն անցնելը</string>
@@ -469,8 +468,15 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_external_downloader_action_button_summary_on">Ներբեռնման կոճակը բացում է ձեր արտաքին ներբեռնողը</string>
   <string name="revanced_external_downloader_action_button_summary_off">Ներբեռնման կոճակը բացում է ներկառուցված ներբեռնողը</string>
   <string name="revanced_external_downloader_name_title">Ներբեռնողի փաթեթի անունը</string>
-  <string name="revanced_external_downloader_name_summary">Ձեր տեղադրված արտաքին ներբեռնողի ծրագրի փաթեթի անունը, օրինակ՝ NewPipe կամ Seal</string>
+  <string name="revanced_external_downloader_name_summary">Ձեր տեղադրված արտաքին ներբեռնիչ հավելվածի փաթեթի անունը</string>
+  <string name="revanced_external_downloader_other_item_hint">Մուտքագրեք փաթեթի անունը</string>
+  <string name="revanced_external_downloader_other_item">Այլ</string>
+  <string name="revanced_external_downloader_not_found_title">Հավելվածը տեղադրված չէ</string>
   <string name="revanced_external_downloader_not_installed_warning">%s չի տեղադրված։ Խնդրում ենք տեղադրել այն։</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Չհաջողվեց գտնել տեղադրված հավելվածը` փաթեթի անվանմամբ՝ %s
+
+Ստուգեք, որ փաթեթի անունը ճիշտ է և հավելվածը տեղադրված է"</string>
+  <string name="revanced_external_downloader_empty_warning">Փաթեթի անունը չի կարող դատարկ լինել</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Անջատել ճշգրիտ փնտրման ժեստը</string>
@@ -730,27 +736,28 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_disable_rolling_number_animations_summary_off">Հաշվողական թվերը մուլտիպլիկացված են</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Տեսանյութի կրողի վրա տեղաշարժի ձողը թաքցնել</string>
+  <string name="revanced_hide_seekbar_title">Թաքցնել տեսանվագարկիչի ժամանակագիծը</string>
   <string name="revanced_hide_seekbar_summary_on">Տեսանյութի կրողի վրա տեղաշարժի ձողը թաքցված է</string>
   <string name="revanced_hide_seekbar_summary_off">Տեսանյութի կրողի վրա տեղաշարժի ձողը երևում է</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Մանրապատկերների վրա տեղաշարժի ձողը թաքցնել</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Մանրապատկերների վրա տեղաշարժի ձողը թաքցված է</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Մանրապատկերների վրա տեղաշարժի ձողը երևում է</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+  <string name="revanced_hide_seekbar_thumbnail_title">Թաքցնել տեսանյութերի մանրապատկերների ժամանակագիծը</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Տեսանյութերի մանրապատկերների ժամանակագիծը թաքցված է</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Տեսանյութերի մանրապատկերների ժամանակագիծը ցուցադրված է</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts կրող</string>
-  <string name="revanced_shorts_player_screen_summary">Թաքցնել կամ ցույց տալ Shorts կրողի բաղադրիչները</string>
+  <string name="revanced_shorts_player_screen_summary">Թաքցնել կամ ցուցադրել Shorts նվագարկիչի բաղադրիչները</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Թաքցնել Shorts-ը Գլխավորի լրահոսում</string>
   <string name="revanced_hide_shorts_home_summary_on">Թաքնված է Գլխավորի լրահոսում և հարակից տեսանյութերում</string>
   <string name="revanced_hide_shorts_home_summary_off">Ցուցադրված է Գլխավորի լրահոսում և հարակից տեսանյութերում</string>
+  <string name="revanced_hide_shorts_search_title">Թաքցնել Shorts-ը որոնման արդյունքներում</string>
+  <string name="revanced_hide_shorts_search_summary_on">Որոնման արդյունքներում թաքնված է</string>
+  <string name="revanced_hide_shorts_search_summary_off">Ցուցադրված է որոնման արդյունքներում</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Թաքցնել Shorts-ը Բաժանորդագրությունների լրահոսում</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Թաքնված է Բաժանորդագրությունների լրահոսում</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Ցուցադրված է Բաժանորդագրությունների լրահոսում</string>
-  <string name="revanced_hide_shorts_search_title">Թաքցնել Shorts-ը որոնման արդյունքներում</string>
-  <string name="revanced_hide_shorts_search_summary_on">Որոնման արդյունքներում թաքնված է</string>
-  <string name="revanced_hide_shorts_search_summary_off">Ցուցադրված է որոնման արդյունքներում</string>
   <string name="revanced_hide_shorts_history_title">Թաքցնել շորտերը դիտման պատմության մեջ</string>
   <string name="revanced_hide_shorts_history_summary_on">Թաքնված է դիտման պատմության մեջ</string>
   <string name="revanced_hide_shorts_history_summary_off">Ցուցադրվում է դիտման պատմության մեջ</string>
@@ -1191,8 +1198,6 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
 Սա կփոխի հավելվածի արտաքին տեսքը և հատկությունները, բայց կարող է առաջացնել անհայտ կողմնակի ազդեցություններ։
 
 Եթե հետագայում անջատվի, խորհուրդ է տրվում մաքրել հավելվածի տվյալները՝ UI սխալներից խուսափելու համար։"</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Spoof-ի կիրառության տարբերակի նպատակ</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Վերականգնել հին Shorts պլեյերի պատկերակները</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Վերականգնել հին նավիգացիոն պատկերակները</string>
@@ -1465,6 +1470,9 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_custom_speed_menu_title">Տեսանյութի  արագության  հարմարեցված  մենյու</string>
   <string name="revanced_custom_speed_menu_summary_on">Հարմարեցված  արագության  մենյուը  ցուցադրվում է</string>
   <string name="revanced_custom_speed_menu_summary_off">Հարմարեցված  արագության  մենյուը  չի  ցուցադրվում</string>
+  <string name="revanced_restore_old_speed_menu_title">Վերականգնել հին նվագարկման արագության ընտրացանկը</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Ցուցադրվում է հին արագության ընտրացանկը</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Ցուցադրվում է ժամանակակից արագության ընտրացանկը</string>
   <string name="revanced_custom_playback_speeds_title">Տեսանյութի  վերարտադրման  հարմարեցված  արագություններ</string>
   <string name="revanced_custom_playback_speeds_summary">Ավելացնել  կամ  փոփոխել  տեսանյութի  վերարտադրման  հարմարեցված  արագությունները</string>
   <string name="revanced_custom_playback_speeds_invalid">Պատրաստված արագությունները պետք է լինեն ավելի քիչ քան %s</string>

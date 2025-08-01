@@ -4,12 +4,14 @@ import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButt
 
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.StringTrieSearch;
+import app.revanced.extension.youtube.patches.ChangeHeaderPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -30,7 +32,7 @@ public final class LayoutComponentsFilter extends Filter {
     );
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
-    private final StringFilterGroup inFeedSurvey;
+    private final StringFilterGroup surveys;
     private final StringFilterGroup notifyMe;
     private final StringFilterGroup singleItemInformationPanel;
     private final StringFilterGroup expandableMetadata;
@@ -108,8 +110,8 @@ public final class LayoutComponentsFilter extends Filter {
                 "chip_bar"
         );
 
-        inFeedSurvey = new StringFilterGroup(
-                Settings.HIDE_FEED_SURVEY,
+        surveys = new StringFilterGroup(
+                Settings.HIDE_SURVEYS,
                 "in_feed_survey",
                 "slimline_survey",
                 "feed_nudge"
@@ -264,7 +266,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         ticketShelf = new ByteArrayFilterGroup(
                 Settings.HIDE_TICKET_SHELF,
-                "ticket.eml"
+                "ticket_item.eml"
         );
 
         addPathCallbacks(
@@ -284,7 +286,6 @@ public final class LayoutComponentsFilter extends Filter {
                 forYouShelf,
                 horizontalShelves,
                 imageShelf,
-                inFeedSurvey,
                 infoPanel,
                 latestPosts,
                 medicalPanel,
@@ -296,13 +297,14 @@ public final class LayoutComponentsFilter extends Filter {
                 singleItemInformationPanel,
                 subscribersCommunityGuidelines,
                 subscriptionsChipBar,
+                surveys,
                 timedReactions,
                 videoRecommendationLabels
         );
     }
 
     @Override
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // This identifier is used not only in players but also in search results:
         // https://github.com/ReVanced/revanced-patches/issues/3245
@@ -315,12 +317,12 @@ public final class LayoutComponentsFilter extends Filter {
 
         // The groups are excluded from the filter due to the exceptions list below.
         // Filter them separately here.
-        if (matchedGroup == notifyMe || matchedGroup == inFeedSurvey || matchedGroup == expandableMetadata) {
+        if (matchedGroup == notifyMe || matchedGroup == surveys || matchedGroup == expandableMetadata) {
             return true;
         }
 
         if (matchedGroup == channelProfile) {
-            return channelProfileBuffer.check(protobufBufferArray).isFiltered();
+            return channelProfileBuffer.check(buffer).isFiltered();
         }
 
         if (exceptions.matches(path)) return false; // Exceptions are not filtered.
@@ -329,11 +331,11 @@ public final class LayoutComponentsFilter extends Filter {
             return compactChannelBarInnerButton.check(path).isFiltered()
                     // The filter may be broad, but in the context of a compactChannelBarInnerButton,
                     // it's safe to assume that the button is the only thing that should be hidden.
-                    && joinMembershipButton.check(protobufBufferArray).isFiltered();
+                    && joinMembershipButton.check(buffer).isFiltered();
         }
 
         if (matchedGroup == horizontalShelves) {
-            return contentIndex == 0 && (hideShelves() || ticketShelf.check(protobufBufferArray).isFiltered());
+            return contentIndex == 0 && (hideShelves() || ticketShelf.check(buffer).isFiltered());
         }
 
         if (matchedGroup == chipBar) {
@@ -437,13 +439,11 @@ public final class LayoutComponentsFilter extends Filter {
     /**
      * Injection point.
      */
-    @Nullable
-    public static Drawable hideYoodles(Drawable animatedYoodle) {
-        if (HIDE_DOODLES_ENABLED) {
-            return null;
-        }
-
-        return animatedYoodle;
+    public static void setDoodleDrawable(ImageView imageView, Drawable original) {
+        Drawable replacement = HIDE_DOODLES_ENABLED
+                ? ChangeHeaderPatch.getDrawable(original)
+                : original;
+        imageView.setImageDrawable(replacement);
     }
 
     private static final boolean HIDE_SHOW_MORE_BUTTON_ENABLED = Settings.HIDE_SHOW_MORE_BUTTON.get();

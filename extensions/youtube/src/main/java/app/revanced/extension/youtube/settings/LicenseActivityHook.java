@@ -5,7 +5,9 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.preference.PreferenceFragment;
+import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -24,11 +26,14 @@ import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFrag
  * This class is responsible for injecting our own fragment by replacing the LicenseActivity.
  */
 @SuppressWarnings("unused")
-public class LicenseActivityHook {
+public class LicenseActivityHook extends Activity {
 
     private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
 
     private static ViewGroup.LayoutParams toolbarLayoutParams;
+
+    @SuppressLint("StaticFieldLeak")
+    public static SearchViewController searchViewController;
 
     public static void setToolbarLayoutParams(Toolbar toolbar) {
         if (toolbarLayoutParams != null) {
@@ -126,12 +131,13 @@ public class LicenseActivityHook {
                 view -> view instanceof TextView);
         if (toolbarTextView != null) {
             toolbarTextView.setTextColor(Utils.getAppForegroundColor());
+            toolbarTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
         }
         setToolbarLayoutParams(toolbar);
 
-        // Add Search Icon and EditText for ReVancedPreferenceFragment only.
+        // Add Search bar only for ReVancedPreferenceFragment.
         if (fragment instanceof ReVancedPreferenceFragment) {
-            SearchViewController.addSearchViewComponents(activity, toolbar, (ReVancedPreferenceFragment) fragment);
+            searchViewController = SearchViewController.addSearchViewComponents(activity, toolbar, (ReVancedPreferenceFragment) fragment);
         }
 
         toolBarParent.addView(toolbar, 0);
@@ -164,6 +170,12 @@ public class LicenseActivityHook {
         if (currentThemeValueOrdinal != themeOrdinal) {
             currentThemeValueOrdinal = themeOrdinal;
             Utils.setIsDarkModeEnabled(themeOrdinal == 1);
+        }
+    }
+
+    public static void handleConfigurationChanged(Activity activity, Configuration newConfig) {
+        if (searchViewController != null) {
+            searchViewController.handleOrientationChange(newConfig.orientation);
         }
     }
 }
