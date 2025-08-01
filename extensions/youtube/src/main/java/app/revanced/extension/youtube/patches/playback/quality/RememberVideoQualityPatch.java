@@ -56,7 +56,7 @@ public class RememberVideoQualityPatch {
     private static List<VideoQuality> currentQualities;
 
     /**
-     * The current quality of the video playing.
+     * The current quality of the video playing.  This can never be the automatic value.
      */
     @Nullable
     private static VideoQuality currentQuality;
@@ -143,14 +143,13 @@ public class RememberVideoQualityPatch {
             }
 
             VideoQuality updatedCurrentQuality = qualities[originalQualityIndex];
-            if (currentQuality == null
-                    || currentQuality.patch_getResolution() != updatedCurrentQuality.patch_getResolution()) {
+            if (updatedCurrentQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE &&
+                    (currentQuality == null
+                            || currentQuality.patch_getResolution() != updatedCurrentQuality.patch_getResolution())) {
                 currentQuality = updatedCurrentQuality;
                 Logger.printDebug(() -> "Current quality changed to: " + updatedCurrentQuality);
 
-                if (updatedCurrentQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
-                    VideoQualityDialogButton.updateButtonIcon(updatedCurrentQuality);
-                }
+                VideoQualityDialogButton.updateButtonIcon(updatedCurrentQuality);
             }
 
             final int preferredQuality = getDefaultQualityResolution();
