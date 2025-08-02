@@ -74,21 +74,6 @@ public class RememberVideoQualityPatch {
     @Nullable
     private static VideoQualityMenuInterface currentMenuInterface;
 
-    public static boolean shouldRememberVideoQuality() {
-        BooleanSetting preference = ShortsPlayerState.isOpen() ?
-                Settings.REMEMBER_SHORTS_QUALITY_LAST_SELECTED
-                : Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED;
-        return preference.get();
-    }
-
-    public static int getDefaultQualityResolution() {
-        final boolean isShorts = ShortsPlayerState.isOpen();
-        IntegerSetting preference = Utils.getNetworkType() == NetworkType.MOBILE
-                ? (isShorts ? shortsQualityMobile : videoQualityMobile)
-                : (isShorts ? shortsQualityWifi : videoQualityWifi);
-        return preference.get();
-    }
-
     @Nullable
     public static List<VideoQuality> getCurrentQualities() {
         return currentQualities;
@@ -104,7 +89,22 @@ public class RememberVideoQualityPatch {
         return currentMenuInterface;
     }
 
-    public static void changeDefaultQuality(int qualityResolution) {
+    private static boolean shouldRememberVideoQuality() {
+        BooleanSetting preference = ShortsPlayerState.isOpen() ?
+                Settings.REMEMBER_SHORTS_QUALITY_LAST_SELECTED
+                : Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED;
+        return preference.get();
+    }
+
+    public static int getDefaultQualityResolution() {
+        final boolean isShorts = ShortsPlayerState.isOpen();
+        IntegerSetting preference = Utils.getNetworkType() == NetworkType.MOBILE
+                ? (isShorts ? shortsQualityMobile : videoQualityMobile)
+                : (isShorts ? shortsQualityWifi : videoQualityWifi);
+        return preference.get();
+    }
+
+    private static void rememberDefaultQuality(int qualityResolution) {
         final boolean shortPlayerOpen = ShortsPlayerState.isOpen();
         String networkTypeMessage;
         IntegerSetting qualitySetting;
@@ -168,7 +168,7 @@ public class RememberVideoQualityPatch {
                 userChangedDefaultQuality = false;
                 VideoQuality quality = qualities[userSelectedQualityIndex];
                 Logger.printDebug(() -> "User changed default quality to: " + quality);
-                changeDefaultQuality(quality.patch_getResolution());
+                rememberDefaultQuality(quality.patch_getResolution());
                 VideoQualityDialogButton.updateButtonIcon(quality);
                 return userSelectedQualityIndex;
             }
@@ -240,9 +240,9 @@ public class RememberVideoQualityPatch {
      */
     public static void userChangedQualityInFlyout(int videoResolution) {
         Utils.verifyOnMainThread();
-        if (!shouldRememberVideoQuality()) return;
-
-        changeDefaultQuality(videoResolution);
+        if (shouldRememberVideoQuality()) {
+            rememberDefaultQuality(videoResolution);
+        }
     }
 
     /**

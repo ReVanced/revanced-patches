@@ -317,13 +317,10 @@ public class VideoQualityDialogButton {
                     Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
                     updateButtonIcon(selectedQuality);
                     // Must override index, otherwise picking 1080p will always use 1080p Enhanced if available.
+                    // Method also handles saving default quality if needed.
                     RememberVideoQualityPatch.userChangedQuality(originalIndex);
                     menu.patch_setQuality(selectedQuality);
-
-                    if (RememberVideoQualityPatch.shouldRememberVideoQuality()) {
-                        RememberVideoQualityPatch.changeDefaultQuality(selectedQuality.patch_getResolution());
-                    }
-
+                    
                     dialog.dismiss();
                 } catch (Exception ex) {
                     Logger.printException(() -> "Video quality selection failure", ex);
