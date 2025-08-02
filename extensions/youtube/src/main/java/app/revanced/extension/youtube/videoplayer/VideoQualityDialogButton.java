@@ -43,9 +43,11 @@ import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class VideoQualityDialogButton {
-    private static final int DRAWABLE_LHD = getDrawableIdentifier("revanced_video_quality_dialog_button_lhd");
+    private static final int DRAWABLE_LD = getDrawableIdentifier("revanced_video_quality_dialog_button_ld");
+    private static final int DRAWABLE_SD = getDrawableIdentifier("revanced_video_quality_dialog_button_sd");
     private static final int DRAWABLE_HD = getDrawableIdentifier("revanced_video_quality_dialog_button_hd");
     private static final int DRAWABLE_FHD = getDrawableIdentifier("revanced_video_quality_dialog_button_fhd");
+    private static final int DRAWABLE_FHD_PLUS = getDrawableIdentifier("revanced_video_quality_dialog_button_fhd_plus");
     private static final int DRAWABLE_QHD = getDrawableIdentifier("revanced_video_quality_dialog_button_qhd");
     private static final int DRAWABLE_4K = getDrawableIdentifier("revanced_video_quality_dialog_button_4k");
     private static final int DRAWABLE_UNKNOWN = 0; // Do not show a button icon.
@@ -77,9 +79,11 @@ public class VideoQualityDialogButton {
 
             // Map quality to appropriate icon.
             final int iconResource = switch (resolution) {
-                case 144, 240, 360, 480 -> DRAWABLE_LHD;
+                case 144, 240, 360 -> DRAWABLE_LD;
+                case 480  -> DRAWABLE_SD;
                 case 720  -> DRAWABLE_HD;
                 case 1080 -> DRAWABLE_FHD;
+                // case 1080+ -> DRAWABLE_FHD_PLUS; // TODO: Change to real parameter.
                 case 1440 -> DRAWABLE_QHD;
                 case 2160 -> DRAWABLE_4K;
                 default -> DRAWABLE_UNKNOWN;
