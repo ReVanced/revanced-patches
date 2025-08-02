@@ -29,13 +29,16 @@ public class RememberVideoQualityPatch {
         void patch_setQuality(VideoQuality quality);
     }
 
+    /**
+     * Video resolution of the automatic quality option..
+     */
     public static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
 
     /**
-     * All video names are the same for all languages, including enhanced bitrate.
+     * All quality names are the same for all languages.
      * VideoQuality also has a resolution enum that can be used if needed.
      */
-    public static final String VIDEO_QUALITY_1080P_ENHANCED = "1080p Premium";
+    public static final String VIDEO_QUALITY_1080P_PREMIUM_NAME = "1080p Premium";
 
     private static final IntegerSetting videoQualityWifi = Settings.VIDEO_QUALITY_DEFAULT_WIFI;
     private static final IntegerSetting videoQualityMobile = Settings.VIDEO_QUALITY_DEFAULT_MOBILE;
@@ -51,7 +54,8 @@ public class RememberVideoQualityPatch {
     private static List<VideoQuality> currentQualities;
 
     /**
-     * The current quality of the video playing.  This can never be the automatic value.
+     * The current quality of the video playing.
+     * This is always the actual quality even if Automatic quality is active.
      */
     @Nullable
     private static VideoQuality currentQuality;
@@ -78,8 +82,8 @@ public class RememberVideoQualityPatch {
     }
 
     public static boolean shouldRememberVideoQuality() {
-        BooleanSetting preference = ShortsPlayerState.isOpen() ?
-                Settings.REMEMBER_SHORTS_QUALITY_LAST_SELECTED
+        BooleanSetting preference = ShortsPlayerState.isOpen()
+                ? Settings.REMEMBER_SHORTS_QUALITY_LAST_SELECTED
                 : Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED;
         return preference.get();
     }
@@ -172,19 +176,17 @@ public class RememberVideoQualityPatch {
                 if (qualityResolution != AUTOMATIC_VIDEO_QUALITY_VALUE && qualityResolution <= preferredQuality) {
                     // If the desired quality index is equal to the original index,
                     // then the video is already set to the desired default quality.
-                    if (i == originalQualityIndex) {
-                        Logger.printDebug(() -> "Video is already preferred quality: " + quality);
-                    } else {
-                        Logger.printDebug(() -> "Changing video quality from: "
-                                + qualities[originalQualityIndex] + " to: " + quality);
-                    }
+                    final int index = i;
+                    Logger.printDebug(() -> index == originalQualityIndex
+                            ? "Video is already the preferred quality: " + quality
+                            : "Changing video quality from: " + qualities[originalQualityIndex] + " to: " + quality
+                    );
 
                     // On first load of a new video, if the video is already the desired quality
                     // then the quality flyout will show 'Auto' (ie: Auto (720p)).
                     //
                     // To prevent user confusion, set the video index even if the
                     // quality is already correct so the UI picker will not display "Auto".
-                    Logger.printDebug(() -> "Changing quality to default: " + quality);
                     menu.patch_setQuality(qualities[i]);
                     return i;
                 }
@@ -234,10 +236,10 @@ public class RememberVideoQualityPatch {
         Utils.verifyOnMainThread();
 
         Logger.printDebug(() -> "newVideoStarted");
-        qualityNeedsUpdating = true;
         currentQualities = null;
         currentQuality = null;
         currentMenuInterface = null;
+        qualityNeedsUpdating = true;
 
         // Hide the quality button until playback starts and the qualities are available.
         VideoQualityDialogButton.updateButtonIcon(null);

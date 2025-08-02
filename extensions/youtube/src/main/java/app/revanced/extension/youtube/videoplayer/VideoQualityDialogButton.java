@@ -3,7 +3,7 @@ package app.revanced.extension.youtube.videoplayer;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE;
-import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.VIDEO_QUALITY_1080P_ENHANCED;
+import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.VIDEO_QUALITY_1080P_PREMIUM_NAME;
 import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.VideoQualityMenuInterface;
 
 import android.app.Dialog;
@@ -84,7 +84,7 @@ public class VideoQualityDialogButton {
                 case 144, 240, 360 -> DRAWABLE_LD;
                 case 480  -> DRAWABLE_SD;
                 case 720  -> DRAWABLE_HD;
-                case 1080 -> VIDEO_QUALITY_1080P_ENHANCED.equals(quality.patch_getQualityName())
+                case 1080 -> VIDEO_QUALITY_1080P_PREMIUM_NAME.equals(quality.patch_getQualityName())
                         ? DRAWABLE_FHD_PLUS
                         : DRAWABLE_FHD;
                 case 1440 -> DRAWABLE_QHD;
