@@ -156,9 +156,7 @@ public class RememberVideoQualityPatch {
                 currentQuality = updatedCurrentQuality;
                 Logger.printDebug(() -> "Current quality changed to: " + updatedCurrentQuality);
 
-                if (!userChangedDefaultQuality) {
-                    VideoQualityDialogButton.updateButtonIcon(updatedCurrentQuality);
-                }
+                VideoQualityDialogButton.updateButtonIcon(updatedCurrentQuality);
             }
 
             final int preferredQuality = getDefaultQualityResolution();
@@ -171,7 +169,6 @@ public class RememberVideoQualityPatch {
                 VideoQuality quality = qualities[userSelectedQualityIndex];
                 Logger.printDebug(() -> "User changed default quality to: " + quality);
                 saveDefaultQuality(quality.patch_getResolution());
-                VideoQualityDialogButton.updateButtonIcon(quality);
                 return userSelectedQualityIndex;
             }
 
