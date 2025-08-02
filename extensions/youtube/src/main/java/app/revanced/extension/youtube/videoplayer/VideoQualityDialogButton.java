@@ -68,32 +68,8 @@ public class VideoQualityDialogButton {
      */
     private static int currentIconResource;
 
-    private static final Animation shimmerAnimation;
-    private static final Animation.AnimationListener iconChangeListener = new Animation.AnimationListener() {
-        @Override
-        public void onAnimationStart(Animation animation) {}
-
-        @Override
-        public void onAnimationEnd(Animation animation) {
-            instance.setIcon(currentIconResource);
-            instance.startAnimation(currentIconResource == DRAWABLE_UNKNOWN
-                    ? shimmerAnimation
-                    : PlayerControlButton.fadeInAnimation);
-        }
-
-        @Override
-        public void onAnimationRepeat(Animation animation) {}
-    };
-
-    static {
-        shimmerAnimation = AnimationUtils.loadAnimation(
-                Utils.getContext(),
-                Utils.getResourceIdentifier("revanced_video_quality_dialog_button_shimmer", "anim")
-        );
-    }
-
     /**
-     * Updates the button icon based on the current video quality with a fade animation.
+     * Updates the button icon based on the current video quality.
      */
     public static void updateButtonIcon(@Nullable VideoQuality quality) {
         try {
@@ -118,9 +94,16 @@ public class VideoQualityDialogButton {
 
             if (iconResource != currentIconResource) {
                 currentIconResource = iconResource;
-                instance.clearAnimation();
-                PlayerControlButton.fadeOutAnimation.setAnimationListener(iconChangeListener);
-                instance.startAnimation(PlayerControlButton.fadeOutAnimation);
+                if (iconResource == DRAWABLE_UNKNOWN) {
+                    instance.setIcon(iconResource);
+                    // Start shimmer animation for unknown state.
+                    Animation shimmer = AnimationUtils.loadAnimation(instance.getView().getContext(),
+                            Utils.getResourceIdentifier("revanced_video_quality_dialog_button_shimmer", "anim"));
+                    instance.startAnimation(shimmer);
+                } else {
+                    instance.clearAnimation(); // Clear animation for known states.
+                    instance.setIcon(iconResource);
+                }
             }
         } catch (Exception ex) {
             Logger.printException(() -> "updateButtonIcon failure", ex);
