@@ -119,7 +119,7 @@ public class VideoQualityDialogButton {
                 if (updateImmediately) {
                     update.run();
                 } else {
-                    Utils.runOnMainThreadDelayed(update, 300);
+                    Utils.runOnMainThreadDelayed(update, 500);
                 }
             }
         } catch (Exception ex) {
