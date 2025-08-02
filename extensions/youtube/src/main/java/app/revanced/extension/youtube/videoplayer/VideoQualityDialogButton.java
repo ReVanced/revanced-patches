@@ -75,8 +75,9 @@ public class VideoQualityDialogButton {
     /**
      * Updates the button icon based on the current video quality.
      */
-    public static void updateButtonIcon(@Nullable VideoQuality quality) {
+    public static void updateButtonIcon(@Nullable VideoQuality quality, boolean updateImmediately) {
         try {
+            Utils.verifyOnMainThread();
             if (instance == null) return;
 
             final int resolution = quality == null
@@ -98,13 +99,27 @@ public class VideoQualityDialogButton {
 
             if (iconResource != currentIconResource) {
                 currentIconResource = iconResource;
-                if (iconResource == DRAWABLE_UNKNOWN) {
-                    instance.setIcon(iconResource);
-                    // Start shimmer animation for unknown state.
-                    instance.startAnimation(ANIMATION_SHIMMER);
+
+                Runnable update = () -> {
+                    if (currentIconResource != iconResource) {
+                        Logger.printDebug(() -> "Ignoring stale update of button icon");
+                        return;
+                    }
+
+                    if (iconResource == DRAWABLE_UNKNOWN) {
+                        instance.setIcon(iconResource);
+                        // Start shimmer animation for unknown state.
+                        instance.startAnimation(ANIMATION_SHIMMER);
+                    } else {
+                        instance.clearAnimation(); // Clear animation for known states.
+                        instance.setIcon(iconResource);
+                    }
+                };
+
+                if (updateImmediately) {
+                    update.run();
                 } else {
-                    instance.clearAnimation(); // Clear animation for known states.
-                    instance.setIcon(iconResource);
+                    Utils.runOnMainThreadDelayed(update, 300);
                 }
             }
         } catch (Exception ex) {
@@ -144,7 +159,7 @@ public class VideoQualityDialogButton {
                                 final int resolution = quality.patch_getResolution();
                                 if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
                                     Logger.printDebug(() -> "Resetting quality to: " + quality);
-                                    updateButtonIcon(quality);
+                                    updateButtonIcon(quality, true);
                                     menu.patch_setQuality(quality);
                                     return true;
                                 }
@@ -162,7 +177,7 @@ public class VideoQualityDialogButton {
             );
 
             // Set initial icon.
-            updateButtonIcon(RememberVideoQualityPatch.getCurrentQuality());
+            updateButtonIcon(RememberVideoQualityPatch.getCurrentQuality(), true);
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);
         }
@@ -317,7 +332,7 @@ public class VideoQualityDialogButton {
                     final int originalIndex = which + 1; // Adjust for automatic.
                     VideoQuality selectedQuality = currentQualities.get(originalIndex);
                     Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
-                    updateButtonIcon(selectedQuality);
+                    updateButtonIcon(selectedQuality, true);
                     // Must override index, otherwise picking 1080p will always use 1080p Enhanced if available.
                     // Method also handles saving default quality if needed.
                     RememberVideoQualityPatch.userChangedQuality(originalIndex);
