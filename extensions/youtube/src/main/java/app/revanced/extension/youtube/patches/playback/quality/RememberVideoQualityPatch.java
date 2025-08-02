@@ -115,6 +115,12 @@ public class RememberVideoQualityPatch {
             networkTypeMessage = str("revanced_remember_video_quality_wifi");
             qualitySetting = shortPlayerOpen ? shortsQualityWifi : videoQualityWifi;
         }
+
+        if (qualitySetting.get() == qualityResolution) {
+            // User clicked the same video quality as the current video,
+            // or changed between 1080p Premium and non-Premium.
+            return;
+        }
         qualitySetting.save(qualityResolution);
 
         if (Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED_TOAST.get()) {
