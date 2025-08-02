@@ -202,4 +202,41 @@ public class PlayerControlButton {
             Logger.printException(() -> "setIcon failure", ex);
         }
     }
+
+    /**
+     * Starts an animation on the button.
+     * @param animation The animation to apply.
+     */
+    public void startAnimation(Animation animation) {
+        try {
+            View button = buttonRef.get();
+            if (button != null) {
+                button.startAnimation(animation);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "startAnimation failure", ex);
+        }
+    }
+
+    /**
+     * Clears any animation on the button.
+     */
+    public void clearAnimation() {
+        try {
+            View button = buttonRef.get();
+            if (button != null) {
+                button.clearAnimation();
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "clearAnimation failure", ex);
+        }
+    }
+
+    /**
+     * Returns the View associated with this button.
+     * @return The button View.
+     */
+    public View getView() {
+        return buttonRef.get();
+    }
 }

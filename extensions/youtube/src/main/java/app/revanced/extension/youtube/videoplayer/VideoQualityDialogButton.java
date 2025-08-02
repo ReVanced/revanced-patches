@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -50,7 +51,7 @@ public class VideoQualityDialogButton {
     private static final int DRAWABLE_FHD_PLUS = getDrawableIdentifier("revanced_video_quality_dialog_button_fhd_plus");
     private static final int DRAWABLE_QHD = getDrawableIdentifier("revanced_video_quality_dialog_button_qhd");
     private static final int DRAWABLE_4K = getDrawableIdentifier("revanced_video_quality_dialog_button_4k");
-    private static final int DRAWABLE_UNKNOWN = 0; // Do not show a button icon.
+    private static final int DRAWABLE_UNKNOWN = getDrawableIdentifier("revanced_video_quality_dialog_button_unknown");
 
     private static int getDrawableIdentifier(String resourceName) {
         final int resourceId = Utils.getResourceIdentifier(resourceName, "drawable");
@@ -91,7 +92,16 @@ public class VideoQualityDialogButton {
 
             if (iconResource != currentIconResource) {
                 currentIconResource = iconResource;
-                instance.setIcon(iconResource);
+                if (iconResource == DRAWABLE_UNKNOWN) {
+                    instance.setIcon(iconResource);
+                    // Start shimmer animation for unknown state.
+                    Animation shimmer = AnimationUtils.loadAnimation(instance.getView().getContext(),
+                            Utils.getResourceIdentifier("revanced_video_quality_dialog_button_shimmer", "anim"));
+                    instance.startAnimation(shimmer);
+                } else {
+                    instance.clearAnimation(); // Clear animation for known states.
+                    instance.setIcon(iconResource);
+                }
             }
         } catch (Exception ex) {
             Logger.printException(() -> "updateButtonIcon failure", ex);
