@@ -156,7 +156,9 @@ public class RememberVideoQualityPatch {
                 currentQuality = updatedCurrentQuality;
                 Logger.printDebug(() -> "Current quality changed to: " + updatedCurrentQuality);
 
-                VideoQualityDialogButton.updateButtonIcon(updatedCurrentQuality);
+                if (!userChangedDefaultQuality) {
+                    VideoQualityDialogButton.updateButtonIcon(updatedCurrentQuality);
+                }
             }
 
             final int preferredQuality = getDefaultQualityResolution();

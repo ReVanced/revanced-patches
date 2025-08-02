@@ -140,7 +140,6 @@ public class VideoQualityDialogButton {
                                 final int resolution = quality.patch_getResolution();
                                 if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
                                     Logger.printDebug(() -> "Resetting quality to: " + quality);
-                                    updateButtonIcon(quality);
                                     menu.patch_setQuality(quality);
                                     return true;
                                 }
