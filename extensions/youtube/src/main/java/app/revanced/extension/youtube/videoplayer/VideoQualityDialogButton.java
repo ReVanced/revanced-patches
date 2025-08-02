@@ -22,7 +22,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -72,7 +71,7 @@ public class VideoQualityDialogButton {
     /**
      * Updates the button icon based on the current video quality.
      */
-    public static void updateButtonIcon(@Nullable VideoQuality quality, boolean updateImmediately) {
+    public static void updateButtonIcon(@Nullable VideoQuality quality) {
         try {
             Utils.verifyOnMainThread();
             if (instance == null) return;
@@ -81,7 +80,6 @@ public class VideoQualityDialogButton {
                     ? AUTOMATIC_VIDEO_QUALITY_VALUE // Video is still loading.
                     : quality.patch_getResolution();
 
-            // Map quality to appropriate icon.
             final int iconResource = switch (resolution) {
                 case 144, 240, 360 -> DRAWABLE_LD;
                 case 480  -> DRAWABLE_SD;
@@ -96,21 +94,7 @@ public class VideoQualityDialogButton {
 
             if (iconResource != currentIconResource) {
                 currentIconResource = iconResource;
-
-                Runnable update = () -> {
-                    if (currentIconResource != iconResource) {
-                        Logger.printDebug(() -> "Ignoring stale update of button icon");
-                        return;
-                    }
-
-                    instance.setIcon(iconResource);
-                };
-
-                if (updateImmediately) {
-                    update.run();
-                } else {
-                    Utils.runOnMainThreadDelayed(update, 500);
-                }
+                instance.setIcon(iconResource);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "updateButtonIcon failure", ex);
@@ -149,7 +133,7 @@ public class VideoQualityDialogButton {
                                 final int resolution = quality.patch_getResolution();
                                 if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
                                     Logger.printDebug(() -> "Resetting quality to: " + quality);
-                                    updateButtonIcon(quality, true);
+                                    updateButtonIcon(quality);
                                     menu.patch_setQuality(quality);
                                     return true;
                                 }
@@ -167,7 +151,7 @@ public class VideoQualityDialogButton {
             );
 
             // Set initial icon.
-            updateButtonIcon(RememberVideoQualityPatch.getCurrentQuality(), true);
+            updateButtonIcon(RememberVideoQualityPatch.getCurrentQuality());
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);
         }
@@ -322,7 +306,7 @@ public class VideoQualityDialogButton {
                     final int originalIndex = which + 1; // Adjust for automatic.
                     VideoQuality selectedQuality = currentQualities.get(originalIndex);
                     Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
-                    updateButtonIcon(selectedQuality, true);
+                    updateButtonIcon(selectedQuality);
                     // Must override index, otherwise picking 1080p will always use 1080p Enhanced if available.
                     // Method also handles saving default quality if needed.
                     RememberVideoQualityPatch.userChangedQuality(originalIndex);
