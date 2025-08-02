@@ -10,6 +10,7 @@ import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_31_or_greater
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
@@ -79,7 +80,7 @@ internal val customTapAndHoldFingerprint by fingerprint {
     custom { method, _ ->
         // Code is found in different methods with different strings.
         val findSearchLandingKey = (is_19_34_or_greater && !is_19_47_or_greater)
-                || (is_20_19_or_greater && !is_20_20_or_greater)
+                || (is_20_19_or_greater && !is_20_20_or_greater) || is_20_31_or_greater
 
         method.name == "run" && method.indexOfFirstInstruction {
             val string = getReference<StringReference>()?.string

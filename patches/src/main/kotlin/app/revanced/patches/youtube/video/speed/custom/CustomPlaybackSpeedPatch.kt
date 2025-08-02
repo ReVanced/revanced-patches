@@ -168,17 +168,19 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // region Custom tap and hold 2x speed.
 
         if (is_19_47_or_greater) {
-            customTapAndHoldFingerprint.method.apply {
-                val index = indexOfFirstLiteralInstructionOrThrow(2.0f)
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+            customTapAndHoldFingerprint.let {
+                it.method.apply {
+                    val index = it.instructionMatches.first().index
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                addInstructions(
-                    index + 1,
-                    """
+                    addInstructions(
+                        index + 1,
+                        """
                         invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->tapAndHoldSpeed()F
                         move-result v$register
                     """
-                )
+                    )
+                }
             }
         }
 

@@ -12,12 +12,9 @@ internal val abUriParserFingerprint by fingerprint {
     returns("Ljava/lang/Object;")
     parameters("Ljava/lang/Object;")
     instructions(
-        methodCall(smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"),
-        fieldAccess(
-            definingClass = "/WebviewEndpointOuterClass${'$'}WebviewEndpoint;",
-            name = "webviewEndpoint"
-        ),
-        checkCast("/WebviewEndpointOuterClass${'$'}WebviewEndpoint;"),
+        string("Found entityKey=`"),
+        string("that does not contain a PlaylistVideoEntityId", partialMatch = true),
+        methodCall(smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;")
     )
 }
 

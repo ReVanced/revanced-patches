@@ -42,16 +42,16 @@ val bypassURLRedirectsPatch = bytecodePatch(
         )
 
         arrayOf(
-            abUriParserFingerprint,
-            httpUriParserFingerprint,
-        ).forEach { fingerprint ->
+            abUriParserFingerprint to 2,
+            httpUriParserFingerprint to 0
+        ).forEach { (fingerprint, index) ->
             fingerprint.method.apply {
-                val insertIndex = fingerprint.instructionMatches.first().index
+                val insertIndex = fingerprint.instructionMatches[index].index
                 val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
                 replaceInstruction(
                     insertIndex,
-                    "invoke-static { v$uriStringRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->" +
+                    "invoke-static { v$uriStringRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
                             "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
                 )
             }
