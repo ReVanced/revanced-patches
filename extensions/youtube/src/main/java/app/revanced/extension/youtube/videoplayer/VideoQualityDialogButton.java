@@ -94,7 +94,14 @@ public class VideoQualityDialogButton {
 
             if (iconResource != currentIconResource) {
                 currentIconResource = iconResource;
-                instance.setIcon(iconResource);
+
+                Utils.runOnMainThreadDelayed(() -> {
+                    if (iconResource != currentIconResource) {
+                        Logger.printDebug(() -> "Ignoring stale button update to: " + quality);
+                        return;
+                    }
+                    instance.setIcon(iconResource);
+                }, 100);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "updateButtonIcon failure", ex);
@@ -307,10 +314,11 @@ public class VideoQualityDialogButton {
                     VideoQuality selectedQuality = currentQualities.get(originalIndex);
                     Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
                     updateButtonIcon(selectedQuality);
-                    // Must override index, otherwise picking 1080p will always use 1080p Enhanced if available.
-                    // Method also handles saving default quality if needed.
-                    RememberVideoQualityPatch.userChangedQuality(originalIndex);
                     menu.patch_setQuality(selectedQuality);
+
+                    if (RememberVideoQualityPatch.shouldRememberVideoQuality()) {
+                        RememberVideoQualityPatch.saveDefaultQuality(selectedQuality.patch_getResolution());
+                    }
 
                     dialog.dismiss();
                 } catch (Exception ex) {
