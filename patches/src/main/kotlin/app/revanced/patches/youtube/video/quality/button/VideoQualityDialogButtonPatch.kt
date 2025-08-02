@@ -20,10 +20,6 @@ private val videoQualityButtonResourcePatch = resourcePatch {
         copyResources(
             "qualitybutton",
             ResourceGroup(
-                "anim",
-                "revanced_video_quality_dialog_button_shimmer.xml",
-            ),
-            ResourceGroup(
                 "drawable",
                 "revanced_video_quality_dialog_button_ld.xml",
                 "revanced_video_quality_dialog_button_sd.xml",

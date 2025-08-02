@@ -55,9 +55,6 @@ public class VideoQualityDialogButton {
     private static final int DRAWABLE_4K = getDrawableIdentifier("revanced_video_quality_dialog_button_4k");
     private static final int DRAWABLE_UNKNOWN = getDrawableIdentifier("revanced_video_quality_dialog_button_unknown");
 
-    private static final Animation ANIMATION_SHIMMER = AnimationUtils.loadAnimation(Utils.getContext(),
-            Utils.getResourceIdentifier("revanced_video_quality_dialog_button_shimmer", "anim"));
-
     @Nullable
     private static PlayerControlButton instance;
 
@@ -106,14 +103,7 @@ public class VideoQualityDialogButton {
                         return;
                     }
 
-                    if (iconResource == DRAWABLE_UNKNOWN) {
-                        instance.setIcon(iconResource);
-                        // Start shimmer animation for unknown state.
-                        instance.startAnimation(ANIMATION_SHIMMER);
-                    } else {
-                        instance.clearAnimation(); // Clear animation for known states.
-                        instance.setIcon(iconResource);
-                    }
+                    instance.setIcon(iconResource);
                 };
 
                 if (updateImmediately) {
