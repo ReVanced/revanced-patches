@@ -67,13 +67,6 @@ val rememberVideoQualityPatch = bytecodePatch {
             SwitchPreference("revanced_remember_video_quality_last_selected_toast")
         ))
 
-        /*
-         * The following code works by hooking the method which is called when the user selects a video quality
-         * to remember the last selected video quality.
-         *
-         * It also hooks the method which is called when the video quality to set is determined.
-         * Conveniently, at this point the video quality is overridden to the remembered playback speed.
-         */
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
 
         videoQualityFingerprint.let {
@@ -142,10 +135,10 @@ val rememberVideoQualityPatch = bytecodePatch {
         }
 
         // Inject a call to set the remembered quality once a video loads.
-        setQualityByIndexMethodClassFieldReferenceFingerprint.match(
+        setVideoQualityFingerprint.match(
             videoQualitySetterFingerprint.originalClassDef
         ).let { match ->
-            // This instruction refers to the field with the type that contains the setQualityByIndex method.
+            // This instruction refers to the field with the type that contains the setQuality method.
             val instructions = match.method.implementation!!.instructions
             val onItemClickListenerClassReference =
                 (instructions.elementAt(0) as ReferenceInstruction).reference
@@ -191,7 +184,7 @@ val rememberVideoQualityPatch = bytecodePatch {
             videoQualitySetterFingerprint.method.addInstructions(
                 0,
                 """
-                    # Get the object instance to invoke the setQualityByIndex method on.
+                    # Get object instance to invoke setQuality method.
                     iget-object v0, p0, $onItemClickListenerClassReference
                     iget-object v0, v0, $setQualityFieldReference
                     
@@ -201,15 +194,15 @@ val rememberVideoQualityPatch = bytecodePatch {
             )
         }
 
-        // Inject a call to remember the selected quality.
+        // Inject a call to remember the selected quality for Shorts.
         videoQualityItemOnClickFingerprint.match(
             videoQualityItemOnClickParentFingerprint.classDef
         ).method.addInstruction(
             0,
-            "invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V"
+            "invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->userChangedShortsQuality(I)V"
         )
 
-        // Inject a call to remember the user selected quality.
+        // Inject a call to remember the user selected quality for regular videos.
         videoQualityChangedFingerprint.let {
             it.method.apply {
                 val index = it.patternMatch!!.startIndex
@@ -217,7 +210,7 @@ val rememberVideoQualityPatch = bytecodePatch {
 
                 addInstruction(
                     index + 1,
-                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQualityInFlyout(I)V",
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
                 )
             }
         }

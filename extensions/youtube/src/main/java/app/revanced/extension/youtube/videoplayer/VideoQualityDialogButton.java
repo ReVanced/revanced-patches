@@ -312,11 +312,14 @@ public class VideoQualityDialogButton {
                     final int originalIndex = which + 1; // Adjust for automatic.
                     VideoQuality selectedQuality = currentQualities.get(originalIndex);
                     Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
-                    // Don't update button icon now.  Icon will be updated when the actual
+
+                    if (RememberVideoQualityPatch.shouldRememberVideoQuality()) {
+                        RememberVideoQualityPatch.saveDefaultQuality(selectedQuality.patch_getResolution());
+                    }
+                    // Don't update button icon now. Icon will update when the actual
                     // quality is changed by YT.  This is needed to ensure the icon is correct
                     // if YT ignores changing from 1080p Premium to regular 1080p.
                     menu.patch_setQuality(selectedQuality);
-                    RememberVideoQualityPatch.userChangedQuality(originalIndex);
 
                     dialog.dismiss();
                 } catch (Exception ex) {

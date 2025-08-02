@@ -45,18 +45,6 @@ public class RememberVideoQualityPatch {
     private static boolean qualityNeedsUpdating;
 
     /**
-     * If the user selected a new quality from the flyout menu,
-     * and {@link Settings#REMEMBER_VIDEO_QUALITY_LAST_SELECTED}
-     * or {@link Settings#REMEMBER_SHORTS_QUALITY_LAST_SELECTED} is enabled.
-     */
-    private static boolean userChangedDefaultQuality;
-
-    /**
-     * Index of the video quality chosen by the user from the flyout menu.
-     */
-    private static int userSelectedQualityIndex;
-
-    /**
      * The available qualities of the current video.
      */
     @Nullable
@@ -166,16 +154,8 @@ public class RememberVideoQualityPatch {
             }
 
             final int preferredQuality = getDefaultQualityResolution();
-            if (!userChangedDefaultQuality && preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
+            if (preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
                 return originalQualityIndex; // Nothing to do.
-            }
-
-            if (userChangedDefaultQuality) {
-                userChangedDefaultQuality = false;
-                VideoQuality quality = qualities[userSelectedQualityIndex];
-                Logger.printDebug(() -> "User changed default quality to: " + quality);
-                saveDefaultQuality(quality.patch_getResolution());
-                return userSelectedQualityIndex;
             }
 
             // After changing videos the qualities can initially be for the prior video.
@@ -217,34 +197,31 @@ public class RememberVideoQualityPatch {
     }
 
     /**
-     * Injection point. Fixes bad data used by YouTube.
-     */
-    public static int fixVideoQualityResolution(String name, int quality) {
-        final int correctQuality = 480;
-        if (name.equals("480p") && quality != correctQuality) {
-            return correctQuality;
-        }
-
-        return quality;
-    }
-
-    /**
      * Injection point.
-     * @param qualityIndex Element index of {@link #currentQualities}.
+     * @param userSelectedQualityIndex Element index of {@link #currentQualities}.
      */
-    public static void userChangedQuality(int qualityIndex) {
-        if (shouldRememberVideoQuality()) {
-            userSelectedQualityIndex = qualityIndex;
-            userChangedDefaultQuality = true;
+    public static void userChangedShortsQuality(int userSelectedQualityIndex) {
+        try {
+            if (shouldRememberVideoQuality()) {
+                if (currentQualities == null) {
+                    Logger.printDebug(() -> "Cannot save default quality, qualities is null");
+                    return;
+                }
+                VideoQuality quality = currentQualities.get(userSelectedQualityIndex);
+                saveDefaultQuality(quality.patch_getResolution());
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "userChangedShortsQuality failure", ex);
         }
     }
 
     /**
-     * Injection point.
+     * Injection point.  Regular videos.
      * @param videoResolution Human readable resolution: 480, 720, 1080.
      */
-    public static void userChangedQualityInFlyout(int videoResolution) {
+    public static void userChangedQuality(int videoResolution) {
         Utils.verifyOnMainThread();
+
         if (shouldRememberVideoQuality()) {
             saveDefaultQuality(videoResolution);
         }
@@ -264,5 +241,17 @@ public class RememberVideoQualityPatch {
 
         // Hide the quality button until playback starts and the qualities are available.
         VideoQualityDialogButton.updateButtonIcon(null);
+    }
+
+    /**
+     * Injection point. Fixes bad data used by YouTube.
+     */
+    public static int fixVideoQualityResolution(String name, int quality) {
+        final int correctQuality = 480;
+        if (name.equals("480p") && quality != correctQuality) {
+            return correctQuality;
+        }
+
+        return quality;
     }
 }
