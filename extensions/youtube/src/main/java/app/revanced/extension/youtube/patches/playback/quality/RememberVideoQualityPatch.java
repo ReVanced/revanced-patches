@@ -116,9 +116,7 @@ public class RememberVideoQualityPatch {
         qualitySetting.save(qualityResolution);
 
         if (Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED_TOAST.get()) {
-            String qualityLabel = qualityResolution == AUTOMATIC_VIDEO_QUALITY_VALUE
-                    ? str("video_quality_quick_menu_auto_toast")
-                    : qualityResolution + "p";
+            String qualityLabel = qualityResolution + "p";
             Utils.showToastShort(str(
                     shortPlayerOpen
                             ? "revanced_remember_video_quality_toast_shorts"
