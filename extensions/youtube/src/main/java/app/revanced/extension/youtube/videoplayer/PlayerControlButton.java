@@ -24,8 +24,8 @@ public class PlayerControlButton {
     private static final int fadeInDuration;
     private static final int fadeOutDuration;
 
-    private static final Animation fadeInAnimation;
-    private static final Animation fadeOutAnimation;
+    static final Animation fadeInAnimation;
+    static final Animation fadeOutAnimation;
     private static final Animation fadeOutImmediate;
 
     static {
