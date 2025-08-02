@@ -315,10 +315,7 @@ public class VideoQualityDialogButton {
                     Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
                     updateButtonIcon(selectedQuality);
                     menu.patch_setQuality(selectedQuality);
-
-                    if (RememberVideoQualityPatch.shouldRememberVideoQuality()) {
-                        RememberVideoQualityPatch.saveDefaultQuality(selectedQuality.patch_getResolution());
-                    }
+                    RememberVideoQualityPatch.userChangedQuality(originalIndex);
 
                     dialog.dismiss();
                 } catch (Exception ex) {
