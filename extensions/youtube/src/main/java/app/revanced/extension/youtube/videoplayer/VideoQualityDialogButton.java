@@ -11,8 +11,6 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
@@ -68,10 +66,6 @@ public class VideoQualityDialogButton {
      */
     private static int currentIconResource;
 
-    @Nullable
-    private static Runnable updateIconRunnable;
-    private static final Handler handler = new Handler(Looper.getMainLooper());
-
     private static int getDrawableIdentifier(String resourceName) {
         final int resourceId = Utils.getResourceIdentifier(resourceName, "drawable");
         if (resourceId == 0) Logger.printException(() -> "Could not find resource: " + resourceName);
@@ -81,7 +75,7 @@ public class VideoQualityDialogButton {
     /**
      * Updates the button icon based on the current video quality.
      */
-    public static void updateButtonIcon(@Nullable VideoQuality quality, boolean updateImmediately) {
+    public static void updateButtonIcon(@Nullable VideoQuality quality) {
         try {
             if (instance == null) return;
 
@@ -103,36 +97,18 @@ public class VideoQualityDialogButton {
             };
 
             if (iconResource != currentIconResource) {
-                cleanup();
-
-                Runnable update = () -> {
-                    currentIconResource = iconResource;
-                    if (iconResource == DRAWABLE_UNKNOWN) {
-                        instance.setIcon(iconResource);
-                        // Start shimmer animation for unknown state.
-                        instance.startAnimation(ANIMATION_SHIMMER);
-                    } else {
-                        instance.clearAnimation(); // Clear animation for known states.
-                        instance.setIcon(iconResource);
-                    }
-                };
-
-                if (updateImmediately) {
-                    update.run();
+                currentIconResource = iconResource;
+                if (iconResource == DRAWABLE_UNKNOWN) {
+                    instance.setIcon(iconResource);
+                    // Start shimmer animation for unknown state.
+                    instance.startAnimation(ANIMATION_SHIMMER);
                 } else {
-                    updateIconRunnable = update;
-                    handler.postDelayed(update, 300);
+                    instance.clearAnimation(); // Clear animation for known states.
+                    instance.setIcon(iconResource);
                 }
             }
         } catch (Exception ex) {
             Logger.printException(() -> "updateButtonIcon failure", ex);
-        }
-    }
-
-    public static void cleanup() {
-        if (updateIconRunnable != null) {
-            handler.removeCallbacks(updateIconRunnable);
-            updateIconRunnable = null;
         }
     }
 
@@ -168,7 +144,7 @@ public class VideoQualityDialogButton {
                                 final int resolution = quality.patch_getResolution();
                                 if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
                                     Logger.printDebug(() -> "Resetting quality to: " + quality);
-                                    updateButtonIcon(quality, true);
+                                    updateButtonIcon(quality);
                                     menu.patch_setQuality(quality);
                                     return true;
                                 }
@@ -186,7 +162,7 @@ public class VideoQualityDialogButton {
             );
 
             // Set initial icon.
-            updateButtonIcon(RememberVideoQualityPatch.getCurrentQuality(), true);
+            updateButtonIcon(RememberVideoQualityPatch.getCurrentQuality());
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);
         }
@@ -341,7 +317,7 @@ public class VideoQualityDialogButton {
                     final int originalIndex = which + 1; // Adjust for automatic.
                     VideoQuality selectedQuality = currentQualities.get(originalIndex);
                     Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
-                    updateButtonIcon(selectedQuality, true);
+                    updateButtonIcon(selectedQuality);
                     // Must override index, otherwise picking 1080p will always use 1080p Enhanced if available.
                     // Method also handles saving default quality if needed.
                     RememberVideoQualityPatch.userChangedQuality(originalIndex);
