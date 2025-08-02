@@ -163,7 +163,7 @@ val rememberVideoQualityPatch = bytecodePatch {
                 methods.add(
                     ImmutableMethod(
                         type,
-                        "patch_setMenuIndexFromQuality",
+                        "patch_setQuality",
                         listOf(
                             ImmutableMethodParameter(YOUTUBE_VIDEO_QUALITY_CLASS_TYPE, null, null)
                         ),

@@ -26,10 +26,17 @@ public class RememberVideoQualityPatch {
      * Interface to use obfuscated methods.
      */
     public interface VideoQualityMenuInterface {
-        void patch_setMenuIndexFromQuality(VideoQuality quality);
+        void patch_setQuality(VideoQuality quality);
     }
 
     public static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
+
+    /**
+     * All video names are the same for all languages, including enhanced bitrate.
+     * VideoQuality also has a resolution enum that can be used if needed.
+     */
+    public static final String VIDEO_QUALITY_1080P_ENHANCED = "1080p Premium";
+
     private static final IntegerSetting videoQualityWifi = Settings.VIDEO_QUALITY_DEFAULT_WIFI;
     private static final IntegerSetting videoQualityMobile = Settings.VIDEO_QUALITY_DEFAULT_MOBILE;
     private static final IntegerSetting shortsQualityWifi = Settings.SHORTS_QUALITY_DEFAULT_WIFI;
@@ -145,7 +152,7 @@ public class RememberVideoQualityPatch {
             VideoQuality updatedCurrentQuality = qualities[originalQualityIndex];
             if (updatedCurrentQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE &&
                     (currentQuality == null
-                            || currentQuality.patch_getResolution() != updatedCurrentQuality.patch_getResolution())) {
+                            || !currentQuality.patch_getQualityName().equals(updatedCurrentQuality.patch_getQualityName()))) {
                 currentQuality = updatedCurrentQuality;
                 Logger.printDebug(() -> "Current quality changed to: " + updatedCurrentQuality);
 
@@ -193,7 +200,7 @@ public class RememberVideoQualityPatch {
                     // To prevent user confusion, set the video index even if the
                     // quality is already correct so the UI picker will not display "Auto".
                     Logger.printDebug(() -> "Changing quality to default: " + quality);
-                    menu.patch_setMenuIndexFromQuality(qualities[i]);
+                    menu.patch_setQuality(qualities[i]);
                     return i;
                 }
                 i++;

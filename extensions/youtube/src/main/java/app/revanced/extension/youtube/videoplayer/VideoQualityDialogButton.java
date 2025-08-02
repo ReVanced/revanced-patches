@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.videoplayer;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE;
+import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.VIDEO_QUALITY_1080P_ENHANCED;
 import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.VideoQualityMenuInterface;
 
 import android.app.Dialog;
@@ -94,21 +95,22 @@ public class VideoQualityDialogButton {
     /**
      * Updates the button icon based on the current video quality with a fade animation.
      */
-    public static void updateButtonIcon(@Nullable VideoQuality currentQuality) {
+    public static void updateButtonIcon(@Nullable VideoQuality quality) {
         try {
             if (instance == null) return;
 
-            final int resolution = currentQuality == null
+            final int resolution = quality == null
                     ? AUTOMATIC_VIDEO_QUALITY_VALUE // Video is still loading.
-                    : currentQuality.patch_getResolution();
+                    : quality.patch_getResolution();
 
             // Map quality to appropriate icon.
             final int iconResource = switch (resolution) {
                 case 144, 240, 360 -> DRAWABLE_LD;
                 case 480  -> DRAWABLE_SD;
                 case 720  -> DRAWABLE_HD;
-                case 1080 -> DRAWABLE_FHD;
-                // case 1080+ -> DRAWABLE_FHD_PLUS; // TODO: Change to real parameter.
+                case 1080 -> VIDEO_QUALITY_1080P_ENHANCED.equals(quality.patch_getQualityName())
+                        ? DRAWABLE_FHD_PLUS
+                        : DRAWABLE_FHD;
                 case 1440 -> DRAWABLE_QHD;
                 case 2160 -> DRAWABLE_4K;
                 default -> DRAWABLE_UNKNOWN;
@@ -158,7 +160,7 @@ public class VideoQualityDialogButton {
                                 if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
                                     Logger.printDebug(() -> "Resetting quality to: " + quality);
                                     updateButtonIcon(quality);
-                                    menu.patch_setMenuIndexFromQuality(quality);
+                                    menu.patch_setQuality(quality);
                                     return true;
                                 }
                             }
@@ -286,7 +288,8 @@ public class VideoQualityDialogButton {
             // Append separator part with adjusted title color.
             int separatorStart = spannableTitle.length();
             spannableTitle.append(separatorPart);
-            final int adjustedTitleForegroundColor = Utils.adjustColorBrightness(Utils.getAppForegroundColor(), 1.6f, 0.6f);
+            final int adjustedTitleForegroundColor = Utils.adjustColorBrightness(
+                    Utils.getAppForegroundColor(), 1.6f, 0.6f);
             spannableTitle.setSpan(
                     new ForegroundColorSpan(adjustedTitleForegroundColor),
                     separatorStart,
@@ -330,7 +333,7 @@ public class VideoQualityDialogButton {
                     VideoQuality selectedQuality = currentQualities.get(originalIndex);
                     Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
                     updateButtonIcon(selectedQuality);
-                    menu.patch_setMenuIndexFromQuality(selectedQuality);
+                    menu.patch_setQuality(selectedQuality);
 
                     if (RememberVideoQualityPatch.shouldRememberVideoQuality()) {
                         RememberVideoQualityPatch.changeDefaultQuality(selectedQuality.patch_getResolution());
@@ -443,7 +446,7 @@ public class VideoQualityDialogButton {
             super(context, 0, objects);
         }
 
-        public void setSelectedPosition(int position) {
+        private void setSelectedPosition(int position) {
             this.selectedPosition = position;
             notifyDataSetChanged();
         }
