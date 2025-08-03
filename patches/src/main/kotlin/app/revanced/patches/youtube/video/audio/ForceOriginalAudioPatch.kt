@@ -10,10 +10,13 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findMethodFromToString
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -34,6 +37,7 @@ val forceOriginalAudioPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
+        versionCheckPatch
     )
 
     compatibleWith(
@@ -57,11 +61,20 @@ val forceOriginalAudioPatch = bytecodePatch(
             )
         )
 
-        val isDefaultAudioTrackMethod = formatStreamModelToString.originalMethod
+        // Disable feature flag that ignores the default track flag and
+        // instead overrides to the language of the users region.
+        if (is_20_07_or_greater) {
+            selectAudioStreamFingerprint.method.insertLiteralOverride(
+                AUDIO_STREAM_OVERRIDE_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->allowAudioStreamOverride(Z)Z"
+            )
+        }
+
+        val isDefaultAudioTrackMethod = formatStreamModelToStringFingerprint.originalMethod
             .findMethodFromToString("isDefaultAudioTrack=")
-        val audioTrackDisplayNameMethod = formatStreamModelToString.originalMethod
+        val audioTrackDisplayNameMethod = formatStreamModelToStringFingerprint.originalMethod
             .findMethodFromToString("audioTrackDisplayName=")
-        val audioTrackIdMethod = formatStreamModelToString.originalMethod
+        val audioTrackIdMethod = formatStreamModelToStringFingerprint.originalMethod
             .findMethodFromToString("audioTrackId=")
         val formatStreamModelClass = proxy(classes.first {
             it.type == audioTrackIdMethod.definingClass
