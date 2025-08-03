@@ -987,8 +987,7 @@ Hoạt động tốt nhất với chất lượng video 720p trở xuống và k
   <string name="revanced_sb_auto_hide_skip_button_duration">Thời gian hiển thị nút bỏ qua</string>
   <string name="revanced_sb_auto_hide_skip_button_duration_sum">Thời gian hiển thị nút bỏ qua và nút bỏ qua đến phần nổi bật trước khi tự động ẩn</string>
   <string name="revanced_sb_general_skiptoast">Hiện thông báo ngắn hoàn tác bỏ qua</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Thông báo ngắn sẽ hiện mỗi khi tự động bỏ qua một phân đoạn.
-Chạm vào thông báo đó để hoàn tác bỏ qua</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Thông báo ngắn sẽ hiện mỗi khi tự động bỏ qua một phân đoạn.\n\nChạm vào thông báo đó để hoàn tác bỏ qua</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Thông báo ngắn không hiện</string>
   <string name="revanced_sb_toast_on_skip_duration">Thời gian thông báo ngắn tồn tại</string>
   <string name="revanced_sb_toast_on_skip_duration_sum">Thời gian thông báo ngắn tồn tại sau khi bỏ qua phân đoạn</string>
