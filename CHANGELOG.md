@@ -1,3 +1,10 @@
+# [5.33.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.7...v5.33.0-dev.8) (2025-08-03)
+
+
+### Bug Fixes
+
+* **NFC Tools:** Remove broken patch that is no longer supported ([#5584](https://github.com/ReVanced/revanced-patches/issues/5584)) ([cd3a6be](https://github.com/ReVanced/revanced-patches/commit/cd3a6be75c6bd3cc33c0b17a044bd6147f27b5ce))
+
 # [5.33.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.6...v5.33.0-dev.7) (2025-08-03)
 
 
