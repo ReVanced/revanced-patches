@@ -1466,6 +1466,11 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_playback_speed_dialog_button_summary_on">Le bouton est affiché. Appuyez longuement dessus pour rétablir la vitesse de lecture par défaut.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Le bouton n\'est pas affiché</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Afficher le bouton de qualité vidéo</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Le bouton est affiché. Appuyez longuement pour réinitialiser la qualité par défaut</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Le bouton n\'est pas affiché</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu de vitesse de lecture personnalisée</string>
   <string name="revanced_custom_speed_menu_summary_on">Le menu de vitesse personnalisée est affiché</string>

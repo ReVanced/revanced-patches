@@ -1461,6 +1461,11 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_playback_speed_dialog_button_summary_on">বোতামটি দেখানো হয়েছে। প্লেব্যাক স্পীড ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন।</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">বোতাম প্রদর্শিত হয়নি</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">ভিডিও গুণমান বোতাম দেখান</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">বোতামটি দেখানো হয়েছে। গুণমান ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন।</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">বোতামটি দেখানো হয়নি।</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">কাস্টম প্লেব্যাক গতি মেনু</string>
   <string name="revanced_custom_speed_menu_summary_on">কাস্টম স্পিড মেনু দেখানো হচ্ছে</string>

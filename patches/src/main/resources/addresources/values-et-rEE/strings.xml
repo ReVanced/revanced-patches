@@ -1465,6 +1465,11 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Nupp on nähtaval. Puudutage ja hoidke all, et taastada taasesituse kiirus vaikeväärtusele</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Nuppi ei kuvata</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Näita video kvaliteedi nuppu</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Nupp on nähtaval. Kvaliteedi lähtestamiseks vaikeseadeteks puudutage ja hoidke</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Nuppu ei kuvata</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Kohandatud taasesituse kiiruse menüü</string>
   <string name="revanced_custom_speed_menu_summary_on">Kohandatud kiiruse menüü kuvatakse</string>
