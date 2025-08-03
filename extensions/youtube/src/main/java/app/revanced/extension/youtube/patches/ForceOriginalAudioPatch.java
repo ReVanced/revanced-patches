@@ -27,7 +27,7 @@ public class ForceOriginalAudioPatch {
     /**
      * Injection point.
      */
-    public static boolean allowAudioStreamOverride(boolean original) {
+    public static boolean allowIgnoreDefaultAudioStream(boolean original) {
         if (Settings.FORCE_ORIGINAL_AUDIO.get()) {
             return false;
         }

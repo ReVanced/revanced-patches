@@ -185,18 +185,18 @@ private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
         reference?.string?.contains(fieldName) == true
     }
     if (stringIndex < 0) {
-        throw IllegalArgumentException("Could not find usage of string '$fieldName'")
+        throw IllegalArgumentException("Could not find usage of string: '$fieldName'")
     }
     val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
 
-    // Find first use of the string with a StringBuilder.
+    // Find use of the string with a StringBuilder.
     val stringUsageIndex = indexOfFirstInstruction(stringIndex) {
         val reference = getReference<MethodReference>()
         reference?.definingClass == "Ljava/lang/StringBuilder;" &&
                 (this as? FiveRegisterInstruction)?.registerD == stringRegister
     }
     if (stringUsageIndex < 0) {
-        throw IllegalArgumentException("Could not find StringBuilder usage in $this")
+        throw IllegalArgumentException("Could not find StringBuilder usage in: $this")
     }
 
     // Find the next usage of StringBuilder, which should be the desired field.
@@ -206,13 +206,13 @@ private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
     }
     if (fieldUsageIndex < 0) {
         // Should never happen.
-        throw IllegalArgumentException("Could not find StringBuilder append usage in $this")
+        throw IllegalArgumentException("Could not find StringBuilder append usage in: $this")
     }
     val fieldUsageRegister = getInstruction<FiveRegisterInstruction>(fieldUsageIndex).registerD
 
     // Look backwards up the method to find the instruction that sets the register.
     var fieldSetIndex = indexOfFirstInstructionReversedOrThrow(fieldUsageIndex - 1) {
-        this.writeRegister == fieldUsageRegister
+        writeRegister == fieldUsageRegister
     }
 
     // If the instruction is a method call, then adjust from MOVE_RESULT to the method call.

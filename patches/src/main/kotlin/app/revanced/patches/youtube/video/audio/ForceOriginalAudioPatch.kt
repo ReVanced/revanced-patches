@@ -66,7 +66,7 @@ val forceOriginalAudioPatch = bytecodePatch(
         if (is_20_07_or_greater) {
             selectAudioStreamFingerprint.method.insertLiteralOverride(
                 AUDIO_STREAM_OVERRIDE_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->allowAudioStreamOverride(Z)Z"
+                "$EXTENSION_CLASS_DESCRIPTOR->allowIgnoreDefaultAudioStream(Z)Z"
             )
         }
 
