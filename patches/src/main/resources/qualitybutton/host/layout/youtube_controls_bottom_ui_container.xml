@@ -7,19 +7,18 @@
     android:layoutDirection="ltr">
 
     <com.google.android.libraries.youtube.common.ui.TouchImageView
-        android:id="@+id/revanced_playback_speed_dialog_button"
+        android:id="@+id/revanced_video_quality_dialog_button"
         style="@style/YouTubePlayerButton"
         android:layout_width="48.0dip"
         android:layout_height="60.0dip"
         android:paddingTop="6.0dp"
         android:paddingBottom="0dp"
         android:scaleType="center"
-        android:src="@drawable/revanced_playback_speed_dialog_button"
         yt:layout_constraintBottom_toTopOf="@+id/quick_actions_container"
         yt:layout_constraintRight_toLeftOf="@+id/fullscreen_button" />
 
     <View
-        android:id="@+id/revanced_playback_speed_dialog_button_placeholder"
+        android:id="@+id/revanced_video_quality_dialog_button_placeholder"
         android:layout_width="48.0dip"
         android:layout_height="60.0dip"
         android:visibility="gone"
