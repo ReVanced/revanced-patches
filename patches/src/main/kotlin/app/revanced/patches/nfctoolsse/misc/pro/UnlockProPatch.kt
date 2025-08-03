@@ -4,9 +4,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
-val unlockProPatch = bytecodePatch(
-    name = "Unlock pro",
-) {
+@Deprecated("This patch no longer works and will soon be deleted.")
+val unlockProPatch = bytecodePatch{
     compatibleWith("com.wakdev.apps.nfctools.se")
 
     execute {
