@@ -172,21 +172,27 @@ public class RememberVideoQualityPatch {
             for (VideoQuality quality : qualities) {
                 final int qualityResolution = quality.patch_getResolution();
                 if (qualityResolution != AUTOMATIC_VIDEO_QUALITY_VALUE && qualityResolution <= preferredQuality) {
-                    // If the desired quality index is equal to the original index,
-                    // then the video is already set to the desired default quality.
-                    final int index = i;
-                    Logger.printDebug(() -> index == originalQualityIndex
-                            ? "Video is already the preferred quality: " + quality
-                            : "Changing video quality from: " + qualities[originalQualityIndex] + " to: " + quality
+                    final boolean qualityNeedsChange = (i != originalQualityIndex);
+                    Logger.printDebug(() -> qualityNeedsChange
+                            ? "Changing video quality from: " + updatedCurrentQuality + " to: " + quality
+                            : "Video is already the preferred quality: " + quality
                     );
 
-                    // On first load of a new video, if the video is already the desired quality
-                    // then the quality flyout will show 'Auto' (ie: Auto (720p)).
+                    // On first load of a new regular video, if the video is already the
+                    // desired quality then the quality flyout will show 'Auto' (ie: Auto (720p)).
                     //
                     // To prevent user confusion, set the video index even if the
                     // quality is already correct so the UI picker will not display "Auto".
-                    menu.patch_setQuality(qualities[i]);
-                    return i;
+                    //
+                    // Only change Shorts quality if the quality actually needs to change,
+                    // because the "auto" option is not shown in the flyout
+                    // and setting the same quality again can cause the Short to restart.
+                    if (qualityNeedsChange || !ShortsPlayerState.isOpen()) {
+                        menu.patch_setQuality(qualities[i]);
+                        return i;
+                    }
+
+                    return originalQualityIndex;
                 }
                 i++;
             }
