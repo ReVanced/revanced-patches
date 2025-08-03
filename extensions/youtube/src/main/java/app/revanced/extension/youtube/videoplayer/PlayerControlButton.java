@@ -187,4 +187,56 @@ public class PlayerControlButton {
         if (view != null) view.setVisibility(View.GONE);
         isVisible = false;
     }
+
+    /**
+     * Sets the icon of the button.
+     * @param resourceId Drawable identifier, or zero to hide the icon.
+     */
+    public void setIcon(int resourceId) {
+        try {
+            View button = buttonRef.get();
+            if (button instanceof ImageView imageButton) {
+                imageButton.setImageResource(resourceId);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "setIcon failure", ex);
+        }
+    }
+
+    /**
+     * Starts an animation on the button.
+     * @param animation The animation to apply.
+     */
+    public void startAnimation(Animation animation) {
+        try {
+            View button = buttonRef.get();
+            if (button != null) {
+                button.startAnimation(animation);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "startAnimation failure", ex);
+        }
+    }
+
+    /**
+     * Clears any animation on the button.
+     */
+    public void clearAnimation() {
+        try {
+            View button = buttonRef.get();
+            if (button != null) {
+                button.clearAnimation();
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "clearAnimation failure", ex);
+        }
+    }
+
+    /**
+     * Returns the View associated with this button.
+     * @return The button View.
+     */
+    public View getView() {
+        return buttonRef.get();
+    }
 }

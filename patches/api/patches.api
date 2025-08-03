@@ -1603,6 +1603,10 @@ public final class app/revanced/patches/youtube/video/quality/VideoQualityPatchK
 	public static final fun getVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/video/quality/button/VideoQualityDialogButtonPatchKt {
+	public static final fun getVideoQualityButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatchKt {
 	public static final fun getPlaybackSpeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

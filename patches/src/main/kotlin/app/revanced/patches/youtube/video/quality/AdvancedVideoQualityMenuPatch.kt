@@ -61,7 +61,6 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
         // region Patch for the old type of the video quality menu.
         // Used for regular videos when spoofing to old app version,
         // and for the Shorts quality flyout on newer app versions.
-
         videoQualityMenuViewInflateFingerprint.let {
             it.method.apply {
                 val checkCastIndex = it.instructionMatches.last().index
@@ -70,7 +69,7 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
                 addInstruction(
                     checkCastIndex + 1,
                     "invoke-static { v$listViewRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                            "showAdvancedVideoQualityMenu(Landroid/widget/ListView;)V",
+                            "addVideoQualityListMenuListener(Landroid/widget/ListView;)V",
                 )
             }
         }

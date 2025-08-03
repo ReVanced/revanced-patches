@@ -41,7 +41,7 @@ internal val videoQualityFingerprint by fingerprint {
 /**
  * Matches with the class found in [videoQualitySetterFingerprint].
  */
-internal val setQualityByIndexMethodClassFieldReferenceFingerprint by fingerprint {
+internal val setVideoQualityFingerprint by fingerprint {
     returns("V")
     parameters("L")
     opcodes(

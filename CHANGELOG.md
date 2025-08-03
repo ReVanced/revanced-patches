@@ -1,3 +1,10 @@
+# [5.33.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.6...v5.33.0-dev.7) (2025-08-03)
+
+
+### Features
+
+* **YouTube:** Add player button to change video quality ([#5435](https://github.com/ReVanced/revanced-patches/issues/5435)) ([d5f51bf](https://github.com/ReVanced/revanced-patches/commit/d5f51bf400dd22626ff65d7563b6fde70d53fb25))
+
 # [5.33.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.5...v5.33.0-dev.6) (2025-07-31)
 
 
