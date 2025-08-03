@@ -1465,6 +1465,11 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Бутонът е показан. Докоснете и задръжте, за да върнете скоростта на възпроизвеждане към стойността по подразбиране</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Бутонът не е показан</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Покажи бутона за качество на видеото</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Бутонът е показан. Докоснете и задръжте, за да възстановите качеството до подразбиране</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Бутонът не е показан</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Менюто за потребителска скорост</string>
   <string name="revanced_custom_speed_menu_summary_on">Менюто за потребителска скорост се показва</string>

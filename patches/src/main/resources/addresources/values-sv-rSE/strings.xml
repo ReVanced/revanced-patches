@@ -1464,6 +1464,11 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Knappen visas. Tryck länge för att återställa uppspelningshastigheten till standardhastigheten</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Knappen visas inte</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Visa videokvalitetsknapp</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Knappen visas. Tryck länge för att återställa kvaliteten till standardkvaliteten</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Knappen visas inte</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Anpassad meny för uppspelningshastighet</string>
   <string name="revanced_custom_speed_menu_summary_on">Anpassad hastighetsmeny visas</string>

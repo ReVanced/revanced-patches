@@ -1466,6 +1466,11 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка паказана. Націсніце і ўтрымлівайце, каб скінуць хуткасць прайгравання да стандартнай</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка не паказваецца</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Паказаць кнопку якасці відэа</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Кнопка паказана. Націсніце і ўтрымлівайце, каб скінуць якасць да па змаўчанні</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Кнопка не паказваецца</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Меню пользовательской скорости воспроизведения</string>
   <string name="revanced_custom_speed_menu_summary_on">Меню пользовательской скорости отображается</string>

@@ -1463,6 +1463,11 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">De knop wordt weergegeven. Tik en houd vast om de afspeelsnelheid terug te zetten naar de standaardwaarde</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Knop wordt niet weergegeven</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Toon videokwaliteitknop</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Knop wordt weergegeven. Tik en houd vast om de kwaliteit terug te zetten naar standaard</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Knop wordt niet weergegeven</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu voor aangepaste afspeelsnelheid</string>
   <string name="revanced_custom_speed_menu_summary_on">Menu voor aangepaste snelheid wordt weergegeven</string>

@@ -1460,6 +1460,11 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_playback_speed_dialog_button_summary_on">Die Schaltfläche wird angezeigt. Tippen und halten, um die Wiedergabegeschwindigkeit auf die Standardeinstellung zurückzusetzen.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Button wird nicht angezeigt</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Videoqualität-Schaltfläche anzeigen</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Schaltfläche wird angezeigt. Tippen und halten, um die Qualität auf Standard zurückzusetzen</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Schaltfläche wird nicht angezeigt</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Benutzerdefiniertes Wiedergabegeschwindigkeitsmenü</string>
   <string name="revanced_custom_speed_menu_summary_on">Benutzerdefiniertes Geschwindigkeitsmenü wird angezeigt</string>

@@ -1472,6 +1472,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 누르면 동영상 재생 속도가 기본값으로 초기화됩니다</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">버튼을 표시하지 않습니다</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">동영상 화질 버튼 표시하기</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 누르면 화질이 기본값으로 초기화됩니다</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">버튼을 표시하지 않습니다</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">사용자 정의 동영상 재생 속도 활성화하기</string>
   <string name="revanced_custom_speed_menu_summary_on">사용자 정의 동영상 재생 속도를 활성화합니다</string>

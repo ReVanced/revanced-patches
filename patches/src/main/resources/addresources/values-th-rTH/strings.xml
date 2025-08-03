@@ -1467,6 +1467,11 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_playback_speed_dialog_button_summary_on">ปุ่มจะปรากฏขึ้น แตะค้างไว้เพื่อรีเซ็ตความเร็วในการเล่นเป็นค่าเริ่มต้น</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">ไม่แสดงปุ่ม</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">แสดงปุ่มคุณภาพวิดีโอ</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">แสดงปุ่มแล้ว แตะค้างไว้เพื่อรีเซ็ตคุณภาพเป็นค่าเริ่มต้น</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">ไม่ได้แสดงปุ่ม</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">เมนูกำหนดความเร็วในการเล่นแบบกำหนดเอง</string>
   <string name="revanced_custom_speed_menu_summary_on">แสดงเมนูกำหนดความเร็ว</string>
