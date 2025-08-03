@@ -1464,6 +1464,11 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">O botão é exibido. Toque e mantenha pressionado para redefinir a velocidade de reprodução para o padrão</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Botão não está visível</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Mostrar botão de qualidade de vídeo</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">O botão é exibido. Toque e segure para redefinir a qualidade para o padrão</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">O botão não é exibido</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu de velocidade de reprodução personalizado</string>
   <string name="revanced_custom_speed_menu_summary_on">O menu de velocidade personalizado é mostrado</string>

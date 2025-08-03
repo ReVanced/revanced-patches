@@ -1465,6 +1465,11 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Tlačítko je zobrazeno. Klepnutím a podržením obnovíte výchozí rychlost přehrávání</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tlačítko se nezobrazuje</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Zobrazit tlačítko kvality videa</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Tlačítko je zobrazeno. Klepnutím a podržením obnovíte kvalitu na výchozí</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Tlačítko není zobrazeno.</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu vlastní rychlosti přehrávání</string>
   <string name="revanced_custom_speed_menu_summary_on">Menu vlastní rychlosti se zobrazuje</string>

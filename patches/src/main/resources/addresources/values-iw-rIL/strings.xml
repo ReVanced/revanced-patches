@@ -1467,6 +1467,11 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">הלחצן מוצג. יש להקיש ולהחזיק כדי לאפס את מהירות ההפעלה לברירת מחדל</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">הלחצן אינו מוצג</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">הצג כפתור איכות וידאו</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">הלחצן מוצג. גע והחזק כדי לאפס את האיכות לברירת מחדל</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">הלחצן אינו מוצג</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">תפריט מהירות הפעלה מותאם אישית</string>
   <string name="revanced_custom_speed_menu_summary_on">תפריט מהירות מותאם אישית מוצג</string>

@@ -475,9 +475,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_external_downloader_other_item">その他</string>
   <string name="revanced_external_downloader_not_found_title">アプリがインストールされていません</string>
   <string name="revanced_external_downloader_not_installed_warning">%s はインストールされていません。インストールしてください。</string>
-  <string name="revanced_external_downloader_package_not_found_warning">"パッケージ名 %s のインストール済みアプリが見つかりませんでした
+  <string name="revanced_external_downloader_package_not_found_warning">"パッケージ名「%s」のインストール済みアプリが見つかりませんでした
 
-パッケージ名が正しいこと、およびアプリがインストールされていることを確認してください"</string>
+パッケージ名が正しいこと、アプリがインストールされていることを確認してください"</string>
   <string name="revanced_external_downloader_empty_warning">パッケージ名は空欄にはできません</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
@@ -1461,9 +1461,14 @@ Automotive レイアウト
   <string name="revanced_remember_video_quality_toast_shorts">ショートの画質 (%1$s): %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
-  <string name="revanced_playback_speed_dialog_button_title">再生速度設定ボタンを表示する</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">ボタンはオーバーレイに表示されます。長押しすると、再生速度がデフォルトの値にリセットされます</string>
+  <string name="revanced_playback_speed_dialog_button_title">再生速度設定ボタンを表示</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">ボタンがオーバーレイに表示されます。長押しすると、再生速度がデフォルトの値にリセットされます</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">ボタンはオーバーレイに表示されません</string>
+  </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">画質設定ボタンを表示</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">ボタンがオーバーレイに表示されます。長押しすると、画質がデフォルトの値にリセットされます</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">ボタンはオーバーレイに表示されません</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">カスタム再生速度メニュー</string>
