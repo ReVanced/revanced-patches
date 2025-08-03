@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -13,14 +12,12 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.getReference
+import app.revanced.util.findMethodFromToString
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
-import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -60,24 +57,12 @@ val forceOriginalAudioPatch = bytecodePatch(
             )
         )
 
-        fun Method.firstFormatStreamingModelCall(
-            returnType: String = "Ljava/lang/String;"
-        ): MutableMethod {
-            val audioTrackIdIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;"
-                        && reference.returnType == returnType
-            }
-
-            return navigate(this).to(audioTrackIdIndex).stop()
-        }
-
-        // Accessor methods of FormatStreamModel have no string constants and
-        // opcodes are identical to other methods in the same class,
-        // so must walk from another class that use the methods.
-        val isDefaultMethod = streamingModelBuilderFingerprint.originalMethod.firstFormatStreamingModelCall("Z")
-        val audioTrackIdMethod = menuItemAudioTrackFingerprint.originalMethod.firstFormatStreamingModelCall()
-        val audioTrackDisplayNameMethod = audioStreamingTypeSelector.originalMethod.firstFormatStreamingModelCall()
+        val isDefaultAudioTrackMethod = formatStreamModelToString.originalMethod
+            .findMethodFromToString("isDefaultAudioTrack=")
+        val audioTrackDisplayNameMethod = formatStreamModelToString.originalMethod
+            .findMethodFromToString("audioTrackDisplayName=")
+        val audioTrackIdMethod = formatStreamModelToString.originalMethod
+            .findMethodFromToString("audioTrackId=")
         val formatStreamModelClass = proxy(classes.first {
             it.type == audioTrackIdMethod.definingClass
         }).mutableClass
@@ -143,7 +128,7 @@ val forceOriginalAudioPatch = bytecodePatch(
             methods.add(helperMethod)
 
             // Modify isDefaultAudioTrack() to call extension helper method.
-            isDefaultMethod.apply {
+            isDefaultAudioTrackMethod.apply {
                 val index = indexOfFirstInstructionOrThrow(Opcode.RETURN)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
