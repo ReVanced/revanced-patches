@@ -8,6 +8,8 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_31_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
@@ -17,6 +19,7 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/WideSearchbarPatch;"
@@ -31,6 +34,7 @@ val wideSearchbarPatch = bytecodePatch(
         settingsPatch,
         addResourcesPatch,
         resourceMappingPatch,
+        versionCheckPatch
     )
 
     compatibleWith(
@@ -45,6 +49,15 @@ val wideSearchbarPatch = bytecodePatch(
     )
 
     execute {
+        if (is_20_31_or_greater) {
+            // YT removed the legacy text search text field all code required to use it.
+            // This functionality could be restored by adding a search text field to the toolbar
+            // with a listener that artificially clicks the toolbar search button.
+            Logger.getLogger(this::class.java.name).severe(
+                "Wide searchbar is not compatible with 20.31+")
+            return@execute
+        }
+
         addResources("youtube", "layout.searchbar.wideSearchbarPatch")
 
         PreferenceScreen.FEED.addPreferences(
