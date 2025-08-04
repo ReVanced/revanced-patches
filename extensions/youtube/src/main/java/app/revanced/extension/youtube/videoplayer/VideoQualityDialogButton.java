@@ -205,11 +205,9 @@ public class VideoQualityDialogButton {
             }
 
             // -1 adjustment for automatic quality at first index.
-            int listViewSelectedIndex = 0;
+            int listViewSelectedIndex = -1;
             for (VideoQuality quality : currentQualities) {
                 if (quality == currentQuality) {
-                    // -1 adjustment for the missing automatic quality in the dialog list.
-                    listViewSelectedIndex--;
                     break;
                 }
                 listViewSelectedIndex++;
