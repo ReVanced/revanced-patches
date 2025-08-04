@@ -1,3 +1,10 @@
+# [5.33.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.9...v5.33.0-dev.10) (2025-08-04)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Fix wrong qualities sometimes shown in player button dialog ([7378ae3](https://github.com/ReVanced/revanced-patches/commit/7378ae3c5fc88f91bf5cd6db47c6cd170a8c5a4f))
+
 # [5.33.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.8...v5.33.0-dev.9) (2025-08-04)
 
 
