@@ -207,7 +207,7 @@ public class VideoQualityDialogButton {
             // -1 adjustment for automatic quality at first index.
             int listViewSelectedIndex = -1;
             for (VideoQuality quality : currentQualities) {
-                if (quality == currentQuality) {
+                if (quality.patch_getQualityName().equals(currentQuality.patch_getQualityName())) {
                     break;
                 }
                 listViewSelectedIndex++;
