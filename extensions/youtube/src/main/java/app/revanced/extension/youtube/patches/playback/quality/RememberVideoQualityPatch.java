@@ -145,9 +145,8 @@ public class RememberVideoQualityPatch {
             }
 
             VideoQuality updatedCurrentQuality = qualities[originalQualityIndex];
-            if (updatedCurrentQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE &&
-                    (currentQuality == null
-                            || !currentQuality.patch_getQualityName().equals(updatedCurrentQuality.patch_getQualityName()))) {
+            if (updatedCurrentQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE
+                    && (currentQuality == null || currentQuality != updatedCurrentQuality)) {
                 currentQuality = updatedCurrentQuality;
                 Logger.printDebug(() -> "Current quality changed to: " + updatedCurrentQuality);
 
