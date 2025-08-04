@@ -1464,6 +1464,11 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Το κουμπί εμφανίζεται. Πατήστε παρατεταμένα για επαναφορά της ταχύτητας αναπαραγωγής στην προεπιλογή</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Το κουμπί δεν εμφανίζεται</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Εμφάνιση κουμπιού αλλαγής ποιότητας βίντεο</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Το κουμπί εμφανίζεται. Πατήστε παρατεταμένα για επαναφορά της ποιότητας στην προεπιλογή</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Το κουμπί δεν εμφανίζεται</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Μενού προσαρμοσμένης ταχύτητας αναπαραγωγής</string>
   <string name="revanced_custom_speed_menu_summary_on">Το μενού προσαρμοσμένης ταχύτητας αναπαραγωγής εμφανίζεται</string>
