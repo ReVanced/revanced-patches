@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
 
 import java.util.Arrays;
-import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -45,13 +44,11 @@ public class RememberVideoQualityPatch {
     private static final IntegerSetting shortsQualityWifi = Settings.SHORTS_QUALITY_DEFAULT_WIFI;
     private static final IntegerSetting shortsQualityMobile = Settings.SHORTS_QUALITY_DEFAULT_MOBILE;
 
-    private static boolean qualityNeedsUpdating;
-
     /**
      * The available qualities of the current video.
      */
     @Nullable
-    private static List<VideoQuality> currentQualities;
+    private static VideoQuality[] currentQualities;
 
     /**
      * The current quality of the video playing.
@@ -67,7 +64,7 @@ public class RememberVideoQualityPatch {
     private static VideoQualityMenuInterface currentMenuInterface;
 
     @Nullable
-    public static List<VideoQuality> getCurrentQualities() {
+    public static VideoQuality[] getCurrentQualities() {
         return currentQualities;
     }
 
@@ -138,11 +135,11 @@ public class RememberVideoQualityPatch {
             Utils.verifyOnMainThread();
             currentMenuInterface = menu;
 
-            final boolean availableQualitiesChanged = currentQualities == null
-                    || currentQualities.size() != qualities.length;
+            final boolean availableQualitiesChanged = (currentQualities == null)
+                    || !Arrays.equals(currentQualities, qualities);
             if (availableQualitiesChanged) {
-                currentQualities = Arrays.asList(qualities);
-                Logger.printDebug(() -> "VideoQualities: " + currentQualities);
+                currentQualities = qualities;
+                Logger.printDebug(() -> "VideoQualities: " + Arrays.toString(currentQualities));
             }
 
             VideoQuality updatedCurrentQuality = qualities[originalQualityIndex];
@@ -155,17 +152,12 @@ public class RememberVideoQualityPatch {
                 VideoQualityDialogButton.updateButtonIcon(updatedCurrentQuality);
             }
 
-            final int preferredQuality = getDefaultQualityResolution();
-            if (preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
-                return originalQualityIndex; // Nothing to do.
-            }
-
             // After changing videos the qualities can initially be for the prior video.
             // If the qualities have changed and the default is not auto then an update is needed.
-            if (!qualityNeedsUpdating && !availableQualitiesChanged) {
-                return originalQualityIndex;
+            final int preferredQuality = getDefaultQualityResolution();
+            if (preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE || !availableQualitiesChanged) {
+                return originalQualityIndex; // Nothing to do.
             }
-            qualityNeedsUpdating = false;
 
             // Find the highest quality that is equal to or less than the preferred.
             int i = 0;
@@ -213,7 +205,7 @@ public class RememberVideoQualityPatch {
                     Logger.printDebug(() -> "Cannot save default quality, qualities is null");
                     return;
                 }
-                VideoQuality quality = currentQualities.get(userSelectedQualityIndex);
+                VideoQuality quality = currentQualities[userSelectedQualityIndex];
                 saveDefaultQuality(quality.patch_getResolution());
             }
         } catch (Exception ex) {
@@ -243,7 +235,6 @@ public class RememberVideoQualityPatch {
         currentQualities = null;
         currentQuality = null;
         currentMenuInterface = null;
-        qualityNeedsUpdating = true;
 
         // Hide the quality button until playback starts and the qualities are available.
         VideoQualityDialogButton.updateButtonIcon(null);
