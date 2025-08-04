@@ -1,3 +1,10 @@
+# [5.33.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.10...v5.33.0-dev.11) (2025-08-04)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Fix 144p default not always used ([2f7483a](https://github.com/ReVanced/revanced-patches/commit/2f7483a2d789c28a243b58bb7a252c0d590858ee))
+
 # [5.33.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.9...v5.33.0-dev.10) (2025-08-04)
 
 
