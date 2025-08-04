@@ -212,10 +212,10 @@ private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
 
     // Look backwards up the method to find the instruction that sets the register.
     var fieldSetIndex = indexOfFirstInstructionReversedOrThrow(fieldUsageIndex - 1) {
-        writeRegister == fieldUsageRegister
+        fieldUsageRegister == writeRegister
     }
 
-    // If the instruction is a method call, then adjust from MOVE_RESULT to the method call.
+    // If the field is a method call, then adjust from MOVE_RESULT to the method call.
     val fieldSetOpcode = getInstruction(fieldSetIndex).opcode
     if (fieldSetOpcode == MOVE_RESULT ||
         fieldSetOpcode == MOVE_RESULT_WIDE ||
@@ -670,7 +670,7 @@ fun Method.indexOfFirstInstructionReversed(targetOpcode: Opcode): Int = indexOfF
 
 /**
  * Get the index of matching instruction,
- * starting from and [startIndex] and searching down.
+ * starting from [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
  * @return The index of the instruction.
@@ -693,7 +693,7 @@ fun Method.indexOfFirstInstructionReversedOrThrow(targetOpcode: Opcode): Int = i
 
 /**
  * Get the index of matching instruction,
- * starting from and [startIndex] and searching down.
+ * starting from [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
  * @return The index of the instruction.

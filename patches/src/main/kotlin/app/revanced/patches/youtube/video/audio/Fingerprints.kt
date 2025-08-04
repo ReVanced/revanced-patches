@@ -13,7 +13,7 @@ internal val formatStreamModelToStringFingerprint = fingerprint {
     }
 }
 
-internal const val AUDIO_STREAM_OVERRIDE_FEATURE_FLAG = 45666189L
+internal const val AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG = 45666189L
 
 internal val selectAudioStreamFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
@@ -21,7 +21,7 @@ internal val selectAudioStreamFingerprint = fingerprint {
     custom { method, _ ->
         method.parameters.size > 2 // Method has a large number of parameters and may change.
                 && method.parameters[1].type == "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;"
-                && method.containsLiteralInstruction(AUDIO_STREAM_OVERRIDE_FEATURE_FLAG)
+                && method.containsLiteralInstruction(AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG)
     }
 }
 

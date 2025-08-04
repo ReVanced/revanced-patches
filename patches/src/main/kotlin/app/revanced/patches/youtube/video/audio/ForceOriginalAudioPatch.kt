@@ -61,12 +61,12 @@ val forceOriginalAudioPatch = bytecodePatch(
             )
         )
 
-        // Disable feature flag that ignores the default track flag and
-        // instead overrides to the language of the users region.
+        // Disable feature flag that ignores the default track flag
+        // and instead overrides to the user region language.
         if (is_20_07_or_greater) {
             selectAudioStreamFingerprint.method.insertLiteralOverride(
-                AUDIO_STREAM_OVERRIDE_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->allowIgnoreDefaultAudioStream(Z)Z"
+                AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->ignoreDefaultAudioStream(Z)Z"
             )
         }
 
@@ -76,11 +76,10 @@ val forceOriginalAudioPatch = bytecodePatch(
             .findMethodFromToString("audioTrackDisplayName=")
         val audioTrackIdMethod = formatStreamModelToStringFingerprint.originalMethod
             .findMethodFromToString("audioTrackId=")
-        val formatStreamModelClass = proxy(classes.first {
-            it.type == audioTrackIdMethod.definingClass
-        }).mutableClass
 
-        formatStreamModelClass.apply {
+        proxy(classes.first {
+            it.type == audioTrackIdMethod.definingClass
+        }).mutableClass.apply {
             // Add a new field to store the override.
             val helperFieldName = "isDefaultAudioTrackOverride"
             fields.add(
@@ -101,7 +100,7 @@ val forceOriginalAudioPatch = bytecodePatch(
 
             // Add a helper method because the isDefaultAudioTrack() has only 2 registers and 3 are needed.
             val helperMethodClass = type
-            val helperMethodName = "extension_isDefaultAudioTrack"
+            val helperMethodName = "patch_isDefaultAudioTrack"
             val helperMethod = ImmutableMethod(
                 helperMethodClass,
                 helperMethodName,
