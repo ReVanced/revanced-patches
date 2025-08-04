@@ -1,3 +1,10 @@
+# [5.33.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.8...v5.33.0-dev.9) (2025-08-04)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** Disable a/b feature flag that forces localized audio ([#5582](https://github.com/ReVanced/revanced-patches/issues/5582)) ([9fe13ee](https://github.com/ReVanced/revanced-patches/commit/9fe13ee1af104c009efd19b826adef375e48e191))
+
 # [5.33.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.7...v5.33.0-dev.8) (2025-08-03)
 
 
