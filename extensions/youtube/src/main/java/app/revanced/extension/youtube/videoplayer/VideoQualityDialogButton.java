@@ -128,7 +128,7 @@ public class VideoQualityDialogButton {
                     },
                     view -> {
                         try {
-                            List<VideoQuality> qualities = RememberVideoQualityPatch.getCurrentQualities();
+                            VideoQuality[] qualities = RememberVideoQualityPatch.getCurrentQualities();
                             VideoQualityMenuInterface menu = RememberVideoQualityPatch.getCurrentMenuInterface();
                             if (qualities == null || menu == null) {
                                 Logger.printDebug(() -> "Cannot reset quality, videoQualities is null");
@@ -187,13 +187,13 @@ public class VideoQualityDialogButton {
      */
     private static void showVideoQualityDialog(Context context) {
         try {
-            List<VideoQuality> currentQualities = RememberVideoQualityPatch.getCurrentQualities();
+            VideoQuality[] currentQualities = RememberVideoQualityPatch.getCurrentQualities();
             VideoQuality currentQuality = RememberVideoQualityPatch.getCurrentQuality();
             if (currentQualities == null || currentQuality == null) {
                 Logger.printDebug(() -> "Cannot show qualities dialog, videoQualities is null");
                 return;
             }
-            if (currentQualities.size() < 2) {
+            if (currentQualities.length < 2) {
                 // Should never happen.
                 Logger.printException(() -> "Cannot show qualities dialog, no qualities available");
                 return;
@@ -206,9 +206,17 @@ public class VideoQualityDialogButton {
             }
 
             // -1 adjustment for automatic quality at first index.
-            final int listViewSelectedIndex = currentQualities.indexOf(currentQuality) - 1;
+            int listViewSelectedIndex = 0;
+            for (VideoQuality quality : currentQualities) {
+                if (quality == currentQuality) {
+                    // -1 adjustment for the missing automatic quality in the dialog list.
+                    listViewSelectedIndex--;
+                    break;
+                }
+                listViewSelectedIndex++;
+            }
 
-            List<String> qualityLabels = new ArrayList<>(currentQualities.size() - 1);
+            List<String> qualityLabels = new ArrayList<>(currentQualities.length - 1);
             for (VideoQuality availableQuality : currentQualities) {
                 if (availableQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
                     qualityLabels.add(availableQuality.patch_getQualityName());
@@ -311,7 +319,7 @@ public class VideoQualityDialogButton {
             listView.setOnItemClickListener((parent, view, which, id) -> {
                 try {
                     final int originalIndex = which + 1; // Adjust for automatic.
-                    VideoQuality selectedQuality = currentQualities.get(originalIndex);
+                    VideoQuality selectedQuality = currentQualities[originalIndex];
                     Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
 
                     if (RememberVideoQualityPatch.shouldRememberVideoQuality()) {
