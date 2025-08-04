@@ -44,6 +44,8 @@ public class RememberVideoQualityPatch {
     private static final IntegerSetting shortsQualityWifi = Settings.SHORTS_QUALITY_DEFAULT_WIFI;
     private static final IntegerSetting shortsQualityMobile = Settings.SHORTS_QUALITY_DEFAULT_MOBILE;
 
+    private static boolean qualityNeedsUpdating;
+
     /**
      * The available qualities of the current video.
      */
@@ -152,18 +154,25 @@ public class RememberVideoQualityPatch {
                 VideoQualityDialogButton.updateButtonIcon(updatedCurrentQuality);
             }
 
-            // After changing videos the qualities can initially be for the prior video.
-            // If the qualities have changed and the default is not auto then an update is needed.
             final int preferredQuality = getDefaultQualityResolution();
-            if (preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE || !availableQualitiesChanged) {
+            if (preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
                 return originalQualityIndex; // Nothing to do.
             }
+
+            // After changing videos the qualities can initially be for the prior video.
+            // If the qualities have changed and the default is not auto then an update is needed.
+            if (!qualityNeedsUpdating && !availableQualitiesChanged) {
+                return originalQualityIndex;
+            }
+            qualityNeedsUpdating = false;
 
             // Find the highest quality that is equal to or less than the preferred.
             int i = 0;
             for (VideoQuality quality : qualities) {
                 final int qualityResolution = quality.patch_getResolution();
-                if (qualityResolution != AUTOMATIC_VIDEO_QUALITY_VALUE && qualityResolution <= preferredQuality) {
+                if ((qualityResolution != AUTOMATIC_VIDEO_QUALITY_VALUE && qualityResolution <= preferredQuality)
+                        // Use the lowest video quality if the default is lower than all available.
+                        || i == qualities.length - 1) {
                     final boolean qualityNeedsChange = (i != originalQualityIndex);
                     Logger.printDebug(() -> qualityNeedsChange
                             ? "Changing video quality from: " + updatedCurrentQuality + " to: " + quality
@@ -235,6 +244,7 @@ public class RememberVideoQualityPatch {
         currentQualities = null;
         currentQuality = null;
         currentMenuInterface = null;
+        qualityNeedsUpdating = true;
 
         // Hide the quality button until playback starts and the qualities are available.
         VideoQualityDialogButton.updateButtonIcon(null);
