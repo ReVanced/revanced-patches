@@ -32,7 +32,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstructio
 import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.Reference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.EnumSet
@@ -170,6 +173,79 @@ internal val Instruction.isBranchInstruction: Boolean
  */
 internal val Instruction.isReturnInstruction: Boolean
     get() = this.opcode in returnOpcodes
+
+/**
+ * Find the instruction index used for a toString() StringBuilder write of a given String name.
+ *
+ * @param fieldName The name of the field to find.  Partial matches are allowed.
+ */
+private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
+    val stringIndex = indexOfFirstInstruction {
+        val reference = getReference<StringReference>()
+        reference?.string?.contains(fieldName) == true
+    }
+    if (stringIndex < 0) {
+        throw IllegalArgumentException("Could not find usage of string: '$fieldName'")
+    }
+    val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
+
+    // Find use of the string with a StringBuilder.
+    val stringUsageIndex = indexOfFirstInstruction(stringIndex) {
+        val reference = getReference<MethodReference>()
+        reference?.definingClass == "Ljava/lang/StringBuilder;" &&
+                (this as? FiveRegisterInstruction)?.registerD == stringRegister
+    }
+    if (stringUsageIndex < 0) {
+        throw IllegalArgumentException("Could not find StringBuilder usage in: $this")
+    }
+
+    // Find the next usage of StringBuilder, which should be the desired field.
+    val fieldUsageIndex = indexOfFirstInstruction(stringUsageIndex + 1) {
+        val reference = getReference<MethodReference>()
+        reference?.definingClass == "Ljava/lang/StringBuilder;" && reference.name == "append"
+    }
+    if (fieldUsageIndex < 0) {
+        // Should never happen.
+        throw IllegalArgumentException("Could not find StringBuilder append usage in: $this")
+    }
+    val fieldUsageRegister = getInstruction<FiveRegisterInstruction>(fieldUsageIndex).registerD
+
+    // Look backwards up the method to find the instruction that sets the register.
+    var fieldSetIndex = indexOfFirstInstructionReversedOrThrow(fieldUsageIndex - 1) {
+        fieldUsageRegister == writeRegister
+    }
+
+    // If the field is a method call, then adjust from MOVE_RESULT to the method call.
+    val fieldSetOpcode = getInstruction(fieldSetIndex).opcode
+    if (fieldSetOpcode == MOVE_RESULT ||
+        fieldSetOpcode == MOVE_RESULT_WIDE ||
+        fieldSetOpcode == MOVE_RESULT_OBJECT) {
+        fieldSetIndex--
+    }
+
+    return fieldSetIndex
+}
+
+/**
+ * Find the method used for a toString() StringBuilder write of a given String name.
+ *
+ * @param fieldName The name of the field to find.  Partial matches are allowed.
+ */
+context(BytecodePatchContext)
+internal fun Method.findMethodFromToString(fieldName: String) : MutableMethod {
+    val methodUsageIndex = findInstructionIndexFromToString(fieldName)
+    return navigate(this).to(methodUsageIndex).stop()
+}
+
+/**
+ * Find the field used for a toString() StringBuilder write of a given String name.
+ *
+ * @param fieldName The name of the field to find.  Partial matches are allowed.
+ */
+internal fun Method.findFieldFromToString(fieldName: String) : FieldReference {
+    val methodUsageIndex = findInstructionIndexFromToString(fieldName)
+    return getInstruction<ReferenceInstruction>(methodUsageIndex).getReference<FieldReference>()!!
+}
 
 /**
  * Adds public [AccessFlags] and removes private and protected flags (if present).
@@ -594,7 +670,7 @@ fun Method.indexOfFirstInstructionReversed(targetOpcode: Opcode): Int = indexOfF
 
 /**
  * Get the index of matching instruction,
- * starting from and [startIndex] and searching down.
+ * starting from [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
  * @return The index of the instruction.
@@ -617,7 +693,7 @@ fun Method.indexOfFirstInstructionReversedOrThrow(targetOpcode: Opcode): Int = i
 
 /**
  * Get the index of matching instruction,
- * starting from and [startIndex] and searching down.
+ * starting from [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
  * @return The index of the instruction.
