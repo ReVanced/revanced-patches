@@ -1,3 +1,10 @@
+# [5.33.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.11...v5.33.0-dev.12) (2025-08-04)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Fix dialog quality list check mark not always shown ([295f0f2](https://github.com/ReVanced/revanced-patches/commit/295f0f216b5e8aa9d68457862e73e312b7342703))
+
 # [5.33.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.10...v5.33.0-dev.11) (2025-08-04)
 
 
