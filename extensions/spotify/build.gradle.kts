@@ -2,6 +2,7 @@ import com.android.build.gradle.internal.tasks.factory.dependsOn
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
+    alias(libs.plugins.protobuf)
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
@@ -27,6 +28,7 @@ val relocateTask by tasks.register<ShadowJar>("relocateTask") {
     configurations = listOf(internalize)
 
     relocate("okhttp3", "app.revanced.extensions.spotify.okhttp3")
+    // relocate("com.google.protobuf", "app.revanced.extensions.spotify.com.google.protobuf")
 }
 
 tasks.build.dependsOn(relocateTask)
@@ -56,6 +58,22 @@ android {
         resources {
             excludes += "log4j2.xml"
             excludes += "META-INF/DEPENDENCIES"
+        }
+    }
+}
+
+protobuf {
+    protoc {
+        artifact = libs.protobuf.protoc.get().toString()
+    }
+
+    generateProtoTasks {
+        all().forEach { task ->
+            task.builtins {
+                create("java") {
+                    option("lite")
+                }
+            }
         }
     }
 }
