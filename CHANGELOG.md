@@ -1,3 +1,10 @@
+# [5.33.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.12...v5.33.0-dev.13) (2025-08-05)
+
+
+### Bug Fixes
+
+* **Messenger - Hide Facebook button:** Support the latest app version ([#5590](https://github.com/ReVanced/revanced-patches/issues/5590)) ([0cab98d](https://github.com/ReVanced/revanced-patches/commit/0cab98df1689dbf7a042f18f4a961d47da1430ad))
+
 # [5.33.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.11...v5.33.0-dev.12) (2025-08-04)
 
 
