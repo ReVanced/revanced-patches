@@ -440,10 +440,10 @@ Tính năng này chỉ khả dụng trên các thiết bị cũ"</string>
   <string name="revanced_share_copy_url_success">Đã sao chép URL vào bảng nhớ tạm</string>
   <string name="revanced_share_copy_url_timestamp_success">Đã sao chép URL kèm dấu thời gian</string>
   <string name="revanced_copy_video_url_title">Hiện nút sao chép URL video</string>
-  <string name="revanced_copy_video_url_summary_on">Nút được hiển thị. Nhấn để sao chép URL video. Nhấn và giữ để sao chép kèm dấu thời gian</string>
+  <string name="revanced_copy_video_url_summary_on">Nút đã được hiển thị. Nhấn để sao chép URL video. Nhấn và giữ để sao chép kèm dấu thời gian</string>
   <string name="revanced_copy_video_url_summary_off">Nút không được hiển thị</string>
   <string name="revanced_copy_video_url_timestamp_title">Hiện nút sao chép URL kèm dấu thời gian</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Nút được hiển thị. Nhấn để sao chép URL video kèm dấu thời gian. Nhấn giữ để sao chép không kèm dấu thời gian</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Nút đã được hiển thị. Nhấn để sao chép URL video kèm dấu thời gian. Nhấn giữ để sao chép không kèm dấu thời gian</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Nút không được hiển thị</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -1468,12 +1468,12 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Hiện nút hộp thoại tốc độ phát</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Nút được hiển thị. Nhấn và giữ để đặt lại tốc độ phát về mặc định</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Nút đã được hiển thị. Nhấn và giữ để đặt lại tốc độ phát về mặc định</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Nút không được hiển thị</string>
   </patch>
   <patch id="video.quality.button.videoQualityButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Hiện nút chất lượng video</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Nút đã được hiển thị. Chạm và giữ để đặt lại chất lượng về mặc định</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Nút đã được hiển thị. Nhấn và giữ để đặt lại chất lượng về mặc định</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Nút không được hiển thị</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
