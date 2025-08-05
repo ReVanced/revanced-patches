@@ -1456,10 +1456,18 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Se muestra el botón. Mantén pulsado para restablecer la velocidad de reproducción predeterminada</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">El botón no se muestra</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Mostrar botón de calidad de video</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Botón visible. Toca y mantén para restablecer la calidad a los valores predeterminados</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Botón no visible</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menú de velocidad de reproducción personalizada</string>
   <string name="revanced_custom_speed_menu_summary_on">Menú de velocidad personalizado se muestra</string>
   <string name="revanced_custom_speed_menu_summary_off">Menú de velocidad personalizado no se muestra</string>
+  <string name="revanced_restore_old_speed_menu_title">Restaurar el menú de velocidad de reproducción antiguo</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Se muestra el menú de velocidad antiguo</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Se muestra el menú de velocidad moderno</string>
   <string name="revanced_custom_playback_speeds_title">Velocidades de reproducción personalizadas</string>
   <string name="revanced_custom_playback_speeds_summary">Añadir o cambiar las velocidades de reproducción personalizadas</string>
   <string name="revanced_custom_playback_speeds_invalid">Las velocidades personalizadas deben ser menores que %s</string>

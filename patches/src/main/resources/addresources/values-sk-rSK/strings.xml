@@ -1458,10 +1458,18 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Zobrazuje sa tlačidlo. Ťuknite a podržte, ak chcete obnoviť predvolenú rýchlosť prehrávania</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tlačidlo nie je zobrazené</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Zobraziť tlačidlo kvality videa</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Tlačidlo sa zobrazí. Klepnite a podržte pre resetovanie kvality na predvolenú</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Tlačidlo sa nezobrazuje</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu vlastnej rýchlosti prehrávania</string>
   <string name="revanced_custom_speed_menu_summary_on">Menu vlastnej rýchlosti sa zobrazuje</string>
   <string name="revanced_custom_speed_menu_summary_off">Menu vlastnej rýchlosti sa nezobrazuje</string>
+  <string name="revanced_restore_old_speed_menu_title">Obnoviť staré menu rýchlosti prehrávania</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Zobrazuje sa staré menu rýchlosti</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Zobrazuje sa moderné menu rýchlosti</string>
   <string name="revanced_custom_playback_speeds_title">Vlastné rýchlosti prehrávania</string>
   <string name="revanced_custom_playback_speeds_summary">Pridať alebo zmeň vlastné rýchlosti prehrávania</string>
   <string name="revanced_custom_playback_speeds_invalid">Vlastné rýchlosti musia byť menšie ako %s</string>

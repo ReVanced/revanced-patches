@@ -21,6 +21,8 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
+  <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager द्वारा स्थापित छैन</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK निर्माण मिति खराब भएको छ</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <!-- Settings about dialog. -->
@@ -221,6 +223,8 @@ Second \"item\" text"</string>
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
+  </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   </patch>

@@ -1464,10 +1464,18 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Butonul este afișat. Atingeți și mențineți apăsat pentru a reseta viteza de redare la cea implicită</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Butonul nu este afișat</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Afișați butonul de calitate video</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Butonul este afișat. Atingeți și mențineți apăsat pentru a reseta calitatea la valoarea implicită</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Butonul nu este afișat.</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Meniu de redare personalizat</string>
   <string name="revanced_custom_speed_menu_summary_on">Meniul de viteză personalizat este afișat</string>
   <string name="revanced_custom_speed_menu_summary_off">Meniul de viteză personalizat nu este afișat</string>
+  <string name="revanced_restore_old_speed_menu_title">Restaurare meniu vechi de viteză de redare</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Meniul vechi de viteză este afișat</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Meniul modern de viteză este afișat</string>
   <string name="revanced_custom_playback_speeds_title">Viteze de redare personalizate</string>
   <string name="revanced_custom_playback_speeds_summary">Adaugă sau modifică vitezele de redare personalizate</string>
   <string name="revanced_custom_playback_speeds_invalid">Vitezele personalizate trebuie să fie mai mici de %s</string>

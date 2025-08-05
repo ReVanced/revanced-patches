@@ -207,9 +207,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_surveys_title">설문 조사 숨기기</string>
   <string name="revanced_hide_surveys_summary_on">설문 조사가 숨겨집니다</string>
   <string name="revanced_hide_surveys_summary_off">설문 조사가 표시됩니다</string>
-  <string name="revanced_hide_ticket_shelf_title">콘서트 선반 숨기기</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">콘서트 선반이 숨겨집니다</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">콘서트 선반이 표시됩니다</string>
+  <string name="revanced_hide_ticket_shelf_title">콘서트 티켓 선반 숨기기</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">콘서트 티켓 선반이 숨겨집니다</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">콘서트 티켓 선반이 표시됩니다</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_video_recommendation_labels_title">동영상 추천 라벨 숨기기</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">검색 결과에서 다음 라벨이 숨겨집니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
@@ -1472,10 +1472,18 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 누르면 동영상 재생 속도가 기본값으로 초기화됩니다</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">버튼을 표시하지 않습니다</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">동영상 화질 버튼 표시하기</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 누르면 화질이 기본값으로 초기화됩니다</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">버튼을 표시하지 않습니다</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">사용자 정의 동영상 재생 속도 활성화하기</string>
   <string name="revanced_custom_speed_menu_summary_on">사용자 정의 동영상 재생 속도를 활성화합니다</string>
   <string name="revanced_custom_speed_menu_summary_off">사용자 정의 동영상 재생 속도를 비활성화합니다</string>
+  <string name="revanced_restore_old_speed_menu_title">이전 재생 속도 메뉴 복원하기</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">이전 재생 속도 메뉴가 표시됩니다</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">모던 재생 속도 메뉴가 표시됩니다</string>
   <string name="revanced_custom_playback_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
   <string name="revanced_custom_playback_speeds_summary">동영상 재생 속도 값을 추가 또는 변경할 수 있습니다</string>
   <string name="revanced_custom_playback_speeds_invalid">재생 속도 값은 %s배속보다 작아야 합니다</string>

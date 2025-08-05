@@ -1460,10 +1460,18 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_playback_speed_dialog_button_summary_on">Die Schaltfläche wird angezeigt. Tippen und halten, um die Wiedergabegeschwindigkeit auf die Standardeinstellung zurückzusetzen.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Button wird nicht angezeigt</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Videoqualität-Schaltfläche anzeigen</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Schaltfläche wird angezeigt. Tippen und halten, um die Qualität auf Standard zurückzusetzen</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Schaltfläche wird nicht angezeigt</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Benutzerdefiniertes Wiedergabegeschwindigkeitsmenü</string>
   <string name="revanced_custom_speed_menu_summary_on">Benutzerdefiniertes Geschwindigkeitsmenü wird angezeigt</string>
   <string name="revanced_custom_speed_menu_summary_off">Benutzerdefiniertes Geschwindigkeitsmenü wird nicht angezeigt</string>
+  <string name="revanced_restore_old_speed_menu_title">Altes Wiedergabegeschwindigkeitsmenü wiederherstellen</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Altes Geschwindigkeitsmenü wird angezeigt</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Modernes Geschwindigkeitsmenü wird angezeigt</string>
   <string name="revanced_custom_playback_speeds_title">Benutzerdefinierte Wiedergabegeschwindigkeiten</string>
   <string name="revanced_custom_playback_speeds_summary">Hinzufügen oder Ändern der benutzerdefinierten Wiedergabegeschwindigkeit</string>
   <string name="revanced_custom_playback_speeds_invalid">Benutzerdefinierte Geschwindigkeiten müssen kleiner als %s sein</string>

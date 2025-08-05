@@ -1464,10 +1464,18 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_playback_speed_dialog_button_summary_on">Mygtukas rodomas. Palieskite ir palaikykite, kad atkūrimo greitį nustatytumėte į numatytąjį.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Mygtukas nerodomas</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Rodyti vaizdo kokybės mygtuką</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Mygtukas rodomas. Palaikykite nuspaudę, kad atstatytumėte kokybę į numatytąją</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Mygtukas nerodomas</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Tinkintas atkūrimo greičio meniu</string>
   <string name="revanced_custom_speed_menu_summary_on">Tinkintas greičio meniu rodomas</string>
   <string name="revanced_custom_speed_menu_summary_off">Tinkintas greičio meniu nerodomas</string>
+  <string name="revanced_restore_old_speed_menu_title">Atkurti seną atkūrimo greičio meniu</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Rodomas senas greičio meniu</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Rodomas modernus greičio meniu</string>
   <string name="revanced_custom_playback_speeds_title">Tinkintas atkūrimo greitis</string>
   <string name="revanced_custom_playback_speeds_summary">Pridėti arba pakeisti tinkintą atkūrimo greitį</string>
   <string name="revanced_custom_playback_speeds_invalid">Pasirinktinis greitis turi būti mažesnis nei %s</string>

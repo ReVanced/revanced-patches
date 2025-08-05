@@ -1467,10 +1467,18 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_playback_speed_dialog_button_summary_on">ปุ่มจะปรากฏขึ้น แตะค้างไว้เพื่อรีเซ็ตความเร็วในการเล่นเป็นค่าเริ่มต้น</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">ไม่แสดงปุ่ม</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">แสดงปุ่มคุณภาพวิดีโอ</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">แสดงปุ่มแล้ว แตะค้างไว้เพื่อรีเซ็ตคุณภาพเป็นค่าเริ่มต้น</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">ไม่ได้แสดงปุ่ม</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">เมนูกำหนดความเร็วในการเล่นแบบกำหนดเอง</string>
   <string name="revanced_custom_speed_menu_summary_on">แสดงเมนูกำหนดความเร็ว</string>
   <string name="revanced_custom_speed_menu_summary_off">ไม่แสดงเมนูกำหนดความเร็ว</string>
+  <string name="revanced_restore_old_speed_menu_title">คืนค่าเมนูความเร็วในการเล่นแบบเก่า</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">แสดงเมนูความเร็วแบบเก่า</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">แสดงเมนูความเร็วแบบใหม่</string>
   <string name="revanced_custom_playback_speeds_title">ความเร็วในการเล่นแบบกำหนดเอง</string>
   <string name="revanced_custom_playback_speeds_summary">เพิ่มหรือเปลี่ยนความเร็วในการเล่นแบบกำหนดเอง</string>
   <string name="revanced_custom_playback_speeds_invalid">ความเร็วที่กําหนดเองต้องน้อยกว่า %s</string>

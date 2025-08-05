@@ -18,7 +18,7 @@ import app.revanced.extension.youtube.settings.Settings;
 public final class AdvancedVideoQualityMenuPatch {
 
     /**
-     * Injection point.
+     * Injection point.  Regular videos.
      */
     public static void onFlyoutMenuCreate(RecyclerView recyclerView) {
         if (!Settings.ADVANCED_VIDEO_QUALITY_MENU.get()) return;
@@ -61,22 +61,12 @@ public final class AdvancedVideoQualityMenuPatch {
         });
     }
 
-
-    /**
-     * Injection point.
-     *
-     * Used to force the creation of the advanced menu item for the Shorts quality flyout.
-     */
-    public static boolean forceAdvancedVideoQualityMenuCreation(boolean original) {
-        return Settings.ADVANCED_VIDEO_QUALITY_MENU.get() || original;
-    }
-
     /**
      * Injection point.
      *
      * Shorts video quality flyout.
      */
-    public static void showAdvancedVideoQualityMenu(ListView listView) {
+    public static void addVideoQualityListMenuListener(ListView listView) {
         if (!Settings.ADVANCED_VIDEO_QUALITY_MENU.get()) return;
 
         listView.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() {
@@ -91,7 +81,6 @@ public final class AdvancedVideoQualityMenuPatch {
                     listView.setSoundEffectsEnabled(false);
                     final var qualityItemMenuPosition = 4;
                     listView.performItemClick(null, qualityItemMenuPosition, 0);
-
                 } catch (Exception ex) {
                     Logger.printException(() -> "showAdvancedVideoQualityMenu failure", ex);
                 }
@@ -101,5 +90,14 @@ public final class AdvancedVideoQualityMenuPatch {
             public void onChildViewRemoved(View parent, View child) {
             }
         });
+    }
+
+    /**
+     * Injection point.
+     *
+     * Used to force the creation of the advanced menu item for the Shorts quality flyout.
+     */
+    public static boolean forceAdvancedVideoQualityMenuCreation(boolean original) {
+        return Settings.ADVANCED_VIDEO_QUALITY_MENU.get() || original;
     }
 }

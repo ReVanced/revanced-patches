@@ -1463,10 +1463,18 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_playback_speed_dialog_button_summary_on">Ipinapakita ang button. I-tap at i-hold para i-reset ang bilis ng pag-playback sa default</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Hindi ipinapakita ang button</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Ipakita ang button ng kalidad ng video</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Nakalabas ang button. Pindutin nang matagal para ibalik sa default ang kalidad</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Hindi ipinapakita ang buton</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu ng pasadyang bilis ng pag-playback</string>
   <string name="revanced_custom_speed_menu_summary_on">Ipinapakita ang menu ng pasadyang bilis</string>
   <string name="revanced_custom_speed_menu_summary_off">Hindi ipinapakita ang menu ng pasadyang bilis</string>
+  <string name="revanced_restore_old_speed_menu_title">Ibalik ang lumang menu ng bilis ng pag-playback</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Ipinapakita ang lumang menu ng bilis</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Ipinapakita ang modernong menu ng bilis</string>
   <string name="revanced_custom_playback_speeds_title">Mga custom na bilis ng pag-playback</string>
   <string name="revanced_custom_playback_speeds_summary">Magdagdag o baguhin ang mga pasadyang bilis ng pag-playback</string>
   <string name="revanced_custom_playback_speeds_invalid">Ang mga custom na bilis ay dapat na mas mababa sa %s</string>

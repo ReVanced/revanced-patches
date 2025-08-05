@@ -1464,10 +1464,18 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Dugme je prikazano. Dodirnite i zadržite da biste vratili brzinu reprodukcije na podrazumevanu vrednost</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Dugme dijaloga za brzinu nije prikazano</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Prikaži dugme za kvalitet video zapisa</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Dugme je prikazano. Dodirnite i zadržite za resetovanje kvaliteta na podrazumevano</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Dugme nije prikazano</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Meni prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_speed_menu_summary_on">Meni prilagođene brzine reprodukcije je prikazan</string>
   <string name="revanced_custom_speed_menu_summary_off">Meni prilagođene brzine reprodukcije nije prikazan</string>
+  <string name="revanced_restore_old_speed_menu_title">Vrati stari meni za brzinu reprodukcije</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Prikazan je stari meni brzine reprodukcije</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Prikazan je moderni meni brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_title">Prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_summary">Dodajte ili promenite prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_invalid">Prilagođene brzine moraju biti manje od %s</string>

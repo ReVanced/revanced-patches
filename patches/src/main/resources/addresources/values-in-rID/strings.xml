@@ -1464,10 +1464,18 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Tombol ditampilkan. Ketuk dan tahan untuk mengatur ulang kecepatan pemutaran ke bawaan</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tombol tidak ditampilkan</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Tampilkan tombol kualitas video</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Tombol ditampilkan. Ketuk dan tahan untuk mengatur ulang kualitas ke bawaan</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Tombol tidak ditampilkan</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu kecepatan pemutaran khusus</string>
   <string name="revanced_custom_speed_menu_summary_on">Menu kecepatan khusus ditampilkan</string>
   <string name="revanced_custom_speed_menu_summary_off">Menu kecepatan khusus tidak ditampilkan</string>
+  <string name="revanced_restore_old_speed_menu_title">Pulihkan menu kecepatan pemutaran lama</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Menu kecepatan lama ditampilkan</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Menu kecepatan modern ditampilkan</string>
   <string name="revanced_custom_playback_speeds_title">Kecepatan pemutaran khusus</string>
   <string name="revanced_custom_playback_speeds_summary">Tambah atau ubah kecepatan pemutaran khusus</string>
   <string name="revanced_custom_playback_speeds_invalid">Kecepatan khusus harus kurang dari %s</string>
