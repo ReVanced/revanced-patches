@@ -1461,6 +1461,16 @@ public class Utils {
     }
 
     /**
+     * Uses {@link #adjustColorBrightness(int, float)} depending if light or dark mode is active.
+     */
+    @ColorInt
+    public static int adjustColorBrightness(@ColorInt int baseColor, float lightThemeFactor, float darkThemeFactor) {
+        return isDarkModeEnabled()
+                ? adjustColorBrightness(baseColor, darkThemeFactor)
+                : adjustColorBrightness(baseColor, lightThemeFactor);
+    }
+
+    /**
      * Adjusts the brightness of a color by lightening or darkening it based on the given factor.
      * <p>
      * If the factor is greater than 1, the color is lightened by interpolating toward white (#FFFFFF).

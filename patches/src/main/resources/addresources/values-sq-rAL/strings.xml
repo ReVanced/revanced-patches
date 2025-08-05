@@ -1463,10 +1463,18 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Butoni shfaqet. Prekni dhe mbani për të rivendosur shpejtësinë e riprodhimit në atë të parazgjedhur</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Butoni nuk shfaqet</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Shfaq butonin e cilësisë së videos</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Butoni shfaqet. Prekni dhe mbani shtypur për të rivendosur cilësinë në parazgjedhur</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Butoni nuk shfaqet</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menyja e shpejtësisë së përsëritjes së përshtatshme</string>
   <string name="revanced_custom_speed_menu_summary_on">Menyja e shpejtësisë së përshtatshme shfaqet</string>
   <string name="revanced_custom_speed_menu_summary_off">Menyja e shpejtësisë së përshtatshme nuk shfaqet</string>
+  <string name="revanced_restore_old_speed_menu_title">Rivendos menunë e vjetër të shpejtësisë së riprodhimit</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Menyja e vjetër e shpejtësisë shfaqet</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Menyja moderne e shpejtësisë shfaqet</string>
   <string name="revanced_custom_playback_speeds_title">Shpejtësi të përsëritjes së përshtatshme</string>
   <string name="revanced_custom_playback_speeds_summary">Shtoni ose ndryshoni shpejtësitë e përsëritjes së përshtatshme</string>
   <string name="revanced_custom_playback_speeds_invalid">Shpejtësitë e personalizuara duhet të jenë më të vogla se %s</string>

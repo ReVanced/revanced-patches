@@ -27,6 +27,16 @@ public class ForceOriginalAudioPatch {
     /**
      * Injection point.
      */
+    public static boolean ignoreDefaultAudioStream(boolean original) {
+        if (Settings.FORCE_ORIGINAL_AUDIO.get()) {
+            return false;
+        }
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean isDefaultAudioStream(boolean isDefault, String audioTrackId, String audioTrackDisplayName) {
         try {
             if (!Settings.FORCE_ORIGINAL_AUDIO.get()) {
@@ -50,7 +60,6 @@ public class ForceOriginalAudioPatch {
             return isOriginal;
         } catch (Exception ex) {
             Logger.printException(() -> "isDefaultAudioStream failure", ex);
-
             return isDefault;
         }
     }

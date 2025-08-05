@@ -1465,10 +1465,18 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Taispeántar an cnaipe. Tapáil agus coinnigh chun luas athsheinm a athshocrú go réamhshocrú</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Ní thaispeántar an cnaipe</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Taispeáin cnaipe cáilíochta físeáin</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Tá cnaipe le feiceáil. Tapáil agus coinnigh chun cáilíocht a athshocrú mar réamhshocrú</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Níl cnaipe le feiceáil</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Roghchlár luas athsheinm saincheaptha</string>
   <string name="revanced_custom_speed_menu_summary_on">Taispeántar roghchlár luais saincheaptha</string>
   <string name="revanced_custom_speed_menu_summary_off">Ní thaispeántar roghchlár luais saincheaptha</string>
+  <string name="revanced_restore_old_speed_menu_title">Athchóirigh an seanchalafort luais athsheinm</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Tá an seanchalafort luais taispeánta</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Tá an calafort luais nua-aimseartha taispeánta</string>
   <string name="revanced_custom_playback_speeds_title">Luas athsheinm saincheaptha</string>
   <string name="revanced_custom_playback_speeds_summary">Cuir leis nó athraigh na luasanna athsheinm saincheaptha</string>
   <string name="revanced_custom_playback_speeds_invalid">Ní mór luas saincheaptha a bheith níos lú ná %s</string>

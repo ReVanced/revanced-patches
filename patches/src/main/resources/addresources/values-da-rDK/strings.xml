@@ -1467,10 +1467,18 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Knappen vises. Tryk og hold for at nulstille afspilningshastigheden til standard.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Knap vises ikke</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Vis videokvalitetsknap</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Knap vises. Tryk og hold nede for at nulstille kvaliteten til standard</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Knappen vises ikke</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Tilpasset afspilningshastighed menu</string>
   <string name="revanced_custom_speed_menu_summary_on">Tilpasset hastighed menu er vist</string>
   <string name="revanced_custom_speed_menu_summary_off">Brugerdefineret hastighedsmenu vises ikke</string>
+  <string name="revanced_restore_old_speed_menu_title">Gendan gammel afspilningshastighedsmenu</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Gammel hastighedsmenu vises</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Moderne hastighedsmenu vises</string>
   <string name="revanced_custom_playback_speeds_title">Tilpasset afspilningshastighed</string>
   <string name="revanced_custom_playback_speeds_summary">Tilføj eller ændr den brugerdefinerede afspilningshastighed</string>
   <string name="revanced_custom_playback_speeds_invalid">Brugerdefinerede hastigheder skal være mindre end %s</string>

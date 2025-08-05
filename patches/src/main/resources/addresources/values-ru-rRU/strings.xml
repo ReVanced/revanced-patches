@@ -1472,10 +1472,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка показана. Нажмите и удерживайте, чтобы сбросить скорость воспроизведения до значения по умолчанию</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Показать кнопку качества видео</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Кнопка показана. Нажмите и удерживайте, чтобы сбросить качество до значения по умолчанию</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Показать кастомное меню скорости</string>
   <string name="revanced_custom_speed_menu_summary_on">Кастомное меню скорости воспроизведения показано</string>
   <string name="revanced_custom_speed_menu_summary_off">Кастомное меню скорости воспроизведения скрыто</string>
+  <string name="revanced_restore_old_speed_menu_title">Восстановить старое меню скорости воспроизведения</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Старое меню скорости показано</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Современное меню скорости показано</string>
   <string name="revanced_custom_playback_speeds_title">Кастомные скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_summary">Добавить или изменить кастомные скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_invalid">Кастомные скорости должны быть меньше, чем %s</string>

@@ -1464,10 +1464,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка показується. Натисніть і утримуйте, щоб відновити стандартну швидкість відтворення</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка швидкості відтворення не показується</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Кнопка якості відео</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Кнопка показується. Натисніть і утримуйте, щоб відновити стандартну якість</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Кнопка швидкості відтворення не показується</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Користувацьке меню швидкості відтворення</string>
   <string name="revanced_custom_speed_menu_summary_on">Користувацьке меню швидкості відтворення показується</string>
   <string name="revanced_custom_speed_menu_summary_off">Користувацьке меню швидкості відтворення не показується</string>
+  <string name="revanced_restore_old_speed_menu_title">Відновити старе меню швидкості відтворення</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Показується старе меню швидкості</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Показується новітнє меню швидкості</string>
   <string name="revanced_custom_playback_speeds_title">Користувацькі швидкості відтворення</string>
   <string name="revanced_custom_playback_speeds_summary">Додавання або зміна користувацьких швидкостей відтворення</string>
   <string name="revanced_custom_playback_speeds_invalid">Користувацькі швидкості повинні бути менші ніж %s</string>

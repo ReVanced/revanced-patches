@@ -1461,10 +1461,18 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_playback_speed_dialog_button_summary_on">বোতামটি দেখানো হয়েছে। প্লেব্যাক স্পীড ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন।</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">বোতাম প্রদর্শিত হয়নি</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">ভিডিও গুণমান বোতাম দেখান</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">বোতামটি দেখানো হয়েছে। গুণমান ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন।</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">বোতামটি দেখানো হয়নি।</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">কাস্টম প্লেব্যাক গতি মেনু</string>
   <string name="revanced_custom_speed_menu_summary_on">কাস্টম স্পিড মেনু দেখানো হচ্ছে</string>
   <string name="revanced_custom_speed_menu_summary_off">কাস্টম স্পিড মেনু দেখানো হচ্ছে না</string>
+  <string name="revanced_restore_old_speed_menu_title">পুরানো প্লেব্যাক গতি মেনু পুনরুদ্ধার করুন</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">পুরানো গতির মেনু দেখানো হয়েছে</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">আধুনিক গতির মেনু দেখানো হয়েছে</string>
   <string name="revanced_custom_playback_speeds_title">নিজস্ব প্লেব্যাক স্পিড</string>
   <string name="revanced_custom_playback_speeds_summary">কাস্টম প্লেব্যাক গতি যোগ করুন অথবা পরিবর্তন করুন</string>
   <string name="revanced_custom_playback_speeds_invalid">কাস্টম গতি %s এর চেয়ে কম হতে হবে</string>

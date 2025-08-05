@@ -475,9 +475,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_external_downloader_other_item">その他</string>
   <string name="revanced_external_downloader_not_found_title">アプリがインストールされていません</string>
   <string name="revanced_external_downloader_not_installed_warning">%s はインストールされていません。インストールしてください。</string>
-  <string name="revanced_external_downloader_package_not_found_warning">"パッケージ名 %s のインストール済みアプリが見つかりませんでした
+  <string name="revanced_external_downloader_package_not_found_warning">"パッケージ名「%s」のインストール済みアプリが見つかりませんでした
 
-パッケージ名が正しいこと、およびアプリがインストールされていることを確認してください"</string>
+パッケージ名が正しいこと、アプリがインストールされていることを確認してください"</string>
   <string name="revanced_external_downloader_empty_warning">パッケージ名は空欄にはできません</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
@@ -965,7 +965,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
 シークバー サムネイルは、動画の再生中の画質と同じ画質になります。
 
 この機能は、非常に高速なインターネット接続を使用して 720P 以下の画質で動画を視聴する場合に最適です。"</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_title">シーク中のサムネイルを旧バージョンに戻す</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">古いシークバー サムネイルを復元</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">シーク中のサムネイルはシークバーの上に表示されます</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">シーク中のサムネイルはプレーヤー画面全体に表示されます</string>
   </patch>
@@ -1199,8 +1199,8 @@ Automotive レイアウト
 
 再び無効にする場合には、UI のバグを防ぐためにアプリデータを消去することをお勧めします。"</string>
   <string name="revanced_spoof_app_version_target_title">アプリバージョン</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - ショート動画プレーヤーのアイコンが旧バージョン</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - ナビゲーション アイコンが旧バージョン</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 古いショート プレーヤーのアイコンを復元</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - 古いナビゲーション アイコンを復元</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">スタート画面を変更</string>
@@ -1348,8 +1348,8 @@ Automotive レイアウト
 
 詳細については、ここをタップしてください"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API 利用不可時にトーストを表示</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow が利用できない場合は、トーストポップアップが表示されます</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow が利用できない場合でも、トースト ポップアップは表示されません</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow が利用できない場合にトースト通知が表示されます</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow が利用できない場合にトースト通知は表示されません</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API のエンドポイント</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow がサムネイルのキャッシュを取得するエンドポイントの URL</string>
   <string name="revanced_alt_thumbnail_stills_about_title">静止画サムネイル</string>
@@ -1461,18 +1461,26 @@ Automotive レイアウト
   <string name="revanced_remember_video_quality_toast_shorts">ショートの画質 (%1$s): %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
-  <string name="revanced_playback_speed_dialog_button_title">再生速度設定ボタンを表示する</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">ボタンはオーバーレイに表示されます。長押しすると、再生速度がデフォルトの値にリセットされます</string>
+  <string name="revanced_playback_speed_dialog_button_title">再生速度設定ボタンを表示</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">ボタンがオーバーレイに表示されます。長押しすると、再生速度がデフォルトの値にリセットされます</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">ボタンはオーバーレイに表示されません</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">画質設定ボタンを表示</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">ボタンがオーバーレイに表示されます。長押しすると、画質がデフォルトの値にリセットされます</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">ボタンはオーバーレイに表示されません</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
-  <string name="revanced_custom_speed_menu_title">カスタムした再生速度リストを使用する</string>
-  <string name="revanced_custom_speed_menu_summary_on">カスタムした再生速度リストが表示されます</string>
-  <string name="revanced_custom_speed_menu_summary_off">デフォルトの再生速度リストが表示されます</string>
+  <string name="revanced_custom_speed_menu_title">カスタム再生速度メニュー</string>
+  <string name="revanced_custom_speed_menu_summary_on">カスタム再生速度リストが再生速度メニューに表示されます</string>
+  <string name="revanced_custom_speed_menu_summary_off">デフォルトの再生速度リストが再生速度メニューに表示されます</string>
+  <string name="revanced_restore_old_speed_menu_title">古い再生速度メニューを復元</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">古いスタイルの再生速度メニューが表示されます</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">新しいスタイルの再生速度メニューが表示されます</string>
   <string name="revanced_custom_playback_speeds_title">カスタム再生速度リスト</string>
-  <string name="revanced_custom_playback_speeds_summary">カスタム再生速度リストを編集します</string>
+  <string name="revanced_custom_playback_speeds_summary">カスタム再生速度を追加または変更します</string>
   <string name="revanced_custom_playback_speeds_invalid">再生速度は %s 未満である必要があります</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">カスタム再生速度リストが無効です</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">カスタム再生速度が無効です</string>
   <string name="revanced_custom_playback_speeds_auto">自動</string>
   <string name="revanced_speed_tap_and_hold_title">長押し倍速再生の速度</string>
   <string name="revanced_speed_tap_and_hold_summary">再生速度の範囲は 0-8 で、0 および 8 は含まれません</string>
@@ -1493,9 +1501,9 @@ Automotive レイアウト
   <string name="revanced_disable_hdr_video_summary_off">HDR 動画は有効です</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
-  <string name="revanced_advanced_video_quality_menu_title">画質の詳細設定メニューを使用する</string>
-  <string name="revanced_advanced_video_quality_menu_summary_on">画質設定メニューとして詳細設定メニューが表示されます</string>
-  <string name="revanced_advanced_video_quality_menu_summary_off">通常の画質設定メニューが表示されます</string>
+  <string name="revanced_advanced_video_quality_menu_title">画質の詳細設定メニューを表示</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">画質メニューとして詳細設定メニューが表示されます</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">通常の画質メニューが表示されます</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">スライドしてシークする機能を有効にする</string>

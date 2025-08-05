@@ -1462,10 +1462,18 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_playback_speed_dialog_button_summary_on">A gomb látható. Tartsa lenyomva a lejátszási sebesség alapértelmezettre állításához</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">A gomb nem látható</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Videóminőség gomb megjelenítése</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">A gomb látható. Tartsa lenyomva a minőséget az alapértelmezettre visszaállításához</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">A gomb nem látható</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Egyedi lejátszási sebesség menü</string>
   <string name="revanced_custom_speed_menu_summary_on">Megjelenik az egyéni sebesség menü</string>
   <string name="revanced_custom_speed_menu_summary_off">Az egyéni sebesség menü nem jelenik meg</string>
+  <string name="revanced_restore_old_speed_menu_title">Régi lejátszási sebesség menü visszaállítása</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">A régi sebességmenü megjelenik</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">A modern sebességmenü megjelenik</string>
   <string name="revanced_custom_playback_speeds_title">Egyedi lejátszási sebesség</string>
   <string name="revanced_custom_playback_speeds_summary">Egyéni lejátszási sebesség hozzáadása vagy módosítása</string>
   <string name="revanced_custom_playback_speeds_invalid">Az egyéni sebességeknek kevesebbnek kell lenniük, mint %s</string>

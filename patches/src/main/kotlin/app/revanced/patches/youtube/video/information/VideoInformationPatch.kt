@@ -9,7 +9,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
+import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.youtube.video.playerresponse.playerResponseMethodHookPatch
@@ -263,7 +263,7 @@ val videoInformationPatch = bytecodePatch(
 
         // Handle new playback speed menu.
         playbackSpeedMenuSpeedChangedFingerprint.match(
-            newVideoQualityChangedFingerprint.originalClassDef,
+            videoQualityChangedFingerprint.originalClassDef,
         ).method.apply {
             val index = indexOfFirstInstructionOrThrow(Opcode.IGET)
 

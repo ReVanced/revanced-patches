@@ -333,10 +333,8 @@ class AbstractPreferenceSearchData<T extends Preference> {
             return text;
         }
 
-        final int baseColor = Utils.getAppBackgroundColor();
-        final int adjustedColor = Utils.isDarkModeEnabled()
-                ? Utils.adjustColorBrightness(baseColor, 1.20f)  // Lighten for dark theme.
-                : Utils.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
+        final int adjustedColor = Utils.adjustColorBrightness(Utils.getAppBackgroundColor(),
+                0.95f, 1.20f);
         BackgroundColorSpan highlightSpan = new BackgroundColorSpan(adjustedColor);
 
         SpannableStringBuilder spannable = new SpannableStringBuilder(text);

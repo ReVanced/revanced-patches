@@ -1465,10 +1465,18 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Nupp on nähtaval. Puudutage ja hoidke all, et taastada taasesituse kiirus vaikeväärtusele</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Nuppi ei kuvata</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Näita video kvaliteedi nuppu</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Nupp on nähtaval. Kvaliteedi lähtestamiseks vaikeseadeteks puudutage ja hoidke</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Nuppu ei kuvata</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Kohandatud taasesituse kiiruse menüü</string>
   <string name="revanced_custom_speed_menu_summary_on">Kohandatud kiiruse menüü kuvatakse</string>
   <string name="revanced_custom_speed_menu_summary_off">Kohandatud kiiruse menüüd ei kuvata</string>
+  <string name="revanced_restore_old_speed_menu_title">Taasta vana taasesituse kiiruse menüü</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Kuvatakse vana kiiruse menüü</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Kuvatakse kaasaegne kiiruse menüü</string>
   <string name="revanced_custom_playback_speeds_title">Kohandatud taasesituse kiirused</string>
   <string name="revanced_custom_playback_speeds_summary">Lisa või muuda kohandatud taasesituse kiirusi</string>
   <string name="revanced_custom_playback_speeds_invalid">Kohandatud kiirused peavad olema alla %s</string>

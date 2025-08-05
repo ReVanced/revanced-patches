@@ -1465,10 +1465,18 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Gumb je prikazan. Dotaknite se ga in ga pridržite, da ponastavite hitrost predvajanja na privzeto.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Gumb ni prikazan</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Prikaži gumb za kakovost videa</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Prikazan je gumb. Dotaknite se in držite, da ponastavite kakovost na privzeto</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Gumb ni prikazan</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Meni za nastavitev hitrosti predvajanja</string>
   <string name="revanced_custom_speed_menu_summary_on">Meni za nastavitev hitrosti je prikazan</string>
   <string name="revanced_custom_speed_menu_summary_off">Meni za nastavitev hitrosti ni prikazan</string>
+  <string name="revanced_restore_old_speed_menu_title">Obnovi stari meni hitrosti predvajanja</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Prikazan je stari meni hitrosti</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Prikazan je sodoben meni hitrosti</string>
   <string name="revanced_custom_playback_speeds_title">Nastavitev hitrosti predvajanja po meri</string>
   <string name="revanced_custom_playback_speeds_summary">Dodajte ali spremenite hitrosti predvajanja po meri</string>
   <string name="revanced_custom_playback_speeds_invalid">Hitrosti predvajanja po meri morajo biti manjše od %s</string>

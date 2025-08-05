@@ -1470,10 +1470,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">按钮已显示。点住即可将播放速度重置为默认值</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">按钮未显示</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">显示视频质量按钮</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">按钮已显示。点按并按住以将画质重置为默认值</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">按钮未显示</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">自定义播放速度菜单</string>
   <string name="revanced_custom_speed_menu_summary_on">显示自定义速度菜单</string>
   <string name="revanced_custom_speed_menu_summary_off">不显示自定义速度菜单</string>
+  <string name="revanced_restore_old_speed_menu_title">恢复旧版播放速度菜单</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">显示旧版速度菜单</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">显示新版速度菜单</string>
   <string name="revanced_custom_playback_speeds_title">自定义播放速度</string>
   <string name="revanced_custom_playback_speeds_summary">添加或更改自定义播放速度</string>
   <string name="revanced_custom_playback_speeds_invalid">自定义速度必须小于 %s</string>

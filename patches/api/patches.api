@@ -424,6 +424,10 @@ public final class app/revanced/patches/openinghours/misc/fix/crash/FixCrashPatc
 	public static final fun getFixCrashPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/orfon/detection/root/RemoveRootDetectionPatchKt {
+	public static final fun getRemoveRootDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/pandora/ads/DisableAudioAdsPatchKt {
 	public static final fun getDisableAudioAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1658,6 +1662,10 @@ public final class app/revanced/patches/youtube/video/quality/RememberVideoQuali
 
 public final class app/revanced/patches/youtube/video/quality/VideoQualityPatchKt {
 	public static final fun getVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/video/quality/button/VideoQualityDialogButtonPatchKt {
+	public static final fun getVideoQualityButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatchKt {

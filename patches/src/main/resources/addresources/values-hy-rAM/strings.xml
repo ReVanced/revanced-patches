@@ -1466,10 +1466,18 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_playback_speed_dialog_button_summary_on">Կոճակը ցուցադրվում է: Հպեք և պահեք՝ նվագարկման արագությունը լռելյայնի վերականգնելու համար</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Կոճակը  չի  ցուցադրվում</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Ցուցադրել տեսանյութի որակի կոճակը</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Կոճակը ցուցադրված է։ Հպեք և պահեք՝ որակը լռելյայնին վերականգնելու համար</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Կոճակը ցուցադրված չէ։</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Տեսանյութի  արագության  հարմարեցված  մենյու</string>
   <string name="revanced_custom_speed_menu_summary_on">Հարմարեցված  արագության  մենյուը  ցուցադրվում է</string>
   <string name="revanced_custom_speed_menu_summary_off">Հարմարեցված  արագության  մենյուը  չի  ցուցադրվում</string>
+  <string name="revanced_restore_old_speed_menu_title">Վերականգնել հին նվագարկման արագության ընտրացանկը</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Ցուցադրվում է հին արագության ընտրացանկը</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Ցուցադրվում է ժամանակակից արագության ընտրացանկը</string>
   <string name="revanced_custom_playback_speeds_title">Տեսանյութի  վերարտադրման  հարմարեցված  արագություններ</string>
   <string name="revanced_custom_playback_speeds_summary">Ավելացնել  կամ  փոփոխել  տեսանյութի  վերարտադրման  հարմարեցված  արագությունները</string>
   <string name="revanced_custom_playback_speeds_invalid">Պատրաստված արագությունները պետք է լինեն ավելի քիչ քան %s</string>

@@ -3,7 +3,6 @@ package app.revanced.extension.youtube.patches.components;
 import static app.revanced.extension.shared.StringRef.str;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -146,7 +145,7 @@ final class CustomFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // All callbacks are custom filter groups.
         CustomFilterGroup custom = (CustomFilterGroup) matchedGroup;
@@ -158,6 +157,6 @@ final class CustomFilter extends Filter {
             return true; // No buffer filter, only path filtering.
         }
 
-        return custom.bufferSearch.matches(protobufBufferArray);
+        return custom.bufferSearch.matches(buffer);
     }
 }

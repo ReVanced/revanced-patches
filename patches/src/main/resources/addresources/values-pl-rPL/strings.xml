@@ -1461,10 +1461,18 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Przycisk jest widoczny. Dotknij i przytrzymaj, aby zresetować prędkość odtwarzania do domyślnej</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Przycisk nie jest widoczny</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Pokaż przycisk jakości wideo</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Przycisk jest widoczny. Dotknij i przytrzymaj, aby zresetować jakość do wartości domyślnych</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Przycisk nie jest widoczny</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Niestandardowe menu prędkości odtwarzania</string>
   <string name="revanced_custom_speed_menu_summary_on">Niestandardowe menu prędkości jest widoczne</string>
   <string name="revanced_custom_speed_menu_summary_off">Niestandardowe menu prędkości nie jest widoczne</string>
+  <string name="revanced_restore_old_speed_menu_title">Przywróć stare menu prędkości odtwarzania</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Pokazane jest stare menu prędkości</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Pokazane jest nowoczesne menu prędkości</string>
   <string name="revanced_custom_playback_speeds_title">Niestandardowe prędkości odtwarzania</string>
   <string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień niestandardowe prędkości odtwarzania</string>
   <string name="revanced_custom_playback_speeds_invalid">Prędkości niestandardowe muszą być mniejsze niż %s</string>
