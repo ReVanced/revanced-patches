@@ -1,3 +1,30 @@
+# [5.33.0](https://github.com/ReVanced/revanced-patches/compare/v5.32.0...v5.33.0) (2025-08-05)
+
+
+### Bug Fixes
+
+* **Messenger - Hide Facebook button:** Support the latest app version ([#5590](https://github.com/ReVanced/revanced-patches/issues/5590)) ([0cab98d](https://github.com/ReVanced/revanced-patches/commit/0cab98df1689dbf7a042f18f4a961d47da1430ad))
+* **NFC Tools:** Remove broken patch that is no longer supported ([#5584](https://github.com/ReVanced/revanced-patches/issues/5584)) ([cd3a6be](https://github.com/ReVanced/revanced-patches/commit/cd3a6be75c6bd3cc33c0b17a044bd6147f27b5ce))
+* **YouTube - Force original audio:** Disable a/b feature flag that forces localized audio ([#5582](https://github.com/ReVanced/revanced-patches/issues/5582)) ([9fe13ee](https://github.com/ReVanced/revanced-patches/commit/9fe13ee1af104c009efd19b826adef375e48e191))
+* **YouTube - Litho filter:** Correctly filter identifier of older YouTube targets ([bf29d69](https://github.com/ReVanced/revanced-patches/commit/bf29d6909e389819bad878ad3b94bbc90d823cc9))
+* **YouTube - Playback speed:** Use old speed menu for player button if enabled ([1e8f436](https://github.com/ReVanced/revanced-patches/commit/1e8f4368e117f4b278c24709231cb32546e46dc0))
+* **YouTube - Video quality:** Fix 144p default not always used ([2f7483a](https://github.com/ReVanced/revanced-patches/commit/2f7483a2d789c28a243b58bb7a252c0d590858ee))
+* **YouTube - Video quality:** Fix dialog quality list check mark not always shown ([295f0f2](https://github.com/ReVanced/revanced-patches/commit/295f0f216b5e8aa9d68457862e73e312b7342703))
+* **YouTube - Video quality:** Fix wrong qualities sometimes shown in player button dialog ([7378ae3](https://github.com/ReVanced/revanced-patches/commit/7378ae3c5fc88f91bf5cd6db47c6cd170a8c5a4f))
+* **YouTube - Video quality:** Use 1080p enhanced bitrate for Premium users ([#5565](https://github.com/ReVanced/revanced-patches/issues/5565)) ([bd3ace0](https://github.com/ReVanced/revanced-patches/commit/bd3ace0bd04ccd0369adb49d63aa0cf986402346))
+
+
+### Features
+
+* **ORF ON:** Add `Remove root detection` patch ([#5551](https://github.com/ReVanced/revanced-patches/issues/5551)) ([6c6aa35](https://github.com/ReVanced/revanced-patches/commit/6c6aa35411a139dddc3a15dd757fbeded5d1a0a3))
+* **YouTube - Playback speed:** Add "Restore old playback speed menu" option ([#5552](https://github.com/ReVanced/revanced-patches/issues/5552)) ([b01f15b](https://github.com/ReVanced/revanced-patches/commit/b01f15b9acb0427aed99b0141ae271831b7936bf))
+* **YouTube:** Add player button to change video quality ([#5435](https://github.com/ReVanced/revanced-patches/issues/5435)) ([d5f51bf](https://github.com/ReVanced/revanced-patches/commit/d5f51bf400dd22626ff65d7563b6fde70d53fb25))
+
+
+### Performance Improvements
+
+* **YouTube:** Filter identifier callback only on root component creation ([#5558](https://github.com/ReVanced/revanced-patches/issues/5558)) ([ccac46e](https://github.com/ReVanced/revanced-patches/commit/ccac46eebc2e14b094454e37ef4461d48a62c53f))
+
 # [5.33.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.12...v5.33.0-dev.13) (2025-08-05)
 
 
