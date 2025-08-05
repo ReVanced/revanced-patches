@@ -1466,7 +1466,7 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   </patch>
   <patch id="video.quality.button.videoQualityButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Mostra il pulsante qualità video</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Il pulsante è visibile. Tocca e tieni premuto per ripristinare la qualità predefinita.</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Il pulsante è visualizzato. Tocca e tieni premuto per ripristinare la qualità predefinita</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Il pulsante non è visibile.</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">

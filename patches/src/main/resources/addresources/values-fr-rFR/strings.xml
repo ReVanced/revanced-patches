@@ -1468,7 +1468,7 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   </patch>
   <patch id="video.quality.button.videoQualityButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Afficher le bouton de qualité vidéo</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Le bouton est affiché. Appuyez longuement pour réinitialiser la qualité par défaut</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Le bouton est affiché. Appuyez longuement pour rétablir la qualité par défaut.</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Le bouton n\'est pas affiché</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
