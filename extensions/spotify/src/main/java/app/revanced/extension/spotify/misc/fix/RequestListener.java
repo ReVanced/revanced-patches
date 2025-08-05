@@ -2,10 +2,10 @@ package app.revanced.extension.spotify.misc.fix;
 
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp;
+import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp.ClientTokenResponse;
 import com.google.protobuf.MessageLite;
-import com.spotify.clienttoken.http.v0.ClientToken.ClientTokenResponse;
 import fi.iki.elonen.NanoHTTPD;
-import xyz.gianlu.librespot.core.Session;
 
 import java.io.ByteArrayInputStream;
 import java.io.FilterInputStream;

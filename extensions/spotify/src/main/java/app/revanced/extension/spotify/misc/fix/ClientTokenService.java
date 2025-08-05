@@ -3,8 +3,7 @@ package app.revanced.extension.spotify.misc.fix;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
-import com.spotify.clienttoken.data.v0.Connectivity.*;
-import com.spotify.clienttoken.http.v0.ClientToken.*;
+import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp.*;
 
 import java.io.IOException;
 import java.io.InputStream;
