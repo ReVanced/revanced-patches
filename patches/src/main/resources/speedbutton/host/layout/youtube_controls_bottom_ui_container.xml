@@ -30,9 +30,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="8dp"
+                android:textSize="9dp"
                 android:paddingTop="5.0dp"
                 android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
                 android:visibility="gone" />
 
         <View

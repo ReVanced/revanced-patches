@@ -81,7 +81,6 @@ public class PlayerControlButton {
 
         imageView.setOnClickListener(onClickListener);
         if (longClickListener != null) {
-            imageView.setOnClickListener(onClickListener);
             imageView.setOnLongClickListener(longClickListener);
         }
 
@@ -243,7 +242,7 @@ public class PlayerControlButton {
      * Sets the text to be displayed on the text overlay.
      * @param text The text to set on the overlay, or null to clear the text.
      */
-    public void setTextOverlay(String text) {
+    public void setTextOverlay(CharSequence text) {
         try {
             TextView textOverlay = textOverlayRef.get();
             if (textOverlay != null) {
