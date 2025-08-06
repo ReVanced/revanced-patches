@@ -28,6 +28,7 @@ public class VotingButton {
                     controlsView,
                     "revanced_sb_voting_button",
                     null,
+                    null,
                     VotingButton::shouldBeShown,
                     v -> SponsorBlockUtils.onVotingClicked(v.getContext()),
                     null

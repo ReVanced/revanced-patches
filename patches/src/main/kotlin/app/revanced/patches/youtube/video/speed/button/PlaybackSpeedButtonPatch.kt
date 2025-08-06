@@ -22,6 +22,7 @@ private val playbackSpeedButtonResourcePatch = resourcePatch {
             ResourceGroup(
                 "drawable",
                 "revanced_playback_speed_dialog_button.xml",
+                "revanced_playback_speed_dialog_button_rectangle.xml",
             ),
         )
 

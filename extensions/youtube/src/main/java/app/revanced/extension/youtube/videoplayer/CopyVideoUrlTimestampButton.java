@@ -23,6 +23,7 @@ public class CopyVideoUrlTimestampButton {
                     controlsView,
                     "revanced_copy_video_url_timestamp_button",
                     "revanced_copy_video_url_timestamp_button_placeholder",
+                    null,
                     Settings.COPY_VIDEO_URL_TIMESTAMP::get,
                     view -> CopyVideoUrlPatch.copyUrl(true),
                     view -> {

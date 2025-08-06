@@ -23,6 +23,7 @@ public class CopyVideoUrlButton {
                     controlsView,
                     "revanced_copy_video_url_button",
                     "revanced_copy_video_url_button_placeholder",
+                    null,
                     Settings.COPY_VIDEO_URL::get,
                     view -> CopyVideoUrlPatch.copyUrl(false),
                     view -> {

@@ -4,6 +4,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
+import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
@@ -50,12 +51,14 @@ public class PlayerControlButton {
      * fade out animation runs. Without this the chapter titles overlapping the button when fading out.
      */
     private final WeakReference<View> placeHolderRef;
+    private final WeakReference<TextView> textOverlayRef;
     private final PlayerControlButtonVisibility visibilityCheck;
     private boolean isVisible;
 
     public PlayerControlButton(View controlsViewGroup,
                                String imageViewButtonId,
                                @Nullable String placeholderId,
+                               @Nullable String textOverlayId,
                                PlayerControlButtonVisibility buttonVisibility,
                                View.OnClickListener onClickListener,
                                @Nullable View.OnLongClickListener longClickListener) {
@@ -69,8 +72,16 @@ public class PlayerControlButton {
         }
         placeHolderRef = new WeakReference<>(tempPlaceholder);
 
+        TextView tempTextOverlay = null;
+        if (textOverlayId != null) {
+            tempTextOverlay = Utils.getChildViewByResourceName(controlsViewGroup, textOverlayId);
+            tempTextOverlay.setVisibility(View.GONE);
+        }
+        textOverlayRef = new WeakReference<>(tempTextOverlay);
+
         imageView.setOnClickListener(onClickListener);
         if (longClickListener != null) {
+            imageView.setOnClickListener(onClickListener);
             imageView.setOnLongClickListener(longClickListener);
         }
 
@@ -115,14 +126,23 @@ public class PlayerControlButton {
             if (button == null) return;
 
             View placeholder = placeHolderRef.get();
+            TextView textOverlay = textOverlayRef.get();
             final boolean shouldBeShown = visibilityCheck.shouldBeShown();
 
             if (visible && shouldBeShown) {
                 button.clearAnimation();
                 if (animated) {
-                    button.startAnimation(PlayerControlButton.fadeInAnimation);
+                    button.startAnimation(fadeInAnimation);
                 }
                 button.setVisibility(View.VISIBLE);
+
+                if (textOverlay != null) {
+                    textOverlay.clearAnimation();
+                    if (animated) {
+                        textOverlay.startAnimation(fadeInAnimation);
+                    }
+                    textOverlay.setVisibility(View.VISIBLE);
+                }
 
                 if (placeholder != null) {
                     placeholder.setVisibility(View.GONE);
@@ -131,9 +151,17 @@ public class PlayerControlButton {
                 if (button.getVisibility() == View.VISIBLE) {
                     button.clearAnimation();
                     if (animated) {
-                        button.startAnimation(PlayerControlButton.fadeOutAnimation);
+                        button.startAnimation(fadeOutAnimation);
                     }
                     button.setVisibility(View.GONE);
+                }
+
+                if (textOverlay != null && textOverlay.getVisibility() == View.VISIBLE) {
+                    textOverlay.clearAnimation();
+                    if (animated) {
+                        textOverlay.startAnimation(fadeOutAnimation);
+                    }
+                    textOverlay.setVisibility(View.GONE);
                 }
 
                 if (placeholder != null) {
@@ -160,17 +188,21 @@ public class PlayerControlButton {
 
         button.clearAnimation();
         View placeholder = placeHolderRef.get();
+        TextView textOverlay = textOverlayRef.get();
 
         if (visibilityCheck.shouldBeShown()) {
             if (isVisible) {
                 button.setVisibility(View.VISIBLE);
+                if (textOverlay != null) textOverlay.setVisibility(View.VISIBLE);
                 if (placeholder != null) placeholder.setVisibility(View.GONE);
             } else {
                 button.setVisibility(View.GONE);
+                if (textOverlay != null) textOverlay.setVisibility(View.GONE);
                 if (placeholder != null) placeholder.setVisibility(View.VISIBLE);
             }
         } else {
             button.setVisibility(View.GONE);
+            if (textOverlay != null) textOverlay.setVisibility(View.GONE);
             if (placeholder != null) placeholder.setVisibility(View.GONE);
         }
     }
@@ -185,6 +217,10 @@ public class PlayerControlButton {
 
         view = placeHolderRef.get();
         if (view != null) view.setVisibility(View.GONE);
+
+        TextView textOverlay = textOverlayRef.get();
+        if (textOverlay != null) textOverlay.setVisibility(View.GONE);
+
         isVisible = false;
     }
 
@@ -200,6 +236,21 @@ public class PlayerControlButton {
             }
         } catch (Exception ex) {
             Logger.printException(() -> "setIcon failure", ex);
+        }
+    }
+
+    /**
+     * Sets the text to be displayed on the text overlay.
+     * @param text The text to set on the overlay, or null to clear the text.
+     */
+    public void setTextOverlay(String text) {
+        try {
+            TextView textOverlay = textOverlayRef.get();
+            if (textOverlay != null) {
+                textOverlay.setText(text);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "setTextOverlay failure", ex);
         }
     }
 

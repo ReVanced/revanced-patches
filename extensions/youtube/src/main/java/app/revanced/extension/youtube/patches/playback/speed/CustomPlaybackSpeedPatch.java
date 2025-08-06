@@ -44,6 +44,7 @@ import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilter;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
+import app.revanced.extension.youtube.videoplayer.PlaybackSpeedDialogButton;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
@@ -402,6 +403,7 @@ public class CustomPlaybackSpeedPatch {
             RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(roundedSpeed);
             currentSpeedText.setText(formatSpeedStringX(roundedSpeed, 2)); // Update display.
             speedSlider.setProgress(speedToProgressValue(roundedSpeed)); // Update slider.
+            PlaybackSpeedDialogButton.updateButtonAppearance(); // Update speed button.
             return null;
         };
 
