@@ -984,6 +984,10 @@ public final class app/revanced/patches/spotify/misc/privacy/SanitizeSharingLink
 	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/spotify/misc/volume/ForceLocalPlaybackPatchKt {
+	public static final fun getForceLocalPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/spotify/misc/widgets/FixThirdPartyLaunchersWidgetsKt {
 	public static final fun getFixThirdPartyLaunchersWidgets ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
