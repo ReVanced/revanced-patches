@@ -337,9 +337,12 @@ public class VideoQualityDialogButton {
                     portraitWidth = Math.min(
                             portraitWidth,
                             context.getResources().getDisplayMetrics().heightPixels);
+                    // Limit height in landscape mode.
+                    params.height = Utils.percentageHeightToPixels(80);
+                } else {
+                    params.height = WindowManager.LayoutParams.WRAP_CONTENT;
                 }
                 params.width = portraitWidth;
-                params.height = WindowManager.LayoutParams.WRAP_CONTENT;
                 window.setAttributes(params);
                 window.setBackgroundDrawable(null);
             }
