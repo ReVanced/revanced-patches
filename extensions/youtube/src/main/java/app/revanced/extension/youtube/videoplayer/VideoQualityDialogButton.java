@@ -2,9 +2,9 @@ package app.revanced.extension.youtube.videoplayer;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
-import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE;
-import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.VIDEO_QUALITY_1080P_PREMIUM_NAME;
-import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.VideoQualityMenuInterface;
+import static app.revanced.extension.youtube.patches.VideoInformation.AUTOMATIC_VIDEO_QUALITY_VALUE;
+import static app.revanced.extension.youtube.patches.VideoInformation.VIDEO_QUALITY_1080P_PREMIUM_NAME;
+import static app.revanced.extension.youtube.patches.VideoInformation.VideoQualityMenuInterface;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -40,8 +40,10 @@ import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch;
 import app.revanced.extension.youtube.settings.Settings;
+import kotlin.Unit;
 
 @SuppressWarnings("unused")
 public class VideoQualityDialogButton {
@@ -51,6 +53,85 @@ public class VideoQualityDialogButton {
 
     @Nullable
     private static CharSequence currentOverlayText;
+
+    /**
+     * Injection point.
+     */
+    public static void initializeButton(View controlsView) {
+        try {
+            instance = new PlayerControlButton(
+                    controlsView,
+                    "revanced_video_quality_dialog_button",
+                    "revanced_video_quality_dialog_button_placeholder",
+                    "revanced_video_quality_dialog_button_text",
+                    Settings.VIDEO_QUALITY_DIALOG_BUTTON::get,
+                    view -> {
+                        try {
+                            showVideoQualityDialog(view.getContext());
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "Video quality button onClick failure", ex);
+                        }
+                    },
+                    view -> {
+                        try {
+                            VideoQuality[] qualities = VideoInformation.getCurrentQualities();
+                            VideoQualityMenuInterface menu = VideoInformation.getCurrentMenuInterface();
+                            if (qualities == null || menu == null) {
+                                Logger.printDebug(() -> "Cannot reset quality, videoQualities is null");
+                                return true;
+                            }
+
+                            // Reset to default quality.
+                            final int defaultResolution = RememberVideoQualityPatch.getDefaultQualityResolution();
+                            for (VideoQuality quality : qualities) {
+                                final int resolution = quality.patch_getResolution();
+                                if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
+                                    Logger.printDebug(() -> "Resetting quality to: " + quality);
+                                    menu.patch_setQuality(quality);
+                                    return true;
+                                }
+                            }
+
+                            // Existing hook cannot set default quality to auto.
+                            // Instead show the quality dialog.
+                            showVideoQualityDialog(view.getContext());
+                            return true;
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "Video quality button reset failure", ex);
+                        }
+                        return false;
+                    }
+            );
+
+            // Set initial text.
+            updateButtonText(VideoInformation.getCurrentQuality());
+
+            VideoInformation.onQualityChange.addObserver((@Nullable VideoQuality quality) -> {
+                updateButtonText(quality);
+                return Unit.INSTANCE;
+            });
+        } catch (Exception ex) {
+            Logger.printException(() -> "initializeButton failure", ex);
+        }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setVisibilityImmediate(boolean visible) {
+        if (instance != null) {
+            instance.setVisibilityImmediate(visible);
+        }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setVisibility(boolean visible, boolean animated) {
+        if (instance != null) {
+            instance.setVisibility(visible, animated);
+        }
+    }
 
     /**
      * Updates the button text based on the current video quality.
@@ -96,88 +177,12 @@ public class VideoQualityDialogButton {
     }
 
     /**
-     * Injection point.
-     */
-    public static void initializeButton(View controlsView) {
-        try {
-            instance = new PlayerControlButton(
-                    controlsView,
-                    "revanced_video_quality_dialog_button",
-                    "revanced_video_quality_dialog_button_placeholder",
-                    "revanced_video_quality_dialog_button_text",
-                    Settings.VIDEO_QUALITY_DIALOG_BUTTON::get,
-                    view -> {
-                        try {
-                            showVideoQualityDialog(view.getContext());
-                        } catch (Exception ex) {
-                            Logger.printException(() -> "Video quality button onClick failure", ex);
-                        }
-                    },
-                    view -> {
-                        try {
-                            VideoQuality[] qualities = RememberVideoQualityPatch.getCurrentQualities();
-                            VideoQualityMenuInterface menu = RememberVideoQualityPatch.getCurrentMenuInterface();
-                            if (qualities == null || menu == null) {
-                                Logger.printDebug(() -> "Cannot reset quality, videoQualities is null");
-                                return true;
-                            }
-
-                            // Reset to default quality.
-                            final int defaultResolution = RememberVideoQualityPatch.getDefaultQualityResolution();
-                            for (VideoQuality quality : qualities) {
-                                final int resolution = quality.patch_getResolution();
-                                if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
-                                    Logger.printDebug(() -> "Resetting quality to: " + quality);
-                                    menu.patch_setQuality(quality);
-                                    return true;
-                                }
-                            }
-
-                            // Existing hook cannot set default quality to auto.
-                            // Instead show the quality dialog.
-                            showVideoQualityDialog(view.getContext());
-                            return true;
-                        } catch (Exception ex) {
-                            Logger.printException(() -> "Video quality button reset failure", ex);
-                        }
-                        return false;
-                    }
-            );
-
-            // Set initial text.
-            updateButtonText(RememberVideoQualityPatch.getCurrentQuality());
-        } catch (Exception ex) {
-            Logger.printException(() -> "initializeButton failure", ex);
-        }
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void setVisibilityImmediate(boolean visible) {
-        if (instance != null) {
-            instance.setVisibilityImmediate(visible);
-            if (visible) updateButtonText(RememberVideoQualityPatch.getCurrentQuality());
-        }
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void setVisibility(boolean visible, boolean animated) {
-        if (instance != null) {
-            instance.setVisibility(visible, animated);
-            if (visible) updateButtonText(RememberVideoQualityPatch.getCurrentQuality());
-        }
-    }
-
-    /**
      * Shows a dialog with available video qualities, excluding Auto, with a title showing the current quality.
      */
     private static void showVideoQualityDialog(Context context) {
         try {
-            VideoQuality[] currentQualities = RememberVideoQualityPatch.getCurrentQualities();
-            VideoQuality currentQuality = RememberVideoQualityPatch.getCurrentQuality();
+            VideoQuality[] currentQualities = VideoInformation.getCurrentQualities();
+            VideoQuality currentQuality = VideoInformation.getCurrentQuality();
             if (currentQualities == null || currentQuality == null) {
                 Logger.printDebug(() -> "Cannot show qualities dialog, videoQualities is null");
                 return;
@@ -188,7 +193,7 @@ public class VideoQualityDialogButton {
                 return;
             }
 
-            VideoQualityMenuInterface menu = RememberVideoQualityPatch.getCurrentMenuInterface();
+            VideoQualityMenuInterface menu = VideoInformation.getCurrentMenuInterface();
             if (menu == null) {
                 Logger.printDebug(() -> "Cannot show qualities dialog, menu is null");
                 return;
