@@ -272,7 +272,7 @@ public final class VideoInformation {
 
             // Try calling the seekTo method of the MDX player director (called when casting).
             // The difference has to be a different second mark in order to avoid infinite skip loops
-            // as the Lounge API only supports seconds.
+            // as the Lounge API only supports whole seconds.
             if (adjustedSeekTime / 1000 == videoTime / 1000) {
                 Logger.printDebug(() -> "Skipping seekTo for MDX because seek time is too small "
                         + "(" + (adjustedSeekTime - videoTime) + "ms)");
@@ -287,7 +287,7 @@ public final class VideoInformation {
 
             return controller.patch_seekTo(adjustedSeekTime);
         } catch (Exception ex) {
-            Logger.printException(() -> "Failed to seek", ex);
+            Logger.printException(() -> "seekTo failure", ex);
             return false;
         }
     }
@@ -326,7 +326,7 @@ public final class VideoInformation {
                 controller.patch_seekToRelative(adjustedSeekTime);
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "Failed to seek relative", ex);
+            Logger.printException(() -> "seekToRelative failure", ex);
         }
     }
 
@@ -468,9 +468,9 @@ public final class VideoInformation {
         Utils.verifyOnMainThread();
 
         if (currentMenuInterface == null) {
+            Logger.printException(() -> "Cannot change quality, menu interface is null");
             return;
         }
-
         currentMenuInterface.patch_setQuality(quality);
     }
 
@@ -517,18 +517,20 @@ public final class VideoInformation {
 
             // After changing videos the qualities can initially be for the prior video.
             // If the qualities have changed and the default is not auto then an update is needed.
-            if (!qualityNeedsUpdating && !availableQualitiesChanged) {
+            if (qualityNeedsUpdating) {
+                qualityNeedsUpdating = false;
+            } else if (!availableQualitiesChanged) {
                 return originalQualityIndex;
             }
-            qualityNeedsUpdating = false;
 
             // Find the highest quality that is equal to or less than the preferred.
             int i = 0;
+            final int lastQualityIndex = qualities.length - 1;
             for (VideoQuality quality : qualities) {
                 final int qualityResolution = quality.patch_getResolution();
                 if ((qualityResolution != AUTOMATIC_VIDEO_QUALITY_VALUE && qualityResolution <= preferredQuality)
                         // Use the lowest video quality if the default is lower than all available.
-                        || i == qualities.length - 1) {
+                        || i == lastQualityIndex) {
                     final boolean qualityNeedsChange = (i != originalQualityIndex);
                     Logger.printDebug(() -> qualityNeedsChange
                             ? "Changing video quality from: " + updatedCurrentQuality + " to: " + quality
@@ -545,7 +547,7 @@ public final class VideoInformation {
                     // because the "auto" option is not shown in the flyout
                     // and setting the same quality again can cause the Short to restart.
                     if (qualityNeedsChange || !ShortsPlayerState.isOpen()) {
-                        menu.patch_setQuality(qualities[i]);
+                        changeQuality(quality);
                         return i;
                     }
 

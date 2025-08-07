@@ -305,6 +305,7 @@ public class VideoQualityDialogButton {
                     final int originalIndex = which + 1; // Adjust for automatic.
                     VideoQuality selectedQuality = currentQualities[originalIndex];
                     RememberVideoQualityPatch.userChangedQuality(selectedQuality.patch_getResolution());
+                    VideoInformation.changeQuality(selectedQuality);
 
                     dialog.dismiss();
                 } catch (Exception ex) {
