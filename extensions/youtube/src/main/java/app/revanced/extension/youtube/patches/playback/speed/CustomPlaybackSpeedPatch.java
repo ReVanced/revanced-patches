@@ -100,7 +100,8 @@ public class CustomPlaybackSpeedPatch {
     private static WeakReference<Dialog> currentDialog = new WeakReference<>(null);
 
     static {
-        // Cap at 2 decimals (rounds automatically).
+        // Use same 2 digit format as built in speed picker,
+        speedFormatter.setMinimumFractionDigits(2);
         speedFormatter.setMaximumFractionDigits(2);
 
         final float holdSpeed = Settings.SPEED_TAP_AND_HOLD.get();
@@ -321,7 +322,7 @@ public class CustomPlaybackSpeedPatch {
         TextView currentSpeedText = new TextView(context);
         float currentSpeed = VideoInformation.getPlaybackSpeed();
         // Initially show with only 0 minimum digits, so 1.0 shows as 1x
-        currentSpeedText.setText(formatSpeedStringX(currentSpeed, 0));
+        currentSpeedText.setText(formatSpeedStringX(currentSpeed));
         currentSpeedText.setTextColor(Utils.getAppForegroundColor());
         currentSpeedText.setTextSize(16);
         currentSpeedText.setTypeface(Typeface.DEFAULT_BOLD);
@@ -398,7 +399,7 @@ public class CustomPlaybackSpeedPatch {
                 return null;
             }
 
-            currentSpeedText.setText(formatSpeedStringX(roundedSpeed, 2)); // Update display.
+            currentSpeedText.setText(formatSpeedStringX(roundedSpeed)); // Update display.
             speedSlider.setProgress(speedToProgressValue(roundedSpeed)); // Update slider.
 
             RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(roundedSpeed);
@@ -438,7 +439,7 @@ public class CustomPlaybackSpeedPatch {
         gridParams.setMargins(0, 0, 0, 0); // No margins around GridLayout.
         gridLayout.setLayoutParams(gridParams);
 
-        // For all buttons show at least 1 zero in decimal (2 -> "2.0").
+        // For button use 1 digit minimum.
         speedFormatter.setMinimumFractionDigits(1);
 
         // Add buttons for each preset playback speed.
@@ -456,7 +457,7 @@ public class CustomPlaybackSpeedPatch {
 
             // Create speed button.
             Button speedButton = new Button(context, null, 0);
-            speedButton.setText(speedFormatter.format(speed)); // Do not use 'x' speed format.
+            speedButton.setText(speedFormatter.format(speed));
             speedButton.setTextColor(Utils.getAppForegroundColor());
             speedButton.setTextSize(12);
             speedButton.setAllCaps(false);
@@ -498,6 +499,9 @@ public class CustomPlaybackSpeedPatch {
 
             gridLayout.addView(buttonContainer);
         }
+
+        // Restore 2 digit minimum.
+        speedFormatter.setMinimumFractionDigits(2);
 
         // Add in-rows speed buttons layout to main layout.
         mainLayout.addView(gridLayout);
@@ -632,8 +636,7 @@ public class CustomPlaybackSpeedPatch {
      * @param speed The playback speed value to format.
      * @return A string representation of the speed with 'x' (e.g. "1.25x" or "1.00x").
      */
-    private static String formatSpeedStringX(float speed, int minimumFractionDigits) {
-        speedFormatter.setMinimumFractionDigits(minimumFractionDigits);
+    private static String formatSpeedStringX(float speed) {
         return speedFormatter.format(speed) + 'x';
     }
 

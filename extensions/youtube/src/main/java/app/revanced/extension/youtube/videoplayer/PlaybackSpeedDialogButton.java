@@ -4,7 +4,6 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 import app.revanced.extension.shared.Logger;
@@ -21,7 +20,6 @@ public class PlaybackSpeedDialogButton {
 
     private static final DecimalFormat speedDecimalFormatter = new DecimalFormat();
     static {
-        speedDecimalFormatter.setRoundingMode(RoundingMode.DOWN);
         speedDecimalFormatter.setMinimumFractionDigits(1);
         speedDecimalFormatter.setMaximumFractionDigits(2);
     }
