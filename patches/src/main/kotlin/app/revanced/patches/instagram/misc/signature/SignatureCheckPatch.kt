@@ -8,7 +8,7 @@ val signatureCheckPatch = bytecodePatch(
     name = "Disable signature check",
     description = "Disables the signature check that causes the app to crash on startup."
 ) {
-    compatibleWith("com.instagram.android"("392.0.0.51.78"))
+    compatibleWith("com.instagram.android")
 
     execute {
         isValidSignatureMethodFingerprint
