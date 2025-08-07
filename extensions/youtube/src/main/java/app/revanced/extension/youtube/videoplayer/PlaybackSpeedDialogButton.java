@@ -56,7 +56,6 @@ public class PlaybackSpeedDialogButton {
                                     ? 1.0f
                                     : defaultSpeed;
                             VideoInformation.overridePlaybackSpeed(speed);
-                            updateButtonAppearance();
                         } catch (Exception ex) {
                             Logger.printException(() -> "speed button reset failure", ex);
                         }
@@ -90,6 +89,13 @@ public class PlaybackSpeedDialogButton {
     }
 
     /**
+     * Injection point.
+     */
+    public static void videoSpeedChanged(float currentVideoSpeed) {
+        updateButtonAppearance();
+    }
+
+    /**
      * Updates the button's appearance, including icon and text overlay.
      */
     private static void updateButtonAppearance() {
@@ -98,19 +104,11 @@ public class PlaybackSpeedDialogButton {
         try {
             Utils.verifyOnMainThread();
 
-            final float currentSpeed = VideoInformation.getPlaybackSpeed();
-            String speedText = speedDecimalFormatter.format(currentSpeed);
+            String speedText = speedDecimalFormatter.format(VideoInformation.getPlaybackSpeed());
             instance.setTextOverlay(speedText);
             Logger.printDebug(() -> "Updated playback speed button text to: " + speedText);
         } catch (Exception ex) {
             Logger.printException(() -> "updateButtonAppearance failure", ex);
         }
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void videoSpeedChanged(float currentVideoSpeed) {
-        updateButtonAppearance();
     }
 }
