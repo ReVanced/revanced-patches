@@ -23,7 +23,7 @@
                 android:paddingBottom="0dp"
                 android:longClickable="false"
                 android:scaleType="center"
-                android:src="@drawable/revanced_playback_speed_dialog_button" />
+                android:src="@drawable/revanced_playback_speed_dialog_button_rectangle" />
 
         <TextView
                 android:id="@+id/revanced_playback_speed_dialog_button_text"

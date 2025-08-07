@@ -9,6 +9,9 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playercontrols.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.video.information.userSelectedPlaybackSpeedHook
+import app.revanced.patches.youtube.video.information.videoInformationPatch
+import app.revanced.patches.youtube.video.information.videoSpeedChangedHook
 import app.revanced.patches.youtube.video.speed.custom.customPlaybackSpeedPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
@@ -21,9 +24,8 @@ private val playbackSpeedButtonResourcePatch = resourcePatch {
             "speedbutton",
             ResourceGroup(
                 "drawable",
-                "revanced_playback_speed_dialog_button.xml",
-                "revanced_playback_speed_dialog_button_rectangle.xml",
-            ),
+                "revanced_playback_speed_dialog_button_rectangle.xml"
+            )
         )
 
         addBottomControl("speedbutton")
@@ -43,6 +45,7 @@ val playbackSpeedButtonPatch = bytecodePatch(
         customPlaybackSpeedPatch,
         playbackSpeedButtonResourcePatch,
         playerControlsPatch,
+        videoInformationPatch,
     )
 
     execute {
@@ -54,5 +57,8 @@ val playbackSpeedButtonPatch = bytecodePatch(
 
         initializeBottomControl(SPEED_BUTTON_CLASS_DESCRIPTOR)
         injectVisibilityCheckCall(SPEED_BUTTON_CLASS_DESCRIPTOR)
+
+        videoSpeedChangedHook(SPEED_BUTTON_CLASS_DESCRIPTOR, "videoSpeedChanged")
+        userSelectedPlaybackSpeedHook(SPEED_BUTTON_CLASS_DESCRIPTOR, "videoSpeedChanged")
     }
 }

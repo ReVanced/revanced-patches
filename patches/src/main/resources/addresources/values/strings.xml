@@ -1542,8 +1542,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_playback_speed_dialog_button_title">Show speed dialog button</string>
             <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown. Tap and hold to reset playback speed to default</string>
             <string name="revanced_playback_speed_dialog_button_summary_off">Button is not shown</string>
-            <string name="revanced_playback_speed_dialog_button_message">"The speed button shows the current speed value only if the modern playback speed dialog is enabled:
-ReVanced settings → Video → Custom playback speed menu"</string>
         </patch>
         <patch id="video.quality.button.videoQualityButtonPatch">
             <string name="revanced_video_quality_dialog_button_title">Show video quality button</string>
