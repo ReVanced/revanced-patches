@@ -107,11 +107,6 @@ public final class VideoInformation {
         return currentQuality;
     }
 
-    @Nullable
-    public static VideoQualityMenuInterface getCurrentMenuInterface() {
-        return currentMenuInterface;
-    }
-
     /**
      * Injection point.
      *
@@ -128,7 +123,6 @@ public final class VideoInformation {
             desiredVideoResolution = AUTOMATIC_VIDEO_QUALITY_VALUE;
             currentQualities = null;
             currentMenuInterface = null;
-            qualityNeedsUpdating = true;
             setCurrentQuality(null);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
@@ -455,6 +449,7 @@ public final class VideoInformation {
         Utils.verifyOnMainThread();
         Logger.printDebug(() -> "Setting desired video resolution: " + resolution);
         desiredVideoResolution = resolution;
+        qualityNeedsUpdating = true;
     }
 
     private static void setCurrentQuality(@Nullable VideoQuality quality) {
@@ -464,6 +459,19 @@ public final class VideoInformation {
             currentQuality = quality;
             onQualityChange.invoke(quality);
         }
+    }
+
+    /**
+     * Forcefully changes the video quality of the currently playing video.
+     */
+    public static void changeQuality(VideoQuality quality) {
+        Utils.verifyOnMainThread();
+
+        if (currentMenuInterface == null) {
+            return;
+        }
+
+        currentMenuInterface.patch_setQuality(quality);
     }
 
     /**

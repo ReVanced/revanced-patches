@@ -94,6 +94,7 @@ public class RememberVideoQualityPatch {
      */
     public static void userChangedQuality(int videoResolution) {
         Utils.verifyOnMainThread();
+        Logger.printDebug(() -> "User changed quality to: " + videoResolution);
 
         if (shouldRememberVideoQuality()) {
             saveDefaultQuality(videoResolution);

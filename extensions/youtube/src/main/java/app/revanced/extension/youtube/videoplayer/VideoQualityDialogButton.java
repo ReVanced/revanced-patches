@@ -4,7 +4,6 @@ import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.patches.VideoInformation.AUTOMATIC_VIDEO_QUALITY_VALUE;
 import static app.revanced.extension.youtube.patches.VideoInformation.VIDEO_QUALITY_1080P_PREMIUM_NAME;
-import static app.revanced.extension.youtube.patches.VideoInformation.VideoQualityMenuInterface;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -75,8 +74,7 @@ public class VideoQualityDialogButton {
                     view -> {
                         try {
                             VideoQuality[] qualities = VideoInformation.getCurrentQualities();
-                            VideoQualityMenuInterface menu = VideoInformation.getCurrentMenuInterface();
-                            if (qualities == null || menu == null) {
+                            if (qualities == null) {
                                 Logger.printDebug(() -> "Cannot reset quality, videoQualities is null");
                                 return true;
                             }
@@ -87,7 +85,7 @@ public class VideoQualityDialogButton {
                                 final int resolution = quality.patch_getResolution();
                                 if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
                                     Logger.printDebug(() -> "Resetting quality to: " + quality);
-                                    menu.patch_setQuality(quality);
+                                    VideoInformation.changeQuality(quality);
                                     return true;
                                 }
                             }
@@ -190,12 +188,6 @@ public class VideoQualityDialogButton {
             if (currentQualities.length < 2) {
                 // Should never happen.
                 Logger.printException(() -> "Cannot show qualities dialog, no qualities available");
-                return;
-            }
-
-            VideoQualityMenuInterface menu = VideoInformation.getCurrentMenuInterface();
-            if (menu == null) {
-                Logger.printDebug(() -> "Cannot show qualities dialog, menu is null");
                 return;
             }
 
@@ -312,15 +304,7 @@ public class VideoQualityDialogButton {
                 try {
                     final int originalIndex = which + 1; // Adjust for automatic.
                     VideoQuality selectedQuality = currentQualities[originalIndex];
-                    Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
-
-                    if (RememberVideoQualityPatch.shouldRememberVideoQuality()) {
-                        RememberVideoQualityPatch.saveDefaultQuality(selectedQuality.patch_getResolution());
-                    }
-                    // Don't update button icon now. Icon will update when the actual
-                    // quality is changed by YT.  This is needed to ensure the icon is correct
-                    // if YT ignores changing from 1080p Premium to regular 1080p.
-                    menu.patch_setQuality(selectedQuality);
+                    RememberVideoQualityPatch.userChangedQuality(selectedQuality.patch_getResolution());
 
                     dialog.dismiss();
                 } catch (Exception ex) {
@@ -426,6 +410,15 @@ public class VideoQualityDialogButton {
     }
 
     private static class CustomQualityAdapter extends ArrayAdapter<String> {
+        private static final int CUSTOM_LIST_ITEM_CHECKED_ID = Utils.getResourceIdentifier(
+                "revanced_custom_list_item_checked", "layout");
+        private static final int CHECK_ICON_ID = Utils.getResourceIdentifier(
+                "revanced_check_icon", "id");
+        private static final int CHECK_ICON_PLACEHOLDER_ID = Utils.getResourceIdentifier(
+                "revanced_check_icon_placeholder", "id");
+        private static final int ITEM_TEXT_ID = Utils.getResourceIdentifier(
+                "revanced_item_text", "id");
+
         private int selectedPosition = -1;
 
         public CustomQualityAdapter(@NonNull Context context, @NonNull List<String> objects) {
@@ -444,20 +437,14 @@ public class VideoQualityDialogButton {
 
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(
-                        Utils.getResourceIdentifier("revanced_custom_list_item_checked", "layout"),
+                        CUSTOM_LIST_ITEM_CHECKED_ID,
                         parent,
                         false
                 );
                 viewHolder = new ViewHolder();
-                viewHolder.checkIcon = convertView.findViewById(
-                        Utils.getResourceIdentifier("revanced_check_icon", "id")
-                );
-                viewHolder.placeholder = convertView.findViewById(
-                        Utils.getResourceIdentifier("revanced_check_icon_placeholder", "id")
-                );
-                viewHolder.textView = convertView.findViewById(
-                        Utils.getResourceIdentifier("revanced_item_text", "id")
-                );
+                viewHolder.checkIcon = convertView.findViewById(CHECK_ICON_ID);
+                viewHolder.placeholder = convertView.findViewById(CHECK_ICON_PLACEHOLDER_ID);
+                viewHolder.textView = convertView.findViewById(ITEM_TEXT_ID);
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
