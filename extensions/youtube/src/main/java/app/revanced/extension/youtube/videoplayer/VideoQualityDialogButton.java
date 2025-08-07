@@ -49,6 +49,9 @@ public class VideoQualityDialogButton {
     @Nullable
     private static PlayerControlButton instance;
 
+    @Nullable
+    private static CharSequence currentOverlayText;
+
     /**
      * Updates the button text based on the current video quality.
      */
@@ -63,13 +66,14 @@ public class VideoQualityDialogButton {
 
             SpannableStringBuilder text = new SpannableStringBuilder();
             String qualityText = switch (resolution) {
+                case AUTOMATIC_VIDEO_QUALITY_VALUE -> "";
                 case 144, 240, 360 -> "LD";
                 case 480  -> "SD";
                 case 720  -> "HD";
                 case 1080 -> "FHD";
                 case 1440 -> "QHD";
                 case 2160 -> "4K";
-                default   -> "";
+                default   -> "?"; // Should never happen.
             };
 
             text.append(qualityText);
@@ -78,7 +82,12 @@ public class VideoQualityDialogButton {
                 text.setSpan(new UnderlineSpan(), 0, qualityText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
 
+            currentOverlayText = text;
             Utils.runOnMainThreadDelayed(() -> {
+                if (currentOverlayText != text) {
+                    Logger.printDebug(() -> "Ignoring stale button text update of: " + text);
+                    return;
+                }
                 instance.setTextOverlay(text);
             }, 100);
         } catch (Exception ex) {
