@@ -20,7 +20,7 @@ val autoClaimChannelPointsPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    compatibleWith("tv.twitch.android.app"("16.9.1", "19.1.0"))
+    compatibleWith("tv.twitch.android.app"("16.9.1", "25.3.0"))
 
     execute {
         addResources("twitch", "chat.autoclaim.autoClaimChannelPointsPatch")
