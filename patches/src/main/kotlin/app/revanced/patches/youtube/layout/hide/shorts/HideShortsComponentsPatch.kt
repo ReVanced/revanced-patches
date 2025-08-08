@@ -68,6 +68,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             SwitchPreference("revanced_hide_shorts_home"),
             SwitchPreference("revanced_hide_shorts_search"),
             SwitchPreference("revanced_hide_shorts_subscriptions"),
+            SwitchPreference("revanced_hide_shorts_video_description"),
             SwitchPreference("revanced_hide_shorts_history"),
 
             PreferenceScreenPreference(

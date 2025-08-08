@@ -1480,6 +1480,10 @@ public final class app/revanced/patches/youtube/misc/dns/CheckWatchHistoryDomain
 	public static final fun getCheckWatchHistoryDomainNameResolutionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/misc/engagementpanel/EngagementPanelHookPatchKt {
+	public static final fun getEngagementPanelHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/misc/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

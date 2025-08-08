@@ -821,6 +821,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_shorts_subscriptions_title">Hide Shorts in Subscriptions feed</string>
             <string name="revanced_hide_shorts_subscriptions_summary_on">Hidden in Subscriptions feed</string>
             <string name="revanced_hide_shorts_subscriptions_summary_off">Shown in Subscriptions feed</string>
+            <string name="revanced_hide_shorts_video_description_title">Hide Shorts in video description</string>
+            <string name="revanced_hide_shorts_video_description_summary_on">Hidden in video description</string>
+            <string name="revanced_hide_shorts_video_description_summary_off">Shown in video description</string>
             <string name="revanced_hide_shorts_history_title">Hide Shorts in watch history</string>
             <string name="revanced_hide_shorts_history_summary_on">Hidden in watch history</string>
             <string name="revanced_hide_shorts_history_summary_off">Shown in watch history</string>
