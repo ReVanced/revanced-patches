@@ -77,7 +77,7 @@ val forceOriginalAudioPatch = bytecodePatch(
 
             it.classDef.apply {
                 // Add a new field to store the override.
-                val helperFieldName = "isDefaultAudioTrackOverride"
+                val helperFieldName = "patch_isDefaultAudioTrackOverride"
                 fields.add(
                     ImmutableField(
                         type,
