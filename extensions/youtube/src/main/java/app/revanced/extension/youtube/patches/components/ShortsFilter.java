@@ -12,6 +12,7 @@ import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.EngagementPanel;
 import app.revanced.extension.youtube.shared.NavigationBar;
 import app.revanced.extension.youtube.shared.PlayerType;
 
@@ -380,19 +381,20 @@ public final class ShortsFilter extends Filter {
         final boolean hideHome = Settings.HIDE_SHORTS_HOME.get();
         final boolean hideSubscriptions = Settings.HIDE_SHORTS_SUBSCRIPTIONS.get();
         final boolean hideSearch = Settings.HIDE_SHORTS_SEARCH.get();
+        final boolean hideVideoDescription = Settings.HIDE_SHORTS_VIDEO_DESCRIPTION.get();
         final boolean hideHistory = Settings.HIDE_SHORTS_HISTORY.get();
 
-        if (!hideHome && !hideSubscriptions && !hideSearch && !hideHistory) {
+        if (!hideHome && !hideSubscriptions && !hideSearch && !hideVideoDescription && !hideHistory) {
             return false;
         }
-        if (hideHome && hideSubscriptions && hideSearch && hideHistory) {
+        if (hideHome && hideSubscriptions && hideSearch && hideVideoDescription && hideHistory) {
             return true;
         }
 
         // Must check player type first, as search bar can be active behind the player.
         if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
             // For now, consider the under video results the same as the home feed.
-            return hideHome;
+            return (EngagementPanel.isDescription()) ? hideVideoDescription : hideHome;
         }
 
         // Must check second, as search can be from any tab.
