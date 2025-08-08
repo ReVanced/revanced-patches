@@ -53,6 +53,13 @@ public class VideoQualityDialogButton {
     @Nullable
     private static CharSequence currentOverlayText;
 
+    static {
+        VideoInformation.onQualityChange.addObserver((@Nullable VideoQuality quality) -> {
+            updateButtonText(quality);
+            return Unit.INSTANCE;
+        });
+    }
+
     /**
      * Injection point.
      */
@@ -103,11 +110,6 @@ public class VideoQualityDialogButton {
 
             // Set initial text.
             updateButtonText(VideoInformation.getCurrentQuality());
-
-            VideoInformation.onQualityChange.addObserver((@Nullable VideoQuality quality) -> {
-                updateButtonText(quality);
-                return Unit.INSTANCE;
-            });
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);
         }

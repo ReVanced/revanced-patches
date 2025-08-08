@@ -91,7 +91,7 @@ public class PlayerControlButton {
         // Update the visibility after the player type changes.
         // This ensures that button animations are cleared and their states are updated correctly
         // when switching between states like minimized, maximized, or fullscreen, preventing
-        // "stuck" animations or incorrect visibility.  Without this fix the issue is most noticable
+        // "stuck" animations or incorrect visibility.  Without this fix the issue is most noticeable
         // when maximizing type 3 miniplayer.
         PlayerType.getOnChange().addObserver((PlayerType type) -> {
             playerTypeChanged(type);
