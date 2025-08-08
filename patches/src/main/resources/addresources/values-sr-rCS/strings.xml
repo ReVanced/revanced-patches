@@ -468,8 +468,15 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Dugme „Preuzmi” otvara spoljni program za preuzimanje</string>
   <string name="revanced_external_downloader_action_button_summary_off">Dugme „Preuzmi” otvara izvorni program za preuzimanje u aplikaciji</string>
   <string name="revanced_external_downloader_name_title">Naziv paketa programa za preuzimanje</string>
-  <string name="revanced_external_downloader_name_summary">Naziv paketa instaliranog spoljnog programa za preuzimanje, kao što je NewPipe ili Seal</string>
+  <string name="revanced_external_downloader_name_summary">Naziv paketa vašeg instaliranog spoljnog programa za preuzimanje</string>
+  <string name="revanced_external_downloader_other_item_hint">Unesite naziv paketa</string>
+  <string name="revanced_external_downloader_other_item">Ostalo</string>
+  <string name="revanced_external_downloader_not_found_title">Aplikacija nije instalirana</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nije instaliran. Instalirajte ga.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Nije pronađena instalirana aplikacija sa nazivom paketa: %s
+
+Proverite da li je naziv paketa ispravan i da li je aplikacija instalirana"</string>
+  <string name="revanced_external_downloader_empty_warning">Naziv paketa ne može biti prazan</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Onemogući pokret preciznog premotavanja</string>
@@ -1457,10 +1464,18 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Dugme je prikazano. Dodirnite i zadržite da biste vratili brzinu reprodukcije na podrazumevanu vrednost</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Dugme dijaloga za brzinu nije prikazano</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Prikaži dugme kvaliteta videa</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Dugme je prikazano. Dodirnite i zadržite da biste vratili kvalitet videa na podrazumevanu vrednost</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Dugme nije prikazano</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Meni prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_speed_menu_summary_on">Meni prilagođene brzine reprodukcije je prikazan</string>
   <string name="revanced_custom_speed_menu_summary_off">Meni prilagođene brzine reprodukcije nije prikazan</string>
+  <string name="revanced_restore_old_speed_menu_title">Vrati stari meni za brzinu reprodukcije</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Prikazan je stari meni brzine reprodukcije</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Prikazan je moderni meni brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_title">Prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_summary">Dodajte ili promenite prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_invalid">Prilagođene brzine moraju biti manje od %s</string>

@@ -13,7 +13,6 @@
         android:layout_height="60.0dip"
         android:paddingTop="6.0dp"
         android:paddingBottom="0dp"
-        android:longClickable="false"
         android:scaleType="center"
         android:src="@drawable/revanced_playback_speed_dialog_button"
         yt:layout_constraintBottom_toTopOf="@+id/quick_actions_container"

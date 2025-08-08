@@ -461,17 +461,24 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Εξωτερικές λήψεις</string>
-  <string name="revanced_external_downloader_screen_summary">Ρυθμίσεις για χρήση εξωτερικού προγράμματος λήψης</string>
+  <string name="revanced_external_downloader_screen_summary">Ρυθμίσεις για χρήση εξωτερικής εφαρμογής λήψης</string>
   <string name="revanced_external_downloader_title">Εμφάνιση κουμπιού εξωτερικής λήψης</string>
-  <string name="revanced_external_downloader_summary_on">Το κουμπί λήψης εμφανίζεται  στην οθόνη αναπαραγωγής</string>
-  <string name="revanced_external_downloader_summary_off">Το κουμπί λήψης δεν εμφανίζεται  στην οθόνη αναπαραγωγής</string>
+  <string name="revanced_external_downloader_summary_on">Το κουμπί λήψης εμφανίζεται στην οθόνη αναπαραγωγής</string>
+  <string name="revanced_external_downloader_summary_off">Το κουμπί λήψης δεν εμφανίζεται στην οθόνη αναπαραγωγής</string>
   <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
-  <string name="revanced_external_downloader_action_button_title">Μετατροπή κουμπιού ενέργειας «Λήψη»</string>
-  <string name="revanced_external_downloader_action_button_summary_on">Το κουμπί «Λήψη» θα ανοίγει το εξωτερικό πρόγραμμα λήψης σας</string>
-  <string name="revanced_external_downloader_action_button_summary_off">Το κουμπί «Λήψη» θα ανοίγει το ενσωματωμένο πρόγραμμα λήψης του YouTube</string>
-  <string name="revanced_external_downloader_name_title">Όνομα πακέτου προγράμματος λήψης</string>
-  <string name="revanced_external_downloader_name_summary">Το όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης όπως το NewPipe ή το Seal</string>
+  <string name="revanced_external_downloader_action_button_title">Αλλαγή λειτουργίας κουμπιού ενέργειας «Λήψη»</string>
+  <string name="revanced_external_downloader_action_button_summary_on">Το κουμπί «Λήψη» ανοίγει την εξωτερική εφαρμογή λήψης σας</string>
+  <string name="revanced_external_downloader_action_button_summary_off">Το κουμπί «Λήψη» ανοίγει το ενσωματωμένο πρόγραμμα λήψης του YouTube</string>
+  <string name="revanced_external_downloader_name_title">Όνομα πακέτου εφαρμογής λήψης</string>
+  <string name="revanced_external_downloader_name_summary">Το όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης</string>
+  <string name="revanced_external_downloader_other_item_hint">Εισάγετε το όνομα πακέτου</string>
+  <string name="revanced_external_downloader_other_item">Άλλο</string>
+  <string name="revanced_external_downloader_not_found_title">Η εφαρμογή δεν έχει εγκατασταθεί</string>
   <string name="revanced_external_downloader_not_installed_warning">Το %s δεν είναι εγκατεστημένο. Παρακαλούμε εγκαταστήστε το.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Δεν ήταν δυνατή η εύρεση εγκατεστημένης εφαρμογής με όνομα πακέτου: %s
+
+Επιβεβαιώστε ότι το όνομα πακέτου είναι σωστό και ότι η εφαρμογή είναι εγκατεστημένη"</string>
+  <string name="revanced_external_downloader_empty_warning">Το όνομα πακέτου δεν μπορεί να είναι κενό</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Απενεργοποίηση ακριβής αναζήτησης</string>
@@ -1457,10 +1464,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Το κουμπί εμφανίζεται. Πατήστε παρατεταμένα για επαναφορά της ταχύτητας αναπαραγωγής στην προεπιλογή</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Το κουμπί δεν εμφανίζεται</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Εμφάνιση κουμπιού αλλαγής ποιότητας βίντεο</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Το κουμπί εμφανίζεται. Πατήστε παρατεταμένα για επαναφορά της ποιότητας στην προεπιλογή</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Το κουμπί δεν εμφανίζεται</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Μενού προσαρμοσμένης ταχύτητας αναπαραγωγής</string>
   <string name="revanced_custom_speed_menu_summary_on">Το μενού προσαρμοσμένης ταχύτητας αναπαραγωγής εμφανίζεται</string>
   <string name="revanced_custom_speed_menu_summary_off">Το μενού προσαρμοσμένης ταχύτητας αναπαραγωγής δεν εμφανίζεται</string>
+  <string name="revanced_restore_old_speed_menu_title">Επαναφορά παλιού μενού ταχύτητας αναπαραγωγής</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Το παλιό μενού ταχύτητας εμφανίζεται</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Το σύγχρονο μενού ταχύτητας εμφανίζεται</string>
   <string name="revanced_custom_playback_speeds_title">Προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
   <string name="revanced_custom_playback_speeds_summary">Προσθέστε ή αλλάξτε τις προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
   <string name="revanced_custom_playback_speeds_invalid">Οι ταχύτητες πρέπει να είναι μικρότερες από %sx</string>

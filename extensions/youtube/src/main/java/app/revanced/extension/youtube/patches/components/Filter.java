@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +40,7 @@ abstract class Filter {
     /**
      * Adds callbacks to {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
      * if any of the groups are found.
+     * <p>
      */
     protected final void addIdentifierCallbacks(StringFilterGroup... groups) {
         identifierCallbacks.addAll(Arrays.asList(groups));
@@ -68,7 +67,7 @@ abstract class Filter {
      * @param contentIndex Matched index of the identifier or path.
      * @return True if the litho component should be filtered out.
      */
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         return true;
     }

@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">下載按鈕會開啟你的外部下載器</string>
   <string name="revanced_external_downloader_action_button_summary_off">下載按鈕會開啟內建應用程式下載器</string>
   <string name="revanced_external_downloader_name_title">下載器套件名稱</string>
-  <string name="revanced_external_downloader_name_summary">你已安裝的外部下載器應用程式的套件名稱，例如 NewPipe 或 Seal</string>
+  <string name="revanced_external_downloader_name_summary">您已安裝的外部下載器應用程式的套件名稱</string>
+  <string name="revanced_external_downloader_other_item_hint">輸入套件名稱</string>
+  <string name="revanced_external_downloader_other_item">其他</string>
+  <string name="revanced_external_downloader_not_found_title">應用程式未安裝</string>
   <string name="revanced_external_downloader_not_installed_warning">未安裝 %s。請前往安裝。</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"無法找到已安裝的應用程式，套件名稱為：%s
+
+請驗證套件名稱是否正確以及應用程式是否已安裝"</string>
+  <string name="revanced_external_downloader_empty_warning">套件名稱不能為空</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">停用精準跳轉手勢</string>
@@ -1468,10 +1475,15 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">按鈕已顯示。長按可將播放速度重設為預設值</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">不顯示按鈕</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">自訂播放速度選單</string>
   <string name="revanced_custom_speed_menu_summary_on">已顯示自訂播放速度選單</string>
   <string name="revanced_custom_speed_menu_summary_off">不顯示自訂播放速度選單</string>
+  <string name="revanced_restore_old_speed_menu_title">恢復舊版播放速度選單</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">已顯示舊版速度選單</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">已顯示新版速度選單</string>
   <string name="revanced_custom_playback_speeds_title">自訂播放速度</string>
   <string name="revanced_custom_playback_speeds_summary">新增或變更自訂播放速度</string>
   <string name="revanced_custom_playback_speeds_invalid">自訂速度必須小於 %s</string>

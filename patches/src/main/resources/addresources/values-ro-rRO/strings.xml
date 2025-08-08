@@ -468,8 +468,15 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_external_downloader_action_button_summary_on">Butonul de Descărcare deschide downloader extern</string>
   <string name="revanced_external_downloader_action_button_summary_off">Butonul de descărcare deschide downloader nativ în aplicație</string>
   <string name="revanced_external_downloader_name_title">Descărcător nume pachet</string>
-  <string name="revanced_external_downloader_name_summary">Numele pachetului aplicaţiei externe downloader instalate, cum ar fi NewPipe sau Seal</string>
+  <string name="revanced_external_downloader_name_summary">Numele pachetului aplicației dvs. de descărcare externă instalate</string>
+  <string name="revanced_external_downloader_other_item_hint">Introduceți numele pachetului</string>
+  <string name="revanced_external_downloader_other_item">Altele</string>
+  <string name="revanced_external_downloader_not_found_title">Aplicația nu este instalată</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nu este instalat. Vă rugăm să-l instalaţi.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Nu s-a găsit aplicația instalată cu numele pachetului: %s
+
+Verificați dacă numele pachetului este corect și dacă aplicația este instalată"</string>
+  <string name="revanced_external_downloader_empty_warning">Numele pachetului nu poate fi gol</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Dezactivează gestul de căutare precis</string>
@@ -1457,10 +1464,18 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Butonul este afișat. Atingeți și mențineți apăsat pentru a reseta viteza de redare la cea implicită</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Butonul nu este afișat</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Afișați butonul de calitate video</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Butonul este afișat. Atingeți și mențineți apăsat pentru a reseta calitatea la valoarea implicită</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Butonul nu este afișat.</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Meniu de redare personalizat</string>
   <string name="revanced_custom_speed_menu_summary_on">Meniul de viteză personalizat este afișat</string>
   <string name="revanced_custom_speed_menu_summary_off">Meniul de viteză personalizat nu este afișat</string>
+  <string name="revanced_restore_old_speed_menu_title">Restaurare meniu vechi de viteză de redare</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Meniul vechi de viteză este afișat</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Meniul modern de viteză este afișat</string>
   <string name="revanced_custom_playback_speeds_title">Viteze de redare personalizate</string>
   <string name="revanced_custom_playback_speeds_summary">Adaugă sau modifică vitezele de redare personalizate</string>
   <string name="revanced_custom_playback_speeds_invalid">Vitezele personalizate trebuie să fie mai mici de %s</string>

@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Кнопка \"Спампаваць\" адкрывае ваш знешні загрузнік</string>
   <string name="revanced_external_downloader_action_button_summary_off">Кнопка \"Спампаваць\" адкрывае ўласную праграму загрузкі ў праграме</string>
   <string name="revanced_external_downloader_name_title">Назва пакета загрузніка</string>
-  <string name="revanced_external_downloader_name_summary">Імя пакета ўсталяванай знешняй праграмы загрузкі, напрыклад NewPipe або Seal</string>
+  <string name="revanced_external_downloader_name_summary">Назва пакета вашага ўсталяванага знешняга спампоўшчыка праграмы</string>
+  <string name="revanced_external_downloader_other_item_hint">Увядзіце назву пакета</string>
+  <string name="revanced_external_downloader_other_item">Іншае</string>
+  <string name="revanced_external_downloader_not_found_title">Праграма не ўстаноўлена</string>
   <string name="revanced_external_downloader_not_installed_warning">%s не ўсталяваны. Калі ласка, усталюйце яго.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Не ўдалося знайсці ўстаноўленую праграму з назвай пакета: %s
+
+Праверце, ці правільная назва пакета і ці ўстаноўлена праграма"</string>
+  <string name="revanced_external_downloader_empty_warning">Назва пакета не можа быць пустой</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Адключыць жэст дакладнага пошуку</string>
@@ -1459,10 +1466,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка паказана. Націсніце і ўтрымлівайце, каб скінуць хуткасць прайгравання да стандартнай</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка не паказваецца</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Паказаць кнопку якасці відэа</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Кнопка паказана. Націсніце і ўтрымлівайце, каб скінуць якасць да па змаўчанні</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Кнопка не паказваецца</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Меню пользовательской скорости воспроизведения</string>
   <string name="revanced_custom_speed_menu_summary_on">Меню пользовательской скорости отображается</string>
   <string name="revanced_custom_speed_menu_summary_off">Меню пользовательской скорости не отображается</string>
+  <string name="revanced_restore_old_speed_menu_title">Аднавіць старое меню хуткасці прайгравання</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Паказана старое меню хуткасці</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Паказана сучаснае меню хуткасці</string>
   <string name="revanced_custom_playback_speeds_title">Карыстальніцкія хуткасці прайгравання</string>
   <string name="revanced_custom_playback_speeds_summary">Добавьте или измените пользовательскую скорость воспроизведения</string>
   <string name="revanced_custom_playback_speeds_invalid">Нестандартныя хуткасці павінны быць менш за %s</string>

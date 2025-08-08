@@ -468,8 +468,15 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_external_downloader_action_button_summary_on">Ներբեռնման կոճակը բացում է ձեր արտաքին ներբեռնողը</string>
   <string name="revanced_external_downloader_action_button_summary_off">Ներբեռնման կոճակը բացում է ներկառուցված ներբեռնողը</string>
   <string name="revanced_external_downloader_name_title">Ներբեռնողի փաթեթի անունը</string>
-  <string name="revanced_external_downloader_name_summary">Ձեր տեղադրված արտաքին ներբեռնողի ծրագրի փաթեթի անունը, օրինակ՝ NewPipe կամ Seal</string>
+  <string name="revanced_external_downloader_name_summary">Ձեր տեղադրված արտաքին ներբեռնիչ հավելվածի փաթեթի անունը</string>
+  <string name="revanced_external_downloader_other_item_hint">Մուտքագրեք փաթեթի անունը</string>
+  <string name="revanced_external_downloader_other_item">Այլ</string>
+  <string name="revanced_external_downloader_not_found_title">Հավելվածը տեղադրված չէ</string>
   <string name="revanced_external_downloader_not_installed_warning">%s չի տեղադրված։ Խնդրում ենք տեղադրել այն։</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Չհաջողվեց գտնել տեղադրված հավելվածը` փաթեթի անվանմամբ՝ %s
+
+Ստուգեք, որ փաթեթի անունը ճիշտ է և հավելվածը տեղադրված է"</string>
+  <string name="revanced_external_downloader_empty_warning">Փաթեթի անունը չի կարող դատարկ լինել</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Անջատել ճշգրիտ փնտրման ժեստը</string>
@@ -1459,10 +1466,18 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_playback_speed_dialog_button_summary_on">Կոճակը ցուցադրվում է: Հպեք և պահեք՝ նվագարկման արագությունը լռելյայնի վերականգնելու համար</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Կոճակը  չի  ցուցադրվում</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Ցուցադրել տեսանյութի որակի կոճակը</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Կոճակը ցուցադրված է։ Հպեք և պահեք՝ որակը լռելյայնին վերականգնելու համար</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Կոճակը ցուցադրված չէ։</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Տեսանյութի  արագության  հարմարեցված  մենյու</string>
   <string name="revanced_custom_speed_menu_summary_on">Հարմարեցված  արագության  մենյուը  ցուցադրվում է</string>
   <string name="revanced_custom_speed_menu_summary_off">Հարմարեցված  արագության  մենյուը  չի  ցուցադրվում</string>
+  <string name="revanced_restore_old_speed_menu_title">Վերականգնել հին նվագարկման արագության ընտրացանկը</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Ցուցադրվում է հին արագության ընտրացանկը</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Ցուցադրվում է ժամանակակից արագության ընտրացանկը</string>
   <string name="revanced_custom_playback_speeds_title">Տեսանյութի  վերարտադրման  հարմարեցված  արագություններ</string>
   <string name="revanced_custom_playback_speeds_summary">Ավելացնել  կամ  փոփոխել  տեսանյութի  վերարտադրման  հարմարեցված  արագությունները</string>
   <string name="revanced_custom_playback_speeds_invalid">Պատրաստված արագությունները պետք է լինեն ավելի քիչ քան %s</string>

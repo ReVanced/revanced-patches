@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">לחצן ההורדה פותח את המוריד החיצוני שלך</string>
   <string name="revanced_external_downloader_action_button_summary_off">לחצן ההורדה פותח את המוריד המקומי בתוך היישום</string>
   <string name="revanced_external_downloader_name_title">שם חבילת מוריד</string>
-  <string name="revanced_external_downloader_name_summary">שם החבילה של המוריד החיצוני המותקן שלך, כגון NewPipe או Seal</string>
+  <string name="revanced_external_downloader_name_summary">שם חבילה של אפליקציית ההורדה החיצונית המותקנת שלך</string>
+  <string name="revanced_external_downloader_other_item_hint">הזן את שם החבילה</string>
+  <string name="revanced_external_downloader_other_item">אחר</string>
+  <string name="revanced_external_downloader_not_found_title">האפליקציה לא מותקנת</string>
   <string name="revanced_external_downloader_not_installed_warning">%s אינו מותקן. נא להתקין אותו.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"לא ניתן למצוא אפליקציה מותקנת עם שם החבילה: %s
+
+ודא/י ששם החבילה נכון ושהאפליקציה מותקנת"</string>
+  <string name="revanced_external_downloader_empty_warning">שם החבילה אינו יכול להיות ריק</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">השבת מחוות דילוג מדויקת</string>
@@ -1460,10 +1467,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">הלחצן מוצג. יש להקיש ולהחזיק כדי לאפס את מהירות ההפעלה לברירת מחדל</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">הלחצן אינו מוצג</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">הצג כפתור איכות וידאו</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">הלחצן מוצג. גע והחזק כדי לאפס את האיכות לברירת מחדל</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">הלחצן אינו מוצג</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">תפריט מהירות הפעלה מותאם אישית</string>
   <string name="revanced_custom_speed_menu_summary_on">תפריט מהירות מותאם אישית מוצג</string>
   <string name="revanced_custom_speed_menu_summary_off">תפריט מהירות מותאם אישית אינו מוצג</string>
+  <string name="revanced_restore_old_speed_menu_title">שחזר תפריט מהירות השמעה ישן</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">תפריט מהירות ישן מוצג</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">תפריט מהירות מודרני מוצג</string>
   <string name="revanced_custom_playback_speeds_title">מהירויות הפעלה מותאמות אישית</string>
   <string name="revanced_custom_playback_speeds_summary">הוסף או שנה את המהירויות הפעלה המותאמות אישית</string>
   <string name="revanced_custom_playback_speeds_invalid">מהירויות מותאמות אישית חייבות להיות קטנות מ-%s</string>

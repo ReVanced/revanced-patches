@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Кнопка \"Скачать\" запускает внешний загрузчик</string>
   <string name="revanced_external_downloader_action_button_summary_off">Кнопка \"Скачать\" запускает собственный загрузчик</string>
   <string name="revanced_external_downloader_name_title">Имя пакета загрузчика</string>
-  <string name="revanced_external_downloader_name_summary">Имя пакета установленного Вами приложения внешнего загрузчика, такого как NewPipe или Seal</string>
+  <string name="revanced_external_downloader_name_summary">Имя пакета установленного Вами приложения внешнего загрузчика</string>
+  <string name="revanced_external_downloader_other_item_hint">Введите имя пакета</string>
+  <string name="revanced_external_downloader_other_item">Другое</string>
+  <string name="revanced_external_downloader_not_found_title">Приложение не установлено</string>
   <string name="revanced_external_downloader_not_installed_warning">%s не установлен. Пожалуйста, установите его.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Не удалось найти установленное приложение с именем пакета: %s
+
+Убедитесь, что имя пакета указано правильно и приложение установлено"</string>
+  <string name="revanced_external_downloader_empty_warning">Имя пакета не может быть пустым</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Отключить жест покадровой перемотки</string>
@@ -1465,10 +1472,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка показана. Нажмите и удерживайте, чтобы сбросить скорость воспроизведения до значения по умолчанию</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Показать кнопку качества видео</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Кнопка показана. Нажмите и удерживайте, чтобы сбросить качество до значения по умолчанию</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Показать кастомное меню скорости</string>
   <string name="revanced_custom_speed_menu_summary_on">Кастомное меню скорости воспроизведения показано</string>
   <string name="revanced_custom_speed_menu_summary_off">Кастомное меню скорости воспроизведения скрыто</string>
+  <string name="revanced_restore_old_speed_menu_title">Восстановить старое меню скорости воспроизведения</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Старое меню скорости показано</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Современное меню скорости показано</string>
   <string name="revanced_custom_playback_speeds_title">Кастомные скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_summary">Добавить или изменить кастомные скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_invalid">Кастомные скорости должны быть меньше, чем %s</string>

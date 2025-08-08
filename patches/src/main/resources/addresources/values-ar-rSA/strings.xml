@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">يفتح زر التنزيل أداة التنزيل الخارجية</string>
   <string name="revanced_external_downloader_action_button_summary_off">يفتح زر التنزيل أداة التنزيل الأصلية داخل التطبيق</string>
   <string name="revanced_external_downloader_name_title">اسم حزمة أداة التنزيل</string>
-  <string name="revanced_external_downloader_name_summary">اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك، مثل NewPipe أو Seal</string>
+  <string name="revanced_external_downloader_name_summary">اسم حزمة تطبيق التنزيل الخارجي المثبت لديك</string>
+  <string name="revanced_external_downloader_other_item_hint">أدخل اسم الحزمة</string>
+  <string name="revanced_external_downloader_other_item">أخرى</string>
+  <string name="revanced_external_downloader_not_found_title">التطبيق غير مثبت</string>
   <string name="revanced_external_downloader_not_installed_warning">لم يتم تثبيت %s . الرجاء تثبيته.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"تعذر العثور على التطبيق المثبت باسم الحزمة: %s
+
+تأكد من أن اسم الحزمة صحيح وأن التطبيق مثبت"</string>
+  <string name="revanced_external_downloader_empty_warning">لا يمكن أن يكون اسم الحزمة فارغًا</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">تعطيل إيماءة التمرير الدقيقة</string>
@@ -1458,10 +1465,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">الزر معروض. انقر مع الاستمرار لإعادة ضبط سرعة التشغيل إلى الوضع الافتراضي</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">لا يتم عرض الزر</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">عرض زر جودة الفيديو</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">الزر معروض. انقر مع الاستمرار لإعادة تعيين الجودة إلى الافتراضي</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">الزر غير معروض</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">قائمة سرعة التشغيل المخصصة</string>
   <string name="revanced_custom_speed_menu_summary_on">يتم عرض قائمة سرعة التشغيل المخصصة</string>
   <string name="revanced_custom_speed_menu_summary_off">لا يتم عرض قائمة سرعة التشغيل المخصصة</string>
+  <string name="revanced_restore_old_speed_menu_title">استعادة قائمة سرعة التشغيل القديمة</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">قائمة السرعة القديمة معروضة</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">قائمة السرعة الحديثة معروضة</string>
   <string name="revanced_custom_playback_speeds_title">سرعة التشغيل المخصصة</string>
   <string name="revanced_custom_playback_speeds_summary">إضافة أو تغيير سرعة التشغيل المخصصة</string>
   <string name="revanced_custom_playback_speeds_invalid">يجب أن تكون سرعات التشغيل المخصصة أقل من %s</string>

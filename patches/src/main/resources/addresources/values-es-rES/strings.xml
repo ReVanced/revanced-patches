@@ -468,8 +468,15 @@ Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_external_downloader_action_button_summary_on">El botón de descarga abre su descarga externa</string>
   <string name="revanced_external_downloader_action_button_summary_off">El botón de descarga abre el descargador nativo en la aplicación</string>
   <string name="revanced_external_downloader_name_title">Nombre del paquete del descargado</string>
-  <string name="revanced_external_downloader_name_summary">Nombre del paquete de su aplicación de descarga externa instalada, como NewPipe o Seal</string>
+  <string name="revanced_external_downloader_name_summary">Nombre del paquete de tu aplicación de descarga externa instalada</string>
+  <string name="revanced_external_downloader_other_item_hint">Introduce el nombre del paquete</string>
+  <string name="revanced_external_downloader_other_item">Otro</string>
+  <string name="revanced_external_downloader_not_found_title">Aplicación no instalada</string>
   <string name="revanced_external_downloader_not_installed_warning">%s no está instalado. Por favor, instálelo.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"No se pudo encontrar la aplicación instalada con el nombre de paquete: %s
+
+Verifica que el nombre del paquete sea correcto y que la aplicación esté instalada"</string>
+  <string name="revanced_external_downloader_empty_warning">El nombre del paquete no puede estar vacío</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Desactivar gesto de búsqueda preciso</string>
@@ -1449,10 +1456,18 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Se muestra el botón. Mantén pulsado para restablecer la velocidad de reproducción predeterminada</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">El botón no se muestra</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Mostrar botón de calidad de video</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Botón visible. Toca y mantén para restablecer la calidad a los valores predeterminados</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Botón no visible</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menú de velocidad de reproducción personalizada</string>
   <string name="revanced_custom_speed_menu_summary_on">Menú de velocidad personalizado se muestra</string>
   <string name="revanced_custom_speed_menu_summary_off">Menú de velocidad personalizado no se muestra</string>
+  <string name="revanced_restore_old_speed_menu_title">Restaurar el menú de velocidad de reproducción antiguo</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Se muestra el menú de velocidad antiguo</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Se muestra el menú de velocidad moderno</string>
   <string name="revanced_custom_playback_speeds_title">Velocidades de reproducción personalizadas</string>
   <string name="revanced_custom_playback_speeds_summary">Añadir o cambiar las velocidades de reproducción personalizadas</string>
   <string name="revanced_custom_playback_speeds_invalid">Las velocidades personalizadas deben ser menores que %s</string>

@@ -207,9 +207,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_surveys_title">설문 조사 숨기기</string>
   <string name="revanced_hide_surveys_summary_on">설문 조사가 숨겨집니다</string>
   <string name="revanced_hide_surveys_summary_off">설문 조사가 표시됩니다</string>
-  <string name="revanced_hide_ticket_shelf_title">콘서트 선반 숨기기</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">콘서트 선반이 숨겨집니다</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">콘서트 선반이 표시됩니다</string>
+  <string name="revanced_hide_ticket_shelf_title">콘서트 티켓 선반 숨기기</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">콘서트 티켓 선반이 숨겨집니다</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">콘서트 티켓 선반이 표시됩니다</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_video_recommendation_labels_title">동영상 추천 라벨 숨기기</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">검색 결과에서 다음 라벨이 숨겨집니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
@@ -378,7 +378,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_keyword_content_about_title">키워드 필터링 정보</string>
   <string name="revanced_hide_keyword_content_about_summary">"홈 / 구독 / 검색 결과가 필터링되어 키워드 구문과 일치하는 콘텐츠가 숨겨집니다
 
-알려진 문제점:
+제한 사항:
 • 채널 이름으로 Shorts는 숨길 수 없습니다
 • 일부 화면 구성요소는 숨겨지지 않을 수 있습니다
 • 필터링 키워드를 검색하면 검색 결과가 표시되지 않을 수 있습니다"</string>
@@ -470,8 +470,15 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_external_downloader_action_button_summary_on">오프라인 저장 버튼으로 외부 다운로더를 실행할 수 있습니다</string>
   <string name="revanced_external_downloader_action_button_summary_off">오프라인 저장 버튼으로 기본 다운로더를 실행할 수 있습니다</string>
   <string name="revanced_external_downloader_name_title">외부 다운로더 앱 패키지명</string>
-  <string name="revanced_external_downloader_name_summary">NewPipe 또는 Seal와 같은 설치된 외부 다운로더 앱 패키지명입니다</string>
+  <string name="revanced_external_downloader_name_summary">설치된 외부 다운로더 앱 패키지명을 설정하세요</string>
+  <string name="revanced_external_downloader_other_item_hint">앱 패키지명을 입력하세요</string>
+  <string name="revanced_external_downloader_other_item">기타</string>
+  <string name="revanced_external_downloader_not_found_title">앱이 설치되지 않습니다</string>
   <string name="revanced_external_downloader_not_installed_warning">%s 는 설치되어 있지 않습니다. 설치하세요</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"패키지 이름이 '%s'인 설치된 앱을 찾을 수 없습니다
+
+패키지 이름이 올바르고 앱이 설치되어 있는지 확인하세요"</string>
+  <string name="revanced_external_downloader_empty_warning">패키지명은 비워둘 수 없습니다</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">세밀한 탐색 제스처 비활성화하기</string>
@@ -905,7 +912,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 수 표시하기</string>
   <string name="revanced_ryd_shorts_summary_on">"Shorts에서 싫어요 수를 표시합니다
 
-알려진 문제점:
+제한 사항:
 • 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 싫어요 수가 표시되지 않을 수 있습니다"</string>
   <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요 수를 표시하지 않습니다</string>
   <string name="revanced_ryd_dislike_percentage_title">싫어요 수를 퍼센트로 표시하기</string>
@@ -1224,7 +1231,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_change_start_page_always_title">앱 시작 페이지 항상 변경하기</string>
   <string name="revanced_change_start_page_always_summary_on">"앱 시작 페이지를 항상 변경합니다
 
-알려진 문제점:
+제한 사항:
 • 툴바에서 '뒤로 가기' 버튼이 작동하지 않을 수 있습니다"</string>
   <string name="revanced_change_start_page_always_summary_off">앱 시작 페이지를 앱 시작 시에만 변경합니다</string>
   </patch>
@@ -1465,10 +1472,18 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 누르면 동영상 재생 속도가 기본값으로 초기화됩니다</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">버튼을 표시하지 않습니다</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">동영상 화질 버튼 표시하기</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 누르면 화질이 기본값으로 초기화됩니다</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">버튼을 표시하지 않습니다</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">사용자 정의 동영상 재생 속도 활성화하기</string>
   <string name="revanced_custom_speed_menu_summary_on">사용자 정의 동영상 재생 속도를 활성화합니다</string>
   <string name="revanced_custom_speed_menu_summary_off">사용자 정의 동영상 재생 속도를 비활성화합니다</string>
+  <string name="revanced_restore_old_speed_menu_title">이전 재생 속도 메뉴 복원하기</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">이전 재생 속도 메뉴가 표시됩니다</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">모던 재생 속도 메뉴가 표시됩니다</string>
   <string name="revanced_custom_playback_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
   <string name="revanced_custom_playback_speeds_summary">동영상 재생 속도 값을 추가 또는 변경할 수 있습니다</string>
   <string name="revanced_custom_playback_speeds_invalid">재생 속도 값은 %s배속보다 작아야 합니다</string>

@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Кнопка \"Завантажити\" запускає зовнішній завантажувач</string>
   <string name="revanced_external_downloader_action_button_summary_off">Кнопка \"Завантажити\" запускає власний завантажувач</string>
   <string name="revanced_external_downloader_name_title">Ім\'я пакета завантажувача</string>
-  <string name="revanced_external_downloader_name_summary">Ім\'я пакета встановленого Вами додатку зовнішнього завантажувача, такого як NewPipe чи YTDLnis</string>
+  <string name="revanced_external_downloader_name_summary">Ім\'я пакета встановленого Вами застосунку зовнішнього завантажувача</string>
+  <string name="revanced_external_downloader_other_item_hint">Введіть ім\'я пакета</string>
+  <string name="revanced_external_downloader_other_item">Вказати інший</string>
+  <string name="revanced_external_downloader_not_found_title">Застосунок не встановлено</string>
   <string name="revanced_external_downloader_not_installed_warning">%s не встановлено. Встановіть його.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Не вдалося знайти встановлений застосунок з ім'ям пакета: %s
+
+Перевірте, чи правильне ім'я пакета та чи встановлено застосунок"</string>
+  <string name="revanced_external_downloader_empty_warning">Ім\'я пакета не може бути порожнім</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Вимкнути жест точного перемотування</string>
@@ -1457,10 +1464,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка показується. Натисніть і утримуйте, щоб відновити стандартну швидкість відтворення</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка швидкості відтворення не показується</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Кнопка якості відео</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Кнопка показується. Натисніть і утримуйте, щоб відновити стандартну якість</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Кнопка швидкості відтворення не показується</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Користувацьке меню швидкості відтворення</string>
   <string name="revanced_custom_speed_menu_summary_on">Користувацьке меню швидкості відтворення показується</string>
   <string name="revanced_custom_speed_menu_summary_off">Користувацьке меню швидкості відтворення не показується</string>
+  <string name="revanced_restore_old_speed_menu_title">Відновити старе меню швидкості відтворення</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Показується старе меню швидкості</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Показується новітнє меню швидкості</string>
   <string name="revanced_custom_playback_speeds_title">Користувацькі швидкості відтворення</string>
   <string name="revanced_custom_playback_speeds_summary">Додавання або зміна користувацьких швидкостей відтворення</string>
   <string name="revanced_custom_playback_speeds_invalid">Користувацькі швидкості повинні бути менші ніж %s</string>

@@ -464,8 +464,15 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_external_downloader_action_button_summary_on">ডাউনলোড বোতামটি আপনার বাহিরের ডাউনলোডার খুলবে</string>
   <string name="revanced_external_downloader_action_button_summary_off">ডাউনলোড বোতামটি নেটিভ ইন-অ্যাপ ডাউনলোডার খুলবে</string>
   <string name="revanced_external_downloader_name_title">ডাউনলোডারের প্যাকেজ নাম</string>
-  <string name="revanced_external_downloader_name_summary">আপনার ইনস্টল করা বাইরের ডাউনলোডার অ্যাপের প্যাকেজ নাম, যেমন NewPipe বা Seal</string>
+  <string name="revanced_external_downloader_name_summary">আপনার ইনস্টল করা বাহ্যিক ডাউনলোডার অ্যাপের প্যাকেজের নাম</string>
+  <string name="revanced_external_downloader_other_item_hint">প্যাকেজের নাম লিখুন</string>
+  <string name="revanced_external_downloader_other_item">অন্যান্য</string>
+  <string name="revanced_external_downloader_not_found_title">অ্যাপ ইনস্টল করা নেই</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ইনস্টল করা নেই, ইনস্টল করুন।</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"প্যাকেজের নাম: %s সহ ইনস্টল করা অ্যাপটি খুঁজে পাওয়া যায়নি
+
+প্যাকেজের নামটি সঠিক এবং অ্যাপটি ইনস্টল করা আছে কিনা তা যাচাই করুন"</string>
+  <string name="revanced_external_downloader_empty_warning">প্যাকেজের নাম খালি রাখা যাবে না</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">ভিডিওর নির্দিষ্ট অংশে যাওয়ার অঙ্গভঙ্গি নিষ্ক্রিয় করুন</string>
@@ -1454,10 +1461,18 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_playback_speed_dialog_button_summary_on">বোতামটি দেখানো হয়েছে। প্লেব্যাক স্পীড ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন।</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">বোতাম প্রদর্শিত হয়নি</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">ভিডিও গুণমান বোতাম দেখান</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">বোতামটি দেখানো হয়েছে। গুণমান ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন।</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">বোতামটি দেখানো হয়নি।</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">কাস্টম প্লেব্যাক গতি মেনু</string>
   <string name="revanced_custom_speed_menu_summary_on">কাস্টম স্পিড মেনু দেখানো হচ্ছে</string>
   <string name="revanced_custom_speed_menu_summary_off">কাস্টম স্পিড মেনু দেখানো হচ্ছে না</string>
+  <string name="revanced_restore_old_speed_menu_title">পুরানো প্লেব্যাক গতি মেনু পুনরুদ্ধার করুন</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">পুরানো গতির মেনু দেখানো হয়েছে</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">আধুনিক গতির মেনু দেখানো হয়েছে</string>
   <string name="revanced_custom_playback_speeds_title">নিজস্ব প্লেব্যাক স্পিড</string>
   <string name="revanced_custom_playback_speeds_summary">কাস্টম প্লেব্যাক গতি যোগ করুন অথবা পরিবর্তন করুন</string>
   <string name="revanced_custom_playback_speeds_invalid">কাস্টম গতি %s এর চেয়ে কম হতে হবে</string>

@@ -6,8 +6,6 @@ import android.app.Instrumentation;
 import android.view.KeyEvent;
 import android.view.View;
 
-import androidx.annotation.Nullable;
-
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
@@ -155,10 +153,10 @@ public final class AdsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == playerShoppingShelf) {
-            return contentIndex == 0 && playerShoppingShelfBuffer.check(protobufBufferArray).isFiltered();
+            return contentIndex == 0 && playerShoppingShelfBuffer.check(buffer).isFiltered();
         }
 
         if (exceptions.matches(path)) {

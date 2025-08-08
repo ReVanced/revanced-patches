@@ -468,8 +468,15 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Botão de transferir abre seu downloader externo</string>
   <string name="revanced_external_downloader_action_button_summary_off">O botão de transferir abre o downloader nativo</string>
   <string name="revanced_external_downloader_name_title">Nome do pacote do downloader</string>
-  <string name="revanced_external_downloader_name_summary">Nome do pacote da sua aplicação de downloader instalado, como NewPipe ou Seal</string>
+  <string name="revanced_external_downloader_name_summary">Nome do pacote do seu aplicativo de download externo instalado</string>
+  <string name="revanced_external_downloader_other_item_hint">Insira o nome do pacote</string>
+  <string name="revanced_external_downloader_other_item">Outro</string>
+  <string name="revanced_external_downloader_not_found_title">Aplicativo não instalado</string>
   <string name="revanced_external_downloader_not_installed_warning">%s não está instalado. Por favor, instale-o.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Não foi possível encontrar o aplicativo instalado com o nome do pacote: %s
+
+Verifique se o nome do pacote está correto e se o aplicativo está instalado"</string>
+  <string name="revanced_external_downloader_empty_warning">O nome do pacote não pode estar vazio</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Desativar gesto de pesquisa precisa</string>
@@ -1458,10 +1465,18 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_playback_speed_dialog_button_summary_on">O botão é mostrado. Toque e segure para redefinir a velocidade de reprodução para o padrão</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">O botão não está visível</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Mostrar botão de qualidade de vídeo</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">O botão é exibido. Toque e segure para redefinir a qualidade para o padrão</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">O botão não é exibido</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu personalizado de velocidade de reprodução</string>
   <string name="revanced_custom_speed_menu_summary_on">O menu de velocidade personalizado é exibido</string>
   <string name="revanced_custom_speed_menu_summary_off">O menu de velocidade personalizado não é mostrado</string>
+  <string name="revanced_restore_old_speed_menu_title">Restaurar menu antigo de velocidade de reprodução</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Menu antigo de velocidade é exibido</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Menu moderno de velocidade é exibido</string>
   <string name="revanced_custom_playback_speeds_title">Velocidade de reprodução personalizada</string>
   <string name="revanced_custom_playback_speeds_summary">Adicionar ou alterar as velocidades de reprodução personalizadas</string>
   <string name="revanced_custom_playback_speeds_invalid">Tốc độ tùy chỉnh phải nhỏ hơn %s</string>

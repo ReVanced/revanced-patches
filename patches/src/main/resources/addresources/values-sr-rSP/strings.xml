@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Дугме „Преузми” отвара спољни програм за преузимање</string>
   <string name="revanced_external_downloader_action_button_summary_off">Дугме „Преузми” отвара изворни програм за преузимање у апликацији</string>
   <string name="revanced_external_downloader_name_title">Назив пакета програма за преузимање</string>
-  <string name="revanced_external_downloader_name_summary">Назив пакета инсталираног спољног програма за преузимање, као што је NewPipe или Seal</string>
+  <string name="revanced_external_downloader_name_summary">Назив пакета вашег инсталираног спољног програма за преузимање</string>
+  <string name="revanced_external_downloader_other_item_hint">Унесите назив пакета</string>
+  <string name="revanced_external_downloader_other_item">Остало</string>
+  <string name="revanced_external_downloader_not_found_title">Апликација није инсталирана</string>
   <string name="revanced_external_downloader_not_installed_warning">%s није инсталиран. Инсталирајте га.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Није пронађена инсталирана апликација са називом пакета: %s
+
+Проверите да ли је назив пакета исправан и да ли је апликација инсталирана"</string>
+  <string name="revanced_external_downloader_empty_warning">Назив пакета не може бити празан</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Онемогући покрет прецизног премотавања</string>
@@ -1460,10 +1467,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Дугме је приказано. Додирните и задржите да бисте вратили брзину репродукције на подразумевану вредност</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Дугме дијалога за брзину није приказано</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Прикажи дугме квалитета видеа</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Дугме је приказано. Додирните и задржите да бисте вратили квалитет видеа на подразумевану вредност</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Дугме није приказано</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Мени прилагођене брзине репродукције</string>
   <string name="revanced_custom_speed_menu_summary_on">Мени прилагођене брзине репродукције је приказан</string>
   <string name="revanced_custom_speed_menu_summary_off">Мени прилагођене брзине репродукције није приказан</string>
+  <string name="revanced_restore_old_speed_menu_title">Врати стари мени брзине репродукције</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Приказан је стари мени брзине репродукције</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Приказан је модерни мени брзине репродукције</string>
   <string name="revanced_custom_playback_speeds_title">Прилагођене брзине репродукције</string>
   <string name="revanced_custom_playback_speeds_summary">Додајте или промените прилагођене брзине репродукције</string>
   <string name="revanced_custom_playback_speeds_invalid">Прилагођене брзине морају бити мање од %s</string>

@@ -468,8 +468,15 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Butoni \"Shkarko\" hap shkarkuesin tuaj të jashtëm</string>
   <string name="revanced_external_downloader_action_button_summary_off">Butoni \"Shkarko\" hap shkarkuesin e integruar në aplikacion</string>
   <string name="revanced_external_downloader_name_title">Emri i paketave të shkarkuesit</string>
-  <string name="revanced_external_downloader_name_summary">Emri i paketave të aplikacionit tuaj të shkarkuesit të jashtëm të instaluar, siç janë NewPipe ose Seal</string>
+  <string name="revanced_external_downloader_name_summary">Emri i paketës së aplikacionit tuaj të instaluar të shkarkuesit të jashtëm</string>
+  <string name="revanced_external_downloader_other_item_hint">Shkruani emrin e paketës</string>
+  <string name="revanced_external_downloader_other_item">Tjetër</string>
+  <string name="revanced_external_downloader_not_found_title">Aplikacioni nuk është instaluar</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nuk është instaluar. Ju lutemi instaloni atë.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Nuk u gjet asnjë aplikacion i instaluar me emrin e paketës: %s
+
+Verifikoni që emri i paketës është i saktë dhe aplikacioni është instaluar"</string>
+  <string name="revanced_external_downloader_empty_warning">Emri i paketës nuk mund të jetë bosh</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Çaktivizo lëvizjen e saktë të kërkimit</string>
@@ -1456,10 +1463,18 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Butoni shfaqet. Prekni dhe mbani për të rivendosur shpejtësinë e riprodhimit në atë të parazgjedhur</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Butoni nuk shfaqet</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Shfaq butonin e cilësisë së videos</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Butoni shfaqet. Prekni dhe mbani shtypur për të rivendosur cilësinë në parazgjedhur</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Butoni nuk shfaqet</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menyja e shpejtësisë së përsëritjes së përshtatshme</string>
   <string name="revanced_custom_speed_menu_summary_on">Menyja e shpejtësisë së përshtatshme shfaqet</string>
   <string name="revanced_custom_speed_menu_summary_off">Menyja e shpejtësisë së përshtatshme nuk shfaqet</string>
+  <string name="revanced_restore_old_speed_menu_title">Rivendos menunë e vjetër të shpejtësisë së riprodhimit</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Menyja e vjetër e shpejtësisë shfaqet</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Menyja moderne e shpejtësisë shfaqet</string>
   <string name="revanced_custom_playback_speeds_title">Shpejtësi të përsëritjes së përshtatshme</string>
   <string name="revanced_custom_playback_speeds_summary">Shtoni ose ndryshoni shpejtësitë e përsëritjes së përshtatshme</string>
   <string name="revanced_custom_playback_speeds_invalid">Shpejtësitë e personalizuara duhet të jenë më të vogla se %s</string>

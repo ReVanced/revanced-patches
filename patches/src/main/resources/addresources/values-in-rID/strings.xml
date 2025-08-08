@@ -116,16 +116,16 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_debug_summary_on">Pencatatan debug diaktifkan</string>
   <string name="revanced_debug_summary_off">Pencatatan debug dinonaktifkan</string>
   <string name="revanced_debug_protobuffer_title">Buffer protokol log</string>
-  <string name="revanced_debug_protobuffer_summary_on">Log debug termasuk buffer proto</string>
-  <string name="revanced_debug_protobuffer_summary_off">Log debug tidak menyertakan buffer proto</string>
+  <string name="revanced_debug_protobuffer_summary_on">Pencatatan debug termasuk buffer proto</string>
+  <string name="revanced_debug_protobuffer_summary_off">Pencatatan debug tidak menyertakan buffer proto</string>
   <string name="revanced_debug_protobuffer_user_dialog_message">"Mengaktifkan setelan ini akan mencatat data tata letak tambahan, termasuk teks pada layar untuk beberapa komponen UI.
 
 Ini dapat membantu mengidentifikasi komponen saat membuat filter khusus.
 
 Namun, mengaktifkan ini juga akan mencatat beberapa data pengguna seperti alamat IP Anda."</string>
-  <string name="revanced_debug_stacktrace_title">Jejak log stack</string>
-  <string name="revanced_debug_stacktrace_summary_on">Log debug menyertakan jejak stack</string>
-  <string name="revanced_debug_stacktrace_summary_off">Log debug tidak menyertakan jejak stack</string>
+  <string name="revanced_debug_stacktrace_title">Jejak catatan stack</string>
+  <string name="revanced_debug_stacktrace_summary_on">Pencatatan debug menyertakan jejak stack</string>
+  <string name="revanced_debug_stacktrace_summary_off">Pencatatan debug tidak menyertakan jejak stack</string>
   <string name="revanced_debug_toast_on_error_title">Tampilkan pesan timbul pada kesalahan ReVanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">Pesan timbul ditampilkan jika terjadi kesalahan</string>
   <string name="revanced_debug_toast_on_error_summary_off">Pesan timbul tidak ditampilkan jika terjadi kesalahan</string>
@@ -137,7 +137,7 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_debug_logs_disabled">Pencatatan debug dinonaktifkan</string>
   <string name="revanced_debug_logs_none_found">Tidak ditemukan catatan</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Catatan disalin</string>
-  <string name="revanced_debug_logs_failed_to_export">Gagal mengekspor log: %s</string>
+  <string name="revanced_debug_logs_failed_to_export">Gagal mengekspor catatan: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Bersihkan catatan debug</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Menghapus semua catatan debug ReVanced yang tersimpan</string>
   <string name="revanced_debug_logs_clear_toast">Catatan dibersihkan</string>
@@ -468,8 +468,15 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Tombol unduh membuka pengunduh eksternal Anda</string>
   <string name="revanced_external_downloader_action_button_summary_off">Tombol unduh membuka pengunduh asli di dalam aplikasi</string>
   <string name="revanced_external_downloader_name_title">Nama paket pengunduh</string>
-  <string name="revanced_external_downloader_name_summary">Nama paket aplikasi pengunduh eksternal yang Anda pasang, seperti NewPipe atau Seal</string>
+  <string name="revanced_external_downloader_name_summary">Nama paket aplikasi pengunduh eksternal yang telah Anda pasang</string>
+  <string name="revanced_external_downloader_other_item_hint">Masukkan nama paket</string>
+  <string name="revanced_external_downloader_other_item">Lainnya</string>
+  <string name="revanced_external_downloader_not_found_title">Aplikasi tidak terpasang</string>
   <string name="revanced_external_downloader_not_installed_warning">%s belum terpasang. Silahkan pasang.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Tidak dapat menemukan aplikasi terpasang dengan nama paket: %s
+
+Verifikasi nama paket sudah benar dan aplikasi sudah terpasang"</string>
+  <string name="revanced_external_downloader_empty_warning">Nama paket tidak boleh kosong</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Matikan gerakan pencarian presisi</string>
@@ -1457,10 +1464,18 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Tombol ditampilkan. Ketuk dan tahan untuk mengatur ulang kecepatan pemutaran ke bawaan</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tombol tidak ditampilkan</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Tampilkan tombol kualitas video</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Tombol ditampilkan. Ketuk dan tahan untuk mengatur ulang kualitas ke bawaan</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Tombol tidak ditampilkan</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu kecepatan pemutaran khusus</string>
   <string name="revanced_custom_speed_menu_summary_on">Menu kecepatan khusus ditampilkan</string>
   <string name="revanced_custom_speed_menu_summary_off">Menu kecepatan khusus tidak ditampilkan</string>
+  <string name="revanced_restore_old_speed_menu_title">Pulihkan menu kecepatan pemutaran lama</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Menu kecepatan lama ditampilkan</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Menu kecepatan modern ditampilkan</string>
   <string name="revanced_custom_playback_speeds_title">Kecepatan pemutaran khusus</string>
   <string name="revanced_custom_playback_speeds_summary">Tambah atau ubah kecepatan pemutaran khusus</string>
   <string name="revanced_custom_playback_speeds_invalid">Kecepatan khusus harus kurang dari %s</string>
@@ -1578,8 +1593,8 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan pemut
   <string name="revanced_client_ads_category_title">Iklan sisi klien</string>
   <string name="revanced_surestream_ads_category_title">Iklan surestream di sisi server</string>
   <string name="revanced_twitch_debug_title">Pencatatan debug</string>
-  <string name="revanced_twitch_debug_summary_on">Log debug diaktifkan</string>
-  <string name="revanced_twitch_debug_summary_off">Log debug dinonaktifkan</string>
+  <string name="revanced_twitch_debug_summary_on">Pencatatan debug diaktifkan</string>
+  <string name="revanced_twitch_debug_summary_off">Pencatatan debug dinonaktifkan</string>
   </patch>
   </app>
 </resources>

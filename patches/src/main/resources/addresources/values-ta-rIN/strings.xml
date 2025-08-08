@@ -222,6 +222,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">

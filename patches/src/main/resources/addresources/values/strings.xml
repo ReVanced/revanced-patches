@@ -531,8 +531,15 @@ This feature is only available for older devices"</string>
             <string name="revanced_external_downloader_action_button_summary_on">Download button opens your external downloader</string>
             <string name="revanced_external_downloader_action_button_summary_off">Download button opens the native in-app downloader</string>
             <string name="revanced_external_downloader_name_title">Downloader package name</string>
-            <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader app, such as NewPipe or Seal</string>
+            <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader app</string>
+            <string name="revanced_external_downloader_other_item_hint">Enter the package name</string>
+            <string name="revanced_external_downloader_other_item">Other</string>
+            <string name="revanced_external_downloader_not_found_title">App not installed</string>
             <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
+            <string name="revanced_external_downloader_package_not_found_warning">"Could not find installed app with package name: %s
+
+Verify the package name is correct and the app is installed"</string>
+            <string name="revanced_external_downloader_empty_warning">The package name cannot be empty</string>
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
             <string name="revanced_disable_precise_seeking_gesture_title">Disable precise seeking gesture</string>
@@ -1536,10 +1543,18 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown. Tap and hold to reset playback speed to default</string>
             <string name="revanced_playback_speed_dialog_button_summary_off">Button is not shown</string>
         </patch>
+        <patch id="video.quality.button.videoQualityButtonPatch">
+            <string name="revanced_video_quality_dialog_button_title">Show video quality button</string>
+            <string name="revanced_video_quality_dialog_button_summary_on">Button is shown. Tap and hold to reset quality to default</string>
+            <string name="revanced_video_quality_dialog_button_summary_off">Button is not shown</string>
+        </patch>
         <patch id="video.speed.custom.customPlaybackSpeedPatch">
             <string name="revanced_custom_speed_menu_title">Custom playback speed menu</string>
             <string name="revanced_custom_speed_menu_summary_on">Custom speed menu is shown</string>
             <string name="revanced_custom_speed_menu_summary_off">Custom speed menu is not shown</string>
+            <string name="revanced_restore_old_speed_menu_title">Restore old playback speed menu</string>
+            <string name="revanced_restore_old_speed_menu_summary_on">Old speed menu is shown</string>
+            <string name="revanced_restore_old_speed_menu_summary_off">Modern speed menu is shown</string>
             <string name="revanced_custom_playback_speeds_title">Custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_summary">Add or change the custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s</string>
