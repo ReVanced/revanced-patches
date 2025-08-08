@@ -329,7 +329,7 @@ public class Utils {
             return (R) child;
         }
 
-        throw new IllegalArgumentException("View with resource name '" + str + "' not found");
+        throw new IllegalArgumentException("View with resource name not found: " + str);
     }
 
     /**

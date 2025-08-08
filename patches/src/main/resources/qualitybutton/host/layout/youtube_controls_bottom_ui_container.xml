@@ -32,8 +32,7 @@
             android:fontFamily="sans-serif-condensed"
             android:paddingTop="5.5dp"
             android:textColor="@android:color/white"
-            android:textSize="10dp"
-            android:visibility="gone" />
+            android:textSize="10dp" />
 
         <View
             android:id="@+id/revanced_video_quality_dialog_button_placeholder"

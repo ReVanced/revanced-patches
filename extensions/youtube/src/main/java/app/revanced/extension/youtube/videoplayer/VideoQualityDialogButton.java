@@ -67,6 +67,7 @@ public class VideoQualityDialogButton {
         try {
             instance = new PlayerControlButton(
                     controlsView,
+                    "revanced_video_quality_dialog_button_container",
                     "revanced_video_quality_dialog_button",
                     "revanced_video_quality_dialog_button_placeholder",
                     "revanced_video_quality_dialog_button_text",

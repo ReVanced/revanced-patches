@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.patches.CopyVideoUrlPatch;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 public class CopyVideoUrlButton {

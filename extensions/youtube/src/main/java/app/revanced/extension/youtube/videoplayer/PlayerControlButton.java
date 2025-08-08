@@ -3,8 +3,8 @@ package app.revanced.extension.youtube.videoplayer;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-
 import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
@@ -15,11 +15,12 @@ import app.revanced.extension.youtube.shared.PlayerType;
 import kotlin.Unit;
 
 public class PlayerControlButton {
-    public interface PlayerControlButtonVisibility {
+
+    public interface PlayerControlButtonStatus {
         /**
          * @return If the button should be shown when the player overlay is visible.
          */
-        boolean shouldBeShown();
+        boolean buttonEnabled();
     }
 
     private static final int fadeInDuration;
@@ -45,6 +46,7 @@ public class PlayerControlButton {
         fadeOutImmediate.setDuration(Utils.getResourceInteger("fade_duration_fast"));
     }
 
+    private final WeakReference<View> containerRef;
     private final WeakReference<View> buttonRef;
     /**
      * Empty view with the same layout size as the button. Used to fill empty space while the
@@ -52,18 +54,38 @@ public class PlayerControlButton {
      */
     private final WeakReference<View> placeHolderRef;
     private final WeakReference<TextView> textOverlayRef;
-    private final PlayerControlButtonVisibility visibilityCheck;
+    private final PlayerControlButtonStatus enabledStatus;
     private boolean isVisible;
 
     public PlayerControlButton(View controlsViewGroup,
-                               String imageViewButtonId,
+                               String buttonId,
                                @Nullable String placeholderId,
                                @Nullable String textOverlayId,
-                               PlayerControlButtonVisibility buttonVisibility,
+                               PlayerControlButtonStatus enabledStatus,
                                View.OnClickListener onClickListener,
                                @Nullable View.OnLongClickListener longClickListener) {
-        ImageView imageView = Utils.getChildViewByResourceName(controlsViewGroup, imageViewButtonId);
-        imageView.setVisibility(View.GONE);
+        this(controlsViewGroup, buttonId, buttonId, placeholderId, textOverlayId,
+                enabledStatus, onClickListener, longClickListener);
+    }
+
+    public PlayerControlButton(View controlsViewGroup,
+                               String viewToHide,
+                               String buttonId,
+                               @Nullable String placeholderId,
+                               @Nullable String textOverlayId,
+                               PlayerControlButtonStatus enabledStatus,
+                               View.OnClickListener onClickListener,
+                               @Nullable View.OnLongClickListener longClickListener) {
+        View containerView = Utils.getChildViewByResourceName(controlsViewGroup, viewToHide);
+        containerView.setVisibility(View.GONE);
+        containerRef = new WeakReference<>(containerView);
+
+        View button = Utils.getChildViewByResourceName(controlsViewGroup, buttonId);
+        button.setOnClickListener(onClickListener);
+        if (longClickListener != null) {
+            button.setOnLongClickListener(longClickListener);
+        }
+        buttonRef = new WeakReference<>(button);
 
         View tempPlaceholder = null;
         if (placeholderId != null) {
@@ -75,17 +97,10 @@ public class PlayerControlButton {
         TextView tempTextOverlay = null;
         if (textOverlayId != null) {
             tempTextOverlay = Utils.getChildViewByResourceName(controlsViewGroup, textOverlayId);
-            tempTextOverlay.setVisibility(View.GONE);
         }
         textOverlayRef = new WeakReference<>(tempTextOverlay);
 
-        imageView.setOnClickListener(onClickListener);
-        if (longClickListener != null) {
-            imageView.setOnLongClickListener(longClickListener);
-        }
-
-        visibilityCheck = buttonVisibility;
-        buttonRef = new WeakReference<>(imageView);
+        this.enabledStatus = enabledStatus;
         isVisible = false;
 
         // Update the visibility after the player type changes.
@@ -121,50 +136,33 @@ public class PlayerControlButton {
             if (isVisible == visible) return;
             isVisible = visible;
 
-            View button = buttonRef.get();
-            if (button == null) return;
+            View container = containerRef.get();
+            if (container == null) return;
 
             View placeholder = placeHolderRef.get();
-            TextView textOverlay = textOverlayRef.get();
-            final boolean shouldBeShown = visibilityCheck.shouldBeShown();
+            final boolean buttonEnabled = enabledStatus.buttonEnabled();
 
-            if (visible && shouldBeShown) {
-                button.clearAnimation();
+            if (visible && buttonEnabled) {
+                container.clearAnimation();
                 if (animated) {
-                    button.startAnimation(fadeInAnimation);
+                    container.startAnimation(fadeInAnimation);
                 }
-                button.setVisibility(View.VISIBLE);
-
-                if (textOverlay != null) {
-                    textOverlay.clearAnimation();
-                    if (animated) {
-                        textOverlay.startAnimation(fadeInAnimation);
-                    }
-                    textOverlay.setVisibility(View.VISIBLE);
-                }
+                container.setVisibility(View.VISIBLE);
 
                 if (placeholder != null) {
                     placeholder.setVisibility(View.GONE);
                 }
             } else {
-                if (button.getVisibility() == View.VISIBLE) {
-                    button.clearAnimation();
+                if (container.getVisibility() == View.VISIBLE) {
+                    container.clearAnimation();
                     if (animated) {
-                        button.startAnimation(fadeOutAnimation);
+                        container.startAnimation(fadeOutAnimation);
                     }
-                    button.setVisibility(View.GONE);
-                }
-
-                if (textOverlay != null && textOverlay.getVisibility() == View.VISIBLE) {
-                    textOverlay.clearAnimation();
-                    if (animated) {
-                        textOverlay.startAnimation(fadeOutAnimation);
-                    }
-                    textOverlay.setVisibility(View.GONE);
+                    container.setVisibility(View.GONE);
                 }
 
                 if (placeholder != null) {
-                    placeholder.setVisibility(shouldBeShown
+                    placeholder.setVisibility(buttonEnabled
                             ? View.VISIBLE
                             : View.GONE);
                 }
@@ -182,43 +180,36 @@ public class PlayerControlButton {
             return;
         }
 
-        View button = buttonRef.get();
-        if (button == null) return;
+        View container = containerRef.get();
+        if (container == null) return;
 
-        button.clearAnimation();
+        container.clearAnimation();
         View placeholder = placeHolderRef.get();
-        TextView textOverlay = textOverlayRef.get();
 
-        if (visibilityCheck.shouldBeShown()) {
+        if (enabledStatus.buttonEnabled()) {
             if (isVisible) {
-                button.setVisibility(View.VISIBLE);
-                if (textOverlay != null) textOverlay.setVisibility(View.VISIBLE);
+                container.setVisibility(View.VISIBLE);
                 if (placeholder != null) placeholder.setVisibility(View.GONE);
             } else {
-                button.setVisibility(View.GONE);
-                if (textOverlay != null) textOverlay.setVisibility(View.GONE);
+                container.setVisibility(View.GONE);
                 if (placeholder != null) placeholder.setVisibility(View.VISIBLE);
             }
         } else {
-            button.setVisibility(View.GONE);
-            if (textOverlay != null) textOverlay.setVisibility(View.GONE);
+            container.setVisibility(View.GONE);
             if (placeholder != null) placeholder.setVisibility(View.GONE);
         }
     }
 
     public void hide() {
+        Utils.verifyOnMainThread();
         if (!isVisible) return;
 
-        Utils.verifyOnMainThread();
-        View view = buttonRef.get();
+        View view = containerRef.get();
         if (view == null) return;
         view.setVisibility(View.GONE);
 
-        view = placeHolderRef.get();
-        if (view != null) view.setVisibility(View.GONE);
-
-        TextView textOverlay = textOverlayRef.get();
-        if (textOverlay != null) textOverlay.setVisibility(View.GONE);
+        View placeHolder = placeHolderRef.get();
+        if (placeHolder != null) view.setVisibility(View.GONE);
 
         isVisible = false;
     }
@@ -228,13 +219,9 @@ public class PlayerControlButton {
      * @param resourceId Drawable identifier, or zero to hide the icon.
      */
     public void setIcon(int resourceId) {
-        try {
-            View button = buttonRef.get();
-            if (button instanceof ImageView imageButton) {
-                imageButton.setImageResource(resourceId);
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "setIcon failure", ex);
+        View button = buttonRef.get();
+        if (button instanceof ImageView imageButton) {
+            imageButton.setImageResource(resourceId);
         }
     }
 
@@ -243,50 +230,9 @@ public class PlayerControlButton {
      * @param text The text to set on the overlay, or null to clear the text.
      */
     public void setTextOverlay(CharSequence text) {
-        try {
-            TextView textOverlay = textOverlayRef.get();
-            if (textOverlay != null) {
-                textOverlay.setText(text);
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "setTextOverlay failure", ex);
+        TextView textOverlay = textOverlayRef.get();
+        if (textOverlay != null) {
+            textOverlay.setText(text);
         }
-    }
-
-    /**
-     * Starts an animation on the button.
-     * @param animation The animation to apply.
-     */
-    public void startAnimation(Animation animation) {
-        try {
-            View button = buttonRef.get();
-            if (button != null) {
-                button.startAnimation(animation);
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "startAnimation failure", ex);
-        }
-    }
-
-    /**
-     * Clears any animation on the button.
-     */
-    public void clearAnimation() {
-        try {
-            View button = buttonRef.get();
-            if (button != null) {
-                button.clearAnimation();
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "clearAnimation failure", ex);
-        }
-    }
-
-    /**
-     * Returns the View associated with this button.
-     * @return The button View.
-     */
-    public View getView() {
-        return buttonRef.get();
     }
 }
