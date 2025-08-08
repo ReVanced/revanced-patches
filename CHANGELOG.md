@@ -1,3 +1,15 @@
+# [5.34.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.33.0...v5.34.0-dev.1) (2025-08-08)
+
+
+### Bug Fixes
+
+* **Twitch:** Constrain patches to last working app targets ([#5373](https://github.com/ReVanced/revanced-patches/issues/5373)) ([29a4748](https://github.com/ReVanced/revanced-patches/commit/29a47481c4efa209a3a53df60613b59a73adbe07))
+
+
+### Features
+
+* **Instagram:** Support latest app version ([#5611](https://github.com/ReVanced/revanced-patches/issues/5611)) ([26fe690](https://github.com/ReVanced/revanced-patches/commit/26fe690dfbefe6c412c5f81f208a3b1d2fbd7a0a))
+
 # [5.33.0](https://github.com/ReVanced/revanced-patches/compare/v5.32.0...v5.33.0) (2025-08-05)
 
 
