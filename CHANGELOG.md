@@ -1,3 +1,10 @@
+# [5.34.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.2...v5.34.0-dev.3) (2025-08-09)
+
+
+### Bug Fixes
+
+* **pixiv - Hide ads:** Constrain patch to last working app target ([d8ea56c](https://github.com/ReVanced/revanced-patches/commit/d8ea56ca4be47df1c43f96ec41b91c800f1d9daf))
+
 # [5.34.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.1...v5.34.0-dev.2) (2025-08-09)
 
 
