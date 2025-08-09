@@ -16,7 +16,7 @@ dependencies {
     // Required due to smali, or build fails. Can be removed once smali is bumped.
     implementation(libs.guava)
 
-    implementation(libs.apksig)
+    "shade"(libs.apksig)
 
     // Android API stubs defined here.
     compileOnly(project(":patches:stub"))
