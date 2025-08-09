@@ -94,7 +94,15 @@ internal val playerControlsLargeOverlayButtonsFeatureFlagFingerprint by fingerpr
     returns("Z")
     parameters()
     instructions(
-        literal(45686474L)
+        literal(45709810L)
     )
 }
 
+internal val playerControlsFullscreenLargeButtonsFeatureFlagFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    instructions(
+        literal(45686474L)
+    )
+}
