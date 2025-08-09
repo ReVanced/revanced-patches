@@ -1599,12 +1599,12 @@ public final class app/revanced/patches/youtube/video/quality/RememberVideoQuali
 	public static final fun getRememberVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/video/quality/VideoQualityPatchKt {
-	public static final fun getVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/youtube/video/quality/VideoQualityDialogButtonPatchKt {
+	public static final fun getVideoQualityDialogButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/video/quality/button/VideoQualityDialogButtonPatchKt {
-	public static final fun getVideoQualityButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/youtube/video/quality/VideoQualityPatchKt {
+	public static final fun getVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatchKt {

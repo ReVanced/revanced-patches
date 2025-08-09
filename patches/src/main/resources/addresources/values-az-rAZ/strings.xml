@@ -1465,6 +1465,9 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_playback_speed_dialog_button_summary_off">Düymə göstərilmir</string>
   </patch>
   <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Video keyfiyyəti düyməsini göstər</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Düymə görünür. Keyfiyyəti ilkin vəziyyətinə qaytarmaq üçün toxunub saxlayın</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Düymə görünmür</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Fərdi oynatma sürəti siyahısı</string>

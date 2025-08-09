@@ -1468,7 +1468,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   </patch>
   <patch id="video.quality.button.videoQualityButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Ցուցադրել տեսանյութի որակի կոճակը</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Կոճակը ցուցադրված է։ Սեղմեք և պահեք՝ որակը լռելյայն վիճակի վերականգնելու համար</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Կոճակը ցուցադրված է։ Հպեք և պահեք՝ որակը լռելյայնին վերականգնելու համար</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Կոճակը ցուցադրված չէ։</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">

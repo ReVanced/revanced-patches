@@ -6,9 +6,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
-val proUnlockPatch = bytecodePatch(
-    name = "Pro unlock",
-) {
+@Deprecated("This patch no longer works and will soon be deleted.")
+val proUnlockPatch = bytecodePatch{
     compatibleWith("com.backdrops.wallpapers")
 
     execute {

@@ -3,6 +3,7 @@ package app.revanced.patches.backdrops.misc.pro
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
+@Deprecated("Fingerprint no longer resolves and will soon be deleted.")
 internal val proUnlockFingerprint by fingerprint {
     opcodes(
         Opcode.INVOKE_VIRTUAL,

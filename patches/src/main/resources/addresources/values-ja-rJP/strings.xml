@@ -107,8 +107,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">ショートのバックグラウンド再生を無効化</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">ショートのバックグラウンド再生は無効です</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">ショートのバックグラウンド再生は有効です</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">ショート動画のバックグラウンド再生は無効です</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">ショート動画のバックグラウンド再生は有効です</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">デバッグ</string>
@@ -301,9 +301,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_for_you_shelf_title">「おすすめ」欄を非表示</string>
   <string name="revanced_hide_for_you_shelf_summary_on">「おすすめ」欄は表示されません</string>
   <string name="revanced_hide_for_you_shelf_summary_off">「おすすめ」欄は表示されます</string>
-  <string name="revanced_hide_links_preview_title">リンク集のプレビューを非表示</string>
-  <string name="revanced_hide_links_preview_summary_on">リンク集のプレビューは表示されません</string>
-  <string name="revanced_hide_links_preview_summary_off">リンク集のプレビューは表示されます</string>
+  <string name="revanced_hide_links_preview_title">リンクのプレビューを非表示</string>
+  <string name="revanced_hide_links_preview_summary_on">リンクのプレビューは表示されません</string>
+  <string name="revanced_hide_links_preview_summary_off">リンクのプレビューは表示されます</string>
   <string name="revanced_hide_members_shelf_title">メンバー欄を非表示</string>
   <string name="revanced_hide_members_shelf_summary_on">メンバー欄は表示されません</string>
   <string name="revanced_hide_members_shelf_summary_off">メンバー欄は表示されます</string>
@@ -356,21 +356,21 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">非表示にしたい component の path builder string を改行区切りで入力します</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">無効なカスタムフィルタ: %s</string>
-  <string name="revanced_hide_keyword_content_screen_title">キーワード フィルタ</string>
-  <string name="revanced_hide_keyword_content_screen_summary">キーワードフィルタを使用してフィード、検索結果に表示される動画を非表示にします</string>
+  <string name="revanced_hide_keyword_content_screen_title">キーワードでコンテンツを非表示</string>
+  <string name="revanced_hide_keyword_content_screen_summary">キーワード フィルタを使用してフィード、検索結果に表示される動画を非表示にします</string>
   <string name="revanced_hide_keyword_content_home_title">ホームの動画をキーワードで非表示</string>
-  <string name="revanced_hide_keyword_content_home_summary_on">ホームタブの動画は、キーワードでフィルタリングされます</string>
-  <string name="revanced_hide_keyword_content_home_summary_off">ホームタブの動画は、キーワードでフィルタリングされません</string>
+  <string name="revanced_hide_keyword_content_home_summary_on">ホームタブの動画はキーワードでフィルタリングされます</string>
+  <string name="revanced_hide_keyword_content_home_summary_off">ホームタブの動画はキーワードでフィルタリングされません</string>
   <string name="revanced_hide_keyword_content_search_title">検索結果をキーワードで非表示</string>
-  <string name="revanced_hide_keyword_content_search_summary_on">検索結果は、キーワードでフィルタリングされます</string>
-  <string name="revanced_hide_keyword_content_search_summary_off">検索結果は、キーワードでフィルタリングされません</string>
+  <string name="revanced_hide_keyword_content_search_summary_on">検索結果はキーワードでフィルタリングされます</string>
+  <string name="revanced_hide_keyword_content_search_summary_off">検索結果はキーワードでフィルタリングされません</string>
   <string name="revanced_hide_keyword_content_subscriptions_title">登録チャンネルの動画をキーワードで非表示</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">登録チャンネルタブの動画は、キーワードでフィルタリングされます</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">登録チャンネルタブの動画は、キーワードでフィルタリングされません</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">登録チャンネルタブの動画はキーワードでフィルタリングされます</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">登録チャンネルタブの動画はキーワードでフィルタリングされません</string>
   <string name="revanced_hide_keyword_content_phrases_title">キーワード</string>
   <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">"キーワードとなる単語やフレーズを改行区切りで入力します
+  <string name="revanced_hide_keyword_content_phrases_summary">"キーワードとなる単語やフレーズのリスト (改行区切り)
 
 動画のタイトルまたはチャンネル名にキーワードが含まれる動画が非表示の対象になります
 
@@ -379,7 +379,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_keyword_content_about_summary">"ホーム / 登録チャンネル / 検索結果でキーワードに合致する動画を非表示にします
 
 制限事項
-• ショート動画はチャンネル名で除外されない
+• ショート動画はチャンネル名で非表示にできない
 • 一部の UI コンポーネントが残ってしまう場合がある
 • キーワードを検索したとき、結果が表示されない場合がある"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">単語全体で合致</string>
@@ -1235,9 +1235,9 @@ Automotive レイアウト
   <string name="revanced_change_start_page_always_summary_off">スタート画面の変更は、アプリ起動時にのみ適用されます</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
-  <string name="revanced_disable_resuming_shorts_player_title">ショート動画プレーヤーの再開を無効にする</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">ショート動画プレーヤーは、アプリ起動時に再開されます</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_off">ショート動画プレーヤーは、アプリの起動時に再開されません</string>
+  <string name="revanced_disable_resuming_shorts_player_title">ショート プレーヤーの再開を無効化</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">アプリ起動時にショート プレーヤーは再開されません</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">アプリ起動時にショート プレーヤーが再開されます</string>
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
   <string name="revanced_shorts_player_type_title">ショート動画を開くプレーヤー</string>
@@ -1348,8 +1348,8 @@ Automotive レイアウト
 
 詳細については、ここをタップしてください"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API 利用不可時にトーストを表示</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow が利用できない場合は、トーストポップアップが表示されます</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow が利用できない場合でも、トースト ポップアップは表示されません</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow が利用できない場合にトースト通知が表示されます</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow が利用できない場合にトースト通知は表示されません</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API のエンドポイント</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow がサムネイルのキャッシュを取得するエンドポイントの URL</string>
   <string name="revanced_alt_thumbnail_stills_about_title">静止画サムネイル</string>
@@ -1502,7 +1502,7 @@ Automotive レイアウト
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">画質の詳細設定メニューを表示</string>
-  <string name="revanced_advanced_video_quality_menu_summary_on">画質メニューとして詳細設定メニューが表示されます</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">詳細設定メニューが画質メニューとして表示されます</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">通常の画質メニューが表示されます</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">

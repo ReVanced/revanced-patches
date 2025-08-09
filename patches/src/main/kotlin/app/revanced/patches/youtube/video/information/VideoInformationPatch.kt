@@ -9,6 +9,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
@@ -38,7 +40,9 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/VideoInformation;"
 private const val EXTENSION_PLAYER_INTERFACE =
-    "Lapp/revanced/extension/youtube/patches/VideoInformation${'$'}PlaybackController;"
+    "Lapp/revanced/extension/youtube/patches/VideoInformation\$PlaybackController;"
+private const val EXTENSION_VIDEO_QUALITY_MENU_INTERFACE =
+    "Lapp/revanced/extension/youtube/patches/VideoInformation\$VideoQualityMenuInterface;"
 
 private lateinit var playerInitMethod: MutableMethod
 private var playerInitInsertIndex = -1
@@ -80,10 +84,10 @@ val videoInformationPatch = bytecodePatch(
         sharedExtensionPatch,
         videoIdPatch,
         playerResponseMethodHookPatch,
+        versionCheckPatch,
     )
 
     execute {
-
         playerInitMethod = playerInitFingerprint.classDef.methods.first { MethodUtil.isConstructor(it) }
 
         // Find the location of the first invoke-direct call and extract the register storing the 'this' object reference.
@@ -92,9 +96,6 @@ val videoInformationPatch = bytecodePatch(
         }
         playerInitInsertRegister = playerInitMethod.getInstruction<FiveRegisterInstruction>(initThisIndex).registerC
         playerInitInsertIndex = initThisIndex + 1
-
-        // Hook the player controller for use through the extension.
-        onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "initialize")
 
         val seekFingerprintResultMethod = seekFingerprint.match(playerInitFingerprint.originalClassDef).method
         val seekRelativeFingerprintResultMethod =
@@ -274,6 +275,127 @@ val videoInformationPatch = bytecodePatch(
             }
         }
 
+        (if (is_20_19_or_greater) videoQualityFingerprint else videoQualityLegacyFingerprint).let {
+            // Fix bad data used by YouTube.
+            it.method.addInstructions(
+                0,
+                """
+                    invoke-static { p2, p1 }, $EXTENSION_CLASS_DESCRIPTOR->fixVideoQualityResolution(Ljava/lang/String;I)I    
+                    move-result p1
+                """
+            )
+
+            // Add methods to access obfuscated quality fields.
+            it.classDef.apply {
+                methods.add(
+                    ImmutableMethod(
+                        type,
+                        "patch_getQualityName",
+                        listOf(),
+                        "Ljava/lang/String;",
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(2),
+                    ).toMutable().apply {
+                        // Only one string field.
+                        val qualityNameField = fields.single { field ->
+                            field.type == "Ljava/lang/String;"
+                        }
+
+                        addInstructions(
+                            0,
+                            """
+                                iget-object v0, p0, $qualityNameField
+                                return-object v0
+                            """
+                        )
+                    }
+                )
+
+                methods.add(
+                    ImmutableMethod(
+                        type,
+                        "patch_getResolution",
+                        listOf(),
+                        "I",
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(2),
+                    ).toMutable().apply {
+                        val resolutionField = fields.single { field ->
+                            field.type == "I"
+                        }
+
+                        addInstructions(
+                            0,
+                            """
+                                iget v0, p0, $resolutionField
+                                return v0
+                            """
+                        )
+                    }
+                )
+            }
+        }
+
+        // Detect video quality changes and override the current quality.
+        setVideoQualityFingerprint.match(
+            videoQualitySetterFingerprint.originalClassDef
+        ).let { match ->
+            // This instruction refers to the field with the type that contains the setQuality method.
+            val onItemClickListenerClassReference = match.method
+                .getInstruction<ReferenceInstruction>(0).reference
+            val setQualityFieldReference = match.method
+                .getInstruction<ReferenceInstruction>(1).reference as FieldReference
+
+            mutableClassBy(setQualityFieldReference.type).apply {
+                // Add interface and helper methods to allow extension code to call obfuscated methods.
+                interfaces.add(EXTENSION_VIDEO_QUALITY_MENU_INTERFACE)
+
+                methods.add(
+                    ImmutableMethod(
+                        type,
+                        "patch_setQuality",
+                        listOf(
+                            ImmutableMethodParameter(YOUTUBE_VIDEO_QUALITY_CLASS_TYPE, null, null)
+                        ),
+                        "V",
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(2),
+                    ).toMutable().apply {
+                        val setQualityMenuIndexMethod = methods.single { method ->
+                            method.parameterTypes.firstOrNull() == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+                        }
+
+                        addInstructions(
+                            0,
+                            """
+                                invoke-virtual { p0, p1 }, $setQualityMenuIndexMethod
+                                return-void
+                            """
+                        )
+                    }
+                )
+            }
+
+            videoQualitySetterFingerprint.method.addInstructions(
+                0,
+                """
+                    # Get object instance to invoke setQuality method.
+                    iget-object v0, p0, $onItemClickListenerClassReference
+                    iget-object v0, v0, $setQualityFieldReference
+                    
+                    invoke-static { p1, v0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality([$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE${EXTENSION_VIDEO_QUALITY_MENU_INTERFACE}I)I
+                    move-result p2
+                """
+            )
+        }
+
+        onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "initialize")
         videoSpeedChangedHook(EXTENSION_CLASS_DESCRIPTOR, "videoSpeedChanged")
         userSelectedPlaybackSpeedHook(EXTENSION_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed")
     }
@@ -284,8 +406,8 @@ private fun addSeekInterfaceMethods(targetClass: MutableClass, seekToMethod: Met
     targetClass.interfaces.add(EXTENSION_PLAYER_INTERFACE)
 
     arrayOf(
-        Triple(seekToMethod, "seekTo", true),
-        Triple(seekToRelativeMethod, "seekToRelative", false),
+        Triple(seekToMethod, "patch_seekTo", true),
+        Triple(seekToRelativeMethod, "patch_seekToRelative", false),
     ).forEach { (method, name, returnsBoolean) ->
         // Add interface method.
         // Get enum type for the seek helper method.
