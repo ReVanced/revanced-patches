@@ -11,8 +11,7 @@ appcompat = "1.7.0"
 okhttp = "5.0.0-alpha.14"
 retrofit = "2.11.0"
 guava = "33.4.0-jre"
-protobuf-javalite = "4.31.1"
-protoc = "4.31.1"
+protoc = "3.25.2"
 protobuf = "0.9.5"
 antlr4 = "4.13.2"
 nanohttpd = "2.3.1"
@@ -24,7 +23,6 @@ antlr4 = { module = "org.antlr:antlr4", version.ref = "antlr4" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 nanohttpd = { module = "org.nanohttpd:nanohttpd", version.ref = "nanohttpd" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
-protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protobuf-javalite" }
 protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }

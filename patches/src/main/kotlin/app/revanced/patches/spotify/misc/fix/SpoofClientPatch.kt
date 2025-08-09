@@ -2,12 +2,24 @@ package app.revanced.patches.spotify.misc.fix
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.shared.misc.hex.HexPatchBuilder
 import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
+import app.revanced.util.findInstructionIndicesReversedOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.returnEarly
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import app.revanced.util.returnEarly
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/fix/SpoofClientPatch;"
@@ -27,7 +39,7 @@ val spoofClientPatch = bytecodePatch(
         validator = {
             it!!
             !(it < 0 || it > 65535)
-        }
+        },
     )
 
     val clientVersion by stringOption(
@@ -102,7 +114,7 @@ val spoofClientPatch = bytecodePatch(
             """
                 const/16 v0, $requestListenerPort
                 invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->launchListener(I)V
-            """
+            """,
         )
 
         mapOf(
@@ -111,6 +123,24 @@ val spoofClientPatch = bytecodePatch(
             "getHardwareMachine" to hardwareMachine
         ).forEach { (methodName, value) ->
             extensionFixConstantsFingerprint.classDef.methods.single { it.name == methodName }.returnEarly(value)
+        }
+
+        // endregion
+
+        // region Use HTTPS for apresolve base URL to satisfy app network policy.
+
+        fingerprint {
+            strings("http://apresolve.spotify.com/?")
+        }.let {
+            it.method.apply {
+                val stringIndex = it.stringMatches!!.first().index
+
+                val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
+                replaceInstruction(
+                    stringIndex,
+                    "const-string v$stringRegister, \"https://apresolve.spotify.com/?\"",
+                )
+            }
         }
 
         // endregion

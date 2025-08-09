@@ -2,6 +2,7 @@ package app.revanced.extension.spotify.misc.fix;
 
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp;
 import app.revanced.extension.spotify.misc.fix.clienttoken.data.v0.ClienttokenHttp.ClientTokenResponse;
 import com.google.protobuf.MessageLite;
 import fi.iki.elonen.NanoHTTPD;
@@ -35,7 +36,7 @@ class RequestListener extends NanoHTTPD {
         if (!uri.equals(CLIENT_TOKEN_API_PATH)) return INTERNAL_ERROR_RESPONSE;
 
         Logger.printInfo(() -> "Serving request for URI: " + uri);
-
+        
         ClientTokenResponse response = serveClientTokenRequest(getInputStream(session));
         if (response != null) return newResponse(Response.Status.OK, response);
 
