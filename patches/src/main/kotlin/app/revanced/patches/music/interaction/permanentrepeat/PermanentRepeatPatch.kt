@@ -14,7 +14,7 @@ val permanentRepeatPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.youtube.music")
 
     execute {
-        val startIndex = repeatTrackFingerprint.patternMatch!!.endIndex
+        val startIndex = repeatTrackFingerprint.instructionMatches.last().index
         val repeatIndex = startIndex + 1
 
         repeatTrackFingerprint.method.apply {

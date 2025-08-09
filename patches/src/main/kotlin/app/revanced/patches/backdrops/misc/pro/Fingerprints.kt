@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
 @Deprecated("Fingerprint no longer resolves and will soon be deleted.")
-internal val proUnlockFingerprint = fingerprint {
+internal val proUnlockFingerprint by fingerprint {
     opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,

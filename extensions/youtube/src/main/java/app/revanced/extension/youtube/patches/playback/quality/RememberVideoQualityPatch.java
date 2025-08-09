@@ -21,7 +21,6 @@ public class RememberVideoQualityPatch {
     private static final IntegerSetting shortsQualityWifi = Settings.SHORTS_QUALITY_DEFAULT_WIFI;
     private static final IntegerSetting shortsQualityMobile = Settings.SHORTS_QUALITY_DEFAULT_MOBILE;
 
-
     public static boolean shouldRememberVideoQuality() {
         BooleanSetting preference = ShortsPlayerState.isOpen()
                 ? Settings.REMEMBER_SHORTS_QUALITY_LAST_SELECTED

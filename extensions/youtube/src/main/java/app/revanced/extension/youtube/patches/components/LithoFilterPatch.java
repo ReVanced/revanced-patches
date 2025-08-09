@@ -217,6 +217,8 @@ public final class LithoFilterPatch {
             if (pathSearchTree.matches(parameter.path, parameter)) {
                 return true;
             }
+
+            return pathSearchTree.matches(parameter.path, parameter);
         } catch (Exception ex) {
             Logger.printException(() -> "isFiltered failure", ex);
         }

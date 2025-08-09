@@ -19,6 +19,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.settings.Settings;
@@ -152,8 +153,8 @@ public final class SeekbarColorPatch {
             Logger.printDebug(() -> "Using splash seekbar style: " + seekbarStyle);
 
             final int styleIdentifierDefault = Utils.getResourceIdentifier(
-                    seekbarStyle,
-                    "style"
+                    ResourceType.STYLE,
+                    seekbarStyle
             );
             if (styleIdentifierDefault == 0) {
                 throw new RuntimeException("Seekbar style not found: " + seekbarStyle);

@@ -42,7 +42,7 @@ public class PlayerControlsPatch {
 
                         Logger.printDebug(() -> "fullscreen button visibility: "
                                 + (visibility == View.VISIBLE ? "VISIBLE" :
-                                        visibility == View.GONE ? "GONE" : "INVISIBLE"));
+                                visibility == View.GONE ? "GONE" : "INVISIBLE"));
 
                         fullscreenButtonVisibilityChanged(visibility == View.VISIBLE);
                     }
@@ -56,12 +56,5 @@ public class PlayerControlsPatch {
     // noinspection EmptyMethod
     private static void fullscreenButtonVisibilityChanged(boolean isVisible) {
         // Code added during patching.
-    }
-
-    /**
-     * Injection point.
-     */
-    public static String getPlayerTopControlsLayoutResourceName(String original) {
-        return "default";
     }
 }

@@ -4,7 +4,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
 
-internal val isLoggedInFingerprint = fingerprint {
+internal val isLoggedInFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL)
     returns("Z")
     opcodes(

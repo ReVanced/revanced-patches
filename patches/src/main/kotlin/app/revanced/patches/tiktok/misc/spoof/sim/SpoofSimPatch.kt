@@ -69,7 +69,7 @@ val spoofSimPatch = bytecodePatch(
                 }
             }
         }.forEach { (classDef, methods) ->
-            with(proxy(classDef).mutableClass) {
+            with(mutableClassBy(classDef)) {
                 methods.forEach { (method, patches) ->
                     with(findMutableMethodOf(method)) {
                         while (!patches.isEmpty()) {
