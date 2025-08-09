@@ -1,3 +1,15 @@
+# [5.34.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.1...v5.34.0-dev.2) (2025-08-09)
+
+
+### Bug Fixes
+
+* **Backdrops:** Remove broken patch that is no longer supported ([#5627](https://github.com/ReVanced/revanced-patches/issues/5627)) ([ebb8332](https://github.com/ReVanced/revanced-patches/commit/ebb83320838aa99dd4417d45a50333dd42c1218a))
+
+
+### Features
+
+* **YouTube - Playback speed:** Show current playback speed on player speed dialog button ([#5607](https://github.com/ReVanced/revanced-patches/issues/5607)) ([279436a](https://github.com/ReVanced/revanced-patches/commit/279436a3657b50f98bb4cc64dc88dc14e422f204))
+
 # [5.34.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.33.0...v5.34.0-dev.1) (2025-08-08)
 
 
