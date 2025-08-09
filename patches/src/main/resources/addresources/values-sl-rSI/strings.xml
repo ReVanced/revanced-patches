@@ -1465,7 +1465,7 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Gumb je prikazan. Dotaknite se ga in ga pridržite, da ponastavite hitrost predvajanja na privzeto.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Gumb ni prikazan</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Prikaži gumb za kakovost videa</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Prikazan je gumb. Dotaknite se in držite, da ponastavite kakovost na privzeto</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Gumb ni prikazan</string>

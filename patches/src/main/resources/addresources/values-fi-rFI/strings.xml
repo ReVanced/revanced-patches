@@ -1465,7 +1465,7 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Painike näytetään. Napauta ja pidä pohjassa palauttaaksesi soiton nopeuden oletukseksi</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Painiketta ei näytetä</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Näytä videolaatupainike</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Painike näkyy. Paina pitkään palauttaaksesi laadun oletukseksi</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Painiketta ei näytetä</string>

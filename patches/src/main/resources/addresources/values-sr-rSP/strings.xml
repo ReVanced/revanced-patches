@@ -1467,7 +1467,7 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Дугме је приказано. Додирните и задржите да бисте вратили брзину репродукције на подразумевану вредност</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Дугме дијалога за брзину није приказано</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Прикажи дугме квалитета видеа</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Дугме је приказано. Додирните и задржите да бисте вратили квалитет видеа на подразумевану вредност</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Дугме није приказано</string>

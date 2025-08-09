@@ -1465,7 +1465,7 @@ Automotive レイアウト
   <string name="revanced_playback_speed_dialog_button_summary_on">ボタンがオーバーレイに表示されます。長押しすると、再生速度がデフォルトの値にリセットされます</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">ボタンはオーバーレイに表示されません</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">画質設定ボタンを表示</string>
   <string name="revanced_video_quality_dialog_button_summary_on">ボタンがオーバーレイに表示されます。長押しすると、画質がデフォルトの値にリセットされます</string>
   <string name="revanced_video_quality_dialog_button_summary_off">ボタンはオーバーレイに表示されません</string>

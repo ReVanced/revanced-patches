@@ -1464,7 +1464,7 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка показується. Натисніть і утримуйте, щоб відновити стандартну швидкість відтворення</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка швидкості відтворення не показується</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Кнопка якості відео</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Кнопка показується. Натисніть і утримуйте, щоб відновити стандартну якість</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Кнопка швидкості відтворення не показується</string>

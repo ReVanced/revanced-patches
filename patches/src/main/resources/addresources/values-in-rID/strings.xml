@@ -1464,7 +1464,7 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Tombol ditampilkan. Ketuk dan tahan untuk mengatur ulang kecepatan pemutaran ke bawaan</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tombol tidak ditampilkan</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Tampilkan tombol kualitas video</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Tombol ditampilkan. Ketuk dan tahan untuk mengatur ulang kualitas ke bawaan</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Tombol tidak ditampilkan</string>

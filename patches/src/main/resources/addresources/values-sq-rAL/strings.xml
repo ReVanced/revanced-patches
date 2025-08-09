@@ -1463,7 +1463,7 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Butoni shfaqet. Prekni dhe mbani për të rivendosur shpejtësinë e riprodhimit në atë të parazgjedhur</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Butoni nuk shfaqet</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Shfaq butonin e cilësisë së videos</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Butoni shfaqet. Prekni dhe mbani shtypur për të rivendosur cilësinë në parazgjedhur</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Butoni nuk shfaqet</string>

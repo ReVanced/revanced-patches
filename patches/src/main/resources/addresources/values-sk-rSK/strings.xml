@@ -1458,7 +1458,7 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Zobrazuje sa tlačidlo. Ťuknite a podržte, ak chcete obnoviť predvolenú rýchlosť prehrávania</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tlačidlo nie je zobrazené</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Zobraziť tlačidlo kvality videa</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Tlačidlo sa zobrazí. Klepnite a podržte pre resetovanie kvality na predvolenú</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Tlačidlo sa nezobrazuje</string>

@@ -1472,7 +1472,7 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка показана. Нажмите и удерживайте, чтобы сбросить скорость воспроизведения до значения по умолчанию</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Показать кнопку качества видео</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Кнопка показана. Нажмите и удерживайте, чтобы сбросить качество до значения по умолчанию</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>

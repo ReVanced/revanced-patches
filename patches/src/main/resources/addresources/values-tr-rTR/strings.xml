@@ -1472,7 +1472,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Düğme görünür. Oynatma hızını varsayılana sıfırlamak için dokunup basılı tutun</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Düğme gösterilmez</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Video kalitesi düğmesini göster</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Düğme görünür. Kaliteyi varsayılana sıfırlamak için dokunup basılı tutun</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Düğme gösterilmez</string>
