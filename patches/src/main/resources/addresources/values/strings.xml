@@ -809,6 +809,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_seekbar_thumbnail_title">Hide video thumbnails seekbar</string>
             <string name="revanced_hide_seekbar_thumbnail_summary_on">Video thumbnails seekbar is hidden</string>
             <string name="revanced_hide_seekbar_thumbnail_summary_off">Video thumbnails seekbar is shown</string>
+            <string name="revanced_fullscreen_large_seekbar_title">Enable fullscreen large seekbar</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_on">Fullscreen seekbar is large size</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_off">Fullscreen seekbar is normal size</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
             <string name="revanced_shorts_player_screen_title">Shorts player</string>

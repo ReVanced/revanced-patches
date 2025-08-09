@@ -152,3 +152,12 @@ internal val fullscreenSeekbarThumbnailsQualityFingerprint by fingerprint {
         literal(45399684L) // Video stream seekbar thumbnails feature flag.
     )
 }
+
+internal val fullscreenLargeSeekbarFeatureFlagFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    instructions(
+        literal(45691569)
+    )
+}
