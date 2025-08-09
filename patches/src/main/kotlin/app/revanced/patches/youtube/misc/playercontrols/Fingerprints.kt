@@ -106,3 +106,12 @@ internal val playerControlsFullscreenLargeButtonsFeatureFlagFingerprint by finge
         literal(45686474L)
     )
 }
+
+internal val playerControlsButtonStrokeFeatureFlagFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    instructions(
+        literal(45713296)
+    )
+}

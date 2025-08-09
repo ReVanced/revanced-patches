@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_30_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findElementByAttributeValue
@@ -282,10 +283,14 @@ val playerControlsPatch = bytecodePatch(
             playerTopControlsExperimentalLayoutFeatureFlagFingerprint.method.returnLate("default")
         }
 
-        // Turn off a/b test of ugly player buttons that don't match the style of custom player buttons.
+        // Turn off a/b tests of ugly player buttons that don't match the style of custom player buttons.
         if (is_20_20_or_greater) {
             playerControlsLargeOverlayButtonsFeatureFlagFingerprint.method.returnLate(false)
             playerControlsFullscreenLargeButtonsFeatureFlagFingerprint.method.returnLate(false)
+
+            if (is_20_30_or_greater) {
+                playerControlsButtonStrokeFeatureFlagFingerprint.method.returnLate(false)
+            }
         }
     }
 }
