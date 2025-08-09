@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.videoplayer;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
@@ -14,11 +15,12 @@ import app.revanced.extension.youtube.shared.PlayerType;
 import kotlin.Unit;
 
 public class PlayerControlButton {
-    public interface PlayerControlButtonVisibility {
+
+    public interface PlayerControlButtonStatus {
         /**
          * @return If the button should be shown when the player overlay is visible.
          */
-        boolean shouldBeShown();
+        boolean buttonEnabled();
     }
 
     private static final int fadeInDuration;
@@ -44,23 +46,46 @@ public class PlayerControlButton {
         fadeOutImmediate.setDuration(Utils.getResourceInteger("fade_duration_fast"));
     }
 
+    private final WeakReference<View> containerRef;
     private final WeakReference<View> buttonRef;
     /**
      * Empty view with the same layout size as the button. Used to fill empty space while the
      * fade out animation runs. Without this the chapter titles overlapping the button when fading out.
      */
     private final WeakReference<View> placeHolderRef;
-    private final PlayerControlButtonVisibility visibilityCheck;
+    private final WeakReference<TextView> textOverlayRef;
+    private final PlayerControlButtonStatus enabledStatus;
     private boolean isVisible;
 
     public PlayerControlButton(View controlsViewGroup,
-                               String imageViewButtonId,
+                               String buttonId,
                                @Nullable String placeholderId,
-                               PlayerControlButtonVisibility buttonVisibility,
+                               @Nullable String textOverlayId,
+                               PlayerControlButtonStatus enabledStatus,
                                View.OnClickListener onClickListener,
                                @Nullable View.OnLongClickListener longClickListener) {
-        ImageView imageView = Utils.getChildViewByResourceName(controlsViewGroup, imageViewButtonId);
-        imageView.setVisibility(View.GONE);
+        this(controlsViewGroup, buttonId, buttonId, placeholderId, textOverlayId,
+                enabledStatus, onClickListener, longClickListener);
+    }
+
+    public PlayerControlButton(View controlsViewGroup,
+                               String viewToHide,
+                               String buttonId,
+                               @Nullable String placeholderId,
+                               @Nullable String textOverlayId,
+                               PlayerControlButtonStatus enabledStatus,
+                               View.OnClickListener onClickListener,
+                               @Nullable View.OnLongClickListener longClickListener) {
+        View containerView = Utils.getChildViewByResourceName(controlsViewGroup, viewToHide);
+        containerView.setVisibility(View.GONE);
+        containerRef = new WeakReference<>(containerView);
+
+        View button = Utils.getChildViewByResourceName(controlsViewGroup, buttonId);
+        button.setOnClickListener(onClickListener);
+        if (longClickListener != null) {
+            button.setOnLongClickListener(longClickListener);
+        }
+        buttonRef = new WeakReference<>(button);
 
         View tempPlaceholder = null;
         if (placeholderId != null) {
@@ -69,19 +94,19 @@ public class PlayerControlButton {
         }
         placeHolderRef = new WeakReference<>(tempPlaceholder);
 
-        imageView.setOnClickListener(onClickListener);
-        if (longClickListener != null) {
-            imageView.setOnLongClickListener(longClickListener);
+        TextView tempTextOverlay = null;
+        if (textOverlayId != null) {
+            tempTextOverlay = Utils.getChildViewByResourceName(controlsViewGroup, textOverlayId);
         }
+        textOverlayRef = new WeakReference<>(tempTextOverlay);
 
-        visibilityCheck = buttonVisibility;
-        buttonRef = new WeakReference<>(imageView);
+        this.enabledStatus = enabledStatus;
         isVisible = false;
 
         // Update the visibility after the player type changes.
         // This ensures that button animations are cleared and their states are updated correctly
         // when switching between states like minimized, maximized, or fullscreen, preventing
-        // "stuck" animations or incorrect visibility.  Without this fix the issue is most noticable
+        // "stuck" animations or incorrect visibility.  Without this fix the issue is most noticeable
         // when maximizing type 3 miniplayer.
         PlayerType.getOnChange().addObserver((PlayerType type) -> {
             playerTypeChanged(type);
@@ -111,33 +136,33 @@ public class PlayerControlButton {
             if (isVisible == visible) return;
             isVisible = visible;
 
-            View button = buttonRef.get();
-            if (button == null) return;
+            View container = containerRef.get();
+            if (container == null) return;
 
             View placeholder = placeHolderRef.get();
-            final boolean shouldBeShown = visibilityCheck.shouldBeShown();
+            final boolean buttonEnabled = enabledStatus.buttonEnabled();
 
-            if (visible && shouldBeShown) {
-                button.clearAnimation();
+            if (visible && buttonEnabled) {
+                container.clearAnimation();
                 if (animated) {
-                    button.startAnimation(PlayerControlButton.fadeInAnimation);
+                    container.startAnimation(fadeInAnimation);
                 }
-                button.setVisibility(View.VISIBLE);
+                container.setVisibility(View.VISIBLE);
 
                 if (placeholder != null) {
                     placeholder.setVisibility(View.GONE);
                 }
             } else {
-                if (button.getVisibility() == View.VISIBLE) {
-                    button.clearAnimation();
+                if (container.getVisibility() == View.VISIBLE) {
+                    container.clearAnimation();
                     if (animated) {
-                        button.startAnimation(PlayerControlButton.fadeOutAnimation);
+                        container.startAnimation(fadeOutAnimation);
                     }
-                    button.setVisibility(View.GONE);
+                    container.setVisibility(View.GONE);
                 }
 
                 if (placeholder != null) {
-                    placeholder.setVisibility(shouldBeShown
+                    placeholder.setVisibility(buttonEnabled
                             ? View.VISIBLE
                             : View.GONE);
                 }
@@ -155,36 +180,37 @@ public class PlayerControlButton {
             return;
         }
 
-        View button = buttonRef.get();
-        if (button == null) return;
+        View container = containerRef.get();
+        if (container == null) return;
 
-        button.clearAnimation();
+        container.clearAnimation();
         View placeholder = placeHolderRef.get();
 
-        if (visibilityCheck.shouldBeShown()) {
+        if (enabledStatus.buttonEnabled()) {
             if (isVisible) {
-                button.setVisibility(View.VISIBLE);
+                container.setVisibility(View.VISIBLE);
                 if (placeholder != null) placeholder.setVisibility(View.GONE);
             } else {
-                button.setVisibility(View.GONE);
+                container.setVisibility(View.GONE);
                 if (placeholder != null) placeholder.setVisibility(View.VISIBLE);
             }
         } else {
-            button.setVisibility(View.GONE);
+            container.setVisibility(View.GONE);
             if (placeholder != null) placeholder.setVisibility(View.GONE);
         }
     }
 
     public void hide() {
+        Utils.verifyOnMainThread();
         if (!isVisible) return;
 
-        Utils.verifyOnMainThread();
-        View view = buttonRef.get();
+        View view = containerRef.get();
         if (view == null) return;
         view.setVisibility(View.GONE);
 
-        view = placeHolderRef.get();
-        if (view != null) view.setVisibility(View.GONE);
+        View placeHolder = placeHolderRef.get();
+        if (placeHolder != null) view.setVisibility(View.GONE);
+
         isVisible = false;
     }
 
@@ -193,50 +219,20 @@ public class PlayerControlButton {
      * @param resourceId Drawable identifier, or zero to hide the icon.
      */
     public void setIcon(int resourceId) {
-        try {
-            View button = buttonRef.get();
-            if (button instanceof ImageView imageButton) {
-                imageButton.setImageResource(resourceId);
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "setIcon failure", ex);
+        View button = buttonRef.get();
+        if (button instanceof ImageView imageButton) {
+            imageButton.setImageResource(resourceId);
         }
     }
 
     /**
-     * Starts an animation on the button.
-     * @param animation The animation to apply.
+     * Sets the text to be displayed on the text overlay.
+     * @param text The text to set on the overlay, or null to clear the text.
      */
-    public void startAnimation(Animation animation) {
-        try {
-            View button = buttonRef.get();
-            if (button != null) {
-                button.startAnimation(animation);
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "startAnimation failure", ex);
+    public void setTextOverlay(CharSequence text) {
+        TextView textOverlay = textOverlayRef.get();
+        if (textOverlay != null) {
+            textOverlay.setText(text);
         }
-    }
-
-    /**
-     * Clears any animation on the button.
-     */
-    public void clearAnimation() {
-        try {
-            View button = buttonRef.get();
-            if (button != null) {
-                button.clearAnimation();
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "clearAnimation failure", ex);
-        }
-    }
-
-    /**
-     * Returns the View associated with this button.
-     * @return The button View.
-     */
-    public View getView() {
-        return buttonRef.get();
     }
 }

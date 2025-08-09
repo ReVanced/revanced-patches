@@ -1,16 +1,20 @@
 package app.revanced.extension.youtube
 
+import app.revanced.extension.shared.Logger
+import java.util.Collections
+
 /**
  * generic event provider class
  */
 class Event<T> {
-    private val eventListeners = mutableSetOf<(T) -> Unit>()
+    private val eventListeners = Collections.synchronizedSet(mutableSetOf<(T) -> Unit>())
 
     operator fun plusAssign(observer: (T) -> Unit) {
         addObserver(observer)
     }
 
     fun addObserver(observer: (T) -> Unit) {
+        Logger.printDebug { "Adding observer: $observer" }
         eventListeners.add(observer)
     }
 
@@ -23,7 +27,8 @@ class Event<T> {
     }
 
     operator fun invoke(value: T) {
-        for (observer in eventListeners)
+        for (observer in eventListeners) {
             observer.invoke(value)
+        }
     }
 }

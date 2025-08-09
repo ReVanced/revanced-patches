@@ -5,7 +5,6 @@ import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.patches.youtube.video.quality.button.videoQualityButtonPatch
 
 /**
  * Video quality settings.  Used to organize all speed related settings together.
@@ -20,7 +19,7 @@ val videoQualityPatch = bytecodePatch(
     dependsOn(
         rememberVideoQualityPatch,
         advancedVideoQualityMenuPatch,
-        videoQualityButtonPatch,
+        videoQualityDialogButtonPatch,
     )
 
     compatibleWith(

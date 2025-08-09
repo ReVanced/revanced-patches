@@ -1,12 +1,18 @@
 package app.revanced.extension.youtube.patches;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
 
 import java.lang.ref.WeakReference;
+import java.util.Arrays;
 import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.youtube.Event;
+import app.revanced.extension.youtube.shared.ShortsPlayerState;
 import app.revanced.extension.youtube.shared.VideoState;
 
 /**
@@ -16,10 +22,30 @@ import app.revanced.extension.youtube.shared.VideoState;
 public final class VideoInformation {
 
     public interface PlaybackController {
-        // Methods are added to YT classes during patching.
-        boolean seekTo(long videoTime);
-        void seekToRelative(long videoTimeOffset);
+        // Methods are added during patching.
+        boolean patch_seekTo(long videoTime);
+        void patch_seekToRelative(long videoTimeOffset);
     }
+
+    /**
+     * Interface to use obfuscated methods.
+     */
+    public interface VideoQualityMenuInterface {
+        // Method is added during patching.
+        void patch_setQuality(VideoQuality quality);
+    }
+
+    /**
+     * Video resolution of the automatic quality option..
+     */
+    public static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
+
+    /**
+     * All quality names are the same for all languages.
+     * VideoQuality also has a resolution enum that can be used if needed.
+     */
+    public static final String VIDEO_QUALITY_1080P_PREMIUM_NAME = "1080p Premium";
+
 
     private static final float DEFAULT_YOUTUBE_PLAYBACK_SPEED = 1.0f;
     /**
@@ -30,12 +56,10 @@ public final class VideoInformation {
     private static WeakReference<PlaybackController> playerControllerRef = new WeakReference<>(null);
     private static WeakReference<PlaybackController> mdxPlayerDirectorRef = new WeakReference<>(null);
 
-    @NonNull
     private static String videoId = "";
     private static long videoLength = 0;
     private static long videoTime = -1;
 
-    @NonNull
     private static volatile String playerResponseVideoId = "";
     private static volatile boolean playerResponseVideoIdIsShort;
     private static volatile boolean videoIdIsShort;
@@ -45,6 +69,44 @@ public final class VideoInformation {
      */
     private static float playbackSpeed = DEFAULT_YOUTUBE_PLAYBACK_SPEED;
 
+    private static int desiredVideoResolution = AUTOMATIC_VIDEO_QUALITY_VALUE;
+
+    private static boolean qualityNeedsUpdating;
+
+    /**
+     * The available qualities of the current video.
+     */
+    @Nullable
+    private static VideoQuality[] currentQualities;
+
+    /**
+     * The current quality of the video playing.
+     * This is always the actual quality even if Automatic quality is active.
+     */
+    @Nullable
+    private static VideoQuality currentQuality;
+
+    /**
+     * The current VideoQualityMenuInterface, set during setVideoQuality.
+     */
+    @Nullable
+    private static VideoQualityMenuInterface currentMenuInterface;
+
+    /**
+     * Callback for when the current quality changes.
+     */
+    public static final Event<VideoQuality> onQualityChange = new Event<>();
+
+    @Nullable
+    public static VideoQuality[] getCurrentQualities() {
+        return currentQualities;
+    }
+
+    @Nullable
+    public static VideoQuality getCurrentQuality() {
+        return currentQuality;
+    }
+
     /**
      * Injection point.
      *
@@ -52,12 +114,18 @@ public final class VideoInformation {
      */
     public static void initialize(@NonNull PlaybackController playerController) {
         try {
+            Logger.printDebug(() -> "newVideoStarted");
+
             playerControllerRef = new WeakReference<>(Objects.requireNonNull(playerController));
             videoTime = -1;
             videoLength = 0;
             playbackSpeed = DEFAULT_YOUTUBE_PLAYBACK_SPEED;
+            desiredVideoResolution = AUTOMATIC_VIDEO_QUALITY_VALUE;
+            currentQualities = null;
+            currentMenuInterface = null;
+            setCurrentQuality(null);
         } catch (Exception ex) {
-            Logger.printException(() -> "Failed to initialize", ex);
+            Logger.printException(() -> "initialize failure", ex);
         }
     }
 
@@ -197,14 +265,14 @@ public final class VideoInformation {
             if (controller == null) {
                 Logger.printDebug(() -> "Cannot seekTo because player controller is null");
             } else {
-                if (controller.seekTo(adjustedSeekTime)) return true;
+                if (controller.patch_seekTo(adjustedSeekTime)) return true;
                 Logger.printDebug(() -> "seekTo did not succeeded. Trying MXD.");
                 // Else the video is loading or changing videos, or video is casting to a different device.
             }
 
             // Try calling the seekTo method of the MDX player director (called when casting).
             // The difference has to be a different second mark in order to avoid infinite skip loops
-            // as the Lounge API only supports seconds.
+            // as the Lounge API only supports whole seconds.
             if (adjustedSeekTime / 1000 == videoTime / 1000) {
                 Logger.printDebug(() -> "Skipping seekTo for MDX because seek time is too small "
                         + "(" + (adjustedSeekTime - videoTime) + "ms)");
@@ -217,9 +285,9 @@ public final class VideoInformation {
                 return false;
             }
 
-            return controller.seekTo(adjustedSeekTime);
+            return controller.patch_seekTo(adjustedSeekTime);
         } catch (Exception ex) {
-            Logger.printException(() -> "Failed to seek", ex);
+            Logger.printException(() -> "seekTo failure", ex);
             return false;
         }
     }
@@ -239,7 +307,7 @@ public final class VideoInformation {
             if (controller == null) {
                 Logger.printDebug(() -> "Cannot seek relative as player controller is null");
             } else {
-                controller.seekToRelative(seekTime);
+                controller.patch_seekToRelative(seekTime);
             }
 
             // Adjust the fine adjustment function so it's at least 1 second before/after.
@@ -255,10 +323,10 @@ public final class VideoInformation {
             if (controller == null) {
                 Logger.printDebug(() -> "Cannot seek relative as MXD player controller is null");
             } else {
-                controller.seekToRelative(adjustedSeekTime);
+                controller.patch_seekToRelative(adjustedSeekTime);
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "Failed to seek relative", ex);
+            Logger.printException(() -> "seekToRelative failure", ex);
         }
     }
 
@@ -372,5 +440,124 @@ public final class VideoInformation {
             Logger.printDebug(() -> "Video speed changed: " + newlyLoadedPlaybackSpeed);
             playbackSpeed = newlyLoadedPlaybackSpeed;
         }
+    }
+
+    /**
+     * @param resolution The desired video quality resolution to use.
+     */
+    public static void setDesiredVideoResolution(int resolution) {
+        Utils.verifyOnMainThread();
+        Logger.printDebug(() -> "Setting desired video resolution: " + resolution);
+        desiredVideoResolution = resolution;
+        qualityNeedsUpdating = true;
+    }
+
+    private static void setCurrentQuality(@Nullable VideoQuality quality) {
+        Utils.verifyOnMainThread();
+        if (currentQuality != quality) {
+            Logger.printDebug(() -> "Current quality changed to: " + quality);
+            currentQuality = quality;
+            onQualityChange.invoke(quality);
+        }
+    }
+
+    /**
+     * Forcefully changes the video quality of the currently playing video.
+     */
+    public static void changeQuality(VideoQuality quality) {
+        Utils.verifyOnMainThread();
+
+        if (currentMenuInterface == null) {
+            Logger.printException(() -> "Cannot change quality, menu interface is null");
+            return;
+        }
+        currentMenuInterface.patch_setQuality(quality);
+    }
+
+    /**
+     * Injection point. Fixes bad data used by YouTube.
+     */
+    public static int fixVideoQualityResolution(String name, int quality) {
+        final int correctQuality = 480;
+        if (name.equals("480p") && quality != correctQuality) {
+            return correctQuality;
+        }
+
+        return quality;
+    }
+
+    /**
+     * Injection point.
+     *
+     * @param qualities Video qualities available, ordered from largest to smallest, with index 0 being the 'automatic' value of -2
+     * @param originalQualityIndex quality index to use, as chosen by YouTube
+     */
+    public static int setVideoQuality(VideoQuality[] qualities, VideoQualityMenuInterface menu, int originalQualityIndex) {
+        try {
+            Utils.verifyOnMainThread();
+            currentMenuInterface = menu;
+
+            final boolean availableQualitiesChanged = (currentQualities == null)
+                    || !Arrays.equals(currentQualities, qualities);
+            if (availableQualitiesChanged) {
+                currentQualities = qualities;
+                Logger.printDebug(() -> "VideoQualities: " + Arrays.toString(currentQualities));
+            }
+
+            VideoQuality updatedCurrentQuality = qualities[originalQualityIndex];
+            if (updatedCurrentQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE
+                    && (currentQuality == null || currentQuality != updatedCurrentQuality)) {
+                setCurrentQuality(updatedCurrentQuality);
+            }
+
+            final int preferredQuality = desiredVideoResolution;
+            if (preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
+                return originalQualityIndex; // Nothing to do.
+            }
+
+            // After changing videos the qualities can initially be for the prior video.
+            // If the qualities have changed and the default is not auto then an update is needed.
+            if (qualityNeedsUpdating) {
+                qualityNeedsUpdating = false;
+            } else if (!availableQualitiesChanged) {
+                return originalQualityIndex;
+            }
+
+            // Find the highest quality that is equal to or less than the preferred.
+            int i = 0;
+            final int lastQualityIndex = qualities.length - 1;
+            for (VideoQuality quality : qualities) {
+                final int qualityResolution = quality.patch_getResolution();
+                if ((qualityResolution != AUTOMATIC_VIDEO_QUALITY_VALUE && qualityResolution <= preferredQuality)
+                        // Use the lowest video quality if the default is lower than all available.
+                        || i == lastQualityIndex) {
+                    final boolean qualityNeedsChange = (i != originalQualityIndex);
+                    Logger.printDebug(() -> qualityNeedsChange
+                            ? "Changing video quality from: " + updatedCurrentQuality + " to: " + quality
+                            : "Video is already the preferred quality: " + quality
+                    );
+
+                    // On first load of a new regular video, if the video is already the
+                    // desired quality then the quality flyout will show 'Auto' (ie: Auto (720p)).
+                    //
+                    // To prevent user confusion, set the video index even if the
+                    // quality is already correct so the UI picker will not display "Auto".
+                    //
+                    // Only change Shorts quality if the quality actually needs to change,
+                    // because the "auto" option is not shown in the flyout
+                    // and setting the same quality again can cause the Short to restart.
+                    if (qualityNeedsChange || !ShortsPlayerState.isOpen()) {
+                        changeQuality(quality);
+                        return i;
+                    }
+
+                    return originalQualityIndex;
+                }
+                i++;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "setVideoQuality failure", ex);
+        }
+        return originalQualityIndex;
     }
 }

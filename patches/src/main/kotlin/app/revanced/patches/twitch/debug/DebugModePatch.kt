@@ -20,7 +20,7 @@ val debugModePatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    compatibleWith("tv.twitch.android.app")
+    compatibleWith("tv.twitch.android.app"("16.9.1", "25.3.0"))
 
     execute {
         addResources("twitch", "debug.debugModePatch")

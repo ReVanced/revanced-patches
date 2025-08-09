@@ -1,3 +1,34 @@
+# [5.34.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.2...v5.34.0-dev.3) (2025-08-09)
+
+
+### Bug Fixes
+
+* **pixiv - Hide ads:** Constrain patch to last working app target ([d8ea56c](https://github.com/ReVanced/revanced-patches/commit/d8ea56ca4be47df1c43f96ec41b91c800f1d9daf))
+
+# [5.34.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.1...v5.34.0-dev.2) (2025-08-09)
+
+
+### Bug Fixes
+
+* **Backdrops:** Remove broken patch that is no longer supported ([#5627](https://github.com/ReVanced/revanced-patches/issues/5627)) ([ebb8332](https://github.com/ReVanced/revanced-patches/commit/ebb83320838aa99dd4417d45a50333dd42c1218a))
+
+
+### Features
+
+* **YouTube - Playback speed:** Show current playback speed on player speed dialog button ([#5607](https://github.com/ReVanced/revanced-patches/issues/5607)) ([279436a](https://github.com/ReVanced/revanced-patches/commit/279436a3657b50f98bb4cc64dc88dc14e422f204))
+
+# [5.34.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.33.0...v5.34.0-dev.1) (2025-08-08)
+
+
+### Bug Fixes
+
+* **Twitch:** Constrain patches to last working app targets ([#5373](https://github.com/ReVanced/revanced-patches/issues/5373)) ([29a4748](https://github.com/ReVanced/revanced-patches/commit/29a47481c4efa209a3a53df60613b59a73adbe07))
+
+
+### Features
+
+* **Instagram:** Support latest app version ([#5611](https://github.com/ReVanced/revanced-patches/issues/5611)) ([26fe690](https://github.com/ReVanced/revanced-patches/commit/26fe690dfbefe6c412c5f81f208a3b1d2fbd7a0a))
+
 # [5.33.0](https://github.com/ReVanced/revanced-patches/compare/v5.32.0...v5.33.0) (2025-08-05)
 
 

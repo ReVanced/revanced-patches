@@ -1481,8 +1481,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_custom_speed_menu_summary_on">Trình đơn tốc độ phát tùy chỉnh được hiển thị</string>
   <string name="revanced_custom_speed_menu_summary_off">Trình đơn tốc độ phát tùy chỉnh không được hiển thị</string>
   <string name="revanced_restore_old_speed_menu_title">Khôi phục trình đơn tốc độ phát cũ</string>
-  <string name="revanced_restore_old_speed_menu_summary_on">Trình đơn tốc độ cũ được hiển thị</string>
-  <string name="revanced_restore_old_speed_menu_summary_off">Trình đơn tốc độ hiện đại được hiển thị</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Trình đơn tốc độ phát cũ được hiển thị</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Trình đơn tốc độ phát hiện đại được hiển thị</string>
   <string name="revanced_custom_playback_speeds_title">Tốc độ phát tùy chỉnh</string>
   <string name="revanced_custom_playback_speeds_summary">Thêm hoặc thay đổi tốc độ phát tùy chỉnh</string>
   <string name="revanced_custom_playback_speeds_invalid">Tốc độ tùy chỉnh phải nhỏ hơn %s</string>
