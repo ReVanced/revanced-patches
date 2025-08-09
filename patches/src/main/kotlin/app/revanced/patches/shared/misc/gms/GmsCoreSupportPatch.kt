@@ -193,7 +193,15 @@ fun gmsCoreSupportPatch(
         primeMethodFingerprint?.let { transformPrimeMethod(packageName) }
 
         // Return these methods early to prevent the app from crashing.
-        earlyReturnFingerprints.forEach { it.method.returnEarly() }
+        earlyReturnFingerprints.forEach {
+            it.method.apply {
+                if (returnType == "Z") {
+                    returnEarly(false)
+                } else {
+                    returnEarly()
+                }
+            }
+        }
         serviceCheckFingerprint.method.returnEarly()
 
         // Google Play Utility is not present in all apps, so we need to check if it's present.
