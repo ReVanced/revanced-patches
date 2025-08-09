@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -13,14 +12,14 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findElementByAttributeValue
 import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.inputStreamFromBundledResource
 import app.revanced.util.returnEarly
 import app.revanced.util.returnLate
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import org.w3c.dom.Node
 
@@ -213,7 +212,8 @@ val playerControlsPatch = bytecodePatch(
     dependsOn(
         playerControlsResourcePatch,
         sharedExtensionPatch,
-        resourceMappingPatch // Used by fingerprints.
+        resourceMappingPatch, // Used by fingerprints.
+        versionCheckPatch
     )
 
     execute {
@@ -279,12 +279,12 @@ val playerControlsPatch = bytecodePatch(
         //
         // Edit: Flag appears to be removed in 20.19
         if (is_19_25_or_greater && !is_20_19_or_greater) {
-            playerTopControlsExperimentalLayoutFeatureFlagFingerprint.method.apply {
-                val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+            playerTopControlsExperimentalLayoutFeatureFlagFingerprint.method.returnLate("default")
+        }
 
-                addInstruction(index + 1, "const-string v$register, \"default\"")
-            }
+        // Turn off a/b test of ugly player buttons that don't match the style of custom player buttons.
+        if (is_20_20_or_greater) {
+            playerControlsLargeOverlayButtonsFeatureFlagFingerprint.method.returnLate(false)
         }
     }
 }
