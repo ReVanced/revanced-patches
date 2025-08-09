@@ -6,7 +6,6 @@ import app.revanced.extension.tiktok.settings.Settings;
 
 @SuppressWarnings("unused")
 public class SpoofSimPatch {
-
     /**
      * During app startup native code can be called with no obvious way to set the context.
      * Cannot check if sim spoofing is enabled or the app will crash since no context is set.
