@@ -3,7 +3,7 @@ package app.revanced.extension.youtube.patches.components;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.shared.PlayerType;
+import app.revanced.extension.youtube.shared.ShortsPlayerState;
 
 @SuppressWarnings("unused")
 public class PlayerFlyoutMenuItemsFilter extends Filter {
@@ -20,17 +20,9 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
     }
 
     private final ByteArrayFilterGroupList flyoutFilterGroupList = new ByteArrayFilterGroupList();
-
-    private final ByteArrayFilterGroup exception;
     private final StringFilterGroup videoQualityMenuFooter;
 
     public PlayerFlyoutMenuItemsFilter() {
-        exception = new ByteArrayFilterGroup(
-                // Whitelist Quality menu item when "Hide Additional settings menu" is enabled
-                Settings.HIDE_PLAYER_FLYOUT_ADDITIONAL_SETTINGS,
-                "quality_sheet"
-        );
-
         videoQualityMenuFooter = new StringFilterGroup(
                 Settings.HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER,
                 "quality_sheet_footer"
@@ -44,11 +36,11 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
         flyoutFilterGroupList.addAll(
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_CAPTIONS,
-                        "closed_caption"
+                        "closed_caption_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_ADDITIONAL_SETTINGS,
-                        "yt_outline_gear"
+                        "yt_outline_gear_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_LOOP_VIDEO,
@@ -56,31 +48,31 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_AMBIENT_MODE,
-                        "yt_outline_screen_light"
+                        "yt_outline_screen_light_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_STABLE_VOLUME,
-                        "volume_stable"
+                        "volume_stable_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_HELP,
-                        "yt_outline_question_circle"
+                        "yt_outline_question_circle_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_MORE_INFO,
-                        "yt_outline_info_circle"
+                        "yt_outline_info_circle_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_LOCK_SCREEN,
-                        "yt_outline_lock"
+                        "yt_outline_lock_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_SPEED,
-                        "yt_outline_play_arrow_half_circle"
+                        "yt_outline_play_arrow_half_circle_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_AUDIO_TRACK,
-                        "yt_outline_person_radar"
+                        "yt_outline_person_radar_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_SLEEP_TIMER,
@@ -88,7 +80,11 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_WATCH_IN_VR,
-                        "yt_outline_vr"
+                        "yt_outline_vr_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_PLAYER_FLYOUT_VIDEO_QUALITY,
+                        "yt_outline_adjust_"
                 )
         );
     }
@@ -105,7 +101,7 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
         }
 
         // Shorts also use this player flyout panel
-        if (PlayerType.getCurrent().isNoneOrHidden() || exception.check(buffer).isFiltered()) {
+        if (ShortsPlayerState.isOpen()) {
             return false;
         }
 
