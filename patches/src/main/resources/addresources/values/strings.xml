@@ -756,6 +756,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_title">Hide Watch in VR</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Watch in VR menu is hidden</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Watch in VR menu is shown</string>
+            <string name="revanced_hide_player_flyout_video_quality_title">Hide video quality menu</string>
+            <string name="revanced_hide_player_flyout_video_quality_summary_on">Video quality menu is hidden</string>
+            <string name="revanced_hide_player_flyout_video_quality_summary_off">Video quality menu is shown</string>
             <string name="revanced_hide_player_flyout_video_quality_footer_title">Hide video quality menu footer</string>
             <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video quality menu footer is hidden</string>
             <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video quality menu footer is shown</string>
