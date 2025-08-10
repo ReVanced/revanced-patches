@@ -57,6 +57,7 @@ val hidePlayerFlyoutMenuPatch = bytecodePatch(
                     ),
                     SwitchPreference("revanced_hide_player_flyout_watch_in_vr"),
                     SwitchPreference("revanced_hide_player_flyout_sleep_timer"),
+                    SwitchPreference("revanced_hide_player_flyout_video_quality"),
                     SwitchPreference("revanced_hide_player_flyout_video_quality_footer"),
                 ),
             ),

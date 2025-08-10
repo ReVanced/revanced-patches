@@ -282,7 +282,7 @@ val playerControlsPatch = bytecodePatch(
         // The change to support this is simple and only requires adding buttons to both layout files,
         // but for now force this different layout off since it's still an experimental test.
         if (is_19_35_or_greater) {
-            playerBottomControlsExploderFeatureFlagFingerprint.method.returnEarly()
+            playerBottomControlsExploderFeatureFlagFingerprint.method.returnLate(false)
         }
 
         // A/B test of new top overlay controls. Two different layouts can be used:
