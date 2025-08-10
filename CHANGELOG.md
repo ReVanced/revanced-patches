@@ -1,3 +1,10 @@
+# [5.34.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.3...v5.34.0-dev.4) (2025-08-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide community posts on channel profiles ([#5634](https://github.com/ReVanced/revanced-patches/issues/5634)) ([9e3d5a2](https://github.com/ReVanced/revanced-patches/commit/9e3d5a2b36106479470f3f69920518b57e8c4dca))
+
 # [5.34.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.2...v5.34.0-dev.3) (2025-08-09)
 
 
