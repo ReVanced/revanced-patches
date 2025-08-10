@@ -13,6 +13,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.misc.engagementpanel.engagementPanelHookPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
@@ -167,6 +168,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         lithoFilterPatch,
         hideShortsComponentsResourcePatch,
         resourceMappingPatch,
+        engagementPanelHookPatch,
         navigationBarHookPatch,
         versionCheckPatch,
     )
