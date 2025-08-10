@@ -1,3 +1,10 @@
+# [5.34.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.4...v5.34.0-dev.5) (2025-08-10)
+
+
+### Features
+
+* **YouTube - Hide player flyout menu items:** Add option to hide quality flyout menu ([eb55068](https://github.com/ReVanced/revanced-patches/commit/eb5506856a2eaf2a8585e598868ddba3e1429159))
+
 # [5.34.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.3...v5.34.0-dev.4) (2025-08-10)
 
 
