@@ -689,6 +689,9 @@ Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo”
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Menu oglądania w VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu oglądania w VR jest ukryte</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Menu oglądania w VR jest widoczne</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Ukryj menu jakości wideo</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Menu jakości wideo jest ukryte</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Menu jakości wideo jest wyświetlane</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Opis menu jakości filmu</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Opis menu jakości filmu jest ukryty</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Opis menu jakości filmu jest widoczny</string>
@@ -1461,7 +1464,7 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Przycisk jest widoczny. Dotknij i przytrzymaj, aby zresetować prędkość odtwarzania do domyślnej</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Przycisk nie jest widoczny</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Pokaż przycisk jakości wideo</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Przycisk jest widoczny. Dotknij i przytrzymaj, aby zresetować jakość do wartości domyślnych</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Przycisk nie jest widoczny</string>

@@ -693,6 +693,9 @@ Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítá
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"Megtekintés VR-módban\" elrejtése</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">A megtekintés VR-módban menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">A „Megtekintés VR-módban” menü megjelenik</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Videóminőség menü elrejtése</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">A videóminőség menü elrejtve</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">A videóminőség menü megjelenítve</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">A videóminőség menü láblécének elrejtése</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">A videóminőség menü lábléce el van rejtve</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Megjelenik a videóminőség menü lábléce</string>
@@ -1462,7 +1465,7 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_playback_speed_dialog_button_summary_on">A gomb látható. Tartsa lenyomva a lejátszási sebesség alapértelmezettre állításához</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">A gomb nem látható</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Videóminőség gomb megjelenítése</string>
   <string name="revanced_video_quality_dialog_button_summary_on">A gomb látható. Tartsa lenyomva a minőséget az alapértelmezettre visszaállításához</string>
   <string name="revanced_video_quality_dialog_button_summary_off">A gomb nem látható</string>

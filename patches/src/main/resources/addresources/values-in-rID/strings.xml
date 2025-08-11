@@ -693,6 +693,9 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sembunyikan Tonton di VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu tonton di VR disembunyikan</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Menu tonton di VR ditampilkan</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Sembunyikan menu kualitas video</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Menu kualitas video disembunyikan</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Menu kualitas video ditampilkan</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Sembunyikan footer menu kualitas video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Footer menu kualitas video disembunyikan</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Footer menu kualitas video ditampilkan</string>
@@ -1464,7 +1467,7 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Tombol ditampilkan. Ketuk dan tahan untuk mengatur ulang kecepatan pemutaran ke bawaan</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tombol tidak ditampilkan</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Tampilkan tombol kualitas video</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Tombol ditampilkan. Ketuk dan tahan untuk mengatur ulang kualitas ke bawaan</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Tombol tidak ditampilkan</string>

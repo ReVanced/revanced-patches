@@ -693,6 +693,9 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sakrij dugme „Gledaj u VR”</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Dugme „Gledaj u VR” je skriveno</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Dugme „Gledaj u VR” je prikazano</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Sakrij meni kvaliteta videa</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Meni kvaliteta videa je skriven</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Meni kvaliteta videa je prikazan</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Sakrij podnožje menija kvaliteta videa</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Podnožje menija kvaliteta videa je skriveno</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Podnožje menija kvaliteta videa je prikazano</string>
@@ -1464,7 +1467,7 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Dugme je prikazano. Dodirnite i zadržite da biste vratili brzinu reprodukcije na podrazumevanu vrednost</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Dugme dijaloga za brzinu nije prikazano</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Prikaži dugme kvaliteta videa</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Dugme je prikazano. Dodirnite i zadržite da biste vratili kvalitet videa na podrazumevanu vrednost</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Dugme nije prikazano</string>

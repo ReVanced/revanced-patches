@@ -693,6 +693,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">إخفاء المشاهدة في VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">تم إخفاء قائمة المشاهدة في الوضع الافتراضي</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">يتم عرض قائمة المشاهدة في الوضع الافتراضي</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">إخفاء قائمة جودة الفيديو</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">قائمة جودة الفيديو مخفية</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">قائمة جودة الفيديو معروضة</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">إخفاء تذييل قائمة جودة الفيديو</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">تم إخفاء تذييل قائمة جودة الفيديو</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">يتم عرض تذييل قائمة جودة الفيديو</string>
@@ -1465,7 +1468,7 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">الزر معروض. انقر مع الاستمرار لإعادة ضبط سرعة التشغيل إلى الوضع الافتراضي</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">لا يتم عرض الزر</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">عرض زر جودة الفيديو</string>
   <string name="revanced_video_quality_dialog_button_summary_on">الزر معروض. انقر مع الاستمرار لإعادة تعيين الجودة إلى الافتراضي</string>
   <string name="revanced_video_quality_dialog_button_summary_off">الزر غير معروض</string>

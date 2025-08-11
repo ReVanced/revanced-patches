@@ -689,6 +689,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_player_flyout_watch_in_vr_title">ভিআর-এ ঘড়ি লুকান</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">ভিআর মেনুতে দেখুন লুকানো আছে</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">ভিআর মেনুতে দেখুন দেখানো হয়েছে</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">ভিডিও গুণমান মেনু লুকান</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">ভিডিও মানের মেনু লুকানো আছে</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">ভিডিও মানের মেনু দেখানো হয়েছে</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">ভিডিও গুণমান মেনুর ফুটার লুকান</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">ভিডিও গুণমান মেনু ফুটার লুকানো আছে</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">ভিডিও গুণমান মেনু ফুটার দেখানো হচ্ছে</string>
@@ -1461,7 +1464,7 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_playback_speed_dialog_button_summary_on">বোতামটি দেখানো হয়েছে। প্লেব্যাক স্পীড ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন।</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">বোতাম প্রদর্শিত হয়নি</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">ভিডিও গুণমান বোতাম দেখান</string>
   <string name="revanced_video_quality_dialog_button_summary_on">বোতামটি দেখানো হয়েছে। গুণমান ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন।</string>
   <string name="revanced_video_quality_dialog_button_summary_off">বোতামটি দেখানো হয়নি।</string>

@@ -693,6 +693,9 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skrij gledanje v VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Meni z gledanjem v VR je skrit</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Meni z gledanjem v VR je prikazan</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Skrij meni kakovosti videa</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Meni kakovosti videa je skrit</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Meni kakovosti videa je prikazan</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Skrij nogo menija s kakovostjo videa</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Noga menija s kakovostjo videa je skrita</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Noga menija s kakovostjo videa je prikazana</string>
@@ -1465,7 +1468,7 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Gumb je prikazan. Dotaknite se ga in ga pridržite, da ponastavite hitrost predvajanja na privzeto.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Gumb ni prikazan</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Prikaži gumb za kakovost videa</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Prikazan je gumb. Dotaknite se in držite, da ponastavite kakovost na privzeto</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Gumb ni prikazan</string>

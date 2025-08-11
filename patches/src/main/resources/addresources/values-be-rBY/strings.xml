@@ -693,6 +693,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Схаваць гадзіннік у VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Меню прагляду ў VR схавана</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Паказана меню \"Глядзець у VR\"</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Схаваць меню якасці відэа</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Меню якасці відэа схавана</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Меню якасці відэа паказана</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Схаваць калонтытул меню якасці відэа</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Ніжні калонтытул меню якасці відэа схаваны</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Паказваецца ніжні калонтытул меню якасці відэа</string>
@@ -1466,7 +1469,7 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка паказана. Націсніце і ўтрымлівайце, каб скінуць хуткасць прайгравання да стандартнай</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка не паказваецца</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Паказаць кнопку якасці відэа</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Кнопка паказана. Націсніце і ўтрымлівайце, каб скінуць якасць да па змаўчанні</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Кнопка не паказваецца</string>
