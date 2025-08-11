@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.buttons.overlay
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
@@ -11,6 +12,20 @@ internal val mediaRouteButtonFingerprint by fingerprint {
     custom { methodDef, _ ->
         methodDef.definingClass.endsWith("/MediaRouteButton;") && methodDef.name == "setVisibility"
     }
+}
+
+internal val castButtonPlayerFeatureFlagFingerprint by fingerprint {
+    returns("Z")
+    instructions(
+        literal(45690091)
+    )
+}
+
+internal val castButtonActionFeatureFlagFingerprint by fingerprint {
+    returns("Z")
+    instructions(
+        literal(45690090)
+    )
 }
 
 internal val inflateControlsGroupLayoutStubFingerprint by fingerprint {

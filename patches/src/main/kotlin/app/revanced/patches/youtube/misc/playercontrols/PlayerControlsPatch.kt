@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_28_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_30_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.copyXmlNode
@@ -272,21 +273,18 @@ val playerControlsPatch = bytecodePatch(
         // youtube_cf_navigation_improvement_controls_layout.xml
         // youtube_cf_minimal_impact_controls_layout.xml
         //
-        // Visually there is no noticeable difference between either of these compared to the default.
-        // There is additional logic that is active when youtube_cf_navigation_improvement_controls_layout
-        // is active, but what it does is not entirely clear.
-        //
-        // For now force this a/b feature off as it breaks the top player buttons.
-        //
-        // Edit: Flag appears to be removed in 20.19
+        // Flag was removed in 20.19+
         if (is_19_25_or_greater && !is_20_19_or_greater) {
             playerTopControlsExperimentalLayoutFeatureFlagFingerprint.method.returnLate("default")
         }
 
         // Turn off a/b tests of ugly player buttons that don't match the style of custom player buttons.
         if (is_20_20_or_greater) {
-            playerControlsLargeOverlayButtonsFeatureFlagFingerprint.method.returnLate(false)
             playerControlsFullscreenLargeButtonsFeatureFlagFingerprint.method.returnLate(false)
+
+            if (is_20_28_or_greater) {
+                playerControlsLargeOverlayButtonsFeatureFlagFingerprint.method.returnLate(false)
+            }
 
             if (is_20_30_or_greater) {
                 playerControlsButtonStrokeFeatureFlagFingerprint.method.returnLate(false)
