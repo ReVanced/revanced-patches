@@ -41,11 +41,10 @@ public final class VideoInformation {
     public static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
 
     /**
-     * All quality names are the same for all languages.
-     * VideoQuality also has a resolution enum that can be used if needed.
+     * Video quality names are the same text for all languages.
+     * Premium can be "1080p Premium" or "1080p60 Premium"
      */
-    public static final String VIDEO_QUALITY_1080P_PREMIUM_NAME = "1080p Premium";
-
+    public static final String VIDEO_QUALITY_PREMIUM_NAME = "Premium";
 
     private static final float DEFAULT_YOUTUBE_PLAYBACK_SPEED = 1.0f;
     /**
@@ -407,14 +406,13 @@ public final class VideoInformation {
     }
 
     /**
-     * @return If the playback is at the end of the video.
-     *        <p>
      * If video is playing in the background with no video visible,
      * this always returns false (even if the video is actually at the end).
      * <p>
      * This is equivalent to checking for {@link VideoState#ENDED},
      * but can give a more up-to-date result for code calling from some hooks.
      *
+     * @return If the playback is at the end of the video.
      * @see VideoState
      */
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
