@@ -691,6 +691,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">ซ่อนดูใน VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">เมนูดูใน VR ซ่อนอยู่</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">เมนูดูใน VR แสดงอยู่</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">ซ่อนเมนูคุณภาพวิดีโอ</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">เมนูคุณภาพวิดีโอถูกซ่อน</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">เมนูคุณภาพวิดีโอแสดงอยู่</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">ซ่อนส่วนท้ายเมนูคุณภาพวิดีโอ</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">ส่วนท้ายเมนูคุณภาพวิดีโอซ่อนอยู่</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">ส่วนท้ายเมนูคุณภาพวิดีโอแสดงอยู่</string>
@@ -1467,7 +1470,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_playback_speed_dialog_button_summary_on">ปุ่มจะปรากฏขึ้น แตะค้างไว้เพื่อรีเซ็ตความเร็วในการเล่นเป็นค่าเริ่มต้น</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">ไม่แสดงปุ่ม</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">แสดงปุ่มคุณภาพวิดีโอ</string>
   <string name="revanced_video_quality_dialog_button_summary_on">แสดงปุ่มแล้ว แตะค้างไว้เพื่อรีเซ็ตคุณภาพเป็นค่าเริ่มต้น</string>
   <string name="revanced_video_quality_dialog_button_summary_off">ไม่ได้แสดงปุ่ม</string>

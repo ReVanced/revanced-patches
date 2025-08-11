@@ -693,6 +693,9 @@ Audio trek seçimin göstərmək üçün \"Video axınları saxtalaşdır\"ı iO
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"VR-da İzləni\" gizlət</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR menyusunda izləmə gizlidir</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR menyusunda izləmə göstərilir</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Video keyfiyyət menyusunu gizlət</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Video keyfiyyət menyusu gizlidir</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Video keyfiyyət menyusu görünür</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Video keyfiyyət menyusu alt məlumatını gizlət</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video keyfiyyət menyusu alt məlumatı gizlidir</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video keyfiyyət menyusu alt məlumatı göstərilir</string>
@@ -1464,7 +1467,7 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_playback_speed_dialog_button_summary_on">Düymə göstərilir. Oynatma sürətin standart olaraq qaytarmaq üçün toxunub saxla</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Düymə göstərilmir</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Video keyfiyyəti düyməsini göstər</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Düymə görünür. Keyfiyyəti ilkin vəziyyətinə qaytarmaq üçün toxunub saxlayın</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Düymə görünmür</string>

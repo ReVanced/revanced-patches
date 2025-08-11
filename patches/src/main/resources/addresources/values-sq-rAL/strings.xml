@@ -693,6 +693,9 @@ Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet vide
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Fsheh \"Shikoni në VR\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menyja \"Shikoni në VR\" është e fshehur</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Menyja \"Shikoni në VR\" është e dukshme</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Fshih menunë e cilësisë së videos</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Menyja e cilësisë së videos është fshehur</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Menyja e cilësisë së videos është shfaqur</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Fsheh fundin e menusë së cilësisë së videos</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Funda e menusë së cilësisë së videos është e fshehur</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Funda e menusë së cilësisë së videos është e dukshme</string>
@@ -1463,7 +1466,7 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Butoni shfaqet. Prekni dhe mbani për të rivendosur shpejtësinë e riprodhimit në atë të parazgjedhur</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Butoni nuk shfaqet</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Shfaq butonin e cilësisë së videos</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Butoni shfaqet. Prekni dhe mbani shtypur për të rivendosur cilësinë në parazgjedhur</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Butoni nuk shfaqet</string>

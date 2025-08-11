@@ -693,6 +693,9 @@ Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS 
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Nascondi Guarda in VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Il menu Guarda in VR è nascosto</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Il menu Guarda in VR è visibile</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Nascondi menu qualità video</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Il menu della qualità video è nascosto</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Il menu della qualità video è visualizzato</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Nascondi piè di pagina del menu qualità video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Il piè di pagina del menu di qualità video è nascosto</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Il piè di pagina del menu di qualità video è visibile</string>
@@ -1464,7 +1467,7 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Il pulsante è visualizzato. Tieni premuto per ripristinare la velocità di riproduzione predefinita</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Il pulsante non è visibile</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Mostra il pulsante qualità video</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Il pulsante è visualizzato. Tocca e tieni premuto per ripristinare la qualità predefinita</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Il pulsante non è visibile.</string>

@@ -691,6 +691,9 @@ Ak chcete zobraziť ponuku zvukovej stopy, zmeňte možnosť „Oklamať videost
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skryť hodinky vo VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Sledovanie v ponuke VR je skryté</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Zobrazí sa ponuka Sledovať vo VR</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Skryť ponuku kvality videa</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Ponuka kvality videa je skrytá</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Ponuka kvality videa je zobrazená</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Skryť pätu ponuky kvality videa</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Päta ponuky kvality videa je skrytá</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Zobrazí sa päta ponuky kvality videa</string>
@@ -1458,7 +1461,7 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Zobrazuje sa tlačidlo. Ťuknite a podržte, ak chcete obnoviť predvolenú rýchlosť prehrávania</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tlačidlo nie je zobrazené</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Zobraziť tlačidlo kvality videa</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Tlačidlo sa zobrazí. Klepnite a podržte pre resetovanie kvality na predvolenú</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Tlačidlo sa nezobrazuje</string>

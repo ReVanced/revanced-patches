@@ -693,6 +693,9 @@ Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de 
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ocultar reloj en VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Ver en el menú VR está oculto</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Ver en el menú VR se muestra</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Ocultar menú de calidad de vídeo</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">El menú de calidad de video está oculto</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">El menú de calidad de video está visible</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Ocultar pie de página del menú de calidad de vídeo</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Pie de menú de calidad de vídeo oculto</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">El pie del menú de calidad de vídeo se muestra</string>
@@ -1456,7 +1459,7 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Se muestra el botón. Mantén pulsado para restablecer la velocidad de reproducción predeterminada</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">El botón no se muestra</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Mostrar botón de calidad de video</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Botón visible. Toca y mantén para restablecer la calidad a los valores predeterminados</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Botón no visible</string>

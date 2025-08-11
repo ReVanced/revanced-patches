@@ -693,6 +693,9 @@ Ses parçası menüsünü göstermek için 'Video akışlarını taklit et' ayar
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR modunda izlemeyi gizle</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR modunda izle menüsü gizli</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR modunda izle menüsü görünür</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Video kalite menüsünü gizle</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Video kalite menüsü gizli</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Video kalite menüsü görünür</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Video kalite menüsü alt bilgisini gizle</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video kalite menüsü alt bilgisi gizli</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kalite menüsü alt bilgisi görünür</string>
@@ -1472,7 +1475,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Düğme görünür. Oynatma hızını varsayılana sıfırlamak için dokunup basılı tutun</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Düğme gösterilmez</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Video kalitesi düğmesini göster</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Düğme görünür. Kaliteyi varsayılana sıfırlamak için dokunup basılı tutun</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Düğme gösterilmez</string>

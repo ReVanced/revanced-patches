@@ -693,6 +693,9 @@ Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fl
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ascunde ceas în VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Vizionarea în meniul VR este ascunsă</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Vizionați în meniul VR este afișat</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Ascunde meniul de calitate video</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Meniul calității video este ascuns</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Meniul calității video este afișat</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Ascunde subsol meniu calitate video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Subsolul meniului calităţii video este ascuns</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Subsolul meniului calității video este afișat</string>
@@ -1464,7 +1467,7 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Butonul este afișat. Atingeți și mențineți apăsat pentru a reseta viteza de redare la cea implicită</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Butonul nu este afișat</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Afișați butonul de calitate video</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Butonul este afișat. Atingeți și mențineți apăsat pentru a reseta calitatea la valoarea implicită</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Butonul nu este afișat.</string>
