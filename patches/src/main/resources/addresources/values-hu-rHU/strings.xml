@@ -137,7 +137,7 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_debug_logs_disabled">A hibakeresési naplózás ki van kapcsolva</string>
   <string name="revanced_debug_logs_none_found">Nem találhatók naplók</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Naplók másolva</string>
-  <string name="revanced_debug_logs_failed_to_export">Nem sikerült exportálni a naplókat: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Nem sikerült exportálni a naplókat: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Hibakeresési naplók törlése</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Törli az összes tárolt ReVanced hibakeresési naplót</string>
   <string name="revanced_debug_logs_clear_toast">Naplók törölve</string>
@@ -468,8 +468,15 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_external_downloader_action_button_summary_on">A letöltés gomb a külső letöltőt nyitja meg</string>
   <string name="revanced_external_downloader_action_button_summary_off">A letöltés gomb az alkalmazáson belüli letöltőt használja</string>
   <string name="revanced_external_downloader_name_title">Letöltő csomag neve</string>
-  <string name="revanced_external_downloader_name_summary">A telepített külső letöltő alkalmazás csomagneve, például NewPipe vagy Seal</string>
+  <string name="revanced_external_downloader_name_summary">A telepített külső letöltő alkalmazásod csomagneve</string>
+  <string name="revanced_external_downloader_other_item_hint">Adja meg a csomagnevet</string>
+  <string name="revanced_external_downloader_other_item">Egyéb</string>
+  <string name="revanced_external_downloader_not_found_title">Az alkalmazás nincs telepítve</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nincs telepítve. Kérjük telepítse.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Nem található telepített alkalmazás a(z) %s csomagnévvel
+
+Ellenőrizze, hogy a csomagnév helyes-e és az alkalmazás telepítve van-e"</string>
+  <string name="revanced_external_downloader_empty_warning">A csomagnév nem lehet üres</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Pontos keresési kézmozdulat letiltása</string>
@@ -732,6 +739,7 @@ Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítá
   <string name="revanced_hide_seekbar_title">Videólejátszó keresősáv elrejtése</string>
   <string name="revanced_hide_seekbar_summary_on">A videólejátszó folyamatsávja el van rejtve</string>
   <string name="revanced_hide_seekbar_summary_off">A videólejátszó folyamatsávja megjelenik</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="revanced_hide_seekbar_thumbnail_title">Videó miniatűrök keresősávjának elrejtése</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">A videó miniatűrök keresősávja elrejtve</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">A videó miniatűrök keresősávja megjelenítve</string>
@@ -1188,8 +1196,6 @@ Autóipari elrendezés
 Ez megváltoztatja az alkalmazás megjelenését és funkcióit, de előfordulhatnak nem várt mellékhatások.
 
 Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy megakadályozza a felhasználói felület hibáit."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Hamisított alkalmazásverzió célja</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - A régi Shorts lejátszó ikonok visszaállítása</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Állítsa vissza a régi navigációs ikonokat</string>
@@ -1456,10 +1462,18 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_playback_speed_dialog_button_summary_on">A gomb látható. Tartsa lenyomva a lejátszási sebesség alapértelmezettre állításához</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">A gomb nem látható</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Videóminőség gomb megjelenítése</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">A gomb látható. Tartsa lenyomva a minőséget az alapértelmezettre visszaállításához</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">A gomb nem látható</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Egyedi lejátszási sebesség menü</string>
   <string name="revanced_custom_speed_menu_summary_on">Megjelenik az egyéni sebesség menü</string>
   <string name="revanced_custom_speed_menu_summary_off">Az egyéni sebesség menü nem jelenik meg</string>
+  <string name="revanced_restore_old_speed_menu_title">Régi lejátszási sebesség menü visszaállítása</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">A régi sebességmenü megjelenik</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">A modern sebességmenü megjelenik</string>
   <string name="revanced_custom_playback_speeds_title">Egyedi lejátszási sebesség</string>
   <string name="revanced_custom_playback_speeds_summary">Egyéni lejátszási sebesség hozzáadása vagy módosítása</string>
   <string name="revanced_custom_playback_speeds_invalid">Az egyéni sebességeknek kevesebbnek kell lenniük, mint %s</string>

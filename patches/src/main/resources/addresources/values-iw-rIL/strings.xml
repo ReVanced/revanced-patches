@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">תיעוד איתור באגים מושבת</string>
   <string name="revanced_debug_logs_none_found">לא נמצאו יומנים</string>
   <string name="revanced_debug_logs_copied_to_clipboard">היומנים הועתקו</string>
-  <string name="revanced_debug_logs_failed_to_export">נכשל לייצא יומנים: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">נכשל ייצוא יומנים: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">נקה יומני איתור באגים</string>
   <string name="revanced_debug_logs_clear_buffer_summary">מנקה את כל היומנים לאיתור באגים של Revanced המאוחסנים</string>
   <string name="revanced_debug_logs_clear_toast">היומנים נוקו</string>
@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">לחצן ההורדה פותח את המוריד החיצוני שלך</string>
   <string name="revanced_external_downloader_action_button_summary_off">לחצן ההורדה פותח את המוריד המקומי בתוך היישום</string>
   <string name="revanced_external_downloader_name_title">שם חבילת מוריד</string>
-  <string name="revanced_external_downloader_name_summary">שם החבילה של המוריד החיצוני המותקן שלך, כגון NewPipe או Seal</string>
+  <string name="revanced_external_downloader_name_summary">שם חבילה של אפליקציית ההורדה החיצונית המותקנת שלך</string>
+  <string name="revanced_external_downloader_other_item_hint">הזן את שם החבילה</string>
+  <string name="revanced_external_downloader_other_item">אחר</string>
+  <string name="revanced_external_downloader_not_found_title">האפליקציה לא מותקנת</string>
   <string name="revanced_external_downloader_not_installed_warning">%s אינו מותקן. נא להתקין אותו.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"לא ניתן למצוא אפליקציה מותקנת עם שם החבילה: %s
+
+ודא/י ששם החבילה נכון ושהאפליקציה מותקנת"</string>
+  <string name="revanced_external_downloader_empty_warning">שם החבילה אינו יכול להיות ריק</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">השבת מחוות דילוג מדויקת</string>
@@ -732,6 +739,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_seekbar_title">הסתר סרגל חיפוש נגן וידאו</string>
   <string name="revanced_hide_seekbar_summary_on">סרגל דילוג של נגן וידאו מוסתר</string>
   <string name="revanced_hide_seekbar_summary_off">סרגל דילוג של נגן וידאו מוצג</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="revanced_hide_seekbar_thumbnail_title">הסתר סרגל חיפוש תמונות ממוזערות של וידאו</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">סרגל חיפוש תמונות ממוזערות של וידאו מוסתר</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">סרגל חיפוש תמונות ממוזערות של וידאו מוצג</string>
@@ -1191,8 +1199,6 @@ Second \"item\" text"</string>
 זה ישנה את המראה והתכונות של היישום, אך תופעות לוואי לא ידועות עלולות להתרחש.
 
 אם נכבה מאוחר יותר, מומלץ לנקות את נתוני היישום כדי למנוע באגים של ממשק המשתמש."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">יעד גרסת יישום מזויפת</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - שחזר סמלי נגן Shorts ישנים</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - שחזר סמלי ניווט ישנים</string>
@@ -1461,10 +1467,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">הלחצן מוצג. יש להקיש ולהחזיק כדי לאפס את מהירות ההפעלה לברירת מחדל</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">הלחצן אינו מוצג</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">הצג כפתור איכות וידאו</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">הלחצן מוצג. גע והחזק כדי לאפס את האיכות לברירת מחדל</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">הלחצן אינו מוצג</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">תפריט מהירות הפעלה מותאם אישית</string>
   <string name="revanced_custom_speed_menu_summary_on">תפריט מהירות מותאם אישית מוצג</string>
   <string name="revanced_custom_speed_menu_summary_off">תפריט מהירות מותאם אישית אינו מוצג</string>
+  <string name="revanced_restore_old_speed_menu_title">שחזר תפריט מהירות השמעה ישן</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">תפריט מהירות ישן מוצג</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">תפריט מהירות מודרני מוצג</string>
   <string name="revanced_custom_playback_speeds_title">מהירויות הפעלה מותאמות אישית</string>
   <string name="revanced_custom_playback_speeds_summary">הוסף או שנה את המהירויות הפעלה המותאמות אישית</string>
   <string name="revanced_custom_playback_speeds_invalid">מהירויות מותאמות אישית חייבות להיות קטנות מ-%s</string>

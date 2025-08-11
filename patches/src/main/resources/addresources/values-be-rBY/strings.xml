@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">Адладачнае лагаванне адключана</string>
   <string name="revanced_debug_logs_none_found">Лагі не знойдзены</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Лагі скапіяваны</string>
-  <string name="revanced_debug_logs_failed_to_export">Не атрымалася экспартаваць лагі: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Не ўдалося экспартаваць журналы: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Ачысціць адладачныя лагі</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Ачышчае ўсе захаваныя адладачныя лагі ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Лагі ачышчаны</string>
@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Кнопка \"Спампаваць\" адкрывае ваш знешні загрузнік</string>
   <string name="revanced_external_downloader_action_button_summary_off">Кнопка \"Спампаваць\" адкрывае ўласную праграму загрузкі ў праграме</string>
   <string name="revanced_external_downloader_name_title">Назва пакета загрузніка</string>
-  <string name="revanced_external_downloader_name_summary">Імя пакета ўсталяванай знешняй праграмы загрузкі, напрыклад NewPipe або Seal</string>
+  <string name="revanced_external_downloader_name_summary">Назва пакета вашага ўсталяванага знешняга спампоўшчыка праграмы</string>
+  <string name="revanced_external_downloader_other_item_hint">Увядзіце назву пакета</string>
+  <string name="revanced_external_downloader_other_item">Іншае</string>
+  <string name="revanced_external_downloader_not_found_title">Праграма не ўстаноўлена</string>
   <string name="revanced_external_downloader_not_installed_warning">%s не ўсталяваны. Калі ласка, усталюйце яго.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Не ўдалося знайсці ўстаноўленую праграму з назвай пакета: %s
+
+Праверце, ці правільная назва пакета і ці ўстаноўлена праграма"</string>
+  <string name="revanced_external_downloader_empty_warning">Назва пакета не можа быць пустой</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Адключыць жэст дакладнага пошуку</string>
@@ -732,6 +739,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_seekbar_title">Схаваць панэль прагрэсу відэапрайгравальніка</string>
   <string name="revanced_hide_seekbar_summary_on">Панэль пошуку відэаплэера схавана</string>
   <string name="revanced_hide_seekbar_summary_off">Адлюстроўваецца панэль пошуку відэаплэера</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="revanced_hide_seekbar_thumbnail_title">Схаваць панэль прагрэсу з эскізамі відэа</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Панэль прагрэсу з эскізамі відэа схавана</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Панэль прагрэсу з эскізамі відэа паказана</string>
@@ -1190,8 +1198,6 @@ Second \"item\" text"</string>
 Гэта зменіць знешні выгляд і функцыі прыкладання, але могуць узнікнуць невядомыя пабочныя эфекты.
 
 Калі пазней будзе адключана, рэкамендуецца ачысціць даныя прыкладання, каб пазбегнуць памылак у інтэрфейсе."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Падробка мэтавай версіі праграмы</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 — Восстановить старые значки плеера Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Аднаўленне старых значкоў навігацыі</string>
@@ -1460,10 +1466,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка паказана. Націсніце і ўтрымлівайце, каб скінуць хуткасць прайгравання да стандартнай</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка не паказваецца</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Паказаць кнопку якасці відэа</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Кнопка паказана. Націсніце і ўтрымлівайце, каб скінуць якасць да па змаўчанні</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Кнопка не паказваецца</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Меню пользовательской скорости воспроизведения</string>
   <string name="revanced_custom_speed_menu_summary_on">Меню пользовательской скорости отображается</string>
   <string name="revanced_custom_speed_menu_summary_off">Меню пользовательской скорости не отображается</string>
+  <string name="revanced_restore_old_speed_menu_title">Аднавіць старое меню хуткасці прайгравання</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Паказана старое меню хуткасці</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Паказана сучаснае меню хуткасці</string>
   <string name="revanced_custom_playback_speeds_title">Карыстальніцкія хуткасці прайгравання</string>
   <string name="revanced_custom_playback_speeds_summary">Добавьте или измените пользовательскую скорость воспроизведения</string>
   <string name="revanced_custom_playback_speeds_invalid">Нестандартныя хуткасці павінны быць менш за %s</string>

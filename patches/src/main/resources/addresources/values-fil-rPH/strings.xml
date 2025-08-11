@@ -137,7 +137,7 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_debug_logs_disabled">Hindi pinagana ang pag-log ng debug</string>
   <string name="revanced_debug_logs_none_found">Walang nakitang mga log</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Nakopya ang mga log</string>
-  <string name="revanced_debug_logs_failed_to_export">Nabigong i-export ang mga log: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Nabigo ang pag-export ng mga log: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">I-clear ang mga debug log</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Iki-clear ang lahat ng nakaimbak na ReVanced debug log</string>
   <string name="revanced_debug_logs_clear_toast">Na-clear ang mga log</string>
@@ -468,8 +468,15 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Binubuksan ng button sa pag-download ang iyong external na downloader</string>
   <string name="revanced_external_downloader_action_button_summary_off">Binubuksan ng button sa pag-download ang native na in-app na downloader</string>
   <string name="revanced_external_downloader_name_title">Pangalan ng package ng downloader</string>
-  <string name="revanced_external_downloader_name_summary">Pangalan ng package ng iyong naka-install na external na downloader app, gaya ng NewPipe o Seal</string>
+  <string name="revanced_external_downloader_name_summary">Pangalan ng package ng iyong naka-install na panlabas na downloader app</string>
+  <string name="revanced_external_downloader_other_item_hint">Ilagay ang pangalan ng package</string>
+  <string name="revanced_external_downloader_other_item">Iba pa</string>
+  <string name="revanced_external_downloader_not_found_title">Hindi naka-install ang app</string>
   <string name="revanced_external_downloader_not_installed_warning">Hindi naka-install ang %s. Mangyaring i-install ito.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Hindi makita ang naka-install na app na may pangalan ng package: %s
+
+Suriin kung tama ang pangalan ng package at kung naka-install ang app"</string>
+  <string name="revanced_external_downloader_empty_warning">Hindi maaaring walang laman ang pangalan ng package</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Huwag paganahin ang tumpak na kilos sa paghahanap</string>
@@ -730,6 +737,7 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <string name="revanced_hide_seekbar_title">Itago ang seekbar ng video player</string>
   <string name="revanced_hide_seekbar_summary_on">Nakatago ang seekbar ng video player</string>
   <string name="revanced_hide_seekbar_summary_off">Ipinapakita ang seekbar ng video player</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="revanced_hide_seekbar_thumbnail_title">Itago ang seekbar ng mga thumbnail ng video</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Ang seekbar ng mga thumbnail ng video ay nakatago</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Ang seekbar ng mga thumbnail ng video ay ipinapakita</string>
@@ -1187,8 +1195,6 @@ Layout ng automotive
 Ito ay magbabago sa hitsura at mga tampok ng app, ngunit maaaring mangyari ang mga hindi kilalang epekto.
 
 Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan ang mga bug ng UI."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Target na bersyon ng Spoof app</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Ibalik ang mga lumang icon ng Shorts player</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Ibalik ang mga lumang icon ng navigation</string>
@@ -1457,10 +1463,18 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_playback_speed_dialog_button_summary_on">Ipinapakita ang button. I-tap at i-hold para i-reset ang bilis ng pag-playback sa default</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Hindi ipinapakita ang button</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Ipakita ang button ng kalidad ng video</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Nakalabas ang button. Pindutin nang matagal para ibalik sa default ang kalidad</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Hindi ipinapakita ang buton</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu ng pasadyang bilis ng pag-playback</string>
   <string name="revanced_custom_speed_menu_summary_on">Ipinapakita ang menu ng pasadyang bilis</string>
   <string name="revanced_custom_speed_menu_summary_off">Hindi ipinapakita ang menu ng pasadyang bilis</string>
+  <string name="revanced_restore_old_speed_menu_title">Ibalik ang lumang menu ng bilis ng pag-playback</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Ipinapakita ang lumang menu ng bilis</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Ipinapakita ang modernong menu ng bilis</string>
   <string name="revanced_custom_playback_speeds_title">Mga custom na bilis ng pag-playback</string>
   <string name="revanced_custom_playback_speeds_summary">Magdagdag o baguhin ang mga pasadyang bilis ng pag-playback</string>
   <string name="revanced_custom_playback_speeds_invalid">Ang mga custom na bilis ay dapat na mas mababa sa %s</string>

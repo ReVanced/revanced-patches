@@ -26,7 +26,7 @@ import app.revanced.extension.youtube.TrieSearch;
  *
  * Once a way to asynchronously update litho text is found, this strategy will no longer be needed.
  */
-public final class ReturnYouTubeDislikeFilterPatch extends Filter {
+public final class ReturnYouTubeDislikeFilter extends Filter {
 
     /**
      * Last unique video id's loaded.  Value is ignored and Map is treated as a Set.
@@ -67,7 +67,7 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
 
     private final ByteArrayFilterGroupList videoIdFilterGroup = new ByteArrayFilterGroupList();
 
-    public ReturnYouTubeDislikeFilterPatch() {
+    public ReturnYouTubeDislikeFilter() {
         // When a new Short is opened, the like buttons always seem to load before the dislike.
         // But if swiping back to a previous video and liking/disliking, then only that single button reloads.
         // So must check for both buttons.
@@ -84,15 +84,15 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
     }
 
     @Override
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (!Settings.RYD_ENABLED.get() || !Settings.RYD_SHORTS.get()) {
             return false;
         }
 
-        FilterGroup.FilterGroupResult result = videoIdFilterGroup.check(protobufBufferArray);
+        FilterGroup.FilterGroupResult result = videoIdFilterGroup.check(buffer);
         if (result.isFiltered()) {
-            String matchedVideoId = findVideoId(protobufBufferArray);
+            String matchedVideoId = findVideoId(buffer);
             // Matched video will be null if in incognito mode.
             // Must pass a null id to correctly clear out the current video data.
             // Otherwise if a Short is opened in non-incognito, then incognito is enabled and another Short is opened,

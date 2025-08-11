@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">Журналы отладки отключены</string>
   <string name="revanced_debug_logs_none_found">Журналы не найдены</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Журналы скопированы</string>
-  <string name="revanced_debug_logs_failed_to_export">Не удалось экспортировать журналы: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Не удалось экспортировать журналы: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Очистить журналы отладки</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Очищает все сохраненные журналы отладки ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Журналы очищены</string>
@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Кнопка \"Скачать\" запускает внешний загрузчик</string>
   <string name="revanced_external_downloader_action_button_summary_off">Кнопка \"Скачать\" запускает собственный загрузчик</string>
   <string name="revanced_external_downloader_name_title">Имя пакета загрузчика</string>
-  <string name="revanced_external_downloader_name_summary">Имя пакета установленного Вами приложения внешнего загрузчика, такого как NewPipe или Seal</string>
+  <string name="revanced_external_downloader_name_summary">Имя пакета установленного Вами приложения внешнего загрузчика</string>
+  <string name="revanced_external_downloader_other_item_hint">Введите имя пакета</string>
+  <string name="revanced_external_downloader_other_item">Другое</string>
+  <string name="revanced_external_downloader_not_found_title">Приложение не установлено</string>
   <string name="revanced_external_downloader_not_installed_warning">%s не установлен. Пожалуйста, установите его.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Не удалось найти установленное приложение с именем пакета: %s
+
+Убедитесь, что имя пакета указано правильно и приложение установлено"</string>
+  <string name="revanced_external_downloader_empty_warning">Имя пакета не может быть пустым</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Отключить жест покадровой перемотки</string>
@@ -732,13 +739,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_seekbar_title">Скрыть полосу прогресса видеоплеера</string>
   <string name="revanced_hide_seekbar_summary_on">Полоса прогресса в плеере скрыта</string>
   <string name="revanced_hide_seekbar_summary_off">Полоса прогресса в плеере показана</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="revanced_hide_seekbar_thumbnail_title">Скрыть полосу прогресса миниатюр видео</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Полоса прогресса миниатюр видео скрыта</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Полоса прогресса миниатюр видео показана</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Компоненты плеера Shorts</string>
-  <string name="revanced_shorts_player_screen_summary">Скрыть или показать компоненты проигрывателя Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Скрыть или показать компоненты плеера Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">Скрыть Shorts в ленте \"Главной\"</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts в ленте \"Главной\" и похожих видео скрыты</string>
@@ -963,14 +971,14 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_sb">Включить SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock – это краудсорсинговая система для пропуска раздражающих фрагментов видео YouTube</string>
   <string name="revanced_sb_appearance_category">Внешний вид</string>
-  <string name="revanced_sb_enable_voting">Кнопка голосования за сегмент</string>
+  <string name="revanced_sb_enable_voting">Показать кнопку голосования за сегмент</string>
   <string name="revanced_sb_enable_voting_sum_on">Кнопка голосования за сегмент показана</string>
   <string name="revanced_sb_enable_voting_sum_off">Кнопка голосования за сегмент скрыта</string>
   <string name="revanced_sb_square_layout">Использовать квадратный макет</string>
   <string name="revanced_sb_square_layout_sum_on">Кнопки и элементы управления квадратные</string>
   <string name="revanced_sb_square_layout_sum_off">Кнопки и элементы управления закругленные</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
-  <string name="revanced_sb_enable_compact_skip_button">Компактная кнопка пропуска</string>
+  <string name="revanced_sb_enable_compact_skip_button">Стиль кнопки пропуска</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Кнопка пропуска стилизована для минимальной ширины</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Кнопка пропуска стилизована для лучшего внешнего вида</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Автоскрытие кнопки пропуска</string>
@@ -993,11 +1001,11 @@ Second \"item\" text"</string>
   <string name="revanced_sb_duration_8s">8 секунд</string>
   <string name="revanced_sb_duration_9s">9 секунд</string>
   <string name="revanced_sb_duration_10s">10 секунд</string>
-  <string name="revanced_sb_general_time_without">Длительность видео без сегментов</string>
+  <string name="revanced_sb_general_time_without">Показать длительность видео без сегментов</string>
   <string name="revanced_sb_general_time_without_sum_on">Длина видео без учета всех сегментов показана на полосе прогресса</string>
   <string name="revanced_sb_general_time_without_sum_off">Полная длительность видео показана</string>
   <string name="revanced_sb_create_segment_category">Создание новых сегментов</string>
-  <string name="revanced_sb_enable_create_segment">Кнопка создания сегмента</string>
+  <string name="revanced_sb_enable_create_segment">Показать кнопку создания сегмента</string>
   <string name="revanced_sb_enable_create_segment_sum_on">Кнопка создания нового сегмента показана</string>
   <string name="revanced_sb_enable_create_segment_sum_off">Кнопка создания нового сегмента скрыта</string>
   <string name="revanced_sb_general_adjusting">Настроить шаг нового сегмента</string>
@@ -1013,7 +1021,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_toast_on_connection_error_title">Уведомление при недоступности API</string>
   <string name="revanced_sb_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности SponsorBlock показано</string>
   <string name="revanced_sb_toast_on_connection_error_summary_off">Всплывающее уведомление при недоступности SponsorBlock скрыто</string>
-  <string name="revanced_sb_general_skipcount">Подсчет количества пропусков</string>
+  <string name="revanced_sb_general_skipcount">Включить подсчет количества пропусков</string>
   <string name="revanced_sb_general_skipcount_sum_on">Это позволяет системе лидеров SponsorBlock знать, сколько времени было сэкономлено. Сообщение отправляется на сервер каждый раз при пропуске сегмента</string>
   <string name="revanced_sb_general_skipcount_sum_off">Подсчет количества пропусков отключен</string>
   <string name="revanced_sb_general_min_duration">Минимальная продолжительность сегмента</string>
@@ -1191,8 +1199,6 @@ Second \"item\" text"</string>
 Это изменит вид и функции приложения, но могут случиться неизвестные побочные эффекты.
 
 Если позже данный параметр будет отключен, рекомендуется очистить данные приложения для предотвращения проблем с пользовательским интерфейсом."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Подменить версию приложения на</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Восстановление старых иконок плеера Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Восстановление старых иконок панели навигации</string>
@@ -1466,10 +1472,18 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка показана. Нажмите и удерживайте, чтобы сбросить скорость воспроизведения до значения по умолчанию</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Показать кнопку качества видео</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Кнопка показана. Нажмите и удерживайте, чтобы сбросить качество до значения по умолчанию</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Показать кастомное меню скорости</string>
   <string name="revanced_custom_speed_menu_summary_on">Кастомное меню скорости воспроизведения показано</string>
   <string name="revanced_custom_speed_menu_summary_off">Кастомное меню скорости воспроизведения скрыто</string>
+  <string name="revanced_restore_old_speed_menu_title">Восстановить старое меню скорости воспроизведения</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Старое меню скорости показано</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Современное меню скорости показано</string>
   <string name="revanced_custom_playback_speeds_title">Кастомные скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_summary">Добавить или изменить кастомные скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_invalid">Кастомные скорости должны быть меньше, чем %s</string>

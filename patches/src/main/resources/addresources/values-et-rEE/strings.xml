@@ -137,7 +137,7 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_debug_logs_disabled">Silumislogimine on keelatud</string>
   <string name="revanced_debug_logs_none_found">Logisid ei leitud</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Logid kopeeritud</string>
-  <string name="revanced_debug_logs_failed_to_export">Logide eksportimine ebaõnnestus: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Logide eksportimine ebaõnnestus: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Puhasta silumislogid</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Puhastab kõik salvestatud ReVanced silumislogid</string>
   <string name="revanced_debug_logs_clear_toast">Logid puhastatud</string>
@@ -468,8 +468,15 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Allalaadimise nupp avab teie välise allalaadija</string>
   <string name="revanced_external_downloader_action_button_summary_off">Allalaadimise nupp avab seadme sisseehitatud allalaadija</string>
   <string name="revanced_external_downloader_name_title">Allalaadija paketi nimi</string>
-  <string name="revanced_external_downloader_name_summary">Teie installitud välise allalaadija rakenduse paketi nimi, näiteks NewPipe või Seal</string>
+  <string name="revanced_external_downloader_name_summary">Paigaldatud välise allalaadimisrakenduse paketi nimi</string>
+  <string name="revanced_external_downloader_other_item_hint">Sisesta paketi nimi</string>
+  <string name="revanced_external_downloader_other_item">Muu</string>
+  <string name="revanced_external_downloader_not_found_title">Rakendus pole installitud</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ei ole installitud. Palun installige see.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Installitud rakendust ei leitud paketi nimega: %s
+
+Veendu, et paketi nimi on õige ja rakendus on installitud"</string>
+  <string name="revanced_external_downloader_empty_warning">Paketi nimi ei tohi olla tühi</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Keela täpne otsingu žest</string>
@@ -732,6 +739,7 @@ Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ vä
   <string name="revanced_hide_seekbar_title">Peida videopleieri edenemisriba</string>
   <string name="revanced_hide_seekbar_summary_on">Videopleieri otsimisriba on peidetud</string>
   <string name="revanced_hide_seekbar_summary_off">Videopleieri otsimisriba on nähtav</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="revanced_hide_seekbar_thumbnail_title">Peida video pisipiltide edenemisriba</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Video pisipiltide edenemisriba on peidetud</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Video pisipiltide edenemisriba on nähtav</string>
@@ -1189,8 +1197,6 @@ Autode paigutus
 See muudab rakenduse välimust ja funktsioone, kuid võivad esineda tundmatud kõrvalmõjud.
 
 Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et vältida kasutajaliidese vigu."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Võltsitud rakenduse versiooni siht</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Taastage vanad Shortsi esitajaikoonid</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Taasta vanad navigeerimisikoonid</string>
@@ -1459,10 +1465,18 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Nupp on nähtaval. Puudutage ja hoidke all, et taastada taasesituse kiirus vaikeväärtusele</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Nuppi ei kuvata</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Näita video kvaliteedi nuppu</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Nupp on nähtaval. Kvaliteedi lähtestamiseks vaikeseadeteks puudutage ja hoidke</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Nuppu ei kuvata</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Kohandatud taasesituse kiiruse menüü</string>
   <string name="revanced_custom_speed_menu_summary_on">Kohandatud kiiruse menüü kuvatakse</string>
   <string name="revanced_custom_speed_menu_summary_off">Kohandatud kiiruse menüüd ei kuvata</string>
+  <string name="revanced_restore_old_speed_menu_title">Taasta vana taasesituse kiiruse menüü</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Kuvatakse vana kiiruse menüü</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Kuvatakse kaasaegne kiiruse menüü</string>
   <string name="revanced_custom_playback_speeds_title">Kohandatud taasesituse kiirused</string>
   <string name="revanced_custom_playback_speeds_summary">Lisa või muuda kohandatud taasesituse kiirusi</string>
   <string name="revanced_custom_playback_speeds_invalid">Kohandatud kiirused peavad olema alla %s</string>

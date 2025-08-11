@@ -6,7 +6,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -40,7 +39,10 @@ private val downloadsResourcePatch = resourcePatch {
                 preferences = setOf(
                     SwitchPreference("revanced_external_downloader"),
                     SwitchPreference("revanced_external_downloader_action_button"),
-                    TextPreference("revanced_external_downloader_name", inputType = InputType.TEXT),
+                    TextPreference(
+                        "revanced_external_downloader_name",
+                        tag = "app.revanced.extension.youtube.settings.preference.ExternalDownloaderPreference",
+                    ),
                 ),
             ),
         )

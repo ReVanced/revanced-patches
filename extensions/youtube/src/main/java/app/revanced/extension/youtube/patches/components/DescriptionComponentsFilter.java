@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.Nullable;
-
 import app.revanced.extension.youtube.StringTrieSearch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -105,7 +103,7 @@ final class DescriptionComponentsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
+    boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
 
         if (matchedGroup == aiGeneratedVideoSummarySection) {
@@ -116,11 +114,11 @@ final class DescriptionComponentsFilter extends Filter {
         if (exceptions.matches(path)) return false;
 
         if (matchedGroup == macroMarkersCarousel) {
-            return contentIndex == 0 && macroMarkersCarouselGroupList.check(protobufBufferArray).isFiltered();
+            return contentIndex == 0 && macroMarkersCarouselGroupList.check(buffer).isFiltered();
         }
 
         if (matchedGroup == horizontalShelf) {
-            return cellVideoAttribute.check(protobufBufferArray).isFiltered();
+            return cellVideoAttribute.check(buffer).isFiltered();
         }
 
         return true;

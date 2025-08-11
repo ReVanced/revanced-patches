@@ -174,6 +174,7 @@ Second \"item\" text"</string>
   <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
@@ -219,8 +220,6 @@ Second \"item\" text"</string>
   <patch id="layout.formfactor.changeFormFactorPatch">
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   </patch>
@@ -272,6 +271,8 @@ Second \"item\" text"</string>
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
+  </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   </patch>

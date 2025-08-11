@@ -137,7 +137,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_disabled">ปิดใช้งานการบันทึกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_logs_none_found">ไม่พบบันทึก</string>
   <string name="revanced_debug_logs_copied_to_clipboard">คัดลอกบันทึกแล้ว</string>
-  <string name="revanced_debug_logs_failed_to_export">ส่งออกบันทึกล้มเหลว: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">ส่งออกบันทึกไม่สำเร็จ: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">ล้างบันทึกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_logs_clear_buffer_summary">ล้างบันทึกการแก้ไขข้อบกพร่องของ ReVanced ที่จัดเก็บไว้ทั้งหมด</string>
   <string name="revanced_debug_logs_clear_toast">ล้างบันทึกแล้ว</string>
@@ -468,8 +468,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_action_button_summary_on">ปุ่มดาวน์โหลดเปิดโปรแกรมดาวน์โหลดภายนอกของคุณ</string>
   <string name="revanced_external_downloader_action_button_summary_off">ปุ่มดาวน์โหลดเปิดโปรแกรมดาวน์โหลดในแอปแบบเนทีฟ</string>
   <string name="revanced_external_downloader_name_title">ชื่อแพ็คเกจโปรแกรมดาวน์โหลด</string>
-  <string name="revanced_external_downloader_name_summary">ชื่อแพ็คเกจของโปรแกรมดาวน์โหลดภายนอกที่ติดตั้งของคุณ เช่น NewPipe หรือ Seal</string>
+  <string name="revanced_external_downloader_name_summary">ชื่อแพ็กเกจของแอปดาวน์โหลดภายนอกที่คุณติดตั้ง</string>
+  <string name="revanced_external_downloader_other_item_hint">ป้อนชื่อแพ็กเกจ</string>
+  <string name="revanced_external_downloader_other_item">อื่น ๆ</string>
+  <string name="revanced_external_downloader_not_found_title">ไม่ได้ติดตั้งแอป</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ไม่ได้ติดตั้ง โปรดติดตั้ง</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"ไม่พบแอปที่ติดตั้งด้วยชื่อแพ็กเกจ: %s
+
+ตรวจสอบว่าชื่อแพ็กเกจถูกต้องและติดตั้งแอปแล้ว"</string>
+  <string name="revanced_external_downloader_empty_warning">ชื่อแพ็กเกจต้องไม่ว่างเปล่า</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">ปิดใช้งานท่าทางการค้นหาแบบแม่นยำ</string>
@@ -730,6 +737,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_seekbar_title">ซ่อนแถบเลื่อนของเครื่องเล่นวิดีโอ</string>
   <string name="revanced_hide_seekbar_summary_on">แถบเลื่อนเครื่องเล่นวิดีโอซ่อนอยู่</string>
   <string name="revanced_hide_seekbar_summary_off">แถบเลื่อนเครื่องเล่นวิดีโอแสดงอยู่</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="revanced_hide_seekbar_thumbnail_title">ซ่อนแถบเลื่อนภาพขนาดย่อของวิดีโอ</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">แถบเลื่อนภาพขนาดย่อของวิดีโอถูกซ่อนอยู่</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">แถบเลื่อนภาพขนาดย่อของวิดีโอแสดงอยู่</string>
@@ -1188,8 +1196,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 สิ่งนี้จะเปลี่ยนรูปลักษณ์และคุณสมบัติของแอป แต่ผลข้างเคียงที่ไม่คาดคิดอาจเกิดขึ้น
 
 ถ้าปิดในภายหลัง ขอแนะนําให้ล้างข้อมูลแอปเพื่อป้องกันข้อผิดพลาดของ UI"</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">เป้าหมายการปลอมแปลงเวอร์ชันแอป</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - คืนค่าไอคอนเครื่องเล่น Shorts เก่า</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - กู้คืนไอคอนการนำทางแบบเก่า</string>
@@ -1461,10 +1467,18 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_playback_speed_dialog_button_summary_on">ปุ่มจะปรากฏขึ้น แตะค้างไว้เพื่อรีเซ็ตความเร็วในการเล่นเป็นค่าเริ่มต้น</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">ไม่แสดงปุ่ม</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">แสดงปุ่มคุณภาพวิดีโอ</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">แสดงปุ่มแล้ว แตะค้างไว้เพื่อรีเซ็ตคุณภาพเป็นค่าเริ่มต้น</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">ไม่ได้แสดงปุ่ม</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">เมนูกำหนดความเร็วในการเล่นแบบกำหนดเอง</string>
   <string name="revanced_custom_speed_menu_summary_on">แสดงเมนูกำหนดความเร็ว</string>
   <string name="revanced_custom_speed_menu_summary_off">ไม่แสดงเมนูกำหนดความเร็ว</string>
+  <string name="revanced_restore_old_speed_menu_title">คืนค่าเมนูความเร็วในการเล่นแบบเก่า</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">แสดงเมนูความเร็วแบบเก่า</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">แสดงเมนูความเร็วแบบใหม่</string>
   <string name="revanced_custom_playback_speeds_title">ความเร็วในการเล่นแบบกำหนดเอง</string>
   <string name="revanced_custom_playback_speeds_summary">เพิ่มหรือเปลี่ยนความเร็วในการเล่นแบบกำหนดเอง</string>
   <string name="revanced_custom_playback_speeds_invalid">ความเร็วที่กําหนดเองต้องน้อยกว่า %s</string>

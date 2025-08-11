@@ -135,7 +135,7 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_debug_logs_disabled">Protokolovanie ladenia je vypnuté</string>
   <string name="revanced_debug_logs_none_found">Nenašli sa žiadne protokoly</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Protokoly skopírované</string>
-  <string name="revanced_debug_logs_failed_to_export">Nepodarilo sa exportovať protokoly: $s</string>
+  <string name="revanced_debug_logs_failed_to_export">Nepodarilo sa exportovať protokoly: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Vymazať protokoly ladenia</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Vymaže všetky uložené protokoly ladenia ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Protokoly vymazané</string>
@@ -466,8 +466,15 @@ Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Tlačidlo Stiahnuť otvorí váš externý downloader</string>
   <string name="revanced_external_downloader_action_button_summary_off">Tlačidlo Stiahnuť otvorí natívny nástroj na sťahovanie v aplikácii</string>
   <string name="revanced_external_downloader_name_title">Názov balíka sťahovania</string>
-  <string name="revanced_external_downloader_name_summary">Názov balíka nainštalovanej externej aplikácie na sťahovanie, napríklad NewPipe alebo Seal</string>
+  <string name="revanced_external_downloader_name_summary">Názov balíka vašej nainštalovanej externej aplikácie na sťahovanie</string>
+  <string name="revanced_external_downloader_other_item_hint">Zadajte názov balíka</string>
+  <string name="revanced_external_downloader_other_item">Iné</string>
+  <string name="revanced_external_downloader_not_found_title">Aplikácia nie je nainštalovaná</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nie je nainštalovaný. Nainštalujte si ho.</string>
+  <string name="revanced_external_downloader_package_not_found_warning">"Nepodarilo sa nájsť nainštalovanú aplikáciu s názvom balíka: %s
+
+Overte, či je názov balíka správny a aplikácia je nainštalovaná"</string>
+  <string name="revanced_external_downloader_empty_warning">Názov balíka nemôže byť prázdny</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Zakázať gesto presného vyhľadávania</string>
@@ -730,6 +737,7 @@ Ak chcete zobraziť ponuku zvukovej stopy, zmeňte možnosť „Oklamať videost
   <string name="revanced_hide_seekbar_title">Skryť posuvník prehrávača videa</string>
   <string name="revanced_hide_seekbar_summary_on">Vyhľadávací panel prehrávača videa je skrytý</string>
   <string name="revanced_hide_seekbar_summary_off">Zobrazí sa vyhľadávací panel prehrávača videa</string>
+  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="revanced_hide_seekbar_thumbnail_title">Skryť posuvník miniatúr videa</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Posuvník miniatúr videa je skrytý</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Posuvník miniatúr videa je zobrazený</string>
@@ -1184,8 +1192,6 @@ Rozloženie pre automobily
 Zmení sa vzhľad a funkcie aplikácie, ale môžu sa vyskytnúť neznáme vedľajšie účinky.
 
 Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo chybám používateľského rozhrania."</string>
-  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
-                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch. -->
   <string name="revanced_spoof_app_version_target_title">Falošná cieľová verzia aplikácie</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnoviť staré ikony Shorts prehrávača</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Obnoviť staré ikony navigácie</string>
@@ -1452,10 +1458,18 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Zobrazuje sa tlačidlo. Ťuknite a podržte, ak chcete obnoviť predvolenú rýchlosť prehrávania</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tlačidlo nie je zobrazené</string>
   </patch>
+  <patch id="video.quality.button.videoQualityButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Zobraziť tlačidlo kvality videa</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Tlačidlo sa zobrazí. Klepnite a podržte pre resetovanie kvality na predvolenú</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Tlačidlo sa nezobrazuje</string>
+  </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu vlastnej rýchlosti prehrávania</string>
   <string name="revanced_custom_speed_menu_summary_on">Menu vlastnej rýchlosti sa zobrazuje</string>
   <string name="revanced_custom_speed_menu_summary_off">Menu vlastnej rýchlosti sa nezobrazuje</string>
+  <string name="revanced_restore_old_speed_menu_title">Obnoviť staré menu rýchlosti prehrávania</string>
+  <string name="revanced_restore_old_speed_menu_summary_on">Zobrazuje sa staré menu rýchlosti</string>
+  <string name="revanced_restore_old_speed_menu_summary_off">Zobrazuje sa moderné menu rýchlosti</string>
   <string name="revanced_custom_playback_speeds_title">Vlastné rýchlosti prehrávania</string>
   <string name="revanced_custom_playback_speeds_summary">Pridať alebo zmeň vlastné rýchlosti prehrávania</string>
   <string name="revanced_custom_playback_speeds_invalid">Vlastné rýchlosti musia byť menšie ako %s</string>
