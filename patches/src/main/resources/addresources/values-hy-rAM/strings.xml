@@ -693,6 +693,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Դիտել VR-ով թաքցնել</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR-ով դիտել մենյուը թաքցված է</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR-ով դիտել մենյուը երևում է</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Թաքցնել տեսանյութի որակի ընտրացանկը</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Տեսանյութի որակի ընտրացանկը թաքնված է</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Տեսանյութի որակի ընտրացանկը ցուցադրված է</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Տեսանյութի որակի մենյուի ստորագրությունը թաքցնել</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Տեսանյութի որակի մենյուի ստորագրությունը թաքցված է</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Տեսանյութի որակի մենյուի ստորագրությունը երևում է</string>
@@ -1466,7 +1469,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_playback_speed_dialog_button_summary_on">Կոճակը ցուցադրվում է: Հպեք և պահեք՝ նվագարկման արագությունը լռելյայնի վերականգնելու համար</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Կոճակը  չի  ցուցադրվում</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Ցուցադրել տեսանյութի որակի կոճակը</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Կոճակը ցուցադրված է։ Հպեք և պահեք՝ որակը լռելյայնին վերականգնելու համար</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Կոճակը ցուցադրված չէ։</string>

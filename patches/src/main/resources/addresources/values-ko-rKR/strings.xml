@@ -692,6 +692,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR로 보기 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR로 보기 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR로 보기 메뉴가 표시됩니다</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">동영상 화질 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">동영상 화질 메뉴가 숨겨집니다</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">동영상 화질 메뉴가 표시됩니다</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">화질 설정 메뉴에서 하단 설명 숨기기</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">화질 설정 메뉴에서 하단 설명이 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">화질 설정 메뉴에서 하단 설명이 표시됩니다</string>
@@ -1472,7 +1475,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 누르면 동영상 재생 속도가 기본값으로 초기화됩니다</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">버튼을 표시하지 않습니다</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">동영상 화질 버튼 표시하기</string>
   <string name="revanced_video_quality_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 누르면 화질이 기본값으로 초기화됩니다</string>
   <string name="revanced_video_quality_dialog_button_summary_off">버튼을 표시하지 않습니다</string>

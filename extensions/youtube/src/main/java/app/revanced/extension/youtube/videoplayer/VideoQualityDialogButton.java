@@ -3,7 +3,7 @@ package app.revanced.extension.youtube.videoplayer;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.patches.VideoInformation.AUTOMATIC_VIDEO_QUALITY_VALUE;
-import static app.revanced.extension.youtube.patches.VideoInformation.VIDEO_QUALITY_1080P_PREMIUM_NAME;
+import static app.revanced.extension.youtube.patches.VideoInformation.VIDEO_QUALITY_PREMIUM_NAME;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -158,9 +158,9 @@ public class VideoQualityDialogButton {
                 case 2160 -> "4K";
                 default   -> "?"; // Should never happen.
             };
-
             text.append(qualityText);
-            if (resolution == 1080 && VIDEO_QUALITY_1080P_PREMIUM_NAME.equals(quality.patch_getQualityName())) {
+
+            if (quality != null && quality.patch_getQualityName().contains(VIDEO_QUALITY_PREMIUM_NAME)) {
                 // Underline the entire "FHD" text for 1080p Premium.
                 text.setSpan(new UnderlineSpan(), 0, qualityText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             }

@@ -693,6 +693,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Сакриј дугме „Гледај у ВР”</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Дугме „Гледај у ВР” је скривено</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Дугме „Гледај у ВР” је приказано</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Сакриј мени квалитета видеа</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Мени квалитета видеа је скривен</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Мени квалитета видеа је приказан</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Сакриј подножје менија квалитета видеа</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Подножје менија квалитета видеа је скривено</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Подножје менија квалитета видеа је приказано</string>
@@ -1467,7 +1470,7 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Дугме је приказано. Додирните и задржите да бисте вратили брзину репродукције на подразумевану вредност</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Дугме дијалога за брзину није приказано</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Прикажи дугме квалитета видеа</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Дугме је приказано. Додирните и задржите да бисте вратили квалитет видеа на подразумевану вредност</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Дугме није приказано</string>

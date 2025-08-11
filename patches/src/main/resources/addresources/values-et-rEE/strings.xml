@@ -693,6 +693,9 @@ Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ vä
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Peida Vaata VR-is</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Vaata VR-is menüü on peidetud</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Vaata VR-is menüü on nähtav</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Peida videokvaliteedi menüü</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Videokvaliteedi menüü on peidetud</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Videokvaliteedi menüü on nähtav</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Peida video kvaliteedi menüü jalg</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video kvaliteedi menüü jalg on peidetud</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kvaliteedi menüü jalg on nähtav</string>
@@ -1465,7 +1468,7 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Nupp on nähtaval. Puudutage ja hoidke all, et taastada taasesituse kiirus vaikeväärtusele</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Nuppi ei kuvata</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Näita video kvaliteedi nuppu</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Nupp on nähtaval. Kvaliteedi lähtestamiseks vaikeseadeteks puudutage ja hoidke</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Nuppu ei kuvata</string>

@@ -693,6 +693,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Скрыть пункт \"Смотреть в VR-режиме\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Пункт \"Смотреть в VR-режиме\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Пункт \"Смотреть в VR-режиме\" в выдвижном меню плеера показан</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Скрыть меню качества видео</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Меню качества видео скрыто</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Меню качества видео показано</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Скрыть колонтитул меню качества видео</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Нижний колонтитул старого меню качества видео в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Нижний колонтитул старого меню качества видео в выдвижном меню плеера показан</string>
@@ -1472,7 +1475,7 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка показана. Нажмите и удерживайте, чтобы сбросить скорость воспроизведения до значения по умолчанию</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Показать кнопку качества видео</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Кнопка показана. Нажмите и удерживайте, чтобы сбросить качество до значения по умолчанию</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>

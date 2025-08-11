@@ -693,6 +693,9 @@ Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS T
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Verberg Bekijk in VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu Bekijk in VR is verborgen</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Menu Bekijk in VR wordt weergegeven</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Videokwaliteitsmenu verbergen</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Videokwaliteitsmenu is verborgen</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Videokwaliteitsmenu is zichtbaar</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Verberg voettekst van video-kwaliteitsmenu</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Voettekst van video-kwaliteitsmenu is verborgen</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Voettekst van video-kwaliteitsmenu wordt weergegeven</string>
@@ -1463,7 +1466,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">De knop wordt weergegeven. Tik en houd vast om de afspeelsnelheid terug te zetten naar de standaardwaarde</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Knop wordt niet weergegeven</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Toon videokwaliteitknop</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Knop wordt weergegeven. Tik en houd vast om de kwaliteit terug te zetten naar standaard</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Knop wordt niet weergegeven</string>

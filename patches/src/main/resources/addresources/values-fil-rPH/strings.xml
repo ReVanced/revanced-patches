@@ -691,6 +691,9 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS 
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Itago ang Panoorin sa VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Nakatago ang panonood sa VR menu</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Ang panonood sa VR menu ay ipinapakita</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Itago ang menu ng kalidad ng video</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Nakatago ang menu ng kalidad ng video</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Ipinapakita ang menu ng kalidad ng video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Itago ang footer ng menu ng kalidad ng video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Nakatago ang footer ng menu ng kalidad ng video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Ang footer ng menu ng kalidad ng video ay ipinapakita</string>
@@ -1463,7 +1466,7 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_playback_speed_dialog_button_summary_on">Ipinapakita ang button. I-tap at i-hold para i-reset ang bilis ng pag-playback sa default</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Hindi ipinapakita ang button</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Ipakita ang button ng kalidad ng video</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Nakalabas ang button. Pindutin nang matagal para ibalik sa default ang kalidad</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Hindi ipinapakita ang buton</string>

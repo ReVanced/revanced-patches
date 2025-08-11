@@ -691,6 +691,9 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Slėpti Žiūrėti VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Žiūrėti VR meniu yra paslėptas</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Žiūrėti VR meniu yra rodomas</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Slėpti vaizdo kokybės meniu</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Vaizdo kokybės meniu yra paslėptas</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Vaizdo kokybės meniu yra rodomas</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Slėpti vaizdo kokybės meniu apatinę juostą</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Vaizdo kokybės meniu apatinė juosta yra paslėpta</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Vaizdo kokybės meniu apatinė juosta yra rodoma</string>
@@ -1464,7 +1467,7 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_playback_speed_dialog_button_summary_on">Mygtukas rodomas. Palieskite ir palaikykite, kad atkūrimo greitį nustatytumėte į numatytąjį.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Mygtukas nerodomas</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Rodyti vaizdo kokybės mygtuką</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Mygtukas rodomas. Palaikykite nuspaudę, kad atstatytumėte kokybę į numatytąją</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Mygtukas nerodomas</string>
