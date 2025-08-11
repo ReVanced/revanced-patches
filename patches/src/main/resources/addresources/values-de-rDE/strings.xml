@@ -688,6 +688,9 @@ Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS T
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Überwachung in VR ausblenden</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Im VR-Menü beobachten ist ausgeblendet</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Im VR-Menü beobachten wird angezeigt</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Videoqualitätsmenü ausblenden</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Videomenü ist ausgeblendet</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Videomenü ist sichtbar</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Videoqualitätsmenüfußzeile ausblenden</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video-Qualität Menü-Fußzeile ist ausgeblendet</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video-Qualität Menü-Fußzeile wird angezeigt</string>
@@ -1460,7 +1463,7 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_playback_speed_dialog_button_summary_on">Die Schaltfläche wird angezeigt. Tippen und halten, um die Wiedergabegeschwindigkeit auf die Standardeinstellung zurückzusetzen.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Button wird nicht angezeigt</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Videoqualität-Schaltfläche anzeigen</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Schaltfläche wird angezeigt. Tippen und halten, um die Qualität auf Standard zurückzusetzen</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Schaltfläche wird nicht angezeigt</string>

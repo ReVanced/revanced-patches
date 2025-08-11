@@ -693,6 +693,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">隐藏「在 VR 模式下观看」</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">在 VR 模式下观看已隐藏</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">在 VR 模式下观看已显示</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">隐藏视频质量菜单</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">视频质量菜单已隐藏</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">视频质量菜单已显示</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">隐藏「画质」选单下的提示页脚</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">画质选单页脚已隐藏</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">画质选单页脚已显示</string>
@@ -1470,7 +1473,7 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">按钮已显示。点住即可将播放速度重置为默认值</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">按钮未显示</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">显示视频质量按钮</string>
   <string name="revanced_video_quality_dialog_button_summary_on">按钮已显示。点按并按住以将画质重置为默认值</string>
   <string name="revanced_video_quality_dialog_button_summary_off">按钮未显示</string>

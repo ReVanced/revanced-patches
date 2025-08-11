@@ -693,6 +693,9 @@ Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Masquer \"Regarder en RV\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Le menu Regarder en RV est masqué</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Le menu Regarder en RV est affiché</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Masquer le menu de qualité vidéo</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Le menu de qualité vidéo est masqué</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Le menu de qualité vidéo est affiché</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Masquer le pied de page du menu de qualité vidéo</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Le pied de page du menu de qualité vidéo est masqué</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Le pied de page du menu de qualité vidéo est affiché</string>
@@ -1466,7 +1469,7 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_playback_speed_dialog_button_summary_on">Le bouton est affiché. Appuyez longuement dessus pour rétablir la vitesse de lecture par défaut.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Le bouton n\'est pas affiché</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Afficher le bouton de qualité vidéo</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Le bouton est affiché. Appuyez longuement pour rétablir la qualité par défaut.</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Le bouton n\'est pas affiché</string>

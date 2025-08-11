@@ -315,10 +315,10 @@ Nếu cài đặt này được bật và Doodle đang hiển thị tại khu v�
   <string name="revanced_hide_visit_store_button_summary_off">Nút Chuyển đến cửa hàng được hiển thị</string>
   <string name="revanced_comments_screen_title">Bình luận</string>
   <string name="revanced_comments_screen_summary">Ẩn hoặc hiện các thành phần bình luận</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Ẩn tóm tắt trò chuyện AI</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tóm tắt trò chuyện AI đã bị ẩn</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Tóm tắt trò chuyện AI được hiển thị</string>
-  <string name="revanced_hide_comments_ai_summary_title">Ẩn tóm tắt Bình luận AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Ẩn tóm tắt cuộc trò chuyện AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tóm tắt cuộc trò chuyện AI đã bị ẩn</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Tóm tắt cuộc trò chuyện AI được hiển thị</string>
+  <string name="revanced_hide_comments_ai_summary_title">Ẩn tóm tắt bình luận AI</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Tóm tắt bình luận AI đã bị ẩn</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Tóm tắt bình luận AI được hiển thị</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Ẩn nguyên tắc kênh</string>
@@ -693,6 +693,9 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ẩn Xem ở chế độ thực tế ảo</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Trình đơn xem ở chế độ thực tế ảo đã bị ẩn</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Trình đơn xem ở chế độ thực tế ảo được hiển thị</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Ẩn trình đơn chất lượng video</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Trình đơn chất lượng video đã bị ẩn</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Trình đơn chất lượng video được hiển thị</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Ẩn chân trình đơn chất lượng video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Chân trình đơn chất lượng video đã bị ẩn</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Chân trình đơn chất lượng video được hiển thị</string>
@@ -963,9 +966,9 @@ Hạn chế: Số lượt không thích có thể không xuất hiện ở chế
 Hình thu nhỏ thanh tiến trình sẽ sử dụng cùng chất lượng với video hiện tại.
 
 Hoạt động tốt nhất với chất lượng video 720p trở xuống và khi sử dụng kết nối internet tốc độ cao."</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_title">Khôi phục thanh tiến trình hình thu nhỏ kiểu cũ</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Thanh tiến trình hình thu nhỏ sẽ xuất hiện phía trên thanh tiến trình</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Thanh tiến trình hình thu nhỏ sẽ xuất hiện trong chế độ toàn màn hình</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">Khôi phục hình thu nhỏ thanh tiến trình cũ</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Hình thu nhỏ sẽ xuất hiện phía trên thanh tiến trình</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Hình thu nhỏ sẽ xuất hiện trong chế độ toàn màn hình</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Bật SponsorBlock</string>
@@ -1471,7 +1474,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_playback_speed_dialog_button_summary_on">Nút đã được hiển thị. Nhấn và giữ để đặt lại tốc độ phát về mặc định</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Nút không được hiển thị</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Hiện nút chất lượng video</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Nút đã được hiển thị. Nhấn và giữ để đặt lại chất lượng về mặc định</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Nút không được hiển thị</string>

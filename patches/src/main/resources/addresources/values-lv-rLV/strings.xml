@@ -693,6 +693,9 @@ Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz 
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Paslēpt Skatīties VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Skatīties VR izvēlne ir paslēpta</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Skatīties VR izvēlne ir redzama</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Paslēpt video kvalitātes izvēlni</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Video kvalitātes izvēlne ir paslēpta</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Video kvalitātes izvēlne ir redzama</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Paslēpt video kvalitātes izvēlnes apakšējo daļu</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video kvalitātes izvēlnes apakšējā daļa ir paslēpta</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kvalitātes izvēlnes apakšējā daļa ir redzama</string>
@@ -1466,7 +1469,7 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_playback_speed_dialog_button_summary_on">Poga ir redzama. Pieskarieties un turiet, lai atiestatītu atskaņošanas ātrumu uz noklusējuma</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Poga netiek rādīta</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Rādīt video kvalitātes pogu</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Poga tiek rādīta. Pieskarieties un turiet, lai atiestatītu kvalitāti uz noklusējuma</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Poga netiek rādīta</string>

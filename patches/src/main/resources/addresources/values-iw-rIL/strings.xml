@@ -693,6 +693,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">הסתר \'צפה ב-VR\'</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">תפריט \'צפה ב-VR\' מוסתר</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">תפריט \'צפה ב-VR\' מוצג</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">הסתר תפריט איכות וידאו</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">תפריט איכות הסרטון מוסתר</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">תפריט איכות הסרטון מוצג</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">הסתר כותרת תחתונה של תפריט איכות סרטון</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">כותרת תחתונה של תפריט איכות סרטון מוסתרת</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">כותרת תחתונה של תפריט איכות סרטון מוצגת</string>
@@ -1467,7 +1470,7 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">הלחצן מוצג. יש להקיש ולהחזיק כדי לאפס את מהירות ההפעלה לברירת מחדל</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">הלחצן אינו מוצג</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">הצג כפתור איכות וידאו</string>
   <string name="revanced_video_quality_dialog_button_summary_on">הלחצן מוצג. גע והחזק כדי לאפס את האיכות לברירת מחדל</string>
   <string name="revanced_video_quality_dialog_button_summary_off">הלחצן אינו מוצג</string>
