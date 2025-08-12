@@ -111,6 +111,11 @@ public final class LithoFilterPatch {
      */
     private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER = VersionCheckPatch.IS_20_22_OR_GREATER;
 
+    /**
+     * Turns on additional logging, used for development purposes only.
+     */
+    public static final boolean DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER = false;
+
     private static final String EML_STRING = ".eml";
     private static final byte[] EML_STRING_BYTES = EML_STRING.getBytes(StandardCharsets.US_ASCII);
 
@@ -218,8 +223,7 @@ public final class LithoFilterPatch {
      * Targets 20.22+
      */
     public static void setProtoBuffer(byte[] buffer) {
-        final boolean debugBuffer = false;
-        if (debugBuffer) {
+        if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER) {
             StringBuilder builder = new StringBuilder();
             LithoFilterParameters.findAsciiStrings(builder, buffer);
             Logger.printDebug(() -> "New buffer: " + builder);
@@ -287,7 +291,9 @@ public final class LithoFilterPatch {
         }
 
         String identifier = new String(buffer, startIndex, endIndex - startIndex, StandardCharsets.US_ASCII);
-        if (debugBuffer) Logger.printDebug(() -> "Found buffer for identifier: " + identifier);
+        if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER) {
+            Logger.printDebug(() -> "Found buffer for identifier: " + identifier);
+        }
         identifierToBufferGlobal.put(identifier, buffer);
 
         Map<String, byte[]> map = identifierToBufferThread.get();
@@ -338,11 +344,15 @@ public final class LithoFilterPatch {
                     if (map != null) {
                         buffer = map.get(identifierKey);
                     }
+
                     if (buffer == null) {
                         // Buffer for thread local not found. Use the last buffer found from any thread.
                         buffer = identifierToBufferGlobal.get(identifierKey);
-                        if (buffer == null) {
-                            // Should never happen.
+
+                        if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER && buffer == null) {
+                            // No buffer is found for some components, such as
+                            // shorts_lockup_cell.eml on channel profiles.
+                            // For now, just ignore this and filter without a buffer.
                             Logger.printException(() -> "Could not find global buffer for identifier: " + identifier);
                         }
                     }

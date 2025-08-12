@@ -357,14 +357,16 @@ public final class LayoutComponentsFilter extends Filter {
      * Injection point.
      * Called from a different place then the other filters.
      */
-    public static boolean filterMixPlaylists(Object conversionContext, @Nullable final byte[] bytes) {
+    public static boolean filterMixPlaylists(Object conversionContext, @Nullable byte[] buffer) {
+        // Edit: This hook may no longer be needed, and mix playlist filtering
+        //       might be possible using the existing litho filters.
         try {
             if (!Settings.HIDE_MIX_PLAYLISTS.get()) {
                 return false;
             }
 
-            if (bytes == null) {
-                Logger.printDebug(() -> "bytes is null");
+            if (buffer == null) {
+                Logger.printDebug(() -> "buffer is null");
                 return false;
             }
 
@@ -374,11 +376,11 @@ public final class LayoutComponentsFilter extends Filter {
             }
 
             // Prevent hiding the description of some videos accidentally.
-            if (mixPlaylistsExceptions2.check(bytes).isFiltered()) {
+            if (mixPlaylistsExceptions2.check(buffer).isFiltered()) {
                 return false;
             }
 
-            if (mixPlaylists.check(bytes).isFiltered()) {
+            if (mixPlaylists.check(buffer).isFiltered()) {
                 Logger.printDebug(() -> "Filtered mix playlist");
                 return true;
             }
