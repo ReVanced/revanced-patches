@@ -100,8 +100,9 @@ val lithoFilterPatch = bytecodePatch(
 
         // region Pass the buffer into extension.
 
-        if (is_19_25_or_greater) {
+        if (is_20_22_or_greater) {
             // Hook method that bridges between UPB buffer native code and FB Litho.
+            // Method is found in 19.25+, but is forcefully turned off for 20.21 and lower.
             protobufBufferReferenceFingerprint.let {
                 // Hook the buffer after the call to jniDecode().
                 it.method.addInstruction(
@@ -216,13 +217,14 @@ val lithoFilterPatch = bytecodePatch(
 
         // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
         lithoConverterBufferUpbFeatureFlagFingerprint.let {
-            // FIXME: Procool buffer has changed in 20.22, and UPB native code is now always enabled.
+            // Procool buffer has changed in 20.22, and UPB native code is now always enabled.
             if (is_20_22_or_greater) {
                 Logger.getLogger(this::class.java.name).severe(
-                    "\n!!!\n!!! Litho filtering does not yet support 20.22+  Many UI components will not be hidden.\n!!!")
+                    "\n!!!\n!!! Litho filtering does not yet support 20.22+  " +
+                            "Shorts and other components will not be filtered correctly.\n!!!")
             }
 
-            // 20.22 the flag is still enabled in one location, but what it does is not clear.
+            // 20.22 the flag is still enabled in one location, but what it does is not known.
             // Disable it anyway.
             it.method.insertLiteralOverride(
                 it.instructionMatches.first().index,
