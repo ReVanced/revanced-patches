@@ -104,7 +104,10 @@ public final class LithoFilterPatch {
     private static final int LITHO_LAYOUT_THREAD_POOL_SIZE = 1;
 
     /**
-     * If the buffer should be parsed and matched during filtering.
+     * 20.22+ cannot use the thread buffer, because frequently the buffer is not correct,
+     * especially for components that are recreated such as dragging off screen then back on screen.
+     * Instead, parse the identifier found near the start of the buffer and use that to
+     * identify the correct buffer to use when filtering.
      */
     private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER = VersionCheckPatch.IS_20_22_OR_GREATER;
 
@@ -199,39 +202,15 @@ public final class LithoFilterPatch {
     }
 
     /**
-     * Finds the index of the first occurrence of ".eml" in a buffer.
-     */
-    private static int findBufferFirstEmlIndex(byte[] buffer) {
-        // Could use Boyer-Moore-Horspool since the string is ASCII and has a limited number of
-        // unique characters, but it seems to be slower since the extra overhead of checking the
-        // bad character array negates any performance gain of skipping a few extra subsearches.
-        final int emlStringLength = EML_STRING_BYTES.length;
-        for (int i = 0, lastStartIndex = buffer.length - emlStringLength; i <= lastStartIndex; i++) {
-            boolean match = true;
-            for (int j = 0; j < emlStringLength; j++) {
-                if (buffer[i + j] != EML_STRING_BYTES[j]) {
-                    match = false;
-                    break;
-                }
-            }
-            if (match) {
-                return i;
-            }
-        }
-
-        return -1;
-    }
-
-    /**
      * Helper function that differs from {@link Character#isDigit(char)}
      * as this only matches ascii and not unicode numbers.
      */
     private static boolean isAsciiNumber(byte character) {
-        return 48 <= character && character <= 57;
+        return '0' <= character && character <= '9';
     }
 
     private static boolean isAsciiLowerCaseLetter(byte character) {
-        return 97 <= character && character <= 122;
+        return 'a' <= character && character <= 'z';
     }
 
     /**
@@ -245,11 +224,26 @@ public final class LithoFilterPatch {
             LithoFilterParameters.findAsciiStrings(builder, buffer);
             Logger.printDebug(() -> "New buffer: " + builder);
         }
-        // 20.22+ cannot use the thread buffer, because frequently the buffer is not correct,
-        // especially for components that are recreated such as dragging off screen then back on screen.
-        // Instead, parse the identifier found near the start of the buffer and use that to
-        // identify the correct buffer to use when filtering.
-        final int emlIndex = findBufferFirstEmlIndex(buffer);
+
+        // Could use Boyer-Moore-Horspool since the string is ASCII and has a limited number of
+        // unique characters, but it seems to be slower since the extra overhead of checking the
+        // bad character array negates any performance gain of skipping a few extra subsearches.
+        int emlIndex = -1;
+        final int emlStringLength = EML_STRING_BYTES.length;
+        for (int i = 0, lastStartIndex = buffer.length - emlStringLength; i <= lastStartIndex; i++) {
+            boolean match = true;
+            for (int j = 0; j < emlStringLength; j++) {
+                if (buffer[i + j] != EML_STRING_BYTES[j]) {
+                    match = false;
+                    break;
+                }
+            }
+            if (match) {
+                emlIndex = i;
+                break;
+            }
+        }
+
         if (emlIndex < 0) {
             // Buffer is not used for creating a new litho component.
             return;
@@ -280,31 +274,16 @@ public final class LithoFilterPatch {
         }
 
         // Find the pipe character after the identifier.
-        int pipeIndex = -1;
-        for (int i = startIndex, length = buffer.length; i < length; i++) {
+        int endIndex = -1;
+        for (int i = emlIndex, length = buffer.length; i < length; i++) {
             if (buffer[i] == '|') {
-                pipeIndex = i;
+                endIndex = i;
                 break;
             }
         }
-        if (pipeIndex < 0) {
-            Logger.printException(() -> "Could not find buffer identifier: "
-                    + new String(buffer, StandardCharsets.US_ASCII));
+        if (endIndex < 0) {
+            Logger.printException(() -> "Could not find buffer identifier");
             return;
-        }
-
-        // The end boundary of the identifier is not always clear, as random data including
-        // numbers can be found. But there always seems to be exactly 15 or 16
-        // alphanumeric characters after the pipe character.
-        int endIndex = pipeIndex + 1 + 16;
-        while (true) {
-            // Strip away any non alphanumeric characters from random data after the identifier.
-            final byte character = buffer[endIndex - 1];
-            if (isAsciiNumber(character) || isAsciiLowerCaseLetter(character)) {
-                break;
-            } else {
-                endIndex--;
-            }
         }
 
         String identifier = new String(buffer, startIndex, endIndex - startIndex, StandardCharsets.US_ASCII);
@@ -348,12 +327,14 @@ public final class LithoFilterPatch {
 
             byte[] buffer = null;
             if (EXTRACT_IDENTIFIER_FROM_BUFFER) {
+                String identifierKey = identifier.substring(0, identifier.indexOf('|'));
+
                 var map = identifierToBufferThread.get();
                 if (map != null) {
-                    buffer = map.get(identifier);
+                    buffer = map.get(identifierKey);
                 }
                 if (buffer == null) {
-                    buffer = identifierToBufferGlobal.get(identifier);
+                    buffer = identifierToBufferGlobal.get(identifierKey);
                     if (buffer == null && identifier.contains(EML_STRING)) {
                         Logger.printException(() -> "Could not find global buffer for identifier: " + identifier);
                     }
