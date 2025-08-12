@@ -8,6 +8,8 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 
 val hideButtonsPatch = resourcePatch(
@@ -18,6 +20,7 @@ val hideButtonsPatch = resourcePatch(
         resourceMappingPatch,
         lithoFilterPatch,
         addResourcesPatch,
+        versionCheckPatch,
     )
 
     compatibleWith(
@@ -34,22 +37,31 @@ val hideButtonsPatch = resourcePatch(
     execute {
         addResources("youtube", "layout.buttons.action.hideButtonsPatch")
 
+        val preferences = mutableSetOf(
+            SwitchPreference("revanced_disable_like_subscribe_glow"),
+            SwitchPreference("revanced_hide_download_button"),
+            SwitchPreference("revanced_hide_like_dislike_button"),
+            SwitchPreference("revanced_hide_save_button"),
+        )
+
+        if (!is_20_22_or_greater) {
+            // FIXME: 20.22+ filtering of the action buttons doesn't work because
+            //        the buffer is the same for all buttons.
+            preferences.addAll(listOf(
+                SwitchPreference("revanced_hide_ask_button"),
+                SwitchPreference("revanced_hide_clip_button"),
+                SwitchPreference("revanced_hide_remix_button"),
+                SwitchPreference("revanced_hide_report_button"),
+                SwitchPreference("revanced_hide_share_button"),
+                SwitchPreference("revanced_hide_stop_ads_button"),
+                SwitchPreference("revanced_hide_thanks_button"),
+            ))
+        }
+
         PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreenPreference(
                 "revanced_hide_buttons_screen",
-                preferences = setOf(
-                    SwitchPreference("revanced_disable_like_subscribe_glow"),
-                    SwitchPreference("revanced_hide_ask_button"),
-                    SwitchPreference("revanced_hide_clip_button"),
-                    SwitchPreference("revanced_hide_download_button"),
-                    SwitchPreference("revanced_hide_like_dislike_button"),
-                    SwitchPreference("revanced_hide_remix_button"),
-                    SwitchPreference("revanced_hide_report_button"),
-                    SwitchPreference("revanced_hide_save_button"),
-                    SwitchPreference("revanced_hide_share_button"),
-                    SwitchPreference("revanced_hide_stop_ads_button"),
-                    SwitchPreference("revanced_hide_thanks_button"),
-                )
+                preferences = preferences
             )
         )
 

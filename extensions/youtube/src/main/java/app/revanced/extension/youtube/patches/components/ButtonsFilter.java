@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.patches.components;
 
+import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -34,7 +35,6 @@ final class ButtonsFilter extends Filter {
 
         addPathCallbacks(
                 likeSubscribeGlow,
-                bufferFilterPathGroup,
                 new StringFilterGroup(
                         Settings.HIDE_LIKE_DISLIKE_BUTTON,
                         "|segmented_like_dislike_button"
@@ -52,6 +52,12 @@ final class ButtonsFilter extends Filter {
                         "|clip_button.eml"
                 )
         );
+
+        // FIXME: 20.22+ filtering of the action buttons doesn't work because
+        //        the buffer is the same for all buttons.
+        if (!VersionCheckPatch.IS_20_22_OR_GREATER) {
+            addPathCallbacks(bufferFilterPathGroup);
+        }
 
         bufferButtonsGroupList.addAll(
                 new ByteArrayFilterGroup(
@@ -77,22 +83,18 @@ final class ButtonsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_STOP_ADS_BUTTON,
                         "yt_outline_slash_circle_left"
-                ),
-                // Check for clip button both here and using a path filter,
-                // as there's a chance the path is a generic action button and won't contain 'clip_button'
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_CLIP_BUTTON,
-                        "yt_outline_scissors"
                 )
         );
     }
 
     private boolean isEveryFilterGroupEnabled() {
-        for (var group : pathCallbacks)
+        for (var group : pathCallbacks) {
             if (!group.isEnabled()) return false;
+        }
 
-        for (var group : bufferButtonsGroupList)
+        for (var group : bufferButtonsGroupList) {
             if (!group.isEnabled()) return false;
+        }
 
         return true;
     }
