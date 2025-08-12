@@ -327,16 +327,24 @@ public final class LithoFilterPatch {
 
             byte[] buffer = null;
             if (EXTRACT_IDENTIFIER_FROM_BUFFER) {
-                String identifierKey = identifier.substring(0, identifier.indexOf('|'));
+                final int pipeIndex = identifier.indexOf('|');
+                if (pipeIndex >= 0) {
+                    // If the identifier contains no pipe, then it's not an ".eml" identifier
+                    // and the buffer is not uniquely identified. Typically this only happens
+                    // for subcomponents where buffer filtering is not used.
+                    String identifierKey = identifier.substring(0, pipeIndex);
 
-                var map = identifierToBufferThread.get();
-                if (map != null) {
-                    buffer = map.get(identifierKey);
-                }
-                if (buffer == null) {
-                    buffer = identifierToBufferGlobal.get(identifierKey);
-                    if (buffer == null && identifier.contains(EML_STRING)) {
-                        Logger.printException(() -> "Could not find global buffer for identifier: " + identifier);
+                    var map = identifierToBufferThread.get();
+                    if (map != null) {
+                        buffer = map.get(identifierKey);
+                    }
+                    if (buffer == null) {
+                        // Buffer for thread local not found. Use the last buffer found from any thread.
+                        buffer = identifierToBufferGlobal.get(identifierKey);
+                        if (buffer == null) {
+                            // Should never happen.
+                            Logger.printException(() -> "Could not find global buffer for identifier: " + identifier);
+                        }
                     }
                 }
             } else {
