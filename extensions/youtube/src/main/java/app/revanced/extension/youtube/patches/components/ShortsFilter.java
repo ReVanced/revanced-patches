@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -202,7 +203,11 @@ public final class ShortsFilter extends Filter {
 
         videoActionButton = new StringFilterGroup(
                 null,
-                // Can be simply 'button.eml', 'shorts_video_action_button.eml' or 'reel_action_button.eml'
+                // Can be any of:
+                // button.eml
+                // shorts_video_action_button.eml
+                // reel_action_button.eml
+                // reel_pivot_button.eml
                 "button.eml"
         );
 
@@ -213,31 +218,37 @@ public final class ShortsFilter extends Filter {
 
         addPathCallbacks(
                 shortsCompactFeedVideo, joinButton, subscribeButton, paidPromotionButton,
-                shortsActionBar, suggestedAction, pausedOverlayButtons, channelBar,
+                suggestedAction, pausedOverlayButtons, channelBar,
                 fullVideoLinkLabel, videoTitle, useSoundButton, reelSoundMetadata, soundButton, infoPanel,
                 stickers, likeFountain, likeButton, dislikeButton
         );
 
-        //
-        // All other action buttons.
-        //
-        videoActionButtonBuffer.addAll(
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_SHORTS_COMMENTS_BUTTON,
-                        "reel_comment_button",
-                        "youtube_shorts_comment_outline"
-                ),
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_SHORTS_SHARE_BUTTON,
-                        "reel_share_button",
-                        "youtube_shorts_share_outline"
-                ),
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_SHORTS_REMIX_BUTTON,
-                        "reel_remix_button",
-                        "youtube_shorts_remix_outline"
-                )
-        );
+        // FIXME: The Shorts buffer is very different with 20.22+ and if any of these filters
+        //        are enabled then all Shorts player vertical buttons are hidden.
+        if (!VersionCheckPatch.IS_20_22_OR_GREATER) {
+            addPathCallbacks(shortsActionBar);
+
+            //
+            // All other action buttons.
+            //
+            videoActionButtonBuffer.addAll(
+                    new ByteArrayFilterGroup(
+                            Settings.HIDE_SHORTS_COMMENTS_BUTTON,
+                            "reel_comment_button",
+                            "youtube_shorts_comment_outline"
+                    ),
+                    new ByteArrayFilterGroup(
+                            Settings.HIDE_SHORTS_SHARE_BUTTON,
+                            "reel_share_button",
+                            "youtube_shorts_share_outline"
+                    ),
+                    new ByteArrayFilterGroup(
+                            Settings.HIDE_SHORTS_REMIX_BUTTON,
+                            "reel_remix_button",
+                            "youtube_shorts_remix_outline"
+                    )
+            );
+        }
 
         //
         // Suggested actions.
