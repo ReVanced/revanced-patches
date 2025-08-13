@@ -18,6 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/RemoveTrackingQueryParameterPatch;"
 
+// TODO: Rename this to "Sanitize sharing links" to be consistent with other apps.
 val removeTrackingQueryParameterPatch = bytecodePatch(
     name = "Remove tracking query parameter",
     description = "Adds an option to remove the tracking parameter from links you share.",

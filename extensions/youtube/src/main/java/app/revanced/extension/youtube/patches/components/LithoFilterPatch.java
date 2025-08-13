@@ -138,7 +138,8 @@ public final class LithoFilterPatch {
     /**
      * Global shared buffer. Used only if the buffer is not found in the ThreadLocal.
      */
-    private static final Map<String, byte[]> identifierToBufferGlobal = createIdentifierToBufferMap();
+    private static final Map<String, byte[]> identifierToBufferGlobal
+            = Collections.synchronizedMap(createIdentifierToBufferMap());
 
     private static final StringTrieSearch pathSearchTree = new StringTrieSearch();
     private static final StringTrieSearch identifierSearchTree = new StringTrieSearch();
@@ -195,7 +196,7 @@ public final class LithoFilterPatch {
     }
 
     private static Map<String, byte[]> createIdentifierToBufferMap() {
-        return Collections.synchronizedMap(new LinkedHashMap<>(100) {
+        return new LinkedHashMap<>(100) {
             // It's unclear how many items should be cached. This is a guess.
             private static final int CACHE_LIMIT = 50;
 
@@ -203,7 +204,7 @@ public final class LithoFilterPatch {
             protected boolean removeEldestEntry(Entry eldest) {
                 return size() > CACHE_LIMIT; // Evict the oldest entry if over the cache limit.
             }
-        });
+        };
     }
 
     /**
