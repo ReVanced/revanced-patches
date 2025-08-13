@@ -1,3 +1,10 @@
+# [5.34.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.6...v5.34.0-dev.7) (2025-08-13)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Fix additional incorrect quality resolutions used by YouTube ([a2a1fbe](https://github.com/ReVanced/revanced-patches/commit/a2a1fbe2959be8334c54cfc3426c24a960c55c8f))
+
 # [5.34.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.5...v5.34.0-dev.6) (2025-08-11)
 
 
