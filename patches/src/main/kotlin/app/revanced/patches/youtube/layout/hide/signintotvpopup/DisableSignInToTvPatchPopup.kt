@@ -9,6 +9,8 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/DisableSignInToTvPopupPatch;"
 
 val disableSignInToTvPopupPatch = bytecodePatch(
     name = "Disable sign in to TV popup",
@@ -36,7 +38,7 @@ val disableSignInToTvPopupPatch = bytecodePatch(
         signInToTvPopupFingerprint.method.addInstructionsWithLabels(
             0,
             """
-                invoke-static { }, Lapp/revanced/extension/youtube/patches/DisableSignInToTvPopupPatch;->disableSignInToTvPopup()Z
+                invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableSignInToTvPopup()Z
                 move-result v0
                 if-eqz v0, :disable_signintotvpopup
                 const/4 v0, 0x0
