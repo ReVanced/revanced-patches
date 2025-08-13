@@ -1,3 +1,10 @@
+# [5.34.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.5...v5.34.0-dev.6) (2025-08-11)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Show FHD+ icon for 1080p 60fps enhanced bitrate ([76bed37](https://github.com/ReVanced/revanced-patches/commit/76bed3734093713af24ef065d5ffc5b1cd83f29a))
+
 # [5.34.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.4...v5.34.0-dev.5) (2025-08-10)
 
 
