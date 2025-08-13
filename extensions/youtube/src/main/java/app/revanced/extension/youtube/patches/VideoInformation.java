@@ -474,11 +474,22 @@ public final class VideoInformation {
 
     /**
      * Injection point. Fixes bad data used by YouTube.
+     * Issue can be reproduced by selecting 480p quality on any Short,
+     * and occasionally with random regular videos.
      */
     public static int fixVideoQualityResolution(String name, int quality) {
-        final int correctQuality = 480;
-        if (name.equals("480p") && quality != correctQuality) {
-            return correctQuality;
+        try {
+            if (!name.startsWith(Integer.toString(quality))) {
+                final int suffixIndex = name.indexOf('p');
+                if (suffixIndex > 0) {
+                    final int fixedQuality = Integer.parseInt(name.substring(0, suffixIndex));
+                    Logger.printDebug(() -> "Fixing wrong quality resolution from: " +
+                            name + "(" + quality + ") to: " + name + ")" + fixedQuality + ")");
+                    return fixedQuality;
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "fixVideoQualityResolution failed", ex);
         }
 
         return quality;
