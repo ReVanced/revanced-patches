@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.patches;
 
+import android.content.Intent;
+
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -11,7 +13,9 @@ public final class RemoveTrackingQueryParameterPatch {
      * Injection point.
      */
     public static String sanitize(String url) {
-        if (!Settings.REMOVE_TRACKING_QUERY_PARAMETER.get()) return url;
+        if (!Settings.REMOVE_TRACKING_QUERY_PARAMETER.get()) {
+            return url;
+        }
 
         return url
                 .replaceAll(NEW_TRACKING_PARAMETER_REGEX, "")

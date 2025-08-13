@@ -1,19 +1,18 @@
 package app.revanced.patches.youtube.misc.privacy
 
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.addInstructionsAtControlFlowLabel
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/RemoveTrackingQueryParameterPatch;"
@@ -47,34 +46,39 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
             SwitchPreference("revanced_remove_tracking_query_parameter"),
         )
 
-        fun Fingerprint.hook(
-            getInsertIndex: Match.PatternMatch.() -> Int,
-            getUrlRegister: MutableMethod.(insertIndex: Int) -> Int,
-        ) {
-            val insertIndex = patternMatch.getInsertIndex()
-            val urlRegister = method.getUrlRegister(insertIndex)
+        fun Fingerprint.hookUrlString(matchIndex: Int) {
+            val index = instructionMatches[matchIndex].index
+            val urlRegister = method.getInstruction<OneRegisterInstruction>(index).registerA
 
             method.addInstructions(
-                insertIndex,
+                index + 1,
                 """
-                    invoke-static {v$urlRegister}, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
+                    invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$urlRegister
-                """,
+                """
             )
         }
 
-        // YouTube share sheet.\
-        youtubeShareSheetFingerprint.hook(getInsertIndex = { startIndex + 1 }) { insertIndex ->
-            getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+        fun Fingerprint.hookIntentPutExtra(matchIndex: Int) {
+            val index = instructionMatches[matchIndex].index
+            val urlRegister = method.getInstruction<FiveRegisterInstruction>(index).registerE
+
+            method.addInstructionsAtControlFlowLabel(
+                index,
+                """
+                    invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$urlRegister
+                """
+            )
         }
+
+        // YouTube share sheet copy link.
+        copyTextFingerprint.hookUrlString(0)
+
+        // YouTube share sheet other apps.
+        youtubeShareSheetFingerprint.hookIntentPutExtra(3)
 
         // Native system share sheet.
-        systemShareSheetFingerprint.hook(getInsertIndex = { endIndex }) { insertIndex ->
-            getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
-        }
-
-        copyTextFingerprint.hook(getInsertIndex = { startIndex + 2 }) { insertIndex ->
-            getInstruction<TwoRegisterInstruction>(insertIndex - 2).registerA
-        }
+        systemShareSheetFingerprint.hookIntentPutExtra(3)
     }
 }
