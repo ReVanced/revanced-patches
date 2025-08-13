@@ -19,9 +19,11 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findElementByAttributeValue
 import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.inputStreamFromBundledResource
 import app.revanced.util.returnEarly
 import app.revanced.util.returnLate
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import org.w3c.dom.Node
 
@@ -275,7 +277,12 @@ val playerControlsPatch = bytecodePatch(
         //
         // Flag was removed in 20.19+
         if (is_19_25_or_greater && !is_20_19_or_greater) {
-            playerTopControlsExperimentalLayoutFeatureFlagFingerprint.method.returnLate("default")
+            playerTopControlsExperimentalLayoutFeatureFlagFingerprint.method.apply {
+                val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstruction(index + 1, "const-string v$register, \"default\"")
+            }
         }
 
         // Turn off a/b tests of ugly player buttons that don't match the style of custom player buttons.
