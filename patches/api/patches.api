@@ -148,10 +148,6 @@ public final class app/revanced/patches/angulus/ads/RemoveAdsPatchKt {
 	public static final fun getAngulusPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/backdrops/misc/pro/ProUnlockPatchKt {
-	public static final fun getProUnlockPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/bandcamp/limitations/RemovePlayLimitsPatchKt {
 	public static final fun getRemovePlayLimitsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -374,10 +370,6 @@ public final class app/revanced/patches/myfitnesspal/ads/HideAdsPatchKt {
 
 public final class app/revanced/patches/netguard/broadcasts/removerestriction/RemoveBroadcastsRestrictionPatchKt {
 	public static final fun getRemoveBroadcastsRestrictionPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-}
-
-public final class app/revanced/patches/nfctoolsse/misc/pro/UnlockProPatchKt {
-	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/nunl/ads/HideAdsPatchKt {
