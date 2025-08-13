@@ -4,10 +4,16 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+
+internal var mdx_seamless_tv_sign_in_drawer_fragment_title_id = -1L
+    private set
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableSignInToTvPopupPatch;"
@@ -20,6 +26,7 @@ val disableSignInToTvPopupPatch = bytecodePatch(
         settingsPatch,
         sharedExtensionPatch,
         addResourcesPatch,
+        resourceMappingPatch
     )
 
     compatibleWith(
@@ -35,6 +42,11 @@ val disableSignInToTvPopupPatch = bytecodePatch(
             SwitchPreference("revanced_disable_signin_to_tv_popup"),
         )
 
+        mdx_seamless_tv_sign_in_drawer_fragment_title_id = resourceMappings[
+            "string",
+            "mdx_seamless_tv_sign_in_drawer_fragment_title",
+        ]
+
         signInToTvPopupFingerprint.method.addInstructionsWithLabels(
             0,
             """
@@ -45,7 +57,7 @@ val disableSignInToTvPopupPatch = bytecodePatch(
                 return v0
                 :disable_signintotvpopup
                 nop
-            """,
+            """
         )
     }
 }
