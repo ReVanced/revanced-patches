@@ -57,10 +57,10 @@ val disableSignInToTvPopupPatch = bytecodePatch(
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableSignInToTvPopup()Z
                 move-result v0
-                if-eqz v0, :disable_signintotvpopup
+                if-eqz v0, :allow_sign_in_popup
                 const/4 v0, 0x0
                 return v0
-                :disable_signintotvpopup
+                :allow_sign_in_popup
                 nop
             """
         )
