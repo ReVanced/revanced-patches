@@ -12,6 +12,8 @@ import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_43_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityConstructorFingerprint
@@ -25,12 +27,15 @@ private val swipeControlsResourcePatch = resourcePatch {
     dependsOn(
         settingsPatch,
         addResourcesPatch,
+        versionCheckPatch,
     )
 
     execute {
         addResources("youtube", "interaction.swipecontrols.swipeControlsResourcePatch")
 
-        if (is_19_43_or_greater) {
+        // If fullscreen swipe is enabled in newer versions the app can crash.
+        // It likely is caused by conflicting experimental flags that are never enabled together.
+        if (is_19_43_or_greater && !is_20_22_or_greater) {
             PreferenceScreen.SWIPE_CONTROLS.addPreferences(
                 SwitchPreference("revanced_swipe_change_video")
             )
