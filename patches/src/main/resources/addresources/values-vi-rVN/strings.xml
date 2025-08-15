@@ -47,7 +47,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_failure_parse">Nhập thất bại: %s</string>
   <string name="revanced_settings_search_hint">Tìm kiếm</string>
   <string name="revanced_settings_search_no_results_title">Không tìm thấy kết quả nào cho \'%s\'</string>
-  <string name="revanced_settings_search_no_results_summary">Thử một từ khóa khác</string>
+  <string name="revanced_settings_search_no_results_summary">Thử từ khóa khác</string>
   <string name="revanced_settings_search_remove_message">Xóa khỏi lịch sử tìm kiếm?</string>
   <string name="revanced_show_menu_icons_title">Hiện biểu tượng cài đặt ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Các biểu tượng cài đặt được hiển thị</string>
@@ -57,8 +57,8 @@ Second \"item\" text"</string>
 
 Để dịch các ngôn ngữ mới, hãy truy cập translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Ngôn ngữ ứng dụng</string>
-  <string name="revanced_pref_import_export_title">Nhập / Xuất</string>
-  <string name="revanced_pref_import_export_summary">Nhập / Xuất cài đặt ReVanced</string>
+  <string name="revanced_pref_import_export_title">Nhập hoặc Xuất</string>
+  <string name="revanced_pref_import_export_summary">Nhập hoắc xuất các cài đặt ReVanced</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Bạn đang dùng ReVanced Patches phiên bản &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Lưu ý</string>
@@ -153,8 +153,8 @@ Bạn sẽ không được thông báo khi xẩy ra lỗi bất ngờ."</string>
   <string name="revanced_hide_chips_shelf_summary_on">Kệ danh mục được đề xuất đã bị ẩn</string>
   <string name="revanced_hide_chips_shelf_summary_off">Kệ danh mục được đề xuất được hiển thị</string>
   <string name="revanced_hide_community_posts_title">Ẩn bài đăng cộng đồng</string>
-  <string name="revanced_hide_community_posts_summary_on">Bài đăng cộng đồng đã bị ẩn</string>
-  <string name="revanced_hide_community_posts_summary_off">Bài đăng cộng đồng được hiển thị</string>
+  <string name="revanced_hide_community_posts_summary_on">Các bài đăng cộng đồng đã bị ẩn</string>
+  <string name="revanced_hide_community_posts_summary_off">Các bài đăng cộng đồng được hiển thị</string>
   <string name="revanced_hide_compact_banner_title">Ẩn biểu ngữ vắn tắt</string>
   <string name="revanced_hide_compact_banner_summary_on">Biểu ngữ vắn tắt đã bị ẩn</string>
   <string name="revanced_hide_compact_banner_summary_off">Biểu ngữ vắn tắt được hiển thị</string>
@@ -199,8 +199,8 @@ Bạn sẽ không được thông báo khi xẩy ra lỗi bất ngờ."</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Ẩn nút \'Hiện thêm\'</string>
-  <string name="revanced_hide_show_more_button_summary_on">Nút hiện thêm trong kết quả tìm kiếm đã bị ẩn</string>
-  <string name="revanced_hide_show_more_button_summary_off">Nút hiện thêm trong kết quả tìm kiếm được hiển thị</string>
+  <string name="revanced_hide_show_more_button_summary_on">Nút hiện thêm đã bị ẩn trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_show_more_button_summary_off">Nút hiện thêm được hiển thị trong kết quả tìm kiếm</string>
   <string name="revanced_hide_surveys_title">Ẩn khảo sát</string>
   <string name="revanced_hide_surveys_summary_on">Khảo sát bị ẩn</string>
   <string name="revanced_hide_surveys_summary_off">Khảo sát được hiển thị</string>
@@ -354,7 +354,7 @@ Nếu cài đặt này được bật và Doodle đang hiển thị tại khu v�
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Danh sách các chuỗi dựng đường dẫn thành phần để lọc được ngăn cách bởi dòng mới</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Bộ lọc tuỳ chỉnh không hợp lệ: %s</string>
-  <string name="revanced_hide_keyword_content_screen_title">Ẩn nội dung từ khóa</string>
+  <string name="revanced_hide_keyword_content_screen_title">Ẩn nội dung theo từ khóa</string>
   <string name="revanced_hide_keyword_content_screen_summary">Ẩn video trong trang video và tìm kiếm bằng bộ lọc từ khóa</string>
   <string name="revanced_hide_keyword_content_home_title">Ẩn video Trang chủ theo từ khóa</string>
   <string name="revanced_hide_keyword_content_home_summary_on">Video trong thẻ Trang chủ được lọc theo từ khóa</string>
@@ -639,35 +639,35 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Thanh điều hướng ở chế độ tối có thể mờ hoặc trong suốt</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
-  <string name="revanced_hide_player_flyout_title">Trình đơn nổi</string>
-  <string name="revanced_hide_player_flyout_summary">Ẩn hoặc hiện các mục trình đơn nổi</string>
+  <string name="revanced_hide_player_flyout_title">Trình đơn tuỳ chọn</string>
+  <string name="revanced_hide_player_flyout_summary">Ẩn hoặc hiện các mục trình đơn tuỳ chọn trên trình phát</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_captions_title">Ẩn Phụ đề</string>
   <string name="revanced_hide_player_flyout_captions_summary_on">Trình đơn phụ đề đã bị ẩn</string>
   <string name="revanced_hide_player_flyout_captions_summary_off">Trình đơn phụ đề được hiển thị</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_additional_settings_title">Ẩn cài đặt bổ sung</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_on">Trình đơn cài đặt bổ sung đã bị ẩn</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_off">Trình đơn cài đặt bổ sung được hiển thị</string>
+  <string name="revanced_hide_player_flyout_additional_settings_title">Ẩn Chế độ cài đặt khác</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_on">Trình đơn chế độ cài đặt khác đã bị ẩn</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_off">Trình đơn chế độ cài đặt khác được hiển thị</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_sleep_timer_title">Ẩn Hẹn giờ ngủ</string>
   <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Trình đơn hẹn giờ ngủ đã bị ẩn</string>
   <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Trình đơn hẹn giờ ngủ được hiển thị</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_loop_video_title">Ẩn lặp lại video</string>
-  <string name="revanced_hide_player_flyout_loop_video_summary_on">Trình đơn lặp lại video đã bị ẩn</string>
-  <string name="revanced_hide_player_flyout_loop_video_summary_off">Trình đơn lặp lại video được hiển thị</string>
+  <string name="revanced_hide_player_flyout_loop_video_title">Ẩn Cho video lặp lại</string>
+  <string name="revanced_hide_player_flyout_loop_video_summary_on">Trình đơn cho video lặp lại đã bị ẩn</string>
+  <string name="revanced_hide_player_flyout_loop_video_summary_off">Trình đơn cho video lặp lại được hiển thị</string>
   <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_ambient_mode_title">Ẩn Chế độ môi trường</string>
-  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Trình đơn chế độ môi trường đã bị ẩn</string>
-  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Trình đơn chế độ môi trường được hiển thị</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_title">Ẩn Chế độ môi trường xung quanh</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Trình đơn chế độ môi trường xung quanh đã bị ẩn</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Trình đơn chế độ môi trường xung quanh được hiển thị</string>
   <string name="revanced_hide_player_flyout_stable_volume_title">Ẩn Âm lượng ổn định</string>
   <string name="revanced_hide_player_flyout_stable_volume_summary_off">Trình đơn âm lượng ổn định được hiển thị</string>
   <string name="revanced_hide_player_flyout_stable_volume_summary_on">Trình đơn âm lượng ổn định đã bị ẩn</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_help_title">Ẩn Trợ giúp &amp; phản hồi</string>
-  <string name="revanced_hide_player_flyout_help_summary_on">Trình đơn trợ giúp &amp; phản hồi đã bị ẩn</string>
-  <string name="revanced_hide_player_flyout_help_summary_off">Trình đơn trợ giúp &amp; phản hồi được hiển thị</string>
+  <string name="revanced_hide_player_flyout_help_title">Ẩn Trợ giúp và phản hồi</string>
+  <string name="revanced_hide_player_flyout_help_summary_on">Trình đơn trợ giúp và phản hồi đã bị ẩn</string>
+  <string name="revanced_hide_player_flyout_help_summary_off">Trình đơn trợ giúp và phản hồi được hiển thị</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_speed_title">Ẩn Tốc độ phát</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Trình đơn tốc độ phát đã bị ẩn</string>
@@ -683,20 +683,20 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Trình đơn khóa màn hình được hiển thị</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Ẩn Bản âm thanh</string>
-  <string name="revanced_hide_player_flyout_audio_track_summary_on">Nút bản âm thanh đã bị ẩn</string>
-  <string name="revanced_hide_player_flyout_audio_track_summary_off">Nút bản âm thanh được hiển thị</string>
+  <string name="revanced_hide_player_flyout_audio_track_summary_on">Trình đơn bản âm thanh đã bị ẩn</string>
+  <string name="revanced_hide_player_flyout_audio_track_summary_off">Trình đơn bản âm thanh được hiển thị</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Trình đơn bản âm thanh đã bị ẩn
 
-Để hiển thị trình đơn bản âm thanh, hãy đổi 'Giả mạo luồng video' thành iOS TV"</string>
+Để hiển thị bản âm thanh, hãy đổi 'Giả mạo luồng video' thành iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ẩn Xem ở chế độ thực tế ảo</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Trình đơn xem ở chế độ thực tế ảo đã bị ẩn</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Trình đơn xem ở chế độ thực tế ảo được hiển thị</string>
-  <string name="revanced_hide_player_flyout_video_quality_title">Ẩn trình đơn chất lượng video</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Ẩn Chất lượng video</string>
   <string name="revanced_hide_player_flyout_video_quality_summary_on">Trình đơn chất lượng video đã bị ẩn</string>
   <string name="revanced_hide_player_flyout_video_quality_summary_off">Trình đơn chất lượng video được hiển thị</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_title">Ẩn chân trình đơn chất lượng video</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Ẩn chân trình đơn Chất lượng video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Chân trình đơn chất lượng video đã bị ẩn</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Chân trình đơn chất lượng video được hiển thị</string>
   </patch>
@@ -1048,7 +1048,7 @@ Hoạt động tốt nhất với chất lượng video 720p trở xuống và k
   <string name="revanced_sb_settings_revanced_export_user_id_warning">"Cài đặt của bạn có chứa ID người dùng SponsorBlock riêng tư.
 
 ID người dùng của bạn giống như mật khẩu và không bao giờ được chia sẻ."</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Không hiện lại</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Không hiện lại nữa</string>
   <string name="revanced_sb_diff_segments">Thay đổi hành vi phân đoạn</string>
   <string name="revanced_sb_segments_sponsor">Nhà tài trợ</string>
   <string name="revanced_sb_segments_sponsor_sum">Quảng cáo trả phí, giới thiệu trả phí và quảng cáo trực tiếp. Không phải tự quảng cáo hoặc quảng bá miễn phí cho các tổ chức/nhà sáng tạo/trang web/sản phẩm mà họ yêu thích</string>

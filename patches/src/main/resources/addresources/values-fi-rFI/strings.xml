@@ -670,8 +670,8 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_help_summary_off">Ohjeet ja palaute -valinta näytetään</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_speed_title">Piilota Toistonopeus</string>
-  <string name="revanced_hide_player_flyout_speed_summary_on">Toistonopeus-valikko on piilotettu</string>
-  <string name="revanced_hide_player_flyout_speed_summary_off">Toistonopeus-valikko näytetään</string>
+  <string name="revanced_hide_player_flyout_speed_summary_on">Toistonopeusvalikko on piilotettu</string>
+  <string name="revanced_hide_player_flyout_speed_summary_off">Toistonopeusvalikko näytetään</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
                   This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">Piilota Lisätietoja</string>
@@ -693,6 +693,9 @@ Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Piilota Katso VR-tilassa</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Katso VR-tilassa -valinta on piilotettu</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Katso VR-tilassa -valinta näytetään</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Piilota videolaatuvalikko</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Videolaatuvalikko on piilotettu</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Videolaatuvalikko näytetään</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Piilota videolaatuvalikon alatunniste</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Videolaatuvalikon alatunniste on piilotettu</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videolaatuvalikon alatunniste näytetään</string>
