@@ -23,8 +23,11 @@ Second \"item\" text"</string>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Theip ar sheiceálacha</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Oscailt láithreán gréasáin oifigiúil</string>
-  <string name="revanced_check_environment_dialog_ignore_button">Déan neamhaird de</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Is cosúil nach bhfuil an aip seo paiteanta agat.&lt;/h5&gt;&lt;br&gt;Seans nach bhfeidhmeoidh an aip seo i gceart, &lt;b&gt;d\'fhéadfadh sé a bheith díobhálach nó fiú contúirteach le húsáid&lt;/b&gt;&lt; br&gt;&lt;br&gt;Tugann na seiceálacha seo le tuiscint go bhfuil an aip seo réamhphatáilte nó faighte ó dhuine éigin eile:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt; &lt;b&gt;díshuiteáil an aip seo agus paiste tú féin&lt;/b&gt; chun a chinntiú go bhfuil tú ag úsáid aip atá bailíochtaithe agus slán.&lt;p&gt;&lt;br&gt;Má dhéantar neamhaird de, ní thaispeánfar an rabhadh seo ach faoi dhó.</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Neamhaird</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Ní cosúil gur tusa a rinne paiste ar an aip seo.&lt;/h5&gt;&lt;br&gt;B’fhéidir nach bhfeidhmeoidh an aip seo i gceart, &lt;b&gt;agus d’fhéadfadh sé a bheith díobhálach nó fiú contúirteach le húsáid&lt;/b&gt;&lt; br&gt;&lt;br&gt;.
+Tugann na seiceálacha seo le fios go bhfuil an aip seo patáilte roimh ré nó gur thángthas uirthi ó dhuine eile:
+&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt; &lt;b&gt;
+Moltar go láidir duit an aip seo a dhíshuiteáil agus í a phaisteáil leat féin&lt;/b&gt; chun a chinntiú go bhfuil tú ag úsáid aip bailíochtaithe agus slán.&lt;p&gt;&lt;br&gt;Mura ndéanann tú aird ar an rabhadh seo, ní thaispeánfar é ach faoi dhó.</string>
   <string name="revanced_check_environment_not_same_patching_device">Paisteáilte ar ghléas eile</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Gan a bheith suiteáilte ag ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Paisteáilte níos mó ná 10 nóiméad ó shin</string>
@@ -34,12 +37,12 @@ Second \"item\" text"</string>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Socruithe</string>
   <string name="revanced_settings_confirm_user_dialog_title">An bhfuil tú cinnte gur mhaith leat dul ar aghaidh?</string>
-  <string name="revanced_settings_reset">Athshocraigh</string>
+  <string name="revanced_settings_reset">Athshocrú</string>
   <string name="revanced_settings_reset_color">Dath a athshocrú</string>
   <string name="revanced_settings_color_invalid">Dath neamhbhailí</string>
-  <string name="revanced_settings_restart_title">Teastaíonn atosú</string>
+  <string name="revanced_settings_restart_title">Atosú ag teastáil</string>
   <string name="revanced_settings_restart_dialog_message">Atosaigh an aip chun go mbeidh an t-athrú seo i bhfeidhm.</string>
-  <string name="revanced_settings_restart">Athosaigh</string>
+  <string name="revanced_settings_restart">Atosaigh</string>
   <string name="revanced_settings_import">Iompórtáil</string>
   <string name="revanced_settings_import_copy">Cóipeáil</string>
   <string name="revanced_settings_import_reset">Athshocraigh socruithe ReVanced go réamhshocrú</string>
@@ -76,7 +79,7 @@ Chun teangacha nua a aistriú, tabhair cuairt ar translate.revanced.app"</string
 Lean an treoir \"Ná maraigh mo aip\" do do ghuthán, agus cuir na treoracha i bhfeidhm ar do shuiteáil MicroG.
 
 Is gá seo chun go n-oibreoidh an aip."</string>
-  <string name="gms_core_dialog_open_website_text">Suíomh Gréasáin oscailte</string>
+  <string name="gms_core_dialog_open_website_text">Oscail láithreán gréasáin</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Caithfidh tú optúimíochtaí ceallraí MicroG GmsCore a dhíchumasú chun fadhbanna a sheachaint.
 
 Ní chuirfidh díghníomhachtú optúimíochtaí ceallraí do MicroG isteach ar úsáid ceallraí ar bhealach diúltach.
@@ -95,9 +98,9 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_settings_screen_05_player_title">Seinnteoir</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra Cuardaigh</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Rialuithe Svaidhpeála</string>
-  <string name="revanced_settings_screen_11_misc_title">Éagsúla</string>
+  <string name="revanced_settings_screen_11_misc_title">Ilchineálach</string>
   <string name="revanced_settings_screen_12_video_title">Físeán</string>
-  <string name="revanced_restore_old_settings_menus_title">Athshocraigh roghanna seanghléasanna</string>
+  <string name="revanced_restore_old_settings_menus_title">Athchóirigh sean-roghchláir socruithe</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Taispeántar sean-roghchláir socruithe</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Ní thaispeántar sean-roghchláir socruithe</string>
   <string name="revanced_settings_search_history_title">Taispeáin stair cuardaigh na socruithe</string>
@@ -106,13 +109,13 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Díchumasaigh seinnte Cúlra Shorts</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Tá súgradh cúlra Shorts díchumasaithe</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Tá súgradh cúlra Shorts cumasaithe</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Tá seinm chúlra Shorts díchumasaithe</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Tá seinm chúlra Shorts cumasaithe</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Dífhabhtaithe</string>
-  <string name="revanced_debug_screen_summary">Cumasaigh nó díchumasaigh roghanna dífhabhtaithe</string>
-  <string name="revanced_debug_title">Logáil dífhabhtaithe</string>
+  <string name="revanced_debug_screen_title">Dífhabhtú</string>
+  <string name="revanced_debug_screen_summary">Cumasaigh nó díchumasaigh roghanna dífhabhtú</string>
+  <string name="revanced_debug_title">Dífhabhtú logáil</string>
   <string name="revanced_debug_summary_on">Tá logaí dífhabhtaithe cumasaithe</string>
   <string name="revanced_debug_summary_off">Tá logaí dífhabhtaithe díchumasaithe</string>
   <string name="revanced_debug_protobuffer_title">Maolán prótacal logála</string>
@@ -1590,13 +1593,13 @@ Tá réiteach uasmhéideach 1080p ag AVC, níl códú fuaime Opus ar fáil, agus
   <string name="revanced_ads_screen_summary">Socruithe Blocála Fógraí</string>
   <string name="revanced_chat_screen_title">Comhrá</string>
   <string name="revanced_chat_screen_summary">Socruithe comhrá</string>
-  <string name="revanced_misc_screen_title">Ilghnéitheach</string>
-  <string name="revanced_misc_screen_summary">Socruithe ilghnéitheacha</string>
+  <string name="revanced_misc_screen_title">Ilchineálach</string>
+  <string name="revanced_misc_screen_summary">Socruithe Ilchineálach</string>
   <string name="revanced_general_category_title">Socruithe ginearálta</string>
   <string name="revanced_other_category_title">Socruithe eile</string>
   <string name="revanced_client_ads_category_title">Fógraí taobh an chliaint</string>
   <string name="revanced_surestream_ads_category_title">Fógraí surestream ar thaobh an fhreastalaí</string>
-  <string name="revanced_twitch_debug_title">Logáil dífhabhtaithe</string>
+  <string name="revanced_twitch_debug_title">Tá logaí dífhabhtú cumasaithe</string>
   <string name="revanced_twitch_debug_summary_on">Tá logaí dífhabhtaithe cumasaithe</string>
   <string name="revanced_twitch_debug_summary_off">Tá logaí dífhabhtaithe díchumasaithe</string>
   </patch>

@@ -642,7 +642,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">フライアウト メニュー</string>
-  <string name="revanced_hide_player_flyout_summary">オーバーレイ上の歯車アイコンから表示されるメニューの設定</string>
+  <string name="revanced_hide_player_flyout_summary">プレーヤー オーバーレイの歯車ボタンから呼び出されるフライアウト メニューの項目を表示または非表示にします</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_captions_title">「字幕」を非表示</string>
   <string name="revanced_hide_player_flyout_captions_summary_on">「字幕」は表示されません</string>
@@ -695,12 +695,12 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_player_flyout_watch_in_vr_title">「VR で見る」を非表示</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">「VR で見る」は表示されません</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">「VR で見る」は表示されます</string>
-  <string name="revanced_hide_player_flyout_video_quality_title">画質のメニューを非表示にする</string>
-  <string name="revanced_hide_player_flyout_video_quality_summary_on">画質メニューは非表示です</string>
-  <string name="revanced_hide_player_flyout_video_quality_summary_off">画質メニューは表示されます</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_title">画質設定メニューの脚注を非表示</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">画質設定メニューの脚注は表示されません</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">画質設定メニューの脚注は表示されます</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">「画質」を非表示</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">「画質」は表示されません</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">「画質」は表示されます</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">画質メニューの脚注を非表示</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">画質メニューの脚注は表示されません</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">画質メニューの脚注は表示されます</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_autoplay_button_title">自動再生ボタンを非表示</string>
@@ -750,20 +750,20 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_seekbar_thumbnail_summary_off">フィードや再生履歴などの動画のサムネイルのシークバーは表示されます</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
-  <string name="revanced_shorts_player_screen_title">ショート動画プレーヤー</string>
+  <string name="revanced_shorts_player_screen_title">ショート プレーヤー</string>
   <string name="revanced_shorts_player_screen_summary">ショート プレーヤーのコンポーネントを表示または非表示にします</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">ホームフィードでショートを非表示</string>
-  <string name="revanced_hide_shorts_home_summary_on">ホームフィードおよび関連動画にショートは表示されません</string>
-  <string name="revanced_hide_shorts_home_summary_off">ホームフィードおよび関連動画にショートが表示されます</string>
-  <string name="revanced_hide_shorts_search_title">検索結果でショート動画を非表示</string>
+  <string name="revanced_hide_shorts_home_summary_on">ホームフィードおよび関連動画にショート動画は表示されません</string>
+  <string name="revanced_hide_shorts_home_summary_off">ホームフィードおよび関連動画にショート動画が表示されます</string>
+  <string name="revanced_hide_shorts_search_title">検索結果でショートを非表示</string>
   <string name="revanced_hide_shorts_search_summary_on">検索結果にショート動画は表示されません</string>
   <string name="revanced_hide_shorts_search_summary_off">検索結果にショート動画が表示されます</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">登録チャンネル フィードでショートを非表示</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">登録チャンネル フィードにショートは表示されません</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">登録チャンネル フィードにショートが表示されます</string>
-  <string name="revanced_hide_shorts_history_title">再生履歴でショート動画を非表示</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">登録チャンネル フィードにショート動画は表示されません</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">登録チャンネル フィードにショート動画が表示されます</string>
+  <string name="revanced_hide_shorts_history_title">再生履歴でショートを非表示</string>
   <string name="revanced_hide_shorts_history_summary_on">再生履歴にショート動画は表示されません</string>
   <string name="revanced_hide_shorts_history_summary_off">再生履歴にショート動画が表示されます</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">「Super Thanks を購入する」ボタンを非表示</string>
@@ -772,9 +772,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_shorts_effect_button_title">効果ボタンを非表示</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">効果ボタンは表示されません</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">効果ボタンは表示されます</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">グリーンスクリーン ボタンを非表示</string>
-  <string name="revanced_hide_shorts_green_screen_button_summary_on">グリーンスクリーン ボタンは表示されません</string>
-  <string name="revanced_hide_shorts_green_screen_button_summary_off">グリーンスクリーン ボタンは表示されます</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">グリーン スクリーン ボタンを非表示</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">グリーン スクリーン ボタンは表示されません</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">グリーン スクリーン ボタンは表示されます</string>
   <string name="revanced_hide_shorts_hashtag_button_title">ハッシュタグ ボタンを非表示</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">ハッシュタグ ボタンは表示されません</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">ハッシュタグ ボタンは表示されます</string>
@@ -788,18 +788,18 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_shorts_new_posts_button_title">「新しい投稿」ボタンを非表示</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_on">「新しい投稿」ボタンは表示されません</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_off">「新しい投稿」ボタンは表示されます</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_title">一時停止中のオーバーレイ上のボタンを非表示</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">一時停止中のオーバーレイ上のボタンは表示されません</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">一時停止中のオーバーレイ上のボタンは表示されます</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">一時停止オーバーレイのボタンを非表示</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">一時停止オーバーレイのボタンは表示されません</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">一時停止オーバーレイのボタンは表示されます</string>
   <string name="revanced_hide_shorts_preview_comment_title">コメントのプレビューを非表示</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">コメントのプレビューは表示されません</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">コメントのプレビューは表示されます</string>
   <string name="revanced_hide_shorts_save_sound_button_title">「音楽を保存」ボタンを非表示</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">「音楽を保存」ボタンは表示されません</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">「音楽を保存」ボタンは表示されます</string>
-  <string name="revanced_hide_shorts_search_suggestions_title">検索候補ボタンを非表示</string>
-  <string name="revanced_hide_shorts_search_suggestions_summary_on">検索候補ボタンは表示されません</string>
-  <string name="revanced_hide_shorts_search_suggestions_summary_off">検索候補ボタンは表示されます</string>
+  <string name="revanced_hide_shorts_search_suggestions_title">検索候補を非表示</string>
+  <string name="revanced_hide_shorts_search_suggestions_summary_on">検索候補は表示されません</string>
+  <string name="revanced_hide_shorts_search_suggestions_summary_off">検索候補は表示されます</string>
   <string name="revanced_hide_shorts_shop_button_title">ショップ ボタンを非表示</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">ショップ ボタンは表示されません</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">ショップ ボタンは表示されます</string>
@@ -830,9 +830,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_shorts_dislike_button_title">低評価ボタンを非表示</string>
   <string name="revanced_hide_shorts_dislike_button_summary_on">低評価ボタンは表示されません</string>
   <string name="revanced_hide_shorts_dislike_button_summary_off">低評価ボタンは表示されます</string>
-  <string name="revanced_hide_shorts_comments_button_title">コメント ボタンを非表示</string>
-  <string name="revanced_hide_shorts_comments_button_summary_on">コメント ボタンは表示されません</string>
-  <string name="revanced_hide_shorts_comments_button_summary_off">コメント ボタンは表示されます</string>
+  <string name="revanced_hide_shorts_comments_button_title">コメントボタンを非表示</string>
+  <string name="revanced_hide_shorts_comments_button_summary_on">コメントボタンは表示されません</string>
+  <string name="revanced_hide_shorts_comments_button_summary_off">コメントボタンは表示されます</string>
   <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_share_button_title">共有ボタンを非表示</string>
   <string name="revanced_hide_shorts_share_button_summary_on">共有ボタンは表示されません</string>
@@ -841,9 +841,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_shorts_remix_button_title">リミックス ボタンを非表示</string>
   <string name="revanced_hide_shorts_remix_button_summary_on">リミックス ボタンは表示されません</string>
   <string name="revanced_hide_shorts_remix_button_summary_off">リミックス ボタンは表示されます</string>
-  <string name="revanced_hide_shorts_sound_button_title">サウンド ボタンを非表示</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">サウンド ボタンは表示されません</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">サウンド ボタンは表示されます</string>
+  <string name="revanced_hide_shorts_sound_button_title">サウンドボタンを非表示</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">サウンドボタンは表示されません</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">サウンドボタンは表示されます</string>
   <string name="revanced_hide_shorts_info_panel_title">情報パネルを非表示</string>
   <string name="revanced_hide_shorts_info_panel_summary_on">情報パネルは表示されません</string>
   <string name="revanced_hide_shorts_info_panel_summary_off">情報パネルは表示されます</string>
@@ -1244,17 +1244,17 @@ Automotive レイアウト
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
   <string name="revanced_shorts_player_type_title">ショート動画を開くプレーヤー</string>
-  <string name="revanced_shorts_player_type_shorts">ショート動画プレーヤー</string>
-  <string name="revanced_shorts_player_type_regular_player">通常の動画プレーヤー</string>
-  <string name="revanced_shorts_player_type_regular_player_fullscreen">通常の動画プレーヤー (全画面)</string>
+  <string name="revanced_shorts_player_type_shorts">ショート プレーヤー</string>
+  <string name="revanced_shorts_player_type_regular_player">通常のプレーヤー</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">通常のプレーヤー (全画面)</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">ショート動画の自動再生</string>
   <string name="revanced_shorts_autoplay_summary_on">ショート動画は自動再生されます</string>
   <string name="revanced_shorts_autoplay_summary_off">ショート動画はループ再生されます</string>
   <string name="revanced_shorts_autoplay_background_title">ショート動画の自動再生（バックグラウンド）</string>
-  <string name="revanced_shorts_autoplay_background_summary_on">ショート動画はバックグラウンドで自動再生されます</string>
-  <string name="revanced_shorts_autoplay_background_summary_off">ショート動画はバックグラウンドでループ再生されます</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">バックグラウンドのショート動画は自動再生されます</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">バックグラウンドのショート動画はループ再生されます</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">ミニプレーヤー</string>
