@@ -1,3 +1,11 @@
+# [5.34.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.7...v5.34.0-dev.8) (2025-08-15)
+
+
+### Features
+
+* **NU.nl:** Support latest app version ([#5643](https://github.com/ReVanced/revanced-patches/issues/5643)) ([7338e4a](https://github.com/ReVanced/revanced-patches/commit/7338e4a5a99f913256120d0d58fede3aa4ee8922))
+* **YouTube:** Add `Disable sign in to TV popup` patch ([#5639](https://github.com/ReVanced/revanced-patches/issues/5639)) ([d0e5bd0](https://github.com/ReVanced/revanced-patches/commit/d0e5bd0479a8910b081c483ed2a6ab4d7134e3c3))
+
 # [5.34.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.6...v5.34.0-dev.7) (2025-08-13)
 
 
