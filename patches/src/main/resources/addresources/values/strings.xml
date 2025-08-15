@@ -515,6 +515,11 @@ This feature is only available for older devices"</string>
             <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog will be shown</string>
             <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction. It just accepts it automatically.</string>
         </patch>
+        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+            <string name="revanced_disable_signin_to_tv_popup_title">Disable Sign in to TV popup</string>
+            <string name="revanced_disable_signin_to_tv_popup_summary_on">Sign in to TV popup is disabled</string>
+            <string name="revanced_disable_signin_to_tv_popup_summary_off">Sign in to TV popup is enabled</string>
+        </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
             <string name="revanced_disable_chapter_skip_double_tap_title">Disable double tap chapter skip</string>
             <string name="revanced_disable_chapter_skip_double_tap_summary_on">Double tap can never trigger a skip to the next/previous chapter</string>
