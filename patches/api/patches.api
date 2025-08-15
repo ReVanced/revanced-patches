@@ -1357,6 +1357,10 @@ public final class app/revanced/patches/youtube/layout/hide/shorts/HideShortsCom
 	public static final fun getHideShortsComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/layout/hide/signintotvpopup/DisableSignInToTvPatchPopupKt {
+	public static final fun getDisableSignInToTvPopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/layout/hide/suggestedvideoendscreen/DisableSuggestedVideoEndScreenPatchKt {
 	public static final fun getDisableSuggestedVideoEndScreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
