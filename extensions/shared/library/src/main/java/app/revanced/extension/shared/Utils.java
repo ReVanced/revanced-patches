@@ -54,6 +54,7 @@ import androidx.annotation.Nullable;
 import java.text.Bidi;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -1513,5 +1514,19 @@ public class Utils {
 
     public static float clamp(float value, float lower, float upper) {
         return Math.max(lower, Math.min(value, upper));
+    }
+
+    /**
+     * @param maxSize The maximum number of elements to keep in the map.
+     * @return A {@link LinkedHashMap} that automatically evicts the oldest entry
+     *        when the size exceeds {@code maxSize}.
+     */
+    public static <T, V> LinkedHashMap<T, V> createSizeRestrictedMap(int maxSize) {
+        return new LinkedHashMap<>(2 * maxSize) {
+            @Override
+            protected boolean removeEldestEntry(Entry eldest) {
+                return size() > maxSize;
+            }
+        };
     }
 }

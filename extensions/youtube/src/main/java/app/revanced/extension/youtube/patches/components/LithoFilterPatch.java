@@ -6,11 +6,11 @@ import androidx.annotation.Nullable;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.StringTrieSearch;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
@@ -196,15 +196,8 @@ public final class LithoFilterPatch {
     }
 
     private static Map<String, byte[]> createIdentifierToBufferMap() {
-        return new LinkedHashMap<>(100) {
-            // It's unclear how many items should be cached. This is a guess.
-            private static final int CACHE_LIMIT = 50;
-
-            @Override
-            protected boolean removeEldestEntry(Entry eldest) {
-                return size() > CACHE_LIMIT; // Evict the oldest entry if over the cache limit.
-            }
-        };
+        // It's unclear how many items should be cached. This is a guess.
+        return Utils.createSizeRestrictedMap(50);
     }
 
     /**
