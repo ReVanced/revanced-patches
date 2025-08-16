@@ -169,7 +169,7 @@ Bạn sẽ không được thông báo khi xẩy ra lỗi bất ngờ."</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Nút micro nổi trong tìm kiếm đang hiển thị</string>
   <string name="revanced_hide_horizontal_shelves_title">Ẩn kệ ngang</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Các kệ ngang đã bị ẩn, chẳng hạn như:
-• Tin tức nổi bật
+• Tin nổi bật
 • Tiếp tục xem
 • Khám phá các chủ đề khác
 • Phù hợp nhất
@@ -452,6 +452,11 @@ Tính năng này chỉ khả dụng trên các thiết bị cũ"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Hộp thoại sẽ được hiển thị</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tuỳ chọn này chỉ tự động chấp nhận mà không bỏ qua giới hạn độ tuổi.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Tắt cửa sổ Đăng nhập vào TV</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Cửa sổ Đăng nhập vào TV đã tắt</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Cửa sổ Đăng nhập vào TV đã bật</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Tắt bỏ qua chương bằng cách chạm hai lần</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Chạm hai lần không bao giờ có thể kích hoạt bỏ qua đến chương tiếp theo/trước đó</string>
@@ -563,7 +568,7 @@ Vui lòng kiểm tra lại tên gói và đảm bảo ứng dụng đã được
   <string name="revanced_hide_stop_ads_button_summary_on">Nút ngừng quảng cáo đã bị ẩn</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Nút ngừng quảng cáo được hiển thị</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Ẩn Báo cáo</string>
   <string name="revanced_hide_report_button_summary_on">Nút báo cáo đã bị ẩn</string>
   <string name="revanced_hide_report_button_summary_off">Nút báo cáo được hiển thị</string>
@@ -575,12 +580,17 @@ Vui lòng kiểm tra lại tên gói và đảm bảo ứng dụng đã được
   <string name="revanced_hide_download_button_title">Ẩn Tải xuống</string>
   <string name="revanced_hide_download_button_summary_on">Nút tải xuống đã bị ẩn</string>
   <string name="revanced_hide_download_button_summary_off">Nút tải xuống được hiển thị</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Ẩn nút Khuấy động</string>
+  <string name="revanced_hide_hype_button_summary_on">Nút Khuấy động đã bị ẩn</string>
+  <string name="revanced_hide_hype_button_summary_off">Nút Khuấy động được hiển thị</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Ẩn Cảm ơn</string>
   <string name="revanced_hide_thanks_button_summary_on">Nút cảm ơn đã bị ẩn</string>
   <string name="revanced_hide_thanks_button_summary_off">Nút cảm ơn được hiển thị</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Ẩn Đặt câu hỏi</string>
   <string name="revanced_hide_ask_button_summary_on">Nút đặt câu hỏi đã bị ẩn</string>
   <string name="revanced_hide_ask_button_summary_off">Nút đặt câu hỏi được hiển thị</string>
