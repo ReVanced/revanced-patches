@@ -1,3 +1,10 @@
+# [5.34.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.8...v5.34.0-dev.9) (2025-08-16)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add "Hide Hype button" setting ([f13f377](https://github.com/ReVanced/revanced-patches/commit/f13f3770e7c4fd5bff8f3e224fb1b1ead50a3c18))
+
 # [5.34.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.7...v5.34.0-dev.8) (2025-08-15)
 
 
