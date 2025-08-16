@@ -646,8 +646,8 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
             <string name="revanced_hide_hype_button_title">Hide Hype button</string>
-            <string name="revanced_hide_hype_button_summary_on">Hype button is hidden.</string>
-            <string name="revanced_hide_hype_button_summary_off">Hype button is shown.</string>
+            <string name="revanced_hide_hype_button_summary_on">Hype button is hidden</string>
+            <string name="revanced_hide_hype_button_summary_off">Hype button is shown</string>
             <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
             <string name="revanced_hide_thanks_button_title">Hide Thanks</string>
             <string name="revanced_hide_thanks_button_summary_on">Thanks button is hidden</string>
