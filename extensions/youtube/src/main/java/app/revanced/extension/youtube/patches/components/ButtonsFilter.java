@@ -87,6 +87,10 @@ final class ButtonsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_HYPE_BUTTON,
                         "yt_outline_star_shooting"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_PROMOTE_BUTTON,
+                        "yt_outline_megaphone"
                 )
         );
     }
