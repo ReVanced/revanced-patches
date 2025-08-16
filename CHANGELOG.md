@@ -1,3 +1,10 @@
+# [5.34.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.9...v5.34.0-dev.10) (2025-08-16)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add "Hide Promote button" setting ([1959396](https://github.com/ReVanced/revanced-patches/commit/1959396a53f4c07b94acddc5c0ee6cdf7ade7c7b))
+
 # [5.34.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.8...v5.34.0-dev.9) (2025-08-16)
 
 
