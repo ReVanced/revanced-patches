@@ -5,11 +5,30 @@ plugins {
     alias(libs.plugins.protobuf)
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
-
+repositories {
+    gradlePluginPortal()
+    google()
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/revanced/registry")
+        credentials {
+            username = providers.gradleProperty("gpr.user").getOrElse(System.getenv("GITHUB_ACTOR"))
+            password = providers.gradleProperty("gpr.key").getOrElse(System.getenv("GITHUB_TOKEN"))
+        }
+    }
+    maven {
+        name = "GitHubPackages2"
+        url = uri("https://maven.pkg.github.com/Emiferpro/librespot-java")
+        credentials {
+            username = providers.gradleProperty("gpr.user").getOrElse(System.getenv("GITHUB_ACTOR"))
+            password = providers.gradleProperty("gpr.key").getOrElse(System.getenv("GITHUB_TOKEN"))
+        }
+    }
+}
 val internalize by configurations.creating
 
 dependencies {
-    internalize("xyz.gianlu.librespot:librespot-player:1.6.5:thin") {
+    internalize("xyz.gianlu.librespot:librespot-player:1.6.6-SNAPSHOT:thin") {
         exclude(group = "xyz.gianlu.librespot", module = "librespot-sink")
         exclude(group = "com.lmax", module = "disruptor")
         exclude(group = "org.apache.logging.log4j")
