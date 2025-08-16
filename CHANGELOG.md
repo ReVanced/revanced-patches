@@ -1,3 +1,10 @@
+# [5.34.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.10...v5.34.0-dev.11) (2025-08-16)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Do not hide voting or create button when the video ends ([6aba4e2](https://github.com/ReVanced/revanced-patches/commit/6aba4e284de9bb94b49eea8be2baf2870eecbbcf))
+
 # [5.34.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.9...v5.34.0-dev.10) (2025-08-16)
 
 
