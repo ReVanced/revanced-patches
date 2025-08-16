@@ -82,6 +82,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
@@ -99,12 +101,15 @@ Second \"item\" text"</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   </patch>

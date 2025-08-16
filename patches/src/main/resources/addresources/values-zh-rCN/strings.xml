@@ -452,6 +452,11 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">「观看须知」对话框将会显示</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">这并不会绕过年龄限制，只是自动按下接受按钮。</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">禁用登录电视弹出窗口</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">登录电视弹出窗口已禁用</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">登录电视弹出窗口已启用</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">禁用双击章节跳过</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">双击永远不会触发跳到下一/上一章节</string>
@@ -563,7 +568,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">停止广告按钮已隐藏</string>
   <string name="revanced_hide_stop_ads_button_summary_off">停止广告按钮已显示</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">隐藏「举报」</string>
   <string name="revanced_hide_report_button_summary_on">举报按钮已隐藏</string>
   <string name="revanced_hide_report_button_summary_off">举报按钮已显示</string>
@@ -575,12 +580,21 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_title">隐藏「下载」按钮</string>
   <string name="revanced_hide_download_button_summary_on">下载按钮已隐藏</string>
   <string name="revanced_hide_download_button_summary_off">下载按钮已显示</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">隐藏超级留言按钮</string>
+  <string name="revanced_hide_hype_button_summary_on">浮夸按钮已隐藏</string>
+  <string name="revanced_hide_hype_button_summary_off">热度按钮已显示</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">隐藏推广</string>
+  <string name="revanced_hide_promote_button_summary_on">推广按钮已隐藏</string>
+  <string name="revanced_hide_promote_button_summary_off">推广按钮已显示</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">隐藏「感谢」按钮</string>
   <string name="revanced_hide_thanks_button_summary_on">感谢按钮已隐藏</string>
   <string name="revanced_hide_thanks_button_summary_off">感谢按钮已显示</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">隐藏“提问”</string>
   <string name="revanced_hide_ask_button_summary_on">“提问”按钮已隐藏</string>
   <string name="revanced_hide_ask_button_summary_off">“提问”按钮已显示</string>

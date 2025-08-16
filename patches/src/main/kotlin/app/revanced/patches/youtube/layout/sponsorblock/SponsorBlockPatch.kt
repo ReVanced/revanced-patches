@@ -232,15 +232,5 @@ val sponsorBlockPatch = bytecodePatch(
                 )
             }
         }
-
-        // The vote and create segment buttons automatically change their visibility when appropriate,
-        // but if buttons are showing when the end of the video is reached then they will not automatically hide.
-        // Add a hook to forcefully hide when the end of the video is reached.
-        autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.addInstruction(
-            0,
-            "invoke-static {}, $EXTENSION_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->endOfVideoReached()V",
-        )
-
-        // TODO: Channel whitelisting.
     }
 }

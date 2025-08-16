@@ -448,6 +448,11 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">ডায়ালগ প্রদর্শিত হবে</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">এটি বয়সের সীমাবদ্ধতাকে বাইপাস করে না। এটা শুধু স্বয়ংক্রিয়ভাবে গ্রহণ করে।</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">টিভিতে সাইন ইন পপআপ অক্ষম করুন</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">টিভিতে সাইন ইন পপআপ অক্ষম করা হয়েছে</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">টিভিতে সাইন ইন পপআপ সক্ষম করা হয়েছে</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">ডাবল ট্যাপ অধ্যায় স্কিপ অক্ষম করুন</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">ডাবল ট্যাপ কখনও পরবর্তী/পূর্ববর্তী অধ্যায়ে স্কিপ ট্রিগার করতে পারে না</string>
@@ -559,7 +564,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_stop_ads_button_summary_on">বিজ্ঞাপন বন্ধ করুন বোতামটি লুকানো আছে</string>
   <string name="revanced_hide_stop_ads_button_summary_off">বিজ্ঞাপন বন্ধ করুন বোতামটি দেখানো হচ্ছে</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Report লুকান</string>
   <string name="revanced_hide_report_button_summary_on">রিপোর্ট বাটন লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_report_button_summary_off">রিপোর্ট বাটন প্রদর্শিত</string>
@@ -571,12 +576,21 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_download_button_title">ডাউনলোডগুলো হাইড করাও</string>
   <string name="revanced_hide_download_button_summary_on">ডাউনলোড বোতাম লুকানো আছে</string>
   <string name="revanced_hide_download_button_summary_off">ডাউনলোড বোতাম দেখানো হয়েছে</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">হাইপ বোতাম লুকান</string>
+  <string name="revanced_hide_hype_button_summary_on">হাইপ বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_hype_button_summary_off">হাইপ বাটন দেখানো হয়েছে</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">প্রমোট লুকান</string>
+  <string name="revanced_hide_promote_button_summary_on">প্রোমোশন বাটন লুকানো আছে</string>
+  <string name="revanced_hide_promote_button_summary_off">প্রোমোশন বাটন দেখানো আছে</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">ধন্যবাদ লুকান</string>
   <string name="revanced_hide_thanks_button_summary_on">ধন্যবাদ বোতাম লুকানো আছে</string>
   <string name="revanced_hide_thanks_button_summary_off">ধন্যবাদ বোতাম দেখানো হয়</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">জিজ্ঞাসা লুকান</string>
   <string name="revanced_hide_ask_button_summary_on">জিজ্ঞাসা বোতাম লুকানো আছে</string>
   <string name="revanced_hide_ask_button_summary_off">জিজ্ঞাসা বোতাম দেখানো হয়েছে</string>

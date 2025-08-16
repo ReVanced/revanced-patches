@@ -452,6 +452,11 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog bude zobrazen</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tímto krokem neobcházíte věkové omezení. Pouze jej automaticky akceptujete.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Zakázat vyskakovací okno Přihlásit se k televizi</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Vyskakovací okno Přihlásit se k televizi je zakázáno</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Vyskakovací okno Přihlásit se k televizi je povoleno</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Zakázat přeskočení kapitoly dvojitým klepnutím</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dvojité klepnutí nikdy nespustí přeskočení na další/předchozí kapitolu</string>
@@ -563,7 +568,7 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Tlačítko pro zastavení reklam je skryté</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Tlačítko pro zastavení reklam je zobrazeno</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Skrýt Nahlásit</string>
   <string name="revanced_hide_report_button_summary_on">Tlačítko Nahlásit je skryto</string>
   <string name="revanced_hide_report_button_summary_off">Tlačítko Nahlásit je zobrazeno</string>
@@ -575,12 +580,21 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_hide_download_button_title">Skrýt Stáhnout</string>
   <string name="revanced_hide_download_button_summary_on">Tlačítko Stáhnout je skryto</string>
   <string name="revanced_hide_download_button_summary_off">Tlačítko Stáhnout je zobrazeno</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Skrýt tlačítko Hype</string>
+  <string name="revanced_hide_hype_button_summary_on">Tlačítko Hype je skryto</string>
+  <string name="revanced_hide_hype_button_summary_off">Tlačítko Hype je zobrazeno</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Skrýt propagaci</string>
+  <string name="revanced_hide_promote_button_summary_on">Tlačítko Propagovat je skryto</string>
+  <string name="revanced_hide_promote_button_summary_off">Tlačítko Propagovat je zobrazeno</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Skrýt Poděkování</string>
   <string name="revanced_hide_thanks_button_summary_on">Tlačítko Poděkování je skryto</string>
   <string name="revanced_hide_thanks_button_summary_off">Tlačítko Poděkování je zobrazeno</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Skrýt Zeptat se</string>
   <string name="revanced_hide_ask_button_summary_on">Tlačítko Zeptat se je skryté</string>
   <string name="revanced_hide_ask_button_summary_off">Tlačítko Zeptat se je zobrazeno</string>

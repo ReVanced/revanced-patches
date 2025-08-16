@@ -48,8 +48,10 @@ val hideButtonsPatch = resourcePatch(
             // FIXME: 20.22+ filtering of the action buttons doesn't work because
             //        the buffer is the same for all buttons.
             preferences.addAll(listOf(
-                SwitchPreference("revanced_hide_ask_button"),
+                SwitchPreference("revanced_hide_hype_button"),
+                    SwitchPreference("revanced_hide_ask_button"),
                 SwitchPreference("revanced_hide_clip_button"),
+                    SwitchPreference("revanced_hide_promote_button"),
                 SwitchPreference("revanced_hide_remix_button"),
                 SwitchPreference("revanced_hide_report_button"),
                 SwitchPreference("revanced_hide_share_button"),

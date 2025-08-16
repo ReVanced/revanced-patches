@@ -452,6 +452,11 @@ Apribojimai
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialogas bus rodomas</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tai neaplenkia amžiaus apribojimo. Jis tiesiog jį automatiškai priima.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Išjungti prisijungimo prie TV iškylantįjį langą</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Prisijungimo prie TV iškylantysis langas išjungtas</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Prisijungimo prie TV iškylantysis langas įjungtas</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Išjungti dvigubo bakstelėjimo skyriaus praleidimą</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dvigubas bakstelėjimas niekada negali suaktyvinti praleidimo į kitą/ankstesnį skyrių</string>
@@ -563,7 +568,7 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Skelbimų stabdymo mygtukas paslėptas</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Skelbimų stabdymo mygtukas rodomas</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Slėpti Pranešti</string>
   <string name="revanced_hide_report_button_summary_on">Pranešimo mygtukas paslėptas</string>
   <string name="revanced_hide_report_button_summary_off">Pranešimo mygtukas rodomas</string>
@@ -575,12 +580,21 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_hide_download_button_title">Slėpti Atsisiųsti</string>
   <string name="revanced_hide_download_button_summary_on">Atsisiuntimo mygtukas paslėptas</string>
   <string name="revanced_hide_download_button_summary_off">Atsisiuntimo mygtukas rodomas</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Slėpti „Hype“ mygtuką</string>
+  <string name="revanced_hide_hype_button_summary_on">„Hype“ mygtukas paslėptas</string>
+  <string name="revanced_hide_hype_button_summary_off">Haipo mygtukas rodomas</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Slėpti reklamą</string>
+  <string name="revanced_hide_promote_button_summary_on">Reklamos mygtukas paslėptas</string>
+  <string name="revanced_hide_promote_button_summary_off">Reklamos mygtukas rodomas</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Slėpti Ačiū</string>
   <string name="revanced_hide_thanks_button_summary_on">Ačiū mygtukas paslėptas</string>
   <string name="revanced_hide_thanks_button_summary_off">Ačiū mygtukas rodomas</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Slėpti klausimą</string>
   <string name="revanced_hide_ask_button_summary_on">Klausimo mygtukas yra paslėptas</string>
   <string name="revanced_hide_ask_button_summary_off">Klausimo mygtukas rodomas</string>

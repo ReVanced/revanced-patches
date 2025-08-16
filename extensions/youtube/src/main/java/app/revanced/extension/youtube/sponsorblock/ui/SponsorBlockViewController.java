@@ -17,7 +17,6 @@ import java.util.Objects;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
 import kotlin.Unit;
@@ -229,23 +228,5 @@ public class SponsorBlockViewController {
         }
         params.bottomMargin = fullScreen ? ctaBottomMargin : defaultBottomMargin;
         view.setLayoutParams(params);
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void endOfVideoReached() {
-        try {
-            Logger.printDebug(() -> "endOfVideoReached");
-            // the buttons automatically set themselves to visible when appropriate,
-            // but if buttons are showing when the end of the video is reached then they need
-            // to be forcefully hidden
-            if (!Settings.AUTO_REPEAT.get()) {
-                CreateSegmentButton.hideControls();
-                VotingButton.hideControls();
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "endOfVideoReached failure", ex);
-        }
     }
 }

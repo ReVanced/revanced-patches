@@ -454,6 +454,11 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">ダイアログは表示されます</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">この機能によって年齢制限が回避される訳ではありません。自動的に承認するだけです。</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">「テレビでログイン」ポップアップを無効化</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">「テレビでログイン」ポップアップは無効です</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">「テレビでログイン」ポップアップは有効です</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">ダブルタップ時のチャプター スキップを無効化</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">ダブルタップしたときに、次または前のチャプターへスキップしてしまうことはありません</string>
@@ -565,7 +570,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_stop_ads_button_summary_on">「広告を停止」ボタンは表示されません</string>
   <string name="revanced_hide_stop_ads_button_summary_off">「広告を停止」ボタンは表示されます</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">報告ボタンを非表示</string>
   <string name="revanced_hide_report_button_summary_on">報告ボタンは表示されません</string>
   <string name="revanced_hide_report_button_summary_off">報告ボタンは表示されます</string>
@@ -577,12 +582,21 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_download_button_title">オフライン ボタンを非表示</string>
   <string name="revanced_hide_download_button_summary_on">オフライン ボタンは表示されません</string>
   <string name="revanced_hide_download_button_summary_off">オフライン ボタンは表示されます</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">「盛り上げ」ボタンを非表示</string>
+  <string name="revanced_hide_hype_button_summary_on">Hype ボタンは表示されません</string>
+  <string name="revanced_hide_hype_button_summary_off">ハイプボタンは表示されます</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">「プロモーション」を非表示</string>
+  <string name="revanced_hide_promote_button_summary_on">宣伝ボタンは表示されません</string>
+  <string name="revanced_hide_promote_button_summary_off">宣伝ボタンは表示されます</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Thanks ボタンを非表示</string>
   <string name="revanced_hide_thanks_button_summary_on">Thanks ボタンは表示されません</string>
   <string name="revanced_hide_thanks_button_summary_off">Thanks ボタンは表示されます</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">質問ボタンを非表示</string>
   <string name="revanced_hide_ask_button_summary_on">質問ボタンは表示されません</string>
   <string name="revanced_hide_ask_button_summary_off">質問ボタンは表示されます</string>
