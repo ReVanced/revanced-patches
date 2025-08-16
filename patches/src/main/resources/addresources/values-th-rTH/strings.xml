@@ -452,6 +452,11 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">กล่องโต้ตอบจะแสดง</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">สิ่งนี้ไม่ได้ข้ามข้อจำกัดอายุ มันแค่ยอมรับอายุโดยอัตโนมัติ</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">ปิดใช้งานป๊อปอัปเข้าสู่ระบบไปยังทีวี</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">ปิดใช้งานป๊อปอัปเข้าสู่ระบบไปยังทีวีแล้ว</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">เปิดใช้งานป๊อปอัปเข้าสู่ระบบไปยังทีวีแล้ว</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">ปิดใช้งานการแตะสองครั้งเพื่อข้ามบท</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">การแตะสองครั้งจะไม่สามารถเรียกให้เกิดการข้ามไปยังบทถัดไป/ก่อนหน้าได้</string>
@@ -561,7 +566,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">ปุ่มหยุดโฆษณาถูกซ่อน</string>
   <string name="revanced_hide_stop_ads_button_summary_off">ปุ่มหยุดโฆษณาถูกแสดง</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">ซ่อนรายงาน</string>
   <string name="revanced_hide_report_button_summary_on">ปุ่มรายงานถูกซ่อน</string>
   <string name="revanced_hide_report_button_summary_off">ปุ่มรายงานถูกแสดง</string>
@@ -573,12 +578,17 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_title">ซ่อนดาวน์โหลด</string>
   <string name="revanced_hide_download_button_summary_on">ปุ่มดาวน์โหลดถูกซ่อน</string>
   <string name="revanced_hide_download_button_summary_off">ปุ่มดาวน์โหลดถูกแสดง</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">ซ่อนปุ่ม Hype</string>
+  <string name="revanced_hide_hype_button_summary_on">ปุ่ม Hype ถูกซ่อนอยู่</string>
+  <string name="revanced_hide_hype_button_summary_off">ปุ่ม Hype กำลังแสดง</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">ซ่อนขอบคุณ</string>
   <string name="revanced_hide_thanks_button_summary_on">ปุ่มขอบคุณถูกซ่อน</string>
   <string name="revanced_hide_thanks_button_summary_off">ปุ่มขอบคุณถูกแสดง</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">ซ่อนปุ่มถาม</string>
   <string name="revanced_hide_ask_button_summary_on">ปุ่มถามถูกซ่อนอยู่</string>
   <string name="revanced_hide_ask_button_summary_off">ปุ่มถามแสดงอยู่</string>
