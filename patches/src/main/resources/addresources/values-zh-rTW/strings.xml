@@ -582,6 +582,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_summary_off">已顯示「下載」按鈕</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">隱藏感謝</string>
   <string name="revanced_hide_thanks_button_summary_on">已隱藏「感謝」按鈕</string>

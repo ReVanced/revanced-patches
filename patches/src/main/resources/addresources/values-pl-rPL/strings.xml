@@ -581,6 +581,10 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
   <string name="revanced_hide_hype_button_title">Ukryj przycisk Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Przycisk Hype jest ukryty</string>
   <string name="revanced_hide_hype_button_summary_off">Przycisk Hype jest wyświetlony</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Ukryj Promuj</string>
+  <string name="revanced_hide_promote_button_summary_on">Przycisk promocji jest ukryty</string>
+  <string name="revanced_hide_promote_button_summary_off">Przycisk promocji jest widoczny</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Przycisk od dziękowania</string>
   <string name="revanced_hide_thanks_button_summary_on">Przycisk od dziękowania jest ukryty</string>

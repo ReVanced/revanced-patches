@@ -585,6 +585,10 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_hide_hype_button_title">Peida Haip nupp</string>
   <string name="revanced_hide_hype_button_summary_on">Hype nupp on peidetud</string>
   <string name="revanced_hide_hype_button_summary_off">Hype\'i nupp on nähtav</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Peida reklaam</string>
+  <string name="revanced_hide_promote_button_summary_on">Reklaami nupp on peidetud</string>
+  <string name="revanced_hide_promote_button_summary_off">Reklaami nupp on nähtav</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Peida Tänan</string>
   <string name="revanced_hide_thanks_button_summary_on">Tänan nupp on peidetud</string>

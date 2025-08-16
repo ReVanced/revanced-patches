@@ -585,6 +585,10 @@ Vui lòng kiểm tra lại tên gói và đảm bảo ứng dụng đã được
   <string name="revanced_hide_hype_button_title">Ẩn nút Khuấy động</string>
   <string name="revanced_hide_hype_button_summary_on">Nút Khuấy động đã bị ẩn</string>
   <string name="revanced_hide_hype_button_summary_off">Nút Khuấy động được hiển thị</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Ẩn Quảng bá</string>
+  <string name="revanced_hide_promote_button_summary_on">Nút Quảng bá đã bị ẩn</string>
+  <string name="revanced_hide_promote_button_summary_off">Nút Quảng bá được hiển thị</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Ẩn Cảm ơn</string>
   <string name="revanced_hide_thanks_button_summary_on">Nút cảm ơn đã bị ẩn</string>

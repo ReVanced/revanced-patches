@@ -580,6 +580,10 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_hide_hype_button_title">Hype-Button ausblenden</string>
   <string name="revanced_hide_hype_button_summary_on">Hype-Button ist ausgeblendet</string>
   <string name="revanced_hide_hype_button_summary_off">Hype-Button wird angezeigt</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Werbung ausblenden</string>
+  <string name="revanced_hide_promote_button_summary_on">Schaltfläche \"Promoten\" ist ausgeblendet</string>
+  <string name="revanced_hide_promote_button_summary_off">Schaltfläche \"Promoten\" ist sichtbar</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Dank ausblenden</string>
   <string name="revanced_hide_thanks_button_summary_on">Dankeschön-Taste ist ausgeblendet</string>

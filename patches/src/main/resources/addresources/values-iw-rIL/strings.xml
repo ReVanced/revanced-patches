@@ -585,6 +585,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_hype_button_title">הסתר כפתור הייפ</string>
   <string name="revanced_hide_hype_button_summary_on">כפתור הייפ מוסתר</string>
   <string name="revanced_hide_hype_button_summary_off">כפתור ההייפ מוצג</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">הסתר קידום</string>
+  <string name="revanced_hide_promote_button_summary_on">כפתור קידום מוסתר</string>
+  <string name="revanced_hide_promote_button_summary_off">כפתור קידום מוצג</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">הסתר תודה</string>
   <string name="revanced_hide_thanks_button_summary_on">לחצן תודה מוסתר</string>
