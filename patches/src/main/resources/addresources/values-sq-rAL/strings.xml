@@ -452,6 +452,11 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Kutia e dialogut do të shfaqet</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Kjo nuk e anashkalon kufizimin e moshës. Thjesht e pranon atë automatikisht.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Çaktivizo dritaren kërcyese Hyr në TV</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Dritarja kërcyese Hyr në TV është çaktivizuar</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Dritarja kërcyese Hyr në TV është aktivizuar</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Çaktivizo anashkalimin e kapitullit me prekje të dyfishtë</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Prekja e dyfishtë nuk mund të shkaktojë kurrë një anashkalim te kapitulli tjetër/i mëparshëm</string>
@@ -563,7 +568,7 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_stop_ads_button_summary_on">Butoni Ndalo reklamat është i fshehur</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Butoni Ndalo reklamat është i shfaqur</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Fsheh \"Raporton\"</string>
   <string name="revanced_hide_report_button_summary_on">Butoni \"Raporton\" është i fshehur</string>
   <string name="revanced_hide_report_button_summary_off">Butoni \"Raporton\" është i dukshëm</string>
@@ -575,12 +580,17 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_download_button_title">Fsheh \"Shkarko\"</string>
   <string name="revanced_hide_download_button_summary_on">Butoni \"Shkarko\" është i fshehur</string>
   <string name="revanced_hide_download_button_summary_off">Butoni \"Shkarko\" është i dukshëm</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Fshih butonin Hype</string>
+  <string name="revanced_hide_hype_button_summary_on">Butoni Hype është i fshehur</string>
+  <string name="revanced_hide_hype_button_summary_off">Butoni Hype është i shfaqur</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Fsheh \"Faleminderit\"</string>
   <string name="revanced_hide_thanks_button_summary_on">Butoni \"Faleminderit\" është i fshehur</string>
   <string name="revanced_hide_thanks_button_summary_off">Butoni \"Faleminderit\" është i dukshëm</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Fshih Pyet</string>
   <string name="revanced_hide_ask_button_summary_on">Butoni Pyet është i fshehur</string>
   <string name="revanced_hide_ask_button_summary_off">Butoni Pyet shfaqet</string>

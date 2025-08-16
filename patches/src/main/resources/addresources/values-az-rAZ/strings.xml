@@ -452,6 +452,11 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoq göstərilir</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Bu, yaş məhdudiyyətini ötürmür. Sadəcə birbaşa qəbul edir.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">TV ani görüntüsü girişin qapat</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">TV ani görüntüyə giriş qapadılıb</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">TV ani görüntüyə giriş işləkdir</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Cüt toxunuşla fəsil ötürməsini qapat</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Cüt toxunma heç vaxt növbəti/əvvəlki fəsilə keçidi zorlaya bilməz</string>
@@ -563,7 +568,7 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_hide_stop_ads_button_summary_on">Reklamları dayandır düyməsi gizlidir</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Reklamları dayandır düyməsi görünür</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">\"Xəbər verin\"i gizlət</string>
   <string name="revanced_hide_report_button_summary_on">Xəbər ver/düyməsi gizlidir</string>
   <string name="revanced_hide_report_button_summary_off">Xəbər ver/düyməsi göstərilir</string>
@@ -575,12 +580,14 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_hide_download_button_title">\"Endirin\"i gizlət</string>
   <string name="revanced_hide_download_button_summary_on">Yükləmə düyməsi gizlidir</string>
   <string name="revanced_hide_download_button_summary_off">Yükləmə düyməsi göstərilir</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">\"Təşəkkürlər\"i gizlət</string>
   <string name="revanced_hide_thanks_button_summary_on">Təşəkkür düyməsi gizlidir</string>
   <string name="revanced_hide_thanks_button_summary_off">Təşəkkür düyməsi göstərilir</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Soruş\'u Gizlət</string>
   <string name="revanced_hide_ask_button_summary_on">Soruş düyməsi gizlidir</string>
   <string name="revanced_hide_ask_button_summary_off">\"Soruş\" düyməsi göstərilir</string>

@@ -452,6 +452,11 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoog kuvatakse</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">See ei mööda vanusepiirangust. See lihtsalt aktsepteerib seda automaatselt.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Keela telerisse sisselogimise hüpikaken</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Telerisse sisselogimise hüpikaken on keelatud</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Telerisse sisselogimise hüpikaken on lubatud</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Keela topeltpuudutusega peatüki vahelejätmine</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Topeltpuudutus ei saa kunagi käivitada järgmise/eelmise peatüki vahelejätmist</string>
@@ -563,7 +568,7 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_hide_stop_ads_button_summary_on">Peata reklaamide nupp on peidetud</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Peata reklaamide nupp on nähtav</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Peida Teata</string>
   <string name="revanced_hide_report_button_summary_on">Teata nupp on peidetud</string>
   <string name="revanced_hide_report_button_summary_off">Teata nupp on nähtav</string>
@@ -575,12 +580,17 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_hide_download_button_title">Peida Laadi alla</string>
   <string name="revanced_hide_download_button_summary_on">Laadi alla nupp on peidetud</string>
   <string name="revanced_hide_download_button_summary_off">Laadi alla nupp on nähtav</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Peida Haip nupp</string>
+  <string name="revanced_hide_hype_button_summary_on">Hype nupp on peidetud</string>
+  <string name="revanced_hide_hype_button_summary_off">Hype\'i nupp on nähtav</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Peida Tänan</string>
   <string name="revanced_hide_thanks_button_summary_on">Tänan nupp on peidetud</string>
   <string name="revanced_hide_thanks_button_summary_off">Tänan nupp on nähtav</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Peida küsi</string>
   <string name="revanced_hide_ask_button_summary_on">Küsi nupp on peidetud</string>
   <string name="revanced_hide_ask_button_summary_off">Küsi nupp on nähtav</string>
