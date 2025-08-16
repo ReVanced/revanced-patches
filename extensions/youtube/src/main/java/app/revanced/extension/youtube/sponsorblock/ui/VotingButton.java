@@ -5,12 +5,12 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
 import app.revanced.extension.youtube.videoplayer.PlayerControlButton;
 
+@SuppressWarnings("unused")
 public class VotingButton {
     @Nullable
     private static PlayerControlButton instance;
@@ -54,6 +54,6 @@ public class VotingButton {
 
     private static boolean shouldBeShown() {
         return Settings.SB_ENABLED.get() && Settings.SB_VOTING_BUTTON.get()
-                && SegmentPlaybackController.videoHasSegments() && !VideoInformation.isAtEndOfVideo();
+                && SegmentPlaybackController.videoHasSegments();
     }
 }

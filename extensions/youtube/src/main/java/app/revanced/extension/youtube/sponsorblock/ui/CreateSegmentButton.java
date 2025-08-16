@@ -5,10 +5,10 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.videoplayer.PlayerControlButton;
 
+@SuppressWarnings("unused")
 public class CreateSegmentButton {
     @Nullable
     private static PlayerControlButton instance;
@@ -51,7 +51,6 @@ public class CreateSegmentButton {
     }
 
     private static boolean shouldBeShown() {
-        return Settings.SB_ENABLED.get() && Settings.SB_CREATE_NEW_SEGMENT.get()
-                && !VideoInformation.isAtEndOfVideo();
+        return Settings.SB_ENABLED.get() && Settings.SB_CREATE_NEW_SEGMENT.get();
     }
 }
