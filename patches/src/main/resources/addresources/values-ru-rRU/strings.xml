@@ -585,6 +585,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_hype_button_title">Скрыть кнопку «Хайп»</string>
   <string name="revanced_hide_hype_button_summary_on">Кнопка Hype скрыта</string>
   <string name="revanced_hide_hype_button_summary_off">Кнопка хайпа показана</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Скрыть кнопку \</string>
+  <string name="revanced_hide_promote_button_summary_on">Кнопка \"Продвигать\" скрыта</string>
+  <string name="revanced_hide_promote_button_summary_off">Кнопка \"Продвигать\" показана</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Скрыть кнопку \"Спасибо\"</string>
   <string name="revanced_hide_thanks_button_summary_on">Кнопка \"Спасибо\" под плеером скрыта</string>

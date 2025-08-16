@@ -585,6 +585,10 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_hide_hype_button_title">Skjul Hype-knap</string>
   <string name="revanced_hide_hype_button_summary_on">Hype-knappen er skjult</string>
   <string name="revanced_hide_hype_button_summary_off">Hype-knappen vises</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Skjul fremhævelse</string>
+  <string name="revanced_hide_promote_button_summary_on">Promoveringsknappen er skjult</string>
+  <string name="revanced_hide_promote_button_summary_off">Promoveringsknappen vises</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Skjul Tak</string>
   <string name="revanced_hide_thanks_button_summary_on">Tak knappen er skjult</string>
