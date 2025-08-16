@@ -583,6 +583,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_hype_button_title">하입 버튼 숨기기</string>
   <string name="revanced_hide_hype_button_summary_on">하이프 버튼이 숨겨집니다</string>
   <string name="revanced_hide_hype_button_summary_off">하이프 버튼이 표시됩니다</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">홍보 버튼 숨기기</string>
+  <string name="revanced_hide_promote_button_summary_on">홍보 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_promote_button_summary_off">홍보 버튼이 표시됩니다</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Thanks 버튼 숨기기</string>
   <string name="revanced_hide_thanks_button_summary_on">Thanks 버튼이 숨겨집니다</string>

@@ -585,6 +585,10 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_hide_hype_button_title">Ascunde butonul Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Butonul de Hype este ascuns</string>
   <string name="revanced_hide_hype_button_summary_off">Butonul Hype este afișat</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Ascundeți Promovare</string>
+  <string name="revanced_hide_promote_button_summary_on">Butonul de promovare este ascuns</string>
+  <string name="revanced_hide_promote_button_summary_off">Butonul de promovare este afișat</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Ascunde mulţumirile</string>
   <string name="revanced_hide_thanks_button_summary_on">Butonul de multumire este ascuns</string>

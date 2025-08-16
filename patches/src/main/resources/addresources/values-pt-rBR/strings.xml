@@ -585,6 +585,10 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_hide_hype_button_title">Ocultar botão Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Botão Hype está oculto</string>
   <string name="revanced_hide_hype_button_summary_off">O botão Hype é exibido</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Ocultar Promoções</string>
+  <string name="revanced_hide_promote_button_summary_on">Botão de promoção está oculto</string>
+  <string name="revanced_hide_promote_button_summary_off">Botão de promoção está visível</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Ocultar Valeu</string>
   <string name="revanced_hide_thanks_button_summary_on">Botão valeu está oculto</string>

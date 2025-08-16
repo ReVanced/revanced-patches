@@ -585,6 +585,10 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_hide_hype_button_title">Sembunyikan tombol Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Tombol Hype disembunyikan</string>
   <string name="revanced_hide_hype_button_summary_off">Tombol Hype ditampilkan</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Sembunyikan Promosi</string>
+  <string name="revanced_hide_promote_button_summary_on">Tombol Promote disembunyikan</string>
+  <string name="revanced_hide_promote_button_summary_off">Tombol Promote ditampilkan</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Sembunyikan Terima kasih</string>
   <string name="revanced_hide_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>

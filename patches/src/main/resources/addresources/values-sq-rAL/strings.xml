@@ -585,6 +585,10 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_hype_button_title">Fshih butonin Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Butoni Hype është i fshehur</string>
   <string name="revanced_hide_hype_button_summary_off">Butoni Hype është i shfaqur</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Fshihe Promovo</string>
+  <string name="revanced_hide_promote_button_summary_on">Butoni i promovimit është fshehur</string>
+  <string name="revanced_hide_promote_button_summary_off">Butoni i promovimit është shfaqur</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Fsheh \"Faleminderit\"</string>
   <string name="revanced_hide_thanks_button_summary_on">Butoni \"Faleminderit\" është i fshehur</string>

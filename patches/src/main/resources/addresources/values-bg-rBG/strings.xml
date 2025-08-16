@@ -585,6 +585,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_hype_button_title">Скриване на бутона за хайп</string>
   <string name="revanced_hide_hype_button_summary_on">Бутонът за хайп е скрит</string>
   <string name="revanced_hide_hype_button_summary_off">Бутонът за хайп е показан</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Скриване на промоция</string>
+  <string name="revanced_hide_promote_button_summary_on">Бутонът за популяризиране е скрит</string>
+  <string name="revanced_hide_promote_button_summary_off">Бутонът за популяризиране е показан</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Бутон за благодарност</string>
   <string name="revanced_hide_thanks_button_summary_on">Бутона за благодарност е скрит</string>

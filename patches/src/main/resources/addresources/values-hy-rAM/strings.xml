@@ -585,6 +585,10 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_hype_button_title">Թաքցնել «Hype» կոճակը</string>
   <string name="revanced_hide_hype_button_summary_on">Հայփ կոճակը թաքնված է</string>
   <string name="revanced_hide_hype_button_summary_off">Հայփ կոճակը ցուցադրվում է</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Թաքցնել Գովազդը</string>
+  <string name="revanced_hide_promote_button_summary_on">Խթանել կոճակը թաքնված է</string>
+  <string name="revanced_hide_promote_button_summary_off">Խթանել կոճակը ցուցադրված է</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Թաքցնել Thanks</string>
   <string name="revanced_hide_thanks_button_summary_on">Thanks կոճակը թաքցված է</string>

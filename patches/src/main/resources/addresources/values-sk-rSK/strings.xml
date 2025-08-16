@@ -583,6 +583,10 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_hide_hype_button_title">Skryť tlačidlo Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Tlačidlo Hype je skryté</string>
   <string name="revanced_hide_hype_button_summary_off">Tlačidlo Hype je zobrazené</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Skryť propagáciu</string>
+  <string name="revanced_hide_promote_button_summary_on">Tlačidlo Propagovať je skryté</string>
+  <string name="revanced_hide_promote_button_summary_off">Tlačidlo Propagovať je zobrazené</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Skryť Ďakujem</string>
   <string name="revanced_hide_thanks_button_summary_on">Tlačidlo poďakovania je skryté</string>

@@ -585,6 +585,10 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_hide_hype_button_title">Itago ang Hype button</string>
   <string name="revanced_hide_hype_button_summary_on">Nakatago ang hype button</string>
   <string name="revanced_hide_hype_button_summary_off">Ipinapakita ang Hype button</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Itago ang I-promote</string>
+  <string name="revanced_hide_promote_button_summary_on">Nakatago ang button na Promote</string>
+  <string name="revanced_hide_promote_button_summary_off">Nakikita ang button na Promote</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Itago Salamat</string>
   <string name="revanced_hide_thanks_button_summary_on">Nakatago ang buton ng salamat</string>

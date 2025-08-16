@@ -585,6 +585,10 @@ Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
   <string name="revanced_hide_hype_button_title">Hype düğmesini gizle</string>
   <string name="revanced_hide_hype_button_summary_on">Coşku düğmesi gizli</string>
   <string name="revanced_hide_hype_button_summary_off">Hype düğmesi görünür</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Tanıt\'ı Gizle</string>
+  <string name="revanced_hide_promote_button_summary_on">Tanıt düğmesi gizli</string>
+  <string name="revanced_hide_promote_button_summary_off">Tanıt düğmesi görünür</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Teşekkürler\'i gizle</string>
   <string name="revanced_hide_thanks_button_summary_on">Teşekkürler düğmesi gizli</string>
