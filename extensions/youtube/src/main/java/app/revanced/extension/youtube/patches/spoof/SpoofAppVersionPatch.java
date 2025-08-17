@@ -9,7 +9,7 @@ public class SpoofAppVersionPatch {
     private static final String SPOOF_APP_VERSION_TARGET = Settings.SPOOF_APP_VERSION_TARGET.get();
 
     /**
-     * Injection point
+     * injection point.
      */
     public static String getYouTubeVersionOverride(String version) {
         if (SPOOF_APP_VERSION_ENABLED) return SPOOF_APP_VERSION_TARGET;
