@@ -15,7 +15,7 @@ import xyz.gianlu.librespot.common.NameThreadFactory;
 import xyz.gianlu.librespot.common.Utils;
 import xyz.gianlu.librespot.core.Session;
 import xyz.gianlu.librespot.core.TokenProvider;
-import xyz.gianlu.librespot.crypto.DiffieHellman
+import xyz.gianlu.librespot.crypto.DiffieHellman;
 
 import javax.crypto.Cipher;
 import javax.crypto.Mac;
