@@ -27,6 +27,8 @@ repositories {
 }
 val internalize by configurations.creating
 
+val internalize by configurations.creating
+
 dependencies {
     internalize("xyz.gianlu.librespot:librespot-player:1.6.6-SNAPSHOT:thin") {
         exclude(group = "xyz.gianlu.librespot", module = "librespot-sink")
