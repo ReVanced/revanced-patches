@@ -18,8 +18,7 @@ internal val forceLocalPlaybackFingerprint = fingerprint {
     custom { method, _ ->
         method.indexOfFirstInstructionOrThrow {
             getReference<MethodReference>()?.name == "setPlaybackToRemote"
-        } >= 0
-
+        } >= 0 &&
         method.parameters.isNotEmpty()
     }
 }
