@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 val forceLocalPlaybackPatch = bytecodePatch(
     name = "Force Local Playback",
-    description = "This patch aims to disable Spotify hijack to the system volume control. If user wants to change the volume of a cast device from outside the app they should NOT apply this.",
+    description = "Restores the use of the device volume control to change the device music volume.  If you want the device controls to change the volume of a cast device then this patch should not be applied.",
 ) {
     compatibleWith("com.spotify.music")
     execute {
