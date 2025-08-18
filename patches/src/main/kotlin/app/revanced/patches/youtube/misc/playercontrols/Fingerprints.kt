@@ -10,6 +10,38 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+internal val playerControlsVisibilityEntityModelFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC)
+    returns("L")
+    parameters()
+    opcodes(
+        Opcode.IGET,
+        Opcode.INVOKE_STATIC
+    )
+    custom { method, _ ->
+        method.name == "getPlayerControlsVisibility"
+    }
+}
+
+internal val youtubeControlsOverlayFingerprint by fingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
+    returns("V")
+    parameters()
+    instructions(
+        methodCall(name = "setFocusableInTouchMode"),
+        resourceLiteral(ResourceType.ID, "inset_overlay_view_layout"),
+        resourceLiteral(ResourceType.ID, "scrim_overlay"),
+    )
+}
+
+internal val motionEventFingerprint by fingerprint {
+    returns("V")
+    parameters("Landroid/view/MotionEvent;")
+    instructions(
+        methodCall(name = "setTranslationY")
+    )
+}
+
 internal val playerControlsExtensionHookListenersExistFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Z")

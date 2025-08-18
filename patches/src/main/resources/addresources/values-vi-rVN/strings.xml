@@ -238,12 +238,12 @@ Nếu cài đặt này được bật và Doodle đang hiển thị tại khu v�
   <string name="revanced_hide_medical_panels_title">Ẩn bảng thông tin y tế</string>
   <string name="revanced_hide_medical_panels_summary_on">Bảng thông tin y tế đã bị ẩn</string>
   <string name="revanced_hide_medical_panels_summary_off">Bảng thông tin y tế được hiển thị</string>
-  <string name="revanced_hide_quick_actions_title">Ẩn tác vụ nhanh</string>
-  <string name="revanced_hide_quick_actions_summary_on">Các tác vụ nhanh ở chế độ toàn màn hình đã bị ẩn</string>
-  <string name="revanced_hide_quick_actions_summary_off">Các tác vụ nhanh ở chế độ toàn màn hình được hiển thị</string>
+  <string name="revanced_hide_quick_actions_title">Ẩn bảng thao tác nhanh</string>
+  <string name="revanced_hide_quick_actions_summary_on">Bảng thao tác nhanh ở chế độ toàn màn hình đã bị ẩn</string>
+  <string name="revanced_hide_quick_actions_summary_off">Bảng thao tác nhanh ở chế độ toàn màn hình được hiển thị</string>
   <string name="revanced_hide_related_videos_title">Ẩn video liên quan</string>
-  <string name="revanced_hide_related_videos_summary_on">Video liên quan trong tác vụ nhanh đã bị ẩn</string>
-  <string name="revanced_hide_related_videos_summary_off">Video liên quan trong tác vụ nhanh được hiển thị</string>
+  <string name="revanced_hide_related_videos_summary_on">Video liên quan trong bảng thao tác nhanh đã bị ẩn</string>
+  <string name="revanced_hide_related_videos_summary_off">Video liên quan trong bảng thao tác nhanh được hiển thị</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">Ẩn nguyên tắc cộng đồng cho người đăng ký</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Nguyên tắc cộng đồng cho người đăng ký đã bị ẩn</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Nguyên tắc cộng đồng dành cho người đăng ký được hiển thị</string>
@@ -551,7 +551,7 @@ Vui lòng kiểm tra lại tên gói và đảm bảo ứng dụng đã được
   <string name="revanced_disable_auto_captions_summary_off">Phụ đề tự động đã bật</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
-  <string name="revanced_hide_buttons_screen_title">Nút tác vụ</string>
+  <string name="revanced_hide_buttons_screen_title">Nút thao tác</string>
   <string name="revanced_hide_buttons_screen_summary">Ẩn hoặc hiển thị các nút bên dưới video</string>
   <string name="revanced_disable_like_subscribe_glow_title">Tắt hiệu ứng phát sáng nút Thích và Đăng ký</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Nút Thích và Đăng ký sẽ không phát sáng khi được tương tác</string>
@@ -582,9 +582,9 @@ Vui lòng kiểm tra lại tên gói và đảm bảo ứng dụng đã được
   <string name="revanced_hide_download_button_summary_off">Nút tải xuống được hiển thị</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Ẩn nút Khuấy động</string>
-  <string name="revanced_hide_hype_button_summary_on">Nút Khuấy động đã bị ẩn</string>
-  <string name="revanced_hide_hype_button_summary_off">Nút Khuấy động được hiển thị</string>
+  <string name="revanced_hide_hype_button_title">Ẩn Khuấy động</string>
+  <string name="revanced_hide_hype_button_summary_on">Nút khuấy động đã bị ẩn</string>
+  <string name="revanced_hide_hype_button_summary_off">Nút khuấy động được hiển thị</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_promote_button_title">Ẩn Quảng bá</string>
   <string name="revanced_hide_promote_button_summary_on">Nút Quảng bá đã bị ẩn</string>

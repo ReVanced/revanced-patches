@@ -582,7 +582,7 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_hide_download_button_summary_off">Atsisiuntimo mygtukas rodomas</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Slėpti „Hype“ mygtuką</string>
+  <string name="revanced_hide_hype_button_title">Slėpti Ažiotažą</string>
   <string name="revanced_hide_hype_button_summary_on">„Hype“ mygtukas paslėptas</string>
   <string name="revanced_hide_hype_button_summary_off">Haipo mygtukas rodomas</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

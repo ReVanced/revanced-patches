@@ -220,8 +220,11 @@ val lithoFilterPatch = bytecodePatch(
             // Procool buffer has changed in 20.22, and UPB native code is now always enabled.
             if (is_20_22_or_greater) {
                 Logger.getLogger(this::class.java.name).severe(
-                    "\n!!!\n!!! Litho filtering does not yet support 20.22+  " +
-                            "Shorts and other components will not be filtered correctly.\n!!!")
+                    "\n!!!" +
+                            "\n!!! Litho filtering is not yet fully supported when patching 20.22+" +
+                            "\n!!! Action buttons, Shorts shelves, and possibly other components cannot be set hidden." +
+                            "\n!!!"
+                )
             }
 
             // 20.22 the flag is still enabled in one location, but what it does is not known.

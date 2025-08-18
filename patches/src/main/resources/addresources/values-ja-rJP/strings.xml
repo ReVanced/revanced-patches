@@ -584,13 +584,13 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_download_button_summary_off">オフライン ボタンは表示されます</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">「盛り上げ」ボタンを非表示</string>
-  <string name="revanced_hide_hype_button_summary_on">Hype ボタンは表示されません</string>
+  <string name="revanced_hide_hype_button_title">ハイプボタンを非表示</string>
+  <string name="revanced_hide_hype_button_summary_on">ハイプボタンは表示されません</string>
   <string name="revanced_hide_hype_button_summary_off">ハイプボタンは表示されます</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_promote_button_title">「プロモーション」を非表示</string>
-  <string name="revanced_hide_promote_button_summary_on">宣伝ボタンは表示されません</string>
-  <string name="revanced_hide_promote_button_summary_off">宣伝ボタンは表示されます</string>
+  <string name="revanced_hide_promote_button_title">プロモート ボタンを非表示</string>
+  <string name="revanced_hide_promote_button_summary_on">プロモート ボタンは表示されません</string>
+  <string name="revanced_hide_promote_button_summary_off">プロモート ボタンは表示されます</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Thanks ボタンを非表示</string>
   <string name="revanced_hide_thanks_button_summary_on">Thanks ボタンは表示されません</string>

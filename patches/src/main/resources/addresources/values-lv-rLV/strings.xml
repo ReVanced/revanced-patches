@@ -582,7 +582,7 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_hide_download_button_summary_off">Lejupielādēt poga ir redzama</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Slēpt Hype pogu</string>
+  <string name="revanced_hide_hype_button_title">Paslēpt ažiotāžu</string>
   <string name="revanced_hide_hype_button_summary_on">Poga \</string>
   <string name="revanced_hide_hype_button_summary_off">Hype poga tiek rādīta</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

@@ -579,7 +579,13 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_download_button_summary_off">Lataa-painike näytetään</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Piilota Hypetä</string>
+  <string name="revanced_hide_hype_button_summary_on">Hypetä-painike on piilotettu</string>
+  <string name="revanced_hide_hype_button_summary_off">Hypetä-painike näytetään</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Piilota Mainosta</string>
+  <string name="revanced_hide_promote_button_summary_on">Mainosta-painike on piilotettu</string>
+  <string name="revanced_hide_promote_button_summary_off">Mainosta-painike näytetään</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Piilota Kiitos</string>
   <string name="revanced_hide_thanks_button_summary_on">Kiitos-painike on piilotettu</string>

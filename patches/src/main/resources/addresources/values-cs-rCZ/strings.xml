@@ -582,7 +582,7 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_hide_download_button_summary_off">Tlačítko Stáhnout je zobrazeno</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Skrýt tlačítko Hype</string>
+  <string name="revanced_hide_hype_button_title">Skrýt Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Tlačítko Hype je skryto</string>
   <string name="revanced_hide_hype_button_summary_off">Tlačítko Hype je zobrazeno</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

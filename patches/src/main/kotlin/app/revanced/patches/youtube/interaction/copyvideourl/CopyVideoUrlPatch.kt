@@ -15,7 +15,7 @@ import app.revanced.util.copyResources
 private val copyVideoUrlResourcePatch = resourcePatch {
     dependsOn(
         settingsPatch,
-        playerControlsResourcePatch,
+        playerControlsPatch,
         addResourcesPatch,
     )
 

@@ -582,7 +582,7 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_hide_download_button_summary_off">Downloaden knop wordt weergegeven</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Verberg Hype-knop</string>
+  <string name="revanced_hide_hype_button_title">Verberg Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Hype-knop is verborgen</string>
   <string name="revanced_hide_hype_button_summary_off">Hype-knop is zichtbaar</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

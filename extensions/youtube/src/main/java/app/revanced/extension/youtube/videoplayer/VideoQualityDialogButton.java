@@ -118,6 +118,13 @@ public class VideoQualityDialogButton {
     }
 
     /**
+     * injection point.
+     */
+    public static void setVisibilityNegatedImmediate() {
+        if (instance != null) instance.setVisibilityNegatedImmediate();
+    }
+
+    /**
      * Injection point.
      */
     public static void setVisibilityImmediate(boolean visible) {

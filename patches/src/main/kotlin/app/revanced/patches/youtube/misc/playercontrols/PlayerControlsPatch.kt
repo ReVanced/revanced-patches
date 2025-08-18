@@ -46,7 +46,7 @@ internal lateinit var addTopControl: (String) -> Unit
 lateinit var addBottomControl: (String) -> Unit
     private set
 
-val playerControlsResourcePatch = resourcePatch {
+internal val playerControlsResourcePatch = resourcePatch {
     /**
      * The element to the left of the element being added.
      */
@@ -174,19 +174,26 @@ fun initializeBottomControl(descriptor: String) {
  * @param descriptor The descriptor of the method which should be called.
  */
 fun injectVisibilityCheckCall(descriptor: String) {
-    visibilityMethod.addInstruction(
-        visibilityInsertIndex++,
-        "invoke-static { p1 , p2 }, $descriptor->setVisibility(ZZ)V",
-    )
-
     if (!visibilityImmediateCallbacksExistModified) {
         visibilityImmediateCallbacksExistModified = true
         visibilityImmediateCallbacksExistMethod.returnEarly(true)
     }
 
+    visibilityMethod.addInstruction(
+        visibilityInsertIndex++,
+        "invoke-static { p1 , p2 }, $descriptor->setVisibility(ZZ)V",
+    )
+
     visibilityImmediateMethod.addInstruction(
         visibilityImmediateInsertIndex++,
         "invoke-static { p0 }, $descriptor->setVisibilityImmediate(Z)V",
+    )
+
+    // Patch works without this hook, but it is needed to use the correct fade out animation
+    // duration when tapping the overlay to dismiss.
+    visibilityNegatedImmediateMethod.addInstruction(
+        visibilityNegatedImmediateInsertIndex++,
+        "invoke-static { }, $descriptor->setVisibilityNegatedImmediate()V",
     )
 }
 
@@ -194,21 +201,24 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/PlayerControlsPatch;"
 
 private lateinit var inflateTopControlMethod: MutableMethod
-private var inflateTopControlInsertIndex: Int = -1
-private var inflateTopControlRegister: Int = -1
+private var inflateTopControlInsertIndex = -1
+private var inflateTopControlRegister = -1
 
 private lateinit var inflateBottomControlMethod: MutableMethod
-private var inflateBottomControlInsertIndex: Int = -1
-private var inflateBottomControlRegister: Int = -1
+private var inflateBottomControlInsertIndex = -1
+private var inflateBottomControlRegister = -1
+
+private lateinit var visibilityImmediateCallbacksExistMethod : MutableMethod
+private var visibilityImmediateCallbacksExistModified = false
 
 private lateinit var visibilityMethod: MutableMethod
-private var visibilityInsertIndex: Int = 0
-
-private var visibilityImmediateCallbacksExistModified = false
-private lateinit var visibilityImmediateCallbacksExistMethod : MutableMethod
+private var visibilityInsertIndex = 0
 
 private lateinit var visibilityImmediateMethod: MutableMethod
-private var visibilityImmediateInsertIndex: Int = 0
+private var visibilityImmediateInsertIndex = 0
+
+private lateinit var visibilityNegatedImmediateMethod: MutableMethod
+private var visibilityNegatedImmediateInsertIndex = 0
 
 val playerControlsPatch = bytecodePatch(
     description = "Manages the code for the player controls of the YouTube player.",
@@ -262,6 +272,11 @@ val playerControlsPatch = bytecodePatch(
 
         visibilityImmediateCallbacksExistMethod = playerControlsExtensionHookListenersExistFingerprint.method
         visibilityImmediateMethod = playerControlsExtensionHookFingerprint.method
+
+        motionEventFingerprint.match(youtubeControlsOverlayFingerprint.originalClassDef).let {
+            visibilityNegatedImmediateMethod = it.method
+            visibilityNegatedImmediateInsertIndex = it.instructionMatches.first().index + 1
+        }
 
         // A/B test for a slightly different bottom overlay controls,
         // that uses layout file youtube_video_exploder_controls_bottom_ui_container.xml

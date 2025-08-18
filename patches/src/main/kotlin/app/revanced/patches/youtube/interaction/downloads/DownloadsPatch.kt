@@ -14,7 +14,6 @@ import app.revanced.patches.youtube.misc.playercontrols.addBottomControl
 import app.revanced.patches.youtube.misc.playercontrols.initializeBottomControl
 import app.revanced.patches.youtube.misc.playercontrols.injectVisibilityCheckCall
 import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
-import app.revanced.patches.youtube.misc.playercontrols.playerControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
@@ -24,7 +23,7 @@ import app.revanced.util.copyResources
 
 private val downloadsResourcePatch = resourcePatch {
     dependsOn(
-        playerControlsResourcePatch,
+        playerControlsPatch,
         settingsPatch,
         addResourcesPatch,
     )

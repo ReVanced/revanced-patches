@@ -580,7 +580,7 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_hide_download_button_summary_off">Zobrazí sa tlačidlo Stiahnuť</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Skryť tlačidlo Hype</string>
+  <string name="revanced_hide_hype_button_title">Skryť Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Tlačidlo Hype je skryté</string>
   <string name="revanced_hide_hype_button_summary_off">Tlačidlo Hype je zobrazené</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

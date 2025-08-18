@@ -582,7 +582,7 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <string name="revanced_hide_download_button_summary_off">A letöltés gomb látható</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Hype gomb elrejtése</string>
+  <string name="revanced_hide_hype_button_title">Aktivitás elrejtése</string>
   <string name="revanced_hide_hype_button_summary_on">A Hype gomb rejtett</string>
   <string name="revanced_hide_hype_button_summary_off">A hype gomb látható</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
