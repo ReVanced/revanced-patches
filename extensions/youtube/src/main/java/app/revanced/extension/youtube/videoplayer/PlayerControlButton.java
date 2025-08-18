@@ -11,6 +11,7 @@ import java.lang.ref.WeakReference;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.youtube.shared.PlayerControlsVisibility;
 import app.revanced.extension.youtube.shared.PlayerType;
 import kotlin.Unit;
 
@@ -40,8 +41,6 @@ public class PlayerControlButton {
         fadeOutAnimation = Utils.getResourceAnimation("fade_out");
         fadeOutAnimation.setDuration(fadeOutDuration);
 
-        // Animation for the fast fade out after tapping the overlay.
-        // Currently not used but should be.
         fadeOutImmediate = Utils.getResourceAnimation("abc_fade_out");
         fadeOutImmediate.setDuration(Utils.getResourceInteger("fade_duration_fast"));
     }
@@ -112,6 +111,33 @@ public class PlayerControlButton {
             playerTypeChanged(type);
             return Unit.INSTANCE;
         });
+    }
+
+    public void setVisibilityNegatedImmediate() {
+        if (PlayerControlsVisibility.getCurrent() != PlayerControlsVisibility.PLAYER_CONTROLS_VISIBILITY_HIDDEN) {
+            return;
+        }
+
+        final boolean buttonEnabled = enabledStatus.buttonEnabled();
+        if (!buttonEnabled) {
+            return;
+        }
+
+        View container = containerRef.get();
+        if (container == null) {
+            return;
+        }
+
+        isVisible = false;
+
+        container.clearAnimation();
+        container.startAnimation(fadeOutImmediate);
+        container.setVisibility(View.GONE);
+
+        View placeholder = placeHolderRef.get();
+        if (placeholder != null) {
+            container.setVisibility(View.VISIBLE);
+        }
     }
 
     public void setVisibilityImmediate(boolean visible) {

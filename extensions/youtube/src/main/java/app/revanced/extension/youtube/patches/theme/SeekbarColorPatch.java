@@ -126,7 +126,7 @@ public final class SeekbarColorPatch {
     }
 
     /**
-     * Injection point
+     * injection point.
      */
     public static boolean useLotteLaunchSplashScreen(boolean original) {
         // This method is only used for development purposes to force the old style launch screen.
