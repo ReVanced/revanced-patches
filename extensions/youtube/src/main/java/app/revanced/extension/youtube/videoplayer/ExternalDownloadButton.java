@@ -22,7 +22,6 @@ public class ExternalDownloadButton {
             instance = new PlayerControlButton(
                     controlsView,
                     "revanced_external_download_button",
-                    "revanced_external_download_button_placeholder",
                     null,
                     Settings.EXTERNAL_DOWNLOADER::get,
                     ExternalDownloadButton::onDownloadClick,

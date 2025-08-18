@@ -33,11 +33,5 @@
             android:paddingTop="5.5dp"
             android:textColor="@android:color/white"
             android:textSize="10dp" />
-
-        <View
-            android:id="@+id/revanced_video_quality_dialog_button_placeholder"
-            android:layout_width="48.0dip"
-            android:layout_height="60.0dip"
-            android:visibility="gone" />
     </FrameLayout>
 </android.support.constraint.ConstraintLayout>

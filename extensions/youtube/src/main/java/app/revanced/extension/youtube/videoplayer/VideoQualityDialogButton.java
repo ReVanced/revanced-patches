@@ -69,7 +69,6 @@ public class VideoQualityDialogButton {
                     controlsView,
                     "revanced_video_quality_dialog_button_container",
                     "revanced_video_quality_dialog_button",
-                    "revanced_video_quality_dialog_button_placeholder",
                     "revanced_video_quality_dialog_button_text",
                     Settings.VIDEO_QUALITY_DIALOG_BUTTON::get,
                     view -> {
