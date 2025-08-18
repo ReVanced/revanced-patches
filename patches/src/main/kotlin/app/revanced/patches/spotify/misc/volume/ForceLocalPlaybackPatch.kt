@@ -23,8 +23,7 @@ val forceLocalPlaybackPatch = bytecodePatch(
                         getReference<MethodReference>()?.name == "setPlaybackToRemote"
             }
 
-            val remoteCall = getInstruction<FiveRegisterInstruction>(remoteCallIndex)
-            val sessionRegister = remoteCall.registerC
+            val sessionRegister = getInstruction<FiveRegisterInstruction>(remoteCallIndex).registerC
             val builderRegister = findFreeRegister(remoteCallIndex, sessionRegister)
             val streamTypeRegister = findFreeRegister(remoteCallIndex, sessionRegister, builderRegister)
 
