@@ -1,3 +1,10 @@
+# [5.34.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.12...v5.34.0-dev.13) (2025-08-18)
+
+
+### Bug Fixes
+
+* **YouTube - Player Controls:** Fix chapter title overlapping the bottom buttons ([#5673](https://github.com/ReVanced/revanced-patches/issues/5673)) ([09ccee7](https://github.com/ReVanced/revanced-patches/commit/09ccee71384df338bbf8acc1097f619a372c4868))
+
 # [5.34.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.11...v5.34.0-dev.12) (2025-08-18)
 
 
