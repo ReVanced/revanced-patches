@@ -32,7 +32,7 @@ public class PlayerControlButton {
     private final WeakReference<TextView> textOverlayRef;
     private final PlayerControlButtonStatus enabledStatus;
     private boolean isVisible;
-    private long lastTimeSetVisibile;
+    private long lastTimeSetVisible;
 
     public PlayerControlButton(View controlsViewGroup,
                                String buttonId,
@@ -104,7 +104,7 @@ public class PlayerControlButton {
             // before the fade in animation finishes, then the fade out animation is
             // the time between when the fade in started and now.
             final long animationDuration = Math.min(fadeInDuration,
-                    System.currentTimeMillis() - lastTimeSetVisibile);
+                    System.currentTimeMillis() - lastTimeSetVisible);
 
             ViewPropertyAnimator animate = container.animate();
             animate.cancel();
@@ -115,7 +115,7 @@ public class PlayerControlButton {
                 return;
             }
 
-            animate.alpha(0f)
+            animate.alpha(0)
                     // When overlay is dismissed by tapping,
                     // the duration is the same as when animated to show.
                     .setDuration(animationDuration)
@@ -149,33 +149,40 @@ public class PlayerControlButton {
             isVisible = visible;
 
             if (visible) {
-                lastTimeSetVisibile = System.currentTimeMillis();
+                lastTimeSetVisible = System.currentTimeMillis();
             }
 
             View container = containerRef.get();
             if (container == null) return;
 
-            final boolean buttonEnabled = enabledStatus.buttonEnabled();
-
-            if (visible && buttonEnabled) {
+            if (visible && enabledStatus.buttonEnabled()) {
+                ViewPropertyAnimator animate = container.animate();
+                animate.cancel();
                 container.setVisibility(View.VISIBLE);
-                container.setAlpha(animated ? 0f : 1f);
-                container.animate()
-                        .alpha(1f)
-                        .setDuration(animated ? fadeInDuration : 0)
-                        .start();
-            } else {
-                if (container.getVisibility() == View.VISIBLE) {
-                    ViewPropertyAnimator animate = container.animate();
-                    animate.cancel();
-                    animate.alpha(0f)
-                            .setDuration(animated ? fadeOutDuration : 0)
+
+                if (animated) {
+                    container.setAlpha(0);
+                    animate.alpha(1)
+                            .setDuration(fadeInDuration)
+                            .start();
+                } else {
+                    container.setAlpha(1);
+                }
+            } else if (container.getVisibility() == View.VISIBLE) {
+                ViewPropertyAnimator animate = container.animate();
+                animate.cancel();
+
+                if (animated) {
+                    animate.alpha(0)
+                            .setDuration(fadeOutDuration)
                             .withEndAction(() -> container.setVisibility(View.GONE))
                             .start();
+                } else {
+                    container.setVisibility(View.GONE);
                 }
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "private_setVisibility failure", ex);
+            Logger.printException(() -> "privateSetVisibility failure", ex);
         }
     }
 
@@ -194,7 +201,7 @@ public class PlayerControlButton {
 
         if (enabledStatus.buttonEnabled() && isVisible) {
             container.setVisibility(View.VISIBLE);
-            container.setAlpha(1f);
+            container.setAlpha(1);
         } else {
             container.setVisibility(View.GONE);
         }
