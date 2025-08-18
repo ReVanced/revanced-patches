@@ -84,6 +84,7 @@ public class PlayerControlButton {
 
     public void setVisibilityNegatedImmediate() {
         try {
+            Utils.verifyOnMainThread();
             if (PlayerControlsVisibility.getCurrent() != PlayerControlsVisibility.PLAYER_CONTROLS_VISIBILITY_HIDDEN) {
                 return;
             }
@@ -100,15 +101,14 @@ public class PlayerControlButton {
 
             isVisible = false;
 
+            ViewPropertyAnimator animate = container.animate();
+            animate.cancel();
+
             // If the overlay is tapped to display then immediately tapped to dismiss
             // before the fade in animation finishes, then the fade out animation is
             // the time between when the fade in started and now.
             final long animationDuration = Math.min(fadeInDuration,
                     System.currentTimeMillis() - lastTimeSetVisible);
-
-            ViewPropertyAnimator animate = container.animate();
-            animate.cancel();
-
             if (animationDuration <= 0) {
                 // Should never happen, but handle just in case.
                 container.setVisibility(View.GONE);
@@ -116,8 +116,6 @@ public class PlayerControlButton {
             }
 
             animate.alpha(0)
-                    // When overlay is dismissed by tapping,
-                    // the duration is the same as when animated to show.
                     .setDuration(animationDuration)
                     .withEndAction(() -> container.setVisibility(View.GONE))
                     .start();
@@ -145,6 +143,8 @@ public class PlayerControlButton {
 
     private void privateSetVisibility(boolean visible, boolean animated) {
         try {
+            Utils.verifyOnMainThread();
+
             if (isVisible == visible) return;
             isVisible = visible;
 
@@ -153,7 +153,9 @@ public class PlayerControlButton {
             }
 
             View container = containerRef.get();
-            if (container == null) return;
+            if (container == null) {
+                return;
+            }
 
             if (visible && enabledStatus.buttonEnabled()) {
                 ViewPropertyAnimator animate = container.animate();
@@ -190,16 +192,19 @@ public class PlayerControlButton {
      * Synchronizes the button state after the player state changes.
      */
     private void playerTypeChanged(PlayerType newType) {
+        Utils.verifyOnMainThread();
         if (newType != PlayerType.WATCH_WHILE_MINIMIZED && !newType.isMaximizedOrFullscreen()) {
             return;
         }
 
         View container = containerRef.get();
-        if (container == null) return;
+        if (container == null) {
+            return;
+        }
 
         container.animate().cancel();
 
-        if (enabledStatus.buttonEnabled() && isVisible) {
+        if (isVisible && enabledStatus.buttonEnabled()) {
             container.setVisibility(View.VISIBLE);
             container.setAlpha(1);
         } else {
@@ -209,12 +214,14 @@ public class PlayerControlButton {
 
     public void hide() {
         Utils.verifyOnMainThread();
-        if (!isVisible) return;
+        if (!isVisible) {
+            return;
+        }
+        isVisible = false;
 
         View view = containerRef.get();
         if (view == null) return;
         view.setVisibility(View.GONE);
-        isVisible = false;
     }
 
     /**
@@ -222,6 +229,8 @@ public class PlayerControlButton {
      * @param resourceId Drawable identifier, or zero to hide the icon.
      */
     public void setIcon(int resourceId) {
+        Utils.verifyOnMainThread();
+
         View button = buttonRef.get();
         if (button instanceof ImageView imageButton) {
             imageButton.setImageResource(resourceId);
@@ -233,6 +242,8 @@ public class PlayerControlButton {
      * @param text The text to set on the overlay, or null to clear the text.
      */
     public void setTextOverlay(CharSequence text) {
+        Utils.verifyOnMainThread();
+
         TextView textOverlay = textOverlayRef.get();
         if (textOverlay != null) {
             textOverlay.setText(text);
