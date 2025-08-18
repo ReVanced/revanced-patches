@@ -582,7 +582,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_summary_off">下载按钮已显示</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">隐藏超级留言按钮</string>
+  <string name="revanced_hide_hype_button_title">隐藏热度</string>
   <string name="revanced_hide_hype_button_summary_on">浮夸按钮已隐藏</string>
   <string name="revanced_hide_hype_button_summary_off">热度按钮已显示</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

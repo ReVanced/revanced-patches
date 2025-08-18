@@ -578,7 +578,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_download_button_summary_off">ডাউনলোড বোতাম দেখানো হয়েছে</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">হাইপ বোতাম লুকান</string>
+  <string name="revanced_hide_hype_button_title">হাইপ লুকান</string>
   <string name="revanced_hide_hype_button_summary_on">হাইপ বোতাম লুকানো আছে</string>
   <string name="revanced_hide_hype_button_summary_off">হাইপ বাটন দেখানো হয়েছে</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
