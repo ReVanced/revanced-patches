@@ -105,7 +105,7 @@ public class PlayerControlButton {
                 // which uses android.R.integer.config_mediumAnimTime
                 // But using the same duration here breaks the fade out and
                 // the buttons flicker when the overlay is tapped to dismiss.
-                .setDuration(fadeOutDuration)
+                .setDuration(fadeInDuration)
                 .withEndAction(() -> container.setVisibility(View.GONE))
                 .start();
     }
