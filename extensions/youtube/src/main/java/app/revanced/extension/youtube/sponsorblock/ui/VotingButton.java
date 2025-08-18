@@ -20,7 +20,7 @@ public class VotingButton {
     }
 
     /**
-     * injection point
+     * injection point.
      */
     public static void initialize(View controlsView) {
         try {
@@ -39,14 +39,21 @@ public class VotingButton {
     }
 
     /**
-     * Injection point
+     * injection point.
+     */
+    public static void setVisibilityNegatedImmediate() {
+        if (instance != null) instance.setVisibilityNegatedImmediate();
+    }
+
+    /**
+     * injection point.
      */
     public static void setVisibilityImmediate(boolean visible) {
         if (instance != null) instance.setVisibilityImmediate(visible);
     }
 
     /**
-     * Injection point
+     * injection point.
      */
     public static void setVisibility(boolean visible, boolean animated) {
         if (instance != null) instance.setVisibility(visible, animated);
