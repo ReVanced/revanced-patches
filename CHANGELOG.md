@@ -1,3 +1,10 @@
+# [5.34.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.11...v5.34.0-dev.12) (2025-08-18)
+
+
+### Bug Fixes
+
+* **YouTube:** Use correct fade out animation when tapping to dismiss the video overlay ([#5670](https://github.com/ReVanced/revanced-patches/issues/5670)) ([cce6737](https://github.com/ReVanced/revanced-patches/commit/cce6737f627fc7621bbde50a5653b6af14c6f31a))
+
 # [5.34.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.10...v5.34.0-dev.11) (2025-08-16)
 
 
