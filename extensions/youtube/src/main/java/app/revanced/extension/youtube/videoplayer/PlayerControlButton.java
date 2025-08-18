@@ -26,12 +26,10 @@ public class PlayerControlButton {
 
     private static final int fadeInDuration;
     private static final int fadeOutDuration;
-    private static final int fadeOutImmediateDuration;
 
     static {
         fadeInDuration = Utils.getResourceInteger("fade_duration_fast");
         fadeOutDuration = Utils.getResourceInteger("fade_duration_scheduled");
-        fadeOutImmediateDuration = Utils.getResourceInteger("fade_duration_fast");
     }
 
     private final WeakReference<View> containerRef;
@@ -108,7 +106,7 @@ public class PlayerControlButton {
         container.animate().cancel();
         container.animate()
                 .alpha(0f)
-                .setDuration(fadeOutImmediateDuration)
+                .setDuration(fadeInDuration)
                 .withEndAction(() -> container.setVisibility(View.GONE))
                 .start();
     }
@@ -175,17 +173,11 @@ public class PlayerControlButton {
 
         container.animate().cancel();
 
-        if (enabledStatus.buttonEnabled()) {
-            if (isVisible) {
-                container.setVisibility(View.VISIBLE);
-                container.setAlpha(1f);
-            } else {
-                container.setVisibility(View.GONE);
-                container.setAlpha(0f);
-            }
+        if (enabledStatus.buttonEnabled() && isVisible) {
+            container.setVisibility(View.VISIBLE);
+            container.setAlpha(1f);
         } else {
             container.setVisibility(View.GONE);
-            container.setAlpha(0f);
         }
     }
 
@@ -196,8 +188,6 @@ public class PlayerControlButton {
         View view = containerRef.get();
         if (view == null) return;
         view.setVisibility(View.GONE);
-        view.setAlpha(0f);
-
         isVisible = false;
     }
 
