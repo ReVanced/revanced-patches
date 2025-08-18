@@ -32,6 +32,7 @@ public class PlayerControlButton {
     private final WeakReference<TextView> textOverlayRef;
     private final PlayerControlButtonStatus enabledStatus;
     private boolean isVisible;
+    private long lastTimeSetVisibile;
 
     public PlayerControlButton(View controlsViewGroup,
                                String buttonId,
@@ -82,41 +83,56 @@ public class PlayerControlButton {
     }
 
     public void setVisibilityNegatedImmediate() {
-        if (PlayerControlsVisibility.getCurrent() != PlayerControlsVisibility.PLAYER_CONTROLS_VISIBILITY_HIDDEN) {
-            return;
+        try {
+            if (PlayerControlsVisibility.getCurrent() != PlayerControlsVisibility.PLAYER_CONTROLS_VISIBILITY_HIDDEN) {
+                return;
+            }
+
+            final boolean buttonEnabled = enabledStatus.buttonEnabled();
+            if (!buttonEnabled) {
+                return;
+            }
+
+            View container = containerRef.get();
+            if (container == null) {
+                return;
+            }
+
+            isVisible = false;
+
+            // If the overlay is tapped to display then immediately tapped to dismiss
+            // before the fade in animation finishes, then the fade out animation is
+            // the time between when the fade in started and now.
+            final long animationDuration = Math.min(fadeInDuration,
+                    System.currentTimeMillis() - lastTimeSetVisibile);
+
+            ViewPropertyAnimator animate = container.animate();
+            animate.cancel();
+
+            if (animationDuration <= 0) {
+                // Should never happen, but handle just in case.
+                container.setVisibility(View.GONE);
+                return;
+            }
+
+            animate.alpha(0f)
+                    // When overlay is dismissed by tapping,
+                    // the duration is the same as when animated to show.
+                    .setDuration(animationDuration)
+                    .withEndAction(() -> container.setVisibility(View.GONE))
+                    .start();
+        } catch (Exception ex) {
+            Logger.printException(() -> "setVisibilityNegatedImmediate failure", ex);
         }
-
-        final boolean buttonEnabled = enabledStatus.buttonEnabled();
-        if (!buttonEnabled) {
-            return;
-        }
-
-        View container = containerRef.get();
-        if (container == null) {
-            return;
-        }
-
-        isVisible = false;
-
-        ViewPropertyAnimator animate = container.animate();
-        animate.cancel();
-        animate.alpha(0f)
-                // YouTube fades out using abc_fade_out.xml,
-                // which uses android.R.integer.config_mediumAnimTime
-                // But using the same duration here breaks the fade out and
-                // the buttons flicker when the overlay is tapped to dismiss.
-                .setDuration(fadeInDuration)
-                .withEndAction(() -> container.setVisibility(View.GONE))
-                .start();
     }
 
     public void setVisibilityImmediate(boolean visible) {
         if (visible) {
             // Fix button flickering, by pushing this call to the back of
             // the main thread and letting other layout code run first.
-            Utils.runOnMainThread(() -> private_setVisibility(true, false));
+            Utils.runOnMainThread(() -> privateSetVisibility(true, false));
         } else {
-            private_setVisibility(false, false);
+            privateSetVisibility(false, false);
         }
     }
 
@@ -124,13 +140,17 @@ public class PlayerControlButton {
         // Ignore this call, otherwise with full screen thumbnails the buttons are visible while seeking.
         if (visible && !animated) return;
 
-        private_setVisibility(visible, animated);
+        privateSetVisibility(visible, animated);
     }
 
-    private void private_setVisibility(boolean visible, boolean animated) {
+    private void privateSetVisibility(boolean visible, boolean animated) {
         try {
             if (isVisible == visible) return;
             isVisible = visible;
+
+            if (visible) {
+                lastTimeSetVisibile = System.currentTimeMillis();
+            }
 
             View container = containerRef.get();
             if (container == null) return;
