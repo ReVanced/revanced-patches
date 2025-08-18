@@ -20,9 +20,9 @@ val forceLocalPlaybackPatch = bytecodePatch(
     compatibleWith("com.spotify.music")
     execute {
         with(forceLocalPlaybackFingerprint.method) {
-            val remoteCallIndex = instructions.indexOfFirst {
-                it.opcode == Opcode.INVOKE_VIRTUAL &&
-                        it.getReference<MethodReference>()?.name == "setPlaybackToRemote"
+            val remoteCallIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        getReference<MethodReference>()?.name == "setPlaybackToRemote"
             }
 
             val builderRegister = findFreeRegister(remoteCallIndex)
