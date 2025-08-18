@@ -19,33 +19,29 @@ val forceLocalPlaybackPatch = bytecodePatch(
 ) {
     compatibleWith("com.spotify.music")
     execute {
-        with(forceLocalPlaybackFingerprint.method) {
+        forceLocalPlaybackFingerprint.method.apply {
             val remoteCallIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_VIRTUAL &&
                         getReference<MethodReference>()?.name == "setPlaybackToRemote"
             }
 
             val builderRegister = findFreeRegister(remoteCallIndex)
-            val streamTypeRegister = findFreeRegister(remoteCallIndex, builderRegister)
-
-
             val remoteCall = getInstruction<FiveRegisterInstruction>(remoteCallIndex)
             val sessionRegister = remoteCall.registerC
+            val streamTypeRegister = findFreeRegister(remoteCallIndex, sessionRegister, builderRegister)
 
             removeInstruction(remoteCallIndex)
 
-            val smaliCode = """
+            addInstructions(remoteCallIndex, """
                 new-instance v$builderRegister, Landroid/media/AudioAttributes${'$'}Builder;
-                invoke-direct {v$builderRegister}, Landroid/media/AudioAttributes${'$'}Builder;-><init>()V
+                invoke-direct { v$builderRegister }, Landroid/media/AudioAttributes${'$'}Builder;-><init>()V
                 const/4 v$streamTypeRegister, 0x3
-                invoke-virtual {v$builderRegister, v$streamTypeRegister}, Landroid/media/AudioAttributes${'$'}Builder;->setLegacyStreamType(I)Landroid/media/AudioAttributes${'$'}Builder;
+                invoke-virtual { v$builderRegister, v$streamTypeRegister }, Landroid/media/AudioAttributes${'$'}Builder;->setLegacyStreamType(I)Landroid/media/AudioAttributes${'$'}Builder;
                 move-result-object v$builderRegister
-                invoke-virtual {v$builderRegister}, Landroid/media/AudioAttributes${'$'}Builder;->build()Landroid/media/AudioAttributes;
+                invoke-virtual { v$builderRegister }, Landroid/media/AudioAttributes${'$'}Builder;->build()Landroid/media/AudioAttributes;
                 move-result-object v$builderRegister
-                invoke-virtual {p$sessionRegister, v$builderRegister}, Landroid/media/session/MediaSession;->setPlaybackToLocal(Landroid/media/AudioAttributes;)V
-            """
-
-            addInstructions(remoteCallIndex, smaliCode)
+                invoke-virtual { p$sessionRegister, v$builderRegister }, Landroid/media/session/MediaSession;->setPlaybackToLocal(Landroid/media/AudioAttributes;)V
+            """)
 
         }
     }
