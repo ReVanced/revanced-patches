@@ -582,7 +582,7 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_hide_download_button_summary_off">O botão transferir está visível</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Ocultar botão Hype</string>
+  <string name="revanced_hide_hype_button_title">Ocultar Hype</string>
   <string name="revanced_hide_hype_button_summary_on">O botão Hype está oculto</string>
   <string name="revanced_hide_hype_button_summary_off">O botão Hype está exibido</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

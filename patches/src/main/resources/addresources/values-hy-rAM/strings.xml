@@ -582,7 +582,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_download_button_summary_off">Download կոճակը ցուցադրվում է</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Թաքցնել «Hype» կոճակը</string>
+  <string name="revanced_hide_hype_button_title">Թաքցնել Հայփը</string>
   <string name="revanced_hide_hype_button_summary_on">Հայփ կոճակը թաքնված է</string>
   <string name="revanced_hide_hype_button_summary_off">Հայփ կոճակը ցուցադրվում է</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

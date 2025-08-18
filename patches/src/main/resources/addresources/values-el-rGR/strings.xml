@@ -584,9 +584,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_summary_off">Εμφανίζεται</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Κουμπί «Χάιπ»</string>
+  <string name="revanced_hide_hype_button_title">Κουμπί «Hype»</string>
   <string name="revanced_hide_hype_button_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_hype_button_summary_off">Το κουμπί Hype εμφανίζεται</string>
+  <string name="revanced_hide_hype_button_summary_off">Εμφανίζεται</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_promote_button_title">Κουμπί «Προώθηση»</string>
   <string name="revanced_hide_promote_button_summary_on">Κρυμμένο</string>

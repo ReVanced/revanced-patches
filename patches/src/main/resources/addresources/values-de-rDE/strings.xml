@@ -150,9 +150,9 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_chips_shelf_title">Chips ausblenden</string>
   <string name="revanced_hide_chips_shelf_summary_on">Chips sind ausgeblendet</string>
   <string name="revanced_hide_chips_shelf_summary_off">Chips werden angezeigt</string>
-  <string name="revanced_hide_community_posts_title">Community-Beiträge ausblenden</string>
-  <string name="revanced_hide_community_posts_summary_on">Community-Beiträge sind ausgeblendet</string>
-  <string name="revanced_hide_community_posts_summary_off">Gemeinschaftsbeiträge werden angezeigt</string>
+  <string name="revanced_hide_community_posts_title">Communitybeiträge ausblenden</string>
+  <string name="revanced_hide_community_posts_summary_on">Communitybeiträge sind ausgeblendet</string>
+  <string name="revanced_hide_community_posts_summary_off">Communitybeiträge werden angezeigt</string>
   <string name="revanced_hide_compact_banner_title">Kompakte Banner ausblenden</string>
   <string name="revanced_hide_compact_banner_summary_on">Kompakte Banner sind ausgeblendet</string>
   <string name="revanced_hide_compact_banner_summary_off">Kompakte Banner werden angezeigt</string>
@@ -218,7 +218,7 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <string name="revanced_hide_channel_bar_title">Senderleiste ausblenden</string>
   <string name="revanced_hide_channel_bar_summary_on">Kanalleiste ist ausgeblendet</string>
   <string name="revanced_hide_channel_bar_summary_off">Kanalleiste wird angezeigt</string>
-  <string name="revanced_hide_channel_watermark_title">Wasserzeichen ausblenden</string>
+  <string name="revanced_hide_channel_watermark_title">Kanal-Wasserzeichen ausblenden</string>
   <string name="revanced_hide_channel_watermark_summary_on">Wasserzeichen ist ausgeblendet</string>
   <string name="revanced_hide_channel_watermark_summary_off">Wasserzeichen wird angezeigt</string>
   <string name="revanced_hide_emergency_box_title">Notfall-Boxen ausblenden</string>
@@ -303,9 +303,9 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <string name="revanced_hide_members_shelf_summary_on">Mitglieder-Regal ist ausgeblendet</string>
   <string name="revanced_hide_members_shelf_summary_off">Mitglieder-Regal wird angezeigt</string>
   <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">Schaltfläche \'Community besuchen\' ausblenden</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Schaltfläche \'Community besuchen\' ist ausgeblendet</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Schaltfläche \"Community besuchen\" ist angezeigt</string>
+  <string name="revanced_hide_visit_community_button_title">Schaltfläche \'Zur Community\' ausblenden</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Schaltfläche \'Zur Community\' ist ausgeblendet</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Schaltfläch \"Zur Community\" wird angezeigt</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Den \'Store besuchen\'-Button auf Kanalseiten ausblenden</string>
   <string name="revanced_hide_visit_store_button_summary_on">Schaltfläche \"Shop besuchen\" ist ausgeblendet</string>
@@ -577,9 +577,9 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_hide_download_button_summary_off">Download-Button wird angezeigt</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Hype-Button ausblenden</string>
-  <string name="revanced_hide_hype_button_summary_on">Hype-Button ist ausgeblendet</string>
-  <string name="revanced_hide_hype_button_summary_off">Hype-Button wird angezeigt</string>
+  <string name="revanced_hide_hype_button_title">Hypen ausblenden</string>
+  <string name="revanced_hide_hype_button_summary_on">Hypen-Button ist ausgeblendet</string>
+  <string name="revanced_hide_hype_button_summary_off">Hypen-Button wird angezeigt</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_promote_button_title">Werbung ausblenden</string>
   <string name="revanced_hide_promote_button_summary_on">Schaltfläche \"Promoten\" ist ausgeblendet</string>
