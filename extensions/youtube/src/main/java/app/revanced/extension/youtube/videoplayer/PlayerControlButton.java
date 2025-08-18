@@ -101,6 +101,10 @@ public class PlayerControlButton {
         ViewPropertyAnimator animate = container.animate();
         animate.cancel();
         animate.alpha(0f)
+                // YouTube fades out using abc_fade_out.xml,
+                // which uses android.R.integer.config_mediumAnimTime
+                // But using the same duration here breaks the fade out and
+                // the buttons flicker when the overlay is tapped to dismiss.
                 .setDuration(fadeOutDuration)
                 .withEndAction(() -> container.setVisibility(View.GONE))
                 .start();
