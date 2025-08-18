@@ -582,7 +582,7 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_hide_download_button_summary_off">Il pulsante Scarica è visibile</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Nascondi pulsante Hype</string>
+  <string name="revanced_hide_hype_button_title">Nascondi Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Il pulsante Hype è nascosto</string>
   <string name="revanced_hide_hype_button_summary_off">Pulsante Hype è mostrato</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

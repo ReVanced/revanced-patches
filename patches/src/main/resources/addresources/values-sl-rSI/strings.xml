@@ -582,7 +582,7 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_hide_download_button_summary_off">Gumb Prenesi je prikazan</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Skrij gumb Hype</string>
+  <string name="revanced_hide_hype_button_title">Skrij Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Gumb Hype je skrit</string>
   <string name="revanced_hide_hype_button_summary_off">Gumb Hype je prikazan</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

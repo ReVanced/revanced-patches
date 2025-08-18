@@ -578,7 +578,7 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
   <string name="revanced_hide_download_button_summary_off">Przycisk pobierania jest widoczny</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Ukryj przycisk Hype</string>
+  <string name="revanced_hide_hype_button_title">Ukryj Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Przycisk Hype jest ukryty</string>
   <string name="revanced_hide_hype_button_summary_off">Przycisk Hype jest wyświetlony</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

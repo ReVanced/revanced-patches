@@ -582,7 +582,7 @@ Coigeartaigh an toirt trí haisceartán go hingearach ar thaobh deas an scáile�
   <string name="revanced_hide_download_button_summary_off">Taispeántar cnaipe íoslódáil</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Folaigh Cnaipe Hype</string>
+  <string name="revanced_hide_hype_button_title">Folaigh Borradh</string>
   <string name="revanced_hide_hype_button_summary_on">Tá cnaipe an Hype i bhfolach</string>
   <string name="revanced_hide_hype_button_summary_off">Tá an cnaipe Hype ar taispeáint</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

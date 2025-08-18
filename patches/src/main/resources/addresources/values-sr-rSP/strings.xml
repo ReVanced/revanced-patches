@@ -582,7 +582,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_summary_off">Дугме „Преузми” је приказано</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Сакриј дугме „Хајп”</string>
+  <string name="revanced_hide_hype_button_title">Сакриј Хајп</string>
   <string name="revanced_hide_hype_button_summary_on">Дугме „Хајп” је скривено</string>
   <string name="revanced_hide_hype_button_summary_off">Дугме „Хајп” је приказано</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->

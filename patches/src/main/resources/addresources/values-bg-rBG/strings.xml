@@ -582,7 +582,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_summary_off">Бутона за изтегляне се показва</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Скриване на бутона за хайп</string>
+  <string name="revanced_hide_hype_button_title">Скрий хайпа</string>
   <string name="revanced_hide_hype_button_summary_on">Бутонът за хайп е скрит</string>
   <string name="revanced_hide_hype_button_summary_off">Бутонът за хайп е показан</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
