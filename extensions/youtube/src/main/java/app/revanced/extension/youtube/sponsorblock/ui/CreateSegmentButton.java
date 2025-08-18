@@ -26,7 +26,6 @@ public class CreateSegmentButton {
                     controlsView,
                     "revanced_sb_create_segment_button",
                     null,
-                    null,
                     CreateSegmentButton::shouldBeShown,
                     v -> SponsorBlockViewController.toggleNewSegmentLayoutVisibility(),
                     null
