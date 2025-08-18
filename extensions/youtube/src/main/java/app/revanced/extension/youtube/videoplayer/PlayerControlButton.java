@@ -98,10 +98,10 @@ public class PlayerControlButton {
 
         isVisible = false;
 
-        container.animate().cancel();
-        container.animate()
-                .alpha(0f)
-                .setDuration(fadeInDuration)
+        ViewPropertyAnimator animate = container.animate();
+        animate.cancel();
+        animate.alpha(0f)
+                .setDuration(fadeOutDuration)
                 .withEndAction(() -> container.setVisibility(View.GONE))
                 .start();
     }
