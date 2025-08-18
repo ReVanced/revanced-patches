@@ -27,10 +27,6 @@ enum class PlayerControlsVisibility {
             }
         }
 
-        /**
-         * Depending on which hook this is called from,
-         * this value may not be up to date with the actual playback state.
-         */
         @JvmStatic
         var current
             get() = currentPlayerControlsVisibility

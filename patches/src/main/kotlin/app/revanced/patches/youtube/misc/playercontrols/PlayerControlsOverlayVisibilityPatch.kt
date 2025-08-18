@@ -30,9 +30,9 @@ val PlayerControlsOverlayVisibilityPatch = bytecodePatch {
                         targetIndex + 1,
                         """
                             iget v$targetRegister, v$targetRegister, $iGetReference
-                            invoke-static {v$targetRegister}, $staticReference
+                            invoke-static { v$targetRegister }, $staticReference
                             move-result-object v$targetRegister
-                            invoke-static {v$targetRegister}, $EXTENSION_PLAYER_CONTROLS_VISIBILITY_HOOK_CLASS_DESCRIPTOR->setPlayerControlsVisibility(Ljava/lang/Enum;)V
+                            invoke-static { v$targetRegister }, $EXTENSION_PLAYER_CONTROLS_VISIBILITY_HOOK_CLASS_DESCRIPTOR->setPlayerControlsVisibility(Ljava/lang/Enum;)V
                         """
                     )
                 }

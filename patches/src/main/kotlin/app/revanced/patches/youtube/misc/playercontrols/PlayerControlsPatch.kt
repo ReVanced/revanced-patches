@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -321,12 +320,9 @@ val playerControlsPatch = bytecodePatch(
                 val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                addInstructions(
+                addInstruction(
                     index + 1,
-                    """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerTopControlsLayoutResourceName(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$register
-                    """,
+                    "const-string v$register, \"default\""
                 )
             }
         }

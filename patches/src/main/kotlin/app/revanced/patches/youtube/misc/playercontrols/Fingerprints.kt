@@ -22,8 +22,8 @@ internal fun indexOfTranslationInstruction(method: Method) =
     }
 
 internal val playerControlsVisibilityEntityModelFingerprint = fingerprint {
-    returns("L")
     accessFlags(AccessFlags.PUBLIC)
+    returns("L")
     parameters()
     opcodes(
         Opcode.IGET,
@@ -35,13 +35,14 @@ internal val playerControlsVisibilityEntityModelFingerprint = fingerprint {
 }
 
 internal val youtubeControlsOverlayFingerprint = fingerprint {
-    returns("V")
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
+    returns("V")
     parameters()
     custom { method, _ ->
+        indexOfFocusableInTouchModeInstruction(method) >= 0 &&
         method.containsLiteralInstruction(inset_overlay_view_layout_id) &&
-                method.containsLiteralInstruction(scrim_overlay_id) &&
-                indexOfFocusableInTouchModeInstruction(method) >= 0
+                method.containsLiteralInstruction(scrim_overlay_id)
+
     }
 }
 
