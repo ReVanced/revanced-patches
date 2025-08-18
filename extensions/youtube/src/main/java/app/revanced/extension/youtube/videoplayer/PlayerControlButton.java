@@ -24,13 +24,12 @@ public class PlayerControlButton {
         boolean buttonEnabled();
     }
 
-    private static final int fadeInDuration;
-    private static final int fadeOutDuration;
-
-    static {
-        fadeInDuration = Utils.getResourceInteger("fade_duration_fast");
-        fadeOutDuration = Utils.getResourceInteger("fade_duration_scheduled");
-    }
+    private static final int fadeInDuration = Utils.getResourceInteger("fade_duration_fast");
+    private static final int fadeOutDuration = Utils.getResourceInteger("fade_duration_scheduled");
+    /**
+     * Fade out duration of abc_fade_out.xml
+     */
+    private static final int fadeOutImmediatelyDuration = android.R.integer.config_mediumAnimTime;
 
     private final WeakReference<View> containerRef;
     private final WeakReference<View> buttonRef;
@@ -103,10 +102,10 @@ public class PlayerControlButton {
 
         isVisible = false;
 
-        container.animate().cancel();
-        container.animate()
-                .alpha(0f)
-                .setDuration(fadeInDuration)
+        ViewPropertyAnimator animate = container.animate();
+        animate.cancel();
+        animate.alpha(0f)
+                .setDuration(fadeOutImmediatelyDuration)
                 .withEndAction(() -> container.setVisibility(View.GONE))
                 .start();
     }
@@ -141,19 +140,17 @@ public class PlayerControlButton {
             if (visible && buttonEnabled) {
                 container.setVisibility(View.VISIBLE);
                 container.setAlpha(animated ? 0f : 1f);
-                ViewPropertyAnimator animator = container.animate()
+                container.animate()
                         .alpha(1f)
-                        .setDuration(animated ? fadeInDuration : 0);
-                animator.start();
-            } else {
-                if (container.getVisibility() == View.VISIBLE) {
-                    container.animate().cancel();
-                    ViewPropertyAnimator animator = container.animate()
-                            .alpha(0f)
-                            .setDuration(animated ? fadeOutDuration : 0)
-                            .withEndAction(() -> container.setVisibility(View.GONE));
-                    animator.start();
-                }
+                        .setDuration(animated ? fadeInDuration : 0)
+                        .start();
+            } else if (container.getVisibility() == View.VISIBLE) {
+                ViewPropertyAnimator animate = container.animate();
+                animate.cancel();
+                animate.alpha(0f)
+                        .setDuration(animated ? fadeOutDuration : 0)
+                        .withEndAction(() -> container.setVisibility(View.GONE))
+                        .start();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "private_setVisibility failure", ex);
