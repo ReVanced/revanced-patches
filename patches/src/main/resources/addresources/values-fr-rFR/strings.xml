@@ -452,6 +452,11 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Le message sera affiché</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Cette option ne contourne pas la vérification de l\'âge. Elle est juste confirmée automatiquement.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Désactiver le pop-up \"Connectez-vous à la TV\"</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Le pop-up \"Connectez-vous à la TV\" est désactivé</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Le pop-up \"Connectez-vous à la TV\" est activé</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Désactiver le double appui pour passer à un chapitre</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Le double appui ne peut jamais déclencher de saut vers le chapitre suivant/précédent</string>
@@ -563,7 +568,7 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_hide_stop_ads_button_summary_on">Le bouton Zéro annonce est masqué</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Le bouton Zéro annonce est affiché</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Masquer \"Signaler\"</string>
   <string name="revanced_hide_report_button_summary_on">Le bouton Signaler est masqué</string>
   <string name="revanced_hide_report_button_summary_off">Le bouton Signaler est affiché</string>
@@ -575,12 +580,21 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_hide_download_button_title">Masquer \"Télécharger\"</string>
   <string name="revanced_hide_download_button_summary_on">Le bouton Télécharger est masqué</string>
   <string name="revanced_hide_download_button_summary_off">Le bouton Télécharger est affiché</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Masquer \"Booster\"</string>
+  <string name="revanced_hide_hype_button_summary_on">Le bouton Booster est masqué</string>
+  <string name="revanced_hide_hype_button_summary_off">Le bouton Booster est affiché</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Masquer \"Promouvoir\"</string>
+  <string name="revanced_hide_promote_button_summary_on">Le bouton Promouvoir est masqué</string>
+  <string name="revanced_hide_promote_button_summary_off">Le bouton Promouvoir est affiché</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Masquer \"Merci\"</string>
   <string name="revanced_hide_thanks_button_summary_on">Le bouton Merci est masqué</string>
   <string name="revanced_hide_thanks_button_summary_off">Le bouton Merci est affiché</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Masquer \"Demander\"</string>
   <string name="revanced_hide_ask_button_summary_on">Le bouton Demander est masqué</string>
   <string name="revanced_hide_ask_button_summary_off">Le bouton Demander est affiché</string>
@@ -693,6 +707,9 @@ Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Masquer \"Regarder en RV\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Le menu Regarder en RV est masqué</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Le menu Regarder en RV est affiché</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Masquer le menu de qualité vidéo</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Le menu de qualité vidéo est masqué</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Le menu de qualité vidéo est affiché</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Masquer le pied de page du menu de qualité vidéo</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Le pied de page du menu de qualité vidéo est masqué</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Le pied de page du menu de qualité vidéo est affiché</string>
@@ -1466,7 +1483,7 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_playback_speed_dialog_button_summary_on">Le bouton est affiché. Appuyez longuement dessus pour rétablir la vitesse de lecture par défaut.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Le bouton n\'est pas affiché</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Afficher le bouton de qualité vidéo</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Le bouton est affiché. Appuyez longuement pour rétablir la qualité par défaut.</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Le bouton n\'est pas affiché</string>

@@ -22,7 +22,7 @@ public class ExternalDownloadButton {
             instance = new PlayerControlButton(
                     controlsView,
                     "revanced_external_download_button",
-                    "revanced_external_download_button_placeholder",
+                    null,
                     Settings.EXTERNAL_DOWNLOADER::get,
                     ExternalDownloadButton::onDownloadClick,
                     null
@@ -33,14 +33,21 @@ public class ExternalDownloadButton {
     }
 
     /**
-     * injection point
+     * injection point.
+     */
+    public static void setVisibilityNegatedImmediate() {
+        if (instance != null) instance.setVisibilityNegatedImmediate();
+    }
+
+    /**
+     * injection point.
      */
     public static void setVisibilityImmediate(boolean visible) {
         if (instance != null) instance.setVisibilityImmediate(visible);
     }
 
     /**
-     * Injection point
+     * injection point.
      */
     public static void setVisibility(boolean visible, boolean animated) {
         if (instance != null) instance.setVisibility(visible, animated);

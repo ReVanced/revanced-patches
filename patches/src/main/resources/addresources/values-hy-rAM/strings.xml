@@ -452,6 +452,11 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Զրույցը կցուցադրվի</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Սա չի խուսափում տարիքային սահմանափակումից։ Այն պարզապես ավտոմատ կերպով ընդունում է այն։</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Անջատել հեռուստացույց մուտքի պատուհանը</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Հեռուստացույց մուտքի պատուհանն անջատված է</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Հեռուստացույց մուտքի պատուհանը միացված է</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Անջատել կրկնակի հպումով գլուխը բաց թողնելը</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Կրկնակի հպումը երբեք չի կարող առաջացնել հաջորդ/նախորդ գլուխն անցնելը</string>
@@ -563,7 +568,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_stop_ads_button_summary_on">Գովազդները դադարեցնելու կոճակը թաքցված է</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Գովազդները դադարեցնելու կոճակը ցուցադրված է</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Թաքցնել Report</string>
   <string name="revanced_hide_report_button_summary_on">Report կոճակը թաքցված է</string>
   <string name="revanced_hide_report_button_summary_off">Report կոճակը ցուցադրվում է</string>
@@ -575,12 +580,21 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_download_button_title">Թաքցնել Download</string>
   <string name="revanced_hide_download_button_summary_on">Download կոճակը թաքցված է</string>
   <string name="revanced_hide_download_button_summary_off">Download կոճակը ցուցադրվում է</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Թաքցնել Հայփը</string>
+  <string name="revanced_hide_hype_button_summary_on">Հայփ կոճակը թաքնված է</string>
+  <string name="revanced_hide_hype_button_summary_off">Հայփ կոճակը ցուցադրվում է</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Թաքցնել Գովազդը</string>
+  <string name="revanced_hide_promote_button_summary_on">Խթանել կոճակը թաքնված է</string>
+  <string name="revanced_hide_promote_button_summary_off">Խթանել կոճակը ցուցադրված է</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Թաքցնել Thanks</string>
   <string name="revanced_hide_thanks_button_summary_on">Thanks կոճակը թաքցված է</string>
   <string name="revanced_hide_thanks_button_summary_off">Thanks կոճակը ցուցադրվում է</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Թաքցնել հարցումը</string>
   <string name="revanced_hide_ask_button_summary_on">Հարցման կոճակը թաքցված է</string>
   <string name="revanced_hide_ask_button_summary_off">Հարցման կոճակը երևում է</string>
@@ -693,6 +707,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Դիտել VR-ով թաքցնել</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR-ով դիտել մենյուը թաքցված է</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR-ով դիտել մենյուը երևում է</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Թաքցնել տեսանյութի որակի ընտրացանկը</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Տեսանյութի որակի ընտրացանկը թաքնված է</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Տեսանյութի որակի ընտրացանկը ցուցադրված է</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Տեսանյութի որակի մենյուի ստորագրությունը թաքցնել</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Տեսանյութի որակի մենյուի ստորագրությունը թաքցված է</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Տեսանյութի որակի մենյուի ստորագրությունը երևում է</string>
@@ -1466,7 +1483,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_playback_speed_dialog_button_summary_on">Կոճակը ցուցադրվում է: Հպեք և պահեք՝ նվագարկման արագությունը լռելյայնի վերականգնելու համար</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Կոճակը  չի  ցուցադրվում</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Ցուցադրել տեսանյութի որակի կոճակը</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Կոճակը ցուցադրված է։ Հպեք և պահեք՝ որակը լռելյայնին վերականգնելու համար</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Կոճակը ցուցադրված չէ։</string>

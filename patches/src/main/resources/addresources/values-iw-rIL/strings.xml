@@ -452,6 +452,11 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">דו-שיח יוצג</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">זה לא עוקף את מגבלת הגיל. זה רק מסכים לזה באופן אוטומטי.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">השבתת חלון קופץ של כניסה לטלוויזיה</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">חלון קופץ של כניסה לטלוויזיה מושבת</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">חלון קופץ של כניסה לטלוויזיה מופעל</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">ביטול דילוג פרקים בלחיצה כפולה</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">לחיצה כפולה לעולם לא תפעיל דילוג לפרק הבא/הקודם</string>
@@ -563,7 +568,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">כפתור עצירת הפרסומות מוסתר</string>
   <string name="revanced_hide_stop_ads_button_summary_off">כפתור עצירת הפרסומות מוצג</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">הסתר דיווח</string>
   <string name="revanced_hide_report_button_summary_on">לחצן דיווח מוסתר</string>
   <string name="revanced_hide_report_button_summary_off">לחצן דיווח מוצג</string>
@@ -575,12 +580,21 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_title">הסתר הורדה</string>
   <string name="revanced_hide_download_button_summary_on">לחצן הורדה מוסתר</string>
   <string name="revanced_hide_download_button_summary_off">לחצן הורדה מוצג</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">הסתר הייפ</string>
+  <string name="revanced_hide_hype_button_summary_on">כפתור הייפ מוסתר</string>
+  <string name="revanced_hide_hype_button_summary_off">כפתור ההייפ מוצג</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">הסתר קידום</string>
+  <string name="revanced_hide_promote_button_summary_on">כפתור קידום מוסתר</string>
+  <string name="revanced_hide_promote_button_summary_off">כפתור קידום מוצג</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">הסתר תודה</string>
   <string name="revanced_hide_thanks_button_summary_on">לחצן תודה מוסתר</string>
   <string name="revanced_hide_thanks_button_summary_off">לחצן תודה מוצג</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">הסתר Ask</string>
   <string name="revanced_hide_ask_button_summary_on">לחצן Ask מוסתר</string>
   <string name="revanced_hide_ask_button_summary_off">לחצן Ask מוצג</string>
@@ -693,6 +707,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">הסתר \'צפה ב-VR\'</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">תפריט \'צפה ב-VR\' מוסתר</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">תפריט \'צפה ב-VR\' מוצג</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">הסתר תפריט איכות וידאו</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">תפריט איכות הסרטון מוסתר</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">תפריט איכות הסרטון מוצג</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">הסתר כותרת תחתונה של תפריט איכות סרטון</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">כותרת תחתונה של תפריט איכות סרטון מוסתרת</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">כותרת תחתונה של תפריט איכות סרטון מוצגת</string>
@@ -1467,7 +1484,7 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">הלחצן מוצג. יש להקיש ולהחזיק כדי לאפס את מהירות ההפעלה לברירת מחדל</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">הלחצן אינו מוצג</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">הצג כפתור איכות וידאו</string>
   <string name="revanced_video_quality_dialog_button_summary_on">הלחצן מוצג. גע והחזק כדי לאפס את האיכות לברירת מחדל</string>
   <string name="revanced_video_quality_dialog_button_summary_off">הלחצן אינו מוצג</string>
