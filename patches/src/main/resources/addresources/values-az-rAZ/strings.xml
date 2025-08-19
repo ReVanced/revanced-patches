@@ -582,7 +582,13 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_hide_download_button_summary_off">Yükləmə düyməsi göstərilir</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Coşqu Gizlət</string>
+  <string name="revanced_hide_hype_button_summary_on">Coşqu düyməsi gizlidir</string>
+  <string name="revanced_hide_hype_button_summary_off">Coşqu düyməsi görünür</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Sponsor-u Gizlət</string>
+  <string name="revanced_hide_promote_button_summary_on">Sponsor düyməsi gizlidir</string>
+  <string name="revanced_hide_promote_button_summary_off"> Sponsor düyməsi görünür</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">\"Təşəkkürlər\"i gizlət</string>
   <string name="revanced_hide_thanks_button_summary_on">Təşəkkür düyməsi gizlidir</string>
