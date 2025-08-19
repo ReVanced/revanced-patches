@@ -258,7 +258,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_ask_section_title">質問セクションを非表示</string>
   <string name="revanced_hide_ask_section_summary_on">質問セクションは表示されません</string>
   <string name="revanced_hide_ask_section_summary_off">質問セクションは表示されます</string>
-  <string name="revanced_hide_attributes_section_title">関連情報を非表示</string>
+  <string name="revanced_hide_attributes_section_title">付随情報を非表示</string>
   <string name="revanced_hide_attributes_section_summary_on">注目の場所 / ゲーム / 音楽 / 言及されている人物セクションは表示されません</string>
   <string name="revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 言及されている人物セクションは表示されます</string>
   <string name="revanced_hide_chapters_section_title">チャプター セクションを非表示</string>
@@ -270,9 +270,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_podcast_section_title">「ポッドキャストを検索」を非表示</string>
   <string name="revanced_hide_podcast_section_summary_on">「ポッドキャストを検索」セクションは表示されません</string>
   <string name="revanced_hide_podcast_section_summary_off">「ポッドキャストを検索」セクションは表示されます</string>
-  <string name="revanced_hide_info_cards_section_title">チャンネル情報を非表示</string>
-  <string name="revanced_hide_info_cards_section_summary_on">チャンネル情報セクションは表示されません</string>
-  <string name="revanced_hide_info_cards_section_summary_off">チャンネル情報セクションは表示されます</string>
+  <string name="revanced_hide_info_cards_section_title">情報カード セクションを非表示</string>
+  <string name="revanced_hide_info_cards_section_summary_on">情報カード セクションは表示されません</string>
+  <string name="revanced_hide_info_cards_section_summary_off">情報カード セクションは表示されます</string>
   <string name="revanced_hide_key_concepts_section_title">「主な概念」を非表示</string>
   <string name="revanced_hide_key_concepts_section_summary_on">主な概念セクションは表示されません</string>
   <string name="revanced_hide_key_concepts_section_summary_off">主な概念セクションが表示されます</string>
@@ -316,7 +316,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_visit_store_button_summary_on">「ストアに移動」ボタンは表示されません</string>
   <string name="revanced_hide_visit_store_button_summary_off">「ストアに移動」ボタンは表示されます</string>
   <string name="revanced_comments_screen_title">コメント</string>
-  <string name="revanced_comments_screen_summary">コメント セクションの設定</string>
+  <string name="revanced_comments_screen_summary">コメント セクションのコンポーネントを表示または非表示にします</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">AI による「チャットの要約」を非表示</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">AI による「チャットの要約」は表示されません</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">AI による「チャットの要約」は表示されます</string>
@@ -441,12 +441,12 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました</string>
   <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL がコピーされました</string>
-  <string name="revanced_copy_video_url_title">「動画の URL をコピー」ボタンを表示する</string>
-  <string name="revanced_copy_video_url_summary_on">ボタンはオーバーレイに表示されます。タップすると動画の URL を、長押しするとタイムスタンプ付きの URL をそれぞれコピーできます</string>
-  <string name="revanced_copy_video_url_summary_off">ボタンはオーバーレイに表示されません</string>
-  <string name="revanced_copy_video_url_timestamp_title">「動画のタイムスタンプ付き URL をコピー」ボタンを表示する</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">ボタンはオーバーレイに表示されます。タップするとタイムスタンプ付きの URL を、長押しするとタイムスタンプなしの URL をそれぞれコピーできます</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">ボタンはオーバーレイに表示されません</string>
+  <string name="revanced_copy_video_url_title">「動画の URL をコピー」ボタンを表示</string>
+  <string name="revanced_copy_video_url_summary_on">ボタンがプレーヤー オーバーレイに表示されます。タップすると動画の URL が、長押しするとタイムスタンプ付きの URL がそれぞれコピーされます</string>
+  <string name="revanced_copy_video_url_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
+  <string name="revanced_copy_video_url_timestamp_title">「動画のタイムスタンプ付き URL をコピー」ボタンを表示</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">ボタンがプレーヤー オーバーレイに表示されます。タップするとタイムスタンプ付きの URL が、長押しするとタイムスタンプなしの URL がそれぞれコピーされます</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">「ご自身の責任」ダイアログを削除</string>
@@ -467,11 +467,11 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">外部ダウンロード</string>
   <string name="revanced_external_downloader_screen_summary">外部ダウンローダーの設定</string>
-  <string name="revanced_external_downloader_title">外部ダウンロード ボタンを表示する</string>
-  <string name="revanced_external_downloader_summary_on">外部ダウンロード ボタンはオーバーレイに表示されます</string>
-  <string name="revanced_external_downloader_summary_off">外部ダウンロード ボタンはオーバーレイに表示されません</string>
+  <string name="revanced_external_downloader_title">外部ダウンロード ボタンを表示</string>
+  <string name="revanced_external_downloader_summary_on">外部ダウンロード ボタンがプレーヤー オーバーレイに表示されます</string>
+  <string name="revanced_external_downloader_summary_off">外部ダウンロード ボタンはプレーヤー オーバーレイに表示されません</string>
   <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
-  <string name="revanced_external_downloader_action_button_title">オフライン ボタンの動作を上書きする</string>
+  <string name="revanced_external_downloader_action_button_title">オフライン ボタンの動作を上書き</string>
   <string name="revanced_external_downloader_action_button_summary_on">オフライン ボタンは外部ダウンローダーを呼び出します</string>
   <string name="revanced_external_downloader_action_button_summary_off">オフライン ボタンはアプリ内のダウンローダーを呼び出します</string>
   <string name="revanced_external_downloader_name_title">外部ダウンローダーのパッケージ名</string>
@@ -549,13 +549,13 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_disable_auto_captions_title">自動字幕表示を無効化</string>
-  <string name="revanced_disable_auto_captions_summary_on">動画を開いた際の自動字幕表示は無効です</string>
-  <string name="revanced_disable_auto_captions_summary_off">動画を開いた際の自動字幕表示は有効です</string>
+  <string name="revanced_disable_auto_captions_summary_on">自動字幕表示は無効です\n\n動画を開いた際にデフォルトで字幕は表示されません</string>
+  <string name="revanced_disable_auto_captions_summary_off">自動字幕表示は有効です\n\n動画を開いた際にデフォルトで字幕が表示される場合があります</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">アクション ボタン</string>
-  <string name="revanced_hide_buttons_screen_summary">プレーヤー画面下のボタンの設定</string>
-  <string name="revanced_disable_like_subscribe_glow_title">高評価とチャンネル登録のエフェクトを無効にする</string>
+  <string name="revanced_hide_buttons_screen_summary">プレーヤー画面下のボタンを表示または非表示にします</string>
+  <string name="revanced_disable_like_subscribe_glow_title">高評価とチャンネル登録のエフェクトを無効化</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">高評価ボタンとチャンネル登録ボタンのエフェクトは無効です</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">高評価ボタンとチャンネル登録ボタンのエフェクトは有効です</string>
   <string name="revanced_hide_like_dislike_button_title">高評価ボタンと低評価ボタンを非表示</string>
@@ -718,29 +718,29 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_autoplay_button_title">自動再生ボタンを非表示</string>
-  <string name="revanced_hide_autoplay_button_summary_on">自動再生ボタンはオーバーレイに表示されません</string>
-  <string name="revanced_hide_autoplay_button_summary_off">自動再生ボタンはオーバーレイに表示されます</string>
+  <string name="revanced_hide_autoplay_button_summary_on">プレーヤー オーバーレイの自動再生ボタンは表示されません</string>
+  <string name="revanced_hide_autoplay_button_summary_off">プレーヤー オーバーレイの自動再生ボタンは表示されます</string>
   <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
   <string name="revanced_hide_captions_button_title">字幕ボタンを非表示</string>
-  <string name="revanced_hide_captions_button_summary_on">字幕ボタンはオーバーレイに表示されません</string>
-  <string name="revanced_hide_captions_button_summary_off">字幕ボタンはオーバーレイに表示されます</string>
+  <string name="revanced_hide_captions_button_summary_on">プレーヤー オーバーレイの字幕ボタンは表示されません</string>
+  <string name="revanced_hide_captions_button_summary_off">プレーヤー オーバーレイの字幕ボタンは表示されます</string>
   <string name="revanced_hide_cast_button_title">キャストボタンを非表示</string>
-  <string name="revanced_hide_cast_button_summary_on">キャストボタンはオーバーレイに表示されません</string>
-  <string name="revanced_hide_cast_button_summary_off">キャストボタンはオーバーレイに表示されます</string>
-  <string name="revanced_hide_player_control_buttons_background_title">プレーヤーのコントロールの背景を非表示</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_on">プレーヤーのコントロールの背景は表示されません</string>
-  <string name="revanced_hide_player_control_buttons_background_summary_off">プレーヤーのコントロールの背景は表示されます</string>
+  <string name="revanced_hide_cast_button_summary_on">プレーヤー オーバーレイのキャストボタンは表示されません</string>
+  <string name="revanced_hide_cast_button_summary_off">プレーヤー オーバーレイのキャストボタンは表示されます</string>
+  <string name="revanced_hide_player_control_buttons_background_title">プレーヤー コントロールの背景を非表示</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_on">プレーヤー コントロールの背景は表示されません</string>
+  <string name="revanced_hide_player_control_buttons_background_summary_off">プレーヤー コントロールの背景は表示されます</string>
   <string name="revanced_hide_player_previous_next_buttons_title">前の動画ボタンと次の動画ボタンを非表示</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">前の動画ボタンと次の動画ボタンは表示されません</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">前の動画ボタンと次の動画ボタンは表示されます</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
-  <string name="revanced_hide_endscreen_cards_title">動画の終了画面を非表示</string>
-  <string name="revanced_hide_endscreen_cards_summary_on">動画の終了画面は表示されません</string>
-  <string name="revanced_hide_endscreen_cards_summary_off">動画の終了画面は表示されます</string>
+  <string name="revanced_hide_endscreen_cards_title">終了画面カードを非表示</string>
+  <string name="revanced_hide_endscreen_cards_summary_on">終了画面カードは表示されません</string>
+  <string name="revanced_hide_endscreen_cards_summary_off">終了画面カードは表示されます</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">全画面表示中のアンビエント モードを無効にする</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">全画面表示中のアンビエント モードを無効化</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">全画面表示中のアンビエント モードは無効です</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">全画面表示中のアンビエント モードは有効です</string>
   </patch>
@@ -750,9 +750,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_info_cards_summary_off">情報カードはプレーヤー画面に表示されます</string>
   </patch>
   <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
-  <string name="revanced_disable_rolling_number_animations_title">数字のアニメーションを無効にする</string>
-  <string name="revanced_disable_rolling_number_animations_summary_on">数字のアニメーションは無効です</string>
-  <string name="revanced_disable_rolling_number_animations_summary_off">数字のアニメーションは有効です</string>
+  <string name="revanced_disable_rolling_number_animations_title">数字の回転アニメーションを無効化</string>
+  <string name="revanced_disable_rolling_number_animations_summary_on">数字の回転アニメーションは無効です</string>
+  <string name="revanced_disable_rolling_number_animations_summary_off">数字の回転アニメーションは有効です</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">動画プレーヤーのシークバーを非表示</string>
@@ -878,12 +878,12 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_shorts_navigation_bar_summary_off">ナビゲーション バーは表示されます</string>
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
-  <string name="revanced_end_screen_suggested_video_title">再生終了時の「関連動画」オーバーレイを非表示</string>
-  <string name="revanced_end_screen_suggested_video_summary_on">"再生終了時に、「関連動画」オーバーレイはプレーヤー画面に表示されませんが、自動再生がオンの場合は次の動画が自動で再生されます
+  <string name="revanced_end_screen_suggested_video_title">再生終了時の「関連動画」を非表示</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"再生が終了したときに、「関連動画」はプレーヤー画面に表示されませんが、自動再生がオンの場合は次の動画が自動で再生されます
 
 自動再生の設定は YouTube の設定で変更できます:
 設定 → 再生 → 次の動画を自動再生"</string>
-  <string name="revanced_end_screen_suggested_video_summary_off">再生終了時に、「関連動画」オーバーレイがプレーヤー画面に表示されます</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">再生が終了したときに「関連動画」がプレーヤー画面に表示されます</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
   <string name="revanced_hide_related_videos_overlay_title">関連動画オーバーレイを非表示</string>
@@ -897,11 +897,11 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
   <string name="revanced_hide_player_popup_panels_title">プレーヤー ポップアップ パネルを非表示</string>
-  <string name="revanced_hide_player_popup_panels_summary_on">動画を開いた際のプレイリストやチャット欄などのプレーヤー ポップアップ パネルは表示されません</string>
-  <string name="revanced_hide_player_popup_panels_summary_off">動画を開いた際のプレイリストやチャット欄などのプレーヤー ポップアップ パネルは表示されます</string>
+  <string name="revanced_hide_player_popup_panels_summary_on">プレーヤー ポップアップ パネルは表示されません\n\nプレイリストやチャット欄などを閉じた状態で動画を開きます</string>
+  <string name="revanced_hide_player_popup_panels_summary_off">プレーヤー ポップアップ パネルは表示されます\n\nプレイリストやチャット欄などを展開した状態で動画を開きます</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
-  <string name="revanced_exit_fullscreen_title">再生終了時に全画面表示を解除する</string>
+  <string name="revanced_exit_fullscreen_title">再生終了時に全画面表示を解除</string>
   <string name="revanced_exit_fullscreen_entry_1">無効</string>
   <string name="revanced_exit_fullscreen_entry_2">縦画面</string>
   <string name="revanced_exit_fullscreen_entry_3">横画面</string>
@@ -913,9 +913,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">通常表示で動画を開きます</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
-  <string name="revanced_player_overlay_opacity_title">オーバーレイの透明度</string>
+  <string name="revanced_player_overlay_opacity_title">プレーヤー オーバーレイの透明度</string>
   <string name="revanced_player_overlay_opacity_summary">透明度の範囲は 0-100 で、0 が透明です</string>
-  <string name="revanced_player_overlay_opacity_invalid_toast">動画プレーヤー: 透明度の範囲は 0-100 です</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">プレーヤー: 透明度の範囲は 0-100 です</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
@@ -1282,24 +1282,24 @@ Automotive レイアウト
   <string name="revanced_miniplayer_type_entry_5">モダン 2</string>
   <string name="revanced_miniplayer_type_entry_6">モダン 3</string>
   <string name="revanced_miniplayer_type_entry_7">モダン 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">角を丸くする</string>
+  <string name="revanced_miniplayer_rounded_corners_title">丸角を有効化</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">ミニプレーヤーの角は丸角です</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">ミニプレーヤーの角は直角です</string>
-  <string name="revanced_miniplayer_double_tap_action_title">「ダブルタップとピンチでサイズ変更」を有効にする</string>
+  <string name="revanced_miniplayer_double_tap_action_title">「ダブルタップとピンチでサイズ変更」を有効化</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"「ダブルタップとピンチでサイズ変更」は有効です
 
 • ダブルタップすると、ミニプレーヤーのサイズが大きくなる
 • もう一度ダブルタップすると、元のサイズに戻る"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">「 ダブルタップとピンチでサイズ変更」は無効です</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">ドラッグ＆ドロップを有効にする</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">ドラッグ＆ドロップを有効化</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">"ドラッグ＆ドロップは有効です
 
 ミニプレーヤーを画面の四隅に移動できます"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">ドラッグ＆ドロップは無効です</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">横方向ドラッグ ジェスチャーを有効にする</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">横方向ドラッグ ジェスチャーを有効化</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_on">"横方向ドラッグ ジェスチャーは有効です
 
-ミニプレーヤーを画面の左端または右端までドラッグすると最小化できます"</string>
+ミニプレーヤーを画面の左端または右端までドラッグすると最小化されます"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">横方向ドラッグ ジェスチャーは無効です</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">オーバーレイ ボタンを非表示</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">オーバーレイ ボタンは表示されません</string>
@@ -1479,13 +1479,13 @@ Automotive レイアウト
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">再生速度設定ボタンを表示</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">ボタンがオーバーレイに表示されます。長押しすると、再生速度がデフォルトの値にリセットされます</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">ボタンはオーバーレイに表示されません</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">ボタンがプレーヤー オーバーレイに表示されます。長押しすると、再生速度がデフォルトの値にリセットされます</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">画質設定ボタンを表示</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">ボタンがオーバーレイに表示されます。長押しすると、画質がデフォルトの値にリセットされます</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">ボタンはオーバーレイに表示されません</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">ボタンがプレーヤー オーバーレイに表示されます。長押しすると、画質がデフォルトの値にリセットされます</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">カスタム再生速度メニュー</string>

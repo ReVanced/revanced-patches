@@ -453,9 +453,9 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ovo ne zaobilazi starosno ograničenje. Samo ga automatski prihvata.</string>
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  <string name="revanced_disable_signin_to_tv_popup_title">Onemogući iskačući prozor za prijavu na TV</string>
-  <string name="revanced_disable_signin_to_tv_popup_summary_on">Iskačući prozor za prijavu na TV je onemogućen</string>
-  <string name="revanced_disable_signin_to_tv_popup_summary_off">Iskačući prozor za prijavu na TV je omogućen</string>
+  <string name="revanced_disable_signin_to_tv_popup_title">Onemogući iskačući prozor „Prijava na TV”</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Iskačući prozor „Prijava na TV” je onemogućen</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Iskačući prozor „Prijava na TV” je omogućen</string>
   </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Onemogući preskakanje poglavlja dvostrukim dodirom</string>
@@ -582,11 +582,11 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_hide_download_button_summary_off">Dugme „Preuzmi” je prikazano</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Sakrij Hajp</string>
+  <string name="revanced_hide_hype_button_title">Sakrij dugme „Hajp”</string>
   <string name="revanced_hide_hype_button_summary_on">Dugme „Hajp” je skriveno</string>
-  <string name="revanced_hide_hype_button_summary_off">Dugme „Haip” je prikazano</string>
+  <string name="revanced_hide_hype_button_summary_off">Dugme „Hajp” je prikazano</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_promote_button_title">Sakrij Promoviši</string>
+  <string name="revanced_hide_promote_button_title">Sakrij dugme „Promoviši”</string>
   <string name="revanced_hide_promote_button_summary_on">Dugme „Promoviši” je skriveno</string>
   <string name="revanced_hide_promote_button_summary_off">Dugme „Promoviši” je prikazano</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
