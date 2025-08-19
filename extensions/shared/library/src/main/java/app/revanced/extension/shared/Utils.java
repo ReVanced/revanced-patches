@@ -1,5 +1,7 @@
 package app.revanced.extension.shared;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
@@ -29,12 +31,7 @@ import android.text.method.LinkMovementMethod;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.util.TypedValue;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.*;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -1066,24 +1063,28 @@ public class Utils {
         // Set dialog window attributes.
         Window window = dialog.getWindow();
         if (window != null) {
-            setDialogWindowParameters(window);
+            setDialogWindowParameters(window, Gravity.CENTER);
         }
 
         return new Pair<>(dialog, mainLayout);
     }
 
-    public static void setDialogWindowParameters(Window window) {
+    public static void setDialogWindowParameters(Window window, int gravity) {
         WindowManager.LayoutParams params = window.getAttributes();
 
         DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
-        int portraitWidth = (int) (displayMetrics.widthPixels * 0.9);
-
+        int portraitWidth = (int) (displayMetrics.widthPixels);
         if (Resources.getSystem().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            portraitWidth = (int) Math.min(portraitWidth, displayMetrics.heightPixels * 0.9);
+            portraitWidth = Math.min(
+                    portraitWidth,
+                    (int) displayMetrics.heightPixels);
+            // Limit height in landscape mode.
+            params.height = (int) ((displayMetrics.heightPixels) * 0.8);
+        } else {
+            params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         }
         params.width = portraitWidth;
-        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        params.gravity = Gravity.CENTER;
+        params.gravity = gravity;
         window.setAttributes(params);
         window.setBackgroundDrawable(null); // Remove default dialog background.
     }
@@ -1137,6 +1138,223 @@ public class Utils {
         });
 
         return button;
+    }
+
+    /**
+     * Creates a {@link SlideDialog} with the specified content view, configured to slide up from the
+     * bottom of the screen with customizable animation duration and drag-to-dismiss functionality.
+     * The dialog includes side margins and is dismissible by touching outside or dragging down.
+     *
+     * @param context The Android context used to create the dialog.
+     * @param contentView The view to be displayed inside the dialog.
+     * @param animationDuration The duration of the slide animation in milliseconds.
+     * @return A configured {@link SlideDialog} instance.
+     */
+    public static SlideDialog createSlideDialog(@NonNull Context context, View contentView, int animationDuration) {
+        SlideDialog dialog = new SlideDialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+
+        // Create wrapper layout for side margins.
+        LinearLayout wrapperLayout = new LinearLayout(context);
+        wrapperLayout.setOrientation(LinearLayout.VERTICAL);
+        final int dip8 = dipToPixels(8);
+        wrapperLayout.setPadding(dip8, 0, dip8, 0);
+        wrapperLayout.addView(contentView);
+        dialog.setContentView(wrapperLayout);
+
+        // Configure dialog window.
+        Window window = dialog.getWindow();
+        if (window != null) {
+            setDialogWindowParameters(window, Gravity.BOTTOM);
+        }
+
+        // Set up animation.
+        dialog.setAnimView(contentView);
+        dialog.setAnimationDuration(animationDuration);
+
+        // Set drag-to-dismiss touch listener.
+        setupDragToDismiss(context, contentView, dialog, animationDuration);
+
+        return dialog;
+    }
+
+    /**
+     * Creates a {@link LinearLayout} with a rounded background and a handle bar view, styled for use
+     * as the main layout in a dialog. The layout has vertical orientation and includes padding and
+     * a centered handle bar with adjusted brightness for visual distinction.
+     *
+     * @param context The Android context used to create the layout.
+     * @return A configured {@link LinearLayout} with a handle bar and styled background.
+     */
+    public static LinearLayout createMainLayout(@NonNull Context context) {
+        // Preset size constants.
+        final int dip4 = dipToPixels(4);   // Height for handle bar.
+        final int dip5 = dipToPixels(5);   // Padding for mainLayout from left and right.
+        final int dip8 = dipToPixels(8);   // Padding for mainLayout from top and bottom.
+        final int dip20 = dipToPixels(20); // Bottom margin for handle bar.
+        final int dip40 = dipToPixels(40); // Width for handle bar.
+
+        LinearLayout mainLayout = new LinearLayout(context);
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
+        mainLayout.setPadding(dip5, dip8, dip5, dip8);
+
+        ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
+                createCornerRadii(12), null, null));
+        background.getPaint().setColor(getDialogBackgroundColor());
+        mainLayout.setBackground(background);
+
+        // Add handle bar.
+        View handleBar = new View(context);
+        ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
+                createCornerRadii(4), null, null));
+        int baseColor = getDialogBackgroundColor();
+        int adjustedHandleBarBackgroundColor = adjustColorBrightness(baseColor, 0.9f, 1.25f);
+        handleBackground.getPaint().setColor(adjustedHandleBarBackgroundColor);
+        LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(
+                dip40, dip4);
+        handleParams.gravity = Gravity.CENTER_HORIZONTAL;
+        handleParams.setMargins(0, 0, 0, dip20);
+        handleBar.setLayoutParams(handleParams);
+        handleBar.setBackground(handleBackground);
+        mainLayout.addView(handleBar);
+
+        return mainLayout;
+    }
+
+    /**
+     * Sets up a drag-to-dismiss touch listener for a view within a {@link SlideDialog}. The view can
+     * be dragged downward to dismiss the dialog if the drag distance exceeds a threshold, with an
+     * animation matching the specified duration.
+     *
+     * @param context The Android context used for resource access.
+     * @param view The view to which the touch listener is attached.
+     * @param dialog The {@link SlideDialog} to dismiss on drag.
+     * @param animationDuration The duration of the dismissal animation in milliseconds.
+     */
+    private static void setupDragToDismiss(Context context, View view, SlideDialog dialog, int animationDuration) {
+        view.setOnTouchListener(new View.OnTouchListener() {
+            final float dismissThreshold = dipToPixels(100);
+            float touchY;
+            float translationY;
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        touchY = event.getRawY();
+                        translationY = view.getTranslationY();
+                        return true;
+                    case MotionEvent.ACTION_MOVE:
+                        final float deltaY = event.getRawY() - touchY;
+                        if (deltaY >= 0) {
+                            view.setTranslationY(translationY + deltaY);
+                        }
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_CANCEL:
+                        if (view.getTranslationY() > dismissThreshold) {
+                            view.animate()
+                                    .translationY(context.getResources().getDisplayMetrics().heightPixels)
+                                    .setDuration(animationDuration)
+                                    .withEndAction(dialog::dismiss)
+                                    .start();
+                        } else {
+                            view.animate()
+                                    .translationY(0)
+                                    .setDuration(animationDuration)
+                                    .start();
+                        }
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+    }
+
+    /**
+     * A custom dialog that slides up from the bottom of the screen with animation. It supports
+     * drag-to-dismiss functionality and ensures smooth dismissal animations without overlapping
+     * dismiss calls. The dialog animates a specified view during show and dismiss operations.
+     */
+    public static class SlideDialog extends Dialog {
+        private View animView;
+        private boolean isDismissing = false;
+        private int duration;
+        final int screenHeight;
+
+        public SlideDialog(@NonNull Context context) {
+            super(context);
+            screenHeight = context.getResources().getDisplayMetrics().heightPixels;
+        }
+
+        public void setAnimView(View view) {
+            this.animView = view;
+        }
+
+        public void setAnimationDuration(int duration) {
+            this.duration = duration;
+        }
+
+        /**
+         * Displays the dialog with a slide-up animation for the animated view, if set.
+         */
+        @Override
+        public void show() {
+            super.show();
+            if (animView == null) return;
+
+            animView.setTranslationY(screenHeight);
+            animView.animate()
+                    .translationY(0)
+                    .setDuration(duration)
+                    .setListener(null)
+                    .start();
+        }
+
+        /**
+         * Cancels the dialog, triggering a dismissal animation.
+         */
+        @Override
+        public void cancel() {
+            dismiss();
+        }
+
+        /**
+         * Dismisses the dialog with a slide-down animation for the animated view, if set.
+         * Ensures that dismissal is not triggered multiple times concurrently.
+         */
+        @Override
+        public void dismiss() {
+            if (isDismissing) return;
+            isDismissing = true;
+
+            if (animView == null) {
+                try {
+                    super.dismiss();
+                } finally {
+                    isDismissing = false;
+                }
+                return;
+            }
+
+            animView.animate()
+                    .translationY(screenHeight)
+                    .setDuration(duration)
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            try {
+                                SlideDialog.super.dismiss();
+                            } finally {
+                                isDismissing = false;
+                            }
+                        }
+                    })
+                    .start();
+        }
     }
 
     /**
