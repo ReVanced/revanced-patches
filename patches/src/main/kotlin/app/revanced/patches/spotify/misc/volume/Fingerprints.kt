@@ -4,12 +4,10 @@ import app.revanced.patcher.fingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.iface.reference.*;
+import com.android.tools.smali.dexlib2.iface.reference.*
 
 internal val forceLocalPlaybackFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
-
     strings("mediaSessionCompat")
 
     // This custom check is NECESSARY for accuracy. It pinpoints the exact
