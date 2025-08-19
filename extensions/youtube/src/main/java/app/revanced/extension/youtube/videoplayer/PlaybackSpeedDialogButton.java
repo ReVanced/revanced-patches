@@ -33,7 +33,6 @@ public class PlaybackSpeedDialogButton {
                     controlsView,
                     "revanced_playback_speed_dialog_button_container",
                     "revanced_playback_speed_dialog_button",
-                    "revanced_playback_speed_dialog_button_placeholder",
                     "revanced_playback_speed_dialog_button_text",
                     Settings.PLAYBACK_SPEED_DIALOG_BUTTON::get,
                     view -> {
