@@ -1357,6 +1357,10 @@ public final class app/revanced/patches/youtube/layout/hide/shorts/HideShortsCom
 	public static final fun getHideShortsComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/layout/hide/signintotvpopup/DisableSignInToTvPatchPopupKt {
+	public static final fun getDisableSignInToTvPopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/layout/hide/suggestedvideoendscreen/DisableSuggestedVideoEndScreenPatchKt {
 	public static final fun getDisableSuggestedVideoEndScreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1532,6 +1536,10 @@ public final class app/revanced/patches/youtube/misc/navigation/NavigationBarHoo
 	public static final fun setHookNavigationButtonCreated (Lkotlin/jvm/functions/Function1;)V
 }
 
+public final class app/revanced/patches/youtube/misc/playercontrols/PlayerControlsOverlayVisibilityPatchKt {
+	public static final fun getPlayerControlsOverlayVisibilityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/misc/playercontrols/PlayerControlsPatchKt {
 	public static final fun getAddBottomControl ()Lkotlin/jvm/functions/Function1;
 	public static final fun getPlayerControlsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
@@ -1660,12 +1668,12 @@ public final class app/revanced/patches/youtube/video/quality/RememberVideoQuali
 	public static final fun getRememberVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/video/quality/VideoQualityPatchKt {
-	public static final fun getVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/youtube/video/quality/VideoQualityDialogButtonPatchKt {
+	public static final fun getVideoQualityDialogButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/video/quality/button/VideoQualityDialogButtonPatchKt {
-	public static final fun getVideoQualityButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/youtube/video/quality/VideoQualityPatchKt {
+	public static final fun getVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatchKt {

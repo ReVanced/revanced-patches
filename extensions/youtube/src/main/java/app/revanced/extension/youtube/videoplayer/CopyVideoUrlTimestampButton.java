@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.patches.CopyVideoUrlPatch;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 public class CopyVideoUrlTimestampButton {
@@ -22,7 +21,7 @@ public class CopyVideoUrlTimestampButton {
             instance = new PlayerControlButton(
                     controlsView,
                     "revanced_copy_video_url_timestamp_button",
-                    "revanced_copy_video_url_timestamp_button_placeholder",
+                    null,
                     Settings.COPY_VIDEO_URL_TIMESTAMP::get,
                     view -> CopyVideoUrlPatch.copyUrl(true),
                     view -> {
@@ -36,14 +35,21 @@ public class CopyVideoUrlTimestampButton {
     }
 
     /**
-     * injection point
+     * injection point.
+     */
+    public static void setVisibilityNegatedImmediate() {
+        if (instance != null) instance.setVisibilityNegatedImmediate();
+    }
+
+    /**
+     * injection point.
      */
     public static void setVisibilityImmediate(boolean visible) {
         if (instance != null) instance.setVisibilityImmediate(visible);
     }
 
     /**
-     * injection point
+     * injection point.
      */
     public static void setVisibility(boolean visible, boolean animated) {
         if (instance != null) instance.setVisibility(visible, animated);

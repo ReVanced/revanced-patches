@@ -150,9 +150,9 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_chips_shelf_title">Chips ausblenden</string>
   <string name="revanced_hide_chips_shelf_summary_on">Chips sind ausgeblendet</string>
   <string name="revanced_hide_chips_shelf_summary_off">Chips werden angezeigt</string>
-  <string name="revanced_hide_community_posts_title">Community-Beiträge ausblenden</string>
-  <string name="revanced_hide_community_posts_summary_on">Community-Beiträge sind ausgeblendet</string>
-  <string name="revanced_hide_community_posts_summary_off">Gemeinschaftsbeiträge werden angezeigt</string>
+  <string name="revanced_hide_community_posts_title">Communitybeiträge ausblenden</string>
+  <string name="revanced_hide_community_posts_summary_on">Communitybeiträge sind ausgeblendet</string>
+  <string name="revanced_hide_community_posts_summary_off">Communitybeiträge werden angezeigt</string>
   <string name="revanced_hide_compact_banner_title">Kompakte Banner ausblenden</string>
   <string name="revanced_hide_compact_banner_summary_on">Kompakte Banner sind ausgeblendet</string>
   <string name="revanced_hide_compact_banner_summary_off">Kompakte Banner werden angezeigt</string>
@@ -218,7 +218,7 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <string name="revanced_hide_channel_bar_title">Senderleiste ausblenden</string>
   <string name="revanced_hide_channel_bar_summary_on">Kanalleiste ist ausgeblendet</string>
   <string name="revanced_hide_channel_bar_summary_off">Kanalleiste wird angezeigt</string>
-  <string name="revanced_hide_channel_watermark_title">Wasserzeichen ausblenden</string>
+  <string name="revanced_hide_channel_watermark_title">Kanal-Wasserzeichen ausblenden</string>
   <string name="revanced_hide_channel_watermark_summary_on">Wasserzeichen ist ausgeblendet</string>
   <string name="revanced_hide_channel_watermark_summary_off">Wasserzeichen wird angezeigt</string>
   <string name="revanced_hide_emergency_box_title">Notfall-Boxen ausblenden</string>
@@ -303,9 +303,9 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <string name="revanced_hide_members_shelf_summary_on">Mitglieder-Regal ist ausgeblendet</string>
   <string name="revanced_hide_members_shelf_summary_off">Mitglieder-Regal wird angezeigt</string>
   <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">Schaltfläche \'Community besuchen\' ausblenden</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Schaltfläche \'Community besuchen\' ist ausgeblendet</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Schaltfläche \"Community besuchen\" ist angezeigt</string>
+  <string name="revanced_hide_visit_community_button_title">Schaltfläche \'Zur Community\' ausblenden</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Schaltfläche \'Zur Community\' ist ausgeblendet</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Schaltfläch \"Zur Community\" wird angezeigt</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Den \'Store besuchen\'-Button auf Kanalseiten ausblenden</string>
   <string name="revanced_hide_visit_store_button_summary_on">Schaltfläche \"Shop besuchen\" ist ausgeblendet</string>
@@ -449,6 +449,11 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog wird angezeigt</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Dies umgeht nicht die Altersbeschränkung, sondern akzeptiert sie nur automatisch.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Pop-up \"Bei TV anmelden\" deaktivieren</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Pop-up \"Bei TV anmelden\" ist deaktiviert</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Pop-up \"Bei TV anmelden\" ist aktiviert</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Doppeltippen zum Kapitelüberspringen deaktivieren</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Doppeltippen kann niemals ein Überspringen zum nächsten/vorherigen Kapitel auslösen</string>
@@ -558,7 +563,7 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_hide_stop_ads_button_summary_on">Schaltfläche \"Werbung stoppen\" ist ausgeblendet</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Schaltfläche \"Werbung stoppen\" ist sichtbar</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Bericht ausblenden</string>
   <string name="revanced_hide_report_button_summary_on">Bericht-Button ist ausgeblendet</string>
   <string name="revanced_hide_report_button_summary_off">Bericht-Button wird angezeigt</string>
@@ -570,12 +575,21 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_hide_download_button_title">Download ausblenden</string>
   <string name="revanced_hide_download_button_summary_on">Download-Button ist ausgeblendet</string>
   <string name="revanced_hide_download_button_summary_off">Download-Button wird angezeigt</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Hypen ausblenden</string>
+  <string name="revanced_hide_hype_button_summary_on">Hypen-Button ist ausgeblendet</string>
+  <string name="revanced_hide_hype_button_summary_off">Hypen-Button wird angezeigt</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Werbung ausblenden</string>
+  <string name="revanced_hide_promote_button_summary_on">Schaltfläche \"Promoten\" ist ausgeblendet</string>
+  <string name="revanced_hide_promote_button_summary_off">Schaltfläche \"Promoten\" ist sichtbar</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Dank ausblenden</string>
   <string name="revanced_hide_thanks_button_summary_on">Dankeschön-Taste ist ausgeblendet</string>
   <string name="revanced_hide_thanks_button_summary_off">Dankeschön Button wird angezeigt</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Ask ausblenden</string>
   <string name="revanced_hide_ask_button_summary_on">Ask-Button ist ausgeblendet</string>
   <string name="revanced_hide_ask_button_summary_off">Ask-Button wird angezeigt</string>
@@ -688,6 +702,9 @@ Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS T
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Überwachung in VR ausblenden</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Im VR-Menü beobachten ist ausgeblendet</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Im VR-Menü beobachten wird angezeigt</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Videoqualitätsmenü ausblenden</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Videomenü ist ausgeblendet</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Videomenü ist sichtbar</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Videoqualitätsmenüfußzeile ausblenden</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video-Qualität Menü-Fußzeile ist ausgeblendet</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video-Qualität Menü-Fußzeile wird angezeigt</string>
@@ -1460,7 +1477,7 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_playback_speed_dialog_button_summary_on">Die Schaltfläche wird angezeigt. Tippen und halten, um die Wiedergabegeschwindigkeit auf die Standardeinstellung zurückzusetzen.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Button wird nicht angezeigt</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Videoqualität-Schaltfläche anzeigen</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Schaltfläche wird angezeigt. Tippen und halten, um die Qualität auf Standard zurückzusetzen</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Schaltfläche wird nicht angezeigt</string>

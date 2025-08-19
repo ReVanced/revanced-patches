@@ -81,7 +81,7 @@ Second \"item\" text"</string>
 
 MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배터리 사용량에 부정적인 영향을 미치지 않습니다.
 
-앱 배터리 최적화를 비활성화(제한 없음)하려면 '계속하기' 버튼을 누르세요."</string>
+앱 배터리 최적화를 비활성화(제한 없음)하려면 '계속하기' 버튼을 탭하세요."</string>
   <string name="gms_core_dialog_continue_text">계속하기</string>
   </patch>
   </app>
@@ -105,9 +105,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_settings_search_history_summary_off">설정 검색 기록을 표시하지 않습니다</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Shorts PIP 모드 비활성화하기</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts PIP 모드를 비활성화합니다</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts PIP 모드를 활성화합니다</string>
+  <string name="revanced_shorts_disable_background_playback_title">Shorts 백그라운드 재생 비활성화하기</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts 백그라운드 재생을 비활성화합니다</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts 백그라운드 재생을 활성화합니다\n\n알림: Shorts 백그라운드 재생은 PIP 모드를 통해서만 사용할 수 있습니다</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">디버깅</string>
@@ -442,10 +442,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_share_copy_url_success">URL을 클립보드에 복사하였습니다</string>
   <string name="revanced_share_copy_url_timestamp_success">타임스탬프가 표기된 URL을 클립보드에 복사하였습니다</string>
   <string name="revanced_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
-  <string name="revanced_copy_video_url_summary_on">버튼을 표시합니다\n\n• 버튼을 눌러서 동영상 URL을 복사할 수 있습니다\n• 길게 누르면 타임스탬스가 표기된 동영상 URL이 복사됩니다</string>
+  <string name="revanced_copy_video_url_summary_on">버튼을 표시합니다\n\n• 버튼을 탭하여 동영상 URL을 복사할 수 있습니다\n• 길게 탭하면 타임스탬스가 표기된 동영상 URL이 복사됩니다</string>
   <string name="revanced_copy_video_url_summary_off">버튼을 표시하지 않습니다</string>
   <string name="revanced_copy_video_url_timestamp_title">타임스탬프가 표기된 URL 복사 버튼 표시하기</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">버튼을 표시합니다\n\n• 버튼을 눌러서 타임스탬프가 표기된 동영상 URL을 복사할 수 있습니다\n• 길게 누르면 타임스탬프가 표기되지 않은 동영상 URL이 복사됩니다</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">버튼을 표시합니다\n\n• 버튼을 탭하여 타임스탬프가 표기된 동영상 URL을 복사할 수 있습니다\n• 길게 탭하면 타임스탬프가 표기되지 않은 동영상 URL이 복사됩니다</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">버튼을 표시하지 않습니다</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -454,10 +454,15 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 삭제하지 않습니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">\'TV에 로그인\' 팝업 비활성화하기</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">\'TV에 로그인\' 팝업을 비활성화합니다</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">\'TV에 로그인\' 팝업을 활성화합니다</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
-  <string name="revanced_disable_chapter_skip_double_tap_title">두 번 눌러서 챕터 건너뛰기 비활성화하기</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_on">두 번 눌러서 다음/이전 챕터로 건너뛰기가 절대 트리거될 수 없습니다</string>
-  <string name="revanced_disable_chapter_skip_double_tap_summary_off">두 번 눌러서 다음/이전 챕터로 건너뛰기가 가끔 트리거될 수 있습니다</string>
+  <string name="revanced_disable_chapter_skip_double_tap_title">두 번 탭하여 챕터 건너뛰기 비활성화하기</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_on">두 번 탭하여 다음/이전 챕터로 건너뛰기가 절대 트리거될 수 없습니다</string>
+  <string name="revanced_disable_chapter_skip_double_tap_summary_off">두 번 탭하여 다음/이전 챕터로 건너뛰기가 가끔 트리거될 수 있습니다</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">외부 다운로드</string>
@@ -497,9 +502,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
   <string name="revanced_swipe_volume_summary_on">"전체 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절합니다"</string>
   <string name="revanced_swipe_volume_summary_off">전체 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절하지 않습니다</string>
-  <string name="revanced_swipe_press_to_engage_title">길게 눌러서 스와이프 제스처 사용하기</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">화면을 길게 눌러서 스와이프 제스처를 사용합니다</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">화면을 짧게 눌러서 스와이프 제스처를 사용합니다</string>
+  <string name="revanced_swipe_press_to_engage_title">길게 탭하여 스와이프 제스처 사용하기</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">화면을 길게 탭하여 스와이프 제스처를 사용합니다</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">화면을 짧게 탭하여 스와이프 제스처를 사용합니다</string>
   <string name="revanced_swipe_haptic_feedback_title">진동 피드백 활성화하기</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">진동 피드백을 활성화합니다</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">진동 피드백을 비활성화합니다</string>
@@ -561,7 +566,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_stop_ads_button_summary_on">광고 중지 버튼이 숨겨집니다</string>
   <string name="revanced_hide_stop_ads_button_summary_off">광고 중지 버튼이 표시됩니다</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">신고 버튼 숨기기</string>
   <string name="revanced_hide_report_button_summary_on">신고 버튼이 숨겨집니다</string>
   <string name="revanced_hide_report_button_summary_off">신고 버튼이 표시됩니다</string>
@@ -573,12 +578,21 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_download_button_title">오프라인 저장 버튼 숨기기</string>
   <string name="revanced_hide_download_button_summary_on">오프라인 저장 버튼이 숨겨집니다</string>
   <string name="revanced_hide_download_button_summary_off">오프라인 저장 버튼이 표시됩니다</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Hype 버튼 숨기기</string>
+  <string name="revanced_hide_hype_button_summary_on">Hype 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_hype_button_summary_off">Hype 버튼이 표시됩니다</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">프로모션 버튼 숨기기</string>
+  <string name="revanced_hide_promote_button_summary_on">프로모션 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_promote_button_summary_off">프로모션 버튼이 표시됩니다</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Thanks 버튼 숨기기</string>
   <string name="revanced_hide_thanks_button_summary_on">Thanks 버튼이 숨겨집니다</string>
   <string name="revanced_hide_thanks_button_summary_off">Thanks 버튼이 표시됩니다</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">\'질문하기\' 버튼 숨기기</string>
   <string name="revanced_hide_ask_button_summary_on">\'질문하기\' 버튼이 숨겨집니다</string>
   <string name="revanced_hide_ask_button_summary_off">\'질문하기\' 버튼이 표시됩니다</string>
@@ -692,6 +706,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR로 보기 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR로 보기 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR로 보기 메뉴가 표시됩니다</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">동영상 화질 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">동영상 화질 메뉴가 숨겨집니다</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">동영상 화질 메뉴가 표시됩니다</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">화질 설정 메뉴에서 하단 설명 숨기기</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">화질 설정 메뉴에서 하단 설명이 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">화질 설정 메뉴에서 하단 설명이 표시됩니다</string>
@@ -928,7 +945,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_toast_on_connection_error_title">API 사용 불가 메시지 표시하기</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 경우에 팝업 메시지를 표시합니다</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 경우에 팝업 메시지를 표시하지 않습니다</string>
-  <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
+  <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 탭하세요</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">이 기기의 ReturnYouTubeDislike API 사용 통계</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">평균 API 응답 시간</string>
@@ -987,7 +1004,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_auto_hide_skip_button_duration">건너뛰기 버튼 표시 시간</string>
   <string name="revanced_sb_auto_hide_skip_button_duration_sum">건너뛰기 및 하이라이트로 건너뛰기 버튼이 자동으로 숨겨지기 전까지 표시되는 시간을 설정할 수 있습니다</string>
   <string name="revanced_sb_general_skiptoast">건너뛰기 취소 메시지 표시하기</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">구간을 자동으로 건너뛰는 경우에 팝업 메시지를 표시합니다\n\n팝업 메시지를 눌러서 건너뛰기를 취소할 수 있습니다</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">구간을 자동으로 건너뛰는 경우에 팝업 메시지를 표시합니다\n\n팝업 메시지를 탭하여 건너뛰기를 취소할 수 있습니다</string>
   <string name="revanced_sb_general_skiptoast_sum_off">팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_sb_toast_on_skip_duration">건너뛰기 취소 메시지 표시 시간</string>
   <string name="revanced_sb_toast_on_skip_duration_sum">건너뛰기 취소 팝업 메시지가 표시되는 시간을 설정할 수 있습니다</string>
@@ -1009,7 +1026,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_enable_create_segment_sum_on">플레이어에서 구간 추가 버튼을 표시합니다</string>
   <string name="revanced_sb_enable_create_segment_sum_off">플레이어에서 구간 추가 버튼을 표시하지 않습니다</string>
   <string name="revanced_sb_general_adjusting">구간 추가 시 최소 슬라이더 단위 설정</string>
-  <string name="revanced_sb_general_adjusting_sum">새로운 구간 추가 시에 시간 앞으로 버튼 또는 뒤로 버튼을 눌렀을 때 이동하는 최소 시간으로, 단위는 밀리초입니다</string>
+  <string name="revanced_sb_general_adjusting_sum">새로운 구간 추가 시에 시간 앞으로 버튼 또는 뒤로 버튼을 탭하였을 때 이동하는 최소 시간으로, 단위는 밀리초입니다</string>
   <string name="revanced_sb_general_adjusting_invalid">값은 양수여야 합니다</string>
   <string name="revanced_sb_guidelines_preference_title">가이드라인 보기</string>
   <string name="revanced_sb_guidelines_preference_sum">구간 제출 시의 주의사항에 대한 내용을 포함하고 있습니다</string>
@@ -1143,7 +1160,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 이렇게 제출하시겠습니까?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">구간의 시작 또는 끝을 잘못 설정하였습니다</string>
   <string name="revanced_sb_new_segment_mark_locations_first">먼저 재생바에서 시작 지점과 끝 지점을 표시하세요</string>
-  <string name="revanced_sb_new_segment_preview_segment_first">구간 미리 보기 버튼을 눌러서 설정한 구간이 정상적으로 건너뛰기가 되는지 확인하세요</string>
+  <string name="revanced_sb_new_segment_preview_segment_first">구간 미리 보기 버튼을 탭하여 설정한 구간이 정상적으로 건너뛰기가 되는지 확인하세요</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">직접 시간 구간 편집하기</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">구간의 시작이나 끝을 편집하시겠습니까?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">잘못된 시간 형식입니다</string>
@@ -1153,16 +1170,16 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_stats_loading">불러오는 중 ...</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock을 비활성화하였습니다</string>
   <string name="revanced_sb_stats_username">사용자 이름: &lt;b&gt;%s&lt;/b&gt;</string>
-  <string name="revanced_sb_stats_username_change">사용자 이름을 변경하려면 여기를 누르세요</string>
+  <string name="revanced_sb_stats_username_change">사용자 이름을 변경하려면 여기를 탭하세요</string>
   <string name="revanced_sb_stats_username_change_unknown_error">사용자 이름을 변경할 수 없습니다. 상태 코드: %1$d %2$s</string>
   <string name="revanced_sb_stats_username_changed">사용자 이름을 성공적으로 변경하였습니다</string>
   <string name="revanced_sb_stats_reputation">사용자의 평판: &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">제출 횟수: &lt;b&gt;%s&lt;/b&gt;</string>
-  <string name="revanced_sb_stats_submissions_sum">구간을 보려면 여기를 누르세요</string>
+  <string name="revanced_sb_stats_submissions_sum">구간을 보려면 여기를 탭하세요</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock 리더보드</string>
   <string name="revanced_sb_stats_saved">다른 분들이 &lt;b&gt;%s&lt;/b&gt;개의 구간을 건너뛸 수 있게 해주셨습니다</string>
-  <string name="revanced_sb_stats_saved_sum_zero">글로벌 기록 또는 상위 기여자를 확인하려면 여기를 누르세요</string>
-  <string name="revanced_sb_stats_saved_sum">이는 &lt;b&gt;%s&lt;/b&gt;에 해당됩니다.&lt;br&gt;리더보드를 보려면 여기를 누르세요</string>
+  <string name="revanced_sb_stats_saved_sum_zero">글로벌 기록 또는 상위 기여자를 확인하려면 여기를 탭하세요</string>
+  <string name="revanced_sb_stats_saved_sum">이는 &lt;b&gt;%s&lt;/b&gt;에 해당됩니다.&lt;br&gt;리더보드를 보려면 여기를 탭하세요</string>
   <string name="revanced_sb_stats_self_saved">구간 &lt;b&gt;%s&lt;/b&gt;개를 건너뛰었습니다</string>
   <string name="revanced_sb_stats_self_saved_sum">이는 &lt;b&gt;%s&lt;/b&gt;에 해당됩니다</string>
   <string name="revanced_sb_stats_self_saved_reset_title">건너뛴 횟수 기록을 초기화하시겠습니까?</string>
@@ -1172,11 +1189,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_color_opacity_label">불투명도:</string>
   <string name="revanced_sb_color_dot_label">색상:</string>
   <string name="revanced_sb_about_title">정보</string>
-  <string name="revanced_sb_about_api_summary">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
+  <string name="revanced_sb_about_api_summary">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 탭하세요</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">레이아웃 폼 팩터 변경하기</string>
-  <string name="revanced_change_form_factor_entry_1">기기 기본값 사용</string>
+  <string name="revanced_change_form_factor_entry_1">기본값</string>
   <string name="revanced_change_form_factor_entry_2">폰</string>
   <string name="revanced_change_form_factor_entry_3">태블릿</string>
   <string name="revanced_change_form_factor_entry_4">오토모티브</string>
@@ -1195,7 +1212,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_spoof_app_version_summary_off">앱 버전을 변경하지 않습니다</string>
   <string name="revanced_spoof_app_version_user_dialog_message">"앱 버전을 YouTube 이전 앱 버전으로 변경합니다.
 
-이 경우 앱 레이아웃과 기능이 변경되지만 알려지지 않은 문제점이 발생할 수 있습니다.
+이 경우 앱 레이아웃과 기능이 변경되지만 알려지지 않은 부작용이 발생할 수 있습니다.
 
 나중에 이 설정을 비활성화하면 앱 레이아웃 버그를 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
   <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
@@ -1204,7 +1221,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">앱 시작 페이지 변경하기</string>
-  <string name="revanced_change_start_page_entry_default">홈 (기본값)</string>
+  <string name="revanced_change_start_page_entry_default">기본값</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">모든 구독 채널</string>
   <string name="revanced_change_start_page_entry_browse">채널 둘러보기</string>
   <string name="revanced_change_start_page_entry_courses">학습 프로그램</string>
@@ -1250,16 +1267,16 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_shorts_autoplay_title">Shorts 자동재생</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts가 자동넘김됩니다</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts가 반복재생됩니다</string>
-  <string name="revanced_shorts_autoplay_background_title">Shorts PIP 모드 자동넘김</string>
-  <string name="revanced_shorts_autoplay_background_summary_on">PIP 모드에서 Shorts가 자동넘김됩니다</string>
-  <string name="revanced_shorts_autoplay_background_summary_off">PIP 모드에서 Shorts가 반복재생됩니다</string>
+  <string name="revanced_shorts_autoplay_background_title">Shorts 백그라운드 재생 자동넘김</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts 백그라운드 재생이 자동넘김됩니다</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts 백그라운드 재생이 반복재생됩니다</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">미니 플레이어</string>
   <string name="revanced_miniplayer_screen_summary">앱 내에서 최소화된 플레이어의 스타일을 변경할 수 있습니다</string>
   <string name="revanced_miniplayer_type_title">미니 플레이어 유형</string>
   <string name="revanced_miniplayer_type_entry_0">사용 안함</string>
-  <string name="revanced_miniplayer_type_entry_1">기기 기본값 사용</string>
+  <string name="revanced_miniplayer_type_entry_1">기본값</string>
   <string name="revanced_miniplayer_type_entry_2">최소화</string>
   <string name="revanced_miniplayer_type_entry_3">태블릿</string>
   <string name="revanced_miniplayer_type_entry_4">모던 스타일 1</string>
@@ -1269,12 +1286,12 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_miniplayer_rounded_corners_title">둥근 모서리 활성화하기</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">모서리를 둥글게 활성화합니다</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">모서리를 각지게 활성화합니다</string>
-  <string name="revanced_miniplayer_double_tap_action_title">\'두 번 누르기\' 및 \'핀치하여 크기 조정\' 활성화하기</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">"'두 번 누르기 동작' 및 '핀치하여 크기 조정'을 활성화합니다
+  <string name="revanced_miniplayer_double_tap_action_title">\'두 번 탭하기\' 및 \'핀치하여 크기 조정\' 활성화하기</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"'두 번 탭하기 동작' 및 '핀치하여 크기 조정'을 활성화합니다
 
-• 두 번 눌러서 미니 플레이어 크기를 늘릴 수 있습니다
-• 다시 두 번 누르면 원래 크기로 복원됩니다"</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_off">\'두 번 누르기 동작\' 및 \'핀치하여 크기 조정\'을 비활성화합니다</string>
+• 두 번 탭하여 미니 플레이어 크기를 늘릴 수 있습니다
+• 다시 두 번 탭하면 원래 크기로 복원됩니다"</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">\'두 번 탭하기 동작\' 및 \'핀치하여 크기 조정\'을 비활성화합니다</string>
   <string name="revanced_miniplayer_drag_and_drop_title">드래그 &amp; 드롭 활성화하기</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">"드래그 &amp; 드롭을 활성화합니다
 
@@ -1354,7 +1371,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 
 이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며, 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일 또는 스틸 컷 썸네일이 표시됩니다
 
-DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
+DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API 사용 불가 메시지 표시하기</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow를 사용할 수 없을 경우에 팝업 메시지를 표시합니다</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow를 사용할 수 없을 경우에 팝업 메시지를 표시하지 않습니다</string>
@@ -1395,11 +1412,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"기기 크기 정보를 변경합니다
 
-이 설정을 활성화하면 더 높은 화질 동영상 값을 잠금 해제할 수 있지만, 동영상 재생이 끊기거나 배터리 수명이 단축될 수 있으며, 알려지지 않은 문제점도 발생할 수 있습니다"</string>
+이 설정을 활성화하면 더 높은 화질 동영상 값을 잠금 해제할 수 있지만, 동영상 재생이 끊기거나 배터리 수명이 단축될 수 있으며, 알려지지 않은 부작용도 발생할 수 있습니다"</string>
   <string name="revanced_spoof_device_dimensions_summary_off">"기기 크기 정보를 변경하지 않습니다
 
 이 설정을 활성화하면 더 높은 화질 동영상 값을 잠금 해제할 수 있습니다"</string>
-  <string name="revanced_spoof_device_dimensions_user_dialog_message">이 설정을 활성화하면 동영상 재생이 끊기거나 배터리 수명이 단축되고 알려지지 않은 문제점이 발생할 수 있습니다.</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">이 설정을 활성화하면 동영상 재생이 끊기거나 배터리 수명이 단축되고 알려지지 않은 부작용이 발생할 수 있습니다.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore 설정</string>
@@ -1450,16 +1467,16 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">자동</string>
   <string name="revanced_remember_video_quality_last_selected_title">동영상 화질 저장 활성화하기</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값이 변경될 때마다 기본 동영상 화질으로 저장합니다</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값이 변경될 때마다 기본 동영상 화질으로 저장하지 않습니다</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값을 변경할 때마다 기본 동영상 화질으로 저장합니다</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값을 변경할 때마다 기본 동영상 화질으로 저장하지 않습니다</string>
   <string name="revanced_remember_video_quality_last_selected_toast_title">동영상 화질 변경 메시지 표시하기</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">기본 동영상 화질 값이 변경될 때마다 팝업 메시지를 표시합니다</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">기본 동영상 화질 값이 변경될 때마다 팝업 메시지를 표시하지 않습니다</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">기본 동영상 화질 값을 변경할 때마다 팝업 메시지를 표시합니다</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">기본 동영상 화질 값을 변경할 때마다 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 이용 시 기본 동영상 화질</string>
   <string name="revanced_video_quality_default_mobile_title">모바일 네트워크 이용 시 기본 동영상 화질</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Shorts 화질 저장 활성화하기</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Shorts 화질 값이 변경될 때마다 기본 Shorts 화질으로 저장합니다</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Shorts 화질 값이 변경될 때마다 기본 Shorts 화질으로 저장하지 않습니다</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Shorts 화질 값을 변경할 때마다 기본 Shorts 화질으로 저장합니다</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Shorts 화질 값을 변경할 때마다 기본 Shorts 화질으로 저장하지 않습니다</string>
   <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi 이용 시 기본 Shorts 화질</string>
   <string name="revanced_shorts_quality_default_mobile_title">모바일 네트워크 이용 시 기본 Shorts 화질</string>
   <string name="revanced_remember_video_quality_mobile">모바일 네트워크</string>
@@ -1469,12 +1486,12 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">동영상 재생 속도 다이얼로그 버튼 표시하기</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 누르면 동영상 재생 속도가 기본값으로 초기화됩니다</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 탭하면 동영상 재생 속도가 기본값으로 초기화됩니다</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">버튼을 표시하지 않습니다</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">동영상 화질 버튼 표시하기</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 누르면 화질이 기본값으로 초기화됩니다</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 탭하면 화질이 기본값으로 초기화됩니다</string>
   <string name="revanced_video_quality_dialog_button_summary_off">버튼을 표시하지 않습니다</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1489,16 +1506,16 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_custom_playback_speeds_invalid">재생 속도 값은 %s배속보다 작아야 합니다</string>
   <string name="revanced_custom_playback_speeds_parse_exception">잘못된 사용자 정의 재생 속도 값입니다</string>
   <string name="revanced_custom_playback_speeds_auto">자동</string>
-  <string name="revanced_speed_tap_and_hold_title">사용자 정의 길게 눌러서 동영상 재생 속도</string>
-  <string name="revanced_speed_tap_and_hold_summary">화면을 길게 누르는 동안에 변경되는 동영상 재생 속도를 0-8 사이에서 지정할 수 있습니다</string>
+  <string name="revanced_speed_tap_and_hold_title">사용자 정의 길게 탭하여 동영상 재생 속도</string>
+  <string name="revanced_speed_tap_and_hold_summary">화면을 길게 탭하는 동안에 변경되는 동영상 재생 속도를 0-8 사이에서 지정할 수 있습니다</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">동영상 재생 속도 저장 활성화하기</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값이 변경될 때마다 기본 동영상 재생 속도로 저장합니다</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값이 변경될 때마다 기본 동영상 재생 속도로 저장하지 않습니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장합니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장하지 않습니다</string>
   <string name="revanced_remember_playback_speed_last_selected_toast_title">동영상 재생 속도 변경 메시지 표시하기</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">기본 동영상 재생 속도 값이 변경될 때마다 팝업 메시지를 표시합니다</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">기본 동영상 재생 속도 값이 변경될 때마다 팝업 메시지를 표시하지 않습니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">기본 동영상 재생 속도 값을 변경할 때마다 팝업 메시지를 표시합니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">기본 동영상 재생 속도 값을 변경할 때마다 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_playback_speed_default_title">기본 동영상 재생 속도</string>
   <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경하였습니다</string>
   </patch>
@@ -1532,11 +1549,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"이 설정를 활성화하면 배터리 수명이 향상되고, 동영상 재생 끊김 문제가 해결될 수 있습니다.
 
 AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동영상을 재생할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS 변경에 대한 알려진 문제점</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS 변경에 따른 부작용</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다
 • 안정적인 볼륨을 사용할 수 없습니다
 • 동영상이 1초 일찍 종료될 수 있습니다"</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android 변경에 대한 알려진 문제점</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android 변경에 따른 부작용</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 오디오 트랙 메뉴가 표시되지 않습니다
 • 안정적인 볼륨을 사용할 수 없습니다
 • 원본 오디오 트랙를 강제로 활성화할 수 없습니다"</string>

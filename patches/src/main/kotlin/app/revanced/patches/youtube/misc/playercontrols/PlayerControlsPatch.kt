@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -40,13 +39,17 @@ internal lateinit var addTopControl: (String) -> Unit
 lateinit var addBottomControl: (String) -> Unit
     private set
 
-internal var bottomUiContainerResourceId = -1L
+internal var bottom_ui_container_stub_id = -1L
     private set
-internal var controlsLayoutStub = -1L
+internal var controls_layout_stub_id = -1L
     private set
-internal var heatseekerViewstub = -1L
+internal var heatseeker_viewstub_id = -1L
     private set
-internal var fullscreenButton = -1L
+internal var fullscreen_button_id = -1L
+    private set
+internal var inset_overlay_view_layout_id = -1L
+    private set
+internal var scrim_overlay_id = -1L
     private set
 
 val playerControlsResourcePatch = resourcePatch {
@@ -65,10 +68,12 @@ val playerControlsResourcePatch = resourcePatch {
     execute {
         val targetResourceName = "youtube_controls_bottom_ui_container.xml"
 
-        bottomUiContainerResourceId = resourceMappings["id", "bottom_ui_container_stub"]
-        controlsLayoutStub = resourceMappings["id", "controls_layout_stub"]
-        heatseekerViewstub = resourceMappings["id", "heatseeker_viewstub"]
-        fullscreenButton = resourceMappings["id", "fullscreen_button"]
+        bottom_ui_container_stub_id = resourceMappings["id", "bottom_ui_container_stub"]
+        controls_layout_stub_id = resourceMappings["id", "controls_layout_stub"]
+        heatseeker_viewstub_id = resourceMappings["id", "heatseeker_viewstub"]
+        fullscreen_button_id = resourceMappings["id", "fullscreen_button"]
+        inset_overlay_view_layout_id = resourceMappings["id", "inset_overlay_view_layout"]
+        scrim_overlay_id = resourceMappings["id", "scrim_overlay"]
 
         bottomTargetDocument = document("res/layout/$targetResourceName")
 
@@ -198,6 +203,13 @@ fun injectVisibilityCheckCall(descriptor: String) {
         visibilityImmediateInsertIndex++,
         "invoke-static { p0 }, $descriptor->setVisibilityImmediate(Z)V",
     )
+
+    // Patch works without this hook, but it is needed to use the correct fade out animation
+    // duration when tapping the overlay to dismiss.
+    visibilityNegatedImmediateMethod.addInstruction(
+        visibilityNegatedImmediateInsertIndex++,
+        "invoke-static { }, $descriptor->setVisibilityNegatedImmediate()V",
+    )
 }
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
@@ -220,12 +232,16 @@ private lateinit var visibilityImmediateCallbacksExistMethod : MutableMethod
 private lateinit var visibilityImmediateMethod: MutableMethod
 private var visibilityImmediateInsertIndex: Int = 0
 
+private lateinit var visibilityNegatedImmediateMethod: MutableMethod
+private var visibilityNegatedImmediateInsertIndex: Int = 0
+
 val playerControlsPatch = bytecodePatch(
     description = "Manages the code for the player controls of the YouTube player.",
 ) {
     dependsOn(
         playerControlsResourcePatch,
         sharedExtensionPatch,
+        PlayerControlsOverlayVisibilityPatch
     )
 
     execute {
@@ -258,7 +274,7 @@ val playerControlsPatch = bytecodePatch(
         // Hook the fullscreen close button.  Used to fix visibility
         // when seeking and other situations.
         overlayViewInflateFingerprint.method.apply {
-            val resourceIndex = indexOfFirstLiteralInstructionReversedOrThrow(fullscreenButton)
+            val resourceIndex = indexOfFirstLiteralInstructionReversedOrThrow(fullscreen_button_id)
 
             val index = indexOfFirstInstructionOrThrow(resourceIndex) {
                 opcode == Opcode.CHECK_CAST &&
@@ -277,12 +293,17 @@ val playerControlsPatch = bytecodePatch(
         visibilityImmediateCallbacksExistMethod = playerControlsExtensionHookListenersExistFingerprint.method
         visibilityImmediateMethod = playerControlsExtensionHookFingerprint.method
 
+        motionEventFingerprint.match(youtubeControlsOverlayFingerprint.originalClassDef).method.apply {
+            visibilityNegatedImmediateMethod = this
+            visibilityNegatedImmediateInsertIndex = indexOfTranslationInstruction(this) + 1
+        }
+
         // A/B test for a slightly different bottom overlay controls,
         // that uses layout file youtube_video_exploder_controls_bottom_ui_container.xml
         // The change to support this is simple and only requires adding buttons to both layout files,
         // but for now force this different layout off since it's still an experimental test.
         if (is_19_35_or_greater) {
-            playerBottomControlsExploderFeatureFlagFingerprint.method.returnEarly()
+            playerBottomControlsExploderFeatureFlagFingerprint.method.returnLate(false)
         }
 
         // A/B test of new top overlay controls. Two different layouts can be used:
@@ -299,12 +320,9 @@ val playerControlsPatch = bytecodePatch(
                 val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                addInstructions(
+                addInstruction(
                     index + 1,
-                    """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerTopControlsLayoutResourceName(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$register
-                    """,
+                    "const-string v$register, \"default\""
                 )
             }
         }
