@@ -37,7 +37,7 @@ val forceLocalPlaybackPatch = bytecodePatch(
                 move-result-object v$builderRegister
                 invoke-virtual { v$builderRegister }, Landroid/media/AudioAttributes${'$'}Builder;->build()Landroid/media/AudioAttributes;
                 move-result-object v$builderRegister
-                invoke-virtual { p$sessionRegister, v$builderRegister }, Landroid/media/session/MediaSession;->setPlaybackToLocal(Landroid/media/AudioAttributes;)V
+                invoke-virtual { v$sessionRegister, v$builderRegister }, Landroid/media/session/MediaSession;->setPlaybackToLocal(Landroid/media/AudioAttributes;)V
             """)
 
         }
