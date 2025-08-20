@@ -1163,15 +1163,9 @@ public class Utils {
         dialog.setCanceledOnTouchOutside(true);
         dialog.setCancelable(true);
 
-        // Preset size constants.
-        final int dip8 = dipToPixels(8);
-        final int dip40 = dipToPixels(40);
-
         // Create wrapper layout for side margins.
         LinearLayout wrapperLayout = new LinearLayout(context);
         wrapperLayout.setOrientation(LinearLayout.VERTICAL);
-
-        wrapperLayout.setPadding(dip8, dip8, dip8, 0);
 
         // Create drag container for spacer and content view.
         LinearLayout dragContainer = new LinearLayout(context);
@@ -1179,6 +1173,7 @@ public class Utils {
 
         // Add top spacer.
         View spacer = new View(context);
+        final int dip40 = dipToPixels(40);
         LinearLayout.LayoutParams spacerParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, dip40);
         spacer.setLayoutParams(spacerParams);
@@ -1224,10 +1219,9 @@ public class Utils {
 
         LinearLayout mainLayout = new LinearLayout(context);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
-        mainLayout.setPadding(dip8, dip8, dip8, dip8);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(0, 0, 0, dip8);
+        layoutParams.setMargins(dip8, 0, dip8, dip8);
         mainLayout.setLayoutParams(layoutParams);
 
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
@@ -1242,7 +1236,7 @@ public class Utils {
         handleBackground.getPaint().setColor(adjustColorBrightness(getDialogBackgroundColor(), 0.9f, 1.25f));
         LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(dip40, dip4);
         handleParams.gravity = Gravity.CENTER_HORIZONTAL;
-        handleParams.setMargins(0, 0, 0, dip20);
+        handleParams.setMargins(0, dip8, 0, dip20);
         handleBar.setLayoutParams(handleParams);
         handleBar.setBackground(handleBackground);
         mainLayout.addView(handleBar);
@@ -1266,6 +1260,7 @@ public class Utils {
             float touchY;
             float translationY;
 
+            @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {

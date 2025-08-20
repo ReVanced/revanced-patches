@@ -262,7 +262,9 @@ public class CustomPlaybackSpeedPatch {
             LinearLayout mainLayout = Utils.createMainLayout(context);
 
             // Preset size constants.
-            final int dip5 = dipToPixels(5);
+            final int dip4 = dipToPixels(4);
+            final int dip8 = dipToPixels(8);
+            final int dip12 = dipToPixels(12);
             final int dip32 = dipToPixels(32);
             final int dip60 = dipToPixels(60);
 
@@ -286,11 +288,10 @@ public class CustomPlaybackSpeedPatch {
             LinearLayout sliderLayout = new LinearLayout(context);
             sliderLayout.setOrientation(LinearLayout.HORIZONTAL);
             sliderLayout.setGravity(Gravity.CENTER_VERTICAL);
-            sliderLayout.setPadding(dip5, dip5, dip5, dip5); // 5dp padding.
 
             // Create +/- buttons.
-            Button minusButton = createStyledButton(context, false, 0, dip5);
-            Button plusButton = createStyledButton(context, true, dip5, 0);
+            Button minusButton = createStyledButton(context, false, dip8, dip8);
+            Button plusButton = createStyledButton(context, true, dip8, dip8);
 
             // Create slider for speed adjustment.
             SeekBar speedSlider = new SeekBar(context);
@@ -302,18 +303,12 @@ public class CustomPlaybackSpeedPatch {
                     Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme slider thumb.
             LinearLayout.LayoutParams sliderParams = new LinearLayout.LayoutParams(
                     0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
-            sliderParams.setMargins(dip5, 0, dip5, 0); // 5dp to -/+ buttons.
             speedSlider.setLayoutParams(sliderParams);
 
             // Add -/+ and slider views to slider layout.
             sliderLayout.addView(minusButton);
             sliderLayout.addView(speedSlider);
             sliderLayout.addView(plusButton);
-
-            LinearLayout.LayoutParams sliderLayoutParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            sliderLayoutParams.setMargins(0, 0, 0, dip5); // 5dp bottom margin.
-            sliderLayout.setLayoutParams(sliderLayoutParams);
 
             // Add slider layout to main layout.
             mainLayout.addView(sliderLayout);
@@ -362,7 +357,7 @@ public class CustomPlaybackSpeedPatch {
             gridLayout.setRowCount((int) Math.ceil(customPlaybackSpeeds.length / 5.0));
             LinearLayout.LayoutParams gridParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            gridParams.setMargins(0, 0, 0, 0); // No margins around GridLayout.
+            gridParams.setMargins(dip4, dip12, dip4, dip12); // Speed buttons container.
             gridLayout.setLayoutParams(gridParams);
 
             // For button use 1 digit minimum.
@@ -377,7 +372,7 @@ public class CustomPlaybackSpeedPatch {
                 GridLayout.LayoutParams containerParams = new GridLayout.LayoutParams();
                 containerParams.width = 0; // Equal width for columns.
                 containerParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f);
-                containerParams.setMargins(dip5, 0, dip5, 0); // Button margins.
+                containerParams.setMargins(dip4, 0, dip4, 0); // Button margins.
                 containerParams.height = dip60; // Fixed height for button and label.
                 buttonContainer.setLayoutParams(containerParams);
 
@@ -393,7 +388,7 @@ public class CustomPlaybackSpeedPatch {
                         Utils.createCornerRadii(20), null, null));
                 buttonBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
                 speedButton.setBackground(buttonBackground);
-                speedButton.setPadding(dip5, dip5, dip5, dip5);
+                speedButton.setPadding(dip4, dip4, dip4, dip4);
 
                 // Center button vertically and stretch horizontally in container.
                 FrameLayout.LayoutParams buttonParams = new FrameLayout.LayoutParams(

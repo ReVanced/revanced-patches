@@ -213,8 +213,8 @@ public class VideoQualityDialogButton {
 
             // Preset size constants.
             final int dip8 = dipToPixels(8);
+            final int dip12 = dipToPixels(12);
             final int dip16 = dipToPixels(16);
-            final int dip20 = dipToPixels(20);
 
             // Create main layout.
             LinearLayout mainLayout = Utils.createMainLayout(context);
@@ -265,7 +265,7 @@ public class VideoQualityDialogButton {
             LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
-            titleParams.setMargins(dip8, 0, 0, dip20);
+            titleParams.setMargins(dip12, 0, 0, dip16);
             titleView.setLayoutParams(titleParams);
             mainLayout.addView(titleView);
 
@@ -293,11 +293,6 @@ public class VideoQualityDialogButton {
                 }
             });
 
-            LinearLayout.LayoutParams listViewParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
-            listViewParams.setMargins(0, 0, 0, dip8);
-            listView.setLayoutParams(listViewParams);
             mainLayout.addView(listView);
 
             // Create observer for PlayerType changes.
