@@ -17,7 +17,7 @@ val hideReelsNavbarButton = bytecodePatch(
                 val endIndex = it.patternMatch!!.endIndex
                 val instruction = it.method.getInstruction(endIndex + 1)
 
-                tabCreateButtonsFingerprint.method.addInstructionsWithLabels(endIndex-1,"""
+                it.method.addInstructionsWithLabels(endIndex-1,"""
                 const v1, 0x3
                 if-eq v1,v8, :skipAdd
             """, ExternalLabel("skipAdd", instruction))
