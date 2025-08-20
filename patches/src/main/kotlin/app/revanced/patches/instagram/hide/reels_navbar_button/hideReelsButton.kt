@@ -11,10 +11,10 @@ val hideReelsNavbarButton = bytecodePatch(
 
     execute {
         tabCreateButtonsFingerprint.let {
-            val endIndex = it.patternMatch!!.endIndex
+            val insertIndex = it.patternMatch!!.endIndex -1
 
             it.method.addInstructionsWithLabels(
-                endIndex - 1,
+                insertIndex,
                 """
                     const v1, 0x3
                     if-eq v1,v8, :skipButton
