@@ -5,10 +5,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 
-
 @Suppress("unused")
 val hideReelsNavbarButton = bytecodePatch(
     name = "Hide navigation bar Reels button",
+    use = false
 ) {
     compatibleWith("com.instagram.android")
 
