@@ -453,9 +453,9 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Cette option ne contourne pas la vérification de l\'âge. Elle est juste confirmée automatiquement.</string>
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  <string name="revanced_disable_signin_to_tv_popup_title">Désactiver le pop-up \"Se connecter à la TV\"</string>
-  <string name="revanced_disable_signin_to_tv_popup_summary_on">Le pop-up \"Se connecter à la TV\" est désactivé</string>
-  <string name="revanced_disable_signin_to_tv_popup_summary_off">Le pop-up \"Se connecter à la TV\" est activé</string>
+  <string name="revanced_disable_signin_to_tv_popup_title">Désactiver le pop-up \"Connectez-vous à la TV\"</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Le pop-up \"Connectez-vous à la TV\" est désactivé</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Le pop-up \"Connectez-vous à la TV\" est activé</string>
   </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Désactiver le double appui pour passer à un chapitre</string>
@@ -582,11 +582,11 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_hide_download_button_summary_off">Le bouton Télécharger est affiché</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Masquer l\'Hype</string>
-  <string name="revanced_hide_hype_button_summary_on">Le bouton Hype est masqué</string>
-  <string name="revanced_hide_hype_button_summary_off">Le bouton Hype est affiché</string>
+  <string name="revanced_hide_hype_button_title">Masquer \"Booster\"</string>
+  <string name="revanced_hide_hype_button_summary_on">Le bouton Booster est masqué</string>
+  <string name="revanced_hide_hype_button_summary_off">Le bouton Booster est affiché</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_promote_button_title">Masquer Promouvoir</string>
+  <string name="revanced_hide_promote_button_title">Masquer \"Promouvoir\"</string>
   <string name="revanced_hide_promote_button_summary_on">Le bouton Promouvoir est masqué</string>
   <string name="revanced_hide_promote_button_summary_off">Le bouton Promouvoir est affiché</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->

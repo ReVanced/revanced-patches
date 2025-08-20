@@ -584,9 +584,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_hype_button_summary_on">Hype 버튼이 숨겨집니다</string>
   <string name="revanced_hide_hype_button_summary_off">Hype 버튼이 표시됩니다</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_promote_button_title">홍보 버튼 숨기기</string>
-  <string name="revanced_hide_promote_button_summary_on">홍보 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_promote_button_summary_off">홍보 버튼이 표시됩니다</string>
+  <string name="revanced_hide_promote_button_title">프로모션 버튼 숨기기</string>
+  <string name="revanced_hide_promote_button_summary_on">프로모션 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_promote_button_summary_off">프로모션 버튼이 표시됩니다</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Thanks 버튼 숨기기</string>
   <string name="revanced_hide_thanks_button_summary_on">Thanks 버튼이 숨겨집니다</string>
@@ -1193,7 +1193,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">레이아웃 폼 팩터 변경하기</string>
-  <string name="revanced_change_form_factor_entry_1">기기 기본값 사용</string>
+  <string name="revanced_change_form_factor_entry_1">기본값</string>
   <string name="revanced_change_form_factor_entry_2">폰</string>
   <string name="revanced_change_form_factor_entry_3">태블릿</string>
   <string name="revanced_change_form_factor_entry_4">오토모티브</string>
@@ -1221,7 +1221,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">앱 시작 페이지 변경하기</string>
-  <string name="revanced_change_start_page_entry_default">홈 (기본값)</string>
+  <string name="revanced_change_start_page_entry_default">기본값</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">모든 구독 채널</string>
   <string name="revanced_change_start_page_entry_browse">채널 둘러보기</string>
   <string name="revanced_change_start_page_entry_courses">학습 프로그램</string>
@@ -1276,7 +1276,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_miniplayer_screen_summary">앱 내에서 최소화된 플레이어의 스타일을 변경할 수 있습니다</string>
   <string name="revanced_miniplayer_type_title">미니 플레이어 유형</string>
   <string name="revanced_miniplayer_type_entry_0">사용 안함</string>
-  <string name="revanced_miniplayer_type_entry_1">기기 기본값 사용</string>
+  <string name="revanced_miniplayer_type_entry_1">기본값</string>
   <string name="revanced_miniplayer_type_entry_2">최소화</string>
   <string name="revanced_miniplayer_type_entry_3">태블릿</string>
   <string name="revanced_miniplayer_type_entry_4">모던 스타일 1</string>

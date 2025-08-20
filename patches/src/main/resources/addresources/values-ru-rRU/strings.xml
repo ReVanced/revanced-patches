@@ -582,7 +582,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_summary_off">Кнопка \"Скачать\" под плеером показана</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Скрыть кнопку \"Hype\"</string>
+  <string name="revanced_hide_hype_button_title">Скрыть кнопку \"Хайп\"</string>
   <string name="revanced_hide_hype_button_summary_on">Кнопка \"Хайп\" скрыта</string>
   <string name="revanced_hide_hype_button_summary_off">Кнопка \"Хайп\" показана</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
