@@ -12,6 +12,8 @@ val hideReelsNavbarButton = bytecodePatch(
 ) {
     execute {
 
+    compatibleWith("com.instagram.android")
+
         bytecodePatch {
             tabCreateButtonsFingerprint.let {
                 val endIndex = it.patternMatch!!.endIndex
