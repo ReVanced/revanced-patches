@@ -14,8 +14,8 @@ import org.jetbrains.annotations.Nullable;
 import xyz.gianlu.librespot.common.NameThreadFactory;
 import xyz.gianlu.librespot.common.Utils;
 import xyz.gianlu.librespot.core.Session;
+import xyz.gianlu.librespot.core.TokenProvider;
 import xyz.gianlu.librespot.crypto.DiffieHellman;
-import xyz.gianlu.librespot.mercury.MercuryClient;
 
 import javax.crypto.Cipher;
 import javax.crypto.Mac;
@@ -391,7 +391,7 @@ public class AndroidZeroconfServer implements Closeable {
             for (SessionListener l : sessionListeners) {
                 l.sessionChanged(session);
             }
-        } catch (Session.SpotifyAuthenticationException | MercuryClient.MercuryException | IOException |
+        } catch (Session.SpotifyAuthenticationException | TokenProvider.TokenException | IOException |
                  GeneralSecurityException ex) {
             LOGGER.error("Couldn't establish a new session.", ex);
 
