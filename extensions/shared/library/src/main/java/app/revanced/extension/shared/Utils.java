@@ -1114,6 +1114,17 @@ public class Utils {
         return button;
     }
 
+    /**
+     * Configures the parameters of a dialog window, including its width, gravity, vertical offset and background dimming.
+     * The width is calculated as a percentage of the screen's portrait width and the vertical offset is specified in DIP.
+     * The default dialog background is removed to allow for custom styling.
+     *
+     * @param window The {@link Window} object to configure.
+     * @param gravity The gravity for positioning the dialog (e.g., {@link Gravity#BOTTOM}).
+     * @param yOffsetDip The vertical offset from the gravity position in DIP.
+     * @param widthPercentage The width of the dialog as a percentage of the screen's portrait width (0-100).
+     * @param dimAmount If true, sets the background dim amount to 0 (no dimming); if false, leaves the default dim amount.
+     */
     public static void setDialogWindowParameters(Window window, int gravity, int yOffsetDip, int widthPercentage, boolean dimAmount) {
         WindowManager.LayoutParams params = window.getAttributes();
 
@@ -1139,7 +1150,7 @@ public class Utils {
     /**
      * Creates a {@link SlideDialog} with the specified content view, configured to slide up from the
      * bottom of the screen with customizable animation duration and drag-to-dismiss functionality.
-     * The dialog includes side margins and is dismissible by touching outside or dragging down.
+     * The dialog includes side margins, a top spacer, and is dismissible by touching outside or dragging down.
      *
      * @param context The Android context used to create the dialog.
      * @param contentView The view to be displayed inside the dialog.
@@ -1152,12 +1163,33 @@ public class Utils {
         dialog.setCanceledOnTouchOutside(true);
         dialog.setCancelable(true);
 
+        // Preset size constants.
+        final int dip8 = dipToPixels(8);
+        final int dip40 = dipToPixels(40);
+
         // Create wrapper layout for side margins.
         LinearLayout wrapperLayout = new LinearLayout(context);
         wrapperLayout.setOrientation(LinearLayout.VERTICAL);
-        final int dip8 = dipToPixels(8);
-        wrapperLayout.setPadding(dip8, 0, dip8, 0);
-        wrapperLayout.addView(contentView);
+
+        wrapperLayout.setPadding(dip8, dip8, dip8, 0);
+
+        // Create drag container for spacer and content view.
+        LinearLayout dragContainer = new LinearLayout(context);
+        dragContainer.setOrientation(LinearLayout.VERTICAL);
+
+        // Add top spacer.
+        View spacer = new View(context);
+        LinearLayout.LayoutParams spacerParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, dip40);
+        spacer.setLayoutParams(spacerParams);
+        dragContainer.addView(spacer);
+
+        // Add content view (mainLayout).
+        dragContainer.addView(contentView);
+
+        // Add drag container to wrapper layout.
+        wrapperLayout.addView(dragContainer);
+
         dialog.setContentView(wrapperLayout);
 
         // Configure dialog window.
@@ -1166,12 +1198,12 @@ public class Utils {
             setDialogWindowParameters(window, Gravity.BOTTOM, 0, 100, false);
         }
 
-        // Set up animation.
-        dialog.setAnimView(contentView);
+        // Set up animation on drag container.
+        dialog.setAnimView(dragContainer);
         dialog.setAnimationDuration(animationDuration);
 
-        // Set drag-to-dismiss touch listener.
-        setupDragToDismiss(context, contentView, dialog, animationDuration);
+        // Set drag-to-dismiss touch listener on drag container.
+        setupDragToDismiss(context, dragContainer, dialog, animationDuration);
 
         return dialog;
     }
@@ -1186,14 +1218,17 @@ public class Utils {
     public static LinearLayout createMainLayout(Context context) {
         // Preset size constants.
         final int dip4 = dipToPixels(4);   // Height for handle bar.
-        final int dip8 = dipToPixels(8);   // Dislog padding/margin.
-        final int dip12 = dipToPixels(12); // Corner radius.
+        final int dip8 = dipToPixels(8);   // Dialog padding.
         final int dip20 = dipToPixels(20); // Handle bar bottom margin.
         final int dip40 = dipToPixels(40); // Handle bar width.
 
         LinearLayout mainLayout = new LinearLayout(context);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
         mainLayout.setPadding(dip8, dip8, dip8, dip8);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(0, 0, 0, dip8);
+        mainLayout.setLayoutParams(layoutParams);
 
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
                 createCornerRadii(12), null, null));
