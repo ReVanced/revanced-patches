@@ -32,6 +32,7 @@ public final class LayoutComponentsFilter extends Filter {
     );
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
+    private final StringFilterGroup communityPosts;
     private final StringFilterGroup surveys;
     private final StringFilterGroup notifyMe;
     private final StringFilterGroup singleItemInformationPanel;
@@ -68,7 +69,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         // Paths.
 
-        final var communityPosts = new StringFilterGroup(
+        communityPosts = new StringFilterGroup(
                 Settings.HIDE_COMMUNITY_POSTS,
                 "post_base_wrapper", // may be obsolete and no longer needed.
                 "text_post_root.eml",
@@ -323,6 +324,12 @@ public final class LayoutComponentsFilter extends Filter {
 
         if (matchedGroup == channelProfile) {
             return channelProfileBuffer.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == communityPosts && NavigationBar.isBackButtonVisible()) {
+            // Allow community posts on channel profile page,
+            // or if viewing an individual channel in the feed.
+            return false;
         }
 
         if (exceptions.matches(path)) return false; // Exceptions are not filtered.

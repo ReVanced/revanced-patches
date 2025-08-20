@@ -2,9 +2,8 @@ package app.revanced.extension.youtube.videoplayer;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
-import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.AUTOMATIC_VIDEO_QUALITY_VALUE;
-import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.VIDEO_QUALITY_1080P_PREMIUM_NAME;
-import static app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch.VideoQualityMenuInterface;
+import static app.revanced.extension.youtube.patches.VideoInformation.AUTOMATIC_VIDEO_QUALITY_VALUE;
+import static app.revanced.extension.youtube.patches.VideoInformation.VIDEO_QUALITY_PREMIUM_NAME;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -14,6 +13,7 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.UnderlineSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -39,73 +39,25 @@ import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch;
 import app.revanced.extension.youtube.settings.Settings;
+import kotlin.Unit;
 
 @SuppressWarnings("unused")
 public class VideoQualityDialogButton {
 
-    private static final int DRAWABLE_LD = getDrawableIdentifier("revanced_video_quality_dialog_button_ld");
-    private static final int DRAWABLE_SD = getDrawableIdentifier("revanced_video_quality_dialog_button_sd");
-    private static final int DRAWABLE_HD = getDrawableIdentifier("revanced_video_quality_dialog_button_hd");
-    private static final int DRAWABLE_FHD = getDrawableIdentifier("revanced_video_quality_dialog_button_fhd");
-    private static final int DRAWABLE_FHD_PLUS = getDrawableIdentifier("revanced_video_quality_dialog_button_fhd_plus");
-    private static final int DRAWABLE_QHD = getDrawableIdentifier("revanced_video_quality_dialog_button_qhd");
-    private static final int DRAWABLE_4K = getDrawableIdentifier("revanced_video_quality_dialog_button_4k");
-    private static final int DRAWABLE_UNKNOWN = getDrawableIdentifier("revanced_video_quality_dialog_button_unknown");
-
     @Nullable
     private static PlayerControlButton instance;
 
-    /**
-     * The current resource name of the button icon.
-     */
-    private static int currentIconResource;
+    @Nullable
+    private static CharSequence currentOverlayText;
 
-    private static int getDrawableIdentifier(String resourceName) {
-        final int resourceId = Utils.getResourceIdentifier(resourceName, "drawable");
-        if (resourceId == 0) Logger.printException(() -> "Could not find resource: " + resourceName);
-        return resourceId;
-    }
-
-    /**
-     * Updates the button icon based on the current video quality.
-     */
-    public static void updateButtonIcon(@Nullable VideoQuality quality) {
-        try {
-            Utils.verifyOnMainThread();
-            if (instance == null) return;
-
-            final int resolution = quality == null
-                    ? AUTOMATIC_VIDEO_QUALITY_VALUE // Video is still loading.
-                    : quality.patch_getResolution();
-
-            final int iconResource = switch (resolution) {
-                case 144, 240, 360 -> DRAWABLE_LD;
-                case 480  -> DRAWABLE_SD;
-                case 720  -> DRAWABLE_HD;
-                case 1080 -> VIDEO_QUALITY_1080P_PREMIUM_NAME.equals(quality.patch_getQualityName())
-                        ? DRAWABLE_FHD_PLUS
-                        : DRAWABLE_FHD;
-                case 1440 -> DRAWABLE_QHD;
-                case 2160 -> DRAWABLE_4K;
-                default -> DRAWABLE_UNKNOWN;
-            };
-
-            if (iconResource != currentIconResource) {
-                currentIconResource = iconResource;
-
-                Utils.runOnMainThreadDelayed(() -> {
-                    if (iconResource != currentIconResource) {
-                        Logger.printDebug(() -> "Ignoring stale button update to: " + quality);
-                        return;
-                    }
-                    instance.setIcon(iconResource);
-                }, 100);
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "updateButtonIcon failure", ex);
-        }
+    static {
+        VideoInformation.onQualityChange.addObserver((@Nullable VideoQuality quality) -> {
+            updateButtonText(quality);
+            return Unit.INSTANCE;
+        });
     }
 
     /**
@@ -115,8 +67,9 @@ public class VideoQualityDialogButton {
         try {
             instance = new PlayerControlButton(
                     controlsView,
+                    "revanced_video_quality_dialog_button_container",
                     "revanced_video_quality_dialog_button",
-                    "revanced_video_quality_dialog_button_placeholder",
+                    "revanced_video_quality_dialog_button_text",
                     Settings.VIDEO_QUALITY_DIALOG_BUTTON::get,
                     view -> {
                         try {
@@ -127,9 +80,8 @@ public class VideoQualityDialogButton {
                     },
                     view -> {
                         try {
-                            VideoQuality[] qualities = RememberVideoQualityPatch.getCurrentQualities();
-                            VideoQualityMenuInterface menu = RememberVideoQualityPatch.getCurrentMenuInterface();
-                            if (qualities == null || menu == null) {
+                            VideoQuality[] qualities = VideoInformation.getCurrentQualities();
+                            if (qualities == null) {
                                 Logger.printDebug(() -> "Cannot reset quality, videoQualities is null");
                                 return true;
                             }
@@ -140,7 +92,7 @@ public class VideoQualityDialogButton {
                                 final int resolution = quality.patch_getResolution();
                                 if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
                                     Logger.printDebug(() -> "Resetting quality to: " + quality);
-                                    menu.patch_setQuality(quality);
+                                    VideoInformation.changeQuality(quality);
                                     return true;
                                 }
                             }
@@ -156,11 +108,18 @@ public class VideoQualityDialogButton {
                     }
             );
 
-            // Set initial icon.
-            updateButtonIcon(RememberVideoQualityPatch.getCurrentQuality());
+            // Set initial text.
+            updateButtonText(VideoInformation.getCurrentQuality());
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);
         }
+    }
+
+    /**
+     * injection point.
+     */
+    public static void setVisibilityNegatedImmediate() {
+        if (instance != null) instance.setVisibilityNegatedImmediate();
     }
 
     /**
@@ -182,12 +141,55 @@ public class VideoQualityDialogButton {
     }
 
     /**
+     * Updates the button text based on the current video quality.
+     */
+    public static void updateButtonText(@Nullable VideoQuality quality) {
+        try {
+            Utils.verifyOnMainThread();
+            if (instance == null) return;
+
+            final int resolution = quality == null
+                    ? AUTOMATIC_VIDEO_QUALITY_VALUE // Video is still loading.
+                    : quality.patch_getResolution();
+
+            SpannableStringBuilder text = new SpannableStringBuilder();
+            String qualityText = switch (resolution) {
+                case AUTOMATIC_VIDEO_QUALITY_VALUE -> "";
+                case 144, 240, 360 -> "LD";
+                case 480  -> "SD";
+                case 720  -> "HD";
+                case 1080 -> "FHD";
+                case 1440 -> "QHD";
+                case 2160 -> "4K";
+                default   -> "?"; // Should never happen.
+            };
+            text.append(qualityText);
+
+            if (quality != null && quality.patch_getQualityName().contains(VIDEO_QUALITY_PREMIUM_NAME)) {
+                // Underline the entire "FHD" text for 1080p Premium.
+                text.setSpan(new UnderlineSpan(), 0, qualityText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+
+            currentOverlayText = text;
+            Utils.runOnMainThreadDelayed(() -> {
+                if (currentOverlayText != text) {
+                    Logger.printDebug(() -> "Ignoring stale button text update of: " + text);
+                    return;
+                }
+                instance.setTextOverlay(text);
+            }, 100);
+        } catch (Exception ex) {
+            Logger.printException(() -> "updateButtonText failure", ex);
+        }
+    }
+
+    /**
      * Shows a dialog with available video qualities, excluding Auto, with a title showing the current quality.
      */
     private static void showVideoQualityDialog(Context context) {
         try {
-            VideoQuality[] currentQualities = RememberVideoQualityPatch.getCurrentQualities();
-            VideoQuality currentQuality = RememberVideoQualityPatch.getCurrentQuality();
+            VideoQuality[] currentQualities = VideoInformation.getCurrentQualities();
+            VideoQuality currentQuality = VideoInformation.getCurrentQuality();
             if (currentQualities == null || currentQuality == null) {
                 Logger.printDebug(() -> "Cannot show qualities dialog, videoQualities is null");
                 return;
@@ -195,12 +197,6 @@ public class VideoQualityDialogButton {
             if (currentQualities.length < 2) {
                 // Should never happen.
                 Logger.printException(() -> "Cannot show qualities dialog, no qualities available");
-                return;
-            }
-
-            VideoQualityMenuInterface menu = RememberVideoQualityPatch.getCurrentMenuInterface();
-            if (menu == null) {
-                Logger.printDebug(() -> "Cannot show qualities dialog, menu is null");
                 return;
             }
 
@@ -317,15 +313,8 @@ public class VideoQualityDialogButton {
                 try {
                     final int originalIndex = which + 1; // Adjust for automatic.
                     VideoQuality selectedQuality = currentQualities[originalIndex];
-                    Logger.printDebug(() -> "User clicked on quality: " + selectedQuality);
-
-                    if (RememberVideoQualityPatch.shouldRememberVideoQuality()) {
-                        RememberVideoQualityPatch.saveDefaultQuality(selectedQuality.patch_getResolution());
-                    }
-                    // Don't update button icon now. Icon will update when the actual
-                    // quality is changed by YT.  This is needed to ensure the icon is correct
-                    // if YT ignores changing from 1080p Premium to regular 1080p.
-                    menu.patch_setQuality(selectedQuality);
+                    RememberVideoQualityPatch.userChangedQuality(selectedQuality.patch_getResolution());
+                    VideoInformation.changeQuality(selectedQuality);
 
                     dialog.dismiss();
                 } catch (Exception ex) {
@@ -356,9 +345,12 @@ public class VideoQualityDialogButton {
                     portraitWidth = Math.min(
                             portraitWidth,
                             context.getResources().getDisplayMetrics().heightPixels);
+                    // Limit height in landscape mode.
+                    params.height = Utils.percentageHeightToPixels(80);
+                } else {
+                    params.height = WindowManager.LayoutParams.WRAP_CONTENT;
                 }
                 params.width = portraitWidth;
-                params.height = WindowManager.LayoutParams.WRAP_CONTENT;
                 window.setAttributes(params);
                 window.setBackgroundDrawable(null);
             }
@@ -428,6 +420,15 @@ public class VideoQualityDialogButton {
     }
 
     private static class CustomQualityAdapter extends ArrayAdapter<String> {
+        private static final int CUSTOM_LIST_ITEM_CHECKED_ID = Utils.getResourceIdentifier(
+                "revanced_custom_list_item_checked", "layout");
+        private static final int CHECK_ICON_ID = Utils.getResourceIdentifier(
+                "revanced_check_icon", "id");
+        private static final int CHECK_ICON_PLACEHOLDER_ID = Utils.getResourceIdentifier(
+                "revanced_check_icon_placeholder", "id");
+        private static final int ITEM_TEXT_ID = Utils.getResourceIdentifier(
+                "revanced_item_text", "id");
+
         private int selectedPosition = -1;
 
         public CustomQualityAdapter(@NonNull Context context, @NonNull List<String> objects) {
@@ -446,20 +447,14 @@ public class VideoQualityDialogButton {
 
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(
-                        Utils.getResourceIdentifier("revanced_custom_list_item_checked", "layout"),
+                        CUSTOM_LIST_ITEM_CHECKED_ID,
                         parent,
                         false
                 );
                 viewHolder = new ViewHolder();
-                viewHolder.checkIcon = convertView.findViewById(
-                        Utils.getResourceIdentifier("revanced_check_icon", "id")
-                );
-                viewHolder.placeholder = convertView.findViewById(
-                        Utils.getResourceIdentifier("revanced_check_icon_placeholder", "id")
-                );
-                viewHolder.textView = convertView.findViewById(
-                        Utils.getResourceIdentifier("revanced_item_text", "id")
-                );
+                viewHolder.checkIcon = convertView.findViewById(CHECK_ICON_ID);
+                viewHolder.placeholder = convertView.findViewById(CHECK_ICON_PLACEHOLDER_ID);
+                viewHolder.textView = convertView.findViewById(ITEM_TEXT_ID);
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();

@@ -40,7 +40,6 @@ abstract class Filter {
     /**
      * Adds callbacks to {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
      * if any of the groups are found.
-     * <p>
      */
     protected final void addIdentifierCallbacks(StringFilterGroup... groups) {
         identifierCallbacks.addAll(Arrays.asList(groups));
@@ -58,7 +57,6 @@ abstract class Filter {
      * Called after an enabled filter has been matched.
      * Default implementation is to always filter the matched component and log the action.
      * Subclasses can perform additional or different checks if needed.
-     *
      * <p>
      * Method is called off the main thread.
      *

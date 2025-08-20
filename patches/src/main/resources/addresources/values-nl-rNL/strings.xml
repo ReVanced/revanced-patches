@@ -452,6 +452,11 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog wordt getoond</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Dit omzeilt de leeftijdsbeperking niet. Het accepteert het alleen automatisch.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Pop-up \'Inloggen op tv\' uitschakelen</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Pop-up \'Inloggen op tv\' is uitgeschakeld</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Pop-up \'Inloggen op tv\' is ingeschakeld</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Dubbeltik om hoofdstukken over te slaan uitschakelen</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Dubbeltikken kan nooit leiden tot het overslaan naar het volgende/vorige hoofdstuk.</string>
@@ -563,7 +568,7 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_hide_stop_ads_button_summary_on">Knop \"Advertenties stoppen\" is verborgen</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Knop \"Advertenties stoppen\" is zichtbaar</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Melden verbergen</string>
   <string name="revanced_hide_report_button_summary_on">Melden is verborgen</string>
   <string name="revanced_hide_report_button_summary_off">Melden wordt weergegeven</string>
@@ -575,12 +580,21 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_hide_download_button_title">Downloaden verbergen</string>
   <string name="revanced_hide_download_button_summary_on">Downloaden knop is verborgen</string>
   <string name="revanced_hide_download_button_summary_off">Downloaden knop wordt weergegeven</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Verberg Hype</string>
+  <string name="revanced_hide_hype_button_summary_on">Hype-knop is verborgen</string>
+  <string name="revanced_hide_hype_button_summary_off">Hype-knop is zichtbaar</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Promotie verbergen</string>
+  <string name="revanced_hide_promote_button_summary_on">Promootknop is verborgen</string>
+  <string name="revanced_hide_promote_button_summary_off">Promootknop is weergegeven</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Bedankt verbergen</string>
   <string name="revanced_hide_thanks_button_summary_on">Bedankt-knop is verborgen</string>
   <string name="revanced_hide_thanks_button_summary_off">Bedankt-knop wordt weergegeven</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Vraag verbergen</string>
   <string name="revanced_hide_ask_button_summary_on">Knop \"Vraag\" is verborgen</string>
   <string name="revanced_hide_ask_button_summary_off">Knop \"Vraag\" wordt weergegeven</string>
@@ -693,6 +707,9 @@ Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS T
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Verberg Bekijk in VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu Bekijk in VR is verborgen</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Menu Bekijk in VR wordt weergegeven</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Videokwaliteitsmenu verbergen</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Videokwaliteitsmenu is verborgen</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Videokwaliteitsmenu is zichtbaar</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Verberg voettekst van video-kwaliteitsmenu</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Voettekst van video-kwaliteitsmenu is verborgen</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Voettekst van video-kwaliteitsmenu wordt weergegeven</string>
@@ -1463,7 +1480,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">De knop wordt weergegeven. Tik en houd vast om de afspeelsnelheid terug te zetten naar de standaardwaarde</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Knop wordt niet weergegeven</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Toon videokwaliteitknop</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Knop wordt weergegeven. Tik en houd vast om de kwaliteit terug te zetten naar standaard</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Knop wordt niet weergegeven</string>
