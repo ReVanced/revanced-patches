@@ -276,7 +276,6 @@ public class VideoQualityDialogButton {
             adapter.setSelectedPosition(listViewSelectedIndex);
             listView.setAdapter(adapter);
             listView.setDivider(null);
-            listView.setPadding(dip16, 0, 0, 0);
 
             // Create dialog.
             Utils.SlideDialog dialog = Utils.createSlideDialog(context, mainLayout, fadeInDuration);
