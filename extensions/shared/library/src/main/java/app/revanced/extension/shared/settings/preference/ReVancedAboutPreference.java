@@ -232,7 +232,7 @@ class WebViewDialog extends Dialog {
         // Set dialog window attributes
         Window window = getWindow();
         if (window != null) {
-            Utils.setDialogWindowParameters(window, Gravity.CENTER);
+            Utils.setDialogWindowParameters(window, Gravity.CENTER, 0, 90, false);
         }
     }
 

@@ -6,6 +6,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -34,15 +36,7 @@ import android.util.TypedValue;
 import android.view.*;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
+import android.widget.*;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -412,9 +406,9 @@ public class Utils {
     }
 
     public static void setClipboard(CharSequence text) {
-        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context
+        ClipboardManager clipboard = (ClipboardManager) context
                 .getSystemService(Context.CLIPBOARD_SERVICE);
-        android.content.ClipData clip = android.content.ClipData.newPlainText("ReVanced", text);
+        ClipData clip = ClipData.newPlainText("ReVanced", text);
         clipboard.setPrimaryClip(clip);
     }
 
@@ -1063,30 +1057,10 @@ public class Utils {
         // Set dialog window attributes.
         Window window = dialog.getWindow();
         if (window != null) {
-            setDialogWindowParameters(window, Gravity.CENTER);
+            setDialogWindowParameters(window, Gravity.CENTER, 0, 90, false);
         }
 
         return new Pair<>(dialog, mainLayout);
-    }
-
-    public static void setDialogWindowParameters(Window window, int gravity) {
-        WindowManager.LayoutParams params = window.getAttributes();
-
-        DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
-        int portraitWidth = (int) (displayMetrics.widthPixels);
-        if (Resources.getSystem().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            portraitWidth = Math.min(
-                    portraitWidth,
-                    (int) displayMetrics.heightPixels);
-            // Limit height in landscape mode.
-            params.height = (int) ((displayMetrics.heightPixels) * 0.8);
-        } else {
-            params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        }
-        params.width = portraitWidth;
-        params.gravity = gravity;
-        window.setAttributes(params);
-        window.setBackgroundDrawable(null); // Remove default dialog background.
     }
 
     /**
@@ -1110,7 +1084,7 @@ public class Utils {
         button.setTextSize(14);
         button.setAllCaps(false);
         button.setSingleLine(true);
-        button.setEllipsize(android.text.TextUtils.TruncateAt.END);
+        button.setEllipsize(TextUtils.TruncateAt.END);
         button.setGravity(Gravity.CENTER);
 
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(createCornerRadii(20), null, null));
@@ -1140,6 +1114,28 @@ public class Utils {
         return button;
     }
 
+    public static void setDialogWindowParameters(Window window, int gravity, int yOffsetDip, int widthPercentage, boolean dimAmount) {
+        WindowManager.LayoutParams params = window.getAttributes();
+
+        DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
+        int portraitWidth = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
+
+        // Set width based on parameters.
+        params.width = (int) (portraitWidth * (widthPercentage / 100.0f));
+
+        // Set other layout parameters.
+        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        params.gravity = gravity;
+        params.y = yOffsetDip > 0 ? dipToPixels(yOffsetDip) : 0;
+        if (dimAmount) {
+            params.dimAmount = 0f;
+        }
+
+        // Apply window attributes and flags.
+        window.setAttributes(params);
+        window.setBackgroundDrawable(null); // Remove default dialog background
+    }
+
     /**
      * Creates a {@link SlideDialog} with the specified content view, configured to slide up from the
      * bottom of the screen with customizable animation duration and drag-to-dismiss functionality.
@@ -1167,7 +1163,7 @@ public class Utils {
         // Configure dialog window.
         Window window = dialog.getWindow();
         if (window != null) {
-            setDialogWindowParameters(window, Gravity.BOTTOM);
+            setDialogWindowParameters(window, Gravity.BOTTOM, 0, 100, false);
         }
 
         // Set up animation.
@@ -1185,20 +1181,19 @@ public class Utils {
      * as the main layout in a dialog. The layout has vertical orientation and includes padding and
      * a centered handle bar with adjusted brightness for visual distinction.
      *
-     * @param context The Android context used to create the layout.
      * @return A configured {@link LinearLayout} with a handle bar and styled background.
      */
-    public static LinearLayout createMainLayout(@NonNull Context context) {
+    public static LinearLayout createMainLayout(Context context) {
         // Preset size constants.
         final int dip4 = dipToPixels(4);   // Height for handle bar.
-        final int dip5 = dipToPixels(5);   // Padding for mainLayout from left and right.
-        final int dip8 = dipToPixels(8);   // Padding for mainLayout from top and bottom.
-        final int dip20 = dipToPixels(20); // Bottom margin for handle bar.
-        final int dip40 = dipToPixels(40); // Width for handle bar.
+        final int dip8 = dipToPixels(8);   // Dislog padding/margin.
+        final int dip12 = dipToPixels(12); // Corner radius.
+        final int dip20 = dipToPixels(20); // Handle bar bottom margin.
+        final int dip40 = dipToPixels(40); // Handle bar width.
 
         LinearLayout mainLayout = new LinearLayout(context);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
-        mainLayout.setPadding(dip5, dip8, dip5, dip8);
+        mainLayout.setPadding(dip8, dip8, dip8, dip8);
 
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
                 createCornerRadii(12), null, null));
@@ -1209,11 +1204,8 @@ public class Utils {
         View handleBar = new View(context);
         ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
                 createCornerRadii(4), null, null));
-        int baseColor = getDialogBackgroundColor();
-        int adjustedHandleBarBackgroundColor = adjustColorBrightness(baseColor, 0.9f, 1.25f);
-        handleBackground.getPaint().setColor(adjustedHandleBarBackgroundColor);
-        LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(
-                dip40, dip4);
+        handleBackground.getPaint().setColor(adjustColorBrightness(getDialogBackgroundColor(), 0.9f, 1.25f));
+        LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(dip40, dip4);
         handleParams.gravity = Gravity.CENTER_HORIZONTAL;
         handleParams.setMargins(0, 0, 0, dip20);
         handleBar.setLayoutParams(handleParams);
