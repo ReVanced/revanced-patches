@@ -7,11 +7,26 @@ import app.revanced.patcher.util.smali.ExternalLabel
 
 @Suppress("unused")
 val hideReelsNavbarButton = bytecodePatch(
-    name = "Hide navigation bar Reels button",
+    name = "Hides navigation bar buttons",
     use = false
 ) {
     compatibleWith("com.instagram.android")
 
+    val hideReels by booleanOption(
+        key = "hideReels",
+        default = true,
+        title = "Hide Reels",
+        required = false,
+    )
+
+    val hideCreate by booleanOption(
+        key = "hideCreate",
+        default = false,
+        title = "Hide Create",
+        required = false,
+    )
+
+    
     execute {
         tabCreateButtonsFingerprint.let {
             val endIndex = it.patternMatch!!.endIndex
