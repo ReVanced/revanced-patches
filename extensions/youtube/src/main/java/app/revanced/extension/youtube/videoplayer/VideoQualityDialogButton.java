@@ -265,7 +265,7 @@ public class VideoQualityDialogButton {
             LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
-            titleParams.setMargins(dip12, 0, 0, dip16);
+            titleParams.setMargins(dip12, dip16, 0, dip16);
             titleView.setLayoutParams(titleParams);
             mainLayout.addView(titleView);
 

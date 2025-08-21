@@ -265,6 +265,7 @@ public class CustomPlaybackSpeedPatch {
             final int dip4 = dipToPixels(4);
             final int dip8 = dipToPixels(8);
             final int dip12 = dipToPixels(12);
+            final int dip20 = dipToPixels(20);
             final int dip32 = dipToPixels(32);
             final int dip60 = dipToPixels(60);
 
@@ -279,7 +280,7 @@ public class CustomPlaybackSpeedPatch {
             currentSpeedText.setGravity(Gravity.CENTER);
             LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            textParams.setMargins(0, 0, 0, 0);
+            textParams.setMargins(0, dip20, 0, 0);
             currentSpeedText.setLayoutParams(textParams);
             // Add current speed text view to main layout.
             mainLayout.addView(currentSpeedText);

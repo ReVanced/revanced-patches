@@ -1214,7 +1214,6 @@ public class Utils {
         // Preset size constants.
         final int dip4 = dipToPixels(4);   // Height for handle bar.
         final int dip8 = dipToPixels(8);   // Dialog padding.
-        final int dip20 = dipToPixels(20); // Handle bar bottom margin.
         final int dip40 = dipToPixels(40); // Handle bar width.
 
         LinearLayout mainLayout = new LinearLayout(context);
@@ -1230,16 +1229,22 @@ public class Utils {
         mainLayout.setBackground(background);
 
         // Add handle bar.
+        LinearLayout handleContainer = new LinearLayout(context);
+        LinearLayout.LayoutParams containerParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        containerParams.setMargins(0, dip8, 0, 0);
+        handleContainer.setLayoutParams(containerParams);
+        handleContainer.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
         View handleBar = new View(context);
         ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
                 createCornerRadii(4), null, null));
         handleBackground.getPaint().setColor(adjustColorBrightness(getDialogBackgroundColor(), 0.9f, 1.25f));
         LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(dip40, dip4);
-        handleParams.gravity = Gravity.CENTER_HORIZONTAL;
-        handleParams.setMargins(0, dip8, 0, dip20);
         handleBar.setLayoutParams(handleParams);
         handleBar.setBackground(handleBackground);
-        mainLayout.addView(handleBar);
+
+        handleContainer.addView(handleBar);
+        mainLayout.addView(handleContainer);
 
         return mainLayout;
     }
