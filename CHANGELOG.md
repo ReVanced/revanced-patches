@@ -1,3 +1,10 @@
+## [5.34.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.34.0...v5.34.1-dev.1) (2025-08-21)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Make compatible with latest versions again by fixing fingerprint ([#5684](https://github.com/ReVanced/revanced-patches/issues/5684)) ([30dcff1](https://github.com/ReVanced/revanced-patches/commit/30dcff13a56883efc499b71faadb403877cd1c67))
+
 # [5.34.0](https://github.com/ReVanced/revanced-patches/compare/v5.33.0...v5.34.0) (2025-08-19)
 
 
