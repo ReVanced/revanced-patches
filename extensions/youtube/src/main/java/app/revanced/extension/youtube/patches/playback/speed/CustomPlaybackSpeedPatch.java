@@ -259,7 +259,8 @@ public class CustomPlaybackSpeedPatch {
     public static void showModernCustomPlaybackSpeedDialog(Context context) {
         try {
             // Create main layout.
-            LinearLayout mainLayout = Utils.createMainLayout(context);
+            Integer backgroundColor = Utils.isDarkModeEnabled() ? Utils.getResourceColor("yt_black1") : null;
+            LinearLayout mainLayout = Utils.createMainLayout(context, backgroundColor);
 
             // Preset size constants.
             final int dip4 = dipToPixels(4);

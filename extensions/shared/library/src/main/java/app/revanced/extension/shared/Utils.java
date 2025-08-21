@@ -1208,9 +1208,12 @@ public class Utils {
      * as the main layout in a dialog. The layout has vertical orientation and includes padding and
      * a centered handle bar with adjusted brightness for visual distinction.
      *
+     * @param context The {@link Context} used to create the layout and access resources.
+     * @param backgroundColor The background color for the layout as an {@link Integer}, or {@code null} to use
+     *                        the default dialog background color or black if dark mode is enabled.
      * @return A configured {@link LinearLayout} with a handle bar and styled background.
      */
-    public static LinearLayout createMainLayout(Context context) {
+    public static LinearLayout createMainLayout(Context context, Integer backgroundColor) {
         // Preset size constants.
         final int dip4 = dipToPixels(4);   // Height for handle bar.
         final int dip8 = dipToPixels(8);   // Dialog padding.
@@ -1225,7 +1228,8 @@ public class Utils {
 
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
                 createCornerRadii(12), null, null));
-        background.getPaint().setColor(getDialogBackgroundColor());
+        int color = (backgroundColor != null) ? backgroundColor : getDialogBackgroundColor();
+        background.getPaint().setColor(color);
         mainLayout.setBackground(background);
 
         // Add handle bar.
@@ -1238,7 +1242,7 @@ public class Utils {
         View handleBar = new View(context);
         ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
                 createCornerRadii(4), null, null));
-        handleBackground.getPaint().setColor(adjustColorBrightness(getDialogBackgroundColor(), 0.9f, 1.25f));
+        handleBackground.getPaint().setColor(adjustColorBrightness(color, 0.9f, 1.25f));
         LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(dip40, dip4);
         handleBar.setLayoutParams(handleParams);
         handleBar.setBackground(handleBackground);

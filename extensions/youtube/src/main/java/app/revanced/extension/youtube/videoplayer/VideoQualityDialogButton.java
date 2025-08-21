@@ -217,7 +217,8 @@ public class VideoQualityDialogButton {
             final int dip16 = dipToPixels(16);
 
             // Create main layout.
-            LinearLayout mainLayout = Utils.createMainLayout(context);
+            Integer backgroundColor = Utils.isDarkModeEnabled() ? Utils.getResourceColor("yt_black1") : null;
+            LinearLayout mainLayout = Utils.createMainLayout(context, backgroundColor);
 
             // Create SpannableStringBuilder for formatted text.
             SpannableStringBuilder spannableTitle = new SpannableStringBuilder();
