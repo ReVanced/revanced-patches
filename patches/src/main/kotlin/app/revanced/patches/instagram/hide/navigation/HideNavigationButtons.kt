@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.util.findFreeRegister
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import java.util.logging.Logger
 
 @Suppress("unused")
 val hideNavigationButtonsPatch = bytecodePatch(
@@ -27,12 +28,18 @@ val hideNavigationButtonsPatch = bytecodePatch(
         default = true,
         title = "Hide Create"
     )
-    
+
     execute {
+        if (!hideReels!! && !hideCreate!!) {
+            return@execute Logger.getLogger(this::class.java.name).warning(
+                "No hide navigation buttons options are enabled.  No changes made."
+            )
+        }
+
         tabCreateButtonsFingerprint.let {
             it.method.apply {
-                // Check the current loop index, and skip over adding the navigation button view
-                // if the index matches   is for a given button.
+                // Check the current loop index, and skip over adding the
+                // navigation button view if the index matches a given button.
                 val startIndex = it.patternMatch!!.startIndex
                 val endIndex = it.patternMatch!!.endIndex
                 val insertIndex = startIndex + 1
@@ -40,13 +47,26 @@ val hideNavigationButtonsPatch = bytecodePatch(
                 val freeRegister = findFreeRegister(insertIndex, loopIndexRegister)
                 val instruction = getInstruction(endIndex + 1)
 
+                var instructions = ""
+
+                if (hideReels!!) {
+                    instructions += """
+                        const v$freeRegister, 0x3
+                        if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
+                    """
+                }
+
+                if (hideCreate!!) {
+                    instructions += """
+                        const v$freeRegister, 0x4
+                        if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
+                    """
+                }
+
                 addInstructionsWithLabels(
                     insertIndex,
-                    """
-                        const v$freeRegister, 0x3
-                        if-eq v$freeRegister, v$loopIndexRegister, :skipButton
-                    """,
-                    ExternalLabel("skipButton", instruction)
+                    instructions,
+                    ExternalLabel("skipAddView", instruction)
                 )
             }
         }
