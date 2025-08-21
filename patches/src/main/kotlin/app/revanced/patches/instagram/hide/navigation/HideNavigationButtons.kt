@@ -32,7 +32,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
     execute {
         if (!hideReels!! && !hideCreate!!) {
             return@execute Logger.getLogger(this::class.java.name).warning(
-                "No hide navigation buttons options are enabled.  No changes made."
+                "No hide navigation buttons options are enabled. No changes made."
             )
         }
 
