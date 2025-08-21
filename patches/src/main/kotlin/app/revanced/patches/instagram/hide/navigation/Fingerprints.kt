@@ -7,7 +7,6 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val tabCreateButtonsFingerprint = fingerprint {
     returns("V")
     strings("InstagramMainActivity.createTabButtons")
-
     opcodes(
         Opcode.ADD_INT_LIT8, // Increment loop index.
         Opcode.INVOKE_INTERFACE, // Ljava/util/List;->size()I
