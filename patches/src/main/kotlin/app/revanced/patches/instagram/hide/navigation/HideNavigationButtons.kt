@@ -36,16 +36,17 @@ val hideNavigationButtonsPatch = bytecodePatch(
             )
         }
 
-        tabCreateButtonsFingerprint.let {
+        tabCreateButtonsLoopStartFingerprint.let {
             it.method.apply {
                 // Check the current loop index, and skip over adding the
                 // navigation button view if the index matches a given button.
-                val startIndex = it.patternMatch!!.startIndex
-                val endIndex = it.patternMatch!!.endIndex
+
+                val startIndex = tabCreateButtonsLoopStartFingerprint.patternMatch!!.startIndex
+                val endIndex = tabCreateButtonsLoopEndFingerprint.patternMatch!!.endIndex
                 val insertIndex = startIndex + 1
-                val loopIndexRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerB
+                val loopIndexRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
                 val freeRegister = findFreeRegister(insertIndex, loopIndexRegister)
-                val instruction = getInstruction(endIndex + 1)
+                val instruction = getInstruction(endIndex - 1)
 
                 var instructions = ""
 
@@ -58,7 +59,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
 
                 if (hideCreate!!) {
                     instructions += """
-                        const v$freeRegister, 0x4
+                        const v$freeRegister, 0x2
                         if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
                     """
                 }
