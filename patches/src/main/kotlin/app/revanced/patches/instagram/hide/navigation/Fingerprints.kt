@@ -12,8 +12,8 @@ internal val tabCreateButtonsFingerprint = fingerprint {
         Opcode.ADD_INT_LIT8, // Increment loop index.
         Opcode.INVOKE_INTERFACE, // Ljava/util/List;->size()I
         Opcode.MOVE_RESULT,
-        Opcode.INVOKE_STATIC, // Customise Button.
-        Opcode.INVOKE_VIRTUAL, // Add Button.
+        Opcode.INVOKE_STATIC, // Customise button.
+        Opcode.INVOKE_VIRTUAL, // Add button.
         //Opcode.SGET_OBJECT,
         //Opcode.IF_NE,
         //Opcode.INVOKE_VIRTUAL,
