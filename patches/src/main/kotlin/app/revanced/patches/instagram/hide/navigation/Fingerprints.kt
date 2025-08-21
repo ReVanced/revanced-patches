@@ -4,7 +4,7 @@ package app.revanced.patches.instagram.hide.navigation
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-val tabCreateButtonsFingerprint = fingerprint {
+internal val tabCreateButtonsFingerprint = fingerprint {
     returns("V")
     strings("InstagramMainActivity.createTabButtons")
 

@@ -264,10 +264,6 @@ public final class app/revanced/patches/instagram/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/instagram/hide/navigation/FingerprintsKt {
-	public static final fun getTabCreateButtonsFingerprint ()Lapp/revanced/patcher/Fingerprint;
-}
-
 public final class app/revanced/patches/instagram/hide/navigation/HideNavigationButtonsKt {
 	public static final fun getHideNavigationButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
