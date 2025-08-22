@@ -227,6 +227,7 @@ val playerControlsPatch = bytecodePatch(
         playerControlsResourcePatch,
         sharedExtensionPatch,
         resourceMappingPatch, // Used by fingerprints.
+        playerControlsOverlayVisibilityPatch,
         versionCheckPatch
     )
 
