@@ -10,7 +10,6 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import kotlin.math.max
 
 internal val actionBarSearchResultsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
