@@ -27,7 +27,7 @@ private fun ClassDef.inspectRequestDataClass(): RequestDataClassInfo? {
 
     val allStringFields = instanceFields.filter { it.type == "Ljava/lang/String;" }
 
-    // url field is the only field without a setter
+    // Url field is the only field without a setter.
     val urlField = allStringFields.firstOrNull { it.name !in stringFieldsWithSetter } ?: return null
     val isHdField = instanceFields.firstOrNull { it.type == "Z" } ?: return null
     val listenerField = instanceFields.firstOrNull { it.type == RESPONSE_LISTENER_DESCRIPTOR } ?: return null
