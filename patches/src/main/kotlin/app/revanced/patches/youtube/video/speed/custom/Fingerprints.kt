@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.video.speed.custom
 
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
@@ -35,13 +36,29 @@ internal val speedArrayGeneratorFingerprint by fingerprint {
         methodCall(name = "size", returnType = "I"),
         newInstance("Ljava/text/DecimalFormat;"),
         string("0.0#"),
-        app.revanced.patcher.literal(7),
+        literal(7),
         opcode(Opcode.NEW_ARRAY),
         fieldAccess(definingClass = "/PlayerConfigModel;", type = "[F")
     )
 }
 
+/**
+ * 20.34+
+ */
 internal val speedLimiterFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("F", "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;")
+    instructions(
+        literal(0.25f),
+        literal(4.0f)
+    )
+}
+
+/**
+ * 20.33 and lower.
+ */
+internal val speedLimiterLegacyFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("F")

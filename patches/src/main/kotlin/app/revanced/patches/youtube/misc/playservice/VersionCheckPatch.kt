@@ -77,6 +77,8 @@ var is_20_30_or_greater = false
     private set
 var is_20_31_or_greater = false
     private set
+var is_20_34_or_greater = false
+    private set
 
 val versionCheckPatch = resourcePatch(
     description = "Uses the Play Store service version to find the major/minor version of the YouTube target app.",
@@ -124,5 +126,6 @@ val versionCheckPatch = resourcePatch(
         is_20_28_or_greater = 252905000 <= playStoreServicesVersion
         is_20_30_or_greater = 253105000 <= playStoreServicesVersion
         is_20_31_or_greater = 253205000 <= playStoreServicesVersion
+        is_20_34_or_greater = 253505000 <= playStoreServicesVersion
     }
 }

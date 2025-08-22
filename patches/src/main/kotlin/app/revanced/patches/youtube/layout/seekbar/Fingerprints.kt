@@ -28,12 +28,10 @@ internal val playerSeekbarColorFingerprint by fingerprint {
     )
 }
 
+// class is ControlsOverlayStyle in 20.32 and lower, and obfuscated in 20.33+
 internal val setSeekbarClickedColorFingerprint by fingerprint {
     opcodes(Opcode.CONST_HIGH16)
-    strings("YOUTUBE", "PREROLL", "POSTROLL")
-    custom { _, classDef ->
-        classDef.endsWith("/ControlsOverlayStyle;")
-    }
+    strings("YOUTUBE", "PREROLL", "POSTROLL", "REMOTE_LIVE", "AD_LARGE_CONTROLS")
 }
 
 internal val shortsSeekbarColorFingerprint by fingerprint {
@@ -45,17 +43,17 @@ internal val shortsSeekbarColorFingerprint by fingerprint {
 
 internal val playerSeekbarHandle1ColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("Landroid/content/Context;")
     instructions(
-        resourceLiteral(ResourceType.ATTR, "ytTextSecondary"),
+        resourceLiteral(ResourceType.COLOR, "inline_time_bar_live_seekable_range"),
         resourceLiteral(ResourceType.ATTR, "ytStaticBrandRed"),
     )
 }
 
 internal val playerSeekbarHandle2ColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters("Landroid/content/Context;")
     instructions(
-        resourceLiteral(ResourceType.COLOR, "inline_time_bar_live_seekable_range"),
+        resourceLiteral(ResourceType.ATTR, "ytTextSecondary"),
         resourceLiteral(ResourceType.ATTR, "ytStaticBrandRed"),
     )
 }

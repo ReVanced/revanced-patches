@@ -5,8 +5,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.literal
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -47,26 +48,27 @@ val playerTypeHookPatch = bytecodePatch(
             }
         }
 
+        val controlStateType = controlsStateToStringFingerprint.originalClassDef.type
+
         val videoStateFingerprint by fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             returns("V")
-            parameters("Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;")
+            parameters(controlStateType)
             instructions(
-                literal(1),
-                literal(literal = 0, maxAfter = 10),
                 // Obfuscated parameter field name.
                 fieldAccess(
-                    definingClass = { "Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;"},
-                    type = { videoStateEnumFingerprint.originalClassDef.type },
-                    maxAfter = 5
-                )
+                    definingClass = { controlStateType },
+                    type = { videoStateEnumFingerprint.originalClassDef.type }
+                ),
+                resourceLiteral(ResourceType.STRING, "accessibility_play"),
+                resourceLiteral(ResourceType.STRING, "accessibility_pause")
             )
         }
 
         videoStateFingerprint.let {
             it.method.apply {
                 val videoStateFieldName = getInstruction<ReferenceInstruction>(
-                    it.instructionMatches.last().index
+                    it.instructionMatches.first().index
                 ).reference
 
                 addInstructions(

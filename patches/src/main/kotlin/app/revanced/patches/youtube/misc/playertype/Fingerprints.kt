@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.misc.playertype
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.opcode
+import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -43,5 +44,16 @@ internal val videoStateEnumFingerprint by fingerprint {
         "RECOVERABLE_ERROR",
         "UNRECOVERABLE_ERROR",
         "ENDED"
+    )
+}
+
+// 20.33 and lower class name ControlsState. 20.34+ class name is obfuscated.
+internal val controlsStateToStringFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters()
+    returns("Ljava/lang/String;")
+    instructions(
+        string("videoState"),
+        string("isBuffering")
     )
 }

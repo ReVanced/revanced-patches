@@ -20,6 +20,7 @@ import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_49_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_30_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.copyXmlNode
@@ -218,10 +219,11 @@ val seekbarColorPatch = bytecodePatch(
 
         // 19.25+ changes
 
-        arrayOf(
-            playerSeekbarHandle1ColorFingerprint,
-            playerSeekbarHandle2ColorFingerprint
-        ).forEach {
+        var handleBarColorFingerprints = mutableListOf(playerSeekbarHandle1ColorFingerprint)
+        if (!is_20_34_or_greater) {
+            handleBarColorFingerprints += playerSeekbarHandle2ColorFingerprint
+        }
+        handleBarColorFingerprints.forEach {
             it.method.addColorChangeInstructions(it.instructionMatches.last().index)
         }
 

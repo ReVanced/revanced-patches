@@ -1515,6 +1515,7 @@ public final class app/revanced/patches/youtube/misc/playservice/VersionCheckPat
 	public static final fun is_20_28_or_greater ()Z
 	public static final fun is_20_30_or_greater ()Z
 	public static final fun is_20_31_or_greater ()Z
+	public static final fun is_20_34_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQueryParameterPatchKt {

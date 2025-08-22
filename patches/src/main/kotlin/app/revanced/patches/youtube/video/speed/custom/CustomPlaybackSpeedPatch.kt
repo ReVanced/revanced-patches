@@ -19,12 +19,12 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.addRecyclerViewTreeHook
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.recyclerViewTreeHookPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.speed.settingsMenuVideoSpeedGroup
-import app.revanced.util.indexOfFirstLiteralInstruction
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -70,13 +70,10 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         }
 
         // Override the min/max speeds that can be used.
-        speedLimiterFingerprint.method.apply {
+        (if (is_20_34_or_greater) speedLimiterFingerprint else speedLimiterLegacyFingerprint).method.apply {
             val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f)
-            var limitMaxIndex = indexOfFirstLiteralInstruction(2.0f)
-            // Newer targets have 4x max speed.
-            if (limitMaxIndex < 0) {
-                limitMaxIndex = indexOfFirstLiteralInstructionOrThrow(4.0f)
-            }
+            // Older unsupported targets use 2.0f and not 4.0f
+            val limitMaxIndex = indexOfFirstLiteralInstructionOrThrow(4.0f)
 
             val limitMinRegister = getInstruction<OneRegisterInstruction>(limitMinIndex).registerA
             val limitMaxRegister = getInstruction<OneRegisterInstruction>(limitMaxIndex).registerA
