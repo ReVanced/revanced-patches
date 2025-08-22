@@ -16,8 +16,8 @@ import app.revanced.patches.youtube.misc.playservice.is_20_21_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_28_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.mainActivityOnBackPressedFingerprint
+import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -195,27 +195,25 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         }
 
         // Fix YT bug of notification tab missing the filled icon.
-        if (is_19_35_or_greater && !is_20_28_or_greater) {
+        if (is_19_35_or_greater) {
             val cairoNotificationEnumReference = imageEnumConstructorFingerprint
                 .instructionMatches.last().getInstruction<ReferenceInstruction>().reference
 
-            setEnumMapFingerprint.method.apply {
-                val enumMapIndex = indexOfFirstInstructionReversedOrThrow {
-                    val reference = getReference<MethodReference>()
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            reference?.definingClass == "Ljava/util/EnumMap;" &&
-                            reference.name == "put" &&
-                            reference.parameterTypes.firstOrNull() == "Ljava/lang/Enum;"
-                }
-                val instruction = getInstruction<FiveRegisterInstruction>(enumMapIndex)
+            setEnumMapFingerprint.let {
+                it.method.apply {
+                    val setEnumIntegerIndex = it.instructionMatches.last().index
+                    val enumMapRegister = getInstruction<FiveRegisterInstruction>(setEnumIntegerIndex).registerC
+                    val insertIndex = setEnumIntegerIndex + 1
+                    val freeRegister = findFreeRegister(insertIndex, enumMapRegister)
 
-                addInstructions(
-                    enumMapIndex + 1,
-                    """
-                        sget-object v${instruction.registerD}, $cairoNotificationEnumReference
-                        invoke-static { v${instruction.registerC}, v${instruction.registerD} }, $EXTENSION_CLASS_DESCRIPTOR->setCairoNotificationFilledIcon(Ljava/util/EnumMap;Ljava/lang/Enum;)V
-                    """
-                )
+                    addInstructions(
+                        insertIndex,
+                        """
+                            sget-object v$freeRegister, $cairoNotificationEnumReference
+                            invoke-static { v$enumMapRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->setCairoNotificationFilledIcon(Ljava/util/EnumMap;Ljava/lang/Enum;)V
+                        """
+                    )
+                }
             }
         }
     }

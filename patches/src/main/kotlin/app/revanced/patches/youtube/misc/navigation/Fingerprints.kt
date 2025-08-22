@@ -10,6 +10,7 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import kotlin.math.max
 
 internal val actionBarSearchResultsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -141,8 +142,9 @@ internal val imageEnumConstructorFingerprint by fingerprint {
 }
 
 internal val setEnumMapFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        resourceLiteral(ResourceType.DRAWABLE, "yt_fill_bell_black_24")
+        resourceLiteral(ResourceType.DRAWABLE, "yt_fill_bell_black_24"),
+        methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;", maxAfter = 10),
+        methodCall(smali = "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;", maxAfter = 10)
     )
 }
