@@ -15,9 +15,7 @@ import java.util.regex.Pattern;
 
 import static app.revanced.extension.shared.requests.Route.Method.GET;
 
-/**
- * @noinspection unused
- */
+@Suppress("unused")
 public class FixRedgifsPatch {
     public static void fetchVideoUrl(String link, boolean hd, Response.Listener<String> result) {
         Utils.runOnBackgroundThread(() -> {
