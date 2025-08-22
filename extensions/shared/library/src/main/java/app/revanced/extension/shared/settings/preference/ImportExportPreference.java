@@ -1,7 +1,6 @@
 package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -10,18 +9,13 @@ import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.text.InputType;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.util.TypedValue;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.graphics.Color;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RoundRectShape;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
@@ -97,6 +91,20 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
                     },
                     true // Dismiss dialog when onNeutralClick.
             );
+
+            // If there are no settings yet, then show the on screen keyboard and bring focus to
+            // the edit text. This makes it easier to paste saved settings after a reinstall.
+             dialogPair.first.setOnShowListener(dialogInterface -> {
+                 if (existingSettings.isEmpty()) {
+                     editText.postDelayed(() -> {
+                         editText.requestFocus();
+
+                         InputMethodManager inputMethodManager = (InputMethodManager)
+                                 editText.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                         inputMethodManager.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
+                     }, 100);
+                 }
+             });
 
             // Show the dialog.
             dialogPair.first.show();

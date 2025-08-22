@@ -112,6 +112,7 @@ public abstract class Setting<T> {
      * @return All settings that have been created, sorted by keys.
      */
     private static List<Setting<?>> allLoadedSettingsSorted() {
+        //noinspection ComparatorCombinators
         Collections.sort(SETTINGS, (Setting<?> o1, Setting<?> o2) -> o1.key.compareTo(o2.key));
         return allLoadedSettings();
     }
@@ -467,9 +468,12 @@ public abstract class Setting<T> {
                 callback.settingsImported(alertDialogContext);
             }
 
-            Utils.showToastLong(numberOfSettingsImported == 0
-                    ? str("revanced_settings_import_reset")
-                    : str("revanced_settings_import_success", numberOfSettingsImported));
+            // Use a delay, otherwise the toast can move about on screen from the dismissing dialog.
+            final int numberOfSettingsImportedFinal = numberOfSettingsImported;
+            Utils.runOnMainThreadDelayed(() -> Utils.showToastLong(numberOfSettingsImportedFinal == 0
+                            ? str("revanced_settings_import_reset")
+                            : str("revanced_settings_import_success", numberOfSettingsImportedFinal)),
+                    150);
 
             return rebootSettingChanged;
         } catch (JSONException | IllegalArgumentException ex) {
