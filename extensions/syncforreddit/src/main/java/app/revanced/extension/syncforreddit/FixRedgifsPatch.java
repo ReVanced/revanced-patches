@@ -28,7 +28,7 @@ public class FixRedgifsPatch {
     private static final Route OEMBED_ROUTE = new Route(GET, "oembed?url={link}");
 
     private static String getVideoUrl(String link, boolean hd) {
-        Logger.printInfo(() -> "Fetching " + link);
+        Logger.printInfo(() -> "Fetching: " + link);
         try {
             HttpURLConnection connection = Requester.getConnectionFromRoute("https://api.redgifs.com/v1/", OEMBED_ROUTE, link);
             JSONObject obj = Requester.parseJSONObject(connection);
