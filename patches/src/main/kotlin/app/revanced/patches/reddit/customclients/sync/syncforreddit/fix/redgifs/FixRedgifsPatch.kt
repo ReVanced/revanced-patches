@@ -35,7 +35,7 @@ private fun ClassDef.inspectRequestDataClass(): RequestDataClassInfo? {
     return RequestDataClassInfo(urlField, isHdField, listenerField)
 }
 
-data class RequestDataClassInfo(val urlField: Field, val isHdField: Field, val listenerField: Field)
+internal data class RequestDataClassInfo(val urlField: Field, val isHdField: Field, val listenerField: Field)
 
 @Suppress("unused")
 val fixRedgifsPatch = bytecodePatch(
