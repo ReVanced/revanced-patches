@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.patches.playback.speed;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.fadeInDuration;
+import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.getDialogBackgroundColor;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -259,8 +260,7 @@ public class CustomPlaybackSpeedPatch {
     public static void showModernCustomPlaybackSpeedDialog(Context context) {
         try {
             // Create main layout.
-            Integer backgroundColor = Utils.isDarkModeEnabled() ? Utils.getResourceColor("yt_black1") : null;
-            Utils.DraggableLinearLayout mainLayout = Utils.createMainLayout(context, backgroundColor);
+            Utils.DraggableLinearLayout mainLayout = Utils.createMainLayout(context, getDialogBackgroundColor());
 
             // Preset size constants.
             final int dip4 = dipToPixels(4);
@@ -534,10 +534,9 @@ public class CustomPlaybackSpeedPatch {
      *         for light themes to ensure visual contrast.
      */
     public static int getAdjustedBackgroundColor(boolean isHandleBar) {
-        final int baseColor = Utils.getDialogBackgroundColor();
         final float darkThemeFactor = isHandleBar ? 1.25f : 1.115f; // 1.25f for handleBar, 1.115f for others in dark theme.
         final float lightThemeFactor = isHandleBar ? 0.9f : 0.95f; // 0.9f for handleBar, 0.95f for others in light theme.
-        return Utils.adjustColorBrightness(baseColor, lightThemeFactor, darkThemeFactor);
+        return Utils.adjustColorBrightness(getDialogBackgroundColor(), lightThemeFactor, darkThemeFactor);
     }
 }
 

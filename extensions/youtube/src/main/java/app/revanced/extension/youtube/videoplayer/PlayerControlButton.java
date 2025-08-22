@@ -249,4 +249,13 @@ public class PlayerControlButton {
             textOverlay.setText(text);
         }
     }
+
+    /**
+     * Returns the appropriate dialog background color depending on the current theme.
+     */
+    public static int getDialogBackgroundColor() {
+        return Utils.getResourceColor(
+                Utils.isDarkModeEnabled() ? "yt_black1" : "yt_white1"
+        );
+    }
 }

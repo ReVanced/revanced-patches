@@ -5,6 +5,7 @@ import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.patches.VideoInformation.AUTOMATIC_VIDEO_QUALITY_VALUE;
 import static app.revanced.extension.youtube.patches.VideoInformation.VIDEO_QUALITY_PREMIUM_NAME;
 import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.fadeInDuration;
+import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.getDialogBackgroundColor;
 
 import android.content.Context;
 import android.text.Spannable;
@@ -217,8 +218,7 @@ public class VideoQualityDialogButton {
             final int dip16 = dipToPixels(16);
 
             // Create main layout.
-            Integer backgroundColor = Utils.isDarkModeEnabled() ? Utils.getResourceColor("yt_black1") : null;
-            Utils.DraggableLinearLayout mainLayout = Utils.createMainLayout(context, backgroundColor);
+            Utils.DraggableLinearLayout mainLayout = Utils.createMainLayout(context, getDialogBackgroundColor());
 
             // Create SpannableStringBuilder for formatted text.
             SpannableStringBuilder spannableTitle = new SpannableStringBuilder();

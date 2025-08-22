@@ -1214,7 +1214,7 @@ public class Utils {
      */
     public static DraggableLinearLayout createMainLayout(Context context, Integer backgroundColor) {
         // Preset size constants.
-        final int dip4 = dipToPixels(4);   // Height for handle bar.
+        final int dip4 = dipToPixels(4);   // Handle bar height.
         final int dip8 = dipToPixels(8);   // Dialog padding.
         final int dip40 = dipToPixels(40); // Handle bar width.
 
@@ -1287,8 +1287,7 @@ public class Utils {
         }
 
         /**
-         * Constructs a new {@code DraggableLinearLayout} with the specified context, attributes, and
-         * animation duration.
+         * Constructs a new {@code DraggableLinearLayout} with the specified context and animation duration.
          *
          * @param context The context to use for initialization.
          * @param animDuration The duration of the drag animation in milliseconds.
