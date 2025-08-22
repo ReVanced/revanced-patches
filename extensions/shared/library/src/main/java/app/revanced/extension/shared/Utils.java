@@ -2,6 +2,7 @@ package app.revanced.extension.shared;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
@@ -1530,13 +1531,41 @@ public class Utils {
             if (isDismissing) return;
             isDismissing = true;
 
+            final Window window = getWindow();
+            final WindowManager.LayoutParams params = window != null ? window.getAttributes() : null;
+            final float startDim = params != null ? params.dimAmount : 0f;
+
             if (animView == null) {
-                try {
+                if (window != null) {
+                    ValueAnimator dimAnimator = ValueAnimator.ofFloat(startDim, 0f);
+                    dimAnimator.setDuration(duration);
+                    dimAnimator.addUpdateListener(animation -> {
+                        params.dimAmount = (float) animation.getAnimatedValue();
+                        window.setAttributes(params);
+                    });
+                    dimAnimator.addListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            SlideDialog.super.dismiss();
+                            isDismissing = false;
+                        }
+                    });
+                    dimAnimator.start();
+                } else {
                     super.dismiss();
-                } finally {
                     isDismissing = false;
                 }
                 return;
+            }
+
+            if (window != null) {
+                ValueAnimator dimAnimator = ValueAnimator.ofFloat(startDim, 0f);
+                dimAnimator.setDuration(duration);
+                dimAnimator.addUpdateListener(animation -> {
+                    params.dimAmount = (float) animation.getAnimatedValue();
+                    window.setAttributes(params);
+                });
+                dimAnimator.start();
             }
 
             animView.animate()
@@ -1545,11 +1574,8 @@ public class Utils {
                     .setListener(new AnimatorListenerAdapter() {
                         @Override
                         public void onAnimationEnd(Animator animation) {
-                            try {
-                                SlideDialog.super.dismiss();
-                            } finally {
-                                isDismissing = false;
-                            }
+                            SlideDialog.super.dismiss();
+                            isDismissing = false;
                         }
                     })
                     .start();
