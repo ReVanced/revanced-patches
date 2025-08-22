@@ -23,8 +23,8 @@ Second \"item\" text"</string>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Theip ar sheiceálacha</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Oscailt láithreán gréasáin oifigiúil</string>
-  <string name="revanced_check_environment_dialog_ignore_button">Déan neamhaird de</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Is cosúil nach bhfuil an aip seo paiteanta agat.&lt;/h5&gt;&lt;br&gt;Seans nach bhfeidhmeoidh an aip seo i gceart, &lt;b&gt;d\'fhéadfadh sé a bheith díobhálach nó fiú contúirteach le húsáid&lt;/b&gt;&lt; br&gt;&lt;br&gt;Tugann na seiceálacha seo le tuiscint go bhfuil an aip seo réamhphatáilte nó faighte ó dhuine éigin eile:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt; &lt;b&gt;díshuiteáil an aip seo agus paiste tú féin&lt;/b&gt; chun a chinntiú go bhfuil tú ag úsáid aip atá bailíochtaithe agus slán.&lt;p&gt;&lt;br&gt;Má dhéantar neamhaird de, ní thaispeánfar an rabhadh seo ach faoi dhó.</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Neamhaird</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Ní cosúil gur tusa a rinne paiste ar an aip seo.&lt;/h5&gt;&lt;br&gt;B’fhéidir nach bhfeidhmeoidh an aip seo i gceart, &lt;b&gt;agus d’fhéadfadh sé a bheith díobhálach nó fiú contúirteach le húsáid&lt;/b&gt;&lt; br&gt;&lt;br&gt;.Tugann na seiceálacha seo le fios go bhfuil an aip seo patáilte roimh ré nó gur thángthas uirthi ó dhuine eile:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt; &lt;b&gt;Moltar go láidir duit an aip seo a dhíshuiteáil agus í a phaisteáil leat féin&lt;/b&gt; chun a chinntiú go bhfuil tú ag úsáid aip bailíochtaithe agus slán.&lt;p&gt;&lt;br&gt;Mura ndéanann tú aird ar an rabhadh seo, ní thaispeánfar é ach faoi dhó.</string>
   <string name="revanced_check_environment_not_same_patching_device">Paisteáilte ar ghléas eile</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Gan a bheith suiteáilte ag ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Paisteáilte níos mó ná 10 nóiméad ó shin</string>
@@ -34,12 +34,12 @@ Second \"item\" text"</string>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Socruithe</string>
   <string name="revanced_settings_confirm_user_dialog_title">An bhfuil tú cinnte gur mhaith leat dul ar aghaidh?</string>
-  <string name="revanced_settings_reset">Athshocraigh</string>
+  <string name="revanced_settings_reset">Athshocrú</string>
   <string name="revanced_settings_reset_color">Dath a athshocrú</string>
   <string name="revanced_settings_color_invalid">Dath neamhbhailí</string>
-  <string name="revanced_settings_restart_title">Teastaíonn atosú</string>
+  <string name="revanced_settings_restart_title">Atosú ag teastáil</string>
   <string name="revanced_settings_restart_dialog_message">Atosaigh an aip chun go mbeidh an t-athrú seo i bhfeidhm.</string>
-  <string name="revanced_settings_restart">Athosaigh</string>
+  <string name="revanced_settings_restart">Atosaigh</string>
   <string name="revanced_settings_import">Iompórtáil</string>
   <string name="revanced_settings_import_copy">Cóipeáil</string>
   <string name="revanced_settings_import_reset">Athshocraigh socruithe ReVanced go réamhshocrú</string>
@@ -76,7 +76,7 @@ Chun teangacha nua a aistriú, tabhair cuairt ar translate.revanced.app"</string
 Lean an treoir \"Ná maraigh mo aip\" do do ghuthán, agus cuir na treoracha i bhfeidhm ar do shuiteáil MicroG.
 
 Is gá seo chun go n-oibreoidh an aip."</string>
-  <string name="gms_core_dialog_open_website_text">Suíomh Gréasáin oscailte</string>
+  <string name="gms_core_dialog_open_website_text">Oscail láithreán gréasáin</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Caithfidh tú optúimíochtaí ceallraí MicroG GmsCore a dhíchumasú chun fadhbanna a sheachaint.
 
 Ní chuirfidh díghníomhachtú optúimíochtaí ceallraí do MicroG isteach ar úsáid ceallraí ar bhealach diúltach.
@@ -95,9 +95,9 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_settings_screen_05_player_title">Seinnteoir</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra Cuardaigh</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Rialuithe Svaidhpeála</string>
-  <string name="revanced_settings_screen_11_misc_title">Éagsúla</string>
+  <string name="revanced_settings_screen_11_misc_title">Ilchineálach</string>
   <string name="revanced_settings_screen_12_video_title">Físeán</string>
-  <string name="revanced_restore_old_settings_menus_title">Athshocraigh roghanna seanghléasanna</string>
+  <string name="revanced_restore_old_settings_menus_title">Athchóirigh sean-roghchláir socruithe</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Taispeántar sean-roghchláir socruithe</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Ní thaispeántar sean-roghchláir socruithe</string>
   <string name="revanced_settings_search_history_title">Taispeáin stair cuardaigh na socruithe</string>
@@ -106,13 +106,13 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Díchumasaigh seinnte Cúlra Shorts</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Tá súgradh cúlra Shorts díchumasaithe</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Tá súgradh cúlra Shorts cumasaithe</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Tá seinm chúlra Shorts díchumasaithe</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Tá seinm chúlra Shorts cumasaithe</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Dífhabhtaithe</string>
-  <string name="revanced_debug_screen_summary">Cumasaigh nó díchumasaigh roghanna dífhabhtaithe</string>
-  <string name="revanced_debug_title">Logáil dífhabhtaithe</string>
+  <string name="revanced_debug_screen_title">Dífhabhtú</string>
+  <string name="revanced_debug_screen_summary">Cumasaigh nó díchumasaigh roghanna dífhabhtú</string>
+  <string name="revanced_debug_title">Dífhabhtú logáil</string>
   <string name="revanced_debug_summary_on">Tá logaí dífhabhtaithe cumasaithe</string>
   <string name="revanced_debug_summary_off">Tá logaí dífhabhtaithe díchumasaithe</string>
   <string name="revanced_debug_protobuffer_title">Maolán prótacal logála</string>
@@ -127,15 +127,15 @@ Mar sin féin, logálfaidh sé seo roinnt sonraí úsáideora freisin, mar shamp
   <string name="revanced_debug_stacktrace_summary_on">Cuimsíonn logaí dífhabhtaithe rian cruach</string>
   <string name="revanced_debug_stacktrace_summary_off">Ní chuimsíonn logaí dífhabhtaithe rian cruach</string>
   <string name="revanced_debug_toast_on_error_title">Taispeáin tósta ar earráid ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Taispeántar toast má tharlaíonn earráid</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Ní thaispeántar toast má tharlaíonn earráid</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Taispeántar tósta má tharlaíonn earráid</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Ní thaispeántar tósta má tharlaíonn earráid</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Má mhúchtar tóstaí earráide, folaítear gach fógra earráide ReVanced.
 
 Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Easpórtáil logaí dífhabhtaithe</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Cóipeálann sé logaí dífhabhtaithe ReVanced chuig an gearrthaisce</string>
   <string name="revanced_debug_logs_disabled">Tá logáil dífhabhtaithe díchumasaithe</string>
-  <string name="revanced_debug_logs_none_found">Ní bhfuarthas aon loga</string>
+  <string name="revanced_debug_logs_none_found">Níor aimsíodh aon logaí</string>
   <string name="revanced_debug_logs_copied_to_clipboard">Lógaí cóipeáilte</string>
   <string name="revanced_debug_logs_failed_to_export">Theip ar logaí a easpórtáil: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">Glan logaí dífhabhtaithe</string>
@@ -146,10 +146,10 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_hide_album_cards_title">Folaigh cártaí albam</string>
   <string name="revanced_hide_album_cards_summary_on">Tá cártaí albam i bhfolach</string>
   <string name="revanced_hide_album_cards_summary_off">Taispeántar cártaí albam</string>
-  <string name="revanced_hide_artist_cards_title">Folaigh cártaí ealaíontóirí</string>
+  <string name="revanced_hide_artist_cards_title">Folaigh cártaí ealaíontóra</string>
   <string name="revanced_hide_artist_cards_summary_on">Tá cártaí ealaíontóirí i bhfolach</string>
   <string name="revanced_hide_artist_cards_summary_off">Taispeántar cártaí ealaíonta</string>
-  <string name="revanced_hide_chips_shelf_title">Folaigh an seilf scagairí </string>
+  <string name="revanced_hide_chips_shelf_title">Folaigh seilf sceallóga</string>
   <string name="revanced_hide_chips_shelf_summary_on">Tá seilf scagairí i bhfolach</string>
   <string name="revanced_hide_chips_shelf_summary_off">Taispeántar seilf scagairí</string>
   <string name="revanced_hide_community_posts_title">Folaigh postálacha pobail</string>
@@ -161,13 +161,13 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_hide_crowdfunding_box_title">Folaigh bosca slua-mhaoiniú</string>
   <string name="revanced_hide_crowdfunding_box_summary_on">Tá bosca slua-mhaoiniú i bhfolach</string>
   <string name="revanced_hide_crowdfunding_box_summary_off">Taispeántar bosca slua-mhaoiniú</string>
-  <string name="revanced_hide_expandable_card_title">Folaigh cárta insínte</string>
+  <string name="revanced_hide_expandable_card_title">Folaigh cárta inleathnaithe</string>
   <string name="revanced_hide_expandable_card_summary_on">Tá cárta insínte faoi fhíseáin i bhfolach</string>
-  <string name="revanced_hide_expandable_card_summary_off">Tá cárta insínte faoi fhíseáin le feiceáil</string>
+  <string name="revanced_hide_expandable_card_summary_off">Taispeántar cárta inleathnaithe faoi fhíseáin</string>
   <string name="revanced_hide_floating_microphone_button_title">Folaigh an cnaipe micreafón ar snámh</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Cnaipe micreafóin ar snámh sa chuardach i bhfolach</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Tá cnaipe micreafóin ar snámh sa chuardach ar taispeáint</string>
-  <string name="revanced_hide_horizontal_shelves_title">Folaigh seilfeanna cothromán</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Taispeántar cnaipe micreafóin ar snámh sa chuardach</string>
+  <string name="revanced_hide_horizontal_shelves_title">Folaigh seilfeanna cothrománacha</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Tá seilfeanna cothrománacha i bhfolach, amhail:
 • Nuacht is déanaí
 • Lean ar aghaidh ag féachaint
@@ -175,11 +175,11 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
 • Is ábhartha
 • Siopadóireacht
 • Féach arís air"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Seilfeanna cothrománacha taispeánta</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Taispeántar seilfeanna cothrománacha</string>
   <string name="revanced_hide_image_shelf_title">Folaigh seilf íomhá</string>
   <string name="revanced_hide_image_shelf_summary_on">Tá seilf íomhá i dtorthaí cuardaigh i bhfolach</string>
-  <string name="revanced_hide_image_shelf_summary_off">Tá seilf íomhá i dtorthaí cuardaigh le feiceáil</string>
-  <string name="revanced_hide_latest_posts_title">Folaigh na postanna is déanaí</string>
+  <string name="revanced_hide_image_shelf_summary_off">Taispeántar seilf íomhánna i dtorthaí cuardaigh</string>
+  <string name="revanced_hide_latest_posts_title">Folaigh na poist is déanaí</string>
   <string name="revanced_hide_latest_posts_summary_on">Tá postanna is déanaí i bhfolach</string>
   <string name="revanced_hide_latest_posts_summary_off">Taispeántar na postálacha is déanaí</string>
   <string name="revanced_hide_mix_playlists_title">Folaigh seinmliostaí meascán</string>
@@ -452,6 +452,11 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Taispeánfar dialóg</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ní sheachnaíonn sé seo an srian aoise. Ní ghlacann sé leis go huathoibríoch.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Díchumasaigh an Aníos Sínigh Isteach sa Teilifís</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Tá an Aníos Sínigh Isteach sa Teilifís díchumasaithe</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Tá an Aníos Sínigh Isteach sa Teilifís cumasaithe</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Díchumasaigh scipeáil caibidle le sconna dúbailte</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Ní féidir le sconna dúbailte scipeáil chuig an gcéad chaibidil eile/roimhe seo a spreagadh go deo</string>
@@ -563,7 +568,7 @@ Coigeartaigh an toirt trí haisceartán go hingearach ar thaobh deas an scáile�
   <string name="revanced_hide_stop_ads_button_summary_on">Tá cnaipe stad fógraí i bhfolach</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Tá cnaipe stad fógraí taispeánta</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Folaigh Tuairisc</string>
   <string name="revanced_hide_report_button_summary_on">Tá an cnaipe tuairisce i bhfolach</string>
   <string name="revanced_hide_report_button_summary_off">Taispeántar an cnaipe tuairisce</string>
@@ -575,12 +580,21 @@ Coigeartaigh an toirt trí haisceartán go hingearach ar thaobh deas an scáile�
   <string name="revanced_hide_download_button_title">Folaigh Íoslódáil</string>
   <string name="revanced_hide_download_button_summary_on">Tá an cnaipe íosluchtaithe i bhfolach</string>
   <string name="revanced_hide_download_button_summary_off">Taispeántar cnaipe íoslódáil</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Folaigh Borradh</string>
+  <string name="revanced_hide_hype_button_summary_on">Tá cnaipe an Hype i bhfolach</string>
+  <string name="revanced_hide_hype_button_summary_off">Tá an cnaipe Hype ar taispeáint</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Folaigh Cur Chun Cinn</string>
+  <string name="revanced_hide_promote_button_summary_on">Tá an cnaipe Cur Chun Cinn folaithe</string>
+  <string name="revanced_hide_promote_button_summary_off">Tá an cnaipe Cur Chun Cinn taispeánta</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Folaigh Go raibh maith agat</string>
   <string name="revanced_hide_thanks_button_summary_on">Tá cnaipe buíochas i bhfolach</string>
   <string name="revanced_hide_thanks_button_summary_off">Taispeántar cnaipe buíochas</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Folaigh Fiafraigh</string>
   <string name="revanced_hide_ask_button_summary_on">Tá cnaipe Fiafraigh i bhfolach</string>
   <string name="revanced_hide_ask_button_summary_off">Taispeántar cnaipe Fiafraigh</string>
@@ -693,6 +707,9 @@ Chun roghchlár na rian fuaime a thaispeáint, athraigh 'Srutháin físeáin bhr
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Folaigh Watch i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Tá faire i roghchlár VR i bhfolach</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Taispeántar an faire sa roghchlár VR</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Folaigh roghchlár cáilíocht físe</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Tá roghchlár cháilíocht na físeáin i bhfolach</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Tá roghchlár cháilíocht na físeáin ar taispeáint</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Folaigh buntásc roghchlár cáilíochta físe</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Tá buntásc an roghchláir cáilíochta físeáin folaithe</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Taispeántar buntásc roghchlár cáilíochta físeáin</string>
@@ -1465,7 +1482,7 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Taispeántar an cnaipe. Tapáil agus coinnigh chun luas athsheinm a athshocrú go réamhshocrú</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Ní thaispeántar an cnaipe</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Taispeáin cnaipe cáilíochta físeáin</string>
   <string name="revanced_video_quality_dialog_button_summary_on">Tá cnaipe le feiceáil. Tapáil agus coinnigh chun cáilíocht a athshocrú mar réamhshocrú</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Níl cnaipe le feiceáil</string>
@@ -1587,13 +1604,13 @@ Tá réiteach uasmhéideach 1080p ag AVC, níl códú fuaime Opus ar fáil, agus
   <string name="revanced_ads_screen_summary">Socruithe Blocála Fógraí</string>
   <string name="revanced_chat_screen_title">Comhrá</string>
   <string name="revanced_chat_screen_summary">Socruithe comhrá</string>
-  <string name="revanced_misc_screen_title">Ilghnéitheach</string>
-  <string name="revanced_misc_screen_summary">Socruithe ilghnéitheacha</string>
+  <string name="revanced_misc_screen_title">Ilchineálach</string>
+  <string name="revanced_misc_screen_summary">Socruithe Ilchineálach</string>
   <string name="revanced_general_category_title">Socruithe ginearálta</string>
   <string name="revanced_other_category_title">Socruithe eile</string>
   <string name="revanced_client_ads_category_title">Fógraí taobh an chliaint</string>
   <string name="revanced_surestream_ads_category_title">Fógraí surestream ar thaobh an fhreastalaí</string>
-  <string name="revanced_twitch_debug_title">Logáil dífhabhtaithe</string>
+  <string name="revanced_twitch_debug_title">Tá logaí dífhabhtú cumasaithe</string>
   <string name="revanced_twitch_debug_summary_on">Tá logaí dífhabhtaithe cumasaithe</string>
   <string name="revanced_twitch_debug_summary_off">Tá logaí dífhabhtaithe díchumasaithe</string>
   </patch>

@@ -1,3 +1,220 @@
+## [5.34.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.34.0...v5.34.1-dev.1) (2025-08-21)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Make compatible with latest versions again by fixing fingerprint ([#5684](https://github.com/ReVanced/revanced-patches/issues/5684)) ([30dcff1](https://github.com/ReVanced/revanced-patches/commit/30dcff13a56883efc499b71faadb403877cd1c67))
+
+# [5.34.0](https://github.com/ReVanced/revanced-patches/compare/v5.33.0...v5.34.0) (2025-08-19)
+
+
+### Bug Fixes
+
+* **Backdrops:** Remove broken patch that is no longer supported ([#5627](https://github.com/ReVanced/revanced-patches/issues/5627)) ([ebb8332](https://github.com/ReVanced/revanced-patches/commit/ebb83320838aa99dd4417d45a50333dd42c1218a))
+* **pixiv - Hide ads:** Constrain patch to last working app target ([d8ea56c](https://github.com/ReVanced/revanced-patches/commit/d8ea56ca4be47df1c43f96ec41b91c800f1d9daf))
+* **Twitch:** Constrain patches to last working app targets ([#5373](https://github.com/ReVanced/revanced-patches/issues/5373)) ([29a4748](https://github.com/ReVanced/revanced-patches/commit/29a47481c4efa209a3a53df60613b59a73adbe07))
+* **YouTube - Hide layout components:** Do not hide community posts on channel profiles ([#5634](https://github.com/ReVanced/revanced-patches/issues/5634)) ([9e3d5a2](https://github.com/ReVanced/revanced-patches/commit/9e3d5a2b36106479470f3f69920518b57e8c4dca))
+* **YouTube - Player Controls:** Fix chapter title overlapping the bottom buttons ([#5673](https://github.com/ReVanced/revanced-patches/issues/5673)) ([09ccee7](https://github.com/ReVanced/revanced-patches/commit/09ccee71384df338bbf8acc1097f619a372c4868))
+* **YouTube - SponsorBlock:** Do not hide voting or create button when the video ends ([6aba4e2](https://github.com/ReVanced/revanced-patches/commit/6aba4e284de9bb94b49eea8be2baf2870eecbbcf))
+* **YouTube - Video playback:** Disable HDR video does not disable Dolby Vision HDR ([#5661](https://github.com/ReVanced/revanced-patches/issues/5661)) ([6dab988](https://github.com/ReVanced/revanced-patches/commit/6dab98810645b96bd0387ba7d607e5d8ffb1b5bb))
+* **YouTube - Video quality:** Fix additional incorrect quality resolutions used by YouTube ([a2a1fbe](https://github.com/ReVanced/revanced-patches/commit/a2a1fbe2959be8334c54cfc3426c24a960c55c8f))
+* **YouTube - Video quality:** Show FHD+ icon for 1080p 60fps enhanced bitrate ([76bed37](https://github.com/ReVanced/revanced-patches/commit/76bed3734093713af24ef065d5ffc5b1cd83f29a))
+* **YouTube:** Use correct fade out animation when tapping to dismiss the video overlay ([#5670](https://github.com/ReVanced/revanced-patches/issues/5670)) ([cce6737](https://github.com/ReVanced/revanced-patches/commit/cce6737f627fc7621bbde50a5653b6af14c6f31a))
+
+
+### Features
+
+* **Instagram:** Support latest app version ([#5611](https://github.com/ReVanced/revanced-patches/issues/5611)) ([26fe690](https://github.com/ReVanced/revanced-patches/commit/26fe690dfbefe6c412c5f81f208a3b1d2fbd7a0a))
+* **NU.nl:** Support latest app version ([#5643](https://github.com/ReVanced/revanced-patches/issues/5643)) ([7338e4a](https://github.com/ReVanced/revanced-patches/commit/7338e4a5a99f913256120d0d58fede3aa4ee8922))
+* **YouTube - Hide player flyout menu items:** Add option to hide quality flyout menu ([eb55068](https://github.com/ReVanced/revanced-patches/commit/eb5506856a2eaf2a8585e598868ddba3e1429159))
+* **YouTube - Hide video action buttons:** Add "Hide Hype button" setting ([f13f377](https://github.com/ReVanced/revanced-patches/commit/f13f3770e7c4fd5bff8f3e224fb1b1ead50a3c18))
+* **YouTube - Hide video action buttons:** Add "Hide Promote button" setting ([1959396](https://github.com/ReVanced/revanced-patches/commit/1959396a53f4c07b94acddc5c0ee6cdf7ade7c7b))
+* **YouTube - Playback speed:** Show current playback speed on player speed dialog button ([#5607](https://github.com/ReVanced/revanced-patches/issues/5607)) ([279436a](https://github.com/ReVanced/revanced-patches/commit/279436a3657b50f98bb4cc64dc88dc14e422f204))
+* **YouTube:** Add `Disable sign in to TV popup` patch ([#5639](https://github.com/ReVanced/revanced-patches/issues/5639)) ([d0e5bd0](https://github.com/ReVanced/revanced-patches/commit/d0e5bd0479a8910b081c483ed2a6ab4d7134e3c3))
+
+# [5.34.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.12...v5.34.0-dev.13) (2025-08-19)
+
+
+### Bug Fixes
+
+* **YouTube - Player Controls:** Fix chapter title overlapping the bottom buttons ([#5673](https://github.com/ReVanced/revanced-patches/issues/5673)) ([09ccee7](https://github.com/ReVanced/revanced-patches/commit/09ccee71384df338bbf8acc1097f619a372c4868))
+
+# [5.34.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.12...v5.34.0-dev.13) (2025-08-18)
+
+
+### Bug Fixes
+
+* **YouTube - Player Controls:** Fix chapter title overlapping the bottom buttons ([#5673](https://github.com/ReVanced/revanced-patches/issues/5673)) ([09ccee7](https://github.com/ReVanced/revanced-patches/commit/09ccee71384df338bbf8acc1097f619a372c4868))
+
+# [5.34.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.11...v5.34.0-dev.12) (2025-08-18)
+
+
+### Bug Fixes
+
+* **YouTube:** Use correct fade out animation when tapping to dismiss the video overlay ([#5670](https://github.com/ReVanced/revanced-patches/issues/5670)) ([cce6737](https://github.com/ReVanced/revanced-patches/commit/cce6737f627fc7621bbde50a5653b6af14c6f31a))
+
+# [5.34.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.10...v5.34.0-dev.11) (2025-08-16)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Do not hide voting or create button when the video ends ([6aba4e2](https://github.com/ReVanced/revanced-patches/commit/6aba4e284de9bb94b49eea8be2baf2870eecbbcf))
+
+# [5.34.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.9...v5.34.0-dev.10) (2025-08-16)
+
+
+### Bug Fixes
+
+* **YouTube - Video playback:** Disable HDR video does not disable Dolby Vision HDR ([#5661](https://github.com/ReVanced/revanced-patches/issues/5661)) ([6dab988](https://github.com/ReVanced/revanced-patches/commit/6dab98810645b96bd0387ba7d607e5d8ffb1b5bb))
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add "Hide Promote button" setting ([1959396](https://github.com/ReVanced/revanced-patches/commit/1959396a53f4c07b94acddc5c0ee6cdf7ade7c7b))
+
+# [5.34.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.9...v5.34.0-dev.10) (2025-08-16)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add "Hide Promote button" setting ([1959396](https://github.com/ReVanced/revanced-patches/commit/1959396a53f4c07b94acddc5c0ee6cdf7ade7c7b))
+
+# [5.34.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.9...v5.34.0-dev.10) (2025-08-16)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add "Hide Promote button" setting ([1959396](https://github.com/ReVanced/revanced-patches/commit/1959396a53f4c07b94acddc5c0ee6cdf7ade7c7b))
+
+# [5.34.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.8...v5.34.0-dev.9) (2025-08-16)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add "Hide Hype button" setting ([f13f377](https://github.com/ReVanced/revanced-patches/commit/f13f3770e7c4fd5bff8f3e224fb1b1ead50a3c18))
+
+# [5.34.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.7...v5.34.0-dev.8) (2025-08-15)
+
+
+### Features
+
+* **NU.nl:** Support latest app version ([#5643](https://github.com/ReVanced/revanced-patches/issues/5643)) ([7338e4a](https://github.com/ReVanced/revanced-patches/commit/7338e4a5a99f913256120d0d58fede3aa4ee8922))
+* **YouTube:** Add `Disable sign in to TV popup` patch ([#5639](https://github.com/ReVanced/revanced-patches/issues/5639)) ([d0e5bd0](https://github.com/ReVanced/revanced-patches/commit/d0e5bd0479a8910b081c483ed2a6ab4d7134e3c3))
+
+# [5.34.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.6...v5.34.0-dev.7) (2025-08-13)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Fix additional incorrect quality resolutions used by YouTube ([a2a1fbe](https://github.com/ReVanced/revanced-patches/commit/a2a1fbe2959be8334c54cfc3426c24a960c55c8f))
+
+# [5.34.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.5...v5.34.0-dev.6) (2025-08-11)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Show FHD+ icon for 1080p 60fps enhanced bitrate ([76bed37](https://github.com/ReVanced/revanced-patches/commit/76bed3734093713af24ef065d5ffc5b1cd83f29a))
+
+# [5.34.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.4...v5.34.0-dev.5) (2025-08-10)
+
+
+### Features
+
+* **YouTube - Hide player flyout menu items:** Add option to hide quality flyout menu ([eb55068](https://github.com/ReVanced/revanced-patches/commit/eb5506856a2eaf2a8585e598868ddba3e1429159))
+
+# [5.34.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.3...v5.34.0-dev.4) (2025-08-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide community posts on channel profiles ([#5634](https://github.com/ReVanced/revanced-patches/issues/5634)) ([9e3d5a2](https://github.com/ReVanced/revanced-patches/commit/9e3d5a2b36106479470f3f69920518b57e8c4dca))
+
+# [5.34.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.2...v5.34.0-dev.3) (2025-08-09)
+
+
+### Bug Fixes
+
+* **pixiv - Hide ads:** Constrain patch to last working app target ([d8ea56c](https://github.com/ReVanced/revanced-patches/commit/d8ea56ca4be47df1c43f96ec41b91c800f1d9daf))
+
+# [5.34.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.34.0-dev.1...v5.34.0-dev.2) (2025-08-09)
+
+
+### Bug Fixes
+
+* **Backdrops:** Remove broken patch that is no longer supported ([#5627](https://github.com/ReVanced/revanced-patches/issues/5627)) ([ebb8332](https://github.com/ReVanced/revanced-patches/commit/ebb83320838aa99dd4417d45a50333dd42c1218a))
+
+
+### Features
+
+* **YouTube - Playback speed:** Show current playback speed on player speed dialog button ([#5607](https://github.com/ReVanced/revanced-patches/issues/5607)) ([279436a](https://github.com/ReVanced/revanced-patches/commit/279436a3657b50f98bb4cc64dc88dc14e422f204))
+
+# [5.34.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.33.0...v5.34.0-dev.1) (2025-08-08)
+
+
+### Bug Fixes
+
+* **Twitch:** Constrain patches to last working app targets ([#5373](https://github.com/ReVanced/revanced-patches/issues/5373)) ([29a4748](https://github.com/ReVanced/revanced-patches/commit/29a47481c4efa209a3a53df60613b59a73adbe07))
+
+
+### Features
+
+* **Instagram:** Support latest app version ([#5611](https://github.com/ReVanced/revanced-patches/issues/5611)) ([26fe690](https://github.com/ReVanced/revanced-patches/commit/26fe690dfbefe6c412c5f81f208a3b1d2fbd7a0a))
+
+# [5.33.0](https://github.com/ReVanced/revanced-patches/compare/v5.32.0...v5.33.0) (2025-08-05)
+
+
+### Bug Fixes
+
+* **Messenger - Hide Facebook button:** Support the latest app version ([#5590](https://github.com/ReVanced/revanced-patches/issues/5590)) ([0cab98d](https://github.com/ReVanced/revanced-patches/commit/0cab98df1689dbf7a042f18f4a961d47da1430ad))
+* **NFC Tools:** Remove broken patch that is no longer supported ([#5584](https://github.com/ReVanced/revanced-patches/issues/5584)) ([cd3a6be](https://github.com/ReVanced/revanced-patches/commit/cd3a6be75c6bd3cc33c0b17a044bd6147f27b5ce))
+* **YouTube - Force original audio:** Disable a/b feature flag that forces localized audio ([#5582](https://github.com/ReVanced/revanced-patches/issues/5582)) ([9fe13ee](https://github.com/ReVanced/revanced-patches/commit/9fe13ee1af104c009efd19b826adef375e48e191))
+* **YouTube - Litho filter:** Correctly filter identifier of older YouTube targets ([bf29d69](https://github.com/ReVanced/revanced-patches/commit/bf29d6909e389819bad878ad3b94bbc90d823cc9))
+* **YouTube - Playback speed:** Use old speed menu for player button if enabled ([1e8f436](https://github.com/ReVanced/revanced-patches/commit/1e8f4368e117f4b278c24709231cb32546e46dc0))
+* **YouTube - Video quality:** Fix 144p default not always used ([2f7483a](https://github.com/ReVanced/revanced-patches/commit/2f7483a2d789c28a243b58bb7a252c0d590858ee))
+* **YouTube - Video quality:** Fix dialog quality list check mark not always shown ([295f0f2](https://github.com/ReVanced/revanced-patches/commit/295f0f216b5e8aa9d68457862e73e312b7342703))
+* **YouTube - Video quality:** Fix wrong qualities sometimes shown in player button dialog ([7378ae3](https://github.com/ReVanced/revanced-patches/commit/7378ae3c5fc88f91bf5cd6db47c6cd170a8c5a4f))
+* **YouTube - Video quality:** Use 1080p enhanced bitrate for Premium users ([#5565](https://github.com/ReVanced/revanced-patches/issues/5565)) ([bd3ace0](https://github.com/ReVanced/revanced-patches/commit/bd3ace0bd04ccd0369adb49d63aa0cf986402346))
+
+
+### Features
+
+* **ORF ON:** Add `Remove root detection` patch ([#5551](https://github.com/ReVanced/revanced-patches/issues/5551)) ([6c6aa35](https://github.com/ReVanced/revanced-patches/commit/6c6aa35411a139dddc3a15dd757fbeded5d1a0a3))
+* **YouTube - Playback speed:** Add "Restore old playback speed menu" option ([#5552](https://github.com/ReVanced/revanced-patches/issues/5552)) ([b01f15b](https://github.com/ReVanced/revanced-patches/commit/b01f15b9acb0427aed99b0141ae271831b7936bf))
+* **YouTube:** Add player button to change video quality ([#5435](https://github.com/ReVanced/revanced-patches/issues/5435)) ([d5f51bf](https://github.com/ReVanced/revanced-patches/commit/d5f51bf400dd22626ff65d7563b6fde70d53fb25))
+
+
+### Performance Improvements
+
+* **YouTube:** Filter identifier callback only on root component creation ([#5558](https://github.com/ReVanced/revanced-patches/issues/5558)) ([ccac46e](https://github.com/ReVanced/revanced-patches/commit/ccac46eebc2e14b094454e37ef4461d48a62c53f))
+
+# [5.33.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.12...v5.33.0-dev.13) (2025-08-05)
+
+
+### Bug Fixes
+
+* **Messenger - Hide Facebook button:** Support the latest app version ([#5590](https://github.com/ReVanced/revanced-patches/issues/5590)) ([0cab98d](https://github.com/ReVanced/revanced-patches/commit/0cab98df1689dbf7a042f18f4a961d47da1430ad))
+
+# [5.33.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.11...v5.33.0-dev.12) (2025-08-04)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Fix dialog quality list check mark not always shown ([295f0f2](https://github.com/ReVanced/revanced-patches/commit/295f0f216b5e8aa9d68457862e73e312b7342703))
+
+# [5.33.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.10...v5.33.0-dev.11) (2025-08-04)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Fix 144p default not always used ([2f7483a](https://github.com/ReVanced/revanced-patches/commit/2f7483a2d789c28a243b58bb7a252c0d590858ee))
+
+# [5.33.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.9...v5.33.0-dev.10) (2025-08-04)
+
+
+### Bug Fixes
+
+* **YouTube - Video quality:** Fix wrong qualities sometimes shown in player button dialog ([7378ae3](https://github.com/ReVanced/revanced-patches/commit/7378ae3c5fc88f91bf5cd6db47c6cd170a8c5a4f))
+
 # [5.33.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.33.0-dev.8...v5.33.0-dev.9) (2025-08-04)
 
 

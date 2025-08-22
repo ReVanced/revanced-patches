@@ -452,6 +452,8 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Valintaikkuna näytetään</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tämä ei ohita ikärajoitusta. Se vain hyväksyy sen automaattisesti.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Poista videon osan ohittaminen kaksoisnapauttamalla käytöstä</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Kaksoisnapautus ei voi koskaan aiheuttaa siirtymistä videon seuraavaan/edelliseen osaan</string>
@@ -563,7 +565,7 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_stop_ads_button_summary_on">Estä mainokset -painike on piilotettu</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Estä mainokset -painike näytetään</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Piilota Tee ilmoitus</string>
   <string name="revanced_hide_report_button_summary_on">Tee ilmoitus -painike on piilotettu</string>
   <string name="revanced_hide_report_button_summary_off">Tee ilmoitus -painike näytetään</string>
@@ -575,12 +577,21 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_download_button_title">Piilota Lataa</string>
   <string name="revanced_hide_download_button_summary_on">Lataa-painike on piilotettu</string>
   <string name="revanced_hide_download_button_summary_off">Lataa-painike näytetään</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Piilota Hypetä</string>
+  <string name="revanced_hide_hype_button_summary_on">Hypetä-painike on piilotettu</string>
+  <string name="revanced_hide_hype_button_summary_off">Hypetä-painike näytetään</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Piilota Mainosta</string>
+  <string name="revanced_hide_promote_button_summary_on">Mainosta-painike on piilotettu</string>
+  <string name="revanced_hide_promote_button_summary_off">Mainosta-painike näytetään</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Piilota Kiitos</string>
   <string name="revanced_hide_thanks_button_summary_on">Kiitos-painike on piilotettu</string>
   <string name="revanced_hide_thanks_button_summary_off">Kiitos-painike näytetään</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Piilota Ask</string>
   <string name="revanced_hide_ask_button_summary_on">Ask-painike on piilotettu</string>
   <string name="revanced_hide_ask_button_summary_off">Ask-painike näytetään</string>
@@ -670,8 +681,8 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_help_summary_off">Ohjeet ja palaute -valinta näytetään</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_speed_title">Piilota Toistonopeus</string>
-  <string name="revanced_hide_player_flyout_speed_summary_on">Toistonopeus-valikko on piilotettu</string>
-  <string name="revanced_hide_player_flyout_speed_summary_off">Toistonopeus-valikko näytetään</string>
+  <string name="revanced_hide_player_flyout_speed_summary_on">Toistonopeusvalikko on piilotettu</string>
+  <string name="revanced_hide_player_flyout_speed_summary_off">Toistonopeusvalikko näytetään</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
                   This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">Piilota Lisätietoja</string>
@@ -693,6 +704,9 @@ Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Piilota Katso VR-tilassa</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Katso VR-tilassa -valinta on piilotettu</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Katso VR-tilassa -valinta näytetään</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Piilota videolaatuvalikko</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Videolaatuvalikko on piilotettu</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Videolaatuvalikko näytetään</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Piilota videolaatuvalikon alatunniste</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Videolaatuvalikon alatunniste on piilotettu</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videolaatuvalikon alatunniste näytetään</string>
@@ -1465,7 +1479,10 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Painike näytetään. Napauta ja pidä pohjassa palauttaaksesi soiton nopeuden oletukseksi</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Painiketta ei näytetä</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
+  <string name="revanced_video_quality_dialog_button_title">Näytä videolaatupainike</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Painike näkyy. Paina pitkään palauttaaksesi laadun oletukseksi</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Painiketta ei näytetä</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Mukautettu toistonopeusvalikko</string>

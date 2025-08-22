@@ -13,7 +13,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.util.Range;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -877,7 +876,7 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Injection point
+     * injection point.
      */
     @SuppressWarnings("unused")
     public static void setSponsorBarRect(Object self) {
@@ -909,7 +908,7 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Injection point
+     * injection point.
      */
     @SuppressWarnings("unused")
     public static void setSponsorBarThickness(int thickness) {

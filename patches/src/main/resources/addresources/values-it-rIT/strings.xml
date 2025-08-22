@@ -452,6 +452,11 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">La finestra di dialogo verrà mostrata </string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Questo non aggira la restrizione di età. Lo accetta solo automaticamente.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Disabilita il popup \"Accedi alla TV\"</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Il popup \"Accedi alla TV\" è disabilitato</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Il popup \"Accedi alla TV\" è abilitato</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Disabilita salto capitolo con doppio tocco</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Il doppio tocco non può mai attivare il salto al capitolo successivo/precedente</string>
@@ -563,7 +568,7 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Il pulsante per interrompere gli annunci è nascosto</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Il pulsante per interrompere gli annunci è mostrato</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Nascondi Segnala</string>
   <string name="revanced_hide_report_button_summary_on">Il pulsante Segnala è nascosto</string>
   <string name="revanced_hide_report_button_summary_off">Il pulsante Segnala è visibile</string>
@@ -575,12 +580,21 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_hide_download_button_title">Nascondi Scarica</string>
   <string name="revanced_hide_download_button_summary_on">Il pulsante Scarica è nascosto</string>
   <string name="revanced_hide_download_button_summary_off">Il pulsante Scarica è visibile</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Nascondi Hype</string>
+  <string name="revanced_hide_hype_button_summary_on">Il pulsante Hype è nascosto</string>
+  <string name="revanced_hide_hype_button_summary_off">Pulsante Hype è mostrato</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Nascondi Promuovi</string>
+  <string name="revanced_hide_promote_button_summary_on">Il pulsante Promuovi è nascosto</string>
+  <string name="revanced_hide_promote_button_summary_off">Il pulsante Promuovi è mostrato</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Nascondi Grazie</string>
   <string name="revanced_hide_thanks_button_summary_on">Grazie pulsante è nascosto</string>
   <string name="revanced_hide_thanks_button_summary_off">Il pulsante Grazie è visibile</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Nascondi richiesta</string>
   <string name="revanced_hide_ask_button_summary_on">Il pulsante Richiedi è nascosto</string>
   <string name="revanced_hide_ask_button_summary_off">Il pulsante Richiedi è visibile</string>
@@ -693,6 +707,9 @@ Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS 
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Nascondi Guarda in VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Il menu Guarda in VR è nascosto</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Il menu Guarda in VR è visibile</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Nascondi menu qualità video</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Il menu della qualità video è nascosto</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Il menu della qualità video è visualizzato</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Nascondi piè di pagina del menu qualità video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Il piè di pagina del menu di qualità video è nascosto</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Il piè di pagina del menu di qualità video è visibile</string>
@@ -1464,9 +1481,9 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Il pulsante è visualizzato. Tieni premuto per ripristinare la velocità di riproduzione predefinita</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Il pulsante non è visibile</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Mostra il pulsante qualità video</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Il pulsante è visibile. Tocca e tieni premuto per ripristinare la qualità predefinita.</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Il pulsante è visualizzato. Tocca e tieni premuto per ripristinare la qualità predefinita</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Il pulsante non è visibile.</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">

@@ -515,6 +515,11 @@ This feature is only available for older devices"</string>
             <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog will be shown</string>
             <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction. It just accepts it automatically.</string>
         </patch>
+        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+            <string name="revanced_disable_signin_to_tv_popup_title">Disable Sign in to TV popup</string>
+            <string name="revanced_disable_signin_to_tv_popup_summary_on">Sign in to TV popup is disabled</string>
+            <string name="revanced_disable_signin_to_tv_popup_summary_off">Sign in to TV popup is enabled</string>
+        </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
             <string name="revanced_disable_chapter_skip_double_tap_title">Disable double tap chapter skip</string>
             <string name="revanced_disable_chapter_skip_double_tap_summary_on">Double tap can never trigger a skip to the next/previous chapter</string>
@@ -626,7 +631,7 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_stop_ads_button_summary_on">Stop ads button is hidden</string>
             <string name="revanced_hide_stop_ads_button_summary_off">Stop ads button is shown</string>
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
             <string name="revanced_hide_report_button_title">Hide Report</string>
             <string name="revanced_hide_report_button_summary_on">Report button is hidden</string>
             <string name="revanced_hide_report_button_summary_off">Report button is shown</string>
@@ -638,12 +643,21 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_download_button_title">Hide Download</string>
             <string name="revanced_hide_download_button_summary_on">Download button is hidden</string>
             <string name="revanced_hide_download_button_summary_off">Download button is shown</string>
+            <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+            <string name="revanced_hide_hype_button_title">Hide Hype</string>
+            <string name="revanced_hide_hype_button_summary_on">Hype button is hidden</string>
+            <string name="revanced_hide_hype_button_summary_off">Hype button is shown</string>
+            <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_promote_button_title">Hide Promote</string>
+            <string name="revanced_hide_promote_button_summary_on">Promote button is hidden</string>
+            <string name="revanced_hide_promote_button_summary_off">Promote button is shown</string>
             <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
             <string name="revanced_hide_thanks_button_title">Hide Thanks</string>
             <string name="revanced_hide_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_thanks_button_summary_off">Thanks button is shown</string>
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
             <string name="revanced_hide_ask_button_title">Hide Ask</string>
             <string name="revanced_hide_ask_button_summary_on">Ask button is hidden</string>
             <string name="revanced_hide_ask_button_summary_off">Ask button is shown</string>
@@ -756,6 +770,9 @@ To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_title">Hide Watch in VR</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Watch in VR menu is hidden</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Watch in VR menu is shown</string>
+            <string name="revanced_hide_player_flyout_video_quality_title">Hide video quality menu</string>
+            <string name="revanced_hide_player_flyout_video_quality_summary_on">Video quality menu is hidden</string>
+            <string name="revanced_hide_player_flyout_video_quality_summary_off">Video quality menu is shown</string>
             <string name="revanced_hide_player_flyout_video_quality_footer_title">Hide video quality menu footer</string>
             <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video quality menu footer is hidden</string>
             <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video quality menu footer is shown</string>
@@ -1543,7 +1560,7 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown. Tap and hold to reset playback speed to default</string>
             <string name="revanced_playback_speed_dialog_button_summary_off">Button is not shown</string>
         </patch>
-        <patch id="video.quality.button.videoQualityButtonPatch">
+        <patch id="video.quality.button.videoQualityDialogButtonPatch">
             <string name="revanced_video_quality_dialog_button_title">Show video quality button</string>
             <string name="revanced_video_quality_dialog_button_summary_on">Button is shown. Tap and hold to reset quality to default</string>
             <string name="revanced_video_quality_dialog_button_summary_off">Button is not shown</string>

@@ -452,6 +452,11 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog akan ditampilkan</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ini tidak mengabaikan batasan usia. Ini hanya menerimanya secara otomatis.</string>
   </patch>
+  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Nonaktifkan pop-up Masuk ke TV</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_on">Pop-up Masuk ke TV dinonaktifkan</string>
+  <string name="revanced_disable_signin_to_tv_popup_summary_off">Pop-up Masuk ke TV diaktifkan</string>
+  </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   <string name="revanced_disable_chapter_skip_double_tap_title">Nonaktifkan lewati bab dengan ketuk dua kali</string>
   <string name="revanced_disable_chapter_skip_double_tap_summary_on">Ketuk dua kali tidak akan pernah memicu lewati ke bab berikutnya/sebelumnya</string>
@@ -563,7 +568,7 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_hide_stop_ads_button_summary_on">Tombol hentikan iklan disembunyikan</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Tombol hentikan iklan ditampilkan</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually appears only on live streams. -->
+                  This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Sembunyikan Laporkan</string>
   <string name="revanced_hide_report_button_summary_on">Tombol laporkan disembunyikan</string>
   <string name="revanced_hide_report_button_summary_off">Tombol laporkan ditampilkan</string>
@@ -575,12 +580,21 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_hide_download_button_title">Sembunyikan Unduhan</string>
   <string name="revanced_hide_download_button_summary_on">Tombol unduh disembunyikan</string>
   <string name="revanced_hide_download_button_summary_off">Tombol unduh ditampilkan</string>
+  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+                  This button only shows on videos uploaded by the logged in user. -->
+  <string name="revanced_hide_hype_button_title">Sembunyikan Hype</string>
+  <string name="revanced_hide_hype_button_summary_on">Tombol Hype disembunyikan</string>
+  <string name="revanced_hide_hype_button_summary_off">Tombol Hype ditampilkan</string>
+  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_promote_button_title">Sembunyikan Promosi</string>
+  <string name="revanced_hide_promote_button_summary_on">Tombol Promosi disembunyikan</string>
+  <string name="revanced_hide_promote_button_summary_off">Tombol Promosi ditampilkan</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Sembunyikan Terima kasih</string>
   <string name="revanced_hide_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
   <string name="revanced_hide_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows up if the user ip is from specific region such as the USA or EU. -->
+                  This button only shows if the user ip is from specific region such as the USA or EU. -->
   <string name="revanced_hide_ask_button_title">Sembunyikan Tanya</string>
   <string name="revanced_hide_ask_button_summary_on">Tombol Tanya disembunyikan</string>
   <string name="revanced_hide_ask_button_summary_off">Tombol Tanya ditampilkan</string>
@@ -693,6 +707,9 @@ Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sembunyikan Tonton di VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu tonton di VR disembunyikan</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Menu tonton di VR ditampilkan</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Sembunyikan menu kualitas video</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Menu kualitas video disembunyikan</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Menu kualitas video ditampilkan</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Sembunyikan footer menu kualitas video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Footer menu kualitas video disembunyikan</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Footer menu kualitas video ditampilkan</string>
@@ -1464,9 +1481,9 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Tombol ditampilkan. Ketuk dan tahan untuk mengatur ulang kecepatan pemutaran ke bawaan</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tombol tidak ditampilkan</string>
   </patch>
-  <patch id="video.quality.button.videoQualityButtonPatch">
+  <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Tampilkan tombol kualitas video</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Tombol ditampilkan. Ketuk dan tahan untuk mengatur ulang kualitas ke default</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Tombol ditampilkan. Ketuk dan tahan untuk mengatur ulang kualitas ke bawaan</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Tombol tidak ditampilkan</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">

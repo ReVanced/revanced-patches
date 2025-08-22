@@ -57,11 +57,4 @@ public class PlayerControlsPatch {
     private static void fullscreenButtonVisibilityChanged(boolean isVisible) {
         // Code added during patching.
     }
-
-    /**
-     * Injection point.
-     */
-    public static String getPlayerTopControlsLayoutResourceName(String original) {
-        return "default";
-    }
 }
