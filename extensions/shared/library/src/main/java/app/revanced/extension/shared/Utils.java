@@ -1315,8 +1315,6 @@ public class Utils {
 
         /**
          * Sets the {@link SlideDialog} associated with this layout for dismissal.
-         *
-         * @param dialog The dialog to be dismissed when dragged.
          */
         public void setDialog(SlideDialog dialog) {
             this.dialog = dialog;
@@ -1324,11 +1322,6 @@ public class Utils {
 
         /**
          * Called when the size of this view changes. Updates the dismissal threshold based on the new height.
-         *
-         * @param w Current width of this view.
-         * @param h Current height of this view.
-         * @param oldw Old width of this view.
-         * @param oldh Old height of this view.
          */
         @Override
         protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -1339,9 +1332,6 @@ public class Utils {
         /**
          * Intercepts touch events to determine if dragging should begin. Dragging is initiated only if the
          * touch movement exceeds the system's touch slop and the content cannot scroll upward.
-         *
-         * @param ev The motion event being processed.
-         * @return {@code true} if the event is intercepted for dragging, {@code false} otherwise.
          */
         @Override
         public boolean onInterceptTouchEvent(MotionEvent ev) {
@@ -1373,9 +1363,6 @@ public class Utils {
         /**
          * Handles touch events to perform dragging or trigger dismissal/return animations based on the
          * drag distance or fling velocity.
-         *
-         * @param ev The motion event being processed.
-         * @return {@code true} if the event is handled, {@code false} otherwise.
          */
         @Override
         public boolean onTouchEvent(MotionEvent ev) {
@@ -1404,7 +1391,9 @@ public class Utils {
                     isDragging = false;
                     return true;
             }
-            return super.onTouchEvent(ev);
+            // Consume the touch event to prevent it from being passed down
+            // or causing focus changes on child views like SeekBar.
+            return true;
         }
 
         /**
@@ -1447,8 +1436,6 @@ public class Utils {
 
         /**
          * Checks if any child view can scroll upward, preventing drag if scrolling is possible.
-         *
-         * @return {@code true} if a child can scroll upward, {@code false} otherwise.
          */
         private boolean canChildScrollUp() {
             View target = findScrollableChild(this);
@@ -1457,9 +1444,6 @@ public class Utils {
 
         /**
          * Recursively searches for a scrollable child view within the given view group.
-         *
-         * @param group The view group to search.
-         * @return The scrollable child view, or {@code null} if none is found.
          */
         private View findScrollableChild(ViewGroup group) {
             for (int i = 0; i < group.getChildCount(); i++) {

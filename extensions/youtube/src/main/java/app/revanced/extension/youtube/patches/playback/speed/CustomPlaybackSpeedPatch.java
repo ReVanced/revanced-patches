@@ -297,6 +297,8 @@ public class CustomPlaybackSpeedPatch {
 
             // Create slider for speed adjustment.
             SeekBar speedSlider = new SeekBar(context);
+            speedSlider.setFocusable(true);
+            speedSlider.setFocusableInTouchMode(true);
             speedSlider.setMax(speedToProgressValue(customPlaybackSpeedsMax));
             speedSlider.setProgress(speedToProgressValue(currentSpeed));
             speedSlider.getProgressDrawable().setColorFilter(
