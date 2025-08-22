@@ -1,3 +1,10 @@
+## [5.34.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.34.1-dev.1...v5.34.1-dev.2) (2025-08-22)
+
+
+### Bug Fixes
+
+* **Proton mail:** Constrain patches to last working app target ([21c34b9](https://github.com/ReVanced/revanced-patches/commit/21c34b908e07a97de8c31c7c828b44a8cc4739b6))
+
 ## [5.34.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.34.0...v5.34.1-dev.1) (2025-08-21)
 
 
