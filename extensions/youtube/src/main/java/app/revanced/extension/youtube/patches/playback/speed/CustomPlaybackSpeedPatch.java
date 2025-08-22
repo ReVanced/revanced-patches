@@ -260,7 +260,7 @@ public class CustomPlaybackSpeedPatch {
         try {
             // Create main layout.
             Integer backgroundColor = Utils.isDarkModeEnabled() ? Utils.getResourceColor("yt_black1") : null;
-            LinearLayout mainLayout = Utils.createMainLayout(context, backgroundColor);
+            Utils.DraggableLinearLayout mainLayout = Utils.createMainLayout(context, backgroundColor);
 
             // Preset size constants.
             final int dip4 = dipToPixels(4);

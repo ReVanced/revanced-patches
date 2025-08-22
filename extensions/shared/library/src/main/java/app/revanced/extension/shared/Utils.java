@@ -30,12 +30,14 @@ import android.preference.PreferenceScreen;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.*;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.*;
 
 import androidx.annotation.ColorInt;
@@ -1148,14 +1150,15 @@ public class Utils {
     }
 
     /**
-     * Creates a {@link SlideDialog} with the specified content view, configured to slide up from the
-     * bottom of the screen with customizable animation duration and drag-to-dismiss functionality.
-     * The dialog includes side margins, a top spacer, and is dismissible by touching outside or dragging down.
+     * Creates a {@link SlideDialog} that slides up from the bottom of the screen with a specified
+     * content view. The dialog supports drag-to-dismiss functionality, allowing the user to drag it
+     * downward to close it, with proper handling of nested scrolling for scrollable content (e.g., {@link ListView}).
+     * It includes side margins, a top spacer for drag interaction, and can be dismissed by touching outside.
      *
-     * @param context The Android context used to create the dialog.
-     * @param contentView The view to be displayed inside the dialog.
-     * @param animationDuration The duration of the slide animation in milliseconds.
-     * @return A configured {@link SlideDialog} instance.
+     * @param contentView The {@link View} to be displayed inside the dialog, such as a {@link LinearLayout}
+     *                    containing a {@link ListView}, buttons, or other UI elements.
+     * @param animationDuration The duration of the slide-in and slide-out animations in milliseconds.
+     * @return A configured {@link SlideDialog} instance ready to be shown.
      */
     public static SlideDialog createSlideDialog(@NonNull Context context, View contentView, int animationDuration) {
         SlideDialog dialog = new SlideDialog(context);
@@ -1167,9 +1170,10 @@ public class Utils {
         LinearLayout wrapperLayout = new LinearLayout(context);
         wrapperLayout.setOrientation(LinearLayout.VERTICAL);
 
-        // Create drag container for spacer and content view.
-        LinearLayout dragContainer = new LinearLayout(context);
+        // Create drag container.
+        DraggableLinearLayout dragContainer = new DraggableLinearLayout(context, null, animationDuration);
         dragContainer.setOrientation(LinearLayout.VERTICAL);
+        dragContainer.setDialog(dialog);
 
         // Add top spacer.
         View spacer = new View(context);
@@ -1177,6 +1181,7 @@ public class Utils {
         LinearLayout.LayoutParams spacerParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, dip40);
         spacer.setLayoutParams(spacerParams);
+        spacer.setClickable(true);
         dragContainer.addView(spacer);
 
         // Add content view (mainLayout).
@@ -1197,29 +1202,26 @@ public class Utils {
         dialog.setAnimView(dragContainer);
         dialog.setAnimationDuration(animationDuration);
 
-        // Set drag-to-dismiss touch listener on drag container.
-        setupDragToDismiss(context, dragContainer, dialog, animationDuration);
-
         return dialog;
     }
 
     /**
-     * Creates a {@link LinearLayout} with a rounded background and a handle bar view, styled for use
-     * as the main layout in a dialog. The layout has vertical orientation and includes padding and
-     * a centered handle bar with adjusted brightness for visual distinction.
+     * Creates a {@link DraggableLinearLayout} with a rounded background and a centered handle bar,
+     * styled for use as the main layout in a {@link SlideDialog}. The layout has vertical orientation,
+     * includes padding, and supports drag-to-dismiss functionality with proper handling of nested scrolling
+     * for scrollable content (e.g., {@link ListView}) or clickable elements (e.g., buttons, {@link SeekBar}).
      *
-     * @param context The {@link Context} used to create the layout and access resources.
-     * @param backgroundColor The background color for the layout as an {@link Integer}, or {@code null} to use
-     *                        the default dialog background color or black if dark mode is enabled.
-     * @return A configured {@link LinearLayout} with a handle bar and styled background.
+     * @param backgroundColor The background color for the layout as an {@link Integer}, or {@code null}
+     *                        to use the default dialog background color (black in dark mode or transparent otherwise).
+     * @return A configured {@link DraggableLinearLayout} with a handle bar and styled background.
      */
-    public static LinearLayout createMainLayout(Context context, Integer backgroundColor) {
+    public static DraggableLinearLayout createMainLayout(Context context, Integer backgroundColor) {
         // Preset size constants.
         final int dip4 = dipToPixels(4);   // Height for handle bar.
         final int dip8 = dipToPixels(8);   // Dialog padding.
         final int dip40 = dipToPixels(40); // Handle bar width.
 
-        LinearLayout mainLayout = new LinearLayout(context);
+        DraggableLinearLayout mainLayout = new DraggableLinearLayout(context);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -1254,55 +1256,221 @@ public class Utils {
     }
 
     /**
-     * Sets up a drag-to-dismiss touch listener for a view within a {@link SlideDialog}. The view can
-     * be dragged downward to dismiss the dialog if the drag distance exceeds a threshold, with an
-     * animation matching the specified duration.
+     * A custom {@link LinearLayout} that provides drag-to-dismiss functionality for a {@link SlideDialog}.
+     * This layout intercepts touch events to allow dragging the dialog downward to dismiss it when the
+     * content cannot scroll upward. It ensures compatibility with scrollable content (e.g., {@link ListView},
+     * {@link ScrollView}) and clickable elements (e.g., buttons, {@link SeekBar}) by prioritizing their
+     * touch events to prevent conflicts.
      *
-     * @param context The Android context used for resource access.
-     * @param view The view to which the touch listener is attached.
-     * @param dialog The {@link SlideDialog} to dismiss on drag.
-     * @param animationDuration The duration of the dismissal animation in milliseconds.
+     * <p>Dragging is enabled only after the dialog's slide-in animation completes. The dialog is dismissed
+     * if dragged beyond 50% of its height or with a downward fling velocity exceeding 800 px/s.</p>
      */
-    private static void setupDragToDismiss(Context context, View view, SlideDialog dialog, int animationDuration) {
-        view.setOnTouchListener(new View.OnTouchListener() {
-            final float dismissThreshold = dipToPixels(100);
-            float touchY;
-            float translationY;
+    public static class DraggableLinearLayout extends LinearLayout {
+        private static final int MIN_FLING_VELOCITY = 800; // px/s
+        private static final float DISMISS_HEIGHT_FRACTION = 0.5f; // 50% of height.
 
-            @SuppressLint("ClickableViewAccessibility")
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        touchY = event.getRawY();
-                        translationY = view.getTranslationY();
-                        return true;
-                    case MotionEvent.ACTION_MOVE:
-                        final float deltaY = event.getRawY() - touchY;
-                        if (deltaY >= 0) {
-                            view.setTranslationY(translationY + deltaY);
-                        }
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                    case MotionEvent.ACTION_CANCEL:
-                        if (view.getTranslationY() > dismissThreshold) {
-                            view.animate()
-                                    .translationY(context.getResources().getDisplayMetrics().heightPixels)
-                                    .setDuration(animationDuration)
-                                    .withEndAction(dialog::dismiss)
-                                    .start();
-                        } else {
-                            view.animate()
-                                    .translationY(0)
-                                    .setDuration(animationDuration)
-                                    .start();
-                        }
-                        return true;
-                    default:
-                        return false;
+        private float initialTouchRawY; // Raw Y on ACTION_DOWN.
+        private float dragOffset; // Current drag translation.
+        private boolean isDragging;
+        private boolean isDragEnabled;
+
+        private final int animationDuration;
+        private final Scroller scroller;
+        private final VelocityTracker velocityTracker;
+        private final Runnable settleRunnable;
+
+        private SlideDialog dialog;
+        private float dismissThreshold;
+
+        /**
+         * Constructs a new {@code DraggableLinearLayout} with the specified context.
+         */
+        public DraggableLinearLayout(Context context) {
+            this(context, null, 0);
+        }
+
+        /**
+         * Constructs a new {@code DraggableLinearLayout} with the specified context, attributes, and
+         * animation duration.
+         *
+         * @param context The context to use for initialization.
+         * @param attrs The attributes of the XML tag that is inflating the layout.
+         * @param animDuration The duration of the drag animation in milliseconds. If 0, uses the system's
+         *                     default short animation duration.
+         */
+        public DraggableLinearLayout(Context context, AttributeSet attrs, int animDuration) {
+            super(context, attrs);
+            scroller = new Scroller(context, new DecelerateInterpolator());
+            velocityTracker = VelocityTracker.obtain();
+            animationDuration = animDuration;
+            settleRunnable = this::runSettleAnimation;
+
+            setClickable(true);
+
+            // Enable drag only after slide-in animation finishes.
+            isDragEnabled = false;
+            postDelayed(() -> isDragEnabled = true, animationDuration + 50);
+        }
+
+        /**
+         * Sets the {@link SlideDialog} associated with this layout for dismissal.
+         *
+         * @param dialog The dialog to be dismissed when dragged.
+         */
+        public void setDialog(SlideDialog dialog) {
+            this.dialog = dialog;
+        }
+
+        /**
+         * Called when the size of this view changes. Updates the dismissal threshold based on the new height.
+         *
+         * @param w Current width of this view.
+         * @param h Current height of this view.
+         * @param oldw Old width of this view.
+         * @param oldh Old height of this view.
+         */
+        @Override
+        protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+            super.onSizeChanged(w, h, oldw, oldh);
+            dismissThreshold = h * DISMISS_HEIGHT_FRACTION;
+        }
+
+        /**
+         * Intercepts touch events to determine if dragging should begin. Dragging is initiated only if the
+         * touch movement exceeds the system's touch slop and the content cannot scroll upward.
+         *
+         * @param ev The motion event being processed.
+         * @return {@code true} if the event is intercepted for dragging, {@code false} otherwise.
+         */
+        @Override
+        public boolean onInterceptTouchEvent(MotionEvent ev) {
+            if (!isDragEnabled) return false;
+
+            switch (ev.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                    initialTouchRawY = ev.getRawY();
+                    isDragging = false;
+                    scroller.forceFinished(true);
+                    removeCallbacks(settleRunnable);
+                    velocityTracker.clear();
+                    velocityTracker.addMovement(ev);
+                    dragOffset = getTranslationY();
+                    break;
+
+                case MotionEvent.ACTION_MOVE:
+                    float dy = ev.getRawY() - initialTouchRawY;
+                    if (dy > ViewConfiguration.get(getContext()).getScaledTouchSlop()
+                            && !canChildScrollUp()) {
+                        isDragging = true;
+                        return true; // Intercept touches for drag.
+                    }
+                    break;
+            }
+            return false;
+        }
+
+        /**
+         * Handles touch events to perform dragging or trigger dismissal/return animations based on the
+         * drag distance or fling velocity.
+         *
+         * @param ev The motion event being processed.
+         * @return {@code true} if the event is handled, {@code false} otherwise.
+         */
+        @Override
+        public boolean onTouchEvent(MotionEvent ev) {
+            if (!isDragEnabled) return super.onTouchEvent(ev);
+            velocityTracker.addMovement(ev);
+
+            switch (ev.getActionMasked()) {
+                case MotionEvent.ACTION_MOVE:
+                    if (isDragging) {
+                        float deltaY = ev.getRawY() - initialTouchRawY;
+                        dragOffset = Math.max(0, deltaY); // Prevent upward drag.
+                        setTranslationY(dragOffset); // 1:1 following finger.
+                    }
+                    return true;
+
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    velocityTracker.computeCurrentVelocity(1000);
+                    float velocityY = velocityTracker.getYVelocity();
+
+                    if (dragOffset > dismissThreshold || velocityY > MIN_FLING_VELOCITY) {
+                        startDismissAnimation();
+                    } else {
+                        startReturnAnimation();
+                    }
+                    isDragging = false;
+                    return true;
+            }
+            return super.onTouchEvent(ev);
+        }
+
+        /**
+         * Starts an animation to dismiss the dialog by sliding it downward.
+         */
+        private void startDismissAnimation() {
+            scroller.startScroll(0, (int) dragOffset,
+                    0, getHeight() - (int) dragOffset, animationDuration);
+            post(settleRunnable);
+        }
+
+        /**
+         * Starts an animation to return the dialog to its original position.
+         */
+        private void startReturnAnimation() {
+            scroller.startScroll(0, (int) dragOffset,
+                    0, -(int) dragOffset, animationDuration);
+            post(settleRunnable);
+        }
+
+        /**
+         * Runs the settle animation, updating the layout's translation until the animation completes.
+         * Dismisses the dialog if the drag offset reaches the view's height.
+         */
+        private void runSettleAnimation() {
+            if (scroller.computeScrollOffset()) {
+                dragOffset = scroller.getCurrY();
+                setTranslationY(dragOffset);
+
+                if (dragOffset >= getHeight() && dialog != null) {
+                    dialog.dismiss();
+                    scroller.forceFinished(true);
+                } else {
+                    post(settleRunnable);
+                }
+            } else {
+                dragOffset = getTranslationY();
+            }
+        }
+
+        /**
+         * Checks if any child view can scroll upward, preventing drag if scrolling is possible.
+         *
+         * @return {@code true} if a child can scroll upward, {@code false} otherwise.
+         */
+        private boolean canChildScrollUp() {
+            View target = findScrollableChild(this);
+            return target != null && target.canScrollVertically(-1);
+        }
+
+        /**
+         * Recursively searches for a scrollable child view within the given view group.
+         *
+         * @param group The view group to search.
+         * @return The scrollable child view, or {@code null} if none is found.
+         */
+        private View findScrollableChild(ViewGroup group) {
+            for (int i = 0; i < group.getChildCount(); i++) {
+                View child = group.getChildAt(i);
+                if (child.canScrollVertically(-1)) return child;
+                if (child instanceof ViewGroup) {
+                    View scroll = findScrollableChild((ViewGroup) child);
+                    if (scroll != null) return scroll;
                 }
             }
-        });
+            return null;
+        }
     }
 
     /**

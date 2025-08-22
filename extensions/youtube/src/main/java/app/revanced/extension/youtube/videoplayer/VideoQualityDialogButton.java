@@ -218,7 +218,7 @@ public class VideoQualityDialogButton {
 
             // Create main layout.
             Integer backgroundColor = Utils.isDarkModeEnabled() ? Utils.getResourceColor("yt_black1") : null;
-            LinearLayout mainLayout = Utils.createMainLayout(context, backgroundColor);
+            Utils.DraggableLinearLayout mainLayout = Utils.createMainLayout(context, backgroundColor);
 
             // Create SpannableStringBuilder for formatted text.
             SpannableStringBuilder spannableTitle = new SpannableStringBuilder();
