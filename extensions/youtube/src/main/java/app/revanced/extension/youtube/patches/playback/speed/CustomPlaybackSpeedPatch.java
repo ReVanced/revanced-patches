@@ -431,7 +431,7 @@ public class CustomPlaybackSpeedPatch {
             // Add in-rows speed buttons layout to main layout.
             mainLayout.addView(gridLayout);
 
-            // Create and show dialog.
+            // Create dialog.
             Utils.SlideDialog dialog = Utils.createSlideDialog(context, mainLayout, fadeInDuration);
             currentDialog = new WeakReference<>(dialog);
 
@@ -461,7 +461,7 @@ public class CustomPlaybackSpeedPatch {
                 Logger.printDebug(() -> "PlayerType observer removed on dialog dismiss");
             });
 
-            dialog.show(); // Display the dialog.
+            dialog.show(); // Show the dialog.
 
         } catch (Exception ex) {
             Logger.printException(() -> "showModernCustomPlaybackSpeedDialog failure", ex);

@@ -322,7 +322,7 @@ public class VideoQualityDialogButton {
                 Logger.printDebug(() -> "PlayerType observer removed on dialog dismiss");
             });
 
-            dialog.show(); // Display the dialog.
+            dialog.show(); // Show the dialog.
         } catch (Exception ex) {
             Logger.printException(() -> "showVideoQualityDialog failure", ex);
         }

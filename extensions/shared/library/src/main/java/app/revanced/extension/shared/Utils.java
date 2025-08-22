@@ -1134,10 +1134,7 @@ public class Utils {
         DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
         int portraitWidth = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
 
-        // Set width based on parameters.
-        params.width = (int) (portraitWidth * (widthPercentage / 100.0f));
-
-        // Set other layout parameters.
+        params.width = (int) (portraitWidth * (widthPercentage / 100.0f)); // Set width based on parameters.
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         params.gravity = gravity;
         params.y = yOffsetDip > 0 ? dipToPixels(yOffsetDip) : 0;
@@ -1145,15 +1142,14 @@ public class Utils {
             params.dimAmount = 0f;
         }
 
-        // Apply window attributes and flags.
-        window.setAttributes(params);
+        window.setAttributes(params); // Apply window attributes.
         window.setBackgroundDrawable(null); // Remove default dialog background
     }
 
     /**
-     * Creates a {@link SlideDialog} that slides up from the bottom of the screen with a specified
-     * content view. The dialog supports drag-to-dismiss functionality, allowing the user to drag it
-     * downward to close it, with proper handling of nested scrolling for scrollable content (e.g., {@link ListView}).
+     * Creates a {@link SlideDialog} that slides up from the bottom of the screen with a specified content view.
+     * The dialog supports drag-to-dismiss functionality, allowing the user to drag it downward to close it,
+     * with proper handling of nested scrolling for scrollable content (e.g., {@link ListView}).
      * It includes side margins, a top spacer for drag interaction, and can be dismissed by touching outside.
      *
      * @param contentView The {@link View} to be displayed inside the dialog, such as a {@link LinearLayout}
@@ -1172,7 +1168,7 @@ public class Utils {
         wrapperLayout.setOrientation(LinearLayout.VERTICAL);
 
         // Create drag container.
-        DraggableLinearLayout dragContainer = new DraggableLinearLayout(context, null, animationDuration);
+        DraggableLinearLayout dragContainer = new DraggableLinearLayout(context, animationDuration);
         dragContainer.setOrientation(LinearLayout.VERTICAL);
         dragContainer.setDialog(dialog);
 
@@ -1213,7 +1209,7 @@ public class Utils {
      * for scrollable content (e.g., {@link ListView}) or clickable elements (e.g., buttons, {@link SeekBar}).
      *
      * @param backgroundColor The background color for the layout as an {@link Integer}, or {@code null}
-     *                        to use the default dialog background color (black in dark mode or transparent otherwise).
+     *                        to use the default dialog background color.
      * @return A configured {@link DraggableLinearLayout} with a handle bar and styled background.
      */
     public static DraggableLinearLayout createMainLayout(Context context, Integer backgroundColor) {
@@ -1287,7 +1283,7 @@ public class Utils {
          * Constructs a new {@code DraggableLinearLayout} with the specified context.
          */
         public DraggableLinearLayout(Context context) {
-            this(context, null, 0);
+            this(context, 0);
         }
 
         /**
@@ -1295,12 +1291,10 @@ public class Utils {
          * animation duration.
          *
          * @param context The context to use for initialization.
-         * @param attrs The attributes of the XML tag that is inflating the layout.
-         * @param animDuration The duration of the drag animation in milliseconds. If 0, uses the system's
-         *                     default short animation duration.
+         * @param animDuration The duration of the drag animation in milliseconds.
          */
-        public DraggableLinearLayout(Context context, AttributeSet attrs, int animDuration) {
-            super(context, attrs);
+        public DraggableLinearLayout(Context context, int animDuration) {
+            super(context);
             scroller = new Scroller(context, new DecelerateInterpolator());
             velocityTracker = VelocityTracker.obtain();
             animationDuration = animDuration;
