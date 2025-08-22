@@ -27,7 +27,7 @@ private fun ClassDef.inspectRequestDataClass(): RequestDataClassInfo? {
 
     val allStringFields = instanceFields.filter { it.type == "Ljava/lang/String;" }
 
-    // url field is the only field without a setter
+    // Url field is the only field without a setter.
     val urlField = allStringFields.firstOrNull { it.name !in stringFieldsWithSetter } ?: return null
     val isHdField = instanceFields.firstOrNull { it.type == "Z" } ?: return null
     val listenerField = instanceFields.firstOrNull { it.type == RESPONSE_LISTENER_DESCRIPTOR } ?: return null
@@ -62,16 +62,16 @@ val fixRedgifsPatch = bytecodePatch(
             addInstructions(
                 0,
                 """
-                iget-object p1, p0, $requestField
-                iget-object p1, p1, ${info.urlField}
-                iget-object v0, p0, $requestField
-                iget-boolean v0, v0, ${info.isHdField}
-                iget-object v1, p0, $requestField
-                iget-object v1, v1, ${info.listenerField}
+                    iget-object p1, p0, $requestField
+                    iget-object p1, p1, ${info.urlField}
+                    iget-object v0, p0, $requestField
+                    iget-boolean v0, v0, ${info.isHdField}
+                    iget-object v1, p0, $requestField
+                    iget-object v1, v1, ${info.listenerField}
 
-                invoke-static { p1, v0, v1 }, $EXTENSION_CLASS_DESCRIPTOR->$FETCH_VIDEO_URL_METHOD
-                return-void
-            """
+                    invoke-static { p1, v0, v1 }, $EXTENSION_CLASS_DESCRIPTOR->$FETCH_VIDEO_URL_METHOD
+                    return-void
+                """
             )
         }
     }
