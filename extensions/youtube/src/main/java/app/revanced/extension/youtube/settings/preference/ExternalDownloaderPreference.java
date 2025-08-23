@@ -36,6 +36,7 @@ import java.util.function.Function;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
 
 /**
@@ -302,7 +303,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         contentLayout.addView(editText);
 
         // Create the custom dialog.
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 getTitle() != null ? getTitle().toString() : "",
                 null,
@@ -312,7 +313,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                     String newValue = editText.getText().toString().trim();
                     if (newValue.isEmpty()) {
                         // Show dialog if EditText is empty.
-                        Utils.createCustomDialog(
+                        CustomDialog.create(
                                 context,
                                 str("revanced_external_downloader_name_title"),
                                 str("revanced_external_downloader_empty_warning"),
@@ -415,7 +416,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 ? str("revanced_external_downloader_not_installed_warning", downloader.name)
                 : str("revanced_external_downloader_package_not_found_warning", packageName);
 
-        Utils.createCustomDialog(
+        CustomDialog.create(
                 context,
                 str("revanced_external_downloader_not_found_title"),
                 message,

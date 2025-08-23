@@ -19,6 +19,7 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ResettableEditTextPreference;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
@@ -27,7 +28,6 @@ import app.revanced.extension.youtube.sponsorblock.requests.SBRequester;
 
 /**
  * User skip stats.
- *
  * None of the preferences here show up in search results because
  * a category cannot be added to another category for the search results.
  * Additionally the stats must load remotely on a background thread which means the
@@ -196,7 +196,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
         updateStatsSelfSaved.run();
 
         preference.setOnPreferenceClickListener(preference1 -> {
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     preference.getContext(),
                     str("revanced_sb_stats_self_saved_reset_title"), // Title.
                     null, // No message.

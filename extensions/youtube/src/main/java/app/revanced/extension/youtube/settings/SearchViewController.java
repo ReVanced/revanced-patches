@@ -34,6 +34,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
 /**
@@ -389,7 +390,7 @@ public class SearchViewController {
 
             // Set long click listener for deletion confirmation.
             convertView.setOnLongClickListener(v -> {
-                Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                         activity,
                         query,                                // Title.
                         str("revanced_settings_search_remove_message"), // Message.

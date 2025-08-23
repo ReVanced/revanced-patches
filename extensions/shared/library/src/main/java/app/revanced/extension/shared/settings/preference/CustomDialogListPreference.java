@@ -14,6 +14,7 @@ import android.widget.*;
 import androidx.annotation.NonNull;
 
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 /**
  * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator.
@@ -132,7 +133,7 @@ public class CustomDialogListPreference extends ListPreference {
         }
 
         // Create the custom dialog without OK button.
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 getTitle() != null ? getTitle().toString() : "",
                 null,

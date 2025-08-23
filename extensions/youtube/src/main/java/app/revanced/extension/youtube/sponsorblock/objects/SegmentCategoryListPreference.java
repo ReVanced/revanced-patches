@@ -29,6 +29,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.ColorPickerView;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 @SuppressWarnings("deprecation")
 public class SegmentCategoryListPreference extends ListPreference {
@@ -256,7 +257,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             contentScrollView.addView(contentLayout);
 
             // Create the custom dialog.
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     context,
                     category.title.toString(), // Title.
                     null, // No message (replaced by contentLayout).

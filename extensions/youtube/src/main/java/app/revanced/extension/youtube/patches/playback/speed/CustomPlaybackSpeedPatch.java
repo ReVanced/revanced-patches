@@ -30,6 +30,7 @@ import java.util.function.Function;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.ui.SheetBottomDialog;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilter;
 import app.revanced.extension.youtube.settings.Settings;
@@ -87,7 +88,7 @@ public class CustomPlaybackSpeedPatch {
     /**
      * Weak reference to the currently open dialog.
      */
-    private static WeakReference<Utils.SlideDialog> currentDialog;
+    private static WeakReference<SheetBottomDialog.SlideDialog> currentDialog;
 
     static {
         // Use same 2 digit format as built in speed picker,
@@ -260,7 +261,8 @@ public class CustomPlaybackSpeedPatch {
     public static void showModernCustomPlaybackSpeedDialog(Context context) {
         try {
             // Create main layout.
-            Utils.DraggableLinearLayout mainLayout = Utils.createMainLayout(context, getDialogBackgroundColor());
+            SheetBottomDialog.DraggableLinearLayout mainLayout =
+                    SheetBottomDialog.createMainLayout(context, getDialogBackgroundColor());
 
             // Preset size constants.
             final int dip4 = dipToPixels(4);
@@ -432,14 +434,14 @@ public class CustomPlaybackSpeedPatch {
             mainLayout.addView(gridLayout);
 
             // Create dialog.
-            Utils.SlideDialog dialog = Utils.createSlideDialog(context, mainLayout, fadeInDuration);
+            SheetBottomDialog.SlideDialog dialog = SheetBottomDialog.createSlideDialog(context, mainLayout, fadeInDuration);
             currentDialog = new WeakReference<>(dialog);
 
             // Create observer for PlayerType changes.
             Function1<PlayerType, Unit> playerTypeObserver = new Function1<>() {
                 @Override
                 public Unit invoke(PlayerType type) {
-                    Utils.SlideDialog current = currentDialog.get();
+                    SheetBottomDialog.SlideDialog current = currentDialog.get();
                     if (current == null || !current.isShowing()) {
                         // Should never happen.
                         PlayerType.getOnChange().removeObserver(this);

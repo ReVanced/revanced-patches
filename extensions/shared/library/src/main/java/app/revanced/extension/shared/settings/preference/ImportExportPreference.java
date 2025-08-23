@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class ImportExportPreference extends EditTextPreference implements Preference.OnPreferenceClickListener {
@@ -76,7 +77,7 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
             EditText editText = getEditText();
 
             // Create a custom dialog with the EditText.
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     context,
                     str("revanced_pref_import_export_title"), // Title.
                     null,     // No message (EditText replaces it).

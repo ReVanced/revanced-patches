@@ -31,6 +31,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.ResettableEditTextPreference;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
@@ -322,7 +323,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             addNewSegment.setOnPreferenceChangeListener((preference1, o) -> {
                 Boolean newValue = (Boolean) o;
                 if (newValue && !Settings.SB_SEEN_GUIDELINES.get()) {
-                    Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                    Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                             preference1.getContext(),
                             str("revanced_sb_guidelines_popup_title"),   // Title.
                             str("revanced_sb_guidelines_popup_content"), // Message.
@@ -439,7 +440,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         editText.setSelection(initialValue.length()); // Move cursor to end.
 
                         // Create custom dialog.
-                        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                                 context,
                                 getTitle() != null ? getTitle().toString() : "", // Title.
                                 null,     // Message is replaced by EditText.
@@ -499,7 +500,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 editText.setText(Settings.SB_API_URL.get());
 
                 // Create a custom dialog.
-                Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                         context,
                         str("revanced_sb_general_api_url"), // Title.
                         null,     // No message, EditText replaces it.
@@ -539,7 +540,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         EditText editText = getEditText();
 
                         // Create a custom dialog.
-                        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                                 context,
                                 str("revanced_sb_settings_ie"), // Title.
                                 null,     // No message, EditText replaces it.

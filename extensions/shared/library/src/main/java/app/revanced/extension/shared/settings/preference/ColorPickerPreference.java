@@ -35,6 +35,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 /**
  * A custom preference for selecting a color via a hexadecimal code or a color picker dialog.
@@ -354,7 +355,7 @@ public class ColorPickerPreference extends EditTextPreference {
 
         // Create custom dialog.
         final int originalColor = currentColor & 0x00FFFFFF;
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 getTitle() != null ? getTitle().toString() : str("revanced_settings_color_picker_title"), // Title.
                 null, // No message.

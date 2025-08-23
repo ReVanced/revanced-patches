@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.shared.ui.CustomDialog;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -184,7 +185,7 @@ public class SponsorBlockSettings {
         if (dialogContext != null && SponsorBlockSettings.userHasSBPrivateId()
                 && !Settings.SB_HIDE_EXPORT_WARNING.get()) {
             // Create the custom dialog.
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     dialogContext,
                     null, // No title.
                     str("revanced_sb_settings_revanced_export_user_id_warning"), // Message.

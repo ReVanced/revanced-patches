@@ -20,6 +20,7 @@ import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.shared.ui.SheetBottomDialog;
 import app.revanced.extension.youtube.shared.PlayerType;
 import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
 
@@ -54,7 +55,7 @@ public class VideoQualityDialogButton {
     /**
      * Weak reference to the currently open dialog.
      */
-    private static WeakReference<Utils.SlideDialog> currentDialog;
+    private static WeakReference<SheetBottomDialog.SlideDialog> currentDialog;
 
     /**
      * Injection point.
@@ -218,7 +219,8 @@ public class VideoQualityDialogButton {
             final int dip16 = dipToPixels(16);
 
             // Create main layout.
-            Utils.DraggableLinearLayout mainLayout = Utils.createMainLayout(context, getDialogBackgroundColor());
+            SheetBottomDialog.DraggableLinearLayout mainLayout =
+                    SheetBottomDialog.createMainLayout(context, getDialogBackgroundColor());
 
             // Create SpannableStringBuilder for formatted text.
             SpannableStringBuilder spannableTitle = new SpannableStringBuilder();
@@ -278,7 +280,7 @@ public class VideoQualityDialogButton {
             listView.setDivider(null);
 
             // Create dialog.
-            Utils.SlideDialog dialog = Utils.createSlideDialog(context, mainLayout, fadeInDuration);
+            SheetBottomDialog.SlideDialog dialog = SheetBottomDialog.createSlideDialog(context, mainLayout, fadeInDuration);
             currentDialog = new WeakReference<>(dialog);
 
             listView.setOnItemClickListener((parent, view, which, id) -> {
@@ -300,7 +302,7 @@ public class VideoQualityDialogButton {
             Function1<PlayerType, Unit> playerTypeObserver = new Function1<>() {
                 @Override
                 public Unit invoke(PlayerType type) {
-                    Utils.SlideDialog current = currentDialog.get();
+                    SheetBottomDialog.SlideDialog current = currentDialog.get();
                     if (current == null || !current.isShowing()) {
                         // Should never happen.
                         PlayerType.getOnChange().removeObserver(this);

@@ -26,6 +26,7 @@ import java.util.Collection;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 abstract class Check {
     private static final int NUMBER_OF_TIMES_TO_IGNORE_WARNING_BEFORE_DISABLING = 2;
@@ -93,7 +94,7 @@ abstract class Check {
 
         Utils.runOnMainThreadDelayed(() -> {
             // Create the custom dialog.
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     activity,
                     str("revanced_check_environment_failed_title"), // Title.
                     message, // Message.
