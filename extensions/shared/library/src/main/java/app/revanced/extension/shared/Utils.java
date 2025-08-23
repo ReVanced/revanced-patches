@@ -895,6 +895,7 @@ public class Utils {
     /**
      * {@link PreferenceScreen} and {@link PreferenceGroup} sorting styles.
      */
+    @SuppressWarnings("deprecation")
     private enum Sort {
         /**
          * Sort by the localized preference title.
@@ -1116,9 +1117,9 @@ public class Utils {
             blue = Math.round(blue + (255 - blue) * t);
         } else {
             // Darken or no change: Scale toward black.
-            red *= factor;
-            green *= factor;
-            blue *= factor;
+            red = Math.round(red * factor);
+            green = Math.round(green * factor);
+            blue = Math.round(blue * factor);
         }
 
         // Ensure values are within [0, 255].
