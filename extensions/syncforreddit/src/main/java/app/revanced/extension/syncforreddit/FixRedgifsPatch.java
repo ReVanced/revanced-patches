@@ -51,7 +51,7 @@ public class FixRedgifsPatch {
         return "https://media.redgifs.com/" + id + suffix + ".mp4";
     }
 
-    private final static Pattern REDGIFS_THUMBNAIL_URL = Pattern.compile("https:\\/\\/media\\.redgifs\\.com\\/(\\w+)\\-poster\\.jpg");
+    private final static Pattern REDGIFS_THUMBNAIL_URL_PATTERN = Pattern.compile("https:\\/\\/media\\.redgifs\\.com\\/(\\w+)\\-poster\\.jpg");
 
     private static String parseThumbnailUrl(String url) {
         var matcher = REDGIFS_THUMBNAIL_URL.matcher(url);
