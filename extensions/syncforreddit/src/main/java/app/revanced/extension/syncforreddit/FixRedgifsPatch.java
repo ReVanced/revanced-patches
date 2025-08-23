@@ -6,7 +6,6 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
 import com.android.volley.Response;
-import kotlin.Suppress;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -17,7 +16,9 @@ import java.net.URL;
 
 import static app.revanced.extension.shared.requests.Route.Method.GET;
 
-@Suppress("unused")
+/**
+ * @noinspection unused
+ */
 public class FixRedgifsPatch {
     public static void fetchVideoUrl(String link, boolean hd, Response.Listener<String> result) {
         Utils.runOnBackgroundThread(() -> {
