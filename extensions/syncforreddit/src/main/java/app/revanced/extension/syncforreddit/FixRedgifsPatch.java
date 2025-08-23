@@ -6,12 +6,14 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
 import com.android.volley.Response;
+import kotlin.Suppress;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.util.regex.Pattern;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import static app.revanced.extension.shared.requests.Route.Method.GET;
 
@@ -25,12 +27,14 @@ public class FixRedgifsPatch {
         });
     }
 
+    private static final String MEDIA_HOST = "media.redgifs.com";
+    private static final String API_V1_URL = "https://api.redgifs.com/v1/";
     private static final Route OEMBED_ROUTE = new Route(GET, "oembed?url={link}");
 
     private static String getVideoUrl(String link, boolean hd) {
         Logger.printInfo(() -> "Fetching: " + link);
         try {
-            HttpURLConnection connection = Requester.getConnectionFromRoute("https://api.redgifs.com/v1/", OEMBED_ROUTE, link);
+            HttpURLConnection connection = Requester.getConnectionFromRoute(API_V1_URL, OEMBED_ROUTE, link);
             JSONObject obj = Requester.parseJSONObject(connection);
             String thumbnailUrl = obj.getString("thumbnail_url");
 
@@ -45,20 +49,21 @@ public class FixRedgifsPatch {
         return null;
     }
 
-
     private static String reconstructVideoUrl(String id, boolean hd) {
         var suffix = hd ? "" : "-mobile";
-        return "https://media.redgifs.com/" + id + suffix + ".mp4";
+        return "https://" + MEDIA_HOST + "/" + id + suffix + ".mp4";
     }
 
-    private final static Pattern REDGIFS_THUMBNAIL_URL_PATTERN = Pattern.compile("https:\\/\\/media\\.redgifs\\.com\\/(\\w+)\\-poster\\.jpg");
+    private static String parseThumbnailUrl(String urlString) throws MalformedURLException {
+        URL url = new URL(urlString);
 
-    private static String parseThumbnailUrl(String url) {
-        var matcher = REDGIFS_THUMBNAIL_URL.matcher(url);
-        if (matcher.matches()) {
-            return matcher.group(1);
-        }
+        String host = url.getHost();
+        if (!host.equalsIgnoreCase(MEDIA_HOST)) return null;
 
-        return null;
+        String path = url.getPath();
+        int idx = path.indexOf("-poster.jpg");
+        if (idx == -1) return null;
+
+        return path.substring(0, idx);
     }
 }

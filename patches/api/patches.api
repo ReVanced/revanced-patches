@@ -610,21 +610,6 @@ public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/
 	public static final fun getFixRedgifsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/fix/redgifs/RequestDataClassInfo {
-	public fun <init> (Lcom/android/tools/smali/dexlib2/iface/Field;Lcom/android/tools/smali/dexlib2/iface/Field;Lcom/android/tools/smali/dexlib2/iface/Field;)V
-	public final fun component1 ()Lcom/android/tools/smali/dexlib2/iface/Field;
-	public final fun component2 ()Lcom/android/tools/smali/dexlib2/iface/Field;
-	public final fun component3 ()Lcom/android/tools/smali/dexlib2/iface/Field;
-	public final fun copy (Lcom/android/tools/smali/dexlib2/iface/Field;Lcom/android/tools/smali/dexlib2/iface/Field;Lcom/android/tools/smali/dexlib2/iface/Field;)Lapp/revanced/patches/reddit/customclients/sync/syncforreddit/fix/redgifs/RequestDataClassInfo;
-	public static synthetic fun copy$default (Lapp/revanced/patches/reddit/customclients/sync/syncforreddit/fix/redgifs/RequestDataClassInfo;Lcom/android/tools/smali/dexlib2/iface/Field;Lcom/android/tools/smali/dexlib2/iface/Field;Lcom/android/tools/smali/dexlib2/iface/Field;ILjava/lang/Object;)Lapp/revanced/patches/reddit/customclients/sync/syncforreddit/fix/redgifs/RequestDataClassInfo;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getListenerField ()Lcom/android/tools/smali/dexlib2/iface/Field;
-	public final fun getUrlField ()Lcom/android/tools/smali/dexlib2/iface/Field;
-	public fun hashCode ()I
-	public final fun isHdField ()Lcom/android/tools/smali/dexlib2/iface/Field;
-	public fun toString ()Ljava/lang/String;
-}
-
 public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/fix/slink/FixSLinksPatchKt {
 	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun getFixSLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
