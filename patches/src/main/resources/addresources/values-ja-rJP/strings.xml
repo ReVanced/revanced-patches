@@ -549,8 +549,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_disable_auto_captions_title">自動字幕表示を無効化</string>
-  <string name="revanced_disable_auto_captions_summary_on">自動字幕表示は無効です\n\n動画を開いた際にデフォルトで字幕は表示されません</string>
-  <string name="revanced_disable_auto_captions_summary_off">自動字幕表示は有効です\n\n動画を開いた際にデフォルトで字幕が表示される場合があります</string>
+  <string name="revanced_disable_auto_captions_summary_on">自動字幕表示は無効です\n\n字幕がオフの状態で動画を開きます</string>
+  <string name="revanced_disable_auto_captions_summary_off">自動字幕表示は有効です\n\n字幕がオンの状態で動画を開く場合があります</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">アクション ボタン</string>
@@ -878,12 +878,12 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_shorts_navigation_bar_summary_off">ナビゲーション バーは表示されます</string>
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
-  <string name="revanced_end_screen_suggested_video_title">再生終了時の「関連動画」を非表示</string>
-  <string name="revanced_end_screen_suggested_video_summary_on">"再生が終了したときに、「関連動画」はプレーヤー画面に表示されませんが、自動再生がオンの場合は次の動画が自動で再生されます
+  <string name="revanced_end_screen_suggested_video_title">終了画面の「関連動画」を非表示</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"終了画面の「関連動画」は表示されませんが、自動再生がオンの場合は関連動画が自動で再生されます
 
 自動再生の設定は YouTube の設定で変更できます:
 設定 → 再生 → 次の動画を自動再生"</string>
-  <string name="revanced_end_screen_suggested_video_summary_off">再生が終了したときに「関連動画」がプレーヤー画面に表示されます</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">終了画面の「関連動画」は表示されます</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
   <string name="revanced_hide_related_videos_overlay_title">関連動画オーバーレイを非表示</string>
@@ -1451,8 +1451,8 @@ Automotive レイアウト
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">オリジナルの音声を強制的に使用</string>
-  <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します</string>
-  <string name="revanced_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します</string>
+  <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用しません</string>
+  <string name="revanced_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックを使用する場合があります</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを iOS TV に変更してください</string>
   </patch>
