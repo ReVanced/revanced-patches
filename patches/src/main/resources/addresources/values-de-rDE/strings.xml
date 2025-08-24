@@ -61,7 +61,7 @@ Um neue Sprachen zu übersetzen, besuchen Sie translate.revanced.app"</string>
   <string name="revanced_pref_import_export_summary">ReVanced-Einstellungen importieren/exportieren</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Sie verwenden ReVanced-Patches Version &lt;i&gt;%s&lt;/i&gt;</string>
-  <string name="revanced_settings_about_links_dev_header">Anmerkung</string>
+  <string name="revanced_settings_about_links_dev_header">Notiz</string>
   <string name="revanced_settings_about_links_dev_body">Diese Version ist eine Vorabversion, es kann zu unerwarteten Problemen kommen</string>
   <string name="revanced_settings_about_links_header">Offizielle Links</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,

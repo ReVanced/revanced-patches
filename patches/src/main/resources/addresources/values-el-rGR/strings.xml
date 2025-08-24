@@ -1334,7 +1334,7 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_invalid">Μη έγκυρη τιμή χρώματος γραμμής προόδου</string>
   </patch>
   <patch id="layout.branding.changeHeaderPatch">
-  <string name="revanced_header_logo_title">Λογότυπο κεφαλίδας</string>
+  <string name="revanced_header_logo_title">Λογότυπο επικεφαλίδας</string>
   <string name="revanced_header_logo_entry_1">Προεπιλογή</string>
   <string name="revanced_header_logo_entry_2">Κανονικό</string>
   <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
