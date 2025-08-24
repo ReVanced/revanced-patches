@@ -1,3 +1,10 @@
+## [5.34.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.34.1-dev.2...v5.34.1-dev.3) (2025-08-24)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide Playable shelf header ([fbb5046](https://github.com/ReVanced/revanced-patches/commit/fbb50463f0e3f533a278c5251cfbce59f09ce641))
+
 ## [5.34.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.34.1-dev.1...v5.34.1-dev.2) (2025-08-22)
 
 
