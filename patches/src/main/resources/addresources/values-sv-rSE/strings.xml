@@ -583,8 +583,8 @@ Justera volymen genom att svepa vertikalt till höger på skärmen"</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
   <string name="revanced_hide_hype_button_title">Dölj Hajp</string>
-  <string name="revanced_hide_hype_button_summary_on">Hype-knappen är dold</string>
-  <string name="revanced_hide_hype_button_summary_off">Knappen Hype visas</string>
+  <string name="revanced_hide_hype_button_summary_on">Knappen Hajp är dold</string>
+  <string name="revanced_hide_hype_button_summary_off">Knappen Hajp visas</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_promote_button_title">Dölj Marknadsför</string>
   <string name="revanced_hide_promote_button_summary_on">Knappen Marknadsför är dold</string>
