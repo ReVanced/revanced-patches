@@ -57,8 +57,8 @@ val playerTypeHookPatch = bytecodePatch(
             instructions(
                 // Obfuscated parameter field name.
                 fieldAccess(
-                    definingClass = { controlStateType },
-                    type = { videoStateEnumFingerprint.originalClassDef.type }
+                    definingClass = controlStateType,
+                    type = videoStateEnumFingerprint.originalClassDef.type
                 ),
                 resourceLiteral(ResourceType.STRING, "accessibility_play"),
                 resourceLiteral(ResourceType.STRING, "accessibility_pause")

@@ -10,7 +10,7 @@ val removeSentFromSignaturePatch = resourcePatch(
     name = "Remove 'Sent from' signature",
     description = "Removes the 'Sent from Proton Mail mobile' signature from emails.",
 ) {
-    compatibleWith("ch.protonmail.android")
+    compatibleWith("ch.protonmail.android"("4.15.0"))
 
     execute {
         val stringResourceFiles = mutableListOf<File>()
