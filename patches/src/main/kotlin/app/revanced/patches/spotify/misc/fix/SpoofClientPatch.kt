@@ -127,24 +127,6 @@ val spoofClientPatch = bytecodePatch(
 
         // endregion
 
-        // region Use HTTPS for apresolve base URL to satisfy app network policy.
-
-        fingerprint {
-            strings("http://apresolve.spotify.com/?")
-        }.let {
-            it.method.apply {
-                val stringIndex = it.stringMatches!!.first().index
-
-                val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
-                replaceInstruction(
-                    stringIndex,
-                    "const-string v$stringRegister, \"https://apresolve.spotify.com/?\"",
-                )
-            }
-        }
-
-        // endregion
-
         // region Disable verdicts.
 
         // Early return to block sending bad verdicts to the API.
