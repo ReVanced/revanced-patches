@@ -1,3 +1,24 @@
+## [5.34.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.34.1-dev.2...v5.34.1-dev.3) (2025-08-24)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide Playable shelf header ([fbb5046](https://github.com/ReVanced/revanced-patches/commit/fbb50463f0e3f533a278c5251cfbce59f09ce641))
+
+## [5.34.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.34.1-dev.1...v5.34.1-dev.2) (2025-08-22)
+
+
+### Bug Fixes
+
+* **Proton mail:** Constrain patches to last working app target ([21c34b9](https://github.com/ReVanced/revanced-patches/commit/21c34b908e07a97de8c31c7c828b44a8cc4739b6))
+
+## [5.34.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.34.0...v5.34.1-dev.1) (2025-08-21)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Make compatible with latest versions again by fixing fingerprint ([#5684](https://github.com/ReVanced/revanced-patches/issues/5684)) ([30dcff1](https://github.com/ReVanced/revanced-patches/commit/30dcff13a56883efc499b71faadb403877cd1c67))
+
 # [5.34.0](https://github.com/ReVanced/revanced-patches/compare/v5.33.0...v5.34.0) (2025-08-19)
 
 

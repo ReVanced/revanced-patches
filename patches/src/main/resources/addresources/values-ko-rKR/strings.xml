@@ -775,8 +775,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_subscriptions_summary_on">구독 피드에서 숨겨집니다</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">구독 피드에서 표시됩니다</string>
   <string name="revanced_hide_shorts_history_title">시청 기록에서 Shorts 숨기기</string>
-  <string name="revanced_hide_shorts_history_summary_on">시청 기록에서 Shorts가 숨겨집니다</string>
-  <string name="revanced_hide_shorts_history_summary_off">시청 기록에서 Shorts가 표시됩니다</string>
+  <string name="revanced_hide_shorts_history_summary_on">시청 기록에서 숨겨집니다</string>
+  <string name="revanced_hide_shorts_history_summary_off">시청 기록에서 표시됩니다</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Super Thanks 구매 버튼 숨기기</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super Thanks 구매 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super Thanks 구매 버튼이 표시됩니다</string>
@@ -1361,7 +1361,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_alt_thumbnail_subscription_title">구독 탭</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">내 페이지 탭</string>
-  <string name="revanced_alt_thumbnail_player_title">플레이어: 재생목록, 관련 동영상, etc.</string>
+  <string name="revanced_alt_thumbnail_player_title">플레이어 재생목록 &amp; 추천 동영상</string>
   <string name="revanced_alt_thumbnail_search_title">검색 결과</string>
   <string name="revanced_alt_thumbnail_options_entry_1">원본 썸네일</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; 원본 썸네일</string>
