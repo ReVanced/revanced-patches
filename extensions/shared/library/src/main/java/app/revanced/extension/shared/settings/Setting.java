@@ -218,43 +218,6 @@ public abstract class Setting<T> {
     }
 
     /**
-     * Get the title of the setting, used for display in UI.
-     * @return The title of the setting, or null if not set.
-     */
-    @Nullable
-    public StringRef getTitle() {
-        // Placeholder: actual implementation depends on how titles are stored
-        // For example, titles may be stored in a corresponding Preference or a resource
-        return null; // Replace with actual title retrieval logic if available
-    }
-
-    /**
-     * Get the parent Settings that this setting depends on.
-     * @return List of parent Settings (e.g., BooleanSetting or EnumSetting), or empty list if no dependencies exist.
-     */
-    public List<Setting<?>> getParentSettings() {
-        List<Setting<?>> parents = new ArrayList<>();
-        if (availability != null) {
-            try {
-                // Use reflection to check the internal structure of Availability.
-                java.lang.reflect.Field[] fields = availability.getClass().getDeclaredFields();
-                for (java.lang.reflect.Field field : fields) {
-                    field.setAccessible(true);
-                    Object fieldValue = field.get(availability);
-                    if (fieldValue instanceof Setting) {
-                        parents.add((Setting<?>) fieldValue);
-                    } else if (fieldValue instanceof Setting[]) {
-                        Collections.addAll(parents, (Setting<?>[]) fieldValue);
-                    }
-                }
-            } catch (Exception e) {
-                Logger.printException(() -> "Failed to get parent settings for: " + key, e);
-            }
-        }
-        return parents;
-    }
-
-    /**
      * Migrate a setting value if the path is renamed but otherwise the old and new settings are identical.
      */
     public static <T> void migrateOldSettingToNew(Setting<T> oldSetting, Setting<T> newSetting) {
@@ -269,7 +232,7 @@ public abstract class Setting<T> {
 
     /**
      * Migrate an old Setting value previously stored in a different SharedPreference.
-     * <p>
+     *
      * This method will be deleted in the future.
      */
     @SuppressWarnings("rawtypes")
@@ -311,7 +274,7 @@ public abstract class Setting<T> {
     /**
      * Sets, but does _not_ persistently save the value.
      * This method is only to be used by the Settings preference code.
-     * <p>
+     *
      * This intentionally is a static method to deter
      * accidental usage when {@link #save(Object)} was intended.
      */

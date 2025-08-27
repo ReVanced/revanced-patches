@@ -120,7 +120,6 @@ To translate new languages visit translate.revanced.app"</string>
             <string name="revanced_settings_about_links_dev_header">Note</string>
             <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues</string>
             <string name="revanced_settings_about_links_header">Official links</string>
-            <string name="revanced_settings_dependency_warning">Enable \'%1$s\' above to modify this</string>
             <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
         </patch>
