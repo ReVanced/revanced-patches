@@ -298,6 +298,9 @@ public class SearchViewController {
             summaryView.setEnabled(false);
             iconView.setEnabled(false);
             view.setOnClickListener(null);
+            titleView.setAlpha(1f);
+            summaryView.setAlpha(1f);
+            iconView.setAlpha(1f);
         }
     }
 
