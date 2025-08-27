@@ -40,6 +40,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
 import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
@@ -251,7 +252,25 @@ public class SearchViewController {
                 default -> "regular";
             };
 
-            return createPreferenceView(item, convertView, viewType);
+            // Create or reuse preference view based on type.
+            View view = createPreferenceView(item, convertView, viewType);
+
+            if (!viewType.equals("no_results")) {
+                TextView pathView = view.findViewById(getResourceIdentifier("preference_path", "id"));
+                boolean showPath = true;
+
+                // Only show the path if it's the first occurrence in the group.
+                if (position > 0) {
+                    SearchResultItem previousItem = getItem(position - 1);
+                    if (previousItem != null && item.navigationPath.equals(previousItem.navigationPath)) {
+                        showPath = false; // Hide path for subsequent elements.
+                    }
+                }
+
+                pathView.setVisibility(showPath ? View.VISIBLE : View.GONE);
+            }
+
+            return view;
         }
 
         /**
@@ -622,8 +641,9 @@ public class SearchViewController {
             if (preference instanceof PreferenceGroup subGroup) {
                 String newPath = parentPath;
 
-                // Append the group title to the path only if it is not a SponsorBlock container.
-                if (!(preference instanceof SponsorBlockPreferenceGroup)) {
+                // Append the group title to the path only if it is not a SponsorBlock or NoTitlePreferenceCategory.
+                if (!(preference instanceof SponsorBlockPreferenceGroup)
+                        && !(preference instanceof NoTitlePreferenceCategory)) {
                     CharSequence title = preference.getTitle();
                     if (!TextUtils.isEmpty(title)) {
                         newPath = TextUtils.isEmpty(parentPath)
