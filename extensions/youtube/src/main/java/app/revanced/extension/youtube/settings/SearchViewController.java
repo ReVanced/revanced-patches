@@ -80,9 +80,9 @@ public class SearchViewController {
         final int preferenceType;
 
         @Nullable
-        private CharSequence originalTitle;
+        private final CharSequence originalTitle;
         @Nullable
-        private CharSequence originalSummary;
+        private final CharSequence originalSummary;
         @Nullable
         private CharSequence originalSummaryOn;
         @Nullable
@@ -177,7 +177,7 @@ public class SearchViewController {
         /**
          * Applies highlighting to title, summary, summaryOn, summaryOff, and entries, and updates local fields.
          */
-        void applyHighlighting(String query, Pattern queryPattern) {
+        void applyHighlighting(Pattern queryPattern) {
             CharSequence highlightedTitle = highlightSearchQuery(originalTitle, queryPattern);
             preference.setTitle(highlightedTitle);
             title = highlightedTitle;
@@ -357,7 +357,6 @@ public class SearchViewController {
                     summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
                     ImageView iconView = view.findViewById(android.R.id.icon);
                     iconView.setImageResource(getResourceIdentifier("revanced_settings_search_icon", "drawable"));
-                    setupNoResultsView(view);
                     break;
             }
 
@@ -378,19 +377,12 @@ public class SearchViewController {
             titleView.setAlpha(enabled ? 1.0f : 0.5f);
             view.setOnClickListener(enabled ? v -> onClickAction.run() : null);
         }
-
-        /**
-         * Sets up properties for no-results view.
-         */
-        private void setupNoResultsView(View view) {
-            view.setOnClickListener(null);
-        }
     }
 
     /**
      * Creates a background drawable for the SearchView with rounded corners.
      */
-    private static GradientDrawable createBackgroundDrawable(Context context) {
+    private static GradientDrawable createBackgroundDrawable() {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
         background.setCornerRadius(Utils.dipToPixels(28)); // 28dp corner radius.
@@ -488,7 +480,7 @@ public class SearchViewController {
         autoCompleteTextView.setImeOptions(autoCompleteTextView.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
 
         // Set background and query hint.
-        searchView.setBackground(createBackgroundDrawable(toolbar.getContext()));
+        searchView.setBackground(createBackgroundDrawable());
         searchView.setQueryHint(str("revanced_settings_search_hint"));
 
         // Configure RTL support based on app language.
@@ -663,7 +655,7 @@ public class SearchViewController {
 
         for (SearchResultItem item : allSearchItems) {
             if (item.matchesQuery(queryLower)) {
-                item.applyHighlighting(queryLower, queryPattern);
+                item.applyHighlighting(queryPattern);
                 filteredSearchItems.add(item);
             }
         }
