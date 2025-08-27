@@ -68,8 +68,8 @@ public class SearchViewController {
     @SuppressWarnings("deprecation")
     private static class SearchResultItem {
         final Preference preference;
-        final String title;
-        final String summary;
+        final CharSequence title;
+        final CharSequence summary;
         final String navigationPath;
         final String searchableText;
         final int preferenceType;
@@ -83,8 +83,8 @@ public class SearchViewController {
         SearchResultItem(Preference pref, String navPath) {
             preference = pref;
             navigationPath = navPath;
-            title = pref.getTitle() != null ? pref.getTitle().toString() : "";
-            summary = pref.getSummary() != null ? pref.getSummary().toString() : "";
+            title = pref.getTitle() != null ? pref.getTitle() : "";
+            summary = pref.getSummary() != null ? pref.getSummary() : "";
 
             // Determine preference type.
             if (pref instanceof SwitchPreference) {
