@@ -153,7 +153,7 @@ public class SearchViewController {
             SearchResultItem item = getItem(position);
             if (item == null) return new View(getContext());
 
-            // Map preference type to view type string
+            // Map preference type to view type string.
             String viewType = switch (item.preferenceType) {
                 case SearchResultItem.TYPE_SWITCH -> "switch";
                 case SearchResultItem.TYPE_LIST -> "list";
@@ -169,37 +169,37 @@ public class SearchViewController {
          */
         @SuppressWarnings("deprecation")
         private View createPreferenceView(SearchResultItem item, View convertView, String viewType) {
-            // Map view types to layout resources
+            // Map view types to layout resources.
             final Map<String, Integer> layoutMap = new HashMap<>();
             layoutMap.put("regular", getResourceIdentifier("revanced_preference_search_result_preference", "layout"));
             layoutMap.put("switch", getResourceIdentifier("revanced_preference_search_result_switch_preference", "layout"));
             layoutMap.put("list", getResourceIdentifier("revanced_preference_search_result_list_preference", "layout"));
             layoutMap.put("no_results", getResourceIdentifier("revanced_preference_search_no_result_preference", "layout"));
 
-            // Inflate or reuse view
+            // Inflate or reuse view.
             View view = convertView;
             Integer layoutResId = layoutMap.get(viewType);
             if (layoutResId == null) {
-                Logger.printException(() -> "Invalid viewType: " + viewType + ", cannot inflate view");
-                return new View(getContext()); // Fallback to empty view
+                Logger.printException(() -> "Invalid viewType: " + viewType + ", cannot inflate view.");
+                return new View(getContext()); // Fallback to empty view.
             }
             if (view == null || !viewType.equals(view.getTag())) {
                 view = inflater.inflate(layoutResId, null);
                 view.setTag(viewType);
             }
 
-            // Initialize common views
+            // Initialize common views.
             TextView titleView = view.findViewById(getResourceIdentifier("preference_title", "id"));
             TextView summaryView = view.findViewById(getResourceIdentifier("preference_summary", "id"));
             TextView pathView = view.findViewById(viewType.equals("no_results") ? android.R.id.summary : getResourceIdentifier("preference_path", "id"));
 
-            // Set common view properties
+            // Set common view properties.
             titleView.setText(item.title);
             if (!viewType.equals("no_results")) {
                 pathView.setText(item.navigationPath);
             }
 
-            // Handle specific view types
+            // Handle specific view types.
             switch (viewType) {
                 case "regular":
                 case "list":
@@ -212,35 +212,39 @@ public class SearchViewController {
                     SwitchPreference switchPref = (SwitchPreference) item.preference;
                     Switch switchWidget = view.findViewById(getResourceIdentifier("preference_switch", "id"));
 
-                    // Set switch state without animation
+                    // Set switch state without animation.
                     boolean currentState = switchPref.isChecked();
                     if (switchWidget.isChecked() != currentState) {
                         switchWidget.setChecked(currentState);
                         switchWidget.jumpDrawablesToCurrentState();
                     }
 
-                    // Update summary based on switch state
+                    // Update summary based on switch state.
                     String summaryText = currentState
-                            ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn().toString() : "")
-                            : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff().toString() : "");
+                            ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn().toString() :
+                            switchPref.getSummary() != null ? switchPref.getSummary().toString() : "")
+                            : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff().toString() :
+                            switchPref.getSummary() != null ? switchPref.getSummary().toString() : "");
                     summaryView.setText(summaryText);
                     summaryView.setVisibility(TextUtils.isEmpty(summaryText) ? View.GONE : View.VISIBLE);
 
-                    // Set up click listeners for switch
-                    final View finalView = view; // Store view in a final variable
+                    // Set up click listeners for switch.
+                    final View finalView = view; // Store view in a final variable.
                     setupPreferenceView(view, titleView, summaryView, pathView, switchPref, () -> {
                         boolean newState = !switchPref.isChecked();
                         switchPref.setChecked(newState);
                         switchWidget.setChecked(newState);
 
-                        // Update summary
+                        // Update summary.
                         String newSummary = newState
-                                ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn().toString() : "")
-                                : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff().toString() : "");
+                                ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn().toString() :
+                                switchPref.getSummary() != null ? switchPref.getSummary().toString() : "")
+                                : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff().toString() :
+                                switchPref.getSummary() != null ? switchPref.getSummary().toString() : "");
                         summaryView.setText(newSummary);
                         summaryView.setVisibility(TextUtils.isEmpty(newSummary) ? View.GONE : View.VISIBLE);
 
-                        // Notify preference change
+                        // Notify preference change.
                         if (switchPref.getOnPreferenceChangeListener() != null) {
                             switchPref.getOnPreferenceChangeListener().onPreferenceChange(switchPref, newState);
                         }
