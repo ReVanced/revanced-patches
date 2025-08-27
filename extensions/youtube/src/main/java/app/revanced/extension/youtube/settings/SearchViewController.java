@@ -8,7 +8,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.preference.*;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.BackgroundColorSpan;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -29,7 +31,10 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
@@ -68,11 +73,23 @@ public class SearchViewController {
     @SuppressWarnings("deprecation")
     private static class SearchResultItem {
         final Preference preference;
-        final CharSequence title;
-        final CharSequence summary;
+        CharSequence title;
+        CharSequence summary;
         final String navigationPath;
         final String searchableText;
         final int preferenceType;
+
+        @Nullable
+        private CharSequence originalTitle;
+        @Nullable
+        private CharSequence originalSummary;
+        @Nullable
+        private CharSequence originalSummaryOn;
+        @Nullable
+        private CharSequence originalSummaryOff;
+        @Nullable
+        private CharSequence[] originalEntries;
+        private boolean highlightingApplied;
 
         // Preference types.
         static final int TYPE_REGULAR = 0;
@@ -83,14 +100,19 @@ public class SearchViewController {
         SearchResultItem(Preference pref, String navPath) {
             preference = pref;
             navigationPath = navPath;
-            title = pref.getTitle() != null ? pref.getTitle() : "";
-            summary = pref.getSummary() != null ? pref.getSummary() : "";
+            originalTitle = pref.getTitle();
+            title = originalTitle != null ? originalTitle : "";
+            originalSummary = pref.getSummary();
+            summary = originalSummary != null ? originalSummary : "";
 
             // Determine preference type.
-            if (pref instanceof SwitchPreference) {
+            if (pref instanceof SwitchPreference switchPref) {
                 preferenceType = TYPE_SWITCH;
-            } else if (pref instanceof ListPreference) {
+                originalSummaryOn = switchPref.getSummaryOn();
+                originalSummaryOff = switchPref.getSummaryOff();
+            } else if (pref instanceof ListPreference listPref) {
                 preferenceType = TYPE_LIST;
+                originalEntries = listPref.getEntries();
             } else if (pref.getKey() != null && pref.getKey().equals("no_results_placeholder")) {
                 preferenceType = TYPE_NO_RESULTS;
             } else {
@@ -133,6 +155,74 @@ public class SearchViewController {
          */
         boolean matchesQuery(String query) {
             return searchableText.contains(Utils.removePunctuationToLowercase(query));
+        }
+
+        /**
+         * Highlights the search query in the given text by applying a background color span.
+         */
+        private static CharSequence highlightSearchQuery(CharSequence text, Pattern queryPattern) {
+            if (TextUtils.isEmpty(text)) {
+                return text;
+            }
+            final int adjustedColor = Utils.adjustColorBrightness(Utils.getAppBackgroundColor(), 0.95f, 1.20f);
+            BackgroundColorSpan highlightSpan = new BackgroundColorSpan(adjustedColor);
+            SpannableStringBuilder spannable = new SpannableStringBuilder(text);
+            Matcher matcher = queryPattern.matcher(text);
+            while (matcher.find()) {
+                spannable.setSpan(highlightSpan, matcher.start(), matcher.end(), SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+            return spannable;
+        }
+
+        /**
+         * Applies highlighting to title, summary, summaryOn, summaryOff, and entries, and updates local fields.
+         */
+        void applyHighlighting(String query, Pattern queryPattern) {
+            CharSequence highlightedTitle = highlightSearchQuery(originalTitle, queryPattern);
+            preference.setTitle(highlightedTitle);
+            title = highlightedTitle;
+
+            CharSequence highlightedSummary = highlightSearchQuery(originalSummary, queryPattern);
+            preference.setSummary(highlightedSummary);
+            summary = highlightedSummary;
+
+            if (preference instanceof SwitchPreference switchPref) {
+                CharSequence highlightedSummaryOn = highlightSearchQuery(originalSummaryOn, queryPattern);
+                switchPref.setSummaryOn(highlightedSummaryOn);
+                CharSequence highlightedSummaryOff = highlightSearchQuery(originalSummaryOff, queryPattern);
+                switchPref.setSummaryOff(highlightedSummaryOff);
+            }
+            if (preference instanceof ListPreference listPref && originalEntries != null) {
+                CharSequence[] highlightedEntries = new CharSequence[originalEntries.length];
+                for (int i = 0; i < originalEntries.length; i++) {
+                    highlightedEntries[i] = highlightSearchQuery(originalEntries[i], queryPattern);
+                }
+                listPref.setEntries(highlightedEntries);
+            }
+            highlightingApplied = true;
+        }
+
+        /**
+         * Clears highlighting from title, summary, summaryOn, summaryOff, and entries, and updates local fields.
+         */
+        void clearHighlighting() {
+            if (!highlightingApplied) {
+                return;
+            }
+            preference.setTitle(originalTitle);
+            title = originalTitle;
+
+            preference.setSummary(originalSummary);
+            summary = originalSummary;
+
+            if (preference instanceof SwitchPreference switchPref) {
+                switchPref.setSummaryOn(originalSummaryOn);
+                switchPref.setSummaryOff(originalSummaryOff);
+            }
+            if (preference instanceof ListPreference listPref && originalEntries != null) {
+                listPref.setEntries(originalEntries);
+            }
+            highlightingApplied = false;
         }
     }
 
@@ -212,6 +302,9 @@ public class SearchViewController {
                     SwitchPreference switchPref = (SwitchPreference) item.preference;
                     Switch switchWidget = view.findViewById(getResourceIdentifier("preference_switch", "id"));
 
+                    // Remove ripple/highlight.
+                    switchWidget.setBackground(null);
+
                     // Set switch state without animation.
                     boolean currentState = switchPref.isChecked();
                     if (switchWidget.isChecked() != currentState) {
@@ -220,11 +313,11 @@ public class SearchViewController {
                     }
 
                     // Update summary based on switch state.
-                    String summaryText = currentState
-                            ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn().toString() :
-                            switchPref.getSummary() != null ? switchPref.getSummary().toString() : "")
-                            : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff().toString() :
-                            switchPref.getSummary() != null ? switchPref.getSummary().toString() : "");
+                    CharSequence summaryText = currentState
+                            ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn() :
+                            switchPref.getSummary() != null ? switchPref.getSummary() : "")
+                            : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff() :
+                            switchPref.getSummary() != null ? switchPref.getSummary() : "");
                     summaryView.setText(summaryText);
                     summaryView.setVisibility(TextUtils.isEmpty(summaryText) ? View.GONE : View.VISIBLE);
 
@@ -236,11 +329,11 @@ public class SearchViewController {
                         switchWidget.setChecked(newState);
 
                         // Update summary.
-                        String newSummary = newState
-                                ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn().toString() :
-                                switchPref.getSummary() != null ? switchPref.getSummary().toString() : "")
-                                : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff().toString() :
-                                switchPref.getSummary() != null ? switchPref.getSummary().toString() : "");
+                        CharSequence newSummary = newState
+                                ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn() :
+                                switchPref.getSummary() != null ? switchPref.getSummary() : "")
+                                : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff() :
+                                switchPref.getSummary() != null ? switchPref.getSummary() : "");
                         summaryView.setText(newSummary);
                         summaryView.setVisibility(TextUtils.isEmpty(newSummary) ? View.GONE : View.VISIBLE);
 
@@ -264,7 +357,7 @@ public class SearchViewController {
                     summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
                     ImageView iconView = view.findViewById(android.R.id.icon);
                     iconView.setImageResource(getResourceIdentifier("revanced_settings_search_icon", "drawable"));
-                    setupNoResultsView(view, titleView, summaryView, iconView);
+                    setupNoResultsView(view);
                     break;
             }
 
@@ -282,25 +375,15 @@ public class SearchViewController {
             titleView.setEnabled(enabled);
             summaryView.setEnabled(enabled);
             pathView.setEnabled(enabled);
-
-            titleView.setAlpha(enabled ? 1f : 0.5f);
-            summaryView.setAlpha(enabled ? 1f : 0.5f);
-
+            titleView.setAlpha(enabled ? 1.0f : 0.5f);
             view.setOnClickListener(enabled ? v -> onClickAction.run() : null);
         }
 
         /**
          * Sets up properties for no-results view.
          */
-        private void setupNoResultsView(View view, TextView titleView, TextView summaryView, ImageView iconView) {
-            view.setEnabled(false);
-            titleView.setEnabled(false);
-            summaryView.setEnabled(false);
-            iconView.setEnabled(false);
+        private void setupNoResultsView(View view) {
             view.setOnClickListener(null);
-            titleView.setAlpha(1f);
-            summaryView.setAlpha(1f);
-            iconView.setAlpha(1f);
         }
     }
 
@@ -310,7 +393,7 @@ public class SearchViewController {
     private static GradientDrawable createBackgroundDrawable(Context context) {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
-        background.setCornerRadius(28 * context.getResources().getDisplayMetrics().density); // 28dp corner radius.
+        background.setCornerRadius(Utils.dipToPixels(28)); // 28dp corner radius.
         background.setColor(getSearchViewBackground());
         return background;
     }
@@ -504,7 +587,6 @@ public class SearchViewController {
 
     /**
      * Initializes search data by collecting all preferences from the fragment.
-     * This method is public so it can be called from ReVancedPreferenceFragment.
      */
     @SuppressWarnings("deprecation")
     public void initializeSearchData() {
@@ -572,9 +654,16 @@ public class SearchViewController {
         filteredSearchItems.clear();
 
         String queryLower = Utils.removePunctuationToLowercase(query);
+        Pattern queryPattern = Pattern.compile(Pattern.quote(queryLower), Pattern.CASE_INSENSITIVE);
+
+        // Clear highlighting for all items to reset previous highlights.
+        for (SearchResultItem item : allSearchItems) {
+            item.clearHighlighting();
+        }
 
         for (SearchResultItem item : allSearchItems) {
             if (item.matchesQuery(queryLower)) {
+                item.applyHighlighting(queryLower, queryPattern);
                 filteredSearchItems.add(item);
             }
         }
@@ -744,6 +833,11 @@ public class SearchViewController {
         // Clear search results.
         filteredSearchItems.clear();
         searchResultsAdapter.notifyDataSetChanged();
+
+        // Clear highlighting for all search items.
+        for (SearchResultItem item : allSearchItems) {
+            item.clearHighlighting();
+        }
     }
 
     /**

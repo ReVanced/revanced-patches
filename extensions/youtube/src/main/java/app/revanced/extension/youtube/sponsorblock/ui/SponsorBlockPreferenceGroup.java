@@ -539,6 +539,9 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         Context context = getContext();
                         EditText editText = getEditText();
 
+                        editText.setInputType(editText.getInputType() | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+                        editText.setTextSize(TypedValue.COMPLEX_UNIT_PT, 7); // Use a smaller font to reduce text wrap.
+
                         // Create a custom dialog.
                         Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                                 context,
