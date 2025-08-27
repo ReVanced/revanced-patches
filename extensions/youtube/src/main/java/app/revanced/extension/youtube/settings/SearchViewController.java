@@ -6,11 +6,14 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.preference.*;
+import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -28,18 +31,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.AppLanguage;
-import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.shared.settings.*;
 import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
@@ -66,6 +70,7 @@ public class SearchViewController {
     private final SearchResultsAdapter searchResultsAdapter;
     private final List<SearchResultItem> allSearchItems;
     private final List<SearchResultItem> filteredSearchItems;
+    private final Map<String, SearchResultItem> keyToSearchItem;
 
     /**
      * Data class for search result items.
@@ -75,7 +80,8 @@ public class SearchViewController {
         final Preference preference;
         CharSequence title;
         CharSequence summary;
-        final String navigationPath;
+        String navigationPath;
+        final String originalNavigationPath;
         final String searchableText;
         final int preferenceType;
 
@@ -99,6 +105,7 @@ public class SearchViewController {
 
         SearchResultItem(Preference pref, String navPath) {
             preference = pref;
+            originalNavigationPath = navPath;
             navigationPath = navPath;
             originalTitle = pref.getTitle();
             title = originalTitle != null ? originalTitle : "";
@@ -177,7 +184,7 @@ public class SearchViewController {
         /**
          * Applies highlighting to title, summary, summaryOn, summaryOff, and entries, and updates local fields.
          */
-        void applyHighlighting(String query, Pattern queryPattern) {
+        void applyHighlighting(Pattern queryPattern) {
             CharSequence highlightedTitle = highlightSearchQuery(originalTitle, queryPattern);
             preference.setTitle(highlightedTitle);
             title = highlightedTitle;
@@ -223,6 +230,21 @@ public class SearchViewController {
                 listPref.setEntries(originalEntries);
             }
             highlightingApplied = false;
+        }
+
+        /**
+         * Sets the navigation path.
+         */
+        void setPath(@NonNull String path) {
+            this.navigationPath = path;
+        }
+
+        /**
+         * Gets the original navigation path.
+         */
+        @NonNull
+        String getOriginalPath() {
+            return originalNavigationPath;
         }
     }
 
@@ -357,7 +379,6 @@ public class SearchViewController {
                     summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
                     ImageView iconView = view.findViewById(android.R.id.icon);
                     iconView.setImageResource(getResourceIdentifier("revanced_settings_search_icon", "drawable"));
-                    setupNoResultsView(view);
                     break;
             }
 
@@ -378,19 +399,12 @@ public class SearchViewController {
             titleView.setAlpha(enabled ? 1.0f : 0.5f);
             view.setOnClickListener(enabled ? v -> onClickAction.run() : null);
         }
-
-        /**
-         * Sets up properties for no-results view.
-         */
-        private void setupNoResultsView(View view) {
-            view.setOnClickListener(null);
-        }
     }
 
     /**
      * Creates a background drawable for the SearchView with rounded corners.
      */
-    private static GradientDrawable createBackgroundDrawable(Context context) {
+    private static GradientDrawable createBackgroundDrawable() {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
         background.setCornerRadius(Utils.dipToPixels(28)); // 28dp corner radius.
@@ -432,6 +446,7 @@ public class SearchViewController {
         this.currentOrientation = activity.getResources().getConfiguration().orientation;
         this.allSearchItems = new ArrayList<>();
         this.filteredSearchItems = new ArrayList<>();
+        this.keyToSearchItem = new HashMap<>();
 
         StringSetting searchEntries = Settings.SETTINGS_SEARCH_ENTRIES;
         if (showSettingsSearchHistory) {
@@ -488,7 +503,7 @@ public class SearchViewController {
         autoCompleteTextView.setImeOptions(autoCompleteTextView.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
 
         // Set background and query hint.
-        searchView.setBackground(createBackgroundDrawable(toolbar.getContext()));
+        searchView.setBackground(createBackgroundDrawable());
         searchView.setQueryHint(str("revanced_settings_search_hint"));
 
         // Configure RTL support based on app language.
@@ -591,6 +606,7 @@ public class SearchViewController {
     @SuppressWarnings("deprecation")
     public void initializeSearchData() {
         allSearchItems.clear();
+        keyToSearchItem.clear();
 
         // Wait until fragment is properly initialized.
         activity.runOnUiThread(() -> {
@@ -598,6 +614,12 @@ public class SearchViewController {
                 PreferenceScreen screen = fragment.getPreferenceScreenForSearch();
                 if (screen != null) {
                     collectSearchablePreferences(screen, "", 1, 0);
+                    for (SearchResultItem item : allSearchItems) {
+                        String key = item.preference.getKey();
+                        if (key != null && !key.isEmpty()) {
+                            keyToSearchItem.put(key, item);
+                        }
+                    }
                     Logger.printDebug(() -> "Collected " + allSearchItems.size() + " searchable preferences");
                 }
             } catch (Exception ex) {
@@ -656,15 +678,73 @@ public class SearchViewController {
         String queryLower = Utils.removePunctuationToLowercase(query);
         Pattern queryPattern = Pattern.compile(Pattern.quote(queryLower), Pattern.CASE_INSENSITIVE);
 
-        // Clear highlighting for all items to reset previous highlights.
+        // Clear highlighting and reset paths for all items to their original state.
         for (SearchResultItem item : allSearchItems) {
             item.clearHighlighting();
+            item.setPath(item.getOriginalPath()); // Reset to original navigationPath.
         }
 
+        // Collect matched items in original order.
+        List<SearchResultItem> matched = new ArrayList<>();
         for (SearchResultItem item : allSearchItems) {
             if (item.matchesQuery(queryLower)) {
-                item.applyHighlighting(queryLower, queryPattern);
-                filteredSearchItems.add(item);
+                item.applyHighlighting(queryPattern);
+                matched.add(item);
+            }
+        }
+
+        // Build filteredSearchItems, inserting parent enablers for disabled dependents.
+        Set<String> addedParentKeys = new HashSet<>();
+        for (SearchResultItem item : matched) {
+            // Check Availability dependency (from Setting)
+            Setting<?> setting = Setting.getSettingFromPath(item.preference.getKey());
+            if (setting != null && !setting.isAvailable()) {
+                List<Setting<?>> parentSettings = setting.getParentSettings();
+                for (Setting<?> parentSetting : parentSettings) {
+                    SearchResultItem parentItem = keyToSearchItem.get(parentSetting.key);
+                    if (parentItem != null && !addedParentKeys.contains(parentSetting.key)) {
+                        if (!parentItem.matchesQuery(queryLower)) {
+                            filteredSearchItems.add(parentItem);
+                        }
+                        addedParentKeys.add(parentSetting.key);
+                    }
+                }
+                // Add warning message to the dependent setting's path.
+                if (!parentSettings.isEmpty()) {
+                    String parentTitles = parentSettings.stream()
+                            .map(parent -> {
+                                SearchResultItem parentItem = keyToSearchItem.get(parent.key);
+                                return parentItem != null && parentItem.preference.getTitle() != null
+                                        ? parentItem.preference.getTitle().toString()
+                                        : parent.key;
+                            })
+                            .collect(Collectors.joining(", "));
+                    // Get current path.
+                    CharSequence currentPath = item.getOriginalPath(); // Use original navigationPath.
+                    SpannableStringBuilder pathWithWarning = new SpannableStringBuilder();
+                    // Append current path if it exists.
+                    if (currentPath.length() > 0) {
+                        pathWithWarning.append(currentPath).append("\n");
+                    }
+                    // Append warning with orange color.
+                    String warningText = str("revanced_settings_dependency_warning", parentTitles);
+                    pathWithWarning.append(warningText);
+                    int warningStart = pathWithWarning.length() - warningText.length();
+                    int warningEnd = pathWithWarning.length();
+                    pathWithWarning.setSpan(
+                            new ForegroundColorSpan(Color.parseColor("#FFA500")), // Orange color.
+                            warningStart,
+                            warningEnd,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    );
+                    item.setPath(String.valueOf(pathWithWarning));
+                }
+            }
+
+            // Add the matched item after its parents.
+            filteredSearchItems.add(item);
+            if (item.preference.getKey() != null) {
+                addedParentKeys.add(item.preference.getKey());
             }
         }
 
@@ -681,7 +761,6 @@ public class SearchViewController {
         }
 
         searchResultsAdapter.notifyDataSetChanged();
-
         overlayContainer.setVisibility(View.VISIBLE);
     }
 

@@ -26,7 +26,7 @@
                 android:textColor="?android:attr/textColorTertiary"
                 android:textSize="12sp"
                 android:ellipsize="end"
-                android:maxLines="1"
+                android:maxLines="3"
                 android:textStyle="italic" />
 
         <TextView
