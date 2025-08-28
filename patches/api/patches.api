@@ -543,6 +543,11 @@ public final class app/revanced/patches/reddit/customclients/boostforreddit/fix/
 	public static final fun getFixAudioMissingInDownloadsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/reddit/customclients/boostforreddit/fix/redgifs/FixRedgifsApiPatchKt {
+	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
+	public static final fun getFixRedgifsApi ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/reddit/customclients/boostforreddit/fix/slink/FixSLinksPatchKt {
 	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun getFixSlinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
