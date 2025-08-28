@@ -84,15 +84,23 @@ public class SearchViewController {
     private static final int ID_PREFERENCE_SWITCH = getResourceIdentifier("preference_switch", "id");
     private static final int ID_SUGGESTION_TEXT = getResourceIdentifier("suggestion_text", "id");
 
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_PREFERENCE = getResourceIdentifier("revanced_preference_search_result_preference", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH_PREFERENCE = getResourceIdentifier("revanced_preference_search_result_switch_preference", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST_PREFERENCE = getResourceIdentifier("revanced_preference_search_result_list_preference", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT_PREFERENCE = getResourceIdentifier("revanced_preference_search_no_result_preference", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_WITH_ICON_NO_SEARCH_RESULT = getResourceIdentifier("revanced_preference_with_icon_no_search_result", "layout");
-    private static final int LAYOUT_REVANCED_SEARCH_SUGGESTION_ITEM = getResourceIdentifier("revanced_search_suggestion_item", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_PREFERENCE =
+            getResourceIdentifier("revanced_preference_search_result_preference", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH_PREFERENCE =
+            getResourceIdentifier("revanced_preference_search_result_switch_preference", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST_PREFERENCE =
+            getResourceIdentifier("revanced_preference_search_result_list_preference", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT_PREFERENCE =
+            getResourceIdentifier("revanced_preference_search_no_result_preference", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_WITH_ICON_NO_SEARCH_RESULT =
+            getResourceIdentifier("revanced_preference_with_icon_no_search_result", "layout");
+    private static final int LAYOUT_REVANCED_SEARCH_SUGGESTION_ITEM =
+            getResourceIdentifier("revanced_search_suggestion_item", "layout");
 
-    private static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON = getResourceIdentifier("revanced_settings_search_icon", "drawable");
-    private static final int MENU_REVANCED_SEARCH_MENU = getResourceIdentifier("revanced_search_menu", "menu");
+    private static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON =
+            getResourceIdentifier("revanced_settings_search_icon", "drawable");
+    private static final int MENU_REVANCED_SEARCH_MENU =
+            getResourceIdentifier("revanced_search_menu", "menu");
 
     // Layout resource mapping.
     private static final Map<String, String> LAYOUT_RESOURCE_MAP = createLayoutResourceMap();
@@ -452,9 +460,7 @@ public class SearchViewController {
      */
     @ColorInt
     public static int getSearchViewBackground() {
-        return Utils.isDarkModeEnabled()
-                ? Utils.adjustColorBrightness(Utils.getDialogBackgroundColor(), 1.11f)
-                : Utils.adjustColorBrightness(Utils.getThemeLightColor(), 0.95f);
+        return Utils.adjustColorBrightness(Utils.getDialogBackgroundColor(),Utils.isDarkModeEnabled() ? 1.11f : 0.95f);
     }
 
     /**
