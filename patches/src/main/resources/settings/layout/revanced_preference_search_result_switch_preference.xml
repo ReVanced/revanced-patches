@@ -59,4 +59,5 @@
             android:layout_marginLeft="16dp"
             android:focusable="false"
             android:clickable="false" />
+
 </LinearLayout>

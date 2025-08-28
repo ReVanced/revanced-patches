@@ -1,6 +1,5 @@
 package app.revanced.extension.youtube.settings.preference;
 
-import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.annotation.SuppressLint;
@@ -14,7 +13,6 @@ import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowInsets;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -28,7 +26,7 @@ import app.revanced.extension.youtube.settings.LicenseActivityHook;
 /**
  * Preference fragment for ReVanced settings.
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "NewApi"})
 public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
     /**

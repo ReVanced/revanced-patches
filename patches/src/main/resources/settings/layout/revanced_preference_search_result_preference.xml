@@ -48,5 +48,6 @@
                 android:ellipsize="end"
                 android:maxLines="8"
                 android:visibility="gone" />
+
     </LinearLayout>
 </LinearLayout>

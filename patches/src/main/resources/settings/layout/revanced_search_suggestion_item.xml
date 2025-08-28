@@ -16,7 +16,6 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="16dp"
-            android:contentDescription="History icon"
             android:src="@drawable/revanced_settings_arrow_time" />
 
     <!-- Suggestion text -->

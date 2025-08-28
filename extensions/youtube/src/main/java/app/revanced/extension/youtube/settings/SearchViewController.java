@@ -6,7 +6,9 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.RippleDrawable;
 import android.preference.*;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -47,7 +49,7 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGrou
 /**
  * Controller for managing the overlay search view in ReVanced settings.
  */
-@SuppressWarnings({"deprecated", "DiscouragedApi"})
+@SuppressWarnings({"deprecated", "DiscouragedApi", "NewApi"})
 public class SearchViewController {
     private final SearchView searchView;
     private final FrameLayout searchContainer;
@@ -795,6 +797,7 @@ public class SearchViewController {
     private void setupSearchHistory() {
         if (autoCompleteTextView == null) return;
 
+        // Create adapter for search history.
         SearchHistoryAdapter adapter = new SearchHistoryAdapter(activity, new ArrayList<>(searchHistory));
         autoCompleteTextView.setAdapter(adapter);
         autoCompleteTextView.setThreshold(1); // Initial threshold for empty input.
@@ -928,6 +931,7 @@ public class SearchViewController {
     /**
      * Injection point.
      */
+    @SuppressWarnings("unused")
     public static boolean handleBackPress() {
         if (LicenseActivityHook.searchViewController != null
                 && LicenseActivityHook.searchViewController.isSearchActive()) {
@@ -959,15 +963,21 @@ public class SearchViewController {
                 convertView = LinearLayout.inflate(getContext(), LAYOUT_REVANCED_SEARCH_SUGGESTION_ITEM, null);
             }
 
-            // Apply rounded corners programmatically.
-            convertView.setBackground(createSuggestionBackgroundDrawable());
-            String query = getItem(position);
-
             // Set query text.
+            String query = getItem(position);
             TextView textView = convertView.findViewById(ID_SUGGESTION_TEXT);
             if (textView != null) {
                 textView.setText(query);
             }
+
+            // Create ripple effect.
+            int rippleColor = Utils.adjustColorBrightness(getSearchViewBackground(), Utils.isDarkModeEnabled() ? 1.25f : 0.90f);
+            RippleDrawable rippleBackground = new RippleDrawable(
+                    ColorStateList.valueOf(rippleColor),
+                    createSuggestionBackgroundDrawable(),
+                    null
+            );
+            convertView.setBackground(rippleBackground);
 
             // Set click listener for inserting query into SearchView.
             convertView.setOnClickListener(v -> searchView.setQuery(query, true));
