@@ -508,6 +508,13 @@ public final class app/revanced/patches/reddit/ad/general/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/reddit/customclients/FixRedgifsApiPatchKt {
+	public static final field OKHTTP3_INSTALL_METHOD Ljava/lang/String;
+	public static final field OKHTTP3_NEW_CLIENT_METHOD Ljava/lang/String;
+	public static final fun fixRedgifsApiPatch (Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun fixRedgifsApiPatch$default (Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/reddit/customclients/FixSLinksPatchKt {
 	public static final field RESOLVE_S_LINK_METHOD Ljava/lang/String;
 	public static final field SET_ACCESS_TOKEN_METHOD Ljava/lang/String;
