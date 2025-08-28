@@ -5,12 +5,14 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.INSTALL_NEW_CLIENT_METHOD
 import app.revanced.patches.reddit.customclients.fixRedgifsApiPatch
 import app.revanced.patches.reddit.customclients.sync.syncforreddit.extension.sharedExtensionPatch
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/syncforreddit/FixRedgifsApiPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/syncforreddit/FixRedgifsApiPatch;"
 
 @Suppress("unused")
 val fixRedgifsApi = fixRedgifsApiPatch(
@@ -26,10 +28,9 @@ val fixRedgifsApi = fixRedgifsApiPatch(
         // region Patch Redgifs OkHttp3 client.
 
         createOkHttpClientFingerprint.method.apply {
-            val index = instructions.indexOfFirst {
-                if (it.opcode != Opcode.INVOKE_VIRTUAL) return@indexOfFirst false
-                val reference = (it as ReferenceInstruction).reference as MethodReference
-                reference.name == "build" && reference.definingClass == "Lokhttp3/OkHttpClient${'$'}Builder;"
+            val index = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.name == "build" && reference.definingClass == "Lokhttp3/OkHttpClient\$Builder;"
             }
             val register = (instructions[index] as Instruction35c).registerC
             replaceInstruction(

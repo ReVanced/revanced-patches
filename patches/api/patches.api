@@ -544,7 +544,6 @@ public final class app/revanced/patches/reddit/customclients/boostforreddit/fix/
 }
 
 public final class app/revanced/patches/reddit/customclients/boostforreddit/fix/redgifs/FixRedgifsApiPatchKt {
-	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun getFixRedgifsApi ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
@@ -619,7 +618,6 @@ public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/
 }
 
 public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/fix/redgifs/FixRedgifsApiPatchKt {
-	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun getFixRedgifsApi ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
