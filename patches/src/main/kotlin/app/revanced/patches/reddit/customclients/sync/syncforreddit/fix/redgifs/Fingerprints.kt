@@ -24,3 +24,16 @@ internal val createOkHttpClientFingerprint = fingerprint {
         } == -1
     }
 }
+
+internal val getDefaultUserAgentFingerprint = fingerprint {
+    custom { method, classDef ->
+        method.name == "getDefaultUserAgent" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
+    }
+}
+
+internal val getOriginalUserAgentFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("Ljava/lang/String;")
+    parameters()
+    custom { _, classDef -> classDef.sourceFile == "AccountSingleton.java" }
+}
