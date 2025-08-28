@@ -2,6 +2,8 @@ package app.revanced.extension.shared.fixes.redgifs;
 
 import static app.revanced.extension.shared.requests.Route.Method.GET;
 
+import androidx.annotation.GuardedBy;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,24 +26,30 @@ public class RedgifsTokenManager {
         private static final long EXPIRY_SECONDS = 23 * 60 * 60;
 
         private final String accessToken;
-        private final long refreshTime;
+        private final long refreshTimeInSeconds;
 
         public RedgifsToken(String accessToken, long refreshTime) {
             this.accessToken = accessToken;
-            this.refreshTime = refreshTime;
+            this.refreshTimeInSeconds = refreshTime;
         }
 
         public String getAccessToken() {
             return accessToken;
         }
 
-        public long getExpiryTime() {
-            return refreshTime + EXPIRY_SECONDS;
+        public long getExpiryTimeInSeconds() {
+            return refreshTimeInSeconds + EXPIRY_SECONDS;
+        }
+
+        public boolean isValid() {
+            if (accessToken == null) return false;
+            return getExpiryTimeInSeconds() >= System.currentTimeMillis() / 1000;
         }
     }
     public static final String REDGIFS_API_HOST = "https://api.redgifs.com";
     private static final String GET_TEMPORARY_TOKEN = REDGIFS_API_HOST + "/v2/auth/temporary";
-    private static final Map<String, RedgifsToken> tokenMap = Collections.synchronizedMap(new HashMap<>());
+    @GuardedBy("itself")
+    private static final Map<String, RedgifsToken> tokenMap = new HashMap<>();
 
     private static String getToken(String userAgent) throws IOException, JSONException {
         HttpURLConnection connection = (HttpURLConnection) new URL(GET_TEMPORARY_TOKEN).openConnection();
@@ -56,33 +64,29 @@ public class RedgifsTokenManager {
         return responseObject.getString("token");
     }
 
-    private static boolean isTokenValid(RedgifsToken token) {
-        if (token == null) return false;
-        if (token.accessToken == null) return false;
-        return token.getExpiryTime() >= System.currentTimeMillis() / 1000;
-    }
-
     public static RedgifsToken refreshToken(String userAgent) throws IOException, JSONException {
         synchronized(tokenMap) {
             // Reference: https://github.com/JeffreyCA/Apollo-ImprovedCustomApi/pull/67
             RedgifsToken token = tokenMap.get(userAgent);
-            if (!isTokenValid(token)) {
-                // Copy user agent from original request if present because Redgifs verifies
-                // that the user agent in subsequent requests matches the one in the OAuth token.
-                String accessToken = getToken(userAgent);
-                long refreshTime = System.currentTimeMillis() / 1000;
-                token = new RedgifsToken(accessToken, refreshTime);
-                tokenMap.put(userAgent, token);
+            if (token != null && token.isValid()) {
+                return token;
             }
+
+            // Copy user agent from original request if present because Redgifs verifies
+            // that the user agent in subsequent requests matches the one in the OAuth token.
+            String accessToken = getToken(userAgent);
+            long refreshTime = System.currentTimeMillis() / 1000;
+            token = new RedgifsToken(accessToken, refreshTime);
+            tokenMap.put(userAgent, token);
+            return token;
         }
-        return tokenMap.get(userAgent);
     }
 
     public static String getEmulatedOAuthResponseBody(RedgifsToken token) throws JSONException {
         // Reference: https://github.com/JeffreyCA/Apollo-ImprovedCustomApi/pull/67
         JSONObject responseObject = new JSONObject();
         responseObject.put("access_token", token.accessToken);
-        responseObject.put("expiry_time", token.getExpiryTime() - (System.currentTimeMillis() / 1000));
+        responseObject.put("expiry_time", token.getExpiryTimeInSeconds() - (System.currentTimeMillis() / 1000));
         responseObject.put("scope", "read");
         responseObject.put("token_type", "Bearer");
         return responseObject.toString();
