@@ -57,6 +57,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
@@ -1521,7 +1522,7 @@ public class Utils {
      * @return A {@link LinkedHashMap} that automatically evicts the oldest entry
      *        when the size exceeds {@code maxSize}.
      */
-    public static <T, V> LinkedHashMap<T, V> createSizeRestrictedMap(int maxSize) {
+    public static <T, V> Map<T, V> createSizeRestrictedMap(int maxSize) {
         return new LinkedHashMap<>(2 * maxSize) {
             @Override
             protected boolean removeEldestEntry(Entry eldest) {

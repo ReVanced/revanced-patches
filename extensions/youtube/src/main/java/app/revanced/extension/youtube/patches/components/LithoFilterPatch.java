@@ -197,7 +197,7 @@ public final class LithoFilterPatch {
 
     private static Map<String, byte[]> createIdentifierToBufferMap() {
         // It's unclear how many items should be cached. This is a guess.
-        return Utils.createSizeRestrictedMap(50);
+        return Utils.createSizeRestrictedMap(100);
     }
 
     /**

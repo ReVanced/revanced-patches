@@ -7,16 +7,12 @@ import app.revanced.patcher.opcode
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.shared.seekbarFingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val appendTimeFingerprint by fingerprint {
-    returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
     parameters("Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;")
     instructions(
         resourceLiteral(ResourceType.STRING, "total_time"),
@@ -28,7 +24,6 @@ internal val appendTimeFingerprint by fingerprint {
 
 internal val controlsOverlayFingerprint by fingerprint {
     returns("V")
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     parameters()
     instructions(
         resourceLiteral(ResourceType.ID, "inset_overlay_view_layout"),
@@ -42,12 +37,7 @@ internal val controlsOverlayFingerprint by fingerprint {
 internal val rectangleFieldInvalidatorFingerprint by fingerprint {
     returns("V")
     parameters()
-    custom  { method, _ ->
-        indexOfInvalidateInstruction(method) >= 0
-    }
+    instructions(
+        methodCall(name = "invalidate")
+    )
 }
-
-internal fun indexOfInvalidateInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
-        getReference<MethodReference>()?.name == "invalidate"
-    }

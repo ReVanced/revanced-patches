@@ -24,7 +24,6 @@ internal val playerControlsVisibilityEntityModelFingerprint by fingerprint {
 }
 
 internal val youtubeControlsOverlayFingerprint by fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     parameters()
     instructions(

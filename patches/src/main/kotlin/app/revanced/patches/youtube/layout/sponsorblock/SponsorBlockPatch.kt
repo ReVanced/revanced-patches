@@ -12,18 +12,28 @@ import app.revanced.patches.shared.misc.settings.preference.NonInteractivePrefer
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playercontrols.*
+import app.revanced.patches.youtube.misc.playercontrols.addTopControl
+import app.revanced.patches.youtube.misc.playercontrols.initializeTopControl
+import app.revanced.patches.youtube.misc.playercontrols.injectVisibilityCheckCall
+import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.*
+import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
+import app.revanced.patches.youtube.shared.seekbarFingerprint
+import app.revanced.patches.youtube.shared.seekbarOnDrawFingerprint
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.information.videoTimeHook
 import app.revanced.patches.youtube.video.videoid.hookBackgroundPlayVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
-import app.revanced.util.*
-import com.android.tools.smali.dexlib2.iface.instruction.*
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -142,13 +152,18 @@ val sponsorBlockPatch = bytecodePatch(
         )
 
         // Set seekbar draw rectangle.
-        val rectangleFieldName : FieldReference
-        rectangleFieldInvalidatorFingerprint.match(seekbarFingerprint.originalClassDef).method.apply {
-            val invalidateIndex = indexOfInvalidateInstruction(this)
-            val rectangleIndex = indexOfFirstInstructionReversedOrThrow(invalidateIndex + 1) {
-                getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
+        val rectangleFieldName: FieldReference
+        rectangleFieldInvalidatorFingerprint.match(
+            seekbarFingerprint.originalClassDef
+        ).let {
+            it.method.apply {
+                val rectangleIndex = indexOfFirstInstructionReversedOrThrow(
+                    it.instructionMatches.first().index
+                ) {
+                    getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
+                }
+                rectangleFieldName = getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference
             }
-            rectangleFieldName = getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference
         }
 
         // Seekbar drawing.

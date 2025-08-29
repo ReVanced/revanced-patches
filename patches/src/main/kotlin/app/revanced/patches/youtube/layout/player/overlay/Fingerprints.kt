@@ -1,18 +1,14 @@
 package app.revanced.patches.youtube.layout.player.overlay
 
+import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
-import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 
 internal val createPlayerOverviewFingerprint by fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
-    opcodes(
-        Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
+    instructions(
+        resourceLiteral(ResourceType.ID, "scrim_overlay"),
+        checkCast("Landroid/widget/ImageView;", maxAfter = 10)
     )
-    literal { scrimOverlayId }
 }
