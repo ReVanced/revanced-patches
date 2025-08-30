@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.StringRef.str;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -66,6 +67,7 @@ public class SponsorBlockUtils {
     };
     private static SegmentCategory newUserCreatedSegmentCategory;
     private static final DialogInterface.OnClickListener segmentTypeListener = new DialogInterface.OnClickListener() {
+        @SuppressLint("InlinedApi")
         @Override
         public void onClick(DialogInterface dialog, int which) {
             try {
@@ -88,6 +90,7 @@ public class SponsorBlockUtils {
         }
     };
     private static final DialogInterface.OnClickListener segmentReadyDialogButtonListener = new DialogInterface.OnClickListener() {
+        @SuppressLint("InlinedApi")
         @Override
         public void onClick(DialogInterface dialog, int which) {
             try {
@@ -124,7 +127,7 @@ public class SponsorBlockUtils {
         try {
             Context context = ((AlertDialog) dialog).getContext();
 
-            final boolean isStart = DialogInterface.BUTTON_NEGATIVE == which;
+            @SuppressLint("InlinedApi") final boolean isStart = DialogInterface.BUTTON_NEGATIVE == which;
 
             final EditText textView = new EditText(context);
             textView.setHint(MANUAL_EDIT_TIME_TEXT_HINT);
@@ -211,6 +214,7 @@ public class SponsorBlockUtils {
         newSponsorSegmentPreviewed = false;
     }
 
+    @SuppressLint("NewApi")
     private static void submitNewSegment() {
         try {
             Utils.verifyOnMainThread();
@@ -256,6 +260,7 @@ public class SponsorBlockUtils {
         }
     }
 
+    @SuppressWarnings("deprecation")
     public static void onPublishClicked() {
         try {
             Utils.verifyOnMainThread();
@@ -447,6 +452,7 @@ public class SponsorBlockUtils {
         }
     }
 
+    @SuppressLint("NewApi")
     private static String formatSegmentTime(long segmentTime) {
         // Use same time formatting as shown in the video player.
         final long videoLength = VideoInformation.getVideoLength();
@@ -475,6 +481,8 @@ public class SponsorBlockUtils {
         return String.format(Locale.US, formatPattern, formatArgs);
     }
 
+
+    @SuppressLint("NewApi")
     public static String getTimeSavedString(long totalSecondsSaved) {
         Duration duration = Duration.ofSeconds(totalSecondsSaved);
         final long hours = duration.toHours();
@@ -500,6 +508,7 @@ public class SponsorBlockUtils {
         private boolean settingStart;
         private WeakReference<EditText> editTextRef = new WeakReference<>(null);
 
+        @SuppressLint("InlinedApi")
         @Override
         public void onClick(DialogInterface dialog, int which) {
             try {

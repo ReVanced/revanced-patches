@@ -27,12 +27,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -40,6 +35,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
 import app.revanced.extension.shared.ui.CustomDialog;
@@ -64,6 +60,7 @@ public class SearchViewController {
     private final SearchResultsAdapter searchResultsAdapter;
     private final List<SearchResultItem> allSearchItems;
     private final List<SearchResultItem> filteredSearchItems;
+    private final Map<String, SearchResultItem> keyToSearchItem;
     private final InputMethodManager inputMethodManager;
 
     private boolean isSearchActive;
@@ -515,6 +512,7 @@ public class SearchViewController {
         this.currentOrientation = activity.getResources().getConfiguration().orientation;
         this.allSearchItems = new ArrayList<>();
         this.filteredSearchItems = new ArrayList<>();
+        this.keyToSearchItem = new HashMap<>();
         this.inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
 
         // Initialize search history.
@@ -672,6 +670,7 @@ public class SearchViewController {
     @SuppressWarnings("deprecation")
     public void initializeSearchData() {
         allSearchItems.clear();
+        keyToSearchItem.clear();
 
         // Wait until fragment is properly initialized.
         activity.runOnUiThread(() -> {
@@ -679,6 +678,12 @@ public class SearchViewController {
                 PreferenceScreen screen = fragment.getPreferenceScreenForSearch();
                 if (screen != null) {
                     collectSearchablePreferences(screen, "", 1, 0);
+                    for (SearchResultItem item : allSearchItems) {
+                        String key = item.preference.getKey();
+                        if (key != null && !key.isEmpty()) {
+                            keyToSearchItem.put(key, item);
+                        }
+                    }
                     Logger.printDebug(() -> "Collected " + allSearchItems.size() + " searchable preferences");
                 }
             } catch (Exception ex) {
@@ -727,7 +732,6 @@ public class SearchViewController {
                     }
                 }
 
-                // Recurse deeper into subgroup.
                 collectSearchablePreferences(subGroup, newPath, includeDepth, currentDepth + 1);
             }
         }
@@ -749,10 +753,37 @@ public class SearchViewController {
             item.clearHighlighting();
         }
 
+        // Collect matched items first.
+        List<SearchResultItem> matched = new ArrayList<>();
         for (SearchResultItem item : allSearchItems) {
             if (item.matchesQuery(queryLower)) {
                 item.applyHighlighting(queryPattern);
-                filteredSearchItems.add(item);
+                matched.add(item);
+            }
+        }
+
+        // Build filteredSearchItems, inserting parent enablers for disabled dependents.
+        Set<String> addedParentKeys = new HashSet<>();
+        for (SearchResultItem item : matched) {
+            // Check Availability dependency (from Setting)
+            Setting<?> setting = Setting.getSettingFromPath(item.preference.getKey());
+            if (setting != null && !setting.isAvailable()) {
+                List<Setting<?>> parentSettings = setting.getParentSettings();
+                for (Setting<?> parentSetting : parentSettings) {
+                    SearchResultItem parentItem = keyToSearchItem.get(parentSetting.key);
+                    if (parentItem != null && !addedParentKeys.contains(parentSetting.key)) {
+                        if (!parentItem.matchesQuery(queryLower)) {
+                            filteredSearchItems.add(parentItem);
+                        }
+                        addedParentKeys.add(parentSetting.key);
+                    }
+                }
+            }
+
+            // Add the matched item after its parents.
+            filteredSearchItems.add(item);
+            if (item.preference.getKey() != null) {
+                addedParentKeys.add(item.preference.getKey());
             }
         }
 

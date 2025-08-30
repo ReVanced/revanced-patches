@@ -23,37 +23,89 @@ public abstract class Setting<T> {
      */
     public interface Availability {
         boolean isAvailable();
+
+        /**
+         * @return parent settings (dependencies) of this availability.
+         */
+        default List<Setting<?>> getParentSettings() {
+            return Collections.emptyList();
+        }
+    }
+
+    private record SingleParentAvailability(BooleanSetting parent) implements Availability {
+
+        @Override
+            public boolean isAvailable() {
+                return parent.get();
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.singletonList(parent);
+            }
+        }
+
+    private static class AllParentsAvailability implements Availability {
+        private final List<BooleanSetting> parents;
+
+        AllParentsAvailability(BooleanSetting... parents) {
+            this.parents = Arrays.asList(parents);
+        }
+
+        @Override
+        public boolean isAvailable() {
+            for (BooleanSetting parent : parents) {
+                if (!parent.get()) return false;
+            }
+            return true;
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return new ArrayList<>(parents);
+        }
+    }
+
+    private static class AnyParentsAvailability implements Availability {
+        private final List<BooleanSetting> parents;
+
+        AnyParentsAvailability(BooleanSetting... parents) {
+            this.parents = Arrays.asList(parents);
+        }
+
+        @Override
+        public boolean isAvailable() {
+            for (BooleanSetting parent : parents) {
+                if (parent.get()) return true;
+            }
+            return false;
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return new ArrayList<>(parents);
+        }
     }
 
     /**
      * Availability based on a single parent setting being enabled.
      */
     public static Availability parent(BooleanSetting parent) {
-        return parent::get;
+        return new SingleParentAvailability(parent);
     }
 
     /**
      * Availability based on all parents being enabled.
      */
     public static Availability parentsAll(BooleanSetting... parents) {
-        return () -> {
-            for (BooleanSetting parent : parents) {
-                if (!parent.get()) return false;
-            }
-            return true;
-        };
+        return new AllParentsAvailability(parents);
     }
 
     /**
      * Availability based on any parent being enabled.
      */
     public static Availability parentsAny(BooleanSetting... parents) {
-        return () -> {
-            for (BooleanSetting parent : parents) {
-                if (parent.get()) return true;
-            }
-            return false;
-        };
+        return new AnyParentsAvailability(parents);
     }
 
     /**
@@ -232,10 +284,10 @@ public abstract class Setting<T> {
 
     /**
      * Migrate an old Setting value previously stored in a different SharedPreference.
-     *
+     * <p>
      * This method will be deleted in the future.
      */
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings({"rawtypes", "NewApi"})
     public static void migrateFromOldPreferences(SharedPrefCategory oldPrefs, Setting setting, String settingKey) {
         if (!oldPrefs.preferences.contains(settingKey)) {
             return; // Nothing to do.
@@ -274,7 +326,7 @@ public abstract class Setting<T> {
     /**
      * Sets, but does _not_ persistently save the value.
      * This method is only to be used by the Settings preference code.
-     *
+     * <p>
      * This intentionally is a static method to deter
      * accidental usage when {@link #save(Object)} was intended.
      */
@@ -348,6 +400,14 @@ public abstract class Setting<T> {
      */
     public boolean isAvailable() {
         return availability == null || availability.isAvailable();
+    }
+
+    /**
+     * Get the parent Settings that this setting depends on.
+     * @return List of parent Settings (e.g., BooleanSetting or EnumSetting), or empty list if no dependencies exist.
+     */
+    public List<Setting<?>> getParentSettings() {
+        return availability == null ? Collections.emptyList() : availability.getParentSettings();
     }
 
     /**

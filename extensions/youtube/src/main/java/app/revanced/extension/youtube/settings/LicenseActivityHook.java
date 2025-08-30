@@ -25,7 +25,7 @@ import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFrag
  * <p>
  * This class is responsible for injecting our own fragment by replacing the LicenseActivity.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "NewApi"})
 public class LicenseActivityHook extends Activity {
 
     private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
@@ -82,6 +82,7 @@ public class LicenseActivityHook extends Activity {
      * <p>
      * Hooks LicenseActivity#onCreate in order to inject our own fragment.
      */
+    @SuppressWarnings("deprecation")
     public static void initialize(Activity licenseActivity) {
         try {
             setActivityTheme(licenseActivity);
@@ -109,7 +110,7 @@ public class LicenseActivityHook extends Activity {
         }
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
+    @SuppressWarnings("deprecation")
     private static void createToolbar(Activity activity, PreferenceFragment fragment) {
         // Replace dummy placeholder toolbar.
         // This is required to fix submenu title alignment issue with Android ASOP 15+
@@ -160,7 +161,7 @@ public class LicenseActivityHook extends Activity {
 
     /**
      * Injection point.
-     *
+     * <p>
      * Updates dark/light mode since YT settings can force light/dark mode
      * which can differ from the global device settings.
      */

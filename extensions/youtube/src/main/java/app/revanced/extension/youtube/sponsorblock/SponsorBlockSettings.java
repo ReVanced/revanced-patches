@@ -25,6 +25,7 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGrou
 import app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
 
+@SuppressWarnings("NewApi")
 public class SponsorBlockSettings {
     /**
      * Minimum length a SB user id must be, as set by SB API.
@@ -220,13 +221,10 @@ public class SponsorBlockSettings {
         // Verify url is only the server address and does not contain a path such as: "https://sponsor.ajay.app/api/"
         // Could use Patterns.compile, but this is simpler
         final int lastDotIndex = serverAddress.lastIndexOf('.');
-        if (lastDotIndex != -1 && serverAddress.substring(lastDotIndex).contains("/")) {
-            return false;
-        }
+        return lastDotIndex == -1 || !serverAddress.substring(lastDotIndex).contains("/");
         // Optionally, could also verify the domain exists using "InetAddress.getByName(serverAddress)"
         // but that should not be done on the main thread.
         // Instead, assume the domain exists and the user knows what they're doing.
-        return true;
     }
 
     /**
