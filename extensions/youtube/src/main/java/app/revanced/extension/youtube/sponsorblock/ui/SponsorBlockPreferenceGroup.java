@@ -29,6 +29,9 @@ import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.BooleanSetting;
+import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.ResettableEditTextPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
@@ -107,63 +110,44 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             } else if (!Settings.SB_CREATE_NEW_SEGMENT.get()) {
                 SponsorBlockViewController.hideNewSegmentLayout();
             }
-            // Voting and add new segment buttons automatically show/hide themselves.
 
             SponsorBlockViewController.updateLayout();
 
-            sbEnabled.setChecked(enabled);
+            // Use the availability system.
+            syncPreferenceWithSetting(sbEnabled, Settings.SB_ENABLED);
+            syncPreferenceWithSetting(addNewSegment, Settings.SB_CREATE_NEW_SEGMENT);
+            syncPreferenceWithSetting(votingEnabled, Settings.SB_VOTING_BUTTON);
+            syncPreferenceWithSetting(autoHideSkipSegmentButton, Settings.SB_AUTO_HIDE_SKIP_BUTTON);
+            syncPreferenceWithSetting(compactSkipButton, Settings.SB_COMPACT_SKIP_BUTTON);
+            syncPreferenceWithSetting(showSkipToast, Settings.SB_TOAST_ON_SKIP);
+            syncPreferenceWithSetting(squareLayout, Settings.SB_SQUARE_LAYOUT);
+            syncPreferenceWithSetting(toastOnConnectionError, Settings.SB_TOAST_ON_CONNECTION_ERROR);
+            syncPreferenceWithSetting(trackSkips, Settings.SB_TRACK_SKIP_COUNT);
+            syncPreferenceWithSetting(showTimeWithoutSegments, Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS);
 
-            addNewSegment.setChecked(Settings.SB_CREATE_NEW_SEGMENT.get());
-            addNewSegment.setEnabled(enabled);
+            syncPreferenceWithSetting(newSegmentStep, Settings.SB_CREATE_NEW_SEGMENT_STEP);
+            syncPreferenceWithSetting(minSegmentDuration, Settings.SB_SEGMENT_MIN_DURATION);
+            syncPreferenceWithSetting(privateUserId, Settings.SB_PRIVATE_USER_ID);
 
-            votingEnabled.setChecked(Settings.SB_VOTING_BUTTON.get());
-            votingEnabled.setEnabled(enabled);
-
-            autoHideSkipSegmentButton.setChecked(Settings.SB_AUTO_HIDE_SKIP_BUTTON.get());
-            autoHideSkipSegmentButton.setEnabled(enabled);
-
-            autoHideSkipSegmentButtonDuration.setValue(Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.get().toString());
-            autoHideSkipSegmentButtonDuration.setEnabled(Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.isAvailable());
-
-            compactSkipButton.setChecked(Settings.SB_COMPACT_SKIP_BUTTON.get());
-            compactSkipButton.setEnabled(enabled);
-
-            showSkipToast.setChecked(Settings.SB_TOAST_ON_SKIP.get());
-            showSkipToast.setEnabled(enabled);
-
-            squareLayout.setChecked(Settings.SB_SQUARE_LAYOUT.get());
-            squareLayout.setEnabled(enabled);
-
-            showSkipToastDuration.setValue(Settings.SB_TOAST_ON_SKIP_DURATION.get().toString());
-            showSkipToastDuration.setEnabled(Settings.SB_TOAST_ON_SKIP_DURATION.isAvailable());
-
-            toastOnConnectionError.setChecked(Settings.SB_TOAST_ON_CONNECTION_ERROR.get());
-            toastOnConnectionError.setEnabled(enabled);
-
-            trackSkips.setChecked(Settings.SB_TRACK_SKIP_COUNT.get());
-            trackSkips.setEnabled(enabled);
-
-            showTimeWithoutSegments.setChecked(Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.get());
-            showTimeWithoutSegments.setEnabled(enabled);
-
-            newSegmentStep.setText((Settings.SB_CREATE_NEW_SEGMENT_STEP.get()).toString());
-            newSegmentStep.setEnabled(enabled);
-
-            minSegmentDuration.setText((Settings.SB_SEGMENT_MIN_DURATION.get()).toString());
-            minSegmentDuration.setEnabled(enabled);
-
-            privateUserId.setText(Settings.SB_PRIVATE_USER_ID.get());
-            privateUserId.setEnabled(enabled);
+            syncPreferenceWithSetting(autoHideSkipSegmentButtonDuration, Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION);
+            syncPreferenceWithSetting(showSkipToastDuration, Settings.SB_TOAST_ON_SKIP_DURATION);
 
             // If the user has a private user id, then include a subtext that mentions not to share it.
-            String importExportSummary = SponsorBlockSettings.userHasSBPrivateId()
-                    ? str("revanced_sb_settings_ie_sum_warning")
-                    : str("revanced_sb_settings_ie_sum");
-            importExport.setSummary(importExportSummary);
+            if (importExport != null) {
+                String importExportSummary = SponsorBlockSettings.userHasSBPrivateId()
+                        ? str("revanced_sb_settings_ie_sum_warning")
+                        : str("revanced_sb_settings_ie_sum");
+                importExport.setSummary(importExportSummary);
+                importExport.setEnabled(enabled);
+            }
 
-            apiUrl.setEnabled(enabled);
-            importExport.setEnabled(enabled);
-            segmentCategory.setEnabled(enabled);
+            if (apiUrl != null) {
+                apiUrl.setEnabled(enabled);
+            }
+
+            if (segmentCategory != null) {
+                segmentCategory.setEnabled(enabled);
+            }
 
             for (SegmentCategoryListPreference category : segmentCategories) {
                 category.updateUI();
@@ -171,6 +155,26 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
         } catch (Exception ex) {
             Logger.printException(() -> "updateUI failure", ex);
         }
+    }
+
+    /**
+     * Synchronizes a preference with the availability system.
+     */
+    private void syncPreferenceWithSetting(Preference preference, Setting<?> setting) {
+        if (preference == null || setting == null) return;
+
+        // Set the preference value.
+        if (preference instanceof SwitchPreference && setting instanceof BooleanSetting) {
+            ((SwitchPreference) preference).setChecked(((BooleanSetting) setting).get());
+        } else if (preference instanceof ResettableEditTextPreference) {
+            ((ResettableEditTextPreference) preference).setText(setting.get().toString());
+        } else if (preference instanceof CustomDialogListPreference) {
+            ((CustomDialogListPreference) preference).setValue(setting.get().toString());
+        } else if (preference instanceof EditTextPreference) {
+            ((EditTextPreference) preference).setText(setting.get().toString());
+        }
+
+        preference.setEnabled(setting.isAvailable());
     }
 
     protected void onAttachedToActivity() {
@@ -360,6 +364,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     final int newAdjustmentValue = Integer.parseInt(newValue.toString());
                     if (newAdjustmentValue != 0) {
                         Settings.SB_CREATE_NEW_SEGMENT_STEP.save(newAdjustmentValue);
+                        updateUI();
                         return true;
                     }
                 } catch (NumberFormatException ex) {
@@ -416,6 +421,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 try {
                     Float minTimeDuration = Float.valueOf(newValue.toString());
                     Settings.SB_SEGMENT_MIN_DURATION.save(minTimeDuration);
+                    updateUI();
                     return true;
                 } catch (NumberFormatException ex) {
                     Logger.printInfo(() -> "Invalid minimum segment duration", ex);
@@ -482,6 +488,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 String newUUID = newValue.toString();
                 if (!SponsorBlockSettings.isValidSBUserId(newUUID)) {
                     Utils.showToastLong(str("revanced_sb_general_uuid_invalid"));
+                    updateUI();
                     return false;
                 }
 

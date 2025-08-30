@@ -27,9 +27,11 @@ import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.ColorPickerView;
 import app.revanced.extension.shared.ui.CustomDialog;
+import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("deprecation")
 public class SegmentCategoryListPreference extends ListPreference {
@@ -347,10 +349,42 @@ public class SegmentCategoryListPreference extends ListPreference {
     }
 
     public void updateUI() {
-        categoryColor = category.getColorNoOpacity();
-        categoryOpacity = category.getOpacity();
+        try {
+            categoryColor = category.getColorNoOpacity();
+            categoryOpacity = category.getOpacity();
 
-        setTitle(category.getTitleWithColorDot(applyOpacityToCategoryColor()));
+            setTitle(category.getTitleWithColorDot(applyOpacityToCategoryColor()));
+
+            Setting<String> behaviorSetting = getCategoryBehaviorSetting();
+
+            if (behaviorSetting != null) {
+                setEnabled(behaviorSetting.isAvailable());
+            }
+
+        } catch (Exception ex) {
+            Logger.printException(() -> "updateUI failure for category: " + category.keyValue, ex);
+        }
+    }
+
+    /**
+     * Returns the Setting object for this category's behavior.
+     * This allows the UI to check availability automatically.
+     */
+    private Setting<String> getCategoryBehaviorSetting() {
+        // Map category to its corresponding setting.
+        return switch (category.keyValue) {
+            case "sponsor" -> Settings.SB_CATEGORY_SPONSOR;
+            case "selfpromo" -> Settings.SB_CATEGORY_SELF_PROMO;
+            case "interaction" -> Settings.SB_CATEGORY_INTERACTION;
+            case "poi_highlight" -> Settings.SB_CATEGORY_HIGHLIGHT;
+            case "intro" -> Settings.SB_CATEGORY_INTRO;
+            case "outro" -> Settings.SB_CATEGORY_OUTRO;
+            case "preview" -> Settings.SB_CATEGORY_PREVIEW;
+            case "filler" -> Settings.SB_CATEGORY_FILLER;
+            case "music_offtopic" -> Settings.SB_CATEGORY_MUSIC_OFFTOPIC;
+            case "unsubmitted" -> Settings.SB_CATEGORY_UNSUBMITTED;
+            default -> null;
+        };
     }
 
     private void updateCategoryColorDot() {
