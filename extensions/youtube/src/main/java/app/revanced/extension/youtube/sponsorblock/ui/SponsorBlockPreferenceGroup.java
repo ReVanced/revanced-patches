@@ -78,8 +78,6 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
 
     private final List<SegmentCategoryListPreference> segmentCategories = new ArrayList<>();
 
-    private SponsorBlockStatsPreferenceCategory statsCategory;
-
     public SponsorBlockPreferenceGroup(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
@@ -199,7 +197,6 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             sbEnabled.setOnPreferenceChangeListener((preference1, newValue) -> {
                 Settings.SB_ENABLED.save((Boolean) newValue);
                 updateUI();
-                statsCategory.updateUI(); // Update SB Stats.
                 return true;
             });
 
@@ -362,7 +359,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             createSegmentCategory.addPreference(addNewSegment);
 
             newSegmentStep = new ResettableEditTextPreference(context);
-            newSegmentStep.setKey(String.valueOf(Settings.SB_CREATE_NEW_SEGMENT_STEP));
+            newSegmentStep.setKey(Settings.SB_CREATE_NEW_SEGMENT_STEP.key);
             newSegmentStep.setSetting(Settings.SB_CREATE_NEW_SEGMENT_STEP);
             newSegmentStep.setTitle(str("revanced_sb_general_adjusting"));
             newSegmentStep.setSummary(str("revanced_sb_general_adjusting_sum"));
@@ -423,7 +420,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             generalCategory.addPreference(trackSkips);
 
             minSegmentDuration = new ResettableEditTextPreference(context);
-            minSegmentDuration.setKey(String.valueOf(Settings.SB_SEGMENT_MIN_DURATION));
+            minSegmentDuration.setKey(Settings.SB_SEGMENT_MIN_DURATION.key);
             minSegmentDuration.setSetting(Settings.SB_SEGMENT_MIN_DURATION);
             minSegmentDuration.setTitle(str("revanced_sb_general_min_duration"));
             minSegmentDuration.setSummary(str("revanced_sb_general_min_duration_sum"));

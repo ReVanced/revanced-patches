@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.util.AttributeSet;
@@ -52,14 +53,6 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
         try {
             super.onAttachedToActivity();
 
-            updateUI();
-        } catch (Exception ex) {
-            Logger.printException(() -> "onAttachedToActivity failure", ex);
-        }
-    }
-
-    public void updateUI() {
-        try {
             Logger.printDebug(() -> "Updating SB stats UI");
             final boolean enabled = Settings.SB_ENABLED.get();
             setEnabled(enabled);
