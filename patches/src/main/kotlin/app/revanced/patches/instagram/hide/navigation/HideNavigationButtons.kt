@@ -1,11 +1,15 @@
 package app.revanced.patches.instagram.hide.navigation
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.util.findFreeRegister
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import java.util.logging.Logger
 
@@ -35,6 +39,23 @@ val hideNavigationButtonsPatch = bytecodePatch(
                 "No hide navigation buttons options are enabled. No changes made."
             )
         }
+        CreateNavbarViewGroupFingerprint.let {
+            it.method.apply {
+
+                val endIndex = CreateNavbarViewGroupFingerprint.patternMatch!!.endIndex
+                val pixelLengthRegister = getInstruction<TwoRegisterInstruction>(endIndex).registerA
+
+
+
+
+                // Set the input to decide on viewGroup type to 0 pixels, which forces "COMPACT" taskbar
+                addInstruction(endIndex+1,"const v$pixelLengthRegister,0x0")
+
+                // Might affect other UI, so a good I
+                // Maybe doesn't work on larger devices?
+            }
+        }
+
 
         tabCreateButtonsLoopStartFingerprint.let {
             it.method.apply {
@@ -63,6 +84,11 @@ val hideNavigationButtonsPatch = bytecodePatch(
                         if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
                     """
                 }
+
+                instructions += """
+                        const v$freeRegister, 0x6
+                        if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
+                    """
 
                 addInstructionsWithLabels(
                     insertIndex,
