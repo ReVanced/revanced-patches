@@ -7,7 +7,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.util.AttributeSet;
@@ -48,10 +47,19 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
         super(context, attrs);
     }
 
+    @Override
     protected void onAttachedToActivity() {
         try {
             super.onAttachedToActivity();
 
+            updateUI();
+        } catch (Exception ex) {
+            Logger.printException(() -> "onAttachedToActivity failure", ex);
+        }
+    }
+
+    public void updateUI() {
+        try {
             Logger.printDebug(() -> "Updating SB stats UI");
             final boolean enabled = Settings.SB_ENABLED.get();
             setEnabled(enabled);
@@ -80,7 +88,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                 loadingPlaceholderPreference.setTitle(str("revanced_sb_stats_sb_disabled"));
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "onAttachedToActivity failure", ex);
+            Logger.printException(() -> "updateUI failure", ex);
         }
     }
 
@@ -97,7 +105,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
             if (stats.totalSegmentCountIncludingIgnored > 0) {
                 // If user has not created any segments, there's no reason to set a username.
                 String userName = stats.userName;
-                EditTextPreference preference = new ResettableEditTextPreference(context);
+                ResettableEditTextPreference preference = new ResettableEditTextPreference(context);
                 preference.setTitle(fromHtml(str("revanced_sb_stats_username", userName)));
                 preference.setSummary(str("revanced_sb_stats_username_change"));
                 preference.setText(userName);
@@ -118,6 +126,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                     });
                     return true;
                 });
+                preference.setEnabled(Settings.SB_PRIVATE_USER_ID.isAvailable()); // Sync with private user ID setting.
                 addPreference(preference);
             }
 
@@ -137,6 +146,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                         return true;
                     });
                 }
+                preference.setEnabled(Settings.SB_ENABLED.isAvailable());
                 addPreference(preference);
             }
 
@@ -146,6 +156,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                 Preference preference = new Preference(context);
                 preference.setTitle(fromHtml(str("revanced_sb_stats_reputation", stats.reputation)));
                 preference.setSelectable(false);
+                preference.setEnabled(Settings.SB_ENABLED.isAvailable());
                 if (stats.reputation != 0) {
                     addPreference(preference);
                 }
@@ -174,6 +185,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                     preference1.getContext().startActivity(i);
                     return false;
                 });
+                preference.setEnabled(Settings.SB_ENABLED.isAvailable());
                 addPreference(preference);
             }
         } catch (Exception ex) {
@@ -219,6 +231,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
             return true;
         });
 
+        preference.setEnabled(Settings.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.isAvailable());
         addPreference(preference);
     }
 }

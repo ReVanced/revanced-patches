@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.*;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -247,15 +248,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             contentLayout.addView(gridLayout);
 
             // Create ScrollView to wrap the content layout.
-            ScrollView contentScrollView = new ScrollView(context);
-            contentScrollView.setVerticalScrollBarEnabled(false); // Disable vertical scrollbar.
-            contentScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER); // Disable overscroll effect.
-            LinearLayout.LayoutParams scrollViewParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    0,
-                    1.0f
-            );
-            contentScrollView.setLayoutParams(scrollViewParams);
+            ScrollView contentScrollView = getScrollView(context);
             contentScrollView.addView(contentLayout);
 
             // Create the custom dialog.
@@ -327,6 +320,20 @@ public class SegmentCategoryListPreference extends ListPreference {
         } catch (Exception ex) {
             Logger.printException(() -> "showDialog failure", ex);
         }
+    }
+
+    @NonNull
+    private static ScrollView getScrollView(Context context) {
+        ScrollView contentScrollView = new ScrollView(context);
+        contentScrollView.setVerticalScrollBarEnabled(false); // Disable vertical scrollbar.
+        contentScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER); // Disable overscroll effect.
+        LinearLayout.LayoutParams scrollViewParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                0,
+                1.0f
+        );
+        contentScrollView.setLayoutParams(scrollViewParams);
+        return contentScrollView;
     }
 
     @Override
