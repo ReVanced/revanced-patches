@@ -148,7 +148,7 @@ public enum SegmentCategory {
 
     public final String keyValue;
     public final StringSetting behaviorSetting; // TODO: Replace with EnumSetting.
-    public final StringSetting colorSetting;
+    private final StringSetting colorSetting;
     private final FloatSetting opacitySetting;
 
     public final StringRef title;
@@ -193,25 +193,6 @@ public enum SegmentCategory {
      */
     public CategoryBehaviour behaviour = CategoryBehaviour.IGNORE;
 
-    /**
-     * Listener for color changes.
-     */
-    private OnColorChangeListener colorChangeListener;
-
-    /**
-     * Interface for notifying color changes.
-     */
-    public interface OnColorChangeListener {
-        void onColorChanged(String key, int newColor);
-    }
-
-    /**
-     * Sets the listener for color changes.
-     */
-    public void setOnColorChangeListener(OnColorChangeListener listener) {
-        this.colorChangeListener = listener;
-    }
-
     SegmentCategory(String keyValue, StringRef title, StringRef description,
                     StringRef skipButtonText,
                     StringRef skippedToastText,
@@ -249,7 +230,7 @@ public enum SegmentCategory {
         String behaviorString = behaviorSetting.get();
         CategoryBehaviour savedBehavior = CategoryBehaviour.byReVancedKeyValue(behaviorString);
         if (savedBehavior == null) {
-            Logger.printException(() -> "Invalid behavior: " + behaviorString + ".");
+            Logger.printException(() -> "Invalid behavior: " + behaviorString);
             behaviorSetting.resetToDefault();
             loadFromSettings();
             return;
@@ -262,7 +243,7 @@ public enum SegmentCategory {
             setColor(colorString);
             setOpacity(opacity);
         } catch (Exception ex) {
-            Logger.printException(() -> "Invalid color: " + colorString + " opacity: " + opacity + ".", ex);
+            Logger.printException(() -> "Invalid color: " + colorString + " opacity: " + opacity, ex);
             colorSetting.resetToDefault();
             opacitySetting.resetToDefault();
             loadFromSettings();
@@ -277,10 +258,6 @@ public enum SegmentCategory {
     private void updateColor() {
         color = applyOpacityToColor(color, opacitySetting.get());
         paint.setColor(color);
-        // Notify listener of color change.
-        if (colorChangeListener != null) {
-            colorChangeListener.onColorChanged(keyValue, color & 0x00FFFFFF);
-        }
     }
 
     /**
@@ -314,8 +291,9 @@ public enum SegmentCategory {
      * @param colorString Segment color with #RRGGBB format.
      */
     public void setColor(String colorString) throws IllegalArgumentException {
-        color = Color.parseColor(colorString) & 0x00FFFFFF; // Remove alpha channel.
-        colorSetting.save(String.format(Locale.US, "#%06X", color));
+        color = Color.parseColor(colorString);
+        colorSetting.save(colorString);
+
         updateColor();
     }
 

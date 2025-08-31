@@ -145,7 +145,7 @@ public class SearchViewController {
         private boolean highlightingApplied;
 
         @ColorInt
-        private int color;
+        private final int color;
 
         SearchResultItem(Preference pref, String navPath, List<String> navKeys) {
             this.preference = pref;
@@ -335,9 +335,9 @@ public class SearchViewController {
             // Map preference type to view type string.
             String viewType = switch (item.preferenceType) {
                 case SearchResultItem.TYPE_SWITCH -> "switch";
-                case SearchResultItem.TYPE_LIST -> "list";
+                case SearchResultItem.TYPE_LIST   -> "list";
                 case SearchResultItem.TYPE_COLOR_PICKER -> "color";
-                case SearchResultItem.TYPE_NO_RESULTS -> "no_results";
+                case SearchResultItem.TYPE_NO_RESULTS   -> "no_results";
                 default -> "regular";
             };
 
@@ -382,10 +382,10 @@ public class SearchViewController {
             }
             int layoutId = switch (layoutResource) {
                 case "revanced_preference_search_result_regular" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_REGULAR;
-                case "revanced_preference_search_result_switch" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH;
-                case "revanced_preference_search_result_list" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST;
-                case "revanced_preference_search_result_color" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_COLOR;
-                case "revanced_preference_search_no_result" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT;
+                case "revanced_preference_search_result_switch"  -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH;
+                case "revanced_preference_search_result_list"    -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST;
+                case "revanced_preference_search_result_color"   -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_COLOR;
+                case "revanced_preference_search_no_result"      -> LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT;
                 default -> throw new IllegalStateException("Unknown layout resource: " + layoutResource);
             };
             if (view == null || !viewType.equals(view.getTag())) {
@@ -790,7 +790,7 @@ public class SearchViewController {
                         try {
                             Field colorField = SearchResultItem.class.getDeclaredField("color");
                             colorField.setAccessible(true);
-                            colorField.setInt(searchItem, newColor);
+                            colorField.setInt(searchItem, newColor & 0x00FFFFFF);
                             if (isSearchActive) {
                                 searchResultsAdapter.notifyDataSetChanged();
                             }

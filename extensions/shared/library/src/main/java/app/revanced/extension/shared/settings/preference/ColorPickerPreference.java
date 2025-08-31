@@ -122,12 +122,8 @@ public class ColorPickerPreference extends EditTextPreference {
      * @return #RRGGBB hex color string
      */
     public static String getColorString(@ColorInt int color) {
-        String colorString = String.format("#%06X", color);
-        if ((color & 0xFF000000) != 0) {
-            // Likely a bug somewhere.
-            Logger.printException(() -> "getColorString: color has alpha channel: " + colorString);
-        }
-        return colorString;
+        color = color & 0x00FFFFFF;  // Always mask to strip any alpha.
+        return String.format("#%06X", color);
     }
 
     /**
@@ -201,7 +197,7 @@ public class ColorPickerPreference extends EditTextPreference {
      * @throws IllegalArgumentException If the color string is invalid.
      */
     @Override
-    public void setText(String colorString) {
+    public final void setText(String colorString) {
         try {
             Logger.printDebug(() -> "setText: " + colorString);
             super.setText(colorString);
@@ -213,11 +209,13 @@ public class ColorPickerPreference extends EditTextPreference {
             updateColorPreview();
             updateWidgetColorDot();
 
-            // Сповіщаємо слухача про зміну кольору
+            // Notify the listener about the color change.
             if (colorChangeListener != null) {
                 colorChangeListener.onColorChanged(getKey(), currentColor);
             }
         } catch (IllegalArgumentException ex) {
+            // This code is reached if the user pastes settings json with an invalid color
+            // since this preference is updated with the new setting text.
             Logger.printDebug(() -> "Parse color error: " + colorString, ex);
             Utils.showToastShort(str("revanced_settings_color_invalid"));
             setText(colorSetting.resetToDefault());
@@ -236,14 +234,6 @@ public class ColorPickerPreference extends EditTextPreference {
                 "revanced_settings_circle_background", "drawable"));
         widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
         widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
-    }
-
-    /**
-     * Gets the color as a hex string.
-     * @return Hex color string in #RRGGBB format.
-     */
-    public String getColorString() {
-        return String.format(Locale.US, "#%06X", (currentColor & 0x00FFFFFF));
     }
 
     /**
