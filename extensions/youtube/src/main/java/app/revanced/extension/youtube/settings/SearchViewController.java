@@ -89,8 +89,6 @@ public class SearchViewController {
             getResourceIdentifier("revanced_preference_search_result_list_preference", "layout");
     private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT_PREFERENCE =
             getResourceIdentifier("revanced_preference_search_no_result_preference", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_WITH_ICON_NO_SEARCH_RESULT =
-            getResourceIdentifier("revanced_preference_with_icon_no_search_result", "layout");
     private static final int LAYOUT_REVANCED_SEARCH_SUGGESTION_ITEM =
             getResourceIdentifier("revanced_search_suggestion_item", "layout");
 
@@ -124,6 +122,7 @@ public class SearchViewController {
         final String navigationPath;
         final String searchableText;
         final int preferenceType;
+        final List<String> navigationKeys;
 
         @Nullable private final CharSequence originalTitle;
         @Nullable private final CharSequence originalSummary;
@@ -135,9 +134,10 @@ public class SearchViewController {
         CharSequence summary;
         private boolean highlightingApplied;
 
-        SearchResultItem(Preference pref, String navPath) {
+        SearchResultItem(Preference pref, String navPath, List<String> navKeys) {
             this.preference = pref;
             this.navigationPath = navPath;
+            this.navigationKeys = new ArrayList<>(navKeys != null ? navKeys : Collections.emptyList());
             this.originalTitle = pref.getTitle();
             this.title = originalTitle != null ? originalTitle : "";
             this.originalSummary = pref.getSummary();
@@ -186,6 +186,10 @@ public class SearchViewController {
             }
 
             this.searchableText = searchBuilder.toString();
+        }
+
+        SearchResultItem(Preference pref, String navPath) {
+            this(pref, navPath, Collections.emptyList());
         }
 
         private void appendText(StringBuilder builder, CharSequence text) {
@@ -318,6 +322,12 @@ public class SearchViewController {
                 }
 
                 pathView.setVisibility(showPath ? View.VISIBLE : View.GONE);
+
+                // Add long-click listener to navigate to the preference's settings screen.
+                view.setOnLongClickListener(v -> {
+                    navigateToPreferenceScreen(item);
+                    return true;
+                });
             }
 
             return view;
@@ -449,6 +459,32 @@ public class SearchViewController {
 
             titleView.setAlpha(enabled ? 1.0f : DISABLED_ALPHA);
             view.setOnClickListener(enabled ? v -> onClickAction.run() : null);
+        }
+
+        /**
+         * Navigates to the settings screen containing the given search result item.
+         */
+        private void navigateToPreferenceScreen(SearchResultItem item) {
+            try {
+                if (item.preferenceType == SearchResultItem.TYPE_NO_RESULTS) {
+                    return; // No navigation for "no results" item.
+                }
+
+                Logger.printDebug(() -> "Navigating to path: " + item.navigationPath + " with keys: " + item.navigationKeys);
+
+                // Try navigation by keys first.
+                if (navigateByKeys(item)) {
+                    Logger.printDebug(() -> "Successfully navigated by keys");
+                    return;
+                }
+
+                // Fallback to method using titles.
+                Logger.printDebug(() -> "Fallback to navigation by titles");
+                navigateByTitles(item);
+
+            } catch (Exception ex) {
+                Logger.printException(() -> "Failed to navigate to preference screen for path: " + item.navigationPath, ex);
+            }
         }
     }
 
@@ -677,7 +713,7 @@ public class SearchViewController {
             try {
                 PreferenceScreen screen = fragment.getPreferenceScreenForSearch();
                 if (screen != null) {
-                    collectSearchablePreferences(screen, "", 1, 0);
+                    collectSearchablePreferences(screen);
                     for (SearchResultItem item : allSearchItems) {
                         String key = item.preference.getKey();
                         if (key != null && !key.isEmpty()) {
@@ -693,35 +729,45 @@ public class SearchViewController {
     }
 
     /**
-     * Recursively collects all searchable preferences from a preference group.
+     * Collect all searchable preferences with key-based navigation support.
+     */
+    @SuppressWarnings("deprecation")
+    private void collectSearchablePreferences(PreferenceGroup group) {
+        collectSearchablePreferencesWithKeys(group, "", new ArrayList<>(), 1, 0);
+    }
+
+    /**
+     * Recursively collects all searchable preferences from a preference group with navigation keys.
      * Builds navigation paths for each preference and filters out non-searchable items.
      *
      * @param group The preference group to search within.
      * @param parentPath The navigation path to this group.
+     * @param parentKeys The list of navigation keys to this group.
      * @param includeDepth The minimum depth at which to include preferences.
      * @param currentDepth The current recursion depth.
      */
     @SuppressWarnings("deprecation")
-    private void collectSearchablePreferences(PreferenceGroup group, String parentPath,
-                                              int includeDepth, int currentDepth) {
+    private void collectSearchablePreferencesWithKeys(PreferenceGroup group, String parentPath,
+                                                      List<String> parentKeys, int includeDepth, int currentDepth) {
         if (group == null) return;
 
         for (int i = 0, count = group.getPreferenceCount(); i < count; i++) {
             Preference preference = group.getPreference(i);
 
-            // Add to search results only if it is a "real" preference and not a category or SponsorBlockPreferenceGroup.
+            // Add to search results only if it is not a category, special group, or PreferenceScreen.
             if (includeDepth <= currentDepth
                     && !(preference instanceof PreferenceCategory)
-                    && !(preference instanceof SponsorBlockPreferenceGroup)) {
-
-                allSearchItems.add(new SearchResultItem(preference, parentPath));
+                    && !(preference instanceof SponsorBlockPreferenceGroup)
+                    && !(preference instanceof PreferenceScreen)) {
+                allSearchItems.add(new SearchResultItem(preference, parentPath, parentKeys));
             }
 
             // If the preference is a group, recurse into it.
             if (preference instanceof PreferenceGroup subGroup) {
                 String newPath = parentPath;
+                List<String> newKeys = new ArrayList<>(parentKeys);
 
-                // Append the group title to the path only if it is not a SponsorBlockPreferenceGroup or NoTitlePreferenceCategory.
+                // Append the group title to the path and save key for navigation.
                 if (!(preference instanceof SponsorBlockPreferenceGroup)
                         && !(preference instanceof NoTitlePreferenceCategory)) {
                     CharSequence title = preference.getTitle();
@@ -730,9 +776,191 @@ public class SearchViewController {
                                 ? title.toString()
                                 : parentPath + " > " + title;
                     }
+
+                    // Add key for navigation if this is a PreferenceScreen or group with navigation capability.
+                    String key = preference.getKey();
+                    if (!TextUtils.isEmpty(key) && (preference instanceof PreferenceScreen
+                            || hasNavigationCapability(preference))) {
+                        newKeys.add(key);
+                        Logger.printDebug(() -> "Adding navigation key: " + key + " for title: " + title);
+                    }
                 }
 
-                collectSearchablePreferences(subGroup, newPath, includeDepth, currentDepth + 1);
+                collectSearchablePreferencesWithKeys(subGroup, newPath, newKeys, includeDepth, currentDepth + 1);
+            }
+        }
+    }
+
+    /**
+     * Checks if a preference has navigation capability (can open a new screen).
+     */
+    @SuppressWarnings("deprecation")
+    private boolean hasNavigationCapability(Preference preference) {
+        // PreferenceScreen always allows navigation.
+        if (preference instanceof PreferenceScreen) {
+            return true;
+        }
+
+        // Other group types that might have their own screens.
+        if (preference instanceof PreferenceGroup) {
+            // Check if it has its own fragment or intent.
+            return preference.getIntent() != null || preference.getFragment() != null;
+        }
+
+        return false;
+    }
+
+    /**
+     * Navigation by preference keys.
+     */
+    @SuppressWarnings("deprecation")
+    private boolean navigateByKeys(SearchResultItem item) {
+        if (item.navigationKeys == null || item.navigationKeys.isEmpty()) {
+            Logger.printDebug(() -> "No navigation keys available");
+            return false;
+        }
+
+        PreferenceScreen currentScreen = fragment.getPreferenceScreenForSearch();
+        boolean navigationSuccessful = true;
+
+        for (String key : item.navigationKeys) {
+            Logger.printDebug(() -> "Looking for preference with key: " + key);
+
+            Preference targetPref = findPreferenceByKey(currentScreen, key);
+            if (targetPref != null) {
+                Logger.printDebug(() -> "Found preference: " + targetPref.getTitle() + " (key: " + key + ")");
+
+                // Perform click only if this preference opens a new screen,
+                if (targetPref instanceof PreferenceScreen || hasNavigationCapability(targetPref)) {
+                    handlePreferenceClick(targetPref);
+
+                    // Small delay for screen loading.
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+
+                    // Update current screen.
+                    PreferenceScreen newScreen = fragment.getPreferenceScreenForSearch();
+                    if (newScreen != currentScreen) {
+                        currentScreen = newScreen;
+                        PreferenceScreen finalCurrentScreen = currentScreen;
+                        Logger.printDebug(() -> "Navigated to new screen with " +
+                                finalCurrentScreen.getPreferenceCount() + " preferences");
+                    } else {
+                        Logger.printDebug(() -> "Screen did not change after navigation");
+                    }
+                }
+            } else {
+                Logger.printDebug(() -> "Could not find preference with key: " + key);
+                navigationSuccessful = false;
+                break;
+            }
+        }
+
+        return navigationSuccessful;
+    }
+
+    /**
+     * Fallback navigation by titles.
+     */
+    @SuppressWarnings("deprecation")
+    private void navigateByTitles(SearchResultItem item) {
+        String[] pathSegments = item.navigationPath.split(" > ");
+        PreferenceScreen currentScreen = fragment.getPreferenceScreenForSearch();
+
+        for (String segment : pathSegments) {
+            String segmentTrimmed = segment.trim();
+            if (TextUtils.isEmpty(segmentTrimmed)) continue;
+
+            boolean found = false;
+            for (int i = 0; i < currentScreen.getPreferenceCount(); i++) {
+                Preference pref = currentScreen.getPreference(i);
+                CharSequence title = pref.getTitle();
+
+                if (title != null) {
+                    String prefTitle = title.toString().trim();
+
+                    // Flexible title comparison.
+                    if (prefTitle.equals(segmentTrimmed) ||
+                            prefTitle.equalsIgnoreCase(segmentTrimmed) ||
+                            normalizeString(prefTitle).equals(normalizeString(segmentTrimmed))) {
+
+                        handlePreferenceClick(pref);
+                        currentScreen = fragment.getPreferenceScreenForSearch();
+                        found = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!found) {
+                Logger.printDebug(() -> "Could not find preference group: " + segmentTrimmed + " in path: " + item.navigationPath);
+                break;
+            }
+        }
+    }
+
+    /**
+     * Normalizes string for comparison (removes extra characters, spaces etc).
+     */
+    private String normalizeString(String input) {
+        if (TextUtils.isEmpty(input)) return "";
+        return input.trim()
+                .toLowerCase()
+                .replaceAll("\\s+", " ")
+                .replaceAll("[^\\w\\s]", "");
+    }
+
+    /**
+     * Recursively finds a preference by key in a preference group.
+     */
+    @SuppressWarnings("deprecation")
+    private Preference findPreferenceByKey(PreferenceGroup group, String key) {
+        if (group == null || TextUtils.isEmpty(key)) {
+            return null;
+        }
+
+        // First search on current level.
+        for (int i = 0; i < group.getPreferenceCount(); i++) {
+            Preference pref = group.getPreference(i);
+            if (key.equals(pref.getKey())) {
+                return pref;
+            }
+        }
+
+        // Then recursively in subgroups.
+        for (int i = 0; i < group.getPreferenceCount(); i++) {
+            Preference pref = group.getPreference(i);
+            if (pref instanceof PreferenceGroup) {
+                Preference found = findPreferenceByKey((PreferenceGroup) pref, key);
+                if (found != null) {
+                    return found;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Helper method to get all keys from current screen (for debugging).
+     */
+    @SuppressWarnings("deprecation")
+    private void logAllPreferenceKeys(PreferenceGroup group, String prefix) {
+        if (group == null) return;
+
+        for (int i = 0; i < group.getPreferenceCount(); i++) {
+            Preference pref = group.getPreference(i);
+            String key = pref.getKey();
+            CharSequence title = pref.getTitle();
+
+            Logger.printDebug(() -> prefix + "Key: '" + key + "', Title: '" + title +
+                    "', Type: " + pref.getClass().getSimpleName());
+
+            if (pref instanceof PreferenceGroup) {
+                logAllPreferenceKeys((PreferenceGroup) pref, prefix + "  ");
             }
         }
     }
@@ -808,7 +1036,6 @@ public class SearchViewController {
         noResultsPreference.setTitle(str("revanced_settings_search_no_results_title", query));
         noResultsPreference.setSummary(str("revanced_settings_search_no_results_summary"));
         noResultsPreference.setSelectable(false);
-        noResultsPreference.setLayoutResource(LAYOUT_REVANCED_PREFERENCE_WITH_ICON_NO_SEARCH_RESULT);
         noResultsPreference.setIcon(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
         return noResultsPreference;
     }
