@@ -27,6 +27,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -144,7 +145,7 @@ public class SearchViewController {
         private boolean highlightingApplied;
 
         @ColorInt
-        private final int color;
+        private int color;
 
         SearchResultItem(Preference pref, String navPath, List<String> navKeys) {
             this.preference = pref;
@@ -334,9 +335,9 @@ public class SearchViewController {
             // Map preference type to view type string.
             String viewType = switch (item.preferenceType) {
                 case SearchResultItem.TYPE_SWITCH -> "switch";
-                case SearchResultItem.TYPE_LIST   -> "list";
+                case SearchResultItem.TYPE_LIST -> "list";
                 case SearchResultItem.TYPE_COLOR_PICKER -> "color";
-                case SearchResultItem.TYPE_NO_RESULTS   -> "no_results";
+                case SearchResultItem.TYPE_NO_RESULTS -> "no_results";
                 default -> "regular";
             };
 
@@ -381,10 +382,10 @@ public class SearchViewController {
             }
             int layoutId = switch (layoutResource) {
                 case "revanced_preference_search_result_regular" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_REGULAR;
-                case "revanced_preference_search_result_switch"  -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH;
-                case "revanced_preference_search_result_list"    -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST;
-                case "revanced_preference_search_result_color"   -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_COLOR;
-                case "revanced_preference_search_no_result"      -> LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT;
+                case "revanced_preference_search_result_switch" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH;
+                case "revanced_preference_search_result_list" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST;
+                case "revanced_preference_search_result_color" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_COLOR;
+                case "revanced_preference_search_no_result" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT;
                 default -> throw new IllegalStateException("Unknown layout resource: " + layoutResource);
             };
             if (view == null || !viewType.equals(view.getTag())) {
@@ -538,6 +539,8 @@ public class SearchViewController {
     /**
      * Gets the background color for search view components based on current theme.
      */
+    @ColorInt
+    public static int getSearchViewBackground() {
         return Utils.adjustColorBrightness(Utils.getDialogBackgroundColor(), Utils.isDarkModeEnabled() ? 1.11f : 0.95f);
     }
 
@@ -566,7 +569,7 @@ public class SearchViewController {
      * Factory method to create and initialize a SearchViewController instance.
      *
      * @param activity The activity containing the search components.
-     * @param toolbar The toolbar where search functionality will be integrated.
+     * @param toolbar  The toolbar where search functionality will be integrated.
      * @param fragment The preference fragment to search within.
      * @return Configured SearchViewController instance.
      */
@@ -765,12 +768,39 @@ public class SearchViewController {
                             keyToSearchItem.put(key, item);
                         }
                     }
+                    // Set up listeners for ColorPickerPreference.
+                    setupColorPickerListeners();
                     Logger.printDebug(() -> "Collected " + allSearchItems.size() + " searchable preferences");
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "Failed to initialize search data", ex);
             }
         });
+    }
+
+    /**
+     * Sets up listeners for ColorPickerPreference to update color in SearchResultItem.
+     */
+    private void setupColorPickerListeners() {
+        for (SearchResultItem item : allSearchItems) {
+            if (item.preference instanceof ColorPickerPreference colorPref) {
+                colorPref.setOnColorChangeListener((prefKey, newColor) -> {
+                    SearchResultItem searchItem = keyToSearchItem.get(prefKey);
+                    if (searchItem != null) {
+                        try {
+                            Field colorField = SearchResultItem.class.getDeclaredField("color");
+                            colorField.setAccessible(true);
+                            colorField.setInt(searchItem, newColor);
+                            if (isSearchActive) {
+                                searchResultsAdapter.notifyDataSetChanged();
+                            }
+                        } catch (Exception ex) {
+                            Logger.printException(() -> "Failed to update color in SearchResultItem.", ex);
+                        }
+                    }
+                });
+            }
+        }
     }
 
     /**
@@ -785,9 +815,9 @@ public class SearchViewController {
      * Recursively collects all searchable preferences from a preference group with navigation keys.
      * Builds navigation paths for each preference and filters out non-searchable items.
      *
-     * @param group The preference group to search within.
-     * @param parentPath The navigation path to this group.
-     * @param parentKeys The list of navigation keys to this group.
+     * @param group        The preference group to search within.
+     * @param parentPath   The navigation path to this group.
+     * @param parentKeys   The list of navigation keys to this group.
      * @param includeDepth The minimum depth at which to include preferences.
      * @param currentDepth The current recursion depth.
      */

@@ -97,6 +97,11 @@ public class ColorPickerPreference extends EditTextPreference {
     private ColorPickerView dialogColorPickerView;
 
     /**
+     * Listener for color changes.
+     */
+    private OnColorChangeListener colorChangeListener;
+
+    /**
      * Removes non valid hex characters, converts to all uppercase,
      * and adds # character to the start if not present.
      */
@@ -138,6 +143,20 @@ public class ColorPickerPreference extends EditTextPreference {
         spannable.setSpan(new RelativeSizeSpan(1.5f), 0, 1,
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return spannable;
+    }
+
+    /**
+     * Interface for notifying color changes.
+     */
+    public interface OnColorChangeListener {
+        void onColorChanged(String key, int newColor);
+    }
+
+    /**
+     * Sets the listener for color changes.
+     */
+    public void setOnColorChangeListener(OnColorChangeListener listener) {
+        this.colorChangeListener = listener;
     }
 
     public ColorPickerPreference(Context context) {
@@ -182,7 +201,7 @@ public class ColorPickerPreference extends EditTextPreference {
      * @throws IllegalArgumentException If the color string is invalid.
      */
     @Override
-    public final void setText(String colorString) {
+    public void setText(String colorString) {
         try {
             Logger.printDebug(() -> "setText: " + colorString);
             super.setText(colorString);
@@ -193,9 +212,12 @@ public class ColorPickerPreference extends EditTextPreference {
             }
             updateColorPreview();
             updateWidgetColorDot();
+
+            // Сповіщаємо слухача про зміну кольору
+            if (colorChangeListener != null) {
+                colorChangeListener.onColorChanged(getKey(), currentColor);
+            }
         } catch (IllegalArgumentException ex) {
-            // This code is reached if the user pastes settings json with an invalid color
-            // since this preference is updated with the new setting text.
             Logger.printDebug(() -> "Parse color error: " + colorString, ex);
             Utils.showToastShort(str("revanced_settings_color_invalid"));
             setText(colorSetting.resetToDefault());
@@ -214,6 +236,14 @@ public class ColorPickerPreference extends EditTextPreference {
                 "revanced_settings_circle_background", "drawable"));
         widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
         widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
+    }
+
+    /**
+     * Gets the color as a hex string.
+     * @return Hex color string in #RRGGBB format.
+     */
+    public String getColorString() {
+        return String.format(Locale.US, "#%06X", (currentColor & 0x00FFFFFF));
     }
 
     /**

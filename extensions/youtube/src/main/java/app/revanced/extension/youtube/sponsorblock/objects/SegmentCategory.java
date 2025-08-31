@@ -87,7 +87,7 @@ public enum SegmentCategory {
     private static final Map<String, SegmentCategory> mValuesMap = new HashMap<>(2 * categoriesWithoutUnsubmitted.length);
 
     /**
-     * Categories currently enabled, formatted for an API call
+     * Categories currently enabled, formatted for an API call.
      */
     public static String sponsorBlockAPIFetchCategories = "[]";
 
@@ -148,34 +148,34 @@ public enum SegmentCategory {
 
     public final String keyValue;
     public final StringSetting behaviorSetting; // TODO: Replace with EnumSetting.
-    private final StringSetting colorSetting;
+    public final StringSetting colorSetting;
     private final FloatSetting opacitySetting;
 
     public final StringRef title;
     public final StringRef description;
 
     /**
-     * Skip button text, if the skip occurs in the first quarter of the video
+     * Skip button text, if the skip occurs in the first quarter of the video.
      */
     public final StringRef skipButtonTextBeginning;
     /**
-     * Skip button text, if the skip occurs in the middle half of the video
+     * Skip button text, if the skip occurs in the middle half of the video.
      */
     public final StringRef skipButtonTextMiddle;
     /**
-     * Skip button text, if the skip occurs in the last quarter of the video
+     * Skip button text, if the skip occurs in the last quarter of the video.
      */
     public final StringRef skipButtonTextEnd;
     /**
-     * Skipped segment toast, if the skip occurred in the first quarter of the video
+     * Skipped segment toast, if the skip occurred in the first quarter of the video.
      */
     public final StringRef skippedToastBeginning;
     /**
-     * Skipped segment toast, if the skip occurred in the middle half of the video
+     * Skipped segment toast, if the skip occurred in the middle half of the video.
      */
     public final StringRef skippedToastMiddle;
     /**
-     * Skipped segment toast, if the skip occurred in the last quarter of the video
+     * Skipped segment toast, if the skip occurred in the last quarter of the video.
      */
     public final StringRef skippedToastEnd;
 
@@ -192,6 +192,25 @@ public enum SegmentCategory {
      * Caller must also {@link #updateEnabledCategories()}.
      */
     public CategoryBehaviour behaviour = CategoryBehaviour.IGNORE;
+
+    /**
+     * Listener for color changes.
+     */
+    private OnColorChangeListener colorChangeListener;
+
+    /**
+     * Interface for notifying color changes.
+     */
+    public interface OnColorChangeListener {
+        void onColorChanged(String key, int newColor);
+    }
+
+    /**
+     * Sets the listener for color changes.
+     */
+    public void setOnColorChangeListener(OnColorChangeListener listener) {
+        this.colorChangeListener = listener;
+    }
 
     SegmentCategory(String keyValue, StringRef title, StringRef description,
                     StringRef skipButtonText,
@@ -230,7 +249,7 @@ public enum SegmentCategory {
         String behaviorString = behaviorSetting.get();
         CategoryBehaviour savedBehavior = CategoryBehaviour.byReVancedKeyValue(behaviorString);
         if (savedBehavior == null) {
-            Logger.printException(() -> "Invalid behavior: " + behaviorString);
+            Logger.printException(() -> "Invalid behavior: " + behaviorString + ".");
             behaviorSetting.resetToDefault();
             loadFromSettings();
             return;
@@ -243,7 +262,7 @@ public enum SegmentCategory {
             setColor(colorString);
             setOpacity(opacity);
         } catch (Exception ex) {
-            Logger.printException(() -> "Invalid color: " + colorString + " opacity: " + opacity, ex);
+            Logger.printException(() -> "Invalid color: " + colorString + " opacity: " + opacity + ".", ex);
             colorSetting.resetToDefault();
             opacitySetting.resetToDefault();
             loadFromSettings();
@@ -258,9 +277,14 @@ public enum SegmentCategory {
     private void updateColor() {
         color = applyOpacityToColor(color, opacitySetting.get());
         paint.setColor(color);
+        // Notify listener of color change.
+        if (colorChangeListener != null) {
+            colorChangeListener.onColorChanged(keyValue, color & 0x00FFFFFF);
+        }
     }
 
     /**
+     * Sets the opacity of the segment color.
      * @param opacity Segment color opacity between [0, 1].
      */
     public void setOpacity(float opacity) throws IllegalArgumentException {
@@ -286,16 +310,17 @@ public enum SegmentCategory {
     }
 
     /**
+     * Sets the segment color.
      * @param colorString Segment color with #RRGGBB format.
      */
     public void setColor(String colorString) throws IllegalArgumentException {
-        color = Color.parseColor(colorString);
-        colorSetting.save(colorString);
-
+        color = Color.parseColor(colorString) & 0x00FFFFFF; // Remove alpha channel.
+        colorSetting.save(String.format(Locale.US, "#%06X", color));
         updateColor();
     }
 
     /**
+     * Gets the color without opacity.
      * @return Integer color of #RRGGBB format.
      */
     @ColorInt
@@ -304,6 +329,7 @@ public enum SegmentCategory {
     }
 
     /**
+     * Gets the default color without opacity.
      * @return Integer color of #RRGGBB format.
      */
     @ColorInt
@@ -312,6 +338,7 @@ public enum SegmentCategory {
     }
 
     /**
+     * Gets the color as a hex string.
      * @return Hex color string of #RRGGBB format with no opacity level.
      */
     public String getColorString() {
@@ -347,6 +374,7 @@ public enum SegmentCategory {
     }
 
     /**
+     * Gets the skip button text based on segment position.
      * @param segmentStartTime video time the segment category started
      * @param videoLength      length of the video
      * @return the skip button text
@@ -371,6 +399,7 @@ public enum SegmentCategory {
     }
 
     /**
+     * Gets the skipped segment toast message based on segment position.
      * @param segmentStartTime video time the segment category started
      * @param videoLength      length of the video
      * @return 'skipped segment' toast message
