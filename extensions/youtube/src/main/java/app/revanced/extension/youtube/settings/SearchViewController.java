@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.preference.*;
@@ -37,6 +38,7 @@ import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
 import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
@@ -79,21 +81,26 @@ public class SearchViewController {
     private static final int ID_PREFERENCE_SUMMARY = getResourceIdentifier("preference_summary", "id");
     private static final int ID_PREFERENCE_PATH = getResourceIdentifier("preference_path", "id");
     private static final int ID_PREFERENCE_SWITCH = getResourceIdentifier("preference_switch", "id");
+    private static final int ID_PREFERENCE_COLOR_DOT = getResourceIdentifier("preference_color_dot", "id");
     private static final int ID_SUGGESTION_TEXT = getResourceIdentifier("suggestion_text", "id");
 
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_PREFERENCE =
-            getResourceIdentifier("revanced_preference_search_result_preference", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH_PREFERENCE =
-            getResourceIdentifier("revanced_preference_search_result_switch_preference", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST_PREFERENCE =
-            getResourceIdentifier("revanced_preference_search_result_list_preference", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT_PREFERENCE =
-            getResourceIdentifier("revanced_preference_search_no_result_preference", "layout");
-    private static final int LAYOUT_REVANCED_SEARCH_SUGGESTION_ITEM =
-            getResourceIdentifier("revanced_search_suggestion_item", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_REGULAR =
+            getResourceIdentifier("revanced_preference_search_result_regular", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH =
+            getResourceIdentifier("revanced_preference_search_result_switch", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST =
+            getResourceIdentifier("revanced_preference_search_result_list", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_COLOR =
+            getResourceIdentifier("revanced_preference_search_result_color", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT =
+            getResourceIdentifier("revanced_preference_search_no_result", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_SUGGESTION_ITEM =
+            getResourceIdentifier("revanced_preference_search_suggestion_item", "layout");
 
     private static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON =
             getResourceIdentifier("revanced_settings_search_icon", "drawable");
+    private static final int DRAWABLE_REVANCED_SETTINGS_CIRCLE_BACKGROUND =
+            getResourceIdentifier("revanced_settings_circle_background", "drawable");
     private static final int MENU_REVANCED_SEARCH_MENU =
             getResourceIdentifier("revanced_search_menu", "menu");
 
@@ -102,10 +109,11 @@ public class SearchViewController {
 
     private static Map<String, String> createLayoutResourceMap() {
         return Map.of(
-                "regular", "revanced_preference_search_result_preference",
-                "switch", "revanced_preference_search_result_switch_preference",
-                "list", "revanced_preference_search_result_list_preference",
-                "no_results", "revanced_preference_search_no_result_preference");
+                "regular", "revanced_preference_search_result_regular",
+                "switch", "revanced_preference_search_result_switch",
+                "list", "revanced_preference_search_result_list",
+                "color", "revanced_preference_search_result_color",
+                "no_results", "revanced_preference_search_no_result");
     }
 
     /**
@@ -116,7 +124,8 @@ public class SearchViewController {
         static final int TYPE_REGULAR = 0;
         static final int TYPE_SWITCH = 1;
         static final int TYPE_LIST = 2;
-        static final int TYPE_NO_RESULTS = 3;
+        static final int TYPE_COLOR_PICKER = 3;
+        static final int TYPE_NO_RESULTS = 4;
 
         final Preference preference;
         final String navigationPath;
@@ -134,6 +143,9 @@ public class SearchViewController {
         CharSequence summary;
         private boolean highlightingApplied;
 
+        @ColorInt
+        private final int color;
+
         SearchResultItem(Preference pref, String navPath, List<String> navKeys) {
             this.preference = pref;
             this.navigationPath = navPath;
@@ -149,21 +161,32 @@ public class SearchViewController {
                 this.originalSummaryOn = switchPref.getSummaryOn();
                 this.originalSummaryOff = switchPref.getSummaryOff();
                 this.originalEntries = null;
+                this.color = 0;
             } else if (pref instanceof ListPreference listPref) {
                 this.preferenceType = TYPE_LIST;
                 this.originalSummaryOn = null;
                 this.originalSummaryOff = null;
                 this.originalEntries = listPref.getEntries();
+                this.color = 0;
+            } else if (pref instanceof ColorPickerPreference colorPref) {
+                this.preferenceType = TYPE_COLOR_PICKER;
+                this.originalSummaryOn = null;
+                this.originalSummaryOff = null;
+                this.originalEntries = null;
+                String colorString = colorPref.getText();
+                this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) & 0x00FFFFFF);
             } else if ("no_results_placeholder".equals(pref.getKey())) {
                 this.preferenceType = TYPE_NO_RESULTS;
                 this.originalSummaryOn = null;
                 this.originalSummaryOff = null;
                 this.originalEntries = null;
+                this.color = 0;
             } else {
                 this.preferenceType = TYPE_REGULAR;
                 this.originalSummaryOn = null;
                 this.originalSummaryOff = null;
                 this.originalEntries = null;
+                this.color = 0;
             }
 
             // Create searchable text combining all relevant fields.
@@ -183,6 +206,8 @@ public class SearchViewController {
             } else if (pref instanceof SwitchPreference switchPref) {
                 appendText(searchBuilder, switchPref.getSummaryOn());
                 appendText(searchBuilder, switchPref.getSummaryOff());
+            } else if (pref instanceof ColorPickerPreference) {
+                appendText(searchBuilder, ColorPickerPreference.getColorString(color));
             }
 
             this.searchableText = searchBuilder.toString();
@@ -279,6 +304,14 @@ public class SearchViewController {
 
             highlightingApplied = false;
         }
+
+        /**
+         * Gets the color for TYPE_COLOR_PICKER.
+         */
+        @ColorInt
+        int getColor() {
+            return color;
+        }
     }
 
     /**
@@ -301,8 +334,9 @@ public class SearchViewController {
             // Map preference type to view type string.
             String viewType = switch (item.preferenceType) {
                 case SearchResultItem.TYPE_SWITCH -> "switch";
-                case SearchResultItem.TYPE_LIST -> "list";
-                case SearchResultItem.TYPE_NO_RESULTS -> "no_results";
+                case SearchResultItem.TYPE_LIST   -> "list";
+                case SearchResultItem.TYPE_COLOR_PICKER -> "color";
+                case SearchResultItem.TYPE_NO_RESULTS   -> "no_results";
                 default -> "regular";
             };
 
@@ -346,10 +380,11 @@ public class SearchViewController {
                 return new View(getContext()); // Fallback to empty view.
             }
             int layoutId = switch (layoutResource) {
-                case "revanced_preference_search_result_preference" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_PREFERENCE;
-                case "revanced_preference_search_result_switch_preference" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH_PREFERENCE;
-                case "revanced_preference_search_result_list_preference" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST_PREFERENCE;
-                case "revanced_preference_search_no_result_preference" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT_PREFERENCE;
+                case "revanced_preference_search_result_regular" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_REGULAR;
+                case "revanced_preference_search_result_switch"  -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH;
+                case "revanced_preference_search_result_list"    -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST;
+                case "revanced_preference_search_result_color"   -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_COLOR;
+                case "revanced_preference_search_no_result"      -> LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT;
                 default -> throw new IllegalStateException("Unknown layout resource: " + layoutResource);
             };
             if (view == null || !viewType.equals(view.getTag())) {
@@ -431,6 +466,18 @@ public class SearchViewController {
                     } else {
                         switchWidget.setOnClickListener(null);
                     }
+                }
+
+                case "color" -> {
+                    summaryView.setText(item.summary);
+                    summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
+                    View colorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
+                    colorDot.setBackgroundResource(DRAWABLE_REVANCED_SETTINGS_CIRCLE_BACKGROUND);
+                    colorDot.getBackground().setTint(item.getColor() | 0xFF000000);
+                    colorDot.setEnabled(item.preference.isEnabled());
+                    colorDot.setAlpha(item.preference.isEnabled() ? 1.0f : DISABLED_ALPHA);
+                    setupPreferenceView(view, titleView, summaryView, pathView, item.preference,
+                            () -> handlePreferenceClick(item.preference));
                 }
 
                 case "no_results" -> {
@@ -1217,7 +1264,7 @@ public class SearchViewController {
         @Override
         public View getView(int position, View convertView, @NonNull ViewGroup parent) {
             if (convertView == null) {
-                convertView = LinearLayout.inflate(getContext(), LAYOUT_REVANCED_SEARCH_SUGGESTION_ITEM, null);
+                convertView = LinearLayout.inflate(getContext(), LAYOUT_REVANCED_PREFERENCE_SEARCH_SUGGESTION_ITEM, null);
             }
 
             // Set query text.
