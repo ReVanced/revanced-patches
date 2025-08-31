@@ -538,9 +538,7 @@ public class SearchViewController {
     /**
      * Gets the background color for search view components based on current theme.
      */
-    @ColorInt
-    public static int getSearchViewBackground() {
-        return Utils.adjustColorBrightness(Utils.getDialogBackgroundColor(),Utils.isDarkModeEnabled() ? 1.11f : 0.95f);
+        return Utils.adjustColorBrightness(Utils.getDialogBackgroundColor(), Utils.isDarkModeEnabled() ? 1.11f : 0.95f);
     }
 
     /**
