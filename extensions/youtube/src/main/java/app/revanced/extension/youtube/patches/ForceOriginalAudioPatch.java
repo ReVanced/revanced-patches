@@ -1,9 +1,13 @@
 package app.revanced.extension.youtube.patches;
 
+import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.settings.Settings;
+
+import java.util.Collections;
+import java.util.List;
 
 @SuppressWarnings("unused")
 public class ForceOriginalAudioPatch {
@@ -21,6 +25,12 @@ public class ForceOriginalAudioPatch {
             // Check conditions of launch and now. Otherwise if spoofing is changed
             // without a restart the setting will show as available when it's not.
             return PATCH_AVAILABLE && SpoofVideoStreamsPatch.notSpoofingToAndroid();
+        }
+
+        @NonNull
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return Collections.emptyList();
         }
     }
 

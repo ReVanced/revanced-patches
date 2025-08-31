@@ -12,6 +12,9 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
+import java.util.Collections;
+import java.util.List;
+
 @SuppressWarnings("unused")
 public final class ChangeStartPagePatch {
 
@@ -86,6 +89,12 @@ public final class ChangeStartPagePatch {
         @Override
         public boolean isAvailable() {
             return Settings.CHANGE_START_PAGE.get() != StartPage.DEFAULT;
+        }
+
+        @NonNull
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return Collections.emptyList();
         }
     }
 

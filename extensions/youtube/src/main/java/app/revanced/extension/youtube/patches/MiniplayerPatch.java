@@ -10,12 +10,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
+
+import java.util.Collections;
+import java.util.List;
 
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
 public final class MiniplayerPatch {
@@ -173,6 +177,12 @@ public final class MiniplayerPatch {
         public boolean isAvailable() {
             return Settings.MINIPLAYER_TYPE.get().isModern() && Settings.MINIPLAYER_DRAG_AND_DROP.get();
         }
+
+        @NonNull
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return Collections.emptyList();
+        }
     }
 
     public static final class MiniplayerHideOverlayButtonsAvailability implements Setting.Availability {
@@ -185,11 +195,17 @@ public final class MiniplayerPatch {
                     && !Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get() && !Settings.MINIPLAYER_DRAG_AND_DROP.get())
                     || (IS_19_29_OR_GREATER && type == MODERN_3);
         }
+
+        @NonNull
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return Collections.emptyList();
+        }
     }
 
     /**
      * Injection point.
-     *
+     * <p>
      * Enables a handler that immediately closes the miniplayer when the video is minimized,
      * effectively disabling the miniplayer.
      */

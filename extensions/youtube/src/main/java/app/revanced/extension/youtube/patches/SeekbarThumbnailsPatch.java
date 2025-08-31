@@ -1,7 +1,11 @@
 package app.revanced.extension.youtube.patches;
 
+import androidx.annotation.NonNull;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
+
+import java.util.Collections;
+import java.util.List;
 
 @SuppressWarnings("unused")
 public class SeekbarThumbnailsPatch {
@@ -10,6 +14,12 @@ public class SeekbarThumbnailsPatch {
         @Override
         public boolean isAvailable() {
             return VersionCheckPatch.IS_19_17_OR_GREATER || !Settings.RESTORE_OLD_SEEKBAR_THUMBNAILS.get();
+        }
+
+        @NonNull
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return Collections.emptyList();
         }
     }
 
