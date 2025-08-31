@@ -834,13 +834,6 @@ public class SearchViewController {
                 if (targetPref instanceof PreferenceScreen || hasNavigationCapability(targetPref)) {
                     handlePreferenceClick(targetPref);
 
-                    // Small delay for screen loading.
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
-                    }
-
                     // Update current screen.
                     PreferenceScreen newScreen = fragment.getPreferenceScreenForSearch();
                     if (newScreen != currentScreen) {
