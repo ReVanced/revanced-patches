@@ -28,7 +28,7 @@ internal val tabCreateButtonsLoopEndFingerprint = fingerprint {
         )
 }
 
-internal val CreateNavbarViewGroupFingerprint = fingerprint {
+internal val NavbarViewGroupCreationFingerprint = fingerprint {
     parameters()
     returns("Landroid/view/ViewGroup")
     opcodes(

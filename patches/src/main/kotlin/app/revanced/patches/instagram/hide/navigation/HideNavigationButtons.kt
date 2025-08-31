@@ -39,10 +39,10 @@ val hideNavigationButtonsPatch = bytecodePatch(
                 "No hide navigation buttons options are enabled. No changes made."
             )
         }
-        CreateNavbarViewGroupFingerprint.let {
+        NavbarViewGroupCreationFingerprint.let {
             it.method.apply {
 
-                val endIndex = CreateNavbarViewGroupFingerprint.patternMatch!!.endIndex
+                val endIndex = NavbarViewGroupCreationFingerprint.patternMatch!!.endIndex
                 val pixelLengthRegister = getInstruction<TwoRegisterInstruction>(endIndex).registerA
 
 
@@ -51,7 +51,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
                 // Set the input to decide on viewGroup type to 0 pixels, which forces "COMPACT" taskbar
                 addInstruction(endIndex+1,"const v$pixelLengthRegister,0x0")
 
-                // Might affect other UI, so a good I
+                // Might affect other UI, maybe a good idea to create a clone?
                 // Maybe doesn't work on larger devices?
             }
         }
