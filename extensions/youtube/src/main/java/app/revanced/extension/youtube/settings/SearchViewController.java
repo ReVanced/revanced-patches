@@ -332,10 +332,40 @@ public class SearchViewController {
     }
 
     /**
-     * Adapter for displaying search results in overlay ListView.
+     * Adapter for displaying search results in overlay ListView with ViewHolder pattern.
      */
     private class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         private final LayoutInflater inflater;
+
+        // ViewHolder for regular and list preferences.
+        private static class RegularViewHolder {
+            TextView titleView;
+            TextView summaryView;
+            TextView pathView;
+        }
+
+        // ViewHolder for switch preferences.
+        private static class SwitchViewHolder {
+            TextView titleView;
+            TextView summaryView;
+            TextView pathView;
+            Switch switchWidget;
+        }
+
+        // ViewHolder for color preferences.
+        private static class ColorViewHolder {
+            TextView titleView;
+            TextView summaryView;
+            TextView pathView;
+            View colorDot;
+        }
+
+        // ViewHolder for no results preferences.
+        private static class NoResultsViewHolder {
+            TextView titleView;
+            TextView summaryView;
+            ImageView iconView;
+        }
 
         SearchResultsAdapter(Context context, List<SearchResultItem> items) {
             super(context, 0, items);
@@ -344,7 +374,7 @@ public class SearchViewController {
 
         @NonNull
         @Override
-        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             SearchResultItem item = getItem(position);
             if (item == null) return new View(getContext());
 
@@ -358,7 +388,7 @@ public class SearchViewController {
             };
 
             // Create or reuse preference view based on type.
-            View view = createPreferenceView(item, convertView, viewType);
+            View view = createPreferenceView(item, convertView, viewType, parent);
 
             if (!"no_results".equals(viewType)) {
                 TextView pathView = view.findViewById(ID_PREFERENCE_PATH);
@@ -385,17 +415,17 @@ public class SearchViewController {
         }
 
         /**
-         * Creates a view for a preference based on its type.
+         * Creates a view for a preference based on its type using ViewHolder pattern.
          */
         @SuppressWarnings("deprecation")
-        private View createPreferenceView(SearchResultItem item, View convertView, String viewType) {
-            // Inflate or reuse view.
+        private View createPreferenceView(SearchResultItem item, View convertView, String viewType, ViewGroup parent) {
             View view = convertView;
             String layoutResource = LAYOUT_RESOURCE_MAP.get(viewType);
             if (layoutResource == null) {
                 Logger.printException(() -> "Invalid viewType: " + viewType + ", cannot inflate view.");
                 return new View(getContext()); // Fallback to empty view.
             }
+
             int layoutId = switch (layoutResource) {
                 case "revanced_preference_search_result_regular" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_REGULAR;
                 case "revanced_preference_search_result_switch"  -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH;
@@ -404,44 +434,80 @@ public class SearchViewController {
                 case "revanced_preference_search_no_result"      -> LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT;
                 default -> throw new IllegalStateException("Unknown layout resource: " + layoutResource);
             };
+
+            Object holder;
             if (view == null || !viewType.equals(view.getTag())) {
-                view = inflater.inflate(layoutId, null);
+                view = inflater.inflate(layoutId, parent, false);
                 view.setTag(viewType);
+
+                // Initialize ViewHolder based on view type.
+                switch (viewType) {
+                    case "regular", "list" -> {
+                        RegularViewHolder regularHolder = new RegularViewHolder();
+                        regularHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
+                        regularHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
+                        regularHolder.pathView = view.findViewById(ID_PREFERENCE_PATH);
+                        view.setTag(ID_PREFERENCE_TITLE, regularHolder);
+                        holder = regularHolder;
+                    }
+                    case "switch" -> {
+                        SwitchViewHolder switchHolder = new SwitchViewHolder();
+                        switchHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
+                        switchHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
+                        switchHolder.pathView = view.findViewById(ID_PREFERENCE_PATH);
+                        switchHolder.switchWidget = view.findViewById(ID_PREFERENCE_SWITCH);
+                        view.setTag(ID_PREFERENCE_TITLE, switchHolder);
+                        holder = switchHolder;
+                    }
+                    case "color" -> {
+                        ColorViewHolder colorHolder = new ColorViewHolder();
+                        colorHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
+                        colorHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
+                        colorHolder.pathView = view.findViewById(ID_PREFERENCE_PATH);
+                        colorHolder.colorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
+                        view.setTag(ID_PREFERENCE_TITLE, colorHolder);
+                        holder = colorHolder;
+                    }
+                    case "no_results" -> {
+                        NoResultsViewHolder noResultsHolder = new NoResultsViewHolder();
+                        noResultsHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
+                        noResultsHolder.summaryView = view.findViewById(android.R.id.summary);
+                        noResultsHolder.iconView = view.findViewById(android.R.id.icon);
+                        view.setTag(ID_PREFERENCE_TITLE, noResultsHolder);
+                        holder = noResultsHolder;
+                    }
+                    default -> throw new IllegalStateException("Unknown viewType: " + viewType);
+                }
+            } else {
+                holder = view.getTag(ID_PREFERENCE_TITLE);
             }
 
-            // Initialize common views.
-            TextView titleView = view.findViewById(ID_PREFERENCE_TITLE);
-            TextView summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
-            TextView pathView = view.findViewById("no_results".equals(viewType) ?
-                    android.R.id.summary : ID_PREFERENCE_PATH);
-
-            // Set common view properties.
-            titleView.setText(item.title);
-            if (!"no_results".equals(viewType)) {
-                pathView.setText(item.navigationPath);
-            }
-
-            // Handle specific view types.
+            // Bind data to ViewHolder.
             switch (viewType) {
                 case "regular", "list" -> {
-                    summaryView.setText(item.summary);
-                    summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
-                    setupPreferenceView(view, titleView, summaryView, pathView, item.preference,
-                            () -> handlePreferenceClick(item.preference));
+                    RegularViewHolder regularHolder = (RegularViewHolder) holder;
+                    regularHolder.titleView.setText(item.title);
+                    regularHolder.summaryView.setText(item.summary);
+                    regularHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
+                    regularHolder.pathView.setText(item.navigationPath);
+                    setupPreferenceView(view, regularHolder.titleView, regularHolder.summaryView, regularHolder.pathView,
+                            item.preference, () -> handlePreferenceClick(item.preference));
                 }
 
                 case "switch" -> {
+                    SwitchViewHolder switchHolder = (SwitchViewHolder) holder;
                     SwitchPreference switchPref = (SwitchPreference) item.preference;
-                    Switch switchWidget = view.findViewById(ID_PREFERENCE_SWITCH);
+                    switchHolder.titleView.setText(item.title);
+                    switchHolder.pathView.setText(item.navigationPath);
 
                     // Remove ripple/highlight.
-                    switchWidget.setBackground(null);
+                    switchHolder.switchWidget.setBackground(null);
 
                     // Set switch state without animation.
                     boolean currentState = switchPref.isChecked();
-                    if (switchWidget.isChecked() != currentState) {
-                        switchWidget.setChecked(currentState);
-                        switchWidget.jumpDrawablesToCurrentState();
+                    if (switchHolder.switchWidget.isChecked() != currentState) {
+                        switchHolder.switchWidget.setChecked(currentState);
+                        switchHolder.switchWidget.jumpDrawablesToCurrentState();
                     }
 
                     // Update summary based on switch state.
@@ -450,58 +516,62 @@ public class SearchViewController {
                             switchPref.getSummary() != null ? switchPref.getSummary() : "")
                             : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff() :
                             switchPref.getSummary() != null ? switchPref.getSummary() : "");
-                    summaryView.setText(summaryText);
-                    summaryView.setVisibility(TextUtils.isEmpty(summaryText) ? View.GONE : View.VISIBLE);
+                    switchHolder.summaryView.setText(summaryText);
+                    switchHolder.summaryView.setVisibility(TextUtils.isEmpty(summaryText) ? View.GONE : View.VISIBLE);
 
                     // Set up click listeners for switch.
-                    final View finalView = view; // Store view in a final variable.
-                    setupPreferenceView(view, titleView, summaryView, pathView, switchPref, () -> {
-                        boolean newState = !switchPref.isChecked();
-                        switchPref.setChecked(newState);
-                        switchWidget.setChecked(newState);
+                    final View finalView = view;
+                    setupPreferenceView(view, switchHolder.titleView, switchHolder.summaryView, switchHolder.pathView,
+                            switchPref, () -> {
+                                boolean newState = !switchPref.isChecked();
+                                switchPref.setChecked(newState);
+                                switchHolder.switchWidget.setChecked(newState);
 
-                        // Update summary.
-                        CharSequence newSummary = newState
-                                ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn() :
-                                switchPref.getSummary() != null ? switchPref.getSummary() : "")
-                                : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff() :
-                                switchPref.getSummary() != null ? switchPref.getSummary() : "");
-                        summaryView.setText(newSummary);
-                        summaryView.setVisibility(TextUtils.isEmpty(newSummary) ? View.GONE : View.VISIBLE);
+                                // Update summary.
+                                CharSequence newSummary = newState
+                                        ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn() :
+                                        switchPref.getSummary() != null ? switchPref.getSummary() : "")
+                                        : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff() :
+                                        switchPref.getSummary() != null ? switchPref.getSummary() : "");
+                                switchHolder.summaryView.setText(newSummary);
+                                switchHolder.summaryView.setVisibility(TextUtils.isEmpty(newSummary) ? View.GONE : View.VISIBLE);
 
-                        // Notify preference change.
-                        if (switchPref.getOnPreferenceChangeListener() != null) {
-                            switchPref.getOnPreferenceChangeListener().onPreferenceChange(switchPref, newState);
-                        }
+                                // Notify preference change.
+                                if (switchPref.getOnPreferenceChangeListener() != null) {
+                                    switchPref.getOnPreferenceChangeListener().onPreferenceChange(switchPref, newState);
+                                }
 
-                        searchResultsAdapter.notifyDataSetChanged();
-                    });
+                                notifyDataSetChanged();
+                            });
 
-                    switchWidget.setEnabled(switchPref.isEnabled());
+                    switchHolder.switchWidget.setEnabled(switchPref.isEnabled());
                     if (switchPref.isEnabled()) {
-                        switchWidget.setOnClickListener(v -> finalView.performClick());
+                        switchHolder.switchWidget.setOnClickListener(v -> finalView.performClick());
                     } else {
-                        switchWidget.setOnClickListener(null);
+                        switchHolder.switchWidget.setOnClickListener(null);
                     }
                 }
 
                 case "color" -> {
-                    summaryView.setText(item.summary);
-                    summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
-                    View colorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
-                    colorDot.setBackgroundResource(DRAWABLE_REVANCED_SETTINGS_CIRCLE_BACKGROUND);
-                    colorDot.getBackground().setTint(item.getColor() | 0xFF000000);
-                    colorDot.setEnabled(item.preference.isEnabled());
-                    colorDot.setAlpha(item.preference.isEnabled() ? 1.0f : DISABLED_ALPHA);
-                    setupPreferenceView(view, titleView, summaryView, pathView, item.preference,
-                            () -> handlePreferenceClick(item.preference));
+                    ColorViewHolder colorHolder = (ColorViewHolder) holder;
+                    colorHolder.titleView.setText(item.title);
+                    colorHolder.summaryView.setText(item.summary);
+                    colorHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
+                    colorHolder.pathView.setText(item.navigationPath);
+                    colorHolder.colorDot.setBackgroundResource(SearchViewController.DRAWABLE_REVANCED_SETTINGS_CIRCLE_BACKGROUND);
+                    colorHolder.colorDot.getBackground().setTint(item.getColor() | 0xFF000000);
+                    colorHolder.colorDot.setEnabled(item.preference.isEnabled());
+                    colorHolder.colorDot.setAlpha(item.preference.isEnabled() ? 1.0f : SearchViewController.DISABLED_ALPHA);
+                    setupPreferenceView(view, colorHolder.titleView, colorHolder.summaryView, colorHolder.pathView,
+                            item.preference, () -> handlePreferenceClick(item.preference));
                 }
 
                 case "no_results" -> {
-                    summaryView.setText(item.summary);
-                    summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
-                    ImageView iconView = view.findViewById(android.R.id.icon);
-                    iconView.setImageResource(item.getIconResourceId());
+                    NoResultsViewHolder noResultsHolder = (NoResultsViewHolder) holder;
+                    noResultsHolder.titleView.setText(item.title);
+                    noResultsHolder.summaryView.setText(item.summary);
+                    noResultsHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
+                    noResultsHolder.iconView.setImageResource(item.getIconResourceId());
                 }
             }
 
