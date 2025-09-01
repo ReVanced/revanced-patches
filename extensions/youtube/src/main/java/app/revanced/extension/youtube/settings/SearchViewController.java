@@ -10,6 +10,8 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
+import android.os.Handler;
+import android.os.Looper;
 import android.preference.*;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -65,6 +67,8 @@ public class SearchViewController {
     private final List<SearchResultItem> filteredSearchItems;
     private final Map<String, SearchResultItem> keyToSearchItem;
     private final InputMethodManager inputMethodManager;
+    private final Handler searchHandler;
+    private Runnable searchRunnable;
 
     private boolean isSearchActive;
     private int currentOrientation;
@@ -72,6 +76,7 @@ public class SearchViewController {
     private static final int MAX_HISTORY_SIZE = 5;
     private static final int MAX_SEARCH_RESULTS = 50;
     private static final int SEARCH_DROPDOWN_DELAY_MS = 100;
+    private static final int SEARCH_DEBOUNCE_MS = 250; // Debouncing delay for search input to reduce filter calls.
     private static final float DISABLED_ALPHA = 0.5f;
 
     // Resource ID constants.
@@ -682,6 +687,7 @@ public class SearchViewController {
         this.filteredSearchItems = new ArrayList<>();
         this.keyToSearchItem = new HashMap<>();
         this.inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        this.searchHandler = new Handler(Looper.getMainLooper());
 
         // Initialize search history.
         StringSetting searchEntries = Settings.SETTINGS_SEARCH_ENTRIES;
@@ -775,6 +781,11 @@ public class SearchViewController {
                 try {
                     Logger.printDebug(() -> "Search query: " + newText);
 
+                    // Remove any pending search runnable to avoid unnecessary filtering while the user is typing.
+                    if (searchRunnable != null) {
+                        searchHandler.removeCallbacks(searchRunnable);
+                    }
+
                     String trimmedText = newText.trim();
                     if (trimmedText.isEmpty()) { // Consider spaces as an empty query.
                         overlayContainer.setVisibility(View.GONE);
@@ -791,7 +802,10 @@ public class SearchViewController {
                             autoCompleteTextView.setThreshold(1);
                         }
                     } else {
-                        filterAndShowResults(newText);
+                        // Create a new runnable to perform the search after a delay.
+                        // This prevents filterAndShowResults from being called on every single keystroke.
+                        searchRunnable = () -> filterAndShowResults(newText);
+                        searchHandler.postDelayed(searchRunnable, SEARCH_DEBOUNCE_MS);
 
                         // Disable suggestions during text input.
                         if (showSettingsSearchHistory) {
@@ -1119,13 +1133,17 @@ public class SearchViewController {
      */
     @SuppressWarnings("deprecation")
     private void filterAndShowResults(String query) {
+        // Keep track of the previously displayed items to clear their highlights.
+        List<SearchResultItem> previouslyDisplayedItems = new ArrayList<>(filteredSearchItems);
+
         filteredSearchItems.clear();
 
         String queryLower = Utils.removePunctuationToLowercase(query);
         Pattern queryPattern = Pattern.compile(Pattern.quote(queryLower), Pattern.CASE_INSENSITIVE);
 
-        // Clear highlighting for all items to reset previous highlights.
-        for (SearchResultItem item : allSearchItems) {
+        // Clear highlighting only for items that were previously visible.
+        // This avoids iterating through all items on every keystroke during filtering.
+        for (SearchResultItem item : previouslyDisplayedItems) {
             item.clearHighlighting();
         }
 
