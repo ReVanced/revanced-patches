@@ -472,7 +472,7 @@ public class SearchViewController {
                     case "no_results" -> {
                         NoResultsViewHolder noResultsHolder = new NoResultsViewHolder();
                         noResultsHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
-                        noResultsHolder.summaryView = view.findViewById(android.R.id.summary);
+                        noResultsHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
                         noResultsHolder.iconView = view.findViewById(android.R.id.icon);
                         view.setTag(ID_PREFERENCE_TITLE, noResultsHolder);
                         holder = noResultsHolder;
