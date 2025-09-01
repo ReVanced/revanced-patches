@@ -44,7 +44,7 @@
                 android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp"
                 android:ellipsize="end"
-                android:maxLines="8"
+                android:maxLines="10"
                 android:visibility="gone" />
     </LinearLayout>
 
