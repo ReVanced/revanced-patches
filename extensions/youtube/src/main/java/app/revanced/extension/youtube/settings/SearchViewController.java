@@ -704,7 +704,8 @@ public class SearchViewController {
                 try {
                     Logger.printDebug(() -> "Search query: " + newText);
 
-                    if (TextUtils.isEmpty(newText)) {
+                    String trimmedText = newText.trim();
+                    if (trimmedText.isEmpty()) { // Consider spaces as an empty query.
                         overlayContainer.setVisibility(View.GONE);
                         filteredSearchItems.clear();
                         searchResultsAdapter.notifyDataSetChanged();
