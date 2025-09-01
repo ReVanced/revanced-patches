@@ -514,20 +514,17 @@ public class SearchViewController {
          */
         private void navigateToPreferenceScreen(SearchResultItem item) {
             try {
+                // No navigation for "no results" item.
                 if (item.preferenceType == SearchResultItem.TYPE_NO_RESULTS) {
-                    return; // No navigation for "no results" item.
+                    return;
                 }
-
-                Logger.printDebug(() -> "Navigating to path: " + item.navigationPath + " with keys: " + item.navigationKeys);
 
                 // Try navigation by keys first.
                 if (navigateByKeys(item)) {
-                    Logger.printDebug(() -> "Successfully navigated by keys");
                     return;
                 }
 
                 // Fallback to method using titles.
-                Logger.printDebug(() -> "Fallback to navigation by titles");
                 navigateByTitles(item);
 
             } catch (Exception ex) {
@@ -857,7 +854,6 @@ public class SearchViewController {
                     if (!TextUtils.isEmpty(key) && (preference instanceof PreferenceScreen
                             || hasNavigationCapability(preference))) {
                         newKeys.add(key);
-                        Logger.printDebug(() -> "Adding navigation key: " + key + " for title: " + title);
                     }
                 }
 
@@ -899,12 +895,8 @@ public class SearchViewController {
         boolean navigationSuccessful = true;
 
         for (String key : item.navigationKeys) {
-            Logger.printDebug(() -> "Looking for preference with key: " + key);
-
             Preference targetPref = findPreferenceByKey(currentScreen, key);
             if (targetPref != null) {
-                Logger.printDebug(() -> "Found preference: " + targetPref.getTitle() + " (key: " + key + ")");
-
                 // Perform click only if this preference opens a new screen,
                 if (targetPref instanceof PreferenceScreen || hasNavigationCapability(targetPref)) {
                     handlePreferenceClick(targetPref);
@@ -913,11 +905,6 @@ public class SearchViewController {
                     PreferenceScreen newScreen = fragment.getPreferenceScreenForSearch();
                     if (newScreen != currentScreen) {
                         currentScreen = newScreen;
-                        PreferenceScreen finalCurrentScreen = currentScreen;
-                        Logger.printDebug(() -> "Navigated to new screen with " +
-                                finalCurrentScreen.getPreferenceCount() + " preferences");
-                    } else {
-                        Logger.printDebug(() -> "Screen did not change after navigation");
                     }
                 }
             } else {
