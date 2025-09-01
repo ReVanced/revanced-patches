@@ -45,6 +45,7 @@ import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
 import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
+import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPreference;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
 /**
@@ -144,7 +145,7 @@ public class SearchViewController {
         final List<String> navigationKeys;
 
         @Nullable private final CharSequence originalTitle;
-        @Nullable private final CharSequence originalSummary;
+        @Nullable private CharSequence originalSummary;
         @Nullable private final CharSequence originalSummaryOn;
         @Nullable private final CharSequence originalSummaryOff;
         @Nullable private final CharSequence[] originalEntries;
@@ -154,7 +155,7 @@ public class SearchViewController {
         private boolean highlightingApplied;
 
         @ColorInt
-        private final int color;
+        private int color;
 
         SearchResultItem(Preference pref, String navPath, List<String> navKeys) {
             this.preference = pref;
@@ -207,22 +208,22 @@ public class SearchViewController {
 
             // Create searchable text combining all relevant fields.
             StringBuilder searchBuilder = new StringBuilder();
-            appendText(searchBuilder, pref.getKey());
+            appendText(searchBuilder, preference.getKey());
             appendText(searchBuilder, title);
             appendText(searchBuilder, summary);
 
             // Add type-specific searchable content.
-            if (pref instanceof ListPreference listPref) {
+            if (preference instanceof ListPreference listPref) {
                 CharSequence[] entries = listPref.getEntries();
                 if (entries != null) {
                     for (CharSequence entry : entries) {
                         appendText(searchBuilder, entry);
                     }
                 }
-            } else if (pref instanceof SwitchPreference switchPref) {
+            } else if (preference instanceof SwitchPreference switchPref) {
                 appendText(searchBuilder, switchPref.getSummaryOn());
                 appendText(searchBuilder, switchPref.getSummaryOff());
-            } else if (pref instanceof ColorPickerPreference) {
+            } else if (preference instanceof ColorPickerPreference) {
                 appendText(searchBuilder, ColorPickerPreference.getColorString(color));
             }
 
@@ -241,10 +242,36 @@ public class SearchViewController {
         }
 
         /**
+         * Updates the summary.
+         */
+        void updateOriginalSummary(CharSequence newSummary) {
+            this.originalSummary = newSummary;
+            this.summary = newSummary != null ? newSummary : "";
+            preference.setSummary(newSummary); // Update the preference's summary.
+        }
+
+        /**
          * Gets the icon resource ID for this item.
          */
         int getIconResourceId() {
             return iconResourceId;
+        }
+
+        /**
+         * Sets the color for this search result item.
+         * Alpha channel is stripped out to keep only RGB.
+         */
+        @ColorInt
+        public void setColor(int newColor) {
+            this.color = newColor & 0x00FFFFFF;
+        }
+
+        /**
+         * Returns the currently stored color.
+         */
+        @ColorInt
+        public int getColor() {
+            return color;
         }
 
         /**
@@ -326,14 +353,6 @@ public class SearchViewController {
             }
 
             highlightingApplied = false;
-        }
-
-        /**
-         * Gets the color for TYPE_COLOR_PICKER.
-         */
-        @ColorInt
-        int getColor() {
-            return color;
         }
     }
 
@@ -564,10 +583,10 @@ public class SearchViewController {
                     colorHolder.summaryView.setText(item.summary);
                     colorHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
                     colorHolder.pathView.setText(item.navigationPath);
-                    colorHolder.colorDot.setBackgroundResource(SearchViewController.DRAWABLE_REVANCED_SETTINGS_CIRCLE_BACKGROUND);
+                    colorHolder.colorDot.setBackgroundResource(DRAWABLE_REVANCED_SETTINGS_CIRCLE_BACKGROUND);
                     colorHolder.colorDot.getBackground().setTint(item.getColor() | 0xFF000000);
                     colorHolder.colorDot.setEnabled(item.preference.isEnabled());
-                    colorHolder.colorDot.setAlpha(item.preference.isEnabled() ? 1.0f : SearchViewController.DISABLED_ALPHA);
+                    colorHolder.colorDot.setAlpha(item.preference.isEnabled() ? 1.0f : DISABLED_ALPHA);
                     setupPreferenceView(view, colorHolder.titleView, colorHolder.summaryView, colorHolder.pathView,
                             item.preference, () -> handlePreferenceClick(item.preference));
                 }
@@ -872,8 +891,8 @@ public class SearchViewController {
                             keyToSearchItem.put(key, item);
                         }
                     }
-                    // Set up listeners for ColorPickerPreference.
-                    setupColorPickerListeners();
+                    // Set up listeners.
+                    setupPreferenceListeners();
                     Logger.printDebug(() -> "Collected " + allSearchItems.size() + " searchable preferences");
                 }
             } catch (Exception ex) {
@@ -883,27 +902,51 @@ public class SearchViewController {
     }
 
     /**
-     * Sets up listeners for ColorPickerPreference to update color in SearchResultItem.
+     * Sets up listeners for preferences (e.g., ColorPickerPreference, CustomDialogListPreference)
+     * to keep search results in sync when preference values change.
      */
-    private void setupColorPickerListeners() {
+    private void setupPreferenceListeners() {
         for (SearchResultItem item : allSearchItems) {
-            if (item.preference instanceof ColorPickerPreference colorPref) {
+            Preference pref = item.preference;
+
+            if (pref instanceof ColorPickerPreference colorPref) {
                 colorPref.setOnColorChangeListener((prefKey, newColor) -> {
                     SearchResultItem searchItem = keyToSearchItem.get(prefKey);
-                    if (searchItem != null) {
-                        try {
-                            Field colorField = SearchResultItem.class.getDeclaredField("color");
-                            colorField.setAccessible(true);
-                            colorField.setInt(searchItem, newColor & 0x00FFFFFF);
-                            if (isSearchActive) {
-                                searchResultsAdapter.notifyDataSetChanged();
-                            }
-                        } catch (Exception ex) {
-                            Logger.printException(() -> "Failed to update color in SearchResultItem.", ex);
+                    if (searchItem == null) return;
+
+                    int rgbColor = newColor & 0x00FFFFFF;
+                    searchItem.setColor(rgbColor);
+
+                    refreshSearchResults();
+                });
+            } else if (pref instanceof ListPreference listPref) {
+                listPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                    SearchResultItem searchItem = keyToSearchItem.get(preference.getKey());
+                    if (searchItem == null) return true;
+
+                    int index = listPref.findIndexOfValue(newValue.toString());
+                    if (index >= 0) {
+                        if (!(listPref instanceof SegmentCategoryListPreference)) {
+                            CharSequence newSummary = listPref.getEntries()[index];
+                            searchItem.updateOriginalSummary(newSummary);
+                            searchItem.clearHighlighting();
+                            listPref.setSummary(newSummary);
                         }
                     }
+
+                    refreshSearchResults();
+                    return true;
                 });
             }
+        }
+    }
+
+    /**
+     * Refreshes search results if search is active.
+     */
+    private void refreshSearchResults() {
+        if (isSearchActive) {
+            searchResultsAdapter.notifyDataSetChanged();
         }
     }
 
