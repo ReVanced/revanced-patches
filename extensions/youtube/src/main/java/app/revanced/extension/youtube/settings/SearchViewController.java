@@ -100,6 +100,8 @@ public class SearchViewController {
 
     private static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON =
             getResourceIdentifier("revanced_settings_search_icon", "drawable");
+    private static final int DRAWABLE_REVANCED_SETTINGS_INFO =
+            getResourceIdentifier("revanced_settings_screen_00_about", "drawable");
     private static final int DRAWABLE_REVANCED_SETTINGS_CIRCLE_BACKGROUND =
             getResourceIdentifier("revanced_settings_circle_background", "drawable");
     private static final int MENU_REVANCED_SEARCH_MENU =
@@ -132,6 +134,7 @@ public class SearchViewController {
         final String navigationPath;
         final String searchableText;
         final int preferenceType;
+        final int iconResourceId;
         final List<String> navigationKeys;
 
         @Nullable private final CharSequence originalTitle;
@@ -155,6 +158,11 @@ public class SearchViewController {
             this.title = originalTitle != null ? originalTitle : "";
             this.originalSummary = pref.getSummary();
             this.summary = originalSummary != null ? originalSummary : "";
+            this.iconResourceId = (pref.getIcon() != null && "no_results_placeholder".equals(pref.getKey()))
+                    ? DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON
+                    : (pref.getIcon() != null && "search_tips_placeholder".equals(pref.getKey()))
+                    ? DRAWABLE_REVANCED_SETTINGS_INFO
+                    : 0;
 
             // Determine preference type and cache original values.
             if (pref instanceof SwitchPreference switchPref) {
@@ -176,7 +184,8 @@ public class SearchViewController {
                 this.originalEntries = null;
                 String colorString = colorPref.getText();
                 this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) & 0x00FFFFFF);
-            } else if ("no_results_placeholder".equals(pref.getKey())) {
+            } else if ("no_results_placeholder".equals(pref.getKey())
+                    || "search_tips_placeholder".equals(pref.getKey())) {
                 this.preferenceType = TYPE_NO_RESULTS;
                 this.originalSummaryOn = null;
                 this.originalSummaryOff = null;
@@ -223,6 +232,13 @@ public class SearchViewController {
                 if (builder.length() > 0) builder.append(" ");
                 builder.append(Utils.removePunctuationToLowercase(text));
             }
+        }
+
+        /**
+         * Gets the icon resource ID for this item.
+         */
+        int getIconResourceId() {
+            return iconResourceId;
         }
 
         /**
@@ -485,7 +501,7 @@ public class SearchViewController {
                     summaryView.setText(item.summary);
                     summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
                     ImageView iconView = view.findViewById(android.R.id.icon);
-                    iconView.setImageResource(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
+                    iconView.setImageResource(item.getIconResourceId());
                 }
             }
 
@@ -1070,10 +1086,11 @@ public class SearchViewController {
             }
         }
 
-        // Show 'No results found' if search results are empty.
+        // Show 'No results found' and "Search Tips" if search results are empty.
         if (filteredSearchItems.isEmpty()) {
-            Preference noResultsPreference = createNoResultsPreference(query);
-            filteredSearchItems.add(new SearchResultItem(noResultsPreference, ""));
+            for (Preference pref : createNoResultsPreferences(query)) {
+                filteredSearchItems.add(new SearchResultItem(pref, ""));
+            }
         }
 
         searchResultsAdapter.notifyDataSetChanged();
@@ -1082,17 +1099,37 @@ public class SearchViewController {
     }
 
     /**
-     * Creates a Preference object for the "No results found" message.
+     * Creates Preferences for "No results" and "Search Tips".
      */
     @SuppressWarnings("deprecation")
-    private Preference createNoResultsPreference(String query) {
+    private List<Preference> createNoResultsPreferences(String query) {
+        List<Preference> prefs = new ArrayList<>();
+
+        // "No results" card.
         Preference noResultsPreference = new Preference(activity);
         noResultsPreference.setKey("no_results_placeholder");
         noResultsPreference.setTitle(str("revanced_settings_search_no_results_title", query));
         noResultsPreference.setSummary(str("revanced_settings_search_no_results_summary"));
         noResultsPreference.setSelectable(false);
         noResultsPreference.setIcon(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
-        return noResultsPreference;
+        prefs.add(noResultsPreference);
+
+        // Empty spacer.
+        Preference space = new Preference(activity);
+        space.setSelectable(false);
+        space.setSummary("\n\n\n\n");
+        prefs.add(space);
+
+        // "Search Tips" card.
+        Preference tipsPreference = new Preference(activity);
+        tipsPreference.setKey("search_tips_placeholder");
+        tipsPreference.setTitle(str("revanced_settings_search_tips_title"));
+        tipsPreference.setSummary(str("revanced_settings_search_tips_summary"));
+        tipsPreference.setSelectable(false);
+        tipsPreference.setIcon(DRAWABLE_REVANCED_SETTINGS_INFO);
+        prefs.add(tipsPreference);
+
+        return prefs;
     }
 
     /**
