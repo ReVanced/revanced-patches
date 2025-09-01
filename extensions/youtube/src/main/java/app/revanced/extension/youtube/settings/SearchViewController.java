@@ -709,6 +709,11 @@ public class SearchViewController {
                         filteredSearchItems.clear();
                         searchResultsAdapter.notifyDataSetChanged();
 
+                        // Clear highlighting when query becomes empty.
+                        for (SearchResultItem item : allSearchItems) {
+                            item.clearHighlighting();
+                        }
+
                         // Re-enable suggestions for empty input.
                         if (showSettingsSearchHistory) {
                             autoCompleteTextView.setThreshold(1);
