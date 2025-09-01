@@ -70,6 +70,7 @@ public class SearchViewController {
     private int currentOrientation;
 
     private static final int MAX_HISTORY_SIZE = 5;
+    private static final int MAX_SEARCH_RESULTS = 50;
     private static final int SEARCH_DROPDOWN_DELAY_MS = 100;
     private static final float DISABLED_ALPHA = 0.5f;
 
@@ -1130,10 +1131,13 @@ public class SearchViewController {
 
         // Collect matched items first.
         List<SearchResultItem> matched = new ArrayList<>();
+        int matchCount = 0;
         for (SearchResultItem item : allSearchItems) {
+            if (matchCount >= MAX_SEARCH_RESULTS) break; // Stop after collecting max results.
             if (item.matchesQuery(queryLower)) {
                 item.applyHighlighting(queryPattern);
                 matched.add(item);
+                matchCount++;
             }
         }
 
