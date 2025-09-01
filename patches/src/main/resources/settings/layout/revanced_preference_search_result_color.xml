@@ -48,16 +48,23 @@
                 android:visibility="gone" />
     </LinearLayout>
 
-    <View
-            android:id="@+id/preference_color_dot"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
+    <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
-            android:background="@drawable/revanced_settings_circle_background"
-            android:elevation="2dp"
-            android:translationZ="2dp"
-            android:outlineProvider="background" />
+            android:layout_marginStart="16dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+        <View
+                android:id="@+id/preference_color_dot"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/revanced_settings_circle_background"
+                android:elevation="2dp"
+                android:translationZ="2dp"
+                android:outlineProvider="background" />
+    </FrameLayout>
 
 </LinearLayout>
