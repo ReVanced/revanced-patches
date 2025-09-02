@@ -12,7 +12,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val hideNavigationButtonsPatch = bytecodePatch(
     name = "Hide navigation buttons",
-    description = "Hides navigation bar buttons, such as Reels and the Create button.",
+    description = "Hides navigation bar buttons, such as the Reels and Create button.",
     use = false
 ) {
     compatibleWith("com.instagram.android")
