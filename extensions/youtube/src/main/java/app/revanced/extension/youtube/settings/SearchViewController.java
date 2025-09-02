@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.settings;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.DISABLED_ALPHA;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -29,7 +30,6 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -78,7 +78,6 @@ public class SearchViewController {
     private static final int MAX_SEARCH_RESULTS = 50;
     private static final int SEARCH_DROPDOWN_DELAY_MS = 100;
     private static final int SEARCH_DEBOUNCE_MS = 250; // Debouncing delay for search input to reduce filter calls.
-    private static final float DISABLED_ALPHA = 0.5f;
 
     // Resource ID constants.
     private static final int ID_REVANCED_SEARCH_VIEW = getResourceIdentifier("revanced_search_view", "id");
@@ -123,6 +122,7 @@ public class SearchViewController {
                 "switch", "revanced_preference_search_result_switch",
                 "list", "revanced_preference_search_result_list",
                 "color", "revanced_preference_search_result_color",
+                "segment_category", "revanced_preference_search_result_color",
                 "no_results", "revanced_preference_search_no_result");
     }
 
@@ -135,7 +135,8 @@ public class SearchViewController {
         static final int TYPE_SWITCH = 1;
         static final int TYPE_LIST = 2;
         static final int TYPE_COLOR_PICKER = 3;
-        static final int TYPE_NO_RESULTS = 4;
+        static final int TYPE_SEGMENT_CATEGORY = 4;
+        static final int TYPE_NO_RESULTS = 5;
 
         final Preference preference;
         final String navigationPath;
@@ -178,7 +179,7 @@ public class SearchViewController {
                 this.originalSummaryOff = switchPref.getSummaryOff();
                 this.originalEntries = null;
                 this.color = 0;
-            } else if (pref instanceof ListPreference listPref) {
+            } else if (pref instanceof ListPreference listPref && !(pref instanceof SegmentCategoryListPreference)) {
                 this.preferenceType = TYPE_LIST;
                 this.originalSummaryOn = null;
                 this.originalSummaryOff = null;
@@ -191,6 +192,12 @@ public class SearchViewController {
                 this.originalEntries = null;
                 String colorString = colorPref.getText();
                 this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) & 0x00FFFFFF);
+            } else if (pref instanceof SegmentCategoryListPreference segmentPref) {
+                this.preferenceType = TYPE_SEGMENT_CATEGORY;
+                this.originalSummaryOn = null;
+                this.originalSummaryOff = null;
+                this.originalEntries = segmentPref.getEntries();
+                this.color = segmentPref.getColorWithOpacity();
             } else if ("no_results_placeholder".equals(pref.getKey())
                     || "search_tips_placeholder".equals(pref.getKey())) {
                 this.preferenceType = TYPE_NO_RESULTS;
@@ -259,11 +266,10 @@ public class SearchViewController {
 
         /**
          * Sets the color for this search result item.
-         * Alpha channel is stripped out to keep only RGB.
          */
         @ColorInt
         public void setColor(int newColor) {
-            this.color = newColor & 0x00FFFFFF;
+            this.color = newColor;
         }
 
         /**
@@ -408,6 +414,7 @@ public class SearchViewController {
                 case SearchResultItem.TYPE_SWITCH -> "switch";
                 case SearchResultItem.TYPE_LIST   -> "list";
                 case SearchResultItem.TYPE_COLOR_PICKER -> "color";
+                case SearchResultItem.TYPE_SEGMENT_CATEGORY -> "segment_category";
                 case SearchResultItem.TYPE_NO_RESULTS   -> "no_results";
                 default -> "regular";
             };
@@ -484,7 +491,7 @@ public class SearchViewController {
                         view.setTag(ID_PREFERENCE_TITLE, switchHolder);
                         holder = switchHolder;
                     }
-                    case "color" -> {
+                    case "color", "segment_category" -> {
                         ColorViewHolder colorHolder = new ColorViewHolder();
                         colorHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                         colorHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
@@ -576,15 +583,14 @@ public class SearchViewController {
                         switchHolder.switchWidget.setOnClickListener(null);
                     }
                 }
-
-                case "color" -> {
+                case "color", "segment_category" -> {
                     ColorViewHolder colorHolder = (ColorViewHolder) holder;
                     colorHolder.titleView.setText(item.title);
                     colorHolder.summaryView.setText(item.summary);
                     colorHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
                     colorHolder.pathView.setText(item.navigationPath);
                     colorHolder.colorDot.setBackgroundResource(DRAWABLE_REVANCED_SETTINGS_CIRCLE_BACKGROUND);
-                    colorHolder.colorDot.getBackground().setTint(item.getColor() | 0xFF000000);
+                    colorHolder.colorDot.getBackground().setTint(item.getColor());
                     colorHolder.colorDot.setEnabled(item.preference.isEnabled());
                     colorHolder.colorDot.setAlpha(item.preference.isEnabled() ? 1.0f : DISABLED_ALPHA);
                     setupPreferenceView(view, colorHolder.titleView, colorHolder.summaryView, colorHolder.pathView,
@@ -905,6 +911,7 @@ public class SearchViewController {
      * Sets up listeners for preferences (e.g., ColorPickerPreference, CustomDialogListPreference)
      * to keep search results in sync when preference values change.
      */
+    @SuppressWarnings("deprecation")
     private void setupPreferenceListeners() {
         for (SearchResultItem item : allSearchItems) {
             Preference pref = item.preference;
@@ -919,6 +926,15 @@ public class SearchViewController {
 
                     refreshSearchResults();
                 });
+            } else if (pref instanceof SegmentCategoryListPreference segmentPref) {
+                segmentPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                    SearchResultItem searchItem = keyToSearchItem.get(preference.getKey());
+                    if (searchItem == null) return true;
+
+                    searchItem.setColor(segmentPref.getColorWithOpacity());
+                    refreshSearchResults();
+                    return true;
+                });
             } else if (pref instanceof ListPreference listPref) {
                 listPref.setOnPreferenceChangeListener((preference, newValue) -> {
                     SearchResultItem searchItem = keyToSearchItem.get(preference.getKey());
@@ -926,12 +942,10 @@ public class SearchViewController {
 
                     int index = listPref.findIndexOfValue(newValue.toString());
                     if (index >= 0) {
-                        if (!(listPref instanceof SegmentCategoryListPreference)) {
-                            CharSequence newSummary = listPref.getEntries()[index];
-                            searchItem.updateOriginalSummary(newSummary);
-                            searchItem.clearHighlighting();
-                            listPref.setSummary(newSummary);
-                        }
+                        CharSequence newSummary = listPref.getEntries()[index];
+                        searchItem.updateOriginalSummary(newSummary);
+                        searchItem.clearHighlighting();
+                        listPref.setSummary(newSummary);
                     }
 
                     refreshSearchResults();

@@ -323,13 +323,6 @@ public enum SegmentCategory {
         return String.format(Locale.US, "#%06X", getColorNoOpacity());
     }
 
-    private static SpannableString getCategoryColorDotSpan(String text, @ColorInt int color) {
-        SpannableString dotSpan = new SpannableString(COLOR_DOT_STRING + text);
-        dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        return dotSpan;
-    }
-
     public static SpannableString getCategoryColorDot(@ColorInt int color) {
         SpannableString dotSpan = new SpannableString(COLOR_DOT_STRING);
         dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
@@ -339,16 +332,8 @@ public enum SegmentCategory {
         return dotSpan;
     }
 
-    public SpannableString getCategoryColorDot() {
-        return getCategoryColorDot(color);
-    }
-
-    public SpannableString getTitleWithColorDot(@ColorInt int categoryColor) {
-        return getCategoryColorDotSpan(" " + title, categoryColor);
-    }
-
-    public SpannableString getTitleWithColorDot() {
-        return getTitleWithColorDot(color);
+    public StringRef getTitle() {
+        return title;
     }
 
     /**

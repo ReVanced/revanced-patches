@@ -1,9 +1,8 @@
 package app.revanced.extension.youtube.sponsorblock.objects;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import static app.revanced.extension.shared.Utils.dipToPixels;
-import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.getColorString;
+import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.*;
 import static app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory.applyOpacityToColor;
 
 import android.app.Dialog;
@@ -36,7 +35,7 @@ import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("deprecation")
 public class SegmentCategoryListPreference extends ListPreference {
-    private final SegmentCategory category;
+    public final SegmentCategory category;
 
     /**
      * RGB format (no alpha).
@@ -49,6 +48,7 @@ public class SegmentCategoryListPreference extends ListPreference {
     private float categoryOpacity;
     private int selectedDialogEntryIndex;
 
+    private View widgetColorDot;
     private TextView dialogColorDotView;
     private EditText dialogColorEditText;
     private EditText dialogOpacityEditText;
@@ -63,6 +63,7 @@ public class SegmentCategoryListPreference extends ListPreference {
         // of code is messy and should be rethought.
         setKey(category.behaviorSetting.key);
         setDefaultValue(category.behaviorSetting.defaultValue);
+        setTitle(category.getTitle().toString());
 
         final boolean isHighlightCategory = category == SegmentCategory.HIGHLIGHT;
         setEntries(isHighlightCategory
@@ -73,7 +74,18 @@ public class SegmentCategoryListPreference extends ListPreference {
                 : CategoryBehaviour.getBehaviorKeyValues());
         super.setSummary(category.description.toString());
 
+        setWidgetLayoutResource(LAYOUT_REVANCED_COLOR_DOT_WIDGET);
         updateUI();
+    }
+
+    @Override
+    protected void onBindView(View view) {
+        super.onBindView(view);
+
+        widgetColorDot = view.findViewById(ID_REVANCED_COLOR_DOT_WIDGET);
+        widgetColorDot.setBackgroundResource(DRAWABLE_REVANCED_CIRCLE_BACKGROUND);
+        widgetColorDot.getBackground().setTint(applyOpacityToCategoryColor());
+        widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
     }
 
     @Override
@@ -104,10 +116,8 @@ public class SegmentCategoryListPreference extends ListPreference {
             contentLayout.addView(radioGroup);
 
             // Inflate the color picker view.
-            View colorPickerContainer = LayoutInflater.from(context)
-                    .inflate(getResourceIdentifier("revanced_color_picker", "layout"), null);
-            dialogColorPickerView = colorPickerContainer.findViewById(
-                    getResourceIdentifier("revanced_color_picker_view", "id"));
+            View colorPickerContainer = LayoutInflater.from(context).inflate(LAYOUT_REVANCED_COLOR_PICKER, null);
+            dialogColorPickerView = colorPickerContainer.findViewById(ID_REVANCED_COLOR_PICKER_VIEW);
             dialogColorPickerView.setColor(categoryColor);
             contentLayout.addView(colorPickerContainer);
 
@@ -360,14 +370,13 @@ public class SegmentCategoryListPreference extends ListPreference {
             categoryColor = category.getColorNoOpacity();
             categoryOpacity = category.getOpacity();
 
-            setTitle(category.getTitleWithColorDot(applyOpacityToCategoryColor()));
-
             Setting<String> behaviorSetting = getCategoryBehaviorSetting();
 
             if (behaviorSetting != null) {
                 setEnabled(behaviorSetting.isAvailable());
             }
 
+            updateWidgetColorDot();
         } catch (Exception ex) {
             Logger.printException(() -> "updateUI failure for category: " + category.keyValue, ex);
         }
@@ -395,11 +404,27 @@ public class SegmentCategoryListPreference extends ListPreference {
     }
 
     private void updateCategoryColorDot() {
-        dialogColorDotView.setText(SegmentCategory.getCategoryColorDot(applyOpacityToCategoryColor()));
+        if (dialogColorDotView != null) {
+            dialogColorDotView.setText(SegmentCategory.getCategoryColorDot(applyOpacityToCategoryColor()));
+        }
+    }
+
+    private void updateWidgetColorDot() {
+        if (widgetColorDot != null) {
+            widgetColorDot.getBackground().setTint(applyOpacityToCategoryColor());
+            widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
+        }
     }
 
     private void updateOpacityText() {
-        dialogOpacityEditText.setText(String.format(Locale.US, "%.2f", categoryOpacity));
+        if (dialogOpacityEditText != null) {
+            dialogOpacityEditText.setText(String.format(Locale.US, "%.2f", categoryOpacity));
+        }
+    }
+
+    @ColorInt
+    public int getColorWithOpacity() {
+        return applyOpacityToCategoryColor();
     }
 
     @Override

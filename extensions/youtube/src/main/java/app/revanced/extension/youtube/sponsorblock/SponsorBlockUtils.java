@@ -54,11 +54,11 @@ public class SponsorBlockUtils {
         public void onClick(DialogInterface dialog, int which) {
             switch (which) {
                 case DialogInterface.BUTTON_NEGATIVE:
-                    // start
+                    // Start.
                     newSponsorSegmentStartMillis = newSponsorSegmentDialogShownMillis;
                     break;
                 case DialogInterface.BUTTON_POSITIVE:
-                    // end
+                    // End.
                     newSponsorSegmentEndMillis = newSponsorSegmentDialogShownMillis;
                     break;
             }
@@ -101,7 +101,7 @@ public class SponsorBlockUtils {
                 SegmentCategory[] categories = SegmentCategory.categoriesWithoutHighlights();
                 CharSequence[] titles = new CharSequence[categories.length];
                 for (int i = 0, length = categories.length; i < length; i++) {
-                    titles[i] = categories[i].getTitleWithColorDot();
+                    titles[i] = categories[i].getTitle().toString();
                 }
 
                 newUserCreatedSegmentCategory = null;
@@ -166,7 +166,7 @@ public class SponsorBlockUtils {
             SponsorSegment segment = segments[which];
 
             SegmentVote[] voteOptions = (segment.category == SegmentCategory.HIGHLIGHT)
-                    ? SegmentVote.voteTypesWithoutCategoryChange // highlight segments cannot change category
+                    ? SegmentVote.voteTypesWithoutCategoryChange // Highlight segments cannot change category.
                     : SegmentVote.values();
             final int voteOptionsLength = voteOptions.length;
             final boolean userIsVip = Settings.SB_USER_IS_VIP.get();
@@ -309,7 +309,7 @@ public class SponsorBlockUtils {
 
                 SpannableStringBuilder spannableBuilder = new SpannableStringBuilder();
 
-                spannableBuilder.append(segment.category.getTitleWithColorDot());
+                spannableBuilder.append(segment.category.getTitle().toString());
                 spannableBuilder.append('\n');
 
                 String startTime = formatSegmentTime(segment.start);
@@ -322,7 +322,7 @@ public class SponsorBlockUtils {
                 }
 
                 if (i + 1 != numberOfSegments) {
-                    // prevents trailing new line after last segment
+                    // Prevents trailing new line after last segment.
                     spannableBuilder.append('\n');
                 }
 
@@ -344,7 +344,7 @@ public class SponsorBlockUtils {
             final SegmentCategory[] values = SegmentCategory.categoriesWithoutHighlights();
             CharSequence[] titles = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
-                titles[i] = values[i].getTitleWithColorDot();
+                titles[i] = values[i].getTitle().toString();
             }
 
             new AlertDialog.Builder(context)
@@ -374,7 +374,6 @@ public class SponsorBlockUtils {
             Logger.printException(() -> "onPreviewClicked failure", ex);
         }
     }
-
 
     static void sendViewRequestAsync(SponsorSegment segment) {
         if (segment.recordedAsSkipped || segment.category == SegmentCategory.UNSUBMITTED) {
@@ -429,7 +428,6 @@ public class SponsorBlockUtils {
         String secondsStr = matcher.group(4);
         String millisecondsStr = matcher.group(6); // Milliseconds is optional.
 
-
         try {
             final int hours = (hoursStr != null) ? Integer.parseInt(hoursStr) : 0;
             //noinspection ConstantConditions
@@ -480,7 +478,6 @@ public class SponsorBlockUtils {
 
         return String.format(Locale.US, formatPattern, formatArgs);
     }
-
 
     @SuppressLint("NewApi")
     public static String getTimeSavedString(long totalSecondsSaved) {

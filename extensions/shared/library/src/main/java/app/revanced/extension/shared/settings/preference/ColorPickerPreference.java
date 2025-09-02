@@ -63,7 +63,7 @@ public class ColorPickerPreference extends EditTextPreference {
     /**
      * Alpha for dimming when the preference is disabled.
      */
-    private static final float DISABLED_ALPHA = 0.5f; // 50%
+    public static final float DISABLED_ALPHA = 0.5f; // 50%
 
     /**
      * View displaying a colored dot in the widget area.
@@ -100,6 +100,17 @@ public class ColorPickerPreference extends EditTextPreference {
      * Listener for color changes.
      */
     private OnColorChangeListener colorChangeListener;
+
+    public static final int ID_REVANCED_COLOR_PICKER_VIEW =
+            getResourceIdentifier("revanced_color_picker_view", "id");
+    public static final int ID_REVANCED_COLOR_DOT_WIDGET =
+            getResourceIdentifier("revanced_color_dot_widget", "id");
+    public static final int LAYOUT_REVANCED_COLOR_DOT_WIDGET =
+            getResourceIdentifier("revanced_color_dot_widget", "layout");
+    public static final int LAYOUT_REVANCED_COLOR_PICKER =
+            getResourceIdentifier("revanced_color_picker", "layout");
+    public static final int DRAWABLE_REVANCED_CIRCLE_BACKGROUND =
+            getResourceIdentifier("revanced_settings_circle_background", "drawable");
 
     /**
      * Removes non valid hex characters, converts to all uppercase,
@@ -187,7 +198,7 @@ public class ColorPickerPreference extends EditTextPreference {
         }
 
         // Set the widget layout to a custom layout containing the colored dot.
-        setWidgetLayoutResource(getResourceIdentifier("revanced_color_dot_widget", "layout"));
+        setWidgetLayoutResource(LAYOUT_REVANCED_COLOR_DOT_WIDGET);
     }
 
     /**
@@ -228,10 +239,8 @@ public class ColorPickerPreference extends EditTextPreference {
     protected void onBindView(View view) {
         super.onBindView(view);
 
-        widgetColorDot = view.findViewById(getResourceIdentifier(
-                "revanced_color_dot_widget", "id"));
-        widgetColorDot.setBackgroundResource(getResourceIdentifier(
-                "revanced_settings_circle_background", "drawable"));
+        widgetColorDot = view.findViewById(ID_REVANCED_COLOR_DOT_WIDGET);
+        widgetColorDot.setBackgroundResource(DRAWABLE_REVANCED_CIRCLE_BACKGROUND);
         widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
         widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
     }
@@ -307,10 +316,8 @@ public class ColorPickerPreference extends EditTextPreference {
         Context context = getContext();
 
         // Inflate color picker view.
-        View colorPicker = LayoutInflater.from(context).inflate(
-                getResourceIdentifier("revanced_color_picker", "layout"), null);
-        dialogColorPickerView = colorPicker.findViewById(
-                getResourceIdentifier("revanced_color_picker_view", "id"));
+        View colorPicker = LayoutInflater.from(context).inflate(LAYOUT_REVANCED_COLOR_PICKER, null);
+        dialogColorPickerView = colorPicker.findViewById(ID_REVANCED_COLOR_PICKER_VIEW);
         dialogColorPickerView.setColor(currentColor);
 
         // Horizontal layout for preview and EditText.
