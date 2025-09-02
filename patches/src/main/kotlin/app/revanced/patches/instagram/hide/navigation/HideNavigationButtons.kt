@@ -47,20 +47,24 @@ val hideNavigationButtonsPatch = bytecodePatch(
                 val freeRegister = findFreeRegister(insertIndex, loopIndexRegister)
                 val instruction = getInstruction(endIndex - 1)
 
-                var instructions = ""
+                var instructions = buildString {
+                    if (hideCreate!!) {
+                        appendLine(
+                            """
+                                const v$freeRegister, 0x2
+                                if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
+                            """
+                        )
+                    }
 
-                if (hideReels!!) {
-                    instructions += """
-                        const v$freeRegister, 0x3
-                        if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
-                    """
-                }
-
-                if (hideCreate!!) {
-                    instructions += """
-                        const v$freeRegister, 0x2
-                        if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
-                    """
+                    if (hideReels!!) {
+                        appendLine(
+                            """
+                                const v$freeRegister, 0x3
+                                if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
+                            """
+                        )
+                    }
                 }
 
                 addInstructionsWithLabels(
@@ -71,4 +75,4 @@ val hideNavigationButtonsPatch = bytecodePatch(
             }
         }
     }
-}
+
