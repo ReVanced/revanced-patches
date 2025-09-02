@@ -36,8 +36,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
             )
         }
 
-        tabCreateButtonsLoopStartFingerprint.let {
-            it.method.apply {
+        tabCreateButtonsLoopStartFingerprint.method.apply {
                 // Check the current loop index, and skip over adding the
                 // navigation button view if the index matches a given button.
 
