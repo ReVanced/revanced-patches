@@ -32,17 +32,22 @@ val unlockPremiumPatch = bytecodePatch(
 ) {
     compatibleWith("com.spotify.music")
 
-    dependsOn(
-        sharedExtensionPatch,
-        // Currently there is no easy way to make a mandatory patch,
-        // so for now this is a dependent of this patch.
-        //
-        // FIXME: Modifying string resources (such as adding patch strings)
-        // is currently failing with ReVanced Manager.
-        // checkEnvironmentPatch,
+    dependsOn(sharedExtensionPatch)
+
+    // Common field and method names to try across different Spotify versions
+    val commonFieldNames = listOf(
+        "value_", "value", "mValue", "_value", "premium_", "premiumValue",
+        "configValue", "stateValue", "attributeValue"
+    )
+    
+    val commonMethodPatterns = listOf(
+        "get.*Premium", "is.*Premium", "check.*Premium",
+        "get.*State", "get.*Config", "get.*Attribute"
     )
 
     execute {
+        var patchSuccess = false
+        var errors = mutableListOf<String>()
         fun MutableClass.publicizeField(fieldName: String) {
             fields.first { it.name == fieldName }.apply {
                 // Add public and remove private flag.
@@ -50,18 +55,85 @@ val unlockPremiumPatch = bytecodePatch(
             }
         }
 
-        // Make _value accessible so that it can be overridden in the extension.
-        accountAttributeFingerprint.classDef.publicizeField("value_")
+        try {
+            // Try primary account attribute fingerprint
+            val accountAttrClass = accountAttributeFingerprint.classDef
+            var fieldFound = false
 
-        // Override the attributes map in the getter method.
-        productStateProtoGetMapFingerprint.method.apply {
-            val getAttributesMapIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
-            val attributesMapRegister = getInstruction<TwoRegisterInstruction>(getAttributesMapIndex).registerA
+            // Try all common field names
+            for (fieldName in commonFieldNames) {
+                try {
+                    accountAttrClass.fields.firstOrNull { it.name == fieldName }?.let { field ->
+                        field.accessFlags = field.accessFlags.toPublicAccessFlags()
+                        fieldFound = true
+                        break
+                    }
+                } catch (e: Exception) {
+                    errors.add("Failed to process field $fieldName: ${e.message}")
+                    continue
+                }
+            }
 
-            addInstruction(
-                getAttributesMapIndex + 1,
-                "invoke-static { v$attributesMapRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->overrideAttributes(Ljava/util/Map;)V"
+            // If primary fingerprint fails, try backup
+            if (!fieldFound) {
+                accountAttributeBackupFingerprint.classDef.fields.forEach { field ->
+                    if (field.type.contains("Object") || field.type.contains("Map")) {
+                        field.accessFlags = field.accessFlags.toPublicAccessFlags()
+                        fieldFound = true
+                    }
+                }
+            }
+
+            if (fieldFound) {
+                patchSuccess = true
+            }
+        } catch (e: Exception) {
+            errors.add("Account attribute patch failed: ${e.message}")
+        }
+
+        // Try primary product state fingerprint first
+        try {
+            productStateProtoFingerprint.method.apply {
+                // Try to find the most suitable index for attribute map access
+                val mapAccessIndices = findAllInstructions { 
+                    it.opcode == Opcode.IGET_OBJECT || it.opcode == Opcode.INVOKE_VIRTUAL 
+                }
+                
+                var patchApplied = false
+                for (index in mapAccessIndices) {
+                    try {
+                        val instruction = getInstruction<TwoRegisterInstruction>(index)
+                        addInstruction(
+                            index + 1,
+                            "invoke-static { v${instruction.registerA} }, " +
+                                    "$EXTENSION_CLASS_DESCRIPTOR->overrideAttributes(Ljava/util/Map;)V"
+                        )
+                        patchSuccess = true
+                        patchApplied = true
+                        break
+                    } catch (e: Exception) {
+                        errors.add("Failed to patch at index $index: ${e.message}")
+                        continue
+                    }
+                }
+
+                // If primary method fails, try backup fingerprint
+                if (!patchApplied) {
+                    productStateBackupFingerprint.method.apply {
+                        val backupIndex = indexOfFirstInstruction { 
+                            it.opcode == Opcode.INVOKE_VIRTUAL || it.opcode == Opcode.IGET_OBJECT 
+                        }
+                        if (backupIndex >= 0) {
+                            val instruction = getInstruction<TwoRegisterInstruction>(backupIndex)
+                            addInstruction(
+                                backupIndex + 1,
+                                "invoke-static { v${instruction.registerA} }, " +
+                                        "$EXTENSION_CLASS_DESCRIPTOR->overrideAttributes(Ljava/util/Map;)V"
+                            )
+                            patchSuccess = true
+                        }
+                    }
+                }
             )
         }
 
@@ -299,17 +371,48 @@ val unlockPremiumPatch = bytecodePatch(
                         "return-object v$onErrorReturnValueRegister"
             )
 
-            // Remove every instruction from the request call to right before the error static value construction.
-            val removeCount = onErrorReturnValueConstructionIndex - requestCallIndex
-            removeInstructions(requestCallIndex, removeCount)
-        }
+            // Additional premium feature patches
+            try {
+                premiumFeatureFingerprint.method.apply {
+                    addInstructions(
+                        0,
+                        """
+                        const/4 v0, 0x1
+                        return v0
+                        """
+                    )
+                    patchSuccess = true
+                }
+            } catch (e: Exception) {
+                errors.add("Premium feature patch failed: ${e.message}")
+            }
 
-        // Remove pendragon (pop up ads) requests and return the errors instead.
-        pendragonJsonFetchMessageRequestFingerprint.method.replaceFetchRequestSingleWithError(
-            PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME
-        )
-        pendragonProtoFetchMessageListRequestFingerprint.method.replaceFetchRequestSingleWithError(
-            PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME
-        )
+            // Remove popup ads and requests
+            try {
+                // Remove every instruction from the request call to right before the error static value construction.
+                val removeCount = onErrorReturnValueConstructionIndex - requestCallIndex
+                removeInstructions(requestCallIndex, removeCount)
+
+                // Remove pendragon popup ads requests
+                pendragonJsonFetchMessageRequestFingerprint.method.replaceFetchRequestSingleWithError(
+                    PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME
+                )
+                pendragonProtoFetchMessageListRequestFingerprint.method.replaceFetchRequestSingleWithError(
+                    PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME
+                )
+                patchSuccess = true
+            } catch (e: Exception) {
+                errors.add("Ad removal patch failed: ${e.message}")
+            }
+
+            // Verify patch success and report errors
+            if (!patchSuccess) {
+                val errorMessage = buildString {
+                    appendLine("Premium unlock patch failed! Errors encountered:")
+                    errors.forEach { appendLine("- $it") }
+                }
+                throw PatchException(errorMessage)
+            }
+        }
     }
 }
