@@ -240,6 +240,12 @@ public class ColorPickerPreference extends EditTextPreference {
         super.onBindView(view);
 
         widgetColorDot = view.findViewById(ID_REVANCED_COLOR_DOT_WIDGET);
+        updateWidgetColorDot();
+    }
+
+    private void updateWidgetColorDot() {
+        if (widgetColorDot == null) return;
+
         widgetColorDot.setBackgroundResource(DRAWABLE_REVANCED_CIRCLE_BACKGROUND);
         widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
         widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
@@ -251,13 +257,6 @@ public class ColorPickerPreference extends EditTextPreference {
     private void updateColorPreview() {
         if (dialogColorPreview != null) {
             dialogColorPreview.setText(getColorDot(currentColor));
-        }
-    }
-
-    private void updateWidgetColorDot() {
-        if (widgetColorDot != null) {
-            widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
-            widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
         }
     }
 

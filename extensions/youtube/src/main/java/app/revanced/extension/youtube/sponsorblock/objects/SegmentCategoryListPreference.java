@@ -79,16 +79,6 @@ public class SegmentCategoryListPreference extends ListPreference {
     }
 
     @Override
-    protected void onBindView(View view) {
-        super.onBindView(view);
-
-        widgetColorDot = view.findViewById(ID_REVANCED_COLOR_DOT_WIDGET);
-        widgetColorDot.setBackgroundResource(DRAWABLE_REVANCED_CIRCLE_BACKGROUND);
-        widgetColorDot.getBackground().setTint(applyOpacityToCategoryColor());
-        widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
-    }
-
-    @Override
     protected void showDialog(Bundle state) {
         try {
             Context context = getContext();
@@ -403,16 +393,26 @@ public class SegmentCategoryListPreference extends ListPreference {
         };
     }
 
-    private void updateCategoryColorDot() {
-        if (dialogColorDotView != null) {
-            dialogColorDotView.setText(SegmentCategory.getCategoryColorDot(applyOpacityToCategoryColor()));
-        }
+    @Override
+    protected void onBindView(View view) {
+        super.onBindView(view);
+
+        widgetColorDot = view.findViewById(ID_REVANCED_COLOR_DOT_WIDGET);
+        updateWidgetColorDot();
     }
 
     private void updateWidgetColorDot() {
-        if (widgetColorDot != null) {
-            widgetColorDot.getBackground().setTint(applyOpacityToCategoryColor());
-            widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
+        if (widgetColorDot == null) return;
+
+        widgetColorDot.setBackgroundResource(DRAWABLE_REVANCED_CIRCLE_BACKGROUND);
+        int color = applyOpacityToCategoryColor();
+        widgetColorDot.getBackground().setTint(color);
+        widgetColorDot.setAlpha(color == 0 ? 0f : isEnabled() ? 1.0f : DISABLED_ALPHA);
+    }
+
+    private void updateCategoryColorDot() {
+        if (dialogColorDotView != null) {
+            dialogColorDotView.setText(SegmentCategory.getCategoryColorDot(applyOpacityToCategoryColor()));
         }
     }
 

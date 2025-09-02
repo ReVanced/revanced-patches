@@ -30,6 +30,15 @@ public class LicenseActivityHook extends Activity {
 
     private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
 
+    public static final int ID_REVANCED_SETTINGS_FRAGMENTS =
+            getResourceIdentifier("revanced_settings_fragments", "id");
+    private static final int ID_REVANCED_TOOLBAR_PARENT =
+            getResourceIdentifier("revanced_toolbar_parent", "id");
+    private static final int LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR =
+            getResourceIdentifier("revanced_settings_with_toolbar", "layout");
+    private static final int STRING_REVANCED_SETTINGS_TITLE =
+            getResourceIdentifier("revanced_settings_title", "string");
+
     private static ViewGroup.LayoutParams toolbarLayoutParams;
 
     @SuppressLint("StaticFieldLeak")
@@ -87,8 +96,7 @@ public class LicenseActivityHook extends Activity {
         try {
             setActivityTheme(licenseActivity);
             ReVancedPreferenceFragment.setNavigationBarColor(licenseActivity.getWindow());
-            licenseActivity.setContentView(getResourceIdentifier(
-                    "revanced_settings_with_toolbar", "layout"));
+            licenseActivity.setContentView(LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR);
 
             // Sanity check.
             String dataString = licenseActivity.getIntent().getDataString();
@@ -103,7 +111,7 @@ public class LicenseActivityHook extends Activity {
             //noinspection deprecation
             licenseActivity.getFragmentManager()
                     .beginTransaction()
-                    .replace(getResourceIdentifier("revanced_settings_fragments", "id"), fragment)
+                    .replace(ID_REVANCED_SETTINGS_FRAGMENTS, fragment)
                     .commit();
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
@@ -114,8 +122,7 @@ public class LicenseActivityHook extends Activity {
     private static void createToolbar(Activity activity, PreferenceFragment fragment) {
         // Replace dummy placeholder toolbar.
         // This is required to fix submenu title alignment issue with Android ASOP 15+
-        ViewGroup toolBarParent = activity.findViewById(
-                getResourceIdentifier("revanced_toolbar_parent", "id"));
+        ViewGroup toolBarParent = activity.findViewById(ID_REVANCED_TOOLBAR_PARENT);
         ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent, "revanced_toolbar");
         toolbarLayoutParams = dummyToolbar.getLayoutParams();
         toolBarParent.removeView(dummyToolbar);
@@ -123,7 +130,7 @@ public class LicenseActivityHook extends Activity {
         Toolbar toolbar = new Toolbar(toolBarParent.getContext());
         toolbar.setBackgroundColor(getToolbarBackgroundColor());
         toolbar.setNavigationIcon(ReVancedPreferenceFragment.getBackButtonDrawable());
-        toolbar.setTitle(getResourceIdentifier("revanced_settings_title", "string"));
+        toolbar.setTitle(STRING_REVANCED_SETTINGS_TITLE);
 
         final int margin = Utils.dipToPixels(16);
         toolbar.setTitleMarginStart(margin);

@@ -211,7 +211,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         final boolean usingCustomDownloader = Downloader.findByPackageName(packageName) == null;
         adapter = new CustomDialogListPreference.ListPreferenceArrayAdapter(
                 context,
-                Utils.getResourceIdentifier("revanced_custom_list_item_checked", "layout"),
+                LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED,
                 getEntries(),
                 getEntryValues(),
                 usingCustomDownloader

@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.settings;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.DISABLED_ALPHA;
+import static app.revanced.extension.youtube.settings.LicenseActivityHook.ID_REVANCED_SETTINGS_FRAGMENTS;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -82,7 +83,6 @@ public class SearchViewController {
     // Resource ID constants.
     private static final int ID_REVANCED_SEARCH_VIEW = getResourceIdentifier("revanced_search_view", "id");
     private static final int ID_REVANCED_SEARCH_VIEW_CONTAINER = getResourceIdentifier("revanced_search_view_container", "id");
-    private static final int ID_REVANCED_SETTINGS_FRAGMENTS = getResourceIdentifier("revanced_settings_fragments", "id");
     private static final int ID_ACTION_SEARCH = getResourceIdentifier("action_search", "id");
     private static final int ID_PREFERENCE_TITLE = getResourceIdentifier("preference_title", "id");
     private static final int ID_PREFERENCE_SUMMARY = getResourceIdentifier("preference_summary", "id");
@@ -191,7 +191,7 @@ public class SearchViewController {
                 this.originalSummaryOff = null;
                 this.originalEntries = null;
                 String colorString = colorPref.getText();
-                this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) & 0x00FFFFFF);
+                this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) | 0xFF000000);
             } else if (pref instanceof SegmentCategoryListPreference segmentPref) {
                 this.preferenceType = TYPE_SEGMENT_CATEGORY;
                 this.originalSummaryOn = null;
@@ -921,7 +921,7 @@ public class SearchViewController {
                     SearchResultItem searchItem = keyToSearchItem.get(prefKey);
                     if (searchItem == null) return;
 
-                    int rgbColor = newColor & 0x00FFFFFF;
+                    int rgbColor = newColor | 0xFF000000;
                     searchItem.setColor(rgbColor);
 
                     refreshSearchResults();

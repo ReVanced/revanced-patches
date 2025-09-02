@@ -16,11 +16,22 @@ import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ui.CustomDialog;
 
+import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+
 /**
  * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator.
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class CustomDialogListPreference extends ListPreference {
+
+    public static final int ID_REVANCED_CHECK_ICON =
+            getResourceIdentifier("revanced_check_icon", "id");
+    public static final int ID_REVANCED_CHECK_ICON_PLACEHOLDER =
+            getResourceIdentifier("revanced_check_icon_placeholder", "id");
+    public static final int ID_REVANCED_ITEM_TEXT =
+            getResourceIdentifier("revanced_item_text", "id");
+    public static final int LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED =
+            getResourceIdentifier("revanced_custom_list_item_checked", "layout");
 
     /**
      * Custom ArrayAdapter to handle checkmark visibility.
@@ -54,12 +65,9 @@ public class CustomDialogListPreference extends ListPreference {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 view = inflater.inflate(layoutResourceId, parent, false);
                 holder = new SubViewDataContainer();
-                holder.checkIcon = view.findViewById(Utils.getResourceIdentifier(
-                        "revanced_check_icon", "id"));
-                holder.placeholder = view.findViewById(Utils.getResourceIdentifier(
-                        "revanced_check_icon_placeholder", "id"));
-                holder.itemText = view.findViewById(Utils.getResourceIdentifier(
-                        "revanced_item_text", "id"));
+                holder.checkIcon = view.findViewById(ID_REVANCED_CHECK_ICON);
+                holder.placeholder = view.findViewById(ID_REVANCED_CHECK_ICON_PLACEHOLDER);
+                holder.itemText = view.findViewById(ID_REVANCED_ITEM_TEXT);
                 view.setTag(holder);
             } else {
                 holder = (SubViewDataContainer) view.getTag();
@@ -112,7 +120,7 @@ public class CustomDialogListPreference extends ListPreference {
         // Create custom adapter for the ListView.
         ListPreferenceArrayAdapter adapter = new ListPreferenceArrayAdapter(
                 context,
-                Utils.getResourceIdentifier("revanced_custom_list_item_checked", "layout"),
+                LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED,
                 getEntries(),
                 getEntryValues(),
                 getValue()

@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.videoplayer;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
+import static app.revanced.extension.shared.settings.preference.CustomDialogListPreference.*;
 import static app.revanced.extension.youtube.patches.VideoInformation.AUTOMATIC_VIDEO_QUALITY_VALUE;
 import static app.revanced.extension.youtube.patches.VideoInformation.VIDEO_QUALITY_PREMIUM_NAME;
 import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.fadeInDuration;
@@ -331,14 +332,6 @@ public class VideoQualityDialogButton {
     }
 
     private static class CustomQualityAdapter extends ArrayAdapter<String> {
-        private static final int CUSTOM_LIST_ITEM_CHECKED_ID = Utils.getResourceIdentifier(
-                "revanced_custom_list_item_checked", "layout");
-        private static final int CHECK_ICON_ID = Utils.getResourceIdentifier(
-                "revanced_check_icon", "id");
-        private static final int CHECK_ICON_PLACEHOLDER_ID = Utils.getResourceIdentifier(
-                "revanced_check_icon_placeholder", "id");
-        private static final int ITEM_TEXT_ID = Utils.getResourceIdentifier(
-                "revanced_item_text", "id");
 
         private int selectedPosition = -1;
 
@@ -358,14 +351,14 @@ public class VideoQualityDialogButton {
 
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(
-                        CUSTOM_LIST_ITEM_CHECKED_ID,
+                        LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED,
                         parent,
                         false
                 );
                 viewHolder = new ViewHolder();
-                viewHolder.checkIcon = convertView.findViewById(CHECK_ICON_ID);
-                viewHolder.placeholder = convertView.findViewById(CHECK_ICON_PLACEHOLDER_ID);
-                viewHolder.textView = convertView.findViewById(ITEM_TEXT_ID);
+                viewHolder.checkIcon = convertView.findViewById(ID_REVANCED_CHECK_ICON);
+                viewHolder.placeholder = convertView.findViewById(ID_REVANCED_CHECK_ICON_PLACEHOLDER);
+                viewHolder.textView = convertView.findViewById(ID_REVANCED_ITEM_TEXT);
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
