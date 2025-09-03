@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="?android:attr/textColorTertiary"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textStyle="italic" />

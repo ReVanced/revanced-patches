@@ -49,7 +49,7 @@ Second \"item\" text"</string>
             <string name="revanced_settings_search_no_results_title">No results found for \'%s\'</string>
             <string name="revanced_settings_search_no_results_summary">Try another keyword</string>
             <string name="revanced_settings_search_tips_title">Search Tips</string>
-            <string name="revanced_settings_search_tips_summary">"• Long-press a search result to navigate directly to its settings screen.
+            <string name="revanced_settings_search_tips_summary">"• Click on the path or long-press the search result to navigate to its settings screen.
 • To save a search query to history, press Enter.
 • When search for a disabled child setting, its parent will be shown above it.
 • Search is case-insensitive and ignores punctuation."</string>

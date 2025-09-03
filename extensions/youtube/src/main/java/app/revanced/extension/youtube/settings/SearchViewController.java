@@ -437,6 +437,11 @@ public class SearchViewController {
 
                 pathView.setVisibility(showPath ? View.VISIBLE : View.GONE);
 
+                // Add click listener to navigate to the preference's settings screen.
+                if (showPath) {
+                    pathView.setOnClickListener(v -> navigateToPreferenceScreen(item));
+                }
+
                 // Add long-click listener to navigate to the preference's settings screen.
                 view.setOnLongClickListener(v -> {
                     navigateToPreferenceScreen(item);
