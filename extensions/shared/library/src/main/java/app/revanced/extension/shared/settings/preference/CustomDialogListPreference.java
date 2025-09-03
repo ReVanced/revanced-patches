@@ -13,13 +13,15 @@ import android.widget.*;
 
 import androidx.annotation.NonNull;
 
+import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ui.CustomDialog;
 
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 /**
- * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator.
+ * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator
+ * and supports a static summary that does not get overwritten.
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class CustomDialogListPreference extends ListPreference {
@@ -32,6 +34,34 @@ public class CustomDialogListPreference extends ListPreference {
             getResourceIdentifier("revanced_item_text", "id");
     public static final int LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED =
             getResourceIdentifier("revanced_custom_list_item_checked", "layout");
+
+    private String staticSummary = null;
+
+    /**
+     * Set a static summary that will not be overwritten by value changes.
+     **/
+    public void setStaticSummary(String summary) {
+        this.staticSummary = summary;
+    }
+
+    /**
+     * Always return static summary if set.
+     */
+    @Override
+    public CharSequence getSummary() {
+        if (staticSummary != null) {
+            return staticSummary;
+        }
+        return super.getSummary();
+    }
+
+    /**
+     * Returns the static summary if set, otherwise null.
+     */
+    @Nullable
+    public String getStaticSummary() {
+        return staticSummary;
+    }
 
     /**
      * Custom ArrayAdapter to handle checkmark visibility.

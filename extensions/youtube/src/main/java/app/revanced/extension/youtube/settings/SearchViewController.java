@@ -43,6 +43,7 @@ import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
+import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
 import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
@@ -75,9 +76,9 @@ public class SearchViewController {
     private boolean isSearchActive;
     private int currentOrientation;
 
-    private static final int MAX_HISTORY_SIZE = 5;
-    private static final int MAX_SEARCH_RESULTS = 50;
-    private static final int SEARCH_DROPDOWN_DELAY_MS = 100;
+    private static final int MAX_HISTORY_SIZE = 5; // Maximum history items are stored in the settings, previous ones are erased.
+    private static final int MAX_SEARCH_RESULTS = 50; // Maximum number of search results displayed.
+    private static final int SEARCH_DROPDOWN_DELAY_MS = 100; // Delay for showing search history suggestions.
     private static final int SEARCH_DEBOUNCE_MS = 250; // Debouncing delay for search input to reduce filter calls.
 
     // Resource ID constants.
@@ -179,7 +180,8 @@ public class SearchViewController {
                 this.originalSummaryOff = switchPref.getSummaryOff();
                 this.originalEntries = null;
                 this.color = 0;
-            } else if (pref instanceof ListPreference listPref && !(pref instanceof SegmentCategoryListPreference)) {
+            } else if (pref instanceof ListPreference listPref
+                    && !(pref instanceof SegmentCategoryListPreference)) {
                 this.preferenceType = TYPE_LIST;
                 this.originalSummaryOn = null;
                 this.originalSummaryOff = null;
@@ -912,7 +914,7 @@ public class SearchViewController {
     }
 
     /**
-     * Sets up listeners for preferences (e.g., ColorPickerPreference, CustomDialogListPreference)
+     * Sets up listeners for preferences (e.g., ColorPickerPreference, ListPreference)
      * to keep search results in sync when preference values change.
      */
     @SuppressWarnings("deprecation")
@@ -939,17 +941,24 @@ public class SearchViewController {
                     refreshSearchResults();
                     return true;
                 });
-            } else if (pref instanceof ListPreference listPref) {
+            } else if (pref instanceof CustomDialogListPreference listPref) {
                 listPref.setOnPreferenceChangeListener((preference, newValue) -> {
                     SearchResultItem searchItem = keyToSearchItem.get(preference.getKey());
                     if (searchItem == null) return true;
 
                     int index = listPref.findIndexOfValue(newValue.toString());
                     if (index >= 0) {
-                        CharSequence newSummary = listPref.getEntries()[index];
-                        searchItem.updateOriginalSummary(newSummary);
+                        // Check if a static summary is set.
+                        boolean isStaticSummary = listPref.getStaticSummary() != null;
+
+                        if (!isStaticSummary) {
+                            // Only update summary if it is not static.
+                            CharSequence newSummary = listPref.getEntries()[index];
+                            searchItem.updateOriginalSummary(newSummary);
+                            listPref.setSummary(newSummary);
+                        }
+
                         searchItem.clearHighlighting();
-                        listPref.setSummary(newSummary);
                     }
 
                     refreshSearchResults();

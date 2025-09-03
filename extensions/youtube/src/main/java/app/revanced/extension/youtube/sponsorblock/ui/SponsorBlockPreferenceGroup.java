@@ -243,17 +243,11 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             String[] durationEntries = Utils.getResourceStringArray("revanced_sb_duration_entries");
             String[] durationEntryValues = Utils.getResourceStringArray("revanced_sb_duration_entry_values");
 
-            autoHideSkipSegmentButtonDuration = new CustomDialogListPreference(context) {
-                // Without this override, every time the user selects a new option
-                // the system would replace static summary with the entry label.
-                @Override
-                public void setValue(String value) {
-                    super.setValue(value);
-                    setSummary(str("revanced_sb_auto_hide_skip_button_duration_sum"));
-                }
-            };
+            autoHideSkipSegmentButtonDuration = new CustomDialogListPreference(context);
             autoHideSkipSegmentButtonDuration.setKey(Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.key);
             autoHideSkipSegmentButtonDuration.setTitle(str("revanced_sb_auto_hide_skip_button_duration"));
+            // Sets a static summary without overwriting it.
+            autoHideSkipSegmentButtonDuration.setStaticSummary(str("revanced_sb_auto_hide_skip_button_duration_sum"));
             autoHideSkipSegmentButtonDuration.setEntries(durationEntries);
             autoHideSkipSegmentButtonDuration.setEntryValues(durationEntryValues);
             autoHideSkipSegmentButtonDuration.setOnPreferenceChangeListener((preference1, newValue) -> {
@@ -277,17 +271,11 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             });
             appearanceCategory.addPreference(showSkipToast);
 
-            showSkipToastDuration = new CustomDialogListPreference(context) {
-                // Without this override, every time the user selects a new option
-                // the system would replace static summary with the entry label.
-                @Override
-                public void setValue(String value) {
-                    super.setValue(value);
-                    setSummary(str("revanced_sb_toast_on_skip_duration_sum"));
-                }
-            };
+            showSkipToastDuration = new CustomDialogListPreference(context);
             showSkipToastDuration.setKey(Settings.SB_TOAST_ON_SKIP_DURATION.key);
             showSkipToastDuration.setTitle(str("revanced_sb_toast_on_skip_duration"));
+            // Sets a static summary without overwriting it.
+            showSkipToastDuration.setStaticSummary(str("revanced_sb_toast_on_skip_duration_sum"));
             showSkipToastDuration.setEntries(durationEntries);
             showSkipToastDuration.setEntryValues(durationEntryValues);
             showSkipToastDuration.setOnPreferenceChangeListener((preference1, newValue) -> {

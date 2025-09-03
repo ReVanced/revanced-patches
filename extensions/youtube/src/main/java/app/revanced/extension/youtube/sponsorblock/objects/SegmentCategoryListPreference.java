@@ -10,7 +10,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.preference.ListPreference;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -30,11 +29,12 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.ColorPickerView;
+import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("deprecation")
-public class SegmentCategoryListPreference extends ListPreference {
+public class SegmentCategoryListPreference extends CustomDialogListPreference {
     public final SegmentCategory category;
 
     /**
@@ -72,7 +72,7 @@ public class SegmentCategoryListPreference extends ListPreference {
         setEntryValues(isHighlightCategory
                 ? CategoryBehaviour.getBehaviorKeyValuesWithoutSkipOnce()
                 : CategoryBehaviour.getBehaviorKeyValues());
-        super.setSummary(category.description.toString());
+        super.setStaticSummary(category.description.toString());
 
         setWidgetLayoutResource(LAYOUT_REVANCED_COLOR_DOT_WIDGET);
         updateUI();
@@ -425,14 +425,5 @@ public class SegmentCategoryListPreference extends ListPreference {
     @ColorInt
     public int getColorWithOpacity() {
         return applyOpacityToCategoryColor();
-    }
-
-    @Override
-    public void setSummary(CharSequence summary) {
-        // Ignore calls to set the summary.
-        // Summary is always the description of the category.
-        //
-        // This is required otherwise the ReVanced preference fragment
-        // sets all ListPreference summaries to show the current selection.
     }
 }
