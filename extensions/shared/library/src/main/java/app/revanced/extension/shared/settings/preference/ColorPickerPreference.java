@@ -35,6 +35,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.shared.ui.ColorDot;
 import app.revanced.extension.shared.ui.CustomDialog;
 
 /**
@@ -103,14 +104,12 @@ public class ColorPickerPreference extends EditTextPreference {
 
     public static final int ID_REVANCED_COLOR_PICKER_VIEW =
             getResourceIdentifier("revanced_color_picker_view", "id");
-    public static final int ID_REVANCED_COLOR_DOT_WIDGET =
-            getResourceIdentifier("revanced_color_dot_widget", "id");
+    public static final int ID_PREFERENCE_COLOR_DOT =
+            getResourceIdentifier("preference_color_dot", "id");
     public static final int LAYOUT_REVANCED_COLOR_DOT_WIDGET =
             getResourceIdentifier("revanced_color_dot_widget", "layout");
     public static final int LAYOUT_REVANCED_COLOR_PICKER =
             getResourceIdentifier("revanced_color_picker", "layout");
-    public static final int DRAWABLE_REVANCED_CIRCLE_BACKGROUND =
-            getResourceIdentifier("revanced_settings_circle_background", "drawable");
 
     /**
      * Removes non valid hex characters, converts to all uppercase,
@@ -239,16 +238,18 @@ public class ColorPickerPreference extends EditTextPreference {
     protected void onBindView(View view) {
         super.onBindView(view);
 
-        widgetColorDot = view.findViewById(ID_REVANCED_COLOR_DOT_WIDGET);
+        widgetColorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
         updateWidgetColorDot();
     }
 
     private void updateWidgetColorDot() {
         if (widgetColorDot == null) return;
 
-        widgetColorDot.setBackgroundResource(DRAWABLE_REVANCED_CIRCLE_BACKGROUND);
-        widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
-        widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
+        ColorDot.applyColorDot(
+                widgetColorDot,
+                currentColor | 0xFF000000,
+                widgetColorDot.isEnabled()
+        );
     }
 
     /**

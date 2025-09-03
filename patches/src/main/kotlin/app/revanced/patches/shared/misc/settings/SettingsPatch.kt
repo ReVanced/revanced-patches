@@ -69,7 +69,6 @@ fun settingsPatch (
                 // CustomListPreference resources.
                 "revanced_ic_dialog_alert.xml",
                 "revanced_settings_arrow_time.xml",
-                "revanced_settings_circle_background.xml",
                 "revanced_settings_cursor.xml",
                 "revanced_settings_custom_checkmark.xml",
                 "revanced_settings_search_icon.xml",

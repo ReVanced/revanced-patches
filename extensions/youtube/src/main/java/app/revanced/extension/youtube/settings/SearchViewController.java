@@ -45,6 +45,7 @@ import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
+import app.revanced.extension.shared.ui.ColorDot;
 import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPreference;
@@ -109,8 +110,6 @@ public class SearchViewController {
             getResourceIdentifier("revanced_settings_search_icon", "drawable");
     private static final int DRAWABLE_REVANCED_SETTINGS_INFO =
             getResourceIdentifier("revanced_settings_screen_00_about", "drawable");
-    private static final int DRAWABLE_REVANCED_SETTINGS_CIRCLE_BACKGROUND =
-            getResourceIdentifier("revanced_settings_circle_background", "drawable");
     private static final int MENU_REVANCED_SEARCH_MENU =
             getResourceIdentifier("revanced_search_menu", "menu");
 
@@ -591,10 +590,11 @@ public class SearchViewController {
                     colorHolder.summaryView.setText(item.summary);
                     colorHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
                     colorHolder.pathView.setText(item.navigationPath);
-                    colorHolder.colorDot.setBackgroundResource(DRAWABLE_REVANCED_SETTINGS_CIRCLE_BACKGROUND);
-                    colorHolder.colorDot.getBackground().setTint(item.getColor());
-                    colorHolder.colorDot.setEnabled(item.preference.isEnabled());
-                    colorHolder.colorDot.setAlpha(item.preference.isEnabled() ? 1.0f : DISABLED_ALPHA);
+                    ColorDot.applyColorDot(
+                            colorHolder.colorDot,
+                            item.getColor(),
+                            item.preference.isEnabled()
+                    );
                     setupPreferenceView(view, colorHolder.titleView, colorHolder.summaryView, colorHolder.pathView,
                             item.preference, () -> handlePreferenceClick(item.preference));
                 }
@@ -914,7 +914,7 @@ public class SearchViewController {
     }
 
     /**
-     * Sets up listeners for preferences (e.g., ColorPickerPreference, ListPreference)
+     * Sets up listeners for preferences (e.g., ColorPickerPreference, CustomDialogListPreference)
      * to keep search results in sync when preference values change.
      */
     @SuppressWarnings("deprecation")

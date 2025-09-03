@@ -30,6 +30,7 @@ import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.ColorPickerView;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
+import app.revanced.extension.shared.ui.ColorDot;
 import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -397,17 +398,18 @@ public class SegmentCategoryListPreference extends CustomDialogListPreference {
     protected void onBindView(View view) {
         super.onBindView(view);
 
-        widgetColorDot = view.findViewById(ID_REVANCED_COLOR_DOT_WIDGET);
+        widgetColorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
         updateWidgetColorDot();
     }
 
     private void updateWidgetColorDot() {
         if (widgetColorDot == null) return;
 
-        widgetColorDot.setBackgroundResource(DRAWABLE_REVANCED_CIRCLE_BACKGROUND);
-        int color = applyOpacityToCategoryColor();
-        widgetColorDot.getBackground().setTint(color);
-        widgetColorDot.setAlpha(color == 0 ? 0f : isEnabled() ? 1.0f : DISABLED_ALPHA);
+        ColorDot.applyColorDot(
+                widgetColorDot,
+                applyOpacityToCategoryColor(),
+                widgetColorDot.isEnabled()
+        );
     }
 
     private void updateCategoryColorDot() {
