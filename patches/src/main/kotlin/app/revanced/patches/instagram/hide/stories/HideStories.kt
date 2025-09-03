@@ -18,7 +18,7 @@ val hideReelsPatch = bytecodePatch(
         val addStoryMethod = addStoryButton.method
         val addStoryEndIndex = addStoryButton.patternMatch!!.endIndex
 
-        // Remove addView of Story.
+        // Remove addView of Story, when it's created.
         addStoryMethod.removeInstruction(addStoryEndIndex)
     }
 }
