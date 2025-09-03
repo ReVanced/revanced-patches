@@ -158,9 +158,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_compact_banner_title">소형 배너 숨기기</string>
   <string name="revanced_hide_compact_banner_summary_on">소형 배너가 숨겨집니다</string>
   <string name="revanced_hide_compact_banner_summary_off">소형 배너가 표시됩니다</string>
-  <string name="revanced_hide_crowdfunding_box_title">크라우드 펀딩 박스 숨기기</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">플레이어 하단에서 크라우드 펀딩 박스가 숨겨집니다</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">플레이어 하단에서 크라우드 펀딩 박스가 표시됩니다</string>
+  <string name="revanced_hide_crowdfunding_box_title">모금 행사 패널 숨기기</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">모금 행사 패널이 숨겨집니다</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">모금 행사 패널이 표시됩니다</string>
   <string name="revanced_hide_expandable_card_title">펼쳐볼 수 있는 정보 숨기기</string>
   <string name="revanced_hide_expandable_card_summary_on">썸네일 하단에서 다음 정보들이 숨겨집니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품, etc.</string>
   <string name="revanced_hide_expandable_card_summary_off">썸네일 하단에서 다음 정보들이 표시됩니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품, etc.</string>
@@ -196,9 +196,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_notify_me_button_title">\'알림 받기\' 버튼 숨기기</string>
   <string name="revanced_hide_notify_me_button_summary_on">에정 동영상 하단에서 \'알림 받기\' 버튼이 숨겨집니다</string>
   <string name="revanced_hide_notify_me_button_summary_off">예전 동영상 하단에서 \'알림 받기\' 버튼이 표시됩니다</string>
-  <string name="revanced_hide_playables_title">Playables(게임 룸) 선반 숨기기</string>
-  <string name="revanced_hide_playables_summary_on">게임 룸 선반이 숨겨집니다</string>
-  <string name="revanced_hide_playables_summary_off">게임 룸 선반이 표시됩니다</string>
+  <string name="revanced_hide_playables_title">게임 룸 숨기기</string>
+  <string name="revanced_hide_playables_summary_on">게임 룸이 숨겨집니다</string>
+  <string name="revanced_hide_playables_summary_off">게임 룸이 표시됩니다</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">\'자세히 보기\' 버튼 숨기기</string>
@@ -701,7 +701,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"오디오 트랙 메뉴가 숨겨집니다
 
-오디오 트랙 메뉴를 표시하려면 '스트리밍 데이터 변경하기'에서 기본 클라이언트를 iOS TV로 변경하세요"</string>
+오디오 트랙 메뉴를 표시하려면, '동영상 스트림 변경하기'에서 기본 클라이언트를 iOS TV로 변경하세요"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR로 보기 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR로 보기 메뉴가 숨겨집니다</string>
@@ -1461,7 +1461,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_force_original_audio_summary_on">원본 오디오 스트림 언어를 사용 중입니다</string>
   <string name="revanced_force_original_audio_summary_off">기본 오디오 스트림 언어를 사용 중입니다</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">이 설정을 사용하려면, \'스트리밍 데이터 변경하기\' 설정에서 기본 클라이언트를 iOS TV로 변경하세요</string>
+  <string name="revanced_force_original_audio_not_available">이 설정을 사용하려면, \'동영상 스트림 변경하기\'에서 기본 클라이언트를 iOS TV로 변경하세요</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1535,11 +1535,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_slide_to_seek_summary_off">슬라이드하여 탐색을 비활성화합니다</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">스트리밍 데이터 변경하기</string>
-  <string name="revanced_spoof_video_streams_screen_summary">스트리밍 데이터를 변경하여 재생 문제를 방지할 수 있습니다</string>
-  <string name="revanced_spoof_video_streams_title">스트리밍 데이터 변경하기</string>
-  <string name="revanced_spoof_video_streams_summary_on">스트리밍 데이터를 변경합니다</string>
-  <string name="revanced_spoof_video_streams_summary_off">"스트리밍 데이터를 변경하지 않습니다
+  <string name="revanced_spoof_video_streams_screen_title">동영상 스트림 변경하기</string>
+  <string name="revanced_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_title">동영상 스트림 변경하기</string>
+  <string name="revanced_spoof_video_streams_summary_on">동영상 스트림을 변경합니다</string>
+  <string name="revanced_spoof_video_streams_summary_off">"동영상 스트림을 변경하지 않습니다
 동영상 재생 문제가 발생할 수 있습니다"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
   <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
@@ -1560,8 +1560,8 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kids 동영상은 로그인을 하지 않았거나 시크릿 모드에서는 재생되지 않을 수 있습니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시되지 않습니다</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시되지 않습니다</string>
   <string name="revanced_spoof_video_streams_language_title">VR 기본 오디오 스트림 언어</string>
   </patch>
   </app>
