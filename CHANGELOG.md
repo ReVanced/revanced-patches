@@ -1,3 +1,10 @@
+# [5.35.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.34.1-dev.3...v5.35.0-dev.1) (2025-09-03)
+
+
+### Features
+
+* **Instagram:** Add `Hide navigation buttons` patch ([#5678](https://github.com/ReVanced/revanced-patches/issues/5678)) ([415cf0f](https://github.com/ReVanced/revanced-patches/commit/415cf0fb5b9b3dcaf4592943a69eea1c10447b07))
+
 ## [5.34.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.34.1-dev.2...v5.34.1-dev.3) (2025-08-24)
 
 
