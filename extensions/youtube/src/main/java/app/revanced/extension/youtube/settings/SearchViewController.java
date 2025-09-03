@@ -622,7 +622,11 @@ public class SearchViewController {
             if (summaryView != null) summaryView.setEnabled(enabled);
             if (pathView != null) pathView.setEnabled(enabled);
 
-            titleView.setAlpha(enabled ? 1.0f : DISABLED_ALPHA);
+            // In light mode, alpha 0.5 is applied to a disabled title automatically,
+            // but in dark mode it needs to be applied manually.
+            if (Utils.isDarkModeEnabled()) {
+                titleView.setAlpha(enabled ? 1.0f : DISABLED_ALPHA);
+            }
             view.setOnClickListener(enabled ? v -> onClickAction.run() : null);
         }
 
