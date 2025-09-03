@@ -1282,12 +1282,6 @@ public class SearchViewController {
         noResultsPreference.setIcon(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
         prefs.add(noResultsPreference);
 
-        // Empty spacer.
-        Preference space = new Preference(activity);
-        space.setSelectable(false);
-        space.setSummary("\n\n\n\n");
-        prefs.add(space);
-
         // "Search Tips" card.
         Preference tipsPreference = new Preference(activity);
         tipsPreference.setKey("search_tips_placeholder");
