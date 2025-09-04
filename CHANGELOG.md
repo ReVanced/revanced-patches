@@ -1,3 +1,10 @@
+# [5.35.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.35.0-dev.3...v5.35.0-dev.4) (2025-09-04)
+
+
+### Features
+
+* **Boost/Sync for Reddit:** Add `Fix Redgifs` patch  ([#5725](https://github.com/ReVanced/revanced-patches/issues/5725)) ([c5e8079](https://github.com/ReVanced/revanced-patches/commit/c5e8079eab08075a72078cd0fa79f3beb1f75d98))
+
 # [5.35.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.35.0-dev.2...v5.35.0-dev.3) (2025-09-04)
 
 
