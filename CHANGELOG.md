@@ -1,3 +1,10 @@
+# [5.35.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.35.0-dev.2...v5.35.0-dev.3) (2025-09-04)
+
+
+### Bug Fixes
+
+* **Instagram - Hide navigation buttons:** Fix Manager patching error ([0d10e94](https://github.com/ReVanced/revanced-patches/commit/0d10e94663283fac09f3efc57c9b9805c38c4e13))
+
 # [5.35.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.35.0-dev.1...v5.35.0-dev.2) (2025-09-04)
 
 
