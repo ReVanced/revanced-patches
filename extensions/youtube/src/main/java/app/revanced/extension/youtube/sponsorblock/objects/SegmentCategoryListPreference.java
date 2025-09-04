@@ -379,18 +379,17 @@ public class SegmentCategoryListPreference extends CustomDialogListPreference {
      */
     private Setting<String> getCategoryBehaviorSetting() {
         // Map category to its corresponding setting.
-        return switch (category.keyValue) {
-            case "sponsor" -> Settings.SB_CATEGORY_SPONSOR;
-            case "selfpromo" -> Settings.SB_CATEGORY_SELF_PROMO;
-            case "interaction" -> Settings.SB_CATEGORY_INTERACTION;
-            case "poi_highlight" -> Settings.SB_CATEGORY_HIGHLIGHT;
-            case "intro" -> Settings.SB_CATEGORY_INTRO;
-            case "outro" -> Settings.SB_CATEGORY_OUTRO;
-            case "preview" -> Settings.SB_CATEGORY_PREVIEW;
-            case "filler" -> Settings.SB_CATEGORY_FILLER;
-            case "music_offtopic" -> Settings.SB_CATEGORY_MUSIC_OFFTOPIC;
-            case "unsubmitted" -> Settings.SB_CATEGORY_UNSUBMITTED;
-            default -> null;
+        return switch (category) {
+            case SPONSOR -> Settings.SB_CATEGORY_SPONSOR;
+            case SELF_PROMO -> Settings.SB_CATEGORY_SELF_PROMO;
+            case INTERACTION -> Settings.SB_CATEGORY_INTERACTION;
+            case HIGHLIGHT -> Settings.SB_CATEGORY_HIGHLIGHT;
+            case INTRO -> Settings.SB_CATEGORY_INTRO;
+            case OUTRO -> Settings.SB_CATEGORY_OUTRO;
+            case PREVIEW -> Settings.SB_CATEGORY_PREVIEW;
+            case FILLER -> Settings.SB_CATEGORY_FILLER;
+            case MUSIC_OFFTOPIC -> Settings.SB_CATEGORY_MUSIC_OFFTOPIC;
+            case UNSUBMITTED -> Settings.SB_CATEGORY_UNSUBMITTED;
         };
     }
 

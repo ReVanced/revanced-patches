@@ -161,9 +161,11 @@ public class SearchViewController {
             this.title = originalTitle != null ? originalTitle : "";
             this.originalSummary = pref.getSummary();
             this.summary = originalSummary != null ? originalSummary : "";
-            this.iconResourceId = (pref.getIcon() != null && "no_results_placeholder".equals(pref.getKey()))
+            String noResultsPlaceholderKey = "no_results_placeholder";
+            String searchTipsPlaceholderKey = "search_tips_placeholder";
+            this.iconResourceId = (pref.getIcon() != null && noResultsPlaceholderKey.equals(pref.getKey()))
                     ? DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON
-                    : (pref.getIcon() != null && "search_tips_placeholder".equals(pref.getKey()))
+                    : (pref.getIcon() != null && searchTipsPlaceholderKey.equals(pref.getKey()))
                     ? DRAWABLE_REVANCED_SETTINGS_INFO
                     : 0;
 
@@ -194,8 +196,8 @@ public class SearchViewController {
                 this.originalSummaryOff = null;
                 this.originalEntries = segmentPref.getEntries();
                 this.color = segmentPref.getColorWithOpacity();
-            } else if ("no_results_placeholder".equals(pref.getKey())
-                    || "search_tips_placeholder".equals(pref.getKey())) {
+            } else if (noResultsPlaceholderKey.equals(pref.getKey())
+                    || searchTipsPlaceholderKey.equals(pref.getKey())) {
                 this.preferenceType = TYPE_NO_RESULTS;
                 this.originalSummaryOn = null;
                 this.originalSummaryOff = null;
