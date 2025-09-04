@@ -5,16 +5,16 @@ import app.revanced.patcher.patch.bytecodePatch
 @Suppress("unused")
 val hideStoriesPatch = bytecodePatch(
     name = "Hide Stories from Home",
-    description = "Hides Stories from the main page, by removing the icons.",
+    description = "Hides Stories from the main page, by removing the buttons.",
     use = false
 ) {
     compatibleWith("com.instagram.android")
 
     execute {
-        val addStoryMethod = getOrCreateAvatarViewFingerprint.method
+        val addStoryMethod = getOrCreateAvatarViewFingerprint.method // Creates Story
         val addStoryEndIndex = getOrCreateAvatarViewFingerprint.patternMatch!!.endIndex
 
-        // Remove addView of icon of a Story.
+        // Remove addView of Story.
         addStoryMethod.removeInstruction(addStoryEndIndex)
     }
 }
