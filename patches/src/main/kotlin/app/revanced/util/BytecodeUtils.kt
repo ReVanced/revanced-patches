@@ -132,6 +132,7 @@ internal val Instruction.registersUsed: List<Int>
     get() = when (this) {
         is FiveRegisterInstruction -> {
             when (registerCount) {
+                0 -> listOf()
                 1 -> listOf(registerC)
                 2 -> listOf(registerC, registerD)
                 3 -> listOf(registerC, registerD, registerE)

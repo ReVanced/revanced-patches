@@ -18,4 +18,5 @@ android {
 
 dependencies {
     compileOnly(libs.annotation)
+    compileOnly(libs.okhttp)
 }
