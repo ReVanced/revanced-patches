@@ -7,28 +7,31 @@ import android.graphics.drawable.GradientDrawable;
 import android.view.View;
 
 public class ColorDot {
-    private static final int STROKE_WIDTH = dipToPixels(1); // Stroke width in dp.
+    private static final int STROKE_WIDTH = dipToPixels(1.5f); // Stroke width in dp.
 
     /**
      * Creates a circular drawable with a main fill and a stroke.
-     * Stroke adapts to dark/light theme and transparency.
+     * Stroke adapts to dark/light theme and transparency, applied only when color is transparent or matches app background.
      */
     public static GradientDrawable createColorDotDrawable(int color) {
         boolean isDarkTheme = isDarkModeEnabled();
         boolean isTransparent = (color >>> 24) == 0;
         int appBackground = getAppBackgroundColor();
         int baseColor = isTransparent ? appBackground : (color | 0xFF000000);
+        int strokeColor = 0;
+        int strokeWidth = 0;
 
         // Determine stroke color.
-        int strokeColor = isTransparent || ((color | 0xFF000000) == appBackground)
-                ? adjustColorBrightness(baseColor, isDarkTheme ? 1.2f : 0.8f)
-                : baseColor;
+        if (isTransparent || ((color | 0xFF000000) == appBackground)) {
+            strokeColor = adjustColorBrightness(baseColor, isDarkTheme ? 1.2f : 0.8f);
+            strokeWidth = STROKE_WIDTH;
+        }
 
-        // Create circular drawable with stroke.
+        // Create circular drawable with conditional stroke.
         GradientDrawable circle = new GradientDrawable();
         circle.setShape(GradientDrawable.OVAL);
         circle.setColor(color);
-        circle.setStroke(STROKE_WIDTH, strokeColor);
+        circle.setStroke(strokeWidth, strokeColor);
 
         return circle;
     }
@@ -40,7 +43,9 @@ public class ColorDot {
         if (targetView == null) return;
         targetView.setBackground(createColorDotDrawable(color));
         targetView.setAlpha(enabled ? 1.0f : DISABLED_ALPHA);
-        targetView.setClipToOutline(true);
-        targetView.setElevation(dipToPixels(2));
+        if (!isDarkModeEnabled()) {
+            targetView.setClipToOutline(true);
+            targetView.setElevation(dipToPixels(2));
+        }
     }
 }
