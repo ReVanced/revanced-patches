@@ -20,13 +20,15 @@ val hideNavigationButtonsPatch = bytecodePatch(
     val hideReels by booleanOption(
         key = "hideReels",
         default = true,
-        title = "Hide Reels"
+        title = "Hide Reels",
+        description = "Permanently hides the Reels button."
     )
 
     val hideCreate by booleanOption(
         key = "hideCreate",
         default = true,
-        title = "Hide Create"
+        title = "Hide Create",
+        description = "Permanently hides the Create button."
     )
 
     execute {
