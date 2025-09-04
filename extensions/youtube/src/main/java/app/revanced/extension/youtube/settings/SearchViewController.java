@@ -69,7 +69,6 @@ public class SearchViewController {
     private final List<SearchResultItem> filteredSearchItems;
     private final Map<String, SearchResultItem> keyToSearchItem;
     private final InputMethodManager inputMethodManager;
-    private int totalNumberOfSearchQueries; // Used to ignore stale search results.
 
     private boolean isSearchActive;
     private int currentOrientation;
@@ -77,7 +76,6 @@ public class SearchViewController {
     private static final int MAX_HISTORY_SIZE = 5; // Maximum history items are stored in the settings, previous ones are erased.
     private static final int MAX_SEARCH_RESULTS = 50; // Maximum number of search results displayed.
     private static final int SEARCH_DROPDOWN_DELAY_MS = 100; // Delay for showing search history suggestions.
-    private static final int SEARCH_DEBOUNCE_MS = 150; // Debouncing delay for search input to reduce filter calls.
 
     // Resource ID constants.
     private static final int ID_REVANCED_SEARCH_VIEW = getResourceIdentifier("revanced_search_view", "id");
@@ -810,7 +808,6 @@ public class SearchViewController {
             @Override
             public boolean onQueryTextChange(String newText) {
                 try {
-                    final int searchNumber = ++totalNumberOfSearchQueries;
                     Logger.printDebug(() -> "Search query: " + newText);
 
                     String trimmedText = newText.trim();
@@ -829,13 +826,7 @@ public class SearchViewController {
                             autoCompleteTextView.setThreshold(1);
                         }
                     } else {
-                        Utils.runOnMainThreadDelayed(() -> {
-                            if (searchNumber == totalNumberOfSearchQueries) {
-                                filterAndShowResults(newText);
-                            } else {
-                                Logger.printDebug(()-> "Ignoring stale search: " + newText);
-                            }
-                        }, SEARCH_DEBOUNCE_MS);
+                        filterAndShowResults(newText);
 
                         // Disable suggestions during text input.
                         if (showSettingsSearchHistory) {
