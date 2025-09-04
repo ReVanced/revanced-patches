@@ -268,7 +268,6 @@ public class SearchViewController {
         /**
          * Sets the color for this search result item.
          */
-        @ColorInt
         public void setColor(int newColor) {
             this.color = newColor;
         }
@@ -985,7 +984,6 @@ public class SearchViewController {
     /**
      * Collect all searchable preferences with key-based navigation support.
      */
-    @SuppressWarnings("deprecation")
     private void collectSearchablePreferences(PreferenceGroup group) {
         collectSearchablePreferencesWithKeys(group, "", new ArrayList<>(), 1, 0);
     }
@@ -1066,7 +1064,6 @@ public class SearchViewController {
     /**
      * Navigation by preference keys.
      */
-    @SuppressWarnings("deprecation")
     private boolean navigateByKeys(SearchResultItem item) {
         if (item.navigationKeys == null || item.navigationKeys.isEmpty()) {
             Logger.printDebug(() -> "No navigation keys available");
