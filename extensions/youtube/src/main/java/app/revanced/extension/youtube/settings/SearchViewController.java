@@ -12,8 +12,6 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
-import android.os.Handler;
-import android.os.Looper;
 import android.preference.*;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -71,8 +69,7 @@ public class SearchViewController {
     private final List<SearchResultItem> filteredSearchItems;
     private final Map<String, SearchResultItem> keyToSearchItem;
     private final InputMethodManager inputMethodManager;
-    private final Handler searchHandler;
-    private Runnable searchRunnable;
+    private int totalNumberOfSearchQueries; // Used to ignore stale search results.
 
     private boolean isSearchActive;
     private int currentOrientation;
@@ -80,7 +77,7 @@ public class SearchViewController {
     private static final int MAX_HISTORY_SIZE = 5; // Maximum history items are stored in the settings, previous ones are erased.
     private static final int MAX_SEARCH_RESULTS = 50; // Maximum number of search results displayed.
     private static final int SEARCH_DROPDOWN_DELAY_MS = 100; // Delay for showing search history suggestions.
-    private static final int SEARCH_DEBOUNCE_MS = 250; // Debouncing delay for search input to reduce filter calls.
+    private static final int SEARCH_DEBOUNCE_MS = 150; // Debouncing delay for search input to reduce filter calls.
 
     // Resource ID constants.
     private static final int ID_REVANCED_SEARCH_VIEW = getResourceIdentifier("revanced_search_view", "id");
@@ -722,7 +719,6 @@ public class SearchViewController {
         this.filteredSearchItems = new ArrayList<>();
         this.keyToSearchItem = new HashMap<>();
         this.inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-        this.searchHandler = new Handler(Looper.getMainLooper());
 
         // Initialize search history.
         StringSetting searchEntries = Settings.SETTINGS_SEARCH_ENTRIES;
@@ -814,12 +810,8 @@ public class SearchViewController {
             @Override
             public boolean onQueryTextChange(String newText) {
                 try {
+                    final int searchNumber = ++totalNumberOfSearchQueries;
                     Logger.printDebug(() -> "Search query: " + newText);
-
-                    // Remove any pending search runnable to avoid unnecessary filtering while the user is typing.
-                    if (searchRunnable != null) {
-                        searchHandler.removeCallbacks(searchRunnable);
-                    }
 
                     String trimmedText = newText.trim();
                     if (trimmedText.isEmpty()) { // Consider spaces as an empty query.
@@ -837,10 +829,13 @@ public class SearchViewController {
                             autoCompleteTextView.setThreshold(1);
                         }
                     } else {
-                        // Create a new runnable to perform the search after a delay.
-                        // This prevents filterAndShowResults from being called on every single keystroke.
-                        searchRunnable = () -> filterAndShowResults(newText);
-                        searchHandler.postDelayed(searchRunnable, SEARCH_DEBOUNCE_MS);
+                        Utils.runOnMainThreadDelayed(() -> {
+                            if (searchNumber == totalNumberOfSearchQueries) {
+                                filterAndShowResults(newText);
+                            } else {
+                                Logger.printDebug(()-> "Ignoring stale search: " + newText);
+                            }
+                        }, SEARCH_DEBOUNCE_MS);
 
                         // Disable suggestions during text input.
                         if (showSettingsSearchHistory) {
