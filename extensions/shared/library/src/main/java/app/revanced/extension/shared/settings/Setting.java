@@ -62,7 +62,7 @@ public abstract class Setting<T> {
 
         @Override
         public List<Setting<?>> getParentSettings() {
-            return new ArrayList<>(parents);
+            return Collections.unmodifiableList(parents);
         }
     }
 
@@ -83,7 +83,7 @@ public abstract class Setting<T> {
 
         @Override
         public List<Setting<?>> getParentSettings() {
-            return new ArrayList<>(parents);
+            return Collections.unmodifiableList(parents);
         }
     }
 
@@ -260,9 +260,7 @@ public abstract class Setting<T> {
 
         SETTINGS.add(this);
         if (PATH_TO_SETTINGS.put(key, this) != null) {
-            // Debug setting may not be created yet so using Logger may cause an initialization crash.
-            // Show a toast instead.
-            Utils.showToastLong(this.getClass().getSimpleName()
+            Logger.printException(() -> this.getClass().getSimpleName()
                     + " error: Duplicate Setting key found: " + key);
         }
 
@@ -307,7 +305,7 @@ public abstract class Setting<T> {
             migratedValue = oldPrefs.getString(settingKey, (String) newValue);
         } else {
             Logger.printException(() -> "Unknown setting: " + setting);
-            // Remove otherwise it'll show a toast on every launch
+            // Remove otherwise it'll show a toast on every launch.
             oldPrefs.preferences.edit().remove(settingKey).apply();
             return;
         }
