@@ -155,8 +155,6 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
      * Synchronizes a preference with the availability system.
      */
     private void syncPreferenceWithSetting(Preference preference, Setting<?> setting) {
-        if (preference == null || setting == null) return;
-
         // Set the preference value.
         if (preference instanceof SwitchPreference && setting instanceof BooleanSetting) {
             ((SwitchPreference) preference).setChecked(((BooleanSetting) setting).get());
