@@ -1,3 +1,10 @@
+# [5.35.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.35.0-dev.1...v5.35.0-dev.2) (2025-09-04)
+
+
+### Bug Fixes
+
+* Revert dependency updates to fix Manager pre-release patching ([4c7a1a8](https://github.com/ReVanced/revanced-patches/commit/4c7a1a8554c67797bf663e5230f566c5a9b229af))
+
 # [5.35.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.34.1-dev.3...v5.35.0-dev.1) (2025-09-03)
 
 
