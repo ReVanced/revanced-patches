@@ -29,6 +29,7 @@ val fixRedgifsApi = fixRedgifsApiPatch(
         // region Patch Redgifs OkHttp3 client.
 
         getOkHttpClientFingerprint.method.apply {
+            // Remove conflicting OkHttp interceptors.
             val originalInterceptorInstallIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.NEW_INSTANCE && getReference<TypeReference>()?.type == "Lcom/onelouder/baconreader/media/gfycat/RedGifsManager\$HeaderInterceptor;"
             }
@@ -42,7 +43,7 @@ val fixRedgifsApi = fixRedgifsApiPatch(
             replaceInstruction(
                 index,
                 """
-                invoke-static       { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->$INSTALL_NEW_CLIENT_METHOD
+                invoke-static       { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$INSTALL_NEW_CLIENT_METHOD
                 """
             )
         }

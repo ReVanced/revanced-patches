@@ -5,7 +5,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 
 internal val getOkHttpClientFingerprint = fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("Lokhttp3/OkHttpClient;")
     parameters()
     custom { method, classDef ->
