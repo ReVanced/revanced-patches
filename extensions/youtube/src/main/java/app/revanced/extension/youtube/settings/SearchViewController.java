@@ -126,7 +126,6 @@ public class SearchViewController {
 
     /**
      * Abstract base class for search result items, defining common fields and behavior.
-     * New: Split from single SearchResultItem to separate group headers and preferences for clarity.
      */
     @SuppressWarnings("deprecation")
     private static abstract class SearchResultItem {
@@ -460,6 +459,13 @@ public class SearchViewController {
             }
 
             return view;
+        }
+
+        @Override
+        public boolean isEnabled(int position) {
+            SearchResultItem item = getItem(position);
+            // Disable for "no_results" items to prevent ripple/selection.
+            return item != null && item.preferenceType != SearchResultItem.TYPE_NO_RESULTS;
         }
 
         /**
