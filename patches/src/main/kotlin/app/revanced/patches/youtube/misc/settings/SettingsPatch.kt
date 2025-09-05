@@ -95,6 +95,7 @@ private val settingsResourcePatch = resourcePatch {
             ResourceGroup("layout",
                 "revanced_preference_search_no_result.xml",
                 "revanced_preference_search_result_color.xml",
+                "revanced_preference_search_result_group_header.xml",
                 "revanced_preference_search_result_list.xml",
                 "revanced_preference_search_result_regular.xml",
                 "revanced_preference_search_result_switch.xml",

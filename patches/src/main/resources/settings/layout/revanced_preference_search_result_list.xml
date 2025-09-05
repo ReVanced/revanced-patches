@@ -14,17 +14,6 @@
             android:orientation="vertical">
 
         <TextView
-                android:id="@+id/preference_path"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?android:attr/textColorTertiary"
-                android:textSize="14sp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textStyle="italic" />
-
-        <TextView
                 android:id="@+id/preference_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

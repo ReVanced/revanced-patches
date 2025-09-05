@@ -73,7 +73,7 @@ public class SearchViewController {
     private boolean isSearchActive;
     private int currentOrientation;
 
-    private static final int MAX_HISTORY_SIZE = 5; // Maximum history items are stored in the settings, previous ones are erased.
+    private static final int MAX_HISTORY_SIZE = 5; // Maximum history items stored in settings, previous ones are erased.
     private static final int MAX_SEARCH_RESULTS = 50; // Maximum number of search results displayed.
     private static final int SEARCH_DROPDOWN_DELAY_MS = 100; // Delay for showing search history suggestions.
 
@@ -96,6 +96,8 @@ public class SearchViewController {
             getResourceIdentifier("revanced_preference_search_result_list", "layout");
     private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_COLOR =
             getResourceIdentifier("revanced_preference_search_result_color", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_GROUP_HEADER =
+            getResourceIdentifier("revanced_preference_search_result_group_header", "layout");
     private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT =
             getResourceIdentifier("revanced_preference_search_no_result", "layout");
     private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_SUGGESTION_ITEM =
@@ -118,177 +120,44 @@ public class SearchViewController {
                 "list", "revanced_preference_search_result_list",
                 "color", "revanced_preference_search_result_color",
                 "segment_category", "revanced_preference_search_result_color",
+                "group_header", "revanced_preference_search_result_group_header",
                 "no_results", "revanced_preference_search_no_result");
     }
 
     /**
-     * Data class for search result items.
+     * Abstract base class for search result items, defining common fields and behavior.
+     * New: Split from single SearchResultItem to separate group headers and preferences for clarity.
      */
     @SuppressWarnings("deprecation")
-    private static class SearchResultItem {
+    private static abstract class SearchResultItem {
         static final int TYPE_REGULAR = 0;
         static final int TYPE_SWITCH = 1;
         static final int TYPE_LIST = 2;
         static final int TYPE_COLOR_PICKER = 3;
         static final int TYPE_SEGMENT_CATEGORY = 4;
-        static final int TYPE_NO_RESULTS = 5;
+        static final int TYPE_GROUP_HEADER = 5;
+        static final int TYPE_NO_RESULTS = 6;
 
-        final Preference preference;
         final String navigationPath;
-        final String searchableText;
-        final int preferenceType;
-        final int iconResourceId;
         final List<String> navigationKeys;
-
-        @Nullable private final CharSequence originalTitle;
-        @Nullable private CharSequence originalSummary;
-        @Nullable private final CharSequence originalSummaryOn;
-        @Nullable private final CharSequence originalSummaryOff;
-        @Nullable private final CharSequence[] originalEntries;
-
+        final int preferenceType;
         CharSequence title;
         CharSequence summary;
-        private boolean highlightingApplied;
+        boolean highlightingApplied;
 
-        @ColorInt
-        private int color;
-
-        SearchResultItem(Preference pref, String navPath, List<String> navKeys) {
-            this.preference = pref;
+        SearchResultItem(String navPath, List<String> navKeys, int type) {
             this.navigationPath = navPath;
             this.navigationKeys = new ArrayList<>(navKeys != null ? navKeys : Collections.emptyList());
-            this.originalTitle = pref.getTitle();
-            this.title = originalTitle != null ? originalTitle : "";
-            this.originalSummary = pref.getSummary();
-            this.summary = originalSummary != null ? originalSummary : "";
-            String noResultsPlaceholderKey = "no_results_placeholder";
-            String searchTipsPlaceholderKey = "search_tips_placeholder";
-            this.iconResourceId = (pref.getIcon() != null && noResultsPlaceholderKey.equals(pref.getKey()))
-                    ? DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON
-                    : (pref.getIcon() != null && searchTipsPlaceholderKey.equals(pref.getKey()))
-                    ? DRAWABLE_REVANCED_SETTINGS_INFO
-                    : 0;
-
-            // Determine preference type and cache original values.
-            if (pref instanceof SwitchPreference switchPref) {
-                this.preferenceType = TYPE_SWITCH;
-                this.originalSummaryOn = switchPref.getSummaryOn();
-                this.originalSummaryOff = switchPref.getSummaryOff();
-                this.originalEntries = null;
-                this.color = 0;
-            } else if (pref instanceof ListPreference listPref
-                    && !(pref instanceof SegmentCategoryListPreference)) {
-                this.preferenceType = TYPE_LIST;
-                this.originalSummaryOn = null;
-                this.originalSummaryOff = null;
-                this.originalEntries = listPref.getEntries();
-                this.color = 0;
-            } else if (pref instanceof ColorPickerPreference colorPref) {
-                this.preferenceType = TYPE_COLOR_PICKER;
-                this.originalSummaryOn = null;
-                this.originalSummaryOff = null;
-                this.originalEntries = null;
-                String colorString = colorPref.getText();
-                this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) | 0xFF000000);
-            } else if (pref instanceof SegmentCategoryListPreference segmentPref) {
-                this.preferenceType = TYPE_SEGMENT_CATEGORY;
-                this.originalSummaryOn = null;
-                this.originalSummaryOff = null;
-                this.originalEntries = segmentPref.getEntries();
-                this.color = segmentPref.getColorWithOpacity();
-            } else if (noResultsPlaceholderKey.equals(pref.getKey())
-                    || searchTipsPlaceholderKey.equals(pref.getKey())) {
-                this.preferenceType = TYPE_NO_RESULTS;
-                this.originalSummaryOn = null;
-                this.originalSummaryOff = null;
-                this.originalEntries = null;
-                this.color = 0;
-            } else {
-                this.preferenceType = TYPE_REGULAR;
-                this.originalSummaryOn = null;
-                this.originalSummaryOff = null;
-                this.originalEntries = null;
-                this.color = 0;
-            }
-
-            // Create searchable text combining all relevant fields.
-            StringBuilder searchBuilder = new StringBuilder();
-            appendText(searchBuilder, preference.getKey());
-            appendText(searchBuilder, title);
-            appendText(searchBuilder, summary);
-
-            // Add type-specific searchable content.
-            if (preference instanceof ListPreference listPref) {
-                CharSequence[] entries = listPref.getEntries();
-                if (entries != null) {
-                    for (CharSequence entry : entries) {
-                        appendText(searchBuilder, entry);
-                    }
-                }
-            } else if (preference instanceof SwitchPreference switchPref) {
-                appendText(searchBuilder, switchPref.getSummaryOn());
-                appendText(searchBuilder, switchPref.getSummaryOff());
-            } else if (preference instanceof ColorPickerPreference) {
-                appendText(searchBuilder, ColorPickerPreference.getColorString(color));
-            }
-
-            this.searchableText = searchBuilder.toString();
+            this.preferenceType = type;
+            this.highlightingApplied = false;
         }
 
-        SearchResultItem(Preference pref, String navPath) {
-            this(pref, navPath, Collections.emptyList());
-        }
+        abstract boolean matchesQuery(String query);
+        abstract void applyHighlighting(Pattern queryPattern);
+        abstract void clearHighlighting();
 
-        private void appendText(StringBuilder builder, CharSequence text) {
-            if (!TextUtils.isEmpty(text)) {
-                if (builder.length() > 0) builder.append(" ");
-                builder.append(Utils.removePunctuationToLowercase(text));
-            }
-        }
-
-        /**
-         * Updates the summary.
-         */
-        void updateOriginalSummary(CharSequence newSummary) {
-            this.originalSummary = newSummary;
-            this.summary = newSummary != null ? newSummary : "";
-            preference.setSummary(newSummary); // Update the preference's summary.
-        }
-
-        /**
-         * Gets the icon resource ID for this item.
-         */
-        int getIconResourceId() {
-            return iconResourceId;
-        }
-
-        /**
-         * Sets the color for this search result item.
-         */
-        public void setColor(int newColor) {
-            this.color = newColor;
-        }
-
-        /**
-         * Returns the currently stored color.
-         */
-        @ColorInt
-        public int getColor() {
-            return color;
-        }
-
-        /**
-         * Checks if this search result item matches the provided query.
-         * Uses case-insensitive matching against the searchable text.
-         */
-        boolean matchesQuery(String query) {
-            return searchableText.contains(Utils.removePunctuationToLowercase(query));
-        }
-
-        /**
-         * Highlights the search query in the given text by applying a background color span.
-         */
-        private static CharSequence highlightSearchQuery(CharSequence text, Pattern queryPattern) {
+        // Shared method for highlighting text with search query.
+        protected static CharSequence highlightSearchQuery(CharSequence text, Pattern queryPattern) {
             if (TextUtils.isEmpty(text)) return text;
 
             final int adjustedColor = Utils.adjustColorBrightness(
@@ -304,23 +173,164 @@ public class SearchViewController {
 
             return spannable;
         }
+    }
 
-        /**
-         * Applies search query highlighting to the preference's title, summary, and type-specific content.
-         * Only applies highlighting if not already applied to avoid redundant operations.
-         */
+    /**
+     * Search result item for group headers (navigation path only).
+     */
+    private static class GroupHeaderItem extends SearchResultItem {
+        GroupHeaderItem(String navPath, List<String> navKeys) {
+            super(navPath, navKeys, TYPE_GROUP_HEADER);
+            this.title = navPath;
+            this.summary = "";
+        }
+
+        @Override
+        boolean matchesQuery(String query) {
+            return false; // Headers are not directly searchable.
+        }
+
+        @Override
         void applyHighlighting(Pattern queryPattern) {
             if (highlightingApplied) return;
+            title = highlightSearchQuery(navigationPath, queryPattern);
+            highlightingApplied = true;
+        }
 
-            CharSequence highlightedTitle = highlightSearchQuery(originalTitle, queryPattern);
-            preference.setTitle(highlightedTitle);
-            title = highlightedTitle;
+        @Override
+        void clearHighlighting() {
+            if (!highlightingApplied) return;
+            title = navigationPath;
+            highlightingApplied = false;
+        }
+    }
 
-            CharSequence highlightedSummary = highlightSearchQuery(originalSummary, queryPattern);
-            preference.setSummary(highlightedSummary);
-            summary = highlightedSummary;
+    /**
+     * Search result item for preferences, handling type-specific data and search text.
+     */
+    private static class PreferenceSearchItem extends SearchResultItem {
+        final Preference preference;
+        final String searchableText;
+        final int iconResourceId;
+        final CharSequence originalTitle;
+        CharSequence originalSummary;
+        CharSequence originalSummaryOn;
+        CharSequence originalSummaryOff;
+        CharSequence[] originalEntries;
 
-            // Apply type-specific highlighting.
+        @ColorInt
+        private int color;
+
+        PreferenceSearchItem(Preference pref, String navPath, List<String> navKeys) {
+            super(navPath, navKeys, determineType(pref));
+            this.preference = pref;
+            this.originalTitle = pref.getTitle();
+            this.title = originalTitle != null ? originalTitle : "";
+            this.originalSummary = pref.getSummary();
+            this.summary = originalSummary != null ? originalSummary : "";
+            this.originalSummaryOn = null;
+            this.originalSummaryOff = null;
+            this.originalEntries = null;
+            this.color = 0;
+
+            // Initialize type-specific fields.
+            initTypeSpecificFields(pref);
+
+            // Determine icon for special placeholders.
+            this.iconResourceId = determineIcon(pref, pref.getKey());
+
+            // Build searchable text.
+            this.searchableText = buildSearchableText(pref);
+        }
+
+        private static int determineType(Preference pref) {
+            if (pref instanceof SwitchPreference) return TYPE_SWITCH;
+            if (pref instanceof ListPreference && !(pref instanceof SegmentCategoryListPreference)) return TYPE_LIST;
+            if (pref instanceof ColorPickerPreference) return TYPE_COLOR_PICKER;
+            if (pref instanceof SegmentCategoryListPreference) return TYPE_SEGMENT_CATEGORY;
+            if ("no_results_placeholder".equals(pref.getKey())
+                    || "search_tips_placeholder".equals(pref.getKey())) return TYPE_NO_RESULTS;
+            return TYPE_REGULAR;
+        }
+
+        private void initTypeSpecificFields(Preference pref) {
+            if (pref instanceof SwitchPreference switchPref) {
+                this.originalSummaryOn = switchPref.getSummaryOn();
+                this.originalSummaryOff = switchPref.getSummaryOff();
+            } else if (pref instanceof ListPreference listPref && !(pref instanceof SegmentCategoryListPreference)) {
+                this.originalEntries = listPref.getEntries();
+            } else if (pref instanceof ColorPickerPreference colorPref) {
+                String colorString = colorPref.getText();
+                this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) | 0xFF000000);
+            } else if (pref instanceof SegmentCategoryListPreference segmentPref) {
+                this.originalEntries = segmentPref.getEntries();
+                this.color = segmentPref.getColorWithOpacity();
+            }
+        }
+
+        private static int determineIcon(Preference pref, String key) {
+            if (pref.getIcon() != null) {
+                if ("no_results_placeholder".equals(key)) return DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
+                if ("search_tips_placeholder".equals(key)) return DRAWABLE_REVANCED_SETTINGS_INFO;
+            }
+            return 0;
+        }
+
+        private String buildSearchableText(Preference pref) {
+            StringBuilder searchBuilder = new StringBuilder();
+            appendText(searchBuilder, pref.getKey());
+            appendText(searchBuilder, originalTitle);
+            appendText(searchBuilder, originalSummary);
+
+            // Add type-specific searchable content.
+            if (pref instanceof ListPreference listPref) {
+                CharSequence[] entries = listPref.getEntries();
+                if (entries != null) {
+                    for (CharSequence entry : entries) {
+                        appendText(searchBuilder, entry);
+                    }
+                }
+            } else if (pref instanceof SwitchPreference switchPref) {
+                appendText(searchBuilder, switchPref.getSummaryOn());
+                appendText(searchBuilder, switchPref.getSummaryOff());
+            } else if (pref instanceof ColorPickerPreference) {
+                appendText(searchBuilder, ColorPickerPreference.getColorString(color));
+            }
+
+            // Include navigation path in searchable text.
+            appendText(searchBuilder, navigationPath);
+
+            return searchBuilder.toString();
+        }
+
+        private void appendText(StringBuilder builder, CharSequence text) {
+            if (!TextUtils.isEmpty(text)) {
+                if (builder.length() > 0) builder.append(" ");
+                builder.append(Utils.removePunctuationToLowercase(text));
+            }
+        }
+
+        /**
+         * Checks if this search result item matches the provided query.
+         * Uses case-insensitive matching against the searchable text.
+         */
+        @Override
+        boolean matchesQuery(String query) {
+            return searchableText.contains(Utils.removePunctuationToLowercase(query));
+        }
+
+        /**
+         * Highlights the search query in the given text by applying a background color span.
+         */
+        @Override
+        void applyHighlighting(Pattern queryPattern) {
+            if (highlightingApplied) return;
+            title = highlightSearchQuery(originalTitle, queryPattern);
+            preference.setTitle(title);
+            if (originalSummary != null) {
+                summary = highlightSearchQuery(originalSummary, queryPattern);
+                preference.setSummary(summary);
+            }
             if (preference instanceof SwitchPreference switchPref) {
                 switchPref.setSummaryOn(highlightSearchQuery(originalSummaryOn, queryPattern));
                 switchPref.setSummaryOff(highlightSearchQuery(originalSummaryOff, queryPattern));
@@ -339,13 +349,13 @@ public class SearchViewController {
          * Clears all search query highlighting from the preference's content.
          * Restores original text for title, summary, and type-specific content.
          */
+        @Override
         void clearHighlighting() {
             if (!highlightingApplied) return;
-
-            preference.setTitle(originalTitle);
             title = originalTitle;
-            preference.setSummary(originalSummary);
+            preference.setTitle(originalTitle);
             summary = originalSummary;
+            preference.setSummary(originalSummary);
 
             // Clear type-specific highlighting.
             if (preference instanceof SwitchPreference switchPref) {
@@ -356,6 +366,25 @@ public class SearchViewController {
             }
 
             highlightingApplied = false;
+        }
+
+        void updateOriginalSummary(CharSequence newSummary) {
+            this.originalSummary = newSummary;
+            this.summary = newSummary != null ? newSummary : "";
+            preference.setSummary(newSummary);
+        }
+
+        int getIconResourceId() {
+            return iconResourceId;
+        }
+
+        public void setColor(int newColor) {
+            this.color = newColor;
+        }
+
+        @ColorInt
+        public int getColor() {
+            return color;
         }
     }
 
@@ -369,14 +398,12 @@ public class SearchViewController {
         private static class RegularViewHolder {
             TextView titleView;
             TextView summaryView;
-            TextView pathView;
         }
 
         // ViewHolder for switch preferences.
         private static class SwitchViewHolder {
             TextView titleView;
             TextView summaryView;
-            TextView pathView;
             Switch switchWidget;
         }
 
@@ -384,8 +411,12 @@ public class SearchViewController {
         private static class ColorViewHolder {
             TextView titleView;
             TextView summaryView;
-            TextView pathView;
             View colorDot;
+        }
+
+        // ViewHolder for group header.
+        private static class GroupHeaderViewHolder {
+            TextView pathView;
         }
 
         // ViewHolder for no results preferences.
@@ -412,6 +443,7 @@ public class SearchViewController {
                 case SearchResultItem.TYPE_LIST   -> "list";
                 case SearchResultItem.TYPE_COLOR_PICKER -> "color";
                 case SearchResultItem.TYPE_SEGMENT_CATEGORY -> "segment_category";
+                case SearchResultItem.TYPE_GROUP_HEADER -> "group_header";
                 case SearchResultItem.TYPE_NO_RESULTS   -> "no_results";
                 default -> "regular";
             };
@@ -419,26 +451,8 @@ public class SearchViewController {
             // Create or reuse preference view based on type.
             View view = createPreferenceView(item, convertView, viewType, parent);
 
-            if (!"no_results".equals(viewType)) {
-                TextView pathView = view.findViewById(ID_PREFERENCE_PATH);
-                boolean showPath = true;
-
-                // Only show the path if it's the first occurrence in the group.
-                if (position > 0) {
-                    SearchResultItem previousItem = getItem(position - 1);
-                    if (previousItem != null && item.navigationPath.equals(previousItem.navigationPath)) {
-                        showPath = false; // Hide path for subsequent elements.
-                    }
-                }
-
-                pathView.setVisibility(showPath ? View.VISIBLE : View.GONE);
-
-                // Add click listener to navigate to the preference's settings screen.
-                if (showPath) {
-                    pathView.setOnClickListener(v -> navigateToPreferenceScreen(item));
-                }
-
-                // Add long-click listener to navigate to the preference's settings screen.
+            // Add long-click listener for preference items.
+            if (item.preferenceType != SearchResultItem.TYPE_NO_RESULTS && item.preferenceType != SearchResultItem.TYPE_GROUP_HEADER) {
                 view.setOnLongClickListener(v -> {
                     navigateToPreferenceScreen(item);
                     return true;
@@ -449,7 +463,7 @@ public class SearchViewController {
         }
 
         /**
-         * Creates a view for a preference based on its type using ViewHolder pattern.
+         * Creates a view for a preference or header based on its type using ViewHolder pattern.
          */
         @SuppressWarnings("deprecation")
         private View createPreferenceView(SearchResultItem item, View convertView, String viewType, ViewGroup parent) {
@@ -465,6 +479,7 @@ public class SearchViewController {
                 case "revanced_preference_search_result_switch"  -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH;
                 case "revanced_preference_search_result_list"    -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST;
                 case "revanced_preference_search_result_color"   -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_COLOR;
+                case "revanced_preference_search_result_group_header" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_GROUP_HEADER;
                 case "revanced_preference_search_no_result"      -> LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT;
                 default -> throw new IllegalStateException("Unknown layout resource: " + layoutResource);
             };
@@ -480,7 +495,6 @@ public class SearchViewController {
                         RegularViewHolder regularHolder = new RegularViewHolder();
                         regularHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                         regularHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
-                        regularHolder.pathView = view.findViewById(ID_PREFERENCE_PATH);
                         view.setTag(ID_PREFERENCE_TITLE, regularHolder);
                         holder = regularHolder;
                     }
@@ -488,7 +502,6 @@ public class SearchViewController {
                         SwitchViewHolder switchHolder = new SwitchViewHolder();
                         switchHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                         switchHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
-                        switchHolder.pathView = view.findViewById(ID_PREFERENCE_PATH);
                         switchHolder.switchWidget = view.findViewById(ID_PREFERENCE_SWITCH);
                         view.setTag(ID_PREFERENCE_TITLE, switchHolder);
                         holder = switchHolder;
@@ -497,10 +510,15 @@ public class SearchViewController {
                         ColorViewHolder colorHolder = new ColorViewHolder();
                         colorHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                         colorHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
-                        colorHolder.pathView = view.findViewById(ID_PREFERENCE_PATH);
                         colorHolder.colorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
                         view.setTag(ID_PREFERENCE_TITLE, colorHolder);
                         holder = colorHolder;
+                    }
+                    case "group_header" -> {
+                        GroupHeaderViewHolder groupHolder = new GroupHeaderViewHolder();
+                        groupHolder.pathView = view.findViewById(ID_PREFERENCE_PATH);
+                        view.setTag(ID_PREFERENCE_TITLE, groupHolder);
+                        holder = groupHolder;
                     }
                     case "no_results" -> {
                         NoResultsViewHolder noResultsHolder = new NoResultsViewHolder();
@@ -523,16 +541,15 @@ public class SearchViewController {
                     regularHolder.titleView.setText(item.title);
                     regularHolder.summaryView.setText(item.summary);
                     regularHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
-                    regularHolder.pathView.setText(item.navigationPath);
-                    setupPreferenceView(view, regularHolder.titleView, regularHolder.summaryView, regularHolder.pathView,
-                            item.preference, () -> handlePreferenceClick(item.preference));
+                    setupPreferenceView(view, regularHolder.titleView, regularHolder.summaryView,
+                            ((PreferenceSearchItem) item).preference, () ->
+                                    handlePreferenceClick(((PreferenceSearchItem) item).preference));
                 }
-
                 case "switch" -> {
                     SwitchViewHolder switchHolder = (SwitchViewHolder) holder;
-                    SwitchPreference switchPref = (SwitchPreference) item.preference;
+                    PreferenceSearchItem prefItem = (PreferenceSearchItem) item;
+                    SwitchPreference switchPref = (SwitchPreference) prefItem.preference;
                     switchHolder.titleView.setText(item.title);
-                    switchHolder.pathView.setText(item.navigationPath);
 
                     // Remove ripple/highlight.
                     switchHolder.switchWidget.setBackground(null);
@@ -555,7 +572,7 @@ public class SearchViewController {
 
                     // Set up click listeners for switch.
                     final View finalView = view;
-                    setupPreferenceView(view, switchHolder.titleView, switchHolder.summaryView, switchHolder.pathView,
+                    setupPreferenceView(view, switchHolder.titleView, switchHolder.summaryView,
                             switchPref, () -> {
                                 boolean newState = !switchPref.isChecked();
                                 switchPref.setChecked(newState);
@@ -587,25 +604,29 @@ public class SearchViewController {
                 }
                 case "color", "segment_category" -> {
                     ColorViewHolder colorHolder = (ColorViewHolder) holder;
+                    PreferenceSearchItem prefItem = (PreferenceSearchItem) item;
                     colorHolder.titleView.setText(item.title);
                     colorHolder.summaryView.setText(item.summary);
                     colorHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
-                    colorHolder.pathView.setText(item.navigationPath);
                     ColorDot.applyColorDot(
                             colorHolder.colorDot,
-                            item.getColor(),
-                            item.preference.isEnabled()
+                            prefItem.getColor(),
+                            prefItem.preference.isEnabled()
                     );
-                    setupPreferenceView(view, colorHolder.titleView, colorHolder.summaryView, colorHolder.pathView,
-                            item.preference, () -> handlePreferenceClick(item.preference));
+                    setupPreferenceView(view, colorHolder.titleView, colorHolder.summaryView,
+                            prefItem.preference, () -> handlePreferenceClick(prefItem.preference));
                 }
-
+                case "group_header" -> {
+                    GroupHeaderViewHolder groupHolder = (GroupHeaderViewHolder) holder;
+                    groupHolder.pathView.setText(item.title);
+                    view.setOnClickListener(v -> navigateToPreferenceScreen(item));
+                }
                 case "no_results" -> {
                     NoResultsViewHolder noResultsHolder = (NoResultsViewHolder) holder;
                     noResultsHolder.titleView.setText(item.title);
                     noResultsHolder.summaryView.setText(item.summary);
                     noResultsHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
-                    noResultsHolder.iconView.setImageResource(item.getIconResourceId());
+                    noResultsHolder.iconView.setImageResource(((PreferenceSearchItem) item).getIconResourceId());
                 }
             }
 
@@ -617,13 +638,12 @@ public class SearchViewController {
          */
         @SuppressWarnings("deprecation")
         private void setupPreferenceView(View view, TextView titleView, TextView summaryView,
-                                         TextView pathView, Preference preference, Runnable onClickAction) {
+                                         Preference preference, Runnable onClickAction) {
             boolean enabled = preference.isEnabled();
 
             view.setEnabled(enabled);
             titleView.setEnabled(enabled);
             if (summaryView != null) summaryView.setEnabled(enabled);
-            if (pathView != null) pathView.setEnabled(enabled);
 
             // In light mode, alpha 0.5 is applied to a disabled title automatically,
             // but in dark mode it needs to be applied manually.
@@ -890,9 +910,9 @@ public class SearchViewController {
                 if (screen != null) {
                     collectSearchablePreferences(screen);
                     for (SearchResultItem item : allSearchItems) {
-                        String key = item.preference.getKey();
-                        if (key != null && !key.isEmpty()) {
-                            keyToSearchItem.put(key, item);
+                        // Only PreferenceSearchItem instances have keys.
+                        if (item instanceof PreferenceSearchItem prefItem && prefItem.preference.getKey() != null) {
+                            keyToSearchItem.put(prefItem.preference.getKey(), item);
                         }
                     }
                     // Set up listeners.
@@ -912,30 +932,30 @@ public class SearchViewController {
     @SuppressWarnings("deprecation")
     private void setupPreferenceListeners() {
         for (SearchResultItem item : allSearchItems) {
-            Preference pref = item.preference;
+            // Skip non-preference items.
+            if (!(item instanceof PreferenceSearchItem prefItem)) continue;
+            Preference pref = prefItem.preference;
 
             if (pref instanceof ColorPickerPreference colorPref) {
                 colorPref.setOnColorChangeListener((prefKey, newColor) -> {
-                    SearchResultItem searchItem = keyToSearchItem.get(prefKey);
-                    if (searchItem == null) return;
-
-                    int rgbColor = newColor | 0xFF000000;
-                    searchItem.setColor(rgbColor);
-
-                    refreshSearchResults();
+                    PreferenceSearchItem searchItem = (PreferenceSearchItem) keyToSearchItem.get(prefKey);
+                    if (searchItem != null) {
+                        searchItem.setColor(newColor | 0xFF000000);
+                        refreshSearchResults();
+                    }
                 });
             } else if (pref instanceof SegmentCategoryListPreference segmentPref) {
                 segmentPref.setOnPreferenceChangeListener((preference, newValue) -> {
-                    SearchResultItem searchItem = keyToSearchItem.get(preference.getKey());
-                    if (searchItem == null) return true;
-
-                    searchItem.setColor(segmentPref.getColorWithOpacity());
-                    refreshSearchResults();
+                    PreferenceSearchItem searchItem = (PreferenceSearchItem) keyToSearchItem.get(preference.getKey());
+                    if (searchItem != null) {
+                        searchItem.setColor(segmentPref.getColorWithOpacity());
+                        refreshSearchResults();
+                    }
                     return true;
                 });
             } else if (pref instanceof CustomDialogListPreference listPref) {
                 listPref.setOnPreferenceChangeListener((preference, newValue) -> {
-                    SearchResultItem searchItem = keyToSearchItem.get(preference.getKey());
+                    PreferenceSearchItem searchItem = (PreferenceSearchItem) keyToSearchItem.get(preference.getKey());
                     if (searchItem == null) return true;
 
                     int index = listPref.findIndexOfValue(newValue.toString());
@@ -999,7 +1019,7 @@ public class SearchViewController {
                     && !(preference instanceof PreferenceCategory)
                     && !(preference instanceof SponsorBlockPreferenceGroup)
                     && !(preference instanceof PreferenceScreen)) {
-                allSearchItems.add(new SearchResultItem(preference, parentPath, parentKeys));
+                allSearchItems.add(new PreferenceSearchItem(preference, parentPath, parentKeys));
             }
 
             // If the preference is a group, recurse into it.
@@ -1222,32 +1242,45 @@ public class SearchViewController {
         // Build filteredSearchItems, inserting parent enablers for disabled dependents.
         Set<String> addedParentKeys = new HashSet<>();
         for (SearchResultItem item : matched) {
-            // Check Availability dependency (from Setting)
-            Setting<?> setting = Setting.getSettingFromPath(item.preference.getKey());
-            if (setting != null && !setting.isAvailable()) {
-                List<Setting<?>> parentSettings = setting.getParentSettings();
-                for (Setting<?> parentSetting : parentSettings) {
-                    SearchResultItem parentItem = keyToSearchItem.get(parentSetting.key);
-                    if (parentItem != null && !addedParentKeys.contains(parentSetting.key)) {
-                        if (!parentItem.matchesQuery(queryLower)) {
-                            filteredSearchItems.add(parentItem);
+            if (item instanceof PreferenceSearchItem prefItem && prefItem.preference.getKey() != null) {
+                Setting<?> setting = Setting.getSettingFromPath(prefItem.preference.getKey());
+                if (setting != null && !setting.isAvailable()) {
+                    List<Setting<?>> parentSettings = setting.getParentSettings();
+                    for (Setting<?> parentSetting : parentSettings) {
+                        SearchResultItem parentItem = keyToSearchItem.get(parentSetting.key);
+                        if (parentItem != null && !addedParentKeys.contains(parentSetting.key)) {
+                            if (!parentItem.matchesQuery(queryLower)) {
+                                filteredSearchItems.add(parentItem);
+                            }
+                            addedParentKeys.add(parentSetting.key);
                         }
-                        addedParentKeys.add(parentSetting.key);
                     }
                 }
+                filteredSearchItems.add(item);
+                addedParentKeys.add(prefItem.preference.getKey());
             }
+        }
 
-            // Add the matched item after its parents.
-            filteredSearchItems.add(item);
-            if (item.preference.getKey() != null) {
-                addedParentKeys.add(item.preference.getKey());
+        if (!filteredSearchItems.isEmpty()) {
+            Collections.sort(filteredSearchItems, Comparator.comparing(o -> o.navigationPath));
+            List<SearchResultItem> displayItems = new ArrayList<>();
+            String currentPath = null;
+            for (SearchResultItem item : filteredSearchItems) {
+                if (!item.navigationPath.equals(currentPath)) {
+                    SearchResultItem header = new GroupHeaderItem(item.navigationPath, item.navigationKeys);
+                    displayItems.add(header);
+                    currentPath = item.navigationPath;
+                }
+                displayItems.add(item);
             }
+            filteredSearchItems.clear();
+            filteredSearchItems.addAll(displayItems);
         }
 
         // Show 'No results found' and "Search Tips" if search results are empty.
         if (filteredSearchItems.isEmpty()) {
             for (Preference pref : createNoResultsPreferences(query)) {
-                filteredSearchItems.add(new SearchResultItem(pref, ""));
+                filteredSearchItems.add(new PreferenceSearchItem(pref, "", Collections.emptyList()));
             }
         }
 

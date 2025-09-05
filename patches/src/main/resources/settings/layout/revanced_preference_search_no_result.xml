@@ -4,11 +4,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@android:color/transparent"
         android:paddingRight="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
-        android:minHeight="48dp">
+        android:minHeight="48dp"
+        android:clickable="false"
+        android:focusable="false">
 
     <LinearLayout
             android:layout_width="match_parent"
