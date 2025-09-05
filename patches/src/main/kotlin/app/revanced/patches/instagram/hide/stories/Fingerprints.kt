@@ -5,6 +5,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val getOrCreateAvatarViewFingerprint = fingerprint {
         parameters()
+        returns("L")
         custom { method, classDef ->
             classDef.type == "Lcom/instagram/reels/ui/views/reelavatar/RecyclerReelAvatarView;"
         }
