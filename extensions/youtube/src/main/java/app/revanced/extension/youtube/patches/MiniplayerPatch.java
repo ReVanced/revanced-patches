@@ -18,7 +18,6 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
-import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
@@ -181,7 +180,10 @@ public final class MiniplayerPatch {
         @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
-            return Collections.emptyList();
+            return List.of(
+                    Settings.MINIPLAYER_TYPE,
+                    Settings.MINIPLAYER_DRAG_AND_DROP
+            );
         }
     }
 
@@ -199,7 +201,11 @@ public final class MiniplayerPatch {
         @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
-            return Collections.emptyList();
+            return List.of(
+                    Settings.MINIPLAYER_TYPE,
+                    Settings.MINIPLAYER_DOUBLE_TAP_ACTION,
+                    Settings.MINIPLAYER_DRAG_AND_DROP
+            );
         }
     }
 

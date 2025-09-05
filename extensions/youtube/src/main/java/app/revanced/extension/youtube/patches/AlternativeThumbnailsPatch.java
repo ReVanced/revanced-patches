@@ -17,7 +17,6 @@ import org.chromium.net.impl.CronetUrlRequest;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -71,7 +70,13 @@ public final class AlternativeThumbnailsPatch {
         @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
-            return Collections.emptyList();
+            return List.of(
+                    ALT_THUMBNAIL_HOME,
+                    ALT_THUMBNAIL_SUBSCRIPTIONS,
+                    ALT_THUMBNAIL_LIBRARY,
+                    ALT_THUMBNAIL_PLAYER,
+                    ALT_THUMBNAIL_SEARCH
+            );
         }
     }
 
@@ -92,7 +97,13 @@ public final class AlternativeThumbnailsPatch {
         @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
-            return Collections.emptyList();
+            return List.of(
+                    ALT_THUMBNAIL_HOME,
+                    ALT_THUMBNAIL_SUBSCRIPTIONS,
+                    ALT_THUMBNAIL_LIBRARY,
+                    ALT_THUMBNAIL_PLAYER,
+                    ALT_THUMBNAIL_SEARCH
+            );
         }
     }
 

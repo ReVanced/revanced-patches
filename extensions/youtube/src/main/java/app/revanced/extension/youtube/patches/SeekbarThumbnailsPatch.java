@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
-import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("unused")
@@ -19,7 +18,7 @@ public class SeekbarThumbnailsPatch {
         @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
-            return Collections.emptyList();
+            return List.of(Settings.RESTORE_OLD_SEEKBAR_THUMBNAILS);
         }
     }
 
