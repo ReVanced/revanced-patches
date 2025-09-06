@@ -209,6 +209,48 @@ public final class MiniplayerPatch {
         }
     }
 
+    public static final class MiniplayerAnyModernAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            MiniplayerType type = Settings.MINIPLAYER_TYPE.get();
+            return type == MODERN_1 || type == MODERN_2 || type == MODERN_3 || type == MODERN_4;
+        }
+
+        @NonNull
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.MINIPLAYER_TYPE);
+        }
+    }
+
+    public static final class MiniplayerHideSubtextsAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            MiniplayerType type = Settings.MINIPLAYER_TYPE.get();
+            return type == MODERN_3 || type == MODERN_4;
+        }
+
+        @NonNull
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.MINIPLAYER_TYPE);
+        }
+    }
+
+    public static final class MiniplayerHideRewindOrOverlayOpacityAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            MiniplayerType type = Settings.MINIPLAYER_TYPE.get();
+            return type == MODERN_1;
+        }
+
+        @NonNull
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.MINIPLAYER_TYPE);
+        }
+    }
+
     /**
      * Injection point.
      * <p>

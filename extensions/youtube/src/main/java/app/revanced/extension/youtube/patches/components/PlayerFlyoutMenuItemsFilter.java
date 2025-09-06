@@ -1,12 +1,12 @@
 package app.revanced.extension.youtube.patches.components;
 
 import androidx.annotation.NonNull;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
 
-import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("unused")
@@ -25,7 +25,10 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
         @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
-            return Collections.emptyList();
+            return List.of(
+                    BaseSettings.SPOOF_VIDEO_STREAMS,
+                    BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE
+            );
         }
     }
 

@@ -94,7 +94,7 @@ public final class ChangeStartPagePatch {
         @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
-            return Collections.emptyList();
+            return List.of(Settings.CHANGE_START_PAGE);
         }
     }
 

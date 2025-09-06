@@ -3,9 +3,11 @@ package app.revanced.extension.shared.spoof;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.nio.ByteBuffer;
+import java.util.List;
 import java.util.Map;
 
 import app.revanced.extension.shared.Logger;
@@ -255,6 +257,15 @@ public class SpoofVideoStreamsPatch {
             return BaseSettings.SPOOF_VIDEO_STREAMS.get()
                     && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
         }
+
+        @NonNull
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(
+                    BaseSettings.SPOOF_VIDEO_STREAMS,
+                    BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE
+            );
+        }
     }
 
     public static final class SpoofiOSAvailability implements Setting.Availability {
@@ -262,6 +273,15 @@ public class SpoofVideoStreamsPatch {
         public boolean isAvailable() {
             return BaseSettings.SPOOF_VIDEO_STREAMS.get()
                     && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
+        }
+
+        @NonNull
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(
+                    BaseSettings.SPOOF_VIDEO_STREAMS,
+                    BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE
+            );
         }
     }
 }
