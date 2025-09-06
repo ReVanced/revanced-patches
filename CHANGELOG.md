@@ -1,3 +1,11 @@
+# [5.35.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.35.0-dev.4...v5.35.0-dev.5) (2025-09-06)
+
+
+### Features
+
+* **BaconReader:** Add `Fix Redgifs API` patch ([#5761](https://github.com/ReVanced/revanced-patches/issues/5761)) ([08868c0](https://github.com/ReVanced/revanced-patches/commit/08868c00d3c4f1f37f4a77f333a03ca5a3259b59))
+* **Instagram:** Add `Hide Stories from Home` patch ([#5756](https://github.com/ReVanced/revanced-patches/issues/5756)) ([3ae3251](https://github.com/ReVanced/revanced-patches/commit/3ae3251dc0317b6ced136fe9aa14be369642f203))
+
 # [5.35.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.35.0-dev.3...v5.35.0-dev.4) (2025-09-04)
 
 
