@@ -39,9 +39,10 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     private final LayoutInflater inflater;
     private final ReVancedPreferenceFragment fragment;
 
-    private static final int SMOOTH_SCROLL_DURATION = 800;
+    private static final int SMOOTH_SCROLL_DURATION = 400;
     private static final int BLINK_DURATION = 300;
     private static final int PAUSE_BETWEEN_BLINKS = 200;
+    private static final int RENDER_DELAY = 100;
 
     // Resource ID constants.
     private static final int ID_PREFERENCE_TITLE = getResourceIdentifier("preference_title", "id");
@@ -485,8 +486,10 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             }
         });
 
-        // Smooth scroll with slower duration.
-        listView.smoothScrollToPositionFromTop(targetPosition, 0, SMOOTH_SCROLL_DURATION);
+        // Add delay to allow screen rendering before smooth scrolling.
+        listView.postDelayed(() -> {
+            listView.smoothScrollToPositionFromTop(targetPosition, 0, SMOOTH_SCROLL_DURATION);
+        }, RENDER_DELAY);
     }
 
     /**
