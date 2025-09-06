@@ -3,10 +3,9 @@ package app.revanced.extension.youtube.settings.search;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import static app.revanced.extension.youtube.settings.search.SearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
 
+import android.animation.*;
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
@@ -38,10 +37,11 @@ import java.util.Map;
 public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     private final LayoutInflater inflater;
     private final ReVancedPreferenceFragment fragment;
+    private AnimatorSet currentAnimator;
 
     private static final int SMOOTH_SCROLL_DURATION = 400;
-    private static final int BLINK_DURATION = 300;
-    private static final int PAUSE_BETWEEN_BLINKS = 200;
+    private static final int BLINK_DURATION = 400;
+    private static final int PAUSE_BETWEEN_BLINKS = 100;
     private static final int RENDER_DELAY = 100;
 
     // Resource ID constants.
@@ -457,38 +457,84 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             Dialog dialog = targetScreen.getDialog();
             listView = dialog.findViewById(android.R.id.list);
         }
-        if (listView == null) {
-            return;
-        }
+        if (listView == null) return;
 
         int targetPosition = findPreferencePosition(targetPreference, listView);
-        if (targetPosition == -1) {
+        if (targetPosition == -1) return;
+
+        // Check if item is already visible
+        int firstVisible = listView.getFirstVisiblePosition();
+        int lastVisible = listView.getLastVisiblePosition();
+        if (targetPosition >= firstVisible && targetPosition <= lastVisible) {
+            highlightPreferenceAtPosition(listView, targetPosition);
             return;
         }
 
-        // Set scroll listener to detect when scroll reaches target position.
-        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-                if (scrollState == SCROLL_STATE_IDLE) {
-                    int firstVisible = listView.getFirstVisiblePosition();
-                    int lastVisible = listView.getLastVisiblePosition();
-                    if (targetPosition >= firstVisible && targetPosition <= lastVisible) {
-                        highlightPreferenceAtPosition(listView, targetPosition);
-                        listView.setOnScrollListener(null); // Clear listener to avoid repeat triggers.
-                    }
-                }
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                // No action needed during scroll.
-            }
-        });
-
-        // Add delay to allow screen rendering before smooth scrolling.
+        // Post a delayed action to allow the list to render.
         listView.postDelayed(() -> {
-            listView.smoothScrollToPositionFromTop(targetPosition, 0, SMOOTH_SCROLL_DURATION);
+            // Calculate ListView height.
+            int listHeight = listView.getHeight();
+            if (listHeight == 0) return;
+
+            // Estimate item height using the first visible child.
+            int itemHeight;
+            View firstChild = listView.getChildAt(0);
+            if (firstChild != null) {
+                itemHeight = firstChild.getHeight();
+            } else {
+                itemHeight = (int) (48 * listView.getContext().getResources().getDisplayMetrics().density);
+            }
+
+            // Calculate offset to position the item in the center.
+            int offset = listHeight / 2 - itemHeight / 2;
+            if (offset < 0) offset = 0;
+
+            // For items near the end, use different scroll approach
+            ListAdapter adapter = listView.getAdapter();
+            if (adapter != null && targetPosition > adapter.getCount() - 5) {
+                listView.setSelection(targetPosition);
+                listView.postDelayed(() -> highlightPreferenceAtPosition(listView, targetPosition), 200);
+            } else {
+                // Try smooth scroll first
+                try {
+                    listView.smoothScrollToPositionFromTop(targetPosition, offset, SMOOTH_SCROLL_DURATION);
+                } catch (Exception e) {
+                    listView.smoothScrollToPosition(targetPosition);
+                }
+
+                // Set a scroll listener to trigger the highlight when scrolling stops.
+                final boolean[] highlighted = {false};
+                listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+                    @Override
+                    public void onScrollStateChanged(AbsListView view, int scrollState) {
+                        if (scrollState == SCROLL_STATE_IDLE && !highlighted[0]) {
+                            int firstVisible = listView.getFirstVisiblePosition();
+                            int lastVisible = listView.getLastVisiblePosition();
+
+                            // Check if the target item is visible.
+                            if (targetPosition >= firstVisible && targetPosition <= lastVisible) {
+                                highlighted[0] = true;
+                                highlightPreferenceAtPosition(listView, targetPosition);
+                                listView.setOnScrollListener(null);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                        // No action needed during scroll.
+                    }
+                });
+
+                // Safety timeout
+                listView.postDelayed(() -> {
+                    if (!highlighted[0]) {
+                        highlighted[0] = true;
+                        highlightPreferenceAtPosition(listView, targetPosition);
+                        listView.setOnScrollListener(null);
+                    }
+                }, SMOOTH_SCROLL_DURATION + 300);
+            }
         }, RENDER_DELAY);
     }
 
@@ -567,30 +613,47 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     }
 
     /**
-     * Creates a smooth double-blink effect on a view by fading its background color.
+     * Creates a smooth double-blink effect on a view's background without affecting the text.
+     * @param view The View to apply the animation to.
      */
     private void blinkView(View view) {
-        Drawable originalBackground = view.getBackground();
+        // If a previous animation is still running, cancel it to prevent conflicts.
+        if (currentAnimator != null && currentAnimator.isRunning()) {
+            currentAnimator.cancel();
+        }
+        int startColor = Utils.getAppBackgroundColor();
         int highlightColor = Utils.adjustColorBrightness(
-                Utils.getAppBackgroundColor(),
+                startColor,
                 Utils.isDarkModeEnabled() ? 1.25f : 0.8f
         );
-        ColorDrawable highlightDrawable = new ColorDrawable(highlightColor);
+        // Animator for transitioning from the start color to the highlight color.
+        ObjectAnimator fadeIn = ObjectAnimator.ofObject(
+                view,
+                "backgroundColor",
+                new ArgbEvaluator(),
+                startColor,
+                highlightColor
+        );
+        fadeIn.setDuration(BLINK_DURATION);
+        // Animator to return to the start color.
+        ObjectAnimator fadeOut = ObjectAnimator.ofObject(
+                view,
+                "backgroundColor",
+                new ArgbEvaluator(),
+                highlightColor,
+                startColor
+        );
+        fadeOut.setDuration(BLINK_DURATION);
 
-        // First blink: fade in and out.
-        view.setBackground(highlightDrawable);
-        view.animate().alpha(0.5f).setDuration(BLINK_DURATION).withEndAction(() -> {
-            view.setBackground(originalBackground);
-            view.setAlpha(1.0f);
-            // Second blink after a short delay.
-            view.postDelayed(() -> {
-                view.setBackground(highlightDrawable);
-                view.animate().alpha(0.5f).setDuration(BLINK_DURATION).withEndAction(() -> {
-                    view.setBackground(originalBackground);
-                    view.setAlpha(1.0f);
-                }).start();
-            }, PAUSE_BETWEEN_BLINKS); // Pause between blinks.
-        }).start();
+        currentAnimator = new AnimatorSet();
+        // Create the sequence: fadeIn -> fadeOut -> (pause) -> fadeIn -> fadeOut.
+        AnimatorSet firstBlink = new AnimatorSet();
+        firstBlink.playSequentially(fadeIn, fadeOut);
+        AnimatorSet secondBlink = new AnimatorSet();
+        secondBlink.playSequentially(fadeIn.clone(), fadeOut.clone()); // Use clones for the second blink.
+
+        currentAnimator.play(secondBlink).after(firstBlink).after(PAUSE_BETWEEN_BLINKS);
+        currentAnimator.start();
     }
 
     /**
