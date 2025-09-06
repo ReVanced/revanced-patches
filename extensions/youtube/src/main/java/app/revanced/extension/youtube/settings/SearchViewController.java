@@ -242,13 +242,16 @@ public class SearchViewController {
             this.searchableText = buildSearchableText(pref);
         }
 
+        static String noResultsPlaceholderKey  = "no_results_placeholder";
+        static String searchTipsPlaceholderKey = "search_tips_placeholder";
+
         private static int determineType(Preference pref) {
             if (pref instanceof SwitchPreference) return TYPE_SWITCH;
             if (pref instanceof ListPreference && !(pref instanceof SegmentCategoryListPreference)) return TYPE_LIST;
             if (pref instanceof ColorPickerPreference) return TYPE_COLOR_PICKER;
             if (pref instanceof SegmentCategoryListPreference) return TYPE_SEGMENT_CATEGORY;
-            if ("no_results_placeholder".equals(pref.getKey())
-                    || "search_tips_placeholder".equals(pref.getKey())) return TYPE_NO_RESULTS;
+            if (noResultsPlaceholderKey.equals(pref.getKey())
+                    || searchTipsPlaceholderKey.equals(pref.getKey())) return TYPE_NO_RESULTS;
             return TYPE_REGULAR;
         }
 
@@ -269,15 +272,24 @@ public class SearchViewController {
 
         private static int determineIcon(Preference pref, String key) {
             if (pref.getIcon() != null) {
-                if ("no_results_placeholder".equals(key)) return DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
-                if ("search_tips_placeholder".equals(key)) return DRAWABLE_REVANCED_SETTINGS_INFO;
+                if (noResultsPlaceholderKey.equals(key)) return DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
+                if (searchTipsPlaceholderKey.equals(key)) return DRAWABLE_REVANCED_SETTINGS_INFO;
             }
             return 0;
         }
 
         private String buildSearchableText(Preference pref) {
             StringBuilder searchBuilder = new StringBuilder();
-            appendText(searchBuilder, pref.getKey());
+            String key = pref.getKey();
+            String normalizedKey = "";
+            if (key != null) {
+                // Normalize preference key by removing the common "revanced_" prefix
+                // so that users can search by the meaningful part only.
+                normalizedKey = key.startsWith("revanced_")
+                        ? key.substring("revanced_".length())
+                        : key;
+            }
+            appendText(searchBuilder, normalizedKey);
             appendText(searchBuilder, originalTitle);
             appendText(searchBuilder, originalSummary);
 
@@ -917,8 +929,11 @@ public class SearchViewController {
                     collectSearchablePreferences(screen);
                     for (SearchResultItem item : allSearchItems) {
                         // Only PreferenceSearchItem instances have keys.
-                        if (item instanceof PreferenceSearchItem prefItem && prefItem.preference.getKey() != null) {
-                            keyToSearchItem.put(prefItem.preference.getKey(), item);
+                        if (item instanceof PreferenceSearchItem prefItem) {
+                            String key = prefItem.preference.getKey();
+                            if (key != null) {
+                                keyToSearchItem.put(key, item);
+                            }
                         }
                     }
                     // Set up listeners.
@@ -1248,8 +1263,9 @@ public class SearchViewController {
         // Build filteredSearchItems, inserting parent enablers for disabled dependents.
         Set<String> addedParentKeys = new HashSet<>();
         for (SearchResultItem item : matched) {
-            if (item instanceof PreferenceSearchItem prefItem && prefItem.preference.getKey() != null) {
-                Setting<?> setting = Setting.getSettingFromPath(prefItem.preference.getKey());
+            if (item instanceof PreferenceSearchItem prefItem) {
+                String key = prefItem.preference.getKey();
+                Setting<?> setting = (key != null) ? Setting.getSettingFromPath(key) : null;
                 if (setting != null && !setting.isAvailable()) {
                     List<Setting<?>> parentSettings = setting.getParentSettings();
                     for (Setting<?> parentSetting : parentSettings) {
@@ -1263,7 +1279,9 @@ public class SearchViewController {
                     }
                 }
                 filteredSearchItems.add(item);
-                addedParentKeys.add(prefItem.preference.getKey());
+                if (key != null) {
+                    addedParentKeys.add(key);
+                }
             }
         }
 
