@@ -917,7 +917,7 @@ Inställningar → Uppspelning → Spela upp nästa video automatiskt"</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_ryd_failure_connection_timeout">Ogilla-mark. är ej tillg. just nu (API-tidsgräns nådd)</string>
+  <string name="revanced_ryd_failure_connection_timeout">Ogilla-markeringar är för tillfället inte tillgängliga (API-tidsgräns nådd)</string>
   <string name="revanced_ryd_failure_connection_status_code">Ogilla-markeringar är inte tillgängliga (status %d)</string>
   <string name="revanced_ryd_failure_client_rate_limit_requested">Ogilla-markeringar är inte tillgängliga (API-gräns för klienten)</string>
   <string name="revanced_ryd_failure_generic">Ogilla-markeringar är inte tillgängliga (%s)</string>
@@ -1125,7 +1125,7 @@ Ditt användar-id är som ett lösenord och det bör aldrig delas."</string>
 Finns redan"</string>
   <string name="revanced_sb_submit_succeeded">Segmentet har skickats</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock ej tillgängligt just nu (API-tidsgräns nådd)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock är för tillfället inte tillgängligt (API-tidsgräns nådd)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock är för tillfället inte tillgängligt (status %d)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock är för tillfället inte tillgängligt</string>
   <string name="revanced_sb_vote_failed_timeout">Det gick inte att rösta på segment (API-tidsgräns nådd)</string>
