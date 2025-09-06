@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.settings.search;
 
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.youtube.settings.search.SearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
 
 import android.content.Context;
 import android.preference.Preference;
@@ -312,7 +313,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 noResultsHolder.titleView.setText(item.title);
                 noResultsHolder.summaryView.setText(item.summary);
                 noResultsHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
-                noResultsHolder.iconView.setImageResource(((SearchResultItem.PreferenceSearchItem) item).getIconResourceId());
+                noResultsHolder.iconView.setImageResource(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
             }
         }
 

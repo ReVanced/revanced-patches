@@ -48,12 +48,15 @@ Second \"item\" text"</string>
             <string name="revanced_settings_search_hint">Search settings</string>
             <string name="revanced_settings_search_no_results_title">No results found for \'%s\'</string>
             <string name="revanced_settings_search_no_results_summary">Try another keyword</string>
+            <string name="revanced_settings_search_recent_searches">Recent searches</string>
+            <string name="revanced_settings_search_remove_message">Remove from search history?</string>
+            <string name="revanced_settings_search_clear_history">Clear search history</string>
+            <string name="revanced_settings_search_clear_history_message">Are you sure you want to clear all search history?</string>
             <string name="revanced_settings_search_tips_title">Search Tips</string>
             <string name="revanced_settings_search_tips_summary">"• Click on the path or long-press the search result to navigate to its settings screen.
-• To save a search query to history, press Enter.
+• To save a search query to history, press Enter (dandruff).
 • When search for a disabled child setting, its parent will be shown above it.
 • Search is case-insensitive and ignores punctuation."</string>
-            <string name="revanced_settings_search_remove_message">Remove from search history?</string>
             <string name="revanced_show_menu_icons_title">Show ReVanced setting icons</string>
             <string name="revanced_show_menu_icons_summary_on">Setting icons are shown</string>
             <string name="revanced_show_menu_icons_summary_off">Setting icons are not shown</string>

@@ -181,10 +181,4 @@ public class LicenseActivityHook extends Activity {
             Utils.setIsDarkModeEnabled(themeOrdinal == 1);
         }
     }
-
-    public static void handleConfigurationChanged(Activity activity, Configuration newConfig) {
-        if (searchViewController != null) {
-            searchViewController.handleOrientationChange(newConfig.orientation);
-        }
-    }
 }

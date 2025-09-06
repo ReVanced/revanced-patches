@@ -72,6 +72,7 @@ fun settingsPatch (
                 "revanced_settings_cursor.xml",
                 "revanced_settings_custom_checkmark.xml",
                 "revanced_settings_search_icon.xml",
+                "revanced_settings_search_remove.xml",
                 "revanced_settings_toolbar_arrow_left.xml",
             ),
             ResourceGroup("layout",

@@ -1,8 +1,5 @@
 package app.revanced.extension.youtube.settings.search;
 
-import static app.revanced.extension.youtube.settings.search.SearchViewController.DRAWABLE_REVANCED_SETTINGS_INFO;
-import static app.revanced.extension.youtube.settings.search.SearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
-
 import android.graphics.Color;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -108,7 +105,6 @@ public abstract class SearchResultItem {
     public static class PreferenceSearchItem extends SearchResultItem {
         final Preference preference;
         final String searchableText;
-        final int iconResourceId;
         final CharSequence originalTitle;
         CharSequence originalSummary;
         CharSequence originalSummaryOn;
@@ -133,23 +129,16 @@ public abstract class SearchResultItem {
             // Initialize type-specific fields.
             initTypeSpecificFields(pref);
 
-            // Determine icon for special placeholders.
-            this.iconResourceId = determineIcon(pref, pref.getKey());
-
             // Build searchable text.
             this.searchableText = buildSearchableText(pref);
         }
-
-        static String noResultsPlaceholderKey  = "no_results_placeholder";
-        static String searchTipsPlaceholderKey = "search_tips_placeholder";
 
         private static int determineType(Preference pref) {
             if (pref instanceof SwitchPreference) return TYPE_SWITCH;
             if (pref instanceof ListPreference && !(pref instanceof SegmentCategoryListPreference)) return TYPE_LIST;
             if (pref instanceof ColorPickerPreference) return TYPE_COLOR_PICKER;
             if (pref instanceof SegmentCategoryListPreference) return TYPE_SEGMENT_CATEGORY;
-            if (noResultsPlaceholderKey.equals(pref.getKey())
-                    || searchTipsPlaceholderKey.equals(pref.getKey())) return TYPE_NO_RESULTS;
+            if ("no_results_placeholder".equals(pref.getKey())) return TYPE_NO_RESULTS;
             return TYPE_REGULAR;
         }
 
@@ -166,14 +155,6 @@ public abstract class SearchResultItem {
                 this.originalEntries = segmentPref.getEntries();
                 this.color = segmentPref.getColorWithOpacity();
             }
-        }
-
-        private static int determineIcon(Preference pref, String key) {
-            if (pref.getIcon() != null) {
-                if (noResultsPlaceholderKey.equals(key)) return DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
-                if (searchTipsPlaceholderKey.equals(key)) return DRAWABLE_REVANCED_SETTINGS_INFO;
-            }
-            return 0;
         }
 
         private String buildSearchableText(Preference pref) {
@@ -281,10 +262,6 @@ public abstract class SearchResultItem {
             this.originalSummary = newSummary;
             this.summary = newSummary != null ? newSummary : "";
             preference.setSummary(newSummary);
-        }
-
-        int getIconResourceId() {
-            return iconResourceId;
         }
 
         public void setColor(int newColor) {

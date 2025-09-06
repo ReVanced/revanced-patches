@@ -6,24 +6,19 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.RippleDrawable;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.util.Pair;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 
 import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -57,34 +52,37 @@ public class SearchViewController {
     private final ReVancedPreferenceFragment fragment;
     private final CharSequence originalTitle;
     private final Deque<String> searchHistory;
-    private final AutoCompleteTextView autoCompleteTextView;
     private final boolean showSettingsSearchHistory;
     private final SearchResultsAdapter searchResultsAdapter;
     private final List<SearchResultItem> allSearchItems;
     private final List<SearchResultItem> filteredSearchItems;
     private final Map<String, SearchResultItem> keyToSearchItem;
     private final InputMethodManager inputMethodManager;
+    private final FrameLayout searchHistoryContainer;
+    private final SearchHistoryAdapter searchHistoryAdapter;
 
     private boolean isSearchActive;
-    private int currentOrientation;
+    private boolean isShowingSearchHistory;
 
     private static final int MAX_HISTORY_SIZE = 5; // Maximum history items stored in settings, previous ones are erased.
     private static final int MAX_SEARCH_RESULTS = 50; // Maximum number of search results displayed.
-    private static final int SEARCH_DROPDOWN_DELAY_MS = 100; // Delay for showing search history suggestions.
 
     // Resource ID constants.
     private static final int ID_REVANCED_SEARCH_VIEW = getResourceIdentifier("revanced_search_view", "id");
     private static final int ID_REVANCED_SEARCH_VIEW_CONTAINER = getResourceIdentifier("revanced_search_view_container", "id");
     private static final int ID_ACTION_SEARCH = getResourceIdentifier("action_search", "id");
     private static final int ID_REVANCED_SETTINGS_FRAGMENTS = getResourceIdentifier("revanced_settings_fragments", "id");
-    private static final int ID_SUGGESTION_TEXT = getResourceIdentifier("suggestion_text", "id");
+    private static final int ID_SEARCH_HISTORY_LIST = getResourceIdentifier("search_history_list", "id");
+    private static final int ID_CLEAR_HISTORY_BUTTON = getResourceIdentifier("clear_history_button", "id");
+    private static final int ID_HISTORY_TEXT = getResourceIdentifier("history_text", "id");
+    private static final int ID_DELETE_ICON = getResourceIdentifier("delete_icon", "id");
 
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_SUGGESTION_ITEM =
-            getResourceIdentifier("revanced_preference_search_suggestion_item", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN =
+            getResourceIdentifier("revanced_preference_search_history_screen", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM =
+            getResourceIdentifier("revanced_preference_search_history_item", "layout");
     public static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON =
             getResourceIdentifier("revanced_settings_search_icon", "drawable");
-    public static final int DRAWABLE_REVANCED_SETTINGS_INFO =
-            getResourceIdentifier("revanced_settings_screen_00_about", "drawable");
     private static final int MENU_REVANCED_SEARCH_MENU =
             getResourceIdentifier("revanced_search_menu", "menu");
 
@@ -116,11 +114,11 @@ public class SearchViewController {
         this.originalTitle = toolbar.getTitle();
         this.showSettingsSearchHistory = Settings.SETTINGS_SEARCH_HISTORY.get();
         this.searchHistory = new LinkedList<>();
-        this.currentOrientation = activity.getResources().getConfiguration().orientation;
         this.allSearchItems = new ArrayList<>();
         this.filteredSearchItems = new ArrayList<>();
         this.keyToSearchItem = new HashMap<>();
         this.inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        this.isShowingSearchHistory = false;
 
         // Initialize search history.
         StringSetting searchEntries = Settings.SETTINGS_SEARCH_ENTRIES;
@@ -136,27 +134,70 @@ public class SearchViewController {
 
         // Retrieve SearchView and container from XML.
         searchView = activity.findViewById(ID_REVANCED_SEARCH_VIEW);
+        EditText searchEditText = searchView.findViewById(
+                searchView.getContext().getResources().getIdentifier(
+                        "android:id/search_src_text", null, null));
+        // Disable fullscreen keyboard mode.
+        searchEditText.setImeOptions(searchEditText.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
+
         searchContainer = activity.findViewById(ID_REVANCED_SEARCH_VIEW_CONTAINER);
 
-        // Create overlay container for search results.
+        // Create overlay container for search results and history.
         overlayContainer = new FrameLayout(activity);
         overlayContainer.setVisibility(View.GONE);
         overlayContainer.setBackgroundColor(Utils.getAppBackgroundColor());
         overlayContainer.setElevation(Utils.dipToPixels(8));
 
-        // Create search results ListView.
+        // Container for search results.
+        FrameLayout searchResultsContainer = new FrameLayout(activity);
+        searchResultsContainer.setVisibility(View.VISIBLE);
+
+        // Create a ListView for the results.
         ListView searchResultsListView = new ListView(activity);
         searchResultsListView.setDivider(null);
         searchResultsListView.setDividerHeight(0);
         searchResultsAdapter = new SearchResultsAdapter(activity, filteredSearchItems, fragment);
         searchResultsListView.setAdapter(searchResultsAdapter);
 
-        // Add ListView to overlay container.
-        overlayContainer.addView(searchResultsListView, new FrameLayout.LayoutParams(
+        // Add results list into container.
+        searchResultsContainer.addView(searchResultsListView, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT));
 
-        // Add overlay to the main content container.
+        // Add results container into overlay.
+        overlayContainer.addView(searchResultsContainer, new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT));
+
+        // Create search history container inside overlay.
+        searchHistoryContainer = new FrameLayout(activity);
+        searchHistoryContainer.setVisibility(View.GONE);
+
+        // Inflate search history layout.
+        LayoutInflater inflater = LayoutInflater.from(activity);
+        View historyView = inflater.inflate(LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN, searchHistoryContainer, false);
+
+        // Get references to components.
+        LinearLayout searchHistoryListView = historyView.findViewById(ID_SEARCH_HISTORY_LIST);
+        TextView clearHistoryButton = historyView.findViewById(ID_CLEAR_HISTORY_BUTTON);
+
+        // Set up history adapter.
+        searchHistoryAdapter = new SearchHistoryAdapter(activity, searchHistoryListView, new ArrayList<>(searchHistory));
+
+        // Set up clear history button.
+        clearHistoryButton.setOnClickListener(v -> showClearHistoryDialog());
+
+        // Add inflated history layout to container.
+        searchHistoryContainer.addView(historyView, new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT));
+
+        // Add history container to overlay.
+        overlayContainer.addView(searchHistoryContainer, new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT));
+
+        // Finally add overlay to the main content container.
         FrameLayout mainContainer = activity.findViewById(ID_REVANCED_SETTINGS_FRAGMENTS);
         if (mainContainer != null) {
             FrameLayout.LayoutParams overlayParams = new FrameLayout.LayoutParams(
@@ -165,14 +206,6 @@ public class SearchViewController {
             overlayParams.gravity = Gravity.TOP;
             mainContainer.addView(overlayContainer, overlayParams);
         }
-
-        // Initialize AutoCompleteTextView.
-        autoCompleteTextView = searchView.findViewById(
-                searchView.getContext().getResources().getIdentifier(
-                        "android:id/search_src_text", null, null));
-
-        // Disable fullscreen keyboard mode.
-        autoCompleteTextView.setImeOptions(autoCompleteTextView.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
 
         // Set background and query hint.
         searchView.setBackground(createBackgroundDrawable());
@@ -185,11 +218,6 @@ public class SearchViewController {
             searchView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
         }
 
-        // Set up search history suggestions.
-        if (showSettingsSearchHistory) {
-            setupSearchHistory();
-        }
-
         // Set up query text listener.
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -198,10 +226,6 @@ public class SearchViewController {
                     String queryTrimmed = query.trim();
                     if (!queryTrimmed.isEmpty()) {
                         saveSearchQuery(queryTrimmed);
-                    }
-                    // Hide suggestions on submit.
-                    if (showSettingsSearchHistory) {
-                        autoCompleteTextView.dismissDropDown();
                     }
                 } catch (Exception ex) {
                     Logger.printException(() -> "onQueryTextSubmit failure", ex);
@@ -215,28 +239,26 @@ public class SearchViewController {
                     Logger.printDebug(() -> "Search query: " + newText);
 
                     String trimmedText = newText.trim();
+                    if (!isSearchActive) {
+                        Logger.printDebug(() -> "Search is not active, skipping query processing");
+                        return true;
+                    }
+
                     if (trimmedText.isEmpty()) { // Consider spaces as an empty query.
-                        overlayContainer.setVisibility(View.GONE);
                         filteredSearchItems.clear();
                         searchResultsAdapter.notifyDataSetChanged();
 
-                        // Clear highlighting when query becomes empty.
                         for (SearchResultItem item : allSearchItems) {
                             item.clearHighlighting();
                         }
 
-                        // Re-enable suggestions for empty input.
-                        if (showSettingsSearchHistory) {
-                            autoCompleteTextView.setThreshold(1);
+                        if (showSettingsSearchHistory && !searchHistory.isEmpty()) {
+                            showSearchHistory();
+                        } else {
+                            hideAllOverlays();
                         }
                     } else {
                         filterAndShowResults(newText);
-
-                        // Disable suggestions during text input.
-                        if (showSettingsSearchHistory) {
-                            autoCompleteTextView.dismissDropDown();
-                            autoCompleteTextView.setThreshold(Integer.MAX_VALUE); // Disable autocomplete suggestions.
-                        }
                     }
                 } catch (Exception ex) {
                     Logger.printException(() -> "onQueryTextChange failure", ex);
@@ -273,6 +295,176 @@ public class SearchViewController {
                 Logger.printException(() -> "navigation click failure", ex);
             }
         });
+    }
+
+    /**
+     * Shows the search history screen.
+     */
+    private void showSearchHistory() {
+        if (!showSettingsSearchHistory || searchHistory.isEmpty()) {
+            return;
+        }
+
+        isShowingSearchHistory = true;
+
+        // Update the adapter.
+        searchHistoryAdapter.clear();
+        searchHistoryAdapter.addAll(searchHistory);
+        searchHistoryAdapter.notifyDataSetChanged();
+
+        // Show containers.
+        searchHistoryContainer.setVisibility(View.VISIBLE);
+        overlayContainer.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * Hides the search history screen.
+     */
+    private void hideSearchHistory() {
+        searchHistoryContainer.setVisibility(View.GONE);
+        isShowingSearchHistory = false;
+    }
+
+    /**
+     * Hides all overlay containers.
+     */
+    private void hideAllOverlays() {
+        searchHistoryContainer.setVisibility(View.GONE);
+        isShowingSearchHistory = false;
+
+        overlayContainer.setVisibility(View.GONE);
+
+        filteredSearchItems.clear();
+        searchResultsAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * Shows confirmation dialog for clearing search history.
+     */
+    private void showClearHistoryDialog() {
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
+                activity,
+                str("revanced_settings_search_clear_history"),
+                str("revanced_settings_search_clear_history_message"),
+                null,
+                null,
+                this::clearAllSearchHistory,
+                () -> {
+                },
+                null,
+                null,
+                false
+        );
+
+        Dialog dialog = dialogPair.first;
+        dialog.setCancelable(true);
+        dialog.show();
+    }
+
+    /**
+     * Clears all search history.
+     */
+    private void clearAllSearchHistory() {
+        searchHistory.clear();
+        saveSearchHistory();
+        searchHistoryAdapter.clear();
+        searchHistoryAdapter.notifyDataSetChanged();
+
+        // If currently showing history and it's now empty, hide it.
+        if (isShowingSearchHistory) {
+            hideAllOverlays();
+        }
+    }
+
+    /**
+     * Custom adapter for search history items.
+     */
+    private class SearchHistoryAdapter {
+        private final List<String> history;
+        private final LayoutInflater inflater;
+        private final LinearLayout container;
+
+        public SearchHistoryAdapter(Context context, LinearLayout container, List<String> history) {
+            this.history = history;
+            this.inflater = LayoutInflater.from(context);
+            this.container = container;
+        }
+
+        /**
+         * Updates the container with current history items.
+         */
+        public void notifyDataSetChanged() {
+            container.removeAllViews();
+            for (String query : history) {
+                View view = inflater.inflate(LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM, container, false);
+
+                TextView historyText = view.findViewById(ID_HISTORY_TEXT);
+                ImageView deleteIcon = view.findViewById(ID_DELETE_ICON);
+
+                historyText.setText(query);
+
+                // Set click listener for main item (select query).
+                view.setOnClickListener(v -> {
+                    searchView.setQuery(query, true);
+                    hideSearchHistory();
+                });
+
+                // Set click listener for delete icon.
+                deleteIcon.setOnClickListener(v -> {
+                    Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
+                            activity,
+                            query,
+                            str("revanced_settings_search_remove_message"),
+                            null,
+                            null,
+                            () -> {
+                                removeSearchQuery(query);
+                                remove(query);
+                                notifyDataSetChanged();
+
+                                // If history is now empty, hide the screen.
+                                if (history.isEmpty()) {
+                                    hideAllOverlays();
+                                }
+                            }, // OK button action.
+                            () -> {}, // Cancel button action (dismiss only).
+                            null,
+                            null,
+                            false
+                    );
+
+                    Dialog dialog = dialogPair.first;
+                    dialog.setCancelable(true); // Allow dismissal via back button.
+                    dialog.show(); // Show the dialog.
+                });
+
+                container.addView(view);
+            }
+        }
+
+        /**
+         * Clears all views from the container and history list.
+         */
+        public void clear() {
+            history.clear();
+            container.removeAllViews();
+        }
+
+        /**
+         * Adds all provided history items to the container.
+         */
+        public void addAll(Collection<String> items) {
+            history.addAll(items);
+            notifyDataSetChanged();
+        }
+
+        /**
+         * Removes a query from the history and updates the container.
+         */
+        public void remove(String query) {
+            history.remove(query);
+            notifyDataSetChanged();
+        }
     }
 
     /**
@@ -372,7 +564,7 @@ public class SearchViewController {
      * Refreshes search results if search is active.
      */
     private void refreshSearchResults() {
-        if (isSearchActive) {
+        if (isSearchActive && !isShowingSearchHistory) {
             searchResultsAdapter.notifyDataSetChanged();
         }
     }
@@ -380,6 +572,7 @@ public class SearchViewController {
     /**
      * Collect all searchable preferences with key-based navigation support.
      */
+    @SuppressWarnings("deprecation")
     private void collectSearchablePreferences(PreferenceGroup group) {
         collectSearchablePreferencesWithKeys(group, "", new ArrayList<>(), 1, 0);
     }
@@ -441,7 +634,7 @@ public class SearchViewController {
     /**
      * Helper method to get all keys from current screen (for debugging).
      */
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings({"deprecation", "unused"})
     private void logAllPreferenceKeys(PreferenceGroup group, String prefix) {
         if (group == null) return;
 
@@ -465,6 +658,7 @@ public class SearchViewController {
      */
     @SuppressWarnings("deprecation")
     private void filterAndShowResults(String query) {
+        hideSearchHistory();
         // Keep track of the previously displayed items to clear their highlights.
         List<SearchResultItem> previouslyDisplayedItems = new ArrayList<>(filteredSearchItems);
 
@@ -532,11 +726,15 @@ public class SearchViewController {
             filteredSearchItems.addAll(displayItems);
         }
 
-        // Show "No results found" and "Search Tips" if search results are empty.
+        // Show "No results found" if search results are empty.
         if (filteredSearchItems.isEmpty()) {
-            for (Preference pref : createNoResultsPreferences(query)) {
-                filteredSearchItems.add(new SearchResultItem.PreferenceSearchItem(pref, "", Collections.emptyList()));
-            }
+            Preference noResultsPreference = new Preference(activity);
+            noResultsPreference.setKey("no_results_placeholder");
+            noResultsPreference.setTitle(str("revanced_settings_search_no_results_title", query));
+            noResultsPreference.setSummary(str("revanced_settings_search_no_results_summary"));
+            noResultsPreference.setSelectable(false);
+            noResultsPreference.setIcon(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
+            filteredSearchItems.add(new SearchResultItem.PreferenceSearchItem(noResultsPreference, "", Collections.emptyList()));
         }
 
         searchResultsAdapter.notifyDataSetChanged();
@@ -545,57 +743,7 @@ public class SearchViewController {
     }
 
     /**
-     * Creates Preferences for "No results" and "Search Tips".
-     */
-    @SuppressWarnings("deprecation")
-    private List<Preference> createNoResultsPreferences(String query) {
-        List<Preference> prefs = new ArrayList<>();
-
-        // "No results" card.
-        Preference noResultsPreference = new Preference(activity);
-        noResultsPreference.setKey("no_results_placeholder");
-        noResultsPreference.setTitle(str("revanced_settings_search_no_results_title", query));
-        noResultsPreference.setSummary(str("revanced_settings_search_no_results_summary"));
-        noResultsPreference.setSelectable(false);
-        noResultsPreference.setIcon(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
-        prefs.add(noResultsPreference);
-
-        // "Search Tips" card.
-        Preference tipsPreference = new Preference(activity);
-        tipsPreference.setKey("search_tips_placeholder");
-        tipsPreference.setTitle(str("revanced_settings_search_tips_title"));
-        tipsPreference.setSummary(str("revanced_settings_search_tips_summary"));
-        tipsPreference.setSelectable(false);
-        tipsPreference.setIcon(DRAWABLE_REVANCED_SETTINGS_INFO);
-        prefs.add(tipsPreference);
-
-        return prefs;
-    }
-
-    /**
-     * Sets up the search history functionality with autocomplete suggestions.
-     * Configures the AutoCompleteTextView with a custom adapter and focus listeners.
-     */
-    private void setupSearchHistory() {
-        if (autoCompleteTextView == null) return;
-
-        // Create adapter for search history.
-        SearchHistoryAdapter adapter = new SearchHistoryAdapter(activity, new ArrayList<>(searchHistory));
-        autoCompleteTextView.setAdapter(adapter);
-        autoCompleteTextView.setThreshold(1); // Initial threshold for empty input.
-        autoCompleteTextView.setLongClickable(true);
-
-        // Show suggestions only when search bar is active and query is empty.
-        autoCompleteTextView.setOnFocusChangeListener((v, hasFocus) -> {
-            if (hasFocus && isSearchActive && autoCompleteTextView.getText().length() == 0) {
-                autoCompleteTextView.showDropDown();
-            }
-        });
-    }
-
-    /**
-     * Saves a search query to the search history.
-     * Manages the history size limit and updates the autocomplete adapter.
+     * Saves a search query to the search history. Manages the history size limit.
      */
     private void saveSearchQuery(String query) {
         if (!showSettingsSearchHistory) return;
@@ -610,8 +758,6 @@ public class SearchViewController {
         }
 
         saveSearchHistory();
-
-        updateSearchHistoryAdapter();
     }
 
     /**
@@ -621,8 +767,6 @@ public class SearchViewController {
         searchHistory.remove(query);
 
         saveSearchHistory();
-
-        updateSearchHistoryAdapter();
     }
 
     /**
@@ -631,34 +775,6 @@ public class SearchViewController {
     private void saveSearchHistory() {
         Logger.printDebug(() -> "Saving search history: " + searchHistory);
         Settings.SETTINGS_SEARCH_ENTRIES.save(String.join("\n", searchHistory));
-    }
-
-    /**
-     * Updates the search history autocomplete adapter with the latest history data.
-     * Refreshes the dropdown suggestions to reflect recent changes.
-     */
-    private void updateSearchHistoryAdapter() {
-        if (autoCompleteTextView == null) return;
-
-        SearchHistoryAdapter adapter = (SearchHistoryAdapter) autoCompleteTextView.getAdapter();
-        if (adapter != null) {
-            adapter.clear();
-            adapter.addAll(searchHistory);
-            adapter.notifyDataSetChanged();
-        }
-    }
-
-    /**
-     * Handles orientation changes by dismissing any open dropdown menus.
-     */
-    public void handleOrientationChange(int newOrientation) {
-        if (newOrientation != currentOrientation) {
-            currentOrientation = newOrientation;
-            if (autoCompleteTextView != null) {
-                autoCompleteTextView.dismissDropDown();
-                Logger.printDebug(() -> "Orientation changed, search history dismissed");
-            }
-        }
     }
 
     /**
@@ -672,16 +788,14 @@ public class SearchViewController {
         searchContainer.setVisibility(View.VISIBLE);
         searchView.requestFocus();
 
-        // Show keyboard.
+        // Configure soft input mode to adjust layout and show keyboard.
+        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN
+                | WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         inputMethodManager.showSoftInput(searchView, InputMethodManager.SHOW_IMPLICIT);
 
-        // Show suggestions with a slight delay.
-        if (showSettingsSearchHistory && autoCompleteTextView != null && autoCompleteTextView.getText().length() == 0) {
-            searchView.postDelayed(() -> {
-                if (isSearchActive && autoCompleteTextView.getText().length() == 0) {
-                    autoCompleteTextView.showDropDown();
-                }
-            }, SEARCH_DROPDOWN_DELAY_MS);
+        // Show search history if enabled and has history.
+        if (showSettingsSearchHistory && !searchHistory.isEmpty()) {
+            showSearchHistory();
         }
     }
 
@@ -691,18 +805,22 @@ public class SearchViewController {
      */
     public void closeSearch() {
         isSearchActive = false;
-        toolbar.getMenu().findItem(ID_ACTION_SEARCH).setVisible(true);
-        toolbar.setTitle(originalTitle);
-        searchContainer.setVisibility(View.GONE);
+        isShowingSearchHistory = false;
+
+        searchHistoryContainer.setVisibility(View.GONE);
         overlayContainer.setVisibility(View.GONE);
-        searchView.setQuery("", false);
 
-        // Hide keyboard.
-        inputMethodManager.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
-
-        // Clear search results.
         filteredSearchItems.clear();
         searchResultsAdapter.notifyDataSetChanged();
+
+        searchContainer.setVisibility(View.GONE);
+        toolbar.getMenu().findItem(ID_ACTION_SEARCH).setVisible(true);
+        toolbar.setTitle(originalTitle);
+        searchView.setQuery("", false);
+
+        // Hide keyboard and reset soft input mode.
+        inputMethodManager.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         // Clear highlighting for all search items.
         for (SearchResultItem item : allSearchItems) {
@@ -730,16 +848,6 @@ public class SearchViewController {
     }
 
     /**
-     * Creates a background drawable for search suggestion items.
-     */
-    private static GradientDrawable createSuggestionBackgroundDrawable() {
-        GradientDrawable background = new GradientDrawable();
-        background.setShape(GradientDrawable.RECTANGLE);
-        background.setColor(getSearchViewBackground());
-        return background;
-    }
-
-    /**
      * Injection point.
      */
     @SuppressWarnings("unused")
@@ -757,64 +865,5 @@ public class SearchViewController {
      */
     public boolean isSearchActive() {
         return isSearchActive;
-    }
-
-    /**
-     * Custom ArrayAdapter for search history.
-     */
-    private class SearchHistoryAdapter extends ArrayAdapter<String> {
-        public SearchHistoryAdapter(Context context, List<String> history) {
-            super(context, 0, history);
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LinearLayout.inflate(getContext(), LAYOUT_REVANCED_PREFERENCE_SEARCH_SUGGESTION_ITEM, null);
-            }
-
-            // Set query text.
-            String query = getItem(position);
-            TextView textView = convertView.findViewById(ID_SUGGESTION_TEXT);
-            if (textView != null) {
-                textView.setText(query);
-            }
-
-            // Create ripple effect.
-            int rippleColor = Utils.adjustColorBrightness(getSearchViewBackground(), Utils.isDarkModeEnabled() ? 1.25f : 0.90f);
-            RippleDrawable rippleBackground = new RippleDrawable(
-                    ColorStateList.valueOf(rippleColor),
-                    createSuggestionBackgroundDrawable(),
-                    null
-            );
-            convertView.setBackground(rippleBackground);
-
-            // Set click listener for inserting query into SearchView.
-            convertView.setOnClickListener(v -> searchView.setQuery(query, true));
-
-            // Set long click listener for deletion confirmation.
-            convertView.setOnLongClickListener(v -> {
-                Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
-                        activity,
-                        query, // Title.
-                        str("revanced_settings_search_remove_message"), // Message.
-                        null,  // No EditText.
-                        null,  // OK button text.
-                        () -> removeSearchQuery(query), // OK button action.
-                        () -> {}, // Cancel button action (dismiss only).
-                        null,  // No Neutral button text.
-                        null,  // No Neutral button action.
-                        false  // No dismiss dialog.
-                );
-
-                Dialog dialog = dialogPair.first;
-                dialog.setCancelable(true); // Allow dismissal via back button.
-                dialog.show(); // Show the dialog.
-                return true;
-            });
-
-            return convertView;
-        }
     }
 }

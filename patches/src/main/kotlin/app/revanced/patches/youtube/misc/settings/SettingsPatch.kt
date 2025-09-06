@@ -93,13 +93,14 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_settings_screen_12_video.xml",
             ),
             ResourceGroup("layout",
+                "revanced_preference_search_history_item.xml",
+                "revanced_preference_search_history_screen.xml",
                 "revanced_preference_search_no_result.xml",
                 "revanced_preference_search_result_color.xml",
                 "revanced_preference_search_result_group_header.xml",
                 "revanced_preference_search_result_list.xml",
                 "revanced_preference_search_result_regular.xml",
                 "revanced_preference_search_result_switch.xml",
-                "revanced_preference_search_suggestion_item.xml",
                 "revanced_settings_with_toolbar.xml"
             ),
             ResourceGroup("menu", "revanced_search_menu.xml")
@@ -280,26 +281,6 @@ val settingsPatch = bytecodePatch(
                         if-nez v0, :search_handled
                         invoke-virtual { p0 }, Landroid/app/Activity;->finish()V
                         :search_handled
-                        return-void
-                    """
-                )
-            }.let(methods::add)
-
-            // Add onConfigurationChanged method to handle configuration changes (e.g., screen orientation).
-            ImmutableMethod(
-                type,
-                "onConfigurationChanged",
-                listOf(ImmutableMethodParameter("Landroid/content/res/Configuration;", null, null)),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(3)
-            ).toMutable().apply {
-                addInstructions(
-                    """
-                        invoke-super { p0, p1 }, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
-                        invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->handleConfigurationChanged(Landroid/app/Activity;Landroid/content/res/Configuration;)V
                         return-void
                     """
                 )
