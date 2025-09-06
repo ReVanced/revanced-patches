@@ -19,6 +19,7 @@ import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
+import app.revanced.extension.youtube.settings.search.SearchViewController;
 
 /**
  * Hooks LicenseActivity.
