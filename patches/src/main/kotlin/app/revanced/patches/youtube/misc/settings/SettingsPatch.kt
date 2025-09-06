@@ -275,7 +275,7 @@ val settingsPatch = bytecodePatch(
             ).toMutable().apply {
                 addInstructions(
                     """
-                        invoke-static {}, Lapp/revanced/extension/youtube/settings/SearchViewController;->handleBackPress()Z
+                        invoke-static {}, Lapp/revanced/extension/youtube/settings/search/SearchViewController;->handleBackPress()Z
                         move-result v0
                         if-nez v0, :search_handled
                         invoke-virtual { p0 }, Landroid/app/Activity;->finish()V

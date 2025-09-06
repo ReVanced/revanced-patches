@@ -25,16 +25,22 @@ import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.ui.ColorDot;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
+import java.lang.reflect.Method;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Adapter for displaying search results in overlay ListView with ViewHolder pattern.
  */
 @SuppressWarnings("deprecation")
 public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     private final LayoutInflater inflater;
+    private final ReVancedPreferenceFragment fragment;
 
     // Resource ID constants.
     private static final int ID_PREFERENCE_TITLE = getResourceIdentifier("preference_title", "id");
     private static final int ID_PREFERENCE_SUMMARY = getResourceIdentifier("preference_summary", "id");
+    private static final int ID_PREFERENCE_PATH = getResourceIdentifier("preference_path", "id");
     private static final int ID_PREFERENCE_SWITCH = getResourceIdentifier("preference_switch", "id");
     private static final int ID_PREFERENCE_COLOR_DOT = getResourceIdentifier("preference_color_dot", "id");
 
@@ -52,10 +58,10 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             getResourceIdentifier("revanced_preference_search_no_result", "layout");
 
     // Layout resource mapping.
-    private static final java.util.Map<String, String> LAYOUT_RESOURCE_MAP = createLayoutResourceMap();
+    private static final Map<String, String> LAYOUT_RESOURCE_MAP = createLayoutResourceMap();
 
-    private static java.util.Map<String, String> createLayoutResourceMap() {
-        return java.util.Map.of(
+    private static Map<String, String> createLayoutResourceMap() {
+        return Map.of(
                 "regular", "revanced_preference_search_result_regular",
                 "switch", "revanced_preference_search_result_switch",
                 "list", "revanced_preference_search_result_list",
@@ -97,9 +103,10 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         ImageView iconView;
     }
 
-    SearchResultsAdapter(Context context, java.util.List<SearchResultItem> items) {
+    public SearchResultsAdapter(Context context, List<SearchResultItem> items, ReVancedPreferenceFragment fragment) {
         super(context, 0, items);
         this.inflater = LayoutInflater.from(context);
+        this.fragment = fragment;
     }
 
     @NonNull
@@ -123,7 +130,8 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         View view = createPreferenceView(item, convertView, viewType, parent);
 
         // Add long-click listener for preference items.
-        if (item.preferenceType != SearchResultItem.TYPE_NO_RESULTS && item.preferenceType != SearchResultItem.TYPE_GROUP_HEADER) {
+        if (item.preferenceType != SearchResultItem.TYPE_NO_RESULTS
+                && item.preferenceType != SearchResultItem.TYPE_GROUP_HEADER) {
             view.setOnLongClickListener(v -> {
                 navigateToPreferenceScreen(item);
                 return true;
@@ -194,7 +202,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 }
                 case "group_header" -> {
                     GroupHeaderViewHolder groupHolder = new GroupHeaderViewHolder();
-                    groupHolder.pathView = view.findViewById(getResourceIdentifier("preference_path", "id"));
+                    groupHolder.pathView = view.findViewById(ID_PREFERENCE_PATH);
                     view.setTag(ID_PREFERENCE_TITLE, groupHolder);
                     holder = groupHolder;
                 }
@@ -366,7 +374,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         for (String key : item.navigationKeys) {
             Preference targetPref = findPreferenceByKey(currentScreen, key);
             if (targetPref != null) {
-                // Perform click only if this preference opens a new screen,
+                // Perform click only if this preference opens a new screen.
                 if (targetPref instanceof PreferenceScreen || hasNavigationCapability(targetPref)) {
                     handlePreferenceClick(targetPref);
 
@@ -468,9 +476,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         return null;
     }
 
+    /**
+     * Handles preference click actions by invoking the preference's performClick method via reflection.
+     */
+    @SuppressWarnings("all")
     private void handlePreferenceClick(Preference preference) {
         try {
-            java.lang.reflect.Method m = Preference.class.getDeclaredMethod("performClick", PreferenceScreen.class);
+            Method m = Preference.class.getDeclaredMethod("performClick", PreferenceScreen.class);
             m.setAccessible(true);
             m.invoke(preference, fragment.getPreferenceScreen());
         } catch (Exception e) {
@@ -495,13 +507,5 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         }
 
         return false;
-    }
-
-    // Reference to fragment for navigation.
-    private ReVancedPreferenceFragment fragment;
-
-    public SearchResultsAdapter(Context context, java.util.List<SearchResultItem> items, ReVancedPreferenceFragment fragment) {
-        this(context, items);
-        this.fragment = fragment;
     }
 }

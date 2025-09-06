@@ -81,41 +81,12 @@ public class SearchViewController {
 
     private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_SUGGESTION_ITEM =
             getResourceIdentifier("revanced_preference_search_suggestion_item", "layout");
-    private static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON =
+    public static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON =
             getResourceIdentifier("revanced_settings_search_icon", "drawable");
-    private static final int DRAWABLE_REVANCED_SETTINGS_INFO =
+    public static final int DRAWABLE_REVANCED_SETTINGS_INFO =
             getResourceIdentifier("revanced_settings_screen_00_about", "drawable");
     private static final int MENU_REVANCED_SEARCH_MENU =
             getResourceIdentifier("revanced_search_menu", "menu");
-
-    /**
-     * Gets the background color for search view components based on current theme.
-     */
-    @ColorInt
-    public static int getSearchViewBackground() {
-        return Utils.adjustColorBrightness(Utils.getDialogBackgroundColor(), Utils.isDarkModeEnabled() ? 1.11f : 0.95f);
-    }
-
-    /**
-     * Creates a rounded background drawable for the main search view.
-     */
-    private static GradientDrawable createBackgroundDrawable() {
-        GradientDrawable background = new GradientDrawable();
-        background.setShape(GradientDrawable.RECTANGLE);
-        background.setCornerRadius(Utils.dipToPixels(28)); // 28dp corner radius.
-        background.setColor(getSearchViewBackground());
-        return background;
-    }
-
-    /**
-     * Creates a background drawable for search suggestion items.
-     */
-    private static GradientDrawable createSuggestionBackgroundDrawable() {
-        GradientDrawable background = new GradientDrawable();
-        background.setShape(GradientDrawable.RECTANGLE);
-        background.setColor(getSearchViewBackground());
-        return background;
-    }
 
     /**
      * Factory method to create and initialize a SearchViewController instance.
@@ -352,7 +323,8 @@ public class SearchViewController {
 
             if (pref instanceof ColorPickerPreference colorPref) {
                 colorPref.setOnColorChangeListener((prefKey, newColor) -> {
-                    SearchResultItem.PreferenceSearchItem searchItem = (SearchResultItem.PreferenceSearchItem) keyToSearchItem.get(prefKey);
+                    SearchResultItem.PreferenceSearchItem searchItem =
+                            (SearchResultItem.PreferenceSearchItem) keyToSearchItem.get(prefKey);
                     if (searchItem != null) {
                         searchItem.setColor(newColor | 0xFF000000);
                         refreshSearchResults();
@@ -360,7 +332,8 @@ public class SearchViewController {
                 });
             } else if (pref instanceof SegmentCategoryListPreference segmentPref) {
                 segmentPref.setOnPreferenceChangeListener((preference, newValue) -> {
-                    SearchResultItem.PreferenceSearchItem searchItem = (SearchResultItem.PreferenceSearchItem) keyToSearchItem.get(preference.getKey());
+                    SearchResultItem.PreferenceSearchItem searchItem =
+                            (SearchResultItem.PreferenceSearchItem) keyToSearchItem.get(preference.getKey());
                     if (searchItem != null) {
                         searchItem.setColor(segmentPref.getColorWithOpacity());
                         refreshSearchResults();
@@ -369,7 +342,8 @@ public class SearchViewController {
                 });
             } else if (pref instanceof CustomDialogListPreference listPref) {
                 listPref.setOnPreferenceChangeListener((preference, newValue) -> {
-                    SearchResultItem.PreferenceSearchItem searchItem = (SearchResultItem.PreferenceSearchItem) keyToSearchItem.get(preference.getKey());
+                    SearchResultItem.PreferenceSearchItem searchItem =
+                            (SearchResultItem.PreferenceSearchItem) keyToSearchItem.get(preference.getKey());
                     if (searchItem == null) return true;
 
                     int index = listPref.findIndexOfValue(newValue.toString());
@@ -558,7 +532,7 @@ public class SearchViewController {
             filteredSearchItems.addAll(displayItems);
         }
 
-        // Show 'No results found' and "Search Tips" if search results are empty.
+        // Show "No results found" and "Search Tips" if search results are empty.
         if (filteredSearchItems.isEmpty()) {
             for (Preference pref : createNoResultsPreferences(query)) {
                 filteredSearchItems.add(new SearchResultItem.PreferenceSearchItem(pref, "", Collections.emptyList()));
@@ -737,6 +711,35 @@ public class SearchViewController {
     }
 
     /**
+     * Gets the background color for search view components based on current theme.
+     */
+    @ColorInt
+    public static int getSearchViewBackground() {
+        return Utils.adjustColorBrightness(Utils.getDialogBackgroundColor(), Utils.isDarkModeEnabled() ? 1.11f : 0.95f);
+    }
+
+    /**
+     * Creates a rounded background drawable for the main search view.
+     */
+    private static GradientDrawable createBackgroundDrawable() {
+        GradientDrawable background = new GradientDrawable();
+        background.setShape(GradientDrawable.RECTANGLE);
+        background.setCornerRadius(Utils.dipToPixels(28)); // 28dp corner radius.
+        background.setColor(getSearchViewBackground());
+        return background;
+    }
+
+    /**
+     * Creates a background drawable for search suggestion items.
+     */
+    private static GradientDrawable createSuggestionBackgroundDrawable() {
+        GradientDrawable background = new GradientDrawable();
+        background.setShape(GradientDrawable.RECTANGLE);
+        background.setColor(getSearchViewBackground());
+        return background;
+    }
+
+    /**
      * Injection point.
      */
     @SuppressWarnings("unused")
@@ -794,15 +797,15 @@ public class SearchViewController {
             convertView.setOnLongClickListener(v -> {
                 Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                         activity,
-                        query,                                // Title.
+                        query, // Title.
                         str("revanced_settings_search_remove_message"), // Message.
-                        null,                                 // No EditText.
-                        null,                                 // OK button text.
-                        () -> removeSearchQuery(query),       // OK button action.
-                        () -> {},                             // Cancel button action (dismiss only).
-                        null,                                 // No Neutral button text.
-                        () -> {},                             // Neutral button action (dismiss only).
-                        true                                  // Dismiss dialog when onNeutralClick.
+                        null,  // No EditText.
+                        null,  // OK button text.
+                        () -> removeSearchQuery(query), // OK button action.
+                        () -> {}, // Cancel button action (dismiss only).
+                        null,  // No Neutral button text.
+                        null,  // No Neutral button action.
+                        false  // No dismiss dialog.
                 );
 
                 Dialog dialog = dialogPair.first;

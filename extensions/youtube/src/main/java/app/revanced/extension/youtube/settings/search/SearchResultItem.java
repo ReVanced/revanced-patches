@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.settings.search;
 
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.youtube.settings.search.SearchViewController.DRAWABLE_REVANCED_SETTINGS_INFO;
+import static app.revanced.extension.youtube.settings.search.SearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
 
 import android.graphics.Color;
 import android.preference.ListPreference;
@@ -169,8 +170,8 @@ public abstract class SearchResultItem {
 
         private static int determineIcon(Preference pref, String key) {
             if (pref.getIcon() != null) {
-                if (noResultsPlaceholderKey.equals(key)) return getResourceIdentifier("revanced_settings_search_icon", "drawable");
-                if (searchTipsPlaceholderKey.equals(key)) return getResourceIdentifier("revanced_settings_screen_00_about", "drawable");
+                if (noResultsPlaceholderKey.equals(key)) return DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
+                if (searchTipsPlaceholderKey.equals(key)) return DRAWABLE_REVANCED_SETTINGS_INFO;
             }
             return 0;
         }
