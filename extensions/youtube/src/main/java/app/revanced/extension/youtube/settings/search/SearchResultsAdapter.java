@@ -3,7 +3,10 @@ package app.revanced.extension.youtube.settings.search;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import static app.revanced.extension.youtube.settings.search.SearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
@@ -12,10 +15,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.Switch;
-import android.widget.TextView;
+import android.widget.*;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +24,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.ui.ColorDot;
+import app.revanced.extension.youtube.settings.LicenseActivityHook;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
 import java.lang.reflect.Method;
@@ -37,6 +38,10 @@ import java.util.Map;
 public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     private final LayoutInflater inflater;
     private final ReVancedPreferenceFragment fragment;
+
+    private static final int SMOOTH_SCROLL_DURATION = 800;
+    private static final int BLINK_DURATION = 300;
+    private static final int PAUSE_BETWEEN_BLINKS = 200;
 
     // Resource ID constants.
     private static final int ID_PREFERENCE_TITLE = getResourceIdentifier("preference_title", "id");
@@ -59,18 +64,14 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             getResourceIdentifier("revanced_preference_search_no_result", "layout");
 
     // Layout resource mapping.
-    private static final Map<String, String> LAYOUT_RESOURCE_MAP = createLayoutResourceMap();
-
-    private static Map<String, String> createLayoutResourceMap() {
-        return Map.of(
-                "regular", "revanced_preference_search_result_regular",
-                "switch", "revanced_preference_search_result_switch",
-                "list", "revanced_preference_search_result_list",
-                "color", "revanced_preference_search_result_color",
-                "segment_category", "revanced_preference_search_result_color",
-                "group_header", "revanced_preference_search_result_group_header",
-                "no_results", "revanced_preference_search_no_result");
-    }
+    private static final Map<String, String> LAYOUT_RESOURCE_MAP = Map.of(
+            "regular", "revanced_preference_search_result_regular",
+            "switch", "revanced_preference_search_result_switch",
+            "list", "revanced_preference_search_result_list",
+            "color", "revanced_preference_search_result_color",
+            "segment_category", "revanced_preference_search_result_color",
+            "group_header", "revanced_preference_search_result_group_header",
+            "no_results", "revanced_preference_search_no_result");
 
     // ViewHolder for regular and list preferences.
     private static class RegularViewHolder {
@@ -134,7 +135,10 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         if (item.preferenceType != SearchResultItem.TYPE_NO_RESULTS
                 && item.preferenceType != SearchResultItem.TYPE_GROUP_HEADER) {
             view.setOnLongClickListener(v -> {
-                navigateToPreferenceScreen(item);
+                if (LicenseActivityHook.searchViewController != null) {
+                    LicenseActivityHook.searchViewController.closeSearch();
+                }
+                scrollToAndHighlightPreference(item);
                 return true;
             });
         }
@@ -157,7 +161,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         View view = convertView;
         String layoutResource = LAYOUT_RESOURCE_MAP.get(viewType);
         if (layoutResource == null) {
-            Logger.printException(() -> "Invalid viewType: " + viewType + ", cannot inflate view.");
+            Logger.printException(() -> "Invalid viewType: " + viewType);
             return new View(getContext()); // Fallback to empty view.
         }
 
@@ -237,17 +241,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 SearchResultItem.PreferenceSearchItem prefItem = (SearchResultItem.PreferenceSearchItem) item;
                 SwitchPreference switchPref = (SwitchPreference) prefItem.preference;
                 switchHolder.titleView.setText(item.title);
-
-                // Remove ripple/highlight.
-                switchHolder.switchWidget.setBackground(null);
-
+                switchHolder.switchWidget.setBackground(null); // Remove ripple/highlight.
                 // Set switch state without animation.
                 boolean currentState = switchPref.isChecked();
                 if (switchHolder.switchWidget.isChecked() != currentState) {
                     switchHolder.switchWidget.setChecked(currentState);
                     switchHolder.switchWidget.jumpDrawablesToCurrentState();
                 }
-
                 // Update summary based on switch state.
                 CharSequence summaryText = currentState
                         ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn() :
@@ -256,7 +256,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                         switchPref.getSummary() != null ? switchPref.getSummary() : "");
                 switchHolder.summaryView.setText(summaryText);
                 switchHolder.summaryView.setVisibility(TextUtils.isEmpty(summaryText) ? View.GONE : View.VISIBLE);
-
                 // Set up click listeners for switch.
                 final View finalView = view;
                 setupPreferenceView(view, switchHolder.titleView, switchHolder.summaryView,
@@ -264,7 +263,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                             boolean newState = !switchPref.isChecked();
                             switchPref.setChecked(newState);
                             switchHolder.switchWidget.setChecked(newState);
-
                             // Update summary.
                             CharSequence newSummary = newState
                                     ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn() :
@@ -273,7 +271,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                                     switchPref.getSummary() != null ? switchPref.getSummary() : "");
                             switchHolder.summaryView.setText(newSummary);
                             switchHolder.summaryView.setVisibility(TextUtils.isEmpty(newSummary) ? View.GONE : View.VISIBLE);
-
                             // Notify preference change.
                             if (switchPref.getOnPreferenceChangeListener() != null) {
                                 switchPref.getOnPreferenceChangeListener().onPreferenceChange(switchPref, newState);
@@ -281,13 +278,10 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
 
                             notifyDataSetChanged();
                         });
-
                 switchHolder.switchWidget.setEnabled(switchPref.isEnabled());
-                if (switchPref.isEnabled()) {
-                    switchHolder.switchWidget.setOnClickListener(v -> finalView.performClick());
-                } else {
-                    switchHolder.switchWidget.setOnClickListener(null);
-                }
+                switchHolder.switchWidget.setOnClickListener(switchPref.isEnabled()
+                        ? v -> finalView.performClick()
+                        : null);
             }
             case "color", "segment_category" -> {
                 ColorViewHolder colorHolder = (ColorViewHolder) holder;
@@ -327,7 +321,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     private void setupPreferenceView(View view, TextView titleView, TextView summaryView,
                                      Preference preference, Runnable onClickAction) {
         boolean enabled = preference.isEnabled();
-
         view.setEnabled(enabled);
         titleView.setEnabled(enabled);
         if (summaryView != null) summaryView.setEnabled(enabled);
@@ -341,98 +334,97 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     }
 
     /**
-     * Navigates to the settings screen containing the given search result item.
+     * Navigates to the settings screen containing the given search result item and triggers scrolling.
      */
     private void navigateToPreferenceScreen(SearchResultItem item) {
-        try {
-            // No navigation for "no results" item.
-            if (item.preferenceType == SearchResultItem.TYPE_NO_RESULTS) {
-                return;
-            }
-
-            // Try navigation by keys first.
-            if (navigateByKeys(item)) {
-                return;
-            }
-
-            // Fallback to method using titles.
-            navigateByTitles(item);
-
-        } catch (Exception ex) {
-            Logger.printException(() -> "Failed to navigate to preference screen for path: " + item.navigationPath, ex);
-        }
-    }
-
-    private boolean navigateByKeys(SearchResultItem item) {
-        if (item.navigationKeys == null || item.navigationKeys.isEmpty()) {
-            Logger.printDebug(() -> "No navigation keys available");
-            return false;
+        // No navigation for "no results" item.
+        if (item.preferenceType == SearchResultItem.TYPE_NO_RESULTS) {
+            return;
         }
 
-        PreferenceScreen currentScreen = fragment.getPreferenceScreenForSearch();
-        boolean navigationSuccessful = true;
-
-        for (String key : item.navigationKeys) {
-            Preference targetPref = findPreferenceByKey(currentScreen, key);
-            if (targetPref != null) {
-                // Perform click only if this preference opens a new screen.
-                if (targetPref instanceof PreferenceScreen || hasNavigationCapability(targetPref)) {
-                    handlePreferenceClick(targetPref);
-
-                    // Update current screen.
-                    PreferenceScreen newScreen = fragment.getPreferenceScreenForSearch();
-                    if (newScreen != currentScreen) {
-                        currentScreen = newScreen;
-                    }
-                }
-            } else {
-                Logger.printDebug(() -> "Could not find preference with key: " + key);
-                navigationSuccessful = false;
-                break;
-            }
+        PreferenceScreen targetScreen = navigateByKeys(item); // Try navigation by keys first.
+        if (targetScreen == null) {
+            targetScreen = navigateByTitles(item); // Fallback to method using titles.
+        }
+        if (targetScreen == null) {
+            return;
         }
 
-        return navigationSuccessful;
+        PreferenceScreen finalTargetScreen = targetScreen;
+        fragment.getView().post(() -> {
+            if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
+                scrollToPreferenceInCurrentScreen(prefItem.preference, finalTargetScreen);
+            }
+        });
     }
 
     /**
-     * Fallback navigation by titles.
+     * Navigates using preference keys and returns the target PreferenceScreen.
      */
-    @SuppressWarnings("deprecation")
-    private void navigateByTitles(SearchResultItem item) {
-        String[] pathSegments = item.navigationPath.split(" > ");
+    private PreferenceScreen navigateByKeys(SearchResultItem item) {
         PreferenceScreen currentScreen = fragment.getPreferenceScreenForSearch();
+        if (item.navigationKeys == null || item.navigationKeys.isEmpty()) {
+            return currentScreen;
+        }
+
+        PreferenceScreen targetScreen = currentScreen;
+        for (String key : item.navigationKeys) {
+            Preference targetPref = findPreferenceByKey(targetScreen, key);
+            if (targetPref == null) {
+                return null;
+            }
+            if (targetPref instanceof PreferenceScreen) {
+                targetScreen = (PreferenceScreen) targetPref;
+            }
+            if (targetPref instanceof PreferenceScreen || hasNavigationCapability(targetPref)) {
+                handlePreferenceClick(targetPref);
+            }
+        }
+
+        return targetScreen;
+    }
+
+    /**
+     * Fallback navigation by titles, returns the target PreferenceScreen.
+     */
+    private PreferenceScreen navigateByTitles(SearchResultItem item) {
+        PreferenceScreen currentScreen = fragment.getPreferenceScreenForSearch();
+        String[] pathSegments = item.navigationPath.split(" > ");
+        if (pathSegments.length == 0 || (pathSegments.length == 1 && pathSegments[0].trim().isEmpty())) {
+            return currentScreen;
+        }
 
         for (String segment : pathSegments) {
             String segmentTrimmed = segment.trim();
             if (TextUtils.isEmpty(segmentTrimmed)) continue;
 
-            boolean found = false;
+            Preference foundPref = null;
             for (int i = 0; i < currentScreen.getPreferenceCount(); i++) {
                 Preference pref = currentScreen.getPreference(i);
                 CharSequence title = pref.getTitle();
 
                 if (title != null) {
                     String prefTitle = title.toString().trim();
-
                     // Flexible title comparison.
                     if (prefTitle.equals(segmentTrimmed) ||
                             prefTitle.equalsIgnoreCase(segmentTrimmed) ||
                             normalizeString(prefTitle).equals(normalizeString(segmentTrimmed))) {
-
-                        handlePreferenceClick(pref);
-                        currentScreen = fragment.getPreferenceScreenForSearch();
-                        found = true;
+                        foundPref = pref;
                         break;
                     }
                 }
             }
-
-            if (!found) {
+            if (foundPref == null) {
                 Logger.printDebug(() -> "Could not find preference group: " + segmentTrimmed + " in path: " + item.navigationPath);
-                break;
+                return null;
+            }
+            handlePreferenceClick(foundPref);
+            if (foundPref instanceof PreferenceScreen) {
+                currentScreen = (PreferenceScreen) foundPref;
             }
         }
+
+        return currentScreen;
     }
 
     /**
@@ -444,6 +436,158 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 .toLowerCase()
                 .replaceAll("\\s+", " ")
                 .replaceAll("[^\\w\\s]", "");
+    }
+
+    /**
+     * Scrolls to and highlights the preference in the main or sub-preference screen.
+     */
+    private void scrollToAndHighlightPreference(SearchResultItem item) {
+        navigateToPreferenceScreen(item);
+    }
+
+    /**
+     * Scrolls to a preference in the target PreferenceScreen and highlights it.
+     */
+    private void scrollToPreferenceInCurrentScreen(Preference targetPreference, PreferenceScreen targetScreen) {
+        ListView listView;
+        if (targetScreen == fragment.getPreferenceScreenForSearch()) {
+            listView = getPreferenceListView();
+        } else {
+            Dialog dialog = targetScreen.getDialog();
+            listView = dialog.findViewById(android.R.id.list);
+        }
+        if (listView == null) {
+            return;
+        }
+
+        int targetPosition = findPreferencePosition(targetPreference, listView);
+        if (targetPosition == -1) {
+            return;
+        }
+
+        // Set scroll listener to detect when scroll reaches target position.
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                if (scrollState == SCROLL_STATE_IDLE) {
+                    int firstVisible = listView.getFirstVisiblePosition();
+                    int lastVisible = listView.getLastVisiblePosition();
+                    if (targetPosition >= firstVisible && targetPosition <= lastVisible) {
+                        highlightPreferenceAtPosition(listView, targetPosition);
+                        listView.setOnScrollListener(null); // Clear listener to avoid repeat triggers.
+                    }
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                // No action needed during scroll.
+            }
+        });
+
+        // Smooth scroll with slower duration.
+        listView.smoothScrollToPositionFromTop(targetPosition, 0, SMOOTH_SCROLL_DURATION);
+    }
+
+    /**
+     * Gets the ListView from the PreferenceFragment.
+     */
+    private ListView getPreferenceListView() {
+        View fragmentView = fragment.getView();
+        if (fragmentView != null) {
+            ListView listView = findListViewInViewGroup(fragmentView);
+            if (listView != null) {
+                return listView;
+            }
+        }
+
+        return fragment.getActivity().findViewById(android.R.id.list);
+    }
+
+    /**
+     * Recursively searches for a ListView in a ViewGroup.
+     */
+    private ListView findListViewInViewGroup(View view) {
+        if (view instanceof ListView) {
+            return (ListView) view;
+        }
+        if (view instanceof ViewGroup group) {
+            for (int i = 0; i < group.getChildCount(); i++) {
+                ListView result = findListViewInViewGroup(group.getChildAt(i));
+                if (result != null) {
+                    return result;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Finds the position of a preference in the ListView adapter.
+     */
+    @SuppressWarnings("deprecation")
+    private int findPreferencePosition(Preference targetPreference, ListView listView) {
+        ListAdapter adapter = listView.getAdapter();
+        if (adapter == null) {
+            return -1;
+        }
+
+        for (int i = 0; i < adapter.getCount(); i++) {
+            Object item = adapter.getItem(i);
+            if (item == targetPreference) {
+                return i;
+            }
+            if (item instanceof Preference pref && targetPreference.getKey() != null) {
+                if (targetPreference.getKey().equals(pref.getKey())) {
+                    return i;
+                }
+            }
+        }
+
+        return -1;
+    }
+
+    /**
+     * Highlights a preference at the specified position with a blink effect.
+     */
+    private void highlightPreferenceAtPosition(ListView listView, int position) {
+        int firstVisible = listView.getFirstVisiblePosition();
+        if (position < firstVisible || position > listView.getLastVisiblePosition()) {
+            return;
+        }
+
+        View itemView = listView.getChildAt(position - firstVisible);
+        if (itemView != null) {
+            blinkView(itemView);
+        }
+    }
+
+    /**
+     * Creates a smooth double-blink effect on a view by fading its background color.
+     */
+    private void blinkView(View view) {
+        Drawable originalBackground = view.getBackground();
+        int highlightColor = Utils.adjustColorBrightness(
+                Utils.getAppBackgroundColor(),
+                Utils.isDarkModeEnabled() ? 1.25f : 0.8f
+        );
+        ColorDrawable highlightDrawable = new ColorDrawable(highlightColor);
+
+        // First blink: fade in and out.
+        view.setBackground(highlightDrawable);
+        view.animate().alpha(0.5f).setDuration(BLINK_DURATION).withEndAction(() -> {
+            view.setBackground(originalBackground);
+            view.setAlpha(1.0f);
+            // Second blink after a short delay.
+            view.postDelayed(() -> {
+                view.setBackground(highlightDrawable);
+                view.animate().alpha(0.5f).setDuration(BLINK_DURATION).withEndAction(() -> {
+                    view.setBackground(originalBackground);
+                    view.setAlpha(1.0f);
+                }).start();
+            }, PAUSE_BETWEEN_BLINKS); // Pause between blinks.
+        }).start();
     }
 
     /**
@@ -461,11 +605,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             if (key.equals(pref.getKey())) {
                 return pref;
             }
-        }
-
-        // Then recursively in subgroups.
-        for (int i = 0; i < group.getPreferenceCount(); i++) {
-            Preference pref = group.getPreference(i);
             if (pref instanceof PreferenceGroup) {
                 Preference found = findPreferenceByKey((PreferenceGroup) pref, key);
                 if (found != null) {
@@ -500,7 +639,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         if (preference instanceof PreferenceScreen) {
             return true;
         }
-
         // Other group types that might have their own screens.
         if (preference instanceof PreferenceGroup) {
             // Check if it has its own fragment or intent.
