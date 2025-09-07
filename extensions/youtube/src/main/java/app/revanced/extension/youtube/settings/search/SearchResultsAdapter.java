@@ -39,7 +39,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     private final ReVancedPreferenceFragment fragment;
     private AnimatorSet currentAnimator;
 
-    private static final int FADE_ANIMATION_DURATION = 100;
     private static final int BLINK_DURATION = 400;
     private static final int PAUSE_BETWEEN_BLINKS = 100;
 
@@ -138,7 +137,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 if (LicenseActivityHook.searchViewController != null) {
                     LicenseActivityHook.searchViewController.closeSearch();
                 }
-                scrollToAndHighlightPreference(item);
+                navigateToPreferenceScreen(item);
                 return true;
             });
         }
@@ -300,14 +299,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             case "group_header" -> {
                 GroupHeaderViewHolder groupHolder = (GroupHeaderViewHolder) holder;
                 groupHolder.pathView.setText(item.title);
-                view.setOnClickListener(v -> {
-                    ListView listView = getPreferenceListView();
-                    if (listView != null) {
-                        crossfadeToPreferenceScreen(listView, () -> navigateToPreferenceScreen(item));
-                    } else {
-                        navigateToPreferenceScreen(item);
-                    }
-                });
+                view.setOnClickListener(v -> navigateToPreferenceScreen(item));
             }
             case "no_results" -> {
                 NoResultsViewHolder noResultsHolder = (NoResultsViewHolder) holder;
@@ -360,19 +352,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         PreferenceScreen finalTargetScreen = targetScreen;
         fragment.getView().post(() -> {
             if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
-                ListView listView = getPreferenceListView();
-                if (listView != null) {
-                    crossfadeToPreferenceScreen(listView, () ->
-                            scrollToPreferenceInCurrentScreen(prefItem.preference, finalTargetScreen));
-                } else {
-                    scrollToPreferenceInCurrentScreen(prefItem.preference, finalTargetScreen);
-                }
+                scrollToPreferenceInCurrentScreen(prefItem.preference, finalTargetScreen);
             }
         });
     }
 
     /**
-     * Navigates using preference keys and returns the target PreferenceScreen.
+     * Navigates directly to the final PreferenceScreen using preference keys.
      */
     private PreferenceScreen navigateByKeys(SearchResultItem item) {
         PreferenceScreen currentScreen = fragment.getPreferenceScreenForSearch();
@@ -381,29 +367,21 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         }
 
         PreferenceScreen targetScreen = currentScreen;
-        for (String key : item.navigationKeys) {
-            Preference targetPref = findPreferenceByKey(targetScreen, key);
-            if (targetPref == null) {
-                return null;
-            }
-            if (targetPref instanceof PreferenceScreen) {
-                targetScreen = (PreferenceScreen) targetPref;
-            }
-            if (targetPref instanceof PreferenceScreen || hasNavigationCapability(targetPref)) {
-                ListView listView = getPreferenceListView();
-                if (listView != null) {
-                    crossfadeToPreferenceScreen(listView, () -> handlePreferenceClick(targetPref));
-                } else {
-                    handlePreferenceClick(targetPref);
-                }
-            }
+        String finalKey = item.navigationKeys.get(item.navigationKeys.size() - 1);
+        Preference targetPref = findPreferenceByKey(currentScreen, finalKey);
+        if (targetPref == null) {
+            return null;
+        }
+        if (targetPref instanceof PreferenceScreen) {
+            targetScreen = (PreferenceScreen) targetPref;
+            handlePreferenceClick(targetScreen);
         }
 
         return targetScreen;
     }
 
     /**
-     * Fallback navigation by titles, returns the target PreferenceScreen.
+     * Fallback navigation directly to the final PreferenceScreen by titles.
      */
     private PreferenceScreen navigateByTitles(SearchResultItem item) {
         PreferenceScreen currentScreen = fragment.getPreferenceScreenForSearch();
@@ -412,43 +390,68 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             return currentScreen;
         }
 
-        for (String segment : pathSegments) {
-            String segmentTrimmed = segment.trim();
-            if (TextUtils.isEmpty(segmentTrimmed)) continue;
+        String finalSegment = pathSegments[pathSegments.length - 1].trim();
+        if (TextUtils.isEmpty(finalSegment)) {
+            return currentScreen;
+        }
 
-            Preference foundPref = null;
-            for (int i = 0; i < currentScreen.getPreferenceCount(); i++) {
-                Preference pref = currentScreen.getPreference(i);
-                CharSequence title = pref.getTitle();
-
-                if (title != null) {
-                    String prefTitle = title.toString().trim();
-                    // Flexible title comparison.
-                    if (prefTitle.equals(segmentTrimmed) ||
-                            prefTitle.equalsIgnoreCase(segmentTrimmed) ||
-                            normalizeString(prefTitle).equals(normalizeString(segmentTrimmed))) {
-                        foundPref = pref;
-                        break;
-                    }
+        PreferenceScreen targetScreen = currentScreen;
+        Preference foundPref = null;
+        for (int i = 0; i < currentScreen.getPreferenceCount(); i++) {
+            Preference pref = currentScreen.getPreference(i);
+            CharSequence title = pref.getTitle();
+            if (title != null) {
+                String prefTitle = title.toString().trim();
+                if (prefTitle.equals(finalSegment) ||
+                        prefTitle.equalsIgnoreCase(finalSegment) ||
+                        normalizeString(prefTitle).equals(normalizeString(finalSegment))) {
+                    foundPref = pref;
+                    break;
                 }
             }
-            if (foundPref == null) {
-                Logger.printDebug(() -> "Could not find preference group: " + segmentTrimmed + " in path: " + item.navigationPath);
-                return null;
-            }
-            ListView listView = getPreferenceListView();
-            if (listView != null) {
-                Preference finalFoundPref = foundPref;
-                crossfadeToPreferenceScreen(listView, () -> handlePreferenceClick(finalFoundPref));
-            } else {
-                handlePreferenceClick(foundPref);
-            }
-            if (foundPref instanceof PreferenceScreen) {
-                currentScreen = (PreferenceScreen) foundPref;
+            if (pref instanceof PreferenceGroup) {
+                Preference recursiveFound = findPreferenceByTitle((PreferenceGroup) pref, finalSegment);
+                if (recursiveFound != null) {
+                    foundPref = recursiveFound;
+                    break;
+                }
             }
         }
 
-        return currentScreen;
+        if (foundPref == null) {
+            Logger.printDebug(() -> "Could not find preference group: " + finalSegment + " in path: " + item.navigationPath);
+            return null;
+        }
+
+        if (foundPref instanceof PreferenceScreen) {
+            targetScreen = (PreferenceScreen) foundPref;
+            handlePreferenceClick(targetScreen);
+        }
+
+        return targetScreen;
+    }
+
+    /**
+     * Recursively searches for a preference by title in a preference group.
+     */
+    private Preference findPreferenceByTitle(PreferenceGroup group, String title) {
+        for (int i = 0; i < group.getPreferenceCount(); i++) {
+            Preference pref = group.getPreference(i);
+            CharSequence prefTitle = pref.getTitle();
+            if (prefTitle != null && (
+                    prefTitle.toString().trim().equals(title) ||
+                            prefTitle.toString().trim().equalsIgnoreCase(title) ||
+                            normalizeString(prefTitle.toString()).equals(normalizeString(title)))) {
+                return pref;
+            }
+            if (pref instanceof PreferenceGroup) {
+                Preference found = findPreferenceByTitle((PreferenceGroup) pref, title);
+                if (found != null) {
+                    return found;
+                }
+            }
+        }
+        return null;
     }
 
     /**
@@ -460,38 +463,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 .toLowerCase()
                 .replaceAll("\\s+", " ")
                 .replaceAll("[^\\w\\s]", "");
-    }
-
-    /**
-     * Applies a quick crossfade animation between settings screens.
-     */
-    private void crossfadeToPreferenceScreen(ListView listView, Runnable navigateAction) {
-        // Fade out old content.
-        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(listView, "alpha", 1f, 0f);
-        fadeOut.setDuration(FADE_ANIMATION_DURATION);
-
-        // Fade in new content.
-        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(listView, "alpha", 0f, 1f);
-        fadeIn.setDuration(FADE_ANIMATION_DURATION);
-
-        fadeOut.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                // Perform navigation while hidden.
-                navigateAction.run();
-                // Start fade-in.
-                fadeIn.start();
-            }
-        });
-
-        fadeOut.start();
-    }
-
-    /**
-     * Scrolls to and highlights the preference in the main or sub-preference screen.
-     */
-    private void scrollToAndHighlightPreference(SearchResultItem item) {
-        navigateToPreferenceScreen(item);
     }
 
     /**
