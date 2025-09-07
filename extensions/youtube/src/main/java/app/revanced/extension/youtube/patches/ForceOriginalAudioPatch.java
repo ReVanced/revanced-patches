@@ -1,13 +1,12 @@
 package app.revanced.extension.youtube.patches;
 
-import androidx.annotation.NonNull;
+import java.util.List;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.settings.Settings;
-
-import java.util.List;
 
 @SuppressWarnings("unused")
 public class ForceOriginalAudioPatch {
@@ -27,7 +26,6 @@ public class ForceOriginalAudioPatch {
             return PATCH_AVAILABLE && SpoofVideoStreamsPatch.notSpoofingToAndroid();
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(

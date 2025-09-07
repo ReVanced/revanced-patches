@@ -3,7 +3,6 @@ package app.revanced.extension.shared.spoof;
 import android.net.Uri;
 import android.text.TextUtils;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.nio.ByteBuffer;
@@ -258,7 +257,6 @@ public class SpoofVideoStreamsPatch {
                     && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(
@@ -275,7 +273,6 @@ public class SpoofVideoStreamsPatch {
                     && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(

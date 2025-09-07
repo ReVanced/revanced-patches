@@ -12,7 +12,6 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
-import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("unused")
@@ -91,7 +90,6 @@ public final class ChangeStartPagePatch {
             return Settings.CHANGE_START_PAGE.get() != StartPage.DEFAULT;
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(Settings.CHANGE_START_PAGE);

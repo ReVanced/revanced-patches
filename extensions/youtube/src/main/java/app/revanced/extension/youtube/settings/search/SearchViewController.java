@@ -11,7 +11,10 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.BulletSpan;
 import android.util.Pair;
 import android.view.*;
 import android.view.inputmethod.EditorInfo;
@@ -42,7 +45,7 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGrou
 /**
  * Controller for managing the overlay search view in ReVanced settings.
  */
-@SuppressWarnings({"deprecated", "DiscouragedApi", "NewApi"})
+@SuppressWarnings({"deprecation", "DiscouragedApi", "NewApi"})
 public class SearchViewController {
     private final SearchView searchView;
     private final FrameLayout searchContainer;
@@ -73,6 +76,7 @@ public class SearchViewController {
     private static final int ID_ACTION_SEARCH = getResourceIdentifier("action_search", "id");
     private static final int ID_REVANCED_SETTINGS_FRAGMENTS = getResourceIdentifier("revanced_settings_fragments", "id");
     private static final int ID_SEARCH_HISTORY_LIST = getResourceIdentifier("search_history_list", "id");
+    private static final int ID_SEARCH_TIPS_SUMMARY = getResourceIdentifier("revanced_settings_search_tips_summary", "id");
     private static final int ID_CLEAR_HISTORY_BUTTON = getResourceIdentifier("clear_history_button", "id");
     private static final int ID_HISTORY_TEXT = getResourceIdentifier("history_text", "id");
     private static final int ID_DELETE_ICON = getResourceIdentifier("delete_icon", "id");
@@ -177,14 +181,12 @@ public class SearchViewController {
         LayoutInflater inflater = LayoutInflater.from(activity);
         View historyView = inflater.inflate(LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN, searchHistoryContainer, false);
 
-        // Get references to components.
-        LinearLayout searchHistoryListView = historyView.findViewById(ID_SEARCH_HISTORY_LIST);
-        TextView clearHistoryButton = historyView.findViewById(ID_CLEAR_HISTORY_BUTTON);
-
         // Set up history adapter.
+        LinearLayout searchHistoryListView = historyView.findViewById(ID_SEARCH_HISTORY_LIST);
         searchHistoryAdapter = new SearchHistoryAdapter(activity, searchHistoryListView, new ArrayList<>(searchHistory));
 
         // Set up clear history button.
+        TextView clearHistoryButton = historyView.findViewById(ID_CLEAR_HISTORY_BUTTON);
         clearHistoryButton.setOnClickListener(v -> showClearHistoryDialog());
 
         // Add inflated history layout to container.
@@ -217,6 +219,17 @@ public class SearchViewController {
             searchView.setTextDirection(View.TEXT_DIRECTION_RTL);
             searchView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
         }
+
+        // Add bullet points to search tips summary.
+        SpannableStringBuilder builder = new SpannableStringBuilder();
+        for (String item : str("revanced_settings_search_tips_summary").split("\\n\\s*\\n")) {
+            final int start = builder.length();
+            builder.append(item);
+            builder.setSpan(new BulletSpan(20), start, builder.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            builder.append("\n");
+        }
+        TextView tipsSummary = historyView.findViewById(ID_SEARCH_TIPS_SUMMARY);
+        tipsSummary.setText(builder);
 
         // Set up query text listener.
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -472,7 +485,6 @@ public class SearchViewController {
      * This method should be called after the preference fragment is fully loaded.
      * Runs on the UI thread to ensure proper access to preference components.
      */
-    @SuppressWarnings("deprecation")
     public void initializeSearchData() {
         allSearchItems.clear();
         keyToSearchItem.clear();
@@ -506,7 +518,6 @@ public class SearchViewController {
      * Sets up listeners for preferences (e.g., ColorPickerPreference, CustomDialogListPreference)
      * to keep search results in sync when preference values change.
      */
-    @SuppressWarnings("deprecation")
     private void setupPreferenceListeners() {
         for (SearchResultItem item : allSearchItems) {
             // Skip non-preference items.
@@ -572,7 +583,6 @@ public class SearchViewController {
     /**
      * Collect all searchable preferences with key-based navigation support.
      */
-    @SuppressWarnings("deprecation")
     private void collectSearchablePreferences(PreferenceGroup group) {
         collectSearchablePreferencesWithKeys(group, "", new ArrayList<>(), 1, 0);
     }
@@ -587,7 +597,6 @@ public class SearchViewController {
      * @param includeDepth The minimum depth at which to include preferences.
      * @param currentDepth The current recursion depth.
      */
-    @SuppressWarnings("deprecation")
     private void collectSearchablePreferencesWithKeys(PreferenceGroup group, String parentPath,
                                                       List<String> parentKeys, int includeDepth, int currentDepth) {
         if (group == null) return;
@@ -634,7 +643,6 @@ public class SearchViewController {
     /**
      * Helper method to get all keys from current screen (for debugging).
      */
-    @SuppressWarnings({"deprecation", "unused"})
     private void logAllPreferenceKeys(PreferenceGroup group, String prefix) {
         if (group == null) return;
 
@@ -656,7 +664,6 @@ public class SearchViewController {
      * Filters all search items based on the provided query and displays results in the overlay.
      * Applies highlighting to matching text and shows a "no results" message if nothing matches.
      */
-    @SuppressWarnings("deprecation")
     private void filterAndShowResults(String query) {
         hideSearchHistory();
         // Keep track of the previously displayed items to clear their highlights.
@@ -686,7 +693,7 @@ public class SearchViewController {
         }
 
         // Build filteredSearchItems, inserting parent enablers for disabled dependents.
-        Set<String> addedParentKeys = new HashSet<>();
+        Set<String> addedParentKeys = new HashSet<>(2 * matched.size());
         for (SearchResultItem item : matched) {
             if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
                 String key = prefItem.preference.getKey();

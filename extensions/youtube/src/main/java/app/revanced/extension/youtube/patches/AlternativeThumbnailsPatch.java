@@ -67,7 +67,6 @@ public final class AlternativeThumbnailsPatch {
             return usingDeArrowAnywhere();
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(
@@ -94,7 +93,6 @@ public final class AlternativeThumbnailsPatch {
             return usingStillImagesAnywhere();
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(

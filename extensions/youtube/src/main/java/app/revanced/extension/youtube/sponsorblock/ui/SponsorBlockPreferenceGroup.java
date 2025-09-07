@@ -14,7 +14,6 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.SwitchPreference;
-import android.text.Html;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.util.Pair;
@@ -505,7 +504,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             apiUrl = new Preference(context);
             apiUrl.setKey(Settings.SB_API_URL.key);
             apiUrl.setTitle(str("revanced_sb_general_api_url"));
-            apiUrl.setSummary(Html.fromHtml(str("revanced_sb_general_api_url_sum")));
+            apiUrl.setSummary(str("revanced_sb_general_api_url_sum"));
             apiUrl.setOnPreferenceClickListener(preference1 -> {
                 EditText editText = new EditText(context);
                 editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);

@@ -10,17 +10,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
-import java.util.List;
-
-@SuppressWarnings({"unused", "SpellCheckingInspection"})
+@SuppressWarnings("SpellCheckingInspection")
 public final class MiniplayerPatch {
 
     /**
@@ -177,7 +176,6 @@ public final class MiniplayerPatch {
             return Settings.MINIPLAYER_TYPE.get().isModern() && Settings.MINIPLAYER_DRAG_AND_DROP.get();
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(
@@ -198,7 +196,6 @@ public final class MiniplayerPatch {
                     || (IS_19_29_OR_GREATER && type == MODERN_3);
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(
@@ -216,7 +213,6 @@ public final class MiniplayerPatch {
             return type == MODERN_1 || type == MODERN_2 || type == MODERN_3 || type == MODERN_4;
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(Settings.MINIPLAYER_TYPE);
@@ -230,7 +226,6 @@ public final class MiniplayerPatch {
             return type == MODERN_3 || type == MODERN_4;
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(Settings.MINIPLAYER_TYPE);
@@ -244,7 +239,6 @@ public final class MiniplayerPatch {
             return type == MODERN_1;
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(Settings.MINIPLAYER_TYPE);

@@ -1,6 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import androidx.annotation.NonNull;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
@@ -22,7 +21,6 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
             return AVAILABLE_ON_LAUNCH && SpoofVideoStreamsPatch.notSpoofingToAndroid();
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(

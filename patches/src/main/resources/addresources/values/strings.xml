@@ -53,18 +53,23 @@ Second \"item\" text"</string>
             <string name="revanced_settings_search_clear_history">Clear search history</string>
             <string name="revanced_settings_search_clear_history_message">Are you sure you want to clear all search history?</string>
             <string name="revanced_settings_search_tips_title">Search Tips</string>
-            <string name="revanced_settings_search_tips_summary">"• Tap on the path to open the screen containing this setting.
-• Long-press a search result to scroll directly to the setting.
-• Press Enter (dandruff) to save a search query to history.
-• When searching for a disabled child setting, its parent will be shown above it.
-• Search is case-insensitive and ignores punctuation."</string>
+            <!-- Text is formatted at runtime into bullet points. Bullet point lines are separated by an empty line. -->
+            <string name="revanced_settings_search_tips_summary">"Tap a path to navigate to it.
+
+Long-press a setting to navigate to it.
+
+Press Enter to save a search query to history.
+
+Search ignores casing and punctuation.
+
+Parent settings appear above disabled child settings."</string>
             <string name="revanced_show_menu_icons_title">Show ReVanced setting icons</string>
             <string name="revanced_show_menu_icons_summary_on">Setting icons are shown</string>
             <string name="revanced_show_menu_icons_summary_off">Setting icons are not shown</string>
             <string name="revanced_language_title">ReVanced language</string>
             <string name="revanced_language_user_dialog_message">"Translations for some languages may be missing or incomplete.
 
-To translate new languages visit translate.revanced.app"</string>
+To translate new languages or improve the existing translations, visit translate.revanced.app"</string>
             <string name="revanced_language_DEFAULT">App language</string>
             <string name="revanced_language_AM" translatable="false">አማርኛ</string>
             <string name="revanced_language_AR" translatable="false">العربية</string>

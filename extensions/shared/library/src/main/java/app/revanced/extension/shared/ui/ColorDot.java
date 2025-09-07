@@ -1,10 +1,16 @@
 package app.revanced.extension.shared.ui;
 
-import static app.revanced.extension.shared.Utils.*;
+import static app.revanced.extension.shared.Utils.adjustColorBrightness;
+import static app.revanced.extension.shared.Utils.dipToPixels;
+import static app.revanced.extension.shared.Utils.getAppBackgroundColor;
+import static app.revanced.extension.shared.Utils.isDarkModeEnabled;
 import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.DISABLED_ALPHA;
 
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.view.View;
+
+import androidx.annotation.ColorInt;
 
 public class ColorDot {
     private static final int STROKE_WIDTH = dipToPixels(1.5f); // Stroke width in dp.
@@ -13,18 +19,22 @@ public class ColorDot {
      * Creates a circular drawable with a main fill and a stroke.
      * Stroke adapts to dark/light theme and transparency, applied only when color is transparent or matches app background.
      */
-    public static GradientDrawable createColorDotDrawable(int color) {
-        boolean isDarkTheme = isDarkModeEnabled();
-        boolean isTransparent = (color >>> 24) == 0;
-        int appBackground = getAppBackgroundColor();
-        int baseColor = isTransparent ? appBackground : (color | 0xFF000000);
-        int strokeColor = 0;
-        int strokeWidth = 0;
+    public static GradientDrawable createColorDotDrawable(@ColorInt int color) {
+        final boolean isDarkTheme = isDarkModeEnabled();
+        final boolean isTransparent = Color.alpha(color) == 0;
+        final int opaqueColor = color | 0xFF000000;
+        final int appBackground = getAppBackgroundColor();
+        final int strokeColor;
+        final int strokeWidth;
 
         // Determine stroke color.
-        if (isTransparent || ((color | 0xFF000000) == appBackground)) {
+        if (isTransparent || (opaqueColor == appBackground)) {
+            final int baseColor = isTransparent ? appBackground : opaqueColor;
             strokeColor = adjustColorBrightness(baseColor, isDarkTheme ? 1.2f : 0.8f);
             strokeWidth = STROKE_WIDTH;
+        } else {
+            strokeColor = 0;
+            strokeWidth = 0;
         }
 
         // Create circular drawable with conditional stroke.
@@ -39,7 +49,7 @@ public class ColorDot {
     /**
      * Applies the color dot drawable to the target view.
      */
-    public static void applyColorDot(View targetView, int color, boolean enabled) {
+    public static void applyColorDot(View targetView, @ColorInt int color, boolean enabled) {
         if (targetView == null) return;
         targetView.setBackground(createColorDotDrawable(color));
         targetView.setAlpha(enabled ? 1.0f : DISABLED_ALPHA);

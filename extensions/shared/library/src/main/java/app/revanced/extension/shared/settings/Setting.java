@@ -35,15 +35,15 @@ public abstract class Setting<T> {
     private record SingleParentAvailability(BooleanSetting parent) implements Availability {
 
         @Override
-            public boolean isAvailable() {
-                return parent.get();
-            }
-
-            @Override
-            public List<Setting<?>> getParentSettings() {
-                return Collections.singletonList(parent);
-            }
+        public boolean isAvailable() {
+            return parent.get();
         }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return Collections.singletonList(parent);
+        }
+    }
 
     private static class AllParentsAvailability implements Availability {
         private final List<BooleanSetting> parents;

@@ -1,6 +1,5 @@
 package app.revanced.extension.youtube.patches;
 
-import androidx.annotation.NonNull;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -15,7 +14,6 @@ public class SeekbarThumbnailsPatch {
             return VersionCheckPatch.IS_19_17_OR_GREATER || !Settings.RESTORE_OLD_SEEKBAR_THUMBNAILS.get();
         }
 
-        @NonNull
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(Settings.RESTORE_OLD_SEEKBAR_THUMBNAILS);
