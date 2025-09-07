@@ -485,6 +485,21 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             return false;
         }
 
+        // For the last element in the adapter, always scroll to ensure visibility.
+        ListAdapter adapter = listView.getAdapter();
+        if (adapter != null && targetPosition == adapter.getCount() - 1) {
+            // Checking if there is more content below that can be scrolled.
+            View lastChild = listView.getChildAt(listView.getChildCount() - 1);
+            if (lastChild != null) {
+                int lastChildBottom = lastChild.getBottom();
+                int listViewBottom = listView.getHeight() - listView.getPaddingBottom();
+                // If the last item is not completely at the bottom of the list, need to scroll.
+                if (lastChildBottom > listViewBottom) {
+                    return false;
+                }
+            }
+        }
+
         // Check if item is in the middle third of visible items.
         int visibleRange = lastVisible - firstVisible + 1;
         int itemPositionInVisible = targetPosition - firstVisible;
@@ -510,6 +525,43 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         // Calculate center offset.
         int centerOffset = (listHeight / 2) - (itemHeight / 2);
         centerOffset = Math.max(0, centerOffset);
+
+        // For the last element use a different approach.
+        if (targetPosition == adapter.getCount() - 1) {
+            // Scroll to the end of the list.
+            listView.smoothScrollToPosition(targetPosition);
+
+            // Set scroll listener to highlight after scrolling is complete.
+            ScrollCompletionTracker tracker = new ScrollCompletionTracker(listView, targetPosition);
+            listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+                @Override
+                public void onScrollStateChanged(AbsListView view, int scrollState) {
+                    if (scrollState == SCROLL_STATE_IDLE) {
+                        if (tracker.shouldHighlight()) {
+                            tracker.markHighlighted();
+                            highlightPreferenceAtPosition(listView, targetPosition);
+                            listView.setOnScrollListener(null);
+                        }
+                    }
+                }
+
+                @Override
+                public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                    // No action needed during scroll.
+                }
+            });
+
+            // Safety fallback for the last element.
+            listView.postDelayed(() -> {
+                if (tracker.shouldHighlight()) {
+                    tracker.markHighlighted();
+                    highlightPreferenceAtPosition(listView, targetPosition);
+                    listView.setOnScrollListener(null);
+                }
+            }, SMOOTH_SCROLL_DURATION + 200);
+
+            return;
+        }
 
         // Create a scroll completion tracker.
         ScrollCompletionTracker tracker = new ScrollCompletionTracker(listView, targetPosition);
