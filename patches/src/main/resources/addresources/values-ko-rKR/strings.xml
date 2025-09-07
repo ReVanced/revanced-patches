@@ -402,7 +402,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_fullscreen_ads_title">전체 화면 광고 숨기기</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"전체 화면 광고가 숨겨집니다
 
-이 설정은 구형 기기에서만 사용할 수 있습니다"</string>
+이 기능은 구형 기기에서만 사용할 수 있습니다"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">전체 화면 광고가 표시됩니다</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">\'전체 화면 광고 숨기기\'는 구형 기기에서만 사용할 수 있습니다</string>
@@ -823,15 +823,15 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_tagged_products_title">태그된 제품 숨기기</string>
   <string name="revanced_hide_shorts_tagged_products_summary_on">태그된 제품이 숨겨집니다</string>
   <string name="revanced_hide_shorts_tagged_products_summary_off">태그된 제품이 표시됩니다</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">예정 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">예정 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">예정 버튼이 표시됩니다</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">\'이 사운드 사용\' 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_on">\'이 사운드 사용\' 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_off">\'이 사운드 사용\' 버튼이 표시됩니다</string>
-  <string name="revanced_hide_shorts_use_template_button_title">\'이 템플릿 사용\' 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">\'이 템플릿 사용\' 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">\'이 템플릿 사용\' 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">예정된 라이브 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">예정된 라이브 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">예정된 라이브 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">이 사운드 사용 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">이 사운드 사용 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">이 사운드 사용 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_use_template_button_title">템플릿 사용 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">템플릿 사용 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">템플릿 사용 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_like_fountain_title">좋아요 버튼 애니메이션을 비활성화하기</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">좋아요 버튼 상단에 표시되는 애니메이션을 비활성화합니다</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">좋아요 버튼 상단에 표시되는 애니메이션을 활성화합니다</string>
@@ -975,11 +975,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">일반 화질 재생바 썸네일을 활성화합니다</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">전체 화면 고화질 재생바 썸네일을 활성화합니다</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">전체 화면 일반 화질 재생바 썸네일을 활성화합니다</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"이 설정을 활성화하면 재생바 썸네일이 없는 실시간 스트림의 썸네일도 복원됩니다.
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"이 기능을 활성화하면 재생바 썸네일이 없는 실시간 스트림의 썸네일도 복원됩니다.
 
 재생바 썸네일에는 현재 동영상과 동일한 화질 값이 사용됩니다.
 
-이 설정은 동영상 화질 값이 720p 이하이고 인터넷 연결 상태가 매우 빠를 때 가장 잘 작동합니다."</string>
+이 기능은 동영상 화질 값이 720p 이하이고 인터넷 연결 상태가 매우 빠를 때 가장 잘 작동합니다."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">이전 재생바 썸네일 복원하기</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">재생바 상단에서 최소화된 썸네일을 표시합니다</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">플레이어에서 전체 화면으로 된 썸네일을 표시합니다</string>
@@ -1214,7 +1214,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 
 이 경우 앱 레이아웃과 기능이 변경되지만 알려지지 않은 부작용이 발생할 수 있습니다.
 
-나중에 이 설정을 비활성화하면 앱 레이아웃 버그를 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
+나중에 이 기능을 비활성화하면 앱 레이아웃 버그를 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
   <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 이전 Shorts 플레이어 아이콘을 복원합니다</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - 이전 하단바 아이콘을 복원합니다</string>
@@ -1352,7 +1352,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_bypass_image_region_restrictions_summary_on">이미지 호스트로 yt4.ggpht.com를 사용합니다</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"기본 이미지 호스트를 사용합니다
 
-이 설정을 활성화하면 일부 국가에서 차단된 이미지를 수신할 수 있습니다"</string>
+이 기능을 활성화하면 일부 국가에서 차단된 이미지를 수신할 수 있습니다"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
@@ -1461,7 +1461,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_force_original_audio_summary_on">원본 오디오 스트림 언어를 사용 중입니다</string>
   <string name="revanced_force_original_audio_summary_off">기본 오디오 스트림 언어를 사용 중입니다</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">이 설정을 사용하려면, \'동영상 스트림 변경하기\'에서 기본 클라이언트를 iOS TV로 변경하세요</string>
+  <string name="revanced_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 변경하기\'에서 기본 클라이언트를 iOS TV로 변경하세요</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
