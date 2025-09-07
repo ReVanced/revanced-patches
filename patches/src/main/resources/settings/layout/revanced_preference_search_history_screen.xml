@@ -44,6 +44,7 @@
                     android:id="@+id/clear_history_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:text="@string/revanced_settings_search_clear_history"
                     android:textSize="16sp"
                     android:textColor="?android:attr/colorAccent"
@@ -89,14 +90,14 @@
 
                     <TextView
                             android:id="@+id/revanced_settings_search_tips_summary"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="16dp"
                             android:textSize="14sp"
                             android:textColor="?android:attr/textColorSecondary" />
+
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

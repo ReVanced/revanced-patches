@@ -38,7 +38,7 @@
             android:id="@+id/delete_icon"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="16dp"
             android:src="@drawable/revanced_settings_search_remove"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:padding="4dp"
