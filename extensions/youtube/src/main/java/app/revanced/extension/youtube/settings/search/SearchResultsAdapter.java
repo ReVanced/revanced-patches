@@ -402,8 +402,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             CharSequence title = pref.getTitle();
             if (title != null) {
                 String prefTitle = title.toString().trim();
-                if (prefTitle.equals(finalSegment) ||
-                        prefTitle.equalsIgnoreCase(finalSegment) ||
+                if (prefTitle.equalsIgnoreCase(finalSegment) ||
                         normalizeString(prefTitle).equals(normalizeString(finalSegment))) {
                     foundPref = pref;
                     break;
@@ -439,8 +438,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             Preference pref = group.getPreference(i);
             CharSequence prefTitle = pref.getTitle();
             if (prefTitle != null && (
-                    prefTitle.toString().trim().equals(title) ||
-                            prefTitle.toString().trim().equalsIgnoreCase(title) ||
+                    prefTitle.toString().trim().equalsIgnoreCase(title) ||
                             normalizeString(prefTitle.toString()).equals(normalizeString(title)))) {
                 return pref;
             }
