@@ -39,10 +39,9 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     private final ReVancedPreferenceFragment fragment;
     private AnimatorSet currentAnimator;
 
-    private static final int SMOOTH_SCROLL_DURATION = 400;
+    private static final int FADE_ANIMATION_DURATION = 100;
     private static final int BLINK_DURATION = 400;
     private static final int PAUSE_BETWEEN_BLINKS = 100;
-    private static final int RENDER_DELAY = 100;
 
     // Resource ID constants.
     private static final int ID_PREFERENCE_TITLE = getResourceIdentifier("preference_title", "id");
@@ -301,7 +300,14 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             case "group_header" -> {
                 GroupHeaderViewHolder groupHolder = (GroupHeaderViewHolder) holder;
                 groupHolder.pathView.setText(item.title);
-                view.setOnClickListener(v -> navigateToPreferenceScreen(item));
+                view.setOnClickListener(v -> {
+                    ListView listView = getPreferenceListView();
+                    if (listView != null) {
+                        crossfadeToPreferenceScreen(listView, () -> navigateToPreferenceScreen(item));
+                    } else {
+                        navigateToPreferenceScreen(item);
+                    }
+                });
             }
             case "no_results" -> {
                 NoResultsViewHolder noResultsHolder = (NoResultsViewHolder) holder;
@@ -354,7 +360,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         PreferenceScreen finalTargetScreen = targetScreen;
         fragment.getView().post(() -> {
             if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
-                scrollToPreferenceInCurrentScreen(prefItem.preference, finalTargetScreen);
+                ListView listView = getPreferenceListView();
+                if (listView != null) {
+                    crossfadeToPreferenceScreen(listView, () ->
+                            scrollToPreferenceInCurrentScreen(prefItem.preference, finalTargetScreen));
+                } else {
+                    scrollToPreferenceInCurrentScreen(prefItem.preference, finalTargetScreen);
+                }
             }
         });
     }
@@ -378,7 +390,12 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 targetScreen = (PreferenceScreen) targetPref;
             }
             if (targetPref instanceof PreferenceScreen || hasNavigationCapability(targetPref)) {
-                handlePreferenceClick(targetPref);
+                ListView listView = getPreferenceListView();
+                if (listView != null) {
+                    crossfadeToPreferenceScreen(listView, () -> handlePreferenceClick(targetPref));
+                } else {
+                    handlePreferenceClick(targetPref);
+                }
             }
         }
 
@@ -419,7 +436,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 Logger.printDebug(() -> "Could not find preference group: " + segmentTrimmed + " in path: " + item.navigationPath);
                 return null;
             }
-            handlePreferenceClick(foundPref);
+            ListView listView = getPreferenceListView();
+            if (listView != null) {
+                Preference finalFoundPref = foundPref;
+                crossfadeToPreferenceScreen(listView, () -> handlePreferenceClick(finalFoundPref));
+            } else {
+                handlePreferenceClick(foundPref);
+            }
             if (foundPref instanceof PreferenceScreen) {
                 currentScreen = (PreferenceScreen) foundPref;
             }
@@ -440,6 +463,31 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     }
 
     /**
+     * Applies a quick crossfade animation between settings screens.
+     */
+    private void crossfadeToPreferenceScreen(ListView listView, Runnable navigateAction) {
+        // Fade out old content.
+        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(listView, "alpha", 1f, 0f);
+        fadeOut.setDuration(FADE_ANIMATION_DURATION);
+
+        // Fade in new content.
+        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(listView, "alpha", 0f, 1f);
+        fadeIn.setDuration(FADE_ANIMATION_DURATION);
+
+        fadeOut.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                // Perform navigation while hidden.
+                navigateAction.run();
+                // Start fade-in.
+                fadeIn.start();
+            }
+        });
+
+        fadeOut.start();
+    }
+
+    /**
      * Scrolls to and highlights the preference in the main or sub-preference screen.
      */
     private void scrollToAndHighlightPreference(SearchResultItem item) {
@@ -447,7 +495,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     }
 
     /**
-     * Scrolls to a preference in the target PreferenceScreen and highlights it.
+     * Scrolls to a preference in the target PreferenceScreen and highlights it after scrolling finishes.
      */
     private void scrollToPreferenceInCurrentScreen(Preference targetPreference, PreferenceScreen targetScreen) {
         ListView listView;
@@ -462,246 +510,32 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         int targetPosition = findPreferencePosition(targetPreference, listView);
         if (targetPosition == -1) return;
 
-        // Check if item is already visible and centered.
-        if (isItemVisibleAndCentered(listView, targetPosition)) {
-            highlightPreferenceAtPosition(listView, targetPosition);
-            return;
-        }
-
-        // Post a delayed action to allow the list to render.
-        listView.postDelayed(() -> {
-            smoothScrollToCenter(listView, targetPosition);
-        }, RENDER_DELAY);
-    }
-
-    /**
-     * Checks if the item is visible and reasonably centered in the ListView.
-     */
-    private boolean isItemVisibleAndCentered(ListView listView, int targetPosition) {
         int firstVisible = listView.getFirstVisiblePosition();
         int lastVisible = listView.getLastVisiblePosition();
 
-        if (targetPosition < firstVisible || targetPosition > lastVisible) {
-            return false;
-        }
-
-        // For the last element in the adapter, always scroll to ensure visibility.
-        ListAdapter adapter = listView.getAdapter();
-        if (adapter != null && targetPosition == adapter.getCount() - 1) {
-            // Checking if there is more content below that can be scrolled.
-            View lastChild = listView.getChildAt(listView.getChildCount() - 1);
-            if (lastChild != null) {
-                int lastChildBottom = lastChild.getBottom();
-                int listViewBottom = listView.getHeight() - listView.getPaddingBottom();
-                // If the last item is not completely at the bottom of the list, need to scroll.
-                if (lastChildBottom > listViewBottom) {
-                    return false;
-                }
-            }
-        }
-
-        // Check if item is in the middle third of visible items.
-        int visibleRange = lastVisible - firstVisible + 1;
-        int itemPositionInVisible = targetPosition - firstVisible;
-        int centerStart = visibleRange / 3;
-        int centerEnd = (visibleRange * 2) / 3;
-
-        return itemPositionInVisible >= centerStart && itemPositionInVisible <= centerEnd;
-    }
-
-    /**
-     * Performs smooth scroll to center the target position in the ListView.
-     */
-    private void smoothScrollToCenter(ListView listView, int targetPosition) {
-        ListAdapter adapter = listView.getAdapter();
-        if (adapter == null) return;
-
-        int listHeight = listView.getHeight();
-        if (listHeight == 0) return;
-
-        // Calculate item height more reliably.
-        int itemHeight = calculateAverageItemHeight(listView);
-
-        // Calculate center offset.
-        int centerOffset = (listHeight / 2) - (itemHeight / 2);
-        centerOffset = Math.max(0, centerOffset);
-
-        // For the last element use a different approach.
-        if (targetPosition == adapter.getCount() - 1) {
-            // Scroll to the end of the list.
-            listView.smoothScrollToPosition(targetPosition);
-
-            // Set scroll listener to highlight after scrolling is complete.
-            ScrollCompletionTracker tracker = new ScrollCompletionTracker(listView, targetPosition);
-            listView.setOnScrollListener(new AbsListView.OnScrollListener() {
-                @Override
-                public void onScrollStateChanged(AbsListView view, int scrollState) {
-                    if (scrollState == SCROLL_STATE_IDLE) {
-                        if (tracker.shouldHighlight()) {
-                            tracker.markHighlighted();
-                            highlightPreferenceAtPosition(listView, targetPosition);
-                            listView.setOnScrollListener(null);
-                        }
-                    }
-                }
-
-                @Override
-                public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                    // No action needed during scroll.
-                }
-            });
-
-            // Safety fallback for the last element.
-            listView.postDelayed(() -> {
-                if (tracker.shouldHighlight()) {
-                    tracker.markHighlighted();
-                    highlightPreferenceAtPosition(listView, targetPosition);
-                    listView.setOnScrollListener(null);
-                }
-            }, SMOOTH_SCROLL_DURATION + 200);
-
-            return;
-        }
-
-        // Create a scroll completion tracker.
-        ScrollCompletionTracker tracker = new ScrollCompletionTracker(listView, targetPosition);
-
-        // Check if element is already visible and no scroll is needed.
-        if (tracker.shouldHighlight()) {
-            tracker.markHighlighted();
+        if (targetPosition >= firstVisible && targetPosition <= lastVisible) {
             highlightPreferenceAtPosition(listView, targetPosition);
-            return;
-        }
+        } else {
+            listView.smoothScrollToPositionFromTop(targetPosition, 0);
 
-        try {
-            // Use smoothScrollToPositionFromTop for all positions.
-            listView.smoothScrollToPositionFromTop(targetPosition, centerOffset, SMOOTH_SCROLL_DURATION);
-
-            // Set scroll listener to detect completion.
             listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+                private boolean isScrolling = false;
+
                 @Override
                 public void onScrollStateChanged(AbsListView view, int scrollState) {
-                    if (scrollState == SCROLL_STATE_IDLE) {
-                        if (tracker.shouldHighlight()) {
-                            tracker.markHighlighted();
-                            highlightPreferenceAtPosition(listView, targetPosition);
-                            listView.setOnScrollListener(null);
-                        }
+                    if (scrollState == SCROLL_STATE_TOUCH_SCROLL || scrollState == SCROLL_STATE_FLING) {
+                        isScrolling = true;
                     }
-                }
-
-                @Override
-                public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                    // No action needed during scroll.
-                }
-            });
-
-            // Safety fallback - force highlight after extended time.
-            listView.postDelayed(() -> {
-                if (tracker.shouldHighlight()) {
-                    tracker.markHighlighted();
-                    // Try to scroll again if target is still not visible.
-                    int firstVisible = listView.getFirstVisiblePosition();
-                    int lastVisible = listView.getLastVisiblePosition();
-
-                    if (targetPosition < firstVisible || targetPosition > lastVisible) {
-                        // Fallback: use setSelection with smooth transition.
-                        smoothFallbackScroll(listView, targetPosition);
-                    } else {
+                    if (scrollState == SCROLL_STATE_IDLE && isScrolling) {
+                        isScrolling = false;
+                        listView.setOnScrollListener(null);
                         highlightPreferenceAtPosition(listView, targetPosition);
                     }
-                    listView.setOnScrollListener(null);
                 }
-            }, SMOOTH_SCROLL_DURATION + 300);
 
-        } catch (Exception e) {
-            // Fallback for any scrolling errors.
-            Logger.printException(() -> "Error during smooth scroll, using fallback", e);
-            smoothFallbackScroll(listView, targetPosition);
-            tracker.markHighlighted();
-            listView.postDelayed(() -> highlightPreferenceAtPosition(listView, targetPosition), 100);
-        }
-    }
-
-    /**
-     * Fallback smooth scroll method for edge cases.
-     */
-    private void smoothFallbackScroll(ListView listView, int targetPosition) {
-        try {
-            // Calculate a reasonable offset for centering.
-            int listHeight = listView.getHeight();
-            int itemHeight = calculateAverageItemHeight(listView);
-            int centerOffset = Math.max(0, (listHeight / 2) - (itemHeight / 2));
-
-            // Use a custom smooth scroll approach.
-            int currentFirst = listView.getFirstVisiblePosition();
-            int distance = Math.abs(targetPosition - currentFirst);
-
-            if (distance > 10) {
-                // For large distances, scroll in steps to avoid abrupt jumps.
-                int intermediatePosition = currentFirst + (targetPosition > currentFirst ?
-                        Math.min(distance / 2, 8) : -Math.min(distance / 2, 8));
-
-                listView.smoothScrollToPositionFromTop(intermediatePosition, centerOffset, SMOOTH_SCROLL_DURATION / 2);
-                listView.postDelayed(() -> {
-                    listView.smoothScrollToPositionFromTop(targetPosition, centerOffset, SMOOTH_SCROLL_DURATION / 2);
-                }, SMOOTH_SCROLL_DURATION / 2 + 50);
-            } else {
-                listView.smoothScrollToPositionFromTop(targetPosition, centerOffset, SMOOTH_SCROLL_DURATION);
-            }
-        } catch (Exception e) {
-            // Final fallback - simple selection.
-            listView.setSelection(targetPosition);
-        }
-    }
-
-    /**
-     * Calculates average item height in the ListView for more accurate positioning.
-     */
-    private int calculateAverageItemHeight(ListView listView) {
-        int totalHeight = 0;
-        int visibleChildren = 0;
-
-        // Sample multiple visible children for better average.
-        for (int i = 0; i < Math.min(listView.getChildCount(), 3); i++) {
-            View child = listView.getChildAt(i);
-            if (child != null && child.getHeight() > 0) {
-                totalHeight += child.getHeight();
-                visibleChildren++;
-            }
-        }
-
-        if (visibleChildren > 0) {
-            return totalHeight / visibleChildren;
-        }
-
-        // Fallback to density-based calculation.
-        return (int) (56 * listView.getContext().getResources().getDisplayMetrics().density);
-    }
-
-    /**
-     * Helper class to track scroll completion and highlight state.
-     */
-    private static class ScrollCompletionTracker {
-        private boolean highlighted = false;
-        private final ListView listView;
-        private final int targetPosition;
-
-        ScrollCompletionTracker(ListView listView, int targetPosition) {
-            this.listView = listView;
-            this.targetPosition = targetPosition;
-        }
-
-        boolean shouldHighlight() {
-            if (highlighted) return false;
-
-            int firstVisible = listView.getFirstVisiblePosition();
-            int lastVisible = listView.getLastVisiblePosition();
-            return targetPosition >= firstVisible && targetPosition <= lastVisible;
-        }
-
-        void markHighlighted() {
-            highlighted = true;
+                @Override
+                public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {}
+            });
         }
     }
 
