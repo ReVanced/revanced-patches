@@ -6,6 +6,8 @@ import static app.revanced.extension.youtube.settings.search.SearchViewControlle
 import android.animation.*;
 import android.app.Dialog;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
@@ -483,9 +485,32 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         int lastVisible = listView.getLastVisiblePosition();
 
         if (targetPosition >= firstVisible && targetPosition <= lastVisible) {
-            highlightPreferenceAtPosition(listView, targetPosition);
+            // The preference is already visible, but still scroll it to the bottom of the list for consistency.
+            listView.post(() -> {
+                View child = listView.getChildAt(targetPosition - firstVisible);
+                if (child != null) {
+                    // Calculate how much to scroll so the item is aligned at the bottom.
+                    int scrollAmount = child.getBottom() - listView.getHeight();
+                    if (scrollAmount > 0) {
+                        // Perform smooth scroll animation for better user experience.
+                        listView.smoothScrollBy(scrollAmount, 300);
+                    }
+                }
+                // Highlight the preference once it is positioned.
+                highlightPreferenceAtPosition(listView, targetPosition);
+            });
         } else {
+            // The preference is outside of the current visible range, scroll to it from the top.
             listView.smoothScrollToPositionFromTop(targetPosition, 0);
+
+            Handler handler = new Handler(Looper.getMainLooper());
+            // Fallback runnable in case the OnScrollListener does not trigger.
+            Runnable fallback = () -> {
+                listView.setOnScrollListener(null);
+                highlightPreferenceAtPosition(listView, targetPosition);
+            };
+            // Post fallback with a small delay.
+            handler.postDelayed(fallback, 350);
 
             listView.setOnScrollListener(new AbsListView.OnScrollListener() {
                 private boolean isScrolling = false;
@@ -493,11 +518,15 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 @Override
                 public void onScrollStateChanged(AbsListView view, int scrollState) {
                     if (scrollState == SCROLL_STATE_TOUCH_SCROLL || scrollState == SCROLL_STATE_FLING) {
+                        // Mark that scrolling has started.
                         isScrolling = true;
                     }
                     if (scrollState == SCROLL_STATE_IDLE && isScrolling) {
+                        // Scrolling is finished, cleanup listener and cancel fallback.
                         isScrolling = false;
                         listView.setOnScrollListener(null);
+                        handler.removeCallbacks(fallback);
+                        // Highlight the target preference when scrolling is done.
                         highlightPreferenceAtPosition(listView, targetPosition);
                     }
                 }
