@@ -322,15 +322,21 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     private void setupPreferenceView(View view, TextView titleView, TextView summaryView,
                                      Preference preference, Runnable onClickAction) {
         boolean enabled = preference.isEnabled();
-        view.setEnabled(enabled);
+
+        // To enable long-click navigation for disabled settings, manually control the enabled state of the title and summary,
+        // and disable the ripple effect instead of using 'view.setEnabled(enabled)'.
+
         titleView.setEnabled(enabled);
         if (summaryView != null) summaryView.setEnabled(enabled);
+
+        if (!enabled) view.setBackground(null); // Disable ripple effect.
 
         // In light mode, alpha 0.5 is applied to a disabled title automatically,
         // but in dark mode it needs to be applied manually.
         if (Utils.isDarkModeEnabled()) {
             titleView.setAlpha(enabled ? 1.0f : ColorPickerPreference.DISABLED_ALPHA);
         }
+
         view.setOnClickListener(enabled ? v -> onClickAction.run() : null);
     }
 
