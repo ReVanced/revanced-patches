@@ -1,3 +1,22 @@
+# [5.35.0](https://github.com/ReVanced/revanced-patches/compare/v5.34.0...v5.35.0) (2025-09-09)
+
+
+### Bug Fixes
+
+* **Instagram - Hide navigation buttons:** Fix Manager patching error ([0d10e94](https://github.com/ReVanced/revanced-patches/commit/0d10e94663283fac09f3efc57c9b9805c38c4e13))
+* **Proton mail:** Constrain patches to last working app target ([21c34b9](https://github.com/ReVanced/revanced-patches/commit/21c34b908e07a97de8c31c7c828b44a8cc4739b6))
+* Revert dependency updates to fix Manager pre-release patching ([4c7a1a8](https://github.com/ReVanced/revanced-patches/commit/4c7a1a8554c67797bf663e5230f566c5a9b229af))
+* **Spotify - Unlock Premium:** Make compatible with latest versions again by fixing fingerprint ([#5684](https://github.com/ReVanced/revanced-patches/issues/5684)) ([30dcff1](https://github.com/ReVanced/revanced-patches/commit/30dcff13a56883efc499b71faadb403877cd1c67))
+* **YouTube - Hide layout components:** Hide Playable shelf header ([fbb5046](https://github.com/ReVanced/revanced-patches/commit/fbb50463f0e3f533a278c5251cfbce59f09ce641))
+
+
+### Features
+
+* **BaconReader:** Add `Fix Redgifs API` patch ([#5761](https://github.com/ReVanced/revanced-patches/issues/5761)) ([08868c0](https://github.com/ReVanced/revanced-patches/commit/08868c00d3c4f1f37f4a77f333a03ca5a3259b59))
+* **Boost/Sync for Reddit:** Add `Fix Redgifs` patch  ([#5725](https://github.com/ReVanced/revanced-patches/issues/5725)) ([c5e8079](https://github.com/ReVanced/revanced-patches/commit/c5e8079eab08075a72078cd0fa79f3beb1f75d98))
+* **Instagram:** Add `Hide navigation buttons` patch ([#5678](https://github.com/ReVanced/revanced-patches/issues/5678)) ([415cf0f](https://github.com/ReVanced/revanced-patches/commit/415cf0fb5b9b3dcaf4592943a69eea1c10447b07))
+* **Instagram:** Add `Hide Stories from Home` patch ([#5756](https://github.com/ReVanced/revanced-patches/issues/5756)) ([3ae3251](https://github.com/ReVanced/revanced-patches/commit/3ae3251dc0317b6ced136fe9aa14be369642f203))
+
 # [5.35.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.35.0-dev.4...v5.35.0-dev.5) (2025-09-06)
 
 
