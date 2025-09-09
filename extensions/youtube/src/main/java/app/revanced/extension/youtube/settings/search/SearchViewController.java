@@ -818,7 +818,6 @@ public class SearchViewController {
         overlayContainer.setVisibility(View.GONE);
 
         filteredSearchItems.clear();
-        searchResultsAdapter.notifyDataSetChanged();
 
         searchContainer.setVisibility(View.GONE);
         toolbar.getMenu().findItem(ID_ACTION_SEARCH).setVisible(true);
@@ -829,10 +828,18 @@ public class SearchViewController {
         inputMethodManager.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
         activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
-        // Clear highlighting for all search items.
+        // Clear highlighting for all search items and force restore original entries.
         for (SearchResultItem item : allSearchItems) {
             item.clearHighlighting();
+
+            // Additional explicit restoration to handle cached entries.
+            if (item instanceof SearchResultItem.PreferenceSearchItem prefItem
+                    && prefItem.preference instanceof CustomDialogListPreference listPref) {
+                listPref.restoreOriginalEntries();
+            }
         }
+
+        searchResultsAdapter.notifyDataSetChanged();
     }
 
     /**

@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
+import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPreference;
 
 /**
@@ -103,7 +104,6 @@ public abstract class SearchResultItem {
         CharSequence originalSummaryOn;
         CharSequence originalSummaryOff;
         CharSequence[] originalEntries;
-        CharSequence[] highlightedEntries;
 
         @ColorInt
         private int color;
@@ -118,7 +118,6 @@ public abstract class SearchResultItem {
             this.originalSummaryOn = null;
             this.originalSummaryOff = null;
             this.originalEntries = null;
-            this.highlightedEntries = null;
             this.color = 0;
 
             // Initialize type-specific fields.
@@ -143,24 +142,12 @@ public abstract class SearchResultItem {
                 this.originalSummaryOff = switchPref.getSummaryOff();
             } else if (pref instanceof ListPreference listPref && !(pref instanceof SegmentCategoryListPreference)) {
                 this.originalEntries = listPref.getEntries();
-                if (this.originalEntries != null) {
-                    this.highlightedEntries = new CharSequence[this.originalEntries.length];
-                    for (int i = 0; i < this.originalEntries.length; i++) {
-                        this.highlightedEntries[i] = SpannableStringBuilder.valueOf(this.originalEntries[i]);
-                    }
-                }
             } else if (pref instanceof ColorPickerPreference colorPref) {
                 String colorString = colorPref.getText();
                 this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) | 0xFF000000);
             } else if (pref instanceof SegmentCategoryListPreference segmentPref) {
                 this.originalEntries = segmentPref.getEntries();
-                if (this.originalEntries != null) {
-                    this.highlightedEntries = new CharSequence[this.originalEntries.length];
-                    for (int i = 0; i < this.originalEntries.length; i++) {
-                        this.highlightedEntries[i] = SpannableStringBuilder.valueOf(this.originalEntries[i]);
-                    }
-                    this.color = segmentPref.getColorWithOpacity();
-                }
+                this.color = segmentPref.getColorWithOpacity();
             }
         }
 
@@ -224,33 +211,21 @@ public abstract class SearchResultItem {
         void applyHighlighting(Pattern queryPattern) {
             if (highlightingApplied) return;
 
+            // Highlight the title.
             highlightedTitle = highlightSearchQuery(originalTitle, queryPattern);
-            preference.setTitle(originalTitle);
 
+            // Highlight the summary.
             if (originalSummary != null) {
                 highlightedSummary = highlightSearchQuery(originalSummary, queryPattern);
-                preference.setSummary(originalSummary);
             }
 
-            if (preference instanceof SwitchPreference switchPref) {
-                switchPref.setSummaryOn(originalSummaryOn);
-                switchPref.setSummaryOff(originalSummaryOff);
-            } else if (preference instanceof ListPreference listPref && originalEntries != null) {
-                // Highlight entries and update highlightedEntries.
+            // Highlight the entries.
+            if (preference instanceof CustomDialogListPreference listPref && originalEntries != null) {
+                CharSequence[] highlightedEntries = new CharSequence[originalEntries.length];
                 for (int i = 0; i < originalEntries.length; i++) {
                     highlightedEntries[i] = highlightSearchQuery(originalEntries[i], queryPattern);
                 }
                 listPref.setEntries(highlightedEntries);
-                // If summary matches an entry, use the highlighted entry.
-                CharSequence currentSummary = listPref.getSummary();
-                if (currentSummary != null) {
-                    for (int i = 0; i < originalEntries.length; i++) {
-                        if (currentSummary.toString().equals(originalEntries[i].toString())) {
-                            highlightedSummary = highlightedEntries[i];
-                            break;
-                        }
-                    }
-                }
             }
 
             highlightingApplied = true;
@@ -264,22 +239,15 @@ public abstract class SearchResultItem {
         void clearHighlighting() {
             if (!highlightingApplied) return;
 
-            // Restore original title and summary.
+            // Restore original title.
             highlightedTitle = originalTitle;
-            highlightedSummary = originalSummary != null ? originalSummary : "";
-            preference.setTitle(originalTitle);
-            preference.setSummary(originalSummary);
 
-            // Restore type-specific fields.
-            if (preference instanceof SwitchPreference switchPref) {
-                switchPref.setSummaryOn(originalSummaryOn);
-                switchPref.setSummaryOff(originalSummaryOff);
-            } else if (preference instanceof ListPreference listPref && originalEntries != null) {
-                listPref.setEntries(originalEntries); // Restore original entries to remove highlighting.
-                // Restore highlightedEntries to match originalEntries.
-                for (int i = 0; i < originalEntries.length; i++) {
-                    highlightedEntries[i] = SpannableStringBuilder.valueOf(originalEntries[i]);
-                }
+            // Restore original summary.
+            highlightedSummary = originalSummary != null ? originalSummary : "";
+
+            // Restore original entries.
+            if (preference instanceof CustomDialogListPreference listPref) {
+                listPref.restoreOriginalEntries();
             }
 
             highlightingApplied = false;
@@ -288,16 +256,6 @@ public abstract class SearchResultItem {
         void updateOriginalSummary(CharSequence newSummary) {
             this.originalSummary = newSummary;
             this.highlightedSummary = newSummary != null ? newSummary : "";
-            preference.setSummary(newSummary);
-            // If summary matches an entry, update highlightedSummary accordingly.
-            if (preference instanceof ListPreference && originalEntries != null) {
-                for (int i = 0; i < originalEntries.length; i++) {
-                    if (newSummary != null && newSummary.toString().equals(originalEntries[i].toString())) {
-                        this.highlightedSummary = highlightingApplied ? highlightedEntries[i] : newSummary;
-                        break;
-                    }
-                }
-            }
         }
 
         public void setColor(int newColor) {
