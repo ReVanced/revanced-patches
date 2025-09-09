@@ -1005,11 +1005,11 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">スキップボタンは、セグメントの開始から終了まで表示されます</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">スキップボタンの表示時間</string>
   <string name="revanced_sb_auto_hide_skip_button_duration_sum">自動非表示設定のスキップボタンと「ハイライトまでスキップ」ボタンが表示される時間の長さ</string>
-  <string name="revanced_sb_general_skiptoast">スキップ トーストを表示</string>
+  <string name="revanced_sb_general_skiptoast">自動スキップ時にトーストを表示</string>
   <string name="revanced_sb_general_skiptoast_sum_on">セグメントが自動的にスキップされたときにトースト通知が表示されます。このトースト通知をタップすると、スキップを取り消すことができます</string>
   <string name="revanced_sb_general_skiptoast_sum_off">セグメントが自動的にスキップされたときにトースト通知は表示されません。このトースト通知をタップすると、スキップを取り消すことができます</string>
   <string name="revanced_sb_toast_on_skip_duration">スキップ トーストの表示時間</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">自動スキップのトースト通知が表示される時間の長さ</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">自動スキップ時にトースト通知が表示される時間の長さ</string>
   <string name="revanced_sb_duration_1s">1 秒</string>
   <string name="revanced_sb_duration_2s">2 秒</string>
   <string name="revanced_sb_duration_3s">3 秒</string>
@@ -1030,7 +1030,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_general_adjusting">セグメントの位置調整幅</string>
   <string name="revanced_sb_general_adjusting_sum">セグメント作成メニュー内の早送り / 巻き戻しボタンで移動する時間 (ミリ秒)</string>
   <string name="revanced_sb_general_adjusting_invalid">値は正の整数でなければなりません</string>
-  <string name="revanced_sb_guidelines_preference_title">ガイドラインを表示</string>
+  <string name="revanced_sb_guidelines_preference_title">ガイドラインを見る</string>
   <string name="revanced_sb_guidelines_preference_sum">ガイドラインには、新しいセグメントを作成するためのルールやヒントが記載されています</string>
   <string name="revanced_sb_guidelines_popup_title">ガイドラインに従ってください</string>
   <string name="revanced_sb_guidelines_popup_content">新しいセグメントを作成する前に SponsorBlock のガイドラインを確認してください</string>
@@ -1083,7 +1083,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_segments_filler">尺稼ぎの余談 / 冗談</string>
   <string name="revanced_sb_segments_filler_sum">動画の本筋を理解するために必要のない、尺稼ぎやユーモアのみを目的として追加された脱線的な場面。コンテキストや背景情報を提供する場面は、このカテゴリーに含まれません</string>
   <string name="revanced_sb_segments_nomusic">音楽: 楽曲以外の区間</string>
-  <string name="revanced_sb_segments_nomusic_sum">ミュージック ビデオ専用。ミュージック ビデオの中で楽曲が流れていない区間であり、他の音源に存在しない区間</string>
+  <string name="revanced_sb_segments_nomusic_sum">ミュージック ビデオ専用。ミュージック ビデオの中で楽曲が流れていない区間であり、公式や他のメディアの音源に存在しない区間</string>
   <string name="revanced_sb_skip_button_compact">スキップ</string>
   <string name="revanced_sb_skip_button_compact_highlight">ハイライト</string>
   <string name="revanced_sb_skip_button_sponsor"> スポンサーをスキップ</string>
