@@ -692,18 +692,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
      */
     @SuppressWarnings("all")
     private void handlePreferenceClick(Preference preference) {
-        if (preference.getIntent() != null) {
-            try {
-                fragment.getActivity().startActivity(preference.getIntent());
-                if (searchViewController != null) {
-                    searchViewController.closeSearch();
-                }
-                return;
-            } catch (Exception e) {
-                Logger.printException(() -> "Failed to start Intent for preference: " + preference.getKey(), e);
-            }
-        }
-
         try {
             Method m = Preference.class.getDeclaredMethod("performClick", PreferenceScreen.class);
             m.setAccessible(true);
