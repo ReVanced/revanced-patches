@@ -1,6 +1,8 @@
 package app.revanced.extension.youtube.settings.preference;
 
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.youtube.settings.LicenseActivityHook.searchViewController;
+import static app.revanced.extension.youtube.settings.LicenseActivityHook.setToolbarLayoutParams;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -21,7 +23,6 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
-import app.revanced.extension.youtube.settings.LicenseActivityHook;
 
 /**
  * Preference fragment for ReVanced settings.
@@ -84,9 +85,9 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         super.onStart();
         try {
             // Initialize search controller if needed.
-            if (LicenseActivityHook.searchViewController != null) {
+            if (searchViewController != null) {
                 // Trigger search data collection after fragment is ready.
-                LicenseActivityHook.searchViewController.initializeSearchData();
+                searchViewController.initializeSearchData();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "onStart failure", ex);
@@ -154,12 +155,12 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                                 toolbarTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                             }
 
-                            LicenseActivityHook.setToolbarLayoutParams(toolbar);
+                            setToolbarLayoutParams(toolbar);
 
                             // Close search overlay if active when opening submenus.
-                            if (LicenseActivityHook.searchViewController != null
-                                    && LicenseActivityHook.searchViewController.isSearchActive()) {
-                                toolbar.post(() -> LicenseActivityHook.searchViewController.closeSearch());
+                            if (searchViewController != null
+                                    && searchViewController.isSearchActive()) {
+                                toolbar.post(() -> searchViewController.closeSearch());
                             }
 
                             rootView.addView(toolbar, 0);

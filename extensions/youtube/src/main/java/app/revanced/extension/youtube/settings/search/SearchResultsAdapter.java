@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.settings.search;
 
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.youtube.settings.LicenseActivityHook.searchViewController;
 import static app.revanced.extension.youtube.settings.search.SearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
 
 import android.animation.*;
@@ -25,7 +26,6 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.ui.ColorDot;
-import app.revanced.extension.youtube.settings.LicenseActivityHook;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
 import java.lang.reflect.Method;
@@ -136,8 +136,8 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         if (item.preferenceType != SearchResultItem.TYPE_NO_RESULTS
                 && item.preferenceType != SearchResultItem.TYPE_GROUP_HEADER) {
             view.setOnLongClickListener(v -> {
-                if (LicenseActivityHook.searchViewController != null) {
-                    LicenseActivityHook.searchViewController.closeSearch();
+                if (searchViewController != null) {
+                    searchViewController.closeSearch();
                 }
                 navigateToPreferenceScreen(item);
                 return true;
@@ -230,9 +230,9 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         switch (viewType) {
             case "regular", "list" -> {
                 RegularViewHolder regularHolder = (RegularViewHolder) holder;
-                regularHolder.titleView.setText(item.title);
-                regularHolder.summaryView.setText(item.summary);
-                regularHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
+                regularHolder.titleView.setText(item.highlightedTitle);
+                regularHolder.summaryView.setText(item.highlightedSummary);
+                regularHolder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
                 setupPreferenceView(view, regularHolder.titleView, regularHolder.summaryView,
                         ((SearchResultItem.PreferenceSearchItem) item).preference, () ->
                                 handlePreferenceClick(((SearchResultItem.PreferenceSearchItem) item).preference));
@@ -241,7 +241,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 SwitchViewHolder switchHolder = (SwitchViewHolder) holder;
                 SearchResultItem.PreferenceSearchItem prefItem = (SearchResultItem.PreferenceSearchItem) item;
                 SwitchPreference switchPref = (SwitchPreference) prefItem.preference;
-                switchHolder.titleView.setText(item.title);
+                switchHolder.titleView.setText(item.highlightedTitle);
                 switchHolder.switchWidget.setBackground(null); // Remove ripple/highlight.
                 // Set switch state without animation.
                 boolean currentState = switchPref.isChecked();
@@ -287,9 +287,9 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             case "color", "segment_category" -> {
                 ColorViewHolder colorHolder = (ColorViewHolder) holder;
                 SearchResultItem.PreferenceSearchItem prefItem = (SearchResultItem.PreferenceSearchItem) item;
-                colorHolder.titleView.setText(item.title);
-                colorHolder.summaryView.setText(item.summary);
-                colorHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
+                colorHolder.titleView.setText(item.highlightedTitle);
+                colorHolder.summaryView.setText(item.highlightedSummary);
+                colorHolder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
                 ColorDot.applyColorDot(
                         colorHolder.colorDot,
                         prefItem.getColor(),
@@ -300,25 +300,25 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             }
             case "group_header" -> {
                 GroupHeaderViewHolder groupHolder = (GroupHeaderViewHolder) holder;
-                groupHolder.pathView.setText(item.title);
+                groupHolder.pathView.setText(item.highlightedTitle);
                 view.setOnClickListener(v -> navigateToPreferenceScreen(item));
             }
             case "no_results" -> {
                 NoResultsViewHolder noResultsHolder = (NoResultsViewHolder) holder;
-                noResultsHolder.titleView.setText(item.title);
-                noResultsHolder.summaryView.setText(item.summary);
-                noResultsHolder.summaryView.setVisibility(TextUtils.isEmpty(item.summary) ? View.GONE : View.VISIBLE);
+                noResultsHolder.titleView.setText(item.highlightedTitle);
+                noResultsHolder.summaryView.setText(item.highlightedSummary);
+                noResultsHolder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
                 noResultsHolder.iconView.setImageResource(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
             }
+            default -> throw new IllegalStateException("Unknown viewType: " + viewType);
         }
 
         return view;
     }
 
     /**
-     * Sets up common properties for preference views.
+     * Sets up a preference view with click listeners and proper enabled state handling.
      */
-    @SuppressWarnings("deprecation")
     private void setupPreferenceView(View view, TextView titleView, TextView summaryView,
                                      Preference preference, Runnable onClickAction) {
         boolean enabled = preference.isEnabled();
@@ -692,6 +692,18 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
      */
     @SuppressWarnings("all")
     private void handlePreferenceClick(Preference preference) {
+        if (preference.getIntent() != null) {
+            try {
+                fragment.getActivity().startActivity(preference.getIntent());
+                if (searchViewController != null) {
+                    searchViewController.closeSearch();
+                }
+                return;
+            } catch (Exception e) {
+                Logger.printException(() -> "Failed to start Intent for preference: " + preference.getKey(), e);
+            }
+        }
+
         try {
             Method m = Preference.class.getDeclaredMethod("performClick", PreferenceScreen.class);
             m.setAccessible(true);

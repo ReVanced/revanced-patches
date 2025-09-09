@@ -36,14 +36,16 @@ public abstract class SearchResultItem {
     final String navigationPath;
     final List<String> navigationKeys;
     final int preferenceType;
-    CharSequence title;
-    CharSequence summary;
+    CharSequence highlightedTitle;
+    CharSequence highlightedSummary;
     boolean highlightingApplied;
 
     SearchResultItem(String navPath, List<String> navKeys, int type) {
         this.navigationPath = navPath;
         this.navigationKeys = new ArrayList<>(navKeys != null ? navKeys : Collections.emptyList());
         this.preferenceType = type;
+        this.highlightedTitle = "";
+        this.highlightedSummary = "";
         this.highlightingApplied = false;
     }
 
@@ -73,10 +75,9 @@ public abstract class SearchResultItem {
      * Search result item for group headers (navigation path only).
      */
     public static class GroupHeaderItem extends SearchResultItem {
+
         GroupHeaderItem(String navPath, List<String> navKeys) {
             super(navPath, navKeys, TYPE_GROUP_HEADER);
-            this.title = navPath;
-            this.summary = "";
         }
 
         @Override
@@ -85,18 +86,11 @@ public abstract class SearchResultItem {
         }
 
         @Override
-        void applyHighlighting(Pattern queryPattern) {
-            if (highlightingApplied) return;
-            title = highlightSearchQuery(navigationPath, queryPattern);
-            highlightingApplied = true;
-        }
+        void applyHighlighting(Pattern queryPattern) {}
+
 
         @Override
-        void clearHighlighting() {
-            if (!highlightingApplied) return;
-            title = navigationPath;
-            highlightingApplied = false;
-        }
+        void clearHighlighting() {}
     }
 
     /**
@@ -117,10 +111,10 @@ public abstract class SearchResultItem {
         PreferenceSearchItem(Preference pref, String navPath, List<String> navKeys) {
             super(navPath, navKeys, determineType(pref));
             this.preference = pref;
-            this.originalTitle = pref.getTitle();
-            this.title = originalTitle != null ? originalTitle : "";
+            this.originalTitle = pref.getTitle() != null ? pref.getTitle() : "";
             this.originalSummary = pref.getSummary();
-            this.summary = originalSummary != null ? originalSummary : "";
+            this.highlightedTitle = this.originalTitle;
+            this.highlightedSummary = this.originalSummary != null ? this.originalSummary : "";
             this.originalSummaryOn = null;
             this.originalSummaryOff = null;
             this.originalEntries = null;
@@ -211,40 +205,36 @@ public abstract class SearchResultItem {
 
         /**
          * Highlights the search query in the given text by applying a background color span.
+         * Stores highlighted versions in highlightedTitle and highlightedSummary without modifying originals.
          */
         @Override
         void applyHighlighting(Pattern queryPattern) {
             if (highlightingApplied) return;
-            title = highlightSearchQuery(originalTitle, queryPattern);
-            preference.setTitle(title);
+            highlightedTitle = highlightSearchQuery(originalTitle, queryPattern);
+            preference.setTitle(originalTitle);
             if (originalSummary != null) {
-                summary = highlightSearchQuery(originalSummary, queryPattern);
-                preference.setSummary(summary);
+                highlightedSummary = highlightSearchQuery(originalSummary, queryPattern);
+                preference.setSummary(originalSummary);
             }
             if (preference instanceof SwitchPreference switchPref) {
-                switchPref.setSummaryOn(highlightSearchQuery(originalSummaryOn, queryPattern));
-                switchPref.setSummaryOff(highlightSearchQuery(originalSummaryOff, queryPattern));
+                switchPref.setSummaryOn(originalSummaryOn);
+                switchPref.setSummaryOff(originalSummaryOff);
             } else if (preference instanceof ListPreference listPref && originalEntries != null) {
-                CharSequence[] highlightedEntries = new CharSequence[originalEntries.length];
-                for (int i = 0; i < originalEntries.length; i++) {
-                    highlightedEntries[i] = highlightSearchQuery(originalEntries[i], queryPattern);
-                }
-                listPref.setEntries(highlightedEntries);
+                listPref.setEntries(originalEntries);
             }
-
             highlightingApplied = true;
         }
 
         /**
-         * Clears all search query highlighting from the preference's content.
-         * Restores original text for title, summary, and type-specific content.
+         * Clears all search query highlighting from the highlighted fields.
+         * Restores original text for display purposes.
          */
         @Override
         void clearHighlighting() {
             if (!highlightingApplied) return;
-            title = originalTitle;
+            highlightedTitle = originalTitle;
+            highlightedSummary = originalSummary != null ? originalSummary : "";
             preference.setTitle(originalTitle);
-            summary = originalSummary;
             preference.setSummary(originalSummary);
 
             // Clear type-specific highlighting.
@@ -260,7 +250,7 @@ public abstract class SearchResultItem {
 
         void updateOriginalSummary(CharSequence newSummary) {
             this.originalSummary = newSummary;
-            this.summary = newSummary != null ? newSummary : "";
+            this.highlightedSummary = newSummary != null ? newSummary : "";
             preference.setSummary(newSummary);
         }
 
