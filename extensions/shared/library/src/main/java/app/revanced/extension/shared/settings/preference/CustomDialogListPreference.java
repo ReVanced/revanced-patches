@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.*;
 
 import androidx.annotation.NonNull;
-
 import androidx.annotation.Nullable;
+
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ui.CustomDialog;
 
@@ -39,7 +39,7 @@ public class CustomDialogListPreference extends ListPreference {
 
     /**
      * Set a static summary that will not be overwritten by value changes.
-     **/
+     */
     public void setStaticSummary(String summary) {
         this.staticSummary = summary;
     }
@@ -77,8 +77,10 @@ public class CustomDialogListPreference extends ListPreference {
         final CharSequence[] entryValues;
         String selectedValue;
 
-        public ListPreferenceArrayAdapter(Context context, int resource, CharSequence[] entries,
-                                          CharSequence[] entryValues, String selectedValue) {
+        public ListPreferenceArrayAdapter(Context context, int resource,
+                                          CharSequence[] entries,
+                                          CharSequence[] entryValues,
+                                          String selectedValue) {
             super(context, resource, entries);
             this.layoutResourceId = resource;
             this.entryValues = entryValues;
