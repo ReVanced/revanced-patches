@@ -45,6 +45,7 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup chipBar;
     private final StringFilterGroup channelProfile;
     private final ByteArrayFilterGroupList channelProfileBuffer;
+    private final ByteArrayFilterGroup playablesBuffer;
 
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
@@ -188,6 +189,12 @@ public final class LayoutComponentsFilter extends Filter {
                 Settings.HIDE_PLAYABLES,
                 "horizontal_gaming_shelf.eml",
                 "mini_game_card.eml"
+        );
+
+        // Playable horizontal shelf header.
+        playablesBuffer = new ByteArrayFilterGroup(
+                Settings.HIDE_PLAYABLES,
+                "mini_game"
         );
 
         final var quickActions = new StringFilterGroup(
@@ -342,7 +349,9 @@ public final class LayoutComponentsFilter extends Filter {
         }
 
         if (matchedGroup == horizontalShelves) {
-            return contentIndex == 0 && (hideShelves() || ticketShelf.check(buffer).isFiltered());
+            return contentIndex == 0 && (hideShelves()
+                    || ticketShelf.check(buffer).isFiltered()
+                    || playablesBuffer.check(buffer).isFiltered());
         }
 
         if (matchedGroup == chipBar) {

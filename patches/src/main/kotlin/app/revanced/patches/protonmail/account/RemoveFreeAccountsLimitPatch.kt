@@ -8,7 +8,7 @@ val removeFreeAccountsLimitPatch = resourcePatch(
     name = "Remove free accounts limit",
     description = "Removes the limit for maximum free accounts logged in.",
 ) {
-    compatibleWith("ch.protonmail.android")
+    compatibleWith("ch.protonmail.android"("4.15.0"))
 
     execute {
         document("res/values/integers.xml").use { document ->
