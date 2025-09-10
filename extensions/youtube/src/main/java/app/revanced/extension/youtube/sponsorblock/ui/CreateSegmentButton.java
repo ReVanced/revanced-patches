@@ -27,7 +27,7 @@ public class CreateSegmentButton {
                     controlsView,
                     "revanced_sb_create_segment_button",
                     null,
-                    CreateSegmentButton::shouldBeShown,
+                    CreateSegmentButton::isButtonEnabled,
                     v -> SponsorBlockViewController.toggleNewSegmentLayoutVisibility(),
                     null
             );
@@ -57,7 +57,7 @@ public class CreateSegmentButton {
         if (instance != null) instance.setVisibility(visible, animated);
     }
 
-    private static boolean shouldBeShown() {
+    private static boolean isButtonEnabled() {
         return Settings.SB_ENABLED.get() && Settings.SB_CREATE_NEW_SEGMENT.get()
                 && !SegmentPlaybackController.isAdProgressTextVisible();
     }
