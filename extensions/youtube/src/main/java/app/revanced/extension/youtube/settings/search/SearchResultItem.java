@@ -25,7 +25,6 @@ import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPr
 /**
  * Abstract base class for search result items, defining common fields and behavior.
  */
-@SuppressWarnings("deprecation")
 public abstract class SearchResultItem {
     // Enum to represent view types.
     public enum ViewType {
@@ -118,6 +117,7 @@ public abstract class SearchResultItem {
     /**
      * Search result item for preferences, handling type-specific data and search text.
      */
+    @SuppressWarnings("deprecation")
     public static class PreferenceSearchItem extends SearchResultItem {
         final Preference preference;
         final String searchableText;
@@ -227,8 +227,8 @@ public abstract class SearchResultItem {
         }
 
         /**
-         * Highlights the search query in the given text by applying a background color span.
-         * Stores highlighted versions in highlightedTitle, highlightedSummary and highlightedEntries.
+         * Highlights the search query in the title, summary, and entries.
+         * Applies adjust background color span to matching text.
          */
         @Override
         void applyHighlighting(Pattern queryPattern) {

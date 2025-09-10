@@ -127,7 +127,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     /**
      * Creates a view for a preference or header based on its type using ViewHolder pattern.
      */
-    @SuppressWarnings("deprecation")
     private View createPreferenceView(SearchResultItem item, View convertView,
                                       SearchResultItem.ViewType viewType, ViewGroup parent) {
         View view = convertView;
@@ -301,93 +300,46 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             return;
         }
 
-        PreferenceScreen targetScreen = navigateByKeys(item); // Try navigation by keys first.
-        if (targetScreen == null) {
-            targetScreen = navigateByTitles(item); // Fallback to method using titles.
-        }
+        PreferenceScreen targetScreen = navigateToTargetScreen(item);
         if (targetScreen == null) {
             return;
         }
 
-        PreferenceScreen finalTargetScreen = targetScreen;
         fragment.getView().post(() -> {
             if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
-                scrollToPreferenceInCurrentScreen(prefItem.preference, finalTargetScreen);
+                scrollToPreferenceInCurrentScreen(prefItem.preference, targetScreen);
             }
         });
     }
 
     /**
-     * Navigates directly to the final PreferenceScreen using preference keys.
+     * Navigates to the final PreferenceScreen using preference keys or titles as fallback.
      */
-    private PreferenceScreen navigateByKeys(SearchResultItem item) {
+    private PreferenceScreen navigateToTargetScreen(SearchResultItem item) {
         PreferenceScreen currentScreen = fragment.getPreferenceScreenForSearch();
-        if (item.navigationKeys == null || item.navigationKeys.isEmpty()) {
-            return currentScreen;
+        Preference targetPref = null;
+
+        // Try key-based navigation first.
+        if (item.navigationKeys != null && !item.navigationKeys.isEmpty()) {
+            String finalKey = item.navigationKeys.get(item.navigationKeys.size() - 1);
+            targetPref = findPreferenceByKey(currentScreen, finalKey);
         }
 
-        PreferenceScreen targetScreen = currentScreen;
-        String finalKey = item.navigationKeys.get(item.navigationKeys.size() - 1);
-        Preference targetPref = findPreferenceByKey(currentScreen, finalKey);
-        if (targetPref == null) {
-            return null;
-        }
-        if (targetPref instanceof PreferenceScreen) {
-            targetScreen = (PreferenceScreen) targetPref;
-            handlePreferenceClick(targetScreen);
-        }
-
-        return targetScreen;
-    }
-
-    /**
-     * Fallback navigation directly to the final PreferenceScreen by titles.
-     */
-    private PreferenceScreen navigateByTitles(SearchResultItem item) {
-        PreferenceScreen currentScreen = fragment.getPreferenceScreenForSearch();
-        String[] pathSegments = item.navigationPath.split(" > ");
-        if (pathSegments.length == 0 || (pathSegments.length == 1 && pathSegments[0].trim().isEmpty())) {
-            return currentScreen;
-        }
-
-        String finalSegment = pathSegments[pathSegments.length - 1].trim();
-        if (TextUtils.isEmpty(finalSegment)) {
-            return currentScreen;
-        }
-
-        PreferenceScreen targetScreen = currentScreen;
-        Preference foundPref = null;
-        for (int i = 0; i < currentScreen.getPreferenceCount(); i++) {
-            Preference pref = currentScreen.getPreference(i);
-            CharSequence title = pref.getTitle();
-            if (title != null) {
-                String prefTitle = title.toString().trim();
-                if (prefTitle.equalsIgnoreCase(finalSegment) ||
-                        normalizeString(prefTitle).equals(normalizeString(finalSegment))) {
-                    foundPref = pref;
-                    break;
-                }
-            }
-            if (pref instanceof PreferenceGroup) {
-                Preference recursiveFound = findPreferenceByTitle((PreferenceGroup) pref, finalSegment);
-                if (recursiveFound != null) {
-                    foundPref = recursiveFound;
-                    break;
-                }
+        // Fallback to title-based navigation.
+        if (targetPref == null && !TextUtils.isEmpty(item.navigationPath)) {
+            String[] pathSegments = item.navigationPath.split(" > ");
+            String finalSegment = pathSegments[pathSegments.length - 1].trim();
+            if (!TextUtils.isEmpty(finalSegment)) {
+                targetPref = findPreferenceByTitle(currentScreen, finalSegment);
             }
         }
 
-        if (foundPref == null) {
-            Logger.printDebug(() -> "Could not find preference group: " + finalSegment + " in path: " + item.navigationPath);
-            return null;
-        }
-
-        if (foundPref instanceof PreferenceScreen) {
-            targetScreen = (PreferenceScreen) foundPref;
+        if (targetPref instanceof PreferenceScreen targetScreen) {
             handlePreferenceClick(targetScreen);
+            return targetScreen;
         }
 
-        return targetScreen;
+        return currentScreen;
     }
 
     /**
@@ -532,7 +484,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     /**
      * Finds the position of a preference in the ListView adapter.
      */
-    @SuppressWarnings("deprecation")
     private int findPreferencePosition(Preference targetPreference, ListView listView) {
         ListAdapter adapter = listView.getAdapter();
         if (adapter == null) {
@@ -616,7 +567,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     /**
      * Recursively finds a preference by key in a preference group.
      */
-    @SuppressWarnings("deprecation")
     private Preference findPreferenceByKey(PreferenceGroup group, String key) {
         if (group == null || TextUtils.isEmpty(key)) {
             return null;
@@ -656,7 +606,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     /**
      * Checks if a preference has navigation capability (can open a new screen).
      */
-    @SuppressWarnings("deprecation")
     boolean hasNavigationCapability(Preference preference) {
         // PreferenceScreen always allows navigation.
         if (preference instanceof PreferenceScreen) {
