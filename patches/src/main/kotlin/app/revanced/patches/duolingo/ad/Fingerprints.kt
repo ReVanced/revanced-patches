@@ -12,6 +12,6 @@ internal val initializeMonetizationDebugSettingsFingerprint = fingerprint {
 }
 
 internal val monetizationDebugSettingsToStringFingerprint = fingerprint {
-    strings("MonetizationDebugSettings(")
+    strings("MonetizationDebugSettings(") // Partial string match.
     custom { method, _ -> method.name == "toString" }
 }
