@@ -101,10 +101,14 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         View view = createPreferenceView(item, convertView, viewType, parent);
 
         // Add long-click listener for preference items.
-        view.setOnLongClickListener(v -> {
-            navigateToPreferenceScreen(item);
-            return true;
-        });
+        if (viewType != SearchResultItem.ViewType.NO_RESULTS
+                && viewType != SearchResultItem.ViewType.GROUP_HEADER
+                && viewType != SearchResultItem.ViewType.URL_LINK) {
+            view.setOnLongClickListener(v -> {
+                navigateToPreferenceScreen(item);
+                return true;
+            });
+        }
 
         return view;
     }
@@ -286,9 +290,8 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
      * Navigates to the settings screen containing the given search result item and triggers scrolling.
      */
     private void navigateToPreferenceScreen(SearchResultItem item) {
-        // No navigation for NO_RESULTS, GROUP_HEADER or URL_LINK items.
+        // No navigation for NO_RESULTS or URL_LINK items.
         if (item.preferenceType == SearchResultItem.ViewType.NO_RESULTS
-                || item.preferenceType == SearchResultItem.ViewType.GROUP_HEADER
                 || item.preferenceType == SearchResultItem.ViewType.URL_LINK) return;
 
         PreferenceScreen targetScreen = navigateToTargetScreen(item);
