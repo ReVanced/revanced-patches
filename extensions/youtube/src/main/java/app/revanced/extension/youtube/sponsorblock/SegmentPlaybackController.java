@@ -377,6 +377,7 @@ public class SegmentPlaybackController {
     /**
      * Injection point.
      */
+    @SuppressWarnings("unused")
     public static void setAdProgressTextVisibility(int visibility) {
         if (adProgressTextVisibility != visibility) {
             adProgressTextVisibility = visibility;
@@ -707,7 +708,14 @@ public class SegmentPlaybackController {
                 // Check for any smaller embedded segments, and count those as auto-skipped.
                 final boolean showSkipToast = Settings.SB_TOAST_ON_SKIP.get();
                 for (SponsorSegment otherSegment : Objects.requireNonNull(segments)) {
-                    if (segmentToSkip.end < otherSegment.start) {
+                    if (otherSegment.end <= segmentToSkip.start) {
+                        // Other segment does not overlap, and is before this skipped segment.
+                        // This situation can only happen if a video is opened and adjusted to
+                        // a later time in the video where earlier auto skip segments
+                        // have not been encountered yet.
+                        continue;
+                    }
+                    if (segmentToSkip.end <= otherSegment.start) {
                         break; // No other segments can be contained.
                     }
 
