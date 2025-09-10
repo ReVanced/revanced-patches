@@ -63,6 +63,8 @@ Press Enter to save a search query to history.
 Search ignores casing and punctuation.
 
 Parent settings appear above disabled child settings."</string>
+            <string name="revanced_settings_search_empty_history_title">Search history is empty</string>
+            <string name="revanced_settings_search_empty_history_summary">To save search history, type a search query and press Enter</string>
             <string name="revanced_show_menu_icons_title">Show ReVanced setting icons</string>
             <string name="revanced_show_menu_icons_summary_on">Setting icons are shown</string>
             <string name="revanced_show_menu_icons_summary_off">Setting icons are not shown</string>

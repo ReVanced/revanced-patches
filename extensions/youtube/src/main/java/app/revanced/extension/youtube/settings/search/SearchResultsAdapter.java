@@ -1,7 +1,6 @@
 package app.revanced.extension.youtube.settings.search;
 
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
-import static app.revanced.extension.youtube.settings.LicenseActivityHook.searchViewController;
 import static app.revanced.extension.youtube.settings.search.SearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
 
 import android.animation.*;
@@ -102,17 +101,10 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         View view = createPreferenceView(item, convertView, viewType, parent);
 
         // Add long-click listener for preference items.
-        if (viewType != SearchResultItem.ViewType.NO_RESULTS
-                && viewType != SearchResultItem.ViewType.GROUP_HEADER
-                && viewType != SearchResultItem.ViewType.URL_LINK) {
-            view.setOnLongClickListener(v -> {
-                if (searchViewController != null) {
-                    searchViewController.closeSearch();
-                }
-                navigateToPreferenceScreen(item);
-                return true;
-            });
-        }
+        view.setOnLongClickListener(v -> {
+            navigateToPreferenceScreen(item);
+            return true;
+        });
 
         return view;
     }
@@ -294,16 +286,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
      * Navigates to the settings screen containing the given search result item and triggers scrolling.
      */
     private void navigateToPreferenceScreen(SearchResultItem item) {
-        // No navigation for "no_results" or "url_link" items.
+        // No navigation for NO_RESULTS, GROUP_HEADER or URL_LINK items.
         if (item.preferenceType == SearchResultItem.ViewType.NO_RESULTS
-                || item.preferenceType == SearchResultItem.ViewType.URL_LINK) {
-            return;
-        }
+                || item.preferenceType == SearchResultItem.ViewType.GROUP_HEADER
+                || item.preferenceType == SearchResultItem.ViewType.URL_LINK) return;
 
         PreferenceScreen targetScreen = navigateToTargetScreen(item);
-        if (targetScreen == null) {
-            return;
-        }
+        if (targetScreen == null) return;
 
         fragment.getView().post(() -> {
             if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
