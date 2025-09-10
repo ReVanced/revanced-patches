@@ -12,5 +12,6 @@ internal val initializeMonetizationDebugSettingsFingerprint = fingerprint {
 }
 
 internal val monetizationDebugSettingsToStringFingerprint = fingerprint {
-    strings("MonetizationDebugSettings(disableAds=")
+    strings("MonetizationDebugSettings(")
+    custom { method, _ -> method.name == "toString" }
 }
