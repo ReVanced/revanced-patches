@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
+import app.revanced.extension.youtube.settings.preference.UrlLinkPreference;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPreference;
 
 /**
@@ -33,6 +34,7 @@ public abstract class SearchResultItem {
     static final int TYPE_SEGMENT_CATEGORY = 4;
     static final int TYPE_GROUP_HEADER = 5;
     static final int TYPE_NO_RESULTS = 6;
+    static final int TYPE_URL_LINK = 7;
 
     final String navigationPath;
     final List<String> navigationKeys;
@@ -132,6 +134,7 @@ public abstract class SearchResultItem {
             if (pref instanceof ListPreference && !(pref instanceof SegmentCategoryListPreference)) return TYPE_LIST;
             if (pref instanceof ColorPickerPreference) return TYPE_COLOR_PICKER;
             if (pref instanceof SegmentCategoryListPreference) return TYPE_SEGMENT_CATEGORY;
+            if (pref instanceof UrlLinkPreference) return TYPE_URL_LINK;
             if ("no_results_placeholder".equals(pref.getKey())) return TYPE_NO_RESULTS;
             return TYPE_REGULAR;
         }

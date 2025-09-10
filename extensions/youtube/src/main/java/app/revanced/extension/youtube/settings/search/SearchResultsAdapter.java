@@ -27,6 +27,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.ui.ColorDot;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
+import app.revanced.extension.youtube.settings.preference.UrlLinkPreference;
 
 import java.lang.reflect.Method;
 import java.util.List;
@@ -72,7 +73,8 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             "color", "revanced_preference_search_result_color",
             "segment_category", "revanced_preference_search_result_color",
             "group_header", "revanced_preference_search_result_group_header",
-            "no_results", "revanced_preference_search_no_result");
+            "no_results", "revanced_preference_search_no_result",
+            "url_link", "revanced_preference_search_result_regular");
 
     // ViewHolder for regular and list preferences.
     private static class RegularViewHolder {
@@ -126,6 +128,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             case SearchResultItem.TYPE_SEGMENT_CATEGORY -> "segment_category";
             case SearchResultItem.TYPE_GROUP_HEADER -> "group_header";
             case SearchResultItem.TYPE_NO_RESULTS   -> "no_results";
+            case SearchResultItem.TYPE_URL_LINK -> "url_link";
             default -> "regular";
         };
 
@@ -134,7 +137,8 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
 
         // Add long-click listener for preference items.
         if (item.preferenceType != SearchResultItem.TYPE_NO_RESULTS
-                && item.preferenceType != SearchResultItem.TYPE_GROUP_HEADER) {
+                && item.preferenceType != SearchResultItem.TYPE_GROUP_HEADER
+                && item.preferenceType != SearchResultItem.TYPE_URL_LINK) {
             view.setOnLongClickListener(v -> {
                 if (searchViewController != null) {
                     searchViewController.closeSearch();
@@ -183,7 +187,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
 
             // Initialize ViewHolder based on view type.
             switch (viewType) {
-                case "regular", "list" -> {
+                case "regular", "list", "url_link" -> {
                     RegularViewHolder regularHolder = new RegularViewHolder();
                     regularHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                     regularHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
@@ -228,7 +232,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
 
         // Bind data to ViewHolder.
         switch (viewType) {
-            case "regular", "list" -> {
+            case "regular", "list", "url_link" -> {
                 RegularViewHolder regularHolder = (RegularViewHolder) holder;
                 regularHolder.titleView.setText(item.highlightedTitle);
                 regularHolder.summaryView.setText(item.highlightedSummary);
@@ -344,8 +348,9 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
      * Navigates to the settings screen containing the given search result item and triggers scrolling.
      */
     private void navigateToPreferenceScreen(SearchResultItem item) {
-        // No navigation for "no results" item.
-        if (item.preferenceType == SearchResultItem.TYPE_NO_RESULTS) {
+        // No navigation for "no results" or "url_link" items.
+        if (item.preferenceType == SearchResultItem.TYPE_NO_RESULTS
+                || item.preferenceType == SearchResultItem.TYPE_URL_LINK) {
             return;
         }
 
@@ -709,6 +714,10 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         // PreferenceScreen always allows navigation.
         if (preference instanceof PreferenceScreen) {
             return true;
+        }
+        // UrlLinkPreference does not navigate to a new screen, it opens an external URL.
+        if (preference instanceof UrlLinkPreference) {
+            return false;
         }
         // Other group types that might have their own screens.
         if (preference instanceof PreferenceGroup) {
