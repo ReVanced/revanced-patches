@@ -27,23 +27,43 @@ import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPr
  */
 @SuppressWarnings("deprecation")
 public abstract class SearchResultItem {
-    static final int TYPE_REGULAR = 0;
-    static final int TYPE_SWITCH = 1;
-    static final int TYPE_LIST = 2;
-    static final int TYPE_COLOR_PICKER = 3;
-    static final int TYPE_SEGMENT_CATEGORY = 4;
-    static final int TYPE_GROUP_HEADER = 5;
-    static final int TYPE_NO_RESULTS = 6;
-    static final int TYPE_URL_LINK = 7;
+    // Enum to represent view types.
+    public enum ViewType {
+        REGULAR,
+        SWITCH,
+        LIST,
+        COLOR_PICKER,
+        SEGMENT_CATEGORY,
+        GROUP_HEADER,
+        NO_RESULTS,
+        URL_LINK;
+
+        // Get the corresponding layout resource ID.
+        public int getLayoutResourceId() {
+            return switch (this) {
+                case REGULAR, URL_LINK -> getResourceIdentifier("revanced_preference_search_result_regular");
+                case SWITCH -> getResourceIdentifier("revanced_preference_search_result_switch");
+                case LIST   -> getResourceIdentifier("revanced_preference_search_result_list");
+                case COLOR_PICKER, SEGMENT_CATEGORY -> getResourceIdentifier("revanced_preference_search_result_color");
+                case GROUP_HEADER -> getResourceIdentifier("revanced_preference_search_result_group_header");
+                case NO_RESULTS   -> getResourceIdentifier("revanced_preference_search_no_result");
+            };
+        }
+
+        private static int getResourceIdentifier(String name) {
+            // Placeholder for actual resource identifier retrieval.
+            return Utils.getResourceIdentifier(name, "layout");
+        }
+    }
 
     final String navigationPath;
     final List<String> navigationKeys;
-    final int preferenceType;
+    final ViewType preferenceType;
     CharSequence highlightedTitle;
     CharSequence highlightedSummary;
     boolean highlightingApplied;
 
-    SearchResultItem(String navPath, List<String> navKeys, int type) {
+    SearchResultItem(String navPath, List<String> navKeys, ViewType type) {
         this.navigationPath = navPath;
         this.navigationKeys = new ArrayList<>(navKeys != null ? navKeys : Collections.emptyList());
         this.preferenceType = type;
@@ -79,7 +99,7 @@ public abstract class SearchResultItem {
      */
     public static class GroupHeaderItem extends SearchResultItem {
         GroupHeaderItem(String navPath, List<String> navKeys) {
-            super(navPath, navKeys, TYPE_GROUP_HEADER);
+            super(navPath, navKeys, ViewType.GROUP_HEADER);
             this.highlightedTitle = navPath;
         }
 
@@ -129,14 +149,14 @@ public abstract class SearchResultItem {
             this.searchableText = buildSearchableText(pref);
         }
 
-        private static int determineType(Preference pref) {
-            if (pref instanceof SwitchPreference) return TYPE_SWITCH;
-            if (pref instanceof ListPreference && !(pref instanceof SegmentCategoryListPreference)) return TYPE_LIST;
-            if (pref instanceof ColorPickerPreference) return TYPE_COLOR_PICKER;
-            if (pref instanceof SegmentCategoryListPreference) return TYPE_SEGMENT_CATEGORY;
-            if (pref instanceof UrlLinkPreference) return TYPE_URL_LINK;
-            if ("no_results_placeholder".equals(pref.getKey())) return TYPE_NO_RESULTS;
-            return TYPE_REGULAR;
+        private static ViewType determineType(Preference pref) {
+            if (pref instanceof SwitchPreference) return ViewType.SWITCH;
+            if (pref instanceof ListPreference && !(pref instanceof SegmentCategoryListPreference)) return ViewType.LIST;
+            if (pref instanceof ColorPickerPreference) return ViewType.COLOR_PICKER;
+            if (pref instanceof SegmentCategoryListPreference) return ViewType.SEGMENT_CATEGORY;
+            if (pref instanceof UrlLinkPreference) return ViewType.URL_LINK;
+            if ("no_results_placeholder".equals(pref.getKey())) return ViewType.NO_RESULTS;
+            return ViewType.REGULAR;
         }
 
         private void initTypeSpecificFields(Preference pref) {

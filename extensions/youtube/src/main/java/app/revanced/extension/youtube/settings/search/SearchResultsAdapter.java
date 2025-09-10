@@ -31,7 +31,6 @@ import app.revanced.extension.youtube.settings.preference.UrlLinkPreference;
 
 import java.lang.reflect.Method;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Adapter for displaying search results in overlay ListView with ViewHolder pattern.
@@ -51,30 +50,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     private static final int ID_PREFERENCE_PATH = getResourceIdentifier("preference_path", "id");
     private static final int ID_PREFERENCE_SWITCH = getResourceIdentifier("preference_switch", "id");
     private static final int ID_PREFERENCE_COLOR_DOT = getResourceIdentifier("preference_color_dot", "id");
-
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_REGULAR =
-            getResourceIdentifier("revanced_preference_search_result_regular", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH =
-            getResourceIdentifier("revanced_preference_search_result_switch", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST =
-            getResourceIdentifier("revanced_preference_search_result_list", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_COLOR =
-            getResourceIdentifier("revanced_preference_search_result_color", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_GROUP_HEADER =
-            getResourceIdentifier("revanced_preference_search_result_group_header", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT =
-            getResourceIdentifier("revanced_preference_search_no_result", "layout");
-
-    // Layout resource mapping.
-    private static final Map<String, String> LAYOUT_RESOURCE_MAP = Map.of(
-            "regular", "revanced_preference_search_result_regular",
-            "switch", "revanced_preference_search_result_switch",
-            "list", "revanced_preference_search_result_list",
-            "color", "revanced_preference_search_result_color",
-            "segment_category", "revanced_preference_search_result_color",
-            "group_header", "revanced_preference_search_result_group_header",
-            "no_results", "revanced_preference_search_no_result",
-            "url_link", "revanced_preference_search_result_regular");
 
     // ViewHolder for regular and list preferences.
     private static class RegularViewHolder {
@@ -120,25 +95,16 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         SearchResultItem item = getItem(position);
         if (item == null) return new View(getContext());
 
-        // Map preference type to view type string.
-        String viewType = switch (item.preferenceType) {
-            case SearchResultItem.TYPE_SWITCH -> "switch";
-            case SearchResultItem.TYPE_LIST   -> "list";
-            case SearchResultItem.TYPE_COLOR_PICKER -> "color";
-            case SearchResultItem.TYPE_SEGMENT_CATEGORY -> "segment_category";
-            case SearchResultItem.TYPE_GROUP_HEADER -> "group_header";
-            case SearchResultItem.TYPE_NO_RESULTS   -> "no_results";
-            case SearchResultItem.TYPE_URL_LINK -> "url_link";
-            default -> "regular";
-        };
+        // Use the ViewType enum.
+        SearchResultItem.ViewType viewType = item.preferenceType;
 
         // Create or reuse preference view based on type.
         View view = createPreferenceView(item, convertView, viewType, parent);
 
         // Add long-click listener for preference items.
-        if (item.preferenceType != SearchResultItem.TYPE_NO_RESULTS
-                && item.preferenceType != SearchResultItem.TYPE_GROUP_HEADER
-                && item.preferenceType != SearchResultItem.TYPE_URL_LINK) {
+        if (viewType != SearchResultItem.ViewType.NO_RESULTS
+                && viewType != SearchResultItem.ViewType.GROUP_HEADER
+                && viewType != SearchResultItem.ViewType.URL_LINK) {
             view.setOnLongClickListener(v -> {
                 if (searchViewController != null) {
                     searchViewController.closeSearch();
@@ -155,84 +121,65 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     public boolean isEnabled(int position) {
         SearchResultItem item = getItem(position);
         // Disable for "no_results" items to prevent ripple/selection.
-        return item != null && item.preferenceType != SearchResultItem.TYPE_NO_RESULTS;
+        return item != null && item.preferenceType != SearchResultItem.ViewType.NO_RESULTS;
     }
 
     /**
      * Creates a view for a preference or header based on its type using ViewHolder pattern.
      */
     @SuppressWarnings("deprecation")
-    private View createPreferenceView(SearchResultItem item, View convertView, String viewType, ViewGroup parent) {
+    private View createPreferenceView(SearchResultItem item, View convertView,
+                                      SearchResultItem.ViewType viewType, ViewGroup parent) {
         View view = convertView;
-        String layoutResource = LAYOUT_RESOURCE_MAP.get(viewType);
-        if (layoutResource == null) {
-            Logger.printException(() -> "Invalid viewType: " + viewType);
-            return new View(getContext()); // Fallback to empty view.
-        }
-
-        int layoutId = switch (layoutResource) {
-            case "revanced_preference_search_result_regular" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_REGULAR;
-            case "revanced_preference_search_result_switch"  -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_SWITCH;
-            case "revanced_preference_search_result_list"    -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_LIST;
-            case "revanced_preference_search_result_color"   -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_COLOR;
-            case "revanced_preference_search_result_group_header" -> LAYOUT_REVANCED_PREFERENCE_SEARCH_RESULT_GROUP_HEADER;
-            case "revanced_preference_search_no_result"      -> LAYOUT_REVANCED_PREFERENCE_SEARCH_NO_RESULT;
-            default -> throw new IllegalStateException("Unknown layout resource: " + layoutResource);
-        };
-
-        Object holder;
-        if (view == null || !viewType.equals(view.getTag())) {
-            view = inflater.inflate(layoutId, parent, false);
+        if (view == null || view.getTag() != viewType) {
+            view = inflater.inflate(viewType.getLayoutResourceId(), parent, false);
             view.setTag(viewType);
 
             // Initialize ViewHolder based on view type.
             switch (viewType) {
-                case "regular", "list", "url_link" -> {
+                case REGULAR, LIST, URL_LINK -> {
                     RegularViewHolder regularHolder = new RegularViewHolder();
                     regularHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                     regularHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
                     view.setTag(ID_PREFERENCE_TITLE, regularHolder);
-                    holder = regularHolder;
                 }
-                case "switch" -> {
+                case SWITCH -> {
                     SwitchViewHolder switchHolder = new SwitchViewHolder();
                     switchHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                     switchHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
                     switchHolder.switchWidget = view.findViewById(ID_PREFERENCE_SWITCH);
                     view.setTag(ID_PREFERENCE_TITLE, switchHolder);
-                    holder = switchHolder;
                 }
-                case "color", "segment_category" -> {
+                case COLOR_PICKER, SEGMENT_CATEGORY -> {
                     ColorViewHolder colorHolder = new ColorViewHolder();
                     colorHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                     colorHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
                     colorHolder.colorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
                     view.setTag(ID_PREFERENCE_TITLE, colorHolder);
-                    holder = colorHolder;
                 }
-                case "group_header" -> {
+                case GROUP_HEADER -> {
                     GroupHeaderViewHolder groupHolder = new GroupHeaderViewHolder();
                     groupHolder.pathView = view.findViewById(ID_PREFERENCE_PATH);
                     view.setTag(ID_PREFERENCE_TITLE, groupHolder);
-                    holder = groupHolder;
                 }
-                case "no_results" -> {
+                case NO_RESULTS -> {
                     NoResultsViewHolder noResultsHolder = new NoResultsViewHolder();
                     noResultsHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                     noResultsHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
                     noResultsHolder.iconView = view.findViewById(android.R.id.icon);
                     view.setTag(ID_PREFERENCE_TITLE, noResultsHolder);
-                    holder = noResultsHolder;
                 }
                 default -> throw new IllegalStateException("Unknown viewType: " + viewType);
             }
         } else {
-            holder = view.getTag(ID_PREFERENCE_TITLE);
+            view.setTag(viewType); // Ensure tag is set to ViewType.
         }
+
+        Object holder = view.getTag(ID_PREFERENCE_TITLE);
 
         // Bind data to ViewHolder.
         switch (viewType) {
-            case "regular", "list", "url_link" -> {
+            case REGULAR, LIST, URL_LINK -> {
                 RegularViewHolder regularHolder = (RegularViewHolder) holder;
                 regularHolder.titleView.setText(item.highlightedTitle);
                 regularHolder.summaryView.setText(item.highlightedSummary);
@@ -241,7 +188,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                         ((SearchResultItem.PreferenceSearchItem) item).preference, () ->
                                 handlePreferenceClick(((SearchResultItem.PreferenceSearchItem) item).preference));
             }
-            case "switch" -> {
+            case SWITCH -> {
                 SwitchViewHolder switchHolder = (SwitchViewHolder) holder;
                 SearchResultItem.PreferenceSearchItem prefItem = (SearchResultItem.PreferenceSearchItem) item;
                 SwitchPreference switchPref = (SwitchPreference) prefItem.preference;
@@ -288,7 +235,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                         ? v -> finalView.performClick()
                         : null);
             }
-            case "color", "segment_category" -> {
+            case COLOR_PICKER, SEGMENT_CATEGORY -> {
                 ColorViewHolder colorHolder = (ColorViewHolder) holder;
                 SearchResultItem.PreferenceSearchItem prefItem = (SearchResultItem.PreferenceSearchItem) item;
                 colorHolder.titleView.setText(item.highlightedTitle);
@@ -302,12 +249,12 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 setupPreferenceView(view, colorHolder.titleView, colorHolder.summaryView,
                         prefItem.preference, () -> handlePreferenceClick(prefItem.preference));
             }
-            case "group_header" -> {
+            case GROUP_HEADER -> {
                 GroupHeaderViewHolder groupHolder = (GroupHeaderViewHolder) holder;
                 groupHolder.pathView.setText(item.highlightedTitle);
                 view.setOnClickListener(v -> navigateToPreferenceScreen(item));
             }
-            case "no_results" -> {
+            case NO_RESULTS -> {
                 NoResultsViewHolder noResultsHolder = (NoResultsViewHolder) holder;
                 noResultsHolder.titleView.setText(item.highlightedTitle);
                 noResultsHolder.summaryView.setText(item.highlightedSummary);
@@ -348,9 +295,9 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
      * Navigates to the settings screen containing the given search result item and triggers scrolling.
      */
     private void navigateToPreferenceScreen(SearchResultItem item) {
-        // No navigation for "no results" or "url_link" items.
-        if (item.preferenceType == SearchResultItem.TYPE_NO_RESULTS
-                || item.preferenceType == SearchResultItem.TYPE_URL_LINK) {
+        // No navigation for "no_results" or "url_link" items.
+        if (item.preferenceType == SearchResultItem.ViewType.NO_RESULTS
+                || item.preferenceType == SearchResultItem.ViewType.URL_LINK) {
             return;
         }
 
