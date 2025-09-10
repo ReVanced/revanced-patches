@@ -60,6 +60,7 @@ public class VotingButton {
 
     private static boolean shouldBeShown() {
         return Settings.SB_ENABLED.get() && Settings.SB_VOTING_BUTTON.get()
-                && SegmentPlaybackController.videoHasSegments();
+                && SegmentPlaybackController.videoHasSegments()
+                && !SegmentPlaybackController.isAdProgressTextVisible();
     }
 }

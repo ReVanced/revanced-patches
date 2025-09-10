@@ -15,6 +15,7 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.text.TextUtils;
 import android.util.Range;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -166,6 +167,11 @@ public class SegmentPlaybackController {
      * The last toast dialog showing on screen.
      */
     private static WeakReference<Dialog> toastDialogRef = new WeakReference<>(null);
+
+    /**
+     * Visibility of the ad progress UI component.
+     */
+    private static volatile int adProgressTextVisibility = -1;
 
     static {
         // Dismiss toast if app changes to PiP while undo skip is shown.
@@ -336,6 +342,7 @@ public class SegmentPlaybackController {
      */
     static void executeDownloadSegments(String videoId) {
         Objects.requireNonNull(videoId);
+        Utils.verifyOffMainThread();
 
         SponsorSegment[] segments = SBRequester.getSegments(videoId);
 
@@ -369,6 +376,34 @@ public class SegmentPlaybackController {
 
     /**
      * Injection point.
+     */
+    public static void setAdProgressTextVisibility(int visibility) {
+        if (adProgressTextVisibility != visibility) {
+            adProgressTextVisibility = visibility;
+
+            Logger.printDebug(() -> {
+                String visibilityMessage = switch (visibility) {
+                    case View.VISIBLE   -> "VISIBLE";
+                    case View.GONE      -> "GONE";
+                    case View.INVISIBLE -> "INVISIBLE";
+                    default -> "UNKNOWN";
+                };
+                return "AdProgressText visibility changed to: " + visibilityMessage;
+            });
+        }
+    }
+
+    /**
+     * When a video ad is playing in a regular video player, segments or the Skip button should be hidden.
+     * @return Whether the Ad Progress TextView is visible in the regular video player.
+     */
+    public static boolean isAdProgressTextVisible() {
+        return adProgressTextVisibility == View.VISIBLE;
+    }
+
+
+    /**
+     * Injection point.
      * Updates SponsorBlock every 1000ms.
      * When changing videos, this is first called with value 0 and then the video is changed.
      */
@@ -376,7 +411,8 @@ public class SegmentPlaybackController {
         try {
             if (!Settings.SB_ENABLED.get()
                     || PlayerType.getCurrent().isNoneOrHidden() // Shorts playback.
-                    || segments == null || segments.length == 0) {
+                    || segments == null || segments.length == 0
+                    || isAdProgressTextVisible()) {
                 return;
             }
             Logger.printDebug(() -> "setVideoTime: " + millis);
@@ -922,7 +958,8 @@ public class SegmentPlaybackController {
     public static String appendTimeWithoutSegments(String totalTime) {
         try {
             if (Settings.SB_ENABLED.get() && Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.get()
-                    && !TextUtils.isEmpty(totalTime) && !TextUtils.isEmpty(timeWithoutSegments)) {
+                    && !TextUtils.isEmpty(totalTime) && !TextUtils.isEmpty(timeWithoutSegments)
+                    && !isAdProgressTextVisible()) {
                 // Force LTR layout, to match the same LTR video time/length layout YouTube uses for all languages
                 return "\u202D" + totalTime + timeWithoutSegments; // u202D = left to right override
             }
@@ -983,7 +1020,7 @@ public class SegmentPlaybackController {
     @SuppressWarnings("unused")
     public static void drawSponsorTimeBars(final Canvas canvas, final float posY) {
         try {
-            if (segments == null) return;
+            if (segments == null || isAdProgressTextVisible()) return;
             final long videoLength = VideoInformation.getVideoLength();
             if (videoLength <= 0) return;
 
