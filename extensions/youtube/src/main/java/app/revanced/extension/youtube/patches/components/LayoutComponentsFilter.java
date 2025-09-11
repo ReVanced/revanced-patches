@@ -194,7 +194,7 @@ public final class LayoutComponentsFilter extends Filter {
         // Playable horizontal shelf header.
         playablesBuffer = new ByteArrayFilterGroup(
                 Settings.HIDE_PLAYABLES,
-                "mini_game"
+                "FEmini_app_destination"
         );
 
         final var quickActions = new StringFilterGroup(
