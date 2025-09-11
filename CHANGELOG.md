@@ -1,3 +1,11 @@
+## [5.35.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.35.0...v5.35.1-dev.1) (2025-09-11)
+
+
+### Bug Fixes
+
+* **Duolingo - Disable ads:** Support latest app target ([#5782](https://github.com/ReVanced/revanced-patches/issues/5782)) ([8491516](https://github.com/ReVanced/revanced-patches/commit/849151637389b8f399356d0d331bb74482f3f05d))
+* **YouTube - Hide layout components:** Hide new type of Playable shelf ([3af4126](https://github.com/ReVanced/revanced-patches/commit/3af41265338ddaab52d009f53370c57abddd4599))
+
 # [5.35.0](https://github.com/ReVanced/revanced-patches/compare/v5.34.0...v5.35.0) (2025-09-09)
 
 
