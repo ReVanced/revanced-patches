@@ -88,6 +88,17 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         this.fragment = fragment;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        SearchResultItem item = getItem(position);
+        return item == null ? 0 : item.preferenceType.ordinal();
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return SearchResultItem.ViewType.values().length;
+    }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -121,14 +132,18 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     }
 
     /**
-     * Creates a view for a preference or header based on its type using ViewHolder pattern.
+     * Creates or reuses a view for the given SearchResultItem.
+     * <p>
+     * Thanks to {@link #getItemViewType(int)} and {@link #getViewTypeCount()}, ListView knows
+     * how many different row types exist and keeps a separate "recycling pool" for each.
+     * That means convertView passed here is ALWAYS of the correct type for this position.
+     * So only need to check if (view == null), and if so – inflate a new layout and create the proper ViewHolder.
      */
     private View createPreferenceView(SearchResultItem item, View convertView,
                                       SearchResultItem.ViewType viewType, ViewGroup parent) {
         View view = convertView;
-        if (view == null || view.getTag() != viewType) {
+        if (view == null) {
             view = inflater.inflate(viewType.getLayoutResourceId(), parent, false);
-            view.setTag(viewType);
 
             // Initialize ViewHolder based on view type.
             switch (viewType) {
@@ -136,41 +151,40 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                     RegularViewHolder regularHolder = new RegularViewHolder();
                     regularHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                     regularHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
-                    view.setTag(ID_PREFERENCE_TITLE, regularHolder);
+                    view.setTag(regularHolder);
                 }
                 case SWITCH -> {
                     SwitchViewHolder switchHolder = new SwitchViewHolder();
                     switchHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                     switchHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
                     switchHolder.switchWidget = view.findViewById(ID_PREFERENCE_SWITCH);
-                    view.setTag(ID_PREFERENCE_TITLE, switchHolder);
+                    view.setTag(switchHolder);
                 }
                 case COLOR_PICKER, SEGMENT_CATEGORY -> {
                     ColorViewHolder colorHolder = new ColorViewHolder();
                     colorHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                     colorHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
                     colorHolder.colorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
-                    view.setTag(ID_PREFERENCE_TITLE, colorHolder);
+                    view.setTag(colorHolder);
                 }
                 case GROUP_HEADER -> {
                     GroupHeaderViewHolder groupHolder = new GroupHeaderViewHolder();
                     groupHolder.pathView = view.findViewById(ID_PREFERENCE_PATH);
-                    view.setTag(ID_PREFERENCE_TITLE, groupHolder);
+                    view.setTag(groupHolder);
                 }
                 case NO_RESULTS -> {
                     NoResultsViewHolder noResultsHolder = new NoResultsViewHolder();
                     noResultsHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                     noResultsHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
                     noResultsHolder.iconView = view.findViewById(android.R.id.icon);
-                    view.setTag(ID_PREFERENCE_TITLE, noResultsHolder);
+                    view.setTag(noResultsHolder);
                 }
                 default -> throw new IllegalStateException("Unknown viewType: " + viewType);
             }
-        } else {
-            view.setTag(viewType); // Ensure tag is set to ViewType.
         }
 
-        Object holder = view.getTag(ID_PREFERENCE_TITLE);
+        // Retrieve the cached ViewHolder.
+        Object holder = view.getTag();
 
         // Bind data to ViewHolder.
         switch (viewType) {
@@ -189,7 +203,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 SwitchPreference switchPref = (SwitchPreference) prefItem.preference;
                 switchHolder.titleView.setText(item.highlightedTitle);
                 switchHolder.switchWidget.setBackground(null); // Remove ripple/highlight.
-                // Set switch state without animation.
+                // Sync switch state with preference without animation.
                 boolean currentState = switchPref.isChecked();
                 if (switchHolder.switchWidget.isChecked() != currentState) {
                     switchHolder.switchWidget.setChecked(currentState);
@@ -203,8 +217,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                         switchPref.getSummary() != null ? switchPref.getSummary() : "");
                 switchHolder.summaryView.setText(summaryText);
                 switchHolder.summaryView.setVisibility(TextUtils.isEmpty(summaryText) ? View.GONE : View.VISIBLE);
-                // Set up click listeners for switch.
-                final View finalView = view;
+                // Set up click listener.
                 setupPreferenceView(view, switchHolder.titleView, switchHolder.summaryView,
                         switchPref, () -> {
                             boolean newState = !switchPref.isChecked();
@@ -226,9 +239,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                             notifyDataSetChanged();
                         });
                 switchHolder.switchWidget.setEnabled(switchPref.isEnabled());
-                switchHolder.switchWidget.setOnClickListener(switchPref.isEnabled()
-                        ? v -> finalView.performClick()
-                        : null);
             }
             case COLOR_PICKER, SEGMENT_CATEGORY -> {
                 ColorViewHolder colorHolder = (ColorViewHolder) holder;
@@ -269,8 +279,8 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                                      Preference preference, Runnable onClickAction) {
         boolean enabled = preference.isEnabled();
 
-        // To enable long-click navigation for disabled settings, manually control the enabled state of the title and summary,
-        // and disable the ripple effect instead of using 'view.setEnabled(enabled)'.
+        // To enable long-click navigation for disabled settings, manually control the enabled state of the title
+        // and summary and disable the ripple effect instead of using 'view.setEnabled(enabled)'.
 
         titleView.setEnabled(enabled);
         if (summaryView != null) summaryView.setEnabled(enabled);
