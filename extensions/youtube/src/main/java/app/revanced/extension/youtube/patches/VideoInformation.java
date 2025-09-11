@@ -513,6 +513,9 @@ public final class VideoInformation {
                 Logger.printDebug(() -> "VideoQualities: " + Arrays.toString(currentQualities));
             }
 
+            // On extremely slow internet connections the index can initially be -1
+            originalQualityIndex = Math.max(0, originalQualityIndex);
+
             VideoQuality updatedCurrentQuality = qualities[originalQualityIndex];
             if (updatedCurrentQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE
                     && (currentQuality == null || currentQuality != updatedCurrentQuality)) {
