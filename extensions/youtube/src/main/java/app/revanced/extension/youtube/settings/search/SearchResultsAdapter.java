@@ -4,7 +4,6 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import static app.revanced.extension.youtube.settings.search.SearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
 
 import android.animation.*;
-import android.app.Dialog;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -43,14 +42,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     private static final int BLINK_DURATION = 400;
     private static final int PAUSE_BETWEEN_BLINKS = 100;
 
-    // Resource ID constants.
     private static final int ID_PREFERENCE_TITLE = getResourceIdentifier("preference_title", "id");
     private static final int ID_PREFERENCE_SUMMARY = getResourceIdentifier("preference_summary", "id");
     private static final int ID_PREFERENCE_PATH = getResourceIdentifier("preference_path", "id");
     private static final int ID_PREFERENCE_SWITCH = getResourceIdentifier("preference_switch", "id");
     private static final int ID_PREFERENCE_COLOR_DOT = getResourceIdentifier("preference_color_dot", "id");
 
-    // ViewHolder for regular and list preferences.
+    // ViewHolder for regular, list and url_link preferences.
     private static class RegularViewHolder {
         TextView titleView;
         TextView summaryView;
@@ -109,25 +107,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         SearchResultItem.ViewType viewType = item.preferenceType;
 
         // Create or reuse preference view based on type.
-        View view = createPreferenceView(item, convertView, viewType, parent);
-
-        // Add long-click listener for preference items.
-        if (viewType != SearchResultItem.ViewType.NO_RESULTS
-                && viewType != SearchResultItem.ViewType.GROUP_HEADER
-                && viewType != SearchResultItem.ViewType.URL_LINK) {
-            view.setOnLongClickListener(v -> {
-                navigateToPreferenceScreen(item);
-                return true;
-            });
-        }
-
-        return view;
+        return createPreferenceView(item, convertView, viewType, parent);
     }
 
     @Override
     public boolean isEnabled(int position) {
         SearchResultItem item = getItem(position);
-        // Disable for "no_results" items to prevent ripple/selection.
+        // Disable for NO_RESULTS items to prevent ripple/selection.
         return item != null && item.preferenceType != SearchResultItem.ViewType.NO_RESULTS;
     }
 
@@ -190,12 +176,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         switch (viewType) {
             case REGULAR, LIST, URL_LINK -> {
                 RegularViewHolder regularHolder = (RegularViewHolder) holder;
+                SearchResultItem.PreferenceSearchItem prefItem = (SearchResultItem.PreferenceSearchItem) item;
                 regularHolder.titleView.setText(item.highlightedTitle);
                 regularHolder.summaryView.setText(item.highlightedSummary);
                 regularHolder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
-                setupPreferenceView(view, regularHolder.titleView, regularHolder.summaryView,
-                        ((SearchResultItem.PreferenceSearchItem) item).preference, () ->
-                                handlePreferenceClick(((SearchResultItem.PreferenceSearchItem) item).preference));
+                setupPreferenceView(view, regularHolder.titleView, regularHolder.summaryView, prefItem.preference,
+                        () -> handlePreferenceClick(prefItem.preference),
+                        () -> navigateAndScrollToPreference(item));
             }
             case SWITCH -> {
                 SwitchViewHolder switchHolder = (SwitchViewHolder) holder;
@@ -217,9 +204,8 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                         switchPref.getSummary() != null ? switchPref.getSummary() : "");
                 switchHolder.summaryView.setText(summaryText);
                 switchHolder.summaryView.setVisibility(TextUtils.isEmpty(summaryText) ? View.GONE : View.VISIBLE);
-                // Set up click listener.
-                setupPreferenceView(view, switchHolder.titleView, switchHolder.summaryView,
-                        switchPref, () -> {
+                setupPreferenceView(view, switchHolder.titleView, switchHolder.summaryView, switchPref,
+                        () -> {
                             boolean newState = !switchPref.isChecked();
                             switchPref.setChecked(newState);
                             switchHolder.switchWidget.setChecked(newState);
@@ -235,9 +221,9 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                             if (switchPref.getOnPreferenceChangeListener() != null) {
                                 switchPref.getOnPreferenceChangeListener().onPreferenceChange(switchPref, newState);
                             }
-
                             notifyDataSetChanged();
-                        });
+                        },
+                        () -> navigateAndScrollToPreference(item));
                 switchHolder.switchWidget.setEnabled(switchPref.isEnabled());
             }
             case COLOR_PICKER, SEGMENT_CATEGORY -> {
@@ -246,18 +232,15 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 colorHolder.titleView.setText(item.highlightedTitle);
                 colorHolder.summaryView.setText(item.highlightedSummary);
                 colorHolder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
-                ColorDot.applyColorDot(
-                        colorHolder.colorDot,
-                        prefItem.getColor(),
-                        prefItem.preference.isEnabled()
-                );
-                setupPreferenceView(view, colorHolder.titleView, colorHolder.summaryView,
-                        prefItem.preference, () -> handlePreferenceClick(prefItem.preference));
+                ColorDot.applyColorDot(colorHolder.colorDot, prefItem.getColor(), prefItem.preference.isEnabled());
+                setupPreferenceView(view, colorHolder.titleView, colorHolder.summaryView, prefItem.preference,
+                        () -> handlePreferenceClick(prefItem.preference),
+                        () -> navigateAndScrollToPreference(item));
             }
             case GROUP_HEADER -> {
                 GroupHeaderViewHolder groupHolder = (GroupHeaderViewHolder) holder;
                 groupHolder.pathView.setText(item.highlightedTitle);
-                view.setOnClickListener(v -> navigateToPreferenceScreen(item));
+                view.setOnClickListener(v -> navigateToTargetScreen(item));
             }
             case NO_RESULTS -> {
                 NoResultsViewHolder noResultsHolder = (NoResultsViewHolder) holder;
@@ -275,15 +258,15 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     /**
      * Sets up a preference view with click listeners and proper enabled state handling.
      */
-    private void setupPreferenceView(View view, TextView titleView, TextView summaryView,
-                                     Preference preference, Runnable onClickAction) {
+    private void setupPreferenceView(View view, TextView titleView, TextView summaryView, Preference preference,
+                                     Runnable onClickAction, Runnable onLongClickAction) {
         boolean enabled = preference.isEnabled();
 
         // To enable long-click navigation for disabled settings, manually control the enabled state of the title
         // and summary and disable the ripple effect instead of using 'view.setEnabled(enabled)'.
 
         titleView.setEnabled(enabled);
-        if (summaryView != null) summaryView.setEnabled(enabled);
+        summaryView.setEnabled(enabled);
 
         if (!enabled) view.setBackground(null); // Disable ripple effect.
 
@@ -292,24 +275,88 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         if (Utils.isDarkModeEnabled()) {
             titleView.setAlpha(enabled ? 1.0f : ColorPickerPreference.DISABLED_ALPHA);
         }
-
+        // Set up click and long-click listeners.
         view.setOnClickListener(enabled ? v -> onClickAction.run() : null);
+        view.setOnLongClickListener(v -> {
+            onLongClickAction.run();
+            return true;
+        });
     }
 
     /**
      * Navigates to the settings screen containing the given search result item and triggers scrolling.
      */
-    private void navigateToPreferenceScreen(SearchResultItem item) {
-        // No navigation for NO_RESULTS or URL_LINK items.
-        if (item.preferenceType == SearchResultItem.ViewType.NO_RESULTS
-                || item.preferenceType == SearchResultItem.ViewType.URL_LINK) return;
+    private void navigateAndScrollToPreference(SearchResultItem item) {
+        // No navigation for URL_LINK items.
+        if (item.preferenceType == SearchResultItem.ViewType.URL_LINK) return;
 
         PreferenceScreen targetScreen = navigateToTargetScreen(item);
         if (targetScreen == null) return;
+        if (!(item instanceof SearchResultItem.PreferenceSearchItem prefItem)) return;
+
+        Preference targetPreference = prefItem.preference;
 
         fragment.getView().post(() -> {
-            if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
-                scrollToPreferenceInCurrentScreen(prefItem.preference, targetScreen);
+            ListView listView = targetScreen == fragment.getPreferenceScreenForSearch()
+                    ? getPreferenceListView()
+                    : targetScreen.getDialog().findViewById(android.R.id.list);
+
+            if (listView == null) return;
+
+            int targetPosition = findPreferencePosition(targetPreference, listView);
+            if (targetPosition == -1) return;
+
+            int firstVisible = listView.getFirstVisiblePosition();
+            int lastVisible = listView.getLastVisiblePosition();
+
+            if (targetPosition >= firstVisible && targetPosition <= lastVisible) {
+                // The preference is already visible, but still scroll it to the bottom of the list for consistency.
+                View child = listView.getChildAt(targetPosition - firstVisible);
+                if (child != null) {
+                    // Calculate how much to scroll so the item is aligned at the bottom.
+                    int scrollAmount = child.getBottom() - listView.getHeight();
+                    if (scrollAmount > 0) {
+                        // Perform smooth scroll animation for better user experience.
+                        listView.smoothScrollBy(scrollAmount, 300);
+                    }
+                }
+                // Highlight the preference once it is positioned.
+                highlightPreferenceAtPosition(listView, targetPosition);
+            } else {
+                // The preference is outside of the current visible range, scroll to it from the top.
+                listView.smoothScrollToPositionFromTop(targetPosition, 0);
+
+                Handler handler = new Handler(Looper.getMainLooper());
+                // Fallback runnable in case the OnScrollListener does not trigger.
+                Runnable fallback = () -> {
+                    listView.setOnScrollListener(null);
+                    highlightPreferenceAtPosition(listView, targetPosition);
+                };
+                // Post fallback with a small delay.
+                handler.postDelayed(fallback, 350);
+
+                listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+                    private boolean isScrolling = false;
+
+                    @Override
+                    public void onScrollStateChanged(AbsListView view, int scrollState) {
+                        if (scrollState == SCROLL_STATE_TOUCH_SCROLL || scrollState == SCROLL_STATE_FLING) {
+                            // Mark that scrolling has started.
+                            isScrolling = true;
+                        }
+                        if (scrollState == SCROLL_STATE_IDLE && isScrolling) {
+                            // Scrolling is finished, cleanup listener and cancel fallback.
+                            isScrolling = false;
+                            listView.setOnScrollListener(null);
+                            handler.removeCallbacks(fallback);
+                            // Highlight the target preference when scrolling is done.
+                            highlightPreferenceAtPosition(listView, targetPosition);
+                        }
+                    }
+
+                    @Override
+                    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {}
+                });
             }
         });
     }
@@ -351,9 +398,8 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         for (int i = 0; i < group.getPreferenceCount(); i++) {
             Preference pref = group.getPreference(i);
             CharSequence prefTitle = pref.getTitle();
-            if (prefTitle != null && (
-                    prefTitle.toString().trim().equalsIgnoreCase(title) ||
-                            normalizeString(prefTitle.toString()).equals(normalizeString(title)))) {
+            if (prefTitle != null && (prefTitle.toString().trim().equalsIgnoreCase(title)
+                    || normalizeString(prefTitle.toString()).equals(normalizeString(title)))) {
                 return pref;
             }
             if (pref instanceof PreferenceGroup) {
@@ -363,6 +409,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 }
             }
         }
+
         return null;
     }
 
@@ -371,82 +418,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
      */
     private String normalizeString(String input) {
         if (TextUtils.isEmpty(input)) return "";
-        return input.trim()
-                .toLowerCase()
-                .replaceAll("\\s+", " ")
-                .replaceAll("[^\\w\\s]", "");
-    }
-
-    /**
-     * Scrolls to a preference in the target PreferenceScreen and highlights it after scrolling finishes.
-     */
-    private void scrollToPreferenceInCurrentScreen(Preference targetPreference, PreferenceScreen targetScreen) {
-        ListView listView;
-        if (targetScreen == fragment.getPreferenceScreenForSearch()) {
-            listView = getPreferenceListView();
-        } else {
-            Dialog dialog = targetScreen.getDialog();
-            listView = dialog.findViewById(android.R.id.list);
-        }
-        if (listView == null) return;
-
-        int targetPosition = findPreferencePosition(targetPreference, listView);
-        if (targetPosition == -1) return;
-
-        int firstVisible = listView.getFirstVisiblePosition();
-        int lastVisible = listView.getLastVisiblePosition();
-
-        if (targetPosition >= firstVisible && targetPosition <= lastVisible) {
-            // The preference is already visible, but still scroll it to the bottom of the list for consistency.
-            listView.post(() -> {
-                View child = listView.getChildAt(targetPosition - firstVisible);
-                if (child != null) {
-                    // Calculate how much to scroll so the item is aligned at the bottom.
-                    int scrollAmount = child.getBottom() - listView.getHeight();
-                    if (scrollAmount > 0) {
-                        // Perform smooth scroll animation for better user experience.
-                        listView.smoothScrollBy(scrollAmount, 300);
-                    }
-                }
-                // Highlight the preference once it is positioned.
-                highlightPreferenceAtPosition(listView, targetPosition);
-            });
-        } else {
-            // The preference is outside of the current visible range, scroll to it from the top.
-            listView.smoothScrollToPositionFromTop(targetPosition, 0);
-
-            Handler handler = new Handler(Looper.getMainLooper());
-            // Fallback runnable in case the OnScrollListener does not trigger.
-            Runnable fallback = () -> {
-                listView.setOnScrollListener(null);
-                highlightPreferenceAtPosition(listView, targetPosition);
-            };
-            // Post fallback with a small delay.
-            handler.postDelayed(fallback, 350);
-
-            listView.setOnScrollListener(new AbsListView.OnScrollListener() {
-                private boolean isScrolling = false;
-
-                @Override
-                public void onScrollStateChanged(AbsListView view, int scrollState) {
-                    if (scrollState == SCROLL_STATE_TOUCH_SCROLL || scrollState == SCROLL_STATE_FLING) {
-                        // Mark that scrolling has started.
-                        isScrolling = true;
-                    }
-                    if (scrollState == SCROLL_STATE_IDLE && isScrolling) {
-                        // Scrolling is finished, cleanup listener and cancel fallback.
-                        isScrolling = false;
-                        listView.setOnScrollListener(null);
-                        handler.removeCallbacks(fallback);
-                        // Highlight the target preference when scrolling is done.
-                        highlightPreferenceAtPosition(listView, targetPosition);
-                    }
-                }
-
-                @Override
-                public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {}
-            });
-        }
+        return input.trim().toLowerCase().replaceAll("\\s+", " ").replaceAll("[^\\w\\s]", "");
     }
 
     /**
@@ -610,13 +582,9 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
      */
     boolean hasNavigationCapability(Preference preference) {
         // PreferenceScreen always allows navigation.
-        if (preference instanceof PreferenceScreen) {
-            return true;
-        }
+        if (preference instanceof PreferenceScreen) return true;
         // UrlLinkPreference does not navigate to a new screen, it opens an external URL.
-        if (preference instanceof UrlLinkPreference) {
-            return false;
-        }
+        if (preference instanceof UrlLinkPreference) return false;
         // Other group types that might have their own screens.
         if (preference instanceof PreferenceGroup) {
             // Check if it has its own fragment or intent.
