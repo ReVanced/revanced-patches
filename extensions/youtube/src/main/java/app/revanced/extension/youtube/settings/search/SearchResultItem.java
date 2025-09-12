@@ -18,7 +18,6 @@ import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
-import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.youtube.settings.preference.UrlLinkPreference;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPreference;
 
@@ -122,16 +121,14 @@ public abstract class SearchResultItem {
         final Preference preference;
         final String searchableText;
         final CharSequence originalTitle;
-        CharSequence originalSummary;
-        CharSequence originalSummaryOn;
-        CharSequence originalSummaryOff;
-        CharSequence[] originalEntries;
+        final CharSequence originalSummary;
+        final CharSequence originalSummaryOn;
+        final CharSequence originalSummaryOff;
+        final CharSequence[] originalEntries;
+        CharSequence[] highlightedEntries;
 
         @ColorInt
         private int color;
-
-        // Store last applied highlighting pattern to reapply when needed.
-        Pattern lastQueryPattern;
 
         PreferenceSearchItem(Preference pref, String navPath, List<String> navKeys) {
             super(navPath, navKeys, determineType(pref));
@@ -140,17 +137,23 @@ public abstract class SearchResultItem {
             this.originalSummary = pref.getSummary();
             this.highlightedTitle = this.originalTitle;
             this.highlightedSummary = this.originalSummary != null ? this.originalSummary : "";
-            this.originalSummaryOn = null;
-            this.originalSummaryOff = null;
-            this.originalEntries = null;
             this.color = 0;
-            this.lastQueryPattern = null;
 
-            // Initialize type-specific fields.
-            initTypeSpecificFields(pref);
+            // Initialize type-specific fields and create immutable backups.
+            FieldInitializationResult result = initTypeSpecificFields(pref);
+            this.originalSummaryOn = result.summaryOn;
+            this.originalSummaryOff = result.summaryOff;
+            this.originalEntries = result.entries;
+            this.highlightedEntries = result.entries != null ? result.entries.clone() : null;
 
             // Build searchable text.
             this.searchableText = buildSearchableText(pref);
+        }
+
+        private static class FieldInitializationResult {
+            CharSequence summaryOn = null;
+            CharSequence summaryOff = null;
+            CharSequence[] entries = null;
         }
 
         private static ViewType determineType(Preference pref) {
@@ -163,19 +166,20 @@ public abstract class SearchResultItem {
             return ViewType.REGULAR;
         }
 
-        private void initTypeSpecificFields(Preference pref) {
+        private FieldInitializationResult initTypeSpecificFields(Preference pref) {
+            FieldInitializationResult result = new FieldInitializationResult();
+
             if (pref instanceof SwitchPreference switchPref) {
-                this.originalSummaryOn = switchPref.getSummaryOn();
-                this.originalSummaryOff = switchPref.getSummaryOff();
-            } else if (pref instanceof ListPreference listPref && !(pref instanceof SegmentCategoryListPreference)) {
-                this.originalEntries = listPref.getEntries();
+                result.summaryOn = switchPref.getSummaryOn();
+                result.summaryOff = switchPref.getSummaryOff();
             } else if (pref instanceof ColorPickerPreference colorPref) {
                 String colorString = colorPref.getText();
                 this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) | 0xFF000000);
             } else if (pref instanceof SegmentCategoryListPreference segmentPref) {
-                this.originalEntries = segmentPref.getEntries();
                 this.color = segmentPref.getColorWithOpacity();
             }
+
+            return result;
         }
 
         private String buildSearchableText(Preference pref) {
@@ -194,16 +198,15 @@ public abstract class SearchResultItem {
             appendText(searchBuilder, originalSummary);
 
             // Add type-specific searchable content.
-            if (pref instanceof ListPreference listPref) {
-                CharSequence[] entries = listPref.getEntries();
-                if (entries != null) {
-                    for (CharSequence entry : entries) {
+            if (pref instanceof ListPreference) {
+                if (originalEntries != null) {
+                    for (CharSequence entry : originalEntries) {
                         appendText(searchBuilder, entry);
                     }
                 }
-            } else if (pref instanceof SwitchPreference switchPref) {
-                appendText(searchBuilder, switchPref.getSummaryOn());
-                appendText(searchBuilder, switchPref.getSummaryOff());
+            } else if (pref instanceof SwitchPreference) {
+                appendText(searchBuilder, originalSummaryOn);
+                appendText(searchBuilder, originalSummaryOff);
             } else if (pref instanceof ColorPickerPreference) {
                 appendText(searchBuilder, ColorPickerPreference.getColorString(color));
             }
@@ -228,10 +231,10 @@ public abstract class SearchResultItem {
             if (preference instanceof SwitchPreference switchPref) {
                 boolean currentState = switchPref.isChecked();
                 return currentState
-                        ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn() :
-                        switchPref.getSummary() != null ? switchPref.getSummary() : "")
-                        : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff() :
-                        switchPref.getSummary() != null ? switchPref.getSummary() : "");
+                        ? (originalSummaryOn != null ? originalSummaryOn :
+                        originalSummary != null ? originalSummary : "")
+                        : (originalSummaryOff != null ? originalSummaryOff :
+                        originalSummary != null ? originalSummary : "");
             }
             return originalSummary != null ? originalSummary : "";
         }
@@ -246,13 +249,10 @@ public abstract class SearchResultItem {
         }
 
         /**
-         * Highlights the search query in the title, summary, and entries.
-         * Applies adjust background color span to matching text.
+         * Highlights the search query in the title, summary and entries.
          */
         @Override
         void applyHighlighting(Pattern queryPattern) {
-            this.lastQueryPattern = queryPattern;
-
             // Highlight the title.
             highlightedTitle = highlightSearchQuery(originalTitle, queryPattern);
 
@@ -260,21 +260,19 @@ public abstract class SearchResultItem {
             CharSequence currentSummary = getCurrentEffectiveSummary();
             highlightedSummary = highlightSearchQuery(currentSummary, queryPattern);
 
-            // Highlight the entries.
-            if (preference instanceof CustomDialogListPreference listPref && originalEntries != null) {
-                CharSequence[] highlightedEntries = new CharSequence[originalEntries.length];
+            // Highlight entries.
+            if (originalEntries != null) {
+                highlightedEntries = new CharSequence[originalEntries.length];
                 for (int i = 0; i < originalEntries.length; i++) {
                     highlightedEntries[i] = highlightSearchQuery(originalEntries[i], queryPattern);
                 }
-                listPref.setEntries(highlightedEntries);
             }
 
             highlightingApplied = true;
         }
 
         /**
-         * Clears all search query highlighting from the highlighted fields.
-         * Restores original text for display purposes.
+         * Clears all search query highlighting and restores original state completely.
          */
         @Override
         void clearHighlighting() {
@@ -287,37 +285,15 @@ public abstract class SearchResultItem {
             highlightedSummary = getCurrentEffectiveSummary();
 
             // Restore original entries.
-            if (preference instanceof CustomDialogListPreference listPref) {
-                listPref.restoreOriginalEntries();
+            if (originalEntries != null) {
+                highlightedEntries = originalEntries.clone();
+
+                if (preference instanceof ListPreference listPref) {
+                    listPref.setEntries(originalEntries);
+                }
             }
 
             highlightingApplied = false;
-            lastQueryPattern = null;
-        }
-
-        /**
-         * Updates the original summary and reapplies highlighting if currently applied.
-         */
-        void updateOriginalSummary(CharSequence newSummary) {
-            this.originalSummary = newSummary;
-
-            // If highlighting was previously applied, reapply it to the new summary.
-            if (highlightingApplied && lastQueryPattern != null) {
-                highlightedSummary = highlightSearchQuery(newSummary != null ? newSummary : "", lastQueryPattern);
-            } else {
-                this.highlightedSummary = newSummary != null ? newSummary : "";
-            }
-        }
-
-        /**
-         * Refreshes highlighting for dynamic summaries (like switch preferences).
-         * Should be called when the preference state changes.
-         */
-        public void refreshHighlighting() {
-            if (highlightingApplied && lastQueryPattern != null) {
-                CharSequence currentSummary = getCurrentEffectiveSummary();
-                highlightedSummary = highlightSearchQuery(currentSummary, lastQueryPattern);
-            }
         }
 
         public void setColor(int newColor) {

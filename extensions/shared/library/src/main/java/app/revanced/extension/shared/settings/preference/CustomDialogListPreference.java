@@ -36,7 +36,6 @@ public class CustomDialogListPreference extends ListPreference {
             getResourceIdentifier("revanced_custom_list_item_checked", "layout");
 
     private String staticSummary = null;
-    private CharSequence[] originalEntries = null;
 
     /**
      * Set a static summary that will not be overwritten by value changes.
@@ -62,29 +61,6 @@ public class CustomDialogListPreference extends ListPreference {
     @Nullable
     public String getStaticSummary() {
         return staticSummary;
-    }
-
-    /**
-     * Override setEntries to store original entries for restoration.
-     */
-    @Override
-    public void setEntries(CharSequence[] entries) {
-        // Store original entries only on first call.
-        // This is necessary because during onPause, entries are cached and after resuming,
-        // the search result highlight is retained in the entries.
-        if (originalEntries == null && entries != null) {
-            originalEntries = entries.clone();
-        }
-        super.setEntries(entries);
-    }
-
-    /**
-     * Restore original entries, clearing any search highlighting.
-     */
-    public void restoreOriginalEntries() {
-        if (originalEntries != null) {
-            super.setEntries(originalEntries);
-        }
     }
 
     /**

@@ -27,7 +27,6 @@ import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
-import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
 import app.revanced.extension.youtube.settings.LicenseActivityHook;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPreference;
@@ -305,8 +304,7 @@ public class SearchViewController {
     }
 
     /**
-     * Sets up listeners for preferences (e.g., ColorPickerPreference, CustomDialogListPreference)
-     * to keep search results in sync when preference values change.
+     * Sets up listeners for preferences to keep search results in sync when preference values change.
      */
     private void setupPreferenceListeners() {
         for (SearchResultItem item : allSearchItems) {
@@ -331,33 +329,6 @@ public class SearchViewController {
                         searchItem.setColor(segmentPref.getColorWithOpacity());
                         refreshSearchResults();
                     }
-                    return true;
-                });
-            } else if (pref instanceof CustomDialogListPreference listPref) {
-                listPref.setOnPreferenceChangeListener((preference, newValue) -> {
-                    SearchResultItem.PreferenceSearchItem searchItem =
-                            (SearchResultItem.PreferenceSearchItem) keyToSearchItem.get(preference.getKey());
-                    if (searchItem == null) return true;
-
-                    int index = listPref.findIndexOfValue(newValue.toString());
-                    if (index >= 0) {
-                        // Check if a static summary is set.
-                        boolean isStaticSummary = listPref.getStaticSummary() != null;
-
-                        if (!isStaticSummary) {
-                            // Only update summary if it is not static.
-                            CharSequence newSummary = listPref.getEntries()[index];
-                            searchItem.updateOriginalSummary(newSummary);
-                            listPref.setSummary(newSummary);
-                        }
-
-                        // Reapply highlighting to title and summary if previously applied.
-                        if (searchItem.highlightingApplied && searchItem.lastQueryPattern != null) {
-                            searchItem.applyHighlighting(searchItem.lastQueryPattern);
-                        }
-                    }
-
-                    refreshSearchResults();
                     return true;
                 });
             }
@@ -564,15 +535,9 @@ public class SearchViewController {
         inputMethodManager.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
         activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
-        // Clear highlighting for all search items and force restore original entries.
+        // Clear highlighting for all search items.
         for (SearchResultItem item : allSearchItems) {
             item.clearHighlighting();
-
-            // Additional explicit restoration to handle cached entries.
-            if (item instanceof SearchResultItem.PreferenceSearchItem prefItem
-                    && prefItem.preference instanceof CustomDialogListPreference listPref) {
-                listPref.restoreOriginalEntries();
-            }
         }
 
         searchResultsAdapter.notifyDataSetChanged();
