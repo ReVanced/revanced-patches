@@ -7,13 +7,11 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val initializeMonetizationDebugSettingsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
-    parameters(
-        "Z", // disableAds
-        "Z", // useDebugBilling
-        "Z", // showManageSubscriptions
-        "Z", // alwaysShowSuperAds
-        // matches "Lcom/duolingo/debug/FamilyQuestOverride;" or "Lcom/duolingo/data/debug/monetization/FamilyQuestOverride;"
-        "Lcom/duolingo/",
-    )
+    // Parameters have not been reliable for fingerprinting between versions.
     opcodes(Opcode.IPUT_BOOLEAN)
+}
+
+internal val monetizationDebugSettingsToStringFingerprint = fingerprint {
+    strings("MonetizationDebugSettings(") // Partial string match.
+    custom { method, _ -> method.name == "toString" }
 }
