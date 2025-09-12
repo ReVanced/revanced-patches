@@ -351,7 +351,10 @@ public class SearchViewController {
                             listPref.setSummary(newSummary);
                         }
 
-                        searchItem.clearHighlighting();
+                        // Reapply highlighting to title and summary if previously applied.
+                        if (searchItem.highlightingApplied && searchItem.lastQueryPattern != null) {
+                            searchItem.applyHighlighting(searchItem.lastQueryPattern);
+                        }
                     }
 
                     refreshSearchResults();

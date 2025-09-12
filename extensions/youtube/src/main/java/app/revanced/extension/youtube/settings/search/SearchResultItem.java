@@ -130,6 +130,9 @@ public abstract class SearchResultItem {
         @ColorInt
         private int color;
 
+        // Store last applied highlighting pattern to reapply when needed.
+        Pattern lastQueryPattern;
+
         PreferenceSearchItem(Preference pref, String navPath, List<String> navKeys) {
             super(navPath, navKeys, determineType(pref));
             this.preference = pref;
@@ -141,6 +144,7 @@ public abstract class SearchResultItem {
             this.originalSummaryOff = null;
             this.originalEntries = null;
             this.color = 0;
+            this.lastQueryPattern = null;
 
             // Initialize type-specific fields.
             initTypeSpecificFields(pref);
@@ -218,6 +222,21 @@ public abstract class SearchResultItem {
         }
 
         /**
+         * Gets the current effective summary for this preference, considering state-dependent summaries.
+         */
+        public CharSequence getCurrentEffectiveSummary() {
+            if (preference instanceof SwitchPreference switchPref) {
+                boolean currentState = switchPref.isChecked();
+                return currentState
+                        ? (switchPref.getSummaryOn() != null ? switchPref.getSummaryOn() :
+                        switchPref.getSummary() != null ? switchPref.getSummary() : "")
+                        : (switchPref.getSummaryOff() != null ? switchPref.getSummaryOff() :
+                        switchPref.getSummary() != null ? switchPref.getSummary() : "");
+            }
+            return originalSummary != null ? originalSummary : "";
+        }
+
+        /**
          * Checks if this search result item matches the provided query.
          * Uses case-insensitive matching against the searchable text.
          */
@@ -232,15 +251,14 @@ public abstract class SearchResultItem {
          */
         @Override
         void applyHighlighting(Pattern queryPattern) {
-            if (highlightingApplied) return;
+            this.lastQueryPattern = queryPattern;
 
             // Highlight the title.
             highlightedTitle = highlightSearchQuery(originalTitle, queryPattern);
 
-            // Highlight the summary.
-            if (originalSummary != null) {
-                highlightedSummary = highlightSearchQuery(originalSummary, queryPattern);
-            }
+            // Get the current effective summary and highlight it.
+            CharSequence currentSummary = getCurrentEffectiveSummary();
+            highlightedSummary = highlightSearchQuery(currentSummary, queryPattern);
 
             // Highlight the entries.
             if (preference instanceof CustomDialogListPreference listPref && originalEntries != null) {
@@ -265,8 +283,8 @@ public abstract class SearchResultItem {
             // Restore original title.
             highlightedTitle = originalTitle;
 
-            // Restore original summary.
-            highlightedSummary = originalSummary != null ? originalSummary : "";
+            // Restore current effective summary without highlighting.
+            highlightedSummary = getCurrentEffectiveSummary();
 
             // Restore original entries.
             if (preference instanceof CustomDialogListPreference listPref) {
@@ -274,11 +292,32 @@ public abstract class SearchResultItem {
             }
 
             highlightingApplied = false;
+            lastQueryPattern = null;
         }
 
+        /**
+         * Updates the original summary and reapplies highlighting if currently applied.
+         */
         void updateOriginalSummary(CharSequence newSummary) {
             this.originalSummary = newSummary;
-            this.highlightedSummary = newSummary != null ? newSummary : "";
+
+            // If highlighting was previously applied, reapply it to the new summary.
+            if (highlightingApplied && lastQueryPattern != null) {
+                highlightedSummary = highlightSearchQuery(newSummary != null ? newSummary : "", lastQueryPattern);
+            } else {
+                this.highlightedSummary = newSummary != null ? newSummary : "";
+            }
+        }
+
+        /**
+         * Refreshes highlighting for dynamic summaries (like switch preferences).
+         * Should be called when the preference state changes.
+         */
+        public void refreshHighlighting() {
+            if (highlightingApplied && lastQueryPattern != null) {
+                CharSequence currentSummary = getCurrentEffectiveSummary();
+                highlightedSummary = highlightSearchQuery(currentSummary, lastQueryPattern);
+            }
         }
 
         public void setColor(int newColor) {
