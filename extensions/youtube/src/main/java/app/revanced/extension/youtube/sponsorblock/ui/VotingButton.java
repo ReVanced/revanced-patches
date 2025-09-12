@@ -59,8 +59,7 @@ public class VotingButton {
     }
 
     private static boolean isButtonEnabled() {
-        return Settings.SB_ENABLED.get() && Settings.SB_VOTING_BUTTON.get()
-                && SegmentPlaybackController.videoHasSegments()
+        return Settings.SB_ENABLED.get() && Settings.SB_CREATE_NEW_SEGMENT.get()
                 && !SegmentPlaybackController.isAdProgressTextVisible();
     }
 }

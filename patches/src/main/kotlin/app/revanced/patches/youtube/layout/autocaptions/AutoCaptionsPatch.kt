@@ -53,7 +53,7 @@ val autoCaptionsPatch = bytecodePatch(
             """
         )
 
-        mapOf(
+        arrayOf(
             startVideoInformerFingerprint to 0,
             storyboardRendererDecoderRecommendedLevelFingerprint to 1
         ).forEach { (fingerprint, enabled) ->

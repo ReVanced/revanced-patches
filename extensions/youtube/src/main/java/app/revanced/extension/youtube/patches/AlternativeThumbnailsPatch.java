@@ -18,7 +18,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
@@ -505,14 +504,8 @@ public final class AlternativeThumbnailsPatch {
          * Cache used to verify if an alternative thumbnails exists for a given video id.
          */
         @GuardedBy("itself")
-        private static final Map<String, VerifiedQualities> altVideoIdLookup = new LinkedHashMap<>(100) {
-            private static final int CACHE_LIMIT = 1000;
-
-            @Override
-            protected boolean removeEldestEntry(Entry eldest) {
-                return size() > CACHE_LIMIT; // Evict the oldest entry if over the cache limit.
-            }
-        };
+        private static final Map<String, VerifiedQualities> altVideoIdLookup =
+                Utils.createSizeRestrictedMap(1000);
 
         private static VerifiedQualities getVerifiedQualities(@NonNull String videoId, boolean returnNullIfDoesNotExist) {
             synchronized (altVideoIdLookup) {

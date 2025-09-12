@@ -6,15 +6,6 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.findElementByAttributeValueOrThrow
 
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_03_or_greater = false
-    private set
-@Deprecated("19.34.42 is the lowest supported version")
-var is_19_04_or_greater = false
-    private set
-@Deprecated("19.34.42 is the lowest supported version")
-var is_19_16_or_greater = false
-    private set
-@Deprecated("19.34.42 is the lowest supported version")
 var is_19_17_or_greater = false
     private set
 @Deprecated("19.34.42 is the lowest supported version")
@@ -70,6 +61,24 @@ var is_20_14_or_greater = false
     private set
 var is_20_15_or_greater = false
     private set
+var is_20_19_or_greater = false
+    private set
+var is_20_20_or_greater = false
+    private set
+var is_20_21_or_greater = false
+    private set
+var is_20_22_or_greater = false
+    private set
+var is_20_26_or_greater = false
+    private set
+var is_20_28_or_greater = false
+    private set
+var is_20_30_or_greater = false
+    private set
+var is_20_31_or_greater = false
+    private set
+var is_20_34_or_greater = false
+    private set
 
 val versionCheckPatch = resourcePatch(
     description = "Uses the Play Store service version to find the major/minor version of the YouTube target app.",
@@ -85,9 +94,6 @@ val versionCheckPatch = resourcePatch(
         }
 
         // All bug fix releases always seem to use the same play store version as the minor version.
-        is_19_03_or_greater = 240402000 <= playStoreServicesVersion
-        is_19_04_or_greater = 240502000 <= playStoreServicesVersion
-        is_19_16_or_greater = 241702000 <= playStoreServicesVersion
         is_19_17_or_greater = 241802000 <= playStoreServicesVersion
         is_19_18_or_greater = 241902000 <= playStoreServicesVersion
         is_19_23_or_greater = 242402000 <= playStoreServicesVersion
@@ -112,5 +118,14 @@ val versionCheckPatch = resourcePatch(
         is_20_10_or_greater = 251105000 <= playStoreServicesVersion
         is_20_14_or_greater = 251505000 <= playStoreServicesVersion
         is_20_15_or_greater = 251605000 <= playStoreServicesVersion
+        is_20_19_or_greater = 252005000 <= playStoreServicesVersion
+        is_20_20_or_greater = 252105000 <= playStoreServicesVersion
+        is_20_21_or_greater = 252205000 <= playStoreServicesVersion
+        is_20_22_or_greater = 252305000 <= playStoreServicesVersion
+        is_20_26_or_greater = 252705000 <= playStoreServicesVersion
+        is_20_28_or_greater = 252905000 <= playStoreServicesVersion
+        is_20_30_or_greater = 253105000 <= playStoreServicesVersion
+        is_20_31_or_greater = 253205000 <= playStoreServicesVersion
+        is_20_34_or_greater = 253505000 <= playStoreServicesVersion
     }
 }

@@ -8,9 +8,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.overrideThemeColors
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
@@ -31,9 +29,6 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/settings/LicenseActivityHook;"
-
-internal var appearanceStringId = -1L
-    private set
 
 private val preferences = mutableSetOf<BasePreference>()
 
@@ -70,8 +65,6 @@ private val settingsResourcePatch = resourcePatch {
     )
 
     execute {
-        appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
-
         // Use same colors as stock YouTube.
         overrideThemeColors("@color/yt_white1", "@color/yt_black3")
 
@@ -221,14 +214,19 @@ val settingsPatch = bytecodePatch(
         // Modify the license activity and remove all existing layout code.
         // Must modify an existing activity and cannot add a new activity to the manifest,
         // as that fails for root installations.
+        licenseActivityOnCreateFingerprint.let {
+            val superClass = it.classDef.superclass
 
-        licenseActivityOnCreateFingerprint.method.addInstructions(
-            1,
-            """
-                invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->initialize(Landroid/app/Activity;)V
-                return-void
-            """
-        )
+            it.method.addInstructions(
+                0,
+                """
+                    # Some targets have extra instructions before the call to super method.
+                    invoke-super { p0, p1 }, $superClass->onCreate(Landroid/os/Bundle;)V
+                    invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->initialize(Landroid/app/Activity;)V
+                    return-void
+                """
+            )
+        }
 
         // Remove other methods as they will break as the onCreate method is modified above.
         licenseActivityOnCreateFingerprint.classDef.apply {
@@ -315,11 +313,13 @@ val settingsPatch = bytecodePatch(
         }
 
         // Add setting to force cairo settings fragment on/off.
-        cairoFragmentConfigFingerprint.method.insertLiteralOverride(
-            CAIRO_CONFIG_LITERAL_VALUE,
-            "$EXTENSION_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
-        )
-    }
+        cairoFragmentConfigFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.last().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
+                )
+            }
+        }
 
     finalize {
         PreferenceScreen.close()

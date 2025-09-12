@@ -13,7 +13,9 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -70,22 +72,15 @@ public class StreamingDataRequest {
      */
     private static final int MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20 * 1000;
 
+    /**
+     * Cache limit must be greater than the maximum number of videos open at once,
+     * which theoretically is more than 4 (3 Shorts + one regular minimized video).
+     * But instead use a much larger value, to handle if a video viewed a while ago
+     * is somehow still referenced.  Each stream is a small array of Strings
+     * so memory usage is not a concern.
+     */
     private static final Map<String, StreamingDataRequest> cache = Collections.synchronizedMap(
-            new LinkedHashMap<>(100) {
-                /**
-                 * Cache limit must be greater than the maximum number of videos open at once,
-                 * which theoretically is more than 4 (3 Shorts + one regular minimized video).
-                 * But instead use a much larger value, to handle if a video viewed a while ago
-                 * is somehow still referenced.  Each stream is a small array of Strings
-                 * so memory usage is not a concern.
-                 */
-                private static final int CACHE_LIMIT = 50;
-
-                @Override
-                protected boolean removeEldestEntry(Entry eldest) {
-                    return size() > CACHE_LIMIT; // Evict the oldest entry if over the cache limit.
-                }
-            });
+            Utils.createSizeRestrictedMap(50));
 
     private static volatile ClientType lastSpoofedClientType;
 

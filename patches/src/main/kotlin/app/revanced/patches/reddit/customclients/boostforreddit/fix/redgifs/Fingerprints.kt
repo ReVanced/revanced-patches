@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val createOkHttpClientFingerprint = fingerprint {
+internal val createOkHttpClientFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE)
     opcodes(
         Opcode.NEW_INSTANCE,

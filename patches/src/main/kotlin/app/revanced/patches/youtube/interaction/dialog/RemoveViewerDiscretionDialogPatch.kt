@@ -11,6 +11,8 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/RemoveViewerDiscretionDialogPatch;"
+
 val removeViewerDiscretionDialogPatch = bytecodePatch(
     name = "Remove viewer discretion dialog",
     description = "Adds an option to remove the dialog that appears when opening a video that has been age-restricted " +
@@ -33,10 +35,6 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
         )
     )
 
-    val extensionMethodDescriptor =
-        "Lapp/revanced/extension/youtube/patches/RemoveViewerDiscretionDialogPatch;->" +
-            "confirmDialog(Landroid/app/AlertDialog;)V"
-
     execute {
         addResources("youtube", "interaction.dialog.removeViewerDiscretionDialogPatch")
 
@@ -44,14 +42,16 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
             SwitchPreference("revanced_remove_viewer_discretion_dialog"),
         )
 
-        createDialogFingerprint.method.apply {
-            val showDialogIndex = implementation!!.instructions.lastIndex - 2
-            val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
+        createDialogFingerprint.let {
+            it.method.apply {
+                val showDialogIndex = it.instructionMatches.last().index
+                val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
 
-            replaceInstructions(
-                showDialogIndex,
-                "invoke-static { v$dialogRegister }, $extensionMethodDescriptor",
-            )
+                replaceInstructions(
+                    showDialogIndex,
+                    "invoke-static { v$dialogRegister }, $EXTENSION_CLASS_DESCRIPTOR->confirmDialog(Landroid/app/AlertDialog;)V",
+                )
+            }
         }
     }
 }

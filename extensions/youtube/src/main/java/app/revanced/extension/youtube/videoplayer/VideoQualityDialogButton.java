@@ -38,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch;
@@ -421,13 +422,13 @@ public class VideoQualityDialogButton {
 
     private static class CustomQualityAdapter extends ArrayAdapter<String> {
         private static final int CUSTOM_LIST_ITEM_CHECKED_ID = Utils.getResourceIdentifier(
-                "revanced_custom_list_item_checked", "layout");
+                ResourceType.LAYOUT, "revanced_custom_list_item_checked");
         private static final int CHECK_ICON_ID = Utils.getResourceIdentifier(
-                "revanced_check_icon", "id");
+                ResourceType.ID, "revanced_check_icon");
         private static final int CHECK_ICON_PLACEHOLDER_ID = Utils.getResourceIdentifier(
-                "revanced_check_icon_placeholder", "id");
+                ResourceType.ID, "revanced_check_icon_placeholder");
         private static final int ITEM_TEXT_ID = Utils.getResourceIdentifier(
-                "revanced_item_text", "id");
+                ResourceType.ID, "revanced_item_text");
 
         private int selectedPosition = -1;
 
