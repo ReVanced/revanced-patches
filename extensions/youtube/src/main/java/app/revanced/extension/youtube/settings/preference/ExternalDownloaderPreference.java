@@ -34,6 +34,7 @@ import java.util.Objects;
 import java.util.function.Function;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.youtube.settings.Settings;
@@ -210,7 +211,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         final boolean usingCustomDownloader = Downloader.findByPackageName(packageName) == null;
         adapter = new CustomDialogListPreference.ListPreferenceArrayAdapter(
                 context,
-                Utils.getResourceIdentifier("revanced_custom_list_item_checked", "layout"),
+                Utils.getResourceIdentifier(ResourceType.LAYOUT, "revanced_custom_list_item_checked"),
                 getEntries(),
                 getEntryValues(),
                 usingCustomDownloader

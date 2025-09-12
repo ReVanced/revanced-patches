@@ -24,18 +24,20 @@ public class OpenVideosFullscreenHookPatch {
 
     /**
      * Injection point.
+     *
+     * Returns negated value.
      */
-    public static boolean openVideoFullscreenPortrait(boolean original) {
+    public static boolean doNotOpenVideoFullscreenPortrait(boolean original) {
         Boolean openFullscreen = openNextVideoFullscreen;
         if (openFullscreen != null) {
             openNextVideoFullscreen = null;
-            return openFullscreen;
+            return !openFullscreen;
         }
 
         if (!isFullScreenPatchIncluded()) {
             return original;
         }
 
-        return Settings.OPEN_VIDEOS_FULLSCREEN_PORTRAIT.get();
+        return !Settings.OPEN_VIDEOS_FULLSCREEN_PORTRAIT.get();
     }
 }

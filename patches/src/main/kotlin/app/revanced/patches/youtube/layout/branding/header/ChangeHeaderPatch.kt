@@ -9,9 +9,9 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.Document
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.util.ResourceGroup
@@ -38,7 +38,7 @@ private val changeHeaderBytecodePatch = bytecodePatch {
             "yt_ringo2_premium_wordmark_header"
         ).forEach { resource ->
             variants.forEach { theme ->
-                resourceMappings["drawable", resource + "_" + theme]
+                getResourceId(ResourceType.DRAWABLE, resource + "_" + theme)
             }
         }
 
@@ -46,7 +46,7 @@ private val changeHeaderBytecodePatch = bytecodePatch {
             "ytWordmarkHeader",
             "ytPremiumWordmarkHeader"
         ).forEach { resourceName ->
-            val resourceId = resourceMappings["attr", resourceName]
+            val resourceId = getResourceId(ResourceType.ATTR, resourceName)
 
             forEachLiteralValueInstruction(resourceId) { literalIndex ->
                 val register = getInstruction<OneRegisterInstruction>(literalIndex).registerA

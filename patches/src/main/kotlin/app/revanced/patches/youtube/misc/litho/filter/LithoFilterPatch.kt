@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
 import app.revanced.util.addInstructionsAtControlFlowLabel
@@ -19,11 +20,13 @@ import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.insertLiteralOverride
+import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import java.util.logging.Logger
 
 lateinit var addLithoFilter: (String) -> Unit
     private set
@@ -65,11 +68,11 @@ val lithoFilterPatch = bytecodePatch(
      *   }
      * }
      *
-     * class CreateComponentClass {
-     *    public Component createComponent() {
+     * class ComponentContextParser {
+     *    public Component parseComponent() {
      *        ...
      *
-     *        if (extensionClass.shouldFilter(identifier, path)) {  // Inserted by this patch.
+     *        if (extensionClass.shouldFilter()) {  // Inserted by this patch.
      *            return emptyComponent;
      *        }
      *        return originalUnpatchedComponent; // Original code.
@@ -90,32 +93,42 @@ val lithoFilterPatch = bytecodePatch(
                         invoke-direct { v1 }, $classDescriptor-><init>()V
                         const/16 v2, ${filterCount++}
                         aput-object v1, v0, v2
-                    """,
+                    """
                 )
             }
         }
 
         // region Pass the buffer into extension.
 
-        protobufBufferReferenceFingerprint.method.addInstruction(
+        if (is_20_22_or_greater) {
+            // Hook method that bridges between UPB buffer native code and FB Litho.
+            // Method is found in 19.25+, but is forcefully turned off for 20.21 and lower.
+            protobufBufferReferenceFingerprint.let {
+                // Hook the buffer after the call to jniDecode().
+                it.method.addInstruction(
+                    it.instructionMatches.last().index + 1,
+                    "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer([B)V",
+                )
+            }
+        }
+
+        // Legacy Non native buffer.
+        protobufBufferReferenceLegacyFingerprint.method.addInstruction(
             0,
             "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
         )
 
         // endregion
 
-        // region Hook the method that parses bytes into a ComponentContext.
 
-        // Allow the method to run to completion, and override the
-        // return value with an empty component if it should be filtered.
-        // It is important to allow the original code to always run to completion,
-        // otherwise high memory usage and poor app performance can occur.
+        // region Modify the create component method and
+        // if the component is filtered then return an empty component.
 
         // Find the identifier/path fields of the conversion context.
-        val conversionContextIdentifierField = componentContextParserFingerprint.let {
+        val conversionContextIdentifierField = componentContextParserFingerprint.match().let {
             // Identifier field is loaded just before the string declaration.
             val index = it.method.indexOfFirstInstructionReversedOrThrow(
-                it.stringMatches!!.first().index
+                it.instructionMatches.first().index
             ) {
                 val reference = getReference<FieldReference>()
                 reference?.definingClass == conversionContextFingerprintToString.originalClassDef.type
@@ -136,7 +149,7 @@ val lithoFilterPatch = bytecodePatch(
         val emptyComponentField = classBy {
             // Only one field that matches.
             it.type == builderMethodDescriptor.returnType
-        }!!.immutableClass.fields.single()
+        }.fields.single()
 
         componentCreateFingerprint.method.apply {
             val insertIndex = if (is_19_17_or_greater) {
@@ -199,23 +212,27 @@ val lithoFilterPatch = bytecodePatch(
         // Flag was removed in 20.05. It appears a new flag might be used instead (45660109L),
         // but if the flag is forced on then litho filtering still works correctly.
         if (is_19_25_or_greater && !is_20_05_or_greater) {
-            lithoComponentNameUpbFeatureFlagFingerprint.method.apply {
-                // Don't use return early, so the debug patch logs if this was originally on.
-                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN)
-                val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstruction(insertIndex, "const/4 v$register, 0x0")
-            }
+            lithoComponentNameUpbFeatureFlagFingerprint.method.returnLate(false)
         }
 
         // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
-        // If this is enabled, then the litho protobuffer hook will always show an empty buffer
-        // since it's no longer handled by the hooked Java code.
-        lithoConverterBufferUpbFeatureFlagFingerprint.method.apply {
-            val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
-            val register = getInstruction<OneRegisterInstruction>(index).registerA
+        lithoConverterBufferUpbFeatureFlagFingerprint.let {
+            // Procool buffer has changed in 20.22, and UPB native code is now always enabled.
+            if (is_20_22_or_greater) {
+                Logger.getLogger(this::class.java.name).severe(
+                    "\n!!!" +
+                            "\n!!! Litho filtering is not yet fully supported when patching 20.22+" +
+                            "\n!!! Action buttons, Shorts shelves, and possibly other components cannot be set hidden." +
+                            "\n!!!"
+                )
+            }
 
-            addInstruction(index + 1, "const/4 v$register, 0x0")
+            // 20.22 the flag is still enabled in one location, but what it does is not known.
+            // Disable it anyway.
+            it.method.insertLiteralOverride(
+                it.instructionMatches.first().index,
+                false
+            )
         }
 
         // endregion

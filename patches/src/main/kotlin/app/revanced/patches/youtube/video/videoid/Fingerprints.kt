@@ -1,55 +1,54 @@
 package app.revanced.patches.youtube.video.videoid
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val videoIdFingerprint = fingerprint {
+internal val videoIdFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
-    opcodes(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
+    instructions(
+        methodCall(
+            definingClass = "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;",
+            returnType = "Ljava/lang/String;"
+        ),
+        opcode(Opcode.MOVE_RESULT_OBJECT),
     )
-    custom { method, _ ->
-        method.indexOfPlayerResponseModelString() >= 0
-    }
 }
 
-internal val videoIdBackgroundPlayFingerprint = fingerprint {
+internal val videoIdBackgroundPlayFingerprint by fingerprint {
     accessFlags(AccessFlags.DECLARED_SYNCHRONIZED, AccessFlags.FINAL, AccessFlags.PUBLIC)
     returns("V")
     parameters("L")
-    opcodes(
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IPUT_OBJECT,
-        Opcode.MONITOR_EXIT,
-        Opcode.RETURN_VOID,
-        Opcode.MONITOR_EXIT,
-        Opcode.RETURN_VOID
+    instructions(
+        methodCall(
+            definingClass = "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;",
+            returnType = "Ljava/lang/String;"
+        ),
+        opcode(Opcode.MOVE_RESULT_OBJECT),
+        opcode(Opcode.IPUT_OBJECT),
+        opcode(Opcode.MONITOR_EXIT),
+        opcode(Opcode.RETURN_VOID),
+        opcode(Opcode.MONITOR_EXIT),
+        opcode(Opcode.RETURN_VOID)
     )
     // The target snippet of code is buried in a huge switch block and the target method
     // has been changed many times by YT which makes identifying it more difficult than usual.
     custom { method, classDef ->
-        // Access flags changed in 19.36
-        AccessFlags.FINAL.isSet(method.accessFlags) &&
-                AccessFlags.DECLARED_SYNCHRONIZED.isSet(method.accessFlags) &&
-                classDef.methods.count() == 17 &&
-                method.implementation != null &&
-                method.indexOfPlayerResponseModelString() >= 0
+        classDef.methods.count() == 17 &&
+                method.implementation != null
     }
-
 }
 
-internal val videoIdParentFingerprint = fingerprint {
+internal val videoIdParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("[L")
     parameters("L")
-    literal { 524288L }
+    instructions(
+        literal(524288L)
+    )
 }

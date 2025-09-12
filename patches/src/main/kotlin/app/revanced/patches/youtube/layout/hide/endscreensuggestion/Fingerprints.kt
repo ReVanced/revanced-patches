@@ -7,19 +7,19 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val autoNavConstructorFingerprint = fingerprint {
+internal val autoNavConstructorFingerprint by fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     strings("main_app_autonav")
 }
 
-internal val autoNavStatusFingerprint = fingerprint {
+internal val autoNavStatusFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
 }
 
-internal val removeOnLayoutChangeListenerFingerprint = fingerprint {
+internal val removeOnLayoutChangeListenerFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()

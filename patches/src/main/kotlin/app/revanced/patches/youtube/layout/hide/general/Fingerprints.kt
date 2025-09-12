@@ -1,68 +1,60 @@
 package app.revanced.patches.youtube.layout.hide.general
 
+import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
+import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.layout.searchbar.wideSearchbarLayoutFingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val hideShowMoreButtonFingerprint = fingerprint {
-    opcodes(
-        Opcode.CONST,
-        Opcode.CONST_4,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-    )
-    literal { expandButtonDownId }
-}
-
 /**
- * 20.12+
+ * 20.26+
  */
-internal val parseElementFromBufferFingerprint = fingerprint {
-    parameters("L", "L", "[B", "L", "L")
-    opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
+internal val hideShowMoreButtonFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL, AccessFlags.SYNTHETIC)
+    returns("V")
+    parameters("L", "Ljava/lang/Object;")
+    instructions(
+        resourceLiteral(ResourceType.LAYOUT, "expand_button_down"),
+        methodCall(smali = "Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, 0)
     )
-    strings("Failed to parse Element") // String is a partial match.
 }
 
-/**
- * 20.07+
- */
-internal val parseElementFromBufferLegacy2007Fingerprint = fingerprint {
-    parameters("L", "L", "[B", "L", "L")
-    opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_BOOLEAN,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
+internal val hideShowMoreLegacyButtonFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    instructions(
+        resourceLiteral(ResourceType.LAYOUT, "expand_button_down"),
+        methodCall(smali = "Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;"),
+        opcode(Opcode.MOVE_RESULT_OBJECT)
     )
-    strings("Failed to parse Element") // String is a partial match.
 }
 
-/**
- * 19.01 - 20.06
- */
-internal val parseElementFromBufferLegacy1901Fingerprint = fingerprint {
+internal val parseElementFromBufferFingerprint by fingerprint {
     parameters("L", "L", "[B", "L", "L")
-    opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
+    instructions(
+        opcode(Opcode.IGET_OBJECT),
+        // IGET_BOOLEAN // 20.07+
+        opcode(Opcode.INVOKE_INTERFACE, maxAfter = 1),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),
+        string("Failed to parse Element", partialMatch = true)
     )
-    strings("Failed to parse Element") // String is a partial match.
 }
 
-internal val playerOverlayFingerprint = fingerprint {
+internal val playerOverlayFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
-    strings("player_overlay_in_video_programming")
+    instructions(
+        string("player_overlay_in_video_programming")
+    )
 }
 
-internal val showWatermarkFingerprint = fingerprint {
+internal val showWatermarkFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "L")
@@ -71,14 +63,16 @@ internal val showWatermarkFingerprint = fingerprint {
 /**
  * Matches same method as [wideSearchbarLayoutFingerprint].
  */
-internal val yoodlesImageViewFingerprint = fingerprint {
+internal val yoodlesImageViewFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("L", "L")
-    literal { youTubeLogo }
+    instructions(
+        resourceLiteral(ResourceType.ID, "youtube_logo")
+    )
 }
 
-internal val crowdfundingBoxFingerprint = fingerprint {
+internal val crowdfundingBoxFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.INVOKE_VIRTUAL,
@@ -88,7 +82,7 @@ internal val crowdfundingBoxFingerprint = fingerprint {
     literal { crowdfundingBoxId }
 }
 
-internal val albumCardsFingerprint = fingerprint {
+internal val albumCardsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.MOVE_RESULT_OBJECT,
@@ -101,9 +95,8 @@ internal val albumCardsFingerprint = fingerprint {
     literal { albumCardId }
 }
 
-internal val filterBarHeightFingerprint = fingerprint {
+internal val filterBarHeightFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     opcodes(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
@@ -113,9 +106,8 @@ internal val filterBarHeightFingerprint = fingerprint {
     literal { filterBarHeightId }
 }
 
-internal val relatedChipCloudFingerprint = fingerprint {
+internal val relatedChipCloudFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     opcodes(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
@@ -124,9 +116,8 @@ internal val relatedChipCloudFingerprint = fingerprint {
     literal { relatedChipCloudMarginId }
 }
 
-internal val searchResultsChipBarFingerprint = fingerprint {
+internal val searchResultsChipBarFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     opcodes(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
@@ -137,13 +128,13 @@ internal val searchResultsChipBarFingerprint = fingerprint {
     literal { barContainerHeightId }
 }
 
-internal val showFloatingMicrophoneButtonFingerprint = fingerprint {
+internal val showFloatingMicrophoneButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
-    opcodes(
-        Opcode.IGET_BOOLEAN,
-        Opcode.IF_EQZ,
+    instructions(
+        resourceLiteral(ResourceType.ID, "fab"),
+        checkCast("/FloatingActionButton;", maxAfter = 10),
+        opcode(Opcode.IGET_BOOLEAN, maxAfter = 10)
     )
-    literal { fabButtonId }
 }

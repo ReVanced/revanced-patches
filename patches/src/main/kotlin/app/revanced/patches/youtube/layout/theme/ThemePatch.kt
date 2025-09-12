@@ -173,7 +173,7 @@ val themePatch = bytecodePatch(
                 // Fix the splash screen dark mode background color.
                 // In 19.32+ the dark mode splash screen is white and fades to black.
                 // Maybe it's a bug in YT, or maybe it intentionally. Who knows.
-                document("res/values-night-v27/styles.xml").use { document ->
+                document("res/values-night/styles.xml").use { document ->
                     // Create a night mode specific override for the splash screen background.
                     val style = document.createElement("style")
                     style.setAttribute("name", "Theme.YouTube.Home")
@@ -226,17 +226,21 @@ val themePatch = bytecodePatch(
             )
         }
 
-        useGradientLoadingScreenFingerprint.method.insertLiteralOverride(
-            GRADIENT_LOADING_SCREEN_AB_CONSTANT,
-            "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
-        )
+        useGradientLoadingScreenFingerprint.let {
+            it.method.insertLiteralOverride(
+                it.instructionMatches.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
+            )
+        }
 
         if (is_19_47_or_greater) {
             // Lottie splash screen exists in earlier versions, but it may not be always on.
-            splashScreenStyleFingerprint.method.insertLiteralOverride(
-                SPLASH_SCREEN_STYLE_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I"
-            )
+            splashScreenStyleFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I"
+                )
+            }
         }
 
         lithoColorOverrideHook(EXTENSION_CLASS_DESCRIPTOR, "getValue")

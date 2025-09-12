@@ -4,15 +4,15 @@ import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 
+import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
+import app.revanced.extension.youtube.TrieSearch;
 import app.revanced.extension.youtube.patches.ReturnYouTubeDislikePatch;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.shared.Logger;
-import app.revanced.extension.youtube.TrieSearch;
 
 /**
  * Searches for video id's in the proto buffer of Shorts dislike.
@@ -33,18 +33,7 @@ public final class ReturnYouTubeDislikeFilter extends Filter {
      * Cannot use {@link LinkedHashSet} because it's missing #removeEldestEntry().
      */
     @GuardedBy("itself")
-    private static final Map<String, Boolean> lastVideoIds = new LinkedHashMap<>() {
-        /**
-         * Number of video id's to keep track of for searching thru the buffer.
-         * A minimum value of 3 should be sufficient, but check a few more just in case.
-         */
-        private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 5;
-
-        @Override
-        protected boolean removeEldestEntry(Entry eldest) {
-            return size() > NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK;
-        }
-    };
+    private static final Map<String, Boolean> lastVideoIds = Utils.createSizeRestrictedMap(5);
 
     /**
      * Injection point.

@@ -5,11 +5,11 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val isValidSignatureClassFingerprint = fingerprint {
+internal val isValidSignatureClassFingerprint by fingerprint {
     strings("The provider for uri '", "' is not trusted: ")
 }
 
-internal val isValidSignatureMethodFingerprint = fingerprint {
+internal val isValidSignatureMethodFingerprint by fingerprint {
     parameters("L", "Z")
     returns("Z")
     custom { method, _ ->

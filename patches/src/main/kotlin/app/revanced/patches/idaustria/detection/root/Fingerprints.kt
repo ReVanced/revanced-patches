@@ -3,7 +3,7 @@ package app.revanced.patches.idaustria.detection.root
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val attestationSupportedCheckFingerprint = fingerprint {
+internal val attestationSupportedCheckFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("V")
     custom { method, classDef ->
@@ -12,7 +12,7 @@ internal val attestationSupportedCheckFingerprint = fingerprint {
     }
 }
 
-internal val bootloaderCheckFingerprint = fingerprint {
+internal val bootloaderCheckFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("Z")
     custom { method, classDef ->
@@ -21,7 +21,7 @@ internal val bootloaderCheckFingerprint = fingerprint {
     }
 }
 
-internal val rootCheckFingerprint = fingerprint {
+internal val rootCheckFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("V")
     custom { method, classDef ->

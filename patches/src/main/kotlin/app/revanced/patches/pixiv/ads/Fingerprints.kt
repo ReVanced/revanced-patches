@@ -3,7 +3,7 @@ package app.revanced.patches.pixiv.ads
 import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
 
-internal val shouldShowAdsFingerprint = fingerprint {
+internal val shouldShowAdsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     custom { methodDef, classDef ->

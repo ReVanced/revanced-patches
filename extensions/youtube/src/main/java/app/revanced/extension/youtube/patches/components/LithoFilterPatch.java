@@ -4,11 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.StringTrieSearch;
+import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -74,6 +79,15 @@ public final class LithoFilterPatch {
     }
 
     /**
+     * Placeholder for actual filters.
+     */
+    private static final class DummyFilter extends Filter { }
+
+    private static final Filter[] filters = new Filter[] {
+            new DummyFilter() // Replaced during patching, do not touch.
+    };
+
+    /**
      * Litho layout fixed thread pool size override.
      * <p>
      * Unpatched YouTube uses a layout fixed thread pool between 1 and 3 threads:
@@ -90,24 +104,45 @@ public final class LithoFilterPatch {
     private static final int LITHO_LAYOUT_THREAD_POOL_SIZE = 1;
 
     /**
-     * Placeholder for actual filters.
+     * 20.22+ cannot use the thread buffer, because frequently the buffer is not correct,
+     * especially for components that are recreated such as dragging off screen then back on screen.
+     * Instead, parse the identifier found near the start of the buffer and use that to
+     * identify the correct buffer to use when filtering.
      */
-    private static final class DummyFilter extends Filter { }
+    private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER = VersionCheckPatch.IS_20_22_OR_GREATER;
 
-    private static final Filter[] filters = new Filter[] {
-            new DummyFilter() // Replaced patching, do not touch.
-    };
+    /**
+     * Turns on additional logging, used for development purposes only.
+     */
+    public static final boolean DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER = false;
 
-    private static final StringTrieSearch pathSearchTree = new StringTrieSearch();
-    private static final StringTrieSearch identifierSearchTree = new StringTrieSearch();
+    private static final String EML_STRING = ".eml";
+    private static final byte[] EML_STRING_BYTES = EML_STRING.getBytes(StandardCharsets.US_ASCII);
 
     private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
     /**
      * Because litho filtering is multi-threaded and the buffer is passed in from a different injection point,
      * the buffer is saved to a ThreadLocal so each calling thread does not interfere with other threads.
+     * Used for 20.21 and lower.
      */
     private static final ThreadLocal<byte[]> bufferThreadLocal = new ThreadLocal<>();
+
+    /**
+     * Identifier to protocol buffer mapping.  Only used for 20.22+.
+     * Thread local is needed because filtering is multi-threaded and each thread can load
+     * a different component with the same identifier.
+     */
+    private static final ThreadLocal<Map<String, byte[]>> identifierToBufferThread = new ThreadLocal<>();
+
+    /**
+     * Global shared buffer. Used only if the buffer is not found in the ThreadLocal.
+     */
+    private static final Map<String, byte[]> identifierToBufferGlobal
+            = Collections.synchronizedMap(createIdentifierToBufferMap());
+
+    private static final StringTrieSearch pathSearchTree = new StringTrieSearch();
+    private static final StringTrieSearch identifierSearchTree = new StringTrieSearch();
 
     static {
         for (Filter filter : filters) {
@@ -160,16 +195,107 @@ public final class LithoFilterPatch {
         }
     }
 
+    private static Map<String, byte[]> createIdentifierToBufferMap() {
+        // It's unclear how many items should be cached. This is a guess.
+        return Utils.createSizeRestrictedMap(100);
+    }
+
+    /**
+     * Helper function that differs from {@link Character#isDigit(char)}
+     * as this only matches ascii and not unicode numbers.
+     */
+    private static boolean isAsciiNumber(byte character) {
+        return '0' <= character && character <= '9';
+    }
+
+    private static boolean isAsciiLowerCaseLetter(byte character) {
+        return 'a' <= character && character <= 'z';
+    }
+
     /**
      * Injection point.  Called off the main thread.
      * Targets 20.22+
      */
     public static void setProtoBuffer(byte[] buffer) {
-        // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
-        // This is intentional, as it appears the buffer can be set once and then filtered multiple times.
-        // The buffer will be cleared from memory after a new buffer is set by the same thread,
-        // or when the calling thread eventually dies.
-        bufferThreadLocal.set(buffer);
+        if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER) {
+            StringBuilder builder = new StringBuilder();
+            LithoFilterParameters.findAsciiStrings(builder, buffer);
+            Logger.printDebug(() -> "New buffer: " + builder);
+        }
+
+        // Could use Boyer-Moore-Horspool since the string is ASCII and has a limited number of
+        // unique characters, but it seems to be slower since the extra overhead of checking the
+        // bad character array negates any performance gain of skipping a few extra subsearches.
+        int emlIndex = -1;
+        final int emlStringLength = EML_STRING_BYTES.length;
+        for (int i = 0, lastStartIndex = buffer.length - emlStringLength; i <= lastStartIndex; i++) {
+            boolean match = true;
+            for (int j = 0; j < emlStringLength; j++) {
+                if (buffer[i + j] != EML_STRING_BYTES[j]) {
+                    match = false;
+                    break;
+                }
+            }
+            if (match) {
+                emlIndex = i;
+                break;
+            }
+        }
+
+        if (emlIndex < 0) {
+            // Buffer is not used for creating a new litho component.
+            return;
+        }
+
+        int startIndex = emlIndex - 1;
+        while (startIndex > 0) {
+            final byte character = buffer[startIndex];
+            int startIndexFinal = startIndex;
+            if (isAsciiNumber(character) || isAsciiLowerCaseLetter(character) || character == '_') {
+                // Valid character for the first path element.
+                startIndex--;
+            } else {
+                startIndex++;
+                break;
+            }
+        }
+
+        // Strip away any numbers on the start of the identifier, which can
+        // be from random data in the buffer before the identifier starts.
+        while (true) {
+            final byte character = buffer[startIndex];
+            if (isAsciiNumber(character)) {
+                startIndex++;
+            } else {
+                break;
+            }
+        }
+
+        // Find the pipe character after the identifier.
+        int endIndex = -1;
+        for (int i = emlIndex, length = buffer.length; i < length; i++) {
+            if (buffer[i] == '|') {
+                endIndex = i;
+                break;
+            }
+        }
+        if (endIndex < 0) {
+            Logger.printException(() -> "Could not find buffer identifier");
+            return;
+        }
+
+        String identifier = new String(buffer, startIndex, endIndex - startIndex, StandardCharsets.US_ASCII);
+        if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER) {
+            Logger.printDebug(() -> "Found buffer for identifier: " + identifier);
+        }
+        identifierToBufferGlobal.put(identifier, buffer);
+
+        Map<String, byte[]> map = identifierToBufferThread.get();
+        if (map == null) {
+            map = createIdentifierToBufferMap();
+            identifierToBufferThread.set(map);
+        }
+        map.put(identifier, buffer);
     }
 
     /**
@@ -177,46 +303,70 @@ public final class LithoFilterPatch {
      * Targets 20.21 and lower.
      */
     public static void setProtoBuffer(@Nullable ByteBuffer buffer) {
-        // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
-        // This is intentional, as it appears the buffer can be set once and then filtered multiple times.
-        // The buffer will be cleared from memory after a new buffer is set by the same thread,
-        // or when the calling thread eventually dies.
         if (buffer == null || !buffer.hasArray()) {
             // It appears the buffer can be cleared out just before the call to #filter()
             // Ignore this null value and retain the last buffer that was set.
             Logger.printDebug(() -> "Ignoring null or empty buffer: " + buffer);
         } else {
-            setProtoBuffer(buffer.array());
+            // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
+            // This is intentional, as it appears the buffer can be set once and then filtered multiple times.
+            // The buffer will be cleared from memory after a new buffer is set by the same thread,
+            // or when the calling thread eventually dies.
+            bufferThreadLocal.set(buffer.array());
         }
     }
 
     /**
      * Injection point.
      */
-    public static boolean isFiltered(String lithoIdentifier, StringBuilder pathBuilder) {
+    public static boolean isFiltered(String identifier, StringBuilder pathBuilder) {
         try {
-            if (lithoIdentifier.isEmpty() && pathBuilder.length() == 0) {
+            if (identifier.isEmpty() || pathBuilder.length() == 0) {
                 return false;
             }
 
-            byte[] buffer = bufferThreadLocal.get();
+            byte[] buffer = null;
+            if (EXTRACT_IDENTIFIER_FROM_BUFFER) {
+                final int pipeIndex = identifier.indexOf('|');
+                if (pipeIndex >= 0) {
+                    // If the identifier contains no pipe, then it's not an ".eml" identifier
+                    // and the buffer is not uniquely identified. Typically this only happens
+                    // for subcomponents where buffer filtering is not used.
+                    String identifierKey = identifier.substring(0, pipeIndex);
+
+                    var map = identifierToBufferThread.get();
+                    if (map != null) {
+                        buffer = map.get(identifierKey);
+                    }
+
+                    if (buffer == null) {
+                        // Buffer for thread local not found. Use the last buffer found from any thread.
+                        buffer = identifierToBufferGlobal.get(identifierKey);
+
+                        if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER && buffer == null) {
+                            // No buffer is found for some components, such as
+                            // shorts_lockup_cell.eml on channel profiles.
+                            // For now, just ignore this and filter without a buffer.
+                            Logger.printException(() -> "Could not find global buffer for identifier: " + identifier);
+                        }
+                    }
+                }
+            } else {
+                buffer = bufferThreadLocal.get();
+            }
+
             // Potentially the buffer may have been null or never set up until now.
-            // Use an empty buffer so the litho id/path filters still work correctly.
+            // Use an empty buffer so the litho id/path filters that do not use a buffer still work.
             if (buffer == null) {
                 buffer = EMPTY_BYTE_ARRAY;
             }
 
-            LithoFilterParameters parameter = new LithoFilterParameters(
-                    lithoIdentifier, pathBuilder.toString(), buffer);
+            String path = pathBuilder.toString();
+            LithoFilterParameters parameter = new LithoFilterParameters(identifier, path, buffer);
             Logger.printDebug(() -> "Searching " + parameter);
 
-            if (identifierSearchTree.matches(parameter.identifier, parameter)) {
-                return true;
-            }
-
-            if (pathSearchTree.matches(parameter.path, parameter)) {
-                return true;
-            }
+            return identifierSearchTree.matches(identifier, parameter)
+                    || pathSearchTree.matches(path, parameter);
         } catch (Exception ex) {
             Logger.printException(() -> "isFiltered failure", ex);
         }

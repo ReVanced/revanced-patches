@@ -36,7 +36,7 @@ val removeMetaAIPatch = bytecodePatch(
 
         // Extract the common starting digits of Meta AI flag IDs from a flag found in code.
         val relevantDigits = with(metaAIKillSwitchCheckFingerprint) {
-            method.getInstruction<WideLiteralInstruction>(patternMatch!!.startIndex).wideLiteral
+            method.getInstruction<WideLiteralInstruction>(patternMatch.startIndex).wideLiteral
         }.toString().substring(0, 7)
 
         // Replace placeholder in the extension method.

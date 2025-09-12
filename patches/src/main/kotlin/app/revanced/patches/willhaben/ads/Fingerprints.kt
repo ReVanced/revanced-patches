@@ -3,7 +3,7 @@ package app.revanced.patches.willhaben.ads
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val adResolverFingerprint = fingerprint {
+internal val adResolverFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L", "L")
@@ -15,7 +15,7 @@ internal val adResolverFingerprint = fingerprint {
     )
 }
 
-internal val whAdViewInjectorFingerprint = fingerprint {
+internal val whAdViewInjectorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "L", "L", "Z")

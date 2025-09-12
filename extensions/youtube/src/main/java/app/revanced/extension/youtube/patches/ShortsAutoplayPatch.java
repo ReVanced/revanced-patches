@@ -2,8 +2,6 @@ package app.revanced.extension.youtube.patches;
 
 import android.app.Activity;
 
-import androidx.annotation.Nullable;
-
 import java.lang.ref.WeakReference;
 import java.util.Objects;
 
@@ -78,7 +76,7 @@ public class ShortsAutoplayPatch {
     /**
      * Injection point.
      */
-    public static Enum<?> changeShortsRepeatBehavior(@Nullable Enum<?> original) {
+    public static Enum<?> changeShortsRepeatBehavior(Enum<?> original) {
         try {
             final boolean autoplay;
 
@@ -95,19 +93,19 @@ public class ShortsAutoplayPatch {
                 autoplay = Settings.SHORTS_AUTOPLAY.get();
             }
 
-            final ShortsLoopBehavior behavior = autoplay
+            Enum<?> overrideBehavior = (autoplay
                     ? ShortsLoopBehavior.SINGLE_PLAY
-                    : ShortsLoopBehavior.REPEAT;
+                    : ShortsLoopBehavior.REPEAT).ytEnumValue;
 
-            if (behavior.ytEnumValue != null) {
+            if (overrideBehavior != null) {
                 Logger.printDebug(() -> {
                     String name = (original == null ? "unknown (null)" : original.name());
-                    return behavior == original
+                    return overrideBehavior == original
                             ? "Behavior setting is same as original. Using original: " + name
-                            : "Changing Shorts repeat behavior from: " + name + " to: " + behavior.name();
+                            : "Changing Shorts repeat behavior from: " + name + " to: " + overrideBehavior.name();
                 });
 
-                return behavior.ytEnumValue;
+                return overrideBehavior;
             }
 
             if (original == null) {
@@ -118,12 +116,11 @@ public class ShortsAutoplayPatch {
                 return unknown;
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "changeShortsRepeatBehavior failure", ex);
+            Logger.printException(() -> "changeShortsRepeatState failure", ex);
         }
 
         return original;
     }
-
 
     /**
      * Injection point.

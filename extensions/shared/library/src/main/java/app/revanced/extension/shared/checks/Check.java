@@ -3,7 +3,6 @@ package app.revanced.extension.shared.checks;
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.DialogFragmentOnStartAction;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -24,6 +23,7 @@ import androidx.annotation.Nullable;
 import java.util.Collection;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 
@@ -127,7 +127,8 @@ abstract class Check {
 
             // Add icon to the dialog.
             ImageView iconView = new ImageView(activity);
-            iconView.setImageResource(Utils.getResourceIdentifier("revanced_ic_dialog_alert", "drawable"));
+            iconView.setImageResource(Utils.getResourceIdentifier(
+                    ResourceType.DRAWABLE, "revanced_ic_dialog_alert"));
             iconView.setColorFilter(Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
             iconView.setPadding(0, 0, 0, 0);
             LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(

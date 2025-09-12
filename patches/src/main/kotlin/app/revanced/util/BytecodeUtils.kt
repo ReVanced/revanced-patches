@@ -14,9 +14,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.util.InstructionUtils.Companion.branchOpcodes
 import app.revanced.util.InstructionUtils.Companion.returnOpcodes
 import app.revanced.util.InstructionUtils.Companion.writeOpcodes
@@ -97,7 +97,8 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
                 return bestFreeRegisterFound
             }
             // This method is simple and does not follow branching.
-            throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
+            throw IllegalArgumentException("Encountered a branch statement before " +
+                    "a free register could be found from startIndex: $startIndex")
         }
 
         if (instruction.isReturnInstruction) {
@@ -359,8 +360,7 @@ fun MutableMethod.addInstructionsAtControlFlowLabel(
  * @see [indexOfFirstResourceIdOrThrow], [indexOfFirstLiteralInstructionReversed]
  */
 fun Method.indexOfFirstResourceId(resourceName: String): Int {
-    val resourceId = resourceMappings["id", resourceName]
-    return indexOfFirstLiteralInstruction(resourceId)
+    return indexOfFirstLiteralInstruction(getResourceId(ResourceType.ID, resourceName))
 }
 
 /**
@@ -544,7 +544,7 @@ fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callb
 
     targetClass.superclass ?: return
 
-    classBy { targetClass.superclass == it.type }?.mutableClass?.let {
+    mutableClassByOrNull(targetClass.superclass!!)?.let {
         traverseClassHierarchy(it, callback)
     }
 }
@@ -756,8 +756,12 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
  * Suitable for calls to extension code to override boolean and integer values.
  */
 internal fun MutableMethod.insertLiteralOverride(literal: Long, extensionMethodDescriptor: String) {
-    // TODO: make this work with objects and wide values.
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    insertLiteralOverride(literalIndex, extensionMethodDescriptor)
+}
+
+internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, extensionMethodDescriptor: String) {
+    // TODO: make this work with objects and wide primitive values.
     val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -781,6 +785,13 @@ internal fun MutableMethod.insertLiteralOverride(literal: Long, extensionMethodD
  */
 internal fun MutableMethod.insertLiteralOverride(literal: Long, override: Boolean) {
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    return insertLiteralOverride(literalIndex, override)
+}
+
+/**
+ * Constant value override of the first MOVE_RESULT after the index parameter.
+ */
+internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, override: Boolean) {
     val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
     val overrideValue = if (override) "0x1" else "0x0"
@@ -813,21 +824,7 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
                 }
 
                 if (matchingIndexes.isNotEmpty()) {
-                    val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)
-
-                    // FIXME: Until patcher V22 is merged, this workaround is needed
-                    //        because if multiple patches modify the same class
-                    //        then after modifying the method indexes of immutable classes
-                    //        are no longer correct.
-                    matchingIndexes.clear()
-                    mutableMethod.instructions.forEachIndexed { index, instruction ->
-                        if ((instruction as? WideLiteralInstruction)?.wideLiteral == literal) {
-                            matchingIndexes.add(index)
-                        }
-                    }
-                    if (matchingIndexes.isEmpty()) return@forEach
-                    // FIXME Remove code above after V22 merge.
-
+                    val mutableMethod = mutableClassBy(classDef).findMutableMethodOf(method)
                     matchingIndexes.asReversed().forEach { index ->
                         block.invoke(mutableMethod, index)
                     }
@@ -841,17 +838,29 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
 private const val RETURN_TYPE_MISMATCH = "Mismatch between override type and Method return type"
 
 /**
- * Overrides the first instruction of a method with a constant `Boolean` return value.
+ * Overrides the first instruction of a method with a return-void instruction.
  * None of the method code will ever execute.
+ *
+ * @see returnLate
+ */
+fun MutableMethod.returnEarly() {
+    check(returnType.first() == 'V') {
+        RETURN_TYPE_MISMATCH
+    }
+    overrideReturnValue(false.toHexString(), false)
+}
+
+/**
+ * Overrides the first instruction of a method with a constant `Boolean` return value.
+ * None of the original method code will execute.
  *
  * For methods that return an object or any array type, calling this method with `false`
  * will force the method to return a `null` value.
  *
  * @see returnLate
  */
-fun MutableMethod.returnEarly(value: Boolean = false) {
-    val returnType = returnType.first()
-    check(returnType == 'Z' || (!value && (returnType == 'V' || returnType == 'L' || returnType != '['))) {
+fun MutableMethod.returnEarly(value: Boolean) {
+    check(returnType.first() == 'Z') {
         RETURN_TYPE_MISMATCH
     }
     overrideReturnValue(value.toHexString(), false)
@@ -859,7 +868,7 @@ fun MutableMethod.returnEarly(value: Boolean = false) {
 
 /**
  * Overrides the first instruction of a method with a constant `Byte` return value.
- * None of the method code will ever execute.
+ * None of the original method code will execute.
  *
  * @see returnLate
  */
@@ -870,7 +879,7 @@ fun MutableMethod.returnEarly(value: Byte) {
 
 /**
  * Overrides the first instruction of a method with a constant `Short` return value.
- * None of the method code will ever execute.
+ * None of the original method code will execute.
  *
  * @see returnLate
  */
@@ -881,7 +890,7 @@ fun MutableMethod.returnEarly(value: Short) {
 
 /**
  * Overrides the first instruction of a method with a constant `Char` return value.
- * None of the method code will ever execute.
+ * None of the original method code will execute.
  *
  * @see returnLate
  */
@@ -892,7 +901,7 @@ fun MutableMethod.returnEarly(value: Char) {
 
 /**
  * Overrides the first instruction of a method with a constant `Int` return value.
- * None of the method code will ever execute.
+ * None of the original method code will execute.
  *
  * @see returnLate
  */
@@ -903,7 +912,7 @@ fun MutableMethod.returnEarly(value: Int) {
 
 /**
  * Overrides the first instruction of a method with a constant `Long` return value.
- * None of the method code will ever execute.
+ * None of the original method code will execute.
  *
  * @see returnLate
  */
@@ -914,7 +923,7 @@ fun MutableMethod.returnEarly(value: Long) {
 
 /**
  * Overrides the first instruction of a method with a constant `Float` return value.
- * None of the method code will ever execute.
+ * None of the original method code will execute.
  *
  * @see returnLate
  */
@@ -925,7 +934,7 @@ fun MutableMethod.returnEarly(value: Float) {
 
 /**
  * Overrides the first instruction of a method with a constant `Double` return value.
- * None of the method code will ever execute.
+ * None of the original method code will execute.
  *
  * @see returnLate
  */
@@ -936,7 +945,7 @@ fun MutableMethod.returnEarly(value: Double) {
 
 /**
  * Overrides the first instruction of a method with a constant String return value.
- * None of the method code will ever execute.
+ * None of the original method code will execute.
  *
  * Target method must have return type
  * Ljava/lang/String; or Ljava/lang/CharSequence;
@@ -951,6 +960,21 @@ fun MutableMethod.returnEarly(value: String) {
 }
 
 /**
+ * Overrides the first instruction of a method with a constant `NULL` return value.
+ * None of the original method code will execute.
+ *
+ * @param value Value must be `Null`.
+ * @see returnLate
+ */
+fun MutableMethod.returnEarly(value: Void?) {
+    val returnType = returnType.first()
+    check(returnType == 'L' || returnType != '[') {
+        RETURN_TYPE_MISMATCH
+    }
+    overrideReturnValue(false.toHexString(), false)
+}
+
+/**
  * Overrides all return statements with a constant `Boolean` value.
  * All method code is executed the same as unpatched.
  *
@@ -960,11 +984,7 @@ fun MutableMethod.returnEarly(value: String) {
  * @see returnEarly
  */
 fun MutableMethod.returnLate(value: Boolean) {
-    val returnType = returnType.first()
-    if (returnType == 'V') {
-        error("Cannot return late for Method of void type")
-    }
-    check(returnType == 'Z' || (!value && (returnType == 'L' || returnType == '['))) {
+    check(this.returnType.first() == 'Z') {
         RETURN_TYPE_MISMATCH
     }
 
@@ -1064,6 +1084,22 @@ fun MutableMethod.returnLate(value: String) {
     overrideReturnValue(value, true)
 }
 
+/**
+ * Overrides all return statements with a constant `Null` value.
+ * All method code is executed the same as unpatched.
+ *
+ * @param value Value must be `Null`.
+ * @see returnEarly
+ */
+fun MutableMethod.returnLate(value: Void?) {
+    val returnType = returnType.first()
+    check(returnType == 'L' || returnType == '[') {
+        RETURN_TYPE_MISMATCH
+    }
+
+    overrideReturnValue(false.toHexString(), true)
+}
+
 private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean) {
     val instructions = if (returnType == "Ljava/lang/String;" || returnType == "Ljava/lang/CharSequence;" ) {
         """
@@ -1140,10 +1176,7 @@ internal fun BytecodePatchContext.addStaticFieldToExtension(
     objectClass: String,
     smaliInstructions: String
 ) {
-    val classDef = classes.find { classDef -> classDef.type == className }
-        ?: throw PatchException("No matching methods found in: $className")
-    val mutableClass = proxy(classDef).mutableClass
-
+    val mutableClass = mutableClassBy(className)
     val objectCall = "$mutableClass->$fieldName:$objectClass"
 
     mutableClass.apply {
@@ -1175,7 +1208,7 @@ internal fun BytecodePatchContext.addStaticFieldToExtension(
  *
  * @param literalSupplier The supplier for the literal value to check for.
  */
-// TODO: add a way for subclasses to also use their own custom fingerprint.
+@Deprecated("Instead use instruction filters and `literal()`")
 fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
     custom { method, _ ->
         method.containsLiteralInstruction(literalSupplier())

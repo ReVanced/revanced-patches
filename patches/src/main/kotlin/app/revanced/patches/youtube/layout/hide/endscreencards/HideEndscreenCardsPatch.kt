@@ -6,9 +6,9 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -36,7 +36,7 @@ private val hideEndscreenCardsResourcePatch = resourcePatch {
             SwitchPreference("revanced_hide_endscreen_cards"),
         )
 
-        fun idOf(name: String) = resourceMappings["layout", "endscreen_element_layout_$name"]
+        fun idOf(name: String) = getResourceId(ResourceType.LAYOUT, "endscreen_element_layout_$name")
 
         layoutCircle = idOf("circle")
         layoutIcon = idOf("icon")
@@ -75,7 +75,7 @@ val hideEndscreenCardsPatch = bytecodePatch(
             layoutVideoFingerprint,
         ).forEach { fingerprint ->
             fingerprint.method.apply {
-                val insertIndex = fingerprint.patternMatch!!.endIndex + 1
+                val insertIndex = fingerprint.instructionMatches.last().index + 1
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
                 addInstruction(

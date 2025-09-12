@@ -1,19 +1,22 @@
 package app.revanced.patches.youtube.video.quality
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val videoQualityItemOnClickParentFingerprint = fingerprint {
+internal val videoQualityItemOnClickParentFingerprint by fingerprint {
     returns("V")
-    strings("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT")
+    instructions(
+        string("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT"),
+    )
 }
 
 /**
  * Resolves to class found in [videoQualityItemOnClickFingerprint].
  */
-internal val videoQualityItemOnClickFingerprint = fingerprint {
+internal val videoQualityItemOnClickFingerprint by fingerprint {
     returns("V")
     parameters(
         "Landroid/widget/AdapterView;",
@@ -27,7 +30,7 @@ internal val videoQualityItemOnClickFingerprint = fingerprint {
 }
 
 
-internal val videoQualityMenuOptionsFingerprint = fingerprint {
+internal val videoQualityMenuOptionsFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC)
     returns("[L")
     parameters("Landroid/content/Context", "L", "L")
@@ -41,7 +44,7 @@ internal val videoQualityMenuOptionsFingerprint = fingerprint {
     literal { videoQualityQuickMenuAdvancedMenuDescription }
 }
 
-internal val videoQualityMenuViewInflateFingerprint = fingerprint {
+internal val videoQualityMenuViewInflateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L", "L", "L")

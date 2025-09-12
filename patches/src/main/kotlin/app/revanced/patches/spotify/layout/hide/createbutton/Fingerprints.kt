@@ -7,11 +7,11 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val navigationBarItemSetClassFingerprint = fingerprint {
+internal val navigationBarItemSetClassFingerprint by fingerprint {
     strings("NavigationBarItemSet(")
 }
 
-internal val navigationBarItemSetConstructorFingerprint = fingerprint {
+internal val navigationBarItemSetConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     // Make sure the method checks whether navigation bar items are null before adding them.
     // If this is not true, then we cannot patch the method and potentially transform the parameters into null.
@@ -23,6 +23,6 @@ internal val navigationBarItemSetConstructorFingerprint = fingerprint {
     }
 }
 
-internal val oldNavigationBarAddItemFingerprint = fingerprint {
+internal val oldNavigationBarAddItemFingerprint by fingerprint {
     strings("Bottom navigation tabs exceeds maximum of 5 tabs")
 }

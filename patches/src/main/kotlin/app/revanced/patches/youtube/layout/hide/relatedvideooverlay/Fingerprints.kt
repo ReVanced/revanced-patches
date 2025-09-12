@@ -1,14 +1,17 @@
 package app.revanced.patches.youtube.layout.hide.relatedvideooverlay
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 
-internal val relatedEndScreenResultsParentFingerprint = fingerprint {
+internal val relatedEndScreenResultsParentFingerprint by fingerprint {
     returns("V")
-    literal{ appRelatedEndScreenResults }
+    instructions(
+        resourceLiteral(ResourceType.LAYOUT, "app_related_endscreen_results")
+    )
 }
 
-internal val relatedEndScreenResultsFingerprint = fingerprint {
+internal val relatedEndScreenResultsFingerprint by fingerprint {
     returns("V")
     parameters(
         "I",

@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 // This fingerprint targets a method that returns the daily measurement count.
 // This method is used to determine if the user has reached the daily limit of measurements.
-internal val getDailyMeasurementCountFingerprint = fingerprint {
+internal val getDailyMeasurementCountFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE)
     returns("I")
     strings("dailyMeasurementCount")

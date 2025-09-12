@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val playerRequestConstructorFingerprint = fingerprint {
+internal val playerRequestConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     strings("player")
 }
@@ -12,7 +12,7 @@ internal val playerRequestConstructorFingerprint = fingerprint {
 /**
  * Matches using the class found in [playerRequestConstructorFingerprint].
  */
-internal val createPlayerRequestBodyFingerprint = fingerprint {
+internal val createPlayerRequestBodyFingerprint by fingerprint {
     parameters("L")
     returns("V")
     opcodes(
@@ -26,7 +26,7 @@ internal val createPlayerRequestBodyFingerprint = fingerprint {
 /**
  * Used to get a reference to other clientInfo fields.
  */
-internal val setClientInfoFieldsFingerprint = fingerprint {
+internal val setClientInfoFieldsFingerprint by fingerprint {
     returns("L")
     strings("Google Inc.")
 }
@@ -34,6 +34,6 @@ internal val setClientInfoFieldsFingerprint = fingerprint {
 /**
  * Used to get a reference to the clientInfo and clientInfo.clientVersion field.
  */
-internal val setClientInfoClientVersionFingerprint = fingerprint {
+internal val setClientInfoClientVersionFingerprint by fingerprint {
     strings("10.29")
 }

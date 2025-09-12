@@ -5,7 +5,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#isBootStateOk (3.0.1)
-internal val bootStateFingerprint = fingerprint {
+internal val bootStateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("Z")
     opcodes(
@@ -30,7 +30,7 @@ internal val bootStateFingerprint = fingerprint {
 }
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#createKey (3.0.1)
-internal val createKeyFingerprint = fingerprint {
+internal val createKeyFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("Z")
     strings("attestation", "SHA-256", "random", "EC", "AndroidKeyStore")

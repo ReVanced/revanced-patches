@@ -4,14 +4,14 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val jwPlayerConfigFingerprint = fingerprint {
+internal val jwPlayerConfigFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     custom { methodDef, classDef ->
         classDef.type == "Lcom/jwplayer/pub/api/configuration/PlayerConfig${'$'}Builder;" && methodDef.name == "advertisingConfig"
     }
 }
 
-internal val screenMapperFingerprint = fingerprint {
+internal val screenMapperFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Lnl/nu/android/bff/domain/models/screen/ScreenEntity;")
     parameters("Lnl/nu/performance/api/client/objects/Screen;")
@@ -27,7 +27,7 @@ internal val screenMapperFingerprint = fingerprint {
     }
 }
 
-internal val nextPageRepositoryImplFingerprint = fingerprint {
+internal val nextPageRepositoryImplFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("Lnl/nu/android/bff/domain/models/Page;")
     parameters("Lnl/nu/performance/api/client/PacResponse;", "Ljava/lang/String;")

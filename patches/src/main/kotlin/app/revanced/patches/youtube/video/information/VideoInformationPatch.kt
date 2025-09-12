@@ -9,6 +9,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
@@ -82,6 +85,7 @@ val videoInformationPatch = bytecodePatch(
         sharedExtensionPatch,
         videoIdPatch,
         playerResponseMethodHookPatch,
+        versionCheckPatch,
     )
 
     execute {
@@ -127,12 +131,12 @@ val videoInformationPatch = bytecodePatch(
             val videoLengthMethodMatch = videoLengthFingerprint.match(originalClassDef)
 
             videoLengthMethodMatch.method.apply {
-                val videoLengthRegisterIndex = videoLengthMethodMatch.patternMatch!!.endIndex - 2
+                val videoLengthRegisterIndex = videoLengthMethodMatch.instructionMatches.last().index - 2
                 val videoLengthRegister = getInstruction<OneRegisterInstruction>(videoLengthRegisterIndex).registerA
                 val dummyRegisterForLong = videoLengthRegister + 1 // required for long values since they are wide
 
                 addInstruction(
-                    videoLengthMethodMatch.patternMatch!!.endIndex,
+                    videoLengthMethodMatch.instructionMatches.last().index,
                     "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, " +
                         "$EXTENSION_CLASS_DESCRIPTOR->setVideoLength(J)V",
                 )
@@ -161,7 +165,7 @@ val videoInformationPatch = bytecodePatch(
          * Set the video time method
          */
         timeMethod = navigate(playerControllerSetTimeReferenceFingerprint.originalMethod)
-            .to(playerControllerSetTimeReferenceFingerprint.patternMatch!!.startIndex)
+            .to(playerControllerSetTimeReferenceFingerprint.instructionMatches.first().index)
             .stop()
 
         /*
@@ -188,8 +192,8 @@ val videoInformationPatch = bytecodePatch(
                 getInstruction<ReferenceInstruction>(indexOfFirstInstructionOrThrow(Opcode.IF_EQZ) - 1).reference as FieldReference
 
             setPlaybackSpeedMethod =
-                proxy(classes.first { it.type == setPlaybackSpeedMethodReference.definingClass })
-                    .mutableClass.methods.first { it.name == setPlaybackSpeedMethodReference.name }
+                mutableClassBy(setPlaybackSpeedMethodReference.definingClass)
+                    .methods.first { it.name == setPlaybackSpeedMethodReference.name }
             setPlaybackSpeedMethodIndex = 0
 
             // Add override playback speed method.
@@ -262,20 +266,23 @@ val videoInformationPatch = bytecodePatch(
         // Handle new playback speed menu.
         playbackSpeedMenuSpeedChangedFingerprint.match(
             videoQualityChangedFingerprint.originalClassDef,
-        ).method.apply {
-            val index = indexOfFirstInstructionOrThrow(Opcode.IGET)
+        ).let {
+            it.method.apply {
+                val index = it.instructionMatches.first().index
 
-            speedSelectionInsertMethod = this
-            speedSelectionInsertIndex = index + 1
-            speedSelectionValueRegister = getInstruction<TwoRegisterInstruction>(index).registerA
+                speedSelectionInsertMethod = this
+                speedSelectionInsertIndex = index + 1
+                speedSelectionValueRegister = getInstruction<TwoRegisterInstruction>(index).registerA
+            }
         }
 
-        videoQualityFingerprint.let {
+        (if (is_20_19_or_greater) videoQualityFingerprint else videoQualityLegacyFingerprint).let {
             // Fix bad data used by YouTube.
+            val nameRegister = if (is_20_20_or_greater) "p3" else "p2"
             it.method.addInstructions(
                 0,
                 """
-                    invoke-static { p2, p1 }, $EXTENSION_CLASS_DESCRIPTOR->fixVideoQualityResolution(Ljava/lang/String;I)I    
+                    invoke-static { $nameRegister, p1 }, $EXTENSION_CLASS_DESCRIPTOR->fixVideoQualityResolution(Ljava/lang/String;I)I    
                     move-result p1
                 """
             )
@@ -345,11 +352,7 @@ val videoInformationPatch = bytecodePatch(
             val setQualityFieldReference = match.method
                 .getInstruction<ReferenceInstruction>(1).reference as FieldReference
 
-            proxy(
-                classes.find { classDef ->
-                    classDef.type == setQualityFieldReference.type
-                }!!
-            ).mutableClass.apply {
+            mutableClassBy(setQualityFieldReference.type).apply {
                 // Add interface and helper methods to allow extension code to call obfuscated methods.
                 interfaces.add(EXTENSION_VIDEO_QUALITY_MENU_INTERFACE)
 

@@ -60,19 +60,19 @@ val changeStartPagePatch = bytecodePatch(
         )
 
         // Hook browseId.
-        browseIdFingerprint.method.apply {
-            val browseIdIndex = indexOfFirstInstructionOrThrow {
-                getReference<StringReference>()?.string == "FEwhat_to_watch"
-            }
-            val browseIdRegister = getInstruction<OneRegisterInstruction>(browseIdIndex).registerA
+        browseIdFingerprint.let {
+            it.method.apply {
+                val browseIdIndex = it.instructionMatches.first().index
+                val browseIdRegister = getInstruction<OneRegisterInstruction>(browseIdIndex).registerA
 
-            addInstructions(
-                browseIdIndex + 1,
-                """
-                    invoke-static { v$browseIdRegister }, $EXTENSION_CLASS_DESCRIPTOR->overrideBrowseId(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$browseIdRegister
-                """,
-            )
+                addInstructions(
+                    browseIdIndex + 1,
+                    """
+                        invoke-static { v$browseIdRegister }, $EXTENSION_CLASS_DESCRIPTOR->overrideBrowseId(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$browseIdRegister
+                    """
+                )
+            }
         }
 
         // There is no browserId assigned to Shorts and Search.

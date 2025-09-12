@@ -3,7 +3,7 @@ package app.revanced.patches.idaustria.detection.signature
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val spoofSignatureFingerprint = fingerprint {
+internal val spoofSignatureFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE)
     returns("L")
     parameters("L")

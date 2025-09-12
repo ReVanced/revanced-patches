@@ -37,7 +37,7 @@ val spoofClientPatch = spoofClientPatch(
             returnEarly("Basic $auth")
 
             val occurrenceIndex =
-                getAuthorizationStringFingerprint.stringMatches!!.first().index
+                getAuthorizationStringFingerprint.stringMatches.first().index
 
             getAuthorizationStringFingerprint.method.apply {
                 val authorizationStringInstruction = getInstruction<ReferenceInstruction>(occurrenceIndex)
@@ -71,7 +71,7 @@ val spoofClientPatch = spoofClientPatch(
         // region Patch Imgur API URL.
 
         imgurImageAPIFingerprint.let {
-            val apiUrlIndex = it.stringMatches!!.first().index
+            val apiUrlIndex = it.stringMatches.first().index
             it.method.replaceInstruction(
                 apiUrlIndex,
                 "const-string v1, \"https://api.imgur.com/3/image\"",
