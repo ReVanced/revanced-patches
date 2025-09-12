@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.StringRef.str;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -53,11 +54,11 @@ public class SponsorBlockUtils {
         public void onClick(DialogInterface dialog, int which) {
             switch (which) {
                 case DialogInterface.BUTTON_NEGATIVE:
-                    // start
+                    // Start.
                     newSponsorSegmentStartMillis = newSponsorSegmentDialogShownMillis;
                     break;
                 case DialogInterface.BUTTON_POSITIVE:
-                    // end
+                    // End.
                     newSponsorSegmentEndMillis = newSponsorSegmentDialogShownMillis;
                     break;
             }
@@ -66,6 +67,7 @@ public class SponsorBlockUtils {
     };
     private static SegmentCategory newUserCreatedSegmentCategory;
     private static final DialogInterface.OnClickListener segmentTypeListener = new DialogInterface.OnClickListener() {
+        @SuppressLint("InlinedApi")
         @Override
         public void onClick(DialogInterface dialog, int which) {
             try {
@@ -88,6 +90,7 @@ public class SponsorBlockUtils {
         }
     };
     private static final DialogInterface.OnClickListener segmentReadyDialogButtonListener = new DialogInterface.OnClickListener() {
+        @SuppressLint("InlinedApi")
         @Override
         public void onClick(DialogInterface dialog, int which) {
             try {
@@ -98,7 +101,7 @@ public class SponsorBlockUtils {
                 SegmentCategory[] categories = SegmentCategory.categoriesWithoutHighlights();
                 CharSequence[] titles = new CharSequence[categories.length];
                 for (int i = 0, length = categories.length; i < length; i++) {
-                    titles[i] = categories[i].getTitleWithColorDot();
+                    titles[i] = categories[i].getTitle().toString();
                 }
 
                 newUserCreatedSegmentCategory = null;
@@ -124,7 +127,7 @@ public class SponsorBlockUtils {
         try {
             Context context = ((AlertDialog) dialog).getContext();
 
-            final boolean isStart = DialogInterface.BUTTON_NEGATIVE == which;
+            @SuppressLint("InlinedApi") final boolean isStart = DialogInterface.BUTTON_NEGATIVE == which;
 
             final EditText textView = new EditText(context);
             textView.setHint(MANUAL_EDIT_TIME_TEXT_HINT);
@@ -163,7 +166,7 @@ public class SponsorBlockUtils {
             SponsorSegment segment = segments[which];
 
             SegmentVote[] voteOptions = (segment.category == SegmentCategory.HIGHLIGHT)
-                    ? SegmentVote.voteTypesWithoutCategoryChange // highlight segments cannot change category
+                    ? SegmentVote.voteTypesWithoutCategoryChange // Highlight segments cannot change category.
                     : SegmentVote.values();
             final int voteOptionsLength = voteOptions.length;
             final boolean userIsVip = Settings.SB_USER_IS_VIP.get();
@@ -211,6 +214,7 @@ public class SponsorBlockUtils {
         newSponsorSegmentPreviewed = false;
     }
 
+    @SuppressLint("NewApi")
     private static void submitNewSegment() {
         try {
             Utils.verifyOnMainThread();
@@ -256,6 +260,7 @@ public class SponsorBlockUtils {
         }
     }
 
+    @SuppressWarnings("deprecation")
     public static void onPublishClicked() {
         try {
             Utils.verifyOnMainThread();
@@ -304,7 +309,7 @@ public class SponsorBlockUtils {
 
                 SpannableStringBuilder spannableBuilder = new SpannableStringBuilder();
 
-                spannableBuilder.append(segment.category.getTitleWithColorDot());
+                spannableBuilder.append(segment.category.getTitle().toString());
                 spannableBuilder.append('\n');
 
                 String startTime = formatSegmentTime(segment.start);
@@ -317,7 +322,7 @@ public class SponsorBlockUtils {
                 }
 
                 if (i + 1 != numberOfSegments) {
-                    // prevents trailing new line after last segment
+                    // Prevents trailing new line after last segment.
                     spannableBuilder.append('\n');
                 }
 
@@ -339,7 +344,7 @@ public class SponsorBlockUtils {
             final SegmentCategory[] values = SegmentCategory.categoriesWithoutHighlights();
             CharSequence[] titles = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
-                titles[i] = values[i].getTitleWithColorDot();
+                titles[i] = values[i].getTitle().toString();
             }
 
             new AlertDialog.Builder(context)
@@ -369,7 +374,6 @@ public class SponsorBlockUtils {
             Logger.printException(() -> "onPreviewClicked failure", ex);
         }
     }
-
 
     static void sendViewRequestAsync(SponsorSegment segment) {
         if (segment.recordedAsSkipped || segment.category == SegmentCategory.UNSUBMITTED) {
@@ -424,7 +428,6 @@ public class SponsorBlockUtils {
         String secondsStr = matcher.group(4);
         String millisecondsStr = matcher.group(6); // Milliseconds is optional.
 
-
         try {
             final int hours = (hoursStr != null) ? Integer.parseInt(hoursStr) : 0;
             //noinspection ConstantConditions
@@ -447,6 +450,7 @@ public class SponsorBlockUtils {
         }
     }
 
+    @SuppressLint("NewApi")
     private static String formatSegmentTime(long segmentTime) {
         // Use same time formatting as shown in the video player.
         final long videoLength = VideoInformation.getVideoLength();
@@ -475,6 +479,7 @@ public class SponsorBlockUtils {
         return String.format(Locale.US, formatPattern, formatArgs);
     }
 
+    @SuppressLint("NewApi")
     public static String getTimeSavedString(long totalSecondsSaved) {
         Duration duration = Duration.ofSeconds(totalSecondsSaved);
         final long hours = duration.toHours();
@@ -500,6 +505,7 @@ public class SponsorBlockUtils {
         private boolean settingStart;
         private WeakReference<EditText> editTextRef = new WeakReference<>(null);
 
+        @SuppressLint("InlinedApi")
         @Override
         public void onClick(DialogInterface dialog, int which) {
             try {

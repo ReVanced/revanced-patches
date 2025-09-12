@@ -91,7 +91,7 @@ public enum SegmentCategory {
     private static final Map<String, SegmentCategory> mValuesMap = new HashMap<>(2 * categoriesWithoutUnsubmitted.length);
 
     /**
-     * Categories currently enabled, formatted for an API call
+     * Categories currently enabled, formatted for an API call.
      */
     public static String sponsorBlockAPIFetchCategories = "[]";
 
@@ -159,27 +159,27 @@ public enum SegmentCategory {
     public final StringRef description;
 
     /**
-     * Skip button text, if the skip occurs in the first quarter of the video
+     * Skip button text, if the skip occurs in the first quarter of the video.
      */
     public final StringRef skipButtonTextBeginning;
     /**
-     * Skip button text, if the skip occurs in the middle half of the video
+     * Skip button text, if the skip occurs in the middle half of the video.
      */
     public final StringRef skipButtonTextMiddle;
     /**
-     * Skip button text, if the skip occurs in the last quarter of the video
+     * Skip button text, if the skip occurs in the last quarter of the video.
      */
     public final StringRef skipButtonTextEnd;
     /**
-     * Skipped segment toast, if the skip occurred in the first quarter of the video
+     * Skipped segment toast, if the skip occurred in the first quarter of the video.
      */
     public final StringRef skippedToastBeginning;
     /**
-     * Skipped segment toast, if the skip occurred in the middle half of the video
+     * Skipped segment toast, if the skip occurred in the middle half of the video.
      */
     public final StringRef skippedToastMiddle;
     /**
-     * Skipped segment toast, if the skip occurred in the last quarter of the video
+     * Skipped segment toast, if the skip occurred in the last quarter of the video.
      */
     public final StringRef skippedToastEnd;
 
@@ -265,6 +265,7 @@ public enum SegmentCategory {
     }
 
     /**
+     * Sets the opacity of the segment color.
      * @param opacity Segment color opacity between [0, 1].
      */
     public void setOpacity(float opacity) throws IllegalArgumentException {
@@ -290,6 +291,7 @@ public enum SegmentCategory {
     }
 
     /**
+     * Sets the segment color.
      * @param colorString Segment color with #RRGGBB format.
      */
     public void setColor(String colorString) throws IllegalArgumentException {
@@ -300,6 +302,7 @@ public enum SegmentCategory {
     }
 
     /**
+     * Gets the color without opacity.
      * @return Integer color of #RRGGBB format.
      */
     @ColorInt
@@ -308,6 +311,7 @@ public enum SegmentCategory {
     }
 
     /**
+     * Gets the default color without opacity.
      * @return Integer color of #RRGGBB format.
      */
     @ColorInt
@@ -316,17 +320,11 @@ public enum SegmentCategory {
     }
 
     /**
+     * Gets the color as a hex string.
      * @return Hex color string of #RRGGBB format with no opacity level.
      */
     public String getColorString() {
         return String.format(Locale.US, "#%06X", getColorNoOpacity());
-    }
-
-    private static SpannableString getCategoryColorDotSpan(String text, @ColorInt int color) {
-        SpannableString dotSpan = new SpannableString(COLOR_DOT_STRING + text);
-        dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        return dotSpan;
     }
 
     public static SpannableString getCategoryColorDot(@ColorInt int color) {
@@ -338,19 +336,12 @@ public enum SegmentCategory {
         return dotSpan;
     }
 
-    public SpannableString getCategoryColorDot() {
-        return getCategoryColorDot(color);
-    }
-
-    public SpannableString getTitleWithColorDot(@ColorInt int categoryColor) {
-        return getCategoryColorDotSpan(" " + title, categoryColor);
-    }
-
-    public SpannableString getTitleWithColorDot() {
-        return getTitleWithColorDot(color);
+    public StringRef getTitle() {
+        return title;
     }
 
     /**
+     * Gets the skip button text based on segment position.
      * @param segmentStartTime video time the segment category started
      * @param videoLength      length of the video
      * @return the skip button text
@@ -375,6 +366,7 @@ public enum SegmentCategory {
     }
 
     /**
+     * Gets the skipped segment toast message based on segment position.
      * @param segmentStartTime video time the segment category started
      * @param videoLength      length of the video
      * @return 'skipped segment' toast message

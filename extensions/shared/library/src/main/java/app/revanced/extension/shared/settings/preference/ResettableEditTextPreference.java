@@ -16,8 +16,8 @@ import androidx.annotation.Nullable;
 import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class ResettableEditTextPreference extends EditTextPreference {
@@ -66,7 +66,7 @@ public class ResettableEditTextPreference extends EditTextPreference {
 
             // Create custom dialog.
             String neutralButtonText = (setting != null) ? str("revanced_settings_reset") : null;
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     context,
                     getTitle() != null ? getTitle().toString() : "", // Title.
                     null,     // Message is replaced by EditText.

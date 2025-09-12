@@ -1,6 +1,9 @@
 package app.revanced.extension.youtube.patches;
 
+import java.util.List;
+
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.settings.Settings;
@@ -21,6 +24,14 @@ public class ForceOriginalAudioPatch {
             // Check conditions of launch and now. Otherwise if spoofing is changed
             // without a restart the setting will show as available when it's not.
             return PATCH_AVAILABLE && SpoofVideoStreamsPatch.notSpoofingToAndroid();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(
+                    BaseSettings.SPOOF_VIDEO_STREAMS,
+                    BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE
+            );
         }
     }
 

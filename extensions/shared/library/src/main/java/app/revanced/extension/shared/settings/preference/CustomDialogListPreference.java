@@ -12,14 +12,80 @@ import android.view.ViewGroup;
 import android.widget.*;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.ui.CustomDialog;
+
+import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 /**
- * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator.
+ * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator
+ * and supports a static summary that does not get overwritten.
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class CustomDialogListPreference extends ListPreference {
+
+    public static final int ID_REVANCED_CHECK_ICON =
+            getResourceIdentifier("revanced_check_icon", "id");
+    public static final int ID_REVANCED_CHECK_ICON_PLACEHOLDER =
+            getResourceIdentifier("revanced_check_icon_placeholder", "id");
+    public static final int ID_REVANCED_ITEM_TEXT =
+            getResourceIdentifier("revanced_item_text", "id");
+    public static final int LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED =
+            getResourceIdentifier("revanced_custom_list_item_checked", "layout");
+
+    private String staticSummary = null;
+    private CharSequence[] originalEntries = null;
+
+    /**
+     * Set a static summary that will not be overwritten by value changes.
+     */
+    public void setStaticSummary(String summary) {
+        this.staticSummary = summary;
+    }
+
+    /**
+     * Always return static summary if set.
+     */
+    @Override
+    public CharSequence getSummary() {
+        if (staticSummary != null) {
+            return staticSummary;
+        }
+        return super.getSummary();
+    }
+
+    /**
+     * Returns the static summary if set, otherwise null.
+     */
+    @Nullable
+    public String getStaticSummary() {
+        return staticSummary;
+    }
+
+    /**
+     * Override setEntries to store original entries for restoration.
+     */
+    @Override
+    public void setEntries(CharSequence[] entries) {
+        // Store original entries only on first call.
+        // This is necessary because during onPause, entries are cached and after resuming,
+        // the search result highlight is retained in the entries.
+        if (originalEntries == null && entries != null) {
+            originalEntries = entries.clone();
+        }
+        super.setEntries(entries);
+    }
+
+    /**
+     * Restore original entries, clearing any search highlighting.
+     */
+    public void restoreOriginalEntries() {
+        if (originalEntries != null) {
+            super.setEntries(originalEntries);
+        }
+    }
 
     /**
      * Custom ArrayAdapter to handle checkmark visibility.
@@ -35,8 +101,10 @@ public class CustomDialogListPreference extends ListPreference {
         final CharSequence[] entryValues;
         String selectedValue;
 
-        public ListPreferenceArrayAdapter(Context context, int resource, CharSequence[] entries,
-                                          CharSequence[] entryValues, String selectedValue) {
+        public ListPreferenceArrayAdapter(Context context, int resource,
+                                          CharSequence[] entries,
+                                          CharSequence[] entryValues,
+                                          String selectedValue) {
             super(context, resource, entries);
             this.layoutResourceId = resource;
             this.entryValues = entryValues;
@@ -53,12 +121,9 @@ public class CustomDialogListPreference extends ListPreference {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 view = inflater.inflate(layoutResourceId, parent, false);
                 holder = new SubViewDataContainer();
-                holder.checkIcon = view.findViewById(Utils.getResourceIdentifier(
-                        "revanced_check_icon", "id"));
-                holder.placeholder = view.findViewById(Utils.getResourceIdentifier(
-                        "revanced_check_icon_placeholder", "id"));
-                holder.itemText = view.findViewById(Utils.getResourceIdentifier(
-                        "revanced_item_text", "id"));
+                holder.checkIcon = view.findViewById(ID_REVANCED_CHECK_ICON);
+                holder.placeholder = view.findViewById(ID_REVANCED_CHECK_ICON_PLACEHOLDER);
+                holder.itemText = view.findViewById(ID_REVANCED_ITEM_TEXT);
                 view.setTag(holder);
             } else {
                 holder = (SubViewDataContainer) view.getTag();
@@ -111,7 +176,7 @@ public class CustomDialogListPreference extends ListPreference {
         // Create custom adapter for the ListView.
         ListPreferenceArrayAdapter adapter = new ListPreferenceArrayAdapter(
                 context,
-                Utils.getResourceIdentifier("revanced_custom_list_item_checked", "layout"),
+                LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED,
                 getEntries(),
                 getEntryValues(),
                 getValue()
@@ -132,13 +197,13 @@ public class CustomDialogListPreference extends ListPreference {
         }
 
         // Create the custom dialog without OK button.
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 getTitle() != null ? getTitle().toString() : "",
                 null,
                 null,
-                null, // No OK button text.
-                null, // No OK button action.
+                null,
+                null,
                 () -> {}, // Cancel button action (just dismiss).
                 null,
                 null,
