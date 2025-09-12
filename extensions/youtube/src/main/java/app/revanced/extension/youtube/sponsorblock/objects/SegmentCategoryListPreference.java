@@ -158,14 +158,14 @@ public class SegmentCategoryListPreference extends CustomDialogListPreference {
                 public void afterTextChanged(Editable edit) {
                     try {
                         String colorString = edit.toString();
-                        String normalizedColorString = ColorPickerPreference.cleanupColorCodeString(colorString);
+                        String normalizedColorString = cleanupColorCodeString(colorString);
 
                         if (!normalizedColorString.equals(colorString)) {
                             edit.replace(0, colorString.length(), normalizedColorString);
                             return;
                         }
 
-                        if (normalizedColorString.length() != ColorPickerPreference.COLOR_STRING_LENGTH) {
+                        if (normalizedColorString.length() != COLOR_STRING_LENGTH) {
                             // User is still typing out the color.
                             return;
                         }
@@ -384,6 +384,7 @@ public class SegmentCategoryListPreference extends CustomDialogListPreference {
             case SELF_PROMO -> Settings.SB_CATEGORY_SELF_PROMO;
             case INTERACTION -> Settings.SB_CATEGORY_INTERACTION;
             case HIGHLIGHT -> Settings.SB_CATEGORY_HIGHLIGHT;
+            case HOOK -> Settings.SB_CATEGORY_HOOK;
             case INTRO -> Settings.SB_CATEGORY_INTRO;
             case OUTRO -> Settings.SB_CATEGORY_OUTRO;
             case PREVIEW -> Settings.SB_CATEGORY_PREVIEW;
