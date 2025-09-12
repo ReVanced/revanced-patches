@@ -1,3 +1,10 @@
+# [5.36.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.35.1-dev.1...v5.36.0-dev.1) (2025-09-12)
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add 'Hook' segment category ([#5783](https://github.com/ReVanced/revanced-patches/issues/5783)) ([2e042c4](https://github.com/ReVanced/revanced-patches/commit/2e042c4b3366fa3daf991d5560fcae991d00ad12))
+
 ## [5.35.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.35.0...v5.35.1-dev.1) (2025-09-11)
 
 
