@@ -1,8 +1,11 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
 import app.revanced.patcher.fingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -56,3 +59,20 @@ internal val rectangleFieldInvalidatorFingerprint = fingerprint {
         reference?.parameterTypes?.size == 1 && reference.name == "invalidate" // the reference is the invalidate(..) method
     }
 }
+
+internal val adProgressTextViewVisibilityFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("Z")
+    custom { method, _ ->
+        indexOfAdProgressTextViewVisibilityInstruction(method) >= 0
+    }
+}
+
+internal fun indexOfAdProgressTextViewVisibilityInstruction(method: Method) =
+    method.indexOfFirstInstructionReversed {
+        val reference = getReference<MethodReference>()
+        reference?.definingClass ==
+                "Lcom/google/android/libraries/youtube/ads/player/ui/AdProgressTextView;"
+                && reference.name =="setVisibility"
+    }

@@ -252,5 +252,16 @@ val sponsorBlockPatch = bytecodePatch(
                     }
                 } ?: throw PatchException("Could not find the method which contains the replaceMeWith* strings")
         }
+
+        adProgressTextViewVisibilityFingerprint.method.apply {
+            val index = indexOfAdProgressTextViewVisibilityInstruction(this)
+            val register = getInstruction<FiveRegisterInstruction>(index).registerD
+
+            addInstructionsAtControlFlowLabel(
+                index,
+                "invoke-static { v$register }, $EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setAdProgressTextVisibility(I)V"
+            )
+        }
+
     }
 }

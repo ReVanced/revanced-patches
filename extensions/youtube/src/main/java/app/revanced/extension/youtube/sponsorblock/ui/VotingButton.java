@@ -28,7 +28,7 @@ public class VotingButton {
                     controlsView,
                     "revanced_sb_voting_button",
                     null,
-                    VotingButton::shouldBeShown,
+                    VotingButton::isButtonEnabled,
                     v -> SponsorBlockUtils.onVotingClicked(v.getContext()),
                     null
             );
@@ -58,8 +58,9 @@ public class VotingButton {
         if (instance != null) instance.setVisibility(visible, animated);
     }
 
-    private static boolean shouldBeShown() {
+    private static boolean isButtonEnabled() {
         return Settings.SB_ENABLED.get() && Settings.SB_VOTING_BUTTON.get()
-                && SegmentPlaybackController.videoHasSegments();
+                && SegmentPlaybackController.videoHasSegments()
+                && !SegmentPlaybackController.isAdProgressTextVisible();
     }
 }
