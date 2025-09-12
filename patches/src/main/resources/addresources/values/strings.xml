@@ -1159,12 +1159,12 @@ Your user id is like a password and it should never be shared.
             <string name="revanced_sb_segments_intro_sum">An interval without actual content. Could be a pause, static frame, or repeating animation. Does not include transitions containing information</string>
             <string name="revanced_sb_segments_outro">Endcards / Credits</string>
             <string name="revanced_sb_segments_outro_sum">Credits or when the YouTube endcards appear. Not for conclusions with information</string>
-            <string name="revanced_sb_segments_hook">Hook / Greeting</string>
-            <string name="revanced_sb_segments_hook_sum">Narrated trailers for the upcoming video, greetings and goodbyes. This should not skip conclusions with information</string>
+            <string name="revanced_sb_segments_hook">Hook / Greetings</string>
+            <string name="revanced_sb_segments_hook_sum">Narrated trailers for the upcoming video, greetings and goodbyes. Does not include sections that add additional content</string>
             <string name="revanced_sb_segments_preview">Preview / Recap</string>
             <string name="revanced_sb_segments_preview_sum">Collection of clips that show what is coming up or what happened in the video or in other videos of a series, where all information is repeated elsewhere</string>
             <string name="revanced_sb_segments_filler">Tangent / Jokes</string>
-            <string name="revanced_sb_segments_filler_sum">Tangential scenes or jokes that are not required to understand the main content of the video. This should not include segments providing context or background details</string>
+            <string name="revanced_sb_segments_filler_sum">Tangential scenes or jokes that are not required to understand the main content of the video. Does not include sections providing context or background details</string>
             <string name="revanced_sb_segments_nomusic">Music: Non-Music Section</string>
             <string name="revanced_sb_segments_nomusic_sum">Only for use in music videos. Sections of music videos without music, that aren\'t already covered by another category</string>
             <string name="revanced_sb_skip_button_compact">Skip</string>
