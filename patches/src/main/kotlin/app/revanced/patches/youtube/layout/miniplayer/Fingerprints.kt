@@ -174,6 +174,9 @@ internal val miniplayerOverrideNoContextFingerprint by fingerprint {
     )
 }
 
+/**
+ * 20.36 and lower. Codes appears to be removed in 20.37+
+ */
 internal val miniplayerResponseModelSizeCheckFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")

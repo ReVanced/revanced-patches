@@ -10,17 +10,22 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val toolBarButtonFingerprint by fingerprint {
-    returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Landroid/view/MenuItem;")
+    returns("V")
     instructions(
         resourceLiteral(ResourceType.ID, "menu_item_view"),
         methodCall(returnType = "I", opcode = Opcode.INVOKE_INTERFACE),
-        opcode(Opcode.MOVE_RESULT, maxAfter = 0), // Value is zero if resource does not exist.
+        opcode(Opcode.MOVE_RESULT, maxAfter = 0),
         fieldAccess(type = "Landroid/widget/ImageView;", opcode = Opcode.IGET_OBJECT, maxAfter = 6),
         methodCall("Landroid/content/res/Resources;", "getDrawable", maxAfter = 8),
         methodCall("Landroid/widget/ImageView;", "setImageDrawable", maxAfter = 4)
     )
+    custom { method, _ ->
+        // 20.37+ has second parameter of "Landroid/content/Context;"
+        val parameterCount = method.parameterTypes.count()
+        (parameterCount == 1 || parameterCount == 2)
+                && method.parameterTypes.firstOrNull() == "Landroid/view/MenuItem;"
+    }
 }
 
 internal val spoofAppVersionFingerprint by fingerprint {

@@ -99,8 +99,14 @@ val miniplayerPatch = bytecodePatch(
 
 
         preferences +=
-            if (is_20_03_or_greater) {
+            if (is_20_37_or_greater) {
                 ListPreference("revanced_miniplayer_type")
+            } else if (is_20_03_or_greater) {
+                ListPreference(
+                    key = "revanced_miniplayer_type",
+                    entriesKey = "revanced_miniplayer_type_legacy_20_03_entries",
+                    entryValuesKey = "revanced_miniplayer_type_legacy_20_03_entry_values"
+                )
             } else if (is_19_43_or_greater) {
                 ListPreference(
                     key = "revanced_miniplayer_type",
@@ -210,7 +216,7 @@ val miniplayerPatch = bytecodePatch(
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(F)F
                         move-result v$register
-                    """,
+                    """
                 )
             }
         }
@@ -226,30 +232,41 @@ val miniplayerPatch = bytecodePatch(
                 """
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getModernMiniplayerOverrideType(I)I
                     move-result v$register
-                """,
+                """
             )
         }
 
         // region Enable tablet miniplayer.
+        // Parts of the YT code is removed in 20.37+ and the legacy player no longer works.
 
-        miniplayerOverrideNoContextFingerprint.match(
-            miniplayerDimensionsCalculatorParentFingerprint.originalClassDef,
-        ).method.apply {
-            findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
-        }
-
-        // endregion
-
-        // region Legacy tablet miniplayer hooks.
-        miniplayerOverrideFingerprint.let {
-            val appNameStringIndex = it.instructionMatches.last().index
-            navigate(it.originalMethod).to(appNameStringIndex).stop().apply {
-                findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
+        if (!is_20_37_or_greater) {
+            miniplayerOverrideNoContextFingerprint.match(
+                miniplayerDimensionsCalculatorParentFingerprint.originalClassDef,
+            ).method.apply {
+                findReturnIndicesReversed().forEach { index ->
+                    insertLegacyTabletMiniplayerOverride(
+                        index
+                    )
+                }
             }
-        }
 
-        miniplayerResponseModelSizeCheckFingerprint.let {
-            it.method.insertLegacyTabletMiniplayerOverride(it.instructionMatches.last().index)
+            // endregion
+
+            // region Legacy tablet miniplayer hooks.
+            miniplayerOverrideFingerprint.let {
+                val appNameStringIndex = it.instructionMatches.last().index
+                navigate(it.originalMethod).to(appNameStringIndex).stop().apply {
+                    findReturnIndicesReversed().forEach { index ->
+                        insertLegacyTabletMiniplayerOverride(
+                            index
+                        )
+                    }
+                }
+            }
+
+            miniplayerResponseModelSizeCheckFingerprint.let {
+                it.method.insertLegacyTabletMiniplayerOverride(it.instructionMatches.last().index)
+            }
         }
 
         // endregion
