@@ -400,6 +400,12 @@ public final class app/revanced/patches/music/misc/spoof/UserAgentClientSpoofPat
 	public static final fun getUserAgentClientSpoofPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/playservice/VersionCheckPatchKt {
+	public static final fun getVersionCheckPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun is_7_33_or_greater ()Z
+	public static final fun is_8_11_or_greater ()Z
+}
+
 public final class app/revanced/patches/myexpenses/misc/pro/UnlockProPatchKt {
 	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
