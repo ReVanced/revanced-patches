@@ -125,7 +125,6 @@ public abstract class SearchResultItem {
         final CharSequence originalSummaryOn;
         final CharSequence originalSummaryOff;
         final CharSequence[] originalEntries;
-        CharSequence[] highlightedEntries;
 
         @ColorInt
         private int color;
@@ -144,7 +143,6 @@ public abstract class SearchResultItem {
             this.originalSummaryOn = result.summaryOn;
             this.originalSummaryOff = result.summaryOff;
             this.originalEntries = result.entries;
-            this.highlightedEntries = result.entries != null ? result.entries.clone() : null;
 
             // Build searchable text.
             this.searchableText = buildSearchableText(pref);
@@ -177,7 +175,9 @@ public abstract class SearchResultItem {
                 this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) | 0xFF000000);
             } else if (pref instanceof SegmentCategoryListPreference segmentPref) {
                 this.color = segmentPref.getColorWithOpacity();
-            }
+            } else if (pref instanceof ListPreference listPref) {
+                result.entries = listPref.getEntries();
+        }
 
             return result;
         }
@@ -249,7 +249,7 @@ public abstract class SearchResultItem {
         }
 
         /**
-         * Highlights the search query in the title, summary and entries.
+         * Highlights the search query in the title and summary.
          */
         @Override
         void applyHighlighting(Pattern queryPattern) {
@@ -259,14 +259,6 @@ public abstract class SearchResultItem {
             // Get the current effective summary and highlight it.
             CharSequence currentSummary = getCurrentEffectiveSummary();
             highlightedSummary = highlightSearchQuery(currentSummary, queryPattern);
-
-            // Highlight entries.
-            if (originalEntries != null) {
-                highlightedEntries = new CharSequence[originalEntries.length];
-                for (int i = 0; i < originalEntries.length; i++) {
-                    highlightedEntries[i] = highlightSearchQuery(originalEntries[i], queryPattern);
-                }
-            }
 
             highlightingApplied = true;
         }
@@ -283,15 +275,6 @@ public abstract class SearchResultItem {
 
             // Restore current effective summary without highlighting.
             highlightedSummary = getCurrentEffectiveSummary();
-
-            // Restore original entries.
-            if (originalEntries != null) {
-                highlightedEntries = originalEntries.clone();
-
-                if (preference instanceof ListPreference listPref) {
-                    listPref.setEntries(originalEntries);
-                }
-            }
 
             highlightingApplied = false;
         }

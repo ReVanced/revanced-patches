@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.*;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ui.CustomDialog;
@@ -53,14 +52,6 @@ public class CustomDialogListPreference extends ListPreference {
             return staticSummary;
         }
         return super.getSummary();
-    }
-
-    /**
-     * Returns the static summary if set, otherwise null.
-     */
-    @Nullable
-    public String getStaticSummary() {
-        return staticSummary;
     }
 
     /**
