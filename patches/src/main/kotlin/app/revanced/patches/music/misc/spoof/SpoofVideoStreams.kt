@@ -13,7 +13,7 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
             )
         )
 
-        dependsOn(versionCheckPatch,  userAgentClientSpoofPatch)
+        dependsOn(versionCheckPatch, userAgentClientSpoofPatch)
     },
     fixMediaFetchHotConfigChanges = { true },
     fixMediaFetchHotConfigAlternativeChanges = { is_8_11_or_greater },
