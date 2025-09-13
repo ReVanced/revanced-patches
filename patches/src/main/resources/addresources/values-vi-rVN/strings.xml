@@ -1076,10 +1076,12 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
   <string name="revanced_sb_segments_intro_sum">Một khoảng thời gian không có nội dung thực tế. Có thể là tạm dừng, khung hình tĩnh hoặc hoạt ảnh lặp lại. Không bao gồm các phần chuyển cảnh chứa thông tin</string>
   <string name="revanced_sb_segments_outro">Màn hình kết thúc / Danh đề</string>
   <string name="revanced_sb_segments_outro_sum">Danh đề hoặc khi màn hình kết thúc của YouTube xuất hiện. Không dành cho phần kết có chứa thông tin</string>
-  <string name="revanced_sb_segments_preview">Xem trước / Tóm tắt / Gây chú ý</string>
+  <string name="revanced_sb_segments_hook">Mở đầu / Chào hỏi</string>
+  <string name="revanced_sb_segments_hook_sum">Đoạn giới thiệu có lời dẫn cho video sắp tới, lời chào và lời tạm biệt. Không bao gồm các phần thêm nội dung bổ sung</string>
+  <string name="revanced_sb_segments_preview">Xem trước / Tóm tắt</string>
   <string name="revanced_sb_segments_preview_sum">Tuyển tập các đoạn cắt cho thấy những gì sắp diễn ra hoặc đã xảy ra trong video hoặc trong các video khác của một sê-ri, trong đó tất cả thông tin được lặp lại ở nơi khác</string>
-  <string name="revanced_sb_segments_filler">Nội dung thừa / Lạc đề / Câu đùa</string>
-  <string name="revanced_sb_segments_filler_sum">Các cảnh phụ chỉ được thêm vào để kéo dài thời lượng hoặc gây hài, không cần thiết để hiểu nội dung chính của video. Không bao gồm các phân đoạn cung cấp bối cảnh hoặc chi tiết nền</string>
+  <string name="revanced_sb_segments_filler">Lạc đề / Câu đùa</string>
+  <string name="revanced_sb_segments_filler_sum">Các cảnh phụ hoặc trò đùa không cần thiết để hiểu nội dung chính của video. Không bao gồm các phần cung cấp bối cảnh hoặc chi tiết nền</string>
   <string name="revanced_sb_segments_nomusic">Âm nhạc: Phần không phải âm nhạc</string>
   <string name="revanced_sb_segments_nomusic_sum">Chỉ dành cho video âm nhạc. Phần của video âm nhạc nhưng không có nhạc, mà cũng không được phân loại vào danh mục khác</string>
   <string name="revanced_sb_skip_button_compact">Bỏ qua</string>
@@ -1092,10 +1094,11 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
   <string name="revanced_sb_skip_button_intro_middle">Bỏ qua phần gián đoạn</string>
   <string name="revanced_sb_skip_button_intro_end">Bỏ qua phần gián đoạn</string>
   <string name="revanced_sb_skip_button_outro">Bỏ qua kết thúc</string>
+  <string name="revanced_sb_skip_button_hook">Bỏ qua đoạn mở đầu</string>
   <string name="revanced_sb_skip_button_preview_beginning">Bỏ qua xem trước</string>
   <string name="revanced_sb_skip_button_preview_middle">Bỏ qua xem trước</string>
   <string name="revanced_sb_skip_button_preview_end">Bỏ qua tóm tắt</string>
-  <string name="revanced_sb_skip_button_filler">Bỏ qua cảnh phụ</string>
+  <string name="revanced_sb_skip_button_filler">Bỏ qua đoạn lạc đề</string>
   <string name="revanced_sb_skip_button_nomusic">Bỏ qua phần không nhạc</string>
   <string name="revanced_sb_skip_button_unsubmitted">Bỏ qua phân đoạn</string>
   <string name="revanced_sb_skipped_sponsor">Đã bỏ qua nhà tài trợ</string>
@@ -1106,6 +1109,7 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
   <string name="revanced_sb_skipped_intro_middle">Đã bỏ qua phần gián đoạn</string>
   <string name="revanced_sb_skipped_intro_end">Đã bỏ qua phần gián đoạn</string>
   <string name="revanced_sb_skipped_outro">Đã bỏ qua kết thúc</string>
+  <string name="revanced_sb_skipped_hook">Đã bỏ qua đoạn mở đầu</string>
   <string name="revanced_sb_skipped_preview_beginning">Đã bỏ qua xem trước</string>
   <string name="revanced_sb_skipped_preview_middle">Đã bỏ qua xem trước</string>
   <string name="revanced_sb_skipped_preview_end">Đã bỏ qua tóm tắt</string>

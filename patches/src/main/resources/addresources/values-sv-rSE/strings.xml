@@ -1074,10 +1074,12 @@ Ditt användar-id är som ett lösenord och det bör aldrig delas."</string>
   <string name="revanced_sb_segments_intro_sum">Ett intervall utan faktiskt innehåll. Kan vara en paus, statisk ram eller upprepande animation. Inkluderar inte övergångar som innehåller information</string>
   <string name="revanced_sb_segments_outro">Slutkort/eftertexter</string>
   <string name="revanced_sb_segments_outro_sum">Eftertexter eller när YouTube-slutkort visas. Inte för slut med information</string>
-  <string name="revanced_sb_segments_preview">Förhandstitt/sammanfattning/hook</string>
+  <string name="revanced_sb_segments_hook">Inledning / Hälsningar</string>
+  <string name="revanced_sb_segments_hook_sum">Berättade trailers för kommande video, hälsningar och avsked. Inkluderar inte avsnitt som lägger till extra innehåll</string>
+  <string name="revanced_sb_segments_preview">Förhandstitt/Sammanfattning</string>
   <string name="revanced_sb_segments_preview_sum">Samling av klipp som visar vad som kommer eller vad som hände i videon eller i andra videor i en serie, där all information upprepas någon annanstans</string>
-  <string name="revanced_sb_segments_filler">Ämnesavvikelse/skämt</string>
-  <string name="revanced_sb_segments_filler_sum">Ämnesavvikande scener som endast läggs till som utfyllnad eller för humor som inte krävs för att förstå det huvudsakliga innehållet i videon. Inkluderar inte segment som tillhandahåller kontext eller bakgrundsinformation</string>
+  <string name="revanced_sb_segments_filler">Ämnesavvikelse/Skämt</string>
+  <string name="revanced_sb_segments_filler_sum">Ämnesavvikande scener eller skämt som inte krävs för att förstå videons huvudsakliga innehåll. Inkluderar inte avsnitt som tillhandahåller kontext eller bakgrundsinformation</string>
   <string name="revanced_sb_segments_nomusic">Musik: Icke-musiksektion</string>
   <string name="revanced_sb_segments_nomusic_sum">Endast för användning i musikvideor. Sektioner av musikvideor utan musik, som inte redan omfattas av en annan kategori</string>
   <string name="revanced_sb_skip_button_compact">Hoppa över</string>
@@ -1090,6 +1092,7 @@ Ditt användar-id är som ett lösenord och det bör aldrig delas."</string>
   <string name="revanced_sb_skip_button_intro_middle">Hoppa över uppehåll</string>
   <string name="revanced_sb_skip_button_intro_end">Hoppa över uppehåll</string>
   <string name="revanced_sb_skip_button_outro">Hoppa över outro</string>
+  <string name="revanced_sb_skip_button_hook">Hoppa över inledningen</string>
   <string name="revanced_sb_skip_button_preview_beginning">Hoppa över förhandstitt</string>
   <string name="revanced_sb_skip_button_preview_middle">Hoppa över förhandstitt</string>
   <string name="revanced_sb_skip_button_preview_end">Hoppa över sammanfattning</string>
@@ -1104,6 +1107,7 @@ Ditt användar-id är som ett lösenord och det bör aldrig delas."</string>
   <string name="revanced_sb_skipped_intro_middle">Hoppade över uppehåll</string>
   <string name="revanced_sb_skipped_intro_end">Hoppade över uppehåll</string>
   <string name="revanced_sb_skipped_outro">Hoppade över outro</string>
+  <string name="revanced_sb_skipped_hook">Hoppade över inledningen</string>
   <string name="revanced_sb_skipped_preview_beginning">Hoppade över förhandstitt</string>
   <string name="revanced_sb_skipped_preview_middle">Hoppade över förhandstitt</string>
   <string name="revanced_sb_skipped_preview_end">Hoppade över sammanfattning</string>

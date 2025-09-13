@@ -1078,10 +1078,12 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_segments_intro_sum">実際のコンテンツを含まない区間。一時停止、静止画、繰り返しアニメーションなど。情報を含むトランジッション (場面転換) は、このカテゴリーではありません</string>
   <string name="revanced_sb_segments_outro">終了画面 / クレジット</string>
   <string name="revanced_sb_segments_outro_sum">クレジット、または YouTube の終了画面が表示される場面。情報を含む結論、まとめ部分は、このカテゴリーには含まれません</string>
-  <string name="revanced_sb_segments_preview">予告編 / 総集編 / フック</string>
+  <string name="revanced_sb_segments_hook">フック / あいさつ</string>
+  <string name="revanced_sb_segments_hook_sum">今後の動画のナレーション付きの予告編、および開幕と別れのあいさつ。重複しない内容や情報を追加する場面は含まれません</string>
+  <string name="revanced_sb_segments_preview">予告編 / 総集編</string>
   <string name="revanced_sb_segments_preview_sum">その動画またはシリーズ内の他の動画で過去に起きたこと、または今後起こることを示すクリップのコレクション。このクリップ群に含まれるすべての情報は、同じ動画の他の部分や他の動画で繰り返されます</string>
-  <string name="revanced_sb_segments_filler">尺稼ぎの余談 / 冗談</string>
-  <string name="revanced_sb_segments_filler_sum">動画の本筋を理解するために必要のない、尺稼ぎやユーモアのみを目的として追加された脱線的な場面。コンテキストや背景情報を提供する場面は、このカテゴリーに含まれません</string>
+  <string name="revanced_sb_segments_filler">余談 / 冗談</string>
+  <string name="revanced_sb_segments_filler_sum">動画の本筋を理解するために必要のない脱線的な場面または冗談。コンテキストや背景情報を提供する場面は含まれません</string>
   <string name="revanced_sb_segments_nomusic">音楽: 楽曲以外の区間</string>
   <string name="revanced_sb_segments_nomusic_sum">ミュージック ビデオ専用。ミュージック ビデオの中で楽曲が流れていない区間であり、公式や他のメディアの音源に存在しない区間</string>
   <string name="revanced_sb_skip_button_compact">スキップ</string>
@@ -1094,6 +1096,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_skip_button_intro_middle">幕間をスキップ</string>
   <string name="revanced_sb_skip_button_intro_end">幕間をスキップ</string>
   <string name="revanced_sb_skip_button_outro">エンディングをスキップ</string>
+  <string name="revanced_sb_skip_button_hook">フックをスキップ</string>
   <string name="revanced_sb_skip_button_preview_beginning">予告編をスキップ</string>
   <string name="revanced_sb_skip_button_preview_middle">予告編をスキップ</string>
   <string name="revanced_sb_skip_button_preview_end">総集編をスキップ</string>
@@ -1108,6 +1111,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_skipped_intro_middle">幕間をスキップしました</string>
   <string name="revanced_sb_skipped_intro_end">幕間をスキップしました</string>
   <string name="revanced_sb_skipped_outro">エンディングをスキップしました</string>
+  <string name="revanced_sb_skipped_hook">フックをスキップしました</string>
   <string name="revanced_sb_skipped_preview_beginning">予告編をスキップしました</string>
   <string name="revanced_sb_skipped_preview_middle">予告編をスキップしました</string>
   <string name="revanced_sb_skipped_preview_end">総集編をスキップしました</string>
@@ -1162,7 +1166,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
 送信しますか？"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">開始位置を終了位置よりも前にしてください</string>
   <string name="revanced_sb_new_segment_mark_locations_first">先に開始位置と終了位置を設定してください</string>
-  <string name="revanced_sb_new_segment_preview_segment_first">セグメントをプレビューして、スムーズにスキップすることを確認してください</string>
+  <string name="revanced_sb_new_segment_preview_segment_first">セグメントをテストしてスムーズにスキップすることを確認してください</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">セグメントの範囲を手動で編集</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">セグメントの開始位置または終了位置を編集しますか？</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">時間 (位置) の値が無効です</string>
