@@ -196,13 +196,16 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                     switchHolder.switchWidget.setChecked(currentState);
                     switchHolder.switchWidget.jumpDrawablesToCurrentState();
                 }
+                prefItem.refreshHighlighting();
                 switchHolder.summaryView.setText(prefItem.highlightedSummary);
                 switchHolder.summaryView.setVisibility(TextUtils.isEmpty(prefItem.highlightedSummary) ? View.GONE : View.VISIBLE);
+
                 setupPreferenceView(view, switchHolder.titleView, switchHolder.summaryView, switchPref,
                         () -> {
                             boolean newState = !switchPref.isChecked();
                             switchPref.setChecked(newState);
                             switchHolder.switchWidget.setChecked(newState);
+                            prefItem.refreshHighlighting();
                             switchHolder.summaryView.setText(prefItem.getCurrentEffectiveSummary());
                             switchHolder.summaryView.setVisibility(TextUtils.isEmpty(prefItem.highlightedSummary) ? View.GONE : View.VISIBLE);
                             // Notify preference change.

@@ -129,6 +129,9 @@ public abstract class SearchResultItem {
         @ColorInt
         private int color;
 
+        // Store last applied highlighting pattern to reapply when needed.
+        Pattern lastQueryPattern;
+
         PreferenceSearchItem(Preference pref, String navPath, List<String> navKeys) {
             super(navPath, navKeys, determineType(pref));
             this.preference = pref;
@@ -137,6 +140,7 @@ public abstract class SearchResultItem {
             this.highlightedTitle = this.originalTitle;
             this.highlightedSummary = this.originalSummary != null ? this.originalSummary : "";
             this.color = 0;
+            this.lastQueryPattern = null;
 
             // Initialize type-specific fields and create immutable backups.
             FieldInitializationResult result = initTypeSpecificFields(pref);
@@ -253,6 +257,7 @@ public abstract class SearchResultItem {
          */
         @Override
         void applyHighlighting(Pattern queryPattern) {
+            this.lastQueryPattern = queryPattern;
             // Highlight the title.
             highlightedTitle = highlightSearchQuery(originalTitle, queryPattern);
 
@@ -277,6 +282,18 @@ public abstract class SearchResultItem {
             highlightedSummary = getCurrentEffectiveSummary();
 
             highlightingApplied = false;
+            lastQueryPattern = null;
+        }
+
+        /**
+         * Refreshes highlighting for dynamic summaries (like switch preferences).
+         * Should be called when the preference state changes.
+         */
+        public void refreshHighlighting() {
+            if (highlightingApplied && lastQueryPattern != null) {
+                CharSequence currentSummary = getCurrentEffectiveSummary();
+                highlightedSummary = highlightSearchQuery(currentSummary, lastQueryPattern);
+            }
         }
 
         public void setColor(int newColor) {
