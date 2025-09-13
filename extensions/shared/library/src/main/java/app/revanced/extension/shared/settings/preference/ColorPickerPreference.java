@@ -35,6 +35,8 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.shared.ui.ColorDot;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 /**
  * A custom preference for selecting a color via a hexadecimal code or a color picker dialog.
@@ -62,7 +64,7 @@ public class ColorPickerPreference extends EditTextPreference {
     /**
      * Alpha for dimming when the preference is disabled.
      */
-    private static final float DISABLED_ALPHA = 0.5f; // 50%
+    public static final float DISABLED_ALPHA = 0.5f; // 50%
 
     /**
      * View displaying a colored dot in the widget area.
@@ -96,6 +98,20 @@ public class ColorPickerPreference extends EditTextPreference {
     private ColorPickerView dialogColorPickerView;
 
     /**
+     * Listener for color changes.
+     */
+    private OnColorChangeListener colorChangeListener;
+
+    public static final int ID_REVANCED_COLOR_PICKER_VIEW =
+            getResourceIdentifier("revanced_color_picker_view", "id");
+    public static final int ID_PREFERENCE_COLOR_DOT =
+            getResourceIdentifier("preference_color_dot", "id");
+    public static final int LAYOUT_REVANCED_COLOR_DOT_WIDGET =
+            getResourceIdentifier("revanced_color_dot_widget", "layout");
+    public static final int LAYOUT_REVANCED_COLOR_PICKER =
+            getResourceIdentifier("revanced_color_picker", "layout");
+
+    /**
      * Removes non valid hex characters, converts to all uppercase,
      * and adds # character to the start if not present.
      */
@@ -116,12 +132,8 @@ public class ColorPickerPreference extends EditTextPreference {
      * @return #RRGGBB hex color string
      */
     public static String getColorString(@ColorInt int color) {
-        String colorString = String.format("#%06X", color);
-        if ((color & 0xFF000000) != 0) {
-            // Likely a bug somewhere.
-            Logger.printException(() -> "getColorString: color has alpha channel: " + colorString);
-        }
-        return colorString;
+        color = color & 0x00FFFFFF;  // Always mask to strip any alpha.
+        return String.format("#%06X", color);
     }
 
     /**
@@ -137,6 +149,20 @@ public class ColorPickerPreference extends EditTextPreference {
         spannable.setSpan(new RelativeSizeSpan(1.5f), 0, 1,
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return spannable;
+    }
+
+    /**
+     * Interface for notifying color changes.
+     */
+    public interface OnColorChangeListener {
+        void onColorChanged(String key, int newColor);
+    }
+
+    /**
+     * Sets the listener for color changes.
+     */
+    public void setOnColorChangeListener(OnColorChangeListener listener) {
+        this.colorChangeListener = listener;
     }
 
     public ColorPickerPreference(Context context) {
@@ -171,7 +197,7 @@ public class ColorPickerPreference extends EditTextPreference {
         }
 
         // Set the widget layout to a custom layout containing the colored dot.
-        setWidgetLayoutResource(getResourceIdentifier("revanced_color_dot_widget", "layout"));
+        setWidgetLayoutResource(LAYOUT_REVANCED_COLOR_DOT_WIDGET);
     }
 
     /**
@@ -192,6 +218,11 @@ public class ColorPickerPreference extends EditTextPreference {
             }
             updateColorPreview();
             updateWidgetColorDot();
+
+            // Notify the listener about the color change.
+            if (colorChangeListener != null) {
+                colorChangeListener.onColorChanged(getKey(), currentColor);
+            }
         } catch (IllegalArgumentException ex) {
             // This code is reached if the user pastes settings json with an invalid color
             // since this preference is updated with the new setting text.
@@ -207,12 +238,18 @@ public class ColorPickerPreference extends EditTextPreference {
     protected void onBindView(View view) {
         super.onBindView(view);
 
-        widgetColorDot = view.findViewById(getResourceIdentifier(
-                "revanced_color_dot_widget", "id"));
-        widgetColorDot.setBackgroundResource(getResourceIdentifier(
-                "revanced_settings_circle_background", "drawable"));
-        widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
-        widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
+        widgetColorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
+        updateWidgetColorDot();
+    }
+
+    private void updateWidgetColorDot() {
+        if (widgetColorDot == null) return;
+
+        ColorDot.applyColorDot(
+                widgetColorDot,
+                currentColor | 0xFF000000,
+                widgetColorDot.isEnabled()
+        );
     }
 
     /**
@@ -221,13 +258,6 @@ public class ColorPickerPreference extends EditTextPreference {
     private void updateColorPreview() {
         if (dialogColorPreview != null) {
             dialogColorPreview.setText(getColorDot(currentColor));
-        }
-    }
-
-    private void updateWidgetColorDot() {
-        if (widgetColorDot != null) {
-            widgetColorDot.getBackground().setTint(currentColor | 0xFF000000);
-            widgetColorDot.setAlpha(isEnabled() ? 1.0f : DISABLED_ALPHA);
         }
     }
 
@@ -286,10 +316,8 @@ public class ColorPickerPreference extends EditTextPreference {
         Context context = getContext();
 
         // Inflate color picker view.
-        View colorPicker = LayoutInflater.from(context).inflate(
-                getResourceIdentifier("revanced_color_picker", "layout"), null);
-        dialogColorPickerView = colorPicker.findViewById(
-                getResourceIdentifier("revanced_color_picker_view", "id"));
+        View colorPicker = LayoutInflater.from(context).inflate(LAYOUT_REVANCED_COLOR_PICKER, null);
+        dialogColorPickerView = colorPicker.findViewById(ID_REVANCED_COLOR_PICKER_VIEW);
         dialogColorPickerView.setColor(currentColor);
 
         // Horizontal layout for preview and EditText.
@@ -354,7 +382,7 @@ public class ColorPickerPreference extends EditTextPreference {
 
         // Create custom dialog.
         final int originalColor = currentColor & 0x00FFFFFF;
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 getTitle() != null ? getTitle().toString() : str("revanced_settings_color_picker_title"), // Title.
                 null, // No message.

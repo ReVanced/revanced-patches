@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:gravity="center_vertical"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+    <!-- History icon -->
+    <ImageView
+            android:id="@+id/history_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/revanced_settings_arrow_time"
+            android:tint="?android:attr/textColorSecondary" />
+
+    <!-- Search history text -->
+    <TextView
+            android:id="@+id/history_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+    <!-- Delete icon -->
+    <ImageView
+            android:id="@+id/delete_icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/revanced_settings_search_remove"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            android:scaleType="centerInside"
+            android:tint="?android:attr/textColorSecondary"
+            android:clickable="true"
+            android:focusable="true" />
+
+</LinearLayout>

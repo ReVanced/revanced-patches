@@ -4,10 +4,9 @@ import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.ShapeDrawable;
@@ -48,7 +47,7 @@ import kotlin.Unit;
 
 /**
  * Handles showing, scheduling, and skipping of all {@link SponsorSegment} for the current video.
- *
+ * <p>
  * Class is not thread safe. All methods must be called on the main thread unless otherwise specified.
  */
 public class SegmentPlaybackController {
@@ -122,7 +121,6 @@ public class SegmentPlaybackController {
     /**
      * Used to prevent re-showing a previously hidden skip button when exiting an embedded segment.
      * Only used when {@link Settings#SB_AUTO_HIDE_SKIP_BUTTON} is enabled.
-     *
      * A collection of segments that have automatically hidden the skip button for, and all segments in this list
      * contain the current video time.  Segment are removed when playback exits the segment.
      */
@@ -233,6 +231,7 @@ public class SegmentPlaybackController {
         highlightSegment = null;
     }
 
+    @SuppressLint("NewApi")
     static void addUnsubmittedSegment(SponsorSegment segment) {
         Objects.requireNonNull(segment);
         if (segments == null) {
@@ -408,6 +407,7 @@ public class SegmentPlaybackController {
      * Updates SponsorBlock every 1000ms.
      * When changing videos, this is first called with value 0 and then the video is changed.
      */
+    @SuppressLint("NewApi")
     public static void setVideoTime(long millis) {
         try {
             if (!Settings.SB_ENABLED.get()
@@ -619,6 +619,7 @@ public class SegmentPlaybackController {
     /**
      * Removes all previously hidden segments that are not longer contained in the given video time.
      */
+    @SuppressLint("NewApi")
     private static void updateHiddenSegments(long currentVideoTime) {
         hiddenSkipSegmentsForCurrentVideoTime.removeIf((hiddenSegment) -> {
             if (!hiddenSegment.containsTime(currentVideoTime)) {
@@ -689,7 +690,7 @@ public class SegmentPlaybackController {
                 Logger.printDebug(() -> "Setting new undo range to: " + range);
                 undoAutoSkipRange = range;
             } else {
-                Range<Long> extendedRange = undoAutoSkipRange.extend(range);
+                @SuppressLint({"NewApi", "LocalSuppress"}) Range<Long> extendedRange = undoAutoSkipRange.extend(range);
                 Logger.printDebug(() -> "Extending undo range from: " + undoAutoSkipRange +
                         " to: " + extendedRange);
                 undoAutoSkipRange = extendedRange;
@@ -743,6 +744,7 @@ public class SegmentPlaybackController {
     /**
      * Checks if the segment should be auto-skipped _and_ if undo autoskip is not active.
      */
+    @SuppressLint("NewApi")
     private static boolean shouldAutoSkipAndUndoSkipNotActive(SponsorSegment segment, long currentVideoTime) {
         return segment.shouldAutoSkip() && (undoAutoSkipRange == null
                 || !undoAutoSkipRange.contains(currentVideoTime));
@@ -790,6 +792,7 @@ public class SegmentPlaybackController {
         }, delayToToastMilliseconds);
     }
 
+    @SuppressLint("NewApi")
     private static void showAutoSkipToast(String messageToToast, Range<Long> rangeToUndo) {
         Objects.requireNonNull(messageToToast);
         Utils.verifyOnMainThread();
@@ -867,23 +870,11 @@ public class SegmentPlaybackController {
 
         Window window = dialog.getWindow();
         if (window != null) {
-            // Remove window animations and use custom fade animation.
-            window.setWindowAnimations(0);
-
-            WindowManager.LayoutParams params = window.getAttributes();
-            params.gravity = Gravity.BOTTOM;
-            params.y = dipToPixels(72);
-            int portraitWidth = Utils.percentageWidthToPixels(60); // 60% of the screen width.
-
-            if (Resources.getSystem().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                portraitWidth = Math.min(portraitWidth, Utils.percentageHeightToPixels(60)); // 60% of the screen height.
-            }
-            params.width = portraitWidth;
-            params.dimAmount = 0.0f;
-            window.setAttributes(params);
-            window.setBackgroundDrawable(null);
+            window.setWindowAnimations(0); // Remove window animations and use custom fade animation.
             window.addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
             window.addFlags(WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
+
+            Utils.setDialogWindowParameters(window, Gravity.BOTTOM, 72, 60, true);
         }
 
         if (dismissUndoToast()) {

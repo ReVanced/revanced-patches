@@ -27,6 +27,7 @@ import java.util.Locale;
 
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 @SuppressWarnings("unused")
 public class GmsCoreSupport {
@@ -80,17 +81,17 @@ public class GmsCoreSupport {
         // Otherwise, if device is in dark mode the dialog is shown with wrong color scheme.
         Utils.runOnMainThreadDelayed(() -> {
             // Create the custom dialog.
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     context,
                     str("gms_core_dialog_title"), // Title.
-                    str(dialogMessageRef),        // Message.
-                    null,                         // No EditText.
-                    str(positiveButtonTextRef),   // OK button text.
+                    str(dialogMessageRef), // Message.
+                    null, // No EditText.
+                    str(positiveButtonTextRef), // OK button text.
                     () -> onPositiveClickListener.onClick(null, 0), // Convert DialogInterface.OnClickListener to Runnable.
-                    null,                         // No Cancel button action.
-                    null,                         // No Neutral button text.
-                    null,                         // No Neutral button action.
-                    true                          // Dismiss dialog when onNeutralClick.
+                    null, // No Cancel button action.
+                    null, // No Neutral button text.
+                    null, // No Neutral button action.
+                    true // Dismiss dialog when onNeutralClick.
             );
 
             Dialog dialog = dialogPair.first;

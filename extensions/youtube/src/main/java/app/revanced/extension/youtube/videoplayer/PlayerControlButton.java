@@ -24,7 +24,7 @@ public class PlayerControlButton {
         boolean buttonEnabled();
     }
 
-    private static final int fadeInDuration = Utils.getResourceInteger("fade_duration_fast");
+    public static final int fadeInDuration = Utils.getResourceInteger("fade_duration_fast");
     private static final int fadeOutDuration = Utils.getResourceInteger("fade_duration_scheduled");
 
     private final WeakReference<View> containerRef;
@@ -248,5 +248,14 @@ public class PlayerControlButton {
         if (textOverlay != null) {
             textOverlay.setText(text);
         }
+    }
+
+    /**
+     * Returns the appropriate dialog background color depending on the current theme.
+     */
+    public static int getDialogBackgroundColor() {
+        return Utils.getResourceColor(
+                Utils.isDarkModeEnabled() ? "yt_black1" : "yt_white1"
+        );
     }
 }

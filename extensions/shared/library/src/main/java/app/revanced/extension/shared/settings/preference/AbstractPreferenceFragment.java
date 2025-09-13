@@ -27,6 +27,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 @SuppressWarnings("deprecation")
 public abstract class AbstractPreferenceFragment extends PreferenceFragment {
@@ -124,7 +125,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
         showingUserDialogMessage = true;
 
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 confirmDialogTitle, // Title.
                 Objects.requireNonNull(setting.userDialogMessage).toString(), // No message.
@@ -302,7 +303,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             restartDialogButtonText = str("revanced_settings_restart");
         }
 
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(context,
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
+                context,
                 restartDialogTitle,              // Title.
                 restartDialogMessage,            // Message.
                 null,                            // No EditText.
