@@ -148,7 +148,7 @@ internal val mediaFetchHotConfigFingerprint = fingerprint {
     literal { MEDIA_FETCH_HOT_CONFIG_FEATURE_FLAG }
 }
 
-// 20.10+
+// YT 20.10+, YT Music 8.11+
 internal const val MEDIA_FETCH_HOT_CONFIG_ALTERNATIVE_FEATURE_FLAG = 45683169L
 
 internal val mediaFetchHotConfigAlternativeFingerprint = fingerprint {
@@ -162,7 +162,6 @@ internal val mediaFetchHotConfigAlternativeFingerprint = fingerprint {
 internal const val PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG = 45665455L
 
 internal val playbackStartDescriptorFeatureFlagFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     returns("Z")
     literal { PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG }

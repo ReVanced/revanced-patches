@@ -1075,8 +1075,7 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz.
   <string name="revanced_sb_segments_outro">Son kartlar / Zaminlər</string>
   <string name="revanced_sb_segments_outro_sum">Zaminlər və ya YouTube bitiş kartları görünəndə. Məlumat daxil olan nəticələr üçün deyil</string>
   <string name="revanced_sb_segments_preview">Önizləmə/Anons/Qısa</string>
-  <string name="revanced_sb_segments_preview_sum">Videoda və ya seriyanın digər videolarında nə gözlənildiyini və ya baş verdiyini göstərən, bütün məlumatların başqa yerdə təkrarlandığı bölüm toplusu</string>
-  <string name="revanced_sb_segments_filler">Əlaqəsiz/Zarafatlar</string>
+  <string name="revanced_sb_segments_preview_sum">Videoda və ya seriyanın digər videolarında nə gözlənildiyini və ya baş verdiyini göstərən, bütün məlumatların başqa yerdə təkrarlandığı bölüm toplusu</string><string name="revanced_sb_segments_filler">Əlaqəsiz/Zarafatlar</string>
   <string name="revanced_sb_segments_filler_sum">Videonun əsas məzmununu başa düşmək tələb olunmayan yalnız əlaqəsiz və ya yumor üçün əlavə edilmiş təsiredici səhnələr. Məzmun və ya arxa plan detallarını təqdim edən bölümlər daxil deyil</string>
   <string name="revanced_sb_segments_nomusic">Musiqi: Musiqi olmayan bölmə</string>
   <string name="revanced_sb_segments_nomusic_sum">Yalnız musiqi videolarında istifadə üçün. Artıq başqa kateqoriyaya aid edilməyən musiqisiz musiqi videoları bölmələri</string>

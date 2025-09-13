@@ -53,9 +53,8 @@ fun spoofVideoStreamsPatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
-        val moveUriStringIndex = buildInitPlaybackRequestFingerprint.patternMatch!!.startIndex
-
         buildInitPlaybackRequestFingerprint.method.apply {
+            val moveUriStringIndex = buildInitPlaybackRequestFingerprint.patternMatch!!.startIndex
             val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
 
             addInstructions(
@@ -63,7 +62,7 @@ fun spoofVideoStreamsPatch(
                 """
                     invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$targetRegister
-                """,
+                """
             )
         }
 
@@ -71,9 +70,8 @@ fun spoofVideoStreamsPatch(
 
         // region Block /get_watch requests to fall back to /player requests.
 
-        val invokeToStringIndex = buildPlayerRequestURIFingerprint.patternMatch!!.startIndex
-
         buildPlayerRequestURIFingerprint.method.apply {
+            val invokeToStringIndex = buildPlayerRequestURIFingerprint.patternMatch!!.startIndex
             val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
             addInstructions(
@@ -81,7 +79,7 @@ fun spoofVideoStreamsPatch(
                 """
                     invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
                     move-result-object v$uriRegister
-                """,
+                """
             )
         }
 
@@ -178,9 +176,9 @@ fun spoofVideoStreamsPatch(
                             
                             :disabled
                             return-void
-                        """,
+                        """
                     )
-                },
+                }
             )
         }
 
@@ -199,17 +197,17 @@ fun spoofVideoStreamsPatch(
             addInstructions(
                 targetIndex,
                 """
-                        # Field a: Stream uri.
-                        # Field c: Http method.
-                        # Field d: Post data.
-                        move-object v0, p0  # method has over 15 registers and must copy p0 to a lower register.
-                        iget-object v1, v0, $definingClass->a:Landroid/net/Uri;
-                        iget v2, v0, $definingClass->c:I
-                        iget-object v3, v0, $definingClass->d:[B
-                        invoke-static { v1, v2, v3 }, $EXTENSION_CLASS_DESCRIPTOR->removeVideoPlaybackPostBody(Landroid/net/Uri;I[B)[B
-                        move-result-object v1
-                        iput-object v1, v0, $definingClass->d:[B
-                    """,
+                    # Field a: Stream uri.
+                    # Field c: Http method.
+                    # Field d: Post data.
+                    move-object v0, p0  # method has over 15 registers and must copy p0 to a lower register.
+                    iget-object v1, v0, $definingClass->a:Landroid/net/Uri;
+                    iget v2, v0, $definingClass->c:I
+                    iget-object v3, v0, $definingClass->d:[B
+                    invoke-static { v1, v2, v3 }, $EXTENSION_CLASS_DESCRIPTOR->removeVideoPlaybackPostBody(Landroid/net/Uri;I[B)[B
+                    move-result-object v1
+                    iput-object v1, v0, $definingClass->d:[B
+                """
             )
         }
 

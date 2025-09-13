@@ -3,7 +3,7 @@
 package app.revanced.patches.youtube.misc.playservice
 
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.findPlayStoreServicesVersion
 
 @Deprecated("19.34.42 is the lowest supported version")
 var is_19_03_or_greater = false
@@ -77,12 +77,7 @@ val versionCheckPatch = resourcePatch(
     execute {
         // The app version is missing from the decompiled manifest,
         // so instead use the Google Play services version and compare against specific releases.
-        val playStoreServicesVersion = document("res/values/integers.xml").use { document ->
-            document.documentElement.childNodes.findElementByAttributeValueOrThrow(
-                "name",
-                "google_play_services_version",
-            ).textContent.toInt()
-        }
+        val playStoreServicesVersion = findPlayStoreServicesVersion()
 
         // All bug fix releases always seem to use the same play store version as the minor version.
         is_19_03_or_greater = 240402000 <= playStoreServicesVersion

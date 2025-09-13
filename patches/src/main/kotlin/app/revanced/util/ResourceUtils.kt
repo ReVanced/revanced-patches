@@ -178,3 +178,15 @@ internal fun Element.copyAttributesFrom(oldContainer: Element) {
         setAttribute(attr.name, attr.value)
     }
 }
+
+/**
+ * @return The play store services version.
+ */
+internal fun ResourcePatchContext.findPlayStoreServicesVersion(): Int =
+    document("res/values/integers.xml").use { document ->
+        document.documentElement.childNodes.findElementByAttributeValueOrThrow(
+            "name",
+            "google_play_services_version",
+        ).textContent.toInt()
+    }
+
