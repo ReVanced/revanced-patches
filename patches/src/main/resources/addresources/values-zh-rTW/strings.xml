@@ -1075,7 +1075,10 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_intro_sum">指影片中沒有實際內容的片段。可能為暫停、靜態畫面或重複動畫。不包含含有資訊的轉場。</string>
   <string name="revanced_sb_segments_outro">片尾資訊卡/鳴謝</string>
   <string name="revanced_sb_segments_outro_sum">鳴謝或 YouTube 片尾資訊卡出現時。不適用於含有資訊的結論。</string>
+  <string name="revanced_sb_segments_preview">預告/回顧/前情提要</string>
   <string name="revanced_sb_segments_preview_sum">展示影片或系列影片中即將到來或已發生的內容片段合輯，且所有資訊在其他地方重複出現。</string>
+  <string name="revanced_sb_segments_filler">填充閒聊/笑話</string>
+  <string name="revanced_sb_segments_filler_sum">指為了填充時間或增添幽默感而加入的旁支情節，並非理解影片主要內容所必需。不包含提供背景資訊或脈絡的片段。</string>
   <string name="revanced_sb_segments_nomusic">音樂：非音樂片段</string>
   <string name="revanced_sb_segments_nomusic_sum">僅適用於音樂影片。音樂影片中沒有音樂，且不屬於其他類別的段落。</string>
   <string name="revanced_sb_skip_button_compact">跳過</string>
@@ -1091,6 +1094,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skip_button_preview_beginning">跳過預覽</string>
   <string name="revanced_sb_skip_button_preview_middle">跳過預覽</string>
   <string name="revanced_sb_skip_button_preview_end">跳過回顧</string>
+  <string name="revanced_sb_skip_button_filler">跳過閒聊</string>
   <string name="revanced_sb_skip_button_nomusic">跳過非音樂</string>
   <string name="revanced_sb_skip_button_unsubmitted">跳過片段</string>
   <string name="revanced_sb_skipped_sponsor">已跳過贊助商廣告</string>
@@ -1104,6 +1108,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skipped_preview_beginning">已跳過預覽</string>
   <string name="revanced_sb_skipped_preview_middle">已跳過預覽</string>
   <string name="revanced_sb_skipped_preview_end">已跳過回顧</string>
+  <string name="revanced_sb_skipped_filler">已跳過閒聊</string>
   <string name="revanced_sb_skipped_nomusic">已跳過非音樂部分</string>
   <string name="revanced_sb_skipped_unsubmitted">跳過了未提交的片段</string>
   <string name="revanced_sb_skipped_multiple_segments">已跳過多個片段</string>

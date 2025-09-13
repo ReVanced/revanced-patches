@@ -1074,7 +1074,9 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz.
   <string name="revanced_sb_segments_intro_sum">Həqiqi məzmunu olmayan aralıq. Fasilə, statik kadr və ya təkrarlanan animasiya ola bilər. Məlumat ehtiva edən keçidlər daxil deyil</string>
   <string name="revanced_sb_segments_outro">Son kartlar / Zaminlər</string>
   <string name="revanced_sb_segments_outro_sum">Zaminlər və ya YouTube bitiş kartları görünəndə. Məlumat daxil olan nəticələr üçün deyil</string>
-  <string name="revanced_sb_segments_preview_sum">Videoda və ya seriyanın digər videolarında nə gözlənildiyini və ya baş verdiyini göstərən, bütün məlumatların başqa yerdə təkrarlandığı bölüm toplusu</string>
+  <string name="revanced_sb_segments_preview">Önizləmə/Anons/Qısa</string>
+  <string name="revanced_sb_segments_preview_sum">Videoda və ya seriyanın digər videolarında nə gözlənildiyini və ya baş verdiyini göstərən, bütün məlumatların başqa yerdə təkrarlandığı bölüm toplusu</string><string name="revanced_sb_segments_filler">Əlaqəsiz/Zarafatlar</string>
+  <string name="revanced_sb_segments_filler_sum">Videonun əsas məzmununu başa düşmək tələb olunmayan yalnız əlaqəsiz və ya yumor üçün əlavə edilmiş təsiredici səhnələr. Məzmun və ya arxa plan detallarını təqdim edən bölümlər daxil deyil</string>
   <string name="revanced_sb_segments_nomusic">Musiqi: Musiqi olmayan bölmə</string>
   <string name="revanced_sb_segments_nomusic_sum">Yalnız musiqi videolarında istifadə üçün. Artıq başqa kateqoriyaya aid edilməyən musiqisiz musiqi videoları bölmələri</string>
   <string name="revanced_sb_skip_button_compact">Ötür</string>
@@ -1090,6 +1092,7 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz.
   <string name="revanced_sb_skip_button_preview_beginning">Önizləməni ötür</string>
   <string name="revanced_sb_skip_button_preview_middle">Önizləməni ötür</string>
   <string name="revanced_sb_skip_button_preview_end">Anonsu ötür</string>
+  <string name="revanced_sb_skip_button_filler">Əlaqəsiz hissəni ötür</string>
   <string name="revanced_sb_skip_button_nomusic">Musiqisiz hissəni ötür</string>
   <string name="revanced_sb_skip_button_unsubmitted">Bölümü ötür</string>
   <string name="revanced_sb_skipped_sponsor">Sponsorlu hissə ötürüldü</string>
@@ -1103,6 +1106,7 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz.
   <string name="revanced_sb_skipped_preview_beginning">Önbaxış ötürüldü</string>
   <string name="revanced_sb_skipped_preview_middle">Önbaxış ötürüldü</string>
   <string name="revanced_sb_skipped_preview_end">Anons ötürüldü</string>
+  <string name="revanced_sb_skipped_filler">Əlaqəsiz hissə ötürüldü</string>
   <string name="revanced_sb_skipped_nomusic">Musiqi olmayan bölmə ötürüldü</string>
   <string name="revanced_sb_skipped_unsubmitted">Göndərilməmiş bölüm ötürüldü</string>
   <string name="revanced_sb_skipped_multiple_segments">Çoxlu bölümlər ötürüldü</string>
