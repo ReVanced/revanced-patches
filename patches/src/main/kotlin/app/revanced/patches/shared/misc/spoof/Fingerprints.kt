@@ -160,7 +160,7 @@ internal val mediaFetchHotConfigFingerprint by fingerprint {
     )
 }
 
-// 20.10+
+// YT 20.10+, YT Music 8.11+
 internal val mediaFetchHotConfigAlternativeFingerprint by fingerprint {
     instructions(
         literal(45683169L)
@@ -172,7 +172,6 @@ internal val mediaFetchHotConfigAlternativeFingerprint by fingerprint {
 // then videos will never start playback and load forever.
 // Flag does not seem to affect playback if spoofing is off.
 internal val playbackStartDescriptorFeatureFlagFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     returns("Z")
     instructions(
