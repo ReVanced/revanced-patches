@@ -20,6 +20,7 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
+import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.ui.ColorDot;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.UrlLinkPreference;
@@ -34,6 +35,7 @@ import java.util.List;
 public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     private final LayoutInflater inflater;
     private final ReVancedPreferenceFragment fragment;
+    private final SearchViewController searchViewController;
     private AnimatorSet currentAnimator;
 
     private static final int BLINK_DURATION = 400;
@@ -77,10 +79,12 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
         ImageView iconView;
     }
 
-    public SearchResultsAdapter(Context context, List<SearchResultItem> items, ReVancedPreferenceFragment fragment) {
+    public SearchResultsAdapter(Context context, List<SearchResultItem> items,
+                                ReVancedPreferenceFragment fragment, SearchViewController searchViewController) {
         super(context, 0, items);
         this.inflater = LayoutInflater.from(context);
         this.fragment = fragment;
+        this.searchViewController = searchViewController;
     }
 
     @Override
@@ -566,6 +570,14 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     @SuppressWarnings("all")
     private void handlePreferenceClick(Preference preference) {
         try {
+            if (preference instanceof CustomDialogListPreference listPref) {
+                SearchResultItem.PreferenceSearchItem searchItem =
+                        searchViewController.findSearchItemByPreference(preference);
+                if (searchItem != null && searchItem.isEntriesHighlightingApplied()) {
+                    listPref.setHighlightedEntriesForDialog(searchItem.getHighlightedEntries());
+                }
+            }
+
             Method m = Preference.class.getDeclaredMethod("performClick", PreferenceScreen.class);
             m.setAccessible(true);
             m.invoke(preference, fragment.getPreferenceScreen());

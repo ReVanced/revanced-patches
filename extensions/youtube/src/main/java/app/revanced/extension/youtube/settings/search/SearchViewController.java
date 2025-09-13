@@ -119,7 +119,7 @@ public class SearchViewController {
         ListView searchResultsListView = new ListView(activity);
         searchResultsListView.setDivider(null);
         searchResultsListView.setDividerHeight(0);
-        searchResultsAdapter = new SearchResultsAdapter(activity, filteredSearchItems, fragment);
+        searchResultsAdapter = new SearchResultsAdapter(activity, filteredSearchItems, fragment, this);
         searchResultsListView.setAdapter(searchResultsAdapter);
 
         // Add results list into container.
@@ -343,16 +343,42 @@ public class SearchViewController {
                         if (!isStaticSummary) {
                             // Only update summary if it is not static.
                             CharSequence newSummary = listPref.getEntries()[index];
-                            searchItem.refreshHighlighting();
                             listPref.setSummary(newSummary);
                         }
                     }
 
+                    listPref.clearHighlightedEntriesForDialog();
+                    searchItem.refreshHighlighting();
                     refreshSearchResults();
                     return true;
                 });
             }
         }
+    }
+
+    /**
+     * Finds a SearchResultItem by its Preference in all search items.
+     */
+    public SearchResultItem.PreferenceSearchItem findSearchItemByPreference(Preference preference) {
+        // First, search in filtered results.
+        for (SearchResultItem item : filteredSearchItems) {
+            if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
+                if (prefItem.preference == preference) {
+                    return prefItem;
+                }
+            }
+        }
+
+        // If not found, search in all items.
+        for (SearchResultItem item : allSearchItems) {
+            if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
+                if (prefItem.preference == preference) {
+                    return prefItem;
+                }
+            }
+        }
+
+        return null;
     }
 
     /**

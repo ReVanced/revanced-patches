@@ -20,8 +20,8 @@ import app.revanced.extension.shared.ui.CustomDialog;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 /**
- * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator
- * and supports a static summary that does not get overwritten.
+ * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator,
+ * supports a static summary and highlighted entries for search functionality.
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class CustomDialogListPreference extends ListPreference {
@@ -36,6 +36,7 @@ public class CustomDialogListPreference extends ListPreference {
             getResourceIdentifier("revanced_custom_list_item_checked", "layout");
 
     private String staticSummary = null;
+    private CharSequence[] highlightedEntriesForDialog = null;
 
     /**
      * Set a static summary that will not be overwritten by value changes.
@@ -61,6 +62,29 @@ public class CustomDialogListPreference extends ListPreference {
             return staticSummary;
         }
         return super.getSummary();
+    }
+
+    /**
+     * Sets highlighted entries for display in the dialog.
+     * These entries are used only for the current dialog and are automatically cleared.
+     */
+    public void setHighlightedEntriesForDialog(CharSequence[] highlightedEntries) {
+        this.highlightedEntriesForDialog = highlightedEntries;
+    }
+
+    /**
+     * Clears highlighted entries after the dialog is closed.
+     */
+    public void clearHighlightedEntriesForDialog() {
+        this.highlightedEntriesForDialog = null;
+    }
+
+    /**
+     * Returns entries for display in the dialog.
+     * If highlighted entries exist, they are used; otherwise, the original entries are returned.
+     */
+    private CharSequence[] getEntriesForDialog() {
+        return highlightedEntriesForDialog != null ? highlightedEntriesForDialog : getEntries();
     }
 
     /**
@@ -105,8 +129,8 @@ public class CustomDialogListPreference extends ListPreference {
                 holder = (SubViewDataContainer) view.getTag();
             }
 
-            // Set text.
-            holder.itemText.setText(getItem(position));
+            CharSequence itemText = getItem(position);
+            holder.itemText.setText(itemText);
             holder.itemText.setTextColor(Utils.getAppForegroundColor());
 
             // Show or hide checkmark and placeholder.
@@ -144,6 +168,9 @@ public class CustomDialogListPreference extends ListPreference {
     protected void showDialog(Bundle state) {
         Context context = getContext();
 
+        CharSequence[] entriesToShow = getEntriesForDialog();
+        CharSequence[] entryValues = getEntryValues();
+
         // Create ListView.
         ListView listView = new ListView(context);
         listView.setId(android.R.id.list);
@@ -153,8 +180,8 @@ public class CustomDialogListPreference extends ListPreference {
         ListPreferenceArrayAdapter adapter = new ListPreferenceArrayAdapter(
                 context,
                 LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED,
-                getEntries(),
-                getEntryValues(),
+                entriesToShow,
+                entryValues,
                 getValue()
         );
         listView.setAdapter(adapter);
@@ -162,7 +189,6 @@ public class CustomDialogListPreference extends ListPreference {
         // Set checked item.
         String currentValue = getValue();
         if (currentValue != null) {
-            CharSequence[] entryValues = getEntryValues();
             for (int i = 0, length = entryValues.length; i < length; i++) {
                 if (currentValue.equals(entryValues[i].toString())) {
                     listView.setItemChecked(i, true);
@@ -180,11 +206,15 @@ public class CustomDialogListPreference extends ListPreference {
                 null,
                 null,
                 null,
-                () -> {}, // Cancel button action (just dismiss).
+                this::clearHighlightedEntriesForDialog, // Cancel button action.
                 null,
                 null,
                 true
         );
+
+        Dialog dialog = dialogPair.first;
+        // Add a listener to clear when the dialog is closed in any way.
+        dialog.setOnDismissListener(dialogInterface -> clearHighlightedEntriesForDialog());
 
         // Add the ListView to the main layout.
         LinearLayout mainLayout = dialogPair.second;
@@ -197,16 +227,28 @@ public class CustomDialogListPreference extends ListPreference {
 
         // Handle item click to select value and dismiss dialog.
         listView.setOnItemClickListener((parent, view, position, id) -> {
-            String selectedValue = getEntryValues()[position].toString();
+            String selectedValue = entryValues[position].toString();
             if (callChangeListener(selectedValue)) {
                 setValue(selectedValue);
+
+                // Update summaries from the original entries (without highlighting).
+                if (staticSummary == null) {
+                    CharSequence[] originalEntries = getEntries();
+                    if (originalEntries != null && position < originalEntries.length) {
+                        setSummary(originalEntries[position]);
+                    }
+                }
+
                 adapter.setSelectedValue(selectedValue);
                 adapter.notifyDataSetChanged();
             }
-            dialogPair.first.dismiss();
+
+            // Clear highlighted entries before closing.
+            clearHighlightedEntriesForDialog();
+            dialog.dismiss();
         });
 
         // Show the dialog.
-        dialogPair.first.show();
+        dialog.show();
     }
 }

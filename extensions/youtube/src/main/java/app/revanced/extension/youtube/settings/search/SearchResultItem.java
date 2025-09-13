@@ -125,6 +125,8 @@ public abstract class SearchResultItem {
         final CharSequence originalSummaryOn;
         final CharSequence originalSummaryOff;
         final CharSequence[] originalEntries;
+        private CharSequence[] highlightedEntries;
+        private boolean entriesHighlightingApplied;
 
         @ColorInt
         private int color;
@@ -181,8 +183,13 @@ public abstract class SearchResultItem {
                 this.color = segmentPref.getColorWithOpacity();
             } else if (pref instanceof ListPreference listPref) {
                 result.entries = listPref.getEntries();
-        }
+                if (result.entries != null) {
+                    this.highlightedEntries = new CharSequence[result.entries.length];
+                    System.arraycopy(result.entries, 0, this.highlightedEntries, 0, result.entries.length);
+                }
+            }
 
+            this.entriesHighlightingApplied = false;
             return result;
         }
 
@@ -246,7 +253,9 @@ public abstract class SearchResultItem {
                 if (value != null && entries != null && entryValues != null) {
                     for (int i = 0; i < entryValues.length; i++) {
                         if (value.equals(entryValues[i].toString())) {
-                            return entries[i] != null ? entries[i] : originalSummary != null ? originalSummary : "";
+                            return originalEntries != null && i < originalEntries.length && originalEntries[i] != null
+                                    ? originalEntries[i]
+                                    : originalSummary != null ? originalSummary : "";
                         }
                     }
                 }
@@ -265,6 +274,20 @@ public abstract class SearchResultItem {
         }
 
         /**
+         * Get highlighted entries to show in dialog.
+         */
+        public CharSequence[] getHighlightedEntries() {
+            return highlightedEntries;
+        }
+
+        /**
+         * Whether highlighting is applied to entries.
+         */
+        public boolean isEntriesHighlightingApplied() {
+            return entriesHighlightingApplied;
+        }
+
+        /**
          * Highlights the search query in the title and summary.
          */
         @Override
@@ -276,6 +299,19 @@ public abstract class SearchResultItem {
             // Get the current effective summary and highlight it.
             CharSequence currentSummary = getCurrentEffectiveSummary();
             highlightedSummary = highlightSearchQuery(currentSummary, queryPattern);
+
+            // Highlight the entries.
+            if (preference instanceof ListPreference && originalEntries != null) {
+                highlightedEntries = new CharSequence[originalEntries.length];
+                for (int i = 0; i < originalEntries.length; i++) {
+                    if (originalEntries[i] != null) {
+                        highlightedEntries[i] = highlightSearchQuery(originalEntries[i], queryPattern);
+                    } else {
+                        highlightedEntries[i] = null;
+                    }
+                }
+                entriesHighlightingApplied = true;
+            }
 
             highlightingApplied = true;
         }
@@ -293,6 +329,12 @@ public abstract class SearchResultItem {
             // Restore current effective summary without highlighting.
             highlightedSummary = getCurrentEffectiveSummary();
 
+            // Restore original entries.
+            if (originalEntries != null && highlightedEntries != null) {
+                System.arraycopy(originalEntries, 0, highlightedEntries, 0, Math.min(originalEntries.length, highlightedEntries.length));
+            }
+
+            entriesHighlightingApplied = false;
             highlightingApplied = false;
             lastQueryPattern = null;
         }
