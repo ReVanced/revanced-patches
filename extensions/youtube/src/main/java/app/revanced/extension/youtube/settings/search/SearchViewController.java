@@ -6,10 +6,7 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
-import android.preference.Preference;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
+import android.preference.*;
 import android.text.TextUtils;
 import android.view.*;
 import android.view.inputmethod.EditorInfo;
@@ -27,6 +24,7 @@ import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
+import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
 import app.revanced.extension.youtube.settings.LicenseActivityHook;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPreference;
@@ -331,6 +329,28 @@ public class SearchViewController {
                     }
                     return true;
                 });
+            } else if (pref instanceof CustomDialogListPreference listPref) {
+                listPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                    SearchResultItem.PreferenceSearchItem searchItem =
+                            (SearchResultItem.PreferenceSearchItem) keyToSearchItem.get(preference.getKey());
+                    if (searchItem == null) return true;
+
+                    int index = listPref.findIndexOfValue(newValue.toString());
+                    if (index >= 0) {
+                        // Check if a static summary is set.
+                        boolean isStaticSummary = listPref.getStaticSummary() != null;
+
+                        if (!isStaticSummary) {
+                            // Only update summary if it is not static.
+                            CharSequence newSummary = listPref.getEntries()[index];
+                            searchItem.refreshHighlighting();
+                            listPref.setSummary(newSummary);
+                        }
+                    }
+
+                    refreshSearchResults();
+                    return true;
+                });
             }
         }
     }
@@ -448,6 +468,9 @@ public class SearchViewController {
                         SearchResultItem parentItem = keyToSearchItem.get(parentSetting.key);
                         if (parentItem != null && !addedParentKeys.contains(parentSetting.key)) {
                             if (!parentItem.matchesQuery(queryLower)) {
+                                // Apply highlighting to parent items even if they don't match the query.
+                                // This ensures they get their current effective summary calculated.
+                                parentItem.applyHighlighting(queryPattern);
                                 filteredSearchItems.add(parentItem);
                             }
                             addedParentKeys.add(parentSetting.key);

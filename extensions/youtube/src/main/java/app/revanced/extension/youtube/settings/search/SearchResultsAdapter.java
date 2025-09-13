@@ -7,10 +7,7 @@ import android.animation.*;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.preference.Preference;
-import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
+import android.preference.*;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -177,11 +174,20 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             case REGULAR, URL_LINK, LIST -> {
                 RegularViewHolder regularHolder = (RegularViewHolder) holder;
                 SearchResultItem.PreferenceSearchItem prefItem = (SearchResultItem.PreferenceSearchItem) item;
+                prefItem.refreshHighlighting();
                 regularHolder.titleView.setText(item.highlightedTitle);
                 regularHolder.summaryView.setText(item.highlightedSummary);
                 regularHolder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
                 setupPreferenceView(view, regularHolder.titleView, regularHolder.summaryView, prefItem.preference,
-                        () -> handlePreferenceClick(prefItem.preference),
+                        () -> {
+                            handlePreferenceClick(prefItem.preference);
+                            if (prefItem.preference instanceof ListPreference) {
+                                prefItem.refreshHighlighting();
+                                regularHolder.summaryView.setText(prefItem.getCurrentEffectiveSummary());
+                                regularHolder.summaryView.setVisibility(TextUtils.isEmpty(prefItem.highlightedSummary) ? View.GONE : View.VISIBLE);
+                                notifyDataSetChanged();
+                            }
+                        },
                         () -> navigateAndScrollToPreference(item));
             }
             case SWITCH -> {

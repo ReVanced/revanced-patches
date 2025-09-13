@@ -239,6 +239,18 @@ public abstract class SearchResultItem {
                         originalSummary != null ? originalSummary : "")
                         : (originalSummaryOff != null ? originalSummaryOff :
                         originalSummary != null ? originalSummary : "");
+            } else if (preference instanceof ListPreference listPref) {
+                String value = listPref.getValue();
+                CharSequence[] entries = listPref.getEntries();
+                CharSequence[] entryValues = listPref.getEntryValues();
+                if (value != null && entries != null && entryValues != null) {
+                    for (int i = 0; i < entryValues.length; i++) {
+                        if (value.equals(entryValues[i].toString())) {
+                            return entries[i] != null ? entries[i] : originalSummary != null ? originalSummary : "";
+                        }
+                    }
+                }
+                return originalSummary != null ? originalSummary : "";
             }
             return originalSummary != null ? originalSummary : "";
         }
