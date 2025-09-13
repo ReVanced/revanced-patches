@@ -8,7 +8,11 @@ val backgroundPlaybackPatch = bytecodePatch(
     name = "Remove background playback restrictions",
     description = "Removes restrictions on background playback, including playing kids videos in the background.",
 ) {
-    compatibleWith("com.google.android.apps.youtube.music")
+    compatibleWith(
+        "com.google.android.apps.youtube.music"(
+            "7.29.52"
+        )
+    )
 
     execute {
         kidsBackgroundPlaybackPolicyControllerFingerprint.method.addInstruction(
