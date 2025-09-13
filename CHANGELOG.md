@@ -5,6 +5,20 @@
 
 * **Duolingo - Disable ads:** Support latest app target ([#5782](https://github.com/ReVanced/revanced-patches/issues/5782)) ([88b47ef](https://github.com/ReVanced/revanced-patches/commit/88b47ef414cd073ec3800258b32aceb6f383a411))
 * **YouTube - Hide layout components:** Hide new type of Playable shelf ([8cd8e59](https://github.com/ReVanced/revanced-patches/commit/8cd8e59bbc3a878269276b8ae5f627b044d157f0))
+* **YouTube Music:** Resolve playback issues, change recommended app target to `7.29.52` ([#5813](https://github.com/ReVanced/revanced-patches/issues/5813)) ([a53b00d](https://github.com/ReVanced/revanced-patches/commit/a53b00dd514dbe2b3406f3c1013a4f58a7f481c5))
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add 'Hook' segment category ([#5783](https://github.com/ReVanced/revanced-patches/issues/5783)) ([9d4aa5c](https://github.com/ReVanced/revanced-patches/commit/9d4aa5cd16a6f9e95cf7c626351b46b86ca80efe))
+
+# [5.36.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.35.0...v5.36.0-dev.1) (2025-09-13)
+
+
+### Bug Fixes
+
+* **Duolingo - Disable ads:** Support latest app target ([#5782](https://github.com/ReVanced/revanced-patches/issues/5782)) ([88b47ef](https://github.com/ReVanced/revanced-patches/commit/88b47ef414cd073ec3800258b32aceb6f383a411))
+* **YouTube - Hide layout components:** Hide new type of Playable shelf ([8cd8e59](https://github.com/ReVanced/revanced-patches/commit/8cd8e59bbc3a878269276b8ae5f627b044d157f0))
 
 
 ### Features
