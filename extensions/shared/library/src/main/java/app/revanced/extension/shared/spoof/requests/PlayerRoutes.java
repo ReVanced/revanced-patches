@@ -42,7 +42,8 @@ final class PlayerRoutes {
             // but if this is a fall over client it will set the language even though
             // the audio language is not selectable in the UI.
             ClientType userSelectedClient = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
-            Locale streamLocale = userSelectedClient == ClientType.ANDROID_VR_NO_AUTH
+            Locale streamLocale = (userSelectedClient == ClientType.ANDROID_VR_1_61_48
+                    || userSelectedClient == ClientType.ANDROID_VR_1_43_32)
                     ? BaseSettings.SPOOF_VIDEO_STREAMS_LANGUAGE.get().getLocale()
                     : Locale.getDefault();
 
