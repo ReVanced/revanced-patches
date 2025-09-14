@@ -11,8 +11,7 @@ val hideAdsPatch = bytecodePatch(
     compatibleWith("com.viber.voip")
 
     execute {
-        val method = adsFreeFingerprint.method
-        // Return 1 (true) indicating ads should be disabled
-        method.returnEarly(1)
+        // Return 1 (true) indicating ads should be disabled.
+        adsFreeFingerprint.method.returnEarly(1)
     }
 }
