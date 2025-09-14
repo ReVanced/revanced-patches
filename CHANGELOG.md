@@ -1,3 +1,31 @@
+# [5.37.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.3...v5.37.0-dev.4) (2025-09-14)
+
+
+### Bug Fixes
+
+* **YouTube Music - Spoof streaming data:** Fix audio playback stuttering ([#5839](https://github.com/ReVanced/revanced-patches/issues/5839)) ([2a85a3b](https://github.com/ReVanced/revanced-patches/commit/2a85a3b29092729ae16d1fd93803634ce5f08e95))
+
+# [5.37.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.2...v5.37.0-dev.3) (2025-09-14)
+
+
+### Bug Fixes
+
+* **Spotify:** Remove broken `Spoof client` patch ([#5833](https://github.com/ReVanced/revanced-patches/issues/5833)) ([dcd4245](https://github.com/ReVanced/revanced-patches/commit/dcd42454bd5f87dddd720534f6120c4ef90063a3))
+
+# [5.37.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.1...v5.37.0-dev.2) (2025-09-14)
+
+
+### Bug Fixes
+
+* Resolve patching with dev branch ([09b941a](https://github.com/ReVanced/revanced-patches/commit/09b941abf0e8029999565082b02a88b5de507ec4))
+
+# [5.37.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.36.0...v5.37.0-dev.1) (2025-09-14)
+
+
+### Features
+
+* **Viber:** Add `Hide ads` patch ([#5826](https://github.com/ReVanced/revanced-patches/issues/5826)) ([0abfab7](https://github.com/ReVanced/revanced-patches/commit/0abfab79d7cda15bf17c53679fbfffb021662649))
+
 # [5.36.0](https://github.com/ReVanced/revanced-patches/compare/v5.35.0...v5.36.0) (2025-09-14)
 
 
