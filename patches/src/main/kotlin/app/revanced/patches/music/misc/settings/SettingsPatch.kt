@@ -14,6 +14,11 @@ import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
+private const val BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/shared/settings/BaseActivityHook;"
+private const val GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/music/settings/GoogleApiActivityHook;"
+
 private val screens = mutableSetOf<BasePreference>()
 
 
@@ -52,22 +57,21 @@ val settingsPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    val extensionPackage = "app/revanced/extension/music"
-    val activityHookClassDescriptor = "L$extensionPackage/settings/GoogleApiActivityHook;"
-
     execute {
         addResources("music", "misc.settings.settingsPatch")
 
-        // Modify the license activity and remove all existing layout code.
+        // Modify GoogleApiActivity and remove all existing layout code.
         // Must modify an existing activity and cannot add a new activity to the manifest,
         // as that fails for root installations.
 
         googleApiActivityFingerprint.method.addInstructions(
             1,
             """
-                invoke-static { p0 }, $activityHookClassDescriptor->initialize(Landroid/app/Activity;)V
+                invoke-static {}, $GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR->createInstance()Lapp/revanced/extension/music/settings/GoogleApiActivityHook;
+                move-result-object v0
+                invoke-static { v0, p0 }, $BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->initialize(Lapp/revanced/extension/shared/settings/BaseActivityHook;Landroid/app/Activity;)V
                 return-void
-            """,
+            """
         )
 
         // Remove other methods as they will break as the onCreate method is modified above.

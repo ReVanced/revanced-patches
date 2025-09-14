@@ -27,7 +27,7 @@ val enableDebuggingPatch = bytecodePatch(
     )
 
     execute {
-        // TODO: For test. Move this to Shared (abstract).
+        // TODO: For test. Change this to real.
         addResources("music", "misc.debugging.enableDebuggingPatch")
 
         PreferenceScreen.MISC.addPreferences(
