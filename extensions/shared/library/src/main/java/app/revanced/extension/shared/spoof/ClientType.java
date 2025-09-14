@@ -98,7 +98,8 @@ public enum ClientType {
                     : "iOS TV"
     ),
     /**
-     * Uses non adaptive bitrate, which fixes audio stuttering.
+     * Uses non adaptive bitrate, which fixes audio stuttering with YT Music.
+     * Uses VP9 and not AV1.
      */
     ANDROID_VR_1_43_32(
             ANDROID_VR_1_61_48.id,
@@ -109,8 +110,8 @@ public enum ClientType {
             ANDROID_VR_1_61_48.osName,
             ANDROID_VR_1_61_48.osVersion,
             ANDROID_VR_1_61_48.androidSdkVersion,
-            "NGI77B",
-            ANDROID_VR_1_61_48.cronetVersion, // Exact cronet version used with 1.43 release is not known.
+            ANDROID_VR_1_61_48.buildId,
+            "107.0.5284.2",
             "1.43.32",
             ANDROID_VR_1_61_48.requiresAuth,
             ANDROID_VR_1_61_48.useAuth,
