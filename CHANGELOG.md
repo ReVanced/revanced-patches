@@ -1,3 +1,10 @@
+# [5.37.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.1...v5.37.0-dev.2) (2025-09-14)
+
+
+### Bug Fixes
+
+* Resolve patching with dev branch ([09b941a](https://github.com/ReVanced/revanced-patches/commit/09b941abf0e8029999565082b02a88b5de507ec4))
+
 # [5.37.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.36.0...v5.37.0-dev.1) (2025-09-14)
 
 
