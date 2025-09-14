@@ -1,11 +1,14 @@
 package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.fingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val buildInitPlaybackRequestFingerprint by fingerprint {
     returns("Lorg/chromium/net/UrlRequest\$Builder;")
@@ -40,7 +43,7 @@ internal val buildRequestFingerprint by fingerprint {
     returns("Lorg/chromium/net/UrlRequest") // UrlRequest; or UrlRequest$Builder;
     instructions(
         methodCall(name = "newUrlRequestBuilder")
-    )
+    ) // UrlRequest; or UrlRequest$Builder;
     custom { methodDef, _ ->
         // Different targets have slightly different parameters
 
@@ -74,9 +77,10 @@ internal val buildRequestFingerprint by fingerprint {
         val parameterTypes = methodDef.parameterTypes
         val parameterTypesSize = parameterTypes.size
         (parameterTypesSize == 6 || parameterTypesSize == 7 || parameterTypesSize == 8) &&
-            parameterTypes[1] == "Ljava/util/Map;" // URL headers.
+                parameterTypes[1] == "Ljava/util/Map;" // URL headers.
     }
 }
+
 
 internal val protobufClassParseByteBufferFingerprint by fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.STATIC)
@@ -160,7 +164,8 @@ internal val mediaFetchHotConfigFingerprint by fingerprint {
     )
 }
 
-// YT 20.10+, YT Music 8.11+
+// YT 20.10+, YT Music 8.11 - 8.14.
+// Flag is missing in YT Music 8.15+, and it is not known if a replacement flag/feature exists.
 internal val mediaFetchHotConfigAlternativeFingerprint by fingerprint {
     instructions(
         literal(45683169L)

@@ -9,6 +9,8 @@ var is_7_33_or_greater = false
     private set
 var is_8_11_or_greater = false
     private set
+var is_8_15_or_greater = false
+    private set
 
 val versionCheckPatch = resourcePatch(
     description = "Uses the Play Store service version to find the major/minor version of the YouTube Music target app.",
@@ -21,5 +23,6 @@ val versionCheckPatch = resourcePatch(
         // All bug fix releases always seem to use the same play store version as the minor version.
         is_7_33_or_greater = 245199000 <= playStoreServicesVersion
         is_8_11_or_greater = 251199000 <= playStoreServicesVersion
+        is_8_15_or_greater = 251530000 <= playStoreServicesVersion
     }
 }

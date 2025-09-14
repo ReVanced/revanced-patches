@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
@@ -41,7 +42,7 @@ fun spoofVideoStreamsPatch(
 ) {
     block()
 
-    dependsOn(addResourcesPatch)
+    dependsOn(sharedExtensionPatch, addResourcesPatch)
 
     execute {
         // region Enable extension helper method used by other patches
