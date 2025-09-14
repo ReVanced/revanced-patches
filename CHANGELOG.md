@@ -1,3 +1,10 @@
+# [5.37.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.2...v5.37.0-dev.3) (2025-09-14)
+
+
+### Bug Fixes
+
+* **Spotify:** Remove broken `Spoof client` patch ([#5833](https://github.com/ReVanced/revanced-patches/issues/5833)) ([dcd4245](https://github.com/ReVanced/revanced-patches/commit/dcd42454bd5f87dddd720534f6120c4ef90063a3))
+
 # [5.37.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.1...v5.37.0-dev.2) (2025-09-14)
 
 
