@@ -1,3 +1,10 @@
+# [5.37.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.3...v5.37.0-dev.4) (2025-09-14)
+
+
+### Bug Fixes
+
+* **YouTube Music - Spoof streaming data:** Fix audio playback stuttering ([#5839](https://github.com/ReVanced/revanced-patches/issues/5839)) ([2a85a3b](https://github.com/ReVanced/revanced-patches/commit/2a85a3b29092729ae16d1fd93803634ce5f08e95))
+
 # [5.37.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.2...v5.37.0-dev.3) (2025-09-14)
 
 
