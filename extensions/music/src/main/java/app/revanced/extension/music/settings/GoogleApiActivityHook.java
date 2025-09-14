@@ -4,7 +4,6 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceFragment;
@@ -39,6 +38,7 @@ public class GoogleApiActivityHook {
      */
     public static void initialize(Activity googleApiActivityHook) {
         try {
+            googleApiActivityHook.setTheme(getResourceIdentifier("Base.Theme.YouTubeMusic", "style"));
             googleApiActivityHook.setContentView(getResourceIdentifier(
                     "revanced_music_settings_with_toolbar", "layout"));
 
@@ -73,10 +73,10 @@ public class GoogleApiActivityHook {
         toolBarParent.removeView(dummyToolbar);
 
         Toolbar toolbar = new Toolbar(toolBarParent.getContext());
-        toolbar.setBackgroundColor(Color.BLACK);
+        toolbar.setBackgroundColor(Utils.getResourceColor("@color/ytm_color_black"));
 
         Drawable navigationIcon = ReVancedPreferenceFragment.getBackButtonDrawable();
-        navigationIcon.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
+        navigationIcon.setColorFilter(Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
         toolbar.setNavigationIcon(navigationIcon);
         toolbar.setNavigationOnClickListener(view -> activity.finish());
         toolbar.setTitle(getResourceIdentifier("revanced_settings_title", "string"));

@@ -13,16 +13,17 @@
         <FrameLayout
                 android:id="@+id/revanced_toolbar_parent"
                 android:layout_width="match_parent"
-                android:layout_height="?android:attr/actionBarSize"
-                android:background="@android:color/white"
+                android:layout_height="@dimen/action_bar_height"
+                android:background="@color/ytm_color_black"
                 android:elevation="0dp">
 
             <!-- Toolbar -->
             <android.support.v7.widget.Toolbar
                     android:id="@+id/revanced_toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="?android:attr/actionBarSize"
-                    android:background="@android:color/black"
+                    android:layout_height="@dimen/action_bar_height"
+                    android:background="@color/ytm_color_black"
+                    app:titleTextColor="?attr/colorOnSurface"
                     app:navigationIcon="@drawable/revanced_settings_toolbar_arrow_left"
                     app:title="@string/revanced_settings_title" />
         </FrameLayout>
@@ -33,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="?android:attr/colorBackground" />
+                android:background="@color/ytm_color_black" />
 
     </LinearLayout>
 </merge>

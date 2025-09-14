@@ -2,7 +2,6 @@ package app.revanced.extension.music.settings.preference;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.graphics.Color;
 import android.graphics.Insets;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -87,7 +86,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                                     .getParent();
 
                             // Set black background for the subscreen to prevent overlap.
-                            rootView.setBackgroundColor(Color.BLACK);
+                            rootView.setBackgroundColor(Utils.getAppBackgroundColor());
 
                             // Fix the system navigation bar color for submenus.
                             setNavigationBarColor(preferenceScreenDialog.getWindow());
@@ -115,7 +114,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                             toolbar.setTitle(childScreen.getTitle());
 
                             Drawable navigationIcon = getBackButtonDrawable();
-                            navigationIcon.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
+                            navigationIcon.setColorFilter(Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
                             toolbar.setNavigationIcon(navigationIcon);
                             toolbar.setNavigationOnClickListener(view -> preferenceScreenDialog.dismiss());
 
