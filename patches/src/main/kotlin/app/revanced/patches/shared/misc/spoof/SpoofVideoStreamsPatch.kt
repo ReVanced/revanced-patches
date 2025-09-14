@@ -43,7 +43,7 @@ fun spoofVideoStreamsPatch(
 ) {
     block()
 
-    dependsOn(sharedExtensionPatch, addResourcesPatch)
+    dependsOn(addResourcesPatch)
 
     execute {
         // region Enable extension helper method used by other patches

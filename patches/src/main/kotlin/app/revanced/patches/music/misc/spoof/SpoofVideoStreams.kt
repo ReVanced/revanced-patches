@@ -1,5 +1,6 @@
 package app.revanced.patches.music.misc.spoof
 
+import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.playservice.is_7_33_or_greater
 import app.revanced.patches.music.playservice.is_8_11_or_greater
 import app.revanced.patches.music.playservice.is_8_15_or_greater
@@ -14,7 +15,7 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
             )
         )
 
-        dependsOn(versionCheckPatch, userAgentClientSpoofPatch)
+        dependsOn(sharedExtensionPatch, versionCheckPatch, userAgentClientSpoofPatch)
     },
     fixMediaFetchHotConfigChanges = { true },
     fixMediaFetchHotConfigAlternativeChanges = { is_8_11_or_greater && !is_8_15_or_greater },
