@@ -86,7 +86,8 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
         String summary = str(key + "_summary");
 
         // Android VR supports AV1 but all other clients do not.
-        if (clientType != ClientType.ANDROID_VR_NO_AUTH) {
+        if (clientType != ClientType.ANDROID_VR_1_61_48
+                && clientType != ClientType.ANDROID_VR_1_43_32) {
             summary += '\n' + str("revanced_spoof_video_streams_about_no_av1");
         }
 
