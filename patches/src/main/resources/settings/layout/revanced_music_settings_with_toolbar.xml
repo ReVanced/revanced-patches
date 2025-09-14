@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            android:transitionGroup="true">
+
+        <!-- Parent container for Toolbar -->
+        <FrameLayout
+                android:id="@+id/revanced_toolbar_parent"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="@android:color/white"
+                android:elevation="0dp">
+
+            <!-- Toolbar -->
+            <android.support.v7.widget.Toolbar
+                    android:id="@+id/revanced_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:background="@android:color/black"
+                    app:navigationIcon="@drawable/revanced_settings_toolbar_arrow_left"
+                    app:title="@string/revanced_settings_title" />
+        </FrameLayout>
+
+        <!-- Preference content container -->
+        <FrameLayout
+                android:id="@+id/revanced_settings_fragments"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="?android:attr/colorBackground" />
+
+    </LinearLayout>
+</merge>

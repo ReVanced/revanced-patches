@@ -380,6 +380,10 @@ public final class app/revanced/patches/music/misc/backgroundplayback/Background
 	public static final fun getBackgroundPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/misc/debugging/EnableDebuggingPatchKt {
+	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/misc/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -390,6 +394,17 @@ public final class app/revanced/patches/music/misc/gms/Constants {
 
 public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/misc/settings/PreferenceScreen : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/settings/PreferenceScreen;
+	public fun commit (Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference;)V
+	public final fun getMISC ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+}
+
+public final class app/revanced/patches/music/misc/settings/SettingsPatchKt {
+	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun newIntent (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
 }
 
 public final class app/revanced/patches/music/misc/spoof/SpoofVideoStreamsKt {

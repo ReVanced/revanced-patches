@@ -33,6 +33,7 @@ Second \"item\" text"</string>
         <patch id="misc.settings.settingsResourcePatch">
             <string name="revanced_settings_submenu_title">Settings</string>
             <string name="revanced_settings_title" translatable="false">ReVanced</string>
+            <string name="revanced_settings_summary">ReVanced settings</string>
             <string name="revanced_settings_confirm_user_dialog_title">Are you sure you want to proceed?</string>
             <string name="revanced_settings_reset">Reset</string>
             <string name="revanced_settings_reset_color">Reset color</string>
@@ -1639,6 +1640,18 @@ AVC has a maximum resolution of 1080p, Opus audio codec is not available, and vi
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
             <string name="revanced_spoof_video_streams_language_title">VR default audio stream language</string>
+        </patch>
+    </app>
+    <app id="music">
+        <patch id="misc.settings.settingsPatch">
+            <string name="revanced_settings_screen_1_misc_title">Miscellaneous</string>
+        </patch>
+        <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_music_screen_title">Debugging</string>
+            <string name="revanced_debug_music_screen_summary">Enable or disable debugging options</string>
+            <string name="revanced_debug_music_title">Debug logging</string>
+            <string name="revanced_debug_music_summary_on">Debug logs are enabled</string>
+            <string name="revanced_debug_music_summary_off">Debug logs are disabled</string>
         </patch>
     </app>
     <app id="twitch">
