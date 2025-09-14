@@ -1,3 +1,10 @@
+# [5.37.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.36.0...v5.37.0-dev.1) (2025-09-14)
+
+
+### Features
+
+* **Viber:** Add `Hide ads` patch ([#5826](https://github.com/ReVanced/revanced-patches/issues/5826)) ([0abfab7](https://github.com/ReVanced/revanced-patches/commit/0abfab79d7cda15bf17c53679fbfffb021662649))
+
 # [5.36.0](https://github.com/ReVanced/revanced-patches/compare/v5.35.0...v5.36.0) (2025-09-14)
 
 
