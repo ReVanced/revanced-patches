@@ -73,7 +73,7 @@ public class GoogleApiActivityHook {
         toolBarParent.removeView(dummyToolbar);
 
         Toolbar toolbar = new Toolbar(toolBarParent.getContext());
-        toolbar.setBackgroundColor(Utils.getResourceColor("@color/ytm_color_black"));
+        toolbar.setBackgroundColor(Utils.getResourceColor("ytm_color_black"));
 
         Drawable navigationIcon = ReVancedPreferenceFragment.getBackButtonDrawable();
         navigationIcon.setColorFilter(Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
