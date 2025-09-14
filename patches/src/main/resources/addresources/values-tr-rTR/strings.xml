@@ -1078,11 +1078,11 @@ Kullanıcı kimliğiniz bir parola gibidir ve asla paylaşılmamalıdır.
   <string name="revanced_sb_segments_outro">Bitiş Ekranı / Jenerik</string>
   <string name="revanced_sb_segments_outro_sum">Jenerik veya YouTube bitiş kartlarının göründüğü zaman. Bilgi içeren çıkarımlar için değil</string>
   <string name="revanced_sb_segments_hook">Giriş / Selamlama</string>
-  <string name="revanced_sb_segments_hook_sum">Gelecek video için anlatımlı fragmanlar, selamlamalar ve vedalar. Ek içerik ekleyen bölümler dahil değildir</string>
+  <string name="revanced_sb_segments_hook_sum">Gelecek video için anlatımlı fragmanlar, selamlamalar ve vedalar. Ek içerik ekleyen kısımları içermez</string>
   <string name="revanced_sb_segments_preview">Ön İzleme / Özet</string>
   <string name="revanced_sb_segments_preview_sum">Videoda veya bir dizinin diğer videolarında neler olduğunu ve nelerin geleceğini gösteren, tüm bilgilerin başka bir yerde tekrarlandığı klip koleksiyonu</string>
   <string name="revanced_sb_segments_filler">Konuyla Alakasız / Şakalar</string>
-  <string name="revanced_sb_segments_filler_sum">Videonun ana içeriğini anlamak için gerekli olmayan alakasız sahneler veya şakalar. Bağlam veya arka plan detayları sağlayan bölümleri içermez</string>
+  <string name="revanced_sb_segments_filler_sum">Videonun ana içeriğini anlamak için gerekli olmayan alakasız sahneler veya şakalar. Bağlam veya arka plan detayları sağlayan kısımları içermez</string>
   <string name="revanced_sb_segments_nomusic">Müzik: Müzik Olmayan Kısım</string>
   <string name="revanced_sb_segments_nomusic_sum">Yalnızca müzik videolarında kullanım içindir. Müzik videolarının başka bir kategorinin kapsamadığı müziksiz bölümleri</string>
   <string name="revanced_sb_skip_button_compact">Atla</string>
