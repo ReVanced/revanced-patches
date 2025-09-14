@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.videoplayer.PlayerControlButton;
 
 @SuppressWarnings("unused")
@@ -26,7 +27,7 @@ public class CreateSegmentButton {
                     controlsView,
                     "revanced_sb_create_segment_button",
                     null,
-                    CreateSegmentButton::shouldBeShown,
+                    CreateSegmentButton::isButtonEnabled,
                     v -> SponsorBlockViewController.toggleNewSegmentLayoutVisibility(),
                     null
             );
@@ -56,7 +57,8 @@ public class CreateSegmentButton {
         if (instance != null) instance.setVisibility(visible, animated);
     }
 
-    private static boolean shouldBeShown() {
-        return Settings.SB_ENABLED.get() && Settings.SB_CREATE_NEW_SEGMENT.get();
+    private static boolean isButtonEnabled() {
+        return Settings.SB_ENABLED.get() && Settings.SB_CREATE_NEW_SEGMENT.get()
+                && !SegmentPlaybackController.isAdProgressTextVisible();
     }
 }
