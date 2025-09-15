@@ -45,33 +45,6 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_music_settings_with_toolbar.xml"
             )
         )
-
-        // Modify the manifest to enhance GoogleApiActivity behavior:
-        // 1. Add a data intent filter with MIME type "text/plain".
-        //    Some devices crash if undeclared data is passed to an intent,
-        //    and this change appears to fix the issue.
-        // 2. Add android:configChanges="orientation|screenSize|keyboardHidden".
-        //    This prevents the activity from being recreated on configuration changes
-        //    (e.g., screen rotation), preserving its current state and fragment.
-        document("AndroidManifest.xml").use { document ->
-            val googleApiElement = document.childNodes.findElementByAttributeValueOrThrow(
-                "android:name",
-                "com.google.android.gms.common.api.GoogleApiActivity",
-            )
-
-            googleApiElement.setAttribute(
-                "android:configChanges",
-                "orientation|screenSize|keyboardHidden"
-            )
-
-            val mimeType = document.createElement("data")
-            mimeType.setAttribute("android:mimeType", "text/plain")
-
-            val intentFilter = document.createElement("intent-filter")
-            intentFilter.appendChild(mimeType)
-
-            googleApiElement.appendChild(intentFilter)
-        }
     }
 }
 
