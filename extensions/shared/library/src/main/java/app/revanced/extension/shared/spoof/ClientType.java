@@ -74,7 +74,7 @@ public enum ClientType {
             "Android Creator"
     ),
     /**
-     * Internal YT client for unreleased app. May stop working at any time.
+     * Internal YT client for an unreleased YT client. May stop working at any time.
      */
     VISIONOS(101,
             "VISIONOS",

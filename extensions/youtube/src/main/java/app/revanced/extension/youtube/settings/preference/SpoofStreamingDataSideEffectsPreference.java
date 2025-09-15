@@ -81,17 +81,12 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
         String title = str("revanced_spoof_video_streams_about_title");
         // Currently only Android VR and VisionOS are supported, and both have the same base side effects.
         String summary = str("revanced_spoof_video_streams_about_android_summary");
-
-        // Android VR supports AV1 but all other clients do not.
-        if (clientType != ClientType.ANDROID_VR_1_61_48
-                && clientType != ClientType.ANDROID_VR_1_43_32) {
-            summary += '\n' + str("revanced_spoof_video_streams_about_no_av1");
-        }
-
         summary += '\n' + str("revanced_spoof_video_streams_about_kids_videos");
 
         if (clientType == ClientType.VISIONOS) {
-            summary = str("revanced_spoof_video_streams_about_experimental") + '\n' + summary;
+            summary = str("revanced_spoof_video_streams_about_experimental")
+                    + '\n' + summary
+                    + '\n' + str("revanced_spoof_video_streams_about_no_av1");
         }
 
         setTitle(title);
