@@ -1,9 +1,9 @@
 package app.revanced.extension.music.settings;
 
+import static java.lang.Boolean.TRUE;
+
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
-
-import static java.lang.Boolean.TRUE;
 
 public class Settings extends BaseSettings {
 
@@ -18,8 +18,4 @@ public class Settings extends BaseSettings {
 
     // Player
     public static final BooleanSetting PERMANENT_REPEAT = new BooleanSetting("revanced_music_play_permanent_repeat", TRUE, true);
-
-    // Misc
-    public static final BooleanSetting BYPASS_CERTIFICATE_CHECKS = new BooleanSetting("revanced_music_bypass_certificate_checks", TRUE, true);
-    public static final BooleanSetting REMOVE_PLAYBACK_RESTRICTION = new BooleanSetting("revanced_music_remove_playback_restriction", TRUE, true);
 }

@@ -1674,16 +1674,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_music_remove_upgrade_button_summary_on">Button is removed</string>
             <string name="revanced_music_remove_upgrade_button_summary_off">Button is shown</string>
         </patch>
-        <patch id="misc.androidauto.bypassCertificateChecksPatch">
-            <string name="revanced_music_bypass_certificate_checks_title">Bypass certificate checks</string>
-            <string name="revanced_music_bypass_certificate_checks_summary_on">Certificate is bypassed</string>
-            <string name="revanced_music_bypass_certificate_checks_summary_off">Certificate is not bypassed</string>
-        </patch>
-        <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-            <string name="revanced_music_remove_playback_restriction_title">Remove background playback restrictions</string>
-            <string name="revanced_music_remove_playback_restriction_summary_on">Background playback works without restrictions</string>
-            <string name="revanced_music_remove_playback_restriction_summary_off">Background playback follows normal restrictions</string>
-        </patch>
     </app>
     <app id="twitch">
         <patch id="ad.audio.audioAdsPatch">

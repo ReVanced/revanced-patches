@@ -1,14 +1,10 @@
 package app.revanced.patches.music.misc.backgroundplayback
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.all.misc.resources.addResources
-import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
-import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.util.returnEarly
 
 val backgroundPlaybackPatch = bytecodePatch(
     name = "Remove background playback restrictions",
@@ -16,8 +12,7 @@ val backgroundPlaybackPatch = bytecodePatch(
 ) {
     dependsOn(
         sharedExtensionPatch,
-        settingsPatch,
-        addResourcesPatch,
+        settingsPatch
     )
 
     compatibleWith(
@@ -27,23 +22,11 @@ val backgroundPlaybackPatch = bytecodePatch(
     )
 
     execute {
-        addResources("music", "misc.backgroundplayback.backgroundPlaybackPatch")
-
-        PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_music_remove_playback_restriction"),
-        )
-
         kidsBackgroundPlaybackPolicyControllerFingerprint.method.addInstruction(
             0,
             "return-void",
         )
 
-        backgroundPlaybackDisableFingerprint.method.addInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
+        backgroundPlaybackDisableFingerprint.method.returnEarly(true)
     }
 }
