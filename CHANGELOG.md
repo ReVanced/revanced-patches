@@ -1,3 +1,10 @@
+# [5.38.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.37.1-dev.3...v5.38.0-dev.1) (2025-09-15)
+
+
+### Features
+
+* **Instagram:** Add `Hide explore feed` patch ([#5856](https://github.com/ReVanced/revanced-patches/issues/5856)) ([1d65887](https://github.com/ReVanced/revanced-patches/commit/1d65887e015a067196f5a84db486fff355c96596))
+
 ## [5.37.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.37.1-dev.2...v5.37.1-dev.3) (2025-09-15)
 
 
