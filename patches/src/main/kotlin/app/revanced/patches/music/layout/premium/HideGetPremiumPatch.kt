@@ -1,7 +1,7 @@
 package app.revanced.patches.music.layout.premium
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -58,7 +58,7 @@ val hideGetPremiumPatch = bytecodePatch(
             )
         }
 
-        membershipSettingsFingerprint.method.addInstructions(
+        membershipSettingsFingerprint.method.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->hideGetPremiumLabel()Z
