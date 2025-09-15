@@ -65,7 +65,7 @@ internal val mainActivityOnCreateFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
     custom { method, classDef ->
-        method.name == "onCreate" && classDef.endsWith("/MainActivity;")
+        method.name == "onCreate" && classDef.type == "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
     }
 }
 

@@ -7,5 +7,9 @@ import app.revanced.patches.shared.misc.extension.extensionHook
  */
 // Extension context is the Activity itself.
 internal val applicationInitHook = extensionHook {
-    strings("Application creation", "Application.onCreate")
+    returns("V")
+    parameters("Landroid/os/Bundle;")
+    custom { method, classDef ->
+        method.name == "onCreate" && classDef.type == "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
+    }
 }
