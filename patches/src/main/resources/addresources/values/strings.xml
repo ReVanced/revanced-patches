@@ -157,9 +157,20 @@ Playback may not work"</string>
             <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause playback issues.</string>
         </patch>
         <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_screen_title">Debugging</string>
+            <string name="revanced_debug_screen_summary">Enable or disable debugging options</string>
             <string name="revanced_debug_title">Debug logging</string>
             <string name="revanced_debug_summary_on">Debug logs are enabled</string>
             <string name="revanced_debug_summary_off">Debug logs are disabled</string>
+            <string name="revanced_debug_export_logs_to_clipboard_title">Export debug logs</string>
+            <string name="revanced_debug_export_logs_to_clipboard_summary">Copies ReVanced debug logs to the clipboard</string>
+            <string name="revanced_debug_logs_disabled">Debug logging is disabled</string>
+            <string name="revanced_debug_logs_none_found">No logs found</string>
+            <string name="revanced_debug_logs_copied_to_clipboard">Logs copied</string>
+            <string name="revanced_debug_logs_failed_to_export">Failed to export logs: %s</string>
+            <string name="revanced_debug_logs_clear_buffer_title">Clear debug logs</string>
+            <string name="revanced_debug_logs_clear_buffer_summary">Clears all stored ReVanced debug logs</string>
+            <string name="revanced_debug_logs_clear_toast">Logs cleared</string>
         </patch>
     </app>
     <app id="youtube">
@@ -189,8 +200,6 @@ Playback may not work"</string>
             <string name="revanced_shorts_disable_background_playback_summary_off">Shorts background play is enabled</string>
         </patch>
         <patch id="misc.debugging.enableDebuggingPatch">
-            <string name="revanced_debug_screen_title">Debugging</string>
-            <string name="revanced_debug_screen_summary">Enable or disable debugging options</string>
             <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
             <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
             <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
@@ -208,15 +217,6 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_debug_toast_on_error_user_dialog_message">"Turning off error toasts hides all ReVanced error notifications.
 
 You will not be notified of any unexpected events."</string>
-            <string name="revanced_debug_export_logs_to_clipboard_title">Export debug logs</string>
-            <string name="revanced_debug_export_logs_to_clipboard_summary">Copies ReVanced debug logs to the clipboard</string>
-            <string name="revanced_debug_logs_disabled">Debug logging is disabled</string>
-            <string name="revanced_debug_logs_none_found">No logs found</string>
-            <string name="revanced_debug_logs_copied_to_clipboard">Logs copied</string>
-            <string name="revanced_debug_logs_failed_to_export">Failed to export logs: %s</string>
-            <string name="revanced_debug_logs_clear_buffer_title">Clear debug logs</string>
-            <string name="revanced_debug_logs_clear_buffer_summary">Clears all stored ReVanced debug logs</string>
-            <string name="revanced_debug_logs_clear_toast">Logs cleared</string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <string name="revanced_hide_album_cards_title">Hide album cards</string>

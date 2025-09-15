@@ -6,11 +6,13 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.settingsPatch
-import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
@@ -85,9 +87,25 @@ val settingsPatch = bytecodePatch(
         addResources("music", "misc.settings.settingsPatch")
         addResources("shared", "misc.debugging.enableDebuggingPatch")
 
-        // Could make a separate debugging patch, but for now the only setting is to enable logging.
+        // Should make a separate debugging patch, but for now include it with all installations.
         PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_debug")
+            PreferenceScreenPreference(
+                key = "revanced_debug_screen",
+                sorting = Sorting.UNSORTED,
+                preferences = setOf(
+                    SwitchPreference("revanced_debug"),
+                    NonInteractivePreference(
+                        "revanced_debug_export_logs_to_clipboard",
+                        tag = "app.revanced.extension.shared.settings.preference.ExportLogToClipboardPreference",
+                        selectable = true
+                    ),
+                    NonInteractivePreference(
+                        "revanced_debug_logs_clear_buffer",
+                        tag = "app.revanced.extension.shared.settings.preference.ClearLogBufferPreference",
+                        selectable = true
+                    )
+                )
+            )
         )
 
         // Add an "About" preference to the top.
