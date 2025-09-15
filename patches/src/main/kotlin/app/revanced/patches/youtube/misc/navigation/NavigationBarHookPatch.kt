@@ -127,8 +127,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // Litho filtering based on navigation tab before the tab is updated.
         mainActivityOnBackPressedFingerprint.method.addInstruction(
             0,
-            "invoke-static { p0 }, " +
-                "$EXTENSION_CLASS_DESCRIPTOR->onBackPressed(Landroid/app/Activity;)V",
+            "invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->onBackPressed(Landroid/app/Activity;)V",
         )
 
         // Hook the search bar.

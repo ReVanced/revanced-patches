@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.theme
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -37,6 +38,6 @@ internal val splashScreenStyleFingerprint = fingerprint {
     parameters("Landroid/os/Bundle;")
     literal { SPLASH_SCREEN_STYLE_FEATURE_FLAG }
     custom { method, classDef ->
-        method.name == "onCreate" && classDef.endsWith("/MainActivity;")
+        method.name == "onCreate" && classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
     }
 }
