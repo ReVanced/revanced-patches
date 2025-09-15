@@ -23,7 +23,7 @@ public class SpoofVideoStreamsPatch {
             && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.VISIONOS;
 
     @Nullable
-    private static volatile AppLanguage preferredLanguageOverride;
+    private static volatile AppLanguage languageOverride;
 
     /**
      * Domain used for internet connectivity verification.
@@ -47,22 +47,21 @@ public class SpoofVideoStreamsPatch {
         return false; // Modified during patching.
     }
 
-    public static boolean notSpoofingToClientWithoutMultiAudioStreams() {
-        return !isPatchIncluded() || !BaseSettings.SPOOF_VIDEO_STREAMS.get();
+    public static boolean spoofingToClientWithNoMultiAudioStreams() {
+        return isPatchIncluded() && BaseSettings.SPOOF_VIDEO_STREAMS.get();
     }
 
     /**
-     * @param languageOverride Language override for non-authenticated requests.
-     *                         If this is not set or is null, then
-     *                         {@link BaseSettings#SPOOF_VIDEO_STREAMS_LANGUAGE} is used.
+     * @param language Language override for non-authenticated requests. If this is null then
+     *                 {@link BaseSettings#SPOOF_VIDEO_STREAMS_LANGUAGE} is used.
      */
-    public static void setPreferredLanguageOverride(@Nullable AppLanguage languageOverride) {
-        preferredLanguageOverride = languageOverride;
+    public static void setLanguageOverride(@Nullable AppLanguage language) {
+        languageOverride = language;
     }
 
     @Nullable
-    public static AppLanguage getPreferredLanguageOverride() {
-        return preferredLanguageOverride;
+    public static AppLanguage getLanguageOverride() {
+        return languageOverride;
     }
 
     /**

@@ -41,7 +41,7 @@ final class PlayerRoutes {
         try {
             JSONObject context = new JSONObject();
 
-            AppLanguage language = SpoofVideoStreamsPatch.getPreferredLanguageOverride();
+            AppLanguage language = SpoofVideoStreamsPatch.getLanguageOverride();
             if (language == null || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ANDROID_VR_1_43_32) {
                 // Force original audio has not overrode the language.
                 // Or if YT has fallen over to the very last client (VR 1.43), then always

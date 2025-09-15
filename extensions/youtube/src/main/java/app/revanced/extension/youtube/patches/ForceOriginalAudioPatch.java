@@ -23,8 +23,8 @@ public class ForceOriginalAudioPatch {
             // but the language is also supported natively by the Meta Quest device that
             // Android VR is spoofing.
             AppLanguage override = AppLanguage.SV;
-            Logger.printDebug(() -> "Setting language override of " + override);
-            SpoofVideoStreamsPatch.setPreferredLanguageOverride(AppLanguage.SV);
+            Logger.printDebug(() -> "Setting language override: " + override);
+            SpoofVideoStreamsPatch.setLanguageOverride(override);
         }
     }
 
