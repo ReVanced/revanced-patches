@@ -1,4 +1,4 @@
-package app.revanced.patches.instagram.hide.search
+package app.revanced.patches.instagram.hide.explore
 
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction

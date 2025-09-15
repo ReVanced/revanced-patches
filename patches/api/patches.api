@@ -264,12 +264,12 @@ public final class app/revanced/patches/instagram/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/instagram/hide/navigation/HideNavigationButtonsKt {
-	public static final fun getHideNavigationButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/instagram/hide/explore/HideExploreFeedKt {
+	public static final fun getHideExportFeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/instagram/hide/search/HideExploreFeedKt {
-	public static final fun getHideExportFeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/instagram/hide/navigation/HideNavigationButtonsKt {
+	public static final fun getHideNavigationButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/instagram/hide/stories/HideStoriesKt {
