@@ -700,9 +700,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Менюто за избор на Аудио е скрито</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Менюто за избор на Аудио се показва</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Менюто за аудио тракове е скрито
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Менюто за аудиозаписи е скрито
 
-За да покажете менюто за аудио тракове, променете \"Подмяна на видео потоци\" на iOS TV"</string>
+Менюто за аудиозаписи не е налично, когато „Подменяне на видео потоци“ е активирано"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Гледайте във VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Менюто за гледане в VR е скрито</string>
@@ -1535,32 +1535,25 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_screen_title">Подправяне на видео потоци</string>
   <string name="revanced_spoof_video_streams_screen_summary">Подправете клиентските видео потоци, за да предотвратите проблеми с възпроизвеждането</string>
   <string name="revanced_spoof_video_streams_title">Подправяне на видео потоци</string>
-  <string name="revanced_spoof_video_streams_summary_on">Видео потоците са подправени</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Видео потоците са подменени
+
+Ако сте потребител на YouTube Premium, тази настройка може да не е необходима"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Потоците на видеоклипове не са фалшифицирани
 
 Възпроизвеждането на видеоклипове може да не работи"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Деактивирането на тази настройка ще доведе до проблеми с възпроизвеждането на видео.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудително използване на AVC (H.264) на iOS</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодекът е принудително зададен на AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодекът се определя автоматично</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Включването на това може да подобри живота на батерията и да поправи заекването при възпроизвеждане.
-
-AVC има максимална резолюция от 1080p, Opus аудио кодек не е наличен и възпроизвеждането на видео ще използва повече интернет данни от VP9 или AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Ефекти на измамата в iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Филми или платени видеоклипове може да не се възпроизвеждат
-• Стабилен звук не е наличен
-• Видеоклиповете завършват 1 секунда по-рано"</string>
+  <string name="revanced_spoof_video_streams_about_title">Странични ефекти от подменянето</string>
   <string name="revanced_spoof_video_streams_about_android_title">Strani4ni efekti na fal6ivoto predstavqne na Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Lipsva menju za audio pisti
-• Ne e nali4na stabilna glasnost
-• Ne e nali4na forsirana originalna audio pista"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Липсва менюто за аудиозаписи
+• Стабилен звук не е наличен"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Експериментален клиент и може да спре да работи по всяко време</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Без AV1 видео кодек</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Детските видеоклипове може да не се възпроизвеждат, когато сте излезли от профила си или в режим \"инкогнито\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Poka6i v Statistiki za nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipът na klienta se poka6va v Statistiki za nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientът e skriт v Statistiki za nerds</string>
-  <string name="revanced_spoof_video_streams_language_title">Ezik po подразбиране za audio potok v VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Език на аудио потока</string>
   </patch>
   </app>
   <app id="twitch">

@@ -700,9 +700,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Աուդիո ձայնագրման մենյուը թաքցված է</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Աուդիո ձայնագրման մենյուը երևում է</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Աուդիո ուղու ընտրացանկը թաքնված է:
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ձայնային ուղու մենյուն թաքնված է
 
-Աուդիո ուղու ընտրացանկը ցուցադրելու համար փոխեք «Կեղծել տեսահոսքերը»-ը iOS TV-ի"</string>
+Ձայնային ուղու մենյուն հասանելի չէ, երբ միացված է «Տեսահոսքերը կեղծել» տարբերակը"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Դիտել VR-ով թաքցնել</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR-ով դիտել մենյուը թաքցված է</string>
@@ -1536,32 +1536,25 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_spoof_video_streams_screen_title">Հնարավոր է  տեսանյութի  հոսքերը  փոփոխել</string>
   <string name="revanced_spoof_video_streams_screen_summary">Փոփոխել  տեսանյութի  հոսքերը  համար  խուսափել  վերարտադրման  հետ  կապված  պրոբլեմներից</string>
   <string name="revanced_spoof_video_streams_title">Հնարավոր է  տեսանյութի  հոսքերը  փոփոխել</string>
-  <string name="revanced_spoof_video_streams_summary_on">Տեսանյութի  հոսքերը  փոփոխված են</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Տեսահոսքերը կեղծված են
+
+Եթե դուք YouTube Premium օգտատեր եք, այս կարգավորումը կարող է անհրաժեշտ չլինել"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Տեսանյութի հոսքերը չեն կեղծվում
 
 Տեսանյութի վերարտադրումը կարող է չաշխատել։"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Այս  կարգավորման  անջատումը  կարող է  առաջացնել  տեսանյութի  վերարտադրման  հետ  կապված  պրոբլեմներ</string>
   <string name="revanced_spoof_video_streams_client_type_title">Դեֆոլտ  կլիենտ</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS-ի համար AVC (H.264) պարտադիր ակտիվացում</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Վիդեո կոդեկը պարտադիր կերպով AVC (H.264) է</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Վիդեո կոդեկը որոշվում է ավտոմատ կերպով</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Սա ակտիվացնելը կարող է բարելավել մարտկոցի աշխատանքի տևողությունը և վերացնել վերարտադրման խցկումները։
-
-AVC-ի առավելագույն թույլտվությունը 1080p է, Opus աուդիո կոդեկը հասանելի չէ, իսկ վիդեոյի վերարտադրումը VP9-ից կամ AV1-ից ավելի շատ ինտերնետ տվյալներ կօգտագործի։"</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS խաբեության կողմնակի ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Ֆիլմերը կամ վճարովի տեսանյութերը չեն կարող աշխատել
-• Հասանելի չէ կայուն ձայնի ծավալը
-• Տեսանյութերը վերջանում են 1 վայրկյան վաղ"</string>
+  <string name="revanced_spoof_video_streams_about_title">Կեղծելու կողմնակի ազդեցություններ</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android խաբեության կողմնակի ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Ձայնի գրառման ընտրացանկը բացակայում է
-• Ստաբիլ ձայն չկա
-• Իրական ձայնի ընտրությունը հասանելի չէ"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Ձայնային ուղու մենյուն բացակայում է
+• Կայուն ձայնի մակարդակը հասանելի չէ"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Փորձնական հաճախորդ է և կարող է ցանկացած պահի դադարել աշխատել</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Հեռացված բոլոր AV1 վիդեո կոդեկները</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">Երեխաների տեսանյութերը կարող են չհամապատասխանել հետևյալ պահանջներին՝ եթե արտոնագրման խախտումներ կան։</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ցուցադրել վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Հաճախորդի տեսակը ցուցադրվում է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Հաճախորդը թաքնված է վիճակագրության ակնոցներում</string>
-  <string name="revanced_spoof_video_streams_language_title">VR-ի համար նախապես ընտրված ձայնի գրառման լեզու</string>
+  <string name="revanced_spoof_video_streams_language_title">Ձայնային հոսքի լեզուն</string>
   </patch>
   </app>
   <app id="twitch">

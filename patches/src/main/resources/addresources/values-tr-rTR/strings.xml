@@ -702,7 +702,7 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Ses parçası menüsü gizli
 
-Ses parçası menüsünü göstermek için 'Video akışlarını taklit et' ayarını iOS TV olarak değiştirin"</string>
+\"Video akışlarını taklit et\" etkinken ses parçası menüsü kullanılamaz"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR modunda izlemeyi gizle</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR modunda izle menüsü gizli</string>
@@ -1542,32 +1542,25 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_spoof_video_streams_screen_title">Video akışlarını taklit et</string>
   <string name="revanced_spoof_video_streams_screen_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit et</string>
   <string name="revanced_spoof_video_streams_title">Video akışlarını taklit et</string>
-  <string name="revanced_spoof_video_streams_summary_on">Video akışları taklit edilir</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Video akışları taklit ediliyor.
+
+YouTube Premium kullanıcısıysanız, bu ayar gerekli olmayabilir"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Video akışları taklit edilmez
 
 Video oynatma çalışmayabilir"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Varsayılan istemci</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS AVC\'yi (H.264) zorla</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeği AVC\'ye (H.264) zorlandı</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeği otomatik olarak belirlenir</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bu özelliği etkinleştirmek, pil ömrünü iyileştirebilir ve oynatma takılmalarını düzeltebilir.
-
-AVC'nin maksimum çözünürlüğü 1080p'dir, Opus ses kodeği kullanılamaz ve video oynatma VP9 veya AV1'den daha fazla internet verisi kullanır."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS taklidi yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmler veya ücretli videolar oynatılamayabilir
-• Sabit ses özelliği kullanılamaz
-• Videolar 1 saniye erken biter"</string>
+  <string name="revanced_spoof_video_streams_about_title">Taklit yan etkileri</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android taklidi yan etkileri</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ses parçası menüsü eksik
-• Sabit ses özelliği kullanılamaz
-• Orijinal sesi zorlama kullanılamaz"</string>
+• Sabit ses özelliği kullanılamaz"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Deneysel istemci ve her an çalışmayı durdurabilir</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Çocuk videoları oturum açılmadığında veya gizli modda oynatılamayabilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Meraklısı için istatistiklerde göster</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">İstemci tipi meraklısı için istatistiklerde gösterilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">İstemci, meraklısı için istatistiklerde gizli</string>
-  <string name="revanced_spoof_video_streams_language_title">VR varsayılan ses akışı dili</string>
+  <string name="revanced_spoof_video_streams_language_title">Ses akışı dili</string>
   </patch>
   </app>
   <app id="twitch">

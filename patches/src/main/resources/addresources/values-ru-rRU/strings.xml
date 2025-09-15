@@ -700,9 +700,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Пункт \"Звуковая дорожка\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Пункт \"Звуковая дорожка\" в выдвижном меню плеера показан</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Пункт \"Звуковая дорожка\" в выдвижном меню плеера скрыт
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Меню звуковой дорожки скрыто
 
-Для показа пункта \"Звуковая дорожка\" измените клиент \"Подмены видеопотоков\" на iOS TV"</string>
+Меню звуковой дорожки недоступно, когда включена функция 'Подмена видеопотоков'"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Скрыть пункт \"Смотреть в VR-режиме\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Пункт \"Смотреть в VR-режиме\" в выдвижном меню плеера скрыт</string>
@@ -1077,7 +1077,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_intro_sum">Интервал без фактического содержания. Может быть паузой, статическим кадром или повторяющейся анимацией. Не включает переходы, содержащие информацию</string>
   <string name="revanced_sb_segments_outro">Конечные заставки / Титры</string>
   <string name="revanced_sb_segments_outro_sum">Титры или время появления конечных заставок YouTube. Не для выводов с информацией</string>
-  <string name="revanced_sb_segments_hook">Вступление / Приветствия</string>
+  <string name="revanced_sb_segments_hook">Вступление / Приветствие</string>
   <string name="revanced_sb_segments_hook_sum">Трейлеры с закадровым голосом для предстоящего видео, приветствия и прощания. Не включает разделы, добавляющие дополнительный контент</string>
   <string name="revanced_sb_segments_preview">Предпросмотр / Пересказ</string>
   <string name="revanced_sb_segments_preview_sum">Фрагменты, повторяющие текущее видео или предыдущие серии</string>
@@ -1095,11 +1095,11 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skip_button_intro_middle">Пропустить паузу</string>
   <string name="revanced_sb_skip_button_intro_end">Пропустить паузу</string>
   <string name="revanced_sb_skip_button_outro">Пропустить концовку</string>
-  <string name="revanced_sb_skip_button_hook">Пропустить завязку</string>
+  <string name="revanced_sb_skip_button_hook">Пропустить вступление</string>
   <string name="revanced_sb_skip_button_preview_beginning">Пропустить предпросмотр</string>
   <string name="revanced_sb_skip_button_preview_middle">Пропустить предпросмотр</string>
   <string name="revanced_sb_skip_button_preview_end">Пропустить пересказ</string>
-  <string name="revanced_sb_skip_button_filler">Пропустить отступление</string>
+  <string name="revanced_sb_skip_button_filler">Пропустить отвлеченные темы</string>
   <string name="revanced_sb_skip_button_nomusic">Пропустить сегмент без музыки</string>
   <string name="revanced_sb_skip_button_unsubmitted">Пропустить сегмент</string>
   <string name="revanced_sb_skipped_sponsor">Спонсорская реклама пропущена</string>
@@ -1110,11 +1110,11 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skipped_intro_middle">Пауза пропущена</string>
   <string name="revanced_sb_skipped_intro_end">Пауза пропущена</string>
   <string name="revanced_sb_skipped_outro">Концовка пропущена</string>
-  <string name="revanced_sb_skipped_hook">Завязка пропущена</string>
+  <string name="revanced_sb_skipped_hook">Вступление пропущено</string>
   <string name="revanced_sb_skipped_preview_beginning">Предпросмотр пропущен</string>
   <string name="revanced_sb_skipped_preview_middle">Предпросмотр пропущен</string>
   <string name="revanced_sb_skipped_preview_end">Пересказ пропущен</string>
-  <string name="revanced_sb_skipped_filler">Отступление пропущено</string>
+  <string name="revanced_sb_skipped_filler">Отвлеченные темы пропущены</string>
   <string name="revanced_sb_skipped_nomusic">Сегмент без музыки пропущен</string>
   <string name="revanced_sb_skipped_unsubmitted">Неподтвержденный сегмент пропущен</string>
   <string name="revanced_sb_skipped_multiple_segments">Несколько сегментов пропущены</string>
@@ -1542,32 +1542,25 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_screen_title">Подмена видеопотоков</string>
   <string name="revanced_spoof_video_streams_screen_summary">Подмена клиента видеопотоков для предотвращения проблем с воспроизведением видео</string>
   <string name="revanced_spoof_video_streams_title">Подменить видеопотоки</string>
-  <string name="revanced_spoof_video_streams_summary_on">Видеопотоки подменены</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Видеопотоки подменены
+
+Если вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Видеопотоки не подменены
 
 Воспроизведение видео может не работать"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудительно iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видеокодек принудительно установлен на AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видеокодек определяется автоматически</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Включение данной опции может улучшить время автономной работы и устранить прерывания при воспроизведении.
-
-Максимальное разрешение видео в формате AVC составляет 1080p. Аудиокодек Opus недоступен. Воспроизведение видео будет потреблять больше интернет трафика, чем VP9 или AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Побочные эффекты подмены на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Фильмы и платные видео могут не воспроизводиться
-• Стабильный уровень громкости недоступен
-• Видео заканчиваются на 1 секунду раньше"</string>
+  <string name="revanced_spoof_video_streams_about_title">Побочные эффекты подмены</string>
   <string name="revanced_spoof_video_streams_about_android_title">Побочные эффекты подмены на Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Меню выбора звуковой дорожки отсутствует
-• Функция воспроизведения видео с постоянной громкостью недоступна
-• Принудительное использование оригинального звука недоступно"</string>
+• Функция воспроизведения видео с постоянной громкостью недоступна"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Экспериментальный клиент и может перестать работать в любое время</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Отсутствует видеокодек AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Видео для детей могут не воспроизводиться при выходе из системы или в режиме инкогнито</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показать в \"Статистике для сисадминов\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клиента в \"Статистике для сисадминов\" показан</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клиента в \"Статистике для сисадминов\" скрыт</string>
-  <string name="revanced_spoof_video_streams_language_title">Язык аудиопотока по умолчанию для VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Язык аудиопотока</string>
   </patch>
   </app>
   <app id="twitch">

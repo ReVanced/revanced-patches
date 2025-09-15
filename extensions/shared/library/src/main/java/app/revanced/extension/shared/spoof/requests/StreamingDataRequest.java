@@ -37,10 +37,15 @@ public class StreamingDataRequest {
 
     private static volatile ClientType[] clientOrderToUse = ClientType.values();
 
-    public static void setClientOrderToUse(ClientType[] availableClients, ClientType preferredClient) {
-        Objects.requireNonNull(availableClients);
+    public static void setClientOrderToUse(List<ClientType> availableClients, ClientType preferredClient) {
+        Objects.requireNonNull(preferredClient);
 
-        clientOrderToUse = new ClientType[availableClients.length];
+        int availableClientSize = availableClients.size();
+        if (!availableClients.contains(preferredClient)) {
+            availableClientSize++;
+        }
+
+        clientOrderToUse = new ClientType[availableClientSize];
         clientOrderToUse[0] = preferredClient;
 
         int i = 1;

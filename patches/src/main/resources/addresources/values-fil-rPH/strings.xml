@@ -700,7 +700,7 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Nakatago ang menu ng audio track
 
-Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS TV"</string>
+Hindi available ang menu ng audio track kapag naka-enable ang 'Pagpapanggap ng mga video stream'"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Itago ang Panoorin sa VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Nakatago ang panonood sa VR menu</string>
@@ -1533,32 +1533,25 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_spoof_video_streams_screen_title">Spoof ng mga video stream</string>
   <string name="revanced_spoof_video_streams_screen_summary">Spoof ang mga video stream ng client upang maiwasan ang mga problema sa pag-playback</string>
   <string name="revanced_spoof_video_streams_title">Spoof ng mga video stream</string>
-  <string name="revanced_spoof_video_streams_summary_on">Naka-spoof ang mga video stream</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Ang mga video stream ay pinapanggap.
+
+Kung ikaw ay isang user ng YouTube Premium, maaaring hindi kailangan ang setting na ito"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Ang mga stream ng video ay hindi mapapang-ulol
 
 Ang paglalaro ng video ay maaaring hindi gumana"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback ng video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Default na kliyente</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Pilitin ang iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ang codec ng video ay pinilit sa AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ang codec ng video ay awtomatikong natutukoy</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ang pagpapagana nito ay maaaring mapahaba ang buhay ng baterya at ayusin ang pagkautal ng playback.
-
-Ang AVC ay may pinakamataas na resolusyon na 1080p, ang codec ng audio ng Opus ay hindi available, at ang playback ng video ay gagamit ng mas maraming data sa internet kaysa sa VP9 o AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Mga epekto ng iOS spoofing</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Maaaring hindi mai-play ang mga pelikula o binayarang video
-• Hindi magagamit ang stable na volume
-• Ang mga video ay magtatapos ng 1 segundo nang mas maaga"</string>
+  <string name="revanced_spoof_video_streams_about_title">Mga epekto ng pagpapanggap</string>
   <string name="revanced_spoof_video_streams_about_android_title">Mga side effect ng Android spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Nawawala ang menu ng audio track
-• Hindi magagamit ang stable na volume
-• Hindi magagamit ang pagpilit sa orihinal na audio"</string>
+• Hindi available ang stable na volume"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Pang-eksperimentong kliyente at maaaring huminto sa paggana anumang oras</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Walang AV1 video codec</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Mga video ng mga bata ay maaaring hindi ma-play kapag naka-log out o nasa incognito mode</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ipakita sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ipinapakita ang uri ng kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Nakatago ang kliyente sa Mga Istatistika para sa mga nerds</string>
-  <string name="revanced_spoof_video_streams_language_title">Wika ng default na audio stream ng VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Wika ng audio stream</string>
   </patch>
   </app>
   <app id="twitch">

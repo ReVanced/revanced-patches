@@ -702,7 +702,7 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu trek audio disembunyikan
 
-Untuk menampilkan menu trek Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
+Menu trek audio tidak tersedia saat 'Spoof stream video' diaktifkan"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sembunyikan Tonton di VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu tonton di VR disembunyikan</string>
@@ -1078,7 +1078,7 @@ Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan."</string>
   <string name="revanced_sb_segments_hook_sum">Trailer yang dinarasikan untuk video mendatang, sapaan, dan perpisahan. Tidak termasuk bagian yang menambahkan konten tambahan</string>
   <string name="revanced_sb_segments_preview">Pratinjau / Rekap</string>
   <string name="revanced_sb_segments_preview_sum">Kumpulan klip yang menunjukkan apa yang akan datang atau apa yang terjadi di video atau di video lain dari sebuah seri, di mana semua informasi diulang di tempat lain</string>
-  <string name="revanced_sb_segments_filler">Penyimpangan / Lelucon</string>
+  <string name="revanced_sb_segments_filler">Singgungan / Lelucon</string>
   <string name="revanced_sb_segments_filler_sum">Adegan atau lelucon sampingan yang tidak diperlukan untuk memahami konten utama video. Tidak termasuk bagian yang memberikan konteks atau detail latar belakang</string>
   <string name="revanced_sb_segments_nomusic">Musik: Bagian Non-Musik</string>
   <string name="revanced_sb_segments_nomusic_sum">Hanya untuk digunakan pada video musik. Bagian video musik tanpa musiknya, yang belum tercakup dalam kategori lain</string>
@@ -1092,11 +1092,11 @@ Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan."</string>
   <string name="revanced_sb_skip_button_intro_middle">Lewati jeda</string>
   <string name="revanced_sb_skip_button_intro_end">Lewati jeda</string>
   <string name="revanced_sb_skip_button_outro">Lewati outro</string>
-  <string name="revanced_sb_skip_button_hook">Lewati hook</string>
+  <string name="revanced_sb_skip_button_hook">Lewati pengantar</string>
   <string name="revanced_sb_skip_button_preview_beginning">Lewati pratinjau</string>
   <string name="revanced_sb_skip_button_preview_middle">Lewati pratinjau</string>
   <string name="revanced_sb_skip_button_preview_end">Lewati rekap</string>
-  <string name="revanced_sb_skip_button_filler">Lewati penyimpangan</string>
+  <string name="revanced_sb_skip_button_filler">Lewati singgungan</string>
   <string name="revanced_sb_skip_button_nomusic">Lewati non-musik</string>
   <string name="revanced_sb_skip_button_unsubmitted">Lewati segmen</string>
   <string name="revanced_sb_skipped_sponsor">Sponsor dilewati</string>
@@ -1107,11 +1107,11 @@ Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan."</string>
   <string name="revanced_sb_skipped_intro_middle">Jeda dilewati</string>
   <string name="revanced_sb_skipped_intro_end">Jeda dilewati</string>
   <string name="revanced_sb_skipped_outro">Outro dilewati</string>
-  <string name="revanced_sb_skipped_hook">Hook dilewati</string>
+  <string name="revanced_sb_skipped_hook">Sapaan dilewati</string>
   <string name="revanced_sb_skipped_preview_beginning">Pratinjau dilewati</string>
   <string name="revanced_sb_skipped_preview_middle">Pratinjau dilewati</string>
   <string name="revanced_sb_skipped_preview_end">Rekap dilewati</string>
-  <string name="revanced_sb_skipped_filler">Penyimpangan dilewati</string>
+  <string name="revanced_sb_skipped_filler">Singgungan dilewati</string>
   <string name="revanced_sb_skipped_nomusic">Melewati bagian non-musik</string>
   <string name="revanced_sb_skipped_unsubmitted">Melewati segmen yang belum dikirim</string>
   <string name="revanced_sb_skipped_multiple_segments">Beberapa segmen dilewati</string>
@@ -1534,32 +1534,25 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_spoof_video_streams_screen_title">Palsukan aliran video</string>
   <string name="revanced_spoof_video_streams_screen_summary">Palsukan klien aliran video untuk mencegah masalah pemutaran</string>
   <string name="revanced_spoof_video_streams_title">Palsukan aliran video</string>
-  <string name="revanced_spoof_video_streams_summary_on">Aliran video dipalsukan</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Stream video ditiru
+
+Jika Anda adalah pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Streaming video tidak dipalsukan
 
 Pemutaran video mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Paksa iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codec video dipaksa menjadi AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codec video ditentukan secara otomatis</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Mengaktifkan ini mungkin dapat meningkatkan daya tahan baterai dan memperbaiki masalah pemutaran.
-
-AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan pemutaran video akan menggunakan lebih banyak data internet daripada VP9 atau AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efek samping pemalsuan iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Film atau video berbayar mungkin tidak dapat diputar
-• Volume stabil tidak tersedia
-• Video berakhir 1 detik lebih awal"</string>
+  <string name="revanced_spoof_video_streams_about_title">Efek samping peniruan</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efek samping pemalsuan Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menu trek audio tidak ada
-• Volume stabil tidak tersedia
-• Paksa audio asli tidak tersedia"</string>
+• Volume stabil tidak tersedia"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Klien eksperimental dan dapat berhenti berfungsi kapan saja</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Tampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Jenis klien ditampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klien disembunyikan di Statistik untuk nerds</string>
-  <string name="revanced_spoof_video_streams_language_title">Bahasa aliran audio bawaan VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Bahasa aliran audio</string>
   </patch>
   </app>
   <app id="twitch">

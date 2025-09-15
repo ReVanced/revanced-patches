@@ -700,9 +700,9 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meni z zvočnim posnetkom je skrit</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Meni z zvočnim posnetkom je prikazan</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni zvočnega posnetka je skrit
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni za zvočno skladbo je skrit
 
-Če želite prikazati meni zvočnega posnetka, spremenite možnost »Prikazovalnik video tokov« v iOS TV"</string>
+Meni za zvočno skladbo ni na voljo, ko je omogočena možnost \"Ponarejene video tokove\""</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skrij gledanje v VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Meni z gledanjem v VR je skrit</string>
@@ -1535,32 +1535,24 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_spoof_video_streams_screen_title">Ponarejanje video tokov</string>
   <string name="revanced_spoof_video_streams_screen_summary">Ponaredite video tokove odjemalca, da preprečite težave s predvajanjem</string>
   <string name="revanced_spoof_video_streams_title">Ponarejanje video tokov</string>
-  <string name="revanced_spoof_video_streams_summary_on">Video tokovi so ponarejeni</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Video tokovi so ponarejeni
+Če ste uporabnik YouTube Premium, ta nastavitev morda ni potrebna"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Videoprenosni tokovi niso posneti
 
 Predvajanje videa morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Izklop te nastavitve lahko povzroči težave s predvajanjem videoposnetkov.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Privzeti odjemalec</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Sile iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek videa je prisiljen v AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek videa je določen samodejno</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Omogočanje tega bi lahko izboljšalo življenjsko dobo baterije in odpravilo zatikanje predvajanja.
-
-AVC ima največjo ločljivost 1080p, avdio kodek Opus ni na voljo, predvajanje videa pa bo porabilo več internetnih podatkov kot VP9 ali AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-ov pojav umetnega predvajanja posnetkov</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmi ali plačani videoposnetki se morda ne bodo predvajali
-• Stalna glasnost ni na voljo
-• Videi se končajo 1 sekundo prezgodaj"</string>
+  <string name="revanced_spoof_video_streams_about_title">Stranski učinki ponarejanja</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android Stranski učinki spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Manjka meni za izbiro zvočnega posnetka 
-• Stabilna glasnost ni na voljo
-• Prisilno izvirno zvočno posnetek ni na voljo"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Meni za zvočno skladbo manjka
+• Stabilna glasnost ni na voljo"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni odjemalec in lahko kadar koli preneha delovati</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Brez kodeka videa AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Posnetki za otroke se mogoče ne bodo predvajali, ko ste odjavljeni ali v načinu brez beleženja zgodovine</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Pokaži v statistiki za piflarje</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Vrsta odjemalca je prikazana v statistiki za piflarje</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Odjemalec je skrit v statistiki za piflarje</string>
-  <string name="revanced_spoof_video_streams_language_title">Privzeti jezik zvočnega posnetka za VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Jezik zvočnega toka</string>
   </patch>
   </app>
   <app id="twitch">

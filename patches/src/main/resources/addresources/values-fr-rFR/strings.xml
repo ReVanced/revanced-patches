@@ -700,9 +700,9 @@ Si la modification de ce paramètre ne prend pas effet, essayez de passer en mod
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Le menu Piste audio est masqué</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Le menu Piste audio est affiché</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Le menu Piste audio est masqué
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Le menu des pistes audio est masqué
 
-Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur iOS TV"</string>
+Le menu des pistes audio n'est pas disponible lorsque « Usurper les flux vidéo » est activé"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Masquer \"Regarder en RV\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Le menu Regarder en RV est masqué</string>
@@ -1077,11 +1077,11 @@ Votre ID d'utilisateur est comme un mot de passe et ne doit jamais être partag�
   <string name="revanced_sb_segments_outro">Écrans de fin / Crédits</string>
   <string name="revanced_sb_segments_outro_sum">Crédits ou moment où apparaissent les écrans de fin YouTube. Pas pour les conclusions contenant des informations.</string>
   <string name="revanced_sb_segments_hook">Accroche / Salutations</string>
-  <string name="revanced_sb_segments_hook_sum">Présentation de la vidéo actuelle ou d\'une prochaine vidéo par le créateur, salutations et au revoir. N\'inclut pas les sections qui ajoutent du contenu supplémentaire</string>
+  <string name="revanced_sb_segments_hook_sum">Présentation de la vidéo actuelle ou d\'une prochaine vidéo par le créateur, salutations et au revoir. N\'inclut pas les sections qui ajoutent du contenu supplémentaire.</string>
   <string name="revanced_sb_segments_preview">Aperçu / Résumé</string>
   <string name="revanced_sb_segments_preview_sum">Collection de clips qui présentent ce qui va suivre ou ce qui s\'est passé dans la vidéo ou dans d\'autres vidéos d\'une série, où toutes les informations sont répétées ailleurs</string>
   <string name="revanced_sb_segments_filler">Digression / Blagues</string>
-  <string name="revanced_sb_segments_filler_sum">Digressions ou blagues non nécessaires à la compréhension du contenu principal de la vidéo. Cette catégorie ne devrait pas contenir de segments fournissant du contexte ou des détails secondaires</string>
+  <string name="revanced_sb_segments_filler_sum">Digressions ou blagues non nécessaires à la compréhension du contenu principal de la vidéo. N\'inclut pas les sections fournissant du contexte ou des détails secondaires.</string>
   <string name="revanced_sb_segments_nomusic">Musique : Segment non musical</string>
   <string name="revanced_sb_segments_nomusic_sum">Uniquement pour utilisation dans les vidéos musicales. Sections non musicales dans les clips, qui ne sont pas déjà couvertes par une autre catégorie.</string>
   <string name="revanced_sb_skip_button_compact">Passer</string>
@@ -1536,32 +1536,25 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_spoof_video_streams_screen_title">Falsifier les flux vidéo</string>
   <string name="revanced_spoof_video_streams_screen_summary">Falsifiez les flux vidéo client pour prévenir les problèmes de lecture</string>
   <string name="revanced_spoof_video_streams_title">Falsifier les flux vidéo</string>
-  <string name="revanced_spoof_video_streams_summary_on">Les flux vidéo sont falsifiés</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Les flux vidéo sont usurpés
+
+Si vous êtes un utilisateur YouTube Premium, ce paramètre pourrait ne pas être nécessaire"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Les flux vidéo ne sont pas falsifiés
 
 La lecture des vidéos peut ne pas fonctionner"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Désactiver ce paramètre peut causer des problèmes de lecture vidéo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client par défaut</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forcer iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Le codec vidéo est forcé sur AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Le codec vidéo est déterminé automatiquement</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Activer cette option pourrait améliorer l'autonomie de la batterie et corriger les saccades lors de la lecture.
-
-AVC a une résolution maximale de 1080p et ne prend pas en charge le codec audio Opus, et la lecture vidéo utilisera plus de données Internet qu'avec VP9 ou AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Effets secondaires de la falsification iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• La lecture des films ou des vidéos payantes peut ne pas fonctionner
-• Volume stable n'est pas disponible
-• Les vidéos se terminent 1 seconde trop tôt"</string>
+  <string name="revanced_spoof_video_streams_about_title">Effets secondaires de l\'usurpation</string>
   <string name="revanced_spoof_video_streams_about_android_title">Effets secondaires de la falsification Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Le menu Piste audio est absent
-• Volume stable n'est pas disponible
-• Forcer l'audio d'origine n'est pas disponible"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Le menu des pistes audio est manquant
+• Le volume stable n'est pas disponible"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Client expérimental et peut cesser de fonctionner à tout moment</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Codec vidéo AV1 indisponible</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• La lecture des vidéos pour enfants peut ne pas fonctionner lorsque vous êtes déconnecté ou en mode navigation privée</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afficher dans les Statistiques avancées</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Le type de client est affiché dans les Statistiques avancées</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Le client est caché dans les Statistiques avancées</string>
-  <string name="revanced_spoof_video_streams_language_title">Langue par défaut du flux audio en mode RV</string>
+  <string name="revanced_spoof_video_streams_language_title">Langue du flux audio</string>
   </patch>
   </app>
   <app id="twitch">

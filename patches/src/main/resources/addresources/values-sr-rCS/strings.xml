@@ -700,9 +700,9 @@ Ako se promena ove opcije ne primeni, pokušajte da pređete u režim bez arhivi
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meni „Audio snimak” je skriven</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Meni „Audio snimak” je prikazan</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni „Audio snimak” je skriven
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni audio zapisa je skriven
 
-Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video strimovi” na iOS TV"</string>
+Meni audio zapisa nije dostupan kada je \"Lažiranje video tokova\" omogućeno"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sakrij dugme „Gledaj u VR”</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Dugme „Gledaj u VR” je skriveno</string>
@@ -1534,32 +1534,25 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_spoof_video_streams_screen_title">Lažirani video strimovi</string>
   <string name="revanced_spoof_video_streams_screen_summary">Lažiranje klijenta video strimova da bi se sprečili problemi sa reprodukcijom</string>
   <string name="revanced_spoof_video_streams_title">Lažirani video strimovi</string>
-  <string name="revanced_spoof_video_streams_summary_on">Video strimovi su lažirani</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Video tokovi su lažirani
+
+Ako ste YouTube Premium korisnik, ovo podešavanje možda neće biti potrebno"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Video strimovi nisu lažirani
 
 Reprodukcija videa možda neće raditi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ove opcije će možda izazvati probleme sa reprodukcijom videa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Podrazumevani klijent</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Prisili na AVC (H.264) na iOS-u</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je prisilno podešen na AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek se određuje automatski</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Omogućavanje ovoga može poboljšati trajanje baterije i popraviti zastoje pri reprodukciji.
-
-AVC ima maksimalnu rezoluciju od 1080p, audio kodek Opus nije dostupan, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Neželjeni efekti lažiranja na iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmovi ili plaćeni videi se možda neće puštati
-• Ujednačena jačina zvuka nije dostupna
-• Videi će se završavati 1 sekundu ranije"</string>
+  <string name="revanced_spoof_video_streams_about_title">Nuspojave lažiranja</string>
   <string name="revanced_spoof_video_streams_about_android_title">Neželjeni efekti lažiranja na Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Meni „Audio snimak” nedostaje
-• Ujednačena jačina zvuka nije dostupna
-• Opcija „Prisili originalni zvuk” nije dostupna"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Meni audio zapisa nedostaje
+• Stabilna jačina zvuka nije dostupna"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni klijent i može prestati da radi bilo kada</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nema video kodeka AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videi za decu se možda neće puštati kada ste odjavljeni ili u režimu bez arhiviranja</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Prikaži u „Statistici za znalce”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tip klijenta je prikazan u „Statistici za znalce”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tip klijenta je skriven u „Statistici za znalce”</string>
-  <string name="revanced_spoof_video_streams_language_title">Podrazumevani jezik audio strima za VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Jezik audio toka</string>
   </patch>
   </app>
   <app id="twitch">

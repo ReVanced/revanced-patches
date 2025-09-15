@@ -12,7 +12,6 @@ import static app.revanced.extension.youtube.patches.ChangeHeaderPatch.HeaderLog
 import static app.revanced.extension.youtube.patches.ChangeStartPagePatch.ChangeStartPageTypeAvailability;
 import static app.revanced.extension.youtube.patches.ChangeStartPagePatch.StartPage;
 import static app.revanced.extension.youtube.patches.ExitFullscreenPatch.FullscreenMode;
-import static app.revanced.extension.youtube.patches.ForceOriginalAudioPatch.ForceOriginalAudioAvailability;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerHorizontalDragAvailability;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MINIMAL;
@@ -75,7 +74,7 @@ public class Settings extends BaseSettings {
             "0.25\n0.5\n0.75\n1.0\n1.25\n1.5\n1.75\n2.0\n2.5\n3.0\n4.0\n5.0\n6.0\n7.0\n8.0", true);
 
     // Audio
-    public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("revanced_force_original_audio", FALSE, new ForceOriginalAudioAvailability());
+    public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("revanced_force_original_audio", FALSE, true);
 
     // Ads
     public static final BooleanSetting HIDE_CREATOR_STORE_SHELF = new BooleanSetting("revanced_hide_creator_store_shelf", TRUE);

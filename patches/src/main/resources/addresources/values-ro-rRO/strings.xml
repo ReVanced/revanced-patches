@@ -700,9 +700,9 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meniul piesei audio este ascuns</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Meniul piesei audio este afișat</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meniul pentru pista audio este ascuns
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meniul piesei audio este ascuns
 
-Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fluxurile video” în iOS TV"</string>
+Meniul piesei audio nu este disponibil când \"Simulează fluxurile video\" este activat"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ascunde ceas în VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Vizionarea în meniul VR este ascunsă</string>
@@ -1534,32 +1534,25 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_spoof_video_streams_screen_title">Spoof video stream-uri</string>
   <string name="revanced_spoof_video_streams_screen_summary">Sporirea canalelor video client pentru a preveni problemele de redare</string>
   <string name="revanced_spoof_video_streams_title">Spoof video stream-uri</string>
-  <string name="revanced_spoof_video_streams_summary_on">Fluxurile video sunt falsificate</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Fluxurile video sunt simulate
+
+Dacă ești utilizator YouTube Premium, această setare ar putea să nu fie necesară"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Fluxurile video nu sunt falsificate
 
 Este posibil ca redarea video să nu funcționeze"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client implicit</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forțarea codecului video AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codecul video este forțat la AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codecul video este determinat automat</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Activarea acestei opțiuni ar putea îmbunătăți durata de viață a bateriei și remedia întreruperile redării.
-
-AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, iar redarea video va folosi mai multe date de internet decât VP9 sau AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efecte secundare ale falsificării iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Este posibil ca filmele sau videoclipurile plătite să nu se redea.
-• Volumul stabil nu este disponibil.
-• Videoclipurile se termină cu 1 secundă mai devreme."</string>
+  <string name="revanced_spoof_video_streams_about_title">Efecte secundare ale simulării</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efecte secundare spoofing Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Meniul cu piesele audio lipsește
-• Volumul stabil nu este disponibil
-• Forțarea sunetului original nu este disponibilă"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Meniul piesei audio lipsește
+• Volumul stabil nu este disponibil"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Client experimental și se poate opri din funcționare oricând</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Fara codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Copiii nu pot urmări videoclipuri atunci când sunt deconectați sau în modul incognito</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afișează în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipul clientului este afișat în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Clientul este ascuns în Statistici pentru pasionați</string>
-  <string name="revanced_spoof_video_streams_language_title">Limba implicită a fluxului audio VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Limba fluxului audio</string>
   </patch>
   </app>
   <app id="twitch">

@@ -15,7 +15,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
     description = "Hides navigation bar buttons, such as the Reels and Create button.",
     use = false
 ) {
-    compatibleWith("com.instagram.android")
+    compatibleWith("com.instagram.android"("397.1.0.52.81"))
 
     val hideReels by booleanOption(
         key = "hideReels",
