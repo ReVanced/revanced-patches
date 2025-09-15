@@ -1,3 +1,10 @@
+# [5.37.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.5...v5.37.0-dev.6) (2025-09-15)
+
+
+### Bug Fixes
+
+* **Instagram - Hide navigation buttons:** Add constrain to known working version ([e6c79f1](https://github.com/ReVanced/revanced-patches/commit/e6c79f13834c83fef04e4dee5e628cb0b9a27765))
+
 # [5.37.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.4...v5.37.0-dev.5) (2025-09-15)
 
 
