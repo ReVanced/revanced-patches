@@ -700,9 +700,9 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Səs axını menyusu gizlidir</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Səs axını menyusu göstərilir</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Audio trek seçimi gizlədilib
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Səs treki menyusu gizlidir
 
-Audio trek seçimin göstərmək üçün \"Video axınları saxtalaşdır\"ı iOS TV-yə dəyiş"</string>
+\"Video yayımları saxtalaşdır\" aktivləşdikdə səs trek menyusu mövcud deyil "</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"VR-da İzləni\" gizlət</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR menyusunda izləmə gizlidir</string>
@@ -1534,32 +1534,25 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_spoof_video_streams_screen_title">Video yayımları saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_screen_summary">Oynatma problemlərin önləmək üçün qəbuledici video yayımların saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_title">Video yayımları saxtalaşdır</string>
-  <string name="revanced_spoof_video_streams_summary_on">Video yayımları saxtalaşdırılır</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Video yayımları saxtalaşdırılıb
+
+Əgər YouTube Premium istifadəçisisinizsə, bu tənzimlənmə tələb olunmaya bilər"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Video yayımlar saxtalaşdırılmır
 
 Video oynatma işləməyə bilər"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu seçimi bağlamaq, video oynatma problemlərinə səbəb olar.</string>
   <string name="revanced_spoof_video_streams_client_type_title">İlkin qəbuledici</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">IOS-da AVC (H.264)-ni məcbur et</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodlama AVC (H.264)-yə məcbur edilir</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlayıcı avtomatik müəyyən edilir</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bunu aktivləşdirmə, batareya ömrün yaxşılaşdıra və oynatma qırılmasın düzəldə bilər.
-
-AVC maksimum 1080p görüntü imkanına malikdir, Opus audio kodlama olmur və video oynatma VP9 və ya AV1-dən daha çox internet məlumatı sərf edəcək."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS saxtalaşdırma yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmlər və ya ödənişli videolar oynadıla bilməz
-• Stabil səs səviyyəsi mövcud deyil
-• Videolar 1 saniyə tez bitir"</string>
+  <string name="revanced_spoof_video_streams_about_title">Saxtakarlıq yan təsirləri</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android saxtalaşdırma yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Səs treki menyusu yoxdur
-• Sabit səs səviyyəsi yoxdur
-• İlkin səsi məcbur etmə mümkün deyil"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Səs treki menyusu əlçatmazdır
+• Sabit səs səviyyəsi yoxdur"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Təcrübi qəbuledici və hər vaxt işləməyi dayandıra bilər</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Giriş edilməyəndə və ya gizli rejimdə uşaq videoları oynadıla bilməz</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">İstək üçün Statistikada göstər</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Qəbuledici növü İstək üçün statistikada göstərilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>
-  <string name="revanced_spoof_video_streams_language_title">VR-da ilkin səs yayımı dili</string>
+  <string name="revanced_spoof_video_streams_language_title">Səs yayım dili</string>
   </patch>
   </app>
   <app id="twitch">

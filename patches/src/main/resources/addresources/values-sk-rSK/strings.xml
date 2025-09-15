@@ -698,9 +698,7 @@ Ak zmena tohto nastavenia nemá žiadny účinok, skúste prepnúť do režimu i
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ponuka zvukovej stopy je skrytá</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Zobrazí sa ponuka zvukovej stopy</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ponuka zvukovej stopy je skrytá
-
-Ak chcete zobraziť ponuku zvukovej stopy, zmeňte možnosť „Oklamať videostreamy“ na iOS TV"</string>
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ponuka zvukových stôp je skrytá Ponuka zvukových stôp nie je k dispozícii, keď je povolená možnosť \"Podvrhnúť video streamy\""</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skryť hodinky vo VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Sledovanie v ponuke VR je skryté</string>
@@ -1528,32 +1526,22 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_spoof_video_streams_screen_title">Falošné video strémy</string>
   <string name="revanced_spoof_video_streams_screen_summary">Falošné video strémy klienta, aby sa predišlo problémom s prehrávaním</string>
   <string name="revanced_spoof_video_streams_title">Falošné video strémy</string>
-  <string name="revanced_spoof_video_streams_summary_on">Video strémy sú falošné</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Video streamy sú podvrhnuté Ak ste používateľom YouTube Premium, toto nastavenie nemusí byť potrebné"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Video streamy nie sú falošné
 
 Prehrávanie videa nemusí fungovať"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním videa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Predvolený klient</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Vynútiť iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je vynútený na AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek sa určuje automaticky</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Povolenie tejto možnosti môže zlepšiť výdrž batérie a opraviť sekanie prehrávania.
-
-AVC má maximálne rozlíšenie 1080p, zvukový kodek Opus nie je k dispozícii a prehrávanie videa bude využívať viac internetových dát ako VP9 alebo AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Vedľajšie účinky falošnej polohy iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmy alebo platené videá sa nemusia prehrať
-• Stabilná hlasitosť nie je k dispozícii
-• Videá sa končia o 1 sekundu skôr"</string>
+  <string name="revanced_spoof_video_streams_about_title">Vedľajšie účinky podvrhnutia</string>
   <string name="revanced_spoof_video_streams_about_android_title">Vedľajšie účinky spoofingu Androidu</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Chýba ponuka zvukových stôp
-• Nie je k dispozícii stabilná hlasitosť
-• Výber originálneho zvuku nie je k dispozícii"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Ponuka zvukových stôp chýba • Stabilná hlasitosť nie je k dispozícii"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Experimentálny klient a môže kedykoľvek prestať fungovať</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žiadny video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videá pre deti sa nemusia prehrávať, keď ste odhlásení alebo v režime inkognito</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Zobraziť v štatistike pre expertov</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta sa zobrazuje v štatistikách pre expertov</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient je skrytý v štatistikách pre expertov</string>
-  <string name="revanced_spoof_video_streams_language_title">Predvolený jazyk zvukovej stopy VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Jazyk zvukového streamu</string>
   </patch>
   </app>
   <app id="twitch">

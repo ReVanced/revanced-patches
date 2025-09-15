@@ -695,9 +695,9 @@ Wenn diese Änderung nicht wirksam wird, versuchen Sie, in den Inkognito-Modus z
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Audiospur-Menü ist ausgeblendet</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Audiospurmenü wird angezeigt</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Das Audiotrack-Menü ist ausgeblendet.
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Audiotrack-Menü ist ausgeblendet
 
-Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS TV"</string>
+Audiotrack-Menü ist nicht verfügbar, wenn 'Videostreams spoofen' aktiviert ist"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Überwachung in VR ausblenden</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Im VR-Menü beobachten ist ausgeblendet</string>
@@ -1530,32 +1530,25 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_spoof_video_streams_screen_title">Spoof-Video-Streams</string>
   <string name="revanced_spoof_video_streams_screen_summary">Spoof der Client-Videostreams um Wiedergabeprobleme zu verhindern</string>
   <string name="revanced_spoof_video_streams_title">Spoof-Video-Streams</string>
-  <string name="revanced_spoof_video_streams_summary_on">Video-Streams sind gefälscht</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Videostreams werden gespooft
+
+Wenn Sie ein YouTube Premium-Nutzer sind, ist diese Einstellung möglicherweise nicht erforderlich"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Videoströme werden nicht gefälscht
 
 Die Videowiedergabe funktioniert möglicherweise nicht"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann zu Videowiedergabeproblemen führen.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standard-Client</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS AVC (H.264) erzwingen</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Der Videocodec ist auf AVC (H.264) erzwungen.</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Der Videocodec wird automatisch bestimmt.</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Aktivieren Sie dies, um die Akkulaufzeit zu verbessern und Ruckeln bei der Wiedergabe zu beheben.
-
-AVC hat eine maximale Auflösung von 1080p, Opus-Audiocodec ist nicht verfügbar und die Videowiedergabe verbraucht mehr Internetdaten als VP9 oder AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-Spoofing-Nebenwirkungen</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filme oder kostenpflichtige Videos können möglicherweise nicht abgespielt werden
-• Eine stabile Lautstärke ist nicht verfügbar
-• Videos enden 1 Sekunde zu früh"</string>
+  <string name="revanced_spoof_video_streams_about_title">Nebenwirkungen des Spoofings</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android-Spoofing-Nebenwirkungen</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Audiospur-Menü fehlt
-• Stabile Lautstärke ist nicht verfügbar
-• Original-Audio erzwingen ist nicht verfügbar"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Audiotrack-Menü fehlt
+• Stabile Lautstärke ist nicht verfügbar"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Experimenteller Client und kann jederzeit aufhören zu funktionieren</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Kein AV1-Videocodec</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kinder-Videos werden möglicherweise nicht abgespielt, wenn du abgemeldet bist oder den Inkognito-Modus verwendest.</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">In Statistiken für Nerds anzeigen</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Der Client-Typ wird in den Statistiken für Nerds angezeigt</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Der Client wird in den Statistiken für Nerds ausgeblendet</string>
-  <string name="revanced_spoof_video_streams_language_title">Standard-Audiostreamsprache für VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Audiodatenstromsprache</string>
   </patch>
   </app>
   <app id="twitch">
