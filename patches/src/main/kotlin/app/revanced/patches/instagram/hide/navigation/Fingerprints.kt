@@ -23,7 +23,6 @@ internal val tabCreateButtonsLoopEndFingerprint = fingerprint {
         Opcode.IPUT_OBJECT,
         // Injection Jump
         Opcode.ADD_INT_LIT8, //Increase Index
-        Opcode.GOTO // Jump to loopStart
         // LoopEnd
         )
 }
