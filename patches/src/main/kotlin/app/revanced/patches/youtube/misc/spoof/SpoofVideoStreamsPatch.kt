@@ -75,7 +75,7 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
         )
 
         mainActivityOnCreateFingerprint.method.addInstruction(
-            1, // Must use 1 index so context is set by extension patch.,
+            0,
             "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setClientOrderToUse()V"
         )
     }

@@ -40,9 +40,7 @@ val announcementsPatch = bytecodePatch(
         )
 
         mainActivityOnCreateFingerprint.method.addInstruction(
-            // Insert index must be greater than the insert index used by GmsCoreSupport,
-            // as both patch the same method and GmsCore check should be first.
-            1,
+            0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->showAnnouncement(Landroid/app/Activity;)V",
         )
     }

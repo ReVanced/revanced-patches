@@ -90,7 +90,7 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
 
         // Activity is used as the context to launch an Intent.
         mainActivityOnCreateFingerprint.method.addInstruction(
-            1,
+            0,
             "invoke-static/range { p0 .. p0 }, ${EXTENSION_CLASS_DESCRIPTOR}->" +
                     "setMainActivity(Landroid/app/Activity;)V",
         )
