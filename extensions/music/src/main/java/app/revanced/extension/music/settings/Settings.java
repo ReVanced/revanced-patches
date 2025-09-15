@@ -13,7 +13,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting REMOVE_UPGRADE_BUTTON = new BooleanSetting("revanced_music_remove_upgrade_button", TRUE, true);
 
     // General
-    public static final BooleanSetting PLAY_WITHOUT_VIDEO = new BooleanSetting("revanced_music_play_without_video", TRUE, true);
     public static final BooleanSetting HIDE_CATEGORY_BAR = new BooleanSetting("revanced_music_hide_category_bar", TRUE, true);
 
     // Player

@@ -1649,11 +1649,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_music_hide_video_ads_summary_on">Video ads are hidden</string>
             <string name="revanced_music_hide_video_ads_summary_off">Video ads are shown</string>
         </patch>
-        <patch id="audio.exclusiveaudio.enableExclusiveAudioPlaybackPatch">
-            <string name="revanced_music_play_without_video_title">Enable playing audio without video</string>
-            <string name="revanced_music_play_without_video_summary_on">Audio will play without showing video</string>
-            <string name="revanced_music_play_without_video_summary_off">Audio and video will play normally</string>
-        </patch>
         <patch id="interaction.permanentrepeat.permanentRepeatPatch">
             <string name="revanced_music_play_permanent_repeat_title">Enable permanent repeat</string>
             <string name="revanced_music_play_permanent_repeat_summary_on">Permanent repeat is enabled</string>
