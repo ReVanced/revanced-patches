@@ -1077,7 +1077,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_intro_sum">Интервал без фактического содержания. Может быть паузой, статическим кадром или повторяющейся анимацией. Не включает переходы, содержащие информацию</string>
   <string name="revanced_sb_segments_outro">Конечные заставки / Титры</string>
   <string name="revanced_sb_segments_outro_sum">Титры или время появления конечных заставок YouTube. Не для выводов с информацией</string>
-  <string name="revanced_sb_segments_hook">Вступление / Приветствия</string>
+  <string name="revanced_sb_segments_hook">Вступление / Приветствие</string>
   <string name="revanced_sb_segments_hook_sum">Трейлеры с закадровым голосом для предстоящего видео, приветствия и прощания. Не включает разделы, добавляющие дополнительный контент</string>
   <string name="revanced_sb_segments_preview">Предпросмотр / Пересказ</string>
   <string name="revanced_sb_segments_preview_sum">Фрагменты, повторяющие текущее видео или предыдущие серии</string>
@@ -1095,11 +1095,11 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skip_button_intro_middle">Пропустить паузу</string>
   <string name="revanced_sb_skip_button_intro_end">Пропустить паузу</string>
   <string name="revanced_sb_skip_button_outro">Пропустить концовку</string>
-  <string name="revanced_sb_skip_button_hook">Пропустить завязку</string>
+  <string name="revanced_sb_skip_button_hook">Пропустить вступление</string>
   <string name="revanced_sb_skip_button_preview_beginning">Пропустить предпросмотр</string>
   <string name="revanced_sb_skip_button_preview_middle">Пропустить предпросмотр</string>
   <string name="revanced_sb_skip_button_preview_end">Пропустить пересказ</string>
-  <string name="revanced_sb_skip_button_filler">Пропустить отступление</string>
+  <string name="revanced_sb_skip_button_filler">Пропустить отвлеченные темы</string>
   <string name="revanced_sb_skip_button_nomusic">Пропустить сегмент без музыки</string>
   <string name="revanced_sb_skip_button_unsubmitted">Пропустить сегмент</string>
   <string name="revanced_sb_skipped_sponsor">Спонсорская реклама пропущена</string>
@@ -1110,11 +1110,11 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skipped_intro_middle">Пауза пропущена</string>
   <string name="revanced_sb_skipped_intro_end">Пауза пропущена</string>
   <string name="revanced_sb_skipped_outro">Концовка пропущена</string>
-  <string name="revanced_sb_skipped_hook">Завязка пропущена</string>
+  <string name="revanced_sb_skipped_hook">Вступление пропущено</string>
   <string name="revanced_sb_skipped_preview_beginning">Предпросмотр пропущен</string>
   <string name="revanced_sb_skipped_preview_middle">Предпросмотр пропущен</string>
   <string name="revanced_sb_skipped_preview_end">Пересказ пропущен</string>
-  <string name="revanced_sb_skipped_filler">Отступление пропущено</string>
+  <string name="revanced_sb_skipped_filler">Отвлеченные темы пропущены</string>
   <string name="revanced_sb_skipped_nomusic">Сегмент без музыки пропущен</string>
   <string name="revanced_sb_skipped_unsubmitted">Неподтвержденный сегмент пропущен</string>
   <string name="revanced_sb_skipped_multiple_segments">Несколько сегментов пропущены</string>
