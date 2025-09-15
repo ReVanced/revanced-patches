@@ -11,6 +11,8 @@ import app.revanced.patches.music.playservice.is_7_33_or_greater
 import app.revanced.patches.music.playservice.is_8_11_or_greater
 import app.revanced.patches.music.playservice.is_8_15_or_greater
 import app.revanced.patches.music.playservice.versionCheckPatch
+import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.spoof.spoofVideoStreamsPatch
 
@@ -39,7 +41,14 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
         addResources("shared", "misc.spoof.spoofVideoStreamsPatch")
 
         PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_spoof_video_streams")
+            PreferenceScreenPreference(
+                key = "revanced_spoof_video_streams_screen",
+                sorting = PreferenceScreenPreference.Sorting.UNSORTED,
+                preferences = setOf(
+                    SwitchPreference("revanced_spoof_video_streams"),
+                    ListPreference("revanced_spoof_video_streams_client_type"),
+                )
+            )
         )
 
         musicActivityOnCreateFingerprint.method.addInstruction(
