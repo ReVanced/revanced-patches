@@ -156,6 +156,11 @@ If you are a YouTube Premium user, this setting may not be required"</string>
 Playback may not work"</string>
             <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause playback issues.</string>
         </patch>
+        <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_title">Debug logging</string>
+            <string name="revanced_debug_summary_on">Debug logs are enabled</string>
+            <string name="revanced_debug_summary_off">Debug logs are disabled</string>
+        </patch>
     </app>
     <app id="youtube">
         <patch id="misc.settings.settingsPatch">
@@ -186,9 +191,6 @@ Playback may not work"</string>
         <patch id="misc.debugging.enableDebuggingPatch">
             <string name="revanced_debug_screen_title">Debugging</string>
             <string name="revanced_debug_screen_summary">Enable or disable debugging options</string>
-            <string name="revanced_debug_title">Debug logging</string>
-            <string name="revanced_debug_summary_on">Debug logs are enabled</string>
-            <string name="revanced_debug_summary_off">Debug logs are disabled</string>
             <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
             <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
             <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>

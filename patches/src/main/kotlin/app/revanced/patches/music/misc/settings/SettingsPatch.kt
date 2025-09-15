@@ -83,6 +83,12 @@ val settingsPatch = bytecodePatch(
 
     execute {
         addResources("music", "misc.settings.settingsPatch")
+        addResources("shared", "misc.debugging.enableDebuggingPatch")
+
+        // Could make a separate debugging patch, but for now the only setting is to enable logging.
+        PreferenceScreen.MISC.addPreferences(
+            SwitchPreference("revanced_debug")
+        )
 
         // Add an "About" preference to the top.
         preferences += NonInteractivePreference(
@@ -99,7 +105,7 @@ val settingsPatch = bytecodePatch(
         googleApiActivityFingerprint.method.addInstructions(
             1,
             """
-                invoke-static {}, $GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR->createInstance()Lapp/revanced/extension/music/settings/GoogleApiActivityHook;
+                invoke-static { }, $GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR->createInstance()Lapp/revanced/extension/music/settings/GoogleApiActivityHook;
                 move-result-object v0
                 invoke-static { v0, p0 }, $BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->initialize(Lapp/revanced/extension/shared/settings/BaseActivityHook;Landroid/app/Activity;)V
                 return-void

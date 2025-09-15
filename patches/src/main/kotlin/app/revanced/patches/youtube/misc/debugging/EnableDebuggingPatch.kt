@@ -22,6 +22,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/EnableDebuggingPatch;"
 
+// TODO: Refactor this into a shared patch that can be used by both YT and YT Music.
+//       Almost all of the feature flag hooks are the same between both apps.
 val enableDebuggingPatch = bytecodePatch(
     name = "Enable debugging",
     description = "Adds options for debugging and exporting ReVanced logs to the clipboard.",
