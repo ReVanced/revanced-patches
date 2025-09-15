@@ -47,6 +47,7 @@ val enableDebuggingPatch = bytecodePatch(
     )
 
     execute {
+        addResources("shared", "misc.debugging.enableDebuggingPatch")
         addResources("youtube", "misc.debugging.enableDebuggingPatch")
 
         PreferenceScreen.MISC.addPreferences(
