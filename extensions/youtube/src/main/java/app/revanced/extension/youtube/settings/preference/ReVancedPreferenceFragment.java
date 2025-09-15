@@ -39,7 +39,7 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGrou
 /**
  * Preference fragment for ReVanced settings.
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "NewApi"})
 public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
 
     /**

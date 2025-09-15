@@ -19,7 +19,7 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "NewApi"})
 public abstract class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
     /**
      * Sets toolbar for all nested preference screens.

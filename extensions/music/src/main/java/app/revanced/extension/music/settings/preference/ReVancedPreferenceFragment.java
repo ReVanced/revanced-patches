@@ -10,7 +10,7 @@ import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragme
 /**
  * Preference fragment for ReVanced settings.
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "NewApi"})
 public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
 
     /**

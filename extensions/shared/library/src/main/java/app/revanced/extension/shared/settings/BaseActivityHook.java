@@ -17,7 +17,7 @@ import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragme
  * Base class for hooking activities to inject a custom PreferenceFragment with a toolbar.
  * Provides common logic for initializing the activity and setting up the toolbar.
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "NewApi"})
 public abstract class BaseActivityHook extends Activity {
 
     /**
@@ -73,6 +73,9 @@ public abstract class BaseActivityHook extends Activity {
         ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent, "revanced_toolbar");
         toolbarLayoutParams = dummyToolbar.getLayoutParams();
         toolBarParent.removeView(dummyToolbar);
+
+        // Sets appropriate system navigation bar color for the activity.
+        ToolbarPreferenceFragment.setNavigationBarColor(activity.getWindow());
 
         Toolbar toolbar = new Toolbar(toolBarParent.getContext());
         toolbar.setBackgroundColor(getToolbarBackgroundColor());

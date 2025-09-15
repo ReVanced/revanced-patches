@@ -124,6 +124,8 @@ To translate new languages visit translate.revanced.app"</string>
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <string name="microg_settings_title">GmsCore Settings</string>
+            <string name="microg_settings_summary">Settings for GmsCore</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_installed_message">MicroG GmsCore is not installed. Install it.</string>
             <string name="gms_core_dialog_title">Action needed</string>
@@ -1493,10 +1495,6 @@ Higher video qualities might be unlocked but you may experience video playback s
 Enabling this can unlock higher video qualities"</string>
             <string name="revanced_spoof_device_dimensions_user_dialog_message">Enabling this can cause video playback stuttering, worse battery life, and unknown side effects.</string>
         </patch>
-        <patch id="misc.gms.gmsCoreSupportResourcePatch">
-            <string name="microg_settings_title">GmsCore Settings</string>
-            <string name="microg_settings_summary">Settings for GmsCore</string>
-        </patch>
         <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
             <string name="revanced_disable_haptic_feedback_title">Haptic feedback</string>
             <string name="revanced_disable_haptic_feedback_summary">Change haptic feedback</string>
@@ -1643,14 +1641,58 @@ AVC has a maximum resolution of 1080p, Opus audio codec is not available, and vi
     </app>
     <app id="music">
         <patch id="misc.settings.settingsPatch">
-            <string name="revanced_settings_screen_1_misc_title">Miscellaneous</string>
+            <string name="revanced_settings_music_screen_0_about_title">About</string>
+            <string name="revanced_settings_music_screen_1_ads_title">Ads</string>
+            <string name="revanced_settings_music_screen_2_general_title">General</string>
+            <string name="revanced_settings_music_screen_3_player_title">Player</string>
+            <string name="revanced_settings_music_screen_4_misc_title">Miscellaneous</string>
         </patch>
-        <patch id="misc.debugging.enableDebuggingPatch">
-            <string name="revanced_debug_music_screen_title">Debugging</string>
-            <string name="revanced_debug_music_screen_summary">Enable or disable debugging options</string>
-            <string name="revanced_debug_music_title">Debug logging</string>
-            <string name="revanced_debug_music_summary_on">Debug logs are enabled</string>
-            <string name="revanced_debug_music_summary_off">Debug logs are disabled</string>
+        <patch id="ad.video.hideVideoAdsPatch">
+            <string name="revanced_music_hide_video_ads_title">Hide video ads</string>
+            <string name="revanced_music_hide_video_ads_summary_on">Video ads are hidden</string>
+            <string name="revanced_music_hide_video_ads_summary_off">Video ads are shown</string>
+        </patch>
+        <patch id="audio.exclusiveaudio.enableExclusiveAudioPlaybackPatch">
+            <string name="revanced_music_play_without_video_title">Enable playing audio without video</string>
+            <string name="revanced_music_play_without_video_summary_on">Audio will play without showing video</string>
+            <string name="revanced_music_play_without_video_summary_off">Audio and video will play normally</string>
+        </patch>
+        <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+            <string name="revanced_music_play_permanent_repeat_title">Enable permanent repeat</string>
+            <string name="revanced_music_play_permanent_repeat_summary_on">Permanent repeat is enabled</string>
+            <string name="revanced_music_play_permanent_repeat_summary_off">Permanent repeat is disabled</string>
+        </patch>
+        <patch id="layout.compactheader.hideCategoryBar">
+            <string name="revanced_music_hide_category_bar_title">Hide category bar</string>
+            <string name="revanced_music_hide_category_bar_summary_on">Category bar is hidden</string>
+            <string name="revanced_music_hide_category_bar_summary_off">Category bar is shown</string>
+        </patch>
+        <patch id="layout.premium.hideGetPremiumPatch">
+            <string name="revanced_music_hide_get_premium_label_title">Hide \'Get Music Premium\' label</string>
+            <string name="revanced_music_hide_get_premium_label_summary_on">Label is hidden</string>
+            <string name="revanced_music_hide_get_premium_label_summary_off">Label is shown</string>
+        </patch>
+        <patch id="layout.upgradebutton.removeUpgradeButtonPatch">
+            <string name="revanced_music_remove_upgrade_button_title">Remove upgrade button</string>
+            <string name="revanced_music_remove_upgrade_button_summary_on">Button is removed</string>
+            <string name="revanced_music_remove_upgrade_button_summary_off">Button is shown</string>
+        </patch>
+        <patch id="misc.androidauto.bypassCertificateChecksPatch">
+            <string name="revanced_music_bypass_certificate_checks_title">Bypass certificate checks</string>
+            <string name="revanced_music_bypass_certificate_checks_summary_on">Certificate is bypassed</string>
+            <string name="revanced_music_bypass_certificate_checks_summary_off">Certificate is not bypassed</string>
+        </patch>
+        <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+            <string name="revanced_music_remove_playback_restriction_title">Remove background playback restrictions</string>
+            <string name="revanced_music_remove_playback_restriction_summary_on">Background playback works without restrictions</string>
+            <string name="revanced_music_remove_playback_restriction_summary_off">Background playback follows normal restrictions</string>
+        </patch>
+        <patch id="misc.spoof.spoofVideoStreamsPatch">
+            <string name="revanced_music_spoof_video_streams_title">Spoof video streams</string>
+            <string name="revanced_music_spoof_video_streams_summary_on">Video streams are spoofed</string>
+            <string name="revanced_music_spoof_video_streams_summary_off">"Video streams are not spoofed
+
+Video playback may not work"</string>
         </patch>
     </app>
     <app id="twitch">

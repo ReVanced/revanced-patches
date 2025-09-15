@@ -4,6 +4,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.music.misc.extension.sharedExtensionPatch
+import app.revanced.patches.music.misc.settings.PreferenceScreen
+import app.revanced.patches.music.misc.settings.settingsPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 
 @Suppress("unused")
 val permanentRepeatPatch = bytecodePatch(
@@ -11,6 +17,12 @@ val permanentRepeatPatch = bytecodePatch(
     description = "Permanently remember your repeating preference even if the playlist ends or another track is played.",
     use = false,
 ) {
+    dependsOn(
+        sharedExtensionPatch,
+        settingsPatch,
+        addResourcesPatch,
+    )
+
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52"
@@ -18,6 +30,12 @@ val permanentRepeatPatch = bytecodePatch(
     )
 
     execute {
+        addResources("music", "interaction.permanentrepeat.permanentRepeatPatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            SwitchPreference("revanced_music_play_permanent_repeat"),
+        )
+
         val startIndex = repeatTrackFingerprint.patternMatch!!.endIndex
         val repeatIndex = startIndex + 1
 

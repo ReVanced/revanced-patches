@@ -7,6 +7,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.newLabel
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.toInstructions
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.music.misc.extension.sharedExtensionPatch
+import app.revanced.patches.music.misc.settings.PreferenceScreen
+import app.revanced.patches.music.misc.settings.settingsPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction22t
@@ -18,6 +24,12 @@ val removeUpgradeButtonPatch = bytecodePatch(
     name = "Remove upgrade button",
     description = "Removes the upgrade tab from the pivot bar.",
 ) {
+    dependsOn(
+        sharedExtensionPatch,
+        settingsPatch,
+        addResourcesPatch,
+    )
+
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52"
@@ -25,6 +37,12 @@ val removeUpgradeButtonPatch = bytecodePatch(
     )
 
     execute {
+        addResources("music", "layout.upgradebutton.removeUpgradeButtonPatch")
+
+        PreferenceScreen.ADS.addPreferences(
+            SwitchPreference("revanced_music_remove_upgrade_button"),
+        )
+
         pivotBarConstructorFingerprint.method.apply {
             val pivotBarElementFieldReference =
                 getInstruction(pivotBarConstructorFingerprint.patternMatch!!.endIndex - 1)

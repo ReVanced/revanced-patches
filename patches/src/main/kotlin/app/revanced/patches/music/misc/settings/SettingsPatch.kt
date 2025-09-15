@@ -19,7 +19,7 @@ private const val BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
 private const val GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/music/settings/GoogleApiActivityHook;"
 
-private val screens = mutableSetOf<BasePreference>()
+private val preferences = mutableSetOf<BasePreference>()
 
 
 private val settingsResourcePatch = resourcePatch {
@@ -31,12 +31,13 @@ private val settingsResourcePatch = resourcePatch {
                 summaryKey = null,
                 intent = newIntent("revanced_settings_intent"),
             ) to "settings_headers",
-            screens
+            preferences
         )
     )
 
     execute {
 
+        // TODO: Remove this when search will be abstract.
         copyResources(
             "settings",
             ResourceGroup(
@@ -44,11 +45,37 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_music_settings_with_toolbar.xml"
             )
         )
+
+        // Modify the manifest to enhance GoogleApiActivity behavior:
+        // 1. Add a data intent filter with MIME type "text/plain".
+        //    Some devices crash if undeclared data is passed to an intent,
+        //    and this change appears to fix the issue.
+        // 2. Add android:configChanges="orientation|screenSize|keyboardHidden".
+        //    This prevents the activity from being recreated on configuration changes
+        //    (e.g., screen rotation), preserving its current state and fragment.
+        document("AndroidManifest.xml").use { document ->
+            val googleApiElement = document.childNodes.findElementByAttributeValueOrThrow(
+                "android:name",
+                "com.google.android.gms.common.api.GoogleApiActivity",
+            )
+
+            googleApiElement.setAttribute(
+                "android:configChanges",
+                "orientation|screenSize|keyboardHidden"
+            )
+
+            val mimeType = document.createElement("data")
+            mimeType.setAttribute("android:mimeType", "text/plain")
+
+            val intentFilter = document.createElement("intent-filter")
+            intentFilter.appendChild(mimeType)
+
+            googleApiElement.appendChild(intentFilter)
+        }
     }
 }
 
 val settingsPatch = bytecodePatch(
-    name = "Settings",
     description = "Adds settings for ReVanced to YouTube Music.",
 ) {
     dependsOn(
@@ -59,6 +86,14 @@ val settingsPatch = bytecodePatch(
 
     execute {
         addResources("music", "misc.settings.settingsPatch")
+
+        // Add an "About" preference to the top.
+        preferences += NonInteractivePreference(
+            key = "revanced_settings_music_screen_0_about",
+            summaryKey = null,
+            tag = "app.revanced.extension.shared.settings.preference.ReVancedAboutPreference",
+            selectable = true,
+        )
 
         // Modify GoogleApiActivity and remove all existing layout code.
         // Must modify an existing activity and cannot add a new activity to the manifest,
@@ -97,13 +132,24 @@ fun newIntent(settingsName: String) = IntentPreference.Intent(
 }
 
 object PreferenceScreen : BasePreferenceScreen() {
-    // TODO: For test. Chance this to real.
+    val ADS = Screen(
+        "revanced_settings_music_screen_1_ads",
+        summaryKey = null
+    )
+    val GENERAL = Screen(
+        "revanced_settings_music_screen_2_general",
+        summaryKey = null
+    )
+    val PLAYER = Screen(
+        "revanced_settings_music_screen_3_player",
+        summaryKey = null
+    )
     val MISC = Screen(
-        "revanced_settings_screen_1_misc",
+        "revanced_settings_music_screen_4_misc",
         summaryKey = null
     )
 
     override fun commit(screen: PreferenceScreenPreference) {
-        screens += screen
+        preferences += screen
     }
 }
