@@ -41,12 +41,8 @@ val hideVideoAdsPatch = bytecodePatch(
             .addInstructions(
                 0,
                 """
-                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->hideVideoAds()Z
-                    move-result v0
-                    if-eqz v0, :show
-                    const/4 p1, 0x0
-                    :show
-                    nop        
+                    invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->showVideoAds(Z)Z
+                    move-result p1
                 """
             )
     }

@@ -8,7 +8,10 @@ public class HideVideoAdsPatch {
     /**
      * Injection point
      */
-    public static boolean hideVideoAds() {
-        return Settings.HIDE_VIDEO_ADS.get();
+    public static boolean showVideoAds(boolean original) {
+        if (Settings.HIDE_VIDEO_ADS.get()) {
+            return false;
+        }
+        return original;
     }
 }
