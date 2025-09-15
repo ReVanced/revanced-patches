@@ -100,3 +100,9 @@ val hideUpgradeButton = bytecodePatch(
         }
     }
 }
+
+@Deprecated("Patch was renamed", ReplaceWith("hideUpgradeButton"))
+@Suppress("unused")
+val removeUpgradeButton = bytecodePatch{
+    dependsOn(hideUpgradeButton)
+}

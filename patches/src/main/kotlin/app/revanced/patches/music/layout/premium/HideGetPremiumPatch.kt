@@ -13,9 +13,12 @@ import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideGetPremiumPatch;"
+
+@Suppress("unused")
 val hideGetPremiumPatch = bytecodePatch(
-    name = "Hide 'Get Music Premium' label",
-    description = "Hides the \"Get Music Premium\" label from the account menu and settings.",
+    name = "Hide 'Get Music Premium'",
+    description = "Adds an option to hide the \"Get Music Premium\" label in the settings and account menu.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -58,9 +61,14 @@ val hideGetPremiumPatch = bytecodePatch(
         membershipSettingsFingerprint.method.addInstructions(
             0,
             """
-            const/4 v0, 0x0
-            return-object v0
-        """,
+                invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->hideGetPremiumLabel()Z
+                move-result v0
+                if-eqz v0, :show
+                const/4 v0, 0x0
+                return-object v0
+                :show
+                nop
+            """
         )
     }
 }

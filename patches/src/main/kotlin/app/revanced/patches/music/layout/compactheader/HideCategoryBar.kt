@@ -47,7 +47,7 @@ val hideCategoryBar = bytecodePatch(
                 insertIndex,
                 """
                     invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->hideCategoryBar()Z
-                    move-result $freeRegister
+                    move-result v$freeRegister
                     if-eqz v$freeRegister, :show
                     const/16 v$freeRegister, 0x8
                     invoke-virtual { v$register, v$freeRegister }, Landroid/view/View;->setVisibility(I)V
