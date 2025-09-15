@@ -1,3 +1,10 @@
+# [5.37.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.4...v5.37.0-dev.5) (2025-09-15)
+
+
+### Bug Fixes
+
+* **Viber - Hide ads:** Add constrain to known working version ([2db0948](https://github.com/ReVanced/revanced-patches/commit/2db0948beaf2b68391a1fe7f21e92d31c7df61e7))
+
 # [5.37.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.3...v5.37.0-dev.4) (2025-09-14)
 
 
