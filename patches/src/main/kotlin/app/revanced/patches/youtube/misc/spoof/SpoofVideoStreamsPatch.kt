@@ -69,14 +69,13 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
                         entryValuesKey = "revanced_language_entry_values",
                         tag = "app.revanced.extension.shared.settings.preference.SortedListPreference"
                     ),
-                    SwitchPreference("revanced_spoof_video_streams_ios_force_avc"),
                     SwitchPreference("revanced_spoof_streaming_data_stats_for_nerds"),
-                ),
-            ),
+                )
+            )
         )
 
         mainActivityOnCreateFingerprint.method.addInstruction(
-            1, // Must use 1 index so context is set by extension patch.,
+            0,
             "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setClientOrderToUse()V"
         )
     }

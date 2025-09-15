@@ -10,6 +10,7 @@ import java.util.Map;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
@@ -19,7 +20,10 @@ public class SpoofVideoStreamsPatch {
     private static final boolean SPOOF_STREAMING_DATA = BaseSettings.SPOOF_VIDEO_STREAMS.get();
 
     private static final boolean FIX_HLS_CURRENT_TIME = SPOOF_STREAMING_DATA
-            && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
+            && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.VISIONOS;
+
+    @Nullable
+    private static volatile AppLanguage languageOverride;
 
     /**
      * Domain used for internet connectivity verification.
@@ -43,10 +47,21 @@ public class SpoofVideoStreamsPatch {
         return false; // Modified during patching.
     }
 
-    public static boolean notSpoofingToAndroid() {
-        return !isPatchIncluded()
-                || !BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
+    public static boolean spoofingToClientWithNoMultiAudioStreams() {
+        return isPatchIncluded() && BaseSettings.SPOOF_VIDEO_STREAMS.get();
+    }
+
+    /**
+     * @param language Language override for non-authenticated requests. If this is null then
+     *                 {@link BaseSettings#SPOOF_VIDEO_STREAMS_LANGUAGE} is used.
+     */
+    public static void setLanguageOverride(@Nullable AppLanguage language) {
+        languageOverride = language;
+    }
+
+    @Nullable
+    public static AppLanguage getLanguageOverride() {
+        return languageOverride;
     }
 
     /**
@@ -261,17 +276,8 @@ public class SpoofVideoStreamsPatch {
     public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            ClientType clientType = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
-            return BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                    && (clientType == ClientType.ANDROID_VR_1_61_48 || clientType == ClientType.ANDROID_VR_1_43_32);
-        }
-    }
-
-    public static final class SpoofiOSAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                    && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
+            // Since all current clients are un-authenticated, this works for all spoof clients.
+            return BaseSettings.SPOOF_VIDEO_STREAMS.get();
         }
     }
 }
