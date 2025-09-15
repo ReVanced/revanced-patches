@@ -12,7 +12,7 @@ import app.revanced.extension.shared.settings.BaseSettings;
 
 public enum ClientType {
     // https://dumps.tadiphone.dev/dumps/oculus/eureka
-    ANDROID_VR_NO_AUTH(
+    ANDROID_VR_1_61_48(
             28,
             "ANDROID_VR",
             "com.google.android.apps.youtube.vr.oculus",
@@ -27,7 +27,7 @@ public enum ClientType {
             "1.61.48",
             false,
             false,
-            "Android VR No auth"
+            "Android VR 1.61"
     ),
     // Chromecast with Google TV 4K.
     // https://dumps.tadiphone.dev/dumps/google/kirkwood
@@ -96,6 +96,26 @@ public enum ClientType {
             forceAVC()
                     ? "iOS TV Force AVC"
                     : "iOS TV"
+    ),
+    /**
+     * Uses non adaptive bitrate, which fixes audio stuttering with YT Music.
+     * Uses VP9 and not AV1.
+     */
+    ANDROID_VR_1_43_32(
+            ANDROID_VR_1_61_48.id,
+            ANDROID_VR_1_61_48.clientName,
+            ANDROID_VR_1_61_48.packageName,
+            ANDROID_VR_1_61_48.deviceMake,
+            ANDROID_VR_1_61_48.deviceModel,
+            ANDROID_VR_1_61_48.osName,
+            ANDROID_VR_1_61_48.osVersion,
+            ANDROID_VR_1_61_48.androidSdkVersion,
+            ANDROID_VR_1_61_48.buildId,
+            "107.0.5284.2",
+            "1.43.32",
+            ANDROID_VR_1_61_48.requiresAuth,
+            ANDROID_VR_1_61_48.useAuth,
+            "Android VR 1.43"
     );
 
     private static boolean forceAVC() {

@@ -35,21 +35,22 @@ import app.revanced.extension.shared.spoof.ClientType;
  */
 public class StreamingDataRequest {
 
-    private static final ClientType[] CLIENT_ORDER_TO_USE;
+    private static volatile ClientType[] clientOrderToUse = ClientType.values();
 
-    static {
-        ClientType[] allClientTypes = ClientType.values();
-        ClientType preferredClient = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
+    public static void setClientOrderToUse(ClientType[] availableClients, ClientType preferredClient) {
+        Objects.requireNonNull(availableClients);
 
-        CLIENT_ORDER_TO_USE = new ClientType[allClientTypes.length];
-        CLIENT_ORDER_TO_USE[0] = preferredClient;
+        clientOrderToUse = new ClientType[availableClients.length];
+        clientOrderToUse[0] = preferredClient;
 
         int i = 1;
-        for (ClientType c : allClientTypes) {
+        for (ClientType c : availableClients) {
             if (c != preferredClient) {
-                CLIENT_ORDER_TO_USE[i++] = c;
+                clientOrderToUse[i++] = c;
             }
         }
+
+        Logger.printDebug(() -> "Available spoof clients: " + Arrays.toString(clientOrderToUse));
     }
 
     private static final String AUTHORIZATION_HEADER = "Authorization";
@@ -193,9 +194,9 @@ public class StreamingDataRequest {
 
         // Retry with different client if empty response body is received.
         int i = 0;
-        for (ClientType clientType : CLIENT_ORDER_TO_USE) {
+        for (ClientType clientType : clientOrderToUse) {
             // Show an error if the last client type fails, or if debug is enabled then show for all attempts.
-            final boolean showErrorToast = (++i == CLIENT_ORDER_TO_USE.length) || debugEnabled;
+            final boolean showErrorToast = (++i == clientOrderToUse.length) || debugEnabled;
 
             HttpURLConnection connection = send(clientType, videoId, playerHeaders, showErrorToast);
             if (connection != null) {
