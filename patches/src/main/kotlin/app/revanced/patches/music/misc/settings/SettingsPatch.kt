@@ -45,6 +45,21 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_music_settings_with_toolbar.xml"
             )
         )
+
+        // Remove horizontal divider from the settings Preferences.
+        document("res/values/styles.xml").use { document ->
+            val childNodes = document.childNodes
+
+            val themeName = "Base.Theme.YouTubeMusic"
+            val listDividerNode = document.createElement("item")
+            listDividerNode.setAttribute("name", "android:listDivider")
+            listDividerNode.appendChild(document.createTextNode("@null"))
+
+            childNodes.findElementByAttributeValueOrThrow(
+                "name",
+                themeName,
+            ).appendChild(listDividerNode)
+        }
     }
 }
 
