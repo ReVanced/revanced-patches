@@ -1,3 +1,10 @@
+## [5.37.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.37.1-dev.2...v5.37.1-dev.3) (2025-09-15)
+
+
+### Bug Fixes
+
+* **Spoof video streams:** Remove Android TV and iOS TV clients, add experimental VisionOS, add temporary fix for `Force original audio` to work with any spoof client ([#5861](https://github.com/ReVanced/revanced-patches/issues/5861)) ([abe3943](https://github.com/ReVanced/revanced-patches/commit/abe3943f98fd86dcd74c7e07cf65d3c7fc24fef9))
+
 ## [5.37.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.37.1-dev.1...v5.37.1-dev.2) (2025-09-15)
 
 
