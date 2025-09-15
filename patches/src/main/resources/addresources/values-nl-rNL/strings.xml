@@ -700,9 +700,9 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu Audiotrack is verborgen</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menu Audiotrack wordt weergegeven</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Audiotrackmenu is verborgen
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Audiotracks-menu is verborgen
 
-Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS TV"</string>
+Het audiotracks-menu is niet beschikbaar wanneer 'Videostreams spoofen' is ingeschakeld"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Verberg Bekijk in VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu Bekijk in VR is verborgen</string>
@@ -1533,32 +1533,25 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_spoof_video_streams_screen_title">Videostreams vervalsen</string>
   <string name="revanced_spoof_video_streams_screen_summary">Vervals de client-videostreams om afspeelproblemen te voorkomen</string>
   <string name="revanced_spoof_video_streams_title">Videostreams vervalsen</string>
-  <string name="revanced_spoof_video_streams_summary_on">Videostreams worden vervalst</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Videostreams worden gespooft
+
+Als je een YouTube Premium-gebruiker bent, is deze instelling mogelijk niet vereist"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Videostreams worden niet gespoofed
 
 Video-playback werkt mogelijk niet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Het uitschakelen van deze instelling kan afspeelproblemen veroorzaken.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standaard client</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forceer iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">De videocodec is geforceerd naar AVC (H.264).</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">De videocodec wordt automatisch bepaald.</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Als u deze functie inschakelt, kan de batterijduur worden verlengd en kan schokkerig afspelen worden verholpen.
-
-AVC heeft een maximale resolutie van 1080p, de Opus-audiocodec is niet beschikbaar en videoweergave verbruikt meer internetgegevens dan VP9 of AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-spoofingeffects</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Films of betaalde video's worden mogelijk niet afgespeeld
-• Stabiel volume is niet beschikbaar
-• Video's eindigen 1 seconde te vroeg"</string>
+  <string name="revanced_spoof_video_streams_about_title">Spoofing-neveneffecten</string>
   <string name="revanced_spoof_video_streams_about_android_title">Bijwerkingen van Android-spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Het menu Audiotracks ontbreekt
-• Stabiel volume is niet beschikbaar
-• Forceer originele audio is niet beschikbaar"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Audiotracks-menu ontbreekt
+• Stabiel volume is niet beschikbaar"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Experimentele client en kan elk moment stoppen met werken</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Geen AV1-videocodec</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• \"Kinder\"​-Video’s worden mogelijk niet afgespeeld wanneer u bent uitgelogd of de incognitomodus gebruikt</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Weergeven in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Het clienttype wordt getoond in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is verborgen in Stats for nerds</string>
-  <string name="revanced_spoof_video_streams_language_title">Standaardtaal van VR-audiostream</string>
+  <string name="revanced_spoof_video_streams_language_title">Audiostreamtaal</string>
   </patch>
   </app>
   <app id="twitch">

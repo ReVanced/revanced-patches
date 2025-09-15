@@ -700,9 +700,9 @@ Hvis ændring af denne indstilling ikke træder i kraft, kan du prøve at skifte
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menuen for lydspor er skjult</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menuen Lydspor vises</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Lydspormenuen er skjult
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Lydsporsmenuen er skjult
 
-For at vise lydspormenuen skal du ændre \"Spoof videostream\" til iOS TV"</string>
+Lydsporsmenuen er ikke tilgængelig, når 'Spoof videostreams' er aktiveret"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skjul vagt i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Se i VR-menuen er skjult</string>
@@ -1537,30 +1537,25 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_spoof_video_streams_screen_title">Spoof videostreams</string>
   <string name="revanced_spoof_video_streams_screen_summary">Spoof klienten video streams for at forhindre afspilning problemer</string>
   <string name="revanced_spoof_video_streams_title">Spoof videostreams</string>
-  <string name="revanced_spoof_video_streams_summary_on">Video streams er spoofed</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Videostreams er spoofede
+
+Hvis du er en YouTube Premium-bruger, er denne indstilling muligvis ikke påkrævet"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Videostreams forfalskes ikke
 
 Videoafspilning virker muligvis ikke"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">At slå denne indstilling fra kan forårsage problemer med videoafspilning.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forceer iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokodec er tvunget til AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodec bestemmes automatisk</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Aktivering af dette kan forbedre batterilevetiden og rette afspilningshakken.\n\nAVC har en maksimal opløsning på 1080p, Opus-lydkodec er ikke tilgængelig, og videoafspilning vil bruge mere internetdata end VP9 eller AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-spoofing kan have følgende bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Film eller betalte videoer afspilles muligvis ikke
-• Stabil lydstyrke er ikke tilgængelig
-• Videoer slutter 1 sekund for tidligt"</string>
+  <string name="revanced_spoof_video_streams_about_title">Bivirkninger ved spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_title">Bivirkninger ved Android-spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Lydspormenu mangler
-• Stabil lydstyrke er ikke tilgængelig
-• Gennemtving original lyd er ikke tilgængelig"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Lydsporsmenuen mangler
+• Stabil lydstyrke er ikke tilgængelig"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentel klient og kan stoppe med at fungere når som helst</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Intet AV1-videokodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videoer til børn afspilles muligvis ikke, når du er logget ud eller i inkognitotilstand</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Vis i Statistik for nørder</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttypen vises i Statistik for nørder</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten er skjult i Statistik for nørder</string>
-  <string name="revanced_spoof_video_streams_language_title">VR-standardsprog for lydstrømme</string>
+  <string name="revanced_spoof_video_streams_language_title">Lydstreamsprog</string>
   </patch>
   </app>
   <app id="twitch">

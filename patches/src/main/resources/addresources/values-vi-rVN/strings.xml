@@ -702,7 +702,7 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Trình đơn bản âm thanh đã bị ẩn
 
-Để hiển thị bản âm thanh, hãy đổi 'Giả mạo luồng video' thành iOS TV"</string>
+Trình đơn bản âm thanh không khả dụng khi tính năng 'Giả mạo luồng video' được bật"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ẩn Xem ở chế độ thực tế ảo</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Trình đơn xem ở chế độ thực tế ảo đã bị ẩn</string>
@@ -1541,32 +1541,25 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_spoof_video_streams_screen_title">Giả mạo luồng video</string>
   <string name="revanced_spoof_video_streams_screen_summary">Giả mạo luồng video của thiết bị nhằm ngăn chặn lỗi khi phát</string>
   <string name="revanced_spoof_video_streams_title">Giả mạo luồng video</string>
-  <string name="revanced_spoof_video_streams_summary_on">Luồng video đã được giả mạo</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Luồng video đã được giả mạo
+
+Nếu bạn là người dùng YouTube Premium, thì cài đặt này có thể không cần thiết"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Luồng video không được giả mạo
 
 Có thể gặp lỗi khi phát video"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Tắt cài đặt này có thể gây ra lỗi khi phát video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Loại thiết bị mặc định</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Bắt buộc iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codec video bị buộc phải là AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codec video sẽ được xác định tự động</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bật tuỳ chọn này có thể giúp tiết kiệm pin và khắc phục tình trạng giật lag khi phát video.
-
-AVC hỗ trợ độ phân giải tối đa là 1080p, codec âm thanh OPUS không khả dụng và phát video sẽ tiêu tốn nhiều dữ liệu di động hơn so với VP9 hoặc AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Hạn chế khi giả mạo iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Phim hoặc video có trả phí có thể không phát được
-• Âm lượng ổn định không khả dụng
-• Video kết thúc sớm hơn 1 giây"</string>
+  <string name="revanced_spoof_video_streams_about_title">Hạn chế khi giả mạo</string>
   <string name="revanced_spoof_video_streams_about_android_title">Hạn chế khi giả mạo Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Trình đơn bản âm thanh bị thiếu
-• Âm lượng ổn định không khả dụng
-• Tùy chọn âm thanh gốc không khả dụng"</string>
+• Âm lượng ổn định không khả dụng"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Ứng dụng thử nghiệm và có thể ngừng hoạt động bất cứ lúc nào</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video dành cho trẻ em có thể không phát được khi đăng xuất hoặc ở chế độ ẩn danh</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiện trong Thống kê chi tiết</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Loại máy khách đã được hiển thị trong Thống kê chi tiết</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Loại thiết bị đã ẩn trong Thống kê chi tiết</string>
-  <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ âm thanh mặc định (VR)</string>
+  <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ luồng âm thanh</string>
   </patch>
   </app>
   <app id="twitch">

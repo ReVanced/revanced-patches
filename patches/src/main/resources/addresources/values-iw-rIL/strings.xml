@@ -702,7 +702,7 @@ Second \"item\" text"</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"תפריט רצועת השמע מוסתר
 
-כדי להציג את תפריט רצועת השמע, שנה את 'זיוף זרמי וידאו' ל-iOS TV"</string>
+תפריט רצועת השמע אינו זמין כאשר 'התחזות לזרמי וידאו' מופעלת"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">הסתר \'צפה ב-VR\'</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">תפריט \'צפה ב-VR\' מוסתר</string>
@@ -1537,32 +1537,25 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_screen_title">זייף זרמי וידאו</string>
   <string name="revanced_spoof_video_streams_screen_summary">זייף זרמי וידאו של לקוח כדי למנוע בעיות הפעלה</string>
   <string name="revanced_spoof_video_streams_title">זייף זרמי וידאו</string>
-  <string name="revanced_spoof_video_streams_summary_on">זרמי וידאו הם מזויפים</string>
+  <string name="revanced_spoof_video_streams_summary_on">"מתבצעת התחזות לזרמי וידאו
+
+אם אתה משתמש YouTube Premium, ייתכן שהגדרה זו אינה נחוצה"</string>
   <string name="revanced_spoof_video_streams_summary_off">"זרמי וידאו אינם מזויפים
 
 ייתכן שהפעלת סרטון לא תעבוד"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">כיבוי הגדרה זו עלול לגרום לבעיות בהפעלת סרטון.</string>
   <string name="revanced_spoof_video_streams_client_type_title">לקוח ברירת מחדל</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">כפה iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">קודק וידאו נכפה ל-AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">קוד וידאו נקבע באופן אוטומטי</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"הפעלת אפשרות זו עשויה לשפר את חיי הסוללה ולתקן גמגום בהפעלה.
-
-ל-AVC יש רזלוציה מרבית של 1080p, קודק שמע מסוג Opus אינו זמין, והפעלת סרטון תשתמש ביותר נתוני אינטרנט מאשר VP9 או AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">תופעות לוואי של זיוף iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• ייתכן שסרטים או סרטונים בתשלום לא יופעלו
-• עוצמת קול יציבה אינה זמינה
-• סרטונים מסתיימים שנייה 1 מוקדם יותר"</string>
+  <string name="revanced_spoof_video_streams_about_title">תופעות לוואי של התחזות</string>
   <string name="revanced_spoof_video_streams_about_android_title">תופעות לוואי של זיוף Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• תפריט רצועת שמע חסר
-• עוצמת קול יציבה אינה זמינה
-• כפה שמע מקורי אינו זמין"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• תפריט רצועת השמע חסר
+• עוצמת קול יציבה אינה זמינה"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• לקוח ניסיוני ועשוי להפסיק לפעול בכל עת</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ייתכן שסרטוני Kids לא יופעלו כשאתה מנותק או במצב פרטי</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">הצג בנתונים לגיקים</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">סוג הלקוח מוצג בנתונים לגיקים</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">הלקוח מוסתר בנתונים לגיקים</string>
-  <string name="revanced_spoof_video_streams_language_title">שפת זרם שמע ברירת מחדל ב-VR</string>
+  <string name="revanced_spoof_video_streams_language_title">שפת זרם השמע</string>
   </patch>
   </app>
   <app id="twitch">

@@ -700,9 +700,9 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menyja \"Shina e audios\" është e fshehur</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menyja \"Shina e audios\" është e dukshme</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menyja e pistës audio është e fshehur
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menyja e gjurmës audio është e fshehur
 
-Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet video' në iOS TV"</string>
+Menyja e gjurmës audio nuk është e disponueshme kur \"Falsifikoni transmetimet video\" është e aktivizuar"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Fsheh \"Shikoni në VR\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menyja \"Shikoni në VR\" është e fshehur</string>
@@ -1533,32 +1533,25 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_spoof_video_streams_screen_title">Mashtro rrjedhat e videos</string>
   <string name="revanced_spoof_video_streams_screen_summary">Mashtro rrjedhat e videos së klientit për të parandaluar problemet e luajtjes</string>
   <string name="revanced_spoof_video_streams_title">Mashtro rrjedhat e videos</string>
-  <string name="revanced_spoof_video_streams_summary_on">Rrjedhat e videos janë të mashtruara</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Transmetimet video janë falsifikuar
+
+Nëse jeni përdorues i YouTube Premium, ky cilësim mund të mos jetë i nevojshëm"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Rrjedhat e videove nuk janë spoofed
 
 Shikimi i videove mund të mos funksionojë"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Çaktivizimi i kësaj cilësimi mund të shkaktojë probleme me luajtjen e videos.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Klient i përdoruesit</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forco AVC (H.264) për iOS</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodiku video është detyruar të jetë AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodiku video është përcaktuar automatikisht</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Aktivizimi i kësaj mund të përmirësojë jetëgjatësinë e baterisë dhe të rregullojë ngecjet gjatë shfaqjes.
-
-AVC ka një rezolucion maksimal prej 1080p, kodeku audio Opus nuk është i disponueshëm dhe shfaqja e videos do të përdorë më shumë të dhëna interneti sesa VP9 ose AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efekte anësore të falsifikimit të iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmat ose videot e paguara s'mund të luhen
-• Volumi i qëndrueshëm nuk është i disponueshëm
-• Videot përfundojnë 1 sekondë më parë"</string>
+  <string name="revanced_spoof_video_streams_about_title">Efektet anësore të falsifikimit</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efekte anësore të spoofinguit të Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Menutë me audiot mungon
-• Vellimi i qëndrueshëm nuk është në dispozicion
-• Zbatimi i audio origjinalit nuk është në dispozicion"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Menyja e gjurmës audio mungon
+• Volumi i qëndrueshëm nuk është i disponueshëm"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Klient eksperimental dhe mund të ndalojë së funksionuari në çdo kohë</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nuk ka codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video për fëmijë mund të mos luajnë kur jeni jashtë llogarisë ose në modalitetin incognito</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Shfaqni në Statistikat për nerdës</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Lloji i klientit shfaqet në Statistikat për nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienti është fshehur në statistikat për nerds</string>
-  <string name="revanced_spoof_video_streams_language_title">Gjuha e rrjedhës audio VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Gjuha e transmetimit audio</string>
   </patch>
   </app>
   <app id="twitch">

@@ -700,9 +700,9 @@ Mura dtagann aon athrú ar an socrú seo, bain triail as mód Incognito a chur a
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Tá roghchlár rian fuaime i bhfolach</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Taispeántar roghchlár rian fuaime</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Tá roghchlár na rian fuaime i bhfolach
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Tá roghchlár an rian fuaime i bhfolach
 
-Chun roghchlár na rian fuaime a thaispeáint, athraigh 'Srutháin físeáin bhréige' go iOS TV"</string>
+Níl roghchlár an rian fuaime ar fáil nuair atá 'Sruthanna físeáin bhréige' cumasaithe"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Folaigh Watch i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Tá faire i roghchlár VR i bhfolach</string>
@@ -1535,32 +1535,25 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_spoof_video_streams_screen_title">Sruthanna físeán spoof</string>
   <string name="revanced_spoof_video_streams_screen_summary">Spoof na sruthanna físeáin cliant chun saincheisteanna athsheinm a chosc</string>
   <string name="revanced_spoof_video_streams_title">Sruthanna físeán spoof</string>
-  <string name="revanced_spoof_video_streams_summary_on">Tá sruthanna físe spoofed</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Tá sruthanna físeáin bréagaithe
+
+Má tá tú i do úsáideoir YouTube Premium, seans nach mbeidh an socrú seo ag teastáil"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Níl sruthanna físeáin spoofed
 
 D'fhéadfadh nach n-oibreoidh athsheinm físeáin"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Seans go mbeidh fadhbanna athsheinm físe ag baint leis an socrú seo a mhúchadh.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliant réamhshocraithe</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Féach iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Fórsaítear códú fhíseán chuig AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Chinntítear códú fhíseán go huathoibríoch</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"D'fhéadfadh a chumasú seo saol na ceallraí a fheabhsú agus stotálú athsaithe a shocrú.
-
-Tá réiteach uasmhéideach 1080p ag AVC, níl códú fuaime Opus ar fáil, agus bainfear úsáid as tuilleadh sonraí Idirlín le haghaidh athsaithe físeán ná VP9 nó AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Éifeachtaí taobheacha sceimhlitheoireachta iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• D’fhéadfadh sé nach imreodh scannáin nó físeáin íoctha
-• Ní bheidh an toirt éagothroime ar fáil
-• Críochnaíonn físeáin 1 soicind roimh am"</string>
+  <string name="revanced_spoof_video_streams_about_title">Fo-iarsmaí bréagaíochta</string>
   <string name="revanced_spoof_video_streams_about_android_title">Éifeachtaí taobh Android a mhalartú</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Tá roghchlár na bhfuaimeanna ar iarraidh
-• Níl imfhálú cobhsaí ar fáil
-• Níl an fhuaim bhunúsach ar fáil"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Tá roghchlár an rian fuaime ar iarraidh
+• Níl an toirt chobhsaí ar fáil"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Cliant turgnamhach é seo agus féadfaidh sé stop a chur ag obair ag am ar bith</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Níl aon chóidéir físe AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videos faoi phaistí uaireanta nach imreoidh nuair a bhíonn tú logáilte amach nó i mod incognito</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Taispeáin i Staitisticí do nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Taispeántar cineál an chliaint i Staitisticí do nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tá an cliant curtha i bhfolach i Staitisticí do nerds</string>
-  <string name="revanced_spoof_video_streams_language_title">Teanga an sreafa fuaime réamhshocraithe VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Teanga an tsrutha fuaime</string>
   </patch>
   </app>
   <app id="twitch">

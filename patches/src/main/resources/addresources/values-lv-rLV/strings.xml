@@ -700,9 +700,9 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio ceļa izvēlne ir paslēpta</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Audio ceļa izvēlne ir redzama</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Audio celiņu izvēlne ir paslēpta.
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Audio celiņa izvēlne ir paslēpta
 
-Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz iOS TV"</string>
+Audio celiņa izvēlne nav pieejama, kad ir iespējots \"Viltot video straumes\""</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Paslēpt Skatīties VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Skatīties VR izvēlne ir paslēpta</string>
@@ -1536,32 +1536,25 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_spoof_video_streams_screen_title">Viltot video straumes</string>
   <string name="revanced_spoof_video_streams_screen_summary">Viltot klienta video straumes, lai novērstu atskaņošanas problēmas</string>
   <string name="revanced_spoof_video_streams_title">Viltot video straumes</string>
-  <string name="revanced_spoof_video_streams_summary_on">Video straumes ir viltotas</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Video straumes ir viltotas
+
+Ja esat YouTube Premium lietotājs, šis iestatījums, iespējams, nav nepieciešams"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Video straumes nav viltotas
 
 Video atskaņošana var nedarboties"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Šī iestatījuma atspējošana var izraisīt video atskaņošanas problēmas.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Noklusētā klients</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Spēka iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeks ir piespiests AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeks tiek automātiski noteikts</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Iespējojot to, var uzlabot akumulatora darbības laiku un novērst atskaņošanas aizķeršanos.
-
-AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un video atskaņošanā tiks patērēts vairāk interneta datu nekā VP9 vai AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS izlikšanās blakusefekti</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmas vai apmaksāti video, iespējams, netiks atskaņoti
-• Nav pieejams stabils skaļums
-• Video beidzas 1 sekundi par ātru"</string>
+  <string name="revanced_spoof_video_streams_about_title">Viltotu straumju blakusparādības</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android viltus straumēšanas blakus efekti</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Trūkst audio celiņa izvēlnes
-• Nav pieejams stabils skaļums
-• Nav pieejama oriģinālā audio piespiešana"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Audio celiņa izvēlne trūkst
+• Nav pieejams stabils skaļums"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentāls klients un jebkurā brīdī var pārtraukt darbu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nav pieejams AV1 video kodeks</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Bērnu videoklipi var netikt atskaņoti, kad esat izrakstījies vai inkognito režīmā.</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rādīt statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienta tips tiek rādīts statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klients ir paslēpts statistiskos datos entuziastiem</string>
-  <string name="revanced_spoof_video_streams_language_title">VR noklusējuma audio straumes valoda</string>
+  <string name="revanced_spoof_video_streams_language_title">Audio straumes valoda</string>
   </patch>
   </app>
   <app id="twitch">

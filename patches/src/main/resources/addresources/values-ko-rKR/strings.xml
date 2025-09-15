@@ -701,7 +701,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"오디오 트랙 메뉴가 숨겨집니다
 
-오디오 트랙 메뉴를 표시하려면, '동영상 스트림 변경하기'에서 기본 클라이언트를 iOS TV로 변경하세요"</string>
+\"동영상 스트림 변경하기\"가 활성화된 경우 오디오 트랙 메뉴를 사용할 수 없습니다."</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR로 보기 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR로 보기 메뉴가 숨겨집니다</string>
@@ -1542,31 +1542,24 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_spoof_video_streams_screen_title">동영상 스트림 변경하기</string>
   <string name="revanced_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_title">동영상 스트림 변경하기</string>
-  <string name="revanced_spoof_video_streams_summary_on">동영상 스트림을 변경합니다</string>
+  <string name="revanced_spoof_video_streams_summary_on">"동영상 스트림이 변경되었습니다
+
+YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다."</string>
   <string name="revanced_spoof_video_streams_summary_off">"동영상 스트림을 변경하지 않습니다
 동영상 재생 문제가 발생할 수 있습니다"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
   <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱이 AVC (H.264)로 강제로 결정됩니다</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱이 자동으로 결정됩니다</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"이 설정를 활성화하면 배터리 수명이 향상되고, 동영상 재생 끊김 문제가 해결될 수 있습니다.
-
-AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동영상을 재생할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS 변경에 따른 부작용</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다
-• 안정적인 볼륨을 사용할 수 없습니다
-• 동영상이 1초 일찍 종료될 수 있습니다"</string>
+  <string name="revanced_spoof_video_streams_about_title">변경에 따른 부작용</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android 변경에 따른 부작용</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 오디오 트랙 메뉴가 표시되지 않습니다
-• 안정적인 볼륨을 사용할 수 없습니다
-• 원본 오디오 트랙를 강제로 활성화할 수 없습니다"</string>
+• 안정적인 볼륨을 사용할 수 없습니다"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• 실험용 클라이언트이며 언제든지 작동이 중단될 수 있습니다.</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kids 동영상은 로그인을 하지 않았거나 시크릿 모드에서는 재생되지 않을 수 있습니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시되지 않습니다</string>
-  <string name="revanced_spoof_video_streams_language_title">VR 기본 오디오 스트림 언어</string>
+  <string name="revanced_spoof_video_streams_language_title">오디오 스트림 언어</string>
   </patch>
   </app>
   <app id="twitch">

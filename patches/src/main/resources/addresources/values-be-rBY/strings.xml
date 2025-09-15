@@ -700,9 +700,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Меню гукавой дарожкі схавана</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Адлюструецца меню гукавой дарожкі</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Меню аўдыядарожкі схавана
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Меню гукавой дарожкі схавана
 
-Каб паказаць меню аўдыядарожкі, змяніце \"Падробка відэаструменяў\" на iOS TV"</string>
+Меню гукавой дарожкі недаступна, калі ўключана \"Падробка відэаструменяў\""</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Схаваць гадзіннік у VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Меню прагляду ў VR схавана</string>
@@ -1536,32 +1536,25 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_screen_title">Подделывать потоки видео</string>
   <string name="revanced_spoof_video_streams_screen_summary">Имитируйте потоки видео клиентов, чтобы предотвратить проблемы с воспроизведением</string>
   <string name="revanced_spoof_video_streams_title">Подделывать потоки видео</string>
-  <string name="revanced_spoof_video_streams_summary_on">Потоки видео подделаны</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Відэаструмені падроблены
+
+Калі вы карыстаецеся YouTube Premium, гэтая налада можа не спатрэбіцца"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Відэаструм не падроблены
 
 Прайграванне відэа можа не працаваць"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Вымусіць iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Відэакaдэк зафіксаваны ў AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Відэакaдэк вызначаецца аўтаматычна</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Уключэнне гэтага можа палепшыць час аўтаномнай працы і выправіць заіканне прайгравання.
-
-AVC мае максімальнае дазвол 1080p, аўдыёкадэк Opus недаступны, а прайграванне відэа будзе выкарыстоўваць больш інтэрнэт-даных, чым VP9 або AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Пабочныя эфекты падробкі iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Фільмы або платныя відэа могуць не прайгравацца
-• Стабільная гучнасць недаступная
-• Відэа заканчваюцца на 1 секунду раней"</string>
+  <string name="revanced_spoof_video_streams_about_title">Пабочныя эфекты падробкі</string>
   <string name="revanced_spoof_video_streams_about_android_title">Побічныя эфекты падробкі Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Меню гукавой дарожкі адсутнічае
-• Стабільны гук недаступны
-• Прымусовае арыгінальнае аўдыё недаступна"</string>
+• Стабільная гучнасць недаступна"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Эксперыментальны кліент і можа спыніць працу ў любы час</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Няма відэакідавання AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Дзіцячыя відэа могуць не прайгравацца ў стане выхаду з акаўнта або ў рэжыме інкогніта</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Паказаць у статыстыцы для спецыялістаў</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тып кліента адлюстроўваецца ў статыстыцы для спецыялістаў</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Кліент схаваны ў статыстыцы для спецыялістаў</string>
-  <string name="revanced_spoof_video_streams_language_title">Мова гукавой дарожкі па змаўчанні для VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Мова аўдыяпатоку</string>
   </patch>
   </app>
   <app id="twitch">
