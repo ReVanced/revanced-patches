@@ -10,8 +10,10 @@ import java.util.Locale;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
+import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.spoof.ClientType;
+import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 
 final class PlayerRoutes {
     static final Route.CompiledRoute GET_STREAMING_DATA = new Route(
@@ -37,15 +39,12 @@ final class PlayerRoutes {
         try {
             JSONObject context = new JSONObject();
 
-            // Can override default language only if no login is used.
-            // Could use preferred audio for all clients that do not login,
-            // but if this is a fall over client it will set the language even though
-            // the audio language is not selectable in the UI.
-            ClientType userSelectedClient = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
-            Locale streamLocale = (userSelectedClient == ClientType.ANDROID_VR_1_61_48
-                    || userSelectedClient == ClientType.ANDROID_VR_1_43_32)
-                    ? BaseSettings.SPOOF_VIDEO_STREAMS_LANGUAGE.get().getLocale()
-                    : Locale.getDefault();
+            AppLanguage language = SpoofVideoStreamsPatch.getPreferredLanguageOverride();
+            if (language == null) {
+                language = BaseSettings.SPOOF_VIDEO_STREAMS_LANGUAGE.get();
+            }
+            //noinspection ExtractMethodRecommender
+            Locale streamLocale = language.getLocale();
 
             JSONObject client = new JSONObject();
             client.put("deviceMake", clientType.deviceMake);
