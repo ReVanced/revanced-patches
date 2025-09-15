@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
@@ -127,12 +128,7 @@ public abstract class BaseActivityHook extends Activity {
      * Creates the PreferenceFragment to be injected into the activity.
      */
     protected PreferenceFragment createPreferenceFragment() {
-        return new ToolbarPreferenceFragment() {
-            @Override
-            protected void customizeToolbar(Toolbar toolbar) {
-                BaseActivityHook.setToolbarLayoutParams(toolbar);
-            }
-        };
+        return new ToolbarPreferenceFragment();
     }
 
     /**

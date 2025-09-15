@@ -18,9 +18,10 @@ import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.BaseActivityHook;
 
 @SuppressWarnings({"deprecation", "NewApi"})
-public abstract class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
+public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
     /**
      * Sets toolbar for all nested preference screens.
      */
@@ -114,7 +115,8 @@ public abstract class ToolbarPreferenceFragment extends AbstractPreferenceFragme
      */
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
-        final int backButtonResource = Utils.getResourceIdentifier("revanced_settings_toolbar_arrow_left", "drawable");
+        final int backButtonResource = Utils.getResourceIdentifier(
+                "revanced_settings_toolbar_arrow_left", "drawable");
         Drawable drawable = Utils.getContext().getResources().getDrawable(backButtonResource);
         customizeBackButtonDrawable(drawable);
         return drawable;
@@ -137,7 +139,9 @@ public abstract class ToolbarPreferenceFragment extends AbstractPreferenceFragme
     /**
      * Allows subclasses to customize the toolbar.
      */
-    protected abstract void customizeToolbar(Toolbar toolbar);
+    protected void customizeToolbar(Toolbar toolbar) {
+        BaseActivityHook.setToolbarLayoutParams(toolbar);
+    }
 
     /**
      * Allows subclasses to perform actions after toolbar setup.
