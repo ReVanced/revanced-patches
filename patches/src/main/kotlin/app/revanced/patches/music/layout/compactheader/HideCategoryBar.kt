@@ -12,11 +12,12 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.util.findFreeRegister
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideCategoryBarPatch;"
+
 @Suppress("unused")
 val hideCategoryBar = bytecodePatch(
     name = "Hide category bar",
-    description = "Hides the category bar at the top of the homepage.",
-    use = false,
+    description = "Adds an option to hide the category bar at the top of the homepage."
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -45,8 +46,13 @@ val hideCategoryBar = bytecodePatch(
             addInstructions(
                 insertIndex,
                 """
+                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->hideCategoryBar()Z
+                    move-result $freeRegister
+                    if-eqz v$freeRegister, :show
                     const/16 v$freeRegister, 0x8
                     invoke-virtual { v$register, v$freeRegister }, Landroid/view/View;->setVisibility(I)V
+                    :show
+                    nop
                 """
             )
         }
