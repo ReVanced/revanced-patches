@@ -1,3 +1,10 @@
+## [5.37.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.37.0...v5.37.1-dev.1) (2025-09-15)
+
+
+### Bug Fixes
+
+* **YouTube Music - Spoof video streams:** Fix playback issues when using a cellular network ([fa04c8e](https://github.com/ReVanced/revanced-patches/commit/fa04c8eecfbdd0b6ed082b464ca9032536d71762))
+
 # [5.37.0](https://github.com/ReVanced/revanced-patches/compare/v5.36.0...v5.37.0) (2025-09-15)
 
 
