@@ -5,14 +5,15 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceFragment;
 import android.view.View;
+
+import app.revanced.extension.music.settings.preference.ReVancedPreferenceFragment;
+import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
-import app.revanced.extension.music.settings.preference.ReVancedPreferenceFragment;
 
 /**
  * Hooks GoogleApiActivity to inject a custom ReVancedPreferenceFragment with a toolbar.
  */
-@SuppressWarnings("deprecation")
 public class GoogleApiActivityHook extends BaseActivityHook {
     /**
      * Injection point
@@ -21,6 +22,11 @@ public class GoogleApiActivityHook extends BaseActivityHook {
      */
     @SuppressWarnings("unused")
     public static GoogleApiActivityHook createInstance() {
+        // Must touch the Music settings to ensure the class is loaded and
+        // the values can be found when setting the UI preferences.
+        // Logging anything under non debug ensures this is set.
+        Logger.printInfo(() -> "Permanent repeat enabled: " + Settings.PERMANENT_REPEAT.get());
+
         return new GoogleApiActivityHook();
     }
 
