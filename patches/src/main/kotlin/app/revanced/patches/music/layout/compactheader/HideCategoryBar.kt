@@ -14,9 +14,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideCategoryBarPatch;"
 
+// FIXME: This patch has been broken an unknown amount of time.
+//        The opcode pattern matches the wrong code and the app crashes if these changes are made.
 @Suppress("unused")
 val hideCategoryBar = bytecodePatch(
-    name = "Hide category bar",
+    //name = "Hide category bar",
     description = "Adds an option to hide the category bar at the top of the homepage."
 ) {
     dependsOn(
