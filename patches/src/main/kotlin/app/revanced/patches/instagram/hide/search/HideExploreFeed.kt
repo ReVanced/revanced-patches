@@ -14,8 +14,8 @@ val hideExportFeedPatch = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     execute {
-        searchResponseJsonParserFingerprint.method.apply {
-            val sectionalItemStringIndex = searchResponseJsonParserFingerprint.stringMatches!!.first().index
+        exploreResponseJsonParserFingerprint.method.apply {
+            val sectionalItemStringIndex = exploreResponseJsonParserFingerprint.stringMatches!!.first().index
             val sectionalItemStringRegister = getInstruction<OneRegisterInstruction>(sectionalItemStringIndex).registerA
 
             /**
