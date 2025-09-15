@@ -372,8 +372,12 @@ public final class app/revanced/patches/music/layout/premium/HideGetPremiumPatch
 	public static final fun getHideGetPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/layout/upgradebutton/HideUpgradeButtonPatchKt {
+	public static final fun getHideUpgradeButton ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/layout/upgradebutton/RemoveUpgradeButtonPatchKt {
-	public static final fun getRemoveUpgradeButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getRemoveUpgradeButton ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/misc/androidauto/BypassCertificateChecksPatchKt {

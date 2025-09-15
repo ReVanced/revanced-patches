@@ -1664,10 +1664,10 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_music_hide_get_premium_label_summary_on">Label is hidden</string>
             <string name="revanced_music_hide_get_premium_label_summary_off">Label is shown</string>
         </patch>
-        <patch id="layout.upgradebutton.removeUpgradeButtonPatch">
-            <string name="revanced_music_remove_upgrade_button_title">Remove upgrade button</string>
-            <string name="revanced_music_remove_upgrade_button_summary_on">Button is removed</string>
-            <string name="revanced_music_remove_upgrade_button_summary_off">Button is shown</string>
+        <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+            <string name="revanced_music_hide_upgrade_button_title">Hide upgrade button</string>
+            <string name="revanced_music_hide_upgrade_button_summary_on">Button is hidden</string>
+            <string name="revanced_music_hide_upgrade_button_summary_off">Button is shown</string>
         </patch>
     </app>
     <app id="twitch">
