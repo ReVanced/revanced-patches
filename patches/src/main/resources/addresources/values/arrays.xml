@@ -124,7 +124,7 @@
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string-array name="revanced_spoof_video_streams_client_type_entries">
                 <item>Android VR</item>
-                <item>VisionOS</item>
+                <item>visionOS</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_client_type_entry_values">
                 <item>ANDROID_VR_1_61_48</item>
