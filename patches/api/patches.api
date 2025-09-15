@@ -268,6 +268,10 @@ public final class app/revanced/patches/instagram/hide/navigation/HideNavigation
 	public static final fun getHideNavigationButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/instagram/hide/search/HideExploreFeedKt {
+	public static final fun getHideExportFeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/instagram/hide/stories/HideStoriesKt {
 	public static final fun getHideStoriesPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
