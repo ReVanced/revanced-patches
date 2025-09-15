@@ -46,20 +46,29 @@ private val settingsResourcePatch = resourcePatch {
             )
         )
 
-        // Remove horizontal divider from the settings Preferences.
-        document("res/values/styles.xml").use { document ->
-            val childNodes = document.childNodes
-
-            val themeName = "Theme.YouTubeMusic"
-            val listDividerNode = document.createElement("item")
-            listDividerNode.setAttribute("name", "android:listDivider")
-            listDividerNode.appendChild(document.createTextNode("@null"))
-
-            childNodes.findElementByAttributeValueOrThrow(
-                "name",
-                themeName,
-            ).appendChild(listDividerNode)
+        val targetResource = "values/styles.xml"
+        inputStreamFromBundledResource(
+            "settings/music",
+            targetResource,
+        )!!.let { inputStream ->
+            "resources".copyXmlNode(
+                document(inputStream),
+                document("res/$targetResource"),
+            ).close()
         }
+
+        // Remove horizontal divider from the settings Preferences.
+        val styleFile = get("res/values/styles.xml")
+        styleFile.writeText(
+            styleFile.readText()
+                .replace(
+                    "allowDividerAbove\">true",
+                    "allowDividerAbove\">false"
+                ).replace(
+                    "allowDividerBelow\">true",
+                    "allowDividerBelow\">false"
+                )
+        )
     }
 }
 
