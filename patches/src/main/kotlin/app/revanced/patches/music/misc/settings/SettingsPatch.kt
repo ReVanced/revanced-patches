@@ -50,7 +50,7 @@ private val settingsResourcePatch = resourcePatch {
         document("res/values/styles.xml").use { document ->
             val childNodes = document.childNodes
 
-            val themeName = "Base.Theme.YouTubeMusic"
+            val themeName = "Theme.YouTubeMusic"
             val listDividerNode = document.createElement("item")
             listDividerNode.setAttribute("name", "android:listDivider")
             listDividerNode.appendChild(document.createTextNode("@null"))

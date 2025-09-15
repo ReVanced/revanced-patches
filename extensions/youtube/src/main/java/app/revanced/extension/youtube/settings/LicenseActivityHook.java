@@ -32,8 +32,11 @@ public class LicenseActivityHook extends BaseActivityHook {
     public static SearchViewController searchViewController;
 
     /**
-     * Creates an instance of LicenseActivityHook for use in static initialization.\
+     * Injection point
+     * <p>
+     * Creates an instance of LicenseActivityHook for use in static initialization.
      */
+    @SuppressWarnings("unused")
     public static LicenseActivityHook createInstance() {
         return new LicenseActivityHook();
     }

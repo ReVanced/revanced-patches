@@ -15,8 +15,11 @@ import app.revanced.extension.music.settings.preference.ReVancedPreferenceFragme
 @SuppressWarnings("deprecation")
 public class GoogleApiActivityHook extends BaseActivityHook {
     /**
+     * Injection point
+     * <p>
      * Creates an instance of GoogleApiActivityHook for use in static initialization.
      */
+    @SuppressWarnings("unused")
     public static GoogleApiActivityHook createInstance() {
         return new GoogleApiActivityHook();
     }
@@ -26,7 +29,7 @@ public class GoogleApiActivityHook extends BaseActivityHook {
      */
     @Override
     protected void customizeActivityTheme(Activity activity) {
-        activity.setTheme(Utils.getResourceIdentifier("Base.Theme.YouTubeMusic", "style"));
+        activity.setTheme(Utils.getResourceIdentifier("Theme.YouTubeMusic", "style"));
     }
 
     /**
