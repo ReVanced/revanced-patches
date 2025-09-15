@@ -12,9 +12,9 @@ import app.revanced.util.returnEarly
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/fix/SpoofClientPatch;"
 
+@Deprecated("Patch no longer functions")
 @Suppress("unused")
 val spoofClientPatch = bytecodePatch(
-    name = "Spoof client",
     description = "Spoofs the client to fix various functions of the app.",
 ) {
     val requestListenerPort by intOption(

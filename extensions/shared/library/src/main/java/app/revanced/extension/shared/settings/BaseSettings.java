@@ -6,8 +6,6 @@ import static app.revanced.extension.shared.settings.Setting.parent;
 import static app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch.AudioStreamLanguageOverrideAvailability;
 import static app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch.SpoofiOSAvailability;
 
-import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.spoof.ClientType;
 
 /**
@@ -36,18 +34,5 @@ public class BaseSettings {
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC = new BooleanSetting("revanced_spoof_video_streams_ios_force_avc", FALSE, true,
             "revanced_spoof_video_streams_ios_force_avc_user_dialog_message", new SpoofiOSAvailability());
     // Client type must be last spoof setting due to cyclic references.
-    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_video_streams_client_type", ClientType.ANDROID_VR_NO_AUTH, true, parent(SPOOF_VIDEO_STREAMS));
-
-    static {
-        // Data migration fix for YT Music users updating from very old patches that always
-        // stored default values in preference object, which requires manually updating
-        // the setting if the default changes. Package name may not contain "youtube.music"
-        // if the user has used change package name patch, but this will detect users
-        // with default installations.
-        if (!SPOOF_VIDEO_STREAMS_CLIENT_TYPE.isSetToDefault()
-                && Utils.getContext().getPackageName().contains("youtube.music")) {
-            Logger.printInfo(() -> "Resetting spoof client from: " + SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get());
-            SPOOF_VIDEO_STREAMS_CLIENT_TYPE.resetToDefault();
-        }
-    }
+    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_video_streams_client_type", ClientType.ANDROID_VR_1_61_48, true, parent(SPOOF_VIDEO_STREAMS));
 }

@@ -131,7 +131,7 @@
             </string-array>
             <string-array name="revanced_spoof_video_streams_client_type_entry_values">
                 <item>ANDROID_UNPLUGGED</item>
-                <item>ANDROID_VR_NO_AUTH</item>
+                <item>ANDROID_VR_1_61_48</item>
                 <item>IOS_UNPLUGGED</item>
             </string-array>
         </patch>
