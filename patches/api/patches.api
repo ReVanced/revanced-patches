@@ -1242,8 +1242,20 @@ public final class app/revanced/patches/twitter/misc/links/SanitizeSharingLinksP
 	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/viber/ads/FingerprintsKt {
+	public static final field ADS_FREE_STR Ljava/lang/String;
+}
+
 public final class app/revanced/patches/viber/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/viber/materialyou/DynamicColorPatchKt {
+	public static final fun getDynamicColorPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/viber/misc/FixManfiestPatchKt {
+	public static final fun getFixManifestPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/vsco/misc/pro/UnlockProPatchKt {
