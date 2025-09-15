@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val hideExportFeedPatch = bytecodePatch(
     name = "Hide explore feed",
-    description = "Hides posts and reel from the explore/search page.",
+    description = "Hides posts and reels from the explore/search page.",
     use = false
 ) {
     compatibleWith("com.instagram.android")
