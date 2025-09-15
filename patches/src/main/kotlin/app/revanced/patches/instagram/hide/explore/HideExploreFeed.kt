@@ -25,7 +25,7 @@ val hideExportFeedPatch = bytecodePatch(
              */
             replaceInstruction(
                 sectionalItemStringIndex,
-                "const-string v${sectionalItemStringRegister}, \"BOGUS\""
+                "const-string v$sectionalItemStringRegister, \"BOGUS\""
             )
         }
     }
