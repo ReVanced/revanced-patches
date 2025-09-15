@@ -22,5 +22,4 @@ public class Settings extends BaseSettings {
     // Misc
     public static final BooleanSetting BYPASS_CERTIFICATE_CHECKS = new BooleanSetting("revanced_music_bypass_certificate_checks", TRUE, true);
     public static final BooleanSetting REMOVE_PLAYBACK_RESTRICTION = new BooleanSetting("revanced_music_remove_playback_restriction", TRUE, true);
-    public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting("revanced_music_spoof_video_streams", TRUE, true);
 }

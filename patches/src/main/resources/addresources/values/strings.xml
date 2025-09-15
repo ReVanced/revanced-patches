@@ -142,6 +142,20 @@ Disabling battery optimizations for MicroG will not negatively affect battery us
 Tap the continue button and allow optimization changes."</string>
             <string name="gms_core_dialog_continue_text">Continue</string>
         </patch>
+        <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+            <string name="revanced_spoof_video_streams_screen_title">Spoof video streams</string>
+            <string name="revanced_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
+            <string name="revanced_spoof_video_streams_screen_title">Spoof video streams</string>
+            <string name="revanced_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
+            <string name="revanced_spoof_video_streams_title">Spoof video streams</string>
+            <string name="revanced_spoof_video_streams_summary_on">"Video streams are spoofed
+
+If you are a YouTube Premium user, this setting may not be required"</string>
+            <string name="revanced_spoof_video_streams_summary_off">"Video streams are not spoofed
+
+Playback may not work"</string>
+            <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause playback issues.</string>
+        </patch>
     </app>
     <app id="youtube">
         <patch id="misc.settings.settingsPatch">
@@ -1608,16 +1622,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_slide_to_seek_summary_off">Slide to seek is not enabled</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-            <string name="revanced_spoof_video_streams_screen_title">Spoof video streams</string>
-            <string name="revanced_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
-            <string name="revanced_spoof_video_streams_title">Spoof video streams</string>
-            <string name="revanced_spoof_video_streams_summary_on">"Video streams are spoofed
-
-If you are a YouTube Premium user, this setting may not be required"</string>
-            <string name="revanced_spoof_video_streams_summary_off">"Video streams are not spoofed
-
-Video playback may not work"</string>
-            <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video playback issues.</string>
             <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
             <string name="revanced_spoof_video_streams_about_title">Spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_android_title">Android spoofing side effects</string>
@@ -1679,13 +1683,6 @@ Video playback may not work"</string>
             <string name="revanced_music_remove_playback_restriction_title">Remove background playback restrictions</string>
             <string name="revanced_music_remove_playback_restriction_summary_on">Background playback works without restrictions</string>
             <string name="revanced_music_remove_playback_restriction_summary_off">Background playback follows normal restrictions</string>
-        </patch>
-        <patch id="misc.spoof.spoofVideoStreamsPatch">
-            <string name="revanced_music_spoof_video_streams_title">Spoof video streams</string>
-            <string name="revanced_music_spoof_video_streams_summary_on">Video streams are spoofed</string>
-            <string name="revanced_music_spoof_video_streams_summary_off">"Video streams are not spoofed
-
-Video playback may not work"</string>
         </patch>
     </app>
     <app id="twitch">

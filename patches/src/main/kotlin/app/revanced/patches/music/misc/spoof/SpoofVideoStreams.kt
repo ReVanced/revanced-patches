@@ -36,14 +36,14 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
         )
     },
     executeBlock = {
-        addResources("music", "misc.spoof.spoofVideoStreamsPatch")
+        addResources("shared", "misc.spoof.spoofVideoStreamsPatch")
 
         PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_music_spoof_video_streams"),
+            SwitchPreference("revanced_spoof_video_streams")
         )
 
         musicActivityOnCreateFingerprint.method.addInstruction(
-            1, // Must use 1 index so context is set by extension patch.
+            0,
             "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setClientOrderToUse()V"
         )
     }
