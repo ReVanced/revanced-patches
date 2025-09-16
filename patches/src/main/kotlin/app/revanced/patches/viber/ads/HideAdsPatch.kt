@@ -36,8 +36,7 @@ val hideAdsPatch = bytecodePatch(
             returns("I")
             parameters()
             custom { method, classDef ->
-                classDef == targetClass &&
-                classDef.superclass != null
+                classDef == targetClass
             }
         }.method.returnEarly(1)
     }
